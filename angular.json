@@ -31,9 +31,7 @@
               "projects/canopy/tsconfig.lib.json",
               "projects/canopy/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -57,9 +55,7 @@
               "projects/canopy-docs/src/favicon.ico",
               "projects/canopy-docs/src/assets"
             ],
-            "styles": [
-              "projects/canopy-docs/src/styles.css"
-            ],
+            "styles": ["projects/canopy-docs/src/styles.scss"],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -114,9 +110,7 @@
             "polyfills": "projects/canopy-docs/src/polyfills.ts",
             "tsConfig": "projects/canopy-docs/tsconfig.spec.json",
             "karmaConfig": "projects/canopy-docs/karma.conf.js",
-            "styles": [
-              "projects/canopy-docs/src/styles.css"
-            ],
+            "styles": ["projects/canopy-docs/src/styles.scss"],
             "scripts": [],
             "assets": [
               "projects/canopy-docs/src/favicon.ico",
@@ -131,9 +125,7 @@
               "projects/canopy-docs/tsconfig.app.json",
               "projects/canopy-docs/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -159,13 +151,16 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "projects/canopy-docs-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
   },
-  "defaultProject": "canopy"
+  "defaultProject": "canopy",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
