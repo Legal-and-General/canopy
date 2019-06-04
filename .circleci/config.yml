@@ -1,22 +1,86 @@
 version: 2
 jobs:
-  build:
+  checkout:
     docker:
       - image: circleci/node:10-browsers
-
+    working_directory: ~/canopy
     steps:
       - checkout
+      - save_cache:
+          key: canopy-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/canopy
 
+  dependencies:
+    docker:
+      - image: circleci/node:10-browsers
+    working_directory: ~/canopy
+    steps:
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-
-      - run: npm install
-
+          key: canopy-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: canopy-dependencies-{{ checksum "package.json" }}
+      - run: npm ci
       - save_cache:
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ~/canopy/node_modules
+          key: canopy-dependencies-{{ checksum "package.json" }}
 
-      - run: npm test -- --watch=false
+  test-canopy:
+    docker:
+      - image: circleci/node:10-browsers
+    working_directory: ~/canopy
+    steps:
+      - restore_cache:
+          key: canopy-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: canopy-dependencies-{{ checksum "package.json" }}
+      - run: npx ng test canopy -- --watch=false
+
+  test-canopy-docs:
+    docker:
+      - image: circleci/node:10-browsers
+    working_directory: ~/canopy
+    steps:
+      - restore_cache:
+          key: canopy-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: canopy-dependencies-{{ checksum "package.json" }}
+      - run: npx ng test canopy-docs -- --watch=false
+
+  package:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/canopy
+    steps:
+      - checkout
+      - restore_cache:
+          key: canopy-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: canopy-dependencies-{{ checksum "package.json" }}
+
+      - run: npx ng build canopy
+      - run: zip -r canopy.zip dist/canopy
+      - run: npx semantic-release
+
+workflows:
+  version: 2
+  canopy:
+    jobs:
+      - checkout
+      - dependencies:
+          requires:
+            - checkout
+      - test-canopy:
+          requires:
+            - dependencies
+      - test-canopy-docs:
+          requires:
+            - dependencies
+      - package:
+          requires:
+            - test-canopy
+            - test-canopy-docs
+          filters:
+            branches:
+              only: master

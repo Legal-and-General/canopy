@@ -1,6 +1,7 @@
 {
-  "name": "canopy",
+  "name": "@canopy/canopy",
   "version": "0.0.0",
+  "url": "git://github.com/canopy/canopy.git",
   "scripts": {
     "commit": "npx git-cz",
     "ng": "ng",
@@ -13,7 +14,10 @@
   "engines": {
     "node": ">=10.13.0"
   },
-  "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
@@ -38,6 +42,8 @@
     "@commitlint/config-angular": "^7.6.0",
     "@commitlint/config-conventional": "^7.6.0",
     "@commitlint/prompt": "^7.6.1",
+    "@semantic-release/github": "^5.2.10",
+    "@semantic-release/npm": "^5.1.7",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
@@ -56,6 +62,7 @@
     "precise-commits": "^1.0.2",
     "prettier": "^1.17.1",
     "protractor": "~5.4.0",
+    "semantic-release": "^15.13.12",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
