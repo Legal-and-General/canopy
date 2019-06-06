@@ -1,0 +1,56 @@
+:root {
+  /* spacing values */
+  --space-unit: 1em;
+  --space-xxs:  calc(0.25 * var(--space-unit)); // 4px
+  --space-xs:   calc(0.5 * var(--space-unit)); // 8px 
+  --space-sm:   calc(0.75 * var(--space-unit)); // 12px
+  --space-md:   var(--space-unit); // 16px
+  --space-lg:   calc(1.25 * var(--space-unit)); // 20px
+  --space-xl:   calc(1.5 * var(--space-unit)); // 24px
+  --space-xxl:  calc(2 * var(--space-unit)); // 32px
+  --space-xxxl: calc(4 * var(--space-unit)); // 64px
+
+  --component-padding: var(--space-sm);
+  --component-margin: var(--space-md);
+}
+
+/* vertical margins */
+.margin-top, .margin-top--md {
+  margin-top: var(--space-md);
+}
+
+.margin-top--sm {
+  margin-top: var(--space-sm);
+}
+
+.margin-top--lg {
+  margin-top: var(--space-lg);
+}
+
+.margin-top--xl {
+  margin-top: var(--space-xl);
+}
+
+.margin-top--xxl {
+  margin-top: var(--space-xxl);
+}
+
+.margin-bottom, .margin-bottom--md {
+  margin-bottom: var(--space-md);
+}
+
+.margin-bottom--sm {
+  margin-bottom: var(--space-sm);
+}
+
+.margin-bottom--lg {
+  margin-bottom: var(--space-lg);
+}
+
+.margin-bottom--xl {
+  margin-bottom: var(--space-xl);
+}
+
+.margin-bottom--xxl {
+  margin-bottom: var(--space-xxl);
+}

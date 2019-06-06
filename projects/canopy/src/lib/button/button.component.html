@@ -1,0 +1,15 @@
+<button
+  [type]="behaviour"
+  [disabled]="disabled"
+  class="btn"
+  [ngClass]="{
+    'btn--cta': variant === 'cta',
+    'btn--primary': variant === 'primary',
+    'btn--secondary': variant === 'secondary',
+    'btn--tertiary': variant === 'tertiary',
+    'btn--block': fullWidth,
+    'btn--rounded': rounded
+  }"
+>
+  <ng-content></ng-content>
+</button>
