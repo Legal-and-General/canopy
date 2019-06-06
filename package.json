@@ -1,7 +1,7 @@
 {
-  "name": "@canopy/canopy",
+  "name": "@canopy-collective/canopy",
   "version": "0.0.0",
-  "url": "git://github.com/canopy/canopy.git",
+  "url": "git://github.com/canopy-collective/canopy.git",
   "scripts": {
     "commit": "npx git-cz",
     "ng": "ng",
@@ -15,9 +15,6 @@
   },
   "engines": {
     "node": ">=10.13.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "private": false,
   "dependencies": {

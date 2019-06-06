@@ -1,8 +1,25 @@
 {
-  "name": "canopy",
+  "name": "@canopy-collective/canopy",
   "version": "0.0.1",
+  "url": "git://github.com/canopy-collective/canopy.git",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "main": "bundles/canopy.umd.js",
+  "module": "fesm5/canopy.js",
+  "es2015": "fesm2015/canopy.js",
+  "esm5": "esm5/canopy.js",
+  "esm2015": "esm2015/canopy.js",
+  "fesm5": "fesm5/canopy.js",
+  "fesm2015": "fesm2015/canopy.js",
+  "typings": "canopy.d.ts",
+  "metadata": "canopy.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
   }
 }
