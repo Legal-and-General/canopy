@@ -2,6 +2,9 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
+    ["@semantic-release/npm", {
+      "pkgRoot": "dist/canopy",
+    }],
     ["@semantic-release/github", {
       "assets": [
         {"path": "dist/canopy.zip", "label": "Canopy distribution"},

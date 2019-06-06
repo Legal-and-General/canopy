@@ -60,7 +60,7 @@ jobs:
           key: canopy-dependencies-{{ checksum "package.json" }}
 
       - run: npx ng build canopy
-      - run: zip -r canopy.zip dist/canopy
+      - run: zip -r dist/canopy.zip dist/canopy
       - run: npx semantic-release
 
 workflows:
