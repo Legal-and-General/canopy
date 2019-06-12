@@ -59,7 +59,7 @@ jobs:
       - restore_cache:
           key: canopy-dependencies-{{ checksum "package.json" }}
 
-      - run: npx ng build canopy
+      - run: npm run build
       - run: zip -r dist/canopy.zip dist/canopy
       - run: npx semantic-release
 
