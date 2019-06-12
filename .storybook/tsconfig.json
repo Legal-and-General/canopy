@@ -1,5 +1,5 @@
 {
   "extends": "../tsconfig.json",
   "exclude": ["../projects/canopy/*.spec.ts"],
-  "include": ["../projects/canopy/src/**/*"]
+  "include": ["../projects/canopy/src/**/*.stories.ts"]
 }

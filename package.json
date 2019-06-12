@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "storybook": "start-storybook",
-    "build-storybook": "build-storybook -- --ci --quiet"
+    "build-storybook": "build-storybook --quiet"
   },
   "engines": {
     "node": ">=10.13.0"
