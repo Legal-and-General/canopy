@@ -1,6 +1,6 @@
 # Canopy
 
-Interested in [contributing](./CONTRIBUTE.md)?
+Interested in [contributing](./CONTRIBUTING.md)?
 
 Want to learn how to [use it in a project](./USAGE.md)?
 
