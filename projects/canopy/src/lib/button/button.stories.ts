@@ -11,31 +11,31 @@ const stories = storiesOf('Button', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Single Button', () => {
-  const groupId = 'lg-button';
-  const content = text('text', 'Button', groupId);
-  const rounded = boolean('rounded', false, groupId);
-  const disabled = boolean('disabled', false, groupId);
-  const fullWidth = boolean('fullWidth', false, groupId);
-  const variant = select(
-    'variant',
-    ['cta', 'primary', 'secondary', 'tertiary'],
-    'primary',
-    groupId
-  );
+const groupId = 'lg-button';
 
-  return {
-    moduleMetadata: {
-      declarations: [ButtonComponent]
-    },
-    template: `
-      <lg-button
-          variant=${variant}
-          ${fullWidth === true ? 'fullWidth="true"' : ''}
-          ${rounded === true ? 'rounded="true"' : ''}
-          ${disabled === true ? 'disabled="true"' : ''}>
-        ${content}
-      </lg-button>
-    `
-  };
-});
+stories.add('Single Button', () => ({
+  moduleMetadata: {
+    declarations: [ButtonComponent]
+  },
+  template: `
+    <lg-button
+        variant={{variant}}
+        [fullWidth]="fullWidth ? true : null"
+        [rounded]="rounded ? true : null"
+        [disabled]="disabled ? true : null">
+      {{content}}
+    </lg-button>
+  `,
+  props: {
+    content: text('text', 'Button', groupId),
+    rounded: boolean('rounded', false, groupId),
+    disabled: boolean('disabled', false, groupId),
+    fullWidth: boolean('fullWidth', false, groupId),
+    variant: select(
+      'variant',
+      ['cta', 'primary', 'secondary', 'tertiary'],
+      'primary',
+      groupId
+    )
+  }
+}));
