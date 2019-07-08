@@ -2,23 +2,33 @@ import {
   Directive,
   Input,
   ViewContainerRef,
-  OnChanges,
   TemplateRef,
-  SimpleChanges
+  OnInit
 } from '@angular/core';
 
+import { tap, filter, map } from 'rxjs/operators';
+
+import { FeatureToggleService } from './feature-toggle.service';
+import { FeatureToggleConfig } from './feature-toggle.interface';
+
 @Directive({
-  selector: '[featureOff]'
+  selector: '[featureToggle]'
 })
-export class FeatureToggleDirective implements OnChanges {
-  @Input() featureOff: boolean;
+export class FeatureToggleDirective implements OnInit {
+  @Input() featureToggle: string;
 
   constructor(
+    private featureToggleService: FeatureToggleService,
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef
   ) {}
 
-  ngOnChanges({featureOff: {currentValue}}: SimpleChanges) {
-    currentValue ? this.viewContainer.clear() : this.viewContainer.createEmbeddedView(this.templateRef);
+  ngOnInit(): void {
+    this.featureToggleService.toggles$.pipe(
+      tap(() => this.viewContainer.clear()),
+      filter((toggles: FeatureToggleConfig) => toggles[this.featureToggle])
+    ).subscribe(() => {
+        this.viewContainer.createEmbeddedView(this.templateRef)
+    })
   }
 }

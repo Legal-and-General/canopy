@@ -1,30 +1,52 @@
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { of } from 'rxjs';
 import { storiesOf } from '@storybook/angular';
-import { FeatureToggleDirective } from './feature-toggle.directive';
 
-const stories = storiesOf('Directives', module);
+import { FeatureToggleModule } from './feature-toggle.module';
+import { notes } from './feature-toggle.notes';
 
-stories.addDecorator(withKnobs);
+const stories = storiesOf('Modules', module);
 
 stories.add('Feature Toggle', () => ({
   moduleMetadata: {
-    declarations: [FeatureToggleDirective]
+    imports: [
+      FeatureToggleModule.forRoot({
+        useFactory: () => of({ 
+          firstFeature: true,
+          secondFeature: false,
+          thirdFeature: true
+        })
+      })
+    ]
   },
   template: `
-    <ul>
-      <li *featureOff="disableFirst" style="background-color: darkred;">Feature 1</li>
-      <li *featureOff="disableSecond" style="background-color: darkblue;">Feature 2</li>
-      <li *featureOff="disableThird" style="background-color: darkgreen;">Feature 3</li>
-    </ul>
+  <ul>
+    <li *featureToggle="'firstFeature'" class="first">Feature 1 showing</li>
+    <li *featureToggle="'secondFeature'" class="second">Feature 2 not showing</li>
+    <li *featureToggle="'thirdFeature'" class="third">Feature 3 showing</li>
+  </ul>
   `,
   styles: [`
     li {
-      margin-top: 20px; width: 80px; height: 80px; color: white;
+      margin-top: 20px;
+      width: 80px;
+      height: 80px;
+      color: white;
+    }
+
+    .first {
+      background-color: darkred;
+    }
+
+    .second {
+      background-color: darkblue;
+    }
+
+    .third {
+      background-color: darkgreen;
     }
   `],
-  props: {
-    disableFirst: boolean('disable red feature', false),
-    disableSecond: boolean('disable blue feature', true),
-    disableThird: boolean('disable green feature', false),
-  }
-}));
+}),
+{
+  notes: { markdown: notes }
+}
+);
