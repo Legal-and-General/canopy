@@ -7,7 +7,6 @@ import { togglesInjectable, Toggles } from './feature-toggle.interface';
 @NgModule({
   declarations: [FeatureToggleDirective],
   providers: [FeatureToggleService],
-  exports: [FeatureToggleDirective]
 })
 export class FeatureToggleModule {
   static forRoot(toggles: Toggles): ModuleWithProviders {
