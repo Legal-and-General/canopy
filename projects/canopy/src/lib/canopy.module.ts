@@ -5,8 +5,8 @@ import { CanopyComponent } from './canopy.component';
 import { FeatureToggleModule } from './feature-toggle/feature-toggle.module';
 
 @NgModule({
-  declarations: [ButtonComponent, CanopyComponent, FeatureToggleModule],
-  imports: [CommonModule],
+  declarations: [ButtonComponent, CanopyComponent],
+  imports: [CommonModule, FeatureToggleModule],
   exports: [ButtonComponent, CanopyComponent, FeatureToggleModule]
 })
 export class CanopyModule {}
