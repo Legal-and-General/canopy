@@ -8,10 +8,6 @@ Want to learn how to [use it in a project](./USAGE.md)?
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
-## Development server
-
-Run `ng serve canopy-docs` to load the documentation. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
@@ -19,7 +15,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build canopy` to build the library.
-Run `ng build canopy-docs --prod` to build the documentation application
 
 Note that, since version 6.1, Angular CLI always builds libraries in production mode so we don’t use the --prod flag. Unlike a library, when building the documentation we do use the --prod flag.
 
@@ -28,7 +23,6 @@ The build artifacts will be stored in the `dist/` directory.
 ## Running unit tests
 
 Run `ng test canopy` to execute the library unit tests.
-Run `ng test canopy-docs` to execute the documentation unit tests.
 
 ## Running end-to-end tests
 

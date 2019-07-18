@@ -37,7 +37,7 @@ jobs:
           key: canopy-dependencies-{{ checksum "package.json" }}
       - run: npx ng test canopy -- --watch=false
 
-  test-canopy-docs:
+  build-canopy:
     docker:
       - image: circleci/node:10-browsers
     working_directory: ~/canopy
@@ -46,7 +46,8 @@ jobs:
           key: canopy-repo-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           key: canopy-dependencies-{{ checksum "package.json" }}
-      - run: npx ng test canopy-docs -- --watch=false
+      - run: npm run build
+
 
   package:
     docker:
@@ -74,13 +75,13 @@ workflows:
       - test-canopy:
           requires:
             - dependencies
-      - test-canopy-docs:
+      - build-canopy:
           requires:
             - dependencies
       - package:
           requires:
             - test-canopy
-            - test-canopy-docs
+            - build-canopy
           filters:
             branches:
               only: master
