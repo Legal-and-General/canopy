@@ -26,7 +26,7 @@ export class FeatureToggleDirective implements OnInit {
   ngOnInit(): void {
     this.featureToggleService.toggles$.pipe(
       tap(() => this.viewContainer.clear()),
-      filter((toggles: FeatureToggleConfig) => toggles[this.featureToggle])
+      filter((toggles: FeatureToggleConfig) => !this.featureToggle || toggles[this.featureToggle])
     ).subscribe(() => {
         this.viewContainer.createEmbeddedView(this.templateRef)
     })

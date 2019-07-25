@@ -11,6 +11,7 @@ import { FeatureToggleDirective } from './feature-toggle.directive';
   template: `
     <section *featureToggle="'featureOne'" id="first" >Test feature one</section>
     <section *featureToggle="'featureTwo'" id="second">Test feature two</section>
+    <section *featureToggle="undefined" id="third">Test feature third</section>
   `
 })
 class TestComponent {}
@@ -40,6 +41,11 @@ describe('FeatureToggleDirective', () => {
   it('should enable a feature', () => {
     const el = fixture.debugElement.query(By.css('#first')).nativeElement;
     expect(el.innerText).toEqual('Test feature one');
+  });
+
+  it('should enable the feature if the value of the toggle is undefined', () => {
+    const el = fixture.debugElement.query(By.css('#third')).nativeElement;
+    expect(el.innerText).toEqual('Test feature third');
   });
 
   it('should disable a feature', () => {
