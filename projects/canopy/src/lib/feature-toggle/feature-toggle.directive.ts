@@ -3,19 +3,21 @@ import {
   Input,
   ViewContainerRef,
   TemplateRef,
-  OnInit
+  OnInit, OnDestroy
 } from '@angular/core';
 
-import { tap, filter, map } from 'rxjs/operators';
+import { tap, filter } from 'rxjs/operators';
 
 import { FeatureToggleService } from './feature-toggle.service';
 import { FeatureToggleConfig } from './feature-toggle.interface';
+import { Subscription } from 'rxjs';
 
 @Directive({
   selector: '[featureToggle]'
 })
-export class FeatureToggleDirective implements OnInit {
+export class FeatureToggleDirective implements OnInit, OnDestroy {
   @Input() featureToggle: string;
+  subscription: Subscription;
 
   constructor(
     private featureToggleService: FeatureToggleService,
@@ -24,11 +26,15 @@ export class FeatureToggleDirective implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.featureToggleService.toggles$.pipe(
+    this.subscription = this.featureToggleService.toggles$.pipe(
       tap(() => this.viewContainer.clear()),
-      filter((toggles: FeatureToggleConfig) => !this.featureToggle || toggles[this.featureToggle])
+      filter((toggles: FeatureToggleConfig) => toggles[this.featureToggle] === undefined || toggles[this.featureToggle])
     ).subscribe(() => {
         this.viewContainer.createEmbeddedView(this.templateRef)
     })
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

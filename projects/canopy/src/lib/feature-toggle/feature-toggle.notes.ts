@@ -1,3 +1,5 @@
+import { FeatureToggleModule } from './feature-toggle.module';
+
 export const notes = `
 # Feature Toggle Module
 
@@ -6,7 +8,7 @@ This module allows you to enable and disable features by using the \`featureTogg
 
 ## Usage
 
-Import the module, e.g.:
+Import the module in your core component, e.g.:
 
 ~~~
 FeatureToggleModule.forRoot({
@@ -14,6 +16,8 @@ FeatureToggleModule.forRoot({
   useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
 })
 ~~~
+
+and also import \`FeatureToggleModule\` (without the \`forRoot\`) in the modules that will need it.
 
 \`useFactory\` returns an observable of a config file structured as below:
 

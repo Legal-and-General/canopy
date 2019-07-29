@@ -6,50 +6,67 @@ import { of } from 'rxjs';
 
 import { FeatureToggleService } from './feature-toggle.service';
 import { FeatureToggleDirective } from './feature-toggle.directive';
+import { instance, mock, when } from 'ts-mockito';
 
 @Component({
   template: `
-    <section *featureToggle="'featureOne'" id="first" >Test feature one</section>
-    <section *featureToggle="'featureTwo'" id="second">Test feature two</section>
-    <section *featureToggle="undefined" id="third">Test feature third</section>
+    <section *featureToggle="'feature'" id="feature" >Test feature</section>
   `
 })
 class TestComponent {}
 
-class MockToggleService {
-  toggles$ = of({
-    'featureOne': true,
-    'featureTwo': false,
-  });
-}
-
 describe('FeatureToggleDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
+  const featureToggleServiceMock = mock(FeatureToggleService);
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TestComponent, FeatureToggleDirective],
       providers: [TemplateRef, ViewContainerRef,
-        { provide: FeatureToggleService, useClass: MockToggleService }
+        { provide: FeatureToggleService, useFactory: () => instance(featureToggleServiceMock) }
       ]
     });
 
     fixture = TestBed.createComponent(TestComponent);
-    fixture.detectChanges();
   });
 
-  it('should enable a feature', () => {
-    const el = fixture.debugElement.query(By.css('#first')).nativeElement;
-    expect(el.innerText).toEqual('Test feature one');
+  describe('when the toggle is set to true', () => {
+    it('should enable a feature', () => {
+      when(featureToggleServiceMock.toggles$).thenReturn(of({ 'feature': true }));
+      fixture.detectChanges();
+
+      const el = fixture.debugElement.query(By.css('#feature')).nativeElement;
+      expect(el.innerText).toEqual('Test feature');
+    });
   });
 
-  it('should enable the feature if the value of the toggle is undefined', () => {
-    const el = fixture.debugElement.query(By.css('#third')).nativeElement;
-    expect(el.innerText).toEqual('Test feature third');
+  describe('when the toggle is set to false', () => {
+    it('should disable a feature', () => {
+      when(featureToggleServiceMock.toggles$).thenReturn(of({ 'feature': false }));
+      fixture.detectChanges();
+
+      const de = fixture.debugElement.query(By.css('#feature'));
+      expect(de).toBeNull();
+    });
   });
 
-  it('should disable a feature', () => {
-    const de = fixture.debugElement.query(By.css('#second'));
-    expect(de).toBeNull();
+  describe('when the toggle is set to undefined', () => {
+    it('should enable a feature', () => {
+      when(featureToggleServiceMock.toggles$).thenReturn(of({ 'feature': undefined }));
+      fixture.detectChanges();
+
+      const el = fixture.debugElement.query(By.css('#feature')).nativeElement;
+      expect(el.innerText).toEqual('Test feature');
+    });
+  });
+
+  describe('when toggles$ returns an empty object', () => {
+    it('should enable the elements that have the featureToggle directive', () => {
+      when(featureToggleServiceMock.toggles$).thenReturn(of({}));
+      fixture.detectChanges();
+
+      const el = fixture.debugElement.query(By.css('#feature')).nativeElement;
+      expect(el.innerText).toEqual('Test feature');
+    });
   });
 });
