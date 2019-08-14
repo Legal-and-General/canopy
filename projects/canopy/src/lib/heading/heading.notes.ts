@@ -1,0 +1,30 @@
+export const notes = `
+# Heading Component
+
+## Purpose
+This component allows for headings to be set dynamically.
+
+## Usage
+
+Import the component in your module:
+
+~~~
+@NgModule({
+  ...
+  declarations: [ ..., LgHeadingComponent ],
+})
+~~~
+
+and in your HTML:
+
+~~~
+<lg-heading [level]="1">Heading</lg-heading>
+~~~
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`level\`\` | The heading level | number | undefined | Yes |
+| \`\`class\`\` | The class/classes to apply to the element | string | null | No |
+`

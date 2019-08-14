@@ -7,13 +7,13 @@ import {
 import { storiesOf } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
 
-const stories = storiesOf('Button', module);
+const stories = storiesOf('Components', module);
 
 stories.addDecorator(withKnobs);
 
 const groupId = 'lg-button';
 
-stories.add('Single Button', () => ({
+stories.add('Button', () => ({
   moduleMetadata: {
     declarations: [ButtonComponent]
   },

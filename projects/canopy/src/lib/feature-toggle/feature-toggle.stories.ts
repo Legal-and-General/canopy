@@ -45,8 +45,6 @@ stories.add('Feature Toggle', () => ({
       background-color: darkgreen;
     }
   `],
-}),
-{
+}), {
   notes: { markdown: notes }
-}
-);
+});
