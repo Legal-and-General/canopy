@@ -5,7 +5,7 @@ import {
   withKnobs
 } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
-import { ButtonComponent } from './button.component';
+import { LgButtonComponent } from './button.component';
 
 const stories = storiesOf('Components', module);
 
@@ -15,7 +15,7 @@ const groupId = 'lg-button';
 
 stories.add('Button', () => ({
   moduleMetadata: {
-    declarations: [ButtonComponent]
+    declarations: [LgButtonComponent]
   },
   template: `
     <lg-button

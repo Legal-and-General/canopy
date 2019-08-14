@@ -6,7 +6,7 @@ import { Behaviour, Variant } from './types';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent {
+export class LgButtonComponent {
   @Input() variant: Variant = 'primary';
 
   @Input() behaviour: Behaviour = 'button';

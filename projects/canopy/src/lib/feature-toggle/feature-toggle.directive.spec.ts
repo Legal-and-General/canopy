@@ -4,26 +4,26 @@ import { By } from '@angular/platform-browser';
 
 import { of } from 'rxjs';
 
-import { FeatureToggleService } from './feature-toggle.service';
-import { FeatureToggleDirective } from './feature-toggle.directive';
+import { LgFeatureToggleService } from './feature-toggle.service';
+import { LgFeatureToggleDirective } from './feature-toggle.directive';
 import { instance, mock, when } from 'ts-mockito';
 
 @Component({
   template: `
-    <section *featureToggle="'feature'" id="feature" >Test feature</section>
+    <section *lgFeatureToggle="'feature'" id="feature" >Test feature</section>
   `
 })
 class TestComponent {}
 
-describe('FeatureToggleDirective', () => {
+describe('LgFeatureToggleDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
-  const featureToggleServiceMock = mock(FeatureToggleService);
+  const lgFeatureToggleServiceMock = mock(LgFeatureToggleService);
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, FeatureToggleDirective],
+      declarations: [TestComponent, LgFeatureToggleDirective],
       providers: [TemplateRef, ViewContainerRef,
-        { provide: FeatureToggleService, useFactory: () => instance(featureToggleServiceMock) }
+        { provide: LgFeatureToggleService, useFactory: () => instance(lgFeatureToggleServiceMock) }
       ]
     });
 
@@ -32,7 +32,7 @@ describe('FeatureToggleDirective', () => {
 
   describe('when the toggle is set to true', () => {
     it('should enable a feature', () => {
-      when(featureToggleServiceMock.toggles$).thenReturn(of({ 'feature': true }));
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ 'feature': true }));
       fixture.detectChanges();
 
       const el = fixture.debugElement.query(By.css('#feature')).nativeElement;
@@ -42,7 +42,7 @@ describe('FeatureToggleDirective', () => {
 
   describe('when the toggle is set to false', () => {
     it('should disable a feature', () => {
-      when(featureToggleServiceMock.toggles$).thenReturn(of({ 'feature': false }));
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ 'feature': false }));
       fixture.detectChanges();
 
       const de = fixture.debugElement.query(By.css('#feature'));
@@ -52,7 +52,7 @@ describe('FeatureToggleDirective', () => {
 
   describe('when the toggle is set to undefined', () => {
     it('should enable a feature', () => {
-      when(featureToggleServiceMock.toggles$).thenReturn(of({ 'feature': undefined }));
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ 'feature': undefined }));
       fixture.detectChanges();
 
       const el = fixture.debugElement.query(By.css('#feature')).nativeElement;
@@ -61,8 +61,8 @@ describe('FeatureToggleDirective', () => {
   });
 
   describe('when toggles$ returns an empty object', () => {
-    it('should enable the elements that have the featureToggle directive', () => {
-      when(featureToggleServiceMock.toggles$).thenReturn(of({}));
+    it('should enable the elements that have the lgFeatureToggle directive', () => {
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({}));
       fixture.detectChanges();
 
       const el = fixture.debugElement.query(By.css('#feature')).nativeElement;

@@ -1,7 +1,7 @@
 import { of } from 'rxjs';
 import { storiesOf } from '@storybook/angular';
 
-import { FeatureToggleModule } from './feature-toggle.module';
+import { LgFeatureToggleModule } from './feature-toggle.module';
 import { notes } from './feature-toggle.notes';
 
 const stories = storiesOf('Modules', module);
@@ -9,7 +9,7 @@ const stories = storiesOf('Modules', module);
 stories.add('Feature Toggle', () => ({
   moduleMetadata: {
     imports: [
-      FeatureToggleModule.forRoot({
+      LgFeatureToggleModule.forRoot({
         useFactory: () => of({ 
           firstFeature: true,
           secondFeature: false,
@@ -20,9 +20,9 @@ stories.add('Feature Toggle', () => ({
   },
   template: `
   <ul>
-    <li *featureToggle="'firstFeature'" class="first">Feature 1 showing</li>
-    <li *featureToggle="'secondFeature'" class="second">Feature 2 not showing</li>
-    <li *featureToggle="'thirdFeature'" class="third">Feature 3 showing</li>
+    <li *lgFeatureToggle="'firstFeature'" class="first">Feature 1 showing</li>
+    <li *lgFeatureToggle="'secondFeature'" class="second">Feature 2 not showing</li>
+    <li *lgFeatureToggle="'thirdFeature'" class="third">Feature 3 showing</li>
   </ul>
   `,
   styles: [`

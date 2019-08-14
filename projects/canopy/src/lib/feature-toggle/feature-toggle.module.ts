@@ -1,20 +1,20 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { FeatureToggleService } from './feature-toggle.service';
-import { FeatureToggleDirective } from './feature-toggle.directive';
-import { togglesInjectable, Toggles } from './feature-toggle.interface';
+import { LgFeatureToggleService } from './feature-toggle.service';
+import { LgFeatureToggleDirective } from './feature-toggle.directive';
+import { togglesInjectable, LgToggles } from './feature-toggle.interface';
 
 @NgModule({
-  declarations: [FeatureToggleDirective],
-  providers: [FeatureToggleService],
-  exports: [FeatureToggleDirective]
+  declarations: [LgFeatureToggleDirective],
+  providers: [LgFeatureToggleService],
+  exports: [LgFeatureToggleDirective]
 })
-export class FeatureToggleModule {
-  static forRoot(toggles: Toggles): ModuleWithProviders {
+export class LgFeatureToggleModule {
+  static forRoot(toggles: LgToggles): ModuleWithProviders {
     return {
-      ngModule: FeatureToggleModule,
+      ngModule: LgFeatureToggleModule,
       providers: [
-        FeatureToggleService,
+        LgFeatureToggleService,
         {
           provide: togglesInjectable,
           useFactory: toggles.useFactory,
