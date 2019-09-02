@@ -1,4 +1,10 @@
+@import './mixins';
+
 @import './reset';
 @import './variables';
 @import './spacing';
 @import './typography';
+
+.hidden {
+  @include hidden;
+}

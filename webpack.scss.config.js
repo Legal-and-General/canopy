@@ -4,7 +4,10 @@ const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
 module.exports = {
   entry: {
-    canopy: './projects/canopy/src/styles/styles.scss'
+    canopy: [
+      './projects/canopy/src/styles/styles.scss',
+      './projects/canopy/src/styles/form.scss'
+    ]
   },
   output: {
     path: path.resolve(__dirname, 'dist/canopy')

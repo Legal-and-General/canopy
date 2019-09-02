@@ -31,7 +31,14 @@
   --grey-3: #949494;
   --grey-2: #aaa;
   --grey-1: #ededed;
-  --white: #f7f7f7;
+  --white: #fff;
+
+  --border-width: 1px;
+  --border-radius: 2px;
+
+  /* Animation */
+  --animation-duration: 0.25s;
+  --animation-fn: ease-out;
 
   /* Links */
   --link-color: var(--gray-10);
@@ -41,8 +48,19 @@
   --disabled-color: #ccc;
 
   --btn-font-size: var(--text-base-size);
-  --btn-radius: 2px;
+  --btn-radius: var(--border-radius);
   
+  /* Form Fields */
+  --outline-color: var(--yellow);
+  --outline-width: 3px;
+
+  --border-width: 1px;
+  --border-color: var(--grey-3);
+  --border-hover-color: var(--grey-6);
+
+  --keyline-width: 3px;
+  --checkmark-color: var(--blue);
+
   /* Buttons */
   --btn-bg: var(--blue);
 

@@ -8,3 +8,12 @@
   box-shadow: inset 0 0 0 0.13rem $bg-color,
     inset 0 0 0 0.3rem $color;
 }
+
+@mixin hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

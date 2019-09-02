@@ -1,0 +1,59 @@
+@import '../../styles/mixins';
+
+:root {
+  --checkmark-inner-height: 0.75rem;
+  --checkmark-inner-width: var(--checkmark-inner-height);
+  --checkmark-outer-height: 1.5rem;
+  --checkmark-outer-width: var(--checkmark-outer-height)
+}
+
+@mixin checkmark($border-radius) {
+
+  display: flex;
+  margin-bottom: var(--space-sm);
+
+  &__input {
+    @include hidden();
+  }
+
+  &__label {
+    display: flex;
+    position: relative;
+  }
+  
+  &__label::before {
+    content: "";
+    margin-right: var(--space-sm); 
+    border-radius: $border-radius;
+    background-color: var(--checkmark-color);
+    height: var(--checkmark-outer-height);
+    width: var(--checkmark-outer-width);
+    min-width: var(--checkmark-outer-width);
+    transition: box-shadow var(--animation-duration) var(--animation-fn),
+      opacity var(--animation-duration) var(--animation-fn);
+    opacity: 0;
+  }
+  
+  &__input:checked + &__label::before {
+    box-shadow: inset 0 0 0 calc((var(--checkmark-outer-height) - var(--checkmark-inner-height)) / 2) white;
+    opacity: 1;
+  }
+    
+  &__label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: var(--checkmark-outer-height);
+    width: var(--checkmark-outer-width);
+    border-radius: $border-radius;
+    border: var(--border-width) solid var(--border-color);
+  }
+  
+  &__input:focus + &__label::after {
+    box-shadow: 0 0 0 var(--outline-width) var(--outline-color);
+  }
+
+  &__input:hover + &__label::after {
+    border: var(--border-width) solid var(--border-hover-color);
+  }
+}
