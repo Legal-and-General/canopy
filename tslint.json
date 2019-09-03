@@ -1,5 +1,13 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "**/*.notes.ts"
+    ]
+  },
   "rulesDirectory": [
     "codelyzer"
   ],

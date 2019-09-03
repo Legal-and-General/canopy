@@ -39,4 +39,4 @@ In your component(s) add the structural directive like in the example below:
   <p>The disabled feature</p>
 </div>
 ~~~
-`
+`;

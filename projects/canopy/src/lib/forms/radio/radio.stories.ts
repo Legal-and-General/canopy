@@ -1,22 +1,21 @@
 import {
-  Component,
-  OnInit,
-  Output,
-  EventEmitter,
   ChangeDetectionStrategy,
-  Input
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
 } from '@angular/core';
 import {
   FormBuilder,
+  FormGroup,
   FormsModule,
-  ReactiveFormsModule,
-  FormGroup
+  ReactiveFormsModule
 } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
-
 
 import { LgLabelDirective } from '../label';
 import { LgRadioButtonComponent } from './radio-button.component';

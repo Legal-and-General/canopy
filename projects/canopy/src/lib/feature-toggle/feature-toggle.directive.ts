@@ -1,16 +1,17 @@
 import {
   Directive,
   Input,
-  ViewContainerRef,
+  OnDestroy,
+  OnInit,
   TemplateRef,
-  OnInit, OnDestroy
+  ViewContainerRef
 } from '@angular/core';
 
-import { tap, filter } from 'rxjs/operators';
+import { filter, tap } from 'rxjs/operators';
 
-import { LgFeatureToggleService } from './feature-toggle.service';
-import { LgFeatureToggleConfig } from './feature-toggle.interface';
 import { Subscription } from 'rxjs';
+import { LgFeatureToggleConfig } from './feature-toggle.interface';
+import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Directive({
   selector: '[lgFeatureToggle]'
@@ -26,12 +27,18 @@ export class LgFeatureToggleDirective implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.subscription = this.lgFeatureToggleService.toggles$.pipe(
-      tap(() => this.viewContainer.clear()),
-      filter((toggles: LgFeatureToggleConfig) => toggles[this.lgFeatureToggle] === undefined || toggles[this.lgFeatureToggle])
-    ).subscribe(() => {
-        this.viewContainer.createEmbeddedView(this.templateRef)
-    })
+    this.subscription = this.lgFeatureToggleService.toggles$
+      .pipe(
+        tap(() => this.viewContainer.clear()),
+        filter(
+          (toggles: LgFeatureToggleConfig) =>
+            toggles[this.lgFeatureToggle] === undefined ||
+            toggles[this.lgFeatureToggle]
+        )
+      )
+      .subscribe(() => {
+        this.viewContainer.createEmbeddedView(this.templateRef);
+      });
   }
 
   ngOnDestroy() {

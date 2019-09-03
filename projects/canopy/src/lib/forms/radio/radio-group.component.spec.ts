@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import {
   ChangeDetectionStrategy,
   Component,
   DebugElement
 } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
-  FormsModule,
-  ReactiveFormsModule,
   FormControl,
-  FormGroup
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule
 } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 
 import { LgFormsModule } from '../forms.module';
 import { LgLabelDirective } from '../label';

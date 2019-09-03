@@ -26,6 +26,18 @@ jobs:
             - ~/canopy/node_modules
           key: canopy-dependencies-{{ checksum "package.json" }}
 
+  lint-canopy:
+    docker:
+      - image: circleci/node:10-browsers
+    working_directory: ~/canopy
+    steps:
+      - restore_cache:
+          key: canopy-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: canopy-dependencies-{{ checksum "package.json" }}
+      - run: npm run tslint
+      - run: npm run stylelint
+
   test-canopy:
     docker:
       - image: circleci/node:10-browsers
@@ -47,7 +59,6 @@ jobs:
       - restore_cache:
           key: canopy-dependencies-{{ checksum "package.json" }}
       - run: npm run build
-
 
   package:
     docker:
@@ -72,6 +83,9 @@ workflows:
       - dependencies:
           requires:
             - checkout
+      - lint-canopy:
+          requires:
+            - dependencies
       - test-canopy:
           requires:
             - dependencies
@@ -80,6 +94,7 @@ workflows:
             - dependencies
       - package:
           requires:
+            - lint-canopy
             - test-canopy
             - build-canopy
           filters:

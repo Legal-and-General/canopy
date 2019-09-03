@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 // Defines the shape of the optional configuration data passed to the forRoot() method.
 export interface LgFeatureToggleConfig {
-  [type: string]: boolean
+  [type: string]: boolean;
 };
 
 export interface LgToggles {
@@ -20,4 +20,6 @@ export interface LgToggles {
 // The token that makes the raw options available to the following factory function.
 // --
 // NOTE: This value has to be exported otherwise the AoT compiler won't see it.
-export const togglesInjectable = new InjectionToken<LgFeatureToggleConfig>('Toggles configuration');
+export const togglesInjectable = new InjectionToken<LgFeatureToggleConfig>(
+  'Toggles configuration'
+);
