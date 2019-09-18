@@ -9,5 +9,6 @@ export * from './lib/heading/index';
 export * from './lib/forms/forms.module';
 export * from './lib/forms/label/label.module';
 export * from './lib/forms/radio/radio.module';
+export * from './lib/forms/checkbox/checkbox.module';
 
 export * from './lib/feature-toggle/feature-toggle.module';

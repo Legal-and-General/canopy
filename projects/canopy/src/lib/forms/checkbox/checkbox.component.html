@@ -3,11 +3,13 @@
   [attr.name]="name"
   [attr.value]="value"
   [attr.checked]="checked === true ? true : null"
-  type="radio"
-  class="lg-radio-button__input"
+  type="checkbox"
+  class="lg-checkbox__input"
   (click)="onCheck()"
 />
 
-<label [attr.for]="id" class="lg-radio-button__label">
-  <ng-content></ng-content>
+<label
+  [attr.for]="id"
+  class="lg-checkbox__label">
+    <ng-content></ng-content>
 </label>
