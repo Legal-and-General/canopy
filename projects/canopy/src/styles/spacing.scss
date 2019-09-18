@@ -1,22 +1,24 @@
 :root {
   /* spacing values */
   --space-unit: 1em;
-  --space-xxxs: calc(0.25 * var(--space-unit));
-  --space-xxs:  calc(0.375 * var(--space-unit));
-  --space-xs:   calc(0.5 * var(--space-unit));
-  --space-sm:   calc(0.75 * var(--space-unit));
-  --space-md:   calc(1.25 * var(--space-unit));
-  --space-lg:   calc(2 * var(--space-unit));
-  --space-xl:   calc(3.25 * var(--space-unit));
-  --space-xxl:  calc(5.25 * var(--space-unit));
-  --space-xxxl: calc(8.5 * var(--space-unit));
+  --space-xxxs: calc(0.25 * var(--space-unit)); // 4
+  --space-xxs: calc(0.5 * var(--space-unit)); // 8
+  --space-xs: calc(0.75 * var(--space-unit)); // 12
+  --space-sm: var(--space-unit); // 16
+  --space-md: calc(1.5 * var(--space-unit)); // 24
+  --space-lg: calc(2 * var(--space-unit)); // 32
+  --space-xl: calc(2.5 * var(--space-unit)); // 40
+  --space-xxl: calc(3 * var(--space-unit)); // 48
+  --space-xxxl: calc(4.5 * var(--space-unit)); // 72
+  --space-xxxxl: calc(9 * var(--space-unit)); // 144
 
   --component-padding: var(--space-sm);
   --component-margin: var(--space-lg);
 }
 
 /* vertical margins */
-.margin-top, .margin-top--md {
+.margin-top,
+.margin-top--md {
   margin-top: var(--space-md);
 }
 
@@ -36,7 +38,8 @@
   margin-top: var(--space-xxl);
 }
 
-.margin-bottom, .margin-bottom--md {
+.margin-bottom,
+.margin-bottom--md {
   margin-bottom: var(--space-md);
 }
 
