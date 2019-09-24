@@ -121,8 +121,8 @@ stories.add('Radio (css)', () => {
 
   return {
     template: `
-      <div role="radiogroup" aria-labelledby="color-label" class="lg-radio-group {{inline && 'lg-radio-group--inline' }}">
-        <label id="color-label" class="lg-radio-group__label">Color</label>
+      <fieldset class="lg-radio-group {{inline && 'lg-radio-group--inline' }}">
+        <legend id="color-label" class="lg-radio-group__label">Color</legend>
         <div class="lg-radio-button">
           <input id="red" class="lg-radio-button__input" type="radio" name="color" checked />
           <label for="red" class="lg-radio-button__label">Red</label>
@@ -131,7 +131,7 @@ stories.add('Radio (css)', () => {
           <input id="yellow" class="lg-radio-button__input" type="radio" name="color" />
           <label for="yellow" class="lg-radio-button__label">Yellow</label>
         </div>
-      </div>
+      </fieldset>
     `,
     props: {
       inline: boolean('inline', false, groupId)
