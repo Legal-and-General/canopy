@@ -1,5 +1,6 @@
 import { addDecorator, configure } from '@storybook/angular';
 import { withA11y } from '@storybook/addon-a11y';
+import cssVars from 'css-vars-ponyfill';
 
 addDecorator(withA11y);
 
@@ -13,5 +14,9 @@ function loadStories() {
   require('../projects/canopy/src/lib/focus/focus.stories');
   require('../projects/canopy/src/styles/typography.stories');
 }
+
+cssVars({
+  watch: true
+});
 
 configure(loadStories, module);

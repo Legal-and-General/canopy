@@ -1,5 +1,4 @@
 :root {
-
   /* Primary colours */
   --blue-dark: #025774;
   --blue: #007faa;
@@ -41,15 +40,15 @@
   --animation-fn: ease-out;
 
   /* Links */
-  --link-color: var(--gray-10);
+  --link-color: var(--grey-10);
   --link-hover-color: var(--green-dark);
-  --link-visited-color: var(--gray-4);
+  --link-visited-color: var(--grey-4);
 
   --disabled-color: #ccc;
 
   --btn-font-size: var(--text-base-size);
   --btn-radius: var(--border-radius);
-  
+
   /* Form Fields */
   --outline-color: var(--yellow);
   --outline-width: 3px;
