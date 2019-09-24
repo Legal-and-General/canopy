@@ -10,9 +10,8 @@ function loadStories() {
   require('../projects/canopy/src/lib/button/button.stories');
   require('../projects/canopy/src/lib/heading/heading.stories');
   require('../projects/canopy/src/lib/feature-toggle/feature-toggle.stories');
+  require('../projects/canopy/src/lib/focus/focus.stories');
   require('../projects/canopy/src/styles/typography.stories');
 }
 
 configure(loadStories, module);
-
-

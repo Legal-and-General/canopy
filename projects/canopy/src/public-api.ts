@@ -11,4 +11,6 @@ export * from './lib/forms/label/label.module';
 export * from './lib/forms/radio/radio.module';
 export * from './lib/forms/checkbox/checkbox.module';
 
+export * from './lib/focus/focus.directive';
+
 export * from './lib/feature-toggle/feature-toggle.module';
