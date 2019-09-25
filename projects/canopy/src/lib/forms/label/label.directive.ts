@@ -4,10 +4,15 @@ import { Directive, HostBinding, Input } from '@angular/core';
   selector: '[lgLabel]'
 })
 export class LgLabelDirective {
+  @Input()
   @HostBinding('class')
-  class: string;
+  class = 'lg-label';
 
   @Input()
   @HostBinding('attr.id')
   id: string;
+
+  @Input()
+  @HostBinding('attr.for')
+  for: string;
 }

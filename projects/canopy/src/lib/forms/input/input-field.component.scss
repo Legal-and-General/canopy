@@ -1,0 +1,29 @@
+.lg-input {
+  margin-bottom: var(--component-margin);
+  background-color: var(--white);
+}
+
+.lg-input__label {
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.lg-input__field {
+  width: 100%;
+  border: solid var(--border-width) var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--space-xs) var(--space-md);
+  outline: 0;
+}
+
+.lg-input__field:hover {
+  border-color: var(--border-hover-color);
+}
+
+.lg-input__field:focus {
+  border-left-width: var(--keyline-width);
+  border-color: initial;
+  padding-left: calc(
+    var(--space-md) - var(--keyline-width) + var(--border-width)
+  );
+}
