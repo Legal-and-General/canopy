@@ -1,0 +1,64 @@
+:root {
+  --select-icon-width: 3rem;
+  --select-down-chevron: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"%3E%3Cpath fill="%234c4c4c" d="M512 581.61l-289.113-279.469c-12.151-11.743-31.846-11.743-44.001 0s-12.151 30.783 0 42.531l333.114 321.997 333.114-321.997c12.151-11.743 12.151-30.783 0-42.531s-31.846-11.743-44.001 0l-289.113 279.469z"/%3E%3C/svg%3E');
+}
+
+.lg-select {
+  margin-bottom: var(--component-margin);
+  background-color: var(--white);
+}
+
+.lg-select__label {
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.lg-select__wrapper {
+  position: relative;
+}
+
+.lg-select__field {
+  width: 100%;
+  border: solid var(--border-width) var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--space-xs) var(--select-icon-width) var(--space-xs)
+    var(--space-md);
+  background-color: var(--white);
+  outline: 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.lg-select__field:hover {
+  border-color: var(--border-hover-color);
+}
+
+.lg-select__field:focus {
+  border-left-width: var(--keyline-width);
+  border-color: initial;
+  padding-left: calc(
+    var(--space-md) - var(--keyline-width) + var(--border-width)
+  );
+}
+
+.lg-select__icon::after {
+  content: '';
+  border-left: solid 1px var(--grey-1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.lg-select__icon {
+  position: absolute;
+  right: 0;
+  top: var(--space-xxs);
+  bottom: var(--space-xxs);
+  width: var(--select-icon-width);
+  background-image: var(--select-down-chevron);
+  background-size: calc(var(--select-icon-width) / 2);
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
