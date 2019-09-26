@@ -1,5 +1,5 @@
 export const notes = `
-# Checkbox Component
+# Input Component
 
 ## Purpose
 Provides a common input directive and input field component. The input field component deals with linking the label and field.
