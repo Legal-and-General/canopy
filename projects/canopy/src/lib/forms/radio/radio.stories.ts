@@ -21,7 +21,9 @@ import { LgLabelDirective } from '../label';
 import { LgRadioButtonComponent } from './radio-button.component';
 import { LgRadioGroupComponent } from './radio-group.component';
 
-const stories = storiesOf('Form/Radio', module).addDecorator(withKnobs);
+const stories = storiesOf('Components|Form/Radio', module).addDecorator(
+  withKnobs
+);
 
 @Component({
   selector: 'lg-reactive-form',

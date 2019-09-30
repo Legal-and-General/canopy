@@ -80,13 +80,24 @@ video {
   background: transparent;
 }
 
+button {
+  font: inherit;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
 
-header, footer, aside, main, nav, picture, figure, video {
+header,
+footer,
+aside,
+main,
+nav,
+picture,
+figure,
+video {
   display: block;
 }
 

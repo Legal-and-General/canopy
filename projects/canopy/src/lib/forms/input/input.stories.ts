@@ -15,7 +15,9 @@ import { LgInputFieldComponent } from './input-field.component';
 import { LgInputDirective } from './input.directive';
 import { notes } from './input.notes';
 
-const stories = storiesOf('Form/Input', module).addDecorator(withKnobs);
+const stories = storiesOf('Components|Form/Input', module).addDecorator(
+  withKnobs
+);
 
 @Component({
   selector: 'lg-reactive-form',

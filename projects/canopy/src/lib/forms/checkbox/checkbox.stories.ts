@@ -19,7 +19,9 @@ import { storiesOf } from '@storybook/angular';
 import { LgCheckboxComponent } from './checkbox.component';
 import { notes } from './checkbox.notes';
 
-const stories = storiesOf('Form/Checkbox', module).addDecorator(withKnobs);
+const stories = storiesOf('Components|Form/Checkbox', module).addDecorator(
+  withKnobs
+);
 
 @Component({
   selector: 'lg-reactive-form',

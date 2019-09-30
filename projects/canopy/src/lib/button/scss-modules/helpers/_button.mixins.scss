@@ -1,0 +1,65 @@
+@import '../../../../styles/mixins';
+
+@mixin createSolidButtons($type) {
+  .lg-btn--#{$type},
+  .lg-btn--#{$type}:visited {
+    background-color: var(--btn-#{$type}-bg);
+    border-color: var(--btn-#{$type}-border);
+    color: var(--btn-#{$type}-color);
+
+    &:not(:disabled) {
+      &:active,
+      &:active:focus,
+      &:active:hover,
+      &:active:focus:hover {
+        background-color: var(--btn-#{$type}-active-bg);
+        border-color: var(--btn-#{$type}-active-border);
+        @include inner-focus-outline(var(--btn-#{$type}-active-outline));
+      }
+
+      &:focus {
+        @include inner-focus-outline(var(--btn-#{$type}-focus-outline));
+      }
+
+      &:hover {
+        background-color: var(--btn-#{$type}-hover-bg);
+        border-color: var(--btn-#{$type}-hover-border);
+      }
+
+      &:focus:hover {
+        @include inner-focus-outline(var(--btn-#{$type}-focus-hover-outline));
+      }
+    }
+  }
+}
+
+@mixin createTertiaryButtons($types) {
+  @each $type in $types {
+    .lg-btn--#{$type},
+    .lg-btn--#{$type}:visited {
+      background-color: var(--btn-#{$type}-bg);
+      border-color: var(--btn-#{$type}-border);
+      color: var(--btn-#{$type}-color);
+
+      &:not(:disabled) {
+        &:active {
+          background-color: var(--btn-#{$type}-active-bg);
+          border-color: var(--btn-#{$type}-active-border);
+          @include inner-focus-outline(var(--btn-#{$type}-active-outline));
+        }
+
+        &:focus {
+          @include inner-focus-outline(
+            var(--btn-#{$type}-focus-outline-1),
+            var(--btn-#{$type}-focus-outline-2)
+          );
+        }
+
+        &:hover {
+          background-color: var(--btn-#{$type}-hover-bg);
+          border-color: var(--btn-#{$type}-hover-border);
+        }
+      }
+    }
+  }
+}

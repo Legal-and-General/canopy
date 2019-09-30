@@ -1,15 +1,18 @@
 <button
   [type]="behaviour"
   [disabled]="disabled"
-  class="btn"
+  class="lg-btn"
   [ngClass]="{
-    'btn--cta': variant === 'cta',
-    'btn--primary': variant === 'primary',
-    'btn--secondary': variant === 'secondary',
-    'btn--tertiary': variant === 'tertiary',
-    'btn--block': fullWidth,
-    'btn--rounded': rounded
+    'lg-btn--cta': variant === 'cta',
+    'lg-btn--primary': variant === 'primary',
+    'lg-btn--secondary': variant === 'secondary',
+    'lg-btn--tertiary': variant === 'tertiary',
+    'lg-btn--tertiary-alt-1': variant === 'tertiary-alt-1',
+    'lg-btn--tertiary-alt-2': variant === 'tertiary-alt-2',
+    'lg-btn--block': fullWidth,
+    'lg-btn--rounded': rounded
   }"
+  (click)="handleAction()"
 >
   <ng-content></ng-content>
 </button>

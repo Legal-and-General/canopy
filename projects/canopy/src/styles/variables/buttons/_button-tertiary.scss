@@ -1,0 +1,36 @@
+:root {
+  --btn-tertiary-color: var(--grey-10);
+  --btn-tertiary-bg: var(--white);
+  --btn-tertiary-border: var(--white);
+  --btn-tertiary-active-bg: var(--grey-1);
+  --btn-tertiary-active-border: var(--white);
+  --btn-tertiary-active-outline: var(--grey-4);
+  --btn-tertiary-focus-outline-1: var(--white);
+  --btn-tertiary-focus-outline-2: var(--grey-10);
+  --btn-tertiary-hover-bg: rgba(var(--white-rgb), 0.9);
+  --btn-tertiary-hover-border: rgba(var(--white-rgb), 0.9);
+
+  --btn-tertiary-alt-1-color: var(--blue);
+  --btn-tertiary-alt-1-bg: var(--white);
+  --btn-tertiary-alt-1-border: var(--white);
+  --btn-tertiary-alt-1-active-bg: rgba(var(--white-rgb), 0.9);
+  --btn-tertiary-alt-1-active-color: var(--blue);
+  --btn-tertiary-alt-1-active-border: rgba(var(--white-rgb), 0.9);
+  --btn-tertiary-alt-1-active-outline: var(--blue);
+  --btn-tertiary-alt-1-focus-outline-1: var(--white);
+  --btn-tertiary-alt-1-focus-outline-2: var(--blue);
+  --btn-tertiary-alt-1-hover-bg: rgba(var(--white-rgb), 0.9);
+  --btn-tertiary-alt-1-hover-border: rgba(var(--white-rgb), 0.9);
+
+  --btn-tertiary-alt-2-color: var(--green);
+  --btn-tertiary-alt-2-bg: var(--white);
+  --btn-tertiary-alt-2-border: var(--white);
+  --btn-tertiary-alt-2-active-bg: rgba(var(--white-rgb), 0.9);
+  --btn-tertiary-alt-2-active-color: var(--green);
+  --btn-tertiary-alt-2-active-border: rgba(var(--white-rgb), 0.9);
+  --btn-tertiary-alt-2-active-outline: var(--green);
+  --btn-tertiary-alt-2-focus-outline-1: var(--white);
+  --btn-tertiary-alt-2-focus-outline-2: var(--green);
+  --btn-tertiary-alt-2-hover-bg: rgba(var(--white-rgb), 0.9);
+  --btn-tertiary-alt-2-hover-border: rgba(var(--white-rgb), 0.9);
+}
