@@ -15,7 +15,9 @@ import { LgSelectFieldComponent } from './select-field.component';
 import { LgSelectDirective } from './select.directive';
 import { notes } from './select.notes';
 
-const stories = storiesOf('Form/Select', module).addDecorator(withKnobs);
+const stories = storiesOf('Components|Form/Select', module).addDecorator(
+  withKnobs
+);
 
 @Component({
   selector: 'lg-reactive-form',
