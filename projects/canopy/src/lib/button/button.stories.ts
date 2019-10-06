@@ -42,14 +42,14 @@ createBtnStory({
   stories: tertiaryBtnStories,
   name: 'Alternative 1',
   variant: 'tertiary-alt-1',
-  bgColor: '#007faa'
+  bgColor: '#0076d6' // --super-blue TODO: determine how to use css variables
 });
 
 createBtnStory({
   stories: tertiaryBtnStories,
   name: 'Alternative 2',
   variant: 'tertiary-alt-2',
-  bgColor: '#028844'
+  bgColor: '#028844' // --leafy-green TODO: determine how to use css variables
 });
 
 function createBtnStory(args) {

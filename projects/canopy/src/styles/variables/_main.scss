@@ -1,39 +1,4 @@
 :root {
-  /* Primary colours */
-  --blue-dark: #025774;
-  --blue: #007faa;
-  --blue-light: #0094df;
-  --blue-lighter: #b2e1f6;
-  --blue-lightest: #e5f5fc;
-
-  --green-dark: #0e6c3c;
-  --green: #028844;
-  --green-light: #0a5;
-  --green-lighter: #b3e5cc;
-  --green-lightest: #e5f6ee;
-
-  /* Secondary colours */
-  --red-dark: #d61f1f;
-  --red: #e22;
-  --red-light: #f8a7a7;
-  --red-lighter: #fdeded;
-
-  --yellow: #fc0;
-  --yellow-light: #ffeb99;
-  --yellow-lighter: #fff9e5;
-
-  /* Greyscale tones */
-  --black: #000;
-  --grey-10: #333;
-  --grey-6: #4c4c4c;
-  --grey-4: #707070;
-  --grey-3: #949494;
-  --grey-2: #aaa;
-  --grey-1: #ededed;
-  --white: #fff;
-  // The rgb value is needed to apply opacity: https://github.com/sass/node-sass/issues/2251
-  --white-rgb: 255, 255, 255;
-
   --border-width: thin;
   --border-radius: 2px;
 
@@ -42,9 +7,9 @@
   --animation-fn: ease-out;
 
   /* Links */
-  --link-color: var(--grey-10);
-  --link-hover-color: var(--green-dark);
-  --link-visited-color: var(--grey-4);
+  --link-color: var(--color-charcoal);
+  --link-hover-color: var(--color-mexican-green);
+  --link-visited-color: var(--color-platinum);
 
   --disabled-color: #ccc;
 
@@ -52,12 +17,12 @@
   --btn-radius: var(--border-radius);
 
   /* Form Fields */
-  --outline-color: var(--yellow);
+  --outline-color: var(--color-dandelion);
   --outline-width: 3px;
 
-  --border-color: var(--grey-3);
-  --border-hover-color: var(--grey-6);
+  --border-color: var(--color-charcoal);
+  --border-hover-color: var(--color-taupe-grey);
 
   --keyline-width: 3px;
-  --checkmark-color: var(--blue);
+  --checkmark-color: var(--color-super-blue);
 }
