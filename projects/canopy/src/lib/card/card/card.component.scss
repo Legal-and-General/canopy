@@ -1,0 +1,10 @@
+.lg-card {
+  display: block;
+  background-color: var(--color-white);
+  box-shadow: var(--drop-shadow);
+  border-radius: var(--border-radius-large);
+  margin: var(--component-margin);
+}
+.lg-card__body {
+  padding: var(--component-padding);
+}

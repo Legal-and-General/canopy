@@ -6,14 +6,15 @@ addDecorator(withA11y);
 
 function loadStories() {
   require('!style-loader!css-loader!sass-loader!../projects/canopy/src/styles/styles.scss');
-  require('../projects/canopy/src/lib/forms/checkbox/checkbox.stories');
-  require('../projects/canopy/src/lib/forms/radio/radio.stories');
-  require('../projects/canopy/src/lib/forms/input/input.stories');
-  require('../projects/canopy/src/lib/forms/select/select.stories');
   require('../projects/canopy/src/lib/button/button.stories');
-  require('../projects/canopy/src/lib/heading/heading.stories');
+  require('../projects/canopy/src/lib/card/card/card.stories');
   require('../projects/canopy/src/lib/feature-toggle/feature-toggle.stories');
   require('../projects/canopy/src/lib/focus/focus.stories');
+  require('../projects/canopy/src/lib/forms/checkbox/checkbox.stories');
+  require('../projects/canopy/src/lib/forms/input/input.stories');
+  require('../projects/canopy/src/lib/forms/radio/radio.stories');
+  require('../projects/canopy/src/lib/forms/select/select.stories');
+  require('../projects/canopy/src/lib/heading/heading.stories');
   require('../projects/canopy/src/lib/pipes/camel-case/camel-case.stories');
   require('../projects/canopy/src/lib/pipes/kebab-case/kebab-case.stories');
   require('../projects/canopy/src/styles/color.stories');

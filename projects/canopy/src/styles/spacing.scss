@@ -13,7 +13,11 @@
   --space-xxxxl: calc(9 * var(--space-unit)); // 144
 
   --component-padding: var(--space-sm);
-  --component-margin: var(--space-lg);
+  --component-margin: var(--space-sm);
+
+  @include breakpoint('md') {
+    --component-margin: var(--space-lg);
+  }
 }
 
 /* vertical margins */
