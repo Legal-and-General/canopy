@@ -20,7 +20,7 @@
 .lg-select__field {
   width: 100%;
   border: solid var(--border-width) var(--border-color);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-sm);
   padding: var(--space-xs) var(--select-icon-width) var(--space-xs)
     var(--space-md);
   background-color: var(--color-white);

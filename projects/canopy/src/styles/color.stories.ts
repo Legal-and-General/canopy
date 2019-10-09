@@ -42,7 +42,7 @@ interface Color {
         margin-right: var(--component-margin);
         margin-bottom: var(--component-margin);
         border: solid var(--border-width) var(--border-color);
-        border-radius: var(--border-radius);
+        border-radius: var(--border-radius-sm);
         display: inline-block;
       }
       .swatch__details {
@@ -113,7 +113,7 @@ class SwatchComponent implements AfterViewInit {
         margin-right: var(--component-margin);
         margin-bottom: var(--component-margin);
         border: solid var(--border-width) var(--border-color);
-        border-radius: var(--border-radius);
+        border-radius: var(--border-radius-sm);
         display: inline-block;
         width: 30rem;
       }
