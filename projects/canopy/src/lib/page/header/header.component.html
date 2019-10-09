@@ -1,0 +1,12 @@
+<a *ngIf="logoHref; else imgTpl" [attr.href]="logoHref" class="lg-header__link">
+  <ng-container *ngTemplateOutlet="imgTpl"></ng-container>
+</a>
+
+<ng-template #imgTpl>
+  <img
+    [attr.alt]="logoAlt"
+    [attr.src]="logo"
+    [style.height]="logoHeight"
+    class="lg-header__logo"
+  />
+</ng-template>
