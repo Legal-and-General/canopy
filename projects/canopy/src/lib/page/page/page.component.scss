@@ -1,0 +1,33 @@
+@import '../../styles/mixins';
+
+.lg-page {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-page-background);
+  min-height: 100%;
+}
+
+.lg-page__content {
+  flex: 1 0 auto;
+
+  @include breakpoint('md') {
+    width: 29rem;
+    align-self: center;
+  }
+
+  @include breakpoint('lg') {
+    width: 37rem;
+    align-self: center;
+  }
+}
+
+.lg-page__skip-link {
+  @include hidden;
+
+  &:focus,
+  &:active {
+    left: 0;
+    width: auto;
+    height: auto;
+  }
+}
