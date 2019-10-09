@@ -1,0 +1,53 @@
+<div class="lg-footer__links">
+  <nav class="lg-footer__primary-nav" aria-labelledby="primary-links">
+    <h2 class="hidden" id="primary-links">Primary links</h2>
+    <ul
+      *ngIf="primaryLinks.length"
+      class="lg-footer__primary-nav-list"
+      target="_blank"
+    >
+      <li *ngFor="let link of primaryLinks" class="lg-footer__primary-nav-item">
+        <a
+          (click)="handlePrimaryLinkClick($event)"
+          [attr.href]="link.href"
+          [attr.target]="link.target || '_blank'"
+          class="lg-footer__nav-link"
+          rel="noopener"
+        >
+          {{ link.text }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <nav class="lg-footer__secondary-nav" aria-labelledby="secondary-links">
+    <h2 class="hidden" id="secondary-links">Secondary links</h2>
+    <ul *ngIf="secondaryLinks.length" class="lg-footer__secondary-nav-list">
+      <li
+        *ngFor="let link of secondaryLinks"
+        class="lg-footer__secondary-nav-item"
+      >
+        <a
+          (click)="handleSecondaryLinkClick($event)"
+          [attr.href]="link.href"
+          [attr.target]="link.target || '_blank'"
+          class="lg-footer__nav-link"
+          rel="noopener"
+        >
+          {{ link.text }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="lg-footer__org">
+  <img
+    [attr.alt]="logoAlt"
+    [attr.src]="logo"
+    [style.height]="logoHeight"
+    class="lg-footer__logo"
+  />
+  <span class="lg-footer__copyright legal">
+    {{ copyright }}
+  </span>
+</div>
