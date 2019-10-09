@@ -18,15 +18,15 @@ $fonts-path: '../assets/fonts' !default;
   --text-xxxl: calc(var(--text-base-size) + (6 * var(--text-scale-ratio)));
 
   /* font weight */
-  --thin-font-weight: 100;
-  --light-font-weight: 300;
-  --regular-font-weight: 400;
-  --bold-font-weight: 500;
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 500;
 
   /* line-height */
-  --heading-line-height: 1.2;
-  --small-line-height: 1.25;
-  --body-line-height: 1.5;
+  --line-height-heading: 1.2;
+  --line-height-sm: 1.25;
+  --line-height-body: 1.5;
 }
 
 @font-face {
@@ -57,9 +57,9 @@ body,
 input,
 select {
   font-size: var(--text-base-size);
-  font-weight: var(--regular-font-weight);
+  font-weight: var(--font-weight-regular);
   font-family: var(--font-family);
-  line-height: var(--body-line-height);
+  line-height: var(--line-height-body);
   color: var(--color-text);
 }
 
@@ -84,11 +84,11 @@ select {
   font-size: var(--text-md);
 }
 
-.text--sm {
+.text-sm {
   font-size: var(--text-sm);
 }
 
-.text--xs {
+.text-xs {
   font-size: var(--text-xs);
 }
 
@@ -110,47 +110,47 @@ h6,
 h1,
 .h1 {
   font-size: var(--text-xxxl);
-  font-weight: var(--light-font-weight);
+  font-weight: var(--font-weight-light);
   line-height: 1.2;
 }
 
 h2,
 .h2 {
   font-size: var(--text-xxl);
-  font-weight: var(--light-font-weight);
+  font-weight: var(--font-weight-light);
   line-height: 1.4;
 }
 
 h3,
 .h3 {
   font-size: var(--text-xl);
-  font-weight: var(--regular-font-weight);
+  font-weight: var(--font-weight-regular);
   line-height: 1.5;
 }
 
 h4,
 .h4 {
   font-size: var(--text-lg);
-  font-weight: var(--regular-font-weight);
+  font-weight: var(--font-weight-regular);
   line-height: 1.5;
 }
 
 h5,
 .h5 {
   font-size: var(--text-md);
-  font-weight: var(--bold-font-weight);
+  font-weight: var(--font-weight-bold);
   line-height: 1.25;
 }
 
 h6,
 .h6 {
   font-size: var(--text-sm);
-  font-weight: var(--bold-font-weight);
+  font-weight: var(--font-weight-bold);
   line-height: 1.25;
 }
 
 p {
-  line-height: var(--body-line-height);
+  line-height: var(--line-height-body);
   margin-bottom: var(--space-md);
 }
 
@@ -163,13 +163,13 @@ a {
 }
 
 .standfirst {
-  font-weight: var(--light-font-weight);
+  font-weight: var(--font-weight-light);
   font-size: var(--text-lg);
 }
 
 .legal {
   font-size: var(--text-xs);
-  line-height: var(--small-line-height);
+  line-height: var(--line-height-sm);
 }
 
 small {
@@ -178,5 +178,5 @@ small {
 
 b,
 strong {
-  font-weight: var(--bold-font-weight);
+  font-weight: var(--font-weight-bold);
 }
