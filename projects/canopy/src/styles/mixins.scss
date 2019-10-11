@@ -10,10 +10,10 @@
 
 @mixin hidden {
   position: absolute;
-  left: -10000px;
+  left: -625rem;
   top: auto;
-  width: 1px;
-  height: 1px;
+  width: 0.0625rem;
+  height: 0.0625rem;
   overflow: hidden;
 }
 

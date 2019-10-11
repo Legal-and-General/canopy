@@ -1,9 +1,10 @@
 :root {
-  --border-width: 1px;
-  --border-radius-small: 2px;
-  --border-radius-large: 4px;
+  --border-width: 0.0625rem;
+  --border-radius-small: 0.125rem;
+  --border-radius-large: 0.25rem;
 
-  --drop-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
+  --drop-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.08);
+  --bottom-shadow: 0 0.3125rem 0.25rem 0 rgba(0, 0, 0, 0.03);
 
   /* Animation */
   --animation-duration: 0.25s;
@@ -21,11 +22,11 @@
 
   /* Form Fields */
   --outline-color: var(--color-dandelion);
-  --outline-width: 3px;
+  --outline-width: 0.1875rem;
 
   --border-color: var(--color-charcoal);
   --border-hover-color: var(--color-taupe-grey);
 
-  --keyline-width: 3px;
+  --keyline-width: 0.1875rem;
   --checkmark-color: var(--color-super-blue);
 }
