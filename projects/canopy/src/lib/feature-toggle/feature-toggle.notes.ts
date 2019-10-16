@@ -39,4 +39,43 @@ In your component(s) add the structural directive like in the example below:
   <p>The disabled feature</p>
 </div>
 ~~~
+
+## FeatureToggleGuard configuration 
+
+To use the FeatureToggleGuard you need to add it to your routes configuration in the usual canActive, canActivateChild, canLoad, and then add in the data property like
+
+~~~
+data: {
+  featureToggle: 'myToggle',
+},
+~~~
+
+if you use canActivateChild, child route definitions can add its own featureToggle in their data, and the path is only valid when all the featureToggle flags of each route segment are true
+
+Example with a lazy loading route
+
+~~~
+{
+  path: 'parent',
+  loadChildren: () => import('./parent/parent.module').then(m => m.ParentnModule),
+  canActivate: [ FeatureToggleGuard ],
+  canActivateChild: [ FeatureToggleGuard ],
+  canLoad: [ FeatureToggleGuard ],
+  data: {
+    featureToggle: 'parentToggle',
+  },
+},
+~~~
+
+Example of inner routes (route definition inside ParentModule)
+
+~~~
+{
+  path: 'child',
+  component: ChildContainerComponent,
+  data: {
+    featureToggle: 'childToggle',
+  },
+},
+~~~
 `;
