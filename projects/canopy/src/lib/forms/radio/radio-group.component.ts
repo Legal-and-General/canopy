@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { LgLabelDirective } from '../label';
+import { LgLabelDirective } from '../label/label.directive';
 import { LgRadioButtonComponent } from './radio-button.component';
 
 let nextUniqueId = 0;

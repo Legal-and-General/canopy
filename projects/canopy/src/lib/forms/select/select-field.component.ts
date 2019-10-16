@@ -7,7 +7,7 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { LgLabelDirective } from '../label';
+import { LgLabelDirective } from '../label/label.directive';
 import { LgSelectDirective } from './select.directive';
 
 let nextUniqueId = 0;

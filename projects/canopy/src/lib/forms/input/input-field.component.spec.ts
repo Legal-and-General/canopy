@@ -13,7 +13,7 @@ import {
 import { By } from '@angular/platform-browser';
 
 import { LgFormsModule } from '../forms.module';
-import { LgInputFieldComponent } from '../input';
+import { LgInputFieldComponent } from '../input/input-field.component';
 import { LgInputDirective } from './input.directive';
 
 @Component({

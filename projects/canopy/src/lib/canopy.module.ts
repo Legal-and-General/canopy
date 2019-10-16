@@ -3,13 +3,11 @@ import { NgModule } from '@angular/core';
 import { LgButtonModule } from './button/button.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
 import { LgFocusDirective } from './focus/focus.directive';
-import { LgFormsModule } from './forms';
+import { LgFormsModule } from './forms/forms.module';
 import { LgHeadingModule } from './heading/heading.module';
 import { LgPipesModule } from './pipes/pipes.module';
 
-const directives = [
-  LgFocusDirective,
-]
+const directives = [LgFocusDirective];
 
 const modules = [
   LgButtonModule,

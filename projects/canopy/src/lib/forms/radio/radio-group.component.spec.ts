@@ -13,7 +13,7 @@ import {
 import { By } from '@angular/platform-browser';
 
 import { LgFormsModule } from '../forms.module';
-import { LgLabelDirective } from '../label';
+import { LgLabelDirective } from '../label/label.directive';
 import { LgRadioButtonComponent } from './radio-button.component';
 import { LgRadioGroupComponent } from './radio-group.component';
 
