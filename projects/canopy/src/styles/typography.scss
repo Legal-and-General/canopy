@@ -157,6 +157,10 @@ p {
 a {
   color: var(--link-color);
 
+  &:hover {
+    color: var(--link-hover-color);
+  }
+
   &:visited {
     color: var(--link-visited-color);
   }
