@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { LgFooterComponent } from '../footer/footer.component';
 import { notes } from './footer.notes';
 
-const stories = storiesOf('Components|Page', module).addDecorator(withKnobs);
+const stories = storiesOf('Components', module).addDecorator(withKnobs);
 
 const groupId = 'footer';
 
@@ -30,7 +30,7 @@ stories
   .add(
     'Footer',
     () => {
-      require('!style-loader!css-loader!sass-loader!../../../../../../.storybook/full-screen.css');
+      require('!style-loader!css-loader!sass-loader!../../../../../.storybook/full-screen.css');
 
       return {
         moduleMetadata: {

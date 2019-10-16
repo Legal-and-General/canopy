@@ -6,8 +6,7 @@ module.exports = {
   entry: {
     canopy: [
       './projects/canopy/src/styles/styles.scss',
-      './projects/canopy/src/styles/form.scss',
-      './projects/canopy/src/styles/page.scss'
+      './projects/canopy/src/styles/form.scss'
     ]
   },
   output: {

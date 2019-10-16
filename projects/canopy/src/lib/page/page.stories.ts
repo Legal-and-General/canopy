@@ -1,14 +1,14 @@
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgCardComponent } from '../../card/card/card.component';
+import { LgCardComponent } from '../card/card/card.component';
 import { LgFooterComponent } from '../footer/footer.component';
 import { primaryLinks, secondaryLinks } from '../footer/footer.stories';
 import { LgHeaderComponent } from '../header/header.component';
 import { LgPageComponent } from './page.component';
 import { notes } from './page.notes';
 
-const stories = storiesOf('Components|Page', module).addDecorator(withKnobs);
+const stories = storiesOf('Components', module).addDecorator(withKnobs);
 const headerGroupId = 'header';
 const footerGroupId = 'footer';
 const contentGroupId = 'content';
@@ -17,7 +17,7 @@ const sharedGroupId = 'common';
 stories.add(
   'Page',
   () => {
-    require('!style-loader!css-loader!sass-loader!../../../../../../.storybook/full-screen.css');
+    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
 
     return {
       knobs: {

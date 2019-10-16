@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/angular';
 import { LgHeaderComponent } from '../header/header.component';
 import { notes } from './header.notes';
 
-const stories = storiesOf('Components|Page', module).addDecorator(withKnobs);
+const stories = storiesOf('Components', module).addDecorator(withKnobs);
 
 const groupId = 'header';
 
@@ -15,7 +15,7 @@ stories
   .add(
     'Header',
     () => {
-      require('!style-loader!css-loader!sass-loader!../../../../../../.storybook/full-screen.css');
+      require('!style-loader!css-loader!sass-loader!../../../../../.storybook/full-screen.css');
       return {
         moduleMetadata: {
           declarations: [LgHeaderComponent]
