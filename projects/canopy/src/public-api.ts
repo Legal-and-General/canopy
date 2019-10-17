@@ -5,16 +5,12 @@
 export * from './lib/canopy.service';
 export * from './lib/canopy.module';
 
-export * from './lib/heading/heading.module';
-export * from './lib/button/button.module';
-export * from './lib/forms/forms.module';
-export * from './lib/forms/label/label.module';
-export * from './lib/forms/radio/radio.module';
-export * from './lib/forms/checkbox/checkbox.module';
+export * from './lib/heading/index';
+export * from './lib/button/index';
+export * from './lib/forms/index';
 
-export * from './lib/focus/focus.directive';
+export * from './lib/focus/index';
 
-export * from './lib/feature-toggle/feature-toggle.module';
-export * from './lib/feature-toggle/feature-toggle.guard';
+export * from './lib/feature-toggle/index';
 
-export * from './lib/pipes/pipes.module';
+export * from './lib/pipes/index';
