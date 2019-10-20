@@ -1,11 +1,11 @@
 @import '../../styles/mixins';
 
 .lg-footer {
-  background-color: var(--color-white);
+  background-color: var(--footer-bg-color);
   padding: var(--space-lg) var(--space-sm);
   display: flex;
   flex-direction: column;
-  color: var(--color-battleship-gray);
+  color: var(--footer-text-color);
 
   @include breakpoint('md') {
     flex-direction: row;
@@ -68,7 +68,7 @@
       display: inline-block;
       width: var(--border-width);
       height: var(--space-xs);
-      background-color: var(--color-battleship-gray);
+      background-color: var(--footer-text-color);
       margin-right: var(--space-sm);
     }
   }

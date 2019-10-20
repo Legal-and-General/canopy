@@ -1,7 +1,7 @@
 @import '../../styles/mixins';
 
 .lg-header {
-  background-color: var(--color-white);
+  background-color: var(--header-bg-color);
   padding: var(--space-xxxs) 0;
   box-shadow: var(--bottom-shadow);
   display: flex;
