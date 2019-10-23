@@ -6,7 +6,7 @@
   "rules": {
     "at-rule-no-unknown": null,
     "no-descending-specificity": null,
-    "unit-whitelist": ["rem", "em", "%", "s"],
+    "unit-whitelist": ["rem", "em", "%", "ms", "s", "deg"],
     "declaration-empty-line-before": [
       "always",
       {
