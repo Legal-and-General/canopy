@@ -1,0 +1,35 @@
+.lg-spinner {
+  display: block;
+  text-align: center;
+}
+
+.lg-spinner__ring {
+  display: inline-block;
+  width: var(--spinner-diameter);
+  height: var(--spinner-diameter);
+  border: solid var(--spinner-border-width);
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: var(--spinner-dark-color);
+  border-bottom-color: var(--spinner-dark-color);
+  animation: spin var(--spinner-rotation-speed) infinite linear;
+}
+
+.lg-spinner__ring--color {
+  border-top-color: var(--spinner-ring-top-color);
+  border-bottom-color: var(--spinner-ring-bottom-color);
+  border-left-color: var(--spinner-ring-left-color);
+  border-right-color: var(--spinner-ring-right-color);
+}
+
+.lg-spinner__ring--light {
+  border-top-color: var(--spinner-light-color);
+  border-bottom-color: var(--spinner-light-color);
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

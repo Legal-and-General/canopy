@@ -10,6 +10,7 @@ import { LgHeaderModule } from './header/header.module';
 import { LgHeadingModule } from './heading/heading.module';
 import { LgPageModule } from './page/page.module';
 import { LgPipesModule } from './pipes/pipes.module';
+import { LgSpinnerModule } from './spinner/spinner.module';
 
 const directives = [LgFocusDirective];
 
@@ -21,7 +22,8 @@ const modules = [
   LgHeaderModule,
   LgHeadingModule,
   LgPageModule,
-  LgPipesModule
+  LgPipesModule,
+  LgSpinnerModule
 ];
 
 @NgModule({
