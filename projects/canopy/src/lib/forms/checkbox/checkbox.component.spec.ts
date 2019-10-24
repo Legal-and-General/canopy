@@ -66,20 +66,20 @@ describe('LgCheckboxComponent', () => {
     );
   }));
 
-  it('sets a unique name for the radio button', () => {
+  it('sets a unique name for the checkbox button', () => {
     fixture.detectChanges();
     expect(
       /lg-checkbox-\d/.test(
         inputDebugElement.nativeElement.getAttribute('name')
       )
-    );
+    ).toBe(true);
   });
 
-  it('sets a unique id for the radio button', () => {
+  it('sets a unique id for the checkbox button', () => {
     fixture.detectChanges();
     expect(
       /lg-checkbox-\d/.test(inputDebugElement.nativeElement.getAttribute('id'))
-    );
+    ).toBe(true);
   });
 
   it('links the label to input field with the correct attributes', () => {
