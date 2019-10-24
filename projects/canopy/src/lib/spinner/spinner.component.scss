@@ -5,6 +5,7 @@
 
 .lg-spinner__ring {
   display: inline-block;
+  margin: var(--component-margin);
   width: var(--spinner-diameter);
   height: var(--spinner-diameter);
   border: solid var(--spinner-border-width);
