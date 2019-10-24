@@ -49,6 +49,13 @@ describe('FooterComponent', () => {
       expect(link.attributes.href).toBe(href1);
     });
 
+    it('does not throw an error when no links are provided', () => {
+      expect(() => {
+        component.primaryLinks = null;
+        fixture.detectChanges();
+      }).not.toThrow();
+    });
+
     it('it defaults the target to _blank', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href1}"]`));
       expect(link.nativeElement.attributes.target.value).toBe('_blank');
@@ -82,6 +89,13 @@ describe('FooterComponent', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href2}"]`));
       expect(link).toBeTruthy();
       expect(link.attributes.href).toBe(href2);
+    });
+
+    it('does not throw an error when no links are provided', () => {
+      expect(() => {
+        component.secondaryLinks = null;
+        fixture.detectChanges();
+      }).not.toThrow();
     });
 
     it('it defaults the target to _blank', () => {
