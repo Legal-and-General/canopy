@@ -7,7 +7,7 @@ Provides a single column page layout, with content projection slots for standard
 ## Usage
 Import the component in your application:
 
-~~~
+~~~js
 @NgModule({
   ...
   imports: [LgPageModule],
@@ -16,7 +16,7 @@ Import the component in your application:
 
 and in your HTML:
 
-~~~
+~~~html
 <lg-page>
   <lg-header></lg-header>
   <lg-card>Some content</lg-card>
@@ -37,6 +37,17 @@ Content projection slots
 | \`\`lg-footer\`\` | Provides a slot for the standard footer component
 | \`\`<default>\`\` | Any other components are projected into the central column
 
+It is possible to wrap the lg-header and lg-footer components and still use the page component.
+You can do this by using the [ngProjectAs](https://medium.com/ignite-ui/using-ng-content-ngprojectas-1664d7c1d3b) attribute.
+
+~~~html
+<lg-page>
+  <app-header ngProjectAs="[lg-header]"></app-header>
+  <router-outlet></router-outlet>
+  <app-footer ngProjectAs="[lg-footer]"></app-footer>
+</lg-page>
+~~~
+
 ## Using only the SCSS files
 
 Generate the markup as show in the example below, no current modifiers.
@@ -47,7 +58,7 @@ Generate the markup as show in the example below, no current modifiers.
 | \`\`lg-page__content\`\` | Adds styles for the central content column |
 
 ### Examples:
-~~~
+~~~html
 <div class="lg-page">
   <div class="lg-header">Header content</div>
   <div class="class="lg-page__content">...</div>
