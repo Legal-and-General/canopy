@@ -182,7 +182,7 @@ stories.add(
       <lg-swatch name="--color-white-smoke"></lg-swatch>
       <lg-swatch name="--color-platinum"></lg-swatch>
       <lg-swatch name="--color-taupe-grey"></lg-swatch>
-      <lg-swatch name="--color-battleship-gray"></lg-swatch>
+      <lg-swatch name="--color-battleship-grey"></lg-swatch>
       <lg-swatch name="--color-charcoal"></lg-swatch>
       <lg-swatch name="--color-black"></lg-swatch>
     </div>
