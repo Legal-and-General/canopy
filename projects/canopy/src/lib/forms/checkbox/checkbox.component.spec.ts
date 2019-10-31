@@ -1,15 +1,11 @@
 import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { By } from '@angular/platform-browser';
 
-import { LgFormsModule } from '../forms.module';
+import { CanopyModule } from '../../canopy.module';
+import { LgHintComponent } from '../hint';
 import { LgCheckboxComponent } from './checkbox.component';
 
 @Component({
@@ -17,6 +13,7 @@ import { LgCheckboxComponent } from './checkbox.component';
     <form (ngSubmit)="login()" [formGroup]="form">
       <lg-checkbox formControlName="umbrella" value="yes" (change)="onChange()">
         I will bring my Umbrella if it is raining
+        <lg-hint>Test</lg-hint>
       </lg-checkbox>
     </form>
   `
@@ -36,10 +33,11 @@ describe('LgCheckboxComponent', () => {
 
   let inputDebugElement: DebugElement;
   let inputLabelElement: DebugElement;
+  let hintDebugElement: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
+      imports: [CanopyModule, ReactiveFormsModule],
       declarations: [TestCheckboxComponent]
     }).compileComponents();
   }));
@@ -64,6 +62,10 @@ describe('LgCheckboxComponent', () => {
     inputLabelElement = fixture.debugElement.query(
       By.css('.lg-checkbox__label')
     );
+
+    hintDebugElement = fixture.debugElement.query(
+      By.directive(LgHintComponent)
+    );
   }));
 
   it('sets a unique name for the checkbox button', () => {
@@ -82,10 +84,18 @@ describe('LgCheckboxComponent', () => {
     ).toBe(true);
   });
 
-  it('links the label to input field with the correct attributes', () => {
+  it('links the label to the input field with the correct attributes', () => {
     const id = inputDebugElement.nativeElement.getAttribute('id');
     expect(id).toBeTruthy();
     expect(inputLabelElement.nativeElement.getAttribute('for')).toBe(id);
+  });
+
+  it('links the hint to the input field with the correct aria attributes', () => {
+    const id = hintDebugElement.nativeElement.getAttribute('id');
+    expect(id).toBeTruthy();
+    expect(
+      inputDebugElement.nativeElement.getAttribute('aria-describedby')
+    ).toBe(id);
   });
 
   it('checks the checkbox by default if the value is true', () => {

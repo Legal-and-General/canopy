@@ -1,40 +1,31 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  OnInit,
-  Output
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgCheckboxComponent } from './checkbox.component';
+import { CanopyModule } from '../../canopy.module';
 import { notes } from './checkbox.notes';
 
-const stories = storiesOf('Components|Form/Checkbox', module).addDecorator(
-  withKnobs
-);
+const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
       <lg-checkbox formControlName="umbrella" value="yes">
-        I will bring my Umbrella if it is raining
+        {{ label }}
+        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
       </lg-checkbox>
     </form>
   `
 })
 class ReactiveFormComponent implements OnInit {
   constructor(public fb: FormBuilder) {}
+
+  @Input() hint: string;
+  @Input() label: string;
 
   @Output() checkboxChange: EventEmitter<void> = new EventEmitter();
 
@@ -47,97 +38,24 @@ class ReactiveFormComponent implements OnInit {
 }
 
 stories.add(
-  'Checkbox (reactive)',
+  'Checkbox',
   () => ({
     moduleMetadata: {
-      declarations: [ReactiveFormComponent, LgCheckboxComponent],
-      imports: [ReactiveFormsModule]
+      declarations: [ReactiveFormComponent],
+      imports: [ReactiveFormsModule, CanopyModule]
     },
-    template: `<lg-reactive-form (checkboxChange)="checkboxChange($event)"></lg-reactive-form>`,
+    template: `<lg-reactive-form
+        [hint]="hint"
+        [label]="label"
+        (checkboxChange)="checkboxChange($event)">
+      </lg-reactive-form>`,
     props: {
-      checkboxChange: action('checkboxChange')
+      checkboxChange: action('checkboxChange'),
+      label: text('label', 'I will bring my Umbrella if it is raining'),
+      hint: text('hint', 'This is not advisable in bad weather')
     }
   }),
   {
-    notes: {
-      markdown: `
-      > This story demonstrates the component being used in an Angular reactive form
-      ${notes}
-    `
-    }
-  }
-);
-
-@Component({
-  selector: 'lg-template-form',
-  template: `
-    <form #form="ngForm">
-      <lg-checkbox
-        [(ngModel)]="umbrella"
-        name="umbrella"
-        value="yes"
-        (change)="onChange()"
-      >
-        I will bring my Umbrella if it is raining
-      </lg-checkbox>
-    </form>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-class TemplateFormComponent {
-  umbrella = null;
-
-  @Output() checkboxChange = new EventEmitter<any>();
-
-  onChange() {
-    this.checkboxChange.emit({ umbrella: this.umbrella });
-  }
-}
-
-stories.add(
-  'Checkbox (template)',
-  () => ({
-    moduleMetadata: {
-      declarations: [TemplateFormComponent, LgCheckboxComponent],
-      imports: [FormsModule]
-    },
-    template: `<lg-template-form (checkboxChange)="checkboxChange($event)"></lg-template-form>`,
-    props: {
-      checkboxChange: action('checkboxChange')
-    }
-  }),
-  {
-    notes: {
-      markdown: `
-      > This story demonstrates the component being used in an Angular template form
-      ${notes}
-    `
-    }
-  }
-);
-
-stories.add(
-  'Checkbox (css)',
-  () => {
-    require('!style-loader!css-loader!sass-loader!../../../styles/form.scss');
-
-    return {
-      template: `
-      <div class="lg-checkbox">
-        <input id="umbrella-check" class="lg-checkbox__input" type="checkbox" />
-        <label for="umbrella-check" class="lg-checkbox__label">
-          I will bring my Umbrella if it is raining
-        </label>
-      </div>
-    `
-    };
-  },
-  {
-    notes: {
-      markdown: `
-      > This story demonstrates the component being used in a JavaScript agnostic HTML and CSS web page
-      ${notes}
-    `
-    }
+    notes: { markdown: notes }
   }
 );

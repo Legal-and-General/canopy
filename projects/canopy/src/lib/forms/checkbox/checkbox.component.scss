@@ -3,3 +3,7 @@
 .lg-checkbox {
   @include checkmark(var(--border-radius-sm));
 }
+
+.lg-checkbox__label {
+  margin-bottom: var(--space-sm);
+}
