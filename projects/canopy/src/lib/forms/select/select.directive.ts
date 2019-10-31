@@ -15,4 +15,8 @@ export class LgSelectDirective {
   @Input()
   @HostBinding('id')
   id = `lg-select-${nextUniqueId++}`;
+
+  @Input()
+  @HostBinding('attr.aria-describedby')
+  ariaDescribedBy: string;
 }

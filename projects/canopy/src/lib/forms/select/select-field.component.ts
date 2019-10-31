@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ContentChild,
   HostBinding,
@@ -7,7 +6,9 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { LgLabelDirective } from '../label/label.directive';
+
+import { LgHintComponent } from '../hint';
+import { LgLabelComponent } from '../label/label.component';
 import { LgSelectDirective } from './select.directive';
 
 let nextUniqueId = 0;
@@ -18,24 +19,30 @@ let nextUniqueId = 0;
   styleUrls: ['./select-field.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LgSelectFieldComponent implements AfterViewInit {
+export class LgSelectFieldComponent {
   @Input() id = `lg-select-${nextUniqueId++}`;
 
   @HostBinding('class') class = 'lg-select';
 
-  @ViewChild(LgLabelDirective, { static: true })
-  labelElement: LgLabelDirective;
+  _labelElement: LgLabelComponent;
+  @ViewChild(LgLabelComponent, { static: true })
+  set labelElement(element: LgLabelComponent) {
+    this._labelElement = element;
+    this._labelElement.for = this.id;
+  }
 
+  _selectElement: LgSelectDirective;
   @ContentChild(LgSelectDirective, { static: true })
-  selectElement: LgSelectDirective;
+  set selectElement(element: LgSelectDirective) {
+    this._selectElement = element;
+    this._selectElement.class = 'lg-select__field';
+    this._selectElement.id = this.id;
+  }
 
-  ngAfterViewInit() {
-    if (this.labelElement) {
-      this.labelElement.for = this.id;
-    }
-    if (this.selectElement) {
-      this.selectElement.class = 'lg-select__field';
-      this.selectElement.id = this.id;
-    }
+  _hintElement: LgHintComponent;
+  @ContentChild(LgHintComponent, { static: false })
+  set hintElement(element: LgHintComponent) {
+    this._selectElement.ariaDescribedBy = element ? element.id : null;
+    this._hintElement = element;
   }
 }
