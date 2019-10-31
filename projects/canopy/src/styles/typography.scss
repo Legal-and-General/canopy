@@ -2,7 +2,7 @@ $fonts-path: '../assets/fonts' !default;
 
 :root {
   --font-family: 'Roboto', arial, Sans-Serif;
-  --color-text: #4c4c4c;
+  --color-text: var(--color-charcoal);
 
   /* set base values */
   --text-base-size: 1em;
