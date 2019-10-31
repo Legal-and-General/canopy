@@ -8,7 +8,7 @@
 }
 
 @mixin checkmark($border-radius) {
-  display: flex;
+  display: block;
   margin-bottom: var(--space-sm);
 
   &__input {
