@@ -6,31 +6,23 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgLabelDirective } from '../label/label.directive';
-import { LgRadioButtonComponent } from './radio-button.component';
-import { LgRadioGroupComponent } from './radio-group.component';
+import { CanopyModule } from '../../canopy.module';
 
-const stories = storiesOf('Components|Form/Radio', module).addDecorator(
-  withKnobs
-);
+const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
       <lg-radio-group [inline]="inline" formControlName="color">
-        <label lgLabel>Color</label>
+        {{ label }}
+        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <lg-radio-button value="red">Red</lg-radio-button>
         <lg-radio-button value="yellow">Yellow</lg-radio-button>
       </lg-radio-group>
@@ -38,7 +30,9 @@ const stories = storiesOf('Components|Form/Radio', module).addDecorator(
   `
 })
 class ReactiveFormComponent implements OnInit {
-  @Input() inline: false;
+  @Input() inline = false;
+  @Input() label: string;
+  @Input() hint: string;
 
   @Output() radioChange: EventEmitter<void> = new EventEmitter();
 
@@ -52,91 +46,21 @@ class ReactiveFormComponent implements OnInit {
   }
 }
 
-const groupId = 'lg-radio';
-
-stories.add('Radio (reactive)', () => ({
+stories.add('Radio', () => ({
   moduleMetadata: {
-    declarations: [
-      ReactiveFormComponent,
-      LgRadioGroupComponent,
-      LgLabelDirective,
-      LgRadioButtonComponent
-    ],
-    imports: [ReactiveFormsModule]
+    declarations: [ReactiveFormComponent],
+    imports: [ReactiveFormsModule, CanopyModule]
   },
-  template: `<lg-reactive-form [inline]="inline" (radioChange)="radioChange($event)"></lg-reactive-form>`,
+  template: `<lg-reactive-form
+    [hint]="hint"
+    [inline]="inline"
+    [label]="label"
+    (radioChange)="radioChange($event)">
+  </lg-reactive-form>`,
   props: {
-    inline: boolean('inline', false, groupId),
+    inline: boolean('inline', false),
+    label: text('label', 'Color'),
+    hint: text('hint', 'Please select a color'),
     radioChange: action('radioChange')
   }
 }));
-
-@Component({
-  selector: 'lg-template-form',
-  template: `
-    <form #form="ngForm">
-      <lg-radio-group
-        [(ngModel)]="color"
-        [inline]="inline"
-        name="color"
-        (change)="onChange()"
-      >
-        <label lgLabel>Color</label>
-        <lg-radio-button value="red">Red</lg-radio-button>
-        <lg-radio-button value="yellow">Yellow</lg-radio-button>
-      </lg-radio-group>
-    </form>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-class TemplateFormComponent {
-  color = 'red';
-
-  @Input() inline: false;
-
-  @Output() radioChange = new EventEmitter<any>();
-
-  onChange() {
-    this.radioChange.emit({ color: this.color });
-  }
-}
-
-stories.add('Radio (template)', () => ({
-  moduleMetadata: {
-    declarations: [
-      TemplateFormComponent,
-      LgLabelDirective,
-      LgRadioGroupComponent,
-      LgRadioButtonComponent
-    ],
-    imports: [FormsModule]
-  },
-  template: `<lg-template-form  [inline]="inline" (radioChange)="radioChange($event)"></lg-template-form>`,
-  props: {
-    inline: boolean('inline', false, groupId),
-    radioChange: action('radioChange')
-  }
-}));
-
-stories.add('Radio (css)', () => {
-  require('!style-loader!css-loader!sass-loader!../../../styles/form.scss');
-
-  return {
-    template: `
-      <fieldset class="lg-radio-group {{inline && 'lg-radio-group--inline' }}">
-        <legend id="color-label" class="lg-radio-group__label">Color</legend>
-        <div class="lg-radio-button">
-          <input id="red" class="lg-radio-button__input" type="radio" name="color" checked />
-          <label for="red" class="lg-radio-button__label">Red</label>
-        </div>
-        <div class="lg-radio-button">
-          <input id="yellow" class="lg-radio-button__input" type="radio" name="color" />
-          <label for="yellow" class="lg-radio-button__label">Yellow</label>
-        </div>
-      </fieldset>
-    `,
-    props: {
-      inline: boolean('inline', false, groupId)
-    }
-  };
-});

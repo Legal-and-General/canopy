@@ -15,11 +15,10 @@ let nextUniqueId = 0;
   selector: 'lg-radio-button',
   templateUrl: './radio-button.component.html',
   styleUrls: ['./radio-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
 export class LgRadioButtonComponent implements OnInit {
-  checked: boolean;
+  checked = false;
 
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
 
@@ -29,10 +28,7 @@ export class LgRadioButtonComponent implements OnInit {
 
   @HostBinding('class') class = 'lg-radio-button';
 
-  constructor(
-    private radioGroup: LgRadioGroupComponent,
-    private changeDetector: ChangeDetectorRef
-  ) {}
+  constructor(private radioGroup: LgRadioGroupComponent) {}
 
   ngOnInit() {
     if (this.radioGroup.value === this.value) {
@@ -45,9 +41,5 @@ export class LgRadioButtonComponent implements OnInit {
     if (this.radioGroup.value !== this.value) {
       this.radioGroup.value = this.value;
     }
-  }
-
-  public markForCheck(): void {
-    this.changeDetector.markForCheck();
   }
 }

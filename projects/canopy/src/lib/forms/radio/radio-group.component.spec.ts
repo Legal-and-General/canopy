@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DebugElement
-} from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   FormControl,
@@ -13,7 +9,8 @@ import {
 import { By } from '@angular/platform-browser';
 
 import { LgFormsModule } from '../forms.module';
-import { LgLabelDirective } from '../label/label.directive';
+import { LgHintComponent } from '../hint';
+import { LgLabelComponent } from '../label/label.component';
 import { LgRadioButtonComponent } from './radio-button.component';
 import { LgRadioGroupComponent } from './radio-group.component';
 
@@ -21,14 +18,14 @@ import { LgRadioGroupComponent } from './radio-group.component';
   template: `
     <form (ngSubmit)="login()" [formGroup]="form">
       <lg-radio-group formControlName="color">
-        <label lgLabel>Color</label>
+        Color
+        <lg-hint>Choose your favourite</lg-hint>
         <lg-radio-button value="red">Red</lg-radio-button>
         <lg-radio-button value="yellow">Yellow</lg-radio-button>
         <lg-radio-button value="blue">Blue</lg-radio-button>
       </lg-radio-group>
     </form>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  `
 })
 class TestRadioGroupComponent {
   form = new FormGroup({
@@ -40,9 +37,9 @@ describe('LgRadioGroupComponent', () => {
   let fixture: ComponentFixture<TestRadioGroupComponent>;
   let groupDebugElement: DebugElement;
   let labelDebugElement: DebugElement;
+  let hintDebugElement: DebugElement;
   let radioDebugElements: DebugElement[];
 
-  let labelInstance: LgLabelDirective;
   let groupInstance: LgRadioGroupComponent;
   let radioInstances: LgRadioButtonComponent[];
   let component: TestRadioGroupComponent;
@@ -64,10 +61,11 @@ describe('LgRadioGroupComponent', () => {
     );
 
     labelDebugElement = fixture.debugElement.query(
-      By.directive(LgLabelDirective)
+      By.directive(LgLabelComponent)
     );
-    labelInstance = labelDebugElement.injector.get<LgLabelDirective>(
-      LgLabelDirective
+
+    hintDebugElement = fixture.debugElement.query(
+      By.directive(LgHintComponent)
     );
 
     radioDebugElements = fixture.debugElement.queryAll(
@@ -103,7 +101,7 @@ describe('LgRadioGroupComponent', () => {
     const radioIds = radioInstances.map(({ id }) => id);
     expect(new Set(radioIds).size).toBe(radioIds.length);
     for (const id of radioIds) {
-      expect(id).toBeTruthy();
+      expect(/lg-radio-button-\d{1,3}/.test(id)).toBe(true);
     }
   });
 
@@ -111,10 +109,10 @@ describe('LgRadioGroupComponent', () => {
     groupInstance.value = 'red';
     fixture.detectChanges();
     const selected = radioInstances.find(radio => radio.value === 'red');
-    expect(selected.checked).toBeTruthy();
+    expect(selected.checked).toBe(true);
     const notSelected = radioInstances.filter(radio => radio.value !== 'red');
     for (const radio of notSelected) {
-      expect(radio.checked).toBeFalsy();
+      expect(radio.checked).toBe(false);
     }
   });
 
@@ -128,7 +126,21 @@ describe('LgRadioGroupComponent', () => {
 
   it('sets the group label in an accessible way ', () => {
     fixture.detectChanges();
-    expect(groupInstance.ariaLabelledBy).toBeTruthy();
-    expect(groupInstance.ariaLabelledBy).toEqual(labelInstance.id);
+    expect(
+      labelDebugElement.nativeElement.getAttribute('id').length
+    ).not.toEqual(0);
+    expect(
+      groupDebugElement.nativeElement.getAttribute('aria-labelledby')
+    ).toContain(labelDebugElement.nativeElement.getAttribute('id'));
+  });
+
+  it('links the hint with the correct aria attributes', () => {
+    fixture.detectChanges();
+    expect(
+      hintDebugElement.nativeElement.getAttribute('id').length
+    ).not.toEqual(0);
+    expect(
+      groupDebugElement.nativeElement.getAttribute('aria-labelledby')
+    ).toContain(hintDebugElement.nativeElement.getAttribute('id'));
   });
 });

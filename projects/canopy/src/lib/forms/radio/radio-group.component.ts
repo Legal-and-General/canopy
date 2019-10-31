@@ -8,11 +8,13 @@ import {
   HostBinding,
   Input,
   QueryList,
+  ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { LgLabelDirective } from '../label/label.directive';
+import { LgHintComponent } from '../hint';
+import { LgLabelComponent } from '../label/label.component';
 import { LgRadioButtonComponent } from './radio-button.component';
 
 let nextUniqueId = 0;
@@ -22,7 +24,6 @@ let nextUniqueId = 0;
   templateUrl: './radio-group.component.html',
   styleUrls: ['./radio-group.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -31,36 +32,62 @@ let nextUniqueId = 0;
     }
   ]
 })
-export class LgRadioGroupComponent
-  implements ControlValueAccessor, AfterViewInit {
+export class LgRadioGroupComponent implements ControlValueAccessor {
   private _value: any = null;
 
   private _name = `lg-radio-group-${nextUniqueId++}`;
 
-  @Input() id: string;
-
+  @Input() id = `lg-radio-group-id-${nextUniqueId++}`;
   @Input() inline: false;
+
+  @HostBinding('attr.aria-labelledby')
+  @Input()
+  ariaLabelledBy: string;
+
+  @HostBinding('class') class = 'lg-radio-group';
+  @HostBinding('attr.role') role = 'radiogroup';
 
   @HostBinding('class.lg-radio-group--inline')
   public get inlineClass() {
     return this.inline;
   }
 
-  @HostBinding('class') class = 'lg-radio-group';
-
-  @HostBinding('attr.role') role = 'radiogroup';
-
-  @HostBinding('attr.aria-labelledby')
-  @Input()
-  ariaLabelledBy = `lg-radio-group-label-${++nextUniqueId}`;
-
   @ContentChildren(forwardRef(() => LgRadioButtonComponent), {
     descendants: true
   })
   radios: QueryList<LgRadioButtonComponent>;
 
-  @ContentChild(LgLabelDirective, { static: false })
-  labelElement: LgLabelDirective;
+  _labelElement: LgLabelComponent;
+  @ViewChild(LgLabelComponent, { static: true })
+  set labelElement(element: LgLabelComponent) {
+    if (element) {
+      this.ariaLabelledBy = this.ariaLabelledBy
+        ? `${this.ariaLabelledBy} ${element.id}`
+        : element.id;
+    } else {
+      this.ariaLabelledBy = this.ariaLabelledBy.replace(
+        this._labelElement.id,
+        ''
+      );
+    }
+    this._labelElement = element;
+  }
+
+  _hintElement: LgHintComponent;
+  @ContentChild(LgHintComponent, { static: false })
+  set hintElement(element: LgHintComponent) {
+    if (element) {
+      this.ariaLabelledBy = this.ariaLabelledBy
+        ? `${this.ariaLabelledBy} ${element.id}`
+        : element.id;
+    } else {
+      this.ariaLabelledBy = this.ariaLabelledBy.replace(
+        this._hintElement.id,
+        ''
+      );
+    }
+    this._hintElement = element;
+  }
 
   @Input()
   get value() {
@@ -73,7 +100,6 @@ export class LgRadioGroupComponent
       const selectedRadio = this.radios.find(option => option.value === value);
       if (selectedRadio && !selectedRadio.checked) {
         selectedRadio.checked = true;
-        selectedRadio.markForCheck();
       }
     }
   }
@@ -85,13 +111,6 @@ export class LgRadioGroupComponent
   set name(value: string) {
     this._name = value;
     this._updateRadioButtonNames();
-  }
-
-  ngAfterViewInit() {
-    if (this.labelElement) {
-      this.labelElement.class = `${this.labelElement.class} lg-radio-group__label`;
-      this.labelElement.id = this.ariaLabelledBy;
-    }
   }
 
   public onChange(value: string) {
@@ -116,7 +135,6 @@ export class LgRadioGroupComponent
     if (this.radios) {
       this.radios.forEach(radio => {
         radio.name = this.name;
-        radio.markForCheck();
       });
     }
   }

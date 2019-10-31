@@ -2,23 +2,13 @@
   margin-bottom: var(--component-margin);
 }
 
-.lg-radio-group__label {
-  display: block;
-  margin-bottom: var(--space-sm);
-}
-
 .lg-radio-group--inline {
-  display: flex;
-
-  .lg-radio-group__label {
-    margin-right: var(--space-lg);
-  }
-
-  .lg-radio-button:first-of-type {
-    margin-left: 0;
-  }
-
   .lg-radio-button {
-    margin-left: var(--space-md);
+    display: inline-block;
+    margin-right: var(--space-md);
+  }
+
+  .lg-radio-button:last-of-type {
+    margin-right: 0;
   }
 }
