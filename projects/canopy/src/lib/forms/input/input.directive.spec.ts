@@ -29,7 +29,7 @@ class TestInputComponent {
   });
 }
 
-describe('LgLabelDirective', () => {
+describe('LgInputDirective', () => {
   let fixture: ComponentFixture<TestInputComponent>;
   let component: TestInputComponent;
   let inputDebugElement: DebugElement;

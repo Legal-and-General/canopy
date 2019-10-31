@@ -12,8 +12,10 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { LgFormsModule } from '../forms.module';
+import { CanopyModule } from '../../canopy.module';
+import { LgHintComponent } from '../hint';
 import { LgInputFieldComponent } from '../input/input-field.component';
+import { LgLabelComponent } from '../label';
 import { LgInputDirective } from './input.directive';
 
 @Component({
@@ -21,6 +23,7 @@ import { LgInputDirective } from './input.directive';
     <form (ngSubmit)="login()" [formGroup]="form">
       <lg-input-field>
         Name
+        <lg-hint>Full name including surname</lg-hint>
         <input lgInput formControlName="name" />
       </lg-input-field>
     </form>
@@ -39,11 +42,12 @@ describe('LgInputFieldComponent', () => {
   let inputFieldDebugElement: DebugElement;
   let labelDebugElement: DebugElement;
   let inputDebugElement: DebugElement;
+  let hintDebugElement: DebugElement;
   let inputDebugInstance: LgInputFieldComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
+      imports: [CanopyModule, FormsModule, ReactiveFormsModule],
       declarations: [TestInputComponent]
     }).compileComponents();
 
@@ -60,19 +64,35 @@ describe('LgInputFieldComponent', () => {
 
     inputDebugInstance = inputFieldDebugElement.componentInstance;
 
-    labelDebugElement = fixture.debugElement.query(By.css('label'));
+    labelDebugElement = fixture.debugElement.query(
+      By.directive(LgLabelComponent)
+    );
+
+    hintDebugElement = fixture.debugElement.query(
+      By.directive(LgHintComponent)
+    );
   }));
 
   it('adds appropriate for attribute to the label', () => {
     fixture.detectChanges();
-    expect(inputDebugInstance.labelElement.for).toBeTruthy();
-    expect(inputDebugInstance.labelElement.for).toEqual(
-      inputDebugInstance.inputElement.id
+    expect(labelDebugElement.nativeElement.getAttribute('for')).toEqual(
+      inputDebugElement.nativeElement.getAttribute('id')
     );
   });
 
   it('adds a unique id', () => {
     fixture.detectChanges();
-    expect(inputDebugInstance.inputElement.id).toContain('lg-input-');
+    expect(inputDebugElement.nativeElement.getAttribute('id')).toContain(
+      'lg-input-'
+    );
+  });
+
+  it('links the hint to the input field with the correct aria attributes', () => {
+    fixture.detectChanges();
+    const id = hintDebugElement.nativeElement.getAttribute('id');
+    expect(id).toBeTruthy();
+    expect(
+      inputDebugElement.nativeElement.getAttribute('aria-describedby')
+    ).toBe(id);
   });
 });

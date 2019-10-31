@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ContentChild,
   HostBinding,
@@ -7,7 +6,9 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { LgLabelDirective } from '../label/label.directive';
+
+import { LgHintComponent } from '../hint';
+import { LgLabelComponent } from '../label/label.component';
 import { LgInputDirective } from './input.directive';
 
 let nextUniqueId = 0;
@@ -18,24 +19,31 @@ let nextUniqueId = 0;
   styleUrls: ['./input-field.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LgInputFieldComponent implements AfterViewInit {
+export class LgInputFieldComponent {
   @Input() id = `lg-input-${nextUniqueId++}`;
+  @Input() ariaDescribedBy: string;
 
   @HostBinding('class') class = 'lg-input';
 
-  @ViewChild(LgLabelDirective, { static: true })
-  labelElement: LgLabelDirective;
+  _labelElement: LgLabelComponent;
+  @ViewChild(LgLabelComponent, { static: true })
+  set labelElement(element: LgLabelComponent) {
+    this._labelElement = element;
+    this._labelElement.for = this.id;
+  }
 
+  _inputElement: LgInputDirective;
   @ContentChild(LgInputDirective, { static: true })
-  inputElement: LgInputDirective;
+  set inputElement(element: LgInputDirective) {
+    this._inputElement = element;
+    this._inputElement.id = this.id;
+    this._inputElement.class = 'lg-input__field';
+  }
 
-  ngAfterViewInit() {
-    if (this.labelElement) {
-      this.labelElement.for = this.id;
-    }
-    if (this.inputElement) {
-      this.inputElement.class = 'lg-input__field';
-      this.inputElement.id = this.id;
-    }
+  _hintElement: LgHintComponent;
+  @ContentChild(LgHintComponent, { static: false })
+  set hintElement(element: LgHintComponent) {
+    this._hintElement = element;
+    this._inputElement.ariaDescribedBy = element ? element.id : null;
   }
 }

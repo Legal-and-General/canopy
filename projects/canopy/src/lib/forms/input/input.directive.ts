@@ -6,7 +6,7 @@ let nextUniqueId = 0;
   selector: '[lgInput]'
 })
 export class LgInputDirective {
-  @HostBinding('class') class = 'lg-input';
+  @HostBinding('class') class: string;
 
   @Input()
   @HostBinding('name')
@@ -15,4 +15,8 @@ export class LgInputDirective {
   @Input()
   @HostBinding('id')
   id = `lg-input-${nextUniqueId++}`;
+
+  @Input()
+  @HostBinding('attr.aria-describedby')
+  ariaDescribedBy: string;
 }
