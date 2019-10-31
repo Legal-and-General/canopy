@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { LgLabelDirective } from './label.directive';
+import { LgLabelComponent } from './label.component';
 
 @NgModule({
-  declarations: [LgLabelDirective],
-  exports: [LgLabelDirective]
+  declarations: [LgLabelComponent],
+  exports: [LgLabelComponent]
 })
 export class LgLabelModule {}

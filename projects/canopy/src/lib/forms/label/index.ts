@@ -1,1 +1,1 @@
-export * from './label.directive';
+export * from './label.component';
