@@ -5,6 +5,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
+let nextUniqueId = 0;
+
 @Component({
   selector: '[lg-label]',
   templateUrl: './label.component.html',
@@ -18,7 +20,7 @@ export class LgLabelComponent {
 
   @Input()
   @HostBinding('attr.id')
-  id: string;
+  id = `lg-label-${nextUniqueId++}`;
 
   @Input()
   @HostBinding('attr.for')
