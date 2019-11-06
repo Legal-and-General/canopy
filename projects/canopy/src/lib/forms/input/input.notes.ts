@@ -7,7 +7,7 @@ Provides a common input directive and input field component. The input field com
 ## Usage
 Import the component in your application:
 
-~~~
+~~~js
 @NgModule({
   ...
   imports: [LgFormsModule],
@@ -16,7 +16,7 @@ Import the component in your application:
 
 and in your HTML:
 
-~~~
+~~~html
 <lg-input-field>
   Name
   <input lgInput formControlName="name" />
@@ -48,7 +48,7 @@ Generate the markup as show in the example below, no current modifiers.
 | \`\`lg-input__label\`\` | Adds styles to the input label |
 
 ### Examples:
-~~~
+~~~html
 <div class="lg-input">
   <label class="lg-input__label" for="name">Name</label>
   <input class="lg-input__field" name="name" id="name">

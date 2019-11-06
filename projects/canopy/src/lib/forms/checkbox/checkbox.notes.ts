@@ -7,7 +7,7 @@ Provides a common checkbox form component
 ## Usage
 Import the component in your application:
 
-~~~
+~~~js
 @NgModule({
   ...
   declarations: [ ..., LgCheckboxComponent ],
@@ -16,7 +16,7 @@ Import the component in your application:
 
 and in your HTML:
 
-~~~
+~~~html
 <lg-checkbox formControlName="confirm" value="yes">Do you agree?</lg-checkbox>
 ~~~
 

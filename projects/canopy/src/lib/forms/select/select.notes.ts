@@ -7,7 +7,7 @@ Provides a common select directive and select field component. The select field 
 ## Usage
 Import the component in your application:
 
-~~~
+~~~js
 @NgModule({
   ...
   imports: [LgFormsModule],
@@ -16,7 +16,7 @@ Import the component in your application:
 
 and in your HTML:
 
-~~~
+~~~html
 <lg-select-field>
   Color
   <select lgSelect formControlName="color">
@@ -56,7 +56,7 @@ Generate the markup as show in the example below, no current modifiers.
 
 
 ### Examples:
-~~~
+~~~html
 <div class="lg-select">
   <label class="lg-select__label" for="color">Color</label>
 
