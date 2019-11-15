@@ -16,6 +16,7 @@
   --component-margin: var(--space-sm);
 
   @include breakpoint('md') {
+    --component-padding: var(--space-lg);
     --component-margin: var(--space-lg);
   }
 }
