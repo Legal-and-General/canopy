@@ -6,6 +6,7 @@
     "commit": "npx git-cz",
     "ng": "ng",
     "start": "npm run storybook",
+    "start:test-app": "ng serve",
     "build": "ng build && npm run build-styles",
     "build:test-app": "npm run build && ng build canopy-test-app --prod --outputPath ./test-dist",
     "test": "ng test",
