@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { LgAlertModule } from './alert/alert.module';
 import { LgButtonModule } from './button/button.module';
+import { LgCardModule } from './card/card.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
 import { LgFocusDirective } from './focus/focus.directive';
 import { LgFooterModule } from './footer/footer.module';
@@ -18,6 +19,7 @@ const directives = [LgFocusDirective];
 const modules = [
   LgAlertModule,
   LgButtonModule,
+  LgCardModule,
   LgFeatureToggleModule,
   LgFooterModule,
   LgFormsModule,
