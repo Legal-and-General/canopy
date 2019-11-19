@@ -9,7 +9,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { LgHintComponent } from '../hint';
+import { LgHintComponent } from '../hint/hint.component';
 
 let nextUniqueId = 0;
 

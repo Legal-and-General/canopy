@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { LgHintComponent } from '../hint';
+import { LgHintComponent } from '../hint/hint.component';
 import { LgLabelComponent } from '../label/label.component';
 import { LgRadioButtonComponent } from './radio-button.component';
 

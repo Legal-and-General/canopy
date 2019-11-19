@@ -7,7 +7,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import { LgHintComponent } from '../hint';
+import { LgHintComponent } from '../hint/hint.component';
 import { LgLabelComponent } from '../label/label.component';
 import { LgInputDirective } from './input.directive';
 
