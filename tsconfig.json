@@ -23,6 +23,9 @@
       "canopy": [
         "dist/canopy"
       ],
+      "@canopy-collective/canopy": [
+        "dist/canopy"
+      ],
       "canopy/*": [
         "dist/canopy/*"
       ],
