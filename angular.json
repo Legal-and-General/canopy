@@ -61,7 +61,7 @@
               "projects/canopy-test-app/src/assets"
             ],
             "styles": [
-              "projects/canopy-test/src/styles.scss",
+              "projects/canopy-test-app/src/styles.scss",
               "dist/canopy/canopy.css"
             ],
             "scripts": []
