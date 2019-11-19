@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { LgAlertModule } from './alert/alert.module';
 import { LgButtonModule } from './button/button.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
 import { LgFocusDirective } from './focus/focus.directive';
@@ -15,6 +16,7 @@ import { LgSpinnerModule } from './spinner/spinner.module';
 const directives = [LgFocusDirective];
 
 const modules = [
+  LgAlertModule,
   LgButtonModule,
   LgFeatureToggleModule,
   LgFooterModule,

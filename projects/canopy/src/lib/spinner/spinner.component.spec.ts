@@ -24,7 +24,6 @@ describe('LgSpinnerComponent', () => {
   });
 
   it('adds the variant class to the spinner ring', () => {
-    expect(component).toBeTruthy();
     let link = fixture.debugElement.query(By.css(`.lg-spinner__ring--color`));
     expect(link).toBeFalsy();
     component.variant = 'color';
