@@ -59,7 +59,7 @@ jobs:
       - restore_cache:
           key: canopy-dependencies-{{ checksum "package.json" }}
       - run: npm run build
-      - run: npm run build:test
+      - run: npm run build:test-app
 
   package:
     docker:
