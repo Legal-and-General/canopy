@@ -12,6 +12,7 @@
   position: relative;
   text-align: center;
   transition: all var(--animation-duration) var(--animation-fn);
+  margin-bottom: var(--component-margin);
 
   &:focus {
     outline: 0;
