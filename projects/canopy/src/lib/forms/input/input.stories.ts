@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
@@ -19,18 +19,20 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-input-field>
+      <lg-input-field [block]="block">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <input lgInput formControlName="name" />
+        <input lgInput formControlName="name" [size]="size" />
       </lg-input-field>
     </form>
   `
 })
 class ReactiveFormComponent implements OnInit {
   @Input() disabled = false;
+  @Input() block: boolean;
   @Input() hint: string;
   @Input() label: string;
+  @Input() size: number;
 
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
 
@@ -53,13 +55,17 @@ stories.add(
     },
     template: `<lg-reactive-form
       (inputChange)="inputChange($event)"
+      [block]="block"
       [hint]="hint"
       [label]="label"
+      [size]="size"
     ></lg-reactive-form>`,
     props: {
       inputChange: action('inputChange'),
       label: text('label', 'Name'),
-      hint: text('hint', 'Please enter your name')
+      hint: text('hint', 'Please enter your name'),
+      size: number('input size', 12),
+      block: boolean('block', false)
     }
   }),
   {

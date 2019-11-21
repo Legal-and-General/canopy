@@ -1,3 +1,5 @@
+@import '../../../styles/mixins';
+
 .lg-input {
   display: block;
   margin-bottom: var(--component-margin);
@@ -5,11 +7,19 @@
 }
 
 .lg-input__field {
-  width: 100%;
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
   padding: var(--space-xs) var(--space-md);
   outline: 0;
+  max-width: 100%;
+}
+
+.lg-input__field--block {
+  width: 100%;
+
+  @include breakpoint('md') {
+    width: auto;
+  }
 }
 
 .lg-input__field:hover {

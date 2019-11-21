@@ -3,6 +3,7 @@ export const notes = `
 
 ## Purpose
 Provides a common input directive and input field component. The input field component deals with linking the label and field.
+The width of the input field is controlled by the HTML size attribute, this allows us to provide the user with an indication of the expected length of the value.
 
 ## Usage
 Import the component in your application:
@@ -36,6 +37,7 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | string | 'lg-input-\${nextUniqueId++}' | No |
+| \`\`block\`\` | Property to make the input full width (for small screens only). | boolean | false | no
 
 ## Using only the SCSS files
 
@@ -45,6 +47,7 @@ Generate the markup as show in the example below, no current modifiers.
 |------|-------------|
 | \`\`lg-input\`\` | Adds styles to the wrapping element |
 | \`\`lg-input__field\`\` | Adds styles to the input element |
+| \`\`lg-input__field--block\`\` | Makes input field full width for mobile |
 | \`\`lg-input__label\`\` | Adds styles to the input label |
 
 ### Examples:

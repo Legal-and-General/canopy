@@ -1,7 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  DebugElement
+  DebugElement,
+  Input
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
@@ -21,7 +22,7 @@ import { LgInputDirective } from './input.directive';
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form">
-      <lg-input-field>
+      <lg-input-field [block]="block">
         Name
         <lg-hint>Full name including surname</lg-hint>
         <input lgInput formControlName="name" />
@@ -31,6 +32,8 @@ import { LgInputDirective } from './input.directive';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestInputComponent {
+  @Input() block;
+
   form = new FormGroup({
     name: new FormControl('')
   });
@@ -85,6 +88,19 @@ describe('LgInputFieldComponent', () => {
     expect(inputDebugElement.nativeElement.getAttribute('id')).toContain(
       'lg-input-'
     );
+  });
+
+  it('adds the input field class to the lgInput directive', () => {
+    fixture.detectChanges();
+    const className = inputDebugElement.nativeElement.getAttribute('class');
+    expect(className).toContain('lg-input__field');
+  });
+
+  it('adds the block modifier to the input field class', () => {
+    component.block = true;
+    fixture.detectChanges();
+    const className = inputDebugElement.nativeElement.getAttribute('class');
+    expect(className).toContain('lg-input__field--block');
   });
 
   it('links the hint to the input field with the correct aria attributes', () => {
