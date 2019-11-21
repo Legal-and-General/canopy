@@ -164,6 +164,12 @@ a {
   &:visited {
     color: var(--link-visited-color);
   }
+
+  &:focus {
+    background: var(--link-focus-background-color);
+    color: var(--link-focus-color);
+    outline: var(--link-focus-outline) solid var(--link-focus-background-color);
+  }
 }
 
 .standfirst {

@@ -29,7 +29,7 @@ stories.add('Page', () => ({
       </p>
       <p>
         You must picture the consternation of our
-        <a href="https://en.wikipedia.org/wiki/Oran">little town</a>, hitherto
+        <a href="https://en.wikipedia.org/wiki/Oran">little town</a> hitherto
         so tranquil, and now, out of the blue, shaken to its core, like a quite
         healthy man who all of a sudden feels his temperature shoot up and the
         blood seething like wildfire in his veins.
