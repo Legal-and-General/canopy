@@ -3,6 +3,7 @@ export const notes = `
 
 ## Purpose
 Provides a common select directive and select field component. The select field component controls custom select box styling and linking the label and field.
+The width of the select field is controlled by the size of the options contained with in it.
 
 ## Usage
 Import the component in your application:
@@ -41,6 +42,7 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | string | 'lg-select-\${nextUniqueId++}' | No |
+| \`\`block\`\` | Property to make the select field full width (for small screens only). | boolean | false | no
 
 ## Using only the SCSS files
 
@@ -52,6 +54,8 @@ Generate the markup as show in the example below, no current modifiers.
 | \`\`lg-select__label\`\` | Adds styles to the select label |
 | \`\`lg-select__wrapper\`\` | Wraps the select element to provide custom styling |
 | \`\`lg-select__field\`\` | Adds styles to the select element |
+| \`\`lg-select__field--block\`\` | Makes select field full width for mobile |
+
 | \`\`lg-select__icon\`\` | Styles the chevron icon which activates the select |
 
 

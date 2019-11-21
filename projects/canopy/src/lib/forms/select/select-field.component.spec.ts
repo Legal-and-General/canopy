@@ -1,7 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  DebugElement
+  DebugElement,
+  Input
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
@@ -21,7 +22,7 @@ import { LgSelectDirective } from './select.directive';
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form">
-      <lg-select-field>
+      <lg-select-field [block]="block">
         Color
         <lg-hint>Pick a color</lg-hint>
         <select lgSelect>
@@ -36,6 +37,8 @@ import { LgSelectDirective } from './select.directive';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestSelectComponent {
+  @Input() block: boolean;
+
   form = new FormGroup({
     name: new FormControl('')
   });
@@ -48,6 +51,7 @@ describe('LgSelectFieldComponent', () => {
   let labelDebugElement: DebugElement;
   let selectDebugElement: DebugElement;
   let hintDebugElement: DebugElement;
+  let wrapperDebugElement: DebugElement;
   let selectDebugInstance: LgSelectFieldComponent;
 
   beforeEach(async(() => {
@@ -76,6 +80,10 @@ describe('LgSelectFieldComponent', () => {
     hintDebugElement = fixture.debugElement.query(
       By.directive(LgHintComponent)
     );
+
+    wrapperDebugElement = fixture.debugElement.query(
+      By.css('.lg-select__wrapper')
+    );
   }));
 
   it('adds appropriate for attribute to the label', () => {
@@ -90,6 +98,19 @@ describe('LgSelectFieldComponent', () => {
     expect(selectDebugElement.nativeElement.getAttribute('id')).toContain(
       'lg-select-'
     );
+  });
+
+  it('adds the select field class to the lgSelect directive', () => {
+    fixture.detectChanges();
+    const className = selectDebugElement.nativeElement.getAttribute('class');
+    expect(className).toContain('lg-select__field');
+  });
+
+  it('adds the block modifier to the wrapper class', () => {
+    component.block = true;
+    fixture.detectChanges();
+    const className = wrapperDebugElement.nativeElement.getAttribute('class');
+    expect(className).toContain('lg-select__wrapper--block');
   });
 
   it('links the hint to the input field with the correct aria attributes', () => {

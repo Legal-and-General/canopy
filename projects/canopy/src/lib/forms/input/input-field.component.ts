@@ -23,7 +23,6 @@ let nextUniqueId = 0;
 })
 export class LgInputFieldComponent {
   @Input() id = `lg-input-${nextUniqueId++}`;
-  @Input() ariaDescribedBy: string;
 
   _block = false;
   @Input()

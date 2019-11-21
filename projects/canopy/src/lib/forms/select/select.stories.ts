@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
@@ -14,23 +14,24 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-select-field>
+      <lg-select-field [block]="block">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <select lgSelect formControlName="color">
-          <option value="red">Red</option>
-          <option value="blue">Blue</option>
-          <option value="green">Green</option>
-          <option value="yellow">Yellow</option>
+          <option *ngFor="let option of options" [value]="option">{{
+            option
+          }}</option>
         </select>
       </lg-select-field>
     </form>
   `
 })
 class ReactiveFormComponent implements OnInit {
+  @Input() block: boolean;
   @Input() disabled = false;
   @Input() hint: string;
   @Input() label: string;
+  @Input() options: string[];
 
   @Output() selectChange: EventEmitter<void> = new EventEmitter();
 
@@ -55,13 +56,17 @@ stories.add(
     },
     template: `<lg-reactive-form
       (selectChange)="selectChange($event)"
+      [block]="block"
       [hint]="hint"
       [label]="label"
+      [options]="options"
     ></lg-reactive-form>`,
     props: {
       selectChange: action('selectChange'),
       label: text('label', 'Color'),
-      hint: text('hint', 'Please select a color')
+      hint: text('hint', 'Please select a color'),
+      block: boolean('block', false),
+      options: object('options', ['Red', 'Blue', 'Green', 'Yellow'])
     }
   }),
   {

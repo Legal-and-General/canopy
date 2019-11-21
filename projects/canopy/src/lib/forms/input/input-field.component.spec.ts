@@ -32,7 +32,7 @@ import { LgInputDirective } from './input.directive';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 class TestInputComponent {
-  @Input() block;
+  @Input() block: boolean;
 
   form = new FormGroup({
     name: new FormControl('')

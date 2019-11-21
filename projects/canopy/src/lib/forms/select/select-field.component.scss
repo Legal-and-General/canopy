@@ -1,3 +1,5 @@
+@import '../../../styles/mixins';
+
 :root {
   --select-icon-width: 3rem;
   --select-down-chevron: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"%3E%3Cpath fill="%234c4c4c" d="M512 581.61l-289.113-279.469c-12.151-11.743-31.846-11.743-44.001 0s-12.151 30.783 0 42.531l333.114 321.997 333.114-321.997c12.151-11.743 12.151-30.783 0-42.531s-31.846-11.743-44.001 0l-289.113 279.469z"/%3E%3C/svg%3E');
@@ -11,18 +13,32 @@
 
 .lg-select__wrapper {
   position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.lg-select__wrapper--block {
+  width: 100%;
+
+  @include breakpoint('md') {
+    width: auto;
+  }
+
+  .lg-select__field {
+    width: 100%;
+  }
 }
 
 .lg-select__field {
-  width: 100%;
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
-  padding: var(--space-xs) var(--select-icon-width) var(--space-xs)
-    var(--space-md);
+  padding: var(--space-xs) calc(var(--select-icon-width) + var(--space-sm))
+    var(--space-xs) var(--space-md);
   background-color: var(--color-white);
   outline: 0;
   appearance: none;
   -webkit-appearance: none;
+  max-width: 100%;
 }
 
 .lg-select__field:hover {
@@ -51,6 +67,7 @@
   top: var(--space-xxs);
   bottom: var(--space-xxs);
   width: var(--select-icon-width);
+  margin-left: var(--space-sm);
   background-image: var(--select-down-chevron);
   background-size: calc(var(--select-icon-width) / 2);
   pointer-events: none;

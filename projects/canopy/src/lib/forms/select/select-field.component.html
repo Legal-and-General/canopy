@@ -2,7 +2,12 @@
   <ng-content></ng-content>
 </label>
 <ng-content select="lg-hint"></ng-content>
-<div class="lg-select__wrapper">
+<div
+  class="lg-select__wrapper"
+  [ngClass]="{
+    'lg-select__wrapper--block': block
+  }"
+>
   <ng-content select="[lgSelect]"></ng-content>
   <span class="lg-select__icon"></span>
 </div>
