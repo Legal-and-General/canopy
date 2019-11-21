@@ -5,15 +5,69 @@
     <lg-heading [level]="1">
       Canopy test page
     </lg-heading>
+
     <lg-alert variant="info">
-      This canopy test page is useful for checking that components are correctly
-      exported.
+      Information alert
     </lg-alert>
+
+    <lg-alert variant="warning">
+      Warning alert
+    </lg-alert>
+
+    <lg-alert variant="success">
+      Success alert
+    </lg-alert>
+
+    <lg-alert variant="error">
+      Error alert
+    </lg-alert>
+
+    <lg-button variant="primary">
+      Test primary button
+    </lg-button>
+
+    <lg-button variant="cta">
+      Test cta button
+    </lg-button>
+
+    <lg-button variant="secondary">
+      Test secondary button
+    </lg-button>
+
     <lg-input-field>
       Test input
-      <lg-hint>Test hint</lg-hint>
+      <lg-hint>Enter some text</lg-hint>
       <input lgInput />
     </lg-input-field>
+
+    <lg-select-field>
+      Select input
+      <lg-hint>Pick an option</lg-hint>
+      <select lgSelect formControlName="color">
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+      </select>
+    </lg-select-field>
+
+    <lg-checkbox>
+      Test checkbox
+      <lg-hint>Check the checkbox</lg-hint>
+    </lg-checkbox>
+
+    <lg-radio-group>
+      Test radio group
+      <lg-hint>Pick an option</lg-hint>
+      <lg-radio-button value="red">Red</lg-radio-button>
+      <lg-radio-button value="yellow">Yellow</lg-radio-button>
+      <lg-radio-button value="green">Green</lg-radio-button>
+      <lg-radio-button value="blue">Blue</lg-radio-button>
+    </lg-radio-group>
+
+    <lg-spinner variant="dark"></lg-spinner>
+
+    <lg-spinner variant="color"></lg-spinner>
   </lg-card>
   <footer lg-footer></footer>
 </lg-page>
