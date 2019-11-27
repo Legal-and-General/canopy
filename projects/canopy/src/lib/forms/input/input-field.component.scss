@@ -9,7 +9,8 @@
 .lg-input__field {
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
-  padding: var(--space-xs) var(--space-sm);
+  line-height: var(--line-height-sm);
+  padding: calc(var(--space-xs) - var(--border-width)) var(--space-sm);
   outline: 0;
   max-width: 100%;
 }
