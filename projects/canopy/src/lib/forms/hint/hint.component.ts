@@ -19,5 +19,5 @@ export class LgHintComponent {
   @Input()
   id = `lg-hint-${nextUniqueId++}`;
 
-  @HostBinding('class') class = 'lg-hint';
+  @HostBinding('class.lg-hint') class = true;
 }

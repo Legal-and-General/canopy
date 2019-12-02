@@ -19,7 +19,7 @@ interface Link {
   encapsulation: ViewEncapsulation.None
 })
 export class LgFooterComponent {
-  @HostBinding('class') class = 'lg-footer';
+  @HostBinding('class.lg-footer') class = true;
   @HostBinding('attr.role') role = 'contentinfo';
 
   @Output() primaryLinkClicked = new EventEmitter<any>();

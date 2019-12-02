@@ -12,7 +12,7 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class LgHeaderComponent {
-  @HostBinding('class') class = 'lg-header';
+  @HostBinding('class.lg-header') class = true;
 
   @Input() logo: string;
   @Input() logoHeight = '3rem';

@@ -33,7 +33,7 @@ export class LgCheckboxComponent implements ControlValueAccessor {
   @Input() value = 'on';
   @Input() ariaDescribedBy: string;
 
-  @HostBinding('class') class = 'lg-checkbox';
+  @HostBinding('class.lg-checkbox') class = true;
 
   _hintElement: LgHintComponent;
   @ContentChild(LgHintComponent, { static: false })

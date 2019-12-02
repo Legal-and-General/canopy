@@ -26,7 +26,7 @@ export class LgRadioButtonComponent implements OnInit {
 
   @Input() value: string;
 
-  @HostBinding('class') class = 'lg-radio-button';
+  @HostBinding('class.lg-radio-button') class = true;
 
   constructor(private radioGroup: LgRadioGroupComponent) {}
 

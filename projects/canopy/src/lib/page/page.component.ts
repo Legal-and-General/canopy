@@ -7,5 +7,5 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class LgPageComponent {
-  @HostBinding('class') class = 'lg-page';
+  @HostBinding('class.lg-page') class = true;
 }

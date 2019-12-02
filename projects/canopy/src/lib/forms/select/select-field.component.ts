@@ -23,7 +23,7 @@ export class LgSelectFieldComponent {
   @Input() id = `lg-select-${nextUniqueId++}`;
   @Input() block = false;
 
-  @HostBinding('class') class = 'lg-select';
+  @HostBinding('class.lg-select') class = true;
 
   _labelElement: LgLabelComponent;
   @ViewChild(LgLabelComponent, { static: true })
@@ -37,7 +37,6 @@ export class LgSelectFieldComponent {
   set selectElement(element: LgSelectDirective) {
     this._selectElement = element;
     this._selectElement.id = this.id;
-    this._selectElement.class = 'lg-select__field';
   }
 
   _hintElement: LgHintComponent;

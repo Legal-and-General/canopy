@@ -13,7 +13,7 @@ import { SpinnerVariant } from './spinner.interface';
   encapsulation: ViewEncapsulation.None
 })
 export class LgSpinnerComponent {
-  @HostBinding('class') class = 'lg-spinner';
+  @HostBinding('class.lg-spinner') class = true;
 
   @Input() variant: SpinnerVariant = 'dark';
 }

@@ -44,7 +44,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   @Input()
   ariaLabelledBy: string;
 
-  @HostBinding('class') class = 'lg-radio-group';
+  @HostBinding('class.lg-radio-group') class = true;
   @HostBinding('attr.role') role = 'radiogroup';
 
   @HostBinding('class.lg-radio-group--inline')

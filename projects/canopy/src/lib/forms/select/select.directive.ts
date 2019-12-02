@@ -6,7 +6,7 @@ let nextUniqueId = 0;
   selector: '[lgSelect]'
 })
 export class LgSelectDirective {
-  @HostBinding('class') class = 'lg-select';
+  @HostBinding('class.lg-select__field') class = true;
 
   @Input()
   @HostBinding('name')

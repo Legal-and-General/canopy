@@ -15,8 +15,8 @@ let nextUniqueId = 0;
 })
 export class LgLabelComponent {
   @Input()
-  @HostBinding('class')
-  class = 'lg-label';
+  @HostBinding('class.lg-label')
+  class = true;
 
   @Input()
   @HostBinding('attr.id')

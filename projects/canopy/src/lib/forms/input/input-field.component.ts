@@ -34,7 +34,7 @@ export class LgInputFieldComponent {
     return this._block;
   }
 
-  @HostBinding('class') class = 'lg-input';
+  @HostBinding('class.lg-input') class = true;
 
   _labelElement: LgLabelComponent;
   @ViewChild(LgLabelComponent, { static: true })

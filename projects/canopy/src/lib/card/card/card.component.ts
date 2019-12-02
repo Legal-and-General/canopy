@@ -7,5 +7,5 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class LgCardComponent {
-  @HostBinding('class') class = 'lg-card';
+  @HostBinding('class.lg-card') class = true;
 }
