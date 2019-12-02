@@ -30,7 +30,7 @@
 
 .lg-input__field:focus {
   border-left-width: var(--keyline-width);
-  border-color: initial;
+  border-color: var(--border-focus-color);
   padding-left: calc(
     var(--space-sm) - var(--keyline-width) + var(--border-width)
   );
