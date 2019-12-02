@@ -33,6 +33,8 @@ describe('LgAlertComponent', () => {
   });
 
   it('does not add a Aria role for the info variant', () => {
+    component.variant = 'info';
+    fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('role')).toBeNull();
   });
 
