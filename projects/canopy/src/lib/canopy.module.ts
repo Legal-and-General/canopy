@@ -10,6 +10,7 @@ import { LgFooterModule } from './footer/footer.module';
 import { LgFormsModule } from './forms/forms.module';
 import { LgHeaderModule } from './header/header.module';
 import { LgHeadingModule } from './heading/heading.module';
+import { LgMarginModule } from './margin/margin.module';
 import { LgPageModule } from './page/page.module';
 import { LgPipesModule } from './pipes/pipes.module';
 import { LgSpinnerModule } from './spinner/spinner.module';
@@ -27,6 +28,7 @@ const modules = [
   LgHeadingModule,
   LgPageModule,
   LgPipesModule,
+  LgMarginModule,
   LgSpinnerModule
 ];
 
