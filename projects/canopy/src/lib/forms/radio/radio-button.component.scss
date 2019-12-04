@@ -1,5 +1,50 @@
-@import "../../../styles/form/checkmark";
+@import '../../../styles/mixins';
 
-.lg-radio-button {
-  @include checkmark($border-radius: 50%);
+.lg-radio-button__input {
+  @include hidden();
+}
+
+.lg-radio-button__label {
+  display: flex;
+  position: relative;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.lg-radio-button__label::before {
+  content: ' ';
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  height: var(--checkmark-outer-height);
+  width: var(--checkmark-outer-width);
+  border-radius: 50%;
+  border: var(--border-width) solid var(--border-color);
+  margin: auto var(--space-sm) auto 0;
+
+  .lg-radio-button__input:hover + & {
+    border-color: var(--border-hover-color);
+  }
+
+  .lg-radio-button__input:focus + & {
+    border-color: var(--border-focus-color);
+  }
+}
+
+.lg-radio-button__label::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto var(--space-xxxs);
+  height: var(--checkmark-inner-height);
+  width: var(--checkmark-inner-width);
+  border-radius: 50%;
+
+  .lg-radio-button__input:checked + & {
+    background-color: var(--color-super-blue);
+  }
 }
