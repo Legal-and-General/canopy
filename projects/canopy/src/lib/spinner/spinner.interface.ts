@@ -1,1 +1,1 @@
-export type SpinnerVariant = 'dark' | 'light' | 'color';
+export type SpinnerVariant = 'dark' | 'light' | 'color' | 'inherit';

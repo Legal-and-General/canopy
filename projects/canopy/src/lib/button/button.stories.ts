@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
 import { action } from '@storybook/addon-actions';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
-import { LgButtonComponent } from './button.component';
+import { LgButtonModule } from './button.module';
 import { notes } from './button.notes';
 
 const groupId = 'lg-button';
@@ -53,7 +52,7 @@ createBtnStory({
 });
 
 function createBtnStory(args) {
-  const { stories, name, variant, bgColor } = args;
+  const { stories, name, variant, bgColor, loading } = args;
 
   return stories
     .addParameters({
@@ -65,7 +64,7 @@ function createBtnStory(args) {
       name,
       () => ({
         moduleMetadata: {
-          declarations: [LgButtonComponent]
+          imports: [LgButtonModule]
         },
         template: `
         <lg-button
@@ -73,16 +72,18 @@ function createBtnStory(args) {
             [fullWidth]="fullWidth ? true : null"
             [rounded]="rounded ? true : null"
             [disabled]="disabled ? true : null"
+            [loading]="loading ? true : null"
             (action)="action($action)"
           >
           {{content}}
         </lg-button>
-      `,
+       `,
         props: {
           content: text('text', 'Button', groupId),
           rounded: boolean('rounded', false, groupId),
           disabled: boolean('disabled', false, groupId),
           fullWidth: boolean('fullWidth', false, groupId),
+          loading: boolean('loading', false, groupId),
           action: action('clicked')
         }
       }),

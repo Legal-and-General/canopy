@@ -25,7 +25,11 @@ stories
       </lg-spinner>
     `,
       props: {
-        variant: select('variant', ['dark', 'light', 'color'], groupId)
+        variant: select(
+          'variant',
+          ['dark', 'light', 'color', 'inherit'],
+          groupId
+        )
       }
     }),
     {

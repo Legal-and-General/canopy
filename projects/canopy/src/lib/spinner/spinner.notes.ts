@@ -26,8 +26,9 @@ and in your HTML:
 ### LgSpinnerComponent
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`variant\`\` | The spinner variant | SpinnerVariant ['dark', 'light', 'color'] | 'dark' | No |
+| \`\`variant\`\` | The spinner variant | SpinnerVariant ['dark', 'light', 'color', 'inherit'] | 'dark' | No |
 
+If the \`\`variant\`\` is set to  \`\`'inherit'\`\`, then it will inherit the font colour of it's parent element. This is used on the loading button, where the spinner inherits the font colour of the button.
 
 ## Using only the SCSS files
 

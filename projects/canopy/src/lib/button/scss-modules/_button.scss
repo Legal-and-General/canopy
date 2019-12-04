@@ -11,7 +11,7 @@
   padding: var(--space-xs);
   position: relative;
   text-align: center;
-  transition: all var(--animation-duration) var(--animation-fn);
+  transition: background-color var(--animation-duration) var(--animation-fn);
   margin-bottom: var(--component-margin);
 
   &:focus {
@@ -29,10 +29,15 @@
     min-width: auto;
   }
 
-  &:disabled {
+  :not(&--loading):disabled {
     background-color: var(--btn-disabled-bg);
     border-color: var(--btn-disabled-border);
     color: var(--btn-disabled-color);
+    cursor: not-allowed;
+  }
+
+  &--loading {
+    padding: var(--space-xxxs) var(--space-xs);
     cursor: not-allowed;
   }
 }

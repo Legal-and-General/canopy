@@ -10,9 +10,15 @@
     'lg-btn--tertiary-alt-1': variant === 'tertiary-alt-1',
     'lg-btn--tertiary-alt-2': variant === 'tertiary-alt-2',
     'lg-btn--block': fullWidth,
-    'lg-btn--rounded': rounded
+    'lg-btn--rounded': rounded,
+    'lg-btn--loading': loading
   }"
   (click)="handleAction()"
 >
-  <ng-content></ng-content>
+  <ng-content *ngIf="!loading"></ng-content>
+  <lg-spinner
+    *ngIf="loading"
+    [variant]="'inherit'"
+    lgMargin="none"
+  ></lg-spinner>
 </button>

@@ -29,6 +29,7 @@ and in your HTML:
 | \`\`disabled\`\` | If the button is disabled or not | boolean | false | No |
 | \`\`fullWidth\`\` | If the button has to span full width or not | boolean | false | No |
 | \`\`rounded\`\` | If the button has rounded corners or not | boolean | false | No |
+| \`\`loading\`\` | If the button shows a loading spinner and is also disabled | boolean | false | No |
 
 ## Outputs
 
@@ -58,13 +59,25 @@ Optional modifiers:
 |------|-------------|
 | \`\`lg-btn--block\`\` | Makes the button full width |
 | \`\`lg-btn--rounded\`\` | Adds rounded corners to the button |
+| \`\`lg-btn--loading\`\` | For use when the button has a loading spinner instead of text |
+
+### Loading button
+
+Use the \`\`lg-btn--loading\`\` modifier class, include the \`\`disabled\`\` attribute and add the spinner component as a child of the button instead of the usual button text (see example below).
 
 ### Examples:
-~~~
+~~~html
 <button class="lg-btn lg-btn--primary">Primary button</button>
 
 <button class="lg-btn lg-btn--primary lg-btn--rounded">Primary button</button>
 
 <button class="lg-btn lg-btn--primary lg-btn--rounded lg-btn--block">Primary button</button>
+
+<button class="lg-btn lg-btn--primary lg-btn-loading" disabled>
+  <div class="lg-spinner" aria-busy="true" role="alert">
+    <div class="lg-spinner__ring"></div>
+    <span class="hidden">Loading</span>
+  </div>
+</button>
 ~~~
 `;

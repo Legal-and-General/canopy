@@ -1,11 +1,11 @@
 .lg-spinner {
   display: flex;
   justify-content: center;
+  margin: var(--component-margin);
 }
 
 .lg-spinner__ring {
   display: inline-block;
-  margin: var(--component-margin);
   width: var(--spinner-diameter);
   height: var(--spinner-diameter);
   border: solid var(--spinner-border-width);
@@ -27,6 +27,11 @@
 .lg-spinner__ring--light {
   border-top-color: var(--spinner-light-color);
   border-bottom-color: var(--spinner-light-color);
+}
+
+.lg-spinner__ring--inherit {
+  border-top-color: inherit;
+  border-bottom-color: inherit;
 }
 
 @keyframes spin {
