@@ -1,9 +1,56 @@
-@import '../../../styles/form/checkmark';
+@import '../../../styles/mixins';
 
-.lg-checkbox {
-  @include checkmark(var(--border-radius-sm));
+:root {
+  --checkbox-tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='12' viewBox='0 0 14 12'%3E%3Cpath fill='none' fill-rule='evenodd' stroke='%23FFF' stroke-width='2' d='M12.758 1.415L4.273 9.901l-3.03-3.03'/%3E%3C/svg%3E");
+}
+
+.lg-checkbox__input {
+  @include hidden();
 }
 
 .lg-checkbox__label {
-  margin-bottom: var(--space-sm);
+  display: flex;
+  position: relative;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-sm);
+  margin-bottom: var(--component-margin);
+}
+
+.lg-checkbox__label::before {
+  content: '';
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  height: var(--checkmark-outer-height);
+  width: var(--checkmark-outer-width);
+  border: var(--border-width) solid var(--border-color);
+  margin: auto var(--space-sm) auto 0;
+
+  .lg-checkbox__input:hover + & {
+    border-color: var(--border-hover-color);
+  }
+
+  .lg-checkbox__input:focus + & {
+    border-color: var(--border-focus-color);
+  }
+
+  .lg-checkbox__input:checked + & {
+    background-color: var(--checkmark-color);
+    border-color: var(--checkmark-color);
+  }
+}
+
+.lg-checkbox__label::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-image: var(--checkbox-tick);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: var(--checkmark-outer-height);
+  width: var(--checkmark-outer-width);
 }

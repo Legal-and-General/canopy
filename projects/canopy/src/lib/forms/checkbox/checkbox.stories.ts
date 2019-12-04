@@ -16,7 +16,6 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
     <form [formGroup]="form">
       <lg-checkbox formControlName="umbrella" value="yes">
         {{ label }}
-        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
       </lg-checkbox>
     </form>
   `
@@ -24,7 +23,6 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
 class ReactiveFormComponent implements OnInit {
   constructor(public fb: FormBuilder) {}
 
-  @Input() hint: string;
   @Input() label: string;
 
   @Output() checkboxChange: EventEmitter<void> = new EventEmitter();
@@ -45,14 +43,12 @@ stories.add(
       imports: [ReactiveFormsModule, CanopyModule]
     },
     template: `<lg-reactive-form
-        [hint]="hint"
         [label]="label"
         (checkboxChange)="checkboxChange($event)">
       </lg-reactive-form>`,
     props: {
       checkboxChange: action('checkboxChange'),
-      label: text('label', 'I will bring my Umbrella if it is raining'),
-      hint: text('hint', 'This is not advisable in bad weather')
+      label: text('label', 'I will bring my Umbrella if it is raining')
     }
   }),
   {

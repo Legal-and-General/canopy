@@ -1,15 +1,11 @@
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
-  ContentChild,
   forwardRef,
   HostBinding,
   Input,
   ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { LgHintComponent } from '../hint/hint.component';
 
 let nextUniqueId = 0;
 
@@ -34,13 +30,6 @@ export class LgCheckboxComponent implements ControlValueAccessor {
   @Input() ariaDescribedBy: string;
 
   @HostBinding('class.lg-checkbox') class = true;
-
-  _hintElement: LgHintComponent;
-  @ContentChild(LgHintComponent, { static: false })
-  set hintElement(element: LgHintComponent) {
-    this.ariaDescribedBy = element ? element.id : null;
-    this._hintElement = element;
-  }
 
   onCheck() {
     this.checked = !this.checked;
