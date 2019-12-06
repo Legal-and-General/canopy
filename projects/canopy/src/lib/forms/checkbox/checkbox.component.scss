@@ -14,6 +14,10 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-sm);
   margin-bottom: var(--component-margin);
+
+  .lg-checkbox__input:disabled + & {
+    color: var(--color-taupe-grey);
+  }
 }
 
 .lg-checkbox__label::before {
@@ -38,6 +42,15 @@
   .lg-checkbox__input:checked + & {
     background-color: var(--checkmark-color);
     border-color: var(--checkmark-color);
+  }
+
+  .lg-checkbox__input:disabled + & {
+    border-color: var(--color-taupe-grey);
+  }
+
+  .lg-checkbox__input:disabled:checked + & {
+    border-color: var(--checkmark-disabled-color);
+    background-color: var(--checkmark-disabled-color);
   }
 }
 

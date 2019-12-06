@@ -24,6 +24,7 @@ let nextUniqueId = 0;
 })
 export class LgCheckboxComponent implements ControlValueAccessor {
   @Input() checked = false;
+  @Input() disabled = false;
   @Input() id = `lg-checkbox-${nextUniqueId++}`;
   @Input() name = `lg-checkbox-${nextUniqueId++}`;
   @Input() value = 'on';

@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, Input } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -102,5 +102,12 @@ describe('LgCheckboxComponent', () => {
     const onChangeSpy = spyOn(checkboxInstance, 'onChange');
     inputDebugElement.triggerEventHandler('click', null);
     expect(onChangeSpy).toHaveBeenCalled();
+  });
+
+  it('disables the input field when the property is set', () => {
+    expect(inputDebugElement.nativeElement.disabled).toBe(false);
+    component.form.controls.umbrella.disable();
+    fixture.detectChanges();
+    expect(inputDebugElement.nativeElement.disabled).toBe(true);
   });
 });
