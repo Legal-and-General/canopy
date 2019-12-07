@@ -14,24 +14,33 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-checkbox [disabled]="disabled" formControlName="umbrella" value="yes">
+      <lg-checkbox formControlName="umbrella" value="yes">
         {{ label }}
       </lg-checkbox>
     </form>
   `
 })
-class ReactiveFormComponent implements OnInit {
-  constructor(public fb: FormBuilder) {}
-
+class ReactiveFormComponent {
   @Input() label: string;
-  @Input() disabled: boolean;
+
+  @Input()
+  set disabled(disabled: boolean) {
+    if (disabled === true) {
+      this.form.controls.umbrella.disable();
+    } else {
+      this.form.controls.umbrella.enable();
+    }
+  }
+  get disabled(): boolean {
+    return this.form.controls.umbrella.disabled;
+  }
 
   @Output() checkboxChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
 
-  ngOnInit() {
-    this.form = this.fb.group({ umbrella: null });
+  constructor(public fb: FormBuilder) {
+    this.form = this.fb.group({ umbrella: null, disabled: false });
     this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
   }
 }
@@ -43,7 +52,8 @@ stories.add(
       declarations: [ReactiveFormComponent],
       imports: [ReactiveFormsModule, CanopyModule]
     },
-    template: `<lg-reactive-form
+    template: `
+      <lg-reactive-form
         [disabled]="disabled"
         [label]="label"
         (checkboxChange)="checkboxChange($event)">

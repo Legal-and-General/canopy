@@ -16,7 +16,7 @@
   margin-bottom: var(--component-margin);
 
   .lg-checkbox__input:disabled + & {
-    color: var(--color-taupe-grey);
+    color: var(--disabled-color);
   }
 }
 
@@ -45,7 +45,7 @@
   }
 
   .lg-checkbox__input:disabled + & {
-    border-color: var(--color-taupe-grey);
+    border-color: var(--border-disabled-color);
   }
 
   .lg-checkbox__input:disabled:checked + & {

@@ -56,4 +56,8 @@ export class LgCheckboxComponent implements ControlValueAccessor {
   public registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
+  public setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+  }
 }

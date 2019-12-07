@@ -1,13 +1,13 @@
 <input
+  (click)="onCheck()"
   [attr.aria-describedby]="ariaDescribedBy"
   [attr.checked]="checked === true ? true : null"
   [attr.disabled]="disabled === true ? '' : null"
   [attr.id]="id"
   [attr.name]="name"
   [attr.value]="value"
-  type="checkbox"
   class="lg-checkbox__input"
-  (click)="onCheck()"
+  type="checkbox"
 />
 <label [attr.for]="id" class="lg-checkbox__label">
   <ng-content></ng-content>
