@@ -10,6 +10,10 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-sm);
   margin-bottom: var(--space-sm);
+
+  .lg-radio-button__input:disabled + & {
+    color: var(--disabled-color);
+  }
 }
 
 .lg-radio-button__label::before {
@@ -30,6 +34,10 @@
 
   .lg-radio-button__input:focus + & {
     border-color: var(--border-focus-color);
+  }
+
+  .lg-radio-button__input:disabled + & {
+    border-color: var(--border-disabled-color);
   }
 }
 

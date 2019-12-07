@@ -1,6 +1,4 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ContentChild,
   ContentChildren,
@@ -38,7 +36,8 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   private _name = `lg-radio-group-${nextUniqueId++}`;
 
   @Input() id = `lg-radio-group-id-${nextUniqueId++}`;
-  @Input() inline: false;
+  @Input() inline = false;
+  @Input() disabled = false;
 
   @HostBinding('attr.aria-labelledby')
   @Input()
@@ -137,5 +136,9 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
         radio.name = this.name;
       });
     }
+  }
+
+  public setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
   }
 }

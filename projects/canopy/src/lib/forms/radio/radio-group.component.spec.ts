@@ -143,4 +143,12 @@ describe('LgRadioGroupComponent', () => {
       groupDebugElement.nativeElement.getAttribute('aria-labelledby')
     ).toContain(hintDebugElement.nativeElement.getAttribute('id'));
   });
+
+  it('disables the options when the disabled property is set', () => {
+    component.form.controls.color.disable();
+    fixture.detectChanges();
+    for (const radio of radioInstances) {
+      expect(radio.disabled).toBe(true);
+    }
+  });
 });

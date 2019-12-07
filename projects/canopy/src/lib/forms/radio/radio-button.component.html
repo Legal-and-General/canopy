@@ -1,11 +1,12 @@
 <input
+  (click)="onCheck()"
+  [attr.checked]="checked === true ? true : null"
+  [attr.disabled]="disabled === true ? '' : null"
   [attr.id]="id"
   [attr.name]="name"
   [attr.value]="value"
-  [attr.checked]="checked === true ? true : null"
-  type="radio"
   class="lg-radio-button__input"
-  (click)="onCheck()"
+  type="radio"
 />
 
 <label [attr.for]="id" class="lg-radio-button__label">

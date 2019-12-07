@@ -19,12 +19,21 @@ let nextUniqueId = 0;
 })
 export class LgRadioButtonComponent implements OnInit {
   checked = false;
+  _disabled = false;
 
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
-
   @Input() name: string;
-
   @Input() value: string;
+
+  @Input()
+  get disabled(): boolean {
+    return (
+      this._disabled || (this.radioGroup !== null && this.radioGroup.disabled)
+    );
+  }
+  set disabled(isDisabled: boolean) {
+    this._disabled = isDisabled;
+  }
 
   @HostBinding('class.lg-radio-button') class = true;
 

@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
@@ -29,18 +22,27 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
     </form>
   `
 })
-class ReactiveFormComponent implements OnInit {
+class ReactiveFormComponent {
   @Input() inline = false;
   @Input() label: string;
   @Input() hint: string;
+  @Input()
+  set disabled(isDisabled: boolean) {
+    if (isDisabled === true) {
+      this.form.controls.color.disable();
+    } else {
+      this.form.controls.color.enable();
+    }
+  }
+  get disabled(): boolean {
+    return this.form.controls.color.disabled;
+  }
 
   @Output() radioChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder) {}
-
-  ngOnInit() {
+  constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: 'red' });
     this.form.valueChanges.subscribe(val => this.radioChange.emit(val));
   }
@@ -52,6 +54,7 @@ stories.add('Radio', () => ({
     imports: [ReactiveFormsModule, CanopyModule]
   },
   template: `<lg-reactive-form
+    [disabled]="disabled"
     [hint]="hint"
     [inline]="inline"
     [label]="label"
@@ -61,6 +64,7 @@ stories.add('Radio', () => ({
     inline: boolean('inline', false),
     label: text('label', 'Color'),
     hint: text('hint', 'Please select a color'),
-    radioChange: action('radioChange')
+    radioChange: action('radioChange'),
+    disabled: boolean('disabled', false)
   }
 }));
