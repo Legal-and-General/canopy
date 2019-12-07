@@ -35,3 +35,9 @@
     var(--space-sm) - var(--keyline-width) + var(--border-width)
   );
 }
+
+.lg-input__field:disabled {
+  color: var(--disabled-color);
+  background-color: var(--background-disabled-color);
+  border-color: var(--border-disabled-color);
+}

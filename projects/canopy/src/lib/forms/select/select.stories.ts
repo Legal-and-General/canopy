@@ -26,22 +26,31 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
     </form>
   `
 })
-class ReactiveFormComponent implements OnInit {
+class ReactiveFormComponent {
   @Input() block: boolean;
-  @Input() disabled = false;
   @Input() hint: string;
   @Input() label: string;
   @Input() options: string[];
+
+  @Input()
+  set disabled(disabled: boolean) {
+    if (disabled === true) {
+      this.form.controls.color.disable();
+    } else {
+      this.form.controls.color.enable();
+    }
+  }
+  get disabled(): boolean {
+    return this.form.controls.color.disabled;
+  }
 
   @Output() selectChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder) {}
-
-  ngOnInit() {
+  constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      color: { value: '', disabled: this.disabled }
+      color: { value: '', disabled: false }
     });
     this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
   }
@@ -57,6 +66,7 @@ stories.add(
     template: `<lg-reactive-form
       (selectChange)="selectChange($event)"
       [block]="block"
+      [disabled]="disabled"
       [hint]="hint"
       [label]="label"
       [options]="options"
@@ -66,7 +76,8 @@ stories.add(
       label: text('label', 'Color'),
       hint: text('hint', 'Please select a color'),
       block: boolean('block', false),
-      options: object('options', ['Red', 'Blue', 'Green', 'Yellow'])
+      options: object('options', ['Red', 'Blue', 'Green', 'Yellow']),
+      disabled: boolean('disabled', false)
     }
   }),
   {

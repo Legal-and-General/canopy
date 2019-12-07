@@ -1,10 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
@@ -27,21 +22,30 @@ const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
     </form>
   `
 })
-class ReactiveFormComponent implements OnInit {
-  @Input() disabled = false;
+class ReactiveFormComponent {
   @Input() block: boolean;
   @Input() hint: string;
   @Input() label: string;
   @Input() size: number;
 
+  @Input()
+  set disabled(disabled: boolean) {
+    if (disabled === true) {
+      this.form.controls.name.disable();
+    } else {
+      this.form.controls.name.enable();
+    }
+  }
+  get disabled(): boolean {
+    return this.form.controls.name.disabled;
+  }
+
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder) {}
-
-  ngOnInit() {
-    this.form = this.fb.group({ name: { value: '', disabled: this.disabled } });
+  constructor(public fb: FormBuilder) {
+    this.form = this.fb.group({ name: { value: '', disabled: false } });
     this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
 }
@@ -55,6 +59,7 @@ stories.add(
     },
     template: `<lg-reactive-form
       (inputChange)="inputChange($event)"
+      [disabled]="disabled"
       [block]="block"
       [hint]="hint"
       [label]="label"
@@ -65,7 +70,8 @@ stories.add(
       label: text('label', 'Name'),
       hint: text('hint', 'Please enter your name'),
       size: number('input size', 12),
-      block: boolean('block', false)
+      block: boolean('block', false),
+      disabled: boolean('disabled', false)
     }
   }),
   {
