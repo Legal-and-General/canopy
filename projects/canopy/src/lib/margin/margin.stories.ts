@@ -33,7 +33,7 @@ stories
       },
       template: `
         <lg-card 
-          [lgMargin]
+          [lgMargin]="margin"
           [lgMarginTop]="marginTop"
           [lgMarginRight]="marginRight"
           [lgMarginLeft]="marginLeft"
@@ -44,10 +44,10 @@ stories
       `,
       props: {
         margin: select('margin', spaces, 'md'),
-        marginTop: select('marginTop', spaces, 'md'),
-        marginRight: select('marginRight', spaces, 'md'),
-        marginBottom: select('marginBottom', spaces, 'md'),
-        marginLeft: select('marginLeft', spaces, 'md')
+        marginTop: select('marginTop', spaces, 'none'),
+        marginRight: select('marginRight', spaces, 'none'),
+        marginBottom: select('marginBottom', spaces, 'none'),
+        marginLeft: select('marginLeft', spaces, 'none')
       }
     }),
     {
