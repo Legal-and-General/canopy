@@ -1,7 +1,12 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional } from '@angular/core';
 
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
-import { LgToggles, togglesInjectable } from './feature-toggle.interface';
+import {
+  LgFeatureToggleOptions,
+  LgToggles,
+  togglesInjectable,
+  togglesOptionsInjectable
+} from './feature-toggle.interface';
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @NgModule({
@@ -10,7 +15,10 @@ import { LgFeatureToggleService } from './feature-toggle.service';
   exports: [LgFeatureToggleDirective]
 })
 export class LgFeatureToggleModule {
-  static forRoot(toggles: LgToggles): ModuleWithProviders {
+  static forRoot(
+    toggles: LgToggles,
+    optionsInjectable?: LgFeatureToggleOptions
+  ): ModuleWithProviders {
     return {
       ngModule: LgFeatureToggleModule,
       providers: [
@@ -19,6 +27,11 @@ export class LgFeatureToggleModule {
           provide: togglesInjectable,
           useFactory: toggles.useFactory,
           deps: toggles.deps
+        },
+        // A feature is enabled if undefined, but we can override it by setting disabledIfUndefined to true in this options object
+        {
+          provide: togglesOptionsInjectable,
+          useValue: optionsInjectable
         }
       ]
     };

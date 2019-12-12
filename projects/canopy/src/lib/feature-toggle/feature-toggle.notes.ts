@@ -28,6 +28,19 @@ and also import \`LgFeatureToggleModule\` (without the \`forRoot\`) in the modul
 }
 ~~~
 
+The default behaviour is to show a feature if it's undefined, but we can override it by passing an optional object with disableIfUndefined set to true like this:
+
+~~~
+LgFeatureToggleModule.forRoot({
+  deps: [Store],
+  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+  },
+  {
+    disableIfUndefined: true
+  }
+)
+~~~
+
 In your component(s) add the structural directive like in the example below:
 
 ~~~
