@@ -47,7 +47,7 @@ export class LgMarginDirective {
   set lgMargin(margin: SpacingVariant) {
     this.marginClass = this.toggleMarginClass(
       `lg-margin--${margin}`,
-      this.marginTopClass
+      this.marginClass
     );
   }
 
