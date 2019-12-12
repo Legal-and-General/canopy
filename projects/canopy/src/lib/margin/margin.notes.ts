@@ -19,6 +19,7 @@ In your HTML apply the directive to the relevant Canopy component. The directive
 If the default lgMargin attribute has no value the default margin will remain, you can then override individual margins by applying the relevant properties (.e.g LgMarginTop).
 
 e.g. Apply an xxl margin to the bottom
+
 ~~~html
 <lg-card lgMarginBottom="xxl">
   Your content
@@ -26,6 +27,7 @@ e.g. Apply an xxl margin to the bottom
 ~~~
 
 e.g. Apply an sm margin to the left and right
+
 ~~~html
 <lg-card lgMarginLeft="sm" lgMarginRight="sm">
   Your content
@@ -33,6 +35,7 @@ e.g. Apply an sm margin to the left and right
 ~~~
 
 e.g. Apply an xl margin all round, but xxxl margin to the bottom
+
 ~~~html
 <lg-card lgMargin="xl" lgMarginBottom="xxxl">
   Your content
