@@ -5,7 +5,7 @@
 */
 @mixin inner-focus-outline($bg-color, $color: var(--color-white)) {
   outline: 0;
-  box-shadow: inset 0 0 0 0.13rem $bg-color, inset 0 0 0 0.3rem $color;
+  box-shadow: inset 0 0 0 0.25rem $bg-color, inset 0 0 0 0.3rem $color;
 }
 
 @mixin hidden {
@@ -38,4 +38,12 @@ $breakpoints: (
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
       + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
+}
+
+@mixin background-chevron($color) {
+  /* SVG background images are being used an interim solution while we wait and
+  * may be superseded by an icon component. The svg path cannot be colored by css
+  * variables on IE11, hence the hard coded color variables.
+  */
+  background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 15.25a.75.75 0 01-.54-.25l-9-9a.75.75 0 011.07-1L10 13.44 18.47 5a.75.75 0 011.06 1l-9 9a.75.75 0 01-.53.25z' fill='%23#{$color}' data-name='Layer 1'/%3E%3C/svg%3E");
 }

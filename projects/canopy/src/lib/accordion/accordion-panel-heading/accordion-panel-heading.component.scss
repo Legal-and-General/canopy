@@ -1,0 +1,39 @@
+@import '../../../styles/mixins';
+
+.lg-accordion__heading-toggle {
+  appearance: none;
+  background-color: var(--accordion-bg-color);
+  color: var(--accordion-color);
+  border: 0;
+  border-top: solid var(--border-width) var(--accordion-border-color);
+  cursor: pointer;
+  display: block;
+  padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-xxl);
+  position: relative;
+  text-align: left;
+  width: 100%;
+  line-height: var(--line-height-body);
+
+  &:focus {
+    @include inner-focus-outline(var(--default-focus-color));
+  }
+
+  .lg-accordion__heading-icon {
+    transition: transform var(--animation-duration) var(--animation-fn);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--accordion-icon-width);
+    margin-left: var(--space-sm);
+    margin-right: var(--space-sm);
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include background-chevron(000 /* --color-black */);
+  }
+
+  &--active .lg-accordion__heading-icon {
+    transform: rotateX(180deg);
+  }
+}

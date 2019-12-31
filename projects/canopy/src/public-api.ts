@@ -5,6 +5,7 @@
 export * from './lib/canopy.service';
 export * from './lib/canopy.module';
 
+export * from './lib/accordion/index';
 export * from './lib/alert/index';
 export * from './lib/button/index';
 export * from './lib/card/index';

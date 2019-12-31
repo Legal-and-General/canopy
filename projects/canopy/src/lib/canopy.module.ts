@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { LgAccordionModule } from './accordion/accordion.module';
 import { LgAlertModule } from './alert/alert.module';
 import { LgButtonModule } from './button/button.module';
 import { LgCardModule } from './card/card.module';
@@ -18,6 +19,7 @@ import { LgSpinnerModule } from './spinner/spinner.module';
 const directives = [LgFocusDirective];
 
 const modules = [
+  LgAccordionModule,
   LgAlertModule,
   LgButtonModule,
   LgCardModule,

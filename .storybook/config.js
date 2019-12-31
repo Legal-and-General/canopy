@@ -7,6 +7,7 @@ addDecorator(withA11y);
 function loadStories() {
   require('!style-loader!css-loader!sass-loader!../projects/canopy/src/styles/styles.scss');
   require('../projects/canopy/src/lib/canopy.stories');
+  require('../projects/canopy/src/lib/accordion/accordion.stories');
   require('../projects/canopy/src/lib/alert/alert.stories');
   require('../projects/canopy/src/lib/button/button.stories');
   require('../projects/canopy/src/lib/card/card/card.stories');

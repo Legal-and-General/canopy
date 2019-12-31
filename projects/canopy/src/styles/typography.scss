@@ -152,6 +152,10 @@ h6,
 p {
   line-height: var(--line-height-body);
   margin-bottom: var(--space-md);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 a {

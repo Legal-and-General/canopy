@@ -1,0 +1,9 @@
+<ng-content select="lg-accordion-panel-heading"></ng-content>
+<div
+  class="lg-accordion__panel"
+  [id]="_panelId"
+  [class.lg-accordion__panel--active]="isActive"
+  [attr.aria-labelledby]="_toggleId"
+>
+  <ng-content></ng-content>
+</div>
