@@ -75,7 +75,7 @@ describe('LgFeatureToggleDirective', () => {
     });
   });
 
-  describe('when the disableIfUndefined is set to Falsy and feature is undefined', () => {
+  describe('when the defaultHide is set to Falsy and feature is undefined', () => {
     it('should enable a feature', () => {
       when(lgFeatureToggleServiceMock.toggles$).thenReturn(
         of({ feature: undefined })
@@ -88,13 +88,13 @@ describe('LgFeatureToggleDirective', () => {
     });
   });
 
-  describe('when the disableIfUndefined is set to True and feature is undefined', () => {
+  describe('when the defaultHide is set to True and feature is undefined', () => {
     it('should disable a feature', () => {
       when(lgFeatureToggleServiceMock.toggles$).thenReturn(
         of({ feature: undefined })
       );
       directive.setOptions({
-        disableIfUndefined: true
+        defaultHide: true
       } as LgFeatureToggleOptions);
 
       const de = fixture.debugElement.query(By.css('#feature'));

@@ -4,7 +4,7 @@ import { LgFeatureToggleModule } from './feature-toggle.module';
 
 import { LgFeatureToggleService } from './feature-toggle.service';
 
-describe(`FeatureToggleModule`, () => {
+describe('FeatureToggleModule', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [LgFeatureToggleModule]
@@ -16,7 +16,7 @@ describe(`FeatureToggleModule`, () => {
       expect(() => TestBed.get(LgFeatureToggleService)).toBeTruthy();
     });
 
-    it(`should provide 'togglesOptionsInjectable' `, () => {
+    it(`should provide 'togglesOptionsInjectable'`, () => {
       expect(() => TestBed.get(togglesOptionsInjectable)).toBeTruthy();
     });
   });

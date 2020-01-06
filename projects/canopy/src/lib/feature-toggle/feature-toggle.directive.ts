@@ -39,21 +39,20 @@ export class LgFeatureToggleDirective implements OnInit, OnDestroy {
     this.subscription = this.lgFeatureToggleService.toggles$
       .pipe(
         tap(() => this.viewContainer.clear()),
-        filter((toggles: LgFeatureToggleConfig) => {
-          return (
+        filter(
+          (toggles: LgFeatureToggleConfig) =>
             (toggles[this.lgFeatureToggle] === undefined &&
-              !this.isDisableIfUndefinedSet()) ||
+              !this.isDefaultHideSet()) ||
             toggles[this.lgFeatureToggle]
-          );
-        })
+        )
       )
       .subscribe(() => {
         this.viewContainer.createEmbeddedView(this.templateRef);
       });
   }
 
-  private isDisableIfUndefinedSet() {
-    return this.options && this.options.disableIfUndefined;
+  private isDefaultHideSet() {
+    return this.options && this.options.defaultHide;
   }
 
   public setOptions(options: LgFeatureToggleOptions) {

@@ -8,7 +8,7 @@ import { notes } from './feature-toggle.notes';
 const stories = storiesOf('Modules', module);
 const options: LgFeatureToggleOptions = {
   // disable undefined feature e.g. Feature 4 in the following story
-  disableIfUndefined: true
+  defaultHide: true
 };
 
 stories.add(

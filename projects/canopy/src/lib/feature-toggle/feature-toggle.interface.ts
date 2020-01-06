@@ -8,7 +8,7 @@ export interface LgFeatureToggleConfig {
 }
 
 export interface LgFeatureToggleOptions {
-  disableIfUndefined: boolean;
+  defaultHide: boolean;
 }
 
 export interface LgToggles {
