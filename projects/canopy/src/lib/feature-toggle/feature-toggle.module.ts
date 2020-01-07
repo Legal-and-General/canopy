@@ -28,7 +28,6 @@ export class LgFeatureToggleModule {
           useFactory: toggles.useFactory,
           deps: toggles.deps
         },
-        // A feature is enabled if undefined, but we can override it by setting disabledIfUndefined to true in this options object
         {
           provide: togglesOptionsInjectable,
           useValue: optionsInjectable
