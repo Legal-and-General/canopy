@@ -75,7 +75,7 @@ describe('LgFeatureToggleDirective', () => {
     });
   });
 
-  describe('when the defaultHide is set to Falsy and feature is undefined', () => {
+  describe('when the defaultHide is set to False and feature is undefined', () => {
     it('should enable a feature', () => {
       when(lgFeatureToggleServiceMock.toggles$).thenReturn(
         of({ feature: undefined })
