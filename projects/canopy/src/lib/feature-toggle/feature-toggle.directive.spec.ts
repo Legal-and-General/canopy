@@ -111,4 +111,17 @@ describe('LgFeatureToggleDirective', () => {
       expect(el.innerText).toEqual('Test feature');
     });
   });
+
+  describe('cleanup', () => {
+    it('should unsubscribe only when there is a subscription in ngOnDestroy', () => {
+      const mockSubscription = jasmine.createSpyObj('Subscription', [
+        'unsubscribe'
+      ]);
+      directive.subscription = mockSubscription;
+
+      directive.ngOnDestroy();
+
+      expect(mockSubscription.unsubscribe).toHaveBeenCalledTimes(1);
+    });
+  });
 });
