@@ -6,7 +6,7 @@ import { notes } from './button.notes';
 
 const groupId = 'lg-button';
 
-const btnStories = storiesOf('Components|Button', module);
+const btnStories = storiesOf('Components/Button', module);
 btnStories.addDecorator(withKnobs);
 
 createBtnStory({
@@ -27,7 +27,7 @@ createBtnStory({
   variant: 'secondary'
 });
 
-const tertiaryBtnStories = storiesOf('Components|Button/Tertiary', module);
+const tertiaryBtnStories = storiesOf('Components/Button/Tertiary', module);
 tertiaryBtnStories.addDecorator(withKnobs);
 
 createBtnStory({

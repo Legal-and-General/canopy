@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
@@ -8,7 +8,7 @@ import { storiesOf } from '@storybook/angular';
 import { CanopyModule } from '../../canopy.module';
 import { notes } from './select.notes';
 
-const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
+const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',

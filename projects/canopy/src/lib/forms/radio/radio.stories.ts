@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
 
-const stories = storiesOf('Components|Form', module).addDecorator(withKnobs);
+const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',

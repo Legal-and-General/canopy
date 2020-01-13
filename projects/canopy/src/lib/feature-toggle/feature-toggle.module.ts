@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule, Optional } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
 import {
