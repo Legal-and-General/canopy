@@ -1,5 +1,5 @@
 export * from './radio/index';
-export * from './checkbox/index';
+export * from './checkmark/index';
 export * from './hint/index';
 export * from './input/index';
 export * from './label/index';

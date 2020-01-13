@@ -6,9 +6,15 @@
   [attr.id]="id"
   [attr.name]="name"
   [attr.value]="value"
-  class="lg-checkbox__input"
+  class="lg-checkmark__input"
   type="checkbox"
 />
-<label [attr.for]="id" class="lg-checkbox__label">
+<label
+  [attr.for]="id"
+  class="lg-checkmark__label"
+  [ngClass]="{
+    'lg-checkmark__label--switch': variant === 'switch'
+  }"
+>
   <ng-content></ng-content>
 </label>

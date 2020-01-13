@@ -5,29 +5,36 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 import { CanopyModule } from '../../canopy.module';
-import { LgCheckboxComponent } from './checkbox.component';
+import { LgCheckmarkComponent } from './checkmark.component';
 
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form">
-      <lg-checkbox formControlName="umbrella" value="yes" (change)="onChange()">
+      <lg-checkmark
+        formControlName="umbrella"
+        value="yes"
+        (change)="onChange()"
+        [variant]="variant"
+      >
         I will bring my Umbrella if it is raining
-      </lg-checkbox>
+      </lg-checkmark>
     </form>
   `
 })
-class TestCheckboxComponent {
+class TestCheckmarkComponent {
+  @Input() variant: 'checkbox' | 'switch';
+
   form = new FormGroup({
     umbrella: new FormControl(null)
   });
 }
 
-describe('LgCheckboxComponent', () => {
-  let fixture: ComponentFixture<TestCheckboxComponent>;
-  let component: TestCheckboxComponent;
+describe('LgCheckmarkComponent', () => {
+  let fixture: ComponentFixture<TestCheckmarkComponent>;
+  let component: TestCheckmarkComponent;
 
-  let checkboxDebugElement: DebugElement;
-  let checkboxInstance: LgCheckboxComponent;
+  let checkmarkDebugElement: DebugElement;
+  let checkmarkInstance: LgCheckmarkComponent;
 
   let inputDebugElement: DebugElement;
   let inputLabelElement: DebugElement;
@@ -35,45 +42,65 @@ describe('LgCheckboxComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [CanopyModule, ReactiveFormsModule],
-      declarations: [TestCheckboxComponent]
+      declarations: [TestCheckmarkComponent]
     }).compileComponents();
   }));
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(TestCheckboxComponent);
+    fixture = TestBed.createComponent(TestCheckmarkComponent);
     fixture.detectChanges();
     component = fixture.componentInstance;
 
-    checkboxDebugElement = fixture.debugElement.query(
-      By.directive(LgCheckboxComponent)
+    checkmarkDebugElement = fixture.debugElement.query(
+      By.directive(LgCheckmarkComponent)
     );
 
-    checkboxInstance = checkboxDebugElement.injector.get<LgCheckboxComponent>(
-      LgCheckboxComponent
-    );
+    checkmarkInstance = checkmarkDebugElement.injector.get<
+      LgCheckmarkComponent
+    >(LgCheckmarkComponent);
 
     inputDebugElement = fixture.debugElement.query(
-      By.css('.lg-checkbox__input')
+      By.css('.lg-checkmark__input')
     );
 
     inputLabelElement = fixture.debugElement.query(
-      By.css('.lg-checkbox__label')
+      By.css('.lg-checkmark__label')
     );
   }));
 
-  it('sets a unique name for the checkbox button', () => {
+  it('sets a unique name for the checkmark button', () => {
     fixture.detectChanges();
     expect(
-      /lg-checkbox-\d/.test(
+      /lg-checkmark-\d/.test(
         inputDebugElement.nativeElement.getAttribute('name')
       )
     ).toBe(true);
   });
 
-  it('sets a unique id for the checkbox button', () => {
+  it('sets a unique id for the checkmark button', () => {
     fixture.detectChanges();
     expect(
-      /lg-checkbox-\d/.test(inputDebugElement.nativeElement.getAttribute('id'))
+      /lg-checkmark-\d/.test(inputDebugElement.nativeElement.getAttribute('id'))
+    ).toBe(true);
+  });
+
+  it('sets the correct modifier class based on the variant', () => {
+    component.variant = 'checkbox';
+    fixture.detectChanges();
+
+    expect(
+      inputLabelElement.nativeElement.classList.contains(
+        'lg-checkmark__label--switch'
+      )
+    ).toBe(false);
+
+    component.variant = 'switch';
+    fixture.detectChanges();
+
+    expect(
+      inputLabelElement.nativeElement.classList.contains(
+        'lg-checkmark__label--switch'
+      )
     ).toBe(true);
   });
 
@@ -83,14 +110,14 @@ describe('LgCheckboxComponent', () => {
     expect(inputLabelElement.nativeElement.getAttribute('for')).toBe(id);
   });
 
-  it('checks the checkbox by default if the value is true', () => {
+  it('checks the checkmark by default if the value is true', () => {
     expect(inputDebugElement.nativeElement.checked).toBe(false);
     component.form.controls.umbrella.setValue('yes');
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.checked).toBe(true);
   });
 
-  it('updates the model value when a checkbox is checked', () => {
+  it('updates the model value when a checkmark is checked', () => {
     expect(component.form.controls.umbrella.value).toBe(null);
     fixture.detectChanges();
     inputDebugElement.triggerEventHandler('click', null);
@@ -98,8 +125,8 @@ describe('LgCheckboxComponent', () => {
     expect(component.form.controls.umbrella.value).toBe('yes');
   });
 
-  it('triggers the onChange action when the checkbox is checked', () => {
-    const onChangeSpy = spyOn(checkboxInstance, 'onChange');
+  it('triggers the onChange action when the checkmark is checked', () => {
+    const onChangeSpy = spyOn(checkmarkInstance, 'onChange');
     inputDebugElement.triggerEventHandler('click', null);
     expect(onChangeSpy).toHaveBeenCalled();
   });

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { LgCheckboxModule } from './checkbox/checkbox.module';
+import { LgCheckboxModule } from './checkmark/checkmark.module';
 import { LgHintModule } from './hint/hint.module';
 import { LgInputModule } from './input/input.module';
 import { LgLabelModule } from './label/label.module';

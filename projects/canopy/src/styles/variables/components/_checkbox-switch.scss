@@ -1,0 +1,13 @@
+:root {
+  --checkmark-switch-off-bg-color: var(--color-white-smoke);
+  --checkmark-switch-off-dot-bg-color: var(--color-super-blue);
+
+  --checkmark-switch-on-bg-color: var(--color-super-blue);
+  --checkmark-switch-on-dot-bg-color: var(--color-white);
+  --checkmark-switch-on-border-color: var(--color-super-blue);
+
+  --checkmark-switch-disabled-bg-color: var(--color-white);
+  --checkmark-switch-disabled-dot-bg-color: var(--disabled-color);
+  --checkmark-switch-disabled-border-color: var(--disabled-color);
+  --checkmark-switch-disabled-color: var(--color-platinum);
+}
