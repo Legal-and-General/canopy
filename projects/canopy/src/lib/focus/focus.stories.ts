@@ -7,7 +7,7 @@ const stories = storiesOf('Directives', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'Focus directive',
+  'Focus',
   () => ({
     moduleMetadata: {
       declarations: [LgFocusDirective]

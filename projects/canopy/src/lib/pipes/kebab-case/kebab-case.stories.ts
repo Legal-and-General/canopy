@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/angular';
 import { notes } from './kebab-case.notes';
 import { LgKebabCasePipe } from './kebab-case.pipe';
 
-const stories = storiesOf('Modules/Pipes', module);
+const stories = storiesOf('Pipes', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'Kebab case pipe',
+  'Kebab case',
   () => ({
     moduleMetadata: {
       declarations: [LgKebabCasePipe]

@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/angular';
 import { notes } from './camel-case.notes';
 import { LgCamelCasePipe } from './camel-case.pipe';
 
-const stories = storiesOf('Modules/Pipes', module);
+const stories = storiesOf('Pipes', module);
 stories.addDecorator(withKnobs);
 
 stories.add(
-  'Camel case pipe',
+  'Camel case',
   () => ({
     moduleMetadata: {
       declarations: [LgCamelCasePipe]
