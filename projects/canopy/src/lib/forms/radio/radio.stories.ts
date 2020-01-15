@@ -6,6 +6,7 @@ import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
+import { notes } from './radio.notes';
 
 const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
@@ -48,23 +49,31 @@ class ReactiveFormComponent {
   }
 }
 
-stories.add('Radio', () => ({
-  moduleMetadata: {
-    declarations: [ReactiveFormComponent],
-    imports: [ReactiveFormsModule, CanopyModule]
-  },
-  template: `<lg-reactive-form
+stories.add(
+  'Radio',
+  () => ({
+    moduleMetadata: {
+      declarations: [ReactiveFormComponent],
+      imports: [ReactiveFormsModule, CanopyModule]
+    },
+    template: `<lg-reactive-form
     [disabled]="disabled"
     [hint]="hint"
     [inline]="inline"
     [label]="label"
     (radioChange)="radioChange($event)">
   </lg-reactive-form>`,
-  props: {
-    inline: boolean('inline', false),
-    label: text('label', 'Color'),
-    hint: text('hint', 'Please select a color'),
-    radioChange: action('radioChange'),
-    disabled: boolean('disabled', false)
+    props: {
+      inline: boolean('inline', false),
+      label: text('label', 'Color'),
+      hint: text('hint', 'Please select a color'),
+      radioChange: action('radioChange'),
+      disabled: boolean('disabled', false)
+    }
+  }),
+  {
+    notes: {
+      markdown: notes
+    }
   }
-}));
+);
