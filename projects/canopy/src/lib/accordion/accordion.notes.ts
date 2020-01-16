@@ -75,7 +75,7 @@ Modifiers:
       aria-expanded="false"
     >
       First accordion heading
-      <span class="lg-accordion__heading-toggle" aria-hidden="true"></span>
+      <span class="lg-accordion__heading-icon" aria-hidden="true"></span>
     </button>
   </h2>
 
@@ -99,7 +99,7 @@ Modifiers:
       aria-expanded="true"
     >
       Second accordion heading
-      <span class="lg-accordion__heading-toggle" aria-hidden="true"></span>
+      <span class="lg-accordion__heading-icon" aria-hidden="true"></span>
     </button>
   </h2>
 
