@@ -1,0 +1,78 @@
+:root {
+  --font-family: 'Roboto', arial, Sans-Serif;
+  --color-text: var(--color-charcoal);
+
+  /* set base values */
+  --text-base-size: 16px; /* stylelint-disable-line unit-whitelist */
+  --text-scale-ratio: 0.25rem;
+  --text-base-line-height: 1.5;
+  --text-bottom-margin: 1em;
+
+  /* font weight */
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 500;
+
+  /* font size variables */
+  --text-fs-7-size: calc(
+    var(--text-base-size) + (9 * var(--text-scale-ratio))
+  ); // 52px
+  --text-fs-6-size: calc(
+    var(--text-base-size) + (7 * var(--text-scale-ratio))
+  ); // 44px
+  --text-fs-5-size: calc(
+    var(--text-base-size) + (5 * var(--text-scale-ratio))
+  ); // 36px
+  --text-fs-4-size: calc(
+    var(--text-base-size) + (3 * var(--text-scale-ratio))
+  ); // 28px
+  --text-fs-3-size: calc(
+    var(--text-base-size) + (2 * var(--text-scale-ratio))
+  ); // 24px
+  --text-fs-2-size: calc(
+    var(--text-base-size) + var(--text-scale-ratio)
+  ); // 20px
+  --text-fs-1-size: var(--text-base-size); // 16px
+  --text-fs--8-size: calc(
+    var(--text-base-size) - (var(--text-scale-ratio) / 2)
+  ); // 14px
+  --text-fs--6-size: calc(
+    var(--text-base-size) - (var(--text-scale-ratio) * 3 / 4)
+  ); // 13px
+
+  --text-fs-7-line-height: 1.1;
+  --text-fs-6-line-height: 1.1;
+  --text-fs-5-line-height: 1.1;
+  --text-fs-4-line-height: 1.1;
+  --text-fs-3-line-height: 1.2;
+  --text-fs-2-line-height: 1.3;
+  --text-fs-1-line-height: 1.5;
+  --text-fs--8-line-height: 1.7;
+  --text-fs--6-line-height: 1.25;
+
+  --text-fs-7-weight: var(--font-weight-light);
+  --text-fs-6-weight: var(--font-weight-light);
+  --text-fs-5-weight: var(--font-weight-light);
+  --text-fs-4-weight: var(--font-weight-light);
+  --text-fs-3-weight: var(--font-weight-light);
+  --text-fs-2-weight: var(--font-weight-regular);
+  --text-fs-1-weight: var(--font-weight-regular);
+  --text-fs--8-weight: var(--font-weight-regular);
+  --text-fs--6-weight: var(--font-weight-regular);
+
+  @include breakpoint('md') {
+    --text-fs-7-size: calc(
+      var(--text-base-size) + (10 * var(--text-scale-ratio))
+    );
+    --text-fs-6-size: calc(
+      var(--text-base-size) + (8 * var(--text-scale-ratio))
+    );
+    --text-fs-5-size: calc(
+      var(--text-base-size) + (6 * var(--text-scale-ratio))
+    );
+    --text-fs-4-size: calc(
+      var(--text-base-size) + (4 * var(--text-scale-ratio))
+    );
+  }
+}

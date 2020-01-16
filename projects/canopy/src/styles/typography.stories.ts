@@ -1,22 +1,51 @@
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
+
+import { LgCardComponent } from '../lib/card/card/card.component';
+import { notes } from './typography.notes';
 
 const stories = storiesOf('Typography', module);
 
-stories.add('Headings', () => ({
-  template: `
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
-  `
-}));
+stories.add(
+  'Headings',
+  () => ({
+    moduleMetadata: {
+      declarations: [LgCardComponent]
+    },
+    template: `
+    <p class="lg-font-size-7">{{lgFontSize7}}</p>
+    <p class="lg-font-size-6">{{lgFontSize6}}</p>
+    <p class="lg-font-size-5">{{lgFontSize5}}</p>
+    <p class="lg-font-size-4">{{lgFontSize4}}</p>
+    <p class="lg-font-size-3">{{lgFontSize3}}</p>
+    <p class="lg-font-size-2">{{lgFontSize2}}</p>
+    <p class="lg-font-size-1">{{lgFontSize1}}</p>
+    <p class="lg-font-size-0-8">{{lgFontSize08}}</p>
+    <p class="lg-font-size-0-6">{{lgFontSize06}}</p>
+    `,
+    props: {
+      lgFontSize7: text('font size 7', '.lg-font-size-7'),
+      lgFontSize6: text('font size 6', '.lg-font-size-6'),
+      lgFontSize5: text('font size 5', '.lg-font-size-5'),
+      lgFontSize4: text('font size 4', '.lg-font-size-4'),
+      lgFontSize3: text('font size 3', '.lg-font-size-3'),
+      lgFontSize2: text('font size 2', '.lg-font-size-2'),
+      lgFontSize1: text('font size 1', '.lg-font-size-1'),
+      lgFontSize08: text('font size 08', '.lg-font-size-0-8'),
+      lgFontSize06: text('font size 06', '.lg-font-size-0-6')
+    }
+  }),
+  {
+    notes: {
+      markdown: notes
+    }
+  }
+);
 
 stories.add('Page', () => ({
   template: `
       <h1 class="h1">Albert Camus</h1>
-      <p class="standfirst">
+      <p>
         The Plague is a famous allegorical novel by Albert Camus, who's known
         for his existential works. The book was published in 1947 and is
         considered one of the most important works by Camus.
@@ -38,7 +67,7 @@ stories.add('Page', () => ({
         <small>They fancied themselves free, and no one will ever be free so
         long as there are pestilences.</small>
       </p>
-      <p class="legal">
+      <p class="fs-0-6">
         The Plague (French: La Peste) is a novel by Albert Camus, published in
         1947
       </p>

@@ -1,38 +1,5 @@
 $fonts-path: '../assets/fonts' !default;
 
-:root {
-  --font-family: 'Roboto', arial, Sans-Serif;
-  --color-text: var(--color-charcoal);
-
-  /* set base values */
-  --text-base-size: 1rem;
-  --text-scale-ratio: 0.25rem;
-
-  /* type scale */
-  --text-xs: calc(var(--text-base-size) - 0.1875rem); //13px
-  --text-sm: calc(var(--text-base-size) - (var(--text-scale-ratio) / 2)); //14px
-  --text-md: var(--text-base-size); //16px
-  --text-lg: calc(var(--text-base-size) + var(--text-scale-ratio)); //20px
-  --text-xl: calc(var(--text-base-size) + (2 * var(--text-scale-ratio))); //24px
-  --text-xxl: calc(
-    var(--text-base-size) + (4 * var(--text-scale-ratio))
-  ); //32px
-  --text-xxxl: calc(
-    var(--text-base-size) + (6 * var(--text-scale-ratio))
-  ); //40px
-
-  /* font weight */
-  --font-weight-thin: 100;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-bold: 500;
-
-  /* line-height */
-  --line-height-heading: 1.2;
-  --line-height-sm: 1.25;
-  --line-height-body: 1.5;
-}
-
 @font-face {
   font-family: 'Roboto';
   src: url('#{$fonts-path}/roboto/Roboto-Regular-webfont.woff') format('woff');
@@ -57,105 +24,18 @@ $fonts-path: '../assets/fonts' !default;
   font-weight: 100;
 }
 
-body,
-input,
-select {
+html,
+body {
   font-size: var(--text-base-size);
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family);
-  line-height: var(--line-height-body);
+  line-height: var(--text-base-line-height);
   color: var(--color-text);
 }
 
-/* text size */
-.text--xxxl {
-  font-size: var(--text-xxxl);
-}
-
-.text--xxl {
-  font-size: var(--text-xxl);
-}
-
-.text--xl {
-  font-size: var(--text-xl);
-}
-
-.text-lg {
-  font-size: var(--text-lg);
-}
-
-.text-md {
-  font-size: var(--text-md);
-}
-
-.text-sm {
-  font-size: var(--text-sm);
-}
-
-.text-xs {
-  font-size: var(--text-xs);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  margin-bottom: var(--space-xxs);
-}
-
-h1,
-.h1 {
-  font-size: var(--text-xxxl);
-  font-weight: var(--font-weight-light);
-  line-height: 1.2;
-}
-
-h2,
-.h2 {
-  font-size: var(--text-xxl);
-  font-weight: var(--font-weight-light);
-  line-height: 1.4;
-}
-
-h3,
-.h3 {
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.5;
-}
-
-h4,
-.h4 {
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.5;
-}
-
-h5,
-.h5 {
-  font-size: var(--text-md);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.25;
-}
-
-h6,
-.h6 {
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.25;
-}
-
 p {
-  line-height: var(--line-height-body);
-  margin-bottom: var(--space-md);
+  font-size: var(--text-fs-1-size);
+  margin-bottom: var(--text-bottom-margin);
 
   &:last-child {
     margin-bottom: 0;
@@ -180,16 +60,6 @@ a {
   }
 }
 
-.standfirst {
-  font-weight: var(--font-weight-light);
-  font-size: var(--text-lg);
-}
-
-.legal {
-  font-size: var(--text-xs);
-  line-height: var(--line-height-sm);
-}
-
 small {
   font-size: var(--text-sm);
 }
@@ -197,4 +67,81 @@ small {
 b,
 strong {
   font-weight: var(--font-weight-bold);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-bottom: var(--text-bottom-margin);
+}
+
+.lg-font-size-7 {
+  display: block;
+  font-size: var(--text-fs-7-size);
+  line-height: var(--text-fs-7-line-height);
+  font-weight: var(--text-fs-7-weight);
+}
+
+.lg-font-size-6 {
+  display: block;
+  font-size: var(--text-fs-6-size);
+  line-height: var(--text-fs-6-line-height);
+  font-weight: var(--text-fs-6-weight);
+}
+
+h1,
+.lg-font-size-5 {
+  font-size: var(--text-fs-5-size);
+  line-height: var(--text-fs-5-line-height);
+  font-weight: var(--text-fs-5-weight);
+}
+
+h2,
+.lg-font-size-4 {
+  font-size: var(--text-fs-4-size);
+  line-height: var(--text-fs-4-line-height);
+  font-weight: var(--text-fs-4-weight);
+}
+
+h3,
+.lg-font-size-3 {
+  font-size: var(--text-fs-3-size);
+  line-height: var(--text-fs-3-line-height);
+  font-weight: var(--text-fs-3-weight);
+}
+
+h4,
+.lg-font-size-2 {
+  font-size: var(--text-fs-2-size);
+  line-height: var(--text-fs-2-line-height);
+  font-weight: var(--text-fs-2-weight);
+}
+
+h5,
+.lg-font-size-1 {
+  font-size: var(--text-fs-1-size);
+  line-height: var(--text-fs-1-line-height);
+  font-weight: var(--text-fs-1-weight);
+}
+
+h6,
+.lg-font-size-0-8 {
+  font-size: var(--text-fs--8-size);
+  line-height: var(--text-fs--8-line-height);
+  font-weight: var(--text-fs--8-weight);
+}
+
+.lg-font-size-0-6 {
+  font-size: var(--text-fs--6-size);
+  line-height: var(--text-fs--6-line-height);
+  font-weight: var(--text-fs--6-weight);
 }
