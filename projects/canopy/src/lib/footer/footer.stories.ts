@@ -41,7 +41,6 @@ stories
           [copyright]="copyright"
           [logo]="logo"
           [logoAlt]="logoAlt"
-          [logoHeight]="logoHeight"
           [primaryLinks]="primaryLinks"
           [secondaryLinks]="secondaryLinks"
           (primaryLinkClicked)="primaryLinkClicked($event)"
@@ -54,7 +53,6 @@ stories
             'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
             groupId
           ),
-          logoHeight: text('logoHeight', '3rem', groupId),
           logoAlt: text('logoAlt', 'Company name', groupId),
           copyright: text('copyright', '© Some Company plc 2018', groupId),
           secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),

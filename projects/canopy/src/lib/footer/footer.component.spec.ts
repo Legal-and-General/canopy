@@ -8,7 +8,6 @@ describe('FooterComponent', () => {
   let fixture: ComponentFixture<LgFooterComponent>;
 
   const logo = 'http://a.b/logo.png';
-  const logoHeight = '10rem';
   const text1 = 'test1';
   const href1 = 'https://a.b';
 
@@ -27,19 +26,12 @@ describe('FooterComponent', () => {
     component.primaryLinks = [{ text: text1, href: href1 }];
     component.secondaryLinks = [{ text: text2, href: href2 }];
     component.logo = logo;
-    component.logoHeight = logoHeight;
 
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('controls the height of the logo', () => {
-    const link = fixture.debugElement.query(By.css(`[src="${logo}"]`));
-    expect(link).toBeTruthy();
-    expect(link.styles.height).toBe(logoHeight);
   });
 
   describe('for primary links', () => {

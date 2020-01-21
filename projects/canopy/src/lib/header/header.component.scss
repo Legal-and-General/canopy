@@ -1,10 +1,5 @@
 @import '../../styles/mixins';
 
-:root {
-  --logo-height: 4rem;
-  --logo-height-lg: 4.5rem;
-}
-
 .lg-header {
   background-color: var(--header-bg-color);
   box-shadow: var(--bottom-shadow);
@@ -15,12 +10,12 @@
   margin: var(--space-xs);
   margin-left: var(--space-sm);
   display: block;
-  height: var(--logo-height);
+  height: var(--header-logo-height);
 
   @include breakpoint('md') {
     margin: var(--space-xxs);
     margin-left: var(--space-lg);
-    height: var(--logo-height-lg);
+    height: var(--header-logo-height-lg);
   }
 }
 

@@ -7,6 +7,8 @@ The current implementation is brand agnostic but eventually the branding should 
 Certain links may eventually be hardcoded into the component but the option will be given to add custom links.
 The component uses an attribute selector which allows you to use the html [footer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) element as the host.
 
+The logo height is set internally with different heights for different screen sizes, it can not currently be modified to ensure consistency.
+
 ## Usage
 Import the component in your application:
 
@@ -23,7 +25,6 @@ and in your HTML:
 <footer
   lg-footer
   logo="/logo.svg"
-  logoHeight="3rem"
   logoAlt="Company Logo"
   copyright="© Some Company plc 2018">
 </footer>
@@ -35,7 +36,6 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`logo\`\` | A url link to the logo | string | null | Yes |
-| \`\`logoHeight\`\` | css string to control the height of the logo | string | '2rem' | No |
 | \`\`logoAlt\`\` | alt text to display alongside the logo | string | '2rem' | Yes |
 | \`\`copyright\`\` | Copyright text to display in footer | string | null | No |
 

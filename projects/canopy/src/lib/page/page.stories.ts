@@ -43,7 +43,6 @@ stories.add(
           <footer lg-footer
             [logo]="logo"
             [logoAlt]="logoAlt"
-            [logoHeight]="footerLogoHeight"
             [copyright]="copyright"
             [primaryLinks]="primaryLinks"
             [secondaryLinks]="secondaryLinks">
@@ -56,7 +55,6 @@ stories.add(
           'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
           sharedGroupId
         ),
-        footerLogoHeight: text('footerLogoHeight', '3rem', footerGroupId),
         logoAlt: text('logoAlt', 'Company name', sharedGroupId),
         copyright: text('copyright', '© Some Company plc 2019', footerGroupId),
         card1Content: text(

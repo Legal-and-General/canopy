@@ -35,6 +35,11 @@
 
 .lg-footer__logo {
   margin-bottom: var(--component-margin);
+  height: var(--footer-logo-height);
+
+  @include breakpoint('md') {
+    height: var(--footer-logo-height-lg);
+  }
 }
 
 .lg-footer__copyright {

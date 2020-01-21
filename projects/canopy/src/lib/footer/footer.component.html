@@ -1,10 +1,9 @@
 <div class="lg-footer__links">
-  <nav class="lg-footer__primary-nav" aria-labelledby="primary-links">
+  <nav *ngIf="primaryLinks && primaryLinks.length"
+      class="lg-footer__primary-nav"
+      aria-labelledby="primary-links">
     <h2 class="hidden" id="primary-links">Primary links</h2>
-    <ul
-      *ngIf="primaryLinks && primaryLinks.length"
-      class="lg-footer__primary-nav-list"
-    >
+    <ul class="lg-footer__primary-nav-list">
       <li *ngFor="let link of primaryLinks" class="lg-footer__primary-nav-item">
         <a
           (click)="handlePrimaryLinkClick($event)"
@@ -18,12 +17,11 @@
       </li>
     </ul>
   </nav>
-  <nav class="lg-footer__secondary-nav" aria-labelledby="secondary-links">
+  <nav *ngIf="secondaryLinks && secondaryLinks.length"
+      class="lg-footer__secondary-nav"
+      aria-labelledby="secondary-links">
     <h2 class="hidden" id="secondary-links">Secondary links</h2>
-    <ul
-      *ngIf="secondaryLinks && secondaryLinks.length"
-      class="lg-footer__secondary-nav-list"
-    >
+    <ul class="lg-footer__secondary-nav-list">
       <li
         *ngFor="let link of secondaryLinks"
         class="lg-footer__secondary-nav-item"
@@ -43,13 +41,8 @@
 </div>
 
 <div class="lg-footer__org">
-  <img
-    [attr.alt]="logoAlt"
-    [attr.src]="logo"
-    [style.height]="logoHeight"
-    class="lg-footer__logo"
-  />
-  <span class="lg-footer__copyright legal">
+  <img [attr.alt]="logoAlt" [attr.src]="logo" class="lg-footer__logo" />
+  <span class="lg-footer__copyright">
     {{ copyright }}
   </span>
 </div>
