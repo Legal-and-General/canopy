@@ -9,6 +9,7 @@
 
 .lg-page__content {
   flex: 1 0 auto;
+  padding-bottom: var(--space-md);
 
   @include breakpoint('md') {
     width: 29rem;
