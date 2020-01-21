@@ -7,17 +7,18 @@
 
 .lg-header {
   background-color: var(--header-bg-color);
-  padding: var(--space-xxxs) 0;
   box-shadow: var(--bottom-shadow);
   display: flex;
 }
 
 .lg-header__logo {
-  margin: var(--space-sm);
+  margin: var(--space-xs);
+  margin-left: var(--space-sm);
   display: block;
   height: var(--logo-height);
 
   @include breakpoint('md') {
+    margin: var(--space-xxs);
     margin-left: var(--space-lg);
     height: var(--logo-height-lg);
   }
