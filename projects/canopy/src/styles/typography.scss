@@ -5,17 +5,21 @@ $fonts-path: '../assets/fonts' !default;
   --color-text: var(--color-charcoal);
 
   /* set base values */
-  --text-base-size: 1em;
-  --text-scale-ratio: 0.25em;
+  --text-base-size: 1rem;
+  --text-scale-ratio: 0.25rem;
 
   /* type scale */
-  --text-xs: calc(1em - var(--text-scale-ratio));
-  --text-sm: calc(1em - (var(--text-scale-ratio) / 2));
-  --text-md: var(--text-base-size);
-  --text-lg: calc(var(--text-base-size) + var(--text-scale-ratio));
-  --text-xl: calc(var(--text-base-size) + (2 * var(--text-scale-ratio)));
-  --text-xxl: calc(var(--text-base-size) + (4 * var(--text-scale-ratio)));
-  --text-xxxl: calc(var(--text-base-size) + (6 * var(--text-scale-ratio)));
+  --text-xs: calc(var(--text-base-size) - 0.1875rem); //13px
+  --text-sm: calc(var(--text-base-size) - (var(--text-scale-ratio) / 2)); //14px
+  --text-md: var(--text-base-size); //16px
+  --text-lg: calc(var(--text-base-size) + var(--text-scale-ratio)); //20px
+  --text-xl: calc(var(--text-base-size) + (2 * var(--text-scale-ratio))); //24px
+  --text-xxl: calc(
+    var(--text-base-size) + (4 * var(--text-scale-ratio))
+  ); //32px
+  --text-xxxl: calc(
+    var(--text-base-size) + (6 * var(--text-scale-ratio))
+  ); //40px
 
   /* font weight */
   --font-weight-thin: 100;
