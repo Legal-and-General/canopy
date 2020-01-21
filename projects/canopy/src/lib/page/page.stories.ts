@@ -36,8 +36,7 @@ stories.add(
           <header lg-header
             [logo]="logo"
             [logoAlt]="logoAlt"
-            [logoHref]="logoHref"
-            [logoHeight]="headerLogoHeight">
+            [logoHref]="logoHref">
           </header>
           <lg-card>{{card1Content}}</lg-card>
           <lg-card>{{card2Content}}</lg-card>
@@ -57,7 +56,6 @@ stories.add(
           'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
           sharedGroupId
         ),
-        headerLogoHeight: text('headerLogoHeight', '3rem', headerGroupId),
         footerLogoHeight: text('footerLogoHeight', '3rem', footerGroupId),
         logoAlt: text('logoAlt', 'Company name', sharedGroupId),
         copyright: text('copyright', '© Some Company plc 2019', footerGroupId),

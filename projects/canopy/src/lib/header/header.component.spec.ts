@@ -8,7 +8,6 @@ describe('FooterComponent', () => {
   let fixture: ComponentFixture<LgHeaderComponent>;
 
   const logo = 'http://a.b/logo.png';
-  const logoHeight = '10rem';
   const href = 'http://a.b';
 
   beforeEach(async(() => {
@@ -21,19 +20,12 @@ describe('FooterComponent', () => {
     fixture = TestBed.createComponent(LgHeaderComponent);
     component = fixture.componentInstance;
     component.logo = logo;
-    component.logoHeight = logoHeight;
 
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('controls the height of the logo', () => {
-    const link = fixture.debugElement.query(By.css(`[src="${logo}"]`));
-    expect(link).toBeTruthy();
-    expect(link.styles.height).toBe(logoHeight);
   });
 
   it('does not render a link if an href is not provided', () => {

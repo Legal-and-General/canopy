@@ -21,7 +21,7 @@ stories
           declarations: [LgHeaderComponent]
         },
         template: `
-        <header lg-header [logo]="logo" [logoHeight]="logoHeight" [logoAlt]="logoAlt" [logoHref]="logoHref"></header>
+        <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></header>
       `,
         props: {
           logo: text(
@@ -29,7 +29,6 @@ stories
             'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
             groupId
           ),
-          logoHeight: text('logoHeight', '3rem', groupId),
           logoAlt: text('logoAlt', 'Company name', groupId),
           logoHref: text('logoHref', 'https://storybook.js.org', groupId)
         }
