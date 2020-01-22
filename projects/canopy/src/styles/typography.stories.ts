@@ -1,10 +1,10 @@
-import { text } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { LgCardComponent } from '../lib/card/card/card.component';
 import { notes } from './typography.notes';
 
-const stories = storiesOf('Typography', module);
+const stories = storiesOf('Typography', module).addDecorator(withKnobs);
 
 stories.add(
   'Headings',
@@ -72,4 +72,8 @@ stories.add('Page', () => ({
         1947
       </p>
   `
-}));
+}), {
+  notes: {
+    markdown: notes
+  }
+});
