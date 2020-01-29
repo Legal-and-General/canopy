@@ -9,6 +9,7 @@ import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
 import { LgFocusDirective } from './focus/focus.directive';
 import { LgFooterModule } from './footer/footer.module';
 import { LgFormsModule } from './forms/forms.module';
+import { LgGridModule } from './grid/grid.module';
 import { LgHeaderModule } from './header/header.module';
 import { LgHeadingModule } from './heading/heading.module';
 import { LgMarginModule } from './margin/margin.module';
@@ -26,11 +27,12 @@ const modules = [
   LgFeatureToggleModule,
   LgFooterModule,
   LgFormsModule,
+  LgGridModule,
   LgHeaderModule,
   LgHeadingModule,
+  LgMarginModule,
   LgPageModule,
   LgPipesModule,
-  LgMarginModule,
   LgSpinnerModule
 ];
 
