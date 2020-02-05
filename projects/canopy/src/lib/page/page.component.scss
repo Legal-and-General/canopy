@@ -7,19 +7,9 @@
   min-height: 100%;
 }
 
-.lg-page__content {
+.lg-page__main {
+  padding: var(--component-padding) 0;
   flex: 1 0 auto;
-  padding-bottom: var(--space-md);
-
-  @include breakpoint('md') {
-    width: 29rem;
-    align-self: center;
-  }
-
-  @include breakpoint('lg') {
-    width: 37rem;
-    align-self: center;
-  }
 }
 
 .lg-page__skip-link {

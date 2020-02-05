@@ -1,108 +1,120 @@
 <lg-page>
   <header lg-header></header>
 
-  <lg-card>
-    <lg-heading [level]="1">
-      Canopy test page
-    </lg-heading>
+  <div lgContainer>
+    <div lgRow>
+      <div
+        lgCol="12"
+        lgColSm="10"
+        lgColSmOffset="1"
+        lgColMd="8"
+        lgColMdOffset="2"
+      >
+        <lg-card>
+          <lg-heading [level]="1">
+            Canopy test page
+          </lg-heading>
 
-    <lg-accordion [headingLevel]="2">
-      <lg-accordion-item>
-        <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </lg-accordion-item>
-      <lg-accordion-item>
-        <lg-accordion-panel-heading>Item 2</lg-accordion-panel-heading>
-        <p>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
-        <button lg-button lgMarginTop="sm" variant="solid-primary">
-          Test primary button
-        </button>
-      </lg-accordion-item>
-    </lg-accordion>
+          <lg-accordion [headingLevel]="2">
+            <lg-accordion-item>
+              <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </lg-accordion-item>
+            <lg-accordion-item>
+              <lg-accordion-panel-heading>Item 2</lg-accordion-panel-heading>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur.
+              </p>
+              <lg-button lgMarginTop="sm" variant="primary">
+                Test primary button
+              </lg-button>
+            </lg-accordion-item>
+          </lg-accordion>
 
-    <lg-alert variant="info">
-      Information alert
-    </lg-alert>
+          <lg-alert variant="info">
+            Information alert
+          </lg-alert>
 
-    <lg-alert variant="warning">
-      Warning alert
-    </lg-alert>
+          <lg-alert variant="warning">
+            Warning alert
+          </lg-alert>
 
-    <lg-alert variant="success">
-      Success alert
-    </lg-alert>
+          <lg-alert variant="success">
+            Success alert
+          </lg-alert>
 
-    <lg-alert variant="error" lgMarginBottom="xxxl">
-      Error alert
-    </lg-alert>
+          <lg-alert variant="error" lgMarginBottom="xxxl">
+            Error alert
+          </lg-alert>
 
-    <button lg-button variant="solid-primary">
-      Test solid primary button
-    </button>
-    <br />
+          <button lg-button variant="solid-primary">
+            Test solid primary button
+          </button>
+          <br />
+      
+          <button lg-button variant="solid-secondary">
+            Test solid secondary button
+          </button>
+          <br />
+      
+          <button lg-button variant="outline-primary">
+            Test outline primary button
+          </button>
+          <br />
+      
+          <button lg-button variant="outline-secondary">
+            Test outline secondary button
+          </button>
+          <br />
+      
+          <button lg-button variant="solid-primary" [loading]="true">
+            Test loading button
+          </button>
 
-    <button lg-button variant="solid-secondary">
-      Test solid secondary button
-    </button>
-    <br />
+          <lg-input-field>
+            Test input
+            <lg-hint>Enter some text</lg-hint>
+            <input lgInput />
+          </lg-input-field>
 
-    <button lg-button variant="outline-primary">
-      Test outline primary button
-    </button>
-    <br />
+          <lg-select-field>
+            Select input
+            <lg-hint>Pick an option</lg-hint>
+            <select lgSelect>
+              <option value="blue">Blue</option>
+              <option value="yellow">Yellow</option>
+              <option value="green">Green</option>
+              <option value="red">Red</option>
+            </select>
+          </lg-select-field>
 
-    <button lg-button variant="outline-secondary">
-      Test outline secondary button
-    </button>
-    <br />
+          <lg-toggle>
+            Test checkbox
+          </lg-toggle>
 
-    <button lg-button variant="solid-primary" [loading]="true">
-      Test loading button
-    </button>
+          <lg-toggle variant="switch">Toggle switch</lg-toggle>
 
-    <lg-input-field>
-      Test input
-      <lg-hint>Enter some text</lg-hint>
-      <input lgInput />
-    </lg-input-field>
+          <lg-radio-group>
+            Test radio group
+            <lg-hint>Pick an option</lg-hint>
+            <lg-radio-button value="red">Red</lg-radio-button>
+            <lg-radio-button value="yellow">Yellow</lg-radio-button>
+            <lg-radio-button value="green">Green</lg-radio-button>
+            <lg-radio-button value="blue">Blue</lg-radio-button>
+          </lg-radio-group>
 
-    <lg-select-field>
-      Select input
-      <lg-hint>Pick an option</lg-hint>
-      <select lgSelect>
-        <option value="blue">Blue</option>
-        <option value="yellow">Yellow</option>
-        <option value="green">Green</option>
-        <option value="red">Red</option>
-      </select>
-    </lg-select-field>
+          <lg-spinner variant="dark"></lg-spinner>
 
-    <lg-toggle>
-      Test checkbox
-    </lg-toggle>
-
-    <lg-toggle variant="switch">Toggle switch</lg-toggle>
-
-    <lg-radio-group>
-      Test radio group
-      <lg-hint>Pick an option</lg-hint>
-      <lg-radio-button value="red">Red</lg-radio-button>
-      <lg-radio-button value="yellow">Yellow</lg-radio-button>
-      <lg-radio-button value="green">Green</lg-radio-button>
-      <lg-radio-button value="blue">Blue</lg-radio-button>
-    </lg-radio-group>
-
-    <lg-spinner variant="dark"></lg-spinner>
-
-    <lg-spinner variant="color"></lg-spinner>
-  </lg-card>
+          <lg-spinner variant="color"></lg-spinner>
+        </lg-card>
+      </div>
+    </div>
+  </div>
   <footer lg-footer></footer>
 </lg-page>

@@ -2,15 +2,15 @@ export const notes = `
 # Page Component
 
 ## Purpose
-Provides a single column page layout, with content projection slots for standard header and footer.
+Provides a page layout with content projection slots for standard header and footer.
 
 ## Usage
-Import the component in your application:
+The page component works best when combined with the [grid module](/?path=/story/directives--grid) which can be used to provide a responsive layout for the main content.
 
 ~~~js
 @NgModule({
   ...
-  imports: [LgPageModule],
+  imports: [LgGridModule, LgPageModule],
 })
 ~~~
 
@@ -19,8 +19,20 @@ and in your HTML:
 ~~~html
 <lg-page>
   <lg-header></lg-header>
-  <lg-card>Some content</lg-card>
-  <lg-card>More content</lg-card>
+  <div lgContainer>
+    <div lgRow>
+      <div
+          lgCol="12"
+          lgColMd="8"
+          lgColMdOffset="2"
+          lgColLg="6"
+          lgColLgOffset="3"
+        >
+        <lg-card lgMarginHorizontal="none">{{card1Content}}</lg-card>
+        <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
+      </div>
+    </div>
+  </div>
   <lg-footer></lg-footer>
 </lg-page>
 ~~~
