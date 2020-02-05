@@ -24,6 +24,7 @@
 }
 
 $spacing-list: (
+  'none',
   'xxxs',
   'xxs',
   'xs',
@@ -38,46 +39,37 @@ $spacing-list: (
 
 body {
   // utility classes require additional specificity
+
+  @function space($val) {
+    @if $val == 'none' {
+      @return 0;
+    } @else {
+      @return var(--space-#{$val});
+    }
+  }
+
   @each $val in $spacing-list {
     .lg-margin--#{$val} {
-      margin: var(--space-#{$val});
+      margin: space($val);
     }
+  }
 
+  @each $val in $spacing-list {
     .lg-margin__top--#{$val} {
-      margin-top: var(--space-#{$val});
+      margin-top: space($val);
     }
 
     .lg-margin__right--#{$val} {
-      margin-right: var(--space-#{$val});
+      margin-right: space($val);
     }
 
     .lg-margin__bottom--#{$val} {
-      margin-bottom: var(--space-#{$val});
+      margin-bottom: space($val);
     }
 
     .lg-margin__left--#{$val} {
-      margin-left: var(--space-#{$val});
+      margin-left: space($val);
     }
-  }
-
-  .lg-margin--none {
-    margin: 0;
-  }
-
-  .lg-margin__top--none {
-    margin-top: 0;
-  }
-
-  .lg-margin__right--none {
-    margin-right: 0;
-  }
-
-  .lg-margin__bottom--none {
-    margin-bottom: 0;
-  }
-
-  .lg-margin__left--none {
-    margin-left: 0;
   }
 }
 

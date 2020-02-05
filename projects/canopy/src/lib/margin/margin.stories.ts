@@ -6,6 +6,7 @@ import { notes } from './margin.notes';
 
 const stories = storiesOf('Directives', module);
 const spaces = [
+  'undefined',
   'none',
   'xxxs',
   'xxs',
@@ -34,20 +35,20 @@ stories
       template: `
         <lg-card 
           [lgMargin]="margin"
-          [lgMarginTop]="marginTop"
-          [lgMarginRight]="marginRight"
-          [lgMarginLeft]="marginLeft"
-          [lgMarginBottom]="marginBottom">
+          [lgMarginTop]="marginTop !== 'undefined' ? marginTop : null"
+          [lgMarginRight]="marginRight !== 'undefined' ? marginRight : null"
+          [lgMarginBottom]="marginBottom !== 'undefined' ? marginBottom : null"
+          [lgMarginLeft]="marginLeft !== 'undefined' ? marginLeft : null">
             Card with directive applied
         </lg-card>
         <lg-card>Card without directive applied</lg-card>
       `,
       props: {
         margin: select('margin', spaces, 'md'),
-        marginTop: select('marginTop', spaces, 'none'),
-        marginRight: select('marginRight', spaces, 'none'),
-        marginBottom: select('marginBottom', spaces, 'none'),
-        marginLeft: select('marginLeft', spaces, 'none')
+        marginTop: select('marginTop', spaces, 'undefined'),
+        marginRight: select('marginRight', spaces, 'undefined'),
+        marginBottom: select('marginBottom', spaces, 'undefined'),
+        marginLeft: select('marginLeft', spaces, 'undefined')
       }
     }),
     {
