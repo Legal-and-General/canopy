@@ -1,4 +1,16 @@
 :root {
+  --toggle-color: var(--color-super-blue);
+  --toggle-disabled-color: var(--color-taupe-grey);
+
+  --toggle-inner-height: 0.5rem;
+  --toggle-inner-width: var(--toggle-inner-height);
+  --toggle-outer-height: 1rem;
+  --toggle-outer-width: var(--toggle-outer-height);
+
+  --toggle-switch-height: var(--space-md);
+  --toggle-switch-width: calc(var(--toggle-switch-height) * 1.85);
+  --toggle-switch-dot-offset: var(--space-xxxs);
+
   --toggle-switch-off-bg-color: var(--color-white-smoke);
   --toggle-switch-off-dot-bg-color: var(--color-super-blue);
 

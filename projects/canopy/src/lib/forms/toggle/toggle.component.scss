@@ -16,7 +16,12 @@
 
     &::after {
       background-color: var(--toggle-switch-on-dot-bg-color);
-      transform: translate(calc(2.6em - 100%), -50%);
+      transform: translate(
+        calc(
+          var(--toggle-switch-width) - var(--toggle-switch-dot-offset) - 100%
+        ),
+        -50%
+      );
     }
   }
 
@@ -104,13 +109,13 @@
   &::after {
     background-color: var(--toggle-switch-off-dot-bg-color);
     margin-right: var(--space-xxs);
-    transition: all var(--animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--animation-duration) var(--animation-cubic-bazier-fn);
   }
 
   &::before {
-    height: var(--space-md);
-    width: 2.8em;
-    border-radius: 1em;
+    height: var(--toggle-switch-height);
+    width: var(--toggle-switch-width);
+    border-radius: calc(var(--toggle-switch-height) / 2);
     background-color: var(--toggle-switch-off-bg-color);
   }
 
@@ -118,7 +123,7 @@
     top: 50%;
     bottom: auto;
     background-image: none;
-    transform: translate(25%, -50%);
+    transform: translate(var(--toggle-switch-dot-offset), -50%);
     border-radius: 50%;
   }
 }

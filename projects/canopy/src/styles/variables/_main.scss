@@ -12,6 +12,7 @@
   /* Animation */
   --animation-duration: 0.25s;
   --animation-fn: ease-out;
+  --animation-cubic-bazier-fn: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Links */
   --link-color: var(--color-super-blue);
@@ -37,11 +38,4 @@
   --background-disabled-color: var(--color-white-smoke);
 
   --keyline-width: 0.1875rem;
-
-  --toggle-color: var(--color-super-blue);
-  --toggle-disabled-color: var(--color-taupe-grey);
-  --toggle-inner-height: 0.5rem;
-  --toggle-inner-width: var(--toggle-inner-height);
-  --toggle-outer-height: 1rem;
-  --toggle-outer-width: var(--toggle-outer-height);
 }
