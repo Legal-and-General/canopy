@@ -2,8 +2,15 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 import { SpacingVariant } from './margin.interface';
 
 @Directive({
-  selector:
-    '[lgMargin],[lgMarginTop],[lgMarginRight],[lgMarginBottom],[lgMarginLeft]'
+  selector: `
+    [lgMargin],
+    [lgMarginVertical],
+    [lgMarginHorizontal],
+    [lgMarginTop],
+    [lgMarginRight],
+    [lgMarginBottom],
+    [lgMarginLeft]
+  `
 })
 export class LgMarginDirective {
   marginTopClass: string;
@@ -40,6 +47,18 @@ export class LgMarginDirective {
       `lg-margin__left--${margin}`,
       this.marginLeftClass
     );
+  }
+
+  @Input()
+  set lgMarginHorizontal(margin: SpacingVariant) {
+    this.lgMarginLeft = margin;
+    this.lgMarginRight = margin;
+  }
+
+  @Input()
+  set lgMarginVertical(margin: SpacingVariant) {
+    this.lgMarginTop = margin;
+    this.lgMarginBottom = margin;
   }
 
   marginClass: string;

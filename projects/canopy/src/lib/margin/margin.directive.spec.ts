@@ -12,6 +12,8 @@ import { LgMarginDirective } from './margin.directive';
       [lgMarginRight]="lgMarginRight"
       [lgMarginBottom]="lgMarginBottom"
       [lgMarginLeft]="lgMarginLeft"
+      [lgMarginVertical]="lgMarginVertical"
+      [lgMarginHorizontal]="lgMarginHorizontal"
     >
       Test feature
     </div>
@@ -23,6 +25,8 @@ class TestComponent {
   @Input() lgMarginRight;
   @Input() lgMarginBottom;
   @Input() lgMarginLeft;
+  @Input() lgMarginVertical;
+  @Input() lgMarginHorizontal;
 }
 
 describe('LgMargin', () => {
@@ -96,5 +100,23 @@ describe('LgMargin', () => {
         `lg-margin__${side}--none`
       );
     });
+  });
+
+  it('adds margins to top and bottom when the vertical directive is applied', () => {
+    component.lgMarginVertical = 'lg';
+    fixture.detectChanges();
+    expect(testElement.nativeElement.getAttribute('class')).toContain(
+      `lg-margin__top--lg`,
+      `lg-margin__bottom--lg`
+    );
+  });
+
+  it('adds margins to left and right when the horizontal directive is applied', () => {
+    component.lgMarginHorizontal = 'xxl';
+    fixture.detectChanges();
+    expect(testElement.nativeElement.getAttribute('class')).toContain(
+      `lg-margin__left--xxl`,
+      `lg-margin__right--xxl`
+    );
   });
 });
