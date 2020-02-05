@@ -1,24 +1,10 @@
-<button
-  [type]="behaviour"
-  [disabled]="disabled"
-  class="lg-btn"
-  [ngClass]="{
-    'lg-btn--cta': variant === 'cta',
-    'lg-btn--primary': variant === 'primary',
-    'lg-btn--secondary': variant === 'secondary',
-    'lg-btn--tertiary': variant === 'tertiary',
-    'lg-btn--tertiary-alt-1': variant === 'tertiary-alt-1',
-    'lg-btn--tertiary-alt-2': variant === 'tertiary-alt-2',
-    'lg-btn--block': fullWidth,
-    'lg-btn--rounded': rounded,
-    'lg-btn--loading': loading
-  }"
-  (click)="handleAction()"
->
-  <ng-content *ngIf="!loading"></ng-content>
-  <lg-spinner
-    *ngIf="loading"
-    [variant]="'inherit'"
-    lgMargin="none"
-  ></lg-spinner>
-</button>
+<ng-template #transclude><ng-content></ng-content></ng-template>
+
+<ng-container *ngIf="loading; else transclude">
+  <span class="lg-btn__hidden-content" aria-hidden="true">
+    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+  </span>
+
+  <lg-spinner class="lg-btn__spinner" [variant]="'inherit'" lgMargin="none">
+  </lg-spinner>
+</ng-container>

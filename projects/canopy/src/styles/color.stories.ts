@@ -224,7 +224,7 @@ stories.add(
           names="--color-super-blue-lightest,--color-super-blue-light,--color-super-blue,--color-super-blue-dark,--color-super-blue-darkest">
         </lg-tint-swatch>
         <lg-tint-swatch 
-          names="--color-leafy-green-lightest,--color-leafy-green-light,--color-leafy-green,--color-leafy-green-dark">
+          names="--color-leafy-green-lightest,--color-leafy-green-light,--color-leafy-green,--color-leafy-green-dark,--color-leafy-green-darkest">
         </lg-tint-swatch>
         <lg-tint-swatch 
           names="--color-poppy-red-lightest,--color-poppy-red-light,--color-poppy-red,--color-poppy-red-dark">

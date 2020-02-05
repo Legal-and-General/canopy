@@ -22,9 +22,9 @@
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur.
         </p>
-        <lg-button lgMarginTop="sm" variant="primary">
+        <button lg-button lgMarginTop="sm" variant="solid-primary">
           Test primary button
-        </lg-button>
+        </button>
       </lg-accordion-item>
     </lg-accordion>
 
@@ -44,19 +44,29 @@
       Error alert
     </lg-alert>
 
-    <lg-button variant="primary">
-      Test primary button
-    </lg-button>
+    <button lg-button variant="solid-primary">
+      Test solid primary button
+    </button>
+    <br />
 
-    <lg-button variant="cta">
-      Test cta button
-    </lg-button>
+    <button lg-button variant="solid-secondary">
+      Test solid secondary button
+    </button>
+    <br />
 
-    <lg-button variant="secondary">
-      Test secondary button
-    </lg-button>
+    <button lg-button variant="outline-primary">
+      Test outline primary button
+    </button>
+    <br />
 
-    <lg-button variant="primary" [loading]="true"></lg-button>
+    <button lg-button variant="outline-secondary">
+      Test outline secondary button
+    </button>
+    <br />
+
+    <button lg-button variant="solid-primary" [loading]="true">
+      Test loading button
+    </button>
 
     <lg-input-field>
       Test input

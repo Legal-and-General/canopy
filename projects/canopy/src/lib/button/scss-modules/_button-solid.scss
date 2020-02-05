@@ -1,0 +1,4 @@
+@import 'helpers/button.mixins';
+
+$variants: 'solid-primary', 'solid-secondary';
+@include createButtons($variants);

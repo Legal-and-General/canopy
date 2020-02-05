@@ -1,5 +1,4 @@
-import { action } from '@storybook/addon-actions';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 import { LgButtonModule } from './button.module';
 import { notes } from './button.notes';
@@ -11,48 +10,45 @@ btnStories.addDecorator(withKnobs);
 
 createBtnStory({
   stories: btnStories,
-  name: 'CTA',
-  variant: 'cta'
+  name: 'Solid primary',
+  variant: 'solid-primary'
 });
 
 createBtnStory({
   stories: btnStories,
-  name: 'Primary',
-  variant: 'primary'
+  name: 'Solid secondary',
+  variant: 'solid-secondary'
 });
 
 createBtnStory({
   stories: btnStories,
-  name: 'Secondary',
-  variant: 'secondary'
-});
-
-const tertiaryBtnStories = storiesOf('Components/Button/Tertiary', module);
-tertiaryBtnStories.addDecorator(withKnobs);
-
-createBtnStory({
-  stories: tertiaryBtnStories,
-  name: 'Default',
-  variant: 'tertiary',
-  bgColor: '#000'
+  name: 'Outline primary',
+  variant: 'outline-primary'
 });
 
 createBtnStory({
-  stories: tertiaryBtnStories,
-  name: 'Alternative 1',
-  variant: 'tertiary-alt-1',
-  bgColor: '#0076d6' // --super-blue TODO: determine how to use css variables
+  stories: btnStories,
+  name: 'Outline secondary',
+  variant: 'outline-secondary',
+  bgColor: '#333' // --color-charcoal TODO: determine how to use css variables
 });
 
 createBtnStory({
-  stories: tertiaryBtnStories,
-  name: 'Alternative 2',
-  variant: 'tertiary-alt-2',
-  bgColor: '#028844' // --leafy-green TODO: determine how to use css variables
+  stories: btnStories,
+  name: 'Reverse primary',
+  variant: 'reverse-primary',
+  bgColor: '#0076d6' // --color-super-blue TODO: determine how to use css variables
+});
+
+createBtnStory({
+  stories: btnStories,
+  name: 'Reverse secondary',
+  variant: 'reverse-secondary',
+  bgColor: '#028844' // --color-leafy-green TODO: determine how to use css variables
 });
 
 function createBtnStory(args) {
-  const { stories, name, variant, bgColor, loading } = args;
+  const { stories, name, variant, bgColor } = args;
 
   return stories
     .addParameters({
@@ -67,24 +63,18 @@ function createBtnStory(args) {
           imports: [LgButtonModule]
         },
         template: `
-        <lg-button
-            variant="${variant}"
-            [fullWidth]="fullWidth ? true : null"
-            [rounded]="rounded ? true : null"
-            [disabled]="disabled ? true : null"
-            [loading]="loading ? true : null"
-            (action)="action($action)"
+        <button lg-button
+          variant="${variant}"
+          [fullWidth]="fullWidth ? true : null"
+          [loading]="loading ? true : null"
           >
           {{content}}
-        </lg-button>
+        </button>
        `,
         props: {
           content: text('text', 'Button', groupId),
-          rounded: boolean('rounded', false, groupId),
-          disabled: boolean('disabled', false, groupId),
           fullWidth: boolean('fullWidth', false, groupId),
-          loading: boolean('loading', false, groupId),
-          action: action('clicked')
+          loading: boolean('loading', false, groupId)
         }
       }),
       {

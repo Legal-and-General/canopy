@@ -1,4 +1,0 @@
-@import 'helpers/button.mixins';
-
-$types: 'tertiary', 'tertiary-alt-1', 'tertiary-alt-2';
-@include createTertiaryButtons($types);

@@ -24,37 +24,103 @@ describe('LgButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('loading button', () => {
-    it('does not have the loading class by default', () => {
-      const buttonClass = fixture.debugElement
-        .query(By.css('button'))
-        .nativeElement.getAttribute('class');
-      expect(buttonClass).not.toContain('lg-btn--loading');
-    });
-    it('does not display the spinner by default', () => {
-      const spinnerComponent = fixture.debugElement.query(
-        By.directive(LgSpinnerComponent)
-      );
-      expect(spinnerComponent).toBeNull();
+  it('should add the generic button class', () => {
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn');
+  });
+
+  describe('the variant input', () => {
+    describe('when not specified', () => {
+      it('should set the solid primary class modifier', () => {
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-btn--solid-primary'
+        );
+      });
     });
 
-    describe('when the [loading] input is `true`', () => {
-      let buttonClass;
+    describe('when specified', () => {
+      it('should set the correct class modifier', () => {
+        component.variant = 'outline-secondary';
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-btn--outline-secondary'
+        );
+      });
+    });
+  });
+
+  describe('the loading input', () => {
+    describe('when not set', () => {
+      it('should set the default value to false', () => {
+        expect(component.loading).toBe(false);
+      });
+    });
+
+    describe('when set to true', () => {
       beforeEach(() => {
         component.loading = true;
         fixture.detectChanges();
-        buttonClass = fixture.debugElement
-          .query(By.css('button'))
-          .nativeElement.getAttribute('class');
       });
-      it('adds the loading class ', () => {
-        expect(buttonClass).toContain('lg-btn--loading');
+
+      it('should add the loading class modifier', () => {
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-btn--solid-primary lg-btn lg-btn--loading'
+        );
       });
-      it('displays the spinner when the [loading] input is `true`', () => {
+
+      it('should set the disabled attribute', () => {
+        expect(fixture.nativeElement.getAttribute('disabled')).toBe('');
+      });
+
+      it('should display the spinner', () => {
         const spinnerComponent = fixture.debugElement.query(
           By.directive(LgSpinnerComponent)
         );
+
         expect(spinnerComponent).toBeDefined();
+      });
+    });
+
+    describe('when set to false', () => {
+      it('should not add the loading class modifier', () => {
+        expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+          'lg-btn--solid-primary lg-btn lg-btn--loading'
+        );
+      });
+
+      it(`shouldn'tdisplay the spinner`, () => {
+        const spinnerComponent = fixture.debugElement.query(
+          By.directive(LgSpinnerComponent)
+        );
+
+        expect(spinnerComponent).toBeNull();
+      });
+    });
+  });
+
+  describe('the fullWidth input', () => {
+    describe('when not set', () => {
+      it('should set the default value to false', () => {
+        expect(component.fullWidth).toBe(false);
+      });
+    });
+
+    describe('when set to true', () => {
+      it('should set the block class modifier', () => {
+        component.fullWidth = true;
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-btn--solid-primary lg-btn lg-btn--block'
+        );
+      });
+    });
+
+    describe('when set to false', () => {
+      it('should not set the block class modifier', () => {
+        expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+          'lg-btn--solid-primary lg-btn lg-btn--block'
+        );
       });
     });
   });

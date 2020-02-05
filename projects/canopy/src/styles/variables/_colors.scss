@@ -28,6 +28,7 @@
   --color-leafy-green-lightest: #e5f4ea;
   --color-leafy-green-light: #97d3ab;
   --color-leafy-green-dark: #005826;
+  --color-leafy-green-darkest: #003119;
 
   --color-poppy-red-lightest: #ffeaec;
   --color-poppy-red-light: #f09491;
@@ -44,7 +45,4 @@
   --color-platinum: #e3e3e3;
   --color-white-smoke: #f6f6f6;
   --color-white: #fff;
-
-  // The rgb value is needed to apply opacity: https://github.com/sass/node-sass/issues/2251
-  --color-white-rgb: 255, 255, 255;
 }

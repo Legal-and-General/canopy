@@ -2,7 +2,7 @@ export const notes = `
 # Button Component
 
 ## Purpose
-Provide different styles of button.
+Provides common styles and behaviours for buttons and links.
 
 ## Usage
 Import the component in your module:
@@ -17,26 +17,22 @@ Import the component in your module:
 and in your HTML:
 
 ~~~
-<lg-button [variant]="primary">Button</lg-button>
+<button lg-button type="button" [variant]="primary">Button</button>
+~~~
+
+or:
+
+~~~
+<a lg-button href="#" [variant]="primary">Link</a>
 ~~~
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`variant\`\` | The variant of button: \`\`cta\`\`, \`\`primary\`\`, \`\`secondary\`\`, \`\`tertiary\`\`, \`\`tertiary-alt-1\`\`, \`\`tertiary-alt-2\`\`; | string | primary | No |
-| \`\`behaviour\`\` | The type of button: \`\`button\`\`, \`\`reset\`\`, \`\`submit\`\` | string | button | No |
-| \`\`disabled\`\` | If the button is disabled or not | boolean | false | No |
+| \`\`variant\`\` | The variant of button: \`\`solid-primary\`\`, \`\`solid-secondary\`\`, \`\`outline-primary\`\`, \`\`outline-secondary\`\`, \`\`reverse-primary\`\`, \`\`reverse-secondary\`\`; | string | primary | No |
 | \`\`fullWidth\`\` | If the button has to span full width or not | boolean | false | No |
-| \`\`rounded\`\` | If the button has rounded corners or not | boolean | false | No |
 | \`\`loading\`\` | If the button shows a loading spinner and is also disabled | boolean | false | No |
-
-## Outputs
-
-| Name | Description | Required |
-|------|-------------|:-----:|
-| \`\`action\`\` | To handle the click action from the button | Yes |
-
 
 ## Using only the SCSS files
 
@@ -46,19 +42,18 @@ In addition to \`\`lg-btn\`\`, one of the following is required to apply the spe
 
 | Class | Description |
 |------|-------------|
-| \`\`lg-btn--cta\`\` | Adds the CTA button style |
-| \`\`lg-btn--primary\`\` | Adds the primary button style |
-| \`\`lg-btn--secondary\`\` | Adds the secondary button style |
-| \`\`lg-btn--tertiary\`\` | Adds the tertiary button style |
-| \`\`lg-btn--tertiary-alt-1\`\` | Adds the tertiary alternative 1 button style |
-| \`\`lg-btn--tertiary-alt-2\`\` | Adds the tertiary alternative 2 button style |
+| \`\`lg-btn--solid-primary\`\` | Adds the solid primary button style |
+| \`\`lg-btn--solid-secondary\`\` | Adds the solid secondary button style |
+| \`\`lg-btn--outline-primary\`\` | Adds the outline primary button style |
+| \`\`lg-btn--outline-secondary\`\` | Adds the outline secondary button style |
+| \`\`lg-btn--reverse-primary\`\` | Adds the reverse primary button style |
+| \`\`lg-btn--reverse-secondary\`\` | Adds the reserve secondary button style |
 
 Optional modifiers:
 
 | Class | Description |
 |------|-------------|
 | \`\`lg-btn--block\`\` | Makes the button full width |
-| \`\`lg-btn--rounded\`\` | Adds rounded corners to the button |
 | \`\`lg-btn--loading\`\` | For use when the button has a loading spinner instead of text |
 
 ### Loading button
@@ -69,11 +64,13 @@ Use the \`\`lg-btn--loading\`\` modifier class, include the \`\`disabled\`\` att
 ~~~html
 <button class="lg-btn lg-btn--primary">Primary button</button>
 
-<button class="lg-btn lg-btn--primary lg-btn--rounded">Primary button</button>
+<button class="lg-btn lg-btn--primary lg-btn--block">Primary button</button>
 
-<button class="lg-btn lg-btn--primary lg-btn--rounded lg-btn--block">Primary button</button>
-
-<button class="lg-btn lg-btn--primary lg-btn-loading" disabled>
+<button class="lg-btn lg-btn--primary lg-btn--loading" disabled>
+  <span class="lg-btn__hidden-content" aria-hidden="true">
+    Primary button
+  </span>
+  
   <div class="lg-spinner" aria-busy="true" role="alert">
     <div class="lg-spinner__ring"></div>
     <span class="hidden">Loading</span>

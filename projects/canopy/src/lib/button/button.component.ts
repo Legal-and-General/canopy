@@ -1,34 +1,55 @@
 import {
   Component,
-  EventEmitter,
+  ElementRef,
+  HostBinding,
   Input,
-  OnChanges,
-  Output,
+  Renderer2,
   ViewEncapsulation
 } from '@angular/core';
-import { Behaviour, Variant } from './button.interface';
+import { Variant } from './button.interface';
 
 @Component({
-  selector: 'lg-button',
+  selector: '[lg-button]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LgButtonComponent implements OnChanges {
-  @Input() variant: Variant = 'primary';
-  @Input() behaviour: Behaviour = 'button';
-  @Input() disabled = false;
-  @Input() fullWidth = false;
-  @Input() rounded = false;
-  @Input() loading = false;
+export class LgButtonComponent {
+  @HostBinding('class.lg-btn') class = true;
 
-  @Output() action = new EventEmitter();
-
-  ngOnChanges() {
-    this.disabled = this.loading;
+  _variant: Variant;
+  @Input()
+  set variant(variant: Variant) {
+    if (this._variant) {
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-btn--${this.variant}`
+      );
+    }
+    this.renderer.addClass(
+      this.hostElement.nativeElement,
+      `lg-btn--${variant}`
+    );
+    this._variant = variant;
+  }
+  get variant() {
+    return this._variant;
   }
 
-  handleAction() {
-    this.action.emit();
+  @Input() loading = false;
+  @HostBinding('attr.disabled') get disabledAttr() {
+    return this.loading ? '' : null;
+  }
+  @HostBinding('class.lg-btn--loading') get loadingClass() {
+    return this.loading;
+  }
+
+  @Input() fullWidth = false;
+  @HostBinding('class.lg-btn--block') get fullWidthClass() {
+    return this.fullWidth;
+  }
+
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+    this.variant = 'solid-primary';
   }
 }
