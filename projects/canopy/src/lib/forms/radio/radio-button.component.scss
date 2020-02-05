@@ -22,8 +22,8 @@
   top: 0;
   bottom: 0;
   display: inline-block;
-  height: var(--checkmark-outer-height);
-  width: var(--checkmark-outer-width);
+  height: var(--toggle-outer-height);
+  width: var(--toggle-outer-width);
   border-radius: 50%;
   border: var(--border-width) solid var(--border-color);
   margin: auto var(--space-sm) auto 0;
@@ -48,15 +48,15 @@
   top: 0;
   bottom: 0;
   margin: auto var(--space-xxxs);
-  height: var(--checkmark-inner-height);
-  width: var(--checkmark-inner-width);
+  height: var(--toggle-inner-height);
+  width: var(--toggle-inner-width);
   border-radius: 50%;
 
   .lg-radio-button__input:checked + & {
-    background-color: var(--checkmark-color);
+    background-color: var(--toggle-color);
   }
 
   .lg-radio-button__input:disabled:checked + & {
-    background-color: var(--checkmark-disabled-color);
+    background-color: var(--toggle-disabled-color);
   }
 }

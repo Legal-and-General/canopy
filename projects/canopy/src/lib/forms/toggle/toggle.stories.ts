@@ -6,7 +6,7 @@ import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
-import { notes } from './checkmark.notes';
+import { notes } from './toggle.notes';
 
 const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
@@ -14,9 +14,9 @@ const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-checkmark formControlName="umbrella" value="yes" [variant]="variant">
+      <lg-toggle formControlName="umbrella" value="yes" [variant]="variant">
         {{ label }}
-      </lg-checkmark>
+      </lg-toggle>
     </form>
   `
 })
@@ -36,13 +36,13 @@ class ReactiveFormComponent {
     return this.form.controls.umbrella.disabled;
   }
 
-  @Output() checkmarkChange: EventEmitter<void> = new EventEmitter();
+  @Output() toggleChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ umbrella: null, disabled: false });
-    this.form.valueChanges.subscribe(val => this.checkmarkChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.toggleChange.emit(val));
   }
 }
 
@@ -63,10 +63,10 @@ function createStory(name, variant?) {
         [disabled]="disabled"
         [label]="label"
         variant="${variant}"
-        (checkmarkChange)="checkboxChange($event)">
+        (toggleChange)="checkboxChange($event)">
       </lg-reactive-form>`,
       props: {
-        checkmarkChange: action('checkmarkChange'),
+        toggleChange: action('toggleChange'),
         label: text('label', 'I will bring my Umbrella if it is raining'),
         disabled: boolean('disabled', false)
       }

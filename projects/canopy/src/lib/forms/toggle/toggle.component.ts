@@ -10,30 +10,30 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 let nextUniqueId = 0;
 
 @Component({
-  selector: 'lg-checkmark',
-  templateUrl: './checkmark.component.html',
-  styleUrls: ['./checkmark.component.scss'],
+  selector: 'lg-toggle',
+  templateUrl: './toggle.component.html',
+  styleUrls: ['./toggle.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => LgCheckmarkComponent),
+      useExisting: forwardRef(() => LgToggleComponent),
       multi: true
     }
   ]
 })
-export class LgCheckmarkComponent implements ControlValueAccessor {
+export class LgToggleComponent implements ControlValueAccessor {
   uniqueId = nextUniqueId++;
 
   @Input() checked = false;
   @Input() disabled = false;
-  @Input() id = `lg-checkmark-${this.uniqueId}`;
-  @Input() name = `lg-checkmark-${this.uniqueId}`;
+  @Input() id = `lg-toggle-${this.uniqueId}`;
+  @Input() name = `lg-toggle-${this.uniqueId}`;
   @Input() value = 'on';
   @Input() ariaDescribedBy: string;
   @Input() variant: 'checkbox' | 'switch' = 'checkbox';
 
-  @HostBinding('class.lg-checkmark') class = true;
+  @HostBinding('class.lg-toggle') class = true;
 
   onCheck() {
     this.checked = !this.checked;
