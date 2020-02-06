@@ -19,6 +19,13 @@
 
   @include breakpoint('md') {
     --component-padding: var(--space-lg);
+  }
+
+  @include breakpoint('lg') {
+    --component-margin: calc(var(--space-sm) + var(--space-xxxs));
+  }
+
+  @include breakpoint('xl') {
     --component-margin: var(--space-lg);
   }
 }
