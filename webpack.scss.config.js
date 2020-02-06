@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -17,7 +18,14 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
-    })
+    }),
+    new CopyPlugin([
+      {
+        from: path.resolve(__dirname, 'projects/canopy/**/*.scss'),
+        to: path.resolve(__dirname, 'dist/canopy/scss'),
+        flatten: true
+      }
+    ])
   ],
   mode: 'production',
   module: {
