@@ -25,7 +25,9 @@ $fonts-path: '../assets/fonts' !default;
 }
 
 html,
-body {
+body,
+input,
+select {
   font-size: var(--text-base-size);
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family);
