@@ -5,7 +5,7 @@
 }
 
 .lg-toggle__input {
-  @include hidden();
+  @include visually-hidden;
 
   &:checked + .lg-toggle__label--switch {
     &::before,

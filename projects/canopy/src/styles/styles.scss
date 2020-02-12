@@ -5,7 +5,4 @@
 @import './variables';
 @import './spacing';
 @import './typography';
-
-.lg-hidden {
-  @include hidden;
-}
+@import './utils';
