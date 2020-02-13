@@ -3,17 +3,17 @@
   $color: colour of the outline.
   Sets the focus outline inside the element, by using multiple box shadows
 */
-@mixin inner-focus-outline($bg-color, $color: var(--color-white)) {
+@mixin lg-inner-focus-outline($bg-color, $color: var(--color-white)) {
   outline: 0;
   box-shadow: inset 0 0 0 0.25rem $bg-color, inset 0 0 0 0.3rem $color;
 }
 
-@mixin outer-focus-outline($bg-color) {
+@mixin lg-outer-focus-outline($bg-color) {
   outline: 0;
   box-shadow: 0 0 0 0.25rem $bg-color;
 }
 
-@mixin visually-hidden {
+@mixin lg-visually-hidden {
   position: absolute;
   left: -625rem;
   top: auto;
@@ -34,7 +34,7 @@ $breakpoints: (
   $breakpoint: string value for the breakpoint screen size.
   Creates a mixin which allows breakpoints to be added to css blocks
 */
-@mixin breakpoint($breakpoint) {
+@mixin lg-breakpoint($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media (min-width: map-get($breakpoints, $breakpoint)) {
       @content;
@@ -45,7 +45,7 @@ $breakpoints: (
   }
 }
 
-@mixin background-chevron($color) {
+@mixin lg-background-chevron($color) {
   /* SVG background images are being used an interim solution while we wait and
   * may be superseded by an icon component. The svg path cannot be colored by css
   * variables on IE11, hence the hard coded color variables.

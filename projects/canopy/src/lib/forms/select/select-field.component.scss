@@ -20,7 +20,7 @@
 .lg-select__wrapper--block {
   width: 100%;
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     width: auto;
   }
 
@@ -72,9 +72,9 @@
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: center;
-  @include background-chevron(000 /* --color-black */);
+  @include lg-background-chevron(000 /* --color-black */);
 
   .lg-select__field:disabled + & {
-    @include background-chevron(929292 /* --color-platinum */);
+    @include lg-background-chevron(929292 /* --color-platinum */);
   }
 }

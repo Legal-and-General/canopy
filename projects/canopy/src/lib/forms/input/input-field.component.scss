@@ -19,7 +19,7 @@
 .lg-input__field--block {
   width: 100%;
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     width: auto;
   }
 }

@@ -13,7 +13,7 @@
 }
 
 .lg-page__skip-link {
-  @include visually-hidden;
+  @include lg-visually-hidden;
 
   &:focus,
   &:active {

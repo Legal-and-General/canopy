@@ -2,7 +2,7 @@
   --grid-margin: var(--space-sm);
   --grid-gutter: var(--component-margin);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     --grid-margin: var(--space-lg);
   }
 }
@@ -73,7 +73,7 @@ $columns: 12;
   }
 }
 
-@include breakpoint('sm') {
+@include lg-breakpoint('sm') {
   .lg-col-sm {
     @include col-style;
 
@@ -107,7 +107,7 @@ $columns: 12;
   }
 }
 
-@include breakpoint('md') {
+@include lg-breakpoint('md') {
   .lg-col-md {
     @include col-style;
 
@@ -141,7 +141,7 @@ $columns: 12;
   }
 }
 
-@include breakpoint('lg') {
+@include lg-breakpoint('lg') {
   .lg-col-lg {
     @include col-style;
 

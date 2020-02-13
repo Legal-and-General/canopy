@@ -15,7 +15,7 @@
   line-height: var(--line-height-body);
 
   &:focus {
-    @include inner-focus-outline(var(--default-focus-color));
+    @include lg-inner-focus-outline(var(--default-focus-color));
   }
 
   .lg-accordion__heading-icon {
@@ -30,7 +30,7 @@
     pointer-events: none;
     background-repeat: no-repeat;
     background-position: center;
-    @include background-chevron(000 /* --color-black */);
+    @include lg-background-chevron(000 /* --color-black */);
   }
 
   &--active .lg-accordion__heading-icon {

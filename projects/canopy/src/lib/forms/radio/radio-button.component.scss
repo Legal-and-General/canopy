@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 
 .lg-radio-button__input {
-  @include visually-hidden;
+  @include lg-visually-hidden;
 }
 
 .lg-radio-button__label {

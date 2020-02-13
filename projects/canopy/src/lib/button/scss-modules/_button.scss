@@ -16,7 +16,7 @@
   margin-bottom: var(--component-margin);
 
   &:focus {
-    @include outer-focus-outline(var(--default-focus-color));
+    @include lg-outer-focus-outline(var(--default-focus-color));
   }
 
   &--block {

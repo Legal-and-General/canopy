@@ -61,7 +61,7 @@
   --text-fs--8-weight: var(--font-weight-regular);
   --text-fs--6-weight: var(--font-weight-regular);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     --text-fs-7-size: calc(
       var(--text-base-size) + (10 * var(--text-scale-ratio))
     );

@@ -12,7 +12,7 @@
   display: block;
   height: var(--header-logo-height);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     margin: var(--space-xxs);
     margin-left: var(--space-lg);
     height: var(--header-logo-height-lg);

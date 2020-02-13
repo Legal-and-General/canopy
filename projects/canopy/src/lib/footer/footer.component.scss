@@ -6,14 +6,14 @@
   display: flex;
   flex-direction: column;
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     flex-direction: row;
     padding: var(--space-lg);
   }
 }
 
 .lg-footer__links {
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -25,7 +25,7 @@
 .lg-footer__primary-nav {
   margin-bottom: var(--component-margin);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     margin-right: var(--space-xl);
   }
 }
@@ -33,7 +33,7 @@
 .lg-footer__primary-nav-list {
   margin-bottom: var(--space-lg);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     margin-top: var(--space-md);
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +48,7 @@
     margin-bottom: 0;
   }
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     margin-top: var(--space-sm);
     margin-bottom: 0;
     flex: 0 0 50%;
@@ -58,7 +58,7 @@
 .lg-footer__secondary-nav-list {
   margin-bottom: var(--space-xxl);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     margin-bottom: 0;
   }
 }
@@ -72,7 +72,7 @@
     margin-bottom: 0;
   }
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     display: inline-block;
     margin-right: var(--space-sm);
     margin-bottom: 0;
@@ -92,7 +92,7 @@
   margin-bottom: var(--component-margin);
   height: var(--footer-logo-height);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     height: var(--footer-logo-height-lg);
   }
 }
@@ -100,7 +100,7 @@
 .lg-footer__copyright {
   display: block;
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     text-align: right;
   }
 }
@@ -117,7 +117,7 @@
 .lg-footer__org {
   font-size: var(--text-xs);
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

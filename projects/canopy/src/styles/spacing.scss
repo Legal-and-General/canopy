@@ -17,15 +17,15 @@
 
   --link-focus-outline: calc(0.125 * var(--space-unit)); // 2
 
-  @include breakpoint('md') {
+  @include lg-breakpoint('md') {
     --component-padding: var(--space-lg);
   }
 
-  @include breakpoint('lg') {
+  @include lg-breakpoint('lg') {
     --component-margin: calc(var(--space-sm) + var(--space-xxxs));
   }
 
-  @include breakpoint('xl') {
+  @include lg-breakpoint('xl') {
     --component-margin: var(--space-lg);
   }
 }
