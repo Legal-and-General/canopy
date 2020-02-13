@@ -1,5 +1,7 @@
 .lg-spinner {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin: var(--component-margin);
 }
@@ -32,6 +34,15 @@
 .lg-spinner__ring--inherit {
   border-top-color: inherit;
   border-bottom-color: inherit;
+}
+
+.lg-spinner__content {
+  margin-top: var(--space-md);
+  text-align: center;
+
+  &--light {
+    color: var(--spinner-light-color);
+  }
 }
 
 @keyframes spin {

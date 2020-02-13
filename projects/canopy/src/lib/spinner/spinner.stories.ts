@@ -1,4 +1,4 @@
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { LgSpinnerComponent } from './spinner.component';
@@ -21,15 +21,15 @@ stories
         declarations: [LgSpinnerComponent]
       },
       template: `
-      <lg-spinner [variant]="variant">
-      </lg-spinner>
+      <lg-spinner [variant]="variant" [text]="text ? text : null"></lg-spinner>
     `,
       props: {
         variant: select(
           'variant',
           ['dark', 'light', 'color', 'inherit'],
           groupId
-        )
+        ),
+        text: text('text', '')
       }
     }),
     {

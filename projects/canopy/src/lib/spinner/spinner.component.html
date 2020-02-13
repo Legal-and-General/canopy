@@ -8,4 +8,17 @@
   role="alert"
   aria-busy="true"
 ></div>
-<span class="lg-visually-hidden">Loading content</span>
+
+<p
+  *ngIf="text; else defaultText"
+  class="lg-spinner__content"
+  [ngClass]="{
+    'lg-spinner__content--light': variant === 'light'
+  }"
+>
+  {{ text }}
+</p>
+
+<ng-template #defaultText>
+  <p class="lg-visually-hidden">Loading...</p>
+</ng-template>

@@ -24,11 +24,46 @@ describe('LgSpinnerComponent', () => {
   });
 
   it('adds the variant class to the spinner ring', () => {
-    let link = fixture.debugElement.query(By.css(`.lg-spinner__ring--color`));
+    let link = fixture.debugElement.query(By.css('.lg-spinner__ring--color'));
     expect(link).toBeFalsy();
     component.variant = 'color';
     fixture.detectChanges();
-    link = fixture.debugElement.query(By.css(`.lg-spinner__ring--color`));
+    link = fixture.debugElement.query(By.css('.lg-spinner__ring--color'));
     expect(link).toBeTruthy();
+  });
+
+  describe('text input', () => {
+    describe('when not specified', () => {
+      it('should add a visually hidden element with default text', () => {
+        const hiddenEl = fixture.nativeElement.querySelector(
+          '.lg-visually-hidden'
+        );
+        const textEl = fixture.nativeElement.querySelector(
+          '.lg-spinner__content'
+        );
+
+        expect(textEl).toBeNull();
+        expect(hiddenEl).toBeDefined();
+        expect(hiddenEl.innerText).toEqual('Loading...');
+      });
+    });
+
+    describe('when specified', () => {
+      it('should add an element with the specified text', () => {
+        component.text = 'Test text';
+        fixture.detectChanges();
+
+        const hiddenEl = fixture.nativeElement.querySelector(
+          '.lg-visually-hidden'
+        );
+        const textEl = fixture.nativeElement.querySelector(
+          '.lg-spinner__content'
+        );
+
+        expect(hiddenEl).toBeNull();
+        expect(textEl).toBeDefined();
+        expect(textEl.innerText).toBe('Test text');
+      });
+    });
   });
 });
