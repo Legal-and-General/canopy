@@ -1,0 +1,13 @@
+.lg-icon {
+  display: inline-block;
+  vertical-align: text-top;
+  height: var(--icon-height);
+  width: var(--icon-width);
+  line-height: var(--icon-line-height);
+
+  > svg {
+    height: inherit;
+    width: inherit;
+    fill: currentColor;
+  }
+}

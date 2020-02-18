@@ -1,7 +1,9 @@
 import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { MockComponents } from 'ng-mocks';
 import { LgHeadingComponent } from '../../heading';
+import { LgIconComponent } from '../../icon';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
 import { LgAccordionItemComponent } from './accordion-item.component';
 
@@ -28,7 +30,7 @@ describe('LgAccordionItemComponent', () => {
         TestAccordionWrapperItemComponent,
         LgAccordionItemComponent,
         LgAccordionPanelHeadingComponent,
-        LgHeadingComponent
+        MockComponents(LgHeadingComponent, LgIconComponent)
       ]
     }).compileComponents();
   }));

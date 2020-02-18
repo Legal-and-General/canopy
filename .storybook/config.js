@@ -30,6 +30,7 @@ function loadStories() {
   require('../projects/canopy/src/lib/spinner/spinner.stories');
   require('../projects/canopy/src/styles/color.stories');
   require('../projects/canopy/src/styles/typography.stories');
+  require('../projects/canopy/src/lib/icon/icons.stories');
 }
 
 cssVars({

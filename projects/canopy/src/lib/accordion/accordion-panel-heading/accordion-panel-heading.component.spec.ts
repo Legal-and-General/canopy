@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { MockComponents } from 'ng-mocks';
 
 import { spy, verify } from 'ts-mockito';
-import { LgHeadingModule } from '../../heading';
+import { LgHeadingComponent } from '../../heading';
+import { LgIconComponent } from '../../icon';
 
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.component';
 
@@ -13,8 +15,10 @@ describe('LgAccordionPanelHeadingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgAccordionPanelHeadingComponent],
-      imports: [LgHeadingModule]
+      declarations: [
+        LgAccordionPanelHeadingComponent,
+        MockComponents(LgHeadingComponent, LgIconComponent)
+      ]
     }).compileComponents();
   }));
 

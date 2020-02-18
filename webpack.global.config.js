@@ -24,6 +24,11 @@ module.exports = {
         from: path.resolve(__dirname, 'projects/canopy/**/*.scss'),
         to: path.resolve(__dirname, 'dist/canopy/scss'),
         flatten: true
+      },
+      {
+        from: path.resolve(__dirname, 'projects/canopy/src/assets/icons/*.svg'),
+        to: path.resolve(__dirname, 'dist/canopy/icons'),
+        flatten: true
       }
     ])
   ],

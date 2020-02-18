@@ -16,6 +16,7 @@ export * from './lib/forms/index';
 export * from './lib/grid/index';
 export * from './lib/header/index';
 export * from './lib/heading/index';
+export * from './lib/icon/index';
 export * from './lib/margin/index';
 export * from './lib/page/index';
 export * from './lib/pipes/index';

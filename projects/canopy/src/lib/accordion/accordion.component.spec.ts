@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { LgHeadingModule } from '../heading';
+import { MockComponents } from 'ng-mocks';
+import { LgHeadingComponent } from '../heading';
+import { LgIconComponent } from '../icon';
 import { LgAccordionItemComponent } from './accordion-item/accordion-item.component';
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading/accordion-panel-heading.component';
 
@@ -31,9 +33,9 @@ describe('LgAccordionComponent', () => {
         TestAccordionComponent,
         LgAccordionComponent,
         LgAccordionItemComponent,
-        LgAccordionPanelHeadingComponent
-      ],
-      imports: [LgHeadingModule]
+        LgAccordionPanelHeadingComponent,
+        MockComponents(LgHeadingComponent, LgIconComponent)
+      ]
     }).compileComponents();
   }));
 

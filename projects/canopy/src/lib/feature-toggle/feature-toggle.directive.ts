@@ -17,6 +17,7 @@ import {
   LgFeatureToggleOptions,
   togglesOptionsInjectable
 } from './feature-toggle.interface';
+
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Directive({

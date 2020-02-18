@@ -65,17 +65,12 @@
 .lg-select__icon {
   position: absolute;
   right: 0;
-  top: 0;
-  bottom: 0;
-  width: var(--select-icon-width);
+  top: calc(50% - var(--icon-width) / 2);
   margin-left: var(--space-sm);
   margin-right: var(--space-sm);
   pointer-events: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  @include lg-background-chevron(000 /* --color-black */);
 
   .lg-select__field:disabled + & {
-    @include lg-background-chevron(929292 /* --color-platinum */);
+    color: var(--disabled-color);
   }
 }

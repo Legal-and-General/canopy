@@ -22,15 +22,10 @@
     transition: transform var(--animation-duration) var(--animation-fn);
     position: absolute;
     left: 0;
-    top: 0;
-    bottom: 0;
-    width: var(--accordion-icon-width);
+    top: calc(50% - var(--icon-width) / 2);
     margin-left: var(--space-sm);
     margin-right: var(--space-sm);
     pointer-events: none;
-    background-repeat: no-repeat;
-    background-position: center;
-    @include lg-background-chevron(000 /* --color-black */);
   }
 
   &--active .lg-accordion__heading-icon {

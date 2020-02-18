@@ -1,0 +1,302 @@
+import { Component } from '@angular/core';
+import { withKnobs } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/angular';
+import { LgIconComponent } from './icon.component';
+import { notes } from './icon.notes';
+import { LgIconRegistry } from './icon.registry';
+import * as iconSet from './icons.interface';
+
+const stories = storiesOf('Components', module);
+
+stories.addDecorator(withKnobs);
+
+export const icons: Array<iconSet.Icon> = [
+  iconSet.lgIconAdd,
+  iconSet.lgIconAnalytics,
+  iconSet.lgIconAnnouncement,
+  iconSet.lgIconArrowDown,
+  iconSet.lgIconArrowLeft,
+  iconSet.lgIconArrowRight,
+  iconSet.lgIconArrowUp,
+  iconSet.lgIconAt,
+  iconSet.lgIconAttach,
+  iconSet.lgIconBarChart,
+  iconSet.lgIconBlog,
+  iconSet.lgIconBolt,
+  iconSet.lgIconBookmarkFill,
+  iconSet.lgIconBookmark,
+  iconSet.lgIconCalculator,
+  iconSet.lgIconCalendar,
+  iconSet.lgIconCall,
+  iconSet.lgIconCamera,
+  iconSet.lgIconCaretDown,
+  iconSet.lgIconCaretLeft,
+  iconSet.lgIconCaretRight,
+  iconSet.lgIconCaretUp,
+  iconSet.lgIconCart,
+  iconSet.lgIconChatGroup,
+  iconSet.lgIconChat,
+  iconSet.lgIconCheckboxChecked,
+  iconSet.lgIconCheckboxEmpty,
+  iconSet.lgIconCheckboxIndeterminate,
+  iconSet.lgIconCheckmarkSpotFill,
+  iconSet.lgIconCheckmarkSpot,
+  iconSet.lgIconCheckmark,
+  iconSet.lgIconChevronDownFill,
+  iconSet.lgIconChevronDownSlim,
+  iconSet.lgIconChevronDown,
+  iconSet.lgIconChevronLeftSlim,
+  iconSet.lgIconChevronLeftSpot,
+  iconSet.lgIconChevronLeft,
+  iconSet.lgIconChevronRightSlim,
+  iconSet.lgIconChevronRightSpot,
+  iconSet.lgIconChevronRight,
+  iconSet.lgIconChevronUpFill,
+  iconSet.lgIconChevronUpSlim,
+  iconSet.lgIconChevronUp,
+  iconSet.lgIconCloseSpot,
+  iconSet.lgIconClose,
+  iconSet.lgIconCloud,
+  iconSet.lgIconCode,
+  iconSet.lgIconCollaborate,
+  iconSet.lgIconCompass,
+  iconSet.lgIconConnect,
+  iconSet.lgIconConsole,
+  iconSet.lgIconContributions,
+  iconSet.lgIconCopy,
+  iconSet.lgIconCount,
+  iconSet.lgIconCouple,
+  iconSet.lgIconCreditCard,
+  iconSet.lgIconCrossmarkSpotFill,
+  iconSet.lgIconCsv,
+  iconSet.lgIconData,
+  iconSet.lgIconDatabase,
+  iconSet.lgIconDataset,
+  iconSet.lgIconDelete,
+  iconSet.lgIconDesktop,
+  iconSet.lgIconDiagram,
+  iconSet.lgIconDigg,
+  iconSet.lgIconDoc,
+  iconSet.lgIconDocumentAdd,
+  iconSet.lgIconDocumentSubtract,
+  iconSet.lgIconDocumentTasks,
+  iconSet.lgIconDocument,
+  iconSet.lgIconDonutChart,
+  iconSet.lgIconDowload,
+  iconSet.lgIconDragHandle,
+  iconSet.lgIconDrilldown,
+  iconSet.lgIconEdit,
+  iconSet.lgIconEmail,
+  iconSet.lgIconErrorFill,
+  iconSet.lgIconError,
+  iconSet.lgIconEvent,
+  iconSet.lgIconExitFill,
+  iconSet.lgIconExit,
+  iconSet.lgIconExport,
+  iconSet.lgIconFaceDissastisfiedFill,
+  iconSet.lgIconFaceDissastisfied,
+  iconSet.lgIconFaceHappyFill,
+  iconSet.lgIconFaceHappyOutline,
+  iconSet.lgIconFaceNeutralFill,
+  iconSet.lgIconFaceNeutral,
+  iconSet.lgIconFacebook,
+  iconSet.lgIconFamily,
+  iconSet.lgIconFavouriteFill,
+  iconSet.lgIconFavourite,
+  iconSet.lgIconFemale,
+  iconSet.lgIconFilter,
+  iconSet.lgIconFolderAdd,
+  iconSet.lgIconFolder,
+  iconSet.lgIconFollow,
+  iconSet.lgIconForum,
+  iconSet.lgIconFunds,
+  iconSet.lgIconFurniture,
+  iconSet.lgIconGif,
+  iconSet.lgIconGithub,
+  iconSet.lgIconGlobe,
+  iconSet.lgIconGoogle,
+  iconSet.lgIconGotoBottom,
+  iconSet.lgIconGotoFirst,
+  iconSet.lgIconGotoLast,
+  iconSet.lgIconGotoTop,
+  iconSet.lgIconGroup,
+  iconSet.lgIconGuillemetLeft,
+  iconSet.lgIconGuillemetRight,
+  iconSet.lgIconHd,
+  iconSet.lgIconHdr,
+  iconSet.lgIconHedgingCurrency,
+  iconSet.lgIconHedging,
+  iconSet.lgIconHelp,
+  iconSet.lgIconHighlight,
+  iconSet.lgIconHomeFill,
+  iconSet.lgIconHome,
+  iconSet.lgIconHouse,
+  iconSet.lgIconIdea,
+  iconSet.lgIconImage,
+  iconSet.lgIconInformationFill,
+  iconSet.lgIconInformation,
+  iconSet.lgIconInsert,
+  iconSet.lgIconInstagram,
+  iconSet.lgIconLaunch,
+  iconSet.lgIconLearn,
+  iconSet.lgIconLikeFill,
+  iconSet.lgIconLike,
+  iconSet.lgIconLineChart,
+  iconSet.lgIconLinkExternal,
+  iconSet.lgIconLink,
+  iconSet.lgIconLinkedin,
+  iconSet.lgIconListBullets,
+  iconSet.lgIconListChecked,
+  iconSet.lgIconListNumbered,
+  iconSet.lgIconList,
+  iconSet.lgIconLocationArrow,
+  iconSet.lgIconLocation,
+  iconSet.lgIconLockFill,
+  iconSet.lgIconLockOpenFill,
+  iconSet.lgIconLockOpen,
+  iconSet.lgIconLock,
+  iconSet.lgIconMaLgi,
+  iconSet.lgIconMail,
+  iconSet.lgIconMale,
+  iconSet.lgIconMap,
+  iconSet.lgIconMaximise,
+  iconSet.lgIconMenu,
+  iconSet.lgIconMicrophoneOff,
+  iconSet.lgIconMicrophone,
+  iconSet.lgIconMinimise,
+  iconSet.lgIconMisuseFill,
+  iconSet.lgIconMisuse,
+  iconSet.lgIconMobile,
+  iconSet.lgIconModule,
+  iconSet.lgIconMoney,
+  iconSet.lgIconMove,
+  iconSet.lgIconNewTab,
+  iconSet.lgIconNotes,
+  iconSet.lgIconNotificationOff,
+  iconSet.lgIconNotification,
+  iconSet.lgIconOpenNewWindow,
+  iconSet.lgIconOverflowHorizontal,
+  iconSet.lgIconOverflowVertical,
+  iconSet.lgIconOverlay,
+  iconSet.lgIconPage,
+  iconSet.lgIconPages,
+  iconSet.lgIconPartnership,
+  iconSet.lgIconPassword,
+  iconSet.lgIconPause,
+  iconSet.lgIconPdf,
+  iconSet.lgIconPerson,
+  iconSet.lgIconPet,
+  iconSet.lgIconPhoneOff,
+  iconSet.lgIconPhone,
+  iconSet.lgIconPieChart,
+  iconSet.lgIconPlaySpot,
+  iconSet.lgIconPlay,
+  iconSet.lgIconPng,
+  iconSet.lgIconPopUp,
+  iconSet.lgIconPresentation,
+  iconSet.lgIconPrinter,
+  iconSet.lgIconProfile,
+  iconSet.lgIconQueryFill,
+  iconSet.lgIconQuery,
+  iconSet.lgIconRadioButtonSelected,
+  iconSet.lgIconRadioButton,
+  iconSet.lgIconRenew,
+  iconSet.lgIconRepeat,
+  iconSet.lgIconReply,
+  iconSet.lgIconReport,
+  iconSet.lgIconReset,
+  iconSet.lgIconRestart,
+  iconSet.lgIconRetirement,
+  iconSet.lgIconReward,
+  iconSet.lgIconRss,
+  iconSet.lgIconScaleDown,
+  iconSet.lgIconScaleUp,
+  iconSet.lgIconScan,
+  iconSet.lgIconSearch,
+  iconSet.lgIconSecureMessaging,
+  iconSet.lgIconSecurity,
+  iconSet.lgIconSend,
+  iconSet.lgIconSettings,
+  iconSet.lgIconShare,
+  iconSet.lgIconSignIn,
+  iconSet.lgIconSignature,
+  iconSet.lgIconSkipBack,
+  iconSet.lgIconSkipForward,
+  iconSet.lgIconSlack,
+  iconSet.lgIconStarFill,
+  iconSet.lgIconStarHalfFill,
+  iconSet.lgIconStar,
+  iconSet.lgIconStop,
+  iconSet.lgIconSubtract,
+  iconSet.lgIconSvg,
+  iconSet.lgIconSwitchFunds,
+  iconSet.lgIconTag,
+  iconSet.lgIconTime,
+  iconSet.lgIconTrashcan,
+  iconSet.lgIconTwitter,
+  iconSet.lgIconUpload,
+  iconSet.lgIconUsers,
+  iconSet.lgIconVideo,
+  iconSet.lgIconViewOff,
+  iconSet.lgIconViewTransactions,
+  iconSet.lgIconView,
+  iconSet.lgIconVolumeDown,
+  iconSet.lgIconVolumeMute,
+  iconSet.lgIconVolumeUp,
+  iconSet.lgIconWarningFill,
+  iconSet.lgIconWarning,
+  iconSet.lgIconYoutube,
+  iconSet.lgIconZoomInFill,
+  iconSet.lgIconZoomIn,
+  iconSet.lgIconZoomOutFill,
+  iconSet.lgIconZoomOut
+];
+
+@Component({
+  selector: 'lg-swatch-icon',
+  template: `
+    <div class="swatch" *ngFor="let icon of icons">
+      <lg-icon class="swatch__svg" [name]="icon.name"></lg-icon>
+      <span class="swatch__name">{{ icon.name }}</span>
+    </div>
+  `,
+  styles: [
+    `
+      :host {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .swatch {
+        margin: var(--space-sm);
+        flex: 1 1 225px;
+      }
+
+      .swatch__svg {
+        margin-right: var(--space-md);
+      }
+    `
+  ]
+})
+class SwatchIconComponent {
+  icons = icons;
+
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons(this.icons);
+  }
+}
+
+stories.add(
+  'Icon',
+  () => ({
+    moduleMetadata: {
+      declarations: [SwatchIconComponent, LgIconComponent]
+    },
+    template: `
+    <lg-swatch-icon></lg-swatch-icon>
+  `
+  }),
+  {
+    notes: { markdown: notes }
+  }
+);
