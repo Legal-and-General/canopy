@@ -49,7 +49,7 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-angular": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@commitlint/prompt": "^8.2.0",
+    "@commitlint/prompt": "^8.3.5",
     "@semantic-release/github": "^5.5.4",
     "@semantic-release/npm": "^5.2.0",
     "@storybook/addon-a11y": "^5.3.1",
