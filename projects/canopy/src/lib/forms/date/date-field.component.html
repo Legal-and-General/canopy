@@ -1,0 +1,44 @@
+<fieldset [attr.aria-describedby]="ariaDescribedBy">
+  <legend lg-label>
+    <ng-content></ng-content>
+    <ng-content select="lg-hint"></ng-content>
+  </legend>
+  <div class="lg-date-field__fields" [formGroup]="dateForm">
+    <div class="lg-date-field__date">
+      <label lg-label [for]="dateId">Day</label>
+      <input
+        lgInput
+        [id]="dateId"
+        formControlName="date"
+        placeholder="DD"
+        min="1"
+        max="31"
+        type="number"
+      />
+    </div>
+    <div class="lg-date-field__month">
+      <label lg-label [for]="monthId">Month</label>
+      <input
+        lgInput
+        [id]="monthId"
+        formControlName="month"
+        placeholder="MM"
+        min="1"
+        max="12"
+        type="number"
+      />
+    </div>
+    <div class="lg-date-field__year">
+      <label lg-label [for]="yearId">Year</label>
+      <input
+        lgInput
+        [id]="yearId"
+        formControlName="year"
+        placeholder="YYYY"
+        min="0000"
+        max="9999"
+        type="number"
+      />
+    </div>
+  </div>
+</fieldset>

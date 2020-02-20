@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { LgDateFieldModule } from './date/date-field.module';
 import { LgHintModule } from './hint/hint.module';
 import { LgInputModule } from './input/input.module';
 import { LgLabelModule } from './label/label.module';
@@ -9,12 +10,13 @@ import { LgToggleModule } from './toggle/toggle.module';
 
 @NgModule({
   exports: [
-    LgToggleModule,
+    LgDateFieldModule,
     LgHintModule,
     LgInputModule,
     LgLabelModule,
     LgRadioModule,
-    LgSelectModule
+    LgSelectModule,
+    LgToggleModule
   ]
 })
 export class LgFormsModule {}

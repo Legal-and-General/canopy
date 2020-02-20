@@ -15,6 +15,7 @@ function loadStories() {
   require('../projects/canopy/src/lib/focus/focus.stories');
   require('../projects/canopy/src/lib/footer/footer.stories');
   require('../projects/canopy/src/lib/forms/toggle/toggle.stories');
+  require('../projects/canopy/src/lib/forms/date/date-field.stories');
   require('../projects/canopy/src/lib/forms/input/input.stories');
   require('../projects/canopy/src/lib/forms/radio/radio.stories');
   require('../projects/canopy/src/lib/forms/select/select.stories');

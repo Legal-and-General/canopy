@@ -1,0 +1,19 @@
+@import '../input/input.scss';
+
+.lg-date-field {
+  display: block;
+  margin-bottom: var(--component-margin);
+  line-height: var(--line-height-sm);
+}
+
+.lg-date-field__fields {
+  display: flex;
+}
+
+.lg-date-field__date,
+.lg-date-field__month,
+.lg-date-field__year {
+  display: flex;
+  flex-direction: column;
+  margin-right: var(--space-sm);
+}
