@@ -1,0 +1,42 @@
+@import '../../../styles/mixins.scss';
+
+.lg-input {
+  border: solid var(--border-width) var(--border-color);
+  border-radius: var(--border-radius-sm);
+  line-height: var(--line-height-sm);
+  padding: var(--space-xs) var(--space-sm);
+  outline: 0;
+  max-width: 100%;
+
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.lg-input--block {
+  width: 100%;
+
+  @include lg-breakpoint('md') {
+    width: auto;
+  }
+}
+
+.lg-input:hover {
+  border-color: var(--border-hover-color);
+}
+
+.lg-input:focus {
+  border-left-width: var(--keyline-width);
+  border-color: var(--border-focus-color);
+  padding-left: calc(
+    var(--space-sm) - var(--keyline-width) + var(--border-width)
+  );
+}
+
+.lg-input:disabled {
+  color: var(--disabled-color);
+  background-color: var(--background-disabled-color);
+  border-color: var(--border-disabled-color);
+}

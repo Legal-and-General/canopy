@@ -6,7 +6,13 @@ let nextUniqueId = 0;
   selector: '[lgInput]'
 })
 export class LgInputDirective {
-  @HostBinding('class') class: string;
+  @HostBinding('class.lg-input') class = true;
+  @HostBinding('class.lg-input--block')
+  public get blockClass() {
+    return this.block;
+  }
+
+  @Input() block = false;
 
   @Input()
   @HostBinding('name')
@@ -15,6 +21,10 @@ export class LgInputDirective {
   @Input()
   @HostBinding('id')
   id = `lg-input-${nextUniqueId++}`;
+
+  @Input()
+  @HostBinding('disabled')
+  disabled = false;
 
   @Input()
   @HostBinding('attr.aria-describedby')

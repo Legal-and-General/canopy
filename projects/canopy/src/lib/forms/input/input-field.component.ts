@@ -7,8 +7,6 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import classnames from 'classnames';
-
 import { LgHintComponent } from '../hint/hint.component';
 import { LgLabelComponent } from '../label/label.component';
 import { LgInputDirective } from './input.directive';
@@ -24,17 +22,14 @@ let nextUniqueId = 0;
 export class LgInputFieldComponent {
   @Input() id = `lg-input-${nextUniqueId++}`;
 
-  _block = false;
   @Input()
-  set block(block) {
-    this._block = block;
-    this.updateInputElement();
-  }
-  get block() {
-    return this._block;
+  public set block(block: boolean) {
+    if (this._inputElement) {
+      this._inputElement.block = block;
+    }
   }
 
-  @HostBinding('class.lg-input') class = true;
+  @HostBinding('class.lg-input-field') class = true;
 
   _labelElement: LgLabelComponent;
   @ViewChild(LgLabelComponent, { static: true })
@@ -47,7 +42,7 @@ export class LgInputFieldComponent {
   @ContentChild(LgInputDirective, { static: true })
   set inputElement(element: LgInputDirective) {
     this._inputElement = element;
-    this.updateInputElement();
+    this._inputElement.id = this.id;
   }
 
   _hintElement: LgHintComponent;
@@ -55,12 +50,5 @@ export class LgInputFieldComponent {
   set hintElement(element: LgHintComponent) {
     this._hintElement = element;
     this._inputElement.ariaDescribedBy = element ? element.id : null;
-  }
-
-  updateInputElement() {
-    this._inputElement.id = this.id;
-    this._inputElement.class = classnames('lg-input__field', {
-      'lg-input__field--block': this.block
-    });
   }
 }

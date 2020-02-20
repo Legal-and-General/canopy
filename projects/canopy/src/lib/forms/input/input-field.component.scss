@@ -1,43 +1,9 @@
 @import '../../../styles/mixins';
+@import './input.scss';
 
-.lg-input {
+.lg-input-field {
   display: block;
   margin-bottom: var(--component-margin);
   background-color: var(--color-white);
   line-height: var(--line-height-sm);
-}
-
-.lg-input__field {
-  border: solid var(--border-width) var(--border-color);
-  border-radius: var(--border-radius-sm);
-  line-height: var(--line-height-sm);
-  padding: calc(var(--space-xs) - var(--border-width)) var(--space-sm);
-  outline: 0;
-  max-width: 100%;
-}
-
-.lg-input__field--block {
-  width: 100%;
-
-  @include lg-breakpoint('md') {
-    width: auto;
-  }
-}
-
-.lg-input__field:hover {
-  border-color: var(--border-hover-color);
-}
-
-.lg-input__field:focus {
-  border-left-width: var(--keyline-width);
-  border-color: var(--border-focus-color);
-  padding-left: calc(
-    var(--space-sm) - var(--keyline-width) + var(--border-width)
-  );
-}
-
-.lg-input__field:disabled {
-  color: var(--disabled-color);
-  background-color: var(--background-disabled-color);
-  border-color: var(--border-disabled-color);
 }

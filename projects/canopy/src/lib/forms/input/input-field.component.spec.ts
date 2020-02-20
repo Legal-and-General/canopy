@@ -90,17 +90,10 @@ describe('LgInputFieldComponent', () => {
     );
   });
 
-  it('adds the input field class to the lgInput directive', () => {
-    fixture.detectChanges();
-    const className = inputDebugElement.nativeElement.getAttribute('class');
-    expect(className).toContain('lg-input__field');
-  });
-
-  it('adds the block modifier to the input field class', () => {
+  it('adds the block property to the input field', () => {
     component.block = true;
     fixture.detectChanges();
-    const className = inputDebugElement.nativeElement.getAttribute('class');
-    expect(className).toContain('lg-input__field--block');
+    expect(inputDebugElement.componentInstance.block).toEqual(true);
   });
 
   it('links the hint to the input field with the correct aria attributes', () => {
