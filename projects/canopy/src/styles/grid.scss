@@ -1,9 +1,13 @@
 :root {
   --grid-margin: var(--space-sm);
-  --grid-gutter: var(--component-margin);
+  --grid-gutter: var(--space-sm);
 
-  @include lg-breakpoint('md') {
-    --grid-margin: var(--space-lg);
+  @include lg-breakpoint('lg') {
+    --grid-gutter: calc(var(--space-sm) + var(--space-xxxs));
+  }
+
+  @include lg-breakpoint('xl') {
+    --grid-gutter: var(--space-lg);
   }
 }
 

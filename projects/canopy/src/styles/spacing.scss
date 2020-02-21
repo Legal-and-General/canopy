@@ -13,19 +13,15 @@
   --space-xxxxl: calc(9 * var(--space-unit)); // 144
 
   --component-padding: var(--space-sm);
-  --component-margin: var(--space-sm);
+  --component-margin: var(--space-md);
 
   --link-focus-outline: calc(0.125 * var(--space-unit)); // 2
 
   @include lg-breakpoint('md') {
     --component-padding: var(--space-lg);
   }
-
+  
   @include lg-breakpoint('lg') {
-    --component-margin: calc(var(--space-sm) + var(--space-xxxs));
-  }
-
-  @include lg-breakpoint('xl') {
     --component-margin: var(--space-lg);
   }
 }
