@@ -53,6 +53,7 @@
   padding-left: calc(
     var(--space-sm) - var(--keyline-width) + var(--border-width)
   );
+  @include lg-outer-focus-outline();
 }
 
 .lg-select__field:disabled {

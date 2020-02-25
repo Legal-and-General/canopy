@@ -8,7 +8,7 @@
   box-shadow: inset 0 0 0 0.25rem $bg-color, inset 0 0 0 0.3rem $color;
 }
 
-@mixin lg-outer-focus-outline($bg-color) {
+@mixin lg-outer-focus-outline($bg-color: var(--default-focus-color)) {
   outline: 0;
   box-shadow: 0 0 0 0.25rem $bg-color;
 }
