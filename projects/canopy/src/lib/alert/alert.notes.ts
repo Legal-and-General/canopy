@@ -10,7 +10,7 @@ Alerts are used to communicate important information to the user.
 ~~~js
 @NgModule({
   ...
-  declarations: [ ..., LgAlertModule ],
+  imports: [ ..., LgAlertModule ],
 })
 ~~~
 

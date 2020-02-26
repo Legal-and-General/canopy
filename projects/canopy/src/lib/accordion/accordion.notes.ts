@@ -10,7 +10,7 @@ Accordions allow users to quickly expand and collapse grouped sections of conten
 ~~~js
 @NgModule({
   ...
-  declarations: [ ..., LgAccordionModule ],
+  imports: [ ..., LgAccordionModule ],
 })
 ~~~
 

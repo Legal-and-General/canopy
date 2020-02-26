@@ -10,7 +10,7 @@ Import the component in your application:
 ~~~js
 @NgModule({
   ...
-  declarations: [ ..., LgToggleComponent ],
+  imports: [ ..., LgToggleModule ],
 })
 ~~~
 

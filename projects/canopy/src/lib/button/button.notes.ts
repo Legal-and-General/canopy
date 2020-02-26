@@ -10,7 +10,7 @@ Import the component in your module:
 ~~~
 @NgModule({
   ...
-  declarations: [ ..., LgButtonModule ],
+  imports: [ ..., LgButtonModule ],
 })
 ~~~
 

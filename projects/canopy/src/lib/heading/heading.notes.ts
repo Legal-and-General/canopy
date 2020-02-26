@@ -11,7 +11,7 @@ Import the component in your module:
 ~~~
 @NgModule({
   ...
-  declarations: [ ..., LgHeadingComponent ],
+  imports: [ ..., LgHeadingModule ],
 })
 ~~~
 
@@ -27,4 +27,4 @@ and in your HTML:
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`level\`\` | The heading level | number | undefined | Yes |
 | \`\`class\`\` | The class/classes to apply to the element | string | null | No |
-`
+`;
