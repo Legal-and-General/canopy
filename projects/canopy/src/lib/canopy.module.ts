@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { LgAccordionModule } from './accordion/accordion.module';
 import { LgAlertModule } from './alert/alert.module';
+import { LgBreadcrumbModule } from './breadcrumb/breadcrumb.module';
 import { LgButtonModule } from './button/button.module';
 import { LgCardModule } from './card/card.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
@@ -23,6 +24,7 @@ const directives = [LgFocusDirective];
 const modules = [
   LgAccordionModule,
   LgAlertModule,
+  LgBreadcrumbModule,
   LgButtonModule,
   LgCardModule,
   LgFeatureToggleModule,

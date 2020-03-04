@@ -1,0 +1,87 @@
+@import '../../../styles/mixins';
+
+.lg-breadcrumb-item {
+  display: none;
+  align-items: center;
+  margin-right: var(--space-sm);
+
+  @include lg-breakpoint('md') {
+    display: flex;
+
+    .lg-icon {
+      display: inline;
+    }
+  }
+
+  &__content {
+    .lg-icon {
+      margin-right: var(--space-sm);
+    }
+  }
+
+  &--sm-screen-visible-item {
+    display: flex;
+  }
+
+  &--hide-content-icon {
+    .lg-breadcrumb-item__content .lg-icon {
+      display: none;
+    }
+  }
+
+  a,
+  span {
+    display: flex;
+    align-items: center;
+  }
+
+  &--light {
+    color: var(--breadcrumb-light-color);
+
+    a,
+    span {
+      color: var(--breadcrumb-light-color);
+    }
+  }
+
+  &--dark {
+    color: var(--breadcrumb-dark-color);
+
+    a,
+    span {
+      color: var(--breadcrumb-dark-color);
+    }
+
+    a:focus {
+      color: var(--breadcrumb-light-color);
+    }
+  }
+
+  &__icon-backward {
+    margin-right: var(--space-sm);
+
+    &.lg-icon {
+      display: inline;
+    }
+  }
+
+  &__icon-forward {
+    margin-left: var(--space-sm);
+  }
+
+  &__icon-wrapper {
+    .lg-breadcrumb-item__icon-forward {
+      display: none;
+    }
+
+    @include lg-breakpoint('md') {
+      .lg-breadcrumb-item__icon-backward {
+        display: none;
+      }
+
+      .lg-breadcrumb-item__icon-forward {
+        display: flex;
+      }
+    }
+  }
+}

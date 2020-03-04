@@ -1,0 +1,7 @@
+@import '../../styles/mixins';
+
+.lg-breadcrumb {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: var(--component-margin);
+}

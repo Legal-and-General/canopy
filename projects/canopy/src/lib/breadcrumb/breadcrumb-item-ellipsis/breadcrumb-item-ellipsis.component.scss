@@ -1,0 +1,25 @@
+@import '../../../styles/mixins';
+
+.lg-breadcrumb-item-ellipsis {
+  margin-right: var(--space-sm);
+  display: none;
+  align-items: center;
+
+  &__wrapper,
+  &__caret-wrapper {
+    align-items: center;
+    display: flex;
+  }
+
+  &--light {
+    color: var(--breadcrumb-light-color);
+  }
+
+  &--dark {
+    color: var(--breadcrumb-dark-color);
+  }
+
+  @include lg-breakpoint('md') {
+    display: flex;
+  }
+}
