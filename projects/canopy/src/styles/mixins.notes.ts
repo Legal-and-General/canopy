@@ -23,5 +23,5 @@ Provides styles to hide information intended only for screen readers from the la
 ### lg-breakpoint($breakpoint)
 \`\`$breakpoint\`\`: string value for the breakpoint screen size.
 
-Creates a mixin which allows breakpoints to be added to css blocks.
+Allows breakpoints to be added to css blocks.
 `;

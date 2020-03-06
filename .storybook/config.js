@@ -33,6 +33,7 @@ function loadStories() {
   require('../projects/canopy/src/lib/icon/icons.stories');
   require('../projects/canopy/src/styles/spacing.stories');
   require('../projects/canopy/src/styles/mixins.stories');
+  require('../projects/canopy/src/styles/utils.stories');
 }
 
 cssVars({
