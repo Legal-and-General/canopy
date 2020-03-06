@@ -31,6 +31,7 @@ function loadStories() {
   require('../projects/canopy/src/styles/color.stories');
   require('../projects/canopy/src/styles/typography.stories');
   require('../projects/canopy/src/lib/icon/icons.stories');
+  require('../projects/canopy/src/styles/spacing.stories');
 }
 
 cssVars({
