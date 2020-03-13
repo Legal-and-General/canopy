@@ -11,7 +11,6 @@ import { By } from '@angular/platform-browser';
 import { LgFormsModule } from '..';
 import { LgHintComponent } from '../hint/hint.component';
 
-const testDate = '1979-12-20';
 @Component({
   template: `
     <form (ngSubmit)="submit()" [formGroup]="form">
@@ -39,7 +38,7 @@ class TestDateInputComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      dateOfBirth: { value: testDate, disabled: false }
+      dateOfBirth: { value: null, disabled: false }
     });
   }
 }
@@ -84,10 +83,19 @@ describe('LgDateFieldComponent', () => {
   });
 
   it('sets the individual input fields when a date value is provided', () => {
+    const testDate = '1970-05-05';
+    component.form.get('dateOfBirth').setValue(testDate);
+    fixture.detectChanges();
     const [year, month, date] = testDate.split('-');
     expect(yearInput.nativeElement.value).toEqual(year);
     expect(monthInput.nativeElement.value).toEqual(month);
     expect(dateInput.nativeElement.value).toEqual(date);
+  });
+
+  it('sets the individual input fields to the empty string when no date value is provided', () => {
+    expect(yearInput.nativeElement.value).toEqual('');
+    expect(monthInput.nativeElement.value).toEqual('');
+    expect(dateInput.nativeElement.value).toEqual('');
   });
 
   it('disabled the year input field when the disabled property is set', () => {

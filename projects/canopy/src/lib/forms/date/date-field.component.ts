@@ -81,6 +81,9 @@ export class LgDateFieldComponent implements ControlValueAccessor, OnDestroy {
   }
 
   writeValue(dateString: string): void {
+    if (!dateString) {
+      return;
+    }
     const [year, month, date] = dateString.split(/-/);
     this.dateForm.setValue(
       {
