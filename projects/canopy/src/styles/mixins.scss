@@ -45,87 +45,81 @@ $breakpoints: (
   }
 }
 
-@mixin generic-variant() {
-  background-color: var(--generic-bg-color);
-  color: var(--generic-color);
+@mixin lg-variant($variant: 'generic') {
+  @if ($variant == 'generic') {
+    background-color: var(--generic-bg-color);
+    color: var(--generic-color);
 
-  a {
-    color: var(--generic-link-color);
+    a {
+      color: var(--generic-link-color);
 
-    &:hover {
-      color: var(--generic-hover-color);
+      &:hover {
+        color: var(--generic-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--generic-focus-color);
+      }
     }
+  } @else if ($variant == 'info') {
+    background-color: var(--info-bg-color);
+    color: var(--info-color);
 
-    &:focus:hover {
-      color: var(--generic-focus-color);
+    a {
+      color: var(--info-link-color);
+
+      &:hover {
+        color: var(--info-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--info-focus-color);
+      }
     }
-  }
-}
+  } @else if ($variant == 'success') {
+    background-color: var(--success-bg-color);
+    color: var(--success-color);
 
-@mixin info-variant() {
-  background-color: var(--info-bg-color);
-  color: var(--info-color);
+    a {
+      color: var(--success-link-color);
 
-  a {
-    color: var(--info-link-color);
+      &:hover {
+        color: var(--success-hover-color);
+      }
 
-    &:hover {
-      color: var(--info-hover-color);
+      &:focus:hover {
+        color: var(--success-focus-color);
+      }
     }
+  } @else if ($variant == 'warning') {
+    background-color: var(--warning-bg-color);
+    color: var(--warning-color);
 
-    &:focus:hover {
-      color: var(--info-focus-color);
+    a {
+      color: var(--warning-link-color);
+
+      &:hover {
+        color: var(--warning-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--warning-focus-color);
+      }
     }
-  }
-}
+  } @else if ($variant == 'error') {
+    background-color: var(--error-bg-color);
+    color: var(--error-color);
 
-@mixin success-variant() {
-  background-color: var(--success-bg-color);
-  color: var(--success-color);
+    a {
+      color: var(--error-link-color);
 
-  a {
-    color: var(--success-link-color);
+      &:hover {
+        color: var(--error-hover-color);
+      }
 
-    &:hover {
-      color: var(--success-hover-color);
-    }
-
-    &:focus:hover {
-      color: var(--success-focus-color);
-    }
-  }
-}
-
-@mixin warning-variant() {
-  background-color: var(--warning-bg-color);
-  color: var(--warning-color);
-
-  a {
-    color: var(--warning-link-color);
-
-    &:hover {
-      color: var(--warning-hover-color);
-    }
-
-    &:focus:hover {
-      color: var(--warning-focus-color);
-    }
-  }
-}
-
-@mixin error-variant() {
-  background-color: var(--error-bg-color);
-  color: var(--error-color);
-
-  a {
-    color: var(--error-link-color);
-
-    &:hover {
-      color: var(--error-hover-color);
-    }
-
-    &:focus:hover {
-      color: var(--error-focus-color);
+      &:focus:hover {
+        color: var(--error-focus-color);
+      }
     }
   }
 }

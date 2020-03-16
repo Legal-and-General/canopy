@@ -6,3 +6,4 @@ export * from './label/index';
 export * from './radio/index';
 export * from './select/index';
 export * from './toggle/index';
+export * from './validation/index';

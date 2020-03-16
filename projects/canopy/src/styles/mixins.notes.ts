@@ -24,4 +24,10 @@ Provides styles to hide information intended only for screen readers from the la
 \`\`$breakpoint\`\`: string value for the breakpoint screen size.
 
 Allows breakpoints to be added to css blocks.
+
+### lg-variant($variant: 'generic')
+\`\`$variant\`\`: The variant type, 'generic' | 'info' | 'success' | 'warning' | 'error'.
+
+Styles components and native child elements to the specified variant.
+
 `;

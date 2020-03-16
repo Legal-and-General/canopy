@@ -7,10 +7,12 @@ import { LgLabelModule } from './label/label.module';
 import { LgRadioModule } from './radio/radio.module';
 import { LgSelectModule } from './select/select.module';
 import { LgToggleModule } from './toggle/toggle.module';
+import { LgValidationModule } from './validation/validation.module';
 
 @NgModule({
   exports: [
     LgDateFieldModule,
+    LgValidationModule,
     LgHintModule,
     LgInputModule,
     LgLabelModule,

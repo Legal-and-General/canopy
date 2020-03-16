@@ -21,21 +21,21 @@
 }
 
 .lg-alert--generic {
-  @include generic-variant();
+  @include lg-variant('generic');
 }
 
 .lg-alert--info {
-  @include info-variant();
+  @include lg-variant('info');
 }
 
 .lg-alert--success {
-  @include success-variant();
+  @include lg-variant('success');
 }
 
 .lg-alert--warning {
-  @include warning-variant();
+  @include lg-variant('warning');
 }
 
 .lg-alert--error {
-  @include error-variant();
+  @include lg-variant('error');
 }
