@@ -1,0 +1,31 @@
+:root {
+  --generic-bg-color: var(--color-white-smoke);
+  --generic-color: var(--color-charcoal);
+  --generic-link-color: var(--generic-color);
+  --generic-link-hover-color: var(--generic-color);
+  --generic-link-focus-color: var(--color-white);
+
+  --info-bg-color: var(--color-super-blue-lightest);
+  --info-color: var(--color-midnight-blue);
+  --info-link-color: var(--info-color);
+  --info-link-hover-color: var(--info-color);
+  --info-link-focus-color: var(--color-white);
+
+  --success-bg-color: var(--color-leafy-green-lightest);
+  --success-color: var(--color-mexican-green);
+  --success-link-color: var(--success-color);
+  --success-link-hover-color: var(--success-color);
+  --success-link-focus-color: var(--color-white);
+
+  --warning-bg-color: var(--color-dandelion-yellow-lightest);
+  --warning-color: var(--color-earth-brown-dark);
+  --warning-link-color: var(--warning-color);
+  --warning-link-hover-color: var(--warning-color);
+  --warning-link-focus-color: var(--color-white);
+
+  --error-bg-color: var(--color-poppy-red-lightest);
+  --error-color: var(--color-terracotta);
+  --error-link-color: var(--error-color);
+  --error-link-hover-color: var(--error-color);
+  --error-link-focus-color: var(--color-white);
+}

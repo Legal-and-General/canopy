@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .lg-alert {
   display: block;
   margin-bottom: var(--component-margin);
@@ -19,86 +21,21 @@
 }
 
 .lg-alert--generic {
-  background-color: var(--color-white-smoke);
-  color: var(--color-charcoal);
-
-  a {
-    color: var(--color-charcoal);
-
-    &:hover {
-      color: var(--color-charcoal);
-    }
-
-    &:focus:hover {
-      color: var(--color-white);
-    }
-  }
+  @include generic-variant();
 }
 
 .lg-alert--info {
-  background-color: var(--color-super-blue-lightest);
-  color: var(--color-midnight-blue);
-
-  a {
-    color: var(--color-midnight-blue);
-
-    &:hover {
-      color: var(--color-midnight-blue);
-    }
-
-    &:focus:hover {
-      color: var(--color-white);
-    }
-  }
+  @include info-variant();
 }
 
 .lg-alert--success {
-  background-color: var(--color-leafy-green-lightest);
-  color: var(--color-mexican-green);
-
-  a {
-    color: var(--color-mexican-green);
-
-    &:hover {
-      color: var(--color-mexican-green);
-    }
-
-    &:focus:hover {
-      color: var(--color-white);
-    }
-  }
+  @include success-variant();
 }
 
 .lg-alert--warning {
-  background-color: var(--color-dandelion-yellow-lightest);
-  color: var(--color-earth-brown-dark);
-
-  a {
-    color: var(--color-earth-brown-dark);
-
-    &:hover {
-      color: var(--color-earth-brown-dark);
-    }
-
-    &:focus:hover {
-      color: var(--color-white);
-    }
-  }
+  @include warning-variant();
 }
 
 .lg-alert--error {
-  background-color: var(--color-poppy-red-lightest);
-  color: var(--color-terracotta);
-
-  a {
-    color: var(--color-terracotta);
-
-    &:hover {
-      color: var(--color-terracotta);
-    }
-
-    &:focus:hover {
-      color: var(--color-white);
-    }
-  }
+  @include error-variant();
 }
