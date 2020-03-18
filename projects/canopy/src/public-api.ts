@@ -10,6 +10,7 @@ export * from './lib/alert/index';
 export * from './lib/breadcrumb/index';
 export * from './lib/button/index';
 export * from './lib/card/index';
+export * from './lib/details/index';
 export * from './lib/feature-toggle/index';
 export * from './lib/focus/index';
 export * from './lib/footer/index';

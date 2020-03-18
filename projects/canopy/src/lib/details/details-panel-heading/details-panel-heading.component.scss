@@ -1,0 +1,38 @@
+@import '../../../styles/mixins';
+
+.lg-details-panel-heading {
+  font-size: var(--text-base-size);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-body);
+  margin-bottom: 0;
+
+  &__toggle {
+    background: transparent;
+    border: none;
+    color: var(--details-color);
+    cursor: pointer;
+    display: inline-flex;
+    padding: var(--space-sm);
+    text-align: left;
+    width: 100%;
+
+    &:focus {
+      @include lg-inner-focus-outline(var(--default-focus-color));
+    }
+
+    &--active .lg-details-panel-heading__state-icon {
+      pointer-events: none;
+      transform: rotateX(180deg);
+    }
+  }
+
+  &__state-icon {
+    display: flex;
+    margin-left: auto;
+    margin-right: var(--space-xxs);
+    padding-left: var(--space-xxs);
+    position: relative;
+    top: var(--details-chevron-top-positon);
+    transition: transform var(--animation-duration) var(--animation-fn);
+  }
+}

@@ -6,6 +6,7 @@ import { LgAlertModule } from './alert/alert.module';
 import { LgBreadcrumbModule } from './breadcrumb/breadcrumb.module';
 import { LgButtonModule } from './button/button.module';
 import { LgCardModule } from './card/card.module';
+import { LgDetailsModule } from './details/details.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
 import { LgFocusDirective } from './focus/focus.directive';
 import { LgFooterModule } from './footer/footer.module';
@@ -27,6 +28,7 @@ const modules = [
   LgBreadcrumbModule,
   LgButtonModule,
   LgCardModule,
+  LgDetailsModule,
   LgFeatureToggleModule,
   LgFooterModule,
   LgFormsModule,

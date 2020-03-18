@@ -1,0 +1,9 @@
+<ng-content select="lg-details-panel-heading"></ng-content>
+<div
+  class="lg-details__panel"
+  [id]="panelId"
+  [class.lg-details__panel--active]="isActive"
+  [attr.aria-labelledby]="toggleId"
+>
+  <ng-content></ng-content>
+</div>

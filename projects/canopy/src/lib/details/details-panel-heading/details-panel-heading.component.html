@@ -1,0 +1,17 @@
+<lg-heading [level]="headingLevel" class="lg-details-panel-heading">
+  <button
+    type="button"
+    [id]="toggleId"
+    class="lg-details-panel-heading__toggle"
+    [class.lg-details-panel-heading__toggle--active]="isActive"
+    [attr.aria-expanded]="isActive"
+    [attr.aria-controls]="panelId"
+    (click)="toggle()"
+  >
+    <ng-content></ng-content>
+    <lg-icon
+      [name]="chevronDown"
+      class="lg-details-panel-heading__state-icon"
+    ></lg-icon>
+  </button>
+</lg-heading>

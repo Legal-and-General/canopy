@@ -1,0 +1,17 @@
+@import '../../styles/mixins';
+
+.lg-details {
+  background: var(--details-bg-color);
+  border-radius: var(--border-radius-sm);
+  display: block;
+  margin-bottom: var(--component-margin);
+
+  &__panel {
+    display: none;
+    padding: 0 var(--space-sm) var(--space-sm);
+
+    &--active {
+      display: block;
+    }
+  }
+}
