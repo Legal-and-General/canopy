@@ -26,7 +26,7 @@ export class LgFooterComponent {
   @Output() secondaryLinkClicked = new EventEmitter<any>();
 
   @Input() logo: string;
-  @Input() logoAlt: string;
+  @Input() logoAlt = '';
   @Input() copyright: string;
   @Input() primaryLinks: Link[];
   @Input() secondaryLinks: Link[];
