@@ -129,7 +129,7 @@ describe('LgDateFieldComponent', () => {
     dateInput.nativeElement.value = 7;
     dateInput.nativeElement.dispatchEvent(new Event('input'));
 
-    expect(component.form.controls.dateOfBirth.value).toEqual('1944-3-7');
+    expect(component.form.controls.dateOfBirth.value).toEqual('1944-03-07');
   });
 
   it('sets unique identifiers for each input field', () => {
