@@ -15,6 +15,6 @@ export class LgHeaderComponent {
   @HostBinding('class.lg-header') class = true;
 
   @Input() logo: string;
-  @Input() logoAlt: string;
+  @Input() logoAlt = '';
   @Input() logoHref: string;
 }
