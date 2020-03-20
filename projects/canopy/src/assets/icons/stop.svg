@@ -1,1 +1,1 @@
-<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="M5 5h10v10H5z"/></defs><use xlink:href="#a" transform="translate(-5 -5)"/></svg>
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="M8 8h16v16H8z"/></defs><use xlink:href="#a" fill-rule="evenodd"/></svg>

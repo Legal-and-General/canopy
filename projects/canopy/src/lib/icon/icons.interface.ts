@@ -4,377 +4,412 @@
 export const lgIconAdd: Icon = {
   name: 'add',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M10.625 9.375h5a.625.625 0 110 1.25h-5v5a.625.625 0 11-1.25 0v-5h-5a.625.625 0 110-1.25h5v-5a.625.625 0 111.25 0v5z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-0" d="M17 15h8a1 1 0 010 2h-8v8a1 1 0 01-2 0v-8H7a1 1 0 010-2h8V7a1 1 0 012 0v8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-0"/></svg>'
+};
+export const lgIconAlignCentre: Icon = {
+  name: 'align-centre',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M22 19v2H10v-2h12zm2-4v2H8v-2h16zm2-4v2H6v-2h20z"/></svg>'
+};
+export const lgIconAlignLeft: Icon = {
+  name: 'align-left',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M18 19v2H6v-2h12zm4-4v2H6v-2h16zm4-4v2H6v-2h20z"/></svg>'
+};
+export const lgIconAlignRight: Icon = {
+  name: 'align-right',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M26 19v2H14v-2h12zm0-4v2H10v-2h16zm0-4v2H6v-2h20z"/></svg>'
 };
 export const lgIconAnalytics: Icon = {
   name: 'analytics',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M8.75 2.5a6.25 6.25 0 014.84 10.205l3.727 3.728a.625.625 0 01-.797.956l-.087-.072-3.728-3.727A6.25 6.25 0 118.75 2.5zm0 1.25a5 5 0 100 10 5 5 0 000-10zm0 1.25c.345 0 .625.28.625.625v.704c.23.059.446.15.645.267l.498-.498a.625.625 0 01.884.884l-.498.498c.117.2.208.416.267.646l.704-.001a.625.625 0 010 1.25h-.704c-.059.23-.15.446-.267.645l.498.498a.625.625 0 11-.884.884l-.498-.498a2.485 2.485 0 01-.645.267v.704a.625.625 0 11-1.25 0v-.704a2.485 2.485 0 01-.645-.267l-.498.498a.625.625 0 11-.884-.884l.498-.498a2.485 2.485 0 01-.267-.645h-.704a.625.625 0 110-1.25h.703c.06-.229.15-.446.268-.645l-.498-.498a.625.625 0 01.884-.884l.498.498c.2-.118.416-.208.646-.267l-.001-.704c0-.345.28-.625.625-.625zm0 2.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-1" d="M14 4c5.523 0 10 4.477 10 10 0 2.4-.846 4.604-2.257 6.328l5.964 5.965a1 1 0 01-1.414 1.414l-5.965-5.963A9.959 9.959 0 0114 24C8.477 24 4 19.523 4 14S8.477 4 14 4zm0 2a8 8 0 100 16 8 8 0 000-16zm0 2a1 1 0 011 1v1.126c.367.095.714.24 1.032.428l.796-.797a1 1 0 011.414 1.415l-.796.796c.188.318.333.665.428 1.032H19a1 1 0 010 2h-1.126a3.98 3.98 0 01-.428 1.032l.796.796a1 1 0 01-1.414 1.415l-.796-.797a3.976 3.976 0 01-1.031.428L15 19a1 1 0 01-2 0v-1.126a3.976 3.976 0 01-1.032-.428l-.797.797a1 1 0 01-1.414-1.415l.797-.796a3.976 3.976 0 01-.428-1.031L9 15a1 1 0 010-2h1.126a3.96 3.96 0 01.428-1.032l-.797-.796a1 1 0 011.414-1.415l.797.797A3.976 3.976 0 0113 10.126V9a1 1 0 011-1zm0 4a2 2 0 100 4 2 2 0 000-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-1"/></svg>'
 };
 export const lgIconAnnouncement: Icon = {
   name: 'announcement',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><path d="M15.25.423v4.826l1.25.001c.69 0 1.25.56 1.25 1.25v1.25c0 .69-.56 1.25-1.25 1.25l-1.25-.001v4.828l-1.337-.763c-2.493-1.413-4.056-2.189-4.288-2.189l-1.875-.001v5.001c0 .69-.56 1.25-1.25 1.25H5.154a1.25 1.25 0 01-1.233-1.045l-1.035-5.206-.761.001A1.875 1.875 0 01.25 9V5.25c0-1.036.84-1.875 1.875-1.875h7.5c.232 0 1.795-.776 4.288-2.19L15.25.424zM6.5 10.875H4.113l1.041 5H6.5v-5zM14 2.573l-.635.355-.79.43c-1.605.864-2.534 1.267-2.95 1.267L7.75 4.624v5l1.875.001c.48 0 1.643.537 3.74 1.697l.635.355V2.573zM6.5 9.624v-5l-4.375.001a.625.625 0 00-.625.625V9c0 .345.28.625.625.625L6.5 9.624zm10-3.124h-1.25v1.25h1.25V6.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M26 2.277V10h2a2 2 0 012 2v2a2 2 0 01-2 2h-2v7.723l-2.138-1.22C19.872 20.24 17.372 19 17 19h-3v8a2 2 0 01-2 2H9.847a2 2 0 01-1.973-1.671l-1.657-8.33L5 19a3 3 0 01-3-3v-6a3 3 0 013-3h12c.371 0 2.872-1.241 6.862-3.503L26 2.277zM12 19H8.18l1.667 8H12v-8zM24 5.717l-1.016.567-1.264.69C19.152 8.354 17.666 9 17 9h-3v8h3c.769 0 2.628.859 5.984 2.716l1.016.567V5.717zM12 17V9H5a1 1 0 00-1 1v6a1 1 0 001 1h7zm16-5h-2v2h2v-2z"/></svg>'
+};
+export const lgIconArrowDecreasing: Icon = {
+  name: 'arrow-decreasing',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-2" d="M13 24a1 1 0 010-2h7.586L8.293 9.707a1 1 0 011.414-1.414L22 20.586V13a1 1 0 012 0v10a1 1 0 01-.883.993L23 24H13z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-2"/></svg>'
 };
 export const lgIconArrowDown: Icon = {
   name: 'arrow-down',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 16"><defs><path id="a" d="M9.375 15.193V3.01c0-.282.28-.511.625-.511s.625.229.625.511v12.182l3.933-3.766a.64.64 0 01.884 0 .59.59 0 010 .854L10 17.5l-5.442-5.219a.59.59 0 010-.854.64.64 0 01.884 0l3.933 3.766z"/></defs><use transform="translate(-4 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-3" d="M15 24.308V4.818c0-.452.448-.818 1-.818s1 .366 1 .818v19.49l6.293-6.025a1.025 1.025 0 011.414 0c.39.378.39.99 0 1.367L16 28l-8.707-8.35a.944.944 0 010-1.367 1.025 1.025 0 011.414 0L15 24.308z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-3"/></svg>'
+};
+export const lgIconArrowIncreasing: Icon = {
+  name: 'arrow-increasing',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-4" d="M13 8a1 1 0 000 2h7.586L8.293 22.293a1 1 0 001.414 1.414L22 11.414V19a1 1 0 002 0V9a1 1 0 00-.883-.993L23 8H13z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-4"/></svg>'
 };
 export const lgIconArrowLeft: Icon = {
   name: 'arrow-left',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 12"><defs><path id="a" d="M4.807 9.375H16.99c.282 0 .511.28.511.625s-.229.625-.511.625H4.807l3.766 3.933a.64.64 0 010 .884.59.59 0 01-.854 0L2.5 10l5.219-5.442a.59.59 0 01.854 0 .64.64 0 010 .884L4.807 9.375z"/></defs><use transform="translate(-2 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-5" d="M7.692 15h19.49c.452 0 .818.448.818 1s-.366 1-.818 1H7.692l6.025 6.293c.377.39.377 1.024 0 1.414a.944.944 0 01-1.367 0L4 16l8.35-8.707a.944.944 0 011.367 0c.377.39.377 1.024 0 1.414L7.692 15z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-5"/></svg>'
 };
 export const lgIconArrowRight: Icon = {
   name: 'arrow-right',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 12"><defs><path id="a" d="M15.193 9.375l-3.766-3.933a.64.64 0 010-.884.59.59 0 01.854 0L17.5 10l-5.219 5.442a.59.59 0 01-.854 0 .64.64 0 010-.884l3.766-3.933H3.01c-.282 0-.511-.28-.511-.625s.229-.625.511-.625h12.182z"/></defs><use transform="translate(-2 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-6" d="M24.308 15l-6.025-6.293a1.025 1.025 0 010-1.414.944.944 0 011.367 0L28 16l-8.35 8.707a.944.944 0 01-1.367 0 1.025 1.025 0 010-1.414L24.308 17H4.818C4.366 17 4 16.552 4 16s.366-1 .818-1h19.49z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-6"/></svg>'
 };
 export const lgIconArrowUp: Icon = {
   name: 'arrow-up',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 16"><defs><path id="a" d="M10 2.5l5.442 5.219a.59.59 0 010 .854.64.64 0 01-.884 0l-3.933-3.766v12.182c0 .254-.227.465-.524.504L10 17.5c-.345 0-.625-.229-.625-.511V4.806L5.442 8.573a.64.64 0 01-.884 0 .59.59 0 010-.854L10 2.5z"/></defs><use transform="translate(-4 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-7" d="M16 4l8.707 8.35c.39.377.39.99 0 1.367a1.025 1.025 0 01-1.414 0L17 7.692v19.49c0 .42-.386.765-.883.812L16 28c-.552 0-1-.366-1-.818V7.69l-6.293 6.026a1.025 1.025 0 01-1.414 0 .944.944 0 010-1.367L16 4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-7"/></svg>'
 };
 export const lgIconAt: Icon = {
   name: 'at',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 11 12"><defs><path id="a" d="M15.618 9.568c-.042 1.051-.315 1.888-.818 2.512-.503.624-1.174.936-2.013.936-.344 0-.648-.071-.912-.214a1.525 1.525 0 01-.616-.607c-.411.531-.963.797-1.655.797-.402 0-.755-.114-1.056-.341-.302-.227-.524-.55-.664-.97-.14-.418-.184-.893-.129-1.424.126-1.007.463-1.816 1.013-2.428.549-.612 1.222-.918 2.019-.918.616 0 1.147.137 1.591.41l.396.254-.32 3.545c-.072.56.13.84.604.84.356 0 .655-.219.896-.656.241-.436.374-.995.4-1.675.07-1.345-.22-2.384-.872-3.116-.652-.733-1.607-1.1-2.865-1.1-.801 0-1.513.197-2.136.59-.622.392-1.115.947-1.478 1.666-.362.719-.567 1.537-.613 2.455-.067 1.409.226 2.487.88 3.233.655.747 1.636 1.12 2.944 1.12.353 0 .726-.039 1.12-.117.394-.079.715-.17.962-.275l.233 1.003c-.256.16-.6.29-1.035.39a5.908 5.908 0 01-1.305.147c-1.145 0-2.112-.21-2.903-.631a3.957 3.957 0 01-1.764-1.869c-.386-.825-.558-1.826-.516-3.001.05-1.111.318-2.107.802-2.986a5.172 5.172 0 011.988-2.041c.84-.481 1.79-.722 2.846-.722 1.057 0 1.969.21 2.736.631a4.05 4.05 0 011.73 1.815c.386.789.556 1.705.51 2.747zm-6.226.732c-.044.519-.003.911.121 1.177.124.265.325.398.6.398.186 0 .357-.084.513-.252.156-.167.285-.407.387-.718l.237-2.732a1.402 1.402 0 00-.367-.048c-.442 0-.782.175-1.02.524-.24.35-.396.9-.471 1.65z"/></defs><use transform="translate(-5 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-8" d="M24.988 15.31c-.067 1.68-.503 3.02-1.308 4.019-.805.998-1.879 1.497-3.22 1.497-.55 0-1.037-.114-1.46-.343a2.44 2.44 0 01-.986-.97c-.658.85-1.54 1.274-2.647 1.274-.644 0-1.208-.182-1.691-.545-.483-.364-.837-.881-1.062-1.551-.225-.67-.293-1.43-.206-2.28.201-1.61.741-2.905 1.62-3.884.88-.98 1.956-1.469 3.23-1.469.987 0 1.836.219 2.547.657l.634.406-.513 5.671c-.114.896.208 1.343.966 1.343.57 0 1.048-.35 1.434-1.048.386-.699.599-1.593.64-2.681.113-2.152-.351-3.813-1.395-4.986C20.528 9.248 19 8.662 16.987 8.662c-1.281 0-2.42.314-3.417.942-.996.628-1.784 1.517-2.365 2.667-.58 1.15-.907 2.458-.981 3.927-.107 2.255.362 3.98 1.409 5.174 1.047 1.195 2.617 1.792 4.71 1.792.564 0 1.16-.063 1.791-.188.631-.126 1.144-.272 1.54-.44l.373 1.604c-.41.258-.961.465-1.656.623a9.396 9.396 0 01-2.088.237c-1.832 0-3.38-.337-4.645-1.01-1.265-.673-2.206-1.67-2.823-2.99-.617-1.32-.892-2.921-.825-4.802.08-1.778.508-3.37 1.283-4.778.775-1.407 1.835-2.496 3.18-3.265C13.82 7.385 15.337 7 17.027 7c1.691 0 3.15.337 4.378 1.01a6.48 6.48 0 012.768 2.903c.617 1.263.889 2.728.815 4.396zm-9.961 1.17c-.07.83-.005 1.458.194 1.883.199.425.52.637.961.637.297 0 .57-.134.82-.403.248-.268.455-.651.62-1.15l.378-4.37a2.243 2.243 0 00-.587-.077c-.707 0-1.251.28-1.633.839-.382.559-.633 1.439-.753 2.64z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-8"/></svg>'
 };
 export const lgIconAttach: Icon = {
   name: 'attach',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 15"><defs><path id="a" d="M8.125 5.625v7.5C8.125 14.095 9.03 15 10 15s1.875-.905 1.875-1.875v-7.5c0-1.434-1.208-3.125-3.125-3.125S5.625 4.191 5.625 5.625v7.5c0 2.36 1.41 4.375 4.375 4.375s4.375-2.014 4.375-4.375v-7.5a.625.625 0 10-1.25 0v7.5c0 1.746-.965 3.125-3.125 3.125s-3.125-1.379-3.125-3.125v-7.5c0-.816.756-1.875 1.875-1.875s1.875 1.059 1.875 1.875v7.5c0 .28-.345.625-.625.625s-.625-.345-.625-.625v-7.5a.625.625 0 10-1.25 0z"/></defs><use transform="rotate(-30 2.902 14.098)" xlink:href="#a"/></svg>'
-};
-export const lgIconBarChart: Icon = {
-  name: 'bar-chart',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 14"><defs><path id="a" d="M16.875 3.75V15h.625a.625.625 0 110 1.25h-15a.625.625 0 110-1.25h.625V8.75h3.75V15h1.25V6.25h3.75V15h1.25V3.75h3.75zM15.625 5h-1.25v10h1.25V5zm-5 2.5h-1.25V15h1.25V7.5zm-5 2.5h-1.25v5h1.25v-5z"/></defs><use fill-rule="evenodd" transform="translate(-1 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-9" d="M13 9v12c0 1.552 1.448 3 3 3s3-1.448 3-3V9c0-2.294-1.933-5-5-5S9 6.706 9 9v12c0 3.777 2.256 7 7 7s7-3.223 7-7V9a1 1 0 00-2 0v12c0 2.794-1.544 5-5 5s-5-2.206-5-5V9c0-1.306 1.21-3 3-3s3 1.694 3 3v12c0 .448-.552 1-1 1-.448 0-1-.552-1-1V9a1 1 0 00-2 0z"/></defs><use fill-rule="evenodd" transform="rotate(-30 16 16)" xlink:href="#lg-icon-9"/></svg>'
 };
 export const lgIconBlog: Icon = {
   name: 'blog',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18"><path fill-rule="evenodd" d="M1.75 17.125c-.69 0-1.25-.56-1.25-1.25V2.125c0-.69.56-1.25 1.25-1.25h12.5c.69 0 1.25.56 1.25 1.25v13.75c0 .69-.56 1.25-1.25 1.25H1.75zm0-1.25h1.875v-6.25H1.75v6.25zm9.375-1.25h-6.25v1.25h6.25v-1.25zm3.125-5h-1.875v6.25h1.875v-6.25zm-3.125 2.5h-6.25v1.25h6.25v-1.25zm0-2.5h-6.25v1.25h6.25v-1.25zm3.125-1.25v-3.75H1.75v3.75h1.875v-2.5h8.75v2.5h1.875zm-3.125-1.25h-6.25v1.25h6.25v-1.25zm-3.75-5a.625.625 0 100 1.25.625.625 0 000-1.25zm-2.5 0a.625.625 0 100 1.25.625.625 0 000-1.25zm-2.5 0a.625.625 0 100 1.25.625.625 0 000-1.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M6 29a2 2 0 01-2-2V5a2 2 0 012-2h20a2 2 0 012 2v22a2 2 0 01-2 2H6zm0-2h3V17H6v10zm15-2H11v2h10v-2zm5-8h-3v10h3V17zm-5 4H11v2h10v-2zm0-4H11v2h10v-2zm5-2V9H6v6h3v-4h14v4h3zm-5-2H11v2h10v-2zm-6-8a1 1 0 100 2 1 1 0 000-2zm-4 0a1 1 0 100 2 1 1 0 000-2zM7 5a1 1 0 100 2 1 1 0 000-2z"/></svg>'
 };
 export const lgIconBolt: Icon = {
   name: 'bolt',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 18"><path d="M3.847 9.84H.063L2.212.875H9.89L7.434 5.357h4.503L3.072 17.125l.776-7.285zM1.635 8.56H5.22l-.451 4.24L9.41 6.639H5.317l2.457-4.482H3.17L1.635 8.559z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M12.556 17.344H6.5L9.939 3h12.285l-3.93 7.172H25.5L11.314 29l1.242-11.656zm-3.54-2.05h5.735l-.723 6.787 7.429-9.86h-6.55l3.931-7.172h-7.365L9.017 15.295z"/></svg>'
 };
 export const lgIconBookmarkFill: Icon = {
   name: 'bookmark-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 17"><path fill-rule="evenodd" d="M10 .5v16.25l-5-5-5 5V.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M24 4v26l-8-8-8 8V4z"/></svg>'
 };
 export const lgIconBookmark: Icon = {
   name: 'bookmark',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 17"><path fill-rule="evenodd" d="M10 .5v16.25l-5-5-5 5V.5h10zM8.75 1.75h-7.5v11.875L5 9.875l3.75 3.75V1.75z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M24 4v26l-8-8-8 8V4h16zm-2 2H10v19l6-6 6 6V6z"/></svg>'
 };
 export const lgIconCalculator: Icon = {
   name: 'calculator',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M3.125 1.875h13.75c.69 0 1.25.56 1.25 1.25v13.75c0 .69-.56 1.25-1.25 1.25H3.125c-.69 0-1.25-.56-1.25-1.25V3.125c0-.69.56-1.25 1.25-1.25zm7.5 8.75v6.25h6.25v-6.25h-6.25zm-7.5 0v6.25h6.25v-6.25h-6.25zm7.5-7.5v6.25h6.25v-6.25h-6.25zm-7.5 0v6.25h6.25v-6.25h-6.25zm9.375 11.25H15a.625.625 0 110 1.25h-2.5a.625.625 0 110-1.25zm0-2.5H15a.625.625 0 110 1.25h-2.5a.625.625 0 110-1.25zM5 13.125h2.5a.625.625 0 110 1.25H5a.625.625 0 110-1.25zm8.75-7.759l.663-.663a.625.625 0 01.884.884l-.663.663.663.663a.625.625 0 11-.884.884l-.663-.663-.663.663a.625.625 0 01-.884-.884l.663-.663-.663-.663a.625.625 0 11.884-.884l.663.663zm-6.875.259H7.5a.625.625 0 110 1.25h-.625V7.5a.625.625 0 11-1.25 0v-.625H5a.625.625 0 110-1.25h.625V5a.625.625 0 111.25 0v.625z"/></defs><use fill-rule="evenodd" transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-10" d="M5 3h22a2 2 0 012 2v22a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm12 14v10h10V17H17zM5 17v10h10V17H5zM17 5v10h10V5H17zM5 5v10h10V5H5zm15 18h4a1 1 0 010 2h-4a1 1 0 010-2zm0-4h4a1 1 0 010 2h-4a1 1 0 010-2zM8 21h4a1 1 0 010 2H8a1 1 0 010-2zM22 8.586l1.06-1.06a1 1 0 111.415 1.413L23.415 10l1.06 1.06a1 1 0 11-1.414 1.415L22 11.415l-1.06 1.06a1 1 0 11-1.415-1.414L20.585 10l-1.06-1.06a1 1 0 011.414-1.415L22 8.585zM11 9h1a1 1 0 010 2h-1v1a1 1 0 01-2 0v-1H8a1 1 0 010-2h1V8a1 1 0 112 0v1z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-10"/></svg>'
 };
 export const lgIconCalendar: Icon = {
   name: 'calendar',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.5.5v15H.5V.5h15zm-1.25 5H1.75v8.75h12.5V5.5zm-6.875 6.25h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm-3.75 0h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm7.5-2.5h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm-3.75 0h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm-3.75 0h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm7.5-2.5h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm-3.75 0h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm-3.75 0h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M28 4v24H4V4h24zm-2 8H6v14h20V12zM15 22h2a1 1 0 010 2h-2a1 1 0 010-2zm-6 0h2a1 1 0 010 2H9a1 1 0 010-2zm12-4h2a1 1 0 010 2h-2a1 1 0 010-2zm-6 0h2a1 1 0 010 2h-2a1 1 0 010-2zm-6 0h2a1 1 0 010 2H9a1 1 0 010-2zm12-4h2a1 1 0 010 2h-2a1 1 0 010-2zm-6 0h2a1 1 0 010 2h-2a1 1 0 010-2zm-6 0h2a1 1 0 010 2H9a1 1 0 010-2z"/></svg>'
 };
 export const lgIconCall: Icon = {
   name: 'call',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M12.545 8.318l-1.15-.574-.073-.074c-.825-.825-.417-2.323.684-3.424 1.101-1.1 2.6-1.51 3.424-.684l.913.913c1.333 1.332.067 6.323-2.739 9.13-2.806 2.805-7.797 4.07-9.13 2.738l-.912-.913c-.825-.825-.417-2.323.684-3.424 1.101-1.1 2.6-1.51 3.424-.684l.074.074.574 1.149c.732-.185 1.59-.722 2.547-1.68.958-.958 1.495-1.815 1.68-2.547zm1.387-.75L13.901 8c-.085 1.158-.776 2.432-2.123 3.778-1.346 1.347-2.62 2.038-3.778 2.123l-.431.031-.868-1.734c-.249-.11-.932.112-1.542.721-.663.664-.868 1.414-.684 1.598l.912.913c.181.18 1.334.211 2.643-.12 1.697-.431 3.372-1.33 4.661-2.619 1.29-1.29 2.188-2.964 2.618-4.661.332-1.309.302-2.462.121-2.643l-.913-.912c-.184-.184-.934.02-1.598.684-.61.61-.832 1.293-.721 1.542l1.734.868z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-11" d="M20.072 13.31l-1.839-.92-.118-.118c-1.32-1.32-.666-3.716 1.095-5.478 1.762-1.762 4.158-2.415 5.478-1.096l1.46 1.461c2.133 2.133.108 10.118-4.381 14.608-4.49 4.489-12.475 6.514-14.608 4.382L5.7 24.688c-1.32-1.32-.667-3.716 1.095-5.478 1.762-1.761 4.158-2.415 5.478-1.095l.118.118.92 1.839c1.17-.295 2.542-1.155 4.074-2.688 1.533-1.532 2.393-2.905 2.688-4.074zm2.22-1.2l-.051.69c-.135 1.853-1.242 3.89-3.396 6.045-2.154 2.154-4.192 3.261-6.046 3.396l-.69.05-1.387-2.775c-.399-.176-1.491.18-2.467 1.155-1.062 1.062-1.39 2.262-1.096 2.556l1.461 1.461c.29.29 2.134.338 4.228-.193 2.716-.689 5.395-2.126 7.458-4.19 2.063-2.062 3.5-4.741 4.189-7.457.531-2.094.482-3.939.193-4.228l-1.46-1.46c-.295-.295-1.495.033-2.557 1.095-.976.976-1.331 2.068-1.155 2.467l2.775 1.388z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-11"/></svg>'
 };
 export const lgIconCamera: Icon = {
   name: 'camera',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M10 7.5a3.125 3.125 0 110 6.25 3.125 3.125 0 010-6.25zm0 1.25a1.875 1.875 0 100 3.75 1.875 1.875 0 000-3.75zM11.357 5H8.643L6.768 6.875H5c-.905 0-1.25.345-1.25 1.25v5.625c0 .905.345 1.25 1.25 1.25h10c.905 0 1.25-.345 1.25-1.25V8.125c0-.905-.345-1.25-1.25-1.25h-1.768L11.357 5zm-5.107.625L8.125 3.75h3.75l1.875 1.875H15c1.595 0 2.5.905 2.5 2.5v5.625c0 1.595-.905 2.5-2.5 2.5H5c-1.595 0-2.5-.905-2.5-2.5V8.125c0-1.595.905-2.5 2.5-2.5h1.25z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-12" d="M16 12a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm2.172-6h-4.344l-3 3H8c-1.448 0-2 .552-2 2v9c0 1.448.552 2 2 2h16c1.448 0 2-.552 2-2v-9c0-1.448-.552-2-2-2h-2.828l-3-3zM10 9l3-3h6l3 3h2c2.552 0 4 1.448 4 4v9c0 2.552-1.448 4-4 4H8c-2.552 0-4-1.448-4-4v-9c0-2.552 1.448-4 4-4h2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-12"/></svg>'
 };
 export const lgIconCaretDown: Icon = {
   name: 'caret-down',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 6"><defs><path id="a" d="M7.917 7.484a.63.63 0 11.894-.893l3.533 3.528-3.608 3.602a.633.633 0 01-.895-.892l2.715-2.71-2.64-2.635z"/></defs><use transform="rotate(90 10.5 3.656)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-13" d="M12.666 11.974a1.009 1.009 0 010-1.428 1.013 1.013 0 011.431 0l5.653 5.644-5.773 5.764a1.013 1.013 0 01-1.43 0 1.009 1.009 0 010-1.428l4.342-4.336-4.223-4.216z"/></defs><use fill-rule="evenodd" transform="rotate(90 16 16.25)" xlink:href="#lg-icon-13"/></svg>'
 };
 export const lgIconCaretLeft: Icon = {
   name: 'caret-left',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6 8"><defs><path id="a" d="M11.927 7.391a.62.62 0 000-.884.637.637 0 00-.894 0L7.5 10l3.608 3.567a.637.637 0 00.894 0 .62.62 0 000-.884L9.288 10l2.64-2.609z"/></defs><use transform="translate(-7 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-14" d="M19.084 11.826a.992.992 0 000-1.414 1.02 1.02 0 00-1.431 0L12 16l5.773 5.707a1.02 1.02 0 001.43 0 .992.992 0 000-1.414L14.862 16l4.223-4.174z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-14"/></svg>'
 };
 export const lgIconCaretRight: Icon = {
   name: 'caret-right',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6 8"><defs><path id="a" d="M8.073 7.391a.62.62 0 010-.884.637.637 0 01.894 0L12.5 10l-3.608 3.567a.637.637 0 01-.894 0 .62.62 0 010-.884L10.712 10l-2.64-2.609z"/></defs><use transform="translate(-7 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-15" d="M12.916 11.826a.992.992 0 010-1.414 1.02 1.02 0 011.431 0L20 16l-5.773 5.707a1.02 1.02 0 01-1.43 0 .992.992 0 010-1.414L17.138 16l-4.223-4.174z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-15"/></svg>'
 };
 export const lgIconCaretUp: Icon = {
   name: 'caret-up',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 6"><defs><path id="a" d="M12.672 11.927l-2.635-2.639-2.71 2.714a.63.63 0 11-.892-.894L10.037 7.5l3.528 3.533a.633.633 0 01-.893.894z"/></defs><use transform="translate(-6 -7)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-16" d="M20.276 19.084L16.06 14.86l-4.336 4.343a1.009 1.009 0 01-1.428 0 1.013 1.013 0 010-1.43L16.06 12l5.644 5.653a1.013 1.013 0 010 1.43 1.009 1.009 0 01-1.428 0z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-16"/></svg>'
 };
 export const lgIconCart: Icon = {
   name: 'cart',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M4.536 3.125h11.913l-2.1 7.5H6.645l.703 2.5h5.777a1.875 1.875 0 11-1.768 1.25H8.643a1.875 1.875 0 11-2.546-1.081l-.751-2.669h-.008l-1.75-6.25H1.875a.625.625 0 01-.092-1.243l.092-.007h2.661zm8.589 11.25a.625.625 0 100 1.25.625.625 0 000-1.25zm-6.25 0a.625.625 0 100 1.25.625.625 0 000-1.25zm6.526-5l1.4-5H4.887l1.4 5H13.4z"/></defs><use transform="translate(-1 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-17" d="M26.318 5l-3.36 12H10.632l1.126 4H21a3 3 0 11-2.83 2h-4.34a3 3 0 11-4.074-1.73L8.553 17h-.012L5.74 7H3a1 1 0 01-.993-.883L2 6a1 1 0 011-1h23.318zM21 23a1 1 0 100 2 1 1 0 000-2zm-10 0a1 1 0 100 2 1 1 0 000-2zm10.442-8l2.24-8H7.818l2.24 8h11.384z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-17"/></svg>'
+};
+export const lgIconChartBar: Icon = {
+  name: 'chart-bar',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-18" d="M27 6v18h1a1 1 0 010 2H4a1 1 0 010-2h1V14h6v10h2V10h6v14h2V6h6zm-2 2h-2v16h2V8zm-8 4h-2v12h2V12zm-8 4H7v8h2v-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-18"/></svg>'
+};
+export const lgIconChartDonut: Icon = {
+  name: 'chart-donut',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-19" d="M16 26a9.987 9.987 0 008.117-4.159l-3.493-2.017A5.988 5.988 0 0116 22a5.988 5.988 0 01-4.624-2.176l-3.493 2.017A9.987 9.987 0 0016 26zm-5.625-7.907A6.002 6.002 0 0115 10.083V6.049C9.947 6.551 6 10.815 6 16c0 1.465.315 2.856.881 4.11l3.494-2.017zM26 16a9.959 9.959 0 00-2.257-6.329l-2.852 2.852A5.977 5.977 0 0122 16c0 .736-.133 1.441-.375 2.093l3.494 2.017A9.964 9.964 0 0026 16zm-9-9.95v4.033a5.968 5.968 0 012.477 1.026l2.852-2.852A9.954 9.954 0 0017 6.05zM16 28C9.373 28 4 22.627 4 16S9.373 4 16 4s12 5.373 12 12-5.373 12-12 12zm0-8a4 4 0 100-8 4 4 0 000 8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-19"/></svg>'
+};
+export const lgIconChartLine: Icon = {
+  name: 'chart-line',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-20" d="M4 24h24a1 1 0 010 2H4a1 1 0 010-2zm6.58-5h4l3.819-6.683 4 2 4.47-7.82a1 1 0 10-1.737-.993l-3.53 6.179-4-2L13.42 17h-4l-4.288 7.504a1 1 0 101.736.992L10.58 19zM5 24h3v2H5v-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-20"/></svg>'
+};
+export const lgIconChartPie: Icon = {
+  name: 'chart-pie',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-21" d="M17 4v2.05a9.99 9.99 0 017.091 4.072l1.771-1.033.504.863A11.948 11.948 0 0128 16c0 6.627-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4h1zm-2.001 2.049C9.947 6.551 6 10.815 6 16c0 5.523 4.477 10 10 10s10-4.477 10-10a9.94 9.94 0 00-.9-4.151L15 17.74v-.001.001l-.001-11.692zm2.002 2.013L17 14.257l5.353-3.12a7.99 7.99 0 00-5.352-3.075z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-21"/></svg>'
 };
 export const lgIconChatGroup: Icon = {
   name: 'chat-group',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M16.18 8.363l.023-.162c.813.844 1.297 1.901 1.297 3.049 0 1.07-.42 2.063-1.137 2.876l-.17.185L17.5 17.5l-3.878-1.623a7.607 7.607 0 01-2.372.373c-2.33 0-4.361-1.02-5.436-2.531l.636-.267c.318.085.643.152.973.2C8.33 14.467 9.694 15 11.25 15c.577 0 1.138-.074 1.668-.217l.314-.093.443-.146 1.523.638-.473-1.154.57-.587c.624-.644.955-1.404.955-2.191 0-.551-.166-1.083-.465-1.565.186-.42.32-.862.396-1.322l.022-.162zM8.75 2.5c3.452 0 6.25 2.239 6.25 5s-2.798 5-6.25 5c-.84 0-1.64-.132-2.372-.373L2.5 13.75l1.308-3.19C2.988 9.716 2.5 8.654 2.5 7.5c0-2.761 2.798-5 6.25-5zm0 1.25c-2.815 0-5 1.748-5 3.75 0 .787.33 1.547.955 2.191l.57.587-.473 1.154 1.523-.638.443.146c.62.203 1.29.31 1.982.31 2.815 0 5-1.748 5-3.75s-2.185-3.75-5-3.75z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-22" d="M25.927 13.122C27.227 14.472 28 16.164 28 18c0 1.845-.78 3.544-2.092 4.898L28 28l-6.205-2.596A12.18 12.18 0 0118 26c-3.728 0-6.979-1.632-8.699-4.05l1.019-.426c.51.135 1.03.243 1.558.32C13.332 23.148 15.512 24 18 24c1.107 0 2.18-.17 3.171-.496l.708-.233 2.439 1.02-.757-1.846.91-.94C25.472 20.476 26 19.26 26 18c0-.882-.265-1.733-.743-2.504a8.651 8.651 0 00.642-2.18zM14 4c5.523 0 10 3.582 10 8s-4.477 8-10 8a12.18 12.18 0 01-3.795-.596L4 22l2.092-5.102C4.781 15.544 4 13.845 4 12c0-4.418 4.477-8 10-8zm0 2c-4.504 0-8 2.797-8 6 0 1.259.53 2.475 1.528 3.506l.911.94-.757 1.845 2.439-1.02.708.233c.992.325 2.064.496 3.171.496 4.504 0 8-2.797 8-6s-3.496-6-8-6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-22"/></svg>'
 };
 export const lgIconChat: Icon = {
   name: 'chat',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M2.5 16.875l1.526-3.721C3.068 12.104 2.5 10.795 2.5 9.375c0-3.452 3.358-6.25 7.5-6.25 4.142 0 7.5 2.798 7.5 6.25s-3.358 6.25-7.5 6.25a8.747 8.747 0 01-3.142-.573L2.5 16.875zm2.302-2.318l2.036-.852.469.18c.833.32 1.747.49 2.693.49 3.497 0 6.25-2.294 6.25-5s-2.753-5-6.25-5-6.25 2.294-6.25 5c0 1.063.42 2.082 1.2 2.937l.533.584-.681 1.661z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-23" d="M4 27l2.441-5.954C4.91 19.367 4 17.272 4 15 4 9.477 9.373 5 16 5s12 4.477 12 10-5.373 10-12 10a14.02 14.02 0 01-5.028-.917L4 27zm3.682-3.709l3.26-1.363.749.288C13.024 22.73 14.486 23 16 23c5.595 0 10-3.67 10-8s-4.405-8-10-8-10 3.67-10 8c0 1.7.67 3.33 1.919 4.699l.853.935-1.09 2.657z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-23"/></svg>'
 };
 export const lgIconCheckboxChecked: Icon = {
   name: 'checkbox-checked',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><path fill-rule="evenodd" d="M13.875.125v13.75H.125V.125h13.75zm-1.25 1.25H1.375v11.25h11.25V1.375zM9.589 3.553a.625.625 0 011.072.644l-4.162 6.936-3.066-3.066a.625.625 0 11.884-.884L6.25 9.117l3.338-5.564z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M27 5v22H5V5h22zm-2 2H7v18h18V7zm-4.857 3.486a1 1 0 011.714 1.028L15.2 22.613l-4.906-4.906a1 1 0 011.414-1.414l3.094 3.094 5.342-8.901z"/></svg>'
 };
 export const lgIconCheckboxEmpty: Icon = {
   name: 'checkbox-empty',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><path fill-rule="evenodd" d="M13.875.125v13.75H.125V.125h13.75zm-1.25 1.25H1.375v11.25h11.25V1.375z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M27 5v22H5V5h22zm-2 2H7v18h18V7z"/></svg>'
 };
 export const lgIconCheckboxIndeterminate: Icon = {
   name: 'checkbox-indeterminate',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><path fill-rule="evenodd" d="M13.875.125v13.75H.125V.125h13.75zm-1.25 1.25H1.375v11.25h11.25V1.375zm-7.5 5h3.75a.625.625 0 110 1.25h-3.75a.625.625 0 110-1.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M27 5v22H5V5h22zm-2 2H7v18h18V7zm-12 8h6a1 1 0 010 2h-6a1 1 0 010-2z"/></svg>'
 };
 export const lgIconCheckmarkSpotFill: Icon = {
   name: 'checkmark-spot-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm2.59 4.053l-3.34 5.564-1.933-1.934a.625.625 0 10-.884.884L9.5 14.133l4.162-6.936a.625.625 0 00-1.072-.644z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-24" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm4.143 6.486L14.8 19.387l-3.094-3.094a1 1 0 00-1.414 1.414l4.906 4.906 6.658-11.099a1 1 0 00-1.714-1.028z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-24"/></svg>'
 };
 export const lgIconCheckmarkSpot: Icon = {
   name: 'checkmark-spot',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5zm2.59 2.803a.625.625 0 011.07.644L9.5 14.133l-3.067-3.066a.625.625 0 11.884-.884l1.934 1.934z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-25" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm4.143 4.486a1 1 0 011.714 1.028L15.2 22.613l-4.906-4.906a1 1 0 011.414-1.414l3.094 3.094z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-25"/></svg>'
 };
 export const lgIconCheckmark: Icon = {
   name: 'checkmark',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 11"><defs><path id="a" d="M9.238 13.354l-3.171-3.17a.625.625 0 10-.884.883l4.329 4.329 5.406-9.46a.625.625 0 00-1.086-.621l-4.594 8.04z"/></defs><use transform="translate(-5 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-26" d="M14.781 21.367l-5.074-5.074a1 1 0 10-1.414 1.414l6.926 6.926 8.65-15.137a1 1 0 10-1.737-.992l-7.35 12.863z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-26"/></svg>'
 };
-export const lgIconChevronDownFill: Icon = {
-  name: 'chevron-down-fill',
+export const lgIconChevronDownFilled: Icon = {
+  name: 'chevron-down-filled',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 8"><defs><path id="a" d="M2.5 13.75l7.5-7.5 7.5 7.5z"/></defs><use transform="matrix(1 0 0 -1 -2 14)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-27" d="M4 22l12-12 12 12z"/></defs><use fill-rule="evenodd" transform="matrix(1 0 0 -1 0 32)" xlink:href="#lg-icon-27"/></svg>'
 };
 export const lgIconChevronDownSlim: Icon = {
   name: 'chevron-down-slim',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 6"><defs><path id="a" d="M10 11.697l5.929-3.485a.632.632 0 01.857.21.605.605 0 01-.214.84L10 13.125 3.43 9.262a.605.605 0 01-.215-.84.632.632 0 01.858-.21L10 11.697z"/></defs><use transform="translate(-3 -8)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-28" d="M16 18.715l9.486-5.575a1.012 1.012 0 011.372.336.968.968 0 01-.343 1.344L16 21 5.486 14.82a.968.968 0 01-.343-1.344 1.012 1.012 0 011.372-.336L16 18.715z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-28"/></svg>'
 };
 export const lgIconChevronDown: Icon = {
   name: 'chevron-down',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 9"><defs><path id="a" d="M10 12.666l5.808-5.614a.64.64 0 01.884 0 .59.59 0 010 .854L10 14.375 3.308 7.906a.59.59 0 010-.854.64.64 0 01.884 0L10 12.666z"/></defs><use transform="translate(-3 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-29" d="M16 20.266l9.293-8.983a1.025 1.025 0 011.414 0c.39.378.39.99 0 1.367L16 23 5.293 12.65a.944.944 0 010-1.367 1.025 1.025 0 011.414 0L16 20.266z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-29"/></svg>'
+};
+export const lgIconChevronLeftCircle: Icon = {
+  name: 'chevron-left-circle',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-30" d="M18.584 11.766a.992.992 0 000-1.414 1.02 1.02 0 00-1.431 0L11.5 15.941l5.773 5.707a1.02 1.02 0 001.43 0 .992.992 0 000-1.414l-4.342-4.293 4.223-4.175zM16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-30"/></svg>'
 };
 export const lgIconChevronLeftSlim: Icon = {
   name: 'chevron-left-slim',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6 14"><defs><path id="a" d="M8.303 10l3.485 5.929c.174.296.08.68-.21.857a.605.605 0 01-.84-.214L6.875 10l3.863-6.571a.605.605 0 01.84-.215c.29.178.384.562.21.858L8.303 10z"/></defs><use transform="translate(-6 -3)" xlink:href="#a"/></svg>'
-};
-export const lgIconChevronLeftSpot: Icon = {
-  name: 'chevron-left-spot',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M11.615 7.354a.62.62 0 000-.884.637.637 0 00-.894 0L7.187 9.963l3.609 3.567a.637.637 0 00.894 0 .62.62 0 000-.884L8.976 9.963l2.639-2.609zM10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-31" d="M13.285 16l5.575 9.486a1.012 1.012 0 01-.336 1.372.968.968 0 01-1.344-.343L11 16l6.18-10.514a.968.968 0 011.344-.343c.464.284.615.898.336 1.372L13.285 16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-31"/></svg>'
 };
 export const lgIconChevronLeft: Icon = {
   name: 'chevron-left',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 9 14"><defs><path id="a" d="M7.334 10l5.614 5.808a.64.64 0 010 .884.59.59 0 01-.854 0L5.625 10l6.469-6.692a.59.59 0 01.854 0 .64.64 0 010 .884L7.334 10z"/></defs><use transform="translate(-5 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-32" d="M11.734 16l8.983 9.293c.377.39.377 1.024 0 1.414a.944.944 0 01-1.367 0L9 16 19.35 5.293a.944.944 0 011.367 0c.377.39.377 1.024 0 1.414L11.734 16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-32"/></svg>'
+};
+export const lgIconChevronRightCircle: Icon = {
+  name: 'chevron-right-circle',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-33" d="M13.416 11.827a.992.992 0 010-1.414 1.02 1.02 0 011.431 0L20.5 16l-5.773 5.707a1.02 1.02 0 01-1.43 0 .992.992 0 010-1.414L17.639 16l-4.223-4.174zM16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-33"/></svg>'
 };
 export const lgIconChevronRightSlim: Icon = {
   name: 'chevron-right-slim',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6 14"><defs><path id="a" d="M11.697 10l-3.485 5.93a.632.632 0 00.21.857c.29.178.666.082.84-.214L13.125 10 9.262 3.43a.605.605 0 00-.84-.215.632.632 0 00-.21.858L11.697 10z"/></defs><use transform="translate(-8 -3)" xlink:href="#a"/></svg>'
-};
-export const lgIconChevronRightSpot: Icon = {
-  name: 'chevron-right-spot',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M8.385 7.392a.62.62 0 010-.884.637.637 0 01.894 0l3.534 3.493-3.609 3.567a.637.637 0 01-.894 0 .62.62 0 010-.884L11.024 10 8.385 7.39zM10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-34" d="M18.715 16l-5.575 9.486a1.012 1.012 0 00.336 1.372.968.968 0 001.344-.343L21 16 14.82 5.486a.968.968 0 00-1.344-.343 1.012 1.012 0 00-.336 1.372L18.715 16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-34"/></svg>'
 };
 export const lgIconChevronRight: Icon = {
   name: 'chevron-right',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 14"><defs><path id="a" d="M12.041 10l-5.614 5.808a.64.64 0 000 .884.59.59 0 00.854 0L13.75 10 7.281 3.308a.59.59 0 00-.854 0 .64.64 0 000 .884L12.041 10z"/></defs><use transform="translate(-6 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-35" d="M19.266 16l-8.983 9.293a1.025 1.025 0 000 1.414c.378.39.99.39 1.367 0L22 16 11.65 5.293a.944.944 0 00-1.367 0 1.025 1.025 0 000 1.414L19.266 16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-35"/></svg>'
 };
-export const lgIconChevronUpFill: Icon = {
-  name: 'chevron-up-fill',
+export const lgIconChevronUpFilled: Icon = {
+  name: 'chevron-up-filled',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 8"><defs><path id="a" d="M2.5 13.75l7.5-7.5 7.5 7.5z"/></defs><use transform="translate(-2 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-36" d="M4 22l12-12 12 12z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-36"/></svg>'
 };
 export const lgIconChevronUpSlim: Icon = {
   name: 'chevron-up-slim',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 6"><defs><path id="a" d="M10 8.303l-5.928 3.485a.632.632 0 01-.858-.21.605.605 0 01.215-.84L10 6.875l6.572 3.863c.296.174.392.55.214.84a.632.632 0 01-.857.21L10 8.303z"/></defs><use transform="translate(-3 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-37" d="M16 13.285L6.515 18.86a1.012 1.012 0 01-1.372-.336.968.968 0 01.343-1.344L16 11l10.515 6.18a.97.97 0 01.343 1.344 1.012 1.012 0 01-1.372.336L16 13.285z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-37"/></svg>'
 };
 export const lgIconChevronUp: Icon = {
   name: 'chevron-up',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 9"><defs><path id="a" d="M10 7.334l-5.808 5.614a.64.64 0 01-.884 0 .59.59 0 010-.854L10 5.625l6.692 6.469a.59.59 0 010 .854.64.64 0 01-.884 0L10 7.334z"/></defs><use transform="translate(-3 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-38" d="M16 11.734l-9.293 8.983a1.025 1.025 0 01-1.414 0 .944.944 0 010-1.367L16 9l10.707 10.35c.39.377.39.99 0 1.367a1.025 1.025 0 01-1.414 0L16 11.734z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-38"/></svg>'
 };
 export const lgIconCloseSpot: Icon = {
   name: 'close-spot',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5zM7.79 6.906L10 9.116l2.21-2.21a.625.625 0 01.884.884L10.884 10l2.21 2.21a.625.625 0 11-.884.884L10 10.884l-2.21 2.21a.625.625 0 11-.884-.884L9.116 10l-2.21-2.21a.625.625 0 01.884-.884z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-39" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm-3.536 5.05L16 14.586l3.536-3.536a1 1 0 011.414 1.414L17.414 16l3.536 3.536a1 1 0 01-1.414 1.414L16 17.414l-3.536 3.536a1 1 0 01-1.414-1.414L14.586 16l-3.536-3.536a1 1 0 011.414-1.414z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-39"/></svg>'
 };
 export const lgIconClose: Icon = {
   name: 'close',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 10"><defs><path id="a" d="M10.884 10l3.535 3.536a.625.625 0 11-.883.883L10 10.884l-3.536 3.535a.625.625 0 11-.883-.883L9.116 10 5.581 6.464a.625.625 0 01.883-.883L10 9.116l3.536-3.535a.625.625 0 01.883.883L10.884 10z"/></defs><use transform="translate(-5 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-40" d="M17.414 16l5.657 5.657a1 1 0 01-1.414 1.414L16 17.414l-5.657 5.657a1 1 0 01-1.414-1.414L14.586 16l-5.657-5.657a1 1 0 011.414-1.414L16 14.586l5.657-5.657a1 1 0 011.414 1.414L17.414 16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-40"/></svg>'
 };
 export const lgIconCloud: Icon = {
   name: 'cloud',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 13"><defs><path id="a" d="M10 4.375a5.628 5.628 0 015.49 4.395 3.72 3.72 0 011.383.47 3.738 3.738 0 011.745 2.269A3.755 3.755 0 0115 16.25H4.375a3.125 3.125 0 010-6.25A5.625 5.625 0 0110 4.375zm0 1.25a4.375 4.375 0 00-4.33 5.004l.136.95-.924-.26A1.877 1.877 0 002.5 13.125C2.5 14.161 3.34 15 4.375 15H15c.9 0 1.69-.476 2.13-1.191l.033-.071a2.492 2.492 0 00.253-1.884A2.501 2.501 0 0015 10h-.031l-.24.002a2.497 2.497 0 00-1.896 1.236.625.625 0 01-1.083-.625 3.74 3.74 0 012.464-1.793l-.054-.181A4.379 4.379 0 0010 5.625z"/></defs><use transform="translate(-1 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-41" d="M16 7a9.004 9.004 0 018.784 7.031c.757.1 1.509.347 2.212.753a5.98 5.98 0 012.773 3.562l.014.05c.006.023.013.045.018.068A6 6 0 0124 26H7a5 5 0 010-10 9 9 0 019-9zm0 2a7 7 0 00-6.928 8.006l.218 1.52-1.478-.415A3.003 3.003 0 004 21a3 3 0 003 3h17a3.997 3.997 0 003.4-1.893.753.753 0 01.06-.127c.52-.9.65-1.92.442-2.86A4.001 4.001 0 0024 16h-.05l-.395.004a3.994 3.994 0 00-3.023 1.976 1 1 0 01-1.732-1 5.985 5.985 0 013.942-2.867A7.003 7.003 0 0016 9z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-41"/></svg>'
 };
 export const lgIconCode: Icon = {
   name: 'code',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 8"><defs><path id="a" d="M14.01 7.317a.62.62 0 010-.884.637.637 0 01.894 0l3.534 3.493-3.609 3.567a.637.637 0 01-.894 0 .62.62 0 010-.884l2.714-2.683-2.639-2.61zm-1.833-.983a.618.618 0 01.236.857l-3.71 6.245a.655.655 0 01-.88.23.618.618 0 01-.236-.857l3.71-6.245a.655.655 0 01.88-.23zm-7.081.1a.637.637 0 01.894 0 .62.62 0 010 .883L3.35 9.926l2.715 2.683a.62.62 0 010 .884.637.637 0 01-.894 0L1.562 9.926z"/></defs><use transform="translate(-1 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-42" d="M22.416 11.707a.992.992 0 010-1.414 1.02 1.02 0 011.431 0L29.5 15.88l-5.773 5.707a1.02 1.02 0 01-1.43 0 .992.992 0 010-1.414l4.342-4.293-4.223-4.174zm-2.932-1.572c.493.277.663.89.378 1.37l-5.936 9.993c-.285.48-.916.644-1.41.367a.988.988 0 01-.378-1.37l5.936-9.993c.285-.48.916-.644 1.41-.367zm-11.331.158a1.02 1.02 0 011.43 0 .992.992 0 010 1.414l-4.222 4.174 4.343 4.293a.992.992 0 010 1.414 1.02 1.02 0 01-1.43 0L2.5 15.881z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-42"/></svg>'
 };
 export const lgIconCollaborate: Icon = {
   name: 'collaborate',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 .625a2.5 2.5 0 01.625 4.921V7.58c.879.226 1.57.918 1.796 1.796h2.033a2.501 2.501 0 110 1.25l-2.033.001a2.504 2.504 0 01-1.796 1.795v2.033a2.501 2.501 0 11-1.25 0V12.42a2.504 2.504 0 01-1.796-1.795H5.546a2.501 2.501 0 110-1.25l2.033-.001a2.504 2.504 0 011.797-1.796V5.546A2.501 2.501 0 0110 .625zm0 15a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm6.875-6.875a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm-13.75 0a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm6.875 0a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm0-6.875a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></defs><use fill-rule="evenodd" transform="rotate(45 11.414 6.586)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-43" d="M16 1a4 4 0 011 7.874v3.252A4.007 4.007 0 0119.875 15h3.252A4.002 4.002 0 0131 16a4 4 0 01-7.874 1h-3.252A4.007 4.007 0 0117 19.875v3.252A4.002 4.002 0 0116 31a4 4 0 01-1-7.874v-3.252a4.007 4.007 0 01-2.874-2.873H8.874A4.002 4.002 0 011 16a4 4 0 017.874-1h3.252A4.007 4.007 0 0115 12.126V8.874A4.002 4.002 0 0116 1zm0 24a2 2 0 100 4 2 2 0 000-4zm11-11a2 2 0 100 4 2 2 0 000-4zM5 14a2 2 0 100 4 2 2 0 000-4zm11 0a2 2 0 100 4 2 2 0 000-4zm0-11a2 2 0 100 4 2 2 0 000-4z"/></defs><use fill-rule="evenodd" transform="rotate(45 16 16)" xlink:href="#lg-icon-43"/></svg>'
 };
 export const lgIconCompass: Icon = {
   name: 'compass',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5zm2.5 1.92l-.335 5.58L7.5 14.33l.335-5.58L12.5 5.67zm-3.497 4.476l-.105 1.764 1.473-.974-1.368-.79zm2.1-2.056l-1.475.973 1.368.79.106-1.763z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-44" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm4 3.072L19.464 18 12 22.928 12.536 14 20 9.072zm-5.595 7.162l-.169 2.821 2.358-1.557-2.189-1.264zm3.359-3.29l-2.359 1.558 2.189 1.264.17-2.821z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-44"/></svg>'
 };
 export const lgIconConnect: Icon = {
   name: 'connect',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M7.421 4.375h6.46l-5.625 10h4.323a2.501 2.501 0 110 1.25h-6.46l5.625-10H7.42a2.501 2.501 0 110-1.25zM15 16.25a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm-10-10a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-45" d="M11.874 7H22.21l-9 16h6.916A4.002 4.002 0 0128 24a4 4 0 01-7.874 1H9.79l9-16h-6.916A4.002 4.002 0 014 8a4 4 0 017.874-1zM24 26a2 2 0 100-4 2 2 0 000 4zM8 10a2 2 0 100-4 2 2 0 000 4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-45"/></svg>'
 };
 export const lgIconConsole: Icon = {
   name: 'console',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><path d="M12 2c.345 0 .625.28.625.625v6.982a1.876 1.876 0 11-1.25 0V2.625c0-.345.28-.625.625-.625zm0 8.75A.625.625 0 1012 12a.625.625 0 000-1.25zm-5-10a1.875 1.875 0 01.626 3.643l-.001 6.982a.625.625 0 11-1.25 0V4.393A1.876 1.876 0 017 .75zM7 2a.625.625 0 100 1.25A.625.625 0 007 2zM2 2c.345 0 .625.28.625.625v2.607a1.876 1.876 0 010 3.536v2.607a.625.625 0 11-1.25 0V8.768a1.876 1.876 0 010-3.536V2.625C1.375 2.28 1.655 2 2 2zm0 4.375a.625.625 0 100 1.25.625.625 0 000-1.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M24 8a1 1 0 011 1v11.171a3.001 3.001 0 11-2 0V9a1 1 0 011-1zm0 14a1 1 0 100 2 1 1 0 000-2zM16 6a3 3 0 011 5.829V23a1 1 0 01-2 0V11.83A3.001 3.001 0 0116 6zm0 2a1 1 0 100 2 1 1 0 000-2zM8 8a1 1 0 011 1v4.171a3.001 3.001 0 010 5.658V23a1 1 0 01-2 0v-4.17a3.001 3.001 0 010-5.66V9a1 1 0 011-1zm0 7a1 1 0 100 2 1 1 0 000-2z"/></svg>'
 };
 export const lgIconContributions: Icon = {
   name: 'contributions',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M9.846 16.874H5.852l-.001-.001H3.124a.625.625 0 110-1.25h1.282a7.5 7.5 0 1111.186 0h1.282a.625.625 0 110 1.25H9.826l.02.001zM4.587 7.5a6.251 6.251 0 001.66 8.123l7.507.001A6.25 6.25 0 104.588 7.5zm7.744-.22c.556.32.9.733 1.034 1.237.133.503.043 1.025-.269 1.565L12.09 9.5c.16-.28.214-.537.159-.774-.055-.237-.21-.43-.468-.579a.785.785 0 00-.743-.047c-.251.11-.465.317-.641.622L9.819 9.81l1.277.738-.506.876-1.249-.721-.418.792c-.23.396-.503.668-.822.817l2.859 1.65-.518.888-4.31-2.489.514-.89.337.195c.122.036.26-.011.413-.14.153-.129.306-.327.46-.594l.442-.831-.661-.382.505-.877.637.368.583-1.085c.342-.593.784-.962 1.324-1.108.54-.146 1.09-.058 1.645.263z"/></defs><use fill-rule="evenodd" transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-46" d="M4.998 26.998a1 1 0 010-2H7.05C3.69 21.24 2.95 15.606 5.608 11 8.92 5.26 16.26 3.294 22 6.608 27.74 9.92 29.706 17.26 26.392 23a12.02 12.02 0 01-1.444 1.999l2.05-.001a1 1 0 110 2h-22zM7.34 12C4.78 16.432 6 22.008 9.997 25h12.008a9.968 9.968 0 002.655-3c2.762-4.783 1.123-10.899-3.66-13.66C16.217 5.578 10.101 7.217 7.34 12zm12.39-.352c.89.513 1.44 1.173 1.653 1.978.213.806.07 1.64-.429 2.505l-1.61-.93c.257-.446.342-.859.254-1.238-.087-.38-.337-.688-.749-.926-.39-.225-.786-.25-1.188-.075-.402.175-.744.506-1.026.995l-.925 1.74 2.044 1.18-.81 1.402-1.998-1.154-.67 1.266c-.366.635-.804 1.07-1.315 1.308l4.575 2.64-.828 1.42-6.896-3.98.822-1.424.539.311c.195.057.415-.018.66-.225.245-.206.49-.523.737-.95l.707-1.33-1.059-.611.81-1.402 1.019.588.932-1.735c.547-.95 1.254-1.54 2.119-1.774.865-.233 1.742-.093 2.632.42z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-46"/></svg>'
 };
 export const lgIconCopy: Icon = {
   name: 'copy',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 16"><defs><path id="a" d="M6.25 15H5c-.69 0-1.25-.56-1.25-1.25v-10c0-.69.56-1.25 1.25-1.25h7.5c.69 0 1.25.56 1.25 1.25H5V15h1.25V6.25C6.25 5.56 6.81 5 7.5 5H15c.69 0 1.25.56 1.25 1.25v10c0 .69-.56 1.25-1.25 1.25H7.5c-.69 0-1.25-.56-1.25-1.25V15zM7.5 6.25v10H15v-10H7.5z"/></defs><use fill-rule="evenodd" transform="translate(-3 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-47" d="M10 24H8a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2H8v18h2V10a2 2 0 012-2h12a2 2 0 012 2v16a2 2 0 01-2 2H12a2 2 0 01-2-2v-2zm2-14v16h12V10H12z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-47"/></svg>'
 };
 export const lgIconCount: Icon = {
   name: 'count',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16"><defs><path id="a" d="M11.875 2.5c.345 0 .625.28.625.625v5.484l2.5-.67V4.375a.625.625 0 111.25 0v3.229l2.644-.708a.625.625 0 01.323 1.208l-2.968.794.001 6.727a.625.625 0 11-1.25 0V9.233l-2.5.67v4.472a.625.625 0 11-1.25 0v-4.137l-2.5.67v5.967a.625.625 0 11-1.25 0v-5.632l-2.5.67v3.712a.625.625 0 11-1.25 0v-3.377l-2.644.709a.625.625 0 01-.323-1.208l2.966-.795.001-6.579a.625.625 0 111.25 0v6.244l2.5-.67V5.625a.625.625 0 111.25 0v3.989l2.5-.67V3.125c0-.345.28-.625.625-.625z"/></defs><use fill-rule="evenodd" transform="translate(0 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-48" d="M19 4a1 1 0 011 1v8.775l4-1.072V7a1 1 0 012 0v5.167l4.23-1.133a1 1 0 11.518 1.932L26 14.238V25a1 1 0 01-2 0V14.774l-4 1.072V23a1 1 0 01-2 0v-6.618l-4 1.072V27a1 1 0 01-2 0v-9.011l-4 1.072V25a1 1 0 01-2 0v-5.403l-4.23 1.134a1 1 0 01-.518-1.932L6 17.526V7a1 1 0 112 0v9.99l4-1.072V9a1 1 0 012 0v6.383l4-1.072V5a1 1 0 011-1z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-48"/></svg>'
 };
 export const lgIconCouple: Icon = {
   name: 'couple',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 14"><defs><path id="a" d="M20 15.624v1.25h-6.34a8.699 8.699 0 00-.273-1.25h6.611zM6.814 10.837l.358.108a7.515 7.515 0 015.045 5.135l.225.795-12.444-.001v-1.25l10.731.001a6.272 6.272 0 00-3.57-3.367L5 14.42l-2.16-2.16a6.267 6.267 0 00-2.842 2.118l.001-1.841a7.489 7.489 0 012.828-1.591l.358-.108L5 12.652l1.815-1.815zm10 0l.358.108c1.061.32 2.022.87 2.827 1.59v1.84a6.267 6.267 0 00-2.84-2.117L15 14.42l-2.16-2.16a6.218 6.218 0 00-.966.453 8.707 8.707 0 00-.858-.94 7.392 7.392 0 011.81-.827l.359-.108L15 12.652l1.815-1.815zM15 3.125a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zm-10 0a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zm10 1.25a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm-10 0a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></defs><use transform="translate(0 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-49" d="M32 24.999v2H21.858a13.918 13.918 0 00-.438-2H32zm-21.096-7.66l.573.173a12.023 12.023 0 018.071 8.216l.36 1.272L0 26.999v-2L17.168 25a10.035 10.035 0 00-5.71-5.386L8 23.07l-3.458-3.457A10.028 10.028 0 000 23v-2.944a11.982 11.982 0 014.524-2.545l.573-.173L8 20.243l2.904-2.904zm16 0l.573.173a11.982 11.982 0 014.524 2.545V23a10.028 10.028 0 00-4.543-3.387L24 23.07l-3.458-3.457a9.95 9.95 0 00-1.543.724 13.96 13.96 0 00-1.374-1.505 11.909 11.909 0 012.898-1.321l.573-.173L24 20.243l2.904-2.904zM24 5a6 6 0 110 12 6 6 0 010-12zM8 5a6 6 0 110 12A6 6 0 018 5zm16 2a4 4 0 100 8 4 4 0 000-8zM8 7a4 4 0 100 8 4 4 0 000-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-49"/></svg>'
 };
 export const lgIconCreditCard: Icon = {
   name: 'credit-card',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 12"><defs><path id="a" d="M4.375 4.375h11.25c1.036 0 1.875.84 1.875 1.875v7.5c0 1.036-.84 1.875-1.875 1.875H4.375A1.875 1.875 0 012.5 13.75v-7.5c0-1.036.84-1.875 1.875-1.875zm0 1.25a.625.625 0 00-.625.625v7.5c0 .345.28.625.625.625h11.25c.345 0 .625-.28.625-.625v-7.5a.625.625 0 00-.625-.625H4.375zm7.5 5h2.5c.345 0 .625.28.625.625v1.25c0 .345-.28.625-.625.625h-2.5a.625.625 0 01-.625-.625v-1.25c0-.345.28-.625.625-.625zM3.75 6.875h12.5v2.5H3.75v-2.5z"/></defs><use transform="translate(-2 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-50" d="M7 7h18a3 3 0 013 3v12a3 3 0 01-3 3H7a3 3 0 01-3-3V10a3 3 0 013-3zm0 2a1 1 0 00-1 1v12a1 1 0 001 1h18a1 1 0 001-1V10a1 1 0 00-1-1H7zm12 8h4a1 1 0 011 1v2a1 1 0 01-1 1h-4a1 1 0 01-1-1v-2a1 1 0 011-1zM6 11h20v4H6v-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-50"/></svg>'
 };
 export const lgIconCrossmarkSpotFill: Icon = {
   name: 'crossmark-spot-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 17.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15zM7.348 6.464L10 9.116l2.652-2.652a.625.625 0 01.884.884L10.884 10l2.652 2.652a.625.625 0 11-.884.884L10 10.884l-2.652 2.652a.625.625 0 11-.884-.884L9.116 10 6.464 7.348a.625.625 0 01.884-.884z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-51" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12zm-4.243-17.657L16 14.586l4.243-4.243a1 1 0 111.414 1.414L17.414 16l4.243 4.243a1 1 0 11-1.414 1.414L16 17.414l-4.243 4.243a1 1 0 11-1.414-1.414L14.586 16l-4.243-4.243a1 1 0 111.414-1.414z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-51"/></svg>'
 };
 export const lgIconCsv: Icon = {
   name: 'csv',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><defs><path id="a" d="M5 8.75h6.25V10H5V8.75zM9.634 2.5l4.116 4.116v4.634h3.75c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625H3.125a.625.625 0 01-.625-.625V3.75c0-.92.251-1.219 1.102-1.248L3.75 2.5h5.884zm-3.71 10.042c-.412 0-.775.098-1.088.294a1.895 1.895 0 00-.72.832c-.167.36-.25.778-.25 1.257v.242c0 .763.184 1.354.553 1.772.37.419.875.628 1.518.628.39 0 .735-.071 1.039-.215.303-.143.538-.345.706-.606.168-.26.26-.56.276-.901H6.786c-.009.278-.085.48-.228.608-.143.127-.35.191-.621.191-.32 0-.546-.112-.677-.336-.13-.224-.196-.596-.196-1.118v-.345c.007-.481.078-.832.215-1.051.136-.22.351-.329.644-.329.289 0 .504.065.645.195.14.13.216.343.225.64h1.175c-.05-.547-.254-.978-.615-1.29-.36-.312-.837-.468-1.43-.468zm4.464.003c-.36 0-.685.058-.973.173a1.53 1.53 0 00-.67.483 1.15 1.15 0 00-.237.717c0 .544.317.971.95 1.283.195.096.446.195.752.298.307.103.521.203.643.299.122.096.183.23.183.403 0 .152-.057.27-.17.354-.113.084-.266.126-.461.126-.305 0-.524-.062-.66-.186-.135-.125-.203-.318-.203-.58H8.36c0 .323.082.608.244.855.162.247.404.442.725.584.321.142.68.213 1.076.213.562 0 1.004-.122 1.326-.366.322-.244.483-.58.483-1.007 0-.535-.264-.954-.792-1.259a4.339 4.339 0 00-.833-.35c-.337-.109-.574-.214-.708-.316-.134-.102-.201-.215-.201-.34 0-.144.06-.262.183-.355.122-.093.288-.14.498-.14.208 0 .373.056.495.165.122.11.183.264.183.463h1.175c0-.297-.077-.562-.231-.793a1.496 1.496 0 00-.65-.536 2.28 2.28 0 00-.945-.188zm3.357.067h-1.306l1.632 4.888h1.289l1.645-4.888h-1.316l-.974 3.559-.97-3.559zM8.75 3.75h-5l-.001 7.5h8.75V7.5H8.75V3.75zm1.25.884V6.25h1.616L10 4.634z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-52" d="M8 14h10v2H8v-2zm7.414-10L22 10.586V18h6a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V6c0-1.552.448-2 2-2h9.414zM9.477 20.067c-.659 0-1.239.157-1.74.47a3.032 3.032 0 00-1.152 1.332c-.267.575-.4 1.245-.4 2.011v.387c0 1.221.295 2.166.886 2.836.59.67 1.4 1.004 2.428 1.004.623 0 1.177-.114 1.662-.343.485-.23.862-.553 1.13-.97.27-.417.416-.898.441-1.442h-1.874c-.015.444-.136.768-.366.972-.229.204-.56.306-.993.306-.512 0-.873-.179-1.082-.537-.21-.358-.315-.954-.315-1.788v-.554c.011-.77.126-1.33.344-1.68.218-.352.562-.527 1.031-.527.462 0 .806.104 1.032.311.225.208.345.55.36 1.026h1.88c-.08-.877-.407-1.565-.984-2.065-.576-.5-1.339-.75-2.288-.75zm7.144.005a4.17 4.17 0 00-1.558.277c-.462.184-.819.442-1.071.773a1.84 1.84 0 00-.379 1.147c0 .87.507 1.554 1.52 2.052.312.154.713.313 1.203.478.49.165.834.324 1.029.478.195.154.292.369.292.644 0 .244-.09.433-.27.567-.182.134-.428.201-.74.201-.486 0-.838-.099-1.055-.298-.216-.198-.325-.507-.325-.926h-1.89c0 .515.13.971.39 1.367.259.395.645.707 1.16.934a4.21 4.21 0 001.72.341c.9 0 1.607-.195 2.122-.585.516-.39.774-.927.774-1.611 0-.856-.423-1.528-1.268-2.015-.347-.2-.791-.387-1.332-.56-.54-.174-.918-.343-1.133-.506-.215-.163-.322-.344-.322-.545 0-.229.097-.418.292-.566.195-.15.461-.223.798-.223.333 0 .597.087.792.263.195.175.293.422.293.741h1.88c0-.476-.124-.9-.37-1.27a2.394 2.394 0 00-1.04-.857c-.446-.2-.95-.3-1.512-.3zm5.37.108h-2.088l2.61 7.82h2.062l2.632-7.82h-2.105l-1.558 5.693-1.552-5.693zM14 6H6l-.001 12h14v-6H14V6zm2 1.415V10h2.585L16 7.415z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-52"/></svg>'
 };
 export const lgIconData: Icon = {
   name: 'data',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M10 1.25a1.25 1.25 0 01.627 2.332v2.72a3.73 3.73 0 011.545.64l1.924-1.922a1.25 1.25 0 11.885.885l-1.923 1.924c.32.451.544.976.64 1.545h2.72a1.25 1.25 0 110 1.253h-2.72a3.73 3.73 0 01-.64 1.545l1.922 1.924a1.25 1.25 0 11-.885.885l-1.924-1.923a3.73 3.73 0 01-1.545.64v2.72a1.25 1.25 0 11-1.251 0v-2.72a3.73 3.73 0 01-1.547-.64L5.905 14.98a1.25 1.25 0 11-.885-.885l1.923-1.924a3.73 3.73 0 01-.64-1.545H3.581a1.25 1.25 0 110-1.252h2.72a3.73 3.73 0 01.64-1.546L5.019 5.905a1.25 1.25 0 11.885-.885l1.924 1.922a3.73 3.73 0 011.547-.64v-2.72A1.25 1.25 0 0110 1.25zm0 6.25a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></defs><use transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-53" d="M16 2a2 2 0 011.001 3.732v4.351a5.968 5.968 0 012.476 1.026l3.076-3.076a2 2 0 111.416 1.414l-3.078 3.077A5.968 5.968 0 0121.917 15h4.35a2 2 0 11.001 2.002h-4.351a5.968 5.968 0 01-1.026 2.476l3.076 3.076a2 2 0 11-1.414 1.416l-3.077-3.078a5.968 5.968 0 01-2.474 1.026v4.351a2 2 0 11-2.002 0v-4.351a5.968 5.968 0 01-2.476-1.026L9.447 23.97a2 2 0 11-1.414-1.416l3.076-3.076a5.968 5.968 0 01-1.026-2.475H5.732a2 2 0 110-2.002h4.351a5.968 5.968 0 011.026-2.476L8.03 9.447a2 2 0 111.416-1.414l3.076 3.076A5.968 5.968 0 0115 10.083v-4.35A2 2 0 0116 2zm0 10a4 4 0 100 8 4 4 0 000-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-53"/></svg>'
 };
 export const lgIconDatabase: Icon = {
   name: 'database',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 18"><defs><path id="a" d="M16.25 11.875c.69 0 1.25.56 1.25 1.25v3.75c0 .69-.56 1.25-1.25 1.25H3.75c-.69 0-1.25-.56-1.25-1.25v-3.75c0-.69.56-1.25 1.25-1.25h12.5zm0 1.25H3.75v3.75h12.5v-3.75zm-1.875 1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25h1.25zm1.875-7.5c.69 0 1.25.56 1.25 1.25v3.75c0 .69-.56 1.25-1.25 1.25H3.75c-.69 0-1.25-.56-1.25-1.25v-3.75c0-.69.56-1.25 1.25-1.25h12.5zm0 1.25H3.75v3.75h12.5v-3.75zm-1.875 1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25h1.25zM3.75 1.875h12.5c.69 0 1.25.56 1.25 1.25v3.75c0 .69-.56 1.25-1.25 1.25H3.75c-.69 0-1.25-.56-1.25-1.25v-3.75c0-.69.56-1.25 1.25-1.25zm0 1.25v3.75h12.5v-3.75H3.75zm9.375 1.25h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25z"/></defs><use transform="translate(-2 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M26 3a2 2 0 012 2v6c0 .364-.097.706-.268 1 .17.293.268.635.268 1v6c0 .365-.098.707-.268 1.001.17.293.268.635.268.999v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6c0-.364.097-.706.268-1A1.989 1.989 0 014 19v-6c0-.364.097-.706.268-1A1.989 1.989 0 014 11V5a2 2 0 012-2h20zm0 18H6v6h20v-6zm-3 2a1 1 0 010 2h-2a1 1 0 010-2h2zm3-10H6v6h20v-6zm-3 2a1 1 0 010 2h-2a1 1 0 010-2h2zm3-10H6v6h20V5zm-5 2h2a1 1 0 010 2h-2a1 1 0 010-2z"/></svg>'
 };
 export const lgIconDataset: Icon = {
   name: 'dataset',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M16.25 2.5c.69 0 1.25.56 1.25 1.25v12.5c0 .69-.56 1.25-1.25 1.25H3.75c-.69 0-1.25-.56-1.25-1.25V3.75c0-.69.56-1.25 1.25-1.25h12.5zM6.25 15h-2.5v1.25h2.5V15zm10 0h-5v1.25h5V15zM10 15H7.5v1.25H10V15zm-3.75-2.5h-2.5v1.25h2.5V12.5zm10 0h-5v1.25h5V12.5zm-6.25 0H7.5v1.25H10V12.5zM6.25 10h-2.5v1.25h2.5V10zm10 0h-5v1.25h5V10zM10 10H7.5v1.25H10V10zM6.25 7.5h-2.5v1.25h2.5V7.5zm10 0h-5v1.25h5V7.5zM10 7.5H7.5v1.25H10V7.5zM6.25 3.75h-2.5v2.5h2.5v-2.5zm10 0h-5v2.5h5v-2.5zm-6.25 0H7.5v2.5H10v-2.5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-54" d="M26 4a2 2 0 012 2v20a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h20zM10 24H6v2h4v-2zm16 0h-8v2h8v-2zm-10 0h-4v2h4v-2zm-6-4H6v2h4v-2zm16 0h-8v2h8v-2zm-10 0h-4v2h4v-2zm-6-4H6v2h4v-2zm16 0h-8v2h8v-2zm-10 0h-4v2h4v-2zm-6-4H6v2h4v-2zm16 0h-8v2h8v-2zm-10 0h-4v2h4v-2zm-6-6H6v4h4V6zm16 0h-8v4h8V6zM16 6h-4v4h4V6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-54"/></svg>'
 };
 export const lgIconDelete: Icon = {
   name: 'delete',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zM7.79 6.906a.625.625 0 00-.884.884L9.116 10l-2.21 2.21a.625.625 0 00.884.884l2.21-2.21 2.21 2.21a.625.625 0 10.884-.884L10.884 10l2.21-2.21a.625.625 0 10-.884-.884L10 9.116z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-55" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm-3.536 7.05a1 1 0 00-1.414 1.414L14.586 16l-3.536 3.536a1 1 0 001.414 1.414L16 17.414l3.536 3.536a1 1 0 001.414-1.414L17.414 16l3.536-3.536a1 1 0 00-1.414-1.414L16 14.586z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-55"/></svg>'
 };
 export const lgIconDesktop: Icon = {
   name: 'desktop',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M5.625 17.5a.625.625 0 110-1.25h2.5v-2.5h3.75v2.5h2.5a.625.625 0 110 1.25h-8.75zm-1.25-15h11.25c1.036 0 1.875.84 1.875 1.875v7.5c0 1.036-.84 1.875-1.875 1.875H4.375A1.875 1.875 0 012.5 11.875v-7.5c0-1.036.84-1.875 1.875-1.875zm0 1.25a.625.625 0 00-.625.625v7.5c0 .345.28.625.625.625h11.25c.345 0 .625-.28.625-.625v-7.5a.625.625 0 00-.625-.625H4.375zM5 5h10v1.25H5V5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-56" d="M9 28a1 1 0 010-2h4v-4h6v4h4a1 1 0 010 2H9zM7 4h18a3 3 0 013 3v12a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3zm0 2a1 1 0 00-1 1v12a1 1 0 001 1h18a1 1 0 001-1V7a1 1 0 00-1-1H7zm1 2h16v2H8V8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-56"/></svg>'
 };
 export const lgIconDiagram: Icon = {
   name: 'diagram',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 19 17"><defs><path id="a" d="M15.625 9.375v2.946L19.375 15 15 18.125 10.625 15l3.75-2.679V9.375h1.25zM15 13.411L12.776 15 15 16.589 17.224 15 15 13.411zM10.625 6.25v3.125h5v1.25h-10v1.601C7.4 12.45 8.75 13.606 8.75 15c0 1.553-1.679 2.813-3.75 2.813-2.071 0-3.75-1.26-3.75-2.813 0-1.394 1.352-2.55 3.125-2.774V9.375h5V6.25h1.25zM5 13.438c-1.462 0-2.5.864-2.5 1.562 0 .698 1.038 1.563 2.5 1.563S7.5 15.697 7.5 15 6.462 13.437 5 13.437zM14 2.5a1 1 0 011 1v3a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 011-1h8zm-.25 1.25h-7.5v2.5h7.5v-2.5z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-57" d="M23 4a1 1 0 011 1v6a1 1 0 01-1 1h-6v3h8v4.714L31 24l-7 5-7-5 6-4.286V17H9v2.562c2.838.357 5 2.208 5 4.438 0 2.485-2.686 4.5-6 4.5S2 26.485 2 24c0-2.23 2.163-4.081 5-4.438V15h8v-3H9a1 1 0 01-1-1V5a1 1 0 011-1h14zm1 17.458L20.44 24 24 26.542 27.56 24 24 21.458zM8 21.5c-2.34 0-4 1.384-4 2.5s1.66 2.5 4 2.5 4-1.384 4-2.5-1.66-2.5-4-2.5zM22 6H10v4h12V6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-57"/></svg>'
 };
 export const lgIconDigg: Icon = {
   name: 'digg',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 10"><path d="M11 2.475v6.9H7.1v-1.2h2.4v-.6H7.1v-5.1H11zm4.5 0v6.9h-3.9v-1.2H14v-.6h-2.4v-5.1h3.9zm-9 0v5.1H5v-5.1h1.5zM4.4.375v7.2H.5v-5.1h2.4v-2.1h1.5zm-1.5 3.3H2v2.7h.9v-2.7zm6.6 0h-.9v2.7h.9v-2.7zm4.5 0h-.9v2.7h.9v-2.7zM6.5.375v1.5H5v-1.5h1.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M20.8 11.96V23h-6.24v-1.92h3.84v-.96h-3.84v-8.16h6.24zm7.2 0V23h-6.24v-1.92h3.84v-.96h-3.84v-8.16H28zM10.24 8.6v11.52H4v-8.16h3.84V8.6h2.4zm3.36 3.36v8.16h-2.4v-8.16h2.4zm-5.76 1.92H6.4v4.32h1.44v-4.32zm10.56 0h-1.44v4.32h1.44v-4.32zm7.2 0h-1.44v4.32h1.44v-4.32zm-12-5.28V11h-2.4V8.6h2.4z"/></svg>'
 };
 export const lgIconDoc: Icon = {
   name: 'doc',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17"><path d="M3 6.75h6.25V8H3V6.75zM7.634.5l4.116 4.116V9.25h3.75c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625H1.125a.625.625 0 01-.625-.625V1.75C.5.817.759.523 1.641.501L1.75.5h5.884zm.561 9.92c-.418 0-.791.1-1.12.299-.327.2-.579.482-.755.848-.175.365-.263.788-.263 1.267v.275a2.8 2.8 0 00.284 1.225c.18.356.431.63.753.821.323.191.692.287 1.108.287.416 0 .787-.099 1.113-.297a1.96 1.96 0 00.753-.848c.177-.367.266-.788.266-1.265v-.225a2.812 2.812 0 00-.274-1.25 1.99 1.99 0 00-.757-.841 2.093 2.093 0 00-1.108-.296zm4.666-.003c-.411 0-.774.098-1.087.294a1.895 1.895 0 00-.72.832c-.167.36-.25.778-.25 1.257v.242c0 .763.184 1.354.554 1.772.369.419.875.628 1.517.628.39 0 .736-.071 1.039-.215.303-.143.539-.345.706-.606.168-.26.26-.56.276-.901h-1.172c-.009.278-.085.48-.228.608-.143.127-.35.191-.621.191-.32 0-.546-.112-.677-.336-.13-.224-.196-.596-.196-1.118v-.345c.007-.481.078-.832.215-1.051.136-.22.351-.329.644-.329.29 0 .504.065.645.195.141.13.216.343.225.64h1.175c-.05-.547-.254-.978-.614-1.29-.36-.312-.837-.468-1.43-.468zm-9.537.07H1.75v4.888h1.608a2.265 2.265 0 001.15-.304c.343-.2.61-.478.799-.832a2.52 2.52 0 00.283-1.204v-.225a2.503 2.503 0 00-.293-1.2 2.065 2.065 0 00-.808-.829 2.316 2.316 0 00-1.165-.294zm4.871.856a.78.78 0 01.697.378c.162.252.243.62.243 1.106v.225c-.002.474-.084.838-.245 1.091a.77.77 0 01-.688.38.78.78 0 01-.708-.387c-.16-.257-.239-.625-.239-1.104l.004-.36c.033-.886.345-1.329.936-1.329zm-4.87.054c.346 0 .61.12.792.36.18.239.272.595.272 1.067v.211c0 .475-.091.832-.272 1.073-.182.24-.441.36-.78.36h-.409v-3.071h.396zM6.75 1.75h-5v7.5h8.75V5.5H6.75V1.75zM8 2.634V4.25h1.616L8 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M8 14h10v2H8v-2zm7.414-10L22 10.586V18h6a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V6c0-1.493.414-1.964 1.826-1.998L6 4h9.414zm.899 15.872c-.67 0-1.267.16-1.792.478a3.134 3.134 0 00-1.208 1.356c-.281.586-.422 1.262-.422 2.028v.44c.014.738.166 1.392.454 1.961a3.13 3.13 0 001.206 1.313c.515.306 1.106.46 1.772.46.666 0 1.26-.159 1.78-.476a3.136 3.136 0 001.207-1.356c.282-.587.424-1.262.424-2.025v-.36c-.004-.752-.15-1.419-.438-2a3.185 3.185 0 00-1.211-1.346c-.52-.315-1.11-.473-1.773-.473zm7.465-.005c-.659 0-1.239.157-1.74.47a3.032 3.032 0 00-1.152 1.332c-.267.575-.4 1.245-.4 2.011v.387c0 1.221.295 2.166.886 2.836.59.67 1.4 1.004 2.428 1.004.623 0 1.177-.114 1.662-.343.485-.23.862-.553 1.13-.97.27-.417.416-.898.441-1.442H25.16c-.015.444-.136.768-.366.972-.229.204-.56.306-.993.306-.512 0-.873-.179-1.082-.537-.21-.358-.315-.954-.315-1.788v-.554c.011-.77.126-1.33.344-1.68.218-.352.562-.527 1.031-.527.462 0 .806.104 1.032.311.225.208.345.55.36 1.026h1.88c-.08-.877-.407-1.565-.984-2.065-.576-.5-1.339-.75-2.288-.75zM8.52 19.98H6v7.82h2.573a3.624 3.624 0 001.84-.486c.549-.32.975-.765 1.278-1.332.302-.568.454-1.21.454-1.926v-.36a4.005 4.005 0 00-.47-1.92 3.303 3.303 0 00-1.292-1.326c-.552-.314-1.173-.47-1.864-.47zm7.793 1.37c.484 0 .855.2 1.115.604.26.402.39.992.39 1.77v.36c-.004.758-.135 1.34-.393 1.745-.257.404-.625.607-1.1.607-.502 0-.88-.206-1.134-.618-.254-.412-.381-1-.381-1.767l.005-.575c.054-1.418.553-2.127 1.498-2.127zm-7.793.085c.555 0 .978.192 1.268.575.29.383.435.952.435 1.708v.338c0 .76-.145 1.331-.435 1.716-.29.385-.706.578-1.246.578h-.656v-4.915h.634zM14 6H6l-.001 12h14v-6H14V6zm2 1.415V10h2.585L16 7.415z"/></svg>'
 };
 export const lgIconDocumentAdd: Icon = {
   name: 'document-add',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 18"><path d="M7.509.5l4.116 4.116.001 5.311a3.751 3.751 0 11-3.874 5.574L1.647 15.5c-.95 0-1.25-.254-1.27-1.14l-.002-.11V1.75C.375.817.634.523 1.516.501L1.625.5h5.884zM11 11.125a.625.625 0 00-.625.625V13h-1.25a.625.625 0 00-.073 1.246l.073.004h1.25v1.25c0 .32.241.585.552.62l.073.005c.345 0 .625-.28.625-.625v-1.25h1.25a.625.625 0 100-1.25h-1.25v-1.25a.625.625 0 00-.552-.62L11 11.124zM6.625 1.75h-5v12.5l5.677.001a3.775 3.775 0 010-1.252L2.875 13v-1.25h4.877a3.77 3.77 0 011.175-1.25H2.875V9.25h6.25v1.127c.38-.22.8-.375 1.249-.45V5.5H6.625V1.75zm2.5 5V8h-6.25V6.75h6.25zm-1.25-4.116V4.25h1.616L7.875 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M18.414 4L25 10.586l.002 8.497A6.002 6.002 0 0124 31a5.998 5.998 0 01-5.196-2.998L9.035 28c-1.519 0-1.998-.407-2.033-1.825L7 26V6c0-1.493.414-1.964 1.826-1.998L9 4h9.414zM24 21a1 1 0 00-1 1v2h-2a1 1 0 00-.117 1.993L21 26h2v2a1 1 0 00.883.993L24 29a1 1 0 001-1v-2h2a1 1 0 000-2h-2v-2a1 1 0 00-.883-.993L24 21zM17 6H9v20l9.083.002a6.04 6.04 0 010-2.003L11 24v-2l7.803-.001a6.03 6.03 0 011.88-2L11 20v-2h10v1.803a5.96 5.96 0 011.998-.72L23 12h-6V6zm4 8v2H11v-2h10zm-2-6.585V10h2.585L19 7.415z"/></svg>'
 };
 export const lgIconDocumentSubtract: Icon = {
   name: 'document-subtract',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 18"><path d="M7.752 15.5H1.647c-.95 0-1.25-.254-1.27-1.14l-.002-.11V1.75C.375.817.634.523 1.516.501L1.625.5h5.884l4.116 4.116v5.31l-.023-.003a3.751 3.751 0 11-3.857 5.566l.007.012zm-.231-.473a3.717 3.717 0 01-.025-.063l.025.063zM6.625 1.75h-5v12.5h5.677l.005.029A3.773 3.773 0 017.302 13H2.875v-1.25h4.877a3.77 3.77 0 011.175-1.25H2.875V9.25h6.25v1.127c.386-.224.816-.38 1.273-.454l-.024.004V5.5H6.625V1.75zM12.25 13h-2.5a.625.625 0 100 1.25h2.5a.625.625 0 100-1.25zm-1.436-3.12l-.05.002c.078-.005.157-.007.236-.007l-.186.005zM9.125 6.75V8h-6.25V6.75h6.25zm-1.25-4.116V4.25h1.616L7.875 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M18.803 28.001L9.035 28c-1.519 0-1.998-.407-2.033-1.825L7 26V6c0-1.493.414-1.964 1.826-1.998L9 4h9.414L25 10.586v8.497l-.037-.006A6.002 6.002 0 0124 31a5.998 5.998 0 01-5.208-3.018l.011.019zm-.37-.758a5.946 5.946 0 01-.04-.101l.04.1zM17 6H9v20l9.083.001.008.045A6.037 6.037 0 0118.083 24H11v-2h7.803a6.03 6.03 0 011.88-2H11v-2h10v1.803a5.96 5.96 0 012.037-.726l-.038.006V12H17V6zm9 18h-4a1 1 0 000 2h4a1 1 0 000-2zm-2.297-4.993l-.08.005c.125-.008.25-.012.377-.012l-.297.007zM21 14v2H11v-2h10zm-2-6.585V10h2.585L19 7.415z"/></svg>'
 };
 export const lgIconDocumentTasks: Icon = {
   name: 'document-tasks',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 18"><defs><path id="a" d="M6.875 13.75h5V15h-5v-1.25zm0-2.5h6.25v1.25h-6.25v-1.25zm0-2.5h6.25V10h-6.25V8.75zm4.634-6.25l4.116 4.116.001 5.947a3.14 3.14 0 00-1.252 0V7.5h-3.749V3.75h-5v12.5h6.313c.094.463.29.888.563 1.251L5.647 17.5c-.935 0-1.24-.247-1.27-1.102l-.002-.148V3.75c0-.92.251-1.219 1.102-1.248l.148-.002h5.884zm1.982 3.75l-1.616-1.616V6.25h1.616zM15 11.875a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zm2.325 2.05a.596.596 0 00-.846 0l-2.113 2.125-.845-.85a.596.596 0 00-.846 0 .603.603 0 000 .85l1.268 1.274a.596.596 0 00.846 0l2.536-2.549a.603.603 0 000-.85z"/></defs><use transform="translate(-4 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-58" d="M11 22h8v2h-8v-2zm0-4h10v2H11v-2zm0-4h10v2H11v-2zm7.414-10L25 10.586l.001 9.514a5.023 5.023 0 00-2.002 0V12H17V6H9v20l10.1.001c.15.74.464 1.419.9 2L9.036 28C7.455 28 7 27.56 7 26V6c0-1.552.448-2 2-2h9.414zm3.171 6L19 7.415V10h2.585zM24 19a6 6 0 110 12 6 6 0 010-12zm3.72 3.282a.953.953 0 00-1.353 0l-3.382 3.398-1.352-1.36a.953.953 0 00-1.353 0 .964.964 0 000 1.36l2.03 2.038a.953.953 0 001.352 0l4.058-4.077a.964.964 0 000-1.36z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-58"/></svg>'
 };
 export const lgIconDocument: Icon = {
   name: 'document',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 16"><path d="M7.509.5l4.116 4.116v9.643c0 .963-.282 1.241-1.25 1.241H1.647c-.987 0-1.272-.275-1.272-1.25V1.75C.375.78.655.5 1.625.5h5.884zM1.625 1.75v12.5h8.75V5.5h-3.75V1.75h-5zm7.866 2.5L7.875 2.634V4.25h1.616zm-6.616 7.5h6.25V13h-6.25v-1.25zm0-2.5h6.25v1.25h-6.25V9.25zm6.25-2.5V8h-6.25V6.75h6.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M18.414 4L25 10.586v15.428C25 27.555 24.55 28 23 28H9.035C7.455 28 7 27.56 7 26V6c0-1.552.448-2 2-2h9.414zM9 6v20h14l-.001-14H17V6H9zm12.585 4L19 7.415V10h2.585zM11 22h10v2H11v-2zm0-4h10v2H11v-2zm10-4v2H11v-2h10z"/></svg>'
 };
-export const lgIconDonutChart: Icon = {
-  name: 'donut-chart',
+export const lgIconDownload: Icon = {
+  name: 'download',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 16.25a6.242 6.242 0 005.073-2.6l-2.183-1.26A3.742 3.742 0 0110 13.75a3.742 3.742 0 01-2.89-1.36l-2.183 1.26A6.242 6.242 0 0010 16.25zm-3.516-4.942a3.751 3.751 0 012.89-5.006l.001-2.521a6.25 6.25 0 00-5.074 8.788l2.183-1.261zM16.25 10c0-1.5-.529-2.878-1.41-3.955l-1.783 1.782a3.759 3.759 0 01.459 3.481l2.183 1.26A6.216 6.216 0 0016.25 10zm-5.625-6.22v2.522a3.73 3.73 0 011.548.641l1.782-1.782a6.221 6.221 0 00-3.33-1.38zM10 17.5a7.5 7.5 0 110-15 7.5 7.5 0 010 15zm0-5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
-};
-export const lgIconDowload: Icon = {
-  name: 'dowload',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10.625 11.453l2.683-2.526a.64.64 0 01.884 0 .59.59 0 010 .854L10 13.75 5.808 9.781a.59.59 0 010-.854.64.64 0 01.884 0l2.683 2.526V4.26c0-.282.28-.511.625-.511s.625.229.625.511v7.192zM4.375 15h11.25a1.875 1.875 0 010 3.75H4.375a1.875 1.875 0 010-3.75zM10 16.25v1.25h5.625a.625.625 0 100-1.25H10z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-59" d="M17 18.325l4.293-4.042a1.025 1.025 0 011.414 0c.39.378.39.99 0 1.367L16 22l-6.707-6.35a.944.944 0 010-1.367 1.025 1.025 0 011.414 0L15 18.325V6.818c0-.452.448-.818 1-.818s1 .366 1 .818v11.507zM7 24h18a3 3 0 010 6H7a3 3 0 010-6zm9 2v2h9a1 1 0 000-2h-9z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-59"/></svg>'
 };
 export const lgIconDragHandle: Icon = {
   name: 'drag-handle',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 4"><defs><path id="a" d="M17.5 10.625v1.25h-15v-1.25h15zm0-2.5v1.25h-15v-1.25h15z"/></defs><use fill-rule="evenodd" transform="translate(-2 -8)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-60" d="M28 17v2H4v-2h24zm0-4v2H4v-2h24z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-60"/></svg>'
 };
 export const lgIconDrilldown: Icon = {
   name: 'drilldown',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 17"><defs><path id="a" d="M9.375 16.875l1.25-.625v1.25l-1.25.625v-1.25zM8.125 15l3.75-1.875v1.25l-3.75 1.875V15zm-1.25-1.875L13.125 10v1.25l-6.25 3.125v-1.25zm-1.25-1.875l8.75-4.375v1.25L5.625 12.5v-1.25zM10 2.5c.345 0 .625.28.625.625V8.75l-1.25.625v-6.25c0-.345.28-.625.625-.625z"/></defs><use fill-rule="evenodd" transform="translate(-5 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-61" d="M15 27l2-1v2l-2 1v-2zm-2-3l6-3v2l-6 3v-2zm-2-3l10-5v2l-10 5v-2zm-2-3l14-7v2L9 20v-2zm7-14a1 1 0 011 1v9l-2 1V5a1 1 0 011-1z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-61"/></svg>'
 };
 export const lgIconEdit: Icon = {
   name: 'edit',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 12"><defs><path id="a" d="M10.012 2.5c.788-.001 1.348.37 1.643.959.167.333.22.653.22.895l-.017 10.053-1.873 3.718-1.86-3.712.017-10.052c0-.243.055-.563.223-.897.297-.59.858-.963 1.647-.964zm.615 3.725l-1.244.003-.013 7.89.62 1.238.624-1.24.013-7.891zm-.617-2.487c-.3 0-.44.094-.533.278a.868.868 0 00-.09.343l-.002.63 1.244-.002.002-.63a.863.863 0 00-.09-.343c-.092-.184-.231-.276-.531-.276z"/></defs><use transform="rotate(45 12.828 3.484)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-62" d="M16.019 4c1.262-.002 2.157.591 2.63 1.534.267.533.352 1.045.351 1.433l-.027 16.084L15.976 29 13 23.061l.027-16.084c0-.388.087-.9.357-1.434.475-.945 1.372-1.54 2.635-1.543zm.985 5.961l-1.991.004-.021 12.625.992 1.98.999-1.983.021-12.626zm-.989-3.98c-.48.001-.704.15-.852.445-.106.21-.145.44-.145.548l-.002 1.01 1.991-.004.002-1.01c0-.107-.038-.338-.143-.547-.147-.294-.37-.443-.85-.442z"/></defs><use fill-rule="evenodd" transform="rotate(45 16 16.5)" xlink:href="#lg-icon-62"/></svg>'
 };
 export const lgIconEmail: Icon = {
   name: 'email',
@@ -384,632 +419,652 @@ export const lgIconEmail: Icon = {
 export const lgIconErrorFill: Icon = {
   name: 'error-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 10a.937.937 0 100 1.875.937.937 0 000-1.875zm0-7.188a.938.938 0 00-.938.938V8a.937.937 0 101.875 0V4.25A.937.937 0 008 3.312z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 16a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm0-11.5a1.5 1.5 0 00-1.5 1.5v6a1.5 1.5 0 003 0v-6A1.5 1.5 0 0016 8.5z"/></svg>'
 };
 export const lgIconError: Icon = {
   name: 'error',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5zm0 8.75a.937.937 0 110 1.875.937.937 0 010-1.875zm0-7.188c.518 0 .938.42.938.938V8a.937.937 0 11-1.876 0V4.25c0-.518.42-.938.938-.938z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm0 14a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0-11.5a1.5 1.5 0 011.5 1.5v6a1.5 1.5 0 01-3 0v-6A1.5 1.5 0 0116 8.5z"/></svg>'
 };
 export const lgIconEvent: Icon = {
   name: 'event',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.5.5v15H.5V.5h15zm-1.25 5H1.75v8.75h12.5V5.5zM8 11.078l-1.837 1.325.693-2.156-1.828-1.338 2.265-.007L8 6.75l.707 2.152 2.265.007-1.828 1.338.693 2.156L8 11.078z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M28 4v24H4V4h24zm-2 8H6v14h20V12zm-10 8.925l-2.939 2.12 1.108-3.45-2.924-2.14 3.624-.012L16 14l1.131 3.443 3.624.012-2.924 2.14 1.108 3.45L16 20.925z"/></svg>'
 };
 export const lgIconExitFill: Icon = {
   name: 'exit-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M11.462 10.624l-1.91 2.06a.64.64 0 000 .883.59.59 0 00.77.072l.084-.072L13.75 10l-3.344-3.567a.59.59 0 00-.854 0 .641.641 0 00-.07.797l.07.087 1.908 2.057L5 9.375v1.25l6.462-.001zm-8.37.001c-.327 0-.592-.28-.592-.625s.265-.625.591-.625H5V2.5h12.5v15H5v-6.875H3.091z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-63" d="M18.337 16.999l-3.054 3.294a1.025 1.025 0 000 1.414c.378.39.99.39 1.367 0L22 16l-5.35-5.707a.944.944 0 00-1.367 0 1.025 1.025 0 000 1.414L18.337 15H8v2l10.337-.001zM4.946 17C4.424 17 4 16.552 4 16s.424-1 .946-1H8V4h20v24H8V17H4.946z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-63"/></svg>'
 };
 export const lgIconExit: Icon = {
   name: 'exit',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M17.5 2.5v15H5l-.001-6.876-1.817.001c-.377 0-.682-.28-.682-.625s.305-.625.682-.625l1.817-.001L5 2.5h12.5zm-1.25 1.25h-10l-.001 5.624h5.211L9.552 7.317a.64.64 0 010-.884.59.59 0 01.854 0L13.75 10l-3.344 3.567a.59.59 0 01-.854 0 .64.64 0 010-.884l1.91-2.059H6.249l.001 5.626h10V3.75z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-64" d="M28 4v24H8l-.001-11.001L5.091 17C4.488 17 4 16.552 4 16s.488-1 1.09-1L8 14.999V4h20zm-2 2H10l-.001 8.999h8.338l-3.054-3.292a1.025 1.025 0 010-1.414.944.944 0 011.367 0L22 16l-5.35 5.707a.944.944 0 01-1.367 0 1.025 1.025 0 010-1.414l3.054-3.294H9.999L10 26h16V6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-64"/></svg>'
 };
 export const lgIconExport: Icon = {
   name: 'export',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 16"><defs><path id="a" d="M16.031 7.058L18.75 10l-2.719 2.942a.59.59 0 01-.854 0 .64.64 0 010-.884l1.299-1.434-8.351.001c-.313 0-.625-.313-.625-.625 0-.313.313-.625.625-.625l8.349-.001-1.297-1.432a.64.64 0 010-.884.59.59 0 01.854 0zM13.75 13.75v3.75H2.5v-15h11.25v3.75H12.5v-2.5H3.75v12.5h8.75v-2.5h1.25z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-65" d="M25.65 11.293L30 16l-4.35 4.707a.944.944 0 01-1.367 0 1.025 1.025 0 010-1.414L26.36 17H13c-.5 0-1-.5-1-1s.5-1 1-1h13.359l-2.076-2.293a1.025 1.025 0 010-1.414.944.944 0 011.367 0zM20 6H6v20h14v-4h2v6H4V4h18v6h-2V6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-65"/></svg>'
 };
-export const lgIconFaceDissastisfiedFill: Icon = {
-  name: 'face-dissastisfied-fill',
+export const lgIconFaceDissatisfiedFill: Icon = {
+  name: 'face-dissatisfied-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm-3.613 9.922a.625.625 0 00.976.78c1-1.249 4.274-1.249 5.274 0a.625.625 0 10.976-.78c-1.5-1.875-5.726-1.875-7.226 0zM12.5 6.875a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm-5 0a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-66" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm-5.78 15.875a1 1 0 101.56 1.25c1.6-2 6.84-2 8.44 0a1 1 0 101.56-1.25c-2.4-3-9.16-3-11.56 0zM20 11a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-66"/></svg>'
 };
-export const lgIconFaceDissastisfied: Icon = {
-  name: 'face-dissastisfied',
+export const lgIconFaceDissatisfied: Icon = {
+  name: 'face-dissatisfied',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 17.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15zm0-1.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5zm2.5-6.875a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm-6.113 3.047c1.5-1.875 5.726-1.875 7.226 0a.625.625 0 11-.976.78c-1-1.249-4.274-1.249-5.274 0a.625.625 0 11-.976-.78zM7.5 6.875a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-67" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12zm0-2c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10-4.477 10-10 10zm4-11a2 2 0 100-4 2 2 0 000 4zm-9.78 5.323c2.4-3.097 9.16-3.097 11.56 0a1.055 1.055 0 01-.155 1.45.979.979 0 01-1.406-.16c-1.6-2.065-6.838-2.065-8.438 0a.979.979 0 01-1.406.16 1.055 1.055 0 01-.156-1.45zM12 11a2 2 0 110 4 2 2 0 010-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-67"/></svg>'
 };
 export const lgIconFaceHappyFill: Icon = {
   name: 'face-happy-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm3.515 9.278a.625.625 0 00-.878.097c-1 1.25-4.274 1.25-5.274 0a.625.625 0 10-.976.781c1.5 1.875 5.726 1.875 7.226 0a.625.625 0 00-.098-.878zM12.5 6.875a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm-5 0a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm6.949 14h-14l.333.919c.87 2.403 3.57 4.081 6.667 4.081 3.098 0 5.796-1.678 6.667-4.081L22.95 18zM20 11a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"/></svg>'
 };
-export const lgIconFaceHappyOutline: Icon = {
-  name: 'face-happy-outline',
+export const lgIconFaceHappy: Icon = {
+  name: 'face-happy',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 17.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15zm0-1.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5zm2.5-6.875a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm1.015 2.403c.27.215.314.609.098.878-1.5 1.875-5.726 1.875-7.226 0a.625.625 0 01.976-.78c1 1.249 4.274 1.249 5.274 0a.625.625 0 01.878-.098zM7.5 6.875a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm8.051 11l-.383 1.286a8.003 8.003 0 01-15.255.257l-.081-.257-.383-1.285h16.102zm-2.854 2H10.802l.027.047a6.006 6.006 0 004.664 2.932l.258.016L16 22a6.004 6.004 0 005.04-2.741l.13-.212.027-.047zM20 15a2 2 0 100-4 2 2 0 000 4zm-8 0a2 2 0 100-4 2 2 0 000 4z"/></svg>'
 };
 export const lgIconFaceNeutralFill: Icon = {
   name: 'face-neutral-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm3.125 9.375h-6.25a.625.625 0 100 1.25h6.25a.625.625 0 100-1.25zm-.625-5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm-5 0a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-68" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm5 15H11a1 1 0 000 2h10a1 1 0 000-2zm-1-8a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-68"/></svg>'
 };
 export const lgIconFaceNeutral: Icon = {
   name: 'face-neutral',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 17.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15zm0-1.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5zm2.5-6.875a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm-5 0a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm-.625 2.5h6.25a.625.625 0 110 1.25h-6.25a.625.625 0 110-1.25z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-69" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12zm0-2c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10-4.477 10-10 10zm4-11a2 2 0 100-4 2 2 0 000 4zm-8 0a2 2 0 100-4 2 2 0 000 4zm-1 4h10a1 1 0 010 2H11a1 1 0 010-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-69"/></svg>'
+};
+export const lgIconFaceSatisfiedFill: Icon = {
+  name: 'face-satisfied-fill',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-70" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm5.625 14.844a1 1 0 00-1.406.156c-1.6 2-6.838 2-8.438 0a1 1 0 10-1.562 1.25c2.4 3 9.162 3 11.562 0a1 1 0 00-.156-1.406zM20 11a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-70"/></svg>'
+};
+export const lgIconFaceSatisfied: Icon = {
+  name: 'face-satisfied',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-71" d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12zm0-2c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10-4.477 10-10 10zm4-11a2 2 0 100-4 2 2 0 000 4zm1.625 3.844a1 1 0 01.156 1.406c-2.4 3-9.162 3-11.562 0A1 1 0 0111.781 19c1.6 2 6.838 2 8.438 0a1 1 0 011.406-.156zM12 11a2 2 0 110 4 2 2 0 010-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-71"/></svg>'
+};
+export const lgIconFaceUnhappyFill: Icon = {
+  name: 'face-unhappy-fill',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 14c-2.75 0-5.5 1.054-5.5 4h11l-.004-.185C21.383 19.01 18.691 18 16 18zm4-3a2 2 0 100-4 2 2 0 000 4zm-8 0a2 2 0 100-4 2 2 0 000 4z"/></svg>'
 };
 export const lgIconFacebook: Icon = {
   name: 'facebook',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.5 8a7.5 7.5 0 10-8.672 7.409v-5.241H4.924V8h1.904V6.348c0-1.88 1.12-2.918 2.833-2.918.82 0 1.679.146 1.679.146v1.846h-.946c-.932 0-1.222.578-1.222 1.171V8h2.08l-.333 2.168H9.172v5.24A7.502 7.502 0 0015.5 8"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M28 16c0-6.627-5.373-12-12-12S4 9.373 4 16c0 5.99 4.388 10.954 10.125 11.854V19.47h-3.047V16h3.047v-2.644c0-3.007 1.792-4.668 4.533-4.668 1.312 0 2.686.234 2.686.234v2.953H19.83c-1.491 0-1.956.925-1.956 1.874V16h3.328l-.532 3.469h-2.796v8.385C23.612 26.954 28 21.99 28 16"/></svg>'
 };
 export const lgIconFamily: Icon = {
   name: 'family',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M16.25 13.75a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm-6.25 0a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm-6.25 0a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM16.25 15a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zM10 15a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm-6.25 0a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm10-.626v.001h-.362l.363-.001zm-6.996 0v.001H6.25l.504-.001zm-5.505 0h.002l-.002.001v-.001zm5.566-4.787l.358.108a7.514 7.514 0 014.065 3.015 3.73 3.73 0 00-1.74-.177 6.268 6.268 0 00-2.337-1.525L5 13.17l-2.16-2.16a6.235 6.235 0 00-1.592.867l.001-1.497a7.461 7.461 0 011.578-.684l.358-.108L5 11.402l1.815-1.815zm10 0l.358.108a7.461 7.461 0 011.578.684v1.496a6.235 6.235 0 00-1.59-.867L15 13.17l-2.16-2.16a6.218 6.218 0 00-.966.452 8.742 8.742 0 00-.858-.94 7.392 7.392 0 011.81-.826l.359-.108L15 11.402l1.815-1.815zM15 1.25a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zm-10 0a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zM15 2.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm-10 0a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></defs><use transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-72" d="M26 22a4 4 0 110 8 4 4 0 010-8zm-10 0a4 4 0 110 8 4 4 0 010-8zM6 22a4 4 0 110 8 4 4 0 010-8zm20 2a2 2 0 100 4 2 2 0 000-4zm-10 0a2 2 0 100 4 2 2 0 000-4zM6 24a2 2 0 100 4 2 2 0 000-4zm4.904-8.661l.573.173a12.023 12.023 0 016.503 4.822 5.996 5.996 0 00-2.787-.28 10.003 10.003 0 00-3.735-2.44L8 21.07l-3.458-3.457A9.977 9.977 0 002 19v-2.394a11.938 11.938 0 012.524-1.094l.573-.173L8 18.243l2.904-2.904zm16 0l.573.173c.89.269 1.735.638 2.523 1.094v2.393a9.977 9.977 0 00-2.542-1.385L24 21.07l-3.458-3.457a9.95 9.95 0 00-1.543.724 14.086 14.086 0 00-1.374-1.504 11.87 11.87 0 012.898-1.322l.573-.173L24 18.243l2.904-2.904zM24 2a6 6 0 110 12 6 6 0 010-12zM8 2a6 6 0 110 12A6 6 0 018 2zm16 2a4 4 0 100 8 4 4 0 000-8zM8 4a4 4 0 100 8 4 4 0 000-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-72"/></svg>'
 };
 export const lgIconFavouriteFill: Icon = {
   name: 'favourite-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M14.51 4.056c1.416.513 2.365 2.058 2.365 3.718 0 2.756-2.2 5.615-6.517 8.637l-.358.251-.358-.25c-4.318-3.023-6.517-5.882-6.517-8.638 0-1.66.95-3.205 2.365-3.718 1.452-.527 3.06.087 4.51 1.8 1.45-1.713 3.058-2.327 4.51-1.8z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-73" d="M23.216 6.49C25.48 7.31 27 9.783 27 12.439c0 4.41-3.519 8.984-10.427 13.82l-.573.4-.573-.4C8.519 21.422 5 16.848 5 12.438c0-2.656 1.519-5.128 3.784-5.95 2.324-.842 4.895.14 7.216 2.881 2.321-2.74 4.892-3.723 7.216-2.88z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-73"/></svg>'
 };
 export const lgIconFavourite: Icon = {
   name: 'favourite',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M14.51 4.056c1.416.513 2.365 2.058 2.365 3.718 0 2.756-2.2 5.615-6.517 8.637l-.358.251-.358-.25c-4.318-3.023-6.517-5.882-6.517-8.638 0-1.66.95-3.205 2.365-3.718 1.452-.527 3.06.087 4.51 1.8 1.45-1.713 3.058-2.327 4.51-1.8zm1.115 3.718c0-1.161-.65-2.22-1.541-2.543-1.025-.371-2.294.214-3.575 2.007L10 7.95l-.509-.712c-1.28-1.793-2.55-2.378-3.575-2.007-.89.323-1.541 1.382-1.541 2.543 0 2.177 1.85 4.648 5.625 7.36 3.775-2.712 5.625-5.183 5.625-7.36z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
-};
-export const lgIconFemale: Icon = {
-  name: 'female',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 15"><defs><path id="a" d="M10 5a5 5 0 01.626 9.961l-.001 1.914h1.25a.625.625 0 110 1.25h-1.25v1.25a.625.625 0 11-1.25 0v-1.25h-1.25a.625.625 0 110-1.25h1.25v-1.914A5 5 0 0110 5zm0 1.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z"/></defs><use fill-rule="evenodd" transform="translate(-5 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-74" d="M23.216 6.49C25.48 7.31 27 9.783 27 12.439c0 4.41-3.519 8.984-10.427 13.82l-.573.4-.573-.4C8.519 21.422 5 16.848 5 12.438c0-2.656 1.519-5.128 3.784-5.95 2.324-.842 4.895.14 7.216 2.881 2.321-2.74 4.892-3.723 7.216-2.88zM25 12.439c0-1.858-1.041-3.552-2.466-4.069-1.64-.594-3.67.342-5.72 3.211L16 12.721l-.814-1.14c-2.05-2.87-4.08-3.805-5.72-3.211C8.04 8.887 7 10.58 7 12.439c0 3.482 2.96 7.436 9 11.774 6.04-4.338 9-8.292 9-11.774z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-74"/></svg>'
 };
 export const lgIconFilter: Icon = {
   name: 'filter',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M8.75 15.625h2.5v1.25h-2.5v-1.25zm0-2.5h2.5v1.25h-2.5v-1.25zm-.625-2.5h3.75v1.25h-3.75v-1.25zm-1.875-2.5h7.5v1.25h-7.5v-1.25zM5 5.625h10v1.25H5v-1.25zm-1.875-2.5h13.75a.625.625 0 110 1.25H3.125a.625.625 0 110-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-75" d="M14 25h4v2h-4v-2zm0-4h4v2h-4v-2zm-1-4h6v2h-6v-2zm-3-4h12v2H10v-2zM8 9h16v2H8V9zM5 5h22a1 1 0 010 2H5a1 1 0 110-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-75"/></svg>'
 };
 export const lgIconFolderAdd: Icon = {
   name: 'folder-add',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 17"><defs><path id="a" d="M15 13.75h-1.25a.625.625 0 100 1.25H15v1.25a.625.625 0 101.25 0V15h1.25a.625.625 0 100-1.25h-1.25V12.5a.625.625 0 10-1.25 0v1.25zm2.5-2.623A3.75 3.75 0 1111.927 15H2.5V2.5h6.875L10.813 5H17.5v6.127zm-1.25-.45V6.25h-6.16l-1.438-2.5H3.75v10h8.177a3.751 3.751 0 014.323-3.073z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-76" d="M24 22h-2a1 1 0 000 2h2v2a1 1 0 002 0v-2h2a1 1 0 000-2h-2v-2a1 1 0 00-2 0v2zm4-4.197A6 6 0 1119.083 24H4V4h11l2.3 4H28v9.803zm-2-.72V10h-9.857l-2.3-4H6v16h13.083A6.002 6.002 0 0126 17.083z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-76"/></svg>'
 };
 export const lgIconFolder: Icon = {
   name: 'folder',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M9.375 3.75l1.438 2.5H17.5v10h-15V3.75h6.875zM8.652 5H3.75v10h12.5V7.5h-6.16L8.651 5z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-77" d="M15 6l2.3 4H28v16H4V6h11zm-1.157 2H6v16h20V12h-9.857l-2.3-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-77"/></svg>'
 };
 export const lgIconFollow: Icon = {
   name: 'follow',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 19 19"><defs><path id="a" d="M17.043 12.584a7.5 7.5 0 10-13.33 1.507 6.44 6.44 0 01.393-.456c.726-.768 1.664-1.39 2.74-1.807a8.484 8.484 0 011.368-.4L10 13.214l1.786-1.786c.475.097.933.232 1.368.4a7.81 7.81 0 011.73.929 3.74 3.74 0 012.159-.173zm-1.008 1.204a.625.625 0 00-.41.587v1.25h-1.25a.625.625 0 100 1.25h1.25v1.25a.625.625 0 101.25 0v-1.25h1.25a.625.625 0 100-1.25h-1.25v-1.25a.625.625 0 00-.84-.587zm-2.315-.306a6.849 6.849 0 00-1.548-.672L10 14.982 7.828 12.81c-1.22.362-2.26 1.02-2.985 1.865-.12.14-.232.285-.334.434A7.48 7.48 0 0010 17.5c.908 0 1.778-.161 2.584-.457a3.74 3.74 0 011.136-3.561zm-.671 4.722a8.75 8.75 0 115.155-5.155 3.75 3.75 0 11-5.155 5.155zM10 11.25A3.125 3.125 0 1110 5a3.125 3.125 0 010 6.25zM10 10a1.875 1.875 0 100-3.75A1.875 1.875 0 0010 10z"/></defs><use transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-78" d="M27.269 20.134C27.742 18.845 28 17.453 28 16c0-6.627-5.373-12-12-12S4 9.373 4 16c0 2.415.713 4.663 1.94 6.545.197-.25.407-.494.629-.729 1.162-1.229 2.663-2.225 4.385-2.892a13.602 13.602 0 012.189-.639L16 21.142l2.857-2.857c.76.155 1.493.37 2.19.64a12.47 12.47 0 012.767 1.486 6.023 6.023 0 013.455-.276zm-1.614 1.927A1 1 0 0025 23v2h-2a1 1 0 000 2h2v2a1 1 0 002 0v-2h2a1 1 0 000-2h-2v-2a1 1 0 00-1.345-.939zm-3.703-.49a10.958 10.958 0 00-2.478-1.075L16 23.971l-3.474-3.475c-1.953.579-3.618 1.631-4.777 2.983-.192.224-.37.456-.534.696A11.967 11.967 0 0016 28c1.453 0 2.845-.258 4.134-.731A6.023 6.023 0 0120 26a5.99 5.99 0 011.952-4.43zm-1.074 7.556A13.97 13.97 0 0116 30C8.268 30 2 23.732 2 16S8.268 2 16 2s14 6.268 14 14c0 1.716-.309 3.36-.873 4.878a6 6 0 11-8.249 8.249zM16 18a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-78"/></svg>'
 };
 export const lgIconForum: Icon = {
   name: 'forum',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18"><path fill-rule="evenodd" d="M1.75.875h12.5c.69 0 1.25.56 1.25 1.25v13.75c0 .69-.56 1.25-1.25 1.25H1.75c-.69 0-1.25-.56-1.25-1.25V2.125c0-.69.56-1.25 1.25-1.25zm0 3.75v11.25h12.5V4.625H1.75zm10 6.25v2.5l1.25 1.25H4.25v-3.75h7.5zm-1.25 1.25h-5v1.25h5v-1.25zm1.25-6.25v3.75H3l1.25-1.25v-2.5h7.5zm-1.25 1.25h-5v1.25h5v-1.25zm-3.125-3.75a.625.625 0 100-1.25.625.625 0 000 1.25zm-2.5-1.25a.625.625 0 110 1.25.625.625 0 010-1.25zm-2.5 0a.625.625 0 110 1.25.625.625 0 010-1.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M6 3h20a2 2 0 012 2v22a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2zm0 6v18h20V9H6zm16 10v4l2 2H10v-6h12zm-2 2h-8v2h8v-2zm2-10v6H8l2-2v-4h12zm-2 2h-8v2h8v-2zm-5-6a1 1 0 100-2 1 1 0 000 2zm-4-2a1 1 0 110 2 1 1 0 010-2zM7 5a1 1 0 110 2 1 1 0 010-2z"/></svg>'
 };
 export const lgIconFunds: Icon = {
   name: 'funds',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M12.5 7.5a5 5 0 110 10 5 5 0 010-10zm-5.73 7.501c.196.446.441.865.73 1.25l-5-.001V15l4.27.001zM12.5 8.75a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm.173 1.406c.36 0 .653.107.868.324.214.215.32.503.32.855v.156h-.893v-.156c0-.124-.03-.211-.083-.269-.052-.055-.126-.084-.233-.084a.237.237 0 00-.208.102.547.547 0 00-.091.332l.016.464h.743v.818h-.716l.011.292c0 .148-.02.282-.058.403h1.558l-.004.826h-2.8v-.826h.156l.157.004c.003 0 .017-.015.035-.065a.966.966 0 00.041-.314l-.011-.32h-.387v-.818h.363l-.015-.459c0-.382.114-.692.342-.921.229-.23.528-.344.89-.344zM6.25 12.5c0 .428.043.847.125 1.251L2.5 13.75V12.5h3.75zm.52-2.5a6.203 6.203 0 00-.395 1.25H2.5V10h4.27zm1.98-2.5A6.287 6.287 0 007.5 8.75h-5V7.5h6.25zM12.5 5v1.25h-10V5h10zm0-2.5v1.25h-10V2.5h10z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-79" d="M20 12a8 8 0 110 16 8 8 0 010-16zm-8 14H4v-2h6.832A9.991 9.991 0 0012 26zm8-12a6 6 0 100 12 6 6 0 000-12zm.277 2.25c.577 0 1.045.171 1.388.517.343.345.513.806.513 1.368v.25h-1.43v-.25c0-.198-.046-.337-.132-.43-.083-.088-.201-.133-.373-.133a.379.379 0 00-.332.163c-.096.13-.147.307-.147.53l.026.743h1.189v1.31h-1.145l.018.465c0 .237-.031.453-.094.645h2.493l-.006 1.322h-4.48v-1.322h.25l.251.008c.005-.002.026-.026.055-.105.043-.12.067-.29.067-.502l-.018-.512h-.62v-1.309h.58l-.022-.734c0-.611.181-1.108.547-1.475.365-.366.844-.549 1.422-.549zM10 20c0 .685.069 1.354.2 2.001L4 22v-2h6zm.2-2H4v-2h6.832a9.925 9.925 0 00-.632 2zm1.8-4H4v-2h9.998A10.059 10.059 0 0012 14zm8-6v2H4V8h16zm0-4v2H4V4h16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-79"/></svg>'
 };
-export const lgIconFurniture: Icon = {
-  name: 'furniture',
+export const lgIconFurntiure: Icon = {
+  name: 'furntiure',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M15.625 17.5h1.25v.625a.625.625 0 11-1.25 0V17.5zm-12.5 0h1.25v.625a.625.625 0 11-1.25 0V17.5zm13.75-10h-1.25V3.125A.625.625 0 0015 2.5H5a.625.625 0 00-.625.625V7.5h-1.25V3.125c0-1.036.84-1.875 1.875-1.875h10c1.036 0 1.875.84 1.875 1.875V7.5zm0 8.75v1.25H3.125v-1.25h13.75zM15 6.25h2.5c.69 0 1.25.56 1.25 1.25v10h-5v-10c0-.69.56-1.25 1.25-1.25zm.625 1.25a.625.625 0 00-.625.625v8.125h2.5V8.125a.625.625 0 00-.625-.625h-1.25zM2.5 6.25H5c.69 0 1.25.56 1.25 1.25v10h-5v-10c0-.69.56-1.25 1.25-1.25zm.625 1.25a.625.625 0 00-.625.625v8.125H5V8.125a.625.625 0 00-.625-.625h-1.25zm2.5 5h8.75v1.25h-8.75V12.5zm0-2.5h8.75v1.25h-8.75V10z"/></defs><use transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-80" d="M25 28h2v1a1 1 0 01-2 0v-1zM7 28v1a1 1 0 01-2 0v-1h2zm15-2v2H10v-2h12zm2-24a3 3 0 013 3v5h-2V5a1 1 0 00-1-1H8a1 1 0 00-1 1v5H5V5a3 3 0 013-3h16zm4 8a2 2 0 012 2v16h-8V12a2 2 0 012-2h4zm-1 2h-2a1 1 0 00-1 1v13h4V13a1 1 0 00-1-1zM7 12H5a1 1 0 00-1 1v13h4V13a1 1 0 00-1-1zm3 16H2V12a2 2 0 012-2h4a2 2 0 012 2v4h12v2H10v2h12v2H10v6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-80"/></svg>'
+};
+export const lgIconGenderFemale: Icon = {
+  name: 'gender-female',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-81" d="M16 8a8 8 0 011.001 15.938L17 27h2a1 1 0 010 2h-2v2a1 1 0 01-2 0v-2h-2a1 1 0 010-2h2v-3.062a8.002 8.002 0 01-6.996-7.689L8 16a8 8 0 018-8zm0 2a6 6 0 100 12 6 6 0 000-12z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-81"/></svg>'
+};
+export const lgIconGenderMale: Icon = {
+  name: 'gender-male',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-82" d="M27 4a1 1 0 011 1v6a1 1 0 01-2 0V7.399l-3.686 3.687a7.963 7.963 0 011.682 4.665L24 16a8 8 0 11-3.104-6.327L24.57 6H21a1 1 0 010-2h6zm-11 6a6 6 0 100 12 6 6 0 000-12z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-82"/></svg>'
 };
 export const lgIconGif: Icon = {
   name: 'gif',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17"><path d="M3 6.75h6.25V8H3V6.75zM7.634.5l4.116 4.116V9.25h3.125c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625H3.625A.625.625 0 013 16.125V15.5H1.772c-.95 0-1.25-.254-1.27-1.14L.5 14.25V1.75C.5.817.759.523 1.641.501L1.75.5h5.884zm-1.3 10a2.07 2.07 0 00-1.099.29c-.316.194-.56.47-.73.83-.17.359-.255.779-.255 1.26l.003.423c.027.698.232 1.243.615 1.635.382.392.894.587 1.534.587.416 0 .799-.061 1.148-.184.349-.123.614-.286.795-.487v-2.008H6.348v.81h.82v.758c-.15.137-.379.205-.686.205-.358 0-.62-.123-.787-.368-.167-.245-.25-.611-.25-1.099v-.295c.002-.466.084-.824.245-1.075a.769.769 0 01.685-.376c.246 0 .436.059.57.175.135.116.222.311.262.584h1.135c-.056-.553-.252-.968-.589-1.247-.337-.279-.81-.418-1.418-.418zm3.952.07H9.11v4.888h1.175V10.57zm4.089 0h-3.27v4.888h1.178v-1.947h1.9v-.906h-1.9V11.48h2.092v-.91zM6.75 1.75h-5v12.5H3V9.875c0-.345.28-.625.625-.625h6.874V5.5H6.75V1.75zM8 2.634V4.25h1.616L8 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M8 14h10v2H8v-2zm7.414-10L22 10.586V18h5a1 1 0 011 1v10a1 1 0 01-1 1H9a1 1 0 01-1-1v-1H6.035c-1.519 0-1.998-.407-2.033-1.825L4 26V6c0-1.493.414-1.964 1.826-1.998L6 4h9.414zm-2.079 16c-.666 0-1.252.155-1.759.465-.506.31-.896.752-1.168 1.326-.272.575-.408 1.247-.408 2.017l.005.677c.043 1.117.371 1.989.983 2.616.613.626 1.43.94 2.455.94a5.49 5.49 0 001.837-.296c.558-.197.983-.456 1.273-.779v-3.212h-3.196v1.295h1.31v1.214c-.24.218-.605.327-1.095.327-.573 0-.993-.196-1.26-.588-.267-.392-.4-.978-.4-1.759v-.472c.004-.745.134-1.318.392-1.72.258-.4.623-.6 1.096-.6.394 0 .698.092.913.278.215.187.354.498.419.935h1.815c-.09-.884-.403-1.55-.942-1.995-.54-.446-1.296-.669-2.27-.669zm6.322.113h-1.88v7.82h1.88v-7.82zm6.542 0h-5.231v7.82h1.885v-3.115h3.04v-1.45h-3.04v-1.8h3.346v-1.455zM14 6H6v20h2v-7a1 1 0 011-1h10.999v-6H14V6zm2 1.415V10h2.585L16 7.415z"/></svg>'
 };
 export const lgIconGithub: Icon = {
   name: 'github',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="#161514" fill-rule="evenodd" d="M8 .5a7.5 7.5 0 00-2.37 14.616c.374.07.511-.162.511-.361 0-.178-.006-.65-.01-1.275-2.086.453-2.526-1.006-2.526-1.006-.342-.866-.833-1.097-.833-1.097-.681-.465.051-.456.051-.456.753.053 1.149.773 1.149.773.669 1.146 1.756.815 2.183.623.068-.484.262-.815.476-1.002-1.665-.19-3.416-.833-3.416-3.707 0-.819.292-1.489.772-2.013-.078-.19-.335-.952.073-1.984 0 0 .63-.202 2.063.768A7.184 7.184 0 018 4.127a7.191 7.191 0 011.878.252c1.432-.97 2.06-.768 2.06-.768.41 1.032.152 1.795.075 1.984.48.524.771 1.194.771 2.013 0 2.881-1.754 3.515-3.424 3.7.269.232.509.69.509 1.39 0 1.002-.01 1.811-.01 2.057 0 .2.136.434.516.361A7.5 7.5 0 008 .5"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M15.999 4C9.373 4 4 9.373 4 16c0 5.302 3.438 9.8 8.207 11.386.6.11.819-.26.819-.578 0-.284-.01-1.04-.017-2.04-3.337.724-4.042-1.61-4.042-1.61-.546-1.386-1.332-1.755-1.332-1.755-1.09-.744.082-.73.082-.73 1.205.086 1.838 1.238 1.838 1.238 1.07 1.833 2.81 1.304 3.493.996.109-.775.419-1.304.762-1.603-2.665-.303-5.467-1.333-5.467-5.931 0-1.31.468-2.382 1.236-3.22-.124-.304-.536-1.524.118-3.176 0 0 1.007-.323 3.3 1.23A11.46 11.46 0 0116 9.803c1.02.005 2.046.138 3.005.404 2.29-1.553 3.296-1.23 3.296-1.23.655 1.652.243 2.872.12 3.176.77.838 1.233 1.91 1.233 3.22 0 4.61-2.806 5.624-5.478 5.921.43.37.814 1.103.814 2.223 0 1.603-.015 2.898-.015 3.291 0 .321.217.695.825.578C24.565 25.796 28 21.3 28 16c0-6.627-5.373-12-12.001-12"/></svg>'
 };
 export const lgIconGlobe: Icon = {
   name: 'globe',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M10 1.875a8.104 8.104 0 015.99 2.636l-.213-.223a7.89 7.89 0 01.678.777A8.09 8.09 0 0118.125 10a8.088 8.088 0 01-1.506 4.714l-.02.026a8.154 8.154 0 01-.14.191l.16-.217a8.208 8.208 0 01-.436.557 8.107 8.107 0 01-5.935 2.85l-.227.004h-.042.002l-.23-.004a8.098 8.098 0 01-5.445-2.325l-.056-.056c-.05-.05-.1-.1-.148-.152l.203.208a8.315 8.315 0 01-.85-.98A8.089 8.089 0 011.876 10a8.089 8.089 0 011.58-4.815l.043-.058a8.16 8.16 0 01.145-.188l-.189.246a8.274 8.274 0 01.853-.982A8.1 8.1 0 019.98 1.875H10zm3.505 12.417l-.094.207a9.03 9.03 0 01-1.372 2.07 6.876 6.876 0 002.757-1.643 6.429 6.429 0 00-1.291-.634zm-6.966.1l-.084.033a7.666 7.666 0 00-1.144.603 6.867 6.867 0 002.65 1.54 9.03 9.03 0 01-1.422-2.176zm1.407-.434L7.761 14a7.663 7.663 0 001.613 2.151v-2.384c-.5.03-.976.093-1.428.19zm2.681-.194v2.387c.264-.243.525-.522.774-.836.33-.417.619-.87.862-1.362a10.876 10.876 0 00-1.636-.19zm-7.474-3.14a6.838 6.838 0 001.298 3.436 8.944 8.944 0 011.635-.852 10.52 10.52 0 01-.445-2.583H3.153zm13.694 0h-2.488c-.045.892-.187 1.72-.414 2.486a7.89 7.89 0 011.69.83 6.832 6.832 0 001.212-3.315zm-7.473 0l-2.481.001c.046.795.18 1.527.392 2.2.654-.167 1.35-.272 2.089-.31v-1.891zm1.252 0l.002 1.889c.747.03 1.449.115 2.104.255l.043-.144c.177-.617.29-1.282.332-1.999l-2.481-.001zM7.21 7.159l-.02.072c-.167.65-.267 1.364-.302 2.143h2.486v-1.89A10.76 10.76 0 017.21 7.16zm5.596.055l-.074.018c-.655.14-1.357.225-2.104.256l-.002 1.886h2.486a10.488 10.488 0 00-.306-2.16zm2.827-1.156l-.128.085a7.936 7.936 0 01-1.492.723c.196.767.313 1.604.35 2.507h2.484a6.837 6.837 0 00-1.214-3.315zM4.451 5.942l-.013.016a6.836 6.836 0 00-1.285 3.416l2.484-.001c.039-.944.165-1.815.378-2.612a8.923 8.923 0 01-1.564-.819zm6.177-2.192v2.487c.63-.029 1.217-.1 1.763-.214a5.889 5.889 0 00-1.763-2.273zm-1.255-.001A5.885 5.885 0 007.65 5.934l-.017.036a9.292 9.292 0 001.74.262l.001-2.483zm2.907-.237l.157.18a7.492 7.492 0 011.18 1.973 6.39 6.39 0 001.18-.59 6.86 6.86 0 00-2.517-1.563zm-4.56 0a6.857 6.857 0 00-2.407 1.46c.348.224.719.422 1.113.591a7.42 7.42 0 011.293-2.051z"/></defs><use fill-rule="evenodd" transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-83" d="M16.009 3a12.97 12.97 0 019.779 4.444l.065.075c.16.187.317.379.467.575l.021.027a13.104 13.104 0 01.249.337l.068.097A12.94 12.94 0 0129 16c0 2.77-.866 5.336-2.342 7.445l-.069.097-.03.044a13.053 13.053 0 01-1.316 1.556A12.96 12.96 0 0116 29h.01-.021a12.956 12.956 0 01-8.978-3.608l-.122-.119-.018-.018a13.081 13.081 0 01-.263-.266l.281.284a13.134 13.134 0 01-1.148-1.287A12.944 12.944 0 013 16a12.951 12.951 0 013.36-8.722A12.966 12.966 0 0116 3h-.01zm-5.547 20.026l-.045.017c-.681.283-1.32.619-1.92 1.002a10.996 10.996 0 004.238 2.462 14.448 14.448 0 01-2.274-3.482zm11.147-.158l-.11.24a14.447 14.447 0 01-2.235 3.4 11 11 0 004.41-2.627 10.384 10.384 0 00-2.065-1.013zm-9.137-.482l-.055.014A12.186 12.186 0 0015 25.845v-3.816c-.892.051-1.734.173-2.528.357zm4.53-.364L17 25.844c.423-.39.84-.836 1.24-1.34.528-.668.991-1.393 1.38-2.18-.816-.16-1.688-.26-2.62-.302zM9.025 17h-3.98a10.941 10.941 0 002.076 5.494c.808-.531 1.68-.988 2.617-1.36A16.842 16.842 0 019.025 17zm17.93 0h-3.98a16.98 16.98 0 01-.664 3.977c.983.348 1.885.79 2.704 1.326A10.928 10.928 0 0026.955 17zM15 16.999L11.028 17c.074 1.271.29 2.442.627 3.518A17.125 17.125 0 0115 20.025V17zm5.972.001H17l.001 3.021a19.88 19.88 0 013.37.41 14.45 14.45 0 00.6-3.43zM7.12 9.507l-.03.04a10.94 10.94 0 00-2.046 5.452H9.02c.06-1.51.262-2.905.604-4.18A14.392 14.392 0 017.12 9.508zm13.368 2.036l-.153.035A19.91 19.91 0 0117 11.98V15h3.978c-.055-1.258-.218-2.408-.489-3.456zm-8.953-.09l-.048.179a16.889 16.889 0 00-.466 3.366H15v-3.023a17.218 17.218 0 01-3.464-.521zm13.48-1.757l-.114.075c-.76.484-1.587.889-2.483 1.215.316 1.228.503 2.567.561 4.013h3.975a10.939 10.939 0 00-1.94-5.303zM17 5.997V9.98c1.01-.045 1.951-.16 2.825-.342-.66-1.475-1.602-2.684-2.825-3.64zm-4.776 3.524l-.013.03c.87.22 1.798.363 2.788.42V5.997a9.421 9.421 0 00-2.775 3.525zm7.426-3.9l.031.035a11.907 11.907 0 012.105 3.41c.681-.26 1.31-.576 1.888-.946a11 11 0 00-4.024-2.5zm-7.302 0l-.187.067a11.001 11.001 0 00-3.664 2.267 12.31 12.31 0 001.784.946 11.845 11.845 0 012.067-3.28z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-83"/></svg>'
 };
 export const lgIconGoogle: Icon = {
   name: 'google',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M17.326 8.78h-7.152v2.964h4.117c-.384 1.884-1.989 2.965-4.117 2.965a4.526 4.526 0 01-4.534-4.535 4.526 4.526 0 014.534-4.534c1.082 0 2.059.383 2.826 1.011l2.233-2.232C13.873 3.233 12.128 2.5 10.174 2.5A7.652 7.652 0 002.5 10.174a7.652 7.652 0 007.674 7.675c3.838 0 7.326-2.79 7.326-7.675 0-.453-.07-.941-.174-1.395z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-84" d="M27.72 14.047H16.28v4.744h6.585c-.614 3.014-3.181 4.744-6.586 4.744a7.241 7.241 0 01-7.256-7.256 7.241 7.241 0 017.256-7.256c1.73 0 3.293.614 4.521 1.619l3.572-3.572C22.195 5.172 19.405 4 16.28 4 9.47 4 4 9.47 4 16.28c0 6.808 5.47 12.278 12.28 12.278 6.139 0 11.72-4.465 11.72-12.279 0-.726-.112-1.507-.28-2.232z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-84"/></svg>'
 };
 export const lgIconGotoBottom: Icon = {
   name: 'goto-bottom',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M7 26h18v2H7v-2zm9-20c.513 0 .936.316.993.723l.007.095v15.489l6.293-6.024a1.025 1.025 0 011.414 0c.39.378.39.99 0 1.367L16 26l-8.707-8.35a.944.944 0 010-1.367 1.025 1.025 0 011.414 0L15 22.308V6.818c0-.42.386-.765.883-.812L16 6z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M7 26h18v2H7v-2zm9-20c.513 0 .936.316.993.723l.007.095v15.489l6.293-6.024a1.025 1.025 0 011.414 0c.39.378.39.99 0 1.367L16 26l-8.707-8.35a.944.944 0 010-1.367 1.025 1.025 0 011.414 0L15 22.308V6.818c0-.42.386-.765.883-.812L16 6z"/></svg>'
 };
 export const lgIconGotoFirst: Icon = {
   name: 'goto-first',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 12"><defs><path id="a" d="M3.75 5H5v11.25H3.75V5zm7.323.183a.64.64 0 010 .884L7.306 10h9.683c.254 0 .465.227.504.524l.007.101c0 .345-.229.625-.511.625H7.306l3.767 3.933a.64.64 0 010 .884.59.59 0 01-.854 0L5 10.625l5.219-5.442a.59.59 0 01.854 0z"/></defs><use transform="translate(-3 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-85" d="M6 7h2v18H6V7zm11.717.293c.377.39.377 1.024 0 1.414L11.69 15h15.49c.42 0 .766.386.813.883L28 16c0 .552-.366 1-.818 1H11.69l6.026 6.293c.377.39.377 1.024 0 1.414a.944.944 0 01-1.367 0L8 16l8.35-8.707a.944.944 0 011.367 0z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-85"/></svg>'
 };
 export const lgIconGotoLast: Icon = {
   name: 'goto-last',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 12"><defs><path id="a" d="M2.5 5h1.25v11.25H2.5V5zm7.323.183a.64.64 0 010 .884L6.056 10h9.683c.254 0 .465.227.504.524l.007.101c0 .345-.229.625-.511.625H6.056l3.767 3.933a.64.64 0 010 .884.59.59 0 01-.854 0L3.75 10.625l5.219-5.442a.59.59 0 01.854 0z"/></defs><use transform="matrix(-1 0 0 1 16.75 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-86" d="M4 8h2v18H4V8zm11.717.293c.377.39.377 1.024 0 1.414L9.69 16h15.49c.42 0 .766.386.813.883L26 17c0 .552-.366 1-.818 1H9.69l6.026 6.293c.377.39.377 1.024 0 1.414a.944.944 0 01-1.367 0L6 17l8.35-8.707a.944.944 0 011.367 0z"/></defs><use fill-rule="evenodd" transform="matrix(-1 0 0 1 30 0)" xlink:href="#lg-icon-86"/></svg>'
 };
 export const lgIconGotoTop: Icon = {
   name: 'goto-top',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 15"><defs><path id="a" d="M15.625 15v1.25H4.375V15h11.25zM9.899 2.507L10 2.5c.31 0 .568.185.617.428l.008.083v9.681l3.933-3.765a.64.64 0 01.884 0 .59.59 0 010 .854L10 15 4.558 9.781a.59.59 0 010-.854.64.64 0 01.884 0l3.933 3.766V3.011c0-.254.227-.465.524-.504L10 2.5z"/></defs><use transform="matrix(1 0 0 -1 -4 16.75)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-87" d="M25 24v2H7v-2h18zM16 4c.552 0 1 .366 1 .818v15.49l6.293-6.025a1.025 1.025 0 011.414 0c.39.378.39.99 0 1.367L16 24l-8.707-8.35a.944.944 0 010-1.367 1.025 1.025 0 011.414 0L15 20.308V4.818c0-.42.386-.765.883-.812z"/></defs><use fill-rule="evenodd" transform="matrix(1 0 0 -1 0 30)" xlink:href="#lg-icon-87"/></svg>'
 };
 export const lgIconGroup: Icon = {
   name: 'group',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 14"><defs><path id="a" d="M11.815 10.837l.358.108a7.515 7.515 0 015.045 5.135l.224.795H2.557l.225-.795a7.515 7.515 0 015.045-5.135l.358-.108L10 12.652l1.815-1.815zm.346 1.421L10 14.42l-2.16-2.16a6.272 6.272 0 00-3.57 3.366h11.46a6.272 6.272 0 00-3.57-3.367zm5.339.242c.877 0 1.719.15 2.5.427l.001 1.343a6.226 6.226 0 00-2.422-.52 8.731 8.731 0 00-.844-1.211c.25-.026.506-.039.765-.039zm-15 0c.259 0 .515.013.767.039l-.095.113a8.783 8.783 0 00-.34.453l-.03.045a8.69 8.69 0 00-.366.574l-.016.027v.001l.08-.002c-.889 0-1.735.186-2.5.52v-1.343a7.488 7.488 0 012.5-.427zm15-6.25a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm-15 0a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM10 3.125a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zM17.5 7.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm-15 0a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zM10 4.375a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></defs><use transform="translate(0 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-88" d="M18.904 17.339l.573.173a12.023 12.023 0 018.071 8.216l.36 1.272H4.092l.36-1.272a12.023 12.023 0 018.07-8.216l.574-.173L16 20.243l2.904-2.904zm.554 2.275L16 23.07l-3.458-3.457A10.035 10.035 0 006.832 25h18.336a10.035 10.035 0 00-5.71-5.386zM4 20c.413 0 .822.02 1.224.062a14.025 14.025 0 00-1.352 1.94L4 22a9.966 9.966 0 00-4 .832v-2.149A11.98 11.98 0 014 20zm24 0c1.403 0 2.75.24 4 .683v2.15A9.961 9.961 0 0028.128 22a14.046 14.046 0 00-1.352-1.94c.402-.04.81-.061 1.224-.061zm0-10a4 4 0 110 8 4 4 0 010-8zM4 10a4 4 0 110 8 4 4 0 010-8zm12-5a6 6 0 110 12 6 6 0 010-12zm12 7a2 2 0 100 4 2 2 0 000-4zM4 12a2 2 0 100 4 2 2 0 000-4zm12-5a4 4 0 100 8 4 4 0 000-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-88"/></svg>'
 };
 export const lgIconGuillemetLeft: Icon = {
   name: 'guillemet-left',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 8"><defs><path id="a" d="M10.015 12.804a.625.625 0 01-1.072.643L6.875 10l2.068-3.446a.625.625 0 011.072.643L8.333 10l1.682 2.804zm3.125 0a.625.625 0 01-1.072.643L10 10l2.068-3.446a.625.625 0 011.072.643L11.458 10l1.682 2.804z"/></defs><use transform="translate(-6 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-89" d="M16.024 20.486a1 1 0 11-1.715 1.029L11 16l3.309-5.514a1 1 0 111.715 1.029L13.332 16l2.692 4.486zm5 0a1 1 0 11-1.715 1.029L16 16l3.309-5.514a1 1 0 111.715 1.029L18.332 16l2.692 4.486z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-89"/></svg>'
 };
 export const lgIconGuillemetRight: Icon = {
   name: 'guillemet-right',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 8"><defs><path id="a" d="M10.304 6.34a.625.625 0 01.857.214L13.229 10l-2.068 3.447a.625.625 0 11-1.072-.643L11.771 10 10.09 7.197a.625.625 0 01.215-.858zm-3.125 0a.625.625 0 01.857.214L10.104 10l-2.068 3.447a.625.625 0 11-1.072-.643L8.646 10 6.964 7.197a.625.625 0 01.215-.858z"/></defs><use transform="translate(-6 -6)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-90" d="M16.486 10.143a1 1 0 011.372.343L21.166 16l-3.308 5.515a1 1 0 01-1.715-1.03L18.834 16l-2.691-4.485a1 1 0 01.343-1.372zm-5 0a1 1 0 011.372.343L16.166 16l-3.308 5.515a1 1 0 01-1.715-1.03L13.834 16l-2.691-4.485a1 1 0 01.343-1.372z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-90"/></svg>'
+};
+export const lgIconHamburgerMenu: Icon = {
+  name: 'hamburger-menu',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-91" d="M7 23h18a1 1 0 000-2H7a1 1 0 000 2zm0-6h18a1 1 0 000-2H7a1 1 0 000 2zm0-6h18a1 1 0 000-2H7a1 1 0 100 2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-91"/></svg>'
 };
 export const lgIconHd: Icon = {
   name: 'hd',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17"><path d="M2.625 6.75h6.25V8h-6.25V6.75zM7.259.5l4.116 4.116V9.25h1.875c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625h-10a.625.625 0 01-.625-.625V15.5H1.397c-.95 0-1.25-.254-1.27-1.14l-.002-.11V1.75C.125.817.384.523 1.266.501L1.375.5h5.884zm-2.206 10H3.875v4.888h1.178v-2.041H6.79v2.04h1.17V10.5H6.79v1.94H5.053V10.5zm5.227 0H8.706v4.888h1.608a2.265 2.265 0 001.15-.304c.343-.2.61-.478.798-.833.19-.354.284-.755.284-1.203v-.225a2.503 2.503 0 00-.294-1.2 2.065 2.065 0 00-.807-.83 2.316 2.316 0 00-1.165-.293zm0 .91c.347 0 .611.12.792.359.182.24.272.595.272 1.067v.212c0 .474-.09.832-.272 1.072-.181.241-.44.361-.779.361h-.41V11.41h.397zM6.375 1.75h-5v12.5h1.25V9.875c0-.345.28-.625.625-.625h6.874V5.5H6.375V1.75zm1.25.884V4.25h1.616L7.625 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M9 14h10v2H9v-2zm7.414-10L23 10.586V18h3a1 1 0 011 1v10a1 1 0 01-1 1H10a1 1 0 01-1-1v-1H7.035c-1.519 0-1.998-.407-2.033-1.825L5 26V6c0-1.493.414-1.964 1.826-1.998L7 4h9.414zm-3.529 16H11v7.82h1.885v-3.265h2.777v3.265h1.875V20h-1.875v3.104h-2.777V20zm8.363 0h-2.519v7.82h2.573a3.624 3.624 0 001.84-.486c.549-.32.975-.764 1.278-1.332.302-.567.454-1.21.454-1.925v-.36a4.005 4.005 0 00-.47-1.92 3.303 3.303 0 00-1.292-1.327 3.711 3.711 0 00-1.864-.47zm0 1.456c.555 0 .978.191 1.268.574.29.383.435.953.435 1.708v.339c0 .759-.145 1.33-.435 1.716-.29.385-.706.577-1.246.577h-.656v-4.914h.634zM15 6H7v20h2v-7a1 1 0 011-1h10.999v-6H15V6zm2 1.415V10h2.585L17 7.415z"/></svg>'
 };
 export const lgIconHdr: Icon = {
   name: 'hdr',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17"><path d="M3 6.75h6.25V8H3V6.75zM7.634.5l4.116 4.116V9.25h3.75c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625H1.125a.625.625 0 01-.625-.625V1.75C.5.817.759.523 1.641.501L1.75.5h5.884zm-4.706 10H1.75v4.888h1.178v-2.041h1.736v2.04h1.171V10.5H4.664v1.94H2.928V10.5zm5.227 0H6.581v4.888h1.608a2.265 2.265 0 001.15-.304c.343-.2.61-.478.798-.833.19-.354.284-.755.284-1.203v-.225a2.503 2.503 0 00-.294-1.2 2.065 2.065 0 00-.807-.83 2.316 2.316 0 00-1.165-.293zm4.794 0h-1.924v4.888h1.178v-1.726h.638l.863 1.726h1.262v-.05l-1.02-1.971c.293-.139.508-.32.646-.544.138-.224.206-.506.206-.846 0-.47-.163-.834-.49-1.091-.326-.257-.78-.386-1.36-.386zm-4.794.91c.347 0 .611.12.792.359.182.24.272.595.272 1.067v.212c0 .474-.09.832-.272 1.072-.181.241-.44.361-.779.361h-.41V11.41h.397zm4.794 0c.221 0 .39.06.503.18.114.12.171.284.171.494 0 .21-.056.375-.17.492-.112.118-.28.177-.504.177h-.746V11.41h.746zM6.75 1.75h-5v7.5h8.75V5.5H6.75V1.75zM8 2.634V4.25h1.616L8 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M8 14h10v2H8v-2zm7.414-10L22 10.586V18h6a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V6c0-1.493.414-1.964 1.826-1.998L6 4h9.414zM7.885 20H6v7.82h1.885v-3.265h2.777v3.265h1.875V20h-1.875v3.104H7.885V20zm8.363 0h-2.519v7.82h2.573a3.624 3.624 0 001.84-.486c.549-.32.975-.764 1.278-1.332.302-.567.454-1.21.454-1.925v-.36a4.005 4.005 0 00-.47-1.92 3.303 3.303 0 00-1.292-1.327 3.711 3.711 0 00-1.864-.47zm7.67 0H20.84v7.82h1.886v-2.76h1.02l1.38 2.76h2.02v-.08l-1.633-3.153c.47-.222.814-.512 1.034-.87.22-.358.33-.81.33-1.354 0-.752-.26-1.334-.784-1.745-.523-.412-1.248-.618-2.175-.618zm-7.67 1.456c.555 0 .978.191 1.268.574.29.383.435.953.435 1.708v.339c0 .759-.145 1.33-.435 1.716-.29.385-.706.577-1.246.577h-.656v-4.914h.634zm7.67 0c.354 0 .623.095.806.287.182.191.274.456.274.792 0 .337-.09.599-.272.787-.18.188-.45.282-.808.282h-1.192v-2.148h1.192zM14 6H6l-.001 12h14v-6H14V6zm2 1.415V10h2.585L16 7.415z"/></svg>'
 };
 export const lgIconHedgingCurrency: Icon = {
   name: 'hedging-currency',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><path d="M11.946.933a.625.625 0 010 .884L10.361 3.4h3.643c.32 0 .585.242.621.553l.004.073-.003 6.256c1.675.181 3.017 1.082 3.118 2.317l.006.15v2.5c0 1.466-1.724 2.5-3.75 2.5-1.956 0-3.63-.964-3.744-2.35l-.006-.15v-2.5l.006-.15c.101-1.236 1.443-2.136 3.12-2.317l.003-5.631-3.018-.001 1.585 1.585a.625.625 0 11-.884.884L7.97 4.027 11.062.933a.625.625 0 01.884 0zM4 .25c1.956 0 3.63.964 3.744 2.35l.006.15v2.5c0 1.312-1.381 2.278-3.124 2.467l-.001 5.658h3.019L6.058 11.79a.625.625 0 01.884-.884L10.036 14l-3.094 3.094a.625.625 0 11-.884-.884l1.586-1.584L4 14.625a.625.625 0 01-.62-.552L3.374 14V7.717C1.698 7.536.356 6.635.255 5.4L.25 5.25v-2.5l.006-.15C.37 1.214 2.044.25 4 .25zm12.501 14.382c-.67.391-1.552.618-2.501.618-.948 0-1.83-.226-2.5-.618v.618c0 .605 1.074 1.25 2.5 1.25 1.36 0 2.402-.587 2.493-1.167l.007-.083.001-.618zM14 11.5c-1.426 0-2.5.645-2.5 1.25S12.574 14 14 14s2.5-.645 2.5-1.25-1.074-1.25-2.5-1.25zM6.501 4.632c-.67.391-1.552.618-2.501.618-.948 0-1.83-.226-2.5-.618v.618C1.5 5.855 2.574 6.5 4 6.5c1.36 0 2.402-.587 2.493-1.167L6.5 5.25l.001-.618zM4 1.5c-1.426 0-2.5.645-2.5 1.25S2.574 4 4 4s2.5-.645 2.5-1.25S5.426 1.5 4 1.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M20.714 3.093a1 1 0 010 1.414l-2.536 2.535h5.829a1 1 0 01.993.884l.007.117L25 18.053c2.709.293 4.872 1.76 4.994 3.768L30 22v4c0 2.345-2.758 4-6 4-3.159 0-5.858-1.571-5.995-3.821L18 26v-4l.005-.179c.122-2.008 2.286-3.476 4.996-3.768l.006-9.01-4.829-.001 2.536 2.536a1 1 0 01-1.414 1.414l-4.95-4.95 4.95-4.95a1 1 0 011.414 0zM8 2c3.159 0 5.858 1.571 5.995 3.821L14 6v4c0 2.1-2.21 3.646-5 3.947V23h4.829l-2.536-2.536a1 1 0 011.414-1.414l4.95 4.95-4.95 4.95a1 1 0 01-1.414-1.414L13.829 25H8a1 1 0 01-.993-.883L7 24V13.947c-2.71-.293-4.873-1.76-4.995-3.768L2 10V6l.005-.179C2.142 3.571 4.841 2 8 2zm20.001 23.011C26.93 25.637 25.518 26 24 26c-1.517 0-2.928-.362-4-.988V26c0 .969 1.719 2 4 2 2.202 0 3.88-.961 3.994-1.9L28 26l.001-.989zM24 20c-2.281 0-4 1.031-4 2 0 .969 1.719 2 4 2 2.281 0 4-1.031 4-2 0-.969-1.719-2-4-2zM12.001 9.011C10.93 9.637 9.518 10 8 10c-1.517 0-2.928-.362-4-.988V10c0 .969 1.719 2 4 2 2.202 0 3.88-.961 3.994-1.9L12 10l.001-.989zM8 4C5.719 4 4 5.031 4 6c0 .969 1.719 2 4 2 2.281 0 4-1.031 4-2 0-.969-1.719-2-4-2z"/></svg>'
 };
 export const lgIconHedging: Icon = {
   name: 'hedging',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><path fill-rule="evenodd" d="M7.125.875v6.25h-2.5v6.25h3.644L6.683 11.79a.625.625 0 01.884-.884L10.66 14l-3.094 3.094a.625.625 0 11-.884-.884l1.586-1.584L4 14.625a.625.625 0 01-.62-.552L3.374 14V7.126l-2.5-.001V.875h6.25zm4.192.031a.625.625 0 010 .884L9.73 3.374l4.27.001c.32 0 .585.241.62.552l.005.073v6.938a3.126 3.126 0 11-1.25 0V4.625H9.732l1.585 1.585a.625.625 0 11-.884.884L7.34 4 10.433.906a.625.625 0 01.884 0zM14 12.125a1.875 1.875 0 100 3.75 1.875 1.875 0 000-3.75zm-8.125-10h-3.75v3.75h3.75v-3.75z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M13 3v10H9v10h5.829l-2.536-2.536a1 1 0 011.414-1.414l4.95 4.95-4.95 4.95a1 1 0 01-1.414-1.414L14.829 25H8a1 1 0 01-.993-.883L7 24V13H3V3h10zm6.707.05a1 1 0 010 1.414L17.171 7H24a1 1 0 01.993.883L25 8v11.1a5.002 5.002 0 01-1 9.9 5 5 0 01-1-9.9V9h-5.829l2.536 2.536a1 1 0 01-1.414 1.414L13.343 8l4.95-4.95a1 1 0 011.414 0zM24 21a3 3 0 100 6 3 3 0 000-6zM11 5H5v6h6V5z"/></svg>'
 };
 export const lgIconHelp: Icon = {
   name: 'help',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm.625 13.75v-2.552a3.775 3.775 0 01-1.25 0v2.552h1.25v-2.552zm-3.873-4.374H4.036a6.265 6.265 0 004.089 4.088l-.001-2.716a3.768 3.768 0 01-1.372-1.372zm9.212 0h-2.716a3.768 3.768 0 01-1.371 1.371v2.717a6.265 6.265 0 004.087-4.088zM10 7.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM6.302 9.376L3.75 9.375v1.25h2.552a3.775 3.775 0 010-1.25zm9.948-.001h-2.552a3.775 3.775 0 010 1.25h2.552v-1.25zM8.125 4.036a6.265 6.265 0 00-4.089 4.09l2.716-.001a3.768 3.768 0 011.372-1.373V4.036zm3.751 0l.001 2.717c.568.33 1.042.803 1.371 1.372h2.716a6.265 6.265 0 00-4.088-4.089zm-1.251-.286h-1.25v2.552a3.775 3.775 0 011.25 0V3.75z"/></defs><use fill-rule="evenodd" transform="rotate(45 11.414 6.586)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-92" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm1 17.917a6.04 6.04 0 01-2 0V26h2zM10.804 19H6.458A10.024 10.024 0 0013 25.542v-4.345a6.03 6.03 0 01-2.197-2.196zm14.739 0h-4.345A6.03 6.03 0 0119 21.197v4.345A10.024 10.024 0 0025.54 19zM16 12a4 4 0 100 8 4 4 0 000-8zm-5.917 3H6v2h4.083a6.04 6.04 0 010-2zM26 15h-4.083a6.04 6.04 0 010 2H26v-2zM6.458 13h4.345A6.03 6.03 0 0113 10.803V6.458A10.024 10.024 0 006.458 13zM19 6.458v4.345A6.03 6.03 0 0121.197 13h4.345a10.024 10.024 0 00-6.541-6.542zM17 6h-2v4.083a6.04 6.04 0 012 0V6z"/></defs><use fill-rule="evenodd" transform="rotate(45 16 16)" xlink:href="#lg-icon-92"/></svg>'
 };
 export const lgIconHighlight: Icon = {
   name: 'highlight',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.935 3.935l11.697 5.013-5.013 1.671-1.67 5.013L3.934 3.935zm9.94 7.44v2.5h-2.5v-1.25h1.25v-1.25h1.25zm-7.5 1.25v1.25h-2.5v-1.25h2.5zm-5-1.25v1.25h1.25v1.25h-2.5v-2.5h1.25zm4.94-5.06l2.487 5.803.829-2.487 2.487-.83-5.803-2.486zm-4.94 1.31v2.5H.125v-2.5h1.25zm12.5-3.75v2.5h-1.25v-2.5h1.25zm-12.5 0v2.5H.125v-2.5h1.25zm12.5-3.75v2.5h-1.25v-1.25h-1.25V.125h2.5zm-11.25 0v1.25h-1.25v1.25H.125v-2.5h2.5zm7.5 0v1.25h-2.5V.125h2.5zm-3.75 0v1.25h-2.5V.125h2.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M11.096 11.096l18.715 8.02-8.02 2.675-2.674 8.02-8.02-18.715zM27 23v4h-4v-2h2v-2h2zm-12 2v2h-4v-2h4zm-8-2v2h2v2H5v-4h2zm7.904-8.096l3.98 9.285 1.325-3.98 3.98-1.326-9.285-3.98zM7 17v4H5v-4h2zm20-6v4h-2v-4h2zM7 11v4H5v-4h2zm20-6v4h-2V7h-2V5h4zM9 5v2H7v2H5V5h4zm12 0v2h-4V5h4zm-6 0v2h-4V5h4z"/></svg>'
 };
 export const lgIconHomeFill: Icon = {
   name: 'home-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 16"><defs><path id="a" d="M16.25 7.776V17.5H3.75V7.776l-1.547.945a.628.628 0 01-.86-.203.618.618 0 01.204-.854L10 2.5l8.453 5.164c.294.18.385.562.204.854a.628.628 0 01-.86.203l-1.547-.945z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-93" d="M26 12.44V28H6V12.44l-2.476 1.514a1.004 1.004 0 01-1.376-.326.989.989 0 01.328-1.365L16 4l13.524 8.263c.47.287.617.898.328 1.365-.29.467-.906.613-1.376.326L26 12.44z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-93"/></svg>'
 };
 export const lgIconHome: Icon = {
   name: 'home',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 16"><defs><path id="a" d="M15 7.012l-5-3.055-5 3.055v9.247h10V7.012zm1.25.764V17.5H3.75V7.776l-1.547.945a.628.628 0 01-.86-.203.618.618 0 01.204-.854L10 2.5l8.453 5.164c.294.18.385.562.204.854a.628.628 0 01-.86.203l-1.547-.945z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-94" d="M24 11.219l-8-4.888-8 4.888v14.795h16V11.22zm2 1.222V28H6V12.44l-2.476 1.514a1.004 1.004 0 01-1.376-.326.989.989 0 01.328-1.365L16 4l13.524 8.263c.47.287.617.898.328 1.365-.29.467-.906.613-1.376.326L26 12.44z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-94"/></svg>'
 };
 export const lgIconHouse: Icon = {
   name: 'house',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 19 17"><defs><path id="a" d="M12.5 16.25h1.25v-4.746l-.055.04a3.31 3.31 0 01-.16.106c-.335.208-.667.283-1.035.178v4.422zm-1.25 0V8.076L8.125 6.34 5 8.076v8.174h1.25v-3.125a1.875 1.875 0 013.75 0v3.125h1.25zm-2.5 0v-3.125a.625.625 0 10-1.25 0v3.125h1.25zm-5 0V8.77l-.948.526a.625.625 0 01-.606-1.092L8.125 4.91l1.291.717a1.169 1.169 0 01.06-.781c.22-.528.55-.694 1.167-.8.242-.04.32-.058.417-.098a.686.686 0 00.232-.156.686.686 0 00.156-.232c.04-.097.057-.175.099-.417.105-.617.27-.948.799-1.166.43-.178.808-.113 1.188.123.05.031.1.064.16.107l.136.095c.227.158.359.214.545.214.186 0 .318-.056.545-.214l.135-.095c.061-.043.11-.076.16-.107.38-.236.76-.301 1.189-.123.528.218.694.549.8 1.166.04.242.058.32.098.417.036.087.084.16.156.232.071.072.145.12.232.156.097.04.175.057.417.099.617.105.948.27 1.166.799.178.43.113.808-.123 1.188-.031.05-.064.1-.107.16l-.095.136c-.158.227-.214.359-.214.545 0 .186.056.318.214.545l.095.135c.043.061.076.11.107.16.236.38.301.76.123 1.189-.218.528-.549.694-1.166.8-.242.04-.32.058-.417.098a.686.686 0 00-.232.156.686.686 0 00-.156.232c-.04.097-.057.175-.099.417-.105.617-.27.948-.799 1.166-.43.178-.808.113-1.188-.123a3.31 3.31 0 01-.16-.107L15 11.504v4.746h1.875a.625.625 0 110 1.25h-15a.625.625 0 110-1.25H3.75zm7.488-9.61l2.816 1.564a.625.625 0 01-.608 1.092l-.946-.525v.766c.026.05.05.1.07.153.084.202.113.332.168.656.043.249.044.252.087.27.037.015.032.016.115-.035a2.76 2.76 0 00.102-.069l.136-.096c.399-.278.732-.417 1.197-.417.465 0 .798.139 1.197.417l.136.096c.043.03.075.052.102.069.083.051.078.05.115.035.043-.018.044-.021.087-.27.055-.324.084-.454.167-.656.092-.224.224-.425.405-.606.18-.181.382-.313.606-.405.202-.083.332-.112.656-.167.249-.043.252-.044.27-.087.015-.037.016-.032-.035-.115a2.192 2.192 0 00-.069-.102l-.096-.136c-.278-.399-.417-.732-.417-1.197 0-.465.139-.798.417-1.197l.096-.136a2.76 2.76 0 00.069-.102c.051-.083.05-.078.035-.115-.018-.043-.021-.044-.27-.087-.324-.055-.454-.084-.656-.167a1.829 1.829 0 01-.606-.405 1.829 1.829 0 01-.405-.606c-.083-.202-.112-.332-.167-.656-.043-.249-.044-.252-.087-.27-.037-.015-.032-.016-.115.035a2.76 2.76 0 00-.102.069l-.136.096c-.399.278-.732.417-1.197.417-.465 0-.798-.139-1.197-.417l-.136-.096a2.192 2.192 0 00-.102-.069c-.083-.051-.078-.05-.115-.035-.043.018-.044.021-.087.27-.055.324-.084.454-.167.656a1.829 1.829 0 01-.405.606 1.829 1.829 0 01-.606.405c-.202.083-.332.112-.656.167-.249.043-.252.044-.27.087-.015.037-.016.032.035.115.017.027.039.059.069.102l.096.136c.229.328.364.612.404.962zm2.983 4.61h.308a.711.711 0 00-.154-.016.711.711 0 00-.154.016z"/></defs><use fill-rule="evenodd" transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-95" d="M20 26h2v-7.593l-.089.062a4.556 4.556 0 01-.256.171c-.535.332-1.067.453-1.655.284V26zm-2 0V12.922l-5-2.778-5 2.777V26h2v-5a3 3 0 016 0v5h2zm-4 0v-5a1 1 0 00-2 0v5h2zm-8 0V14.032l-1.516.842a1 1 0 01-.971-1.748L13 7.856l2.066 1.148c-.109-.398-.087-.807.097-1.25.35-.846.878-1.112 1.865-1.28.387-.065.513-.094.669-.158a1.09 1.09 0 00.37-.248 1.11 1.11 0 00.25-.371c.063-.156.092-.282.157-.669.168-.987.434-1.515 1.28-1.865.687-.285 1.293-.18 1.901.197.08.05.16.102.256.17l.217.154c.363.253.574.34.872.34.298 0 .51-.087.872-.34l.217-.153c.097-.069.175-.121.256-.171.608-.378 1.214-.482 1.901-.197.846.35 1.112.878 1.28 1.865.065.387.094.513.158.669.057.138.134.257.248.37.114.115.233.192.371.25.156.063.282.092.669.157.987.168 1.515.434 1.865 1.28.285.687.18 1.293-.197 1.901-.05.08-.102.16-.17.256l-.154.217c-.253.363-.34.574-.34.872 0 .298.087.51.34.872l.153.217c.069.097.121.175.171.256.378.608.482 1.214.197 1.901-.35.846-.878 1.112-1.865 1.28-.387.065-.513.094-.669.158a1.098 1.098 0 00-.37.248 1.098 1.098 0 00-.25.371c-.063.156-.092.282-.157.669-.168.987-.434 1.515-1.28 1.865-.687.285-1.293.18-1.901-.197a5.294 5.294 0 01-.256-.17L24 18.406V26h3a1 1 0 010 2H3a1 1 0 010-2h3zm11.981-15.377l4.505 2.503a1 1 0 11-.972 1.748L20 14.033v1.227c.041.079.079.16.113.244.133.324.18.531.268 1.05.068.398.07.403.14.431.058.025.05.026.183-.056.044-.027.094-.061.163-.11l.218-.153c.638-.445 1.172-.668 1.915-.668.743 0 1.277.223 1.915.668l.218.153c.069.049.12.083.163.11.133.082.125.08.183.056.07-.028.072-.033.14-.432.088-.518.135-.725.268-1.05.147-.357.357-.68.647-.969.29-.29.612-.5.97-.647.324-.133.531-.18 1.05-.268.398-.068.403-.07.431-.14.025-.058.026-.05-.056-.183a3.508 3.508 0 00-.11-.163l-.153-.218c-.445-.638-.668-1.172-.668-1.915 0-.743.223-1.277.668-1.915l.153-.218c.049-.069.083-.12.11-.163.082-.133.08-.125.056-.183-.028-.07-.033-.072-.432-.14-.518-.088-.725-.135-1.05-.268a2.926 2.926 0 01-.969-.647 2.92 2.92 0 01-.647-.97c-.133-.324-.18-.531-.268-1.05-.068-.398-.07-.403-.14-.431-.058-.025-.05-.026-.183.056a3.508 3.508 0 00-.163.11l-.218.153c-.638.445-1.172.668-1.915.668-.743 0-1.277-.223-1.915-.668l-.218-.153a3.508 3.508 0 00-.163-.11c-.133-.082-.125-.08-.183-.056-.07.028-.072.033-.14.432-.088.518-.135.725-.268 1.05-.147.357-.357.68-.647.969-.29.29-.612.5-.97.647-.324.133-.531.18-1.05.268-.398.068-.403.07-.431.14-.025.058-.026.05.056.183.027.044.061.094.11.163l.153.218c.367.525.582.98.647 1.538zM22.753 18h.494a1.138 1.138 0 00-.247-.025c-.088 0-.168.008-.247.025z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-95"/></svg>'
 };
 export const lgIconIdea: Icon = {
   name: 'idea',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 16"><defs><path id="a" d="M11.25 16.25v.625c0 .345-.28.625-.625.625h-1.25a.625.625 0 01-.625-.625v-.625h-.625a.625.625 0 110-1.25h3.75a.625.625 0 110 1.25h-.625zM10 5.625c.345 0 .625.28.625.625v2.5a.625.625 0 11-1.25 0v-2.5c0-.345.28-.625.625-.625zm0 6.25a.625.625 0 110-1.25.625.625 0 010 1.25zm-3.576-.645c-1.821-2.21-1.975-5.235 0-7.232a5.017 5.017 0 017.152 0c1.974 1.997 1.822 5.021 0 7.232-.767.93.36 3.77-3.575 3.77-3.934 0-2.81-2.84-3.577-3.77zm.965-.796c.375.456.484.847.616 1.69.056.36.069.436.1.58.172.792.478 1.046 1.896 1.046 1.417 0 1.722-.254 1.894-1.046a7.93 7.93 0 00.1-.578c.131-.844.24-1.236.616-1.692 1.488-1.805 1.522-4.095.076-5.557a3.767 3.767 0 00-5.374 0C5.867 6.339 5.9 8.63 7.389 10.434z"/></defs><use fill-rule="evenodd" transform="translate(-5 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-96" d="M18 26v1a1 1 0 01-1 1h-2a1 1 0 01-1-1v-1h-1a1 1 0 010-2h6a1 1 0 010 2h-1zM16 9a1 1 0 011 1v4a1 1 0 01-2 0v-4a1 1 0 011-1zm0 10a1 1 0 110-2 1 1 0 010 2zm-5.721-1.033c-2.914-3.534-3.16-8.375 0-11.57a8.028 8.028 0 0111.442 0c3.16 3.195 2.915 8.034 0 11.57C20.495 19.455 22.297 24 16 24c-6.294 0-4.496-4.545-5.722-6.033zm1.543-1.272c.6.729.775 1.355.986 2.704.09.577.11.697.16.927.276 1.267.765 1.674 3.034 1.674 2.267 0 2.756-.406 3.03-1.673.05-.23.07-.35.16-.926.21-1.35.385-1.977.986-2.706 2.38-2.888 2.435-6.552.12-8.892a6.028 6.028 0 00-8.597 0c-2.314 2.34-2.26 6.005.12 8.892z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-96"/></svg>'
 };
 export const lgIconImage: Icon = {
   name: 'image',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M15.5.5v15H.5V.5h15zM4.25 8.884l-2.5 2.498v2.868h7.867L4.25 8.884zm7.5 0l-2.867 2.865 2.5 2.501h2.867v-2.867l-2.5-2.5zm2.5-7.134H1.75v7.866l2.5-2.5L8 10.866l3.75-3.75 2.5 2.501V1.75zM8 3a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm0 1.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M28 4v24H4V4h24zM10 17.414l-4 4V26h12.585L10 17.414zm12 0L17.415 22l4 4H26v-4.586l-4-4zM26 6H6v12.584l4-3.998 6 5.999 6-6 4 4.001V6zM16 8a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4z"/></svg>'
 };
 export const lgIconInformationFill: Icon = {
   name: 'information-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 6.25a.938.938 0 00-.933.847l-.005.09v3.75a.937.937 0 001.871.09l.005-.09v-3.75A.937.937 0 008 6.75zm0-3.125A.938.938 0 108 5.5a.938.938 0 000-1.875z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 10a1.5 1.5 0 00-1.493 1.356l-.007.144v6a1.5 1.5 0 002.993.144l.007-.144v-6A1.5 1.5 0 0016 14zm0-5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>'
 };
 export const lgIconInformation: Icon = {
   name: 'information',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5zm0 5c.518 0 .938.42.938.938v3.75a.937.937 0 11-1.876 0v-3.75c0-.518.42-.938.938-.938zm0-3.125A.937.937 0 118 5.5a.937.937 0 010-1.875z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm0 8a1.5 1.5 0 011.5 1.5v6a1.5 1.5 0 01-3 0v-6A1.5 1.5 0 0116 14zm0-5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>'
 };
 export const lgIconInsert: Icon = {
   name: 'insert',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M16.875 5c.345 0 .625.28.625.625v11.25a.625.625 0 11-1.25 0V5.625c0-.345.28-.625.625-.625zm-7.5 7.693V3.01c0-.282.28-.511.625-.511s.625.229.625.511v9.682l2.683-2.516a.64.64 0 01.884 0 .59.59 0 010 .854L10 15l-4.192-3.969a.59.59 0 010-.854.64.64 0 01.884 0l2.683 2.516zM3.125 5c.345 0 .625.28.625.625v11.25a.625.625 0 11-1.25 0V5.625c0-.345.28-.625.625-.625z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-97" d="M27 8a1 1 0 011 1v18a1 1 0 01-2 0V9a1 1 0 011-1zM15 20.308V4.818c0-.452.448-.818 1-.818s1 .366 1 .818v15.49l4.293-4.025a1.025 1.025 0 011.414 0c.39.378.39.99 0 1.367L16 24l-6.707-6.35a.944.944 0 010-1.367 1.025 1.025 0 011.414 0L15 20.308zM5 8a1 1 0 011 1v18a1 1 0 01-2 0V9a1 1 0 011-1z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-97"/></svg>'
 };
 export const lgIconInstagram: Icon = {
   name: 'instagram',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.545.463h.985c1.593.001 1.87.012 2.6.045.798.036 1.343.163 1.82.348.493.192.911.449 1.328.866.417.417.674.835.866 1.328.185.477.312 1.022.348 1.82.033.73.044 1.007.045 2.6v.985c-.001 1.593-.012 1.87-.045 2.6-.036.798-.163 1.343-.348 1.82a3.677 3.677 0 01-.866 1.329 3.677 3.677 0 01-1.328.865c-.477.185-1.022.312-1.82.349-.696.031-.98.042-2.381.044H7.326c-1.402-.002-1.685-.013-2.381-.044-.798-.037-1.343-.164-1.82-.349a3.677 3.677 0 01-1.329-.865 3.676 3.676 0 01-.865-1.328c-.185-.478-.312-1.023-.349-1.821-.031-.696-.042-.98-.044-2.381V7.251C.54 5.85.55 5.566.582 4.871c.038-.8.164-1.345.349-1.821a3.68 3.68 0 01.865-1.328A3.676 3.676 0 013.124.856C3.602.671 4.147.544 4.945.508c.73-.033 1.007-.044 2.6-.045h.985zm1.39 1.352H7.14c-1.205.003-1.48.013-2.133.043-.732.033-1.129.155-1.393.258-.35.136-.6.299-.862.561a2.323 2.323 0 00-.561.862c-.103.265-.225.662-.259 1.393-.033.722-.042.983-.043 2.547v.968c.001 1.564.01 1.824.043 2.546.034.732.156 1.129.259 1.393.136.35.298.6.56.862.263.263.513.425.863.561.264.103.661.225 1.393.259.722.033.982.042 2.546.043h.968c1.564-.001 1.825-.01 2.547-.043.731-.034 1.128-.156 1.393-.259.35-.136.6-.298.862-.56.262-.263.425-.513.56-.863.104-.264.226-.661.26-1.393.029-.653.04-.928.042-2.133V7.066a38.282 38.282 0 00-.043-2.134c-.033-.731-.155-1.128-.258-1.393-.136-.35-.299-.6-.561-.862a2.323 2.323 0 00-.862-.56c-.265-.104-.662-.226-1.393-.26-.653-.029-.929-.04-2.134-.042zm-.898 2.398a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zm0 1.316a2.434 2.434 0 100 4.868 2.434 2.434 0 000-4.868zm3.75-2.254a.938.938 0 110 1.875.938.938 0 010-1.875z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16.956 3.94c2.453.004 2.9.02 4.051.073 1.277.058 2.15.26 2.913.557a5.89 5.89 0 012.126 1.384A5.883 5.883 0 0127.43 8.08c.296.763.5 1.636.557 2.913.053 1.152.07 1.598.072 4.051v1.792c-.003 2.454-.019 2.9-.072 4.052-.058 1.277-.26 2.15-.557 2.913a5.883 5.883 0 01-1.384 2.125 5.883 5.883 0 01-2.126 1.384c-.763.297-1.636.5-2.913.558-1.194.055-1.63.07-4.332.072h-1.23c-2.703-.002-3.138-.017-4.333-.072-1.277-.058-2.15-.261-2.913-.558a5.883 5.883 0 01-2.125-1.384 5.882 5.882 0 01-1.384-2.125c-.297-.763-.5-1.636-.558-2.913-.055-1.195-.07-1.63-.072-4.333v-1.23c.002-2.702.017-3.138.072-4.332.058-1.277.261-2.15.558-2.913a5.882 5.882 0 011.384-2.126A5.882 5.882 0 018.199 4.57c.763-.296 1.636-.5 2.913-.557 1.152-.053 1.598-.07 4.052-.072zm-.016 2.163h-1.76c-2.41.002-2.83.018-3.97.07-1.17.053-1.805.248-2.228.413a3.71 3.71 0 00-1.38.897c-.42.42-.68.82-.897 1.38-.164.423-.36 1.058-.413 2.228-.054 1.181-.068 1.59-.07 4.245v1.209c.002 2.654.016 3.063.07 4.244.053 1.17.249 1.806.413 2.229.218.56.478.96.898 1.38.42.42.82.68 1.38.897.422.164 1.058.36 2.228.413 1.18.054 1.59.068 4.244.07h1.209c2.655-.002 3.064-.016 4.245-.07 1.17-.053 1.805-.249 2.228-.413.56-.218.96-.478 1.38-.898.42-.42.68-.82.897-1.38.165-.422.36-1.058.413-2.228.052-1.138.068-1.56.07-3.968v-1.76c-.002-2.41-.018-2.83-.07-3.97-.053-1.17-.248-1.805-.413-2.228a3.717 3.717 0 00-.897-1.38 3.71 3.71 0 00-1.38-.897c-.423-.165-1.058-.36-2.228-.413-1.14-.052-1.56-.068-3.97-.07zm-.88 3.837a6 6 0 110 12 6 6 0 010-12zm0 2.106a3.895 3.895 0 100 7.79 3.895 3.895 0 000-7.79zm6-3.606a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/></svg>'
+};
+export const lgIconJuniorIsa: Icon = {
+  name: 'junior-isa',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M6 4l4.683 2.34A8 8 0 0113 6h6c3.764 0 6.921 2.6 7.773 6.102a3 3 0 010 5.797 7.973 7.973 0 01-1.565 3.147l.548 1.031a3 3 0 01-1.24 4.057l-1.766.94a3 3 0 01-4.058-1.241L17.718 24h-3.405l-.974 1.833a3 3 0 01-4.057 1.24l-1.766-.939a3 3 0 01-1.24-4.057l.535-1.008a7.995 7.995 0 01-1.23-2.068L4 19a2 2 0 01-2-2v-4a2 2 0 012-2h1.582c.122-.302.262-.595.418-.877V4zm2 3.235v3.406l-.25.453a5.97 5.97 0 00-.219.433l-.096.223L6.93 13H4v4l2.93.002.506 1.248c.189.467.436.908.736 1.313l.185.238.845 1.03-1.16 2.185a1 1 0 00.313 1.292l.1.06 1.766.94a1 1 0 001.291-.314l.06-.1.715-1.344a9.422 9.422 0 01-1.734-.656 1 1 0 01.894-1.788c1.183.59 2.698.894 4.553.894s3.37-.303 4.553-.894a1 1 0 01.894 1.788 9.405 9.405 0 01-1.707.648l.718 1.352a1 1 0 001.246.462l.107-.049 1.766-.939a1 1 0 00.462-1.246l-.05-.106-1.17-2.203.838-1.03a5.98 5.98 0 001.096-2.07l.077-.287.281-1.154 1.148-.305a1.001 1.001 0 00.116-1.894l-.114-.038-1.15-.305-.28-1.155a6.003 6.003 0 00-5.58-4.57L19 8h-6c-.478 0-.947.055-1.401.164l-.338.091-.761.23L8 7.235zM14 10l2.346.009.565.008c2.224.04 2.853.174 3.705.597l.085.042c.262.133.522.29.854.512a1 1 0 11-1.11 1.664 7.479 7.479 0 00-.539-.334l-.11-.059c-.719-.364-1.29-.43-4.865-.438L14 12a1 1 0 010-2z"/></svg>'
+};
+export const lgIconLandlord: Icon = {
+  name: 'landlord',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4l13.524 8.263c.47.287.617.898.328 1.365-.29.467-.906.613-1.376.326L26 12.44V28H6V12.44l-2.476 1.514a1.004 1.004 0 01-1.376-.326.989.989 0 01.328-1.365L16 4zm3.845 16.983L16 24.828l-3.846-3.845-.13.073a8.018 8.018 0 00-3.732 4.783L8.25 26h15.495l-.04-.154a8.016 8.016 0 00-3.73-4.79l-.13-.072zM16 6.331L8 11.22V22a10.03 10.03 0 014.334-3.306l.261-.098L16 22l3.406-3.405A10.025 10.025 0 0124 21.999V11.22l-8-4.888zM16 10a4 4 0 01.2 7.995L16 18a4 4 0 01-.2-7.995L16 10zm0 2a2 2 0 100 4 2 2 0 000-4z"/></svg>'
 };
 export const lgIconLaunch: Icon = {
   name: 'launch',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><defs><path id="a" d="M5.683 13.433a.625.625 0 11.884.884L3.03 17.852a.625.625 0 11-.883-.883l3.535-3.536zm-.751.076L1.25 12.93l.223-.696c.738-2.3 2.959-3.762 4.612-3.793a13.314 13.314 0 012.291-3.04c2.096-2.096 4.925-3.055 8.44-2.882l.567.027.028.566c.172 3.516-.786 6.345-2.882 8.44-.92.92-1.937 1.682-3.047 2.283-.03 1.654-1.492 3.876-3.793 4.614l-.697.223-.577-3.681-1.483-1.483zm3.063 3.455c1.084-.583 1.839-1.599 2.116-2.47a14.05 14.05 0 01-2.393.707l.277 1.763zm-.782-2.95c2.533-.474 4.671-1.587 6.43-3.346 1.718-1.718 2.564-4.01 2.532-6.913-2.904-.031-5.195.814-6.913 2.532-1.794 1.794-2.907 3.931-3.348 6.427l1.3 1.3zM5.43 9.811c-.872.278-1.887 1.032-2.47 2.117l1.763.276c.165-.818.4-1.616.707-2.393zm8.414-3.732a1.875 1.875 0 11-2.652 2.651 1.875 1.875 0 012.652-2.651zm-1.768.884a.625.625 0 10.884.883.625.625 0 00-.884-.883z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-98" d="M9.093 21.493a1 1 0 111.414 1.414L4.85 28.564a1 1 0 01-1.414-1.414l5.657-5.657zm-1.202.12L2 20.69l.357-1.114c1.18-3.68 4.734-6.019 7.38-6.069a21.302 21.302 0 013.665-4.864c3.354-3.354 7.88-4.887 13.505-4.611l.905.044.045.905c.276 5.625-1.258 10.151-4.611 13.505a21.03 21.03 0 01-4.875 3.652c-.048 2.645-2.387 6.202-6.07 7.382l-1.113.358-.924-5.89-2.373-2.374zm4.9 5.529c1.736-.933 2.943-2.557 3.387-3.952-1.242.49-2.519.867-3.829 1.131l.442 2.821zm-1.25-4.721c4.053-.757 7.474-2.538 10.288-5.352 2.748-2.748 4.102-6.415 4.05-11.06-4.645-.051-8.311 1.302-11.06 4.05-2.87 2.871-4.652 6.29-5.356 10.283l2.078 2.079zm-2.853-6.722c-1.395.445-3.02 1.652-3.952 3.387l2.82.443c.264-1.31.641-2.587 1.132-3.83zM22.15 9.727a3 3 0 11-4.242 4.243 3 3 0 014.242-4.243zm-2.828 1.415a1 1 0 101.414 1.414 1 1 0 00-1.414-1.414z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-98"/></svg>'
 };
 export const lgIconLearn: Icon = {
   name: 'learn',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 16"><defs><path id="a" d="M15.124 12.638l.03-.013c-.156.068-.308.138-.457.212a9.608 9.608 0 00-2.145 1.645 9.507 9.507 0 00-1.563 2.104 7.558 7.558 0 00-.33.682c-.05.117-.08.197-.09.232H9.431a3.516 3.516 0 00-.09-.232 7.558 7.558 0 00-.331-.682 9.63 9.63 0 00-3.707-3.75l-.072-.034a8.592 8.592 0 00-.857-.43l.472-1.122a10.907 10.907 0 013.447 2.368A10.736 10.736 0 0110 15.888a10.897 10.897 0 015.153-4.638l.472 1.123c-.298.13-.585.272-.86.425l.004.003.355-.163zm.407 1.152a1.875 1.875 0 01-2.87 2.112l-.161.16c.824-.84 1.86-1.738 3.03-2.272zm-11.064 0l-.092-.042c1.134.495 2.146 1.339 2.965 2.153a1.875 1.875 0 01-2.912-1.97l.039-.141zm2.9-4.88a3.777 3.777 0 010-5.31 3.702 3.702 0 015.266 0 3.777 3.777 0 010 5.31 3.702 3.702 0 01-5.266 0zm.878-.885c.97.977 2.54.977 3.51 0 .97-.978.97-2.563 0-3.54a2.468 2.468 0 00-3.51 0 2.518 2.518 0 000 3.54z"/></defs><use fill-rule="evenodd" transform="translate(-4 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-99" d="M24.245 18L25 19.796a16.19 16.19 0 00-1.378.681l.01.005-.135.065a15.409 15.409 0 00-3.413 2.624 15.212 15.212 0 00-2.501 3.366c-.217.398-.392.765-.53 1.091a5.917 5.917 0 00-.144.372H15.09a5.626 5.626 0 00-.145-.372 12.093 12.093 0 00-.529-1.09 15.212 15.212 0 00-2.5-3.367 15.409 15.409 0 00-3.414-2.624 13.96 13.96 0 00-.133-.065l.008-.005c-.44-.245-.9-.472-1.378-.681L7.755 18a17.452 17.452 0 015.516 3.79A17.177 17.177 0 0116 25.42a17.177 17.177 0 012.729-3.631A17.452 17.452 0 0124.245 18zm.606 4.065a3 3 0 01-4.594 3.377L20 25.7c1.263-1.288 2.84-2.662 4.616-3.527zm-17.702 0L7 21.996c1.814.793 3.433 2.143 4.744 3.446a3 3 0 01-4.595-3.377zm4.638-7.81a6.043 6.043 0 010-8.495 5.923 5.923 0 018.426 0 6.043 6.043 0 010 8.496 5.923 5.923 0 01-8.426 0zm1.405-1.415a3.948 3.948 0 005.616 0 4.029 4.029 0 000-5.664 3.948 3.948 0 00-5.616 0 4.029 4.029 0 000 5.664z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-99"/></svg>'
 };
 export const lgIconLikeFill: Icon = {
   name: 'like-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18"><path fill-rule="evenodd" d="M15.5 10.497c0 .833-.585 1.535-1.381 1.744.085.206.131.43.131.666 0 .834-.585 1.536-1.381 1.744.085.207.131.431.131.666 0 .999-.84 1.808-1.875 1.808h-7.5c-.97 0-1.598-.671-1.86-1.677l-1.16-5.036a1.748 1.748 0 01-.093-.4.58.58 0 01-.01-.168 1.762 1.762 0 01.45-1.192l6.295-7.167a1.865 1.865 0 012.372-.325l.03.019c.74.466 1.041 1.366.727 2.156L9.235 6.279h4.39c1.036 0 1.875.81 1.875 1.808 0 .463-.18.885-.477 1.205.297.32.477.742.477 1.205z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M28 18.395c0 1.334-.936 2.457-2.21 2.79.136.33.21.69.21 1.066 0 1.334-.936 2.457-2.21 2.791.136.33.21.69.21 1.066C24 27.705 22.657 29 21 29H9c-1.551 0-2.556-1.074-2.976-2.683L4.167 18.26a2.796 2.796 0 01-.147-.64.929.929 0 01-.017-.27 2.82 2.82 0 01.72-1.907L14.794 3.976c.95-1.066 2.574-1.289 3.795-.52l.048.03c1.183.745 1.667 2.185 1.164 3.45l-1.827 4.71H25c1.657 0 3 1.295 3 2.893 0 .74-.289 1.416-.764 1.928.475.511.764 1.187.764 1.928z"/></svg>'
 };
 export const lgIconLike: Icon = {
   name: 'like',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 18"><defs><path id="a" d="M10.625 14.51h3.75c.345 0 .625-.27.625-.603a.614.614 0 00-.625-.602h-2.187c-.834 0-.834-1.206 0-1.206h3.437c.345 0 .625-.27.625-.602a.614.614 0 00-.625-.603h-2.5c-.833 0-.833-1.205 0-1.205h2.5c.345 0 .625-.27.625-.602a.614.614 0 00-.625-.603h-5.291c-.436 0-.738-.42-.586-.814l1.46-3.762a.591.591 0 00-.243-.72l-.03-.019a.581.581 0 00-.737.098l-6.296 7.167a.585.585 0 00-.11.6l.024.08 1.165 5.056c.134.513.356.75.644.75h7.5c.345 0 .625-.27.625-.603a.614.614 0 00-.625-.602h-2.5c-.833 0-.833-1.205 0-1.205zm6.875-3.013c0 .833-.585 1.535-1.381 1.744.085.206.131.43.131.666 0 .834-.585 1.536-1.381 1.744.085.207.131.431.131.666 0 .999-.84 1.808-1.875 1.808h-7.5c-.97 0-1.598-.671-1.86-1.677l-1.16-5.036a1.748 1.748 0 01-.093-.4.58.58 0 01-.01-.168 1.762 1.762 0 01.45-1.192l6.295-7.167a1.865 1.865 0 012.372-.325l.03.019c.74.466 1.041 1.366.727 2.156l-1.141 2.944h4.39c1.036 0 1.875.81 1.875 1.808 0 .463-.18.885-.477 1.205.297.32.477.742.477 1.205z"/></defs><use transform="translate(-2 -1)" xlink:href="#a"/></svg>'
-};
-export const lgIconLineChart: Icon = {
-  name: 'line-chart',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 14"><defs><path id="a" d="M2.5 15h15a.625.625 0 110 1.25h-15a.625.625 0 110-1.25zm4.113-3.125h2.5l2.386-4.177 2.5 1.25 2.794-4.888a.625.625 0 00-1.086-.62l-2.206 3.862-2.5-1.25-2.614 4.573h-2.5l-2.68 4.69a.625.625 0 101.086.62l2.32-4.06zM3.125 15H5v1.25H3.125V15z"/></defs><use transform="translate(-1 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-100" d="M17 23.215h6c.552 0 1-.431 1-.964 0-.532-.448-.964-1-.964h-3.5c-1.333 0-1.333-1.928 0-1.928H25c.552 0 1-.432 1-.964 0-.533-.448-.964-1-.964h-4c-1.333 0-1.333-1.928 0-1.928h4c.552 0 1-.432 1-.964 0-.533-.448-.965-1-.965h-8.466c-.698 0-1.181-.671-.937-1.301l2.334-6.02a.946.946 0 00-.387-1.152l-.048-.03a.93.93 0 00-1.18.157L6.244 16.694a.937.937 0 00-.178.96l.04.129 1.864 8.09c.214.82.569 1.199 1.03 1.199h12c.552 0 1-.432 1-.964 0-.533-.448-.964-1-.964h-4c-1.333 0-1.333-1.929 0-1.929zm11-4.82c0 1.334-.936 2.457-2.21 2.79.136.33.21.69.21 1.066 0 1.334-.936 2.457-2.21 2.791.136.33.21.69.21 1.066C24 27.705 22.657 29 21 29H9c-1.551 0-2.556-1.074-2.976-2.683L4.167 18.26a2.796 2.796 0 01-.147-.64.929.929 0 01-.017-.27 2.82 2.82 0 01.72-1.907L14.794 3.976c.95-1.066 2.574-1.289 3.795-.52l.048.03c1.183.745 1.667 2.185 1.164 3.45l-1.827 4.71H25c1.657 0 3 1.295 3 2.893 0 .74-.289 1.416-.764 1.928.475.511.764 1.187.764 1.928z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-100"/></svg>'
 };
 export const lgIconLinkExternal: Icon = {
   name: 'link-external',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M15.193 15H11.76c-.282 0-.511-.28-.511-.625s.229-.625.511-.625h3.432l-1.266-1.433a.64.64 0 010-.884.59.59 0 01.854 0l2.719 2.942-2.719 2.942a.59.59 0 01-.854 0 .64.64 0 010-.884L15.193 15zm-3.434-7.126l-.914.914a1.873 1.873 0 00-3.015-.517l-3.533 3.532a1.873 1.873 0 002.65 2.65l1.29-1.29a4.75 4.75 0 001.606.159L7.83 15.336a3.122 3.122 0 01-4.416-4.416l3.533-3.532a3.122 3.122 0 014.812.486zm-4.768 3.002l.914-.914a1.873 1.873 0 003.015.517l3.533-3.532a1.873 1.873 0 10-2.65-2.65l-1.29 1.29a4.75 4.75 0 00-1.606-.159l2.013-2.014a3.122 3.122 0 114.416 4.416l-3.533 3.532a3.122 3.122 0 01-4.812-.486z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-101" d="M24.308 24h-5.49c-.452 0-.818-.448-.818-1s.366-1 .818-1h5.49l-2.025-2.293a1.025 1.025 0 010-1.414.944.944 0 011.367 0L28 23l-4.35 4.707a.944.944 0 01-1.367 0 1.025 1.025 0 010-1.414L24.308 24zm-5.493-11.402l-1.463 1.463a2.997 2.997 0 00-4.824-.827l-5.652 5.651a2.997 2.997 0 104.239 4.239l2.064-2.065a7.6 7.6 0 002.57.256l-3.222 3.222a4.995 4.995 0 01-7.064-7.064l5.652-5.652a4.995 4.995 0 017.7.777zm-7.63 4.804l1.463-1.463a2.997 2.997 0 004.824.827l5.652-5.651a2.997 2.997 0 10-4.239-4.239l-2.064 2.065a7.6 7.6 0 00-2.57-.256l3.222-3.222a4.995 4.995 0 017.064 7.064l-5.652 5.652a4.995 4.995 0 01-7.7-.777z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-101"/></svg>'
 };
 export const lgIconLink: Icon = {
   name: 'link',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 14"><defs><path id="a" d="M10 6.875a3.125 3.125 0 013.062 3.75l-1.294.001a1.875 1.875 0 00-1.621-2.496L10 8.126H5c-.986 0-1.795.761-1.87 1.728L3.126 10c0 .986.761 1.795 1.728 1.87l.147.005 1.827.001c.265.47.613.892 1.025 1.25L5 13.125a3.125 3.125 0 010-6.25h5zm5.625 0a3.125 3.125 0 010 6.25h-5a3.125 3.125 0 01-3.062-3.75l1.294-.001a1.875 1.875 0 001.621 2.496l.147.005h5c.986 0 1.795-.761 1.87-1.728L17.5 10c0-.986-.761-1.795-1.728-1.87l-.147-.005-1.827-.001a4.755 4.755 0 00-1.025-1.25l2.852.001z"/></defs><use transform="rotate(-45 5.191 12.121)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-102" d="M16 11a5 5 0 014.9 6.001h-2.071a3 3 0 00-2.653-3.996L16 13H8a3 3 0 00-.176 5.995L8 19l2.923.001c.424.751.98 1.427 1.64 2L8 21a5 5 0 010-10h8zm4.438-.001L25 11a5 5 0 010 10h-8a5 5 0 01-4.9-6.001h2.071a3 3 0 002.653 3.996L17 19h8a3 3 0 00.176-5.995L25 13l-2.923-.001a7.607 7.607 0 00-1.64-2z"/></defs><use fill-rule="evenodd" transform="rotate(-45 16.5 16)" xlink:href="#lg-icon-102"/></svg>'
 };
 export const lgIconLinkedin: Icon = {
   name: 'linkedin',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.28 13.28h-2.222V9.8c0-.83-.015-1.898-1.156-1.898-1.157 0-1.334.904-1.334 1.838v3.54H6.345V6.123h2.134v.978h.03a2.338 2.338 0 012.105-1.156c2.252 0 2.668 1.482 2.668 3.41l-.001 3.926zM3.838 5.146a1.29 1.29 0 110-2.58 1.29 1.29 0 010 2.58zM4.95 13.28H2.724V6.123h2.225v7.158zM14.389.5H1.607A1.095 1.095 0 00.5 1.582v12.835A1.095 1.095 0 001.607 15.5h12.782a1.098 1.098 0 001.111-1.083V1.581a1.097 1.097 0 00-1.111-1.08z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M24.45 24.45h-3.557v-5.57c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.135 1.447-2.135 2.94v5.666h-3.556V12.997h3.414v1.565h.048a3.741 3.741 0 013.368-1.85c3.604 0 4.269 2.37 4.269 5.455l-.002 6.282zM9.34 11.43a2.064 2.064 0 11-.001-4.127 2.064 2.064 0 010 4.127zm1.778 13.018h-3.56V12.997h3.56v11.452zM26.222 4.002H5.771A1.751 1.751 0 004 5.732v20.535A1.753 1.753 0 005.771 28h20.451A1.756 1.756 0 0028 26.267V5.73A1.755 1.755 0 0026.222 4v.002z"/></svg>'
 };
 export const lgIconListBullets: Icon = {
   name: 'list-bullets',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M3.75 13.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm13.75.625v1.25h-10v-1.25h10zM3.75 8.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm13.75.625v1.25h-10v-1.25h10zM3.75 3.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm13.75.625v1.25h-10v-1.25h10z"/></defs><use fill-rule="evenodd" transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-103" d="M6 22a2 2 0 110 4 2 2 0 010-4zm22 1v2H12v-2h16zM6 14a2 2 0 110 4 2 2 0 010-4zm22 1v2H12v-2h16zM6 6a2 2 0 110 4 2 2 0 010-4zm22 1v2H12V7h16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-103"/></svg>'
 };
 export const lgIconListChecked: Icon = {
   name: 'list-checked',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M6.25 13.125v3.75H2.5v-3.75h3.75zm11.25 1.25v1.25h-10v-1.25h10zm-12.5 0H3.75v1.25H5v-1.25zm1.25-6.25v3.75H2.5v-3.75h3.75zm11.25 1.25v1.25h-10v-1.25h10zm-12.5 0H3.75v1.25H5v-1.25zm1.25-6.25v3.75H2.5v-3.75h3.75zm11.25 1.25v1.25h-10v-1.25h10zm-12.5 0H3.75v1.25H5v-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-104" d="M10 21v6H4v-6h6zm18 2v2H12v-2h16zM8 23H6v2h2v-2zm2-10v6H4v-6h6zm18 2v2H12v-2h16zM8 15H6v2h2v-2zm2-10v6H4V5h6zm18 2v2H12V7h16zM8 7H6v2h2V7z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-104"/></svg>'
 };
 export const lgIconListNumbered: Icon = {
   name: 'list-numbered',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 15"><defs><path id="a" d="M3.84 13.025c.417 0 .753.102 1.002.31.256.213.385.508.385.872a.938.938 0 01-.162.524c-.058.088-.13.167-.214.235.095.066.176.144.244.236.125.168.186.375.186.614 0 .367-.138.669-.412.891-.266.217-.611.324-1.03.324-.247 0-.479-.05-.693-.149a1.149 1.149 0 01-.505-.431 1.156 1.156 0 01-.172-.625v-.156h1.113v.156c0 .067.025.121.08.173a.284.284 0 00.206.078c.101 0 .174-.026.226-.078a.262.262 0 00.078-.2c0-.14-.029-.226-.076-.267-.056-.049-.139-.075-.256-.075h-.544v-.932h.532c.21 0 .29-.081.29-.3a.25.25 0 00-.063-.183c-.04-.041-.098-.063-.187-.063-.07 0-.126.02-.176.06a.142.142 0 00-.06.12v.155H2.523v-.156c0-.22.06-.42.178-.594.118-.172.28-.306.483-.4.2-.093.419-.14.656-.14zm13.66 1.35v1.25h-10v-1.25h10zM3.88 7.971c.407 0 .73.101.963.308.236.211.353.512.353.89 0 .16-.028.316-.085.468-.056.148-.141.3-.255.458a6.095 6.095 0 01-.52.6l-.232.279H5.28v.954H2.568v-.7l.04-.104 1.103-1.21c.25-.298.372-.527.372-.672 0-.122-.023-.205-.063-.255-.033-.041-.082-.062-.16-.062-.068 0-.12.028-.167.095a.532.532 0 00-.085.314v.156h-1.11v-.156c0-.247.059-.478.178-.688.12-.212.286-.378.499-.497.211-.119.447-.178.705-.178zM17.5 9.375v1.25h-10v-1.25h10zM4.646 2.969v3.905H3.534v-2.6l-.784.24V3.56l.103-.038 1.563-.554h.23zM17.5 4.375v1.25h-10v-1.25h10z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-105" d="M6.143 20.84c.667 0 1.205.163 1.605.496.409.34.615.813.615 1.396a1.5 1.5 0 01-.259.838c-.092.14-.207.266-.343.376.152.105.282.23.39.377.2.27.299.6.299.983 0 .588-.222 1.07-.66 1.426-.425.347-.977.518-1.647.518-.396 0-.767-.08-1.109-.238a1.838 1.838 0 01-.808-.69 1.85 1.85 0 01-.276-1v-.25h1.782v.25c0 .106.039.194.126.277a.454.454 0 00.33.124c.163 0 .279-.042.363-.124a.419.419 0 00.125-.32c0-.224-.046-.362-.123-.428-.089-.078-.222-.12-.41-.12h-.87V23.24h.851c.337 0 .465-.13.465-.48a.4.4 0 00-.102-.293c-.063-.066-.157-.101-.298-.101a.422.422 0 00-.282.097c-.068.056-.096.113-.096.19v.25H4.037v-.25c0-.352.095-.671.285-.95.188-.275.447-.49.773-.641a2.46 2.46 0 011.048-.223zM28 23v2H12v-2h16zM6.208 12.753c.651 0 1.169.162 1.54.494.379.338.566.818.566 1.422 0 .257-.046.507-.137.75-.09.236-.225.48-.408.733-.178.247-.459.57-.832.96l-.371.446H8.45v1.527H4.109v-1.119l.065-.168 1.763-1.935c.401-.477.595-.844.595-1.075 0-.195-.037-.33-.1-.408-.053-.067-.13-.1-.255-.1-.11 0-.192.045-.268.152a.851.851 0 00-.136.502v.25H3.995v-.25c0-.396.096-.764.286-1.1.191-.339.459-.605.798-.796.339-.19.716-.285 1.129-.285zM28 15v2H12v-2h16zM7.433 4.75v6.249H5.655V6.838L4.4 7.221V5.697l.165-.06 2.5-.887h.368zM28 7v2H12V7h16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-105"/></svg>'
 };
 export const lgIconList: Icon = {
   name: 'list',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 12"><defs><path id="a" d="M16.25 14.375v1.25h-10v-1.25h10zm-11.875 0a.625.625 0 110 1.25.625.625 0 010-1.25zm11.875-2.5v1.25h-10v-1.25h10zm-11.875 0a.625.625 0 110 1.25.625.625 0 010-1.25zm11.875-2.5v1.25h-10v-1.25h10zm-11.875 0a.625.625 0 110 1.25.625.625 0 010-1.25zm11.875-2.5v1.25h-10v-1.25h10zm-11.875 0a.625.625 0 110 1.25.625.625 0 010-1.25zm11.875-2.5v1.25h-10v-1.25h10zm-11.875 0a.625.625 0 110 1.25.625.625 0 010-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-3 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-106" d="M26 23v2H10v-2h16zM7 23a1 1 0 110 2 1 1 0 010-2zm19-4v2H10v-2h16zM7 19a1 1 0 110 2 1 1 0 010-2zm19-4v2H10v-2h16zM7 15a1 1 0 110 2 1 1 0 010-2zm19-4v2H10v-2h16zM7 11a1 1 0 110 2 1 1 0 010-2zm19-4v2H10V7h16zM7 7a1 1 0 110 2 1 1 0 010-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-106"/></svg>'
 };
 export const lgIconLocationArrow: Icon = {
   name: 'location-arrow',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 17"><defs><path id="a" d="M10.179 18.125l-1.117-7.813L1.25 9.197 16.875 2.5l-6.696 15.625zm-.028-8.901l.626 4.38 3.753-8.76-8.758 3.754 4.379.626z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-107" d="M16.286 29L14.5 16.5 2 14.714 27 4 16.286 29zm-.044-14.242l1 7.007 6.006-14.013-14.013 6.005 7.007 1.001z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-107"/></svg>'
 };
 export const lgIconLocation: Icon = {
   name: 'location',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 18"><defs><path id="a" d="M10 1.875c3.112 0 5.625 2.61 5.625 5.817 0 2.032-1.615 5.256-4.838 9.782l-.28.391-.507.704-.507-.704c-3.41-4.732-5.118-8.083-5.118-10.173 0-3.207 2.513-5.817 5.625-5.817zm0 1.25c-2.41 0-4.375 2.04-4.375 4.567 0 1.642 1.456 4.586 4.375 8.73 2.919-4.144 4.375-7.088 4.375-8.73 0-2.527-1.964-4.567-4.375-4.567zM10 5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zm0 1.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></defs><use transform="translate(-4 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-108" d="M16 3c4.98 0 9 4.175 9 9.308 0 3.343-2.733 8.704-8.189 16.277L16 29.71l-.811-1.126C9.733 21.012 7 15.65 7 12.308 7 7.175 11.02 3 16 3zm0 2c-3.857 0-7 3.263-7 7.308 0 2.626 2.33 7.337 7 13.969 4.67-6.632 7-11.343 7-13.97C23 8.264 19.857 5 16 5zm0 3a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-108"/></svg>'
 };
-export const lgIconLockFill: Icon = {
-  name: 'lock-fill',
+export const lgIconLockedFill: Icon = {
+  name: 'locked-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 16"><defs><path id="a" d="M10 2.5a3.75 3.75 0 013.75 3.75v1.249l2.5.001v10H3.75v-10l2.5-.001V6.25A3.75 3.75 0 0110 2.5zm0 7.5a1.25 1.25 0 00-.786 2.222L8.75 15h2.5l-.463-2.78A1.25 1.25 0 0010 10zm0-6.25a2.5 2.5 0 00-2.5 2.5v1.249h5V6.25a2.5 2.5 0 00-2.5-2.5z"/></defs><use fill-rule="evenodd" transform="translate(-3 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-109" d="M16 4a6 6 0 016 6v2h4v16H6V12h4v-2l.004-.225A6 6 0 0116 4zm0 12a2 2 0 00-1.26 3.554L14 24h4l-.74-4.447A2 2 0 0016 16zm0-10a4 4 0 00-4 4v2h8v-2a4 4 0 00-4-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-109"/></svg>'
 };
-export const lgIconLockOpenFill: Icon = {
-  name: 'lock-open-fill',
+export const lgIconLocked: Icon = {
+  name: 'locked',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 17"><defs><path id="a" d="M10 2.5A2.5 2.5 0 007.5 5v2.5h8.75v10H3.75v-10h2.5V5a3.75 3.75 0 017.495-.2l.005.2a.625.625 0 11-1.25 0A2.5 2.5 0 0010 2.5zm0 7.5a1.25 1.25 0 00-.786 2.222L8.75 15h2.5l-.463-2.78A1.25 1.25 0 0010 10z"/></defs><use fill-rule="evenodd" transform="translate(-3 -1)" xlink:href="#a"/></svg>'
-};
-export const lgIconLockOpen: Icon = {
-  name: 'lock-open',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 17"><defs><path id="a" d="M10 2.5A2.5 2.5 0 007.5 5v2.5h8.75v10H3.75v-10h2.5V5a3.75 3.75 0 017.495-.2l.005.2a.625.625 0 11-1.25 0A2.5 2.5 0 0010 2.5zm5 6.25H5v7.5h10v-7.5zM10 10a1.25 1.25 0 01.787 2.22L11.25 15h-2.5l.464-2.778A1.25 1.25 0 0110 10z"/></defs><use fill-rule="evenodd" transform="translate(-3 -1)" xlink:href="#a"/></svg>'
-};
-export const lgIconLock: Icon = {
-  name: 'lock',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 16"><defs><path id="a" d="M10 2.5a3.75 3.75 0 013.75 3.75v1.249l2.5.001v10H3.75v-10l2.5-.001V6.25A3.75 3.75 0 0110 2.5zm5 6.25H5v7.5h10v-7.5zM10 10a1.25 1.25 0 01.787 2.22L11.25 15h-2.5l.464-2.778A1.25 1.25 0 0110 10zm0-6.25a2.5 2.5 0 00-2.5 2.5v1.249h5V6.25a2.5 2.5 0 00-2.5-2.5z"/></defs><use fill-rule="evenodd" transform="translate(-3 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-110" d="M16 4a6 6 0 016 6v2h4v16H6V12h4v-2l.004-.225A6 6 0 0116 4zm8 10H8v12h16V14zm-8 2a2 2 0 011.26 3.553L18 24h-4l.74-4.446A2 2 0 0116 16zm0-10a4 4 0 00-4 4v2h8v-2a4 4 0 00-4-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-110"/></svg>'
 };
 export const lgIconMaLgi: Icon = {
   name: 'ma-lgi',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 13.75a6.25 6.25 0 006.22-5.626l-2.18.001-.758-1.138-2.013 5.368-2.5-6.25-1.737 4.632-1.741-2.612H3.78A6.25 6.25 0 0010 16.25zm0-12.5a6.25 6.25 0 00-6.22 5.625h2.18l.758 1.138 2.013-5.368 2.5 6.25 1.737-4.632 1.741 2.612h1.51A6.25 6.25 0 0010 3.75z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-111" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 22c5.185 0 9.449-3.947 9.95-9h-3.485l-1.214-1.82-3.22 8.588-4-10-2.78 7.411L8.465 17H6.049c.502 5.053 4.766 9 9.951 9zm0-20c-5.185 0-9.448 3.946-9.95 8.999L9.534 15l1.214 1.82 3.22-8.588 4 10 2.78-7.411L23.535 15l2.416-.001C25.448 9.946 21.185 6 16 6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-111"/></svg>'
 };
 export const lgIconMail: Icon = {
   name: 'mail',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 12"><defs><path id="a" d="M17.5 4.375v11.25h-15V4.375h15zm-1.25 1.25H3.75v8.75h12.5v-8.75zm-3.75 1.25H15v3.75h-2.5v-3.75zm-7.5 5h3.75v1.25H5v-1.25zm0-2.5h6.25v1.25H5v-1.25zm0-2.5h6.25v1.25H5v-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-2 -4)" xlink:href="#a"/></svg>'
-};
-export const lgIconMale: Icon = {
-  name: 'male',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 13"><defs><path id="a" d="M16.875 2.5c.345 0 .625.28.625.625v3.75a.625.625 0 11-1.25 0V4.623l-2.304 2.306a5 5 0 11-.885-.883l2.295-2.296h-2.231a.625.625 0 110-1.25h3.75zM10 6.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z"/></defs><use fill-rule="evenodd" transform="translate(-5 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-112" d="M28 7v18H4V7h24zm-2 2H6v14h20V9zm-6 2h4v6h-4v-6zM8 19h6v2H8v-2zm0-4h10v2H8v-2zm0-4h10v2H8v-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-112"/></svg>'
 };
 export const lgIconMap: Icon = {
   name: 'map',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 16"><defs><path id="a" d="M1.875 2.813L7.5 5.595l5-2.474 5.625 2.784v11.281L12.5 14.405l-5 2.474-5.625-2.784V2.813zm11.25 2.001v8.514l3.75 1.858V6.67l-3.75-1.856zm-10 0v8.516l3.75 1.855V6.67l-3.75-1.856zm8.75 0L8.125 6.67v8.515l3.75-1.857V4.815z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-113" d="M3 4.5l9 4.454 8-3.96 9 4.455V27.5l-9-4.454-8 3.96-9-4.455V4.5zm18 3.203v13.624l6 2.97V10.673l-6-2.97zm-16 0v13.624l6 2.969V10.672L5 7.703zm14 0l-6 2.969v13.624l6-2.969V7.703z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-113"/></svg>'
 };
 export const lgIconMaximise: Icon = {
   name: 'maximise',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M3.75 16.25h5.625a.625.625 0 110 1.25H2.5v-6.875a.625.625 0 111.25 0v5.625zm12.5-12.5h-5.625a.625.625 0 110-1.25H17.5v6.875a.625.625 0 11-1.25 0V3.75z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
-};
-export const lgIconMenu: Icon = {
-  name: 'menu',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 10"><defs><path id="a" d="M4.375 14.375h11.25a.625.625 0 100-1.25H4.375a.625.625 0 100 1.25zm0-3.75h11.25a.625.625 0 100-1.25H4.375a.625.625 0 100 1.25zm0-3.75h11.25a.625.625 0 100-1.25H4.375a.625.625 0 100 1.25z"/></defs><use transform="translate(-3 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-114" d="M6 26h9a1 1 0 010 2H4V17a1 1 0 012 0v9zM26 6h-9a1 1 0 010-2h11v11a1 1 0 01-2 0V6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-114"/></svg>'
 };
 export const lgIconMicrophoneOff: Icon = {
   name: 'microphone-off',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 12 16"><defs><path id="a" d="M8.047 14.604l.982-.981A3.755 3.755 0 0013.75 10v-.625a.625.625 0 111.25 0V10a5 5 0 01-4.375 4.961V17.5h-1.25v-2.539a4.966 4.966 0 01-1.328-.357zm-2.651-2.651A4.984 4.984 0 015 10v-.625a.625.625 0 111.25 0V10c0 .336.044.662.127.971l-.981.982zm7.1-7.1L11.25 6.098V5a1.25 1.25 0 00-2.5 0v3.598L7.5 9.848V5a2.5 2.5 0 014.996-.147zm0 5.303l-2.34 2.34a2.5 2.5 0 002.34-2.34zm3.25-5.901a.625.625 0 010 .884L5.138 15.745a.625.625 0 11-.884-.884L14.86 4.255a.625.625 0 01.884 0z"/></defs><use fill-rule="evenodd" transform="translate(-4 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-115" d="M12.876 23.367l1.57-1.57A6 6 0 0022 16v-1a1 1 0 012 0v1a8.001 8.001 0 01-7 7.938V28h-2v-4.062a7.946 7.946 0 01-2.124-.571zm-4.243-4.243A7.975 7.975 0 018 16v-1a1 1 0 012 0v1c0 .537.07 1.058.203 1.554l-1.57 1.57zm11.36-11.36L18 9.757V8a2 2 0 10-4 0v5.757l-2 2V8a4 4 0 017.993-.236zm0 8.486l-3.743 3.742a4 4 0 003.742-3.742zm5.2-9.442a1 1 0 010 1.414L8.221 25.192a1 1 0 01-1.414-1.414l16.97-16.97a1 1 0 011.414 0z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-115"/></svg>'
 };
-export const lgIconMicrophone: Icon = {
-  name: 'microphone',
+export const lgIconMicrophoneOn: Icon = {
+  name: 'microphone-on',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 16"><defs><path id="a" d="M13.75 10v-.625a.625.625 0 111.25 0V10a5 5 0 01-4.375 4.961V17.5h-1.25v-2.539A5 5 0 015 10v-.625a.625.625 0 111.25 0V10a3.75 3.75 0 007.5 0zM10 2.5A2.5 2.5 0 0112.5 5v5a2.5 2.5 0 11-5 0V5A2.5 2.5 0 0110 2.5zm0 1.25c-.69 0-1.25.56-1.25 1.25v5a1.25 1.25 0 002.5 0V5c0-.69-.56-1.25-1.25-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-5 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-116" d="M22 16v-1a1 1 0 012 0v1a8.001 8.001 0 01-7 7.938V28h-2v-4.062A8.001 8.001 0 018 16v-1a1 1 0 012 0v1a6 6 0 1012 0zM16 4a4 4 0 014 4v8a4 4 0 11-8 0V8a4 4 0 014-4zm0 2a2 2 0 00-2 2v8a2 2 0 104 0V8a2 2 0 00-2-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-116"/></svg>'
 };
 export const lgIconMinimise: Icon = {
   name: 'minimise',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M11.875 8.125h5a.625.625 0 110 1.25h-6.25v-6.25a.625.625 0 111.25 0v5zm-3.75 3.75h-5a.625.625 0 110-1.25h6.25v6.25a.625.625 0 11-1.25 0v-5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-117" d="M19 13h8a1 1 0 010 2H17V5a1 1 0 012 0v8zm-6 6H5a1 1 0 010-2h10v10a1 1 0 01-2 0v-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-117"/></svg>'
 };
 export const lgIconMisuseFill: Icon = {
   name: 'misuse-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M4.273 5.157l10.57 10.57a7.5 7.5 0 01-10.57-10.57zM10 2.5a7.5 7.5 0 015.727 12.343L5.157 4.273A7.47 7.47 0 0110 2.5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-118" d="M6.837 8.251l16.912 16.912A11.952 11.952 0 0116 28C9.373 28 4 22.627 4 16c0-2.954 1.067-5.658 2.837-7.749zM16 4c6.627 0 12 5.373 12 12 0 2.954-1.067 5.658-2.837 7.749L8.251 6.837A11.952 11.952 0 0116 4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-118"/></svg>'
 };
 export const lgIconMisuse: Icon = {
   name: 'misuse',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M5.16 6.045a6.25 6.25 0 008.795 8.795L5.161 6.044zm.885-.884l8.794 8.794A6.25 6.25 0 006.044 5.16zM10 17.5a7.5 7.5 0 110-15 7.5 7.5 0 010 15z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-119" d="M8.257 9.671A9.959 9.959 0 006 16c0 5.523 4.477 10 10 10a9.959 9.959 0 006.329-2.257L8.257 9.67zm1.414-1.414L23.743 22.33A9.959 9.959 0 0026 16c0-5.523-4.477-10-10-10a9.959 9.959 0 00-6.329 2.257zM16 28C9.373 28 4 22.627 4 16S9.373 4 16 4s12 5.373 12 12-5.373 12-12 12z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-119"/></svg>'
 };
 export const lgIconMobile: Icon = {
   name: 'mobile',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 16"><defs><path id="a" d="M13.125 2.5C14.161 2.5 15 3.34 15 4.375v11.25c0 1.036-.84 1.875-1.875 1.875h-6.25A1.875 1.875 0 015 15.625V4.375C5 3.339 5.84 2.5 6.875 2.5h6.25zM8.232 15H6.25v.625c0 .345.28.625.625.625l1.357.001a1.872 1.872 0 010-1.251zm3.536 0a1.872 1.872 0 010 1.251l1.357-.001c.345 0 .625-.28.625-.625V15h-1.982zM10 15a.625.625 0 100 1.25.625.625 0 000-1.25zm3.75-8.75h-7.5v7.5h7.5v-7.5zm-.625-2.5h-6.25a.625.625 0 00-.625.625V5h7.5v-.625a.625.625 0 00-.625-.625z"/></defs><use transform="translate(-5 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-120" d="M21 4a3 3 0 013 3v18a3 3 0 01-3 3H11a3 3 0 01-3-3V7a3 3 0 013-3h10zm-7.83 20H10v1a1 1 0 001 1h2.171a2.995 2.995 0 010-2zM22 24h-3.17a2.995 2.995 0 01-.001 2H21a1 1 0 001-1v-1zm-6 0a1 1 0 100 2 1 1 0 000-2zm6-14H10v12h12V10zm-1-4H11a1 1 0 00-1 1v1h12V7a1 1 0 00-1-1z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-120"/></svg>'
 };
 export const lgIconModule: Icon = {
   name: 'module',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 17"><defs><path id="a" d="M10.244 2.862l6.25 2.657a.619.619 0 01.377.65l.004.081v7.645a.625.625 0 01-.313.553l-6.25 3.594a.627.627 0 01-.22.076l-.092.007a.63.63 0 01-.106-.009l-.012-.002a.618.618 0 01-.183-.066l-.01-.006-6.25-3.594a.625.625 0 01-.314-.57V6.25a.63.63 0 01.005-.083.616.616 0 01.376-.648l6.25-2.657a.625.625 0 01.488 0zm-5.87 4.176v6.506l5 2.875V9.165l-5-2.125zm11.25 0l-5 2.124v7.257l5-2.876V7.038zM10 4.117L5.348 6.094 10 8.07l4.652-1.977L10 4.117z"/></defs><use transform="translate(-3 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-121" d="M16.391 4.58l10 4.25a.99.99 0 01.601 1.046c.005.04.008.082.008.124v12.227a.999.999 0 01-.502.89l-10 5.75a1.003 1.003 0 01-.362.124h-.008a.991.991 0 01-.256 0h-.007a.972.972 0 01-.114-.022l-.027-.008a.91.91 0 01-.222-.094l.095.048a.996.996 0 01-.079-.038l-.016-.01-10-5.75A1 1 0 015 22.23V10c0-.043.003-.086.008-.128a.989.989 0 01.6-1.042l10-4.25a1 1 0 01.783 0zM7 11.26v10.411l8 4.599V14.66l-8-3.4zm18 0l-8 3.4v11.61l8-4.6V11.26zm-9-4.674L8.557 9.75 16 12.913l7.443-3.163L16 6.587z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-121"/></svg>'
 };
 export const lgIconMoney: Icon = {
   name: 'money',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M17.5 7.5v10h-15v-10h15zM7.746 8.75H3.75v7.5l3.997.001A4.373 4.373 0 015.625 12.5c0-1.592.85-2.985 2.12-3.75zm4.508 0a4.373 4.373 0 012.121 3.75c0 1.592-.85 2.986-2.122 3.751l3.997-.001v-7.5h-3.996zM10 9.375a3.125 3.125 0 100 6.25 3.125 3.125 0 000-6.25zm.173 1.094c.36 0 .653.107.868.323.214.216.32.504.32.855v.156h-.893v-.156c0-.124-.03-.21-.083-.268-.052-.056-.126-.084-.233-.084a.237.237 0 00-.208.102.547.547 0 00-.091.331l.016.464h.743v.819h-.716l.011.291c0 .148-.02.283-.058.403h1.558l-.004.826h-2.8v-.826h.156l.157.005c.003-.001.017-.016.035-.066a.966.966 0 00.041-.313l-.011-.32h-.387v-.819h.363l-.015-.459c0-.381.114-.691.342-.92.229-.23.528-.344.89-.344zM16.875 5v1.25H3.125V5h13.75zm-1.25-2.5v1.25H3.75V2.5h11.875z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-122" d="M28 12v16H4V12h24zm-15.608 2H6v12l6.394.001A6.996 6.996 0 019 20a6.996 6.996 0 013.392-6zM26 14h-6.392A6.996 6.996 0 0123 20a6.996 6.996 0 01-3.394 6.001L26 26V14zm-10 1a5 5 0 100 10 5 5 0 000-10zm.277 1.75c.577 0 1.045.171 1.388.517.343.345.513.806.513 1.368v.25h-1.43v-.25c0-.198-.046-.337-.132-.43-.083-.088-.201-.133-.373-.133a.379.379 0 00-.332.163c-.096.13-.147.307-.147.53l.026.743h1.189v1.31h-1.145l.018.465c0 .237-.031.453-.094.645h2.493l-.006 1.322h-4.48v-1.322h.25l.251.008c.005-.002.026-.026.055-.105.043-.12.067-.29.067-.502l-.018-.512h-.62v-1.309h.58l-.022-.734c0-.611.181-1.108.547-1.475.365-.366.844-.549 1.422-.549zM27 8v2H5V8h22zm-2-4v2H6V4h19z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-122"/></svg>'
 };
 export const lgIconMove: Icon = {
   name: 'move',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M10 18.75l-2.95-3.012a.618.618 0 010-.861.587.587 0 01.843 0l1.51 1.543v-4.561c0-.337.268-.609.597-.609.33 0 .596.272.596.609v4.561l1.511-1.543a.587.587 0 01.843 0 .618.618 0 010 .86L10 18.75zM18.75 10l-3.012 2.95a.618.618 0 01-.861 0 .587.587 0 010-.843l1.543-1.51h-4.561A.602.602 0 0111.25 10c0-.33.272-.596.609-.596h4.561l-1.543-1.511a.587.587 0 010-.843.618.618 0 01.86 0L18.75 10zM1.268 10L4.28 7.05a.618.618 0 01.86 0 .587.587 0 010 .843l-1.543 1.51H8.16c.336 0 .609.268.609.597 0 .33-.273.596-.61.596h-4.56l1.543 1.511a.587.587 0 010 .843.618.618 0 01-.861 0L1.268 10zM10 1.25l2.95 3.012a.618.618 0 010 .861.587.587 0 01-.843 0l-1.51-1.543v4.561A.602.602 0 0110 8.75a.602.602 0 01-.596-.609V3.58L7.893 5.123a.587.587 0 01-.843 0 .618.618 0 010-.86L10 1.25z"/></defs><use fill-rule="evenodd" transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-123" d="M16 30l-4.72-4.82a.988.988 0 010-1.377.94.94 0 011.348 0l2.418 2.469v-7.298c0-.538.427-.974.954-.974.527 0 .954.436.954.974v7.298l2.418-2.469a.94.94 0 011.349 0 .988.988 0 010 1.377L16 30zm14-14l-4.82 4.72a.988.988 0 01-1.377 0 .94.94 0 010-1.348l2.469-2.418h-7.298A.964.964 0 0118 16c0-.527.436-.954.974-.954h7.298l-2.469-2.418a.94.94 0 010-1.349.988.988 0 011.377 0L30 16zM2.028 16l4.82-4.72a.988.988 0 011.377 0 .94.94 0 010 1.348l-2.469 2.418h7.298c.538 0 .974.427.974.954a.964.964 0 01-.974.954H5.756l2.469 2.418a.94.94 0 010 1.349.988.988 0 01-1.377 0L2.028 16zM16 2l4.72 4.82a.988.988 0 010 1.377.94.94 0 01-1.348 0l-2.418-2.469v7.298A.964.964 0 0116 14a.964.964 0 01-.954-.974V5.728l-2.418 2.469a.94.94 0 01-1.349 0 .988.988 0 010-1.377L16 2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-123"/></svg>'
 };
 export const lgIconNewTab: Icon = {
   name: 'new-tab',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 22"><path fill-rule="evenodd" d="M27 20a1 1 0 010 2H1a1 1 0 010-2h26zM14 6a1 1 0 011 1v1.999L17 9a1 1 0 010 2h-2v2a1 1 0 01-2 0v-2h-2a1 1 0 010-2h2V7a1 1 0 011-1zm8-6a2 2 0 012 2v12h3a1 1 0 010 2h-5V2H6v14H1a1 1 0 010-2h3V2a2 2 0 012-2h16z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M29 25a1 1 0 010 2H3a1 1 0 010-2h26zM16 11a1 1 0 011 1v1.999L19 14a1 1 0 010 2h-2v2a1 1 0 01-2 0v-2h-2a1 1 0 010-2h2v-2a1 1 0 011-1zm8-6a2 2 0 012 2v12h3a1 1 0 010 2h-5V7H8v14H3a1 1 0 010-2h3V7a2 2 0 012-2h16z"/></svg>'
+};
+export const lgIconNews: Icon = {
+  name: 'news',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M7 28a4 4 0 01-4-4V6h4V4h22v22a2 2 0 01-2 2H7zM7 8H5v16a2 2 0 001.85 1.995L7 26V8zm2-2v20h18V6H9zm10 16h6v2h-6v-2zm-8 0h6v2h-6v-2zm14-10v8H11v-8h14zm-2 2H13v4h10v-4zM11 8h14v2H11V8z"/></svg>'
 };
 export const lgIconNotes: Icon = {
   name: 'notes',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M8.5.5c.345 0 .625.28.625.625v.625h1.25c.69 0 1.25.56 1.25 1.25v11.25c0 .69-.56 1.25-1.25 1.25h-8.75c-.69 0-1.25-.56-1.25-1.25V3c0-.69.56-1.25 1.25-1.25h1.25v-.625a.625.625 0 111.25 0v.625h1.25v-.625a.625.625 0 111.25 0v.625h1.25v-.625C7.875.78 8.155.5 8.5.5zM10.375 3h-1.25v.625a.625.625 0 11-1.25 0V3h-1.25v.625a.625.625 0 11-1.25 0V3h-1.25v.625a.625.625 0 11-1.25 0V3h-1.25v11.25h8.75V3zm-1.25 7.5v1.25h-6.25V10.5h6.25zm0-2.5v1.25h-6.25V8h6.25zm0-2.5v1.25h-6.25V5.5h6.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M20 4a1 1 0 011 1v1h2a2 2 0 012 2v18a2 2 0 01-2 2H9a2 2 0 01-2-2V8a2 2 0 012-2h2V5a1 1 0 012 0v1h2V5a1 1 0 012 0v1h2V5a1 1 0 011-1zm3 4h-2v1a1 1 0 01-2 0V8h-2v1a1 1 0 01-2 0V8h-2v1a1 1 0 01-2 0V8H9v18h14V8zm-2 12v2H11v-2h10zm0-4v2H11v-2h10zm0-4v2H11v-2h10z"/></svg>'
 };
 export const lgIconNotificationOff: Icon = {
   name: 'notification-off',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 18"><defs><path id="a" d="M9.956 16.875a1.25 1.25 0 01-2.494.128l-.006-.128h2.5zm6.048-12.88a.625.625 0 010 .885L3.63 17.254a.625.625 0 11-.884-.884L15.12 3.996a.625.625 0 01.884 0zM14.772 7.88c.146.837.209 1.802.209 2.896l-.001.249c-.001.249-.005.516-.012.955-.006.365-.01.597-.01.793l-.002.095 2.758 2.758H7.024l1.25-1.25h6.423l-.991-.991v-.362c0-.272.004-.526.012-1.063.007-.434.01-.697.012-.941v-.243c0-.656-.02-1.25-.069-1.785l1.111-1.111zM9.956 1.25a1.875 1.875 0 011.69 2.688c.47.119.88.295 1.238.527l-.94.94C11.427 5.128 10.773 5 9.957 5 7.019 5 6.18 6.676 6.18 10.775l.001.39-1.232 1.236-.007-.422c-.01-.585-.012-.865-.012-1.204 0-3.93.812-6.199 3.335-6.837a1.875 1.875 0 011.69-2.688zm0 1.25a.625.625 0 100 1.25.625.625 0 000-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-2 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-124" d="M15.929 27a2 2 0 01-3.995.15L11.93 27h4zm9.678-20.607a1 1 0 010 1.415l-19.8 19.799a1 1 0 01-1.414-1.415l19.8-19.799a1 1 0 011.414 0zM23.969 17.24c0 .542-.005.99-.02 1.926-.01.606-.015.983-.018 1.303v.118L28.342 25h-17.1l2-2h10.273l-1.586-1.586v-.66c.002-.407.007-.814.02-1.62.015-.925.02-1.366.02-1.894 0-1.05-.034-2-.111-2.856l1.778-1.778c.232 1.34.333 2.884.333 4.634zM15.929 2a3 3 0 012.704 4.302c.752.19 1.41.47 1.98.842l-1.502 1.503C18.281 8.207 17.235 8 15.93 8c-4.7 0-6.04 2.681-6.04 9.24v.283l.003.343L7.92 19.84l-.01-.674c-.012-.766-.018-1.205-.02-1.636v-.29c0-6.287 1.3-9.917 5.336-10.94A3 3 0 0115.929 2zm0 2a1 1 0 100 2 1 1 0 000-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-124"/></svg>'
 };
-export const lgIconNotification: Icon = {
-  name: 'notification',
+export const lgIconNotificationOn: Icon = {
+  name: 'notification-on',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 18"><defs><path id="a" d="M10 16.875a1.25 1.25 0 01-2.494.128l-.006-.128H10zM10 1.25a1.875 1.875 0 011.69 2.688c2.523.638 3.335 2.907 3.335 6.837v.249c-.002.249-.006.516-.013.955-.005.365-.009.597-.01.793l-.001.095 2.758 2.758H2.24L5 12.867a97.435 97.435 0 00-.011-.888c-.01-.585-.013-.865-.013-1.204 0-3.93.812-6.199 3.335-6.837A1.875 1.875 0 0110 1.25zM10 5c-2.937 0-3.775 1.676-3.775 5.775 0 .33.003.605.012 1.184.008.47.011.723.013.961v.464l-.991.991h9.482l-.991-.991v-.362c0-.272.004-.526.013-1.063.006-.434.01-.697.011-.941l.001-.243C13.775 6.675 12.937 5 10 5zm0-2.5a.625.625 0 100 1.25.625.625 0 000-1.25z"/></defs><use transform="translate(-2 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-125" d="M16 27a2 2 0 11-4 0zm0-25a3 3 0 012.704 4.302c4.037 1.02 5.336 4.65 5.336 10.938 0 .542-.005.99-.02 1.926-.01.681-.016 1.074-.019 1.421L28.414 25H3.586l4.413-4.413c-.003-.347-.008-.74-.019-1.421-.012-.766-.018-1.205-.02-1.636v-.29c0-6.287 1.3-9.917 5.336-10.94A3 3 0 0116 2zm0 6c-4.7 0-6.04 2.681-6.04 9.24 0 .528.005.969.02 1.894.015.967.02 1.36.02 1.866v.414L8.414 23h15.172L22 21.414v-.66c.002-.407.007-.814.02-1.62.015-.925.02-1.366.02-1.894C22.04 10.681 20.7 8 16 8zm0-4a1 1 0 100 2 1 1 0 000-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-125"/></svg>'
 };
-export const lgIconOpenNewWindow: Icon = {
-  name: 'open-new-window',
+export const lgIconOpenInNewWindow: Icon = {
+  name: 'open-in-new-window',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M11.25 3.75V5H5v10h10V8.75h1.25v7.5H3.75V3.75h7.5zm7.5-2.5v5.625a.625.625 0 01-1.243.092l-.007-.092V3.383l-7.058 7.059a.625.625 0 01-.797.072l-.087-.072a.625.625 0 01-.072-.797l.072-.087L16.615 2.5h-3.49a.625.625 0 01-.618-.533l-.007-.092c0-.314.231-.574.533-.618l.092-.007h5.625z"/></defs><use transform="translate(-3 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-126" d="M18 6v2H8v16h16V14h2v12H6V6h12zm12-4v9a1 1 0 01-1.993.117L28 11V5.413L16.707 16.707a1 1 0 01-1.32.083l-.094-.083a1 1 0 01-.083-1.32l.083-.094L26.585 4H21a1 1 0 01-.993-.883L20 3a1 1 0 01.883-.993L21 2h9z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-126"/></svg>'
 };
 export const lgIconOverflowHorizontal: Icon = {
   name: 'overflow-horizontal',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 4"><defs><path id="a" d="M15 8.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-5 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-5 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></defs><use fill-rule="evenodd" transform="translate(-3 -8)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-127" d="M24 14a2 2 0 110 4 2 2 0 010-4zm-8 0a2 2 0 110 4 2 2 0 010-4zm-8 0a2 2 0 110 4 2 2 0 010-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-127"/></svg>'
 };
 export const lgIconOverflowVertical: Icon = {
   name: 'overflow-vertical',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 4 14"><defs><path id="a" d="M8.75 15a1.25 1.25 0 112.5 0 1.25 1.25 0 01-2.5 0zm0-5a1.25 1.25 0 112.5 0 1.25 1.25 0 01-2.5 0zm0-5a1.25 1.25 0 112.5 0 1.25 1.25 0 01-2.5 0z"/></defs><use fill-rule="evenodd" transform="translate(-8 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-128" d="M14 24a2 2 0 114 0 2 2 0 01-4 0zm0-8a2 2 0 114 0 2 2 0 01-4 0zm0-8a2 2 0 114 0 2 2 0 01-4 0z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-128"/></svg>'
 };
 export const lgIconOverlay: Icon = {
   name: 'overlay',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M15 2.5V5h2.5v12.5H5V15H2.5V2.5H15zm1.25 3.75H15V15H6.25v1.25h10v-10zm-2.5-2.5h-10v10H5V5h8.75V3.75zm0 6.919l-3.081 3.081h1.768l1.313-1.313v-1.768zm0-3.535L7.134 13.75h1.767l4.849-4.849V7.134zM6.25 9.33l3.08-3.08h1.768L6.25 11.098v1.768l6.616-6.616H7.562L6.25 7.562V9.33z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-129" d="M24 4v4h4v20H8v-4H4V4h20zm2 6h-2v14H10v2h16V10zm-4-4H6v16h2V8h14V6zm0 11.07L17.07 22h2.828L22 19.898V17.07zm0-5.655L11.415 22h2.827L22 14.242v-2.827zm-12 9.17L20.585 10h-2.828L10 17.757v2.828zm0-5.656L14.929 10h-2.828L10 12.101v2.828z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-129"/></svg>'
 };
 export const lgIconPage: Icon = {
   name: 'page',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M.375 1.75c0-.69.56-1.25 1.25-1.25h8.75c.69 0 1.25.56 1.25 1.25v12.5c0 .69-.56 1.25-1.25 1.25h-8.75c-.69 0-1.25-.56-1.25-1.25V1.75zm1.25 0v12.5h8.75V1.75h-8.75zm1.25 7.5h6.25v1.25h-6.25V9.25zm0-2.5h6.25V8h-6.25V6.75zm0-2.5h6.25V5.5h-6.25V4.25z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M7 6a2 2 0 012-2h14a2 2 0 012 2v20a2 2 0 01-2 2H9a2 2 0 01-2-2V6zm2 0v20h14V6H9zm2 12h10v2H11v-2zm0-4h10v2H11v-2zm0-4h10v2H11v-2z"/></svg>'
 };
 export const lgIconPages: Icon = {
   name: 'pages',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M3.25 13H2c-.69 0-1.25-.56-1.25-1.25v-10C.75 1.06 1.31.5 2 .5h7.5c.69 0 1.25.56 1.25 1.25H2V13h1.25V4.25C3.25 3.56 3.81 3 4.5 3H12c.69 0 1.25.56 1.25 1.25v10c0 .69-.56 1.25-1.25 1.25H4.5c-.69 0-1.25-.56-1.25-1.25V13zM4.5 4.25v10H12v-10H4.5zm1.25 6.25h5v1.25h-5V10.5zm0-2.5h5v1.25h-5V8zm0-2.5h5v1.25h-5V5.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M10 24H8a2 2 0 01-2-2V6a2 2 0 012-2h12a2 2 0 012 2H8v18h2V10a2 2 0 012-2h12a2 2 0 012 2v16a2 2 0 01-2 2H12a2 2 0 01-2-2v-2zm2-14v16h12V10H12zm2 10h8v2h-8v-2zm0-4h8v2h-8v-2zm0-4h8v2h-8v-2z"/></svg>'
 };
 export const lgIconPartnership: Icon = {
   name: 'partnership',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 17"><defs><path id="a" d="M4.697 11.768L3.37 13.094a.625.625 0 11-.884-.884l1.326-1.326L1.16 8.232l6.187-6.187L10 4.697l2.652-2.652 6.187 6.187-2.652 2.652 1.326 1.326a.625.625 0 01-.884.884.625.625 0 00-.884.883.625.625 0 11-.884.884.625.625 0 10-.884.884.625.625 0 01-.883.884.625.625 0 10-.884.884.625.625 0 11-.884.884L10 17.07l-1.326 1.326a.625.625 0 11-.884-.884l1.326-1.326-.884-.884-1.326 1.326a.625.625 0 11-.883-.884l1.325-1.326-.884-.883L5.14 14.86a.625.625 0 11-.884-.884l1.326-1.325-.884-.884zm6.187-6.187L15.304 10l1.767-1.768-4.42-4.42-1.767 1.769zm.884 8.838a.625.625 0 00-.884 0l-1.768 1.768.884.884 1.768-1.768a.625.625 0 000-.884zm-.884-2.651a.625.625 0 00-.884 0l-2.652 2.651.884.884 2.652-2.651a.625.625 0 000-.884zM9.116 10a.625.625 0 00-.884 0l-2.651 2.652.883.884 2.652-2.652a.625.625 0 000-.884zm-3.093-.442a.625.625 0 00-.884 0l-1.326 1.326.884.884 1.326-1.326a.625.625 0 000-.884zM10 4.697L7.348 7.348a.625.625 0 00.884.884l2.652-2.651L10 4.697z"/></defs><use fill-rule="evenodd" transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-130" d="M7.515 18.828L5.393 20.95a1 1 0 11-1.414-1.414l2.122-2.122-4.243-4.242 9.9-9.9L16 7.515l4.243-4.243 9.9 9.9-4.244 4.242 2.122 2.122a1 1 0 01-1.414 1.414 1 1 0 10-1.415 1.414 1 1 0 01-1.414 1.414 1 1 0 00-1.414 1.414 1 1 0 11-1.414 1.415 1 1 0 00-1.414 1.414 1 1 0 11-1.415 1.414L16 27.314l-2.121 2.121a1 1 0 01-1.415-1.414l2.122-2.122-1.414-1.414-2.122 2.122a1 1 0 11-1.414-1.415l2.121-2.12-1.414-1.415-2.121 2.121a1 1 0 11-1.414-1.414l2.12-2.121-1.413-1.415zm9.9-9.9L24.484 16l2.829-2.828-7.07-7.072-2.829 2.828zm1.413 14.143a1 1 0 00-1.414 0L14.586 25.9 16 27.314l2.828-2.829a1 1 0 000-1.414zm-1.414-4.243a1 1 0 00-1.414 0l-4.243 4.243 1.415 1.414 4.242-4.242a1 1 0 000-1.415zM14.586 16a1 1 0 00-1.414 0l-4.243 4.243 1.414 1.414 4.243-4.243a1 1 0 000-1.414zm-4.95-.707a1 1 0 00-1.414 0L6.1 17.414l1.414 1.414 2.121-2.12a1 1 0 000-1.415zM16 7.515l-4.243 4.242a1 1 0 001.415 1.415l4.242-4.243L16 7.515z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-130"/></svg>'
 };
 export const lgIconPassword: Icon = {
   name: 'password',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 14"><defs><path id="a" d="M.625 3.75h18.75v12.5H.625V3.75zM1.875 5v10h16.25V5H1.875zm15 1.25v7.5h-1.25v-7.5h1.25zM12.5 7.5v1.417l1.228-.708.625 1.082-1.228.709 1.228.709-.625 1.082-1.229-.709.001 1.418h-1.25v-1.417l-1.228.708-.625-1.082L10.624 10l-1.227-.709.625-1.082 1.227.707.001-1.416h1.25zm-6.25 0v1.417l1.228-.708.625 1.082L6.875 10l1.228.709-.625 1.082-1.229-.709.001 1.418H5v-1.417l-1.228.708-.625-1.082L4.374 10l-1.227-.709.625-1.082L5 8.916V7.5h1.25z"/></defs><use transform="translate(0 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-131" d="M1 6h30v20H1V6zm2 2v16h26V8H3zm24 2v12h-2V10h2zm-7 2v2.267l1.964-1.133 1 1.732-1.963 1.133 1.963 1.135-1 1.732L20 17.732V20h-2v-2.268l-1.964 1.134-1-1.732L16.999 16l-1.963-1.134 1-1.732L18 14.267V12h2zm-10 0v2.267l1.964-1.133 1 1.732-1.963 1.133 1.963 1.135-1 1.732L10 17.732V20H8v-2.268l-1.964 1.134-1-1.732L6.999 16l-1.963-1.134 1-1.732L8 14.267V12h2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-131"/></svg>'
 };
 export const lgIconPause: Icon = {
   name: 'pause',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 14"><defs><path id="a" d="M11.25 3.75H15v12.5h-3.75V3.75zM5 3.75h3.75v12.5H5V3.75z"/></defs><use transform="translate(-5 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-132" d="M18 6h6v20h-6V6zM8 6h6v20H8V6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-132"/></svg>'
 };
 export const lgIconPdf: Icon = {
   name: 'pdf',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17"><path d="M3 6.75h6.25V8H3V6.75zM7.634.5l4.116 4.116V9.25h3.125c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625H1.125a.625.625 0 01-.625-.625V1.75C.5.817.759.523 1.641.501L1.75.5h5.884zm6.305 9.987h-3.27v4.888h1.179v-1.947h1.9v-.906h-1.9v-1.125h2.091v-.91zm-6.14 0H6.225v4.888h1.608a2.265 2.265 0 001.15-.304c.343-.2.61-.478.798-.832a2.51 2.51 0 00.284-1.204v-.225a2.503 2.503 0 00-.294-1.2 2.065 2.065 0 00-.807-.829 2.316 2.316 0 00-1.165-.294zm-4.099 0H1.75v4.888h1.178v-1.658h.752c.596 0 1.064-.143 1.405-.428.341-.286.512-.667.512-1.143 0-.323-.079-.61-.237-.865a1.556 1.556 0 00-.668-.587 2.272 2.272 0 00-.992-.207zm4.1.91c.346 0 .61.12.791.36.182.239.272.595.272 1.067v.211c0 .475-.09.832-.272 1.073-.18.24-.44.36-.778.36h-.41v-3.071H7.8zm-4.086 0c.212.002.38.072.503.208.123.137.185.32.185.547 0 .208-.06.37-.18.484-.12.114-.293.17-.522.17h-.772v-1.409h.786zM6.75 1.75h-5v7.5h8.75V5.5H6.75V1.75zM8 2.634V4.25h1.616L8 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M8 14h10v2H8v-2zm7.414-10L22 10.586V18h5a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V6c0-1.493.414-1.964 1.826-1.998L6 4h9.414zm10.088 15.98h-5.231v7.82h1.885v-3.115h3.04v-1.45h-3.04v-1.8h3.346V19.98zm-9.823 0h-2.52v7.82h2.573a3.624 3.624 0 001.84-.486c.55-.32.976-.765 1.278-1.332.303-.568.454-1.21.454-1.926v-.36a4.005 4.005 0 00-.47-1.92 3.303 3.303 0 00-1.292-1.326c-.551-.314-1.172-.47-1.863-.47zm-6.558 0H6v7.82h1.885v-2.653h1.203c.953 0 1.702-.229 2.248-.685.546-.457.82-1.066.82-1.829 0-.516-.127-.977-.38-1.383a2.49 2.49 0 00-1.068-.94c-.46-.22-.99-.33-1.587-.33zm6.558 1.455c.555 0 .977.192 1.267.575.29.383.435.952.435 1.708v.338c0 .76-.145 1.331-.435 1.716-.29.385-.705.578-1.246.578h-.655v-4.915h.634zm-6.537 0c.34.004.609.115.806.333.197.219.295.51.295.876 0 .333-.096.59-.287.773-.192.183-.47.274-.835.274H7.885v-2.256h1.257zM14 6H6l-.001 12h14v-6H14V6zm2 1.415V10h2.585L16 7.415z"/></svg>'
+};
+export const lgIconPensionPot: Icon = {
+  name: 'pension-pot',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16.281 4.002c3.638.048 6.565 1.038 6.713 2.853L23 7v4l.106.082a4.991 4.991 0 011.889 3.692L25 15v6a4.996 4.996 0 01-2.005 4.004l-.2.143-.095.059-.077.143c-.894 1.527-3.262 2.51-6.016 2.637l-.307.01L16 28c-2.906 0-5.48-.944-6.518-2.485l-.105-.167-.078-.143-.093-.059a4.993 4.993 0 01-2.182-3.655l-.018-.25L7 21v-6a4.99 4.99 0 011.834-3.87L9 11V6.977c.024-1.891 2.997-2.925 6.713-2.975h.568zm-6.208 8.7l-.021.016a2.994 2.994 0 00-1.046 2.088L9 15v6c0 1.045.538 1.994 1.4 2.537l.165.097.341.186.127.367C11.35 25.108 13.446 26 16 26c2.465 0 4.505-.831 4.929-1.717l.04-.095.125-.367.34-.185a2.999 2.999 0 001.56-2.441L23 21v-6c0-.915-.41-1.735-1.057-2.285C20.708 13.56 18.507 14 16 14c-2.494 0-4.685-.44-5.927-1.298zm6.234 2.798c.64 0 1.16.198 1.542.597.38.398.57.93.57 1.578v.289H16.83v-.289c0-.229-.05-.389-.146-.495-.092-.102-.224-.155-.415-.155a.416.416 0 00-.369.188c-.107.15-.163.355-.163.612l.029.857h1.32v1.511h-1.27l.018.538c0 .273-.034.522-.104.744h2.77L18.493 23h-4.976v-1.525h.278l.279.008c.005-.001.028-.029.06-.12.048-.139.074-.336.074-.58l-.02-.59H13.5v-1.51h.645l-.025-.848c0-.705.201-1.278.608-1.701.405-.423.937-.634 1.58-.634zM16 10l-.469-.005a19.69 19.69 0 01-.707-.029l-.413-.028-.324-.03-.445-.05-.29-.04-.361-.059-.368-.07-.316-.069-.304-.076-.287-.081-.31-.1a7.358 7.358 0 01-.408-.152l-.001 1.726.02.005.12.086c.22.158.569.32 1.018.464 1.005.32 2.376.508 3.845.508 1.511 0 2.918-.198 3.926-.534.383-.128.685-.269.89-.405l.157-.115c.02-.012.025-.005.027.021V9.213c-.905.369-2.062.611-3.36.72l-.479.034-.337.017-.475.013L16 10zm4.9-3l-.084-.06a3.089 3.089 0 00-.535-.274l-.17-.067-.185-.065C18.918 6.198 17.511 6 16 6c-1.511 0-2.918.198-3.926.534a3.892 3.892 0 00-.89.405L11.1 7l.084.062c.137.091.316.184.535.273l.17.067.185.065C13.082 7.802 14.489 8 16 8l.374-.004.43-.015.293-.016.332-.026.346-.034.344-.042.333-.049.463-.084.236-.05.295-.073c.103-.026.202-.054.298-.084l.391-.131.25-.102.168-.078.12-.064.117-.07L20.9 7z"/></svg>'
 };
 export const lgIconPerson: Icon = {
   name: 'person',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 15"><defs><path id="a" d="M11.815 11.462l.358.108a7.515 7.515 0 015.045 5.135l.224.795H2.557l.225-.795a7.515 7.515 0 015.045-5.135l.358-.108L10 13.277l1.815-1.815zm.346 1.421L10 15.044l-2.16-2.16a6.272 6.272 0 00-3.57 3.366h11.46a6.272 6.272 0 00-3.57-3.367zM10 3.75a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zM10 5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-133" d="M18.904 18.339l.573.173a12.023 12.023 0 018.071 8.216l.36 1.272H4.092l.36-1.272a12.023 12.023 0 018.07-8.216l.574-.173L16 21.243l2.904-2.904zm.554 2.275L16 24.07l-3.458-3.457A10.035 10.035 0 006.832 26h18.336a10.035 10.035 0 00-5.71-5.386zM16 6a6 6 0 110 12 6 6 0 010-12zm0 2a4 4 0 100 8 4 4 0 000-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-133"/></svg>'
 };
 export const lgIconPet: Icon = {
   name: 'pet',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 17"><defs><path id="a" d="M17.188 2.582c1.472.84 1.057 2.888-.495 5.374l-.027.042c.571 1.932-.215 4.519-1.609 6.594l.059-.001a6.85 6.85 0 01-.217.23c-1.334 1.891-3.168 3.304-4.899 3.304-1.73 0-3.563-1.411-4.897-3.3a6.555 6.555 0 01-.219-.232l.06.002c-1.387-2.066-2.174-4.64-1.618-6.57a2.86 2.86 0 01-.044-.07C1.73 5.47 1.315 3.423 2.787 2.583c1.281-.731 3.294-.014 5.675 1.612l.351.246a10.908 10.908 0 012.352-.003l.348-.243c2.38-1.626 4.393-2.343 5.675-1.612zm-7.2 11.414c-.644.73-1.548 1.33-2.495 1.678.814.735 1.692 1.201 2.507 1.201.813 0 1.69-.464 2.502-1.195-.954-.346-1.866-.95-2.515-1.684zM4.76 7.813c-.988 1.71.099 4.762 1.78 6.848 1.036-.244 2.15-.95 2.735-1.764l-.016-.039c-.728-.468-1.388-1.426-1.039-1.838.472-.556 3.151-.497 3.573 0 .318.374-.35 1.38-1.081 1.852l-.01.025c.586.82 1.71 1.529 2.751 1.77 1.684-2.087 2.774-5.143 1.785-6.854-1.686-2.917-8.792-2.917-10.478 0zm8.364.312a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-6.25 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM3.406 3.668C2.92 3.946 3.096 5.1 4 6.715c.707-.903 1.806-1.545 3.07-1.925-1.543-.922-3.022-1.488-3.664-1.122zm9.641 1.038l-.133.079c1.261.377 2.36 1.014 3.072 1.911.894-1.605 1.068-2.751.582-3.028-.621-.355-2.03.166-3.52 1.038z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-134" d="M27.5 4.131c2.355 1.344 1.692 4.62-.792 8.598l-.042.067c.914 3.091-.345 7.231-2.575 10.553l.096-.004a11 11 0 01-.346.369C21.704 26.74 18.77 29 16 29c-2.77 0-5.702-2.259-7.838-5.283a9.93 9.93 0 01-.35-.371l.099.006c-2.22-3.306-3.479-7.424-2.59-10.51l-.07-.113C2.768 8.752 2.104 5.475 4.459 4.13c2.05-1.17 5.27-.023 9.08 2.58l.562.393a17.452 17.452 0 013.762-.004l.558-.39c3.809-2.602 7.029-3.749 9.08-2.579zM15.98 22.394c-1.03 1.167-2.476 2.128-3.991 2.685C13.29 26.254 14.696 27 16 27c1.3 0 2.702-.742 4.002-1.911-1.526-.554-2.985-1.52-4.022-2.695zM7.618 12.5c-1.581 2.737.158 7.621 2.849 10.958 1.655-.39 3.436-1.518 4.373-2.82l-.03-.068c-1.162-.75-2.214-2.28-1.656-2.938.755-.889 5.041-.795 5.716 0 .509.6-.562 2.21-1.732 2.965l-.017.04c.943 1.312 2.742 2.445 4.407 2.83 2.693-3.339 4.436-8.228 2.854-10.967-2.698-4.667-14.066-4.667-16.764 0zM21 13a2 2 0 110 4 2 2 0 010-4zm-10 0a2 2 0 110 4 2 2 0 010-4zM5.45 5.869c-.78.444-.496 2.29.949 4.874 1.133-1.444 2.89-2.47 4.911-3.079C8.842 6.19 6.476 5.283 5.45 5.87zm15.353 1.704l-.14.083c2.018.603 3.775 1.622 4.914 3.057 1.43-2.569 1.71-4.401.933-4.844-1.005-.574-3.295.283-5.707 1.704z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-134"/></svg>'
 };
 export const lgIconPhoneOff: Icon = {
   name: 'phone-off',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M15.754 12.006c1.1 1.101 1.51 2.6.684 3.424l-.913.913c-1.124 1.124-4.853.399-7.676-1.54l.919-.919c.99.661 2.09 1.144 3.202 1.425 1.309.332 2.462.302 2.643.121l.912-.913c.184-.184-.02-.934-.684-1.598-.61-.61-1.293-.832-1.542-.721l-.868 1.734-.43-.031c-.737-.054-1.52-.353-2.34-.91l.932-.932a3.89 3.89 0 001.089.486l.574-1.15.074-.073c.825-.825 2.323-.417 3.424.684zm-.588-8.07a.635.635 0 01.898.898l-11.23 11.23a.635.635 0 01-.898-.898zm-7.172.31c1.1 1.101 1.51 2.6.684 3.424l-.074.074-1.149.574c.085.338.245.702.487 1.09l-.932.932C6.452 9.52 6.153 8.737 6.1 8l-.032-.431L7.802 6.7c.11-.249-.112-.932-.721-1.542-.664-.663-1.414-.868-1.598-.684l-.913.912c-.18.181-.211 1.334.12 2.643a10.417 10.417 0 001.427 3.203l-.919.919c-1.94-2.823-2.666-6.553-1.541-7.677l.913-.913c.825-.825 2.323-.417 3.424.684z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-135" d="M25.206 19.21c1.762 1.762 2.415 4.158 1.096 5.478l-1.461 1.46c-1.8 1.8-7.765.64-12.282-2.464l1.47-1.47a16.668 16.668 0 005.123 2.281c2.094.531 3.939.482 4.228.193l1.46-1.46c.295-.295-.033-1.495-1.095-2.557-.976-.976-2.068-1.331-2.467-1.155l-1.388 2.775-.69-.05c-1.178-.086-2.431-.564-3.741-1.455l1.491-1.491c.62.385 1.202.64 1.74.777l.92-1.839.118-.118c1.32-1.32 3.716-.666 5.478 1.095zm-.941-12.912a1.016 1.016 0 011.437 1.437L7.735 25.702a1.016 1.016 0 01-1.437-1.437zm-11.475.496c1.761 1.762 2.415 4.158 1.095 5.478l-.118.118-1.839.92c.136.538.392 1.12.778 1.741l-1.49 1.491c-.892-1.31-1.371-2.563-1.457-3.743l-.05-.69 2.775-1.387c.176-.399-.18-1.491-1.155-2.467-1.062-1.062-2.262-1.39-2.556-1.096L7.312 8.62c-.29.29-.338 2.134.193 4.228a16.668 16.668 0 002.28 5.123l-1.469 1.471C5.213 14.925 4.052 8.958 5.851 7.16L7.312 5.7c1.32-1.32 3.716-.667 5.478 1.095z"/></defs><use xlink:href="#lg-icon-135"/></svg>'
 };
-export const lgIconPhone: Icon = {
-  name: 'phone',
+export const lgIconPhoneOn: Icon = {
+  name: 'phone-on',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M9.135 10.865c.958.958 1.815 1.495 2.547 1.68l.574-1.15.074-.073c.825-.825 2.323-.417 3.424.684 1.1 1.101 1.51 2.6.684 3.424l-.913.913c-1.332 1.333-6.323.067-9.13-2.739-2.805-2.806-4.07-7.797-2.738-9.13l.913-.912c.825-.825 2.323-.417 3.424.684 1.1 1.101 1.51 2.6.684 3.424l-.074.074-1.149.574c.185.732.722 1.59 1.68 2.547zm3.296 3.067l-.43-.031c-1.16-.085-2.433-.776-3.78-2.123C6.876 10.432 6.185 9.158 6.1 8l-.031-.431L7.802 6.7c.11-.249-.112-.932-.721-1.542-.664-.663-1.414-.868-1.598-.684l-.913.912c-.18.181-.211 1.334.12 2.643.431 1.697 1.33 3.372 2.619 4.661 1.29 1.29 2.964 2.188 4.661 2.618 1.309.332 2.462.302 2.643.121l.912-.913c.184-.184-.02-.934-.684-1.598-.61-.61-1.293-.832-1.542-.721l-.868 1.734z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
-};
-export const lgIconPieChart: Icon = {
-  name: 'pie-chart',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10.625 2.5v1.281a6.244 6.244 0 014.432 2.545l1.107-.645.315.539A7.5 7.5 0 1110 2.5h.625zM9.374 3.78a6.25 6.25 0 106.314 3.626l-6.313 3.682v-.001.001L9.374 3.78zm1.252 1.259l-.001 3.873 3.345-1.953-.156-.193a4.992 4.992 0 00-3.188-1.727z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-136" d="M14.616 17.384c1.532 1.533 2.905 2.393 4.074 2.688l.92-1.839.118-.118c1.32-1.32 3.716-.666 5.478 1.095 1.762 1.762 2.415 4.158 1.096 5.478l-1.461 1.46c-2.133 2.133-10.118.108-14.608-4.381C5.744 17.277 3.72 9.292 5.851 7.159L7.312 5.7c1.32-1.32 3.716-.667 5.478 1.095 1.761 1.762 2.415 4.158 1.095 5.478l-.118.118-1.839.92c.295 1.17 1.155 2.542 2.688 4.074zm5.274 4.907l-.69-.05c-1.853-.135-3.89-1.242-6.045-3.396S9.894 14.653 9.759 12.8l-.05-.69 2.775-1.387c.176-.399-.18-1.491-1.155-2.467-1.062-1.062-2.262-1.39-2.556-1.096L7.312 8.62c-.29.29-.338 2.134.193 4.228.689 2.716 2.126 5.395 4.19 7.458 2.062 2.063 4.741 3.5 7.457 4.189 2.094.531 3.939.482 4.228.193l1.46-1.46c.295-.295-.033-1.495-1.095-2.557-.976-.976-2.068-1.331-2.467-1.155l-1.388 2.775z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-136"/></svg>'
 };
 export const lgIconPlaySpot: Icon = {
   name: 'play-spot',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M9.375 17.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15zM7.5 6.875l5 3.125-5 3.125v-6.25z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-137" d="M15 28c6.627 0 12-5.373 12-12S21.627 4 15 4 3 9.373 3 16s5.373 12 12 12zm-3-17l8 5-8 5V11z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-137"/></svg>'
 };
 export const lgIconPlay: Icon = {
   name: 'play',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 14"><defs><path id="a" d="M5 3.75L15 10 5 16.25z"/></defs><use transform="translate(-5 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-138" d="M8 6l16 10L8 26z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-138"/></svg>'
 };
 export const lgIconPng: Icon = {
   name: 'png',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17"><path d="M3 6.75h6.25V8H3V6.75zM7.634.5l4.116 4.116V9.25h3.75c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625H1.125a.625.625 0 01-.625-.625V1.75C.5.817.759.523 1.641.501L1.75.5h5.884zm5.409 10c-.417 0-.783.097-1.1.29-.316.194-.56.47-.73.83-.17.359-.255.779-.255 1.26l.003.423c.027.698.232 1.243.615 1.635.382.392.894.587 1.534.587.416 0 .799-.061 1.148-.184.35-.123.614-.286.796-.487v-2.008h-1.998v.81h.82v.758c-.15.137-.379.205-.686.205-.358 0-.62-.123-.787-.368-.166-.245-.25-.611-.25-1.099v-.295c.002-.466.084-.824.245-1.075a.769.769 0 01.685-.376c.246 0 .436.059.57.175.135.116.222.311.263.584h1.134c-.056-.553-.252-.968-.589-1.247-.337-.279-.81-.418-1.418-.418zm-9.343.07H1.75v4.888h1.178V13.8h.752c.596 0 1.064-.143 1.405-.428.341-.285.512-.666.512-1.143 0-.322-.079-.61-.237-.865a1.556 1.556 0 00-.668-.587 2.272 2.272 0 00-.992-.207zm3.703 0H6.225v4.888h1.178v-3.041l1.732 3.041h1.172V10.57H9.132v3.042L7.403 10.57zm-3.69.91a.655.655 0 01.504.208c.123.137.185.32.185.548 0 .208-.06.369-.18.483-.12.114-.293.171-.522.171h-.772v-1.41h.786zM6.75 1.75h-5v7.5h8.75V5.5H6.75V1.75zM8 2.634V4.25h1.616L8 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M8 14h10v2H8v-2zm7.414-10L22 10.586V18h6a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V6c0-1.493.414-1.964 1.826-1.998L6 4h9.414zm8.654 16c-.666 0-1.252.155-1.759.465-.506.31-.896.752-1.168 1.326-.272.575-.408 1.247-.408 2.017l.005.677c.043 1.117.37 1.989.983 2.616.612.626 1.43.94 2.455.94a5.49 5.49 0 001.837-.296c.558-.197.983-.456 1.273-.779v-3.212H24.09v1.295h1.31v1.214c-.24.218-.605.327-1.095.327-.573 0-.993-.196-1.26-.588-.267-.392-.4-.978-.4-1.759v-.472c.004-.745.134-1.318.392-1.72.258-.4.623-.6 1.096-.6.394 0 .698.092.913.278.215.187.354.498.419.935h1.815c-.09-.884-.403-1.55-.942-1.995-.54-.446-1.296-.669-2.27-.669zm-14.947.113H6v7.82h1.885V25.28h1.203c.953 0 1.702-.228 2.248-.685.546-.457.82-1.066.82-1.829 0-.516-.127-.977-.38-1.383a2.49 2.49 0 00-1.068-.94c-.46-.22-.99-.33-1.587-.33zm5.924 0H13.16v7.82h1.885v-4.866l2.771 4.866h1.875v-7.82h-1.88v4.866l-2.766-4.866zm-5.903 1.455c.34.004.609.115.806.333.197.219.295.51.295.876 0 .333-.096.59-.287.773-.192.183-.47.274-.835.274H7.885v-2.256h1.257zM14 6H6l-.001 12h14v-6H14V6zm2 1.415V10h2.585L16 7.415z"/></svg>'
 };
 export const lgIconPopUp: Icon = {
   name: 'pop-up',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M17.5 3.75v7.5H15v5H2.5v-10h5v-2.5h10zM7.5 7.5H3.75V15h10v-3.75H7.5V7.5zM16.25 5h-7.5v5h7.5V5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-139" d="M28 6v12h-4v8H4V10h8V6h16zm-16 6H6v12h16v-6H12v-6zm14-4H14v8h12V8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-139"/></svg>'
 };
-export const lgIconPresentation: Icon = {
-  name: 'presentation',
+export const lgIconPresentationFile: Icon = {
+  name: 'presentation-file',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 15"><defs><path id="a" d="M7.5 17.5a.625.625 0 110-1.25h1.875V12.5h1.25v3.75H12.5a.625.625 0 110 1.25h-5zm8.75-13.75c.69 0 1.25.56 1.25 1.25v7.5c0 .69-.56 1.25-1.25 1.25H3.75c-.69 0-1.25-.56-1.25-1.25V5c0-.69.56-1.25 1.25-1.25h12.5zm0 1.25H3.75v7.5h12.5V5zM7.5 9.375h5v1.25h-5v-1.25zm-1.25-2.5h7.5v1.25h-7.5v-1.25z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M26 6a2 2 0 012 2v12a2 2 0 01-2 2h-9v4h3a1 1 0 010 2h-8a1 1 0 010-2h3v-4H6a2 2 0 01-2-2V8a2 2 0 012-2h20zm0 2H6v12h20V8zm-14 7h8v2h-8v-2zm-2-4h12v2H10v-2z"/></svg>'
 };
 export const lgIconPrinter: Icon = {
   name: 'printer',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M15 2.5V5h.625c1.036 0 1.875.84 1.875 1.875v6.25c0 1.036-.84 1.875-1.875 1.875H15v2.5H5V15h-.625A1.875 1.875 0 012.5 13.125v-6.25C2.5 5.839 3.34 5 4.375 5H5V2.5h10zm-1.25 8.75h-7.5v5h7.5v-5zm1.875-5H4.375a.625.625 0 00-.625.625v6.25c0 .345.28.625.625.625H5V10h10v3.75h.625c.345 0 .625-.28.625-.625v-6.25a.625.625 0 00-.625-.625zm-1.875-2.5h-7.5V5h7.5V3.75z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-140" d="M24 4v4h1a3 3 0 013 3v10a3 3 0 01-3 3h-1v4H8v-4H7a3 3 0 01-3-3V11a3 3 0 013-3h1V4h16zm-2 14H10v8h12v-8zm3-8H7a1 1 0 00-1 1v10a1 1 0 001 1h1v-6h16v6h1a1 1 0 001-1V11a1 1 0 00-1-1zm-3-4H10v2h12V6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-140"/></svg>'
 };
 export const lgIconProfile: Icon = {
   name: 'profile',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M10 1.25a8.75 8.75 0 110 17.5 8.75 8.75 0 010-17.5zM4.843 14.675c-.12.14-.232.285-.334.434A7.48 7.48 0 0010 17.5a7.48 7.48 0 005.489-2.389 4.588 4.588 0 00-.402-.517c-.721-.806-1.734-1.434-2.915-1.784L10 14.982 7.827 12.81c-1.22.362-2.26 1.02-2.984 1.865zM10 2.5a7.5 7.5 0 00-6.287 11.591c.123-.157.254-.31.393-.456.726-.768 1.664-1.39 2.74-1.807l.034-.013.216-.08-.25.093a8.307 8.307 0 011.37-.4L10 13.214l.967-.968.819-.818a8.627 8.627 0 011.369.4c1.066.413 1.998 1.029 2.721 1.788.146.152.282.31.41.474A7.5 7.5 0 0010 2.5zM10 5a3.125 3.125 0 110 6.25A3.125 3.125 0 0110 5zm0 1.25A1.875 1.875 0 1010 10a1.875 1.875 0 000-3.75z"/></defs><use transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-141" d="M16 2c7.732 0 14 6.268 14 14s-6.268 14-14 14S2 23.732 2 16 8.268 2 16 2zM7.749 23.48a7.87 7.87 0 00-.534.695A11.968 11.968 0 0016 28c3.469 0 6.593-1.472 8.784-3.825a7.838 7.838 0 00-.645-.825c-1.154-1.29-2.775-2.294-4.665-2.854L16 23.97l-3.475-3.475c-1.952.58-3.617 1.632-4.776 2.983zm5.395-5.195l.484.484 1.278 1.278h-.001L16 21.142l2.857-2.857c.147.03.294.062.44.097l-.44-.097a13.856 13.856 0 012.19.64c1.707.66 3.197 1.645 4.355 2.86.233.245.452.498.657.76A11.939 11.939 0 0028 16c0-6.627-5.373-12-12-12S4 9.373 4 16c0 2.415.714 4.664 1.942 6.547a9.4 9.4 0 01.627-.73c1.162-1.23 2.663-2.226 4.385-2.893l.102-.038c.087-.033.175-.066.264-.097l-.366.136a13.278 13.278 0 011.77-.548c.138-.032.279-.063.42-.092zM16 8a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-141"/></svg>'
 };
 export const lgIconQueryFill: Icon = {
   name: 'query-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm-.157 9.844a.938.938 0 000 1.875.94.94 0 00.938-.94.939.939 0 00-.938-.935zm.005-6.406A2.327 2.327 0 005.5 6.292a.777.777 0 101.555 0c0-.46.337-.8.793-.8.434 0 .793.383.793.858 0 .325-.08.485-.359.712-.93.752-1.34 1.388-1.18 1.94a.772.772 0 00.956.543.776.776 0 00.565-.67c.083-.113.319-.346.636-.602.6-.488.897-1.045.937-1.767l-.005-.312c-.078-1.258-1.096-2.256-2.343-2.256z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm-.25 15.75c-.825 0-1.5.672-1.5 1.496 0 .83.673 1.504 1.5 1.504s1.5-.674 1.5-1.504c0-.824-.675-1.496-1.5-1.496zm.007-10.25C13.651 9.5 12 11.156 12 13.267a1.243 1.243 0 102.488 0c0-.735.54-1.279 1.27-1.279.694 0 1.268.612 1.268 1.372 0 .52-.128.776-.574 1.14-1.49 1.202-2.144 2.22-1.89 3.104a1.236 1.236 0 001.53.869 1.24 1.24 0 00.904-1.074c.134-.18.51-.552 1.018-.962.962-.78 1.435-1.673 1.5-2.827l-.008-.5c-.125-2.013-1.754-3.61-3.749-3.61z"/></svg>'
 };
 export const lgIconQuery: Icon = {
   name: 'query',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 15.5a7.5 7.5 0 110-15 7.5 7.5 0 010 15zM8 1.75a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5zm-.157 8.594c.516 0 .938.42.938.935a.94.94 0 01-.938.94.938.938 0 010-1.875zm.005-6.406c1.247 0 2.265.998 2.343 2.256l.005.312c-.04.722-.336 1.28-.937 1.767-.317.256-.553.489-.636.601a.776.776 0 01-.775.702.772.772 0 01-.747-.574c-.158-.552.25-1.188 1.181-1.94.28-.227.359-.387.359-.712 0-.475-.359-.857-.793-.857a.774.774 0 00-.793.8.777.777 0 11-1.555 0 2.327 2.327 0 012.348-2.356z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 28C9.373 28 4 22.627 4 16S9.373 4 16 4s12 5.373 12 12-5.373 12-12 12zm0-22C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm-.25 13.75c.825 0 1.5.672 1.5 1.496 0 .83-.673 1.504-1.5 1.504s-1.5-.674-1.5-1.504c0-.824.675-1.496 1.5-1.496zm.007-10.25c1.995 0 3.624 1.597 3.75 3.61l.007.5c-.065 1.154-.538 2.046-1.5 2.827-.507.41-.884.782-1.018.962a1.241 1.241 0 01-.903 1.074 1.236 1.236 0 01-1.53-.87c-.255-.884.4-1.9 1.889-3.104.446-.363.574-.62.574-1.14 0-.76-.574-1.37-1.269-1.37-.73 0-1.269.543-1.269 1.278a1.243 1.243 0 11-2.488 0c0-2.11 1.65-3.767 3.757-3.767z"/></svg>'
 };
 export const lgIconRadioButtonSelected: Icon = {
   name: 'radio-button-selected',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15"><path fill-rule="evenodd" d="M8 .424c4.142 0 7.5 3.256 7.5 7.273 0 4.017-3.358 7.273-7.5 7.273-4.142 0-7.5-3.256-7.5-7.273C.5 3.68 3.858.424 8 .424zm0 1.212c-3.452 0-6.25 2.714-6.25 6.061s2.798 6.06 6.25 6.06 6.25-2.713 6.25-6.06c0-3.347-2.798-6.06-6.25-6.06zm0 2.425c2.071 0 3.75 1.628 3.75 3.636S10.071 11.333 8 11.333c-2.071 0-3.75-1.628-3.75-3.636S5.929 4.061 8 4.061z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 3.879c6.627 0 12 5.21 12 11.636 0 6.427-5.373 11.637-12 11.637S4 21.942 4 15.515C4 9.09 9.373 3.88 16 3.88zm0 1.94c-5.523 0-10 4.34-10 9.696s4.477 9.697 10 9.697 10-4.341 10-9.697c0-5.355-4.477-9.697-10-9.697zm0 3.878c3.314 0 6 2.605 6 5.818 0 3.213-2.686 5.818-6 5.818s-6-2.605-6-5.818c0-3.213 2.686-5.818 6-5.818z"/></svg>'
 };
-export const lgIconRadioButton: Icon = {
-  name: 'radio-button',
+export const lgIconRadioButtonUnselected: Icon = {
+  name: 'radio-button-unselected',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6z"/></svg>'
+};
+export const lgIconRecommend: Icon = {
+  name: 'recommend',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-142" d="M4 27l2.441-5.954C4.91 19.367 4 17.272 4 15 4 9.477 9.373 5 16 5s12 4.477 12 10-5.373 10-12 10a14.02 14.02 0 01-5.028-.917L4 27zm3.682-3.709l3.26-1.363.749.288C13.024 22.73 14.486 23 16 23c5.595 0 10-3.67 10-8s-4.405-8-10-8-10 3.67-10 8c0 1.7.67 3.33 1.919 4.699l.853.935-1.09 2.657zM16 17.273L12.91 19.5l1.165-3.624L11 13.63l3.81-.013L16 10l1.19 3.616 3.81.013-3.075 2.247L19.09 19.5 16 17.273z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-142"/></svg>'
 };
 export const lgIconRenew: Icon = {
   name: 'renew',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M12.5 3.75a6.25 6.25 0 110 12.5h-.992l1.434 1.433a.625.625 0 01-.797.956l-.087-.072-2.942-2.942 2.942-2.942a.625.625 0 01.956.797l-.072.087L11.508 15h.992a5 5 0 000-10 .625.625 0 110-1.25zM7.942 1.433l2.942 2.942-2.942 2.942a.625.625 0 01-.884-.884L8.491 5H7.5a5 5 0 100 10 .625.625 0 110 1.25 6.25 6.25 0 110-12.5h.991L7.058 2.317a.625.625 0 01.884-.884z"/></defs><use transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-143" d="M20 6c5.523 0 10 4.477 10 10 0 5.43-4.327 9.848-9.72 9.996L20 26h-1.586l2.293 2.293a1 1 0 01-1.32 1.497l-.094-.083L14.586 25l4.707-4.707a1 1 0 011.497 1.32l-.083.094L18.414 24H20a8 8 0 007.996-7.75L28 16a8 8 0 00-8-8 1 1 0 010-2zm-7.293-3.707L17.414 7l-4.707 4.707a1 1 0 01-1.414-1.414L13.584 8H12a8 8 0 100 16 1 1 0 010 2C6.477 26 2 21.523 2 16S6.477 6 12 6h1.586l-2.293-2.293a1 1 0 111.414-1.414z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-143"/></svg>'
 };
 export const lgIconRepeat: Icon = {
   name: 'repeat',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 14"><defs><path id="a" d="M16.21 10.714l2.087-2.091a.63.63 0 11.893.894l-3.602 3.608-3.528-3.533a.633.633 0 01.893-.894L14.95 10.7A5 5 0 1010 15a.625.625 0 110 1.25 6.25 6.25 0 116.21-5.536z"/></defs><use fill-rule="evenodd" transform="translate(-3 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-144" d="M25.936 17.142l3.34-3.346a1.009 1.009 0 011.428 0 1.013 1.013 0 010 1.43L24.94 21l-5.644-5.653a1.013 1.013 0 010-1.43 1.009 1.009 0 011.428 0l3.198 3.203A8 8 0 1016 24a1 1 0 010 2c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10c0 .386-.022.767-.064 1.142z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-144"/></svg>'
 };
 export const lgIconReply: Icon = {
   name: 'reply',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 14"><defs><path id="a" d="M17.5 16.875l-4.358-1.823a8.747 8.747 0 01-3.142.573c-4.142 0-7.5-2.798-7.5-6.25s3.358-6.25 7.5-6.25c4.142 0 7.5 2.798 7.5 6.25 0 1.42-.568 2.73-1.526 3.779l1.526 3.721zm-2.302-2.318l-.68-1.66.533-.585c.78-.855 1.199-1.874 1.199-2.937 0-2.706-2.753-5-6.25-5s-6.25 2.294-6.25 5 2.753 5 6.25 5c.946 0 1.86-.17 2.693-.49l.469-.18 2.036.852zM6.25 10h7.5v1.25h-7.5V10zm0-2.5h7.5v1.25h-7.5V7.5z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-145" d="M28 27l-6.972-2.917C19.498 24.67 17.795 25 16 25 9.373 25 4 20.523 4 15S9.373 5 16 5s12 4.477 12 10c0 2.272-.91 4.367-2.441 6.046L28 27zm-3.682-3.709l-1.09-2.657.853-.935C25.33 18.33 26 16.7 26 15c0-4.33-4.405-8-10-8S6 10.67 6 15s4.405 8 10 8c1.514 0 2.976-.27 4.309-.784l.75-.288 3.259 1.363zM10 16h12v2H10v-2zm0-4h12v2H10v-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-145"/></svg>'
 };
 export const lgIconReport: Icon = {
   name: 'report',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 16"><defs><path id="a" d="M15 2.5c.69 0 1.25.56 1.25 1.25v12.5c0 .69-.56 1.25-1.25 1.25H5c-.69 0-1.25-.56-1.25-1.25V3.75c0-.69.56-1.25 1.25-1.25h10zm0 1.25H5v12.5h10V3.75zM3.125 14.375h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm0-2.5h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm0-2.5h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm0-2.5h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zm0-2.5h1.25a.625.625 0 110 1.25h-1.25a.625.625 0 110-1.25zM7.5 8.75h5V10h-5V8.75zm-1.25-2.5h7.5V7.5h-7.5V6.25z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M24 4a2 2 0 012 2v20a2 2 0 01-2 2H8a2 2 0 01-2-2v-1H5a1 1 0 010-2h1v-2H5a1 1 0 010-2h1v-2H5a1 1 0 010-2h1v-2H5a1 1 0 010-2h1V9H5a1 1 0 110-2h1V6a2 2 0 012-2h16zm0 2H8v20h16V6zm-12 8h8v2h-8v-2zm-2-4h12v2H10v-2z"/></svg>'
 };
 export const lgIconReset: Icon = {
   name: 'reset',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 14"><defs><path id="a" d="M10 3.75a6.25 6.25 0 110 12.5.625.625 0 110-1.25 5 5 0 10-4.952-4.302l2-2a.63.63 0 11.892.894l-3.528 3.533L.81 9.517a.633.633 0 01.893-.894l2.087 2.092A6.25 6.25 0 0110 3.75z"/></defs><use fill-rule="evenodd" transform="translate(0 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-146" d="M16 6c5.523 0 10 4.477 10 10s-4.477 10-10 10a1 1 0 010-2 8 8 0 10-7.922-6.882l3.198-3.202a1.009 1.009 0 011.428 0 1.013 1.013 0 010 1.431L7.06 21l-5.764-5.773a1.013 1.013 0 010-1.43 1.009 1.009 0 011.428 0l3.34 3.346A10.107 10.107 0 016 16c0-5.523 4.477-10 10-10z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-146"/></svg>'
 };
 export const lgIconRestart: Icon = {
   name: 'restart',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 13"><defs><path id="a" d="M7.319 11.146a.604.604 0 010 .863.626.626 0 01-.877 0L2.5 8.125l3.942-3.884a.626.626 0 01.877 0 .604.604 0 010 .863L4.886 7.5H10c5.246 0 7.42 2.678 7.498 7.83l.002.295a.625.625 0 11-1.25 0c0-4.655-1.595-6.875-6.25-6.875H4.886l2.433 2.396z"/></defs><use transform="translate(-2 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-147" d="M11.71 17.833c.387.381.387 1 0 1.381a1.002 1.002 0 01-1.402 0L4 13l6.308-6.214a1.002 1.002 0 011.402 0c.387.381.387 1 0 1.38L7.818 12H16c8.432 0 11.902 4.323 11.998 12.641L28 25a1 1 0 01-2 0c0-7.448-2.552-11-10-11H7.818l3.892 3.833z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-147"/></svg>'
 };
 export const lgIconRetirement: Icon = {
   name: 'retirement',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 12"><defs><path id="a" d="M14.975 5.593l2.577 3.529c.35.325.638.717.844 1.155l.017.025c.03.053.052.11.066.166A3.752 3.752 0 0115 15.625a3.752 3.752 0 01-3.733-3.406 2.487 2.487 0 00-2.533-.002 3.75 3.75 0 11-7.212-1.749.624.624 0 01.067-.166l.017-.026c.206-.438.494-.83.844-1.155l2.576-3.528c.686-1.188 1.867-1.505 3.322-.96a.626.626 0 01-.439 1.172c-.918-.344-1.444-.203-1.8.414L4.71 8.129a3.752 3.752 0 013.908 2.756 3.737 3.737 0 012.763-.002 3.75 3.75 0 013.907-2.753l-1.396-1.911c-.356-.617-.882-.758-1.801-.414a.625.625 0 11-.439-1.172c1.455-.545 2.637-.228 3.322.96zM15 9.37c-1.38 0-2.5 1.12-2.5 2.502A2.501 2.501 0 1015 9.37zm-10 0c-1.38 0-2.5 1.12-2.5 2.502A2.501 2.501 0 105 9.37z"/></defs><use fill-rule="evenodd" transform="translate(-1 -4)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-148" d="M23.96 8.95l4.12 5.641a6.022 6.022 0 011.356 1.858l.024.034c.05.086.085.176.107.268.28.693.433 1.45.433 2.244A6.002 6.002 0 0124 25a6.003 6.003 0 01-5.975-5.452A3.954 3.954 0 0016 18.995c-.74 0-1.432.2-2.026.55A6.001 6.001 0 018 25c-3.314 0-6-2.689-6-6.005 0-.795.154-1.554.435-2.248a.986.986 0 01.105-.264l.022-.03a6.023 6.023 0 011.362-1.864l4.116-5.64c1.097-1.901 2.987-2.408 5.315-1.535a1.001 1.001 0 01-.702 1.874c-1.47-.551-2.311-.326-2.88.662L7.54 13.007a6.003 6.003 0 016.25 4.408 5.955 5.955 0 012.21-.422c.78 0 1.527.15 2.21.421a6.002 6.002 0 016.25-4.406L22.229 9.95c-.57-.988-1.411-1.213-2.88-.662a1 1 0 11-.703-1.874c2.328-.873 4.218-.366 5.315 1.535zm.04 6.042a4 4 0 00-4 4.003 4.002 4.002 0 004 4.003 4 4 0 004-4.003 4.002 4.002 0 00-4-4.003zm-16 0a4 4 0 00-4 4.003 4.002 4.002 0 004 4.003 4 4 0 004-4.003 4.002 4.002 0 00-4-4.003z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-148"/></svg>'
 };
 export const lgIconReward: Icon = {
   name: 'reward',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M15 2.5v1.25h2.5v.625c0 1.656-.16 2.346-.818 3.072-.223.247-.5.488-.913.808-.104.08-.485.396-.884.728-.36 2.009-1.608 2.897-4.26 4.495l-.001 2.772H12.5a.625.625 0 110 1.25h-5a.625.625 0 110-1.25h1.874v-2.772c-2.651-1.599-3.899-2.486-4.26-4.494a53.42 53.42 0 00-.883-.73c-.414-.319-.69-.56-.913-.807-.621-.686-.799-1.339-.816-2.805L2.5 4.375V3.75h2.499L5 2.5h10zm-1.25 1.25h-7.5V7.5c0 2.648.934 3.184 3.75 4.895 2.728-1.657 3.69-2.212 3.747-4.653l.003-.242V3.75zM4.999 4.999L3.759 5c.033.893.157 1.245.485 1.609.218.24-.102-.006.756.63l-.001-2.24zm10.001 0v2.24c.858-.636.538-.39.756-.63.328-.364.452-.716.484-1.609L15 4.999z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-149" d="M24 4v2h4v1c0 2.65-.256 3.753-1.308 4.916-.358.395-.8.78-1.462 1.291-.166.129-.775.634-1.413 1.165-.577 3.214-2.572 4.634-6.815 7.193L17 26h3a1 1 0 010 2h-8a1 1 0 010-2h3v-4.435c-4.244-2.558-6.24-3.979-6.817-7.192a90.729 90.729 0 00-1.413-1.166c-.662-.51-1.104-.896-1.462-1.291C4.256 10.753 4 9.65 4 7V6h4V4h16zm-2 2H10v6c0 4.237 1.495 5.095 6 7.832 4.505-2.737 6-3.595 6-7.832V6zM8 8H6.015c.052 1.429.25 1.993.776 2.574.349.385-.164-.01 1.209 1.008V8zm17.209 2.574c.526-.581.724-1.145.776-2.574H24l.001 3.582c1.372-1.017.86-.623 1.208-1.008z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-149"/></svg>'
 };
 export const lgIconRss: Icon = {
   name: 'rss',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M5 2.5c6.904 0 12.5 5.592 12.5 12.49 0 .669-.053 1.332-.157 1.984a.625.625 0 01-1.234-.197c.093-.587.141-1.184.141-1.788C16.25 8.781 11.213 3.75 5 3.75c-.596 0-1.186.046-1.767.138a.625.625 0 11-.195-1.234C3.683 2.551 4.338 2.5 5 2.5zm0 4.996a7.497 7.497 0 017.217 9.538.625.625 0 01-1.202-.34A6.247 6.247 0 005 8.744c-.58 0-1.15.078-1.697.232a.625.625 0 01-.339-1.202A7.511 7.511 0 015 7.495zm0 4.995a2.499 2.499 0 11-2.5 2.498A2.5 2.5 0 015 12.491zm0 1.25a1.25 1.25 0 10-.001 2.498A1.25 1.25 0 005 13.74z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-150" d="M8 4c11.046 0 20 8.947 20 19.983 0 1.07-.084 2.132-.251 3.175a1 1 0 01-1.975-.315c.15-.94.226-1.895.226-2.86C26 14.05 17.941 5.998 8 5.998c-.954 0-1.898.074-2.827.22a1 1 0 11-.312-1.973A20.158 20.158 0 018 4zm0 7.993c6.627 0 12 5.368 12 11.99a11.98 11.98 0 01-.452 3.27 1 1 0 01-1.925-.543c.25-.88.377-1.795.377-2.727 0-5.518-4.477-9.992-10-9.992-.929 0-1.84.127-2.716.373a1 1 0 01-.541-1.924A12.018 12.018 0 018 11.993zm0 7.993c2.21 0 4 1.79 4 3.997a3.998 3.998 0 01-4 3.996c-2.21 0-4-1.79-4-3.996a3.998 3.998 0 014-3.997zm0 1.998a2 2 0 10-.002 3.999A2 2 0 008 21.984z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-150"/></svg>'
 };
 export const lgIconScaleDown: Icon = {
   name: 'scale-down',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M11.875 11.875h4.375a.625.625 0 110 1.25h-2.241l3.312 3.312a.625.625 0 11-.884.884l-3.312-3.312v2.241a.625.625 0 11-1.25 0v-4.375zm-3.746 0v4.375a.625.625 0 11-1.25 0v-2.241L3.567 17.32a.625.625 0 11-.884-.884l3.312-3.312h-2.24a.625.625 0 110-1.25h4.374zm3.746-3.746V3.754a.625.625 0 111.25 0v2.241l3.312-3.312a.625.625 0 11.884.884L14.01 6.879h2.241a.625.625 0 110 1.25h-4.375zm-3.746 0H3.754a.625.625 0 010-1.25h2.241L2.683 3.567a.625.625 0 01.884-.884l3.312 3.312v-2.24a.625.625 0 111.25 0v4.374z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-151" d="M19 19h7a1 1 0 010 2h-3.586l5.3 5.3a1 1 0 11-1.414 1.414l-5.3-5.3V26a1 1 0 01-2 0v-7zm-5.993 0v7a1 1 0 11-2 0v-3.586l-5.3 5.3A1 1 0 014.293 26.3l5.3-5.3H6.007a1 1 0 010-2h7zM19 13.007v-7a1 1 0 012 0v3.586l5.3-5.3a1 1 0 111.414 1.414l-5.3 5.3H26a1 1 0 010 2h-7zm-5.993 0h-7a1 1 0 110-2h3.586l-5.3-5.3a1 1 0 011.414-1.414l5.3 5.3V6.007a1 1 0 012 0v7z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-151"/></svg>'
 };
 export const lgIconScaleUp: Icon = {
   name: 'scale-up',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M17.504 17.504H13.13a.625.625 0 110-1.25h2.241l-3.312-3.312a.625.625 0 11.884-.884l3.312 3.312v-2.24a.625.625 0 111.25 0v4.374zm-15.004 0V13.13a.625.625 0 111.25 0v2.241l3.312-3.312a.625.625 0 11.884.884l-3.312 3.312h2.241a.625.625 0 110 1.25H2.5zM17.504 2.5v4.375a.625.625 0 11-1.25 0V4.634l-3.312 3.312a.625.625 0 11-.884-.884L15.37 3.75h-2.24a.625.625 0 110-1.25h4.374zM2.5 2.5h4.375a.625.625 0 110 1.25H4.634l3.312 3.312a.625.625 0 11-.884.884L3.75 4.634v2.241a.625.625 0 11-1.25 0V2.5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-152" d="M28.007 28.007h-7a1 1 0 110-2h3.586l-5.3-5.3a1 1 0 011.414-1.414l5.3 5.3v-3.586a1 1 0 012 0v7zM4 28.007v-7a1 1 0 012 0v3.586l5.3-5.3a1 1 0 111.414 1.414l-5.3 5.3H11a1 1 0 010 2H4zM28.007 4v7a1 1 0 11-2 0V7.414l-5.3 5.3a1 1 0 01-1.414-1.414l5.3-5.3h-3.586a1 1 0 010-2h7zM4 4h7a1 1 0 010 2H7.414l5.3 5.3a1 1 0 11-1.414 1.414L6 7.414V11a1 1 0 01-2 0V4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-152"/></svg>'
 };
 export const lgIconScan: Icon = {
   name: 'scan',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 16"><defs><path id="a" d="M15.625 13.75c.345 0 .625.28.625.625V17.5h-3.125a.625.625 0 110-1.25H15v-1.875c0-.345.28-.625.625-.625zm-11.25 0c.345 0 .625.28.625.625v1.875h1.875a.625.625 0 110 1.25H3.75v-3.125c0-.345.28-.625.625-.625zM13.75 5v4.375h1.875a.625.625 0 110 1.25H13.75V15h-7.5v-4.375H4.375a.625.625 0 110-1.25H6.25V5h7.5zm-1.723 5.625h-1.768L7.5 13.384v.366h1.4l3.127-3.125zm.473 1.295l-1.832 1.83h1.768l.064-.063V11.92zm-4.009-1.295H7.5v.991l.991-.991zM12.5 6.25h-5v3.125h5V6.25zm3.75-3.75v3.125a.625.625 0 11-1.25 0V3.75h-1.875a.625.625 0 110-1.25h3.125zm-9.375 0a.625.625 0 01.092 1.243l-.092.007H5v1.875a.625.625 0 01-1.243.092l-.007-.092V2.5h3.125z"/></defs><use transform="translate(-3 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-153" d="M25 22a1 1 0 011 1v5h-5a1 1 0 010-2h3v-3a1 1 0 011-1zM7 22a1 1 0 011 1v3h3a1 1 0 010 2H6v-5a1 1 0 011-1zM22 8v7h3a1 1 0 010 2h-3v7H10v-7H7a1 1 0 010-2h3V8h12zm-2.757 9h-2.828L12 21.415V22h2.242l5.001-5zM20 19.071L17.07 22h2.828l.102-.101v-2.828zM13.585 17H12v1.585L13.585 17zM20 10h-8v5h8v-5zm6-6v5a1 1 0 01-2 0V6h-3a1 1 0 010-2h5zM11 4a1 1 0 01.117 1.993L11 6H8v3a1 1 0 01-1.993.117L6 9V4h5z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-153"/></svg>'
 };
 export const lgIconSearch: Icon = {
   name: 'search',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M8.75 2.5a6.25 6.25 0 014.84 10.205l3.727 3.728a.625.625 0 11-.884.884l-3.728-3.727A6.25 6.25 0 118.75 2.5zm0 1.25a5 5 0 100 10 5 5 0 000-10z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-154" d="M14 4c5.523 0 10 4.477 10 10 0 2.4-.846 4.604-2.256 6.328l5.963 5.965a1 1 0 01-1.414 1.414l-5.965-5.963A9.959 9.959 0 0114 24C8.477 24 4 19.523 4 14S8.477 4 14 4zm0 2a8 8 0 100 16 8 8 0 000-16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-154"/></svg>'
 };
 export const lgIconSecureMessaging: Icon = {
   name: 'secure-messaging',
@@ -1019,194 +1074,218 @@ export const lgIconSecureMessaging: Icon = {
 export const lgIconSecurity: Icon = {
   name: 'security',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M10 3.125L16.25 4.5v4.875c0 3.237-2.469 5.335-5.928 7.41L10 16.98l-.322-.193C6.22 14.71 3.75 12.612 3.75 9.375V4.5L10 3.125zm-.625 1.383L5 5.438v3.937c0 2.448 1.868 4.16 4.375 5.757V4.508zm1.25 0l.001 10.623C13.133 13.535 15 11.823 15 9.375V5.437l-4.375-.929z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-155" d="M16 5l10 2.2V15c0 5.179-3.95 8.536-9.486 11.857l-.514.31-.514-.31C9.95 23.537 6 20.18 6 15V7.2L16 5zm-1 2.212L8 8.7V15c0 3.917 2.988 6.656 7 9.21V7.213zm2 0l.001 16.998C21.012 21.656 24 18.917 24 15V8.7l-7-1.488z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-155"/></svg>'
 };
 export const lgIconSend: Icon = {
   name: 'send',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M15.875.125l-5 15-4.529-4.529.728-.889-.782-.781-.888.728L.875 5.125l15-5zm-5.287 5.287L7.264 8.131l.605.604 2.719-3.323zm-.245 7.46l2.946-8.84-5.303 6.482 2.357 2.358zM11.968 2.71l-8.84 2.946 2.358 2.357 6.482-5.303z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M27 5l-8 24-7.246-7.246 1.164-1.422-1.251-1.251-1.421 1.165L3 13l24-8zm-8.46 8.46l-5.317 4.349.967.967 4.35-5.316zm-.391 11.935l4.714-14.143-8.486 10.371 3.772 3.772zm2.6-16.258L6.604 13.85l3.772 3.772 10.371-8.486z"/></svg>'
 };
 export const lgIconSettings: Icon = {
   name: 'settings',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5c.314 0 .574.231.618.533l.007.092v.656a6.21 6.21 0 011.944.52l.327-.567a.625.625 0 011.126.533l-.043.092-.327.568a6.286 6.286 0 011.422 1.422l.568-.328a.625.625 0 01.708 1.025l-.083.058-.568.327a6.21 6.21 0 01.52 1.944h.656a.625.625 0 01.092 1.243l-.092.007h-.656a6.21 6.21 0 01-.52 1.944l.568.327a.625.625 0 01-.534 1.126l-.091-.043-.569-.328a6.286 6.286 0 01-1.423 1.423l.329.567a.625.625 0 01-1.025.71l-.058-.085-.327-.566a6.21 6.21 0 01-1.944.52v.655a.625.625 0 01-1.243.092l-.007-.092v-.656a6.21 6.21 0 01-1.944-.52l-.327.567a.625.625 0 01-1.126-.533l.043-.092.328-.568a6.286 6.286 0 01-1.423-1.423l-.567.329a.625.625 0 01-.709-1.025l.084-.058.567-.327a6.21 6.21 0 01-.52-1.943l-.656-.001a.625.625 0 01-.092-1.243l.092-.007h.656a6.21 6.21 0 01.52-1.944l-.567-.327a.625.625 0 01.533-1.126l.092.043.568.328A6.286 6.286 0 016.35 4.926l-.33-.566a.625.625 0 011.025-.71l.058.085.327.567a6.21 6.21 0 011.945-.52v-.656c0-.345.279-.625.624-.625zM10 5a5 5 0 100 10 5 5 0 000-10zm0 1.25a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zm0 1.25a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-156" d="M16 4a1 1 0 011 1l.001 1.05a9.936 9.936 0 013.109.83l.524-.906a1 1 0 011.732 1l-.524.91a10.04 10.04 0 012.275 2.274l.91-.524a1 1 0 011 1.732l-.908.525c.436.964.723 2.01.832 3.109H27a1 1 0 110 2l-1.05.001a9.936 9.936 0 01-.832 3.108l.907.525a1 1 0 01-1 1.732l-.909-.524c-.63.875-1.4 1.644-2.275 2.275l.524.91a1 1 0 01-1.732 1l-.524-.908a9.936 9.936 0 01-3.109.832V27a1 1 0 11-2 0v-1.05a9.936 9.936 0 01-3.11-.83l-.525.906a1 1 0 11-1.732-1l.524-.91a10.04 10.04 0 01-2.275-2.274l-.91.524a1 1 0 11-1-1.732l.908-.525a9.936 9.936 0 01-.831-3.108L5 17a1 1 0 010-2h1.05a9.936 9.936 0 01.83-3.11l-.906-.524a1 1 0 011-1.732l.91.524a10.04 10.04 0 012.274-2.275l-.524-.91a1 1 0 111.732-1l.525.908A9.936 9.936 0 0115 6.049V5a1 1 0 011-1zm0 4a8 8 0 100 16 8 8 0 000-16zm0 2a6 6 0 110 12 6 6 0 010-12zm0 2a4 4 0 100 8 4 4 0 000-8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-156"/></svg>'
 };
 export const lgIconShare: Icon = {
   name: 'share',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M13.75 3.125a2.5 2.5 0 11-1.77 4.266l-3.326 1.92a2.502 2.502 0 010 1.378l3.326 1.92a2.5 2.5 0 11-.634 1.077l-3.327-1.92a2.5 2.5 0 110-3.533l3.327-1.92a2.502 2.502 0 012.404-3.188zm0 10a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zM6.25 8.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zm7.5-4.375a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></defs><use transform="translate(-3 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-157" d="M22 5a4 4 0 11-2.83 6.826L13.847 14.9a4.002 4.002 0 010 2.203l5.322 3.073a4 4 0 11-1.015 1.725l-5.324-3.074a4 4 0 110-5.653l5.323-3.072A4 4 0 0122 5zm0 16a2 2 0 100 4 2 2 0 000-4zm-12-7a2 2 0 100 4 2 2 0 000-4zm12-7a2 2 0 100 4 2 2 0 000-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-157"/></svg>'
 };
 export const lgIconSignIn: Icon = {
   name: 'sign-in',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M17.5 2.5v15H5v-1.25h11.25V3.75H5V2.5h12.5zm-7.094 3.933L13.75 10l-3.344 3.567a.59.59 0 01-.854 0 .64.64 0 010-.884l1.91-2.059-8.28.001c-.377 0-.682-.28-.682-.625s.305-.625.682-.625l8.278-.001-1.908-2.057a.64.64 0 010-.884.59.59 0 01.854 0z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-158" d="M28 4v24H8v-2h18V6H8V4h20zm-11.35 6.293L22 16l-5.35 5.707a.944.944 0 01-1.367 0 1.025 1.025 0 010-1.414l3.054-3.294L5.091 17C4.488 17 4 16.552 4 16s.488-1 1.09-1l13.247-.001-3.054-3.292a1.025 1.025 0 010-1.414.944.944 0 011.367 0z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-158"/></svg>'
 };
-export const lgIconSignature: Icon = {
-  name: 'signature',
+export const lgIconSign: Icon = {
+  name: 'sign',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><defs><path id="a" d="M16.56 2.776c.68.39.976.989.937 1.644-.023.37-.137.673-.258.882l-5.024 8.67-2.227 1.465a.626.626 0 01-.054.155c-.93 1.859-1.916 2.845-3.059 2.845-.759 0-1.164-.368-1.699-1.199l-.116-.181c-.398-.62-.616-.807-.997-.807-.635 0-.88.196-.943.703a.625.625 0 01-1.24-.156C2.025 15.637 2.822 15 4.063 15c.934 0 1.44.434 2.049 1.38l.116.182c.317.494.462.625.647.625.524 0 1.204-.68 1.941-2.154a.637.637 0 01.007-.014L9 12.122l5.024-8.67c.121-.208.328-.458.639-.662.55-.362 1.218-.405 1.898-.014zm-6.343 9.71l-.083 1.376 1.155-.76 4.878-8.416a.863.863 0 00.094-.34c.012-.205-.062-.354-.32-.502-.259-.15-.426-.138-.597-.025a.867.867 0 00-.249.25l-4.878 8.417zM14.32 4.35l2.144 1.233-.619 1.068-2.144-1.234.62-1.067z"/></defs><use transform="translate(-1 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-159" d="M26.495 4.441c1.088.625 1.563 1.582 1.5 2.63a3.223 3.223 0 01-.412 1.413l-8.04 13.87-3.563 2.344a1.001 1.001 0 01-.086.25C14.407 27.92 12.83 29.5 11 29.5c-1.214 0-1.863-.589-2.718-1.919l-.186-.29C7.46 26.299 7.11 26 6.5 26c-1.015 0-1.406.313-1.508 1.124a1 1 0 11-1.984-.248C3.24 25.02 4.515 24 6.5 24c1.494 0 2.305.695 3.279 2.21l.186.29c.508.79.74 1 1.035 1 .838 0 1.926-1.088 3.106-3.447l.012-.025.28-4.633 8.04-13.87a3.238 3.238 0 011.02-1.062c.88-.579 1.95-.647 3.037-.022zM16.347 19.978l-.133 2.202 1.848-1.216 7.806-13.467a1.38 1.38 0 00.15-.543c.02-.328-.1-.567-.513-.804-.413-.238-.68-.221-.955-.04a1.387 1.387 0 00-.398.4l-7.805 13.468zm6.566-13.019l3.43 1.973-.99 1.709-3.43-1.973.99-1.709z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-159"/></svg>'
 };
 export const lgIconSkipBack: Icon = {
   name: 'skip-back',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 10"><defs><path id="a" d="M15.625 5l-6.25 5 6.25 5V5zm-6.25 0l-6.25 5 6.25 5V5z"/></defs><use transform="translate(-3 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-160" d="M25 8l-10 8 10 8V8zM15 8L5 16l10 8V8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-160"/></svg>'
 };
 export const lgIconSkipForward: Icon = {
   name: 'skip-forward',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13 10"><defs><path id="a" d="M4.375 5l6.25 5-6.25 5V5zm6.25 0l6.25 5-6.25 5V5z"/></defs><use transform="translate(-4 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-161" d="M7 8l10 8-10 8V8zm10 0l10 8-10 8V8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-161"/></svg>'
 };
 export const lgIconSlack: Icon = {
   name: 'slack',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.021 8.403A1.58 1.58 0 017.597 9.98v3.945A1.58 1.58 0 016.02 15.5a1.58 1.58 0 01-1.576-1.576V9.98A1.58 1.58 0 016.02 8.404zM9.98 12.35a1.58 1.58 0 011.576 1.575A1.58 1.58 0 019.979 15.5a1.58 1.58 0 01-1.576-1.576V12.35H9.98zM3.65 8.403V9.98a1.58 1.58 0 01-1.575 1.576A1.58 1.58 0 01.5 9.979a1.58 1.58 0 011.576-1.576H3.65zm10.273 0A1.58 1.58 0 0115.5 9.98a1.58 1.58 0 01-1.576 1.576H9.98A1.58 1.58 0 018.404 9.98 1.58 1.58 0 019.98 8.403h3.945zM6.021 4.445a1.58 1.58 0 011.576 1.576A1.58 1.58 0 016.02 7.597H2.076A1.58 1.58 0 01.5 6.02a1.58 1.58 0 011.576-1.576H6.02zm7.903 0A1.58 1.58 0 0115.5 6.021a1.58 1.58 0 01-1.576 1.576H12.35V6.02a1.58 1.58 0 011.575-1.576zM9.98.5a1.58 1.58 0 011.576 1.576V6.02A1.58 1.58 0 019.98 7.596 1.58 1.58 0 018.403 6.02V2.076A1.58 1.58 0 019.98.5zM6.02.5a1.58 1.58 0 011.576 1.576V3.65H6.02a1.58 1.58 0 01-1.576-1.575A1.58 1.58 0 016.021.5z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M12.834 16.645a2.527 2.527 0 012.521 2.521v6.313A2.527 2.527 0 0112.834 28a2.527 2.527 0 01-2.521-2.521v-6.313a2.527 2.527 0 012.52-2.521zm6.332 6.313a2.527 2.527 0 012.521 2.52A2.527 2.527 0 0119.167 28a2.527 2.527 0 01-2.522-2.521v-2.521h2.521zM9.042 16.645v2.521a2.527 2.527 0 01-2.52 2.521A2.527 2.527 0 014 19.167a2.527 2.527 0 012.521-2.522h2.521zm16.437 0A2.527 2.527 0 0128 19.166a2.527 2.527 0 01-2.521 2.521h-6.313a2.527 2.527 0 01-2.521-2.52 2.527 2.527 0 012.521-2.522h6.313zm-12.645-6.332a2.527 2.527 0 012.521 2.52 2.527 2.527 0 01-2.521 2.522H6.52A2.527 2.527 0 014 12.834a2.527 2.527 0 012.521-2.521h6.313zm12.645 0A2.527 2.527 0 0128 12.833a2.527 2.527 0 01-2.521 2.522h-2.521v-2.521a2.527 2.527 0 012.52-2.521zM19.166 4a2.527 2.527 0 012.521 2.521v6.313a2.527 2.527 0 01-2.52 2.521 2.527 2.527 0 01-2.522-2.521V6.52A2.527 2.527 0 0119.166 4zm-6.332 0a2.527 2.527 0 012.521 2.521v2.521h-2.521a2.527 2.527 0 01-2.521-2.52A2.527 2.527 0 0112.833 4z"/></svg>'
 };
 export const lgIconStarFill: Icon = {
   name: 'star-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 17"><defs><path id="a" d="M10 13.134L4.496 16.97l2.075-6.242-5.477-3.872 6.787-.022L10 .606l2.12 6.228 6.786.022-5.477 3.872 2.075 6.242z"/></defs><use transform="translate(-1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 33"><defs><path id="lg-icon-162" d="M16 21.671L7.193 28l3.32-10.3-8.763-6.387 10.86-.037L16 1l3.39 10.276 10.86.037-8.764 6.388L24.807 28z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-162"/></svg>'
 };
 export const lgIconStarHalfFill: Icon = {
   name: 'star-half-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M10 13.545L4.496 17.5l2.075-6.437-5.477-3.992 6.787-.023L10 .625l2.12 6.423 6.786.023-5.477 3.992 2.075 6.437L10 13.545zm0-1.514l3.185 2.29-1.2-3.726 3.169-2.31-3.928-.013L10 4.555v7.476z"/></defs><use transform="translate(-1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-163" d="M16 21.671L7.193 28l3.32-10.3-8.763-6.387 10.86-.037L16 1l3.39 10.276 10.86.037-8.764 6.388L24.807 28 16 21.671zm0-2.42l5.096 3.661-1.921-5.96 5.071-3.696-6.284-.02L16 7.288V19.25z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-163"/></svg>'
 };
 export const lgIconStar: Icon = {
   name: 'star',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M10 13.545L4.496 17.5l2.075-6.437-5.477-3.992 6.787-.023L10 .625l2.12 6.423 6.786.023-5.477 3.992 2.075 6.437L10 13.545zm-3.185.775L10 12.031l3.185 2.29-1.2-3.726 3.169-2.31-3.928-.013L10 4.555 8.774 8.272l-3.928.013 3.17 2.31-1.201 3.725z"/></defs><use transform="translate(-1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-164" d="M16 21.671L7.193 28l3.32-10.3-8.763-6.387 10.86-.037L16 1l3.39 10.276 10.86.037-8.764 6.388L24.807 28 16 21.671zm-5.096 1.241L16 19.25l5.096 3.662-1.921-5.96 5.071-3.696-6.284-.02L16 7.288l-1.962 5.946-6.284.021 5.071 3.697-1.921 5.96z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-164"/></svg>'
 };
 export const lgIconStop: Icon = {
   name: 'stop',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 10"><defs><path id="a" d="M5 5h10v10H5z"/></defs><use transform="translate(-5 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-165" d="M8 8h16v16H8z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-165"/></svg>'
 };
 export const lgIconSubtract: Icon = {
   name: 'subtract',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10 2"><defs><path id="a" d="M6.25 10.625h7.5a.625.625 0 100-1.25h-7.5a.625.625 0 100 1.25z"/></defs><use transform="translate(-5 -9)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-166" d="M10 17h12a1 1 0 000-2H10a1 1 0 000 2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-166"/></svg>'
 };
 export const lgIconSvg: Icon = {
   name: 'svg',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17"><path d="M3 6.75h6.25V8H3V6.75zM7.634.5l4.116 4.116V9.25h3.75c.345 0 .625.28.625.625v6.25c0 .345-.28.625-.625.625H1.125a.625.625 0 01-.625-.625V1.75C.5.817.759.523 1.641.501L1.75.5h5.884zM3.81 10.503c-.36 0-.685.058-.974.173a1.53 1.53 0 00-.67.484 1.15 1.15 0 00-.236.716c0 .544.317.972.95 1.283.195.096.445.196.752.298.307.103.52.203.643.3.122.095.183.23.183.402 0 .152-.057.27-.17.354-.113.084-.267.126-.461.126-.305 0-.525-.062-.66-.186s-.203-.317-.203-.58H1.783c0 .323.081.608.244.855.162.247.404.442.725.584.32.142.68.213 1.076.213.561 0 1.003-.122 1.326-.366.322-.244.483-.58.483-1.007 0-.535-.264-.954-.792-1.259a4.339 4.339 0 00-.833-.35c-.338-.109-.574-.214-.708-.316-.134-.102-.201-.215-.201-.34 0-.144.06-.262.182-.355.122-.093.289-.14.499-.14.208 0 .373.056.495.165.122.11.183.265.183.464h1.175c0-.298-.077-.563-.232-.794a1.496 1.496 0 00-.65-.536 2.28 2.28 0 00-.944-.188zm8.92-.003c-.417 0-.783.097-1.1.29-.317.194-.56.47-.73.83-.17.359-.255.779-.255 1.26l.003.423c.027.698.232 1.243.614 1.635.383.392.894.587 1.534.587.417 0 .8-.061 1.148-.184.35-.123.615-.286.796-.487v-2.008h-1.997v.81h.819v.758c-.15.137-.378.205-.685.205-.358 0-.62-.123-.787-.368-.167-.245-.25-.611-.25-1.099v-.295c.002-.466.084-.824.245-1.075a.769.769 0 01.685-.376c.246 0 .436.059.57.175.134.116.222.311.262.584h1.135c-.056-.553-.253-.968-.59-1.247-.336-.279-.809-.418-1.418-.418zm-5.563.07H5.862l1.631 4.888h1.29l1.644-4.888H9.111l-.973 3.559-.97-3.559zM6.75 1.75h-5v7.5h8.75V5.5H6.75V1.75zM8 2.634V4.25h1.616L8 2.634z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M8 14h10v2H8v-2zm7.414-10L22 10.586V18h6a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V6c0-1.493.414-1.964 1.826-1.998L6 4h9.414zM9.297 20.005a4.17 4.17 0 00-1.557.277c-.462.184-.82.442-1.072.773a1.84 1.84 0 00-.378 1.147c0 .87.506 1.554 1.52 2.052.311.154.712.313 1.203.478.49.165.833.324 1.028.478.195.154.293.369.293.644 0 .244-.09.433-.271.567-.181.134-.427.202-.739.202-.487 0-.839-.1-1.055-.299-.217-.198-.325-.507-.325-.926h-1.89c0 .516.129.971.389 1.367s.646.707 1.16.934a4.21 4.21 0 001.721.342c.899 0 1.606-.196 2.122-.586.515-.39.773-.927.773-1.611 0-.856-.422-1.527-1.267-2.014a7.032 7.032 0 00-1.332-.562c-.541-.173-.919-.342-1.134-.505-.215-.162-.322-.344-.322-.545 0-.229.098-.418.293-.566.195-.149.46-.223.797-.223.333 0 .597.087.793.263.195.175.292.422.292.741h1.88c0-.476-.123-.9-.37-1.27a2.394 2.394 0 00-1.04-.857c-.445-.2-.95-.3-1.512-.3zM23.568 20c-.666 0-1.252.155-1.759.465-.506.31-.896.752-1.168 1.326-.272.575-.408 1.247-.408 2.017l.005.677c.043 1.117.37 1.989.983 2.616.612.626 1.43.94 2.455.94a5.49 5.49 0 001.837-.296c.558-.197.983-.456 1.273-.779v-3.212H23.59v1.295h1.31v1.214c-.24.218-.605.327-1.095.327-.573 0-.993-.196-1.26-.588-.267-.392-.4-.978-.4-1.759v-.472c.004-.745.134-1.318.392-1.72.258-.4.623-.6 1.096-.6.394 0 .698.092.913.278.215.187.354.498.419.935h1.815c-.09-.884-.403-1.55-.942-1.995-.54-.446-1.296-.669-2.27-.669zm-8.9.113H12.58l2.61 7.82h2.063l2.632-7.82h-2.106l-1.557 5.693-1.553-5.693zM14 6H6l-.001 12h14v-6H14V6zm2 1.415V10h2.585L16 7.415z"/></svg>'
 };
 export const lgIconSwitchFunds: Icon = {
   name: 'switch-funds',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 18"><defs><path id="a" d="M15.625 11.25a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5zM10 1.25a6.25 6.25 0 016.25 6.208l1.62-2.318a.63.63 0 111.034.726l-2.86 4.092-4.175-2.928a.633.633 0 01.724-1.035L15 7.682V7.5a5 5 0 00-10 0v3.802a3.751 3.751 0 11-1.25 0V7.5A6.25 6.25 0 0110 1.25zm5.625 11.25a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm-11.25 0a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm0 1.25a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></defs><use transform="translate(0 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-167" d="M25 18a6 6 0 110 12 6 6 0 010-12zM16 2c5.5 0 9.964 4.44 10 9.933l2.592-3.708a1.011 1.011 0 011.655 1.16l-4.577 6.548-6.679-4.685a1.013 1.013 0 01-.248-1.409 1.01 1.01 0 011.406-.248l3.851 2.7V12a8 8 0 10-16 0v6.083A6.002 6.002 0 017 30a6 6 0 01-1-11.917V12C6 6.477 10.477 2 16 2zm9 18a4 4 0 100 8 4 4 0 000-8zM7 20a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-167"/></svg>'
 };
 export const lgIconTag: Icon = {
   name: 'tag',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 17"><defs><path id="a" d="M9.925 1.25l5.075 5V17.5H5V6.25l4.925-5zm.013 1.768L6.25 6.762v9.488h7.5V6.773L9.938 3.018zm.063 2.607a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></defs><use transform="rotate(30 13.232 6.509)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M23.824 3l3.032 10.988-9 15.589-13.856-8 9-15.589L23.824 3zm-1.396 2.46l-8.106 2.238-7.59 13.147 10.392 6 7.582-13.132-2.278-8.253zM20.43 9.123a2 2 0 11-2 3.463 2 2 0 012-3.463z"/></svg>'
 };
 export const lgIconTime: Icon = {
   name: 'time',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm0 1.25a6.25 6.25 0 100 12.5 6.25 6.25 0 000-12.5zM10 5c.345 0 .625.28.625.625v4.021l2.822 1.693a.625.625 0 11-.644 1.072l-3.428-2.057V5.625c0-.345.28-.625.625-.625z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-168" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm0 2a1 1 0 011 1v6.434l4.514 2.709a1 1 0 01-1.028 1.714L15 16.567V9a1 1 0 011-1z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-168"/></svg>'
 };
-export const lgIconTrashcan: Icon = {
-  name: 'trashcan',
+export const lgIconTrash: Icon = {
+  name: 'trash',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 18"><defs><path id="a" d="M15.708 6.875l-1.406 11.25H5.698L4.292 6.875h11.416zm-7.877 1.25H5.708l1.094 8.75h1.303l-.274-8.75zm6.461 0h-2.124l-.274 8.75h1.304l1.094-8.75zm-3.375 0H9.082l.273 8.75h1.289l.273-8.75zm-7.167-2.5a.625.625 0 01-.092-1.243l.092-.007h4.375V2.5c0-.345.28-.625.625-.625h2.5c.345 0 .625.28.625.625v1.875h4.375a.625.625 0 01.092 1.243l-.092.007H3.75zm6.875-2.5h-1.25v1.25h1.25v-1.25z"/></defs><use transform="translate(-3 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-169" d="M25.133 11l-2.25 18H9.117l-2.25-18h18.266zM12.53 13H9.133l1.75 14h2.085l-.438-14zm10.337 0H19.47l-.438 14h2.086l1.75-14zm-5.399 0h-2.937l.438 14h2.061l.438-14zM6 9a1 1 0 110-2h7V4a1 1 0 011-1h4a1 1 0 011 1v3h7a1 1 0 01.993.883L27 8a1 1 0 01-1 1zm11-4h-2v2h2V5z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-169"/></svg>'
 };
 export const lgIconTwitter: Icon = {
   name: 'twitter',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 13"><path d="M5.217 12.94c5.661 0 8.757-4.689 8.757-8.756 0-.133-.003-.265-.01-.397A6.259 6.259 0 0015.5 2.193a6.137 6.137 0 01-1.767.484A3.089 3.089 0 0015.086.975a6.172 6.172 0 01-1.954.747 3.078 3.078 0 00-5.244 2.806 8.739 8.739 0 01-6.344-3.215 3.075 3.075 0 00.953 4.108 3.055 3.055 0 01-1.394-.384v.04c0 1.49 1.06 2.734 2.468 3.016a3.081 3.081 0 01-1.39.053 3.08 3.08 0 002.875 2.137A6.174 6.174 0 01.5 11.558a8.711 8.711 0 004.717 1.382"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M11.548 25.505c9.057 0 14.01-7.503 14.01-14.01 0-.213-.005-.425-.014-.636A10.014 10.014 0 0028 8.309a9.819 9.819 0 01-2.828.775 4.942 4.942 0 002.166-2.724 9.875 9.875 0 01-3.127 1.196 4.925 4.925 0 00-8.39 4.49A13.982 13.982 0 015.67 6.901a4.91 4.91 0 00-.668 2.475 4.92 4.92 0 002.192 4.099 4.887 4.887 0 01-2.23-.616l-.001.063a4.925 4.925 0 003.95 4.827 4.93 4.93 0 01-2.224.084 4.929 4.929 0 004.6 3.42 9.878 9.878 0 01-6.115 2.108A10 10 0 014 23.293a13.938 13.938 0 007.548 2.212"/></svg>'
+};
+export const lgIconUnhappy: Icon = {
+  name: 'unhappy',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm0 10c2.936 0 5.872 1.515 5.996 5.722L22 22H10c0-4.418 3-6 6-6zm0 2c-1.76 0-3.01.603-3.606 1.903l-.042.097h7.295l-.041-.097c-.57-1.243-1.738-1.85-3.38-1.9L16 18zm4-3a2 2 0 100-4 2 2 0 000 4zm-8 0a2 2 0 100-4 2 2 0 000 4z"/></svg>'
+};
+export const lgIconUnlockedFill: Icon = {
+  name: 'unlocked-fill',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-170" d="M16 4a4 4 0 00-4 4v4h14v16H6V12h4V8l.004-.225A6 6 0 0122 8a1 1 0 01-2 0 4 4 0 00-4-4zm0 12a2 2 0 00-1.26 3.554L14 24h4l-.74-4.447A2 2 0 0016 16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-170"/></svg>'
+};
+export const lgIconUnlocked: Icon = {
+  name: 'unlocked',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-171" d="M16 4a4 4 0 00-4 4v4h14v16H6V12h4V8l.004-.225A6 6 0 0122 8a1 1 0 01-2 0 4 4 0 00-4-4zm8 10H8v12h16V14zm-8 2a2 2 0 011.26 3.553L18 24h-4l.74-4.446A2 2 0 0116 16z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-171"/></svg>'
 };
 export const lgIconUpload: Icon = {
   name: 'upload',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M15.625 13.75a1.875 1.875 0 010 3.75H4.375a1.875 1.875 0 010-3.75h11.25zm0 1.25H10v1.25h5.625a.625.625 0 100-1.25zM10 2.5l4.192 3.969a.59.59 0 010 .854.64.64 0 01-.884 0l-2.683-2.526v7.192c0 .282-.28.511-.625.511s-.625-.229-.625-.511V4.797L6.692 7.323a.64.64 0 01-.884 0 .59.59 0 010-.854L10 2.5z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-172" d="M25 22a3 3 0 010 6H7a3 3 0 010-6h18zm0 2h-9v2h9a1 1 0 000-2zM16 4l6.707 6.35c.39.377.39.99 0 1.367a1.025 1.025 0 01-1.414 0L17 7.675v11.507c0 .452-.448.818-1 .818s-1-.366-1-.818V7.675l-4.293 4.042a1.025 1.025 0 01-1.414 0 .944.944 0 010-1.367L16 4z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-172"/></svg>'
+};
+export const lgIconUserOnline: Icon = {
+  name: 'user-online',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-173" d="M27.269 20.134C27.742 18.845 28 17.453 28 16c0-6.627-5.373-12-12-12S4 9.373 4 16c0 2.415.713 4.663 1.94 6.545.197-.25.407-.494.629-.729 1.162-1.229 2.663-2.225 4.385-2.892a13.602 13.602 0 012.189-.639L16 21.142l2.857-2.857c.76.155 1.493.37 2.19.64a12.47 12.47 0 012.767 1.486 6.023 6.023 0 013.455-.276zm-5.317 1.437a10.958 10.958 0 00-2.478-1.075L16 23.971l-3.474-3.475c-1.953.579-3.618 1.631-4.777 2.983-.192.224-.37.456-.534.696A11.967 11.967 0 0016 28c1.453 0 2.845-.258 4.134-.731A6.023 6.023 0 0120 26a5.99 5.99 0 011.952-4.43zM16 2c7.732 0 14 6.268 14 14 0 1.716-.309 3.36-.873 4.878a6 6 0 11-8.249 8.249A13.97 13.97 0 0116 30C8.268 30 2 23.732 2 16S8.268 2 16 2zm10 22a2 2 0 100 4 2 2 0 000-4zm-10-6a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-173"/></svg>'
 };
 export const lgIconUsers: Icon = {
   name: 'users',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18"><defs><path id="a" d="M10 1.25a8.75 8.75 0 110 17.5 8.75 8.75 0 010-17.5zm2.172 11.56L10 14.982 7.827 12.81c-1.22.362-2.26 1.02-2.984 1.865-.12.14-.232.285-.334.434A7.48 7.48 0 0010 17.5a7.48 7.48 0 005.489-2.389 4.588 4.588 0 00-.402-.517c-.721-.806-1.734-1.434-2.915-1.784zM10 2.5a7.501 7.501 0 00-6.82 4.376l-.055-.001a2.5 2.5 0 11-.397 4.969c.205.81.541 1.567.985 2.247.123-.157.254-.31.393-.456.726-.768 1.664-1.39 2.74-1.807l.002-.001.216-.08.139-.048a8.432 8.432 0 011.013-.271L10 13.214l.685-.684h-.001l1.102-1.102a8.627 8.627 0 01.676.167l.121.036a8.427 8.427 0 01.572.197c1.066.413 1.998 1.029 2.721 1.788.146.152.282.31.41.474.444-.68.78-1.437.986-2.246a2.5 2.5 0 11-.45-4.968A7.502 7.502 0 009.999 2.5zm-2.999 9.269l-.138.052.017-.006.108-.04.013-.006zm.043-.015l-.043.015.022-.007.021-.008zm.048-.018l-.028.011-.02.007.048-.018zM10 5a3.125 3.125 0 110 6.25A3.125 3.125 0 0110 5zM3.125 8.125c-.142 0-.279.024-.406.067a7.52 7.52 0 00-.205 2.274 1.25 1.25 0 10.61-2.34zm13.75 0a1.25 1.25 0 10.61 2.341 7.517 7.517 0 00-.204-2.274 1.25 1.25 0 00-.406-.067zM10 6.25A1.875 1.875 0 1010 10a1.875 1.875 0 000-3.75z"/></defs><use transform="translate(-1 -1)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-174" d="M16 2c7.732 0 14 6.268 14 14s-6.268 14-14 14S2 23.732 2 16 8.268 2 16 2zm3.474 18.496L16 23.97l-3.475-3.475c-1.952.58-3.617 1.632-4.776 2.983-.192.224-.37.456-.534.696A11.968 11.968 0 0016 28c3.469 0 6.593-1.472 8.784-3.825a7.838 7.838 0 00-.645-.825c-1.154-1.29-2.775-2.294-4.665-2.854zM16 4c-4.843 0-9.016 2.87-10.912 7H5a4 4 0 11-.636 7.95 11.969 11.969 0 001.578 3.597 9.4 9.4 0 01.627-.73c1.162-1.23 2.663-2.227 4.386-2.893h-.001l.068-.026.154-.057.152-.055.003-.001.11-.038a13.414 13.414 0 011.703-.462l.822.821L16 21.142l1.095-1.095 1.762-1.762.258.055.077.018-.28-.061.307.067.029.007.015.003-.044-.01.152.036a13.726 13.726 0 011.675.525c1.708.66 3.198 1.645 4.356 2.86.233.245.452.498.657.76.71-1.088 1.249-2.3 1.576-3.597A4 4 0 1126.911 11 12 12 0 0016 4zm0 4a5 5 0 110 10 5 5 0 010-10zM5 13a2 2 0 00-.65.108 12.027 12.027 0 00-.327 3.636A2 2 0 105 13zm22 0a2 2 0 10.977 3.746 12.027 12.027 0 00-.328-3.638A1.99 1.99 0 0027 13zm-11-3a3 3 0 100 6 3 3 0 000-6z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-174"/></svg>'
 };
 export const lgIconVideo: Icon = {
   name: 'video',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 10"><defs><path id="a" d="M11.25 5c.69 0 1.25.56 1.25 1.25v7.5c0 .69-.56 1.25-1.25 1.25h-7.5c-.69 0-1.25-.56-1.25-1.25v-7.5C2.5 5.56 3.06 5 3.75 5h7.5zm6.25.493v9.014l-3.75-2.198V7.691l3.75-2.198zm-6.25.757h-7.5v7.5h7.5v-7.5zm5.001 1.552L15 8.534v2.93l1.251.734V7.802z"/></defs><use transform="translate(-2 -5)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-175" d="M18 8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V10a2 2 0 012-2h12zm10 .789v14.422l-6-3.518v-7.386l6-3.518zM18 10H6v12h12V10zm8.002 2.483L24 13.656v4.687l2.002 1.174v-7.034z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-175"/></svg>'
 };
-export const lgIconViewOff: Icon = {
-  name: 'view-off',
+export const lgIconViewModeOff: Icon = {
+  name: 'view-mode-off',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 14"><defs><path id="a" d="M16.187 3.933a.625.625 0 010 .884l-11.49 11.49a.625.625 0 11-.884-.883l11.49-11.49a.625.625 0 01.884 0zm.024 2.629c1.234 1.265 1.914 2.683 1.914 3.558 0 1.875-3.125 6.25-8.125 6.25a8.31 8.31 0 01-3.03-.568l.983-.982c.652.196 1.337.3 2.047.3 1.939 0 3.698-.776 5.08-2.08 1.095-1.036 1.795-2.306 1.795-2.92 0-.566-.595-1.69-1.548-2.675zm-2.588 2.587A3.755 3.755 0 0110 13.87c-.336 0-.661-.044-.971-.127zM10 3.87a8.31 8.31 0 013.03.569l-.982.981A7.096 7.096 0 0010 5.12c-1.939 0-3.698.776-5.08 2.08-1.095 1.036-1.795 2.306-1.795 2.92 0 .566.595 1.691 1.548 2.675l-.884.884c-1.234-1.265-1.914-2.684-1.914-3.559C1.875 8.245 5 3.87 10 3.87zm0 2.5c.336 0 .662.044.972.127l-4.595 4.594A3.755 3.755 0 0110 6.371z"/></defs><use transform="translate(-1 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-176" d="M25.9 6.293a1 1 0 010 1.414L7.514 26.092A1 1 0 116.1 24.678L24.485 6.293a1 1 0 011.414 0zm.037 4.205C27.911 12.522 29 14.793 29 16.192c0 3-5 10-13 10-1.77 0-3.394-.342-4.848-.909l1.572-1.57c1.043.313 2.14.48 3.276.48 3.102 0 5.917-1.242 8.127-3.33C25.88 19.207 27 17.174 27 16.193c0-.907-.953-2.707-2.477-4.28zm-4.14 4.14a6 6 0 01-7.35 7.35zM16 6.193c1.77 0 3.394.343 4.85.91l-1.573 1.57A11.353 11.353 0 0016 8.193c-3.102 0-5.917 1.242-8.127 3.33C6.12 13.177 5 15.21 5 16.191c0 .906.953 2.706 2.477 4.28l-1.414 1.415C4.089 19.863 3 17.592 3 16.192c0-3 5-10 13-10zm0 4c.538 0 1.059.071 1.555.204l-7.352 7.35A6 6 0 0116 10.192z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-176"/></svg>'
+};
+export const lgIconViewModeOn: Icon = {
+  name: 'view-mode-on',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 33"><defs><path id="lg-icon-177" d="M16 10a6 6 0 110 12 6 6 0 010-12zm2 2a2 2 0 100 4 2 2 0 000-4zm-2 14c8 0 13-7 13-10S24 6 16 6 3 13 3 16s5 10 13 10zm0-2c-3.102 0-5.917-1.242-8.127-3.329C6.12 19.014 5 16.982 5 16c0-.982 1.12-3.014 2.873-4.671C10.083 9.242 12.898 8 16 8c3.102 0 5.917 1.242 8.127 3.329C25.88 12.986 27 15.018 27 16c0 .982-1.12 3.014-2.873 4.671C21.917 22.758 19.102 24 16 24z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-177"/></svg>'
 };
 export const lgIconViewTransactions: Icon = {
   name: 'view-transactions',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M17.5 11.25v6.25h-1.25v-6.25h1.25zm-6.067.183a.625.625 0 01.884 0l2.942 2.942-2.942 2.942-.087.072a.625.625 0 01-.797-.072l-.072-.087a.625.625 0 01.072-.797L12.867 15H5.625C5.343 15 5 14.72 5 14.375s.343-.625.625-.625h7.242l-1.434-1.433-.072-.087a.625.625 0 01.072-.797zM3.75 2.5v6.25H2.5V2.5h1.25zm4.817.183a.625.625 0 01.072.797l-.072.087L7.133 5h7.242c.282 0 .625.28.625.625s-.343.625-.625.625H7.133l1.434 1.433a.625.625 0 01.072.797l-.072.087a.625.625 0 01-.797.072l-.087-.072-2.942-2.942 2.942-2.942a.625.625 0 01.884 0z"/></defs><use transform="translate(-2 -2)" xlink:href="#a"/></svg>'
-};
-export const lgIconView: Icon = {
-  name: 'view',
-  data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 13"><defs><path id="a" d="M10 6.06c2.071 0 3.75 1.629 3.75 3.637s-1.679 3.636-3.75 3.636c-2.071 0-3.75-1.628-3.75-3.636S7.929 6.061 10 6.061zm1.25 1.213c-.69 0-1.25.542-1.25 1.212 0 .67.56 1.212 1.25 1.212s1.25-.543 1.25-1.212c0-.67-.56-1.212-1.25-1.212zM10 15.758c5 0 8.125-4.243 8.125-6.061 0-1.818-3.125-6.06-8.125-6.06s-8.125 4.242-8.125 6.06c0 1.818 3.125 6.06 8.125 6.06zm0-1.213c-1.939 0-3.698-.752-5.08-2.017-1.095-1.004-1.795-2.236-1.795-2.831 0-.595.7-1.827 1.796-2.83C6.302 5.6 8.06 4.847 10 4.847c1.939 0 3.698.753 5.08 2.018 1.095 1.004 1.795 2.236 1.795 2.831 0 .595-.7 1.827-1.796 2.83-1.381 1.266-3.14 2.018-5.079 2.018z"/></defs><use transform="translate(-1 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-178" d="M28 18v10h-2V18h2zm-9.707.293a1 1 0 011.414 0L24.414 23l-4.707 4.707-.094.083a1 1 0 01-1.32-.083l-.083-.094a1 1 0 01.083-1.32L20.586 24H9c-.452 0-1-.448-1-1s.548-1 1-1h11.586l-2.293-2.293-.083-.094a1 1 0 01.083-1.32zM6 4v10H4V4h2zm7.707.293a1 1 0 01.083 1.32l-.083.094L11.414 8H23c.452 0 1 .448 1 1s-.548 1-1 1H11.414l2.293 2.293a1 1 0 01.083 1.32l-.083.094a1 1 0 01-1.32.083l-.094-.083L7.586 9l4.707-4.707a1 1 0 011.414 0z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-178"/></svg>'
 };
 export const lgIconVolumeDown: Icon = {
   name: 'volume-down',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 14 14"><defs><path id="a" d="M10 3.125v13.75l-3.75-3.75H2.5v-6.25h3.75L10 3.125zM8.75 6.143L6.768 8.125H3.75v3.75h3.018l1.982 1.982V6.143zm3.125.107a3.75 3.75 0 010 7.5l-.092-.007a.625.625 0 010-1.236l.092-.007a2.5 2.5 0 100-5l-.092-.007a.625.625 0 010-1.236l.092-.007z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-179" d="M16 5v22l-6-6H4V11h6l6-6zm-2 4.828L10.828 13H6v6h4.828L14 22.172V9.828zM19 10l.225.004a6 6 0 010 11.992L19 22l-.117-.007a1 1 0 010-1.986L19 20a4 4 0 100-8l-.117-.007a1 1 0 010-1.986L19 10z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-179"/></svg>'
 };
 export const lgIconVolumeMute: Icon = {
   name: 'volume-mute',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 14"><defs><path id="a" d="M10 3.125v13.75l-3.75-3.75H2.5v-6.25h3.75L10 3.125zM8.75 6.143L6.768 8.125H3.75v3.75h3.018l1.982 1.982V6.143z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-180" d="M16 5v22l-6-6H4V11h6l6-6zm-2 4.828L10.828 13H6v6h4.828L14 22.172V9.828z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-180"/></svg>'
 };
 export const lgIconVolumeUp: Icon = {
   name: 'volume-up',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 14"><defs><path id="a" d="M10 3.125v13.75l-3.75-3.75H2.5v-6.25h3.75L10 3.125zm1.875.625a6.25 6.25 0 110 12.5l-.093-.007a.625.625 0 010-1.236l.093-.007a5 5 0 100-10l-.093-.007a.625.625 0 010-1.236l.093-.007zM8.75 6.143L6.768 8.125H3.75v3.75h3.018l1.982 1.982V6.143zm3.125.107a3.75 3.75 0 010 7.5l-.093-.007a.625.625 0 010-1.236l.093-.007a2.5 2.5 0 100-5l-.092-.007a.625.625 0 010-1.236l.092-.007z"/></defs><use transform="translate(-2 -3)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-181" d="M16 5v22l-6-6H4V11h6l6-6zm3 1l.28.004C24.673 6.152 29 10.57 29 16c0 5.43-4.327 9.848-9.72 9.996L19 26l-.117-.007a1 1 0 010-1.986l.116-.007A8 8 0 1019 8l-.117-.007a1 1 0 010-1.986L18.999 6zm-5 3.828L10.828 13H6v6h4.828L14 22.172V9.828zM19 10l.224.004a6 6 0 010 11.992L19 22l-.116-.007a1 1 0 010-1.986L19 20a4 4 0 100-8l-.116-.007a1 1 0 010-1.986L19 10z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-181"/></svg>'
 };
 export const lgIconWarningFill: Icon = {
   name: 'warning-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16"><path fill-rule="evenodd" d="M9.738.707c.194.118.357.28.475.474l6.705 12.163a1.417 1.417 0 01-1.213 2.156H2.295a1.42 1.42 0 01-1.213-2.156L7.787 1.181A1.421 1.421 0 019.738.707zM9 11.437a.937.937 0 100 1.875.937.937 0 000-1.874zm0-6.874a.938.938 0 00-.938.937v3.75a.937.937 0 101.876 0V5.5A.937.937 0 009 4.562z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M17.181 4.331c.31.189.571.449.76.759l10.727 19.46a2.267 2.267 0 01-1.94 3.45H5.271a2.27 2.27 0 01-1.94-3.449L14.058 5.09a2.274 2.274 0 013.122-.759zM16 21.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm0-11a1.5 1.5 0 00-1.5 1.5v6a1.5 1.5 0 003 0v-6a1.5 1.5 0 00-1.5-1.5z"/></svg>'
 };
 export const lgIconWarning: Icon = {
   name: 'warning',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16"><path d="M9.738.707c.194.118.357.28.475.474l6.705 12.163a1.417 1.417 0 01-1.213 2.156H2.295a1.42 1.42 0 01-1.213-2.156L7.787 1.181A1.421 1.421 0 019.738.707zm-.857 1.077L2.15 13.995a.167.167 0 00-.024.087.17.17 0 00.17.168h13.41a.172.172 0 00.089-.025c.08-.048.104-.151.029-.277L9.138 1.82a.17.17 0 00-.049-.045c-.08-.049-.186-.023-.208.01zM9 11.437a.937.937 0 110 1.875.937.937 0 010-1.874zm0-6.874c.518 0 .938.42.938.937v3.75a.937.937 0 11-1.876 0V5.5c0-.518.42-.938.938-.938z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M17.181 4.331c.31.189.571.449.76.759l10.727 19.46a2.267 2.267 0 01-1.94 3.45H5.271a2.27 2.27 0 01-1.94-3.449L14.058 5.09a2.274 2.274 0 013.122-.759zm-1.37 1.724L5.038 25.592a.267.267 0 00-.039.139.27.27 0 00.272.269h21.455c.05 0 .1-.014.143-.04.128-.077.168-.242.047-.443L16.22 6.112a.271.271 0 00-.078-.072c-.13-.078-.299-.037-.333.015zM16 21.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0-11a1.5 1.5 0 011.5 1.5v6a1.5 1.5 0 01-3 0v-6a1.5 1.5 0 011.5-1.5z"/></svg>'
 };
 export const lgIconYoutube: Icon = {
   name: 'youtube',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11"><path d="M8.192 0c.894.005 4.645.039 5.677.321a1.88 1.88 0 011.322 1.322c.272.994.305 2.898.309 3.46v.252c-.004.453-.036 2.478-.309 3.516a1.88 1.88 0 01-1.322 1.322c-1.067.281-5.044.307-5.759.31h-.22c-.713-.003-4.68-.03-5.759-.322A1.88 1.88 0 01.809 8.86C.536 7.832.504 5.8.5 5.343V5.16c.004-.454.036-2.478.309-3.517A1.918 1.918 0 012.13.31C3.162.037 6.913.005 7.808 0zM6.554 2.966v4.498l3.905-2.249-3.905-2.249z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16.24 8c1.294.006 7.472.055 9.15.514a3.007 3.007 0 012.116 2.115c.436 1.594.488 4.653.493 5.544v.41c-.006.753-.059 3.96-.493 5.611a3.007 3.007 0 01-2.116 2.116c-1.678.441-7.856.488-9.15.493h-.479c-1.292-.005-7.456-.054-9.151-.513a3.007 3.007 0 01-2.116-2.115c-.434-1.634-.487-4.854-.493-5.611v-.323c.006-.754.059-3.961.493-5.612A3.069 3.069 0 016.61 8.494c1.678-.441 7.855-.488 9.15-.493zm-2.553 4.745v7.196l6.247-3.598-6.247-3.598z"/></svg>'
 };
 export const lgIconZoomInFill: Icon = {
   name: 'zoom-in-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M8.75 2.5a6.25 6.25 0 014.84 10.205l3.727 3.728a.625.625 0 01-.797.956l-.087-.072-3.728-3.727A6.25 6.25 0 118.75 2.5zm-.092 3.132a.625.625 0 00-.533.618v1.875H6.25l-.092.007a.625.625 0 00-.533.618l.007.092a.625.625 0 00.618.533h1.875v1.875l.007.092a.625.625 0 00.618.533l.092-.007a.625.625 0 00.533-.618V9.375h1.875l.092-.007a.625.625 0 00.533-.618l-.007-.092a.625.625 0 00-.618-.533H9.375V6.25l-.007-.092a.625.625 0 00-.618-.533z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-182" d="M14 4c5.523 0 10 4.477 10 10 0 2.4-.846 4.604-2.256 6.328l5.963 5.965a1 1 0 01-1.414 1.414l-5.965-5.963A9.959 9.959 0 0114 24C8.477 24 4 19.523 4 14S8.477 4 14 4zm0 5l-.117.007A1 1 0 0013 10v3h-3l-.117.007A1 1 0 009 14l.007.117A1 1 0 0010 15h3v3l.007.117A1 1 0 0014 19l.117-.007A1 1 0 0015 18v-3h3l.117-.007A1 1 0 0019 14l-.007-.117A1 1 0 0018 13h-3v-3l-.007-.117A1 1 0 0014 9z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-182"/></svg>'
 };
 export const lgIconZoomIn: Icon = {
   name: 'zoom-in',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M8.75 2.5a6.25 6.25 0 014.84 10.205l3.727 3.728a.625.625 0 01-.797.956l-.087-.072-3.728-3.727A6.25 6.25 0 118.75 2.5zm0 1.25a5 5 0 100 10 5 5 0 000-10zm-.092 1.882l.092-.007c.314 0 .574.231.618.533l.007.092v1.875h1.875c.314 0 .574.231.618.533l.007.092a.625.625 0 01-.533.618l-.092.007H9.375v1.875a.625.625 0 01-.533.618l-.092.007a.625.625 0 01-.618-.533l-.007-.092V9.375H6.25a.625.625 0 01-.618-.533l-.007-.092c0-.314.231-.574.533-.618l.092-.007h1.875V6.25c0-.314.231-.574.533-.618l.092-.007z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-183" d="M14 4c5.523 0 10 4.477 10 10 0 2.4-.846 4.604-2.256 6.328l5.963 5.965a1 1 0 01-1.414 1.414l-5.965-5.963A9.959 9.959 0 0114 24C8.477 24 4 19.523 4 14S8.477 4 14 4zm0 2a8 8 0 100 16 8 8 0 000-16zm0 3a1 1 0 01.993.883L15 10v3h3a1 1 0 01.993.883L19 14a1 1 0 01-.883.993L18 15h-3v3a1 1 0 01-.883.993L14 19a1 1 0 01-.993-.883L13 18v-3h-3a1 1 0 01-.993-.883L9 14a1 1 0 01.883-.993L10 13h3v-3a1 1 0 01.883-.993L14 9z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-183"/></svg>'
 };
 export const lgIconZoomOutFill: Icon = {
   name: 'zoom-out-fill',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M8.75 2.5a6.25 6.25 0 014.84 10.205l3.727 3.728a.625.625 0 01-.797.956l-.087-.072-3.728-3.727A6.25 6.25 0 118.75 2.5zm1.875 5.625h-3.75a.625.625 0 100 1.25h3.75a.625.625 0 100-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-184" d="M14 4c5.523 0 10 4.477 10 10 0 2.4-.846 4.604-2.256 6.328l5.963 5.965a1 1 0 01-1.414 1.414l-5.965-5.963A9.959 9.959 0 0114 24C8.477 24 4 19.523 4 14S8.477 4 14 4zm3 9h-6a1 1 0 000 2h6a1 1 0 000-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-184"/></svg>'
 };
 export const lgIconZoomOut: Icon = {
   name: 'zoom-out',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><defs><path id="a" d="M8.75 2.5a6.25 6.25 0 014.84 10.205l3.727 3.728a.625.625 0 01-.797.956l-.087-.072-3.728-3.727A6.25 6.25 0 118.75 2.5zm0 1.25a5 5 0 100 10 5 5 0 000-10zm1.875 4.375a.625.625 0 110 1.25h-3.75a.625.625 0 110-1.25z"/></defs><use fill-rule="evenodd" transform="translate(-2 -2)" xlink:href="#a"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="lg-icon-185" d="M14 4c5.523 0 10 4.477 10 10 0 2.4-.846 4.604-2.256 6.328l5.963 5.965a1 1 0 01-1.414 1.414l-5.965-5.963A9.959 9.959 0 0114 24C8.477 24 4 19.523 4 14S8.477 4 14 4zm0 2a8 8 0 100 16 8 8 0 000-16zm3 7a1 1 0 010 2h-6a1 1 0 010-2z"/></defs><use fill-rule="evenodd" xlink:href="#lg-icon-185"/></svg>'
 };
 export type IconName =
   | 'add'
+  | 'align-centre'
+  | 'align-left'
+  | 'align-right'
   | 'analytics'
   | 'announcement'
+  | 'arrow-decreasing'
   | 'arrow-down'
+  | 'arrow-increasing'
   | 'arrow-left'
   | 'arrow-right'
   | 'arrow-up'
   | 'at'
   | 'attach'
-  | 'bar-chart'
   | 'blog'
   | 'bolt'
   | 'bookmark-fill'
@@ -1220,6 +1299,10 @@ export type IconName =
   | 'caret-right'
   | 'caret-up'
   | 'cart'
+  | 'chart-bar'
+  | 'chart-donut'
+  | 'chart-line'
+  | 'chart-pie'
   | 'chat-group'
   | 'chat'
   | 'checkbox-checked'
@@ -1228,16 +1311,16 @@ export type IconName =
   | 'checkmark-spot-fill'
   | 'checkmark-spot'
   | 'checkmark'
-  | 'chevron-down-fill'
+  | 'chevron-down-filled'
   | 'chevron-down-slim'
   | 'chevron-down'
+  | 'chevron-left-circle'
   | 'chevron-left-slim'
-  | 'chevron-left-spot'
   | 'chevron-left'
+  | 'chevron-right-circle'
   | 'chevron-right-slim'
-  | 'chevron-right-spot'
   | 'chevron-right'
-  | 'chevron-up-fill'
+  | 'chevron-up-filled'
   | 'chevron-up-slim'
   | 'chevron-up'
   | 'close-spot'
@@ -1267,8 +1350,7 @@ export type IconName =
   | 'document-subtract'
   | 'document-tasks'
   | 'document'
-  | 'donut-chart'
-  | 'dowload'
+  | 'download'
   | 'drag-handle'
   | 'drilldown'
   | 'edit'
@@ -1279,24 +1361,28 @@ export type IconName =
   | 'exit-fill'
   | 'exit'
   | 'export'
-  | 'face-dissastisfied-fill'
-  | 'face-dissastisfied'
+  | 'face-dissatisfied-fill'
+  | 'face-dissatisfied'
   | 'face-happy-fill'
-  | 'face-happy-outline'
+  | 'face-happy'
   | 'face-neutral-fill'
   | 'face-neutral'
+  | 'face-satisfied-fill'
+  | 'face-satisfied'
+  | 'face-unhappy-fill'
   | 'facebook'
   | 'family'
   | 'favourite-fill'
   | 'favourite'
-  | 'female'
   | 'filter'
   | 'folder-add'
   | 'folder'
   | 'follow'
   | 'forum'
   | 'funds'
-  | 'furniture'
+  | 'furntiure'
+  | 'gender-female'
+  | 'gender-male'
   | 'gif'
   | 'github'
   | 'globe'
@@ -1308,6 +1394,7 @@ export type IconName =
   | 'group'
   | 'guillemet-left'
   | 'guillemet-right'
+  | 'hamburger-menu'
   | 'hd'
   | 'hdr'
   | 'hedging-currency'
@@ -1323,11 +1410,12 @@ export type IconName =
   | 'information'
   | 'insert'
   | 'instagram'
+  | 'junior-isa'
+  | 'landlord'
   | 'launch'
   | 'learn'
   | 'like-fill'
   | 'like'
-  | 'line-chart'
   | 'link-external'
   | 'link'
   | 'linkedin'
@@ -1337,18 +1425,14 @@ export type IconName =
   | 'list'
   | 'location-arrow'
   | 'location'
-  | 'lock-fill'
-  | 'lock-open-fill'
-  | 'lock-open'
-  | 'lock'
+  | 'locked-fill'
+  | 'locked'
   | 'ma-lgi'
   | 'mail'
-  | 'male'
   | 'map'
   | 'maximise'
-  | 'menu'
   | 'microphone-off'
-  | 'microphone'
+  | 'microphone-on'
   | 'minimise'
   | 'misuse-fill'
   | 'misuse'
@@ -1357,10 +1441,11 @@ export type IconName =
   | 'money'
   | 'move'
   | 'new-tab'
+  | 'news'
   | 'notes'
   | 'notification-off'
-  | 'notification'
-  | 'open-new-window'
+  | 'notification-on'
+  | 'open-in-new-window'
   | 'overflow-horizontal'
   | 'overflow-vertical'
   | 'overlay'
@@ -1370,22 +1455,23 @@ export type IconName =
   | 'password'
   | 'pause'
   | 'pdf'
+  | 'pension-pot'
   | 'person'
   | 'pet'
   | 'phone-off'
-  | 'phone'
-  | 'pie-chart'
+  | 'phone-on'
   | 'play-spot'
   | 'play'
   | 'png'
   | 'pop-up'
-  | 'presentation'
+  | 'presentation-file'
   | 'printer'
   | 'profile'
   | 'query-fill'
   | 'query'
   | 'radio-button-selected'
-  | 'radio-button'
+  | 'radio-button-unselected'
+  | 'recommend'
   | 'renew'
   | 'repeat'
   | 'reply'
@@ -1405,7 +1491,7 @@ export type IconName =
   | 'settings'
   | 'share'
   | 'sign-in'
-  | 'signature'
+  | 'sign'
   | 'skip-back'
   | 'skip-forward'
   | 'slack'
@@ -1418,14 +1504,18 @@ export type IconName =
   | 'switch-funds'
   | 'tag'
   | 'time'
-  | 'trashcan'
+  | 'trash'
   | 'twitter'
+  | 'unhappy'
+  | 'unlocked-fill'
+  | 'unlocked'
   | 'upload'
+  | 'user-online'
   | 'users'
   | 'video'
-  | 'view-off'
+  | 'view-mode-off'
+  | 'view-mode-on'
   | 'view-transactions'
-  | 'view'
   | 'volume-down'
   | 'volume-mute'
   | 'volume-up'
