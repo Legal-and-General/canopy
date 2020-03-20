@@ -43,14 +43,17 @@ describe('LgIconComponent', () => {
   describe('setting the name', () => {
     it('should append the correct svg element to the component', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
+      expect(fixture.nativeElement.querySelector('#lg-icon-0')).toBeNull();
 
       when(iconRegistryMock.getIcon('add')).thenReturn(
         '<svg id="test">test-svg</svg>'
       );
 
       component.name = 'add';
+      fixture.detectChanges();
 
-      expect(fixture.nativeElement.querySelector('#test')).toBeTruthy();
+      expect(fixture.nativeElement.querySelector('#test')).toBeNull();
+      expect(fixture.nativeElement.querySelector('#lg-icon-0')).toBeDefined();
     });
   });
 });
