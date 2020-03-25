@@ -1,4 +1,10 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   FormBuilder,
@@ -7,6 +13,8 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+
+import { skip } from 'rxjs/operators';
 
 import { LgFormsModule } from '..';
 import { LgHintComponent } from '../hint/hint.component';
@@ -34,11 +42,18 @@ class TestDateInputComponent {
     return this.form.controls.dateOfBirth.disabled;
   }
 
+  @Output() dateChange: EventEmitter<{
+    dateOfBirth: string;
+  }> = new EventEmitter();
+
   form: FormGroup;
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
       dateOfBirth: { value: null, disabled: false }
+    });
+    this.form.valueChanges.subscribe(val => {
+      this.dateChange.emit(val);
     });
   }
 }
@@ -92,6 +107,16 @@ describe('LgDateFieldComponent', () => {
     expect(dateInput.nativeElement.value).toEqual(date);
   });
 
+  it('sets the date as null when either of individual input field  value is not provided', () => {
+    dateInput.nativeElement.value = '';
+    dateInput.nativeElement.dispatchEvent(new Event('input'));
+    monthInput.nativeElement.value = '05';
+    monthInput.nativeElement.dispatchEvent(new Event('input'));
+    yearInput.nativeElement.value = '1970';
+    yearInput.nativeElement.dispatchEvent(new Event('input'));
+    expect(component.form.controls.dateOfBirth.value).toEqual(null);
+  });
+
   it('sets the individual input fields to the empty string when no date value is provided', () => {
     expect(yearInput.nativeElement.value).toEqual('');
     expect(monthInput.nativeElement.value).toEqual('');
@@ -121,13 +146,13 @@ describe('LgDateFieldComponent', () => {
 
   it('joins the individual fields to an ISO date string when an input field is changed', () => {
     yearInput.nativeElement.value = 1944;
-    yearInput.nativeElement.dispatchEvent(new Event('input'));
+    yearInput.nativeElement.dispatchEvent(new Event('change'));
 
     monthInput.nativeElement.value = 3;
-    monthInput.nativeElement.dispatchEvent(new Event('input'));
+    monthInput.nativeElement.dispatchEvent(new Event('change'));
 
     dateInput.nativeElement.value = 7;
-    dateInput.nativeElement.dispatchEvent(new Event('input'));
+    dateInput.nativeElement.dispatchEvent(new Event('change'));
 
     expect(component.form.controls.dateOfBirth.value).toEqual('1944-03-07');
   });
@@ -138,5 +163,29 @@ describe('LgDateFieldComponent', () => {
       true
     );
     expect(/lg-input-date-\d{1,3}/.test(dateInput.nativeElement.id)).toBe(true);
+  });
+
+  it('publishes a change of null when date is not complete', done => {
+    component.dateChange.subscribe(change => {
+      expect(change.dateOfBirth).toBeNull();
+      done();
+    });
+    yearInput.nativeElement.value = 1944;
+    yearInput.nativeElement.dispatchEvent(new Event('change'));
+    monthInput.nativeElement.value = 3;
+    monthInput.nativeElement.dispatchEvent(new Event('change'));
+  });
+
+  it('publishes a change when the user enters a date', done => {
+    component.dateChange.pipe(skip(2)).subscribe(change => {
+      expect(change.dateOfBirth).toBe('1944-03-07');
+      done();
+    });
+    yearInput.nativeElement.value = 1944;
+    yearInput.nativeElement.dispatchEvent(new Event('change'));
+    monthInput.nativeElement.value = 3;
+    monthInput.nativeElement.dispatchEvent(new Event('change'));
+    dateInput.nativeElement.value = 7;
+    dateInput.nativeElement.dispatchEvent(new Event('change'));
   });
 });

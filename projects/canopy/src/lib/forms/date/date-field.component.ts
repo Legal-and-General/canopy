@@ -71,11 +71,15 @@ export class LgDateFieldComponent implements ControlValueAccessor, OnDestroy {
     });
     this.valueChanges = this.dateForm.valueChanges.subscribe(
       (date: DateField) => {
-        this.onChange(
-          `${date.year}-${('0' + date.month).slice(-2)}-${(
-            '0' + date.date
-          ).slice(-2)}`
-        );
+        if (!date.year || !date.month || !date.date) {
+          this.onChange(null);
+        } else {
+          this.onChange(
+            `${date.year}-${('0' + date.month).slice(-2)}-${(
+              '0' + date.date
+            ).slice(-2)}`
+          );
+        }
       }
     );
   }

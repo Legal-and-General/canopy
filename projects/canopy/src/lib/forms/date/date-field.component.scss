@@ -17,3 +17,8 @@
   flex-direction: column;
   margin-right: var(--space-sm);
 }
+
+.lg-date-field__month,
+.lg-date-field__date {
+  width: 4rem;
+}
