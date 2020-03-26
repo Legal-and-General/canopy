@@ -3,19 +3,21 @@
 .lg-breadcrumb-item {
   display: none;
   align-items: center;
-  margin-right: var(--space-sm);
+  margin-right: var(--space-xxs);
 
   @include lg-breakpoint('md') {
     display: flex;
+  }
 
-    .lg-icon {
+  .lg-icon {
+    @include lg-breakpoint('md') {
       display: inline;
     }
   }
 
   &__content {
     .lg-icon {
-      margin-right: var(--space-sm);
+      margin-right: var(--space-xxs);
     }
   }
 
@@ -58,7 +60,7 @@
   }
 
   &__icon-backward {
-    margin-right: var(--space-sm);
+    margin-right: var(--space-xxs);
 
     &.lg-icon {
       display: inline;
@@ -66,21 +68,21 @@
   }
 
   &__icon-forward {
-    margin-left: var(--space-sm);
+    margin-left: var(--space-xxs);
   }
 
   &__icon-wrapper {
     .lg-breadcrumb-item__icon-forward {
       display: none;
+
+      @include lg-breakpoint('md') {
+        display: flex;
+      }
     }
 
-    @include lg-breakpoint('md') {
-      .lg-breadcrumb-item__icon-backward {
+    .lg-breadcrumb-item__icon-backward {
+      @include lg-breakpoint('md') {
         display: none;
-      }
-
-      .lg-breadcrumb-item__icon-forward {
-        display: flex;
       }
     }
   }
