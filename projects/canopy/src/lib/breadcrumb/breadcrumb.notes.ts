@@ -60,18 +60,19 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
 
 ### Examples:
 ~~~html
-<lg-breadcrumb class="lg-breadcrumb" aria-label="breadcrumb" role="navigation">
-    <lg-breadcrumb-item class="lg-breadcrumb-item--dark lg-breadcrumb-item">
-        <span class="lg-breadcrumb-item__content">
-            <span class="lg-visually-hidden">1.</span>
-            <a href="#" aria-current="page">Home</a>
-        </span>
-    </lg-breadcrumb-item>
-</lg-breadcrumb>
+<div class="lg-breadcrumb" aria-label="breadcrumb" role="navigation">
+  <div class="lg-breadcrumb-item--dark lg-breadcrumb-item">
+    <span class="lg-breadcrumb-item__content">
+      <span class="lg-visually-hidden">1.</span>
+      <a href="#" aria-current="page">Home</a>
+    </span>
+  </div>
+    <div class="lg-breadcrumb-item--dark lg-breadcrumb-item">
+      <span class="lg-breadcrumb-item__content">
+        <span class="lg-visually-hidden">2.</span>
+        <a href="#" aria-current="page">Product</a>
+      </span>
+  </div>
+</div>
 ~~~
-
-
-## Known Issues
-
-Some icons are larger than desired. This has been raised in issue [#183](https://github.com/canopy-collective/canopy/issues/183)
 `;
