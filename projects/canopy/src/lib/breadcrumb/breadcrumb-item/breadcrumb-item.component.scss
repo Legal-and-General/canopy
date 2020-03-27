@@ -56,6 +56,7 @@
 
     a:focus {
       @include lg-outer-focus-outline(var(--default-focus-color));
+
       background-color: transparent;
     }
   }

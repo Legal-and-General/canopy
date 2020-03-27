@@ -35,8 +35,7 @@ export class LgBreadcrumbStoryComponent {
 @NgModule({
   imports: [LgIconModule, LgBreadcrumbModule],
   exports: [LgBreadcrumbStoryComponent],
-  declarations: [LgBreadcrumbStoryComponent],
-  providers: []
+  declarations: [LgBreadcrumbStoryComponent]
 })
 export class LgBreadcrumbStoryModule {
   constructor(private registry: LgIconRegistry) {
