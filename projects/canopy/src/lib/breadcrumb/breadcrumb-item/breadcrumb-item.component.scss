@@ -55,7 +55,8 @@
     }
 
     a:focus {
-      color: var(--breadcrumb-light-color);
+      @include lg-outer-focus-outline(var(--default-focus-color));
+      background-color: transparent;
     }
   }
 

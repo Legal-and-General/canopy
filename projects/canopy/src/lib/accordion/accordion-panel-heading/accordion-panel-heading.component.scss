@@ -7,26 +7,32 @@
   border: 0;
   border-top: solid var(--border-width) var(--accordion-border-color);
   cursor: pointer;
-  display: block;
+  //display: block;
   padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-xxl);
   position: relative;
   text-align: left;
   width: 100%;
   line-height: var(--line-height-body);
+  display: flex;
+  align-items: flex-start;
 
   &:focus {
     @include lg-inner-focus-outline(var(--default-focus-color));
   }
 
   .lg-accordion__heading-icon {
-    transition: transform var(--animation-duration) var(--animation-fn);
-    position: absolute;
-    left: 0;
-    top: calc(50% - var(--icon-width) / 2);
-    margin-left: var(--space-sm);
-    margin-right: var(--space-sm);
-    pointer-events: none;
+    margin-left: auto;
   }
+
+  //.lg-accordion__heading-icon {
+  //  transition: transform var(--animation-duration) var(--animation-fn);
+  //  position: absolute;
+  //  left: 0;
+  //  top: calc(50% - var(--icon-width) / 2);
+  //  margin-left: var(--space-sm);
+  //  margin-right: var(--space-sm);
+  //  pointer-events: none;
+  //}
 
   &--active .lg-accordion__heading-icon {
     transform: rotateX(180deg);
