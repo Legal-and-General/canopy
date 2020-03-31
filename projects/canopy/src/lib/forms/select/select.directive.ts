@@ -1,4 +1,14 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import {
+  Directive,
+  Host,
+  HostBinding,
+  Input,
+  Optional,
+  Self,
+  SkipSelf
+} from '@angular/core';
+import { FormGroupDirective, NgControl } from '@angular/forms';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 
 let nextUniqueId = 0;
 
@@ -6,7 +16,19 @@ let nextUniqueId = 0;
   selector: '[lgSelect]'
 })
 export class LgSelectDirective {
-  @HostBinding('class.lg-select__field') class = true;
+  @HostBinding('class.lg-select') class = true;
+  @HostBinding('class.lg-select--block')
+  public get blockClass() {
+    return this.block;
+  }
+
+  @HostBinding('attr.aria-invalid')
+  @HostBinding('class.lg-select--error')
+  public get errorClass() {
+    return this.errorState.isControlInvalid(this.control, this.controlContainer);
+  }
+
+  @Input() block = false;
 
   @Input()
   @HostBinding('name')
@@ -18,5 +40,14 @@ export class LgSelectDirective {
 
   @Input()
   @HostBinding('attr.aria-describedby')
-  ariaDescribedBy: string;
+  ariaDescribedBy = '';
+
+  constructor(
+    @Self() @Optional() public control: NgControl,
+    private errorState: LgErrorStateMatcher,
+    @Optional()
+    @Host()
+    @SkipSelf()
+    public controlContainer: FormGroupDirective
+  ) {}
 }

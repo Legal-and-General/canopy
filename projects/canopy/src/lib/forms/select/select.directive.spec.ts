@@ -1,0 +1,86 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DebugElement
+} from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+import { By } from '@angular/platform-browser';
+
+import { LgFormsModule } from '../forms.module';
+import { LgSelectDirective } from '../select/select.directive';
+
+@Component({
+  template: `
+    <form (ngSubmit)="login()" [formGroup]="form">
+      <select lgSelect formControlName="name">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+      </select>
+    </form>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+class TestSelectComponent {
+  form = new FormGroup({
+    name: new FormControl('', [Validators.required])
+  });
+}
+
+describe('LgSelectDirective', () => {
+  let fixture: ComponentFixture<TestSelectComponent>;
+  let component: TestSelectComponent;
+  let selectDebugElement: DebugElement;
+  let selectInstance: LgSelectDirective;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
+      declarations: [TestSelectComponent]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(TestSelectComponent);
+    component = fixture.componentInstance;
+
+    selectDebugElement = fixture.debugElement.query(
+      By.directive(LgSelectDirective)
+    );
+
+    selectInstance = selectDebugElement.injector.get<LgSelectDirective>(
+      LgSelectDirective
+    );
+  }));
+
+  it('adds a unique name', () => {
+    fixture.detectChanges();
+    expect(selectDebugElement.nativeElement.name).toContain('lg-select-');
+  });
+
+  it('adds a unique id', () => {
+    fixture.detectChanges();
+    expect(selectDebugElement.nativeElement.id).toContain('lg-select-');
+  });
+
+  it('adds an error class when the field has a validation error', () => {
+    component.form.get('name').markAsDirty();
+    component.form.get('name').markAsTouched();
+    fixture.detectChanges();
+    expect(selectDebugElement.nativeElement.className).toContain(
+      'lg-select--error'
+    );
+  });
+
+  it('removes the error class when the field is valid', () => {
+    component.form.get('name').setValue('test');
+    component.form.get('name').markAsTouched();
+    expect(selectDebugElement.nativeElement.className).not.toContain(
+      'lg-input--error'
+    );
+  });
+});

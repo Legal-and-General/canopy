@@ -1,0 +1,57 @@
+@import '../../../styles/mixins';
+
+:root {
+  --select-icon-width: 0.875rem;
+}
+
+.lg-select {
+  border: solid var(--border-width) var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: calc(var(--space-xs) - var(--border-width))
+    calc(var(--select-icon-width) + (2 * var(--space-sm)))
+    calc(var(--space-xs) - var(--border-width)) var(--space-sm);
+  line-height: var(--line-height-sm);
+  background-color: var(--color-white);
+  outline: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  max-width: 100%;
+
+  &:hover {
+    border-color: var(--border-hover-color);
+  }
+
+  &:focus {
+    border-left-width: var(--keyline-width);
+    border-color: var(--border-focus-color);
+    padding-left: calc(
+      var(--space-sm) - var(--keyline-width) + var(--border-width)
+    );
+    @include lg-outer-focus-outline();
+  }
+
+  &:disabled {
+    color: var(--disabled-color);
+    background-color: var(--background-disabled-color);
+    border-color: var(--border-disabled-color);
+  }
+
+  &--error,
+  &--error:hover {
+    color: var(--form-error-color);
+    border-color: var(--form-border-error-color);
+
+    &:focus {
+      color: inherit;
+      border-color: inherit;
+    }
+  }
+
+  &--block {
+    width: 100%;
+
+    @include lg-breakpoint('md') {
+      width: auto;
+    }
+  }
+}
