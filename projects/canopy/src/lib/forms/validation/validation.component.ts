@@ -23,7 +23,7 @@ export class LgValidationComponent {
 
   @Input() showIcon = true;
 
-  _variant: ValidationVariant = 'error';
+  _variant: ValidationVariant = null;
   @Input()
   set variant(variant: ValidationVariant) {
     if (this._variant) {
@@ -46,5 +46,7 @@ export class LgValidationComponent {
   @Input()
   id = `lg-validation-${nextUniqueId++}`;
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+    this.variant = 'error';
+  }
 }
