@@ -1,8 +1,8 @@
 <fieldset [attr.aria-describedby]="ariaDescribedBy">
   <legend lg-label>
     <ng-content></ng-content>
-    <ng-content select="lg-hint"></ng-content>
   </legend>
+  <ng-content select="lg-hint"></ng-content>
   <div class="lg-date-field__fields" [formGroup]="dateForm">
     <div class="lg-date-field__date">
       <label lg-label [for]="dateId">Day</label>
