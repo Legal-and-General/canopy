@@ -17,7 +17,7 @@ Import the component in your module:
 and in your HTML:
 
 ~~~
-<button lg-button type="button" [variant]="primary">Button</button>
+<button lg-button type="button" [variant]="solid-primary">Button</button>
 ~~~
 
 or:
