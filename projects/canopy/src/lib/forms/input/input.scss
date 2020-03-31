@@ -1,6 +1,7 @@
 @import '../../../styles/mixins.scss';
 
 .lg-input {
+  display: block;
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
   line-height: var(--line-height-sm);
@@ -13,32 +14,43 @@
     -webkit-appearance: none;
     margin: 0;
   }
-}
 
-.lg-input--block {
-  width: 100%;
-
-  @include lg-breakpoint('md') {
-    width: auto;
+  &:hover {
+    border-color: var(--border-hover-color);
   }
-}
 
-.lg-input:hover {
-  border-color: var(--border-hover-color);
-}
+  &:focus {
+    border-left-width: var(--keyline-width);
+    border-color: var(--border-focus-color);
+    padding-left: calc(
+      var(--space-sm) - var(--keyline-width) + var(--border-width)
+    );
 
-.lg-input:focus {
-  border-left-width: var(--keyline-width);
-  border-color: var(--border-focus-color);
-  padding-left: calc(
-    var(--space-sm) - var(--keyline-width) + var(--border-width)
-  );
+    @include lg-outer-focus-outline();
+  }
 
-  @include lg-outer-focus-outline();
-}
+  &:disabled {
+    color: var(--disabled-color);
+    background-color: var(--background-disabled-color);
+    border-color: var(--border-disabled-color);
+  }
 
-.lg-input:disabled {
-  color: var(--disabled-color);
-  background-color: var(--background-disabled-color);
-  border-color: var(--border-disabled-color);
+  &--error,
+  &--error:hover {
+    color: var(--form-error-color);
+    border-color: var(--form-error-border-color);
+
+    &:focus {
+      color: inherit;
+      border-color: inherit;
+    }
+  }
+
+  &--block {
+    width: 100%;
+
+    @include lg-breakpoint('md') {
+      width: auto;
+    }
+  }
 }

@@ -8,7 +8,8 @@ import {
   FormControl,
   FormGroup,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  Validators
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
@@ -25,7 +26,7 @@ import { LgInputDirective } from '../input/input.directive';
 })
 class TestInputComponent {
   form = new FormGroup({
-    name: new FormControl('')
+    name: new FormControl('', [Validators.required])
   });
 }
 
@@ -61,5 +62,29 @@ describe('LgInputDirective', () => {
   it('adds a unique id', () => {
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.id).toContain('lg-input-');
+  });
+
+  it('adds a block class when the block property is set', () => {
+    inputInstance.block = true;
+    fixture.detectChanges();
+    expect(inputDebugElement.nativeElement.className).toContain(
+      'lg-input--block'
+    );
+  });
+
+  it('adds an error class when the field has a validation error', () => {
+    component.form.get('name').markAsTouched();
+    fixture.detectChanges();
+    expect(inputDebugElement.nativeElement.className).toContain(
+      'lg-input--error'
+    );
+  });
+
+  it('removes the error class when the field is valid', () => {
+    component.form.get('name').setValue('test');
+    component.form.get('name').markAsTouched();
+    expect(inputDebugElement.nativeElement.className).not.toContain(
+      'lg-input--error'
+    );
   });
 });

@@ -1,4 +1,14 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import {
+  Directive,
+  Host,
+  HostBinding,
+  Input,
+  Optional,
+  Self,
+  SkipSelf
+} from '@angular/core';
+import { FormGroupDirective, NgControl } from '@angular/forms';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 
 let nextUniqueId = 0;
 
@@ -10,6 +20,12 @@ export class LgInputDirective {
   @HostBinding('class.lg-input--block')
   public get blockClass() {
     return this.block;
+  }
+
+  @HostBinding('attr.aria-invalid')
+  @HostBinding('class.lg-input--error')
+  public get errorClass() {
+    return this.errorState.isControlInvalid(this.control, this.controlContainer);
   }
 
   @Input() block = false;
@@ -29,4 +45,13 @@ export class LgInputDirective {
   @Input()
   @HostBinding('attr.aria-describedby')
   ariaDescribedBy: string;
+
+  constructor(
+    @Self() @Optional() public control: NgControl,
+    private errorState: LgErrorStateMatcher,
+    @Optional()
+    @Host()
+    @SkipSelf()
+    private controlContainer: FormGroupDirective
+  ) {}
 }
