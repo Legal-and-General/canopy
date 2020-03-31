@@ -1,107 +1,88 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DebugElement,
-  Input
-} from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { CanopyModule } from '../../canopy.module';
+import { MockComponents, MockRender } from 'ng-mocks';
+
 import { LgHintComponent } from '../hint';
 import { LgInputFieldComponent } from '../input/input-field.component';
 import { LgLabelComponent } from '../label';
+import { LgValidationComponent } from '../validation/validation.component';
 import { LgInputDirective } from './input.directive';
 
-@Component({
-  template: `
-    <form (ngSubmit)="login()" [formGroup]="form">
-      <lg-input-field [block]="block">
-        Name
-        <lg-hint>Full name including surname</lg-hint>
-        <input lgInput formControlName="name" />
-      </lg-input-field>
-    </form>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-class TestInputComponent {
-  @Input() block: boolean;
-
-  form = new FormGroup({
-    name: new FormControl('')
-  });
-}
-
 describe('LgInputFieldComponent', () => {
-  let fixture: ComponentFixture<TestInputComponent>;
-  let component: TestInputComponent;
+  let fixture: ComponentFixture<LgInputFieldComponent>;
+  let labelInstance: LgLabelComponent;
+  let inputDirectiveInstance: LgInputDirective;
+  let inputFieldInstance: LgInputFieldComponent;
   let inputFieldDebugElement: DebugElement;
-  let labelDebugElement: DebugElement;
-  let inputDebugElement: DebugElement;
-  let hintDebugElement: DebugElement;
-  let inputDebugInstance: LgInputFieldComponent;
+
+  const errorId = 'test-error-id';
+  const hintId = 'test-hint-id';
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CanopyModule, FormsModule, ReactiveFormsModule],
-      declarations: [TestInputComponent]
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [
+        LgInputFieldComponent,
+        MockComponents(
+          LgInputDirective,
+          LgValidationComponent,
+          LgLabelComponent,
+          LgHintComponent
+        )
+      ]
     }).compileComponents();
+  }));
 
-    fixture = TestBed.createComponent(TestInputComponent);
-    component = fixture.componentInstance;
+  function renderComponent({ block } = { block: false }) {
+    fixture = MockRender(`
+      <lg-input-field [block]="${block}">
+        Label
+        <input lgInput />
+        <lg-hint id="${hintId}">Hint</lg-hint>
+        <lg-validation id="${errorId}">Error</lg-validation>
+      </lg-input-field>
+    `);
+    fixture.detectChanges();
 
     inputFieldDebugElement = fixture.debugElement.query(
       By.directive(LgInputFieldComponent)
     );
 
-    inputDebugElement = fixture.debugElement.query(
+    inputFieldInstance = inputFieldDebugElement.componentInstance;
+
+    labelInstance = fixture.debugElement.query(By.directive(LgLabelComponent))
+      .componentInstance;
+
+    inputDirectiveInstance = fixture.debugElement.query(
       By.directive(LgInputDirective)
-    );
+    ).componentInstance;
+  }
 
-    inputDebugInstance = inputFieldDebugElement.componentInstance;
-
-    labelDebugElement = fixture.debugElement.query(
-      By.directive(LgLabelComponent)
-    );
-
-    hintDebugElement = fixture.debugElement.query(
-      By.directive(LgHintComponent)
-    );
-  }));
-
-  it('adds appropriate for attribute to the label', () => {
-    fixture.detectChanges();
-    expect(labelDebugElement.nativeElement.getAttribute('for')).toEqual(
-      inputDebugElement.nativeElement.getAttribute('id')
-    );
-  });
-
-  it('adds a unique id', () => {
-    fixture.detectChanges();
-    expect(inputDebugElement.nativeElement.getAttribute('id')).toContain(
-      'lg-input-'
-    );
-  });
-
-  it('adds the block property to the input field', () => {
-    component.block = true;
-    fixture.detectChanges();
-    expect(inputDebugElement.componentInstance.block).toEqual(true);
+  it('adds the for attribute to the label', () => {
+    renderComponent();
+    expect(labelInstance.for).toEqual(inputDirectiveInstance.id);
   });
 
   it('links the hint to the input field with the correct aria attributes', () => {
-    fixture.detectChanges();
-    const id = hintDebugElement.nativeElement.getAttribute('id');
-    expect(id).toBeTruthy();
-    expect(
-      inputDebugElement.nativeElement.getAttribute('aria-describedby')
-    ).toBe(id);
+    renderComponent();
+    expect(inputDirectiveInstance.ariaDescribedBy).toContain(hintId);
+  });
+
+  it('links the error to the input field with the correct aria attributes', () => {
+    renderComponent();
+    expect(inputDirectiveInstance.ariaDescribedBy).toContain(errorId);
+  });
+
+  it('combines both the hint and error ids to create the aria described attribute', () => {
+    renderComponent();
+    expect(inputDirectiveInstance.ariaDescribedBy).toBe(`${hintId} ${errorId}`);
+  });
+
+  it('sets the input element to block if block property is set', () => {
+    renderComponent({ block: true });
+    expect(inputDirectiveInstance.block).toBe(true);
   });
 });
