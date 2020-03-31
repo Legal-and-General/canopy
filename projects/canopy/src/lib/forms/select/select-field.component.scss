@@ -1,69 +1,32 @@
 @import './select.scss';
 @import '../../../styles/mixins';
 
-:root {
-  --select-icon-width: 0.875rem;
-}
-
-.lg-select {
+.lg-select-field {
   display: block;
   margin-bottom: var(--component-margin);
   background-color: var(--color-white);
   line-height: var(--line-height-sm);
 }
 
-.lg-select__wrapper {
+.lg-select-field__outer {
+  display: block;
+}
+
+.lg-select-field__inner {
   position: relative;
   display: inline-block;
   max-width: 100%;
-}
 
-.lg-select__wrapper--block {
-  width: 100%;
-
-  @include lg-breakpoint('md') {
-    width: auto;
-  }
-
-  .lg-select__field {
+  &--block {
     width: 100%;
+
+    @include lg-breakpoint('md') {
+      width: auto;
+    }
   }
 }
 
-.lg-select__field {
-  border: solid var(--border-width) var(--border-color);
-  border-radius: var(--border-radius-sm);
-  padding: calc(var(--space-xs) - var(--border-width))
-    calc(var(--select-icon-width) + (2 * var(--space-sm)))
-    calc(var(--space-xs) - var(--border-width)) var(--space-sm);
-  line-height: var(--line-height-sm);
-  background-color: var(--color-white);
-  outline: 0;
-  appearance: none;
-  -webkit-appearance: none;
-  max-width: 100%;
-}
-
-.lg-select__field:hover {
-  border-color: var(--border-hover-color);
-}
-
-.lg-select__field:focus {
-  border-left-width: var(--keyline-width);
-  border-color: var(--border-focus-color);
-  padding-left: calc(
-    var(--space-sm) - var(--keyline-width) + var(--border-width)
-  );
-  @include lg-outer-focus-outline();
-}
-
-.lg-select__field:disabled {
-  color: var(--disabled-color);
-  background-color: var(--background-disabled-color);
-  border-color: var(--border-disabled-color);
-}
-
-.lg-select__icon {
+.lg-select-field__icon {
   position: absolute;
   right: 0;
   top: calc(50% - var(--icon-width) / 2);
@@ -71,7 +34,15 @@
   margin-right: var(--space-sm);
   pointer-events: none;
 
-  .lg-select__field:disabled + & {
+  .lg-select-field--error & {
+    color: var(--form-error-border-color);
+  }
+
+  .lg-select-field--error *:focus + & {
+    color: inherit;
+  }
+
+  .lg-select-field:disabled & {
     color: var(--disabled-color);
   }
 }
