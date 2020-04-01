@@ -21,6 +21,7 @@ function loadStories() {
   require('../projects/canopy/src/lib/forms/radio/radio.stories');
   require('../projects/canopy/src/lib/forms/select/select.stories');
   require('../projects/canopy/src/lib/forms/toggle/toggle.stories');
+  require('../projects/canopy/src/lib/forms/validation/form.stories');
   require('../projects/canopy/src/lib/forms/validation/validation.stories');
   require('../projects/canopy/src/lib/grid/grid.stories');
   require('../projects/canopy/src/lib/header/header.stories');

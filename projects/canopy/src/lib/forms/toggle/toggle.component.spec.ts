@@ -33,7 +33,7 @@ const validationTestId = 'test-validation-id';
         I will bring my Umbrella if it is raining
         <lg-validation
           id="${validationTestId}"
-          *ngIf="isErrorState(umbrella, testForm)"
+          *ngIf="isControlInvalid(umbrella, testForm)"
         >
           You must agree to the terms and conditions
         </lg-validation>
@@ -59,8 +59,8 @@ class TestToggleComponent {
     });
   }
 
-  isErrorState(control: NgControl, form: FormGroupDirective) {
-    return this.errorState.isErrorState(control, form);
+  isControlInvalid(control: NgControl, form: FormGroupDirective) {
+    return this.errorState.isControlInvalid(control, form);
   }
 }
 
@@ -179,7 +179,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('links the error to the fieldset with the correct aria attributes', () => {
-    when(errorStateMatcherMock.isErrorState(anything(), anything())).thenReturn(
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
       true
     );
     fixture.detectChanges();
@@ -192,7 +192,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('adds the error class if the form field is invalid', () => {
-    when(errorStateMatcherMock.isErrorState(anything(), anything())).thenReturn(
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
       true
     );
     fixture.detectChanges();

@@ -41,7 +41,7 @@ export class LgToggleComponent implements ControlValueAccessor {
 
   @HostBinding('class.lg-toggle') class = true;
   @HostBinding('class.lg-toggle--error') get errorClass() {
-    return this.errorState.isErrorState(this.control, this.controlContainer);
+    return this.errorState.isControlInvalid(this.control, this.controlContainer);
   }
 
   @ViewChild('input', { static: true }) inputRef: ElementRef;

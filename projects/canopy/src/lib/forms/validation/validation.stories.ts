@@ -4,10 +4,12 @@ import { storiesOf } from '@storybook/angular';
 import { LgValidationModule } from './validation.module';
 import { notes } from './validation.notes';
 
-const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
+const stories = storiesOf('Components/Form/Validation', module).addDecorator(
+  withKnobs
+);
 
 stories.add(
-  'Validation',
+  'Component',
   () => ({
     moduleMetadata: {
       imports: [LgValidationModule]
