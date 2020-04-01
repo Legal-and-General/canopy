@@ -1,5 +1,14 @@
 @import '../../../styles/mixins';
 
+.lg-radio-button {
+  display: block;
+  margin-bottom: var(--space-sm);
+
+  &:last-of-type {
+    margin-bottom: var(--space-xs);
+  }
+}
+
 .lg-radio-button__input {
   @include lg-visually-hidden;
 }
@@ -9,7 +18,6 @@
   position: relative;
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-sm);
-  margin-bottom: var(--space-sm);
 
   .lg-radio-button__input:disabled + & {
     color: var(--disabled-color);
