@@ -1,12 +1,17 @@
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
+  Host,
   HostBinding,
   Input,
   OnInit,
+  Optional,
+  Self,
+  SkipSelf,
   ViewEncapsulation
 } from '@angular/core';
+import { FormGroupDirective, NgControl } from '@angular/forms';
+
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgRadioGroupComponent } from './radio-group.component';
 
 let nextUniqueId = 0;
@@ -19,13 +24,13 @@ let nextUniqueId = 0;
 })
 export class LgRadioButtonComponent implements OnInit {
   checked = false;
-  _disabled = false;
 
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
   @Input() name: string;
   @Input() value: string;
 
   @Input()
+  _disabled = false;
   get disabled(): boolean {
     return (
       this._disabled || (this.radioGroup !== null && this.radioGroup.disabled)
@@ -36,8 +41,20 @@ export class LgRadioButtonComponent implements OnInit {
   }
 
   @HostBinding('class.lg-radio-button') class = true;
+  @HostBinding('class.lg-radio-button--error')
+  public get errorClass() {
+    return this.errorState.isControlInvalid(this.control, this.controlContainer);
+  }
 
-  constructor(private radioGroup: LgRadioGroupComponent) {}
+  constructor(
+    @Self() @Optional() public control: NgControl,
+    private radioGroup: LgRadioGroupComponent,
+    private errorState: LgErrorStateMatcher,
+    @Optional()
+    @Host()
+    @SkipSelf()
+    private controlContainer: FormGroupDirective
+  ) {}
 
   ngOnInit() {
     if (this.radioGroup.value === this.value) {

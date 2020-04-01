@@ -22,6 +22,10 @@
   .lg-radio-button__input:disabled + & {
     color: var(--disabled-color);
   }
+
+  .lg-radio-button--error & {
+    color: var(--form-error-color);
+  }
 }
 
 .lg-radio-button__label::before {
@@ -36,7 +40,7 @@
   border: var(--border-width) solid var(--border-color);
   margin: auto var(--space-sm) auto 0;
 
-  .lg-radio-button__input:hover + & {
+  .lg-radio-button:hover & {
     border-color: var(--border-hover-color);
   }
 
@@ -45,8 +49,13 @@
     @include lg-outer-focus-outline();
   }
 
-  .lg-radio-button__input:disabled + & {
+  .lg-radio-button:disabled & {
     border-color: var(--border-disabled-color);
+  }
+
+  .lg-radio-button--error:hover &,
+  .lg-radio-button--error & {
+    border-color: var(--form-error-border-color);
   }
 }
 
@@ -67,5 +76,9 @@
 
   .lg-radio-button__input:disabled:checked + & {
     background-color: var(--toggle-disabled-color);
+  }
+
+  .lg-radio-button--error .lg-radio-button__input:checked + & {
+    background-color: var(--form-error-border-color);
   }
 }
