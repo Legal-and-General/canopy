@@ -4,12 +4,15 @@ import { By } from '@angular/platform-browser';
 import { LgRadioButtonComponent } from './radio-button.component';
 import { LgRadioGroupComponent } from './radio-group.component';
 
+const onTouchedSpy = jasmine.createSpy();
+
 class RadioGroupStub {
   name = 'color';
   get value() {
     return 'red';
   }
   set value(v) {}
+  onTouched = onTouchedSpy;
 }
 
 describe('LgRadioButtonComponent', () => {
@@ -48,5 +51,14 @@ describe('LgRadioButtonComponent', () => {
     radioGroupStub.disabled = true;
     fixture.detectChanges();
     expect(component.disabled).toBe(true);
+  });
+
+  it('marks the radioGroup as touched if the radio is checked', () => {
+    const valueSpy = spyOnProperty(radioGroupStub, 'value');
+    component.value = 'red';
+    const radio = fixture.debugElement.query(By.css('[type="radio"'));
+    radio.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(onTouchedSpy).toHaveBeenCalled();
   });
 });

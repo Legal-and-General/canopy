@@ -47,6 +47,7 @@ export class LgRadioButtonComponent implements OnInit {
   }
 
   onCheck() {
+    this.radioGroup.onTouched();
     if (this.radioGroup.value !== this.value) {
       this.radioGroup.value = this.value;
     }
