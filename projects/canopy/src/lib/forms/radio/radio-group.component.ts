@@ -3,16 +3,25 @@ import {
   ContentChild,
   ContentChildren,
   forwardRef,
+  Host,
   HostBinding,
   Input,
+  Optional,
   QueryList,
-  ViewChild,
+  Self,
+  SkipSelf,
   ViewEncapsulation
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormGroupDirective,
+  NgControl
+} from '@angular/forms';
 
+import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
-import { LgLabelComponent } from '../label/label.component';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgValidationComponent } from '../validation/validation.component';
 import { LgRadioButtonComponent } from './radio-button.component';
 
 let nextUniqueId = 0;
@@ -21,73 +30,61 @@ let nextUniqueId = 0;
   selector: 'lg-radio-group',
   templateUrl: './radio-group.component.html',
   styleUrls: ['./radio-group.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => LgRadioGroupComponent),
-      multi: true
-    }
-  ]
+  encapsulation: ViewEncapsulation.None
 })
 export class LgRadioGroupComponent implements ControlValueAccessor {
-  private _value: any = null;
-
   private _name = `lg-radio-group-${nextUniqueId++}`;
 
   @Input() id = `lg-radio-group-id-${nextUniqueId++}`;
   @Input() inline = false;
   @Input() disabled = false;
-
-  @HostBinding('attr.aria-labelledby')
-  @Input()
-  ariaLabelledBy: string;
+  @Input() ariaDescribedBy: string;
 
   @HostBinding('class.lg-radio-group') class = true;
-  @HostBinding('attr.role') role = 'radiogroup';
-
-  @HostBinding('class.lg-radio-group--inline')
-  public get inlineClass() {
+  @HostBinding('class.lg-radio-group--inline') public get inlineClass() {
     return this.inline;
   }
+  @HostBinding('class.lg-radio-group--error') get errorClass() {
+    return this.errorState.isControlInvalid(this.control, this.controlContainer);
+  }
 
+  _radios: QueryList<LgRadioButtonComponent>;
   @ContentChildren(forwardRef(() => LgRadioButtonComponent), {
     descendants: true
   })
-  radios: QueryList<LgRadioButtonComponent>;
-
-  _labelElement: LgLabelComponent;
-  @ViewChild(LgLabelComponent, { static: true })
-  set labelElement(element: LgLabelComponent) {
-    if (element) {
-      this.ariaLabelledBy = this.ariaLabelledBy
-        ? `${this.ariaLabelledBy} ${element.id}`
-        : element.id;
-    } else {
-      this.ariaLabelledBy = this.ariaLabelledBy.replace(
-        this._labelElement.id,
-        ''
-      );
-    }
-    this._labelElement = element;
+  set radios(radios: QueryList<LgRadioButtonComponent>) {
+    radios.toArray().forEach((radio: LgRadioButtonComponent) => {
+      radio.control = this.control;
+    });
+    this._radios = radios;
+  }
+  get radios(): QueryList<LgRadioButtonComponent> {
+    return this._radios;
   }
 
   _hintElement: LgHintComponent;
   @ContentChild(LgHintComponent, { static: false })
   set hintElement(element: LgHintComponent) {
-    if (element) {
-      this.ariaLabelledBy = this.ariaLabelledBy
-        ? `${this.ariaLabelledBy} ${element.id}`
-        : element.id;
-    } else {
-      this.ariaLabelledBy = this.ariaLabelledBy.replace(
-        this._hintElement.id,
-        ''
-      );
-    }
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._validationElement,
+      element
+    );
     this._hintElement = element;
   }
 
+  _validationElement: LgValidationComponent;
+  @ContentChild(LgValidationComponent, { static: false })
+  set errorElement(element: LgValidationComponent) {
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._validationElement,
+      element
+    );
+    this._validationElement = element;
+  }
+
+  _value: string = null;
   @Input()
   get value() {
     return this._value;
@@ -110,6 +107,20 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   set name(value: string) {
     this._name = value;
     this._updateRadioButtonNames();
+  }
+
+  constructor(
+    @Self() @Optional() private control: NgControl,
+    private errorState: LgErrorStateMatcher,
+    @Optional()
+    @Host()
+    @SkipSelf()
+    private controlContainer: FormGroupDirective,
+    private domService: LgDomService
+  ) {
+    if (this.control != null) {
+      this.control.valueAccessor = this;
+    }
   }
 
   public onChange(value: string) {
