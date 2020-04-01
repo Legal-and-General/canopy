@@ -63,7 +63,7 @@ function createStory(name, variant?) {
         [disabled]="disabled"
         [label]="label"
         variant="${variant}"
-        (toggleChange)="checkboxChange($event)">
+        (toggleChange)="toggleChange($event)">
       </lg-reactive-form>`,
       props: {
         toggleChange: action('toggleChange'),
