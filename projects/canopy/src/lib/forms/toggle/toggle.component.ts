@@ -1,11 +1,24 @@
 import {
   Component,
-  forwardRef,
+  ContentChild,
+  ElementRef,
+  Host,
   HostBinding,
   Input,
+  Optional,
+  Self,
+  SkipSelf,
+  ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  FormGroupDirective,
+  NgControl
+} from '@angular/forms';
+import { LgDomService } from '../../utils/dom.service';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgValidationComponent } from '../validation/validation.component';
 
 let nextUniqueId = 0;
 
@@ -13,14 +26,7 @@ let nextUniqueId = 0;
   selector: 'lg-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => LgToggleComponent),
-      multi: true
-    }
-  ]
+  encapsulation: ViewEncapsulation.None
 })
 export class LgToggleComponent implements ControlValueAccessor {
   uniqueId = nextUniqueId++;
@@ -34,6 +40,22 @@ export class LgToggleComponent implements ControlValueAccessor {
   @Input() variant: 'checkbox' | 'switch' = 'checkbox';
 
   @HostBinding('class.lg-toggle') class = true;
+  @HostBinding('class.lg-toggle--error') get errorClass() {
+    return this.errorState.isErrorState(this.control, this.controlContainer);
+  }
+
+  @ViewChild('input', { static: true }) inputRef: ElementRef;
+
+  _validationElement: LgValidationComponent;
+  @ContentChild(LgValidationComponent, { static: false })
+  set errorElement(element: LgValidationComponent) {
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._validationElement,
+      element
+    );
+    this._validationElement = element;
+  }
 
   onCheck() {
     this.onTouched();
@@ -63,5 +85,19 @@ export class LgToggleComponent implements ControlValueAccessor {
 
   public setDisabledState(isDisabled: boolean) {
     this.disabled = isDisabled;
+  }
+
+  constructor(
+    @Self() @Optional() private control: NgControl,
+    private domService: LgDomService,
+    private errorState: LgErrorStateMatcher,
+    @Optional()
+    @Host()
+    @SkipSelf()
+    private controlContainer: FormGroupDirective
+  ) {
+    if (this.control != null) {
+      this.control.valueAccessor = this;
+    }
   }
 }

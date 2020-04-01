@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
@@ -36,12 +41,18 @@ class ReactiveFormComponent {
     return this.form.controls.umbrella.disabled;
   }
 
+  get umbrella() {
+    return this.form.get('umbrella');
+  }
+
   @Output() toggleChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
 
   constructor(public fb: FormBuilder) {
-    this.form = this.fb.group({ umbrella: null, disabled: false });
+    this.form = this.fb.group({
+      umbrella: [{ value: '', disabled: false }]
+    });
     this.form.valueChanges.subscribe(val => this.toggleChange.emit(val));
   }
 }

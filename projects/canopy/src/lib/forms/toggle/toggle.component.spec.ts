@@ -1,15 +1,29 @@
 import { Component, DebugElement, Input } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
+import {
+  FormBuilder,
+  FormGroup,
+  FormGroupDirective,
+  FormsModule,
+  NgControl,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { CanopyModule } from '../../canopy.module';
+import { MockComponents } from 'ng-mocks';
+import { anything, instance, mock, when } from 'ts-mockito';
+
+import { LgIconComponent } from '../../icon/icon.component';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgValidationComponent } from '../validation/validation.component';
 import { LgToggleComponent } from './toggle.component';
+
+const validationTestId = 'test-validation-id';
 
 @Component({
   template: `
-    <form (ngSubmit)="login()" [formGroup]="form">
+    <form (ngSubmit)="login()" [formGroup]="form" #testForm="ngForm">
       <lg-toggle
         formControlName="umbrella"
         [value]="true"
@@ -17,6 +31,12 @@ import { LgToggleComponent } from './toggle.component';
         [variant]="variant"
       >
         I will bring my Umbrella if it is raining
+        <lg-validation
+          id="${validationTestId}"
+          *ngIf="isErrorState(umbrella, testForm)"
+        >
+          You must agree to the terms and conditions
+        </lg-validation>
       </lg-toggle>
     </form>
   `
@@ -24,29 +44,53 @@ import { LgToggleComponent } from './toggle.component';
 class TestToggleComponent {
   @Input() variant: 'checkbox' | 'switch';
 
-  form = new FormGroup({
-    umbrella: new FormControl(null)
-  });
+  form: FormGroup;
+
+  get umbrella() {
+    return this.form.get('umbrella');
+  }
+
+  constructor(public fb: FormBuilder, private errorState: LgErrorStateMatcher) {
+    this.form = this.fb.group({
+      umbrella: [
+        { value: null, disabled: false },
+        [Validators.required, Validators.requiredTrue]
+      ]
+    });
+  }
+
+  isErrorState(control: NgControl, form: FormGroupDirective) {
+    return this.errorState.isErrorState(control, form);
+  }
 }
 
 describe('LgToggleComponent', () => {
   let fixture: ComponentFixture<TestToggleComponent>;
   let component: TestToggleComponent;
-
   let toggleDebugElement: DebugElement;
   let toggleInstance: LgToggleComponent;
-
+  let validationDebugElement: DebugElement;
   let inputDebugElement: DebugElement;
   let inputLabelElement: DebugElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [CanopyModule, ReactiveFormsModule],
-      declarations: [TestToggleComponent]
-    }).compileComponents();
-  }));
+  const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
   beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [
+        TestToggleComponent,
+        LgToggleComponent,
+        MockComponents(LgIconComponent, LgValidationComponent)
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock)
+        }
+      ]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(TestToggleComponent);
     fixture.detectChanges();
     component = fixture.componentInstance;
@@ -60,19 +104,17 @@ describe('LgToggleComponent', () => {
     );
 
     inputDebugElement = fixture.debugElement.query(By.css('.lg-toggle__input'));
-
     inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
+    fixture.detectChanges();
   }));
 
   it('sets a unique name for the toggle button', () => {
-    fixture.detectChanges();
     expect(
       /lg-toggle-\d/.test(inputDebugElement.nativeElement.getAttribute('name'))
     ).toBe(true);
   });
 
   it('sets a unique id for the toggle button', () => {
-    fixture.detectChanges();
     expect(
       /lg-toggle-\d/.test(inputDebugElement.nativeElement.getAttribute('id'))
     ).toBe(true);
@@ -80,8 +122,6 @@ describe('LgToggleComponent', () => {
 
   it('sets the correct modifier class based on the variant', () => {
     component.variant = 'checkbox';
-    fixture.detectChanges();
-
     expect(
       inputLabelElement.nativeElement.classList.contains(
         'lg-toggle__label--switch'
@@ -127,8 +167,37 @@ describe('LgToggleComponent', () => {
 
   it('disables the input field when the property is set', () => {
     expect(inputDebugElement.nativeElement.disabled).toBe(false);
-    component.form.controls.umbrella.disable();
+    component.umbrella.disable();
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.disabled).toBe(true);
+  });
+
+  it('links the error to the input field with the correct attributes', () => {
+    const id = inputDebugElement.nativeElement.getAttribute('id');
+    expect(id).toBeTruthy();
+    expect(inputLabelElement.nativeElement.getAttribute('for')).toBe(id);
+  });
+
+  it('links the error to the fieldset with the correct aria attributes', () => {
+    when(errorStateMatcherMock.isErrorState(anything(), anything())).thenReturn(
+      true
+    );
+    fixture.detectChanges();
+    validationDebugElement = fixture.debugElement.query(
+      By.directive(LgValidationComponent)
+    );
+    expect(
+      inputDebugElement.nativeElement.getAttribute('aria-describedBy')
+    ).toContain(validationTestId);
+  });
+
+  it('adds the error class if the form field is invalid', () => {
+    when(errorStateMatcherMock.isErrorState(anything(), anything())).thenReturn(
+      true
+    );
+    fixture.detectChanges();
+    expect(toggleDebugElement.nativeElement.className).toContain(
+      'lg-toggle--error'
+    );
   });
 });

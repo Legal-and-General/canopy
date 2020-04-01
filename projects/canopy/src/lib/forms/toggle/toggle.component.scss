@@ -58,6 +58,10 @@
   .lg-toggle__input:disabled + & {
     color: var(--disabled-color);
   }
+
+  .lg-toggle--error & {
+    color: var(--form-error-color);
+  }
 }
 
 .lg-toggle__label::before {
@@ -92,6 +96,15 @@
   .lg-toggle__input:disabled:checked + & {
     border-color: var(--toggle-disabled-color);
     background-color: var(--toggle-disabled-color);
+  }
+
+  .lg-toggle--error .lg-toggle__input + & {
+    border-color: var(--form-error-border-color);
+  }
+
+  .lg-toggle--error .lg-toggle__input:checked + & {
+    background-color: var(--form-error-color);
+    color: var(--form-error-color);
   }
 }
 
