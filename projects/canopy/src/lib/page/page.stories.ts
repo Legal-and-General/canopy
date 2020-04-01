@@ -181,3 +181,51 @@ stories.add(
     }
   }
 );
+
+stories.add(
+  'Hero with full width',
+  () => {
+    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
+
+    return {
+      moduleMetadata: {
+        imports: [CanopyModule]
+      },
+      props: {
+        ...createProps(),
+        title: text('Title', 'Pension Annuity')
+      },
+      template: `
+        <lg-page>
+          ${header}
+          <lg-hero [overlap]="2">
+            <div lgContainer>
+              <div lgRow>
+                <div lgCol="12">
+                  <lg-heading [level]="1">{{title}}</lg-heading>
+                </div>
+              </div>
+            </div>
+          </lg-hero>
+          <div lgContainer>
+            <div lgRow>
+              <div lgCol="12">
+                <lg-card lgMarginHorizontal="none">
+                  {{card1Content}} <br /><br />
+                  {{card2Content}} <br /><br />
+                  {{card3Content}}
+                </lg-card>
+              </div>
+            </div>
+          </div>
+          ${footer}
+        </lg-page>
+      `
+    };
+  },
+  {
+    notes: {
+      markdown: notes
+    }
+  }
+);

@@ -8,8 +8,14 @@
 }
 
 .lg-page__main {
-  padding: var(--component-padding) 0;
+  padding: var(--page-vertical-padding) 0;
   flex: 1 0 auto;
+}
+
+.lg-page--hero {
+  .lg-page__main {
+    padding-top: 0;
+  }
 }
 
 .lg-page__skip-link {

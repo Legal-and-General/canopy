@@ -26,6 +26,7 @@ function loadStories() {
   require('../projects/canopy/src/lib/grid/grid.stories');
   require('../projects/canopy/src/lib/header/header.stories');
   require('../projects/canopy/src/lib/heading/heading.stories');
+  require('../projects/canopy/src/lib/hero/hero.stories');
   require('../projects/canopy/src/lib/icon/icons.stories');
   require('../projects/canopy/src/lib/margin/margin.stories');
   require('../projects/canopy/src/lib/page/page.stories');

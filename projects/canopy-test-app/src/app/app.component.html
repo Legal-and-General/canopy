@@ -1,17 +1,17 @@
 <lg-page>
   <header lg-header></header>
 
-  <div lgContainer>
-    <div lgRow>
-      <div
-        lgCol="12"
-        lgColSm="10"
-        lgColSmOffset="1"
-        lgColMd="8"
-        lgColMdOffset="2"
-      >
-        <lg-card>
-          <lg-breadcrumb>
+  <lg-hero>
+    <div lgContainer>
+      <div lgRow>
+        <div
+          lgCol="12"
+          lgColSm="10"
+          lgColSmOffset="1"
+          lgColMd="8"
+          lgColMdOffset="2"
+        >
+          <lg-breadcrumb [variant]="'light'">
             <lg-breadcrumb-item>
               <a href="#">
                 Home
@@ -24,11 +24,24 @@
               <a href="#" aria-current="page">Pension</a>
             </lg-breadcrumb-item>
           </lg-breadcrumb>
-
           <lg-heading [level]="1">
             Canopy test page
           </lg-heading>
+        </div>
+      </div>
+    </div>
+  </lg-hero>
 
+  <div lgContainer>
+    <div lgRow>
+      <div
+        lgCol="12"
+        lgColSm="10"
+        lgColSmOffset="1"
+        lgColMd="8"
+        lgColMdOffset="2"
+      >
+        <lg-card>
           <lg-accordion [headingLevel]="2">
             <lg-accordion-item>
               <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>

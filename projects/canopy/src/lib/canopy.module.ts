@@ -14,6 +14,7 @@ import { LgFormsModule } from './forms/forms.module';
 import { LgGridModule } from './grid/grid.module';
 import { LgHeaderModule } from './header/header.module';
 import { LgHeadingModule } from './heading/heading.module';
+import { LgHeroModule } from './hero/hero.module';
 import { LgIconModule } from './icon/icon.module';
 import { LgMarginModule } from './margin/margin.module';
 import { LgPageModule } from './page/page.module';
@@ -36,6 +37,7 @@ const modules = [
   LgGridModule,
   LgHeaderModule,
   LgHeadingModule,
+  LgHeroModule,
   LgIconModule,
   LgMarginModule,
   LgPageModule,
