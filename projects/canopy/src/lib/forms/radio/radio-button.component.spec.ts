@@ -43,4 +43,10 @@ describe('LgRadioButtonComponent', () => {
     fixture.detectChanges();
     expect(valueSpy).toHaveBeenCalled();
   });
+
+  it('sets the disabled property when the radio group is disabled', () => {
+    radioGroupStub.disabled = true;
+    fixture.detectChanges();
+    expect(component.disabled).toBe(true);
+  });
 });
