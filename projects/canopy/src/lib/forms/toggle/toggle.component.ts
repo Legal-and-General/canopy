@@ -36,6 +36,7 @@ export class LgToggleComponent implements ControlValueAccessor {
   @HostBinding('class.lg-toggle') class = true;
 
   onCheck() {
+    this.onTouched();
     this.checked = !this.checked;
     this.onChange(this.checked ? this.value : null);
   }
