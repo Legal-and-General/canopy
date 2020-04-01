@@ -14,7 +14,7 @@ const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-toggle formControlName="umbrella" value="yes" [variant]="variant">
+      <lg-toggle formControlName="umbrella" [value]="true" [variant]="variant">
         {{ label }}
       </lg-toggle>
     </form>

@@ -12,7 +12,7 @@ import { LgToggleComponent } from './toggle.component';
     <form (ngSubmit)="login()" [formGroup]="form">
       <lg-toggle
         formControlName="umbrella"
-        value="yes"
+        [value]="true"
         (change)="onChange()"
         [variant]="variant"
       >
@@ -106,17 +106,17 @@ describe('LgToggleComponent', () => {
 
   it('checks the toggle by default if the value is true', () => {
     expect(inputDebugElement.nativeElement.checked).toBe(false);
-    component.form.controls.umbrella.setValue('yes');
+    component.umbrella.setValue(true);
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.checked).toBe(true);
   });
 
   it('updates the model value when a toggle is checked', () => {
-    expect(component.form.controls.umbrella.value).toBe(null);
+    expect(component.umbrella.value).toBe(null);
     fixture.detectChanges();
     inputDebugElement.triggerEventHandler('click', null);
     fixture.detectChanges();
-    expect(component.form.controls.umbrella.value).toBe('yes');
+    expect(component.umbrella.value).toBe(true);
   });
 
   it('triggers the onChange action when the toggle is checked', () => {

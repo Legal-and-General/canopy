@@ -29,7 +29,7 @@ export class LgToggleComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() id = `lg-toggle-${this.uniqueId}`;
   @Input() name = `lg-toggle-${this.uniqueId}`;
-  @Input() value = 'on';
+  @Input() value: boolean | string = false;
   @Input() ariaDescribedBy: string;
   @Input() variant: 'checkbox' | 'switch' = 'checkbox';
 
@@ -40,7 +40,7 @@ export class LgToggleComponent implements ControlValueAccessor {
     this.onChange(this.checked ? this.value : null);
   }
 
-  public onChange(value: string) {
+  public onChange(value: boolean | string) {
     this.value = value;
   }
 
