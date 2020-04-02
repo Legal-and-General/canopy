@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { HeadingLevel } from './heading.interface';
 
 @Component({
   selector: 'lg-heading',
   templateUrl: './heading.component.html',
-  styleUrls: ['./heading.component.scss']
+  styleUrls: ['./heading.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LgHeadingComponent {
   @Input() level: HeadingLevel;
