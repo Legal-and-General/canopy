@@ -1,7 +1,7 @@
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgAlertComponent } from '../alert/alert.component';
+import { LgAlertModule } from '../alert/alert.module';
 import { notes } from './alert.notes';
 
 const stories = storiesOf('Components', module).addDecorator(withKnobs);
@@ -14,16 +14,18 @@ stories
     'Alert',
     () => ({
       moduleMetadata: {
-        declarations: [LgAlertComponent]
+        imports: [LgAlertModule]
       },
       template: `
       <lg-alert
+        [showIcon]="showIcon"
         [variant]="variant">
-        {{alertContent}} Here is some <a href="#">link text</a>.
+        {{alertContent}} Here is some <a href="#"> link text</a>.
       </lg-alert>
     `,
       props: {
         alertContent: text('content', 'This is an alert.'),
+        showIcon: boolean('show icon', true),
         variant: select(
           'variant',
           ['generic', 'info', 'success', 'warning', 'error'],

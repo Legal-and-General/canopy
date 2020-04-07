@@ -26,6 +26,7 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`variant\`\` | The variant of alert: \`\`info\`\`, \`\`warning\`\`, \`\`error\`\`, \`\`success\`\` | string | 'info' | No |
+| \`\`showIcon\`\` | Whether the icon should display | boolean | true | No |
 
 
 ## Using only the SCSS files

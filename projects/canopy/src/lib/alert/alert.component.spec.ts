@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
+import { AlertVariant } from '../alert';
 import { LgAlertComponent } from './alert.component';
+
+import { MockComponents } from 'ng-mocks';
+import { LgIconComponent } from '../icon';
 
 describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
@@ -8,15 +13,13 @@ describe('LgAlertComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgAlertComponent]
+      declarations: [LgAlertComponent, MockComponents(LgIconComponent)]
     }).compileComponents();
-  }));
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(LgAlertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -42,5 +45,32 @@ describe('LgAlertComponent', () => {
     component.variant = 'warning';
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
+  });
+
+  it('does not renders an icon for generic variant', () => {
+    const icon = fixture.debugElement.query(By.directive(LgIconComponent));
+    expect(icon).toBeNull();
+  });
+
+  it('does not render an icon when showIcon is set to false', () => {
+    component.showIcon = false;
+    fixture.detectChanges();
+    const icon = fixture.debugElement.query(By.directive(LgIconComponent));
+    expect(icon).toBeNull();
+  });
+
+  [
+    { variant: 'error', icon: 'crossmark-spot-fill' },
+    { variant: 'info', icon: 'information-fill' },
+    { variant: 'warning', icon: 'warning-fill' },
+    { variant: 'success', icon: 'checkmark-spot-fill' }
+  ].forEach(({ variant, icon }) => {
+    it(`renders the correct icon for the ${variant} alert`, () => {
+      component.variant = variant as AlertVariant;
+      fixture.detectChanges();
+      expect(
+        fixture.debugElement.query(By.css(`[name="${icon}"]`))
+      ).not.toBeNull();
+    });
   });
 });

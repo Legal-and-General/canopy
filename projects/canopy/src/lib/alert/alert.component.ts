@@ -18,6 +18,8 @@ import { AlertVariant } from './alert.interface';
 export class LgAlertComponent {
   @HostBinding('class.lg-alert') class = true;
 
+  @Input() showIcon = true;
+
   _variant: AlertVariant;
   @Input()
   set variant(variant: AlertVariant) {

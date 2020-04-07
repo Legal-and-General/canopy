@@ -1,7 +1,7 @@
 @import '../../styles/mixins.scss';
 
 .lg-alert {
-  display: block;
+  display: flex;
   margin-bottom: var(--component-margin);
   padding: var(--space-sm);
 
@@ -48,4 +48,8 @@
 
 .lg-alert--error {
   @include lg-variant('error');
+}
+
+.lg-alert__icon {
+  margin-right: var(--space-xs);
 }
