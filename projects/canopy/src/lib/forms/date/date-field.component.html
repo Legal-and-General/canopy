@@ -9,6 +9,7 @@
       <input
         lgInput
         [id]="dateId"
+        (blur)="onBlur()"
         formControlName="date"
         placeholder="DD"
         min="1"
@@ -21,6 +22,7 @@
       <input
         lgInput
         [id]="monthId"
+        (blur)="onBlur()"
         formControlName="month"
         placeholder="MM"
         min="1"
@@ -33,6 +35,7 @@
       <input
         lgInput
         [id]="yearId"
+        (blur)="onBlur()"
         formControlName="year"
         placeholder="YYYY"
         min="0000"

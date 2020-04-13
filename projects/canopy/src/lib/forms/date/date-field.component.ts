@@ -111,6 +111,12 @@ export class LgDateFieldComponent implements ControlValueAccessor, OnDestroy {
     this.value = value;
   }
 
+  onBlur() {
+    if (this.date.touched && this.month.touched && this.year.touched) {
+      this.onTouched();
+    }
+  }
+
   registerOnChange(fn: (date: string) => void): void {
     this.onChange = fn;
   }
