@@ -25,7 +25,7 @@ export class LgErrorStateMatcher {
   ): boolean {
     return !!(
       (control && control.invalid && control.touched) ||
-      (controlContainer && controlContainer.submitted && !control.valid)
+      (controlContainer && controlContainer.submitted && control.invalid)
     );
   }
 }

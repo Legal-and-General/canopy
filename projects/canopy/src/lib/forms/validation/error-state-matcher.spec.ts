@@ -28,7 +28,10 @@ describe('LgErrorStateMatcher', () => {
         when(control.touched).thenReturn(false);
         when(controlContainer.submitted).thenReturn(true);
         expect(
-          service.isControlInvalid(instance(control), instance(controlContainer))
+          service.isControlInvalid(
+            instance(control),
+            instance(controlContainer)
+          )
         ).toBe(true);
       });
     });
@@ -57,8 +60,11 @@ describe('LgErrorStateMatcher', () => {
         when(control.touched).thenReturn(false);
         when(controlContainer.submitted).thenReturn(true);
         expect(
-          service.isControlInvalid(instance(control), instance(controlContainer))
-        ).toBe(true);
+          service.isControlInvalid(
+            instance(control),
+            instance(controlContainer)
+          )
+        ).toBe(false);
       });
     });
   });
