@@ -44,6 +44,10 @@
       color: inherit;
       border-color: inherit;
     }
+
+    &::placeholder {
+      color: var(--form-error-color);
+    }
   }
 
   &--block {
