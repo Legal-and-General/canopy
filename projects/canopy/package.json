@@ -4,7 +4,8 @@
   "url": "git://github.com/canopy-collective/canopy.git",
   "peerDependencies": {
     "@angular/common": "^8.2.9",
-    "@angular/core": "^8.2.9"
+    "@angular/core": "^8.2.9",
+    "date-fns": "^2.12.0"
   },
   "devDependencies": {
     "jasmine-marbles": "^0.6.0"

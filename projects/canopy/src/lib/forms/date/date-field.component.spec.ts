@@ -3,28 +3,40 @@ import {
   DebugElement,
   EventEmitter,
   Input,
-  Output
+  Output,
+  ViewChild
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   FormBuilder,
   FormGroup,
+  FormGroupDirective,
   FormsModule,
   ReactiveFormsModule
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
+import { MockComponents } from 'ng-mocks';
 import { skip } from 'rxjs/operators';
+import { anything, instance, mock, when } from 'ts-mockito';
 
-import { LgFormsModule } from '..';
 import { LgHintComponent } from '../hint/hint.component';
+import { LgInputDirective } from '../input/input.directive';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgValidationComponent } from '../validation/validation.component';
+import { LgDateFieldComponent } from './date-field.component';
 
+const errorId = 'test-error-id';
+const hintId = 'test-hint-id';
+
+const errorStateMatcherMock = mock(LgErrorStateMatcher);
 @Component({
   template: `
-    <form (ngSubmit)="submit()" [formGroup]="form">
+    <form (ngSubmit)="submit()" [formGroup]="form" #testForm="ngForm">
       <lg-date-field formControlName="dateOfBirth">
         Date of birth
-        <lg-hint>e.g. 07 03 1944</lg-hint>
+        <lg-hint id="${hintId}">Hint</lg-hint>
+        <lg-validation id="${errorId}">Error</lg-validation>
       </lg-date-field>
     </form>
   `
@@ -48,9 +60,12 @@ class TestDateInputComponent {
 
   form: FormGroup;
 
+  @ViewChild('testForm', { static: false })
+  testFormDirective: FormGroupDirective;
+
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      dateOfBirth: { value: null, disabled: false }
+      dateOfBirth: ['']
     });
     this.form.valueChanges.subscribe(val => {
       this.dateChange.emit(val);
@@ -60,6 +75,8 @@ class TestDateInputComponent {
 
 describe('LgDateFieldComponent', () => {
   let fixture: ComponentFixture<TestDateInputComponent>;
+  let dateFieldDebugElement: DebugElement;
+  let dateFieldInstance: LgDateFieldComponent;
   let fieldsetElement: DebugElement;
   let hintElement: DebugElement;
   let dateInput: DebugElement;
@@ -69,12 +86,28 @@ describe('LgDateFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
-      declarations: [TestDateInputComponent]
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [
+        TestDateInputComponent,
+        LgDateFieldComponent,
+        LgInputDirective,
+        MockComponents(LgHintComponent, LgValidationComponent)
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock)
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestDateInputComponent);
     component = fixture.componentInstance;
+
+    dateFieldDebugElement = fixture.debugElement.query(
+      By.directive(LgDateFieldComponent)
+    );
+    dateFieldInstance = dateFieldDebugElement.componentInstance;
 
     fieldsetElement = fixture.debugElement.query(By.css('fieldset'));
     dateInput = fixture.debugElement.query(By.css('[formcontrolname="date"]'));
@@ -85,16 +118,32 @@ describe('LgDateFieldComponent', () => {
 
     hintElement = fixture.debugElement.query(By.directive(LgHintComponent));
     fixture.detectChanges();
+
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(false);
   }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('adds an aria described by attribute to the fieldset if a label is provided', () => {
+  it('links the hint to the fieldset with the correct aria attributes', () => {
     expect(
       fieldsetElement.nativeElement.getAttribute('aria-describedby')
-    ).toEqual(hintElement.nativeElement.getAttribute('id'));
+    ).toContain(hintId);
+  });
+
+  it('links custom error messages to the input field with the correct aria attributes', () => {
+    expect(
+      fieldsetElement.nativeElement.getAttribute('aria-describedby')
+    ).toContain(errorId);
+  });
+
+  it('combines both the hint and error ids to create the aria described attribute', () => {
+    expect(fieldsetElement.nativeElement.getAttribute('aria-describedby')).toBe(
+      `${hintId} ${errorId}`
+    );
   });
 
   it('sets the individual input fields when a date value is provided', () => {
@@ -107,14 +156,11 @@ describe('LgDateFieldComponent', () => {
     expect(dateInput.nativeElement.value).toEqual(date);
   });
 
-  it('sets the date as null when either of individual input field  value is not provided', () => {
-    dateInput.nativeElement.value = '';
-    dateInput.nativeElement.dispatchEvent(new Event('input'));
-    monthInput.nativeElement.value = '05';
-    monthInput.nativeElement.dispatchEvent(new Event('input'));
-    yearInput.nativeElement.value = '1970';
-    yearInput.nativeElement.dispatchEvent(new Event('input'));
-    expect(component.form.controls.dateOfBirth.value).toEqual(null);
+  it('joins the individual input fields and sets the value even if some are null', () => {
+    dateFieldInstance.year.setValue('1970');
+    dateFieldInstance.month.setValue('5');
+    dateFieldInstance.date.setValue('');
+    expect(component.form.controls.dateOfBirth.value).toEqual('1970-05-');
   });
 
   it('sets the individual input fields to the empty string when no date value is provided', () => {
@@ -123,21 +169,21 @@ describe('LgDateFieldComponent', () => {
     expect(dateInput.nativeElement.value).toEqual('');
   });
 
-  it('disabled the year input field when the disabled property is set', () => {
+  it('disables the year input field when the disabled property is set', () => {
     expect(yearInput.nativeElement.disabled).toEqual(false);
     component.disabled = true;
     fixture.detectChanges();
     expect(yearInput.nativeElement.disabled).toEqual(true);
   });
 
-  it('disabled the month input field when the disabled property is set', () => {
+  it('disables the month input field when the disabled property is set', () => {
     expect(monthInput.nativeElement.disabled).toEqual(false);
     component.disabled = true;
     fixture.detectChanges();
     expect(monthInput.nativeElement.disabled).toEqual(true);
   });
 
-  it('disabled the date input field when the disabled property is set', () => {
+  it('disables the date input field when the disabled property is set', () => {
     expect(dateInput.nativeElement.disabled).toEqual(false);
     component.disabled = true;
     fixture.detectChanges();
@@ -145,15 +191,10 @@ describe('LgDateFieldComponent', () => {
   });
 
   it('joins the individual fields to an ISO date string when an input field is changed', () => {
-    yearInput.nativeElement.value = 1944;
-    yearInput.nativeElement.dispatchEvent(new Event('change'));
-
-    monthInput.nativeElement.value = 3;
-    monthInput.nativeElement.dispatchEvent(new Event('change'));
-
-    dateInput.nativeElement.value = 7;
-    dateInput.nativeElement.dispatchEvent(new Event('change'));
-
+    dateFieldInstance.year.setValue('1944');
+    dateFieldInstance.month.setValue('3');
+    dateFieldInstance.date.setValue('7');
+    fixture.detectChanges();
     expect(component.form.controls.dateOfBirth.value).toEqual('1944-03-07');
   });
 
@@ -165,15 +206,13 @@ describe('LgDateFieldComponent', () => {
     expect(/lg-input-date-\d{1,3}/.test(dateInput.nativeElement.id)).toBe(true);
   });
 
-  it('publishes a change of null when date is not complete', done => {
-    component.dateChange.subscribe(change => {
-      expect(change.dateOfBirth).toBeNull();
+  it('replaces empty fields with an empty string if date is not complete', done => {
+    component.dateChange.pipe(skip(1)).subscribe(change => {
+      expect(change.dateOfBirth).toBe('1944-03-');
       done();
     });
-    yearInput.nativeElement.value = 1944;
-    yearInput.nativeElement.dispatchEvent(new Event('change'));
-    monthInput.nativeElement.value = 3;
-    monthInput.nativeElement.dispatchEvent(new Event('change'));
+    dateFieldInstance.year.setValue('1944');
+    dateFieldInstance.month.setValue('3');
   });
 
   it('publishes a change when the user enters a date', done => {
@@ -181,11 +220,99 @@ describe('LgDateFieldComponent', () => {
       expect(change.dateOfBirth).toBe('1944-03-07');
       done();
     });
-    yearInput.nativeElement.value = 1944;
-    yearInput.nativeElement.dispatchEvent(new Event('change'));
-    monthInput.nativeElement.value = 3;
-    monthInput.nativeElement.dispatchEvent(new Event('change'));
-    dateInput.nativeElement.value = 7;
-    dateInput.nativeElement.dispatchEvent(new Event('change'));
+    dateFieldInstance.year.setValue('1944');
+    dateFieldInstance.month.setValue('3');
+    dateFieldInstance.date.setValue('7');
+  });
+
+  describe('validation rules', () => {
+    it('adds an invalid field validation rule if a field is invalid', () => {
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('x');
+      fixture.detectChanges();
+      expect(
+        fixture.componentInstance.form.controls.dateOfBirth.errors
+      ).toEqual({
+        invalidField: 'month'
+      });
+    });
+
+    it('adds an invalid fields validation rule if more than one field is invalid', () => {
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('x');
+      dateFieldInstance.date.markAsDirty();
+      dateFieldInstance.date.setValue('x');
+      fixture.detectChanges();
+      expect(
+        fixture.componentInstance.form.controls.dateOfBirth.errors
+      ).toEqual({
+        invalidFields: ['day', 'month']
+      });
+    });
+
+    it('adds a required field validation rule if a field is empty', () => {
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('');
+      fixture.detectChanges();
+      expect(
+        fixture.componentInstance.form.controls.dateOfBirth.errors
+      ).toEqual({
+        requiredField: 'month'
+      });
+    });
+
+    it('adds a required fields validation rule if more than one field is empty', () => {
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('');
+      dateFieldInstance.date.markAsDirty();
+      dateFieldInstance.date.setValue('');
+      fixture.detectChanges();
+      expect(
+        fixture.componentInstance.form.controls.dateOfBirth.errors
+      ).toEqual({
+        requiredFields: ['day', 'month']
+      });
+    });
+
+    it('adds an invalid fields validation rule if there are both invalid and required fields', () => {
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('x');
+      dateFieldInstance.date.markAsDirty();
+      dateFieldInstance.date.setValue('');
+      fixture.detectChanges();
+      expect(
+        fixture.componentInstance.form.controls.dateOfBirth.errors
+      ).toEqual({
+        invalidField: 'month'
+      });
+    });
+
+    it('adds an invalid date validation rule if the date is not a real date', () => {
+      dateFieldInstance.date.markAsDirty();
+      dateFieldInstance.date.setValue('30');
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('2');
+      dateFieldInstance.year.markAsDirty();
+      dateFieldInstance.year.setValue('1970');
+      fixture.detectChanges();
+      expect(
+        fixture.componentInstance.form.controls.dateOfBirth.errors
+      ).toEqual({
+        invalidDate: true
+      });
+    });
+
+    it('adds no validation rules if the date is valid', () => {
+      dateFieldInstance.date.markAsDirty();
+      dateFieldInstance.date.setValue('28');
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('2');
+      dateFieldInstance.year.markAsDirty();
+      dateFieldInstance.year.setValue('1970');
+      fixture.detectChanges();
+      expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toBe(
+        null
+      );
+    });
   });
 });

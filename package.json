@@ -36,6 +36,7 @@
     "@angular/router": "~8.2.11",
     "autoprefixer": "^8.6.5",
     "core-js": "^3.3.2",
+    "date-fns": "^2.12.0",
     "rxjs": "^6.5.3",
     "tslib": "^1.10.0",
     "webpack": "^4.41.2",

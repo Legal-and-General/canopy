@@ -4,26 +4,34 @@ import {
   FormBuilder,
   FormGroup,
   FormGroupDirective,
-  FormsModule,
   NgControl,
   ReactiveFormsModule,
+  ValidationErrors,
   ValidatorFn,
   Validators
 } from '@angular/forms';
-
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
+
+import isFuture from 'date-fns/isFuture';
+import parseISO from 'date-fns/parseISO';
 
 import { CanopyModule } from '../../canopy.module';
 import { LgErrorStateMatcher } from './error-state-matcher';
 import { notes } from './form.notes';
 
 function invalidValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
+  return (control: AbstractControl): ValidationErrors | null => {
     return control.value && control.value.toLowerCase() === 'invalid'
       ? { invalid: true }
       : null;
+  };
+}
+
+function futureDateValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    return isFuture(parseISO(control.value)) ? { futureDate: true } : null;
   };
 }
 
@@ -70,7 +78,9 @@ const stories = storiesOf('Components/Form/Validation', module).addDecorator(
           Text should be at least 4 characters
         </lg-validation>
         <lg-validation
-          *ngIf="isControlInvalid(text, validationForm) && text.hasError('invalid')"
+          *ngIf="
+            isControlInvalid(text, validationForm) && text.hasError('invalid')
+          "
         >
           Please enter a valid value
         </lg-validation>
@@ -88,14 +98,16 @@ const stories = storiesOf('Components/Form/Validation', module).addDecorator(
         </select>
         <lg-validation
           *ngIf="
-            isControlInvalid(select, validationForm) && select.hasError('invalid')
+            isControlInvalid(select, validationForm) &&
+            select.hasError('invalid')
           "
         >
           Please select a valid option
         </lg-validation>
         <lg-validation
           *ngIf="
-            isControlInvalid(select, validationForm) && select.hasError('required')
+            isControlInvalid(select, validationForm) &&
+            select.hasError('required')
           "
         >
           Select is a required field
@@ -118,7 +130,8 @@ const stories = storiesOf('Components/Form/Validation', module).addDecorator(
         </lg-validation>
         <lg-validation
           *ngIf="
-            isControlInvalid(radio, validationForm) && radio.hasError('required')
+            isControlInvalid(radio, validationForm) &&
+            radio.hasError('required')
           "
         >
           Please select an option
@@ -141,12 +154,43 @@ const stories = storiesOf('Components/Form/Validation', module).addDecorator(
         Checkbox
         <lg-validation
           *ngIf="
-            isControlInvalid(switch, validationForm) && switch.hasError('required')
+            isControlInvalid(switch, validationForm) &&
+            switch.hasError('required')
           "
         >
           You must toggle the switch
         </lg-validation>
       </lg-toggle>
+
+      <lg-date-field formControlName="date">
+        Date of birth
+        <lg-hint>For example, 15 06 1983</lg-hint>
+        <lg-validation *ngIf="isControlInvalid(date, validationForm)">
+          <ng-container *ngIf="date.hasError('invalidField')">
+            Enter a valid {{ date.errors.invalidField }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidFields')">
+            Enter a valid {{ date.errors.invalidFields[0] }} and
+            {{ date.errors.invalidFields[1] }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('requiredField')">
+            Date of birth must include a {{ date.errors.requiredField }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('requiredFields')">
+            Date of birth must include a {{ date.errors.requiredFields[0] }} and
+            {{ date.errors.requiredFields[1] }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidDate')">
+            Enter a valid date of birth
+          </ng-container>
+          <ng-container *ngIf="date.hasError('futureDate')">
+            Date must be in the past
+          </ng-container>
+          <ng-container *ngIf="date.hasError('required')">
+            Enter a date of birth
+          </ng-container>
+        </lg-validation>
+      </lg-date-field>
 
       <button lg-button type="submit" variant="solid-primary">
         Submit
@@ -158,6 +202,10 @@ class ReactiveFormComponent {
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
+
+  get date() {
+    return this.form.get('date');
+  }
 
   get text() {
     return this.form.get('text');
@@ -190,7 +238,8 @@ class ReactiveFormComponent {
       select: ['', [Validators.required, invalidValidator()]],
       radio: ['', [Validators.required, invalidValidator()]],
       checkbox: ['', [Validators.requiredTrue]],
-      switch: ['', [Validators.requiredTrue]]
+      switch: ['', [Validators.requiredTrue]],
+      date: ['', [Validators.required, futureDateValidator()]]
     });
   }
 
@@ -208,7 +257,7 @@ stories.add(
   () => ({
     moduleMetadata: {
       declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, FormsModule, CanopyModule]
+      imports: [ReactiveFormsModule, CanopyModule]
     },
     template: `<lg-validation-form
       (formSubmit)="formSubmit($event)">

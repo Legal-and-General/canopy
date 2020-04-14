@@ -20,7 +20,7 @@ export class LgErrorStateMatcher {
    *     // returns true
    */
   isControlInvalid(
-    control: FormControl | NgControl,
+    control: NgControl,
     controlContainer?: FormGroupDirective
   ): boolean {
     return !!(

@@ -3,7 +3,11 @@
     <ng-content></ng-content>
   </legend>
   <ng-content select="lg-hint"></ng-content>
-  <div class="lg-date-field__fields" [formGroup]="dateForm">
+  <div
+    class="lg-date-field__fields"
+    [formGroup]="dateFormGroup"
+    #dateFormDirective="ngForm"
+  >
     <div class="lg-date-field__date">
       <label lg-label [for]="dateId">Day</label>
       <input
@@ -11,10 +15,11 @@
         [id]="dateId"
         (blur)="onBlur()"
         formControlName="date"
+        inputmode="numeric"
+        maxlength="2"
         placeholder="DD"
-        min="1"
-        max="31"
-        type="number"
+        size="2"
+        type="text"
       />
     </div>
     <div class="lg-date-field__month">
@@ -24,10 +29,11 @@
         [id]="monthId"
         (blur)="onBlur()"
         formControlName="month"
+        inputmode="numeric"
+        maxlength="2"
         placeholder="MM"
-        min="1"
-        max="12"
-        type="number"
+        size="2"
+        type="text"
       />
     </div>
     <div class="lg-date-field__year">
@@ -37,11 +43,14 @@
         [id]="yearId"
         (blur)="onBlur()"
         formControlName="year"
+        inputmode="numeric"
+        maxlength="4"
         placeholder="YYYY"
-        min="0000"
-        max="9999"
-        type="number"
+        size="4"
+        type="text"
       />
     </div>
   </div>
+
+  <ng-content select="lg-validation"></ng-content>
 </fieldset>
