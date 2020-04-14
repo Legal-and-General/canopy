@@ -10,7 +10,6 @@ import {
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgLabelComponent } from '../label/label.component';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgInputDirective } from './input.directive';
 
