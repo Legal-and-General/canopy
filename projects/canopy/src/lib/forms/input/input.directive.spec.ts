@@ -13,8 +13,11 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
+import { anything, instance, mock, when } from 'ts-mockito';
+
 import { LgFormsModule } from '../forms.module';
 import { LgInputDirective } from '../input/input.directive';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 
 @Component({
   template: `
@@ -35,11 +38,18 @@ describe('LgInputDirective', () => {
   let component: TestInputComponent;
   let inputDebugElement: DebugElement;
   let inputInstance: LgInputDirective;
+  const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
-      declarations: [TestInputComponent]
+      declarations: [TestInputComponent],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock)
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestInputComponent);
@@ -73,7 +83,9 @@ describe('LgInputDirective', () => {
   });
 
   it('adds an error class when the field has a validation error', () => {
-    component.form.get('name').markAsTouched();
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.className).toContain(
       'lg-input--error'
