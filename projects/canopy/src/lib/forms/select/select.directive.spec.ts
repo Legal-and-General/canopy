@@ -13,8 +13,11 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
+import { anything, instance, mock, when } from 'ts-mockito';
+
 import { LgFormsModule } from '../forms.module';
 import { LgSelectDirective } from '../select/select.directive';
+import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 
 @Component({
   template: `
@@ -38,11 +41,18 @@ describe('LgSelectDirective', () => {
   let component: TestSelectComponent;
   let selectDebugElement: DebugElement;
   let selectInstance: LgSelectDirective;
+  const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
-      declarations: [TestSelectComponent]
+      declarations: [TestSelectComponent],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock)
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestSelectComponent);
@@ -68,8 +78,9 @@ describe('LgSelectDirective', () => {
   });
 
   it('adds an error class when the field has a validation error', () => {
-    component.form.get('name').markAsDirty();
-    component.form.get('name').markAsTouched();
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     fixture.detectChanges();
     expect(selectDebugElement.nativeElement.className).toContain(
       'lg-select--error'
