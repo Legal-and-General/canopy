@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroupDirective, NgControl } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +20,11 @@ export class LgErrorStateMatcher {
    *     // returns true
    */
   isControlInvalid(
-    control: NgControl,
+    control: FormControl | NgControl,
     controlContainer?: FormGroupDirective
   ): boolean {
     return !!(
-      (control && control.invalid && control.touched) ||
+      (control && control.invalid && control.touched && control.dirty) ||
       (controlContainer && controlContainer.submitted && control.invalid)
     );
   }
