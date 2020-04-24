@@ -44,7 +44,7 @@ e.g. Apply an xl margin all round, but xxxl margin to the bottom
 
 ## Inputs
 
-The current available variants are 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'.
+The current available variants are 'none', xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|

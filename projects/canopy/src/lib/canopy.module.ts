@@ -17,6 +17,7 @@ import { LgHeadingModule } from './heading/heading.module';
 import { LgHeroModule } from './hero/hero.module';
 import { LgIconModule } from './icon/icon.module';
 import { LgMarginModule } from './margin/margin.module';
+import { LgPaddingModule } from './padding/padding.module';
 import { LgPageModule } from './page/page.module';
 import { LgPipesModule } from './pipes/pipes.module';
 import { LgSeparatorModule } from './separator/separator.module';
@@ -40,6 +41,7 @@ const modules = [
   LgHeroModule,
   LgIconModule,
   LgMarginModule,
+  LgPaddingModule,
   LgPageModule,
   LgPipesModule,
   LgSeparatorModule,

@@ -20,7 +20,7 @@
   @include lg-breakpoint('md') {
     --component-padding: var(--space-lg);
   }
-  
+
   @include lg-breakpoint('lg') {
     --component-margin: var(--space-lg);
   }
@@ -55,6 +55,10 @@ body {
     .lg-margin--#{$val} {
       margin: space($val);
     }
+
+    .lg-padding--#{$val} {
+      padding: space($val);
+    }
   }
 
   @each $val in $spacing-list {
@@ -62,16 +66,32 @@ body {
       margin-top: space($val);
     }
 
+    .lg-padding__top--#{$val} {
+      padding-top: space($val);
+    }
+
     .lg-margin__right--#{$val} {
       margin-right: space($val);
+    }
+
+    .lg-padding__right--#{$val} {
+      padding-right: space($val);
     }
 
     .lg-margin__bottom--#{$val} {
       margin-bottom: space($val);
     }
 
+    .lg-padding__bottom--#{$val} {
+      padding-bottom: space($val);
+    }
+
     .lg-margin__left--#{$val} {
       margin-left: space($val);
+    }
+
+    .lg-padding__left--#{$val} {
+      padding-left: space($val);
     }
   }
 }
