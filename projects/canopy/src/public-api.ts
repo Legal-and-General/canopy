@@ -22,4 +22,5 @@ export * from './lib/icon/index';
 export * from './lib/margin/index';
 export * from './lib/page/index';
 export * from './lib/pipes/index';
+export * from './lib/separator/index';
 export * from './lib/spinner/index';

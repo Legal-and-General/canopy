@@ -31,6 +31,7 @@ function loadStories() {
   require('../projects/canopy/src/lib/page/page.stories');
   require('../projects/canopy/src/lib/pipes/camel-case/camel-case.stories');
   require('../projects/canopy/src/lib/pipes/kebab-case/kebab-case.stories');
+  require('../projects/canopy/src/lib/separator/separator.stories');
   require('../projects/canopy/src/lib/spinner/spinner.stories');
   require('../projects/canopy/src/styles/color.stories');
   require('../projects/canopy/src/styles/grid.stories');
