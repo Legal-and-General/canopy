@@ -21,4 +21,9 @@
 
 .lg-header__link {
   display: inline-block;
+
+  &:focus {
+    background-color: transparent;
+    @include lg-inner-focus-outline(var(--default-focus-color));
+  }
 }
