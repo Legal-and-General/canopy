@@ -133,24 +133,101 @@ It is also possible to provide your own custom validation messages using [custom
 and the validation component. This is particularly useful for checking things like wether the date is in the past or the future. Under the hood the date field uses the [date-fns](https://date-fns.org/) library as a peer dependency, to keep build size to a minimum it may be worth considering using the same library in your application.
 
 ~~~js
-function futureDateValidator(): ValidatorFn {
+function notMondayValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
-    return isFuture(parseISO(control.value)) ? { futureDate: true } : null;
+    return getDay(parseISO(control.value)) === 'monday' ? { notMonday: true } : null;
   };
 }
 ...
-const date = new FormControl('', [futureDateValidator()])
+const date = new FormControl('', [notMondayValidator()])
 ~~~
 
 ~~~html
 <lg-date-field formControlName="date">
-  Date of birth
+  Date of appointment
   <lg-hint>For example, 12 06 1983</lg-hint>
-  <lg-validation *ngIf="isControlInvalid(date, validationForm) && date.hasError('futureDate')">
-    Date must be in the past
+  <lg-validation *ngIf="isControlInvalid(date, validationForm) && date.hasError('notMonday')">
+    Date cannot be a Monday
   </lg-validation>
  </lg-date-field>
 ~~~
+
+### Additional validators
+
+To aid with common validation needs some additional reactive form validators are provided.
+
+#### Future date validator
+This validator checks if the specified date is in the future, if not it returns a futureDate error
+
+~~~js
+import { futureDateValidator } from '@canopy-collective/canopy';
+
+const control = new FormControl('', {
+  validators: [futureDateValidator()]
+});
+~~~
+
+~~~html
+<ng-container *ngIf="date.hasError('futureDate')">
+  Date must be in the future
+</ng-container>
+~~~
+
+#### Past date validator
+This validator checks if the specified date is in the past, if not it returns a pastDate error
+
+~~~js
+import { pastDateValidator } from '@canopy-collective/canopy';
+
+const control = new FormControl('', {
+  validators: [pastDateValidator()]
+});
+~~~
+
+~~~html
+<ng-container *ngIf="date.hasError('pastDate')">
+  Date must be in the past
+</ng-container>
+~~~
+
+#### Before date validator
+This validator checks if the specified date is before another specified date, if not it returns a beforeDate error.
+The beforeDate error contains the date that it was compared against.
+
+~~~js
+import { beforeDateValidator } from '@canopy-collective/canopy';
+import parseISO from 'date-fns/parseISO';
+
+const control = new FormControl('', {
+  validators: [beforeDateValidator(parseISO('2010-01-15'))]
+});
+~~~
+
+~~~html
+<ng-container *ngIf="date.hasError('beforeDate')">
+  Date must be before {{ date.errors.beforeDate.required }}
+</ng-container>
+~~~
+
+#### After date validator
+This validator checks if the specified date is after another specified date, if not it returns a afterDate error.
+The afterDate error contains the date that it was compared against.
+
+~~~js
+import { afterDateValidator } from '@canopy-collective/canopy';
+import parseISO from 'date-fns/parseISO';
+
+const control = new FormControl('', {
+  validators: [afterDateValidator(parseISO('2010-01-15'))]
+});
+~~~
+
+~~~html
+<ng-container *ngIf="date.hasError('afterDate')">
+  Date must be after {{ date.errors.afterDate.required }}
+</ng-container>
+~~~
+
 
 ## Using only the SCSS files
 

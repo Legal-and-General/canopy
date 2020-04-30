@@ -3,3 +3,5 @@ export interface DateField {
   month?: string;
   year?: string;
 }
+
+export const dateFormat = 'dd MMMM yyyy';

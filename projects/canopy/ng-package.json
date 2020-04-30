@@ -4,6 +4,11 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
+      "date-fns/format": "format",
+      "date-fns/isAfter": "isAfter",
+      "date-fns/isBefore": "isBefore",
+      "date-fns/isFuture": "isFuture",
+      "date-fns/isPast": "isPast",
       "date-fns/isValid": "isValid",
       "date-fns/parseISO": "parseISO"
     }

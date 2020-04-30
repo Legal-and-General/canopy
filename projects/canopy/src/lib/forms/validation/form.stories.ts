@@ -14,10 +14,8 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import isFuture from 'date-fns/isFuture';
-import parseISO from 'date-fns/parseISO';
-
 import { CanopyModule } from '../../canopy.module';
+import pastDateValidator from '../date/pastDate.validator';
 import { LgErrorStateMatcher } from './error-state-matcher';
 import { notes } from './form.notes';
 
@@ -26,12 +24,6 @@ function invalidValidator(): ValidatorFn {
     return control.value && control.value.toLowerCase() === 'invalid'
       ? { invalid: true }
       : null;
-  };
-}
-
-function futureDateValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    return isFuture(parseISO(control.value)) ? { futureDate: true } : null;
   };
 }
 
@@ -183,7 +175,7 @@ const stories = storiesOf('Components/Form/Validation', module).addDecorator(
           <ng-container *ngIf="date.hasError('invalidDate')">
             Enter a valid date of birth
           </ng-container>
-          <ng-container *ngIf="date.hasError('futureDate')">
+          <ng-container *ngIf="date.hasError('pastDate')">
             Date must be in the past
           </ng-container>
           <ng-container *ngIf="date.hasError('required')">
@@ -239,7 +231,7 @@ class ReactiveFormComponent {
       radio: ['', [Validators.required, invalidValidator()]],
       checkbox: ['', [Validators.requiredTrue]],
       switch: ['', [Validators.requiredTrue]],
-      date: ['', [Validators.required, futureDateValidator()]]
+      date: ['', [Validators.required, pastDateValidator()]]
     });
   }
 
