@@ -4,7 +4,7 @@ import format from 'date-fns/format';
 import subDays from 'date-fns/subDays';
 import { instance, mock, when } from 'ts-mockito';
 
-import beforeDateValidator from './beforeDate.validator';
+import { beforeDateValidator } from './beforeDate.validator';
 import { dateFormat } from './date-field.interface';
 
 describe('beforeDate', () => {

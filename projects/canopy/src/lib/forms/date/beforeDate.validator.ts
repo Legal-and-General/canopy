@@ -6,7 +6,7 @@ import parseISO from 'date-fns/parseISO';
 
 import { dateFormat } from './date-field.interface';
 
-export default function beforeDateValidator(dateToCompare: Date): ValidatorFn {
+export function beforeDateValidator(dateToCompare: Date): ValidatorFn {
   if (!isValid(dateToCompare)) {
     throw new Error('beforeDateValidator: dateToCompare is not a valid date');
   }

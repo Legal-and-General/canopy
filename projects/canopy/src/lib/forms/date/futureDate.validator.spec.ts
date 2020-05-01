@@ -4,7 +4,7 @@ import format from 'date-fns/format';
 import subDays from 'date-fns/subDays';
 import { instance, mock, when } from 'ts-mockito';
 
-import futureDateValidator from './futureDate.validator';
+import { futureDateValidator } from './futureDate.validator';
 
 describe('futureDate', () => {
   let control: AbstractControl;
