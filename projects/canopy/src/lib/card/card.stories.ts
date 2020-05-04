@@ -1,7 +1,8 @@
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgCardComponent } from '../../card/card/card.component';
+import { LgCardModule } from '../card/card.module';
+
 import { notes } from './card.notes';
 
 const stories = storiesOf('Components', module).addDecorator(withKnobs);
@@ -14,14 +15,20 @@ stories
     'Card',
     () => ({
       moduleMetadata: {
-        declarations: [LgCardComponent]
+        imports: [LgCardModule]
       },
       template: `
       <lg-card>
-        {{cardContent}}
+        <lg-card-header>
+          {{title}}
+        </lg-card-header>
+        <lg-card-content>
+          {{cardContent}}
+        </lg-card-content>
       </lg-card>
     `,
       props: {
+        title: text('title', `Card title`),
         cardContent: text(
           'cardContent',
           `Leverage agile frameworks to provide a robust synopsis for high level

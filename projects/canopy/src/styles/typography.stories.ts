@@ -1,7 +1,7 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgCardComponent } from '../lib/card/card/card.component';
+import { LgCardComponent } from '../lib/card/card.component';
 import { notes } from './typography.notes';
 
 const stories = storiesOf('Typography', module).addDecorator(withKnobs);
@@ -42,8 +42,10 @@ stories.add(
   }
 );
 
-stories.add('Page', () => ({
-  template: `
+stories.add(
+  'Page',
+  () => ({
+    template: `
       <h1 class="h1">Albert Camus</h1>
       <p>
         The Plague is a famous allegorical novel by Albert Camus, who's known
@@ -72,8 +74,10 @@ stories.add('Page', () => ({
         1947
       </p>
   `
-}), {
-  notes: {
-    markdown: notes
+  }),
+  {
+    notes: {
+      markdown: notes
+    }
   }
-});
+);

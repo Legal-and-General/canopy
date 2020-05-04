@@ -16,9 +16,14 @@ Import the component in your application:
 
 and in your HTML:
 
-~~~
+~~~html
 <lg-card>
-  Your content
+  <lg-card-header> 
+    Your title
+  </lg-card-header>
+  <lg-card-content> 
+    Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
@@ -37,15 +42,17 @@ Generate the markup as show in the example below, no current modifiers.
 | Class | Description |
 |------|-------------|
 | \`\`lg-card\`\` | Adds styles to the outer card element |
-| \`\`lg-card__body\`\` | Adds styles to the main body content of the card |
 
 
 ### Examples:
-~~~
+~~~html
 <div class="lg-card">
-  <div class="lg-card__body">
-    Your content
-  </div>
+    <div class="lg-card-header">
+        Your title
+    </div>
+    <div class="lg-card-content">
+        Your content
+    </div>
 </div>
 ~~~
 `;
