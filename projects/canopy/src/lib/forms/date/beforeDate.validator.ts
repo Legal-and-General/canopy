@@ -13,7 +13,7 @@ export function beforeDateValidator(dateToCompare: Date): ValidatorFn {
 
   return (control: AbstractControl): ValidationErrors | null => {
     const date = parseISO(control.value);
-    return isValid(date) && isBefore(date, dateToCompare)
+    return !isValid(date) || isBefore(date, dateToCompare)
       ? null
       : {
           beforeDate: {

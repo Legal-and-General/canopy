@@ -11,7 +11,7 @@ describe('beforeDate', () => {
   let control: AbstractControl;
   let validator: ValidatorFn;
   let dateToCompare: Date;
-  let date;
+  let date: Date;
 
   beforeEach(() => {
     dateToCompare = new Date();
@@ -52,70 +52,19 @@ describe('beforeDate', () => {
     });
   });
 
-  describe('date entered is not a date', () => {
-    describe('null', () => {
-      beforeEach(() => {
-        date = null;
-        when(control.value).thenReturn(date);
-      });
+  it('returns null if the date is null', () => {
+    when(control.value).thenReturn(null);
+    expect(validator(instance(control))).toBe(null);
+  });
 
-      it('adds a beforeDate error', () => {
-        expect(validator(instance(control))).toEqual(jasmine.any(Object));
-      });
+  it('returns null if the date is not a valid date', () => {
+    when(control.value).thenReturn(new Date('not a date'));
+    expect(validator(instance(control))).toBe(null);
+  });
 
-      it('includes the date to compare against', () => {
-        expect(validator(instance(control)).beforeDate).toEqual(
-          jasmine.objectContaining({
-            required: format(dateToCompare, dateFormat)
-          })
-        );
-      });
-
-      it('returns the invalid date that was sent', () => {
-        expect(validator(instance(control)).beforeDate).toEqual(
-          jasmine.objectContaining({
-            actual: date
-          })
-        );
-      });
-    });
-
-    describe('invalid date', () => {
-      beforeEach(() => {
-        date = 'not a date';
-        when(control.value).thenReturn(date);
-      });
-
-      it('adds a beforeDate error', () => {
-        expect(validator(instance(control))).toEqual(jasmine.any(Object));
-      });
-
-      it('includes the date to compare against', () => {
-        expect(validator(instance(control)).beforeDate).toEqual(
-          jasmine.objectContaining({
-            required: format(dateToCompare, dateFormat)
-          })
-        );
-      });
-
-      it('returns the invalid date that was sent', () => {
-        expect(validator(instance(control)).beforeDate).toEqual(
-          jasmine.objectContaining({
-            actual: date
-          })
-        );
-      });
-    });
-
-    describe('date is before the specified date', () => {
-      beforeEach(() => {
-        date = subDays(dateToCompare, 10);
-        when(control.value).thenReturn(format(date, 'yyyy-MM-dd'));
-      });
-
-      it('returns null', () => {
-        expect(validator(instance(control))).toEqual(null);
-      });
-    });
+  it('returns null if date is before the specified date', () => {
+    date = subDays(dateToCompare, 10);
+    when(control.value).thenReturn(format(date, 'yyyy-MM-dd'));
+    expect(validator(instance(control))).toEqual(null);
   });
 });

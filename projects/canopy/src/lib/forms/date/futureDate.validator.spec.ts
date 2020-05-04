@@ -23,11 +23,9 @@ describe('futureDate', () => {
     });
   });
 
-  it('returns a futureDate error if the date is not a valid date', () => {
+  it('returns null if the date is not a valid date', () => {
     when(control.value).thenReturn(null);
-    expect(validator(instance(control))).toEqual({
-      futureDate: true
-    });
+    expect(validator(instance(control))).toBe(null);
   });
 
   it('returns null if date is in the future', () => {

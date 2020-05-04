@@ -15,7 +15,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
-import pastDateValidator from '../date/pastDate.validator';
+import { pastDateValidator } from '../date/pastDate.validator';
 import { LgErrorStateMatcher } from './error-state-matcher';
 import { notes } from './form.notes';
 

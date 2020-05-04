@@ -13,12 +13,12 @@ export function afterDateValidator(dateToCompare: Date): ValidatorFn {
 
   return (control: AbstractControl): ValidationErrors | null => {
     const date = parseISO(control.value);
-    return isAfter(date, dateToCompare)
+    return !isValid(date) || isAfter(date, dateToCompare)
       ? null
       : {
           afterDate: {
             required: format(dateToCompare, dateFormat),
-            actual: isValid(date) ? format(date, dateFormat) : control.value
+            actual: format(date, dateFormat)
           }
         };
   };
