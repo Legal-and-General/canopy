@@ -1,0 +1,17 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-card {
+  display: block;
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+
+  @include lg-breakpoint('md') {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  @include lg-breakpoint('lg') {
+    padding-top: var(--space-xxxl);
+    padding-bottom: var(--space-sm);
+  }
+}

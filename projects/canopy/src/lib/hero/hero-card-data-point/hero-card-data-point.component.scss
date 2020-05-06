@@ -1,0 +1,25 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-card-data-point {
+  display: block;
+  border-bottom: solid var(--border-width) var(--hero-rule-color);
+  margin-bottom: var(--space-xs);
+  padding-bottom: var(--space-xs);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include lg-breakpoint('md') {
+    border-bottom: none;
+    border-right: solid var(--border-width) var(--hero-rule-color);
+    margin-right: var(--space-xl);
+    padding-right: var(--space-xl);
+
+    &:last-child {
+      border-right: none;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+}

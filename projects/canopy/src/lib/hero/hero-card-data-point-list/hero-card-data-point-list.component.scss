@@ -1,0 +1,10 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-card-data-point-list {
+  display: flex;
+  flex-direction: column;
+
+  @include lg-breakpoint('md') {
+    flex-direction: row;
+  }
+}

@@ -1,8 +1,9 @@
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../canopy.module';
 import { primaryLinks, secondaryLinks } from '../footer/footer.stories';
+import { productHeroHTML } from '../hero/hero.stories';
 import { notes } from './page.notes';
 
 const stories = storiesOf('Components/Page', module).addDecorator(withKnobs);
@@ -193,20 +194,13 @@ stories.add(
       },
       props: {
         ...createProps(),
-        title: text('Title', 'Pension Annuity')
+        title: text('Title', 'Pension Annuity'),
+        overlap: number('Overlap', 2)
       },
       template: `
         <lg-page>
           ${header}
-          <lg-hero [overlap]="2">
-            <div lgContainer>
-              <div lgRow>
-                <div lgCol="12">
-                  <lg-heading [level]="1">{{title}}</lg-heading>
-                </div>
-              </div>
-            </div>
-          </lg-hero>
+          ${productHeroHTML}
           <div lgContainer>
             <div lgRow>
               <div lgCol="12">

@@ -1,0 +1,11 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-card-title {
+  display: block;
+}
+
+.lg-hero-card-title__heading {
+  @include lg-font-size(6);
+
+  margin-bottom: var(--space-sm);
+}

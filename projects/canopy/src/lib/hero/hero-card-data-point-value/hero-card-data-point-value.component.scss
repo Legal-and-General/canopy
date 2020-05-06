@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+
+.lg-hero-card-data-point-value {
+  @include lg-font-size('3');
+
+  text-align: left;
+
+  @include lg-breakpoint('lg') {
+    @include lg-font-size('4');
+  }
+}

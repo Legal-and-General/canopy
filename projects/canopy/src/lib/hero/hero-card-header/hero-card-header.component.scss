@@ -1,0 +1,24 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-card-header {
+  display: flex;
+  flex-direction: column;
+
+  @include lg-breakpoint('lg') {
+    flex-direction: row;
+  }
+}
+
+.lg-hero-card-header__title {
+  @include lg-breakpoint('lg') {
+    margin-right: var(--space-md);
+    flex: 1 1 auto;
+  }
+}
+
+.lg-hero-card-header__data {
+  @include lg-breakpoint('lg') {
+    text-align: right;
+    flex: 0 0 auto;
+  }
+}

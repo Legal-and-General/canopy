@@ -1,0 +1,16 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-card-principle-data-point-label {
+  display: block;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include lg-font-size('1');
+
+    margin-bottom: var(--space-xxxs);
+  }
+}
