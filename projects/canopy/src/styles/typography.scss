@@ -1,3 +1,4 @@
+@import '../styles/mixins.scss';
 $fonts-path: '../assets/fonts' !default;
 
 @font-face {
@@ -83,69 +84,50 @@ h5,
 .h5,
 h6,
 .h6 {
+  display: block;
   margin-bottom: var(--text-bottom-margin);
 }
 
 .lg-font-size-7 {
-  display: block;
-  font-size: var(--text-fs-7-size);
-  line-height: var(--text-fs-7-line-height);
-  font-weight: var(--text-fs-7-weight);
+  @include lg-font-size('7');
 }
 
 .lg-font-size-6 {
-  display: block;
-  font-size: var(--text-fs-6-size);
-  line-height: var(--text-fs-6-line-height);
-  font-weight: var(--text-fs-6-weight);
+  @include lg-font-size('6');
 }
 
 h1,
 .lg-font-size-5 {
-  font-size: var(--text-fs-5-size);
-  line-height: var(--text-fs-5-line-height);
-  font-weight: var(--text-fs-5-weight);
+  @include lg-font-size('5');
 }
 
 h2,
 .lg-font-size-4 {
-  font-size: var(--text-fs-4-size);
-  line-height: var(--text-fs-4-line-height);
-  font-weight: var(--text-fs-4-weight);
+  @include lg-font-size('4');
 }
 
 h3,
 .lg-font-size-3 {
-  font-size: var(--text-fs-3-size);
-  line-height: var(--text-fs-3-line-height);
-  font-weight: var(--text-fs-3-weight);
+  @include lg-font-size('3');
 }
 
 h4,
 .lg-font-size-2 {
-  font-size: var(--text-fs-2-size);
-  line-height: var(--text-fs-2-line-height);
-  font-weight: var(--text-fs-2-weight);
+  @include lg-font-size('2');
 }
 
 h5,
 .lg-font-size-1 {
-  font-size: var(--text-fs-1-size);
-  line-height: var(--text-fs-1-line-height);
-  font-weight: var(--text-fs-1-weight);
+  @include lg-font-size('1');
 }
 
 h6,
 .lg-font-size-0-8 {
-  font-size: var(--text-fs--8-size);
-  line-height: var(--text-fs--8-line-height);
-  font-weight: var(--text-fs--8-weight);
+  @include lg-font-size('-8');
 }
 
 .lg-font-size-0-6 {
-  font-size: var(--text-fs--6-size);
-  line-height: var(--text-fs--6-line-height);
-  font-weight: var(--text-fs--6-weight);
+  @include lg-font-size('-6');
 }
 
 ul,
