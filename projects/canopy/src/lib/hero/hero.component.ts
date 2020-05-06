@@ -16,13 +16,13 @@ import {
 export class LgHeroComponent {
   @HostBinding('class.lg-hero') class = true;
 
-  @HostBinding('style.margin-bottom') get style() {
-    return typeof this.overlap === 'number'
-      ? `${this.overlap * -1}rem`
-      : this.DEFAULT_MARGIN_TOP;
+  @HostBinding('style.margin-bottom') get marginBottom() {
+    return this.overlap ? `${this.overlap * -1}rem` : null;
   }
 
-  @Input() overlap: number;
+  @HostBinding('style.padding-bottom') get paddingBottom() {
+    return this.overlap && this.overlap > 0 ? `${this.overlap}rem` : null;
+  }
 
-  private DEFAULT_MARGIN_TOP = '-2rem';
+  @Input() overlap = 2;
 }

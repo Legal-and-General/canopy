@@ -31,34 +31,63 @@ describe('LgHeroComponent', () => {
   });
 
   describe('when the overlap is set to -2', () => {
-    it('should set the margin-bottom style to 2rem', () => {
+    beforeEach(() => {
       component.overlap = -2;
       fixture.detectChanges();
+      fixture.detectChanges();
+    });
+
+    it('should set the margin-bottom style to 2rem', () => {
       expect(componentElement.style['margin-bottom']).toEqual('2rem');
+    });
+
+    it('should not set the padding-bottom', () => {
+      expect(componentElement.style['padding-bottom']).toEqual('');
     });
   });
 
   describe('when the overlap is set to 10', () => {
-    it('should set the margin-bottom style to -10rem', () => {
+    beforeEach(() => {
       component.overlap = 10;
       fixture.detectChanges();
+    });
+
+    it('should set the margin-bottom style to -10rem', () => {
       expect(componentElement.style['margin-bottom']).toEqual('-10rem');
+    });
+
+    it('should set the padding-bottom style to 10rem', () => {
+      expect(componentElement.style['padding-bottom']).toEqual('10rem');
     });
   });
 
   describe('when the overlap is set to null', () => {
-    it('should set the margin-bottom style to -2rem', () => {
+    beforeEach(() => {
       component.overlap = null;
       fixture.detectChanges();
-      expect(componentElement.style['margin-bottom']).toEqual('-2rem');
+    });
+
+    it('should not set the margin-bottom style', () => {
+      expect(componentElement.style['margin-bottom']).toEqual('');
+    });
+
+    it('should not set the padding-bottom style', () => {
+      expect(componentElement.style['padding-bottom']).toEqual('');
     });
   });
 
   describe('when the overlap is set to undefined', () => {
-    it('should set the margin-bottom style to -2rem', () => {
+    beforeEach(() => {
       component.overlap = undefined;
       fixture.detectChanges();
-      expect(componentElement.style['margin-bottom']).toEqual('-2rem');
+    });
+
+    it('should not set the margin-bottom', () => {
+      expect(componentElement.style['margin-bottom']).toEqual('');
+    });
+
+    it('should not set the padding-bottom', () => {
+      expect(componentElement.style['padding-bottom']).toEqual('');
     });
   });
 });
