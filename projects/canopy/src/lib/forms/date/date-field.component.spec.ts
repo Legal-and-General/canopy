@@ -241,7 +241,7 @@ describe('LgDateFieldComponent', () => {
       dateFieldInstance.month.markAsDirty();
       dateFieldInstance.month.setValue('x');
       dateFieldInstance.date.markAsDirty();
-      dateFieldInstance.date.setValue('x');
+      dateFieldInstance.date.setValue('1x');
       fixture.detectChanges();
       expect(
         fixture.componentInstance.form.controls.dateOfBirth.errors

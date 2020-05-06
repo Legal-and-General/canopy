@@ -113,19 +113,19 @@ export class LgDateFieldComponent
   ngOnInit() {
     this.date = new FormControl(null, [
       Validators.required,
-      Validators.pattern(/\d{1,2}/),
+      Validators.pattern(/^\d{1,2}$/),
       Validators.min(1),
       Validators.max(31)
     ]);
     this.month = new FormControl(null, [
       Validators.required,
-      Validators.pattern(/\d{1,2}/),
+      Validators.pattern(/^\d{1,2}$/),
       Validators.min(1),
       Validators.max(12)
     ]);
     this.year = new FormControl(null, [
       Validators.required,
-      Validators.pattern(/\d\d\d\d/)
+      Validators.pattern(/^\d\d\d\d$/)
     ]);
     this.dateFormGroup = new FormGroup(
       {
