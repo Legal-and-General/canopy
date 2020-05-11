@@ -88,9 +88,9 @@ describe('LgBreadcrumbItemComponent', () => {
     });
   });
 
-  describe('when hideCustomIcoms is true', () => {
+  describe('when hideCustomIcons is true', () => {
     beforeEach(() => {
-      component.hideCustomIcoms = true;
+      component.hideCustomIcons = true;
       fixture.detectChanges();
     });
 

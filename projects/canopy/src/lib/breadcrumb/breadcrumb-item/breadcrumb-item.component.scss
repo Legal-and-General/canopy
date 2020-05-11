@@ -28,6 +28,10 @@
   &--hide-content-icon {
     .lg-breadcrumb-item__content .lg-icon {
       display: none;
+
+      @include lg-breakpoint('md') {
+        display: inline;
+      }
     }
   }
 

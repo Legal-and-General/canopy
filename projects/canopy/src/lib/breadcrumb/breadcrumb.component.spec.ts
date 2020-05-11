@@ -58,7 +58,7 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('hide custom items should be false', () => {
-      expect(component.crumbs.first.hideCustomIcoms).toBe(false);
+      expect(component.crumbs.first.hideCustomIcons).toBe(false);
     });
 
     it('show back button should be false', () => {
@@ -92,8 +92,8 @@ describe('LgBreadcrumbComponent', () => {
       localFixture.detectChanges();
     });
 
-    it('hide custom items for the first item', () => {
-      expect(component.crumbs.first.hideCustomIcoms).toBe(true);
+    it('hide custom icons for the first item', () => {
+      expect(component.crumbs.first.hideCustomIcons).toBe(true);
     });
 
     it('show back button should be true for first item', () => {
@@ -124,7 +124,7 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('hide custom items should be false for the first item', () => {
-      expect(component.crumbs.first.hideCustomIcoms).toBe(false);
+      expect(component.crumbs.first.hideCustomIcons).toBe(false);
     });
 
     it('show back button should be true for first item', () => {

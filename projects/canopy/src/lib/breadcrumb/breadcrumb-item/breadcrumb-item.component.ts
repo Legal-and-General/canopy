@@ -25,10 +25,10 @@ export class LgBreadcrumbItemComponent {
 
   @HostBinding('class.lg-breadcrumb-item--hide-content-icon')
   get customItemControl() {
-    return this.hideCustomIcoms;
+    return this.hideCustomIcons;
   }
 
-  hideCustomIcoms = false;
+  hideCustomIcons = false;
 
   icons = iconSet;
 

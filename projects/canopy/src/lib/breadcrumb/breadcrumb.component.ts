@@ -71,7 +71,7 @@ export class LgBreadcrumbComponent implements AfterContentInit {
 
       crumb.index = index;
 
-      crumb.hideCustomIcoms = totalCrumbCount === 2 && !index;
+      crumb.hideCustomIcons = totalCrumbCount === 2 && !index;
 
       crumb.showBackIcon = totalCrumbCount > 1;
 

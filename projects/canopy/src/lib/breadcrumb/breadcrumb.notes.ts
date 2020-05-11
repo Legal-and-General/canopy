@@ -3,7 +3,7 @@ export const notes = `
 
 
 ## Purpose
-Displays the path of the user's journey from top-level through to child. Crumbs above the current level should be styled as links, and link to the previous level on desktop. It should display the root, current and previous levels of hierarchy.
+Displays the path of the user's journey from top-level through to child. Note that there is different behavior on mobile vs desktop. Crumbs above the current level should be styled as links, and link to the previous level on desktop. It should display the root, current and previous levels of hierarchy.
 On mobile the crumb should take the user back to the previous level, but should be hidden at the top-level.
 
 
@@ -20,7 +20,10 @@ and in your HTML:
 ~~~html
 <lg-breadcrumb>
   <lg-breadcrumb-item>
-    <a href="#">Home</a>
+    <a href="#">
+      <lg-icon [name]="'home'"></lg-icon>
+      Home
+    </a>
   </lg-breadcrumb-item>
   <lg-breadcrumb-item>
     <a href="#">Products</a>
