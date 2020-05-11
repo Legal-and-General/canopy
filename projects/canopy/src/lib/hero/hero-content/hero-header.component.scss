@@ -1,0 +1,19 @@
+.lg-hero-header {
+  display: block;
+  position: relative;
+}
+
+.lg-hero-header__overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--hero-bg-color);
+  opacity: var(--hero-bg-alpha);
+}
+
+.lg-hero-header__content {
+  padding: var(--space-xxxs) 0;
+}

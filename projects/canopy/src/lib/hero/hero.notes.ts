@@ -24,24 +24,34 @@ the top of the page. It also controls the functionality to create the 'overlap' 
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`overlap\`\` | The amount that the page content overlaps the hero component (rem) | number | 2 | No |
 
-### LgHeroCard
-A container component for displaying content within the hero area. The hero and hero card components are agnostic of the grid layout of the page. You will need to wrap the hero card component with the specific grid that is required.
+
+### LgHeroContent
+This is the main section of the hero bar, it stretches the full width and is agnostic of grid system. You will need to configure the grid in the contents of this component to match your page layout.
 
 #### Configure Grid
 
 ~~~html
 <lg-hero [overlap]="2">
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <lg-hero-card>
-          ...
-        </lg-hero-card>
+  <lg-hero-content>
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-hero-card>
+            ...
+          </lg-hero-card>
+        </div>
       </div>
     </div>
-  </div>
+  </lg-hero-content>
 </lg-hero>
 ~~~
+
+### LgHeroContent
+This is the top section of the hero bar, it stretches the full width and is agnostic of grid system. It is generally used to home the breadcrumb component if there is one. Similar to LgHeroContent you will need to configure the grid in the contents of this component to match your page layout.
+
+
+### LgHeroCard
+A container component for displaying content within the hero area. The hero and hero card components are agnostic of the grid layout of the page. You will need to wrap the hero card component with the specific grid that is required.
 
 ### LgHeroCardHeaderComponent
 This is the primary layout section of the hero component, it is used to contain the title, subtitle and principle value. 
