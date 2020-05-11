@@ -71,11 +71,11 @@ export class LgBreadcrumbComponent implements AfterContentInit {
 
       crumb.index = index;
 
-      crumb.hideCustomIcons = totalCrumbCount === 2 && !index;
+      crumb.hideIcons = totalCrumbCount === 2 && !index;
 
-      crumb.showBackIcon = totalCrumbCount > 1;
+      crumb.showBackChevron = totalCrumbCount > 1;
 
-      crumb.showForwardIcon = index + 1 !== totalCrumbCount;
+      crumb.showForwardChevron = index + 1 !== totalCrumbCount;
 
       crumb.isSmScreenFeaturedItem =
         (!index && totalCrumbCount === 1) || index + 2 === totalCrumbCount;

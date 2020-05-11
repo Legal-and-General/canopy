@@ -1,4 +1,4 @@
-<span class="lg-breadcrumb-item__icon-wrapper" *ngIf="showBackIcon">
+<span class="lg-breadcrumb-item__icon-wrapper" *ngIf="showBackChevron">
   <lg-icon
     [name]="'caret-left'"
     class="lg-breadcrumb-item__icon lg-breadcrumb-item__icon-backward"
@@ -10,7 +10,7 @@
   <ng-content></ng-content>
 </span>
 
-<span class="lg-breadcrumb-item__icon-wrapper" *ngIf="showForwardIcon">
+<span class="lg-breadcrumb-item__icon-wrapper" *ngIf="showForwardChevron">
   <lg-icon
     [name]="'caret-right'"
     class="lg-breadcrumb-item__icon lg-breadcrumb-item__icon-forward"

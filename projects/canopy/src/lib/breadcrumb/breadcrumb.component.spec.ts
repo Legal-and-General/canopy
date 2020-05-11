@@ -58,15 +58,15 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('hide custom items should be false', () => {
-      expect(component.crumbs.first.hideCustomIcons).toBe(false);
+      expect(component.crumbs.first.hideIcons).toBe(false);
     });
 
     it('show back button should be false', () => {
-      expect(component.crumbs.first.showBackIcon).toBe(false);
+      expect(component.crumbs.first.showBackChevron).toBe(false);
     });
 
     it('show forward button should be false', () => {
-      expect(component.crumbs.first.showForwardIcon).toBe(false);
+      expect(component.crumbs.first.showForwardChevron).toBe(false);
     });
 
     it('the first item should be the isSmScreenFeaturedItem', () => {
@@ -93,15 +93,15 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('hide custom icons for the first item', () => {
-      expect(component.crumbs.first.hideCustomIcons).toBe(true);
+      expect(component.crumbs.first.hideIcons).toBe(true);
     });
 
     it('show back button should be true for first item', () => {
-      expect(component.crumbs.first.showBackIcon).toBe(true);
+      expect(component.crumbs.first.showBackChevron).toBe(true);
     });
 
     it('show forward button should be true for first item', () => {
-      expect(component.crumbs.first.showForwardIcon).toBe(true);
+      expect(component.crumbs.first.showForwardChevron).toBe(true);
     });
 
     it('the first item should be the isSmScreenFeaturedItem', () => {
@@ -124,31 +124,31 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('hide custom items should be false for the first item', () => {
-      expect(component.crumbs.first.hideCustomIcons).toBe(false);
+      expect(component.crumbs.first.hideIcons).toBe(false);
     });
 
     it('show back button should be true for first item', () => {
-      expect(component.crumbs.first.showBackIcon).toBe(true);
+      expect(component.crumbs.first.showBackChevron).toBe(true);
     });
 
     it('show back button should be true for second item', () => {
-      expect(component.crumbs.toArray()[1].showBackIcon).toBe(true);
+      expect(component.crumbs.toArray()[1].showBackChevron).toBe(true);
     });
 
     it('show back button should be true for third item', () => {
-      expect(component.crumbs.toArray()[2].showBackIcon).toBe(true);
+      expect(component.crumbs.toArray()[2].showBackChevron).toBe(true);
     });
 
     it('show forward button should be true for first item', () => {
-      expect(component.crumbs.first.showForwardIcon).toBe(true);
+      expect(component.crumbs.first.showForwardChevron).toBe(true);
     });
 
     it('show forward button should be true for second item', () => {
-      expect(component.crumbs.toArray()[1].showForwardIcon).toBe(true);
+      expect(component.crumbs.toArray()[1].showForwardChevron).toBe(true);
     });
 
     it('show forward button should be false for third item', () => {
-      expect(component.crumbs.toArray()[2].showForwardIcon).toBe(false);
+      expect(component.crumbs.toArray()[2].showForwardChevron).toBe(false);
     });
 
     it('the first item should not be the isSmScreenFeaturedItem', () => {

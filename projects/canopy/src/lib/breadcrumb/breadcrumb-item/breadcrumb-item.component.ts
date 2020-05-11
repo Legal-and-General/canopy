@@ -23,12 +23,12 @@ export class LgBreadcrumbItemComponent {
     return this.isSmScreenFeaturedItem;
   }
 
-  @HostBinding('class.lg-breadcrumb-item--hide-content-icon')
-  get customItemControl() {
-    return this.hideCustomIcons;
+  @HostBinding('class.lg-breadcrumb-item--hide-icons')
+  get iconControl() {
+    return this.hideIcons;
   }
 
-  hideCustomIcons = false;
+  hideIcons = false;
 
   icons = iconSet;
 
@@ -36,9 +36,9 @@ export class LgBreadcrumbItemComponent {
 
   isSmScreenFeaturedItem = false;
 
-  showBackIcon = false;
+  showBackChevron = false;
 
-  showForwardIcon = false;
+  showForwardChevron = false;
 
   set variant(variant: BreadcrumbVariant) {
     if (this._variant) {

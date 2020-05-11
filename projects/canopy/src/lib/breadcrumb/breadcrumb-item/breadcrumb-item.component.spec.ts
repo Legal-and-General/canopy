@@ -88,15 +88,15 @@ describe('LgBreadcrumbItemComponent', () => {
     });
   });
 
-  describe('when hideCustomIcons is true', () => {
+  describe('when hideIcons is true', () => {
     beforeEach(() => {
-      component.hideCustomIcons = true;
+      component.hideIcons = true;
       fixture.detectChanges();
     });
 
-    it(`the class should contain 'lg-breadcrumb-item--hide-content-icon'`, () => {
+    it(`the class should contain 'lg-breadcrumb-item--hide-icons'`, () => {
       expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--hide-content-icon'
+        'lg-breadcrumb-item--hide-icons'
       );
     });
   });
