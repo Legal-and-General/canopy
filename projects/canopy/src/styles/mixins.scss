@@ -13,6 +13,15 @@
   box-shadow: 0 0 0 0.25rem $bg-color;
 }
 
+@mixin lg-background-focus(
+  $bg-color: var(--link-focus-background-color),
+  $color: var(--link-focus-color)
+) {
+  background: $bg-color;
+  color: $color;
+  outline: var(--link-focus-outline) solid $bg-color;
+}
+
 @mixin lg-font-size($size) {
   font-size: var(--text-fs-#{$size}-size);
   line-height: var(--text-fs-#{$size}-line-height);
@@ -52,6 +61,17 @@ $breakpoints: (
 }
 
 @mixin lg-variant($variant: 'generic') {
+  a {
+    &:visited {
+      color: var(--color-black);
+    }
+
+    &:focus {
+      box-shadow: none;
+      @include lg-background-focus;
+    }
+  }
+
   @if ($variant == 'generic') {
     background-color: var(--generic-bg-color);
     color: var(--generic-color);
@@ -60,11 +80,11 @@ $breakpoints: (
       color: var(--generic-link-color);
 
       &:hover {
-        color: var(--generic-hover-color);
+        color: var(--generic-link-hover-color);
       }
 
       &:focus:hover {
-        color: var(--generic-focus-color);
+        color: var(--generic-link-focus-color);
       }
     }
   } @else if ($variant == 'info') {
@@ -75,11 +95,11 @@ $breakpoints: (
       color: var(--info-link-color);
 
       &:hover {
-        color: var(--info-hover-color);
+        color: var(--info-link-hover-color);
       }
 
       &:focus:hover {
-        color: var(--info-focus-color);
+        color: var(--info-link-focus-color);
       }
     }
   } @else if ($variant == 'success') {
@@ -90,11 +110,11 @@ $breakpoints: (
       color: var(--success-link-color);
 
       &:hover {
-        color: var(--success-hover-color);
+        color: var(--success-link-hover-color);
       }
 
       &:focus:hover {
-        color: var(--success-focus-color);
+        color: var(--success-link-focus-color);
       }
     }
   } @else if ($variant == 'warning') {
@@ -105,11 +125,11 @@ $breakpoints: (
       color: var(--warning-link-color);
 
       &:hover {
-        color: var(--warning-hover-color);
+        color: var(--warning-link-hover-color);
       }
 
       &:focus:hover {
-        color: var(--warning-focus-color);
+        color: var(--warning-link-focus-color);
       }
     }
   } @else if ($variant == 'error') {
@@ -120,11 +140,11 @@ $breakpoints: (
       color: var(--error-link-color);
 
       &:hover {
-        color: var(--error-hover-color);
+        color: var(--error-link-hover-color);
       }
 
       &:focus:hover {
-        color: var(--error-focus-color);
+        color: var(--error-link-focus-color);
       }
     }
   }

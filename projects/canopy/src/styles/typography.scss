@@ -57,9 +57,7 @@ a {
   }
 
   &:focus {
-    background: var(--link-focus-background-color);
-    color: var(--link-focus-color);
-    outline: var(--link-focus-outline) solid var(--link-focus-background-color);
+    @include lg-outer-focus-outline(var(--default-focus-color));
   }
 }
 

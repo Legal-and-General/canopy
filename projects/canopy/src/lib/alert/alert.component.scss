@@ -15,20 +15,6 @@
     font-weight: var(--font-weight-bold);
     line-height: var(--text-base-line-height);
   }
-
-  a {
-    &:visited {
-      color: var(--color-black);
-    }
-
-    &:focus {
-      color: var(--link-focus-color);
-    }
-
-    &:focus:hover {
-      color: var(--color-white);
-    }
-  }
 }
 
 .lg-alert--generic {
