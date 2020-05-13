@@ -19,3 +19,4 @@ Screenshot: (if appropriate provide a quick screen grab of the changes)
 - [ ] I have added the functionality to the [test app](/projects/canopy-test-app)
 - [ ] I have provided a story in storybook to document the changes
 - [ ] I have provided documentation in the notes section of the story
+- [ ] I have added any new public feature modules to public-api.ts
