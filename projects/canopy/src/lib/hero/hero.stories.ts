@@ -30,84 +30,82 @@ const bodyHTML = `
 `;
 
 export const productHeroHTML = `
-<lg-hero [overlap]="overlap">
-  <lg-hero-header>
-    <div lgContainer>
-      <div lgRow>
-        <div lgCol="12">
-          <lg-breadcrumb variant="light" lgMarginBottom="none">
-            <lg-breadcrumb-item>
-              <a href="#">
-                <lg-icon [name]="'home'"></lg-icon>
-                Home
-              </a>
-            </lg-breadcrumb-item>
-            <lg-breadcrumb-item>
-              <a href="#">Products</a>
-            </lg-breadcrumb-item>
-            <lg-breadcrumb-item>
-              <a href="#" aria-current="page">Pension Annuity</a>
-            </lg-breadcrumb-item>
-          </lg-breadcrumb>
-        </div>
+<lg-hero-header>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12">
+        <lg-breadcrumb variant="light" lgMarginBottom="none">
+          <lg-breadcrumb-item>
+            <a href="#">
+              <lg-icon [name]="'home'"></lg-icon>
+              Home
+            </a>
+          </lg-breadcrumb-item>
+          <lg-breadcrumb-item>
+            <a href="#">Products</a>
+          </lg-breadcrumb-item>
+          <lg-breadcrumb-item>
+            <a href="#" aria-current="page">Pension Annuity</a>
+          </lg-breadcrumb-item>
+        </lg-breadcrumb>
       </div>
     </div>
-  </lg-hero-header>
-  <lg-hero-content>
-    <div lgContainer>
-      <div lgRow>
-        <div lgCol="12">
-          <lg-hero-card>
-            <lg-hero-card-header>
-              <lg-hero-card-title headingLevel="4">
-                Pension annuity
-              </lg-hero-card-title>
-              <lg-hero-card-subtitle>
-                Payroll Reference Number P23456
-              </lg-hero-card-subtitle>
-              <lg-hero-card-principle-data-point>
-                <lg-hero-card-principle-data-point-label headingLevel="5">
-                  Last payment (after tax and deductions)
-                </lg-hero-card-principle-data-point-label>
-                <lg-hero-card-principle-data-point-value>
-                  £230.20
-                </lg-hero-card-principle-data-point-value>
-              </lg-hero-card-principle-data-point>
-            </lg-hero-card-header>
-            <lg-hero-card-content>
-              <lg-hero-card-data-point-list>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label headingLevel="6">
-                    Payment due
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    15 Jan 2020
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label headingLevel="6">
-                    Payment frequency
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    Monthly
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label headingLevel="6">
-                    Tax code
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    2T <span lgMarginLeft="sm" class="lg-font-size-1">Received on 12 Mar 2019</span>
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-              </lg-hero-card-data-point-list>
-            </lg-hero-card-content>
-          </lg-hero-card>
-        </div>
+  </div>
+</lg-hero-header>
+<lg-hero-content>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12">
+        <lg-hero-card>
+          <lg-hero-card-header>
+            <lg-hero-card-title headingLevel="4">
+              Pension annuity
+            </lg-hero-card-title>
+            <lg-hero-card-subtitle>
+              Payroll Reference Number P23456
+            </lg-hero-card-subtitle>
+            <lg-hero-card-principle-data-point>
+              <lg-hero-card-principle-data-point-label headingLevel="5">
+                Last payment (after tax and deductions)
+              </lg-hero-card-principle-data-point-label>
+              <lg-hero-card-principle-data-point-value>
+                £230.20
+              </lg-hero-card-principle-data-point-value>
+            </lg-hero-card-principle-data-point>
+          </lg-hero-card-header>
+          <lg-hero-card-content>
+            <lg-hero-card-data-point-list>
+              <lg-hero-card-data-point>
+                <lg-hero-card-data-point-label headingLevel="6">
+                  Payment due
+                </lg-hero-card-data-point-label>
+                <lg-hero-card-data-point-value>
+                  15 Jan 2020
+                </lg-hero-card-data-point-value>
+              </lg-hero-card-data-point>
+              <lg-hero-card-data-point>
+                <lg-hero-card-data-point-label headingLevel="6">
+                  Payment frequency
+                </lg-hero-card-data-point-label>
+                <lg-hero-card-data-point-value>
+                  Monthly
+                </lg-hero-card-data-point-value>
+              </lg-hero-card-data-point>
+              <lg-hero-card-data-point>
+                <lg-hero-card-data-point-label headingLevel="6">
+                  Tax code
+                </lg-hero-card-data-point-label>
+                <lg-hero-card-data-point-value>
+                  2T <span lgMarginLeft="sm" class="lg-font-size-1">Received on 12 Mar 2019</span>
+                </lg-hero-card-data-point-value>
+              </lg-hero-card-data-point>
+            </lg-hero-card-data-point-list>
+          </lg-hero-card-content>
+        </lg-hero-card>
       </div>
     </div>
-  </lg-hero-content>
-</lg-hero>
+  </div>
+</lg-hero-content>
 `;
 
 export const conversationalHeroHTML = `
@@ -143,7 +141,9 @@ stories.add(
       // the baked in margin that exists to allow the hero to sit flush against the
       // header when in the context of a page
       template: `
-        ${productHeroHTML}
+        <lg-hero [overlap]="overlap" lgMarginTop="none">
+          ${productHeroHTML}
+        </lg-hero>
         ${bodyHTML}
       `,
       props: {

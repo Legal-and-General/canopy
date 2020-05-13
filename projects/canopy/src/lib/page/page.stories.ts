@@ -200,7 +200,9 @@ stories.add(
       template: `
         <lg-page>
           ${header}
-          ${productHeroHTML}
+          <lg-hero [overlap]="overlap">
+            ${productHeroHTML}
+          </lg-hero>
           <div lgContainer>
             <div lgRow>
               <div lgCol="12">
