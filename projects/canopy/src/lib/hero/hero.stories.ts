@@ -110,19 +110,21 @@ export const productHeroHTML = `
 
 export const conversationalHeroHTML = `
 <lg-hero [overlap]="overlap">
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <lg-hero-card>
-          <lg-hero-card-header>
-            <lg-hero-card-title headingLevel="4">
-              Good morning, Gene
-            </lg-hero-card-title>
-          </lg-hero-card-header>
-        </lg-hero-card>
+  <lg-hero-content>
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-hero-card>
+            <lg-hero-card-header>
+              <lg-hero-card-title headingLevel="4">
+                Good morning, Gene
+              </lg-hero-card-title>
+            </lg-hero-card-header>
+          </lg-hero-card>
+        </div>
       </div>
     </div>
-  </div>
+  </lg-hero-content>
 </lg-hero>
 `;
 
