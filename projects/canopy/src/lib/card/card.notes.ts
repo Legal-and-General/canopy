@@ -43,6 +43,25 @@ Generate the markup as show in the example below, no current modifiers.
 |------|-------------|
 | \`\`lg-card\`\` | Adds styles to the outer card element |
 
+## Using a nested grid
+
+When the content of a card is set in a nested grid you will need to suppress the default horizontal padding of the card via the lgPadding directive.
+
+~~~html
+<lg-card lgPaddingHorizontal="none">
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+        <lg-card-content> 
+          Your content
+        </lg-card-content>
+      </div>
+    </div>
+  </div>
+</lg-card>
+~~~
+
+
 
 ### Examples:
 ~~~html
