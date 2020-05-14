@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
-import { SpacingVariant } from './padding.interface';
+import { SpacingVariant } from '../spacing.interface';
 
 @Directive({
   selector: `

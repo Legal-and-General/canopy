@@ -28,9 +28,9 @@ function loadStories() {
   require('../projects/canopy/src/lib/heading/heading.stories');
   require('../projects/canopy/src/lib/hero/hero.stories');
   require('../projects/canopy/src/lib/icon/icons.stories');
-  require('../projects/canopy/src/lib/margin/margin.stories');
+  require('../projects/canopy/src/lib/spacing/margin/margin.stories');
   require('../projects/canopy/src/lib/page/page.stories');
-  require('../projects/canopy/src/lib/padding/padding.stories');
+  require('../projects/canopy/src/lib/spacing/padding/padding.stories');
   require('../projects/canopy/src/lib/pipes/camel-case/camel-case.stories');
   require('../projects/canopy/src/lib/pipes/kebab-case/kebab-case.stories');
   require('../projects/canopy/src/lib/separator/separator.stories');

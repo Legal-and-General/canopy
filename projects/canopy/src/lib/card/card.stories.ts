@@ -3,9 +3,8 @@ import { storiesOf } from '@storybook/angular';
 
 import { LgCardModule } from '../card/card.module';
 import { LgGridModule } from '../grid/grid.module';
-
+import { LgPaddingModule } from '../spacing/padding/padding.module';
 import { notes } from './card.notes';
-import { LgPaddingModule } from '../padding';
 
 const stories = storiesOf('Components/Card', module).addDecorator(withKnobs);
 const props = {

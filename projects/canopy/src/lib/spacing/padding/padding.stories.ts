@@ -1,7 +1,8 @@
 import { select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { CanopyModule } from '../canopy.module';
+import { LgCardComponent } from '../../card/card.component';
+import { LgPaddingDirective } from './padding.directive';
 import { notes } from './padding.notes';
 
 const stories = storiesOf('Directives', module);
@@ -30,7 +31,7 @@ stories
     'Padding',
     () => ({
       moduleMetadata: {
-        imports: [CanopyModule]
+        declarations: [LgCardComponent, LgPaddingDirective]
       },
       template: `
         <lg-card

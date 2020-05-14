@@ -1,3 +1,3 @@
 export * from './margin.directive';
 export * from './margin.module';
-export * from './margin.interface';
+export * from '../spacing.interface';
