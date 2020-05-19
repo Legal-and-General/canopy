@@ -12,6 +12,7 @@
     "generate-icons": "npm run svgo && svg-to-ts -s projects/canopy/src/assets/icons -o projects/canopy/src/lib/icon -f icons.interface -p lgIcon -t IconName -i Icon -d KEBAB && node svg-info.ts",
     "svgo": "svgo -f projects/canopy/src/assets/icons --config=svgo.json",
     "test": "ng test",
+    "test:ci": "ng test canopy --watch=false --browsers=ChromeHeadless",
     "lint": "npm run tslint && npm run stylelint",
     "tslint": "ng lint",
     "e2e": "ng e2e",
