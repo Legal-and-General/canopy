@@ -29,12 +29,15 @@
 }
 
 @mixin lg-visually-hidden {
-  position: absolute;
-  left: -625rem;
-  top: auto;
-  width: 0.0625rem;
-  height: 0.0625rem;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
   overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0.0625em;
+  white-space: nowrap;
 }
 
 $breakpoints: (
