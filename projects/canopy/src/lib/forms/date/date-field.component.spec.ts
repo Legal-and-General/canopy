@@ -215,6 +215,24 @@ describe('LgDateFieldComponent', () => {
     dateFieldInstance.month.setValue('3');
   });
 
+  it('updates the date value on each input change', () => {
+    dateInput.nativeElement.value = '9';
+    dateInput.nativeElement.dispatchEvent(new Event('input'));
+    expect(dateFieldInstance.date.value).toBe('9');
+  });
+
+  it('updates the month value on each input change', () => {
+    monthInput.nativeElement.value = '1';
+    monthInput.nativeElement.dispatchEvent(new Event('input'));
+    expect(dateFieldInstance.month.value).toBe('1');
+  });
+
+  it('updates the year value on each input change', () => {
+    yearInput.nativeElement.value = '3';
+    yearInput.nativeElement.dispatchEvent(new Event('input'));
+    expect(dateFieldInstance.year.value).toBe('3');
+  });
+
   it('publishes a change when the user enters a date', done => {
     component.dateChange.pipe(skip(2)).subscribe(change => {
       expect(change.dateOfBirth).toBe('1944-03-07');
