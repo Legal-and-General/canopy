@@ -140,7 +140,7 @@ export class LgDateFieldComponent
 
     const validators = [this.validate.bind(this)];
     // append internal validators to external validators if applicable.
-    if (this.ngControl.control.validator) {
+    if (this.ngControl.control && this.ngControl.control.validator) {
       validators.push(this.ngControl.control.validator);
     }
     this.ngControl.control.setValidators(validators);
