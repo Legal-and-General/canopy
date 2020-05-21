@@ -8,6 +8,10 @@
   --bottom-shadow: 0 0.3125rem 0.25rem 0 rgba(0, 0, 0, 0.03);
 
   --default-focus-color: var(--color-dandelion-yellow);
+  --default-underline-hover-color: var(--color-charcoal);
+  --default-underline-active-color: var(--color-charcoal);
+  --default-underline-color: var(--color-charcoal);
+  --default-link-bg-active-color: var(--color-white);
 
   /* Animation */
   --animation-duration: 0.25s;
@@ -20,11 +24,23 @@
   --icon-line-height: 1em;
 
   /* Links */
+  --link-border-width: 0.125rem;
+  --link-underline-space: 0 0.125rem;
+  --link-underline-length-below: 0.125rem;
+  --link-underline-length-above: -0.125rem;
+  --link-underline-radius: 0.125rem;
   --link-color: var(--color-super-blue);
   --link-hover-color: var(--color-super-blue-dark);
-  --link-visited-color: var(--color-super-blue-darkest);
-  --link-focus-background-color: var(--color-black);
   --link-focus-color: var(--color-white);
+  --link-active-color: var(--color-super-blue-dark);
+  --link-visited-color: var(--color-black);
+  --link-underline-color: var(--link-color);
+  --link-underline-hover-color: var(--link-hover-color);
+  --link-underline-focus-color: var(--color-super-blue-darkest);
+  --link-underline-active-color: var(--link-active-color);
+  --link-underline-visited-color: var(--color-charcoal);
+  --link-bg-focus-color: var(--color-super-blue-darkest);
+  --link-bg-active-color: var(--color-super-blue-lightest);
 
   --disabled-color: var(--color-platinum);
 

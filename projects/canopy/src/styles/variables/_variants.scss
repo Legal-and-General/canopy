@@ -2,32 +2,52 @@
   --generic-bg-color: var(--color-white-smoke);
   --generic-color: var(--color-charcoal);
   --generic-link-color: var(--generic-color);
-  --generic-link-hover-color: var(--generic-color);
+  --generic-link-underline-color: var(--generic-color);
+  --generic-link-underline-hover-color: var(--generic-color);
   --generic-link-focus-color: var(--color-white);
+  --generic-link-hover-color: var(--generic-color);
+  --generic-link-bg-focus-color: var(--color-black);
+  --generic-link-underline-active-color: var(--generic-color);
 
   --info-bg-color: var(--color-super-blue-lightest);
   --info-color: var(--color-midnight-blue);
   --info-link-color: var(--info-color);
-  --info-link-hover-color: var(--info-color);
+  --info-link-underline-color: var(--info-color);
+  --info-link-underline-hover-color: var(--info-color);
   --info-link-focus-color: var(--color-white);
+  --info-link-hover-color: var(--info-color);
+  --info-link-bg-focus-color: var(--color-super-blue-darkest);
+  --info-link-underline-active-color: var(--info-color);
 
   --success-bg-color: var(--color-leafy-green-lightest);
   --success-color: var(--color-mexican-green);
   --success-link-color: var(--success-color);
-  --success-link-hover-color: var(--success-color);
+  --success-link-underline-color: var(--success-color);
+  --success-link-underline-hover-color: var(--success-color);
   --success-link-focus-color: var(--color-white);
+  --success-link-hover-color: var(--success-color);
+  --success-link-bg-focus-color: var(--color-leafy-green-dark);
+  --success-link-underline-active-color: var(--color-leafy-green-dark);
 
   --warning-bg-color: var(--color-dandelion-yellow-lightest);
   --warning-color: var(--color-earth-brown-dark);
   --warning-link-color: var(--warning-color);
-  --warning-link-hover-color: var(--warning-color);
+  --warning-link-underline-color: var(--warning-color);
+  --warning-link-underline-hover-color: var(--warning-color);
   --warning-link-focus-color: var(--color-white);
+  --warning-link-hover-color: var(--warning-color);
+  --warning-link-bg-focus-color: var(--warning-color);
+  --warning-link-underline-active-color: var(--warning-color);
 
   --error-bg-color: var(--color-poppy-red-lightest);
   --error-color: var(--color-terracotta);
   --error-link-color: var(--error-color);
-  --error-link-hover-color: var(--error-color);
+  --error-link-underline-color: var(--error-color);
+  --error-link-underline-hover-color: var(--error-color);
   --error-link-focus-color: var(--color-white);
+  --error-link-hover-color: var(--error-color);
+  --error-link-bg-focus-color: var(--error-color);
+  --error-link-underline-active-color: var(--error-color);
 
   --form-error-color: var(--color-poppy-red);
   --form-error-border-color: var(--color-poppy-red);

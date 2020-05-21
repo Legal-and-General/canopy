@@ -20,7 +20,7 @@ stories
       <lg-alert
         [showIcon]="showIcon"
         [variant]="variant">
-        {{alertContent}} Here is some <a href="#"> link text</a>.
+        {{alertContent}} Here is some <a href="#">link text</a>.
       </lg-alert>
     `,
       props: {

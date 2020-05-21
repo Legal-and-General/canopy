@@ -47,17 +47,46 @@ p {
 
 a {
   color: var(--link-color);
+  outline: none;
+  text-decoration: none;
+  padding: var(--link-underline-space);
+
+  @include lg-underline($underline-color: var(--link-underline-color));
 
   &:visited {
     color: var(--link-visited-color);
+    border-bottom: var(--link-border-width) solid
+      var(--link-underline-visited-color);
   }
 
   &:hover {
     color: var(--link-hover-color);
+    @include lg-underline-hover(
+      $underline-color: var(--link-underline-hover-color)
+    );
+  }
+
+  &:active {
+    color: var(--link-active-color);
+    background: var(--link-bg-active-color);
+    @include lg-underline-active(
+      $underline-color: var(--link-underline-active-color)
+    );
   }
 
   &:focus {
-    @include lg-outer-focus-outline(var(--default-focus-color));
+    padding: 0;
+    margin: var(--link-underline-space);
+  }
+
+  &:focus,
+  &:focus:active {
+    border-bottom: none;
+    @include lg-bg-focus(
+      $bg-color: var(--link-bg-focus-color),
+      $color: var(--link-focus-color)
+    );
+    @include lg-box-shadow-focus($bg-color: var(--link-underline-focus-color));
   }
 }
 
