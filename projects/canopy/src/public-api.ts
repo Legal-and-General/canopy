@@ -26,3 +26,4 @@ export * from './lib/pipes/index';
 export * from './lib/separator/index';
 export * from './lib/spacing/index';
 export * from './lib/spinner/index';
+export * from './lib/tabs/index';

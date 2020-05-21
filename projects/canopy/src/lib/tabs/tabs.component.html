@@ -1,0 +1,40 @@
+<div class="lg-tabs__list" role="tablist" [attr.aria-label]="label">
+  <lg-heading
+    class="lg-tabs__list-item-heading"
+    *ngFor="let tab of tabs; let index = index"
+    [level]="headingLevel"
+  >
+    <button
+      class="lg-tabs__list-item-toggle"
+      [ngClass]="{
+        'lg-tabs__list-item-toggle--selected': selectedIndex === index
+      }"
+      role="tab"
+      [lgFocus]="isKeyboardEvent && selectedIndex === index"
+      [attr.tabIndex]="index !== selectedIndex ? '-1' : null"
+      [attr.aria-selected]="index === selectedIndex"
+      [attr.aria-controls]="'tab-item-content-' + id + '-' + index"
+      [attr.keyboard-focus]="
+        (isKeyboardEvent && selectedIndex === index) || null
+      "
+      [id]="'tab-item-heading-' + id + '-' + index"
+      (click)="navigateToTab(index)"
+      (blur)="blur(index)"
+      (keyup)="keyboardNavigation($event)"
+    >
+      <ng-container *ngTemplateOutlet="tab.navItemTemplate"></ng-container>
+    </button>
+  </lg-heading>
+</div>
+
+<div
+  *ngFor="let tab of tabs; let index = index"
+  class="lg-tabs__content"
+  role="tabpanel"
+  tabindex="0"
+  [id]="'tab-item-content-' + id + '-' + index"
+  [attr.aria-labelledby]="'tab-item-heading-' + id + '-' + index"
+  [attr.hidden]="index !== selectedIndex ? '' : null"
+>
+  <ng-container *ngTemplateOutlet="tab.contentTemplate"></ng-container>
+</div>

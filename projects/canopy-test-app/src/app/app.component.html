@@ -1,7 +1,7 @@
 <lg-page>
   <header lg-header></header>
 
-  <lg-hero>
+  <lg-hero [overlap]="3" class="lg-hero--test-page">
     <lg-hero-header>
       <div lgContainer>
         <div lgRow>
@@ -84,7 +84,44 @@
   <div lgContainer>
     <div lgRow>
       <div lgCol="12" lgColLg="9" lgColMdOffset="0">
-        <lg-card>
+        <lg-card lgPaddingTop="none">
+          <lg-tabs [headingLevel]="3" label="Annuities">
+            <lg-tab-item>
+              <lg-tab-item-heading>Payment details</lg-tab-item-heading>
+              <lg-tab-item-content>
+                <div class="lg-tabs__content-section">
+                  You have a standard lifetime annuity. We will pay you a
+                  guaranteed income for life
+                </div>
+              </lg-tab-item-content>
+            </lg-tab-item>
+            <lg-tab-item>
+              <lg-tab-item-heading>Payments & tax</lg-tab-item-heading>
+              <lg-tab-item-content>
+                <div class="lg-tabs__content-section">
+                  Your last payment was £230.20 after tax and deductions.
+                </div>
+              </lg-tab-item-content>
+            </lg-tab-item>
+            <lg-tab-item>
+              <lg-tab-item-heading>Death & benefits</lg-tab-item-heading>
+              <lg-tab-item-content>
+                <div class="lg-tabs__content-section">
+                  You have selected a single life policy with no continuation
+                  benefits
+                </div>
+              </lg-tab-item-content>
+            </lg-tab-item>
+            <lg-tab-item>
+              <lg-tab-item-heading>Documents</lg-tab-item-heading>
+              <lg-tab-item-content>
+                <div class="lg-tabs__content-section">
+                  Your documents are available in multiple formats
+                </div>
+              </lg-tab-item-content>
+            </lg-tab-item>
+          </lg-tabs>
+
           <lg-accordion [headingLevel]="2">
             <lg-accordion-item>
               <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
