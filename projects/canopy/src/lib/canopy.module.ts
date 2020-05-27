@@ -7,7 +7,7 @@ import { LgButtonModule } from './button/button.module';
 import { LgCardModule } from './card/card.module';
 import { LgDetailsModule } from './details/details.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
-import { LgFocusDirective } from './focus/focus.directive';
+import { LgFocusModule } from './focus/focus.module';
 import { LgFooterModule } from './footer/footer.module';
 import { LgFormsModule } from './forms/forms.module';
 import { LgGridModule } from './grid/grid.module';
@@ -22,8 +22,6 @@ import { LgSeparatorModule } from './separator/separator.module';
 import { LgSpacingModule } from './spacing/spacing.module';
 import { LgSpinnerModule } from './spinner/spinner.module';
 
-const directives = [LgFocusDirective];
-
 const modules = [
   LgAccordionModule,
   LgAlertModule,
@@ -32,6 +30,7 @@ const modules = [
   LgCardModule,
   LgDetailsModule,
   LgFeatureToggleModule,
+  LgFocusModule,
   LgFooterModule,
   LgFormsModule,
   LgGridModule,
@@ -48,8 +47,8 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...directives],
+  declarations: [],
   imports: [CommonModule, ...modules],
-  exports: [...directives, ...modules]
+  exports: [...modules]
 })
 export class CanopyModule {}
