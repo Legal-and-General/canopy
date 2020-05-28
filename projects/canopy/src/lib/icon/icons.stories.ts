@@ -10,7 +10,7 @@ const stories = storiesOf('Components', module);
 
 stories.addDecorator(withKnobs);
 
-export const icons: Array<iconSet.Icon> = [
+export const iconsArray: Array<iconSet.Icon> = [
   iconSet.lgIconAdd,
   iconSet.lgIconAlignCentre,
   iconSet.lgIconAlignLeft,
@@ -294,7 +294,7 @@ export const icons: Array<iconSet.Icon> = [
   ]
 })
 class SwatchIconComponent {
-  icons = icons;
+  icons = iconsArray;
 
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(this.icons);

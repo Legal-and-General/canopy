@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
 import { LgAccordionModule } from './accordion/accordion.module';
 import { LgAlertModule } from './alert/alert.module';
 import { LgBreadcrumbModule } from './breadcrumb/breadcrumb.module';
@@ -17,6 +16,7 @@ import { LgHeadingModule } from './heading/heading.module';
 import { LgHeroModule } from './hero/hero.module';
 import { LgIconModule } from './icon/icon.module';
 import { LgPageModule } from './page/page.module';
+import { LgPictogramModule } from './pictograms/pictogram.module';
 import { LgPipesModule } from './pipes/pipes.module';
 import { LgSeparatorModule } from './separator/separator.module';
 import { LgSpacingModule } from './spacing/spacing.module';
@@ -40,6 +40,7 @@ const modules = [
   LgHeroModule,
   LgIconModule,
   LgPageModule,
+  LgPictogramModule,
   LgPipesModule,
   LgSeparatorModule,
   LgSpacingModule,
