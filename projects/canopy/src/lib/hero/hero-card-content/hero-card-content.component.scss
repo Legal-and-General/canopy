@@ -3,7 +3,6 @@
 .lg-hero-card-content {
   display: flex;
   flex-direction: column;
-  margin-top: var(--space-lg);
 
   @include lg-breakpoint('md') {
     margin-top: var(--space-md);

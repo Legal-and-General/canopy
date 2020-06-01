@@ -1,8 +1,17 @@
 @import '../../../styles/mixins.scss';
 
 .lg-hero-card-principle-data-point {
+  border-bottom: solid var(--border-width) var(--hero-rule-color);
   display: flex;
   flex-direction: column;
+  margin-bottom: var(--space-xs);
+  padding-bottom: var(--space-xs);
+
+  @include lg-breakpoint('md') {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
 
   @include lg-breakpoint('lg') {
     flex-direction: column-reverse;
