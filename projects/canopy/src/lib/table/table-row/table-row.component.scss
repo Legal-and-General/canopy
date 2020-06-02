@@ -1,0 +1,14 @@
+@import '../../../styles/mixins.scss';
+
+.lg-table-row {
+  display: block;
+  padding: var(--space-xs);
+
+  @include lg-breakpoint('md') {
+    display: table-row;
+  }
+
+  &:nth-child(even) {
+    background-color: var(--table-stripe-color);
+  }
+}

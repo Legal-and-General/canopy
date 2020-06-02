@@ -1,0 +1,23 @@
+@import '../../../styles/mixins.scss';
+
+.lg-table {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--component-margin);
+
+  @include lg-breakpoint('md') {
+    display: table;
+    table-layout: auto;
+    width: 100%;
+  }
+}
+
+.lg-table__head {
+  @include lg-breakpoint('md', 'max-width') {
+    @include lg-visually-hidden();
+  }
+
+  @include lg-breakpoint('md') {
+    display: table-header-group;
+  }
+}

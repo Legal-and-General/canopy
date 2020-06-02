@@ -1,0 +1,28 @@
+@import '../../../styles/mixins.scss';
+
+.lg-table-cell {
+  display: flex;
+
+  @include lg-breakpoint('md') {
+    display: table-cell;
+    padding: var(--space-sm);
+  }
+}
+
+.lg-table-cell__content {
+  text-align: right;
+
+  @include lg-breakpoint('md') {
+    text-align: left;
+  }
+}
+
+.lg-table-cell__label {
+  font-weight: var(--font-weight-bold);
+  flex: 1 0 auto;
+  padding-right: var(--space-sm);
+
+  @include lg-breakpoint('md') {
+    display: none;
+  }
+}

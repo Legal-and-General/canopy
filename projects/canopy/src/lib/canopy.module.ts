@@ -22,6 +22,7 @@ import { LgPipesModule } from './pipes/pipes.module';
 import { LgSeparatorModule } from './separator/separator.module';
 import { LgSpacingModule } from './spacing/spacing.module';
 import { LgSpinnerModule } from './spinner/spinner.module';
+import { LgTableModule } from './table/table.module';
 import { LgTabsModule } from './tabs/tabs.module';
 
 const modules = [
@@ -47,6 +48,7 @@ const modules = [
   LgSeparatorModule,
   LgSpacingModule,
   LgSpinnerModule,
+  LgTableModule,
   LgTabsModule
 ];
 

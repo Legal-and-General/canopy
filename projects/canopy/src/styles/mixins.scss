@@ -42,10 +42,14 @@
 
 $breakpoints: (
   'sm': 20rem,
-  'md': 48rem,
-  'lg': 64rem,
-  'xl': 80rem,
-  'xxl': 90rem
+  // 320
+    'md': 48rem,
+  // 768
+    'lg': 64rem,
+  // 1024
+    'xl': 80rem,
+  // 1280
+    'xxl': 90rem // 1440
 ) !default;
 
 /*
