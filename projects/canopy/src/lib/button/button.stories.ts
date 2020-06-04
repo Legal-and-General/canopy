@@ -1,4 +1,4 @@
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 import { LgButtonModule } from './button.module';
 import { notes } from './button.notes';

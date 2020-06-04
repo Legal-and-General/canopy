@@ -1,8 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponent } from 'ng-mocks';
-import { mock } from 'ts-mockito';
-import { LgIconRegistry } from '../../icon';
 import { LgIconComponent } from '../../icon/icon.component';
 import { LgBreadcrumbItemComponent } from './breadcrumb-item.component';
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
@@ -10,12 +8,10 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
 describe('LgBreadcrumbItemComponent', () => {
   let component: LgBreadcrumbItemComponent;
   let fixture: ComponentFixture<LgBreadcrumbItemComponent>;
-  let iconRegistryMock: LgIconRegistry;
   let breadcrumbItemDebugElement: DebugElement;
   let breadcrumbItemEl: HTMLElement;
 
   beforeEach(async(() => {
-    iconRegistryMock = mock(LgIconRegistry);
     TestBed.configureTestingModule({
       declarations: [LgBreadcrumbItemComponent, MockComponent(LgIconComponent)]
     }).compileComponents();

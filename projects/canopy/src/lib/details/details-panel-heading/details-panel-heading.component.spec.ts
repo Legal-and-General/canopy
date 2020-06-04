@@ -1,6 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { LgHeadingComponent } from '../../heading/heading.component';
@@ -10,8 +8,6 @@ import { LgDetailsPanelHeadingComponent } from './details-panel-heading.componen
 describe('LgDetailsPanelHeadingComponent', () => {
   let component: LgDetailsPanelHeadingComponent;
   let fixture: ComponentFixture<LgDetailsPanelHeadingComponent>;
-  let detailsHeaderDebugElement: DebugElement;
-  let detailsHeaderEl: HTMLElement;
   let triggerElement;
 
   beforeEach(async(() => {
@@ -26,8 +22,6 @@ describe('LgDetailsPanelHeadingComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LgDetailsPanelHeadingComponent);
     component = fixture.componentInstance;
-    detailsHeaderDebugElement = fixture.debugElement;
-    detailsHeaderEl = detailsHeaderDebugElement.nativeElement;
     triggerElement = fixture.debugElement.query(
       By.css('.lg-details-panel-heading__toggle')
     );

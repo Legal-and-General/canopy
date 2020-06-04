@@ -14,7 +14,6 @@ import {
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormBuilder,
   FormControl,
   FormGroup,
   FormGroupDirective,
@@ -94,7 +93,6 @@ export class LgDateFieldComponent
   formGroupDirective: FormGroupDirective;
 
   constructor(
-    private fb: FormBuilder,
     private domService: LgDomService,
     private errorState: LgErrorStateMatcher,
     @Self()

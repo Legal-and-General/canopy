@@ -18,7 +18,6 @@ describe('LgSelectFieldComponent', () => {
   let fixture: ComponentFixture<LgSelectFieldComponent>;
   let labelInstance: LgLabelComponent;
   let selectDirectiveInstance: LgSelectDirective;
-  let selectFieldInstance: LgSelectFieldComponent;
   let selectFieldDebugElement: DebugElement;
 
   const errorId = 'test-error-id';
@@ -65,8 +64,6 @@ describe('LgSelectFieldComponent', () => {
       By.directive(LgSelectFieldComponent)
     );
 
-    selectFieldInstance = selectFieldDebugElement.componentInstance;
-
     labelInstance = fixture.debugElement.query(By.directive(LgLabelComponent))
       .componentInstance;
 
@@ -103,9 +100,9 @@ describe('LgSelectFieldComponent', () => {
   });
 
   it('adds the error class to the select field when the input field is invalid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      true
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     renderComponent();
     expect(selectFieldDebugElement.nativeElement.className).toContain(
       'lg-select-field--error'
@@ -113,9 +110,9 @@ describe('LgSelectFieldComponent', () => {
   });
 
   it('does not add the error class to the select field when the input field is valid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      false
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(false);
     renderComponent();
     expect(selectFieldDebugElement.nativeElement.className).not.toContain(
       'lg-select-field--error'

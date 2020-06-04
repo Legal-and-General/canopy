@@ -1,4 +1,3 @@
-import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
@@ -15,8 +14,6 @@ describe('LgInputFieldComponent', () => {
   let fixture: ComponentFixture<LgInputFieldComponent>;
   let labelInstance: LgLabelComponent;
   let inputDirectiveInstance: LgInputDirective;
-  let inputFieldInstance: LgInputFieldComponent;
-  let inputFieldDebugElement: DebugElement;
 
   const errorId = 'test-error-id';
   const hintId = 'test-hint-id';
@@ -46,12 +43,6 @@ describe('LgInputFieldComponent', () => {
       </lg-input-field>
     `);
     fixture.detectChanges();
-
-    inputFieldDebugElement = fixture.debugElement.query(
-      By.directive(LgInputFieldComponent)
-    );
-
-    inputFieldInstance = inputFieldDebugElement.componentInstance;
 
     labelInstance = fixture.debugElement.query(By.directive(LgLabelComponent))
       .componentInstance;

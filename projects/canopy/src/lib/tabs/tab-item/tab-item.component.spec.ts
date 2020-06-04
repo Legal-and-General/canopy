@@ -11,7 +11,6 @@ describe('LgTabItemComponent', () => {
   let component: LgTabItemComponent;
   let fixture: ComponentFixture<LgTabItemComponent>;
   let debugElement: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -35,7 +34,6 @@ describe('LgTabItemComponent', () => {
     `);
     debugElement = fixture.debugElement;
     component = debugElement.children[0].componentInstance;
-    el = debugElement.children[0].nativeElement;
     fixture.detectChanges();
   });
 

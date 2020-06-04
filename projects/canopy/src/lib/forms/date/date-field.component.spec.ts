@@ -78,7 +78,6 @@ describe('LgDateFieldComponent', () => {
   let dateFieldDebugElement: DebugElement;
   let dateFieldInstance: LgDateFieldComponent;
   let fieldsetElement: DebugElement;
-  let hintElement: DebugElement;
   let dateInput: DebugElement;
   let monthInput: DebugElement;
   let yearInput: DebugElement;
@@ -116,7 +115,6 @@ describe('LgDateFieldComponent', () => {
     );
     yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
 
-    hintElement = fixture.debugElement.query(By.directive(LgHintComponent));
     fixture.detectChanges();
 
     when(

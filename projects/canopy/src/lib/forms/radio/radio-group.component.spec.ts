@@ -15,7 +15,6 @@ import { MockComponents } from 'ng-mocks';
 import { anything, instance, mock, when } from 'ts-mockito';
 
 import { LgHintComponent } from '../hint';
-import { LgLabelComponent } from '../label/label.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgRadioButtonComponent } from './radio-button.component';
@@ -64,7 +63,6 @@ describe('LgRadioGroupComponent', () => {
   let fixture: ComponentFixture<TestRadioGroupComponent>;
   let groupDebugElement: DebugElement;
   let errorDebugElement: DebugElement;
-  let labelDebugElement: DebugElement;
   let hintDebugElement: DebugElement;
   let fieldsetDebugElement: DebugElement;
   let radioDebugElements: DebugElement[];
@@ -101,10 +99,6 @@ describe('LgRadioGroupComponent', () => {
     );
     groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
       LgRadioGroupComponent
-    );
-
-    labelDebugElement = fixture.debugElement.query(
-      By.directive(LgLabelComponent)
     );
 
     hintDebugElement = fixture.debugElement.query(
@@ -182,9 +176,9 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('links the error to the fieldset with the correct aria attributes', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      true
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(
       By.directive(LgValidationComponent)
@@ -199,9 +193,9 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('combines both the hint and error ids to create the aria described attribute', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      true
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(
       By.directive(LgValidationComponent)
@@ -224,9 +218,9 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('adds the error class if the form field is invalid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      true
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     fixture.detectChanges();
     expect(groupDebugElement.nativeElement.className).toContain(
       'lg-radio-group--error'
@@ -234,9 +228,9 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('removes the error class if the form field is valid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      false
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(false);
     fixture.detectChanges();
     expect(groupDebugElement.nativeElement.className).not.toContain(
       'lg-radio-group--error'

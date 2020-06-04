@@ -69,7 +69,6 @@ describe('LgToggleComponent', () => {
   let component: TestToggleComponent;
   let toggleDebugElement: DebugElement;
   let toggleInstance: LgToggleComponent;
-  let validationDebugElement: DebugElement;
   let inputDebugElement: DebugElement;
   let inputLabelElement: DebugElement;
 
@@ -179,22 +178,19 @@ describe('LgToggleComponent', () => {
   });
 
   it('links the error to the fieldset with the correct aria attributes', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      true
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     fixture.detectChanges();
-    validationDebugElement = fixture.debugElement.query(
-      By.directive(LgValidationComponent)
-    );
     expect(
       inputDebugElement.nativeElement.getAttribute('aria-describedBy')
     ).toContain(validationTestId);
   });
 
   it('adds the error class if the form field is invalid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      true
-    );
+    when(
+      errorStateMatcherMock.isControlInvalid(anything(), anything())
+    ).thenReturn(true);
     fixture.detectChanges();
     expect(toggleDebugElement.nativeElement.className).toContain(
       'lg-toggle--error'

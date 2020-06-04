@@ -7,7 +7,6 @@ import {
   Input,
   ViewEncapsulation
 } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { LgPictogramRegistry } from './pictogram.registry';
 import { PictogramName } from './pictograms.interface';
 
@@ -39,7 +38,6 @@ export class LgPictogramComponent {
   }
 
   constructor(
-    private domSanitizer: DomSanitizer,
     private elementRef: ElementRef,
     private iconRegistry: LgPictogramRegistry,
     @Inject(DOCUMENT) private document: any

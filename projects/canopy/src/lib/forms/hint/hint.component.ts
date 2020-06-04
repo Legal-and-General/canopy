@@ -2,7 +2,6 @@ import {
   Component,
   HostBinding,
   Input,
-  OnInit,
   ViewEncapsulation
 } from '@angular/core';
 

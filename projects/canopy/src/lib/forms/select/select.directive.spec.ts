@@ -40,7 +40,6 @@ describe('LgSelectDirective', () => {
   let fixture: ComponentFixture<TestSelectComponent>;
   let component: TestSelectComponent;
   let selectDebugElement: DebugElement;
-  let selectInstance: LgSelectDirective;
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
   beforeEach(async(() => {
@@ -60,10 +59,6 @@ describe('LgSelectDirective', () => {
 
     selectDebugElement = fixture.debugElement.query(
       By.directive(LgSelectDirective)
-    );
-
-    selectInstance = selectDebugElement.injector.get<LgSelectDirective>(
-      LgSelectDirective
     );
   }));
 

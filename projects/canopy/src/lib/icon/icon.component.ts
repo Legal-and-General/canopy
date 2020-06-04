@@ -7,7 +7,6 @@ import {
   Input,
   ViewEncapsulation
 } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { LgIconRegistry } from './icon.registry';
 import { IconName } from './icons.interface';
@@ -41,7 +40,6 @@ export class LgIconComponent {
   }
 
   constructor(
-    private domSanitizer: DomSanitizer,
     private elementRef: ElementRef,
     private iconRegistry: LgIconRegistry,
     @Inject(DOCUMENT) private document: any

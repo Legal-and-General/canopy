@@ -1,5 +1,3 @@
-import { LgFeatureToggleModule } from './feature-toggle.module';
-
 export const notes = `
 # Feature Toggle Module
 
