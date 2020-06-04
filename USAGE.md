@@ -95,6 +95,21 @@ In your `angular.json` file you will need to incorporate the global styles into 
   ],
 ```
 
+### Supporting IE11
+
+Canopy uses css variables which are not supported by IE11. One way of adding support is to use [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill) in the following way.
+
+```js
+//app.component.ts
+import cssVars from 'css-vars-ponyfill';
+```
+
+```js
+  ngOnInit() {
+    cssVars({ watch: true });
+  }
+```
+
 ## Using the components
 
 Each components is individually documented on Storybook, refer to the latest version which is available at https://canopy-e66e57.netlify.com/
