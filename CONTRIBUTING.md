@@ -3,6 +3,7 @@
 Hi, glad you are here all contributions are very much welcome!
 
 ## Conventional commits
+
 This repository is set up to work with the [angular version](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines) of [conventional commits](https://www.conventionalcommits.org).
 
 A git commit-msg hook will lint your commits to ensure they are of the correct format. To make it easy to follow the correct format you can `npm run commit` which will use the [commitizen](https://github.com/commitizen/cz-cli) cli to run you through the process.
@@ -15,10 +16,10 @@ Be particularly aware of any changes which may be deemed a breaking change. In o
 
 The format for breaking changes is outlined on the [convention commit docs](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#commit-message-with-description-and-breaking-change-in-body)
 
-
 ### Commit message examples
 
 Fix
+
 ```
 fix(release): need to depend on latest rxjs and zone.js
 
@@ -26,6 +27,7 @@ The version in our package.json gets copied to the one we publish, and users nee
 ```
 
 Breaking change
+
 ```
 feat(button): allow provided config object to extend other configs
 
@@ -37,9 +39,9 @@ BREAKING CHANGE: `extends` key in config file is now used for extending other co
 To ensure that changes come from an entrusted source all commits must be [signed](https://help.github.com/en/articles/about-commit-signature-verification), Follow the steps below to setup commit signing.
 
 1. [Generating a new GPG Key](https://help.github.com/en/articles/generating-a-new-gpg-key)
-    
-    Make sure the email address you use, matches your local git email address (`git config --get user.email`) and that of your GitHub account. If not, either change your git email address or add this address to your GitHub account.
-  
+
+   Make sure the email address you use, matches your local git email address (`git config --get user.email`) and that of your GitHub account. If not, either change your git email address or add this address to your GitHub account.
+
 2. [Adding a new GPG key to your GitHub account](https://help.github.com/en/articles/adding-a-new-gpg-key-to-your-github-account)
 3. [Signing commits](https://help.github.com/en/articles/signing-commits)
 
@@ -63,6 +65,6 @@ When seeking QA approval for your work please provide a link on the PR to the sp
 
 https://canopy-e66e57.netlify.com/?path=/story/button--single-button
 
-## Circle CI
+## Github Actions
 
-The build is currently handled by [Circle CI](http://circleci.com), the config for which is checked into the [.circleci](./.circleci) folder. Contributions to the pipeline process are greatly received, project administrators can provide credentials.
+The build is currently handled by [Github Actions](https://help.github.com/en/actions), the config for which is checked into the [.github](./.github) directory. The build will run on every pull request and run standard verification tasks e.g. linting, unit testing, test build. The build will need to be green in order for a pull request to pass.
