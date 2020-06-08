@@ -35,27 +35,6 @@
     }
   }
 
-  a {
-    text-decoration: underline;
-    border: none;
-
-    &:hover,
-    &:active {
-      box-shadow: none;
-    }
-
-    &:active,
-    &:focus {
-      background: none;
-      border: none;
-    }
-
-    &:focus,
-    &:focus:active {
-      @include lg-outer-focus-outline(var(--default-focus-color));
-    }
-  }
-
   a,
   span {
     display: flex;
@@ -74,15 +53,15 @@
   &--dark {
     color: var(--breadcrumb-dark-color);
 
-    a {
-      &:focus:active {
-        color: var(--breadcrumb-dark-color);
-      }
-    }
-
     a,
     span {
       color: var(--breadcrumb-dark-color);
+    }
+
+    a:focus {
+      @include lg-outer-focus-outline(var(--default-focus-color));
+
+      background-color: transparent;
     }
   }
 

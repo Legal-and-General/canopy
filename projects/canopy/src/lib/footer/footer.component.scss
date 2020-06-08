@@ -107,40 +107,10 @@
 
 .lg-footer__nav-link {
   text-decoration: none;
-  border: none;
-  box-shadow: none;
   color: var(--footer-text-color);
-
-  &:visited {
-    color: var(--footer-link-visited-color);
-  }
-
-  &:visited:hover {
-    color: var(--footer-link-hover-color);
-  }
 
   &:hover {
     text-decoration: underline;
-    box-shadow: none;
-    color: var(--footer-link-hover-color);
-  }
-
-  &:active {
-    color: var(--footer-text-color);
-    border: none;
-    background: none;
-    box-shadow: none;
-  }
-
-  &:focus,
-  &:focus:active {
-    color: var(--footer-text-color);
-    background: none;
-    @include lg-outer-focus-outline(var(--default-focus-color));
-  }
-
-  &:focus:hover {
-    color: var(--footer-link-hover-color);
   }
 }
 

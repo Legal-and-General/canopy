@@ -13,38 +13,13 @@
   box-shadow: 0 0 0 0.25rem $bg-color;
 }
 
-@mixin lg-box-shadow-focus($bg-color: var(--default-focus-color)) {
-  outline: 0;
-  box-shadow: 0 0 0 var(--link-underline-radius) $bg-color;
-}
-
-@mixin lg-bg-focus(
-  $bg-color: var(--link-bg-focus-color),
+@mixin lg-background-focus(
+  $bg-color: var(--link-focus-background-color),
   $color: var(--link-focus-color)
 ) {
   background: $bg-color;
   color: $color;
   outline: var(--link-focus-outline) solid $bg-color;
-}
-
-@mixin lg-underline-hover(
-  $underline-color: var(--default-underline-hover-color)
-) {
-  border-bottom: none;
-  box-shadow: inset 0 var(--link-underline-length-above) 0 0 $underline-color,
-    0 var(--link-underline-length-below) 0 0 $underline-color;
-}
-
-@mixin lg-underline($underline-color: var(--default-underline-color)) {
-  border-bottom: var(--link-border-width) solid $underline-color;
-}
-
-@mixin lg-underline-active(
-  $underline-color: var(--default-underline-active-color)
-) {
-  border-bottom: none;
-  box-shadow: inset 0 var(--link-underline-length-above) 0 0 $underline-color,
-    0 var(--link-underline-length-below) 0 0 $underline-color;
 }
 
 @mixin lg-font-size($size) {
@@ -89,62 +64,91 @@ $breakpoints: (
 }
 
 @mixin lg-variant($variant: 'generic') {
-  background-color: var(--#{$variant}-bg-color);
-  color: var(--#{$variant}-color);
-
   a {
-    color: var(--#{$variant}-link-color);
-    padding: var(--link-underline-space);
-    @include lg-underline(
-      $underline-color: var(--#{$variant}-link-underline-color)
-    );
-
     &:visited {
-      color: var(--link-visited-color);
-      border-bottom: var(--link-border-width) solid
-        var(--link-underline-visited-color);
-    }
-
-    &:visited:hover {
-      color: var(--#{$variant}-link-hover-color);
-      @include lg-underline-hover(
-        $underline-color: var(--#{$variant}-link-underline-hover-color)
-      );
-    }
-
-    &:hover {
-      @include lg-underline-hover(
-        $underline-color: var(--#{$variant}-link-underline-hover-color)
-      );
-    }
-
-    &:active {
-      background: var(--default-link-bg-active-color);
-      @include lg-underline-active(
-        $underline-color: var(--#{$variant}-link-underline-active-color)
-      );
+      color: var(--color-black);
     }
 
     &:focus {
-      padding: 0;
-      margin: var(--link-underline-space);
       box-shadow: none;
+      @include lg-background-focus;
     }
+  }
 
-    &:focus,
-    &:focus:visited,
-    &:focus:active {
-      border-bottom: none;
-      @include lg-bg-focus(
-        $bg-color: var(--#{$variant}-link-bg-focus-color),
-        $color: var(--#{$variant}-link-focus-color)
-      );
+  @if ($variant == 'generic') {
+    background-color: var(--generic-bg-color);
+    color: var(--generic-color);
+
+    a {
+      color: var(--generic-link-color);
+
+      &:hover {
+        color: var(--generic-link-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--generic-link-focus-color);
+      }
     }
+  } @else if ($variant == 'info') {
+    background-color: var(--info-bg-color);
+    color: var(--info-color);
 
-    &:focus:active {
-      @include lg-box-shadow-focus(
-        $bg-color: var(--#{$variant}-link-bg-focus-color)
-      );
+    a {
+      color: var(--info-link-color);
+
+      &:hover {
+        color: var(--info-link-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--info-link-focus-color);
+      }
+    }
+  } @else if ($variant == 'success') {
+    background-color: var(--success-bg-color);
+    color: var(--success-color);
+
+    a {
+      color: var(--success-link-color);
+
+      &:hover {
+        color: var(--success-link-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--success-link-focus-color);
+      }
+    }
+  } @else if ($variant == 'warning') {
+    background-color: var(--warning-bg-color);
+    color: var(--warning-color);
+
+    a {
+      color: var(--warning-link-color);
+
+      &:hover {
+        color: var(--warning-link-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--warning-link-focus-color);
+      }
+    }
+  } @else if ($variant == 'error') {
+    background-color: var(--error-bg-color);
+    color: var(--error-color);
+
+    a {
+      color: var(--error-link-color);
+
+      &:hover {
+        color: var(--error-link-hover-color);
+      }
+
+      &:focus:hover {
+        color: var(--error-link-focus-color);
+      }
     }
   }
 }

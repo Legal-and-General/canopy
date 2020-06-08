@@ -35,7 +35,6 @@ stories
         </lg-card-header>
         <lg-card-content>
           {{cardContent}}
-          Here is some <a href="#">link text</a>
         </lg-card-content>
       </lg-card>
     `,
