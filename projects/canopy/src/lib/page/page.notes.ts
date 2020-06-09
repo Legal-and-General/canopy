@@ -18,7 +18,7 @@ and in your HTML:
 
 ~~~html
 <lg-page>
-  <lg-header></lg-header>
+  <header lg-header></header>
   <div lgContainer>
     <div lgRow>
       <div
@@ -33,7 +33,7 @@ and in your HTML:
       </div>
     </div>
   </div>
-  <lg-footer></lg-footer>
+  <footer lg-footer></footer>
 </lg-page>
 ~~~
 
