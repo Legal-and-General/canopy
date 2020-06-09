@@ -52,9 +52,9 @@ $breakpoints: (
   $breakpoint: string value for the breakpoint screen size.
   Creates a mixin which allows breakpoints to be added to css blocks
 */
-@mixin lg-breakpoint($breakpoint) {
+@mixin lg-breakpoint($breakpoint, $range: 'min-width') {
   @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @media ($range: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
