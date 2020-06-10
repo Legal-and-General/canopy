@@ -12,6 +12,7 @@ function loadStories() {
   require('../projects/canopy/src/lib/button/button.stories');
   require('../projects/canopy/src/lib/canopy.stories');
   require('../projects/canopy/src/lib/card/card.stories');
+  require('../projects/canopy/src/lib/data-point/data-point.stories');
   require('../projects/canopy/src/lib/details/details.stories');
   require('../projects/canopy/src/lib/feature-toggle/feature-toggle.stories');
   require('../projects/canopy/src/lib/focus/focus.stories');

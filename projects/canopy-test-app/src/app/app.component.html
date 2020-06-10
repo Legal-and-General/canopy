@@ -85,9 +85,9 @@
     <div lgRow>
       <div lgCol="12" lgColLg="9" lgColMdOffset="0">
         <lg-card lgPaddingTop="none">
-          <lg-tabs [headingLevel]="3" label="Annuities">
+          <lg-tabs [headingLevel]="2" label="Annuities">
             <lg-tab-item>
-              <lg-tab-item-heading>Payment details</lg-tab-item-heading>
+              <lg-tab-item-heading>Product details</lg-tab-item-heading>
               <lg-tab-item-content>
                 <div class="lg-tabs__content-section">
                   You have a standard lifetime annuity. We will pay you a
@@ -99,7 +99,52 @@
               <lg-tab-item-heading>Payments & tax</lg-tab-item-heading>
               <lg-tab-item-content>
                 <div class="lg-tabs__content-section">
-                  Your last payment was £230.20 after tax and deductions.
+                  <p>Your last payment was £230.20 after tax and deductions.</p>
+                  <lg-separator></lg-separator>
+                  <lg-heading level="3">Payment Details</lg-heading>
+                  <div lgContainer lgPadding="none">
+                    <div lgRow>
+                      <div lgCol="12" lgColMd="8">
+                        <lg-data-point-list>
+                          <lg-data-point>
+                            <lg-data-point-label [headingLevel]="4">
+                              Name on account
+                            </lg-data-point-label>
+                            <lg-data-point-value>
+                              Joe Bloggs
+                            </lg-data-point-value>
+                          </lg-data-point>
+                          <lg-data-point>
+                            <lg-data-point-label [headingLevel]="4">
+                              Account number
+                            </lg-data-point-label>
+                            <lg-data-point-value>
+                              ***5678
+                            </lg-data-point-value>
+                          </lg-data-point>
+                          <lg-data-point>
+                            <lg-data-point-label [headingLevel]="4">
+                              Bank sort code
+                            </lg-data-point-label>
+                            <lg-data-point-value>
+                              00 - 00 - **
+                            </lg-data-point-value>
+                          </lg-data-point>
+                        </lg-data-point-list>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="lg-row">
+                    <div class="lg-col-12 lg-col-md-8">
+                      <lg-details>
+                        <lg-details-panel-heading [headingLevel]="3">
+                          How do I change my payment details
+                        </lg-details-panel-heading>
+                        Give us a call on 0800 123 4567 and we'll be happy to
+                        help you change your payment details
+                      </lg-details>
+                    </div>
+                  </div>
                 </div>
               </lg-tab-item-content>
             </lg-tab-item>
@@ -122,7 +167,7 @@
             </lg-tab-item>
           </lg-tabs>
 
-          <lg-accordion [headingLevel]="2">
+          <lg-accordion [headingLevel]="3">
             <lg-accordion-item>
               <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
               <p>
@@ -143,14 +188,6 @@
               </button>
             </lg-accordion-item>
           </lg-accordion>
-
-          <lg-details>
-            <lg-details-panel-heading [headingLevel]="3">
-              How do I change my payment details
-            </lg-details-panel-heading>
-            Give us a call on 0800 123 4567 and we'll be happy to help you
-            change your payment details
-          </lg-details>
 
           <lg-alert variant="info">
             <lg-heading level="4">Test heading</lg-heading>

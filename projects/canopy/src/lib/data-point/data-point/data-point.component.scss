@@ -1,0 +1,11 @@
+.lg-data-point {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-bottom: var(--component-margin);
+  margin-right: var(--space-sm);
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../../styles/mixins';
+
+.lg-data-point-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 0;
+  margin-right: 0;
+
+  @include lg-breakpoint('md') {
+    flex-direction: row;
+  }
+}

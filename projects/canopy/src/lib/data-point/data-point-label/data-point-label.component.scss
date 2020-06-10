@@ -1,0 +1,11 @@
+.lg-data-point-label {
+  margin-bottom: var(--space-xxxs);
+
+  &__heading-wrapper {
+    font-size: var(--text-base-size);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--text-fs--6-line-height);
+    color: var(--data-point-label-color);
+    margin-bottom: 0;
+  }
+}
