@@ -1,9 +1,9 @@
-<a href="#main" class="lg-page__skip-link">
+<a (click)="skipToMain(target)" class="lg-page__skip-link">
   Skip to main content
 </a>
 <ng-content select="[lg-header]"></ng-content>
 
-<main class="lg-page__main" id="main" role="main">
+<main class="lg-page__main" id="main" role="main" #target>
   <ng-content></ng-content>
 </main>
 
