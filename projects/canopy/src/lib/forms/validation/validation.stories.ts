@@ -1,39 +1,39 @@
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgValidationModule } from './validation.module';
 import { notes } from './validation.notes';
 
-const stories = storiesOf('Components/Form/Validation', module).addDecorator(
-  withKnobs
-);
-
-stories.add(
-  'Component',
-  () => ({
-    moduleMetadata: {
-      imports: [LgValidationModule]
-    },
-    template: `
-      <lg-validation
-        [showIcon]="showIcon"
-        [variant]="variant">
-        {{errorContent}}
-      </lg-validation>
-    `,
-    props: {
-      errorContent: text('content', 'Please enter a valid date of birth'),
-      showIcon: boolean('show icon', true),
-      variant: select(
-        'variant',
-        ['generic', 'info', 'success', 'warning', 'error'],
-        'error'
-      )
-    }
-  }),
-  {
+export default {
+  title: 'Components/Form/Validation',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        imports: [LgValidationModule]
+      })
+    ],
     notes: {
       markdown: notes
     }
   }
-);
+};
+
+export const standard = () => ({
+  template: `
+    <lg-validation
+      [showIcon]="showIcon"
+      [variant]="variant">
+      {{errorContent}}
+    </lg-validation>
+  `,
+  props: {
+    errorContent: text('content', 'Please enter a valid date of birth'),
+    showIcon: boolean('show icon', true),
+    variant: select(
+      'variant',
+      ['generic', 'info', 'success', 'warning', 'error'],
+      'error'
+    )
+  }
+});
