@@ -1,8 +1,8 @@
-export const notes = `
-# Checkbox and Switch - Toggle Component
+export const notes = (name: string) => `
+# ${name} Component
 
 ## Purpose
-Provides a common checkbox (default) or switch form component
+Provides a ${name} component for boolean form controls. The ${name} component is a variant of the Toggle component.
 
 ## Usage
 Import the component in your application:
@@ -17,13 +17,7 @@ Import the component in your application:
 and in your HTML for a regular *checkbox*:
 
 ~~~html
-<lg-toggle formControlName="confirm" value="yes">Do you agree?</lg-toggle>
-~~~
-
-or for a *switch* set the \`\`variant\`\` property to "switch":
-
-~~~html
-<lg-toggle formControlName="confirm" value="yes" variant="switch">Do you agree?</lg-toggle>
+<lg-toggle formControlName="confirm" value="yes" variant="${name.toLowerCase()}">Do you agree?</lg-toggle>
 ~~~
 
 ## Inputs
