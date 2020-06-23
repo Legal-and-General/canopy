@@ -12,7 +12,7 @@ import {
 } from '@angular/forms';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
 import { pastDateValidator } from '../date/pastDate.validator';
@@ -26,10 +26,6 @@ function invalidValidator(): ValidatorFn {
       : null;
   };
 }
-
-const stories = storiesOf('Components/Form/Validation', module).addDecorator(
-  withKnobs
-);
 
 @Component({
   selector: 'lg-validation-form',
@@ -244,23 +240,29 @@ class ReactiveFormComponent {
   }
 }
 
-stories.add(
-  'Form',
-  () => ({
-    moduleMetadata: {
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, CanopyModule]
-    },
-    template: `<lg-validation-form
-      (formSubmit)="formSubmit($event)">
-    </lg-validation-form>`,
-    props: {
-      formSubmit: action('formSubmit')
-    }
-  }),
-  {
+export default {
+  title: 'Components/Form/Form Validation',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [ReactiveFormComponent],
+        imports: [ReactiveFormsModule, CanopyModule]
+      })
+    ],
     notes: {
       markdown: notes
     }
   }
-);
+};
+
+export const standard = () => ({
+  template: `
+    <lg-validation-form
+      (formSubmit)="formSubmit($event)">
+    </lg-validation-form>
+  `,
+  props: {
+    formSubmit: action('formSubmit')
+  }
+});
