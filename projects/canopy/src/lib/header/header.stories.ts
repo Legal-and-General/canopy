@@ -5,7 +5,7 @@ import { LgHeaderComponent } from '../header/header.component';
 import { notes } from './header.notes';
 
 export default {
-  title: 'Header',
+  title: 'Components/Header',
   parameters: {
     decorators: [
       withKnobs,
@@ -21,7 +21,7 @@ export default {
 
 const groupId = 'header';
 
-export const Default = () => ({
+export const standard = () => ({
   template: `
     <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></header>
   `,
