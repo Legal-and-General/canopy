@@ -1,53 +1,34 @@
-import { addDecorator, configure } from '@storybook/angular';
+import { initDsm } from '@invisionapp/dsm-storybook';
+import { addDecorator, addParameters, configure } from '@storybook/angular';
 import { withA11y } from '@storybook/addon-a11y';
 import cssVars from 'css-vars-ponyfill';
 
-addDecorator(withA11y);
-
-function loadStories() {
-  require('!style-loader!css-loader!sass-loader!../projects/canopy/src/styles/styles.scss');
-  require('../projects/canopy/src/lib/accordion/accordion.stories');
-  require('../projects/canopy/src/lib/alert/alert.stories');
-  require('../projects/canopy/src/lib/breadcrumb/breadcrumb.stories');
-  require('../projects/canopy/src/lib/button/button.stories');
-  require('../projects/canopy/src/lib/canopy.stories');
-  require('../projects/canopy/src/lib/card/card.stories');
-  require('../projects/canopy/src/lib/data-point/data-point.stories');
-  require('../projects/canopy/src/lib/details/details.stories');
-  require('../projects/canopy/src/lib/feature-toggle/feature-toggle.stories');
-  require('../projects/canopy/src/lib/focus/focus.stories');
-  require('../projects/canopy/src/lib/footer/footer.stories');
-  require('../projects/canopy/src/lib/forms/date/date-field.stories');
-  require('../projects/canopy/src/lib/forms/input/input.stories');
-  require('../projects/canopy/src/lib/forms/radio/radio.stories');
-  require('../projects/canopy/src/lib/forms/select/select.stories');
-  require('../projects/canopy/src/lib/forms/toggle/toggle.stories');
-  require('../projects/canopy/src/lib/forms/validation/form.stories');
-  require('../projects/canopy/src/lib/forms/validation/validation.stories');
-  require('../projects/canopy/src/lib/grid/grid.stories');
-  require('../projects/canopy/src/lib/header/header.stories');
-  require('../projects/canopy/src/lib/heading/heading.stories');
-  require('../projects/canopy/src/lib/hero/hero.stories');
-  require('../projects/canopy/src/lib/icon/icons.stories');
-  require('../projects/canopy/src/lib/spacing/margin/margin.stories');
-  require('../projects/canopy/src/lib/page/page.stories');
-  require('../projects/canopy/src/lib/spacing/padding/padding.stories');
-  require('../projects/canopy/src/lib/pictograms/pictogram.stories');
-  require('../projects/canopy/src/lib/pipes/camel-case/camel-case.stories');
-  require('../projects/canopy/src/lib/pipes/kebab-case/kebab-case.stories');
-  require('../projects/canopy/src/lib/separator/separator.stories');
-  require('../projects/canopy/src/lib/spinner/spinner.stories');
-  require('../projects/canopy/src/lib/tabs/tabs.stories');
-  require('../projects/canopy/src/styles/color.stories');
-  require('../projects/canopy/src/styles/grid.stories');
-  require('../projects/canopy/src/styles/mixins.stories');
-  require('../projects/canopy/src/styles/spacing.stories');
-  require('../projects/canopy/src/styles/typography.stories');
-  require('../projects/canopy/src/styles/utils.stories');
-}
+addParameters({
+  backgrounds: [
+    { name: 'Default', value: 'transparent', default: true },
+    { name: 'Midnight Blue', value: '#005380' },
+    { name: 'Charcoal', value: '#333' },
+    { name: 'Super Blue', value: '#0076d6' },
+    { name: 'Leafy Green', value: '#028844' }
+  ]
+});
 
 cssVars({
   watch: true
 });
 
-configure(loadStories, module);
+addParameters({ docs: { page: null } });
+addDecorator(withA11y);
+
+//Init Dsm
+initDsm({
+  addDecorator,
+  addParameters,
+  callback: () => {
+    require('!style-loader!css-loader!sass-loader!../projects/canopy/src/styles/styles.scss');
+    configure(
+      require.context('../projects/canopy', true, /\.stories\.ts$/),
+      module
+    );
+  }
+});
