@@ -138,11 +138,13 @@ export class LgDateFieldComponent
 
     const validators = [this.validate.bind(this)];
     // append internal validators to external validators if applicable.
-    if (this.ngControl.control && this.ngControl.control.validator) {
-      validators.push(this.ngControl.control.validator);
+    if (this.ngControl && this.ngControl.control) {
+      if (this.ngControl.control.validator) {
+        validators.push(this.ngControl.control.validator);
+      }
+      this.ngControl.control.setValidators(validators);
+      this.ngControl.control.updateValueAndValidity();
     }
-    this.ngControl.control.setValidators(validators);
-    this.ngControl.control.updateValueAndValidity();
 
     this.valueChanges = this.dateFormGroup.valueChanges.subscribe(
       (date: DateField) => {
@@ -167,7 +169,9 @@ export class LgDateFieldComponent
   }
 
   ngOnDestroy() {
-    this.valueChanges.unsubscribe();
+    if (this.valueChanges) {
+      this.valueChanges.unsubscribe();
+    }
   }
 
   writeValue(dateString: string): void {
