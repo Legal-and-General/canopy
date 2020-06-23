@@ -3,12 +3,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
 import { notes } from './select.notes';
-
-const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',
@@ -56,31 +54,40 @@ class ReactiveFormComponent {
   }
 }
 
-stories.add(
-  'Select',
-  () => ({
-    moduleMetadata: {
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, CanopyModule]
+export default {
+  title: 'Components/Form/Select',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [ReactiveFormComponent],
+        imports: [ReactiveFormsModule, CanopyModule]
+      })
+    ],
+    'in-dsm': {
+      id: '5ec4feff4b3101813389ae08'
     },
-    template: `<lg-reactive-form
-      (selectChange)="selectChange($event)"
-      [block]="block"
-      [disabled]="disabled"
-      [hint]="hint"
-      [label]="label"
-      [options]="options"
-    ></lg-reactive-form>`,
-    props: {
-      selectChange: action('selectChange'),
-      label: text('label', 'Color'),
-      hint: text('hint', 'Please select a color'),
-      block: boolean('block', false),
-      options: object('options', ['Red', 'Blue', 'Green', 'Yellow']),
-      disabled: boolean('disabled', false)
+    notes: {
+      markdown: notes
     }
-  }),
-  {
-    notes: { markdown: notes }
   }
-);
+};
+
+export const standard = () => ({
+  template: `<lg-reactive-form
+    (selectChange)="selectChange($event)"
+    [block]="block"
+    [disabled]="disabled"
+    [hint]="hint"
+    [label]="label"
+    [options]="options"
+  ></lg-reactive-form>`,
+  props: {
+    selectChange: action('selectChange'),
+    label: text('label', 'Color'),
+    hint: text('hint', 'Please select a color'),
+    block: boolean('block', false),
+    options: object('options', ['Red', 'Blue', 'Green', 'Yellow']),
+    disabled: boolean('disabled', false)
+  }
+});
