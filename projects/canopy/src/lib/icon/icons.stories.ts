@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { LgIconComponent } from './icon.component';
 import { notes } from './icon.notes';
 import { LgIconRegistry } from './icon.registry';
 import * as iconSet from './icons.interface';
-
-const stories = storiesOf('Components', module);
-
-stories.addDecorator(withKnobs);
 
 export const iconsArray: Array<iconSet.Icon> = [
   iconSet.lgIconAdd,
@@ -301,17 +297,24 @@ class SwatchIconComponent {
   }
 }
 
-stories.add(
-  'Icon',
-  () => ({
-    moduleMetadata: {
-      declarations: [SwatchIconComponent, LgIconComponent]
-    },
-    template: `
+export default {
+  title: 'Components/Icon',
+  excludeStories: ['iconsArray'],
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [SwatchIconComponent, LgIconComponent]
+      })
+    ],
+    notes: {
+      markdown: notes
+    }
+  }
+};
+
+export const standard = () => ({
+  template: `
     <lg-swatch-icon></lg-swatch-icon>
   `
-  }),
-  {
-    notes: { markdown: notes }
-  }
-);
+});
