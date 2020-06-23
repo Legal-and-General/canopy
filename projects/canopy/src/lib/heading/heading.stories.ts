@@ -1,18 +1,30 @@
 import { select, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
+
 import { LgHeadingComponent } from './heading.component';
 import { notes } from './heading.notes';
 
-const stories = storiesOf('Components', module);
-
-stories.addDecorator(withKnobs);
+export default {
+  title: 'Components/Heading',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [LgHeadingComponent]
+      })
+    ],
+    'in-dsm': {
+      id: '5ec4f36b45894b0873022460'
+    },
+    notes: {
+      markdown: notes
+    }
+  }
+};
 
 const groupId = 'lg-heading';
 
-stories.add('Heading', () => ({
-  moduleMetadata: {
-    declarations: [LgHeadingComponent]
-  },
+export const standard = () => ({
   template: `
     <lg-heading
       [level]="level"
@@ -22,13 +34,6 @@ stories.add('Heading', () => ({
   `,
   props: {
     content: text('text', 'Heading', groupId),
-    level: select(
-      'level',
-      [1, 2, 3, 4, 5, 6],
-      1,
-      groupId
-    )
+    level: select('level', [1, 2, 3, 4, 5, 6], 1, groupId)
   }
-}),{
-  notes: { markdown: notes }
 });
