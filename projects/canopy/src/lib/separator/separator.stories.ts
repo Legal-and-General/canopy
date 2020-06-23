@@ -1,23 +1,27 @@
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgSeparatorComponent } from '../separator/separator.component';
 import { notes } from './separator.notes';
 
-const stories = storiesOf('Components', module);
-
-stories.add(
-  'Separator',
-  () => ({
-    moduleMetadata: {
-      declarations: [LgSeparatorComponent]
+export default {
+  title: 'Components/Seperator',
+  parameters: {
+    decorators: [
+      moduleMetadata({
+        declarations: [LgSeparatorComponent]
+      })
+    ],
+    'in-dsm': {
+      id: '5ec4f36b45894b0873022460'
     },
-    template: `
-        <lg-separator></lg-separator>
-        `
-  }),
-  {
     notes: {
       markdown: notes
     }
   }
-);
+};
+
+export const standard = () => ({
+  template: `
+    <lg-separator></lg-separator>
+  `
+});
