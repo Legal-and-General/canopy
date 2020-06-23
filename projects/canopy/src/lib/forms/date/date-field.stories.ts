@@ -3,12 +3,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
 import { notes } from './date-field.notes';
-
-const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',
@@ -49,29 +47,33 @@ class ReactiveFormComponent {
   }
 }
 
-stories.add(
-  'Date Input',
-  () => ({
-    moduleMetadata: {
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, CanopyModule]
-    },
-    template: `<lg-reactive-form
-      (inputChange)="inputChange($event)"
-      [disabled]="disabled"
-      [hint]="hint"
-      [label]="label"
-    ></lg-reactive-form>`,
-    props: {
-      inputChange: action('inputChange'),
-      label: text('label', 'Date of birth'),
-      hint: text('hint', 'For example, 12 06 1983'),
-      disabled: boolean('disabled', false)
-    }
-  }),
-  {
+export default {
+  title: 'Components/Form/Date Input',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [ReactiveFormComponent],
+        imports: [ReactiveFormsModule, CanopyModule]
+      })
+    ],
     notes: {
       markdown: notes
     }
   }
-);
+};
+
+export const standard = () => ({
+  template: `<lg-reactive-form
+    (inputChange)="inputChange($event)"
+    [disabled]="disabled"
+    [hint]="hint"
+    [label]="label"
+  ></lg-reactive-form>`,
+  props: {
+    inputChange: action('inputChange'),
+    label: text('label', 'Date of birth'),
+    hint: text('hint', 'For example, 12 06 1983'),
+    disabled: boolean('disabled', false)
+  }
+});
