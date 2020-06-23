@@ -1,84 +1,82 @@
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
+
+import { Variant } from './button.interface';
 import { LgButtonModule } from './button.module';
 import { notes } from './button.notes';
 
 const groupId = 'lg-button';
 
-const btnStories = storiesOf('Components/Button', module);
-btnStories.addDecorator(withKnobs);
+export default {
+  title: 'Components/Button',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        imports: [LgButtonModule]
+      })
+    ],
+    notes: {
+      markdown: notes
+    }
+  }
+};
 
-createBtnStory({
-  stories: btnStories,
-  name: 'Solid primary',
-  variant: 'solid-primary'
+const createBtnStory = (variant: Variant) => ({
+  template: `
+    <button lg-button
+      variant="${variant}"
+      [fullWidth]="fullWidth ? true : null"
+      [loading]="loading ? true : null"
+      >
+    {{content}}
+  </button>
+  `,
+  props: {
+    content: text('text', 'Button', groupId),
+    fullWidth: boolean('fullWidth', false, groupId),
+    loading: boolean('loading', false, groupId)
+  }
 });
 
-createBtnStory({
-  stories: btnStories,
-  name: 'Solid secondary',
-  variant: 'solid-secondary'
-});
+export const primaryButton = () => createBtnStory('solid-primary');
+primaryButton.story = {
+  'in-dsm': {
+    id: '5eb292680f022e10952f6b54'
+  }
+};
 
-createBtnStory({
-  stories: btnStories,
-  name: 'Outline primary',
-  variant: 'outline-primary'
-});
+export const secondaryButton = () => createBtnStory('solid-secondary');
+secondaryButton.story = {
+  'in-dsm': {
+    id: '5eb4178bd037c0361eb5b9e8'
+  }
+};
 
-createBtnStory({
-  stories: btnStories,
-  name: 'Outline secondary',
-  variant: 'outline-secondary',
-  bgColor: '#333' // --color-charcoal TODO: determine how to use css variables
-});
+export const outlinePrimary = () => createBtnStory('outline-primary');
+outlinePrimary.story = {
+  'in-dsm': {
+    id: '5ebab3747f701b0829ba471e'
+  }
+};
 
-createBtnStory({
-  stories: btnStories,
-  name: 'Reverse primary',
-  variant: 'reverse-primary',
-  bgColor: '#0076d6' // --color-super-blue TODO: determine how to use css variables
-});
+export const outlineSecondary = () => createBtnStory('outline-secondary');
+outlineSecondary.story = {
+  'in-dsm': {
+    id: '5ebab380a6ef0234a74a414d'
+  }
+};
 
-createBtnStory({
-  stories: btnStories,
-  name: 'Reverse secondary',
-  variant: 'reverse-secondary',
-  bgColor: '#028844' // --color-leafy-green TODO: determine how to use css variables
-});
+export const reversePrimary = () => createBtnStory('reverse-primary');
+reversePrimary.story = {
+  'in-dsm': {
+    id: '5ebab38d7f701b688aba4724'
+  }
+};
 
-function createBtnStory(args) {
-  const { stories, name, variant, bgColor } = args;
-
-  return stories
-    .addParameters({
-      backgrounds: bgColor
-        ? [{ name: 'default', value: bgColor, default: true }]
-        : []
-    })
-    .add(
-      name,
-      () => ({
-        moduleMetadata: {
-          imports: [LgButtonModule]
-        },
-        template: `
-        <button lg-button
-          variant="${variant}"
-          [fullWidth]="fullWidth ? true : null"
-          [loading]="loading ? true : null"
-          >
-          {{content}}
-        </button>
-       `,
-        props: {
-          content: text('text', 'Button', groupId),
-          fullWidth: boolean('fullWidth', false, groupId),
-          loading: boolean('loading', false, groupId)
-        }
-      }),
-      {
-        notes: { markdown: notes }
-      }
-    );
-}
+export const reverseSecondary = () => createBtnStory('reverse-secondary');
+reversePrimary.story = {
+  'in-dsm': {
+    id: '5ebab396602d936ef763d72b'
+  }
+};
