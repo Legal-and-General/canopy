@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 import { withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { LgPictogramComponent } from './pictogram.component';
 import { notes } from './pictogram.notes';
 import { LgPictogramRegistry } from './pictogram.registry';
 import * as picSet from './pictograms.interface';
-
-const stories = storiesOf('Components', module);
-
-stories.addDecorator(withKnobs);
 
 export const pictogramArray: Array<picSet.Pictogram> = [
   picSet.lgPictogramSun,
@@ -58,17 +54,24 @@ class SwatchPictogramComponent {
   }
 }
 
-stories.add(
-  'Pictogram',
-  () => ({
-    moduleMetadata: {
-      declarations: [SwatchPictogramComponent, LgPictogramComponent]
-    },
-    template: `
+export default {
+  title: 'Components/Pictogram',
+  excludeStories: ['pictogramArray'],
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [SwatchPictogramComponent, LgPictogramComponent]
+      })
+    ],
+    notes: {
+      markdown: notes
+    }
+  }
+};
+
+export const standard = () => ({
+  template: `
     <lg-swatch-pictogram></lg-swatch-pictogram>
   `
-  }),
-  {
-    notes: { markdown: notes }
-  }
-);
+});
