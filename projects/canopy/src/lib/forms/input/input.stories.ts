@@ -3,12 +3,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
 import { notes } from './input.notes';
-
-const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',
@@ -50,33 +48,39 @@ class ReactiveFormComponent {
   }
 }
 
-stories.add(
-  'Input',
-  () => ({
-    moduleMetadata: {
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, CanopyModule]
-    },
-    template: `<lg-reactive-form
+export default {
+  title: 'Components/Form/Input',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [ReactiveFormComponent],
+        imports: [ReactiveFormsModule, CanopyModule]
+      })
+    ],
+    notes: {
+      markdown: notes
+    }
+  }
+};
+
+export const standard = () => ({
+  template: `
+    <lg-reactive-form
       (inputChange)="inputChange($event)"
       [disabled]="disabled"
       [block]="block"
       [hint]="hint"
       [label]="label"
       [size]="size"
-    ></lg-reactive-form>`,
-    props: {
-      inputChange: action('inputChange'),
-      label: text('label', 'Name'),
-      hint: text('hint', 'Please enter your name'),
-      size: number('input size', 12),
-      block: boolean('block', false),
-      disabled: boolean('disabled', false)
-    }
-  }),
-  {
-    notes: {
-      markdown: notes
-    }
+    ></lg-reactive-form>
+  `,
+  props: {
+    inputChange: action('inputChange'),
+    label: text('label', 'Name'),
+    hint: text('hint', 'Please enter your name'),
+    size: number('input size', 12),
+    block: boolean('block', false),
+    disabled: boolean('disabled', false)
   }
-);
+});
