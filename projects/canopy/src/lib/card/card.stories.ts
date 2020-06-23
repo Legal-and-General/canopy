@@ -1,12 +1,29 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgCardModule } from '../card/card.module';
 import { LgGridModule } from '../grid/grid.module';
 import { LgPaddingModule } from '../spacing/padding/padding.module';
 import { notes } from './card.notes';
 
-const stories = storiesOf('Components/Card', module).addDecorator(withKnobs);
+export default {
+  title: 'Components/Card',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        imports: [LgCardModule, LgGridModule, LgPaddingModule]
+      })
+    ],
+    'in-dsm': {
+      id: '5ede22091f488863e2eeaa35'
+    },
+    notes: {
+      markdown: notes
+    }
+  }
+};
+
 const props = {
   title: text('title', 'Card title'),
   cardContent: text(
@@ -18,62 +35,33 @@ const props = {
   )
 };
 
-stories
-  .addParameters({
-    backgrounds: [{ name: 'default', value: '#f5f7fa', default: true }]
-  })
-  .add(
-    'Standard',
-    () => ({
-      moduleMetadata: {
-        imports: [LgCardModule]
-      },
-      template: `
-      <lg-card>
-        <lg-card-header>
-          {{title}}
-        </lg-card-header>
-        <lg-card-content>
-          {{cardContent}}
-        </lg-card-content>
-      </lg-card>
-    `,
-      props
-    }),
-    {
-      notes: {
-        markdown: notes
-      }
-    }
-  );
+export const standard = () => ({
+  template: `
+    <lg-card>
+      <lg-card-header>
+        {{title}}
+      </lg-card-header>
+      <lg-card-content>
+        {{cardContent}}
+      </lg-card-content>
+    </lg-card>
+  `,
+  props
+});
 
-stories
-  .addParameters({
-    backgrounds: [{ name: 'default', value: '#f5f7fa', default: true }]
-  })
-  .add(
-    'Nested Grid',
-    () => ({
-      moduleMetadata: {
-        imports: [LgCardModule, LgGridModule, LgPaddingModule]
-      },
-      template: `<lg-card lgPaddingHorizontal="none">
-        <div lgContainer>
-          <div lgRow>
-            <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-              <lg-card-content> 
-                {{cardContent}}
-              </lg-card-content>
-            </div>
-          </div>
+export const nestedGrid = () => ({
+  template: `
+  <lg-card lgPaddingHorizontal="none">
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+          <lg-card-content> 
+            {{cardContent}}
+          </lg-card-content>
         </div>
-      </lg-card>
-    `,
-      props
-    }),
-    {
-      notes: {
-        markdown: notes
-      }
-    }
-  );
+      </div>
+    </div>
+  </lg-card>
+  `,
+  props
+});
