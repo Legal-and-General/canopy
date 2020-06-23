@@ -3,12 +3,10 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
 import { notes } from './radio.notes';
-
-const stories = storiesOf('Components/Form', module).addDecorator(withKnobs);
 
 @Component({
   selector: 'lg-reactive-form',
@@ -49,31 +47,39 @@ class ReactiveFormComponent {
   }
 }
 
-stories.add(
-  'Radio',
-  () => ({
-    moduleMetadata: {
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, CanopyModule]
+export default {
+  title: 'Components/Form/Radio',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        declarations: [ReactiveFormComponent],
+        imports: [ReactiveFormsModule, CanopyModule]
+      })
+    ],
+    'in-dsm': {
+      id: '5ec4fc77c4b3aef9ba4e98bc'
     },
-    template: `<lg-reactive-form
+    notes: {
+      markdown: notes
+    }
+  }
+};
+export const standard = () => ({
+  template: `
+    <lg-reactive-form
     [disabled]="disabled"
     [hint]="hint"
     [inline]="inline"
     [label]="label"
     (radioChange)="radioChange($event)">
-  </lg-reactive-form>`,
-    props: {
-      inline: boolean('inline', false),
-      label: text('label', 'Color'),
-      hint: text('hint', 'Please select a color'),
-      radioChange: action('radioChange'),
-      disabled: boolean('disabled', false)
-    }
-  }),
-  {
-    notes: {
-      markdown: notes
-    }
+  </lg-reactive-form>
+  `,
+  props: {
+    inline: boolean('inline', false),
+    label: text('label', 'Color'),
+    hint: text('hint', 'Please select a color'),
+    radioChange: action('radioChange'),
+    disabled: boolean('disabled', false)
   }
-);
+});
