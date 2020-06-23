@@ -1,12 +1,11 @@
 import { number, object, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../canopy.module';
 import { primaryLinks, secondaryLinks } from '../footer/footer.stories';
 import { productHeroHTML } from '../hero/hero.stories';
 import { notes } from './page.notes';
 
-const stories = storiesOf('Components/Page', module).addDecorator(withKnobs);
 const footerGroupId = 'footer';
 const contentGroupId = 'content';
 const sharedGroupId = 'common';
@@ -65,163 +64,118 @@ const footer = `
   </footer>
 `;
 
-stories.add(
-  'One Column',
-  () => {
-    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
-
-    return {
-      knobs: {
-        escapeHTML: false
-      },
-      moduleMetadata: {
+export default {
+  title: 'Components/Page',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
         imports: [CanopyModule]
-      },
-      props: createProps(),
-      template: `
-        <lg-page>
-          ${header}
-          <div lgContainer>
-            <div lgRow>
-              <div
-                  lgCol="12"
-                  lgColSm="10"
-                  lgColSmOffset="1"
-                  lgColMd="8"
-                  lgColMdOffset="2"
-                  lgColLg="6"
-                  lgColLgOffset="3">
-                <lg-card lgMarginHorizontal="none">{{card1Content}}</lg-card>
-                <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
-              </div>
-            </div>
-          </div>
-          ${footer}
-        </lg-page>
-      `
-    };
-  },
-  {
+      })
+    ],
+    'in-dsm': {
+      id: '5ec504bc07ffe609bec12b76'
+    },
     notes: {
       markdown: notes
     }
   }
-);
+};
 
-stories.add(
-  'Two column',
-  () => {
-    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
-
-    return {
-      moduleMetadata: {
-        imports: [CanopyModule]
-      },
-      props: createProps(),
-      template: `
-        <lg-page>
-          ${header}
-          <div lgContainer>
-            <div lgRow>
-              <div lgCol="12" lgColMd="8" lgColLg="5" lgColLgOffset="2">
-                <lg-card lgMarginHorizontal="none">
-                  {{card1Content}}
-                  {{card3Content}}
-                </lg-card>
-              </div>
-              <div lgCol="12" lgColMd="4" lgColLg="3">
-                <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
-                <lg-card lgMarginHorizontal="none">{{card3Content}}</lg-card>
-              </div>
-            </div>
+export const oneColumn = () => ({
+  props: createProps(),
+  template: `
+    <lg-page>
+      ${header}
+      <div lgContainer>
+        <div lgRow>
+          <div
+              lgCol="12"
+              lgColSm="10"
+              lgColSmOffset="1"
+              lgColMd="8"
+              lgColMdOffset="2"
+              lgColLg="6"
+              lgColLgOffset="3">
+            <lg-card lgMarginHorizontal="none">{{card1Content}}</lg-card>
+            <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
           </div>
-          ${footer}
-        </lg-page>
-      `
-    };
-  },
-  {
-    notes: {
-      markdown: notes
-    }
-  }
-);
+        </div>
+      </div>
+      ${footer}
+    </lg-page>
+  `
+});
 
-stories.add(
-  'Full width',
-  () => {
-    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
-
-    return {
-      moduleMetadata: {
-        imports: [CanopyModule]
-      },
-      props: createProps(),
-      template: `
-        <lg-page>
-          ${header}
-          <div lgContainer>
-            <div lgRow>
-              <div lgCol="12">
-                <lg-card lgMarginHorizontal="none">
-                  {{card1Content}} <br /><br />
-                  {{card2Content}} <br /><br />
-                  {{card3Content}}
-                </lg-card>
-              </div>
-            </div>
+export const twoColumn = () => ({
+  props: createProps(),
+  template: `
+    <lg-page>
+      ${header}
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12" lgColMd="8" lgColLg="5" lgColLgOffset="2">
+            <lg-card lgMarginHorizontal="none">
+              {{card1Content}}
+              {{card3Content}}
+            </lg-card>
           </div>
-          ${footer}
-        </lg-page>
-      `
-    };
-  },
-  {
-    notes: {
-      markdown: notes
-    }
-  }
-);
-
-stories.add(
-  'Hero with full width',
-  () => {
-    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
-
-    return {
-      moduleMetadata: {
-        imports: [CanopyModule]
-      },
-      props: {
-        ...createProps(),
-        title: text('Title', 'Pension Annuity'),
-        overlap: number('Overlap', 2)
-      },
-      template: `
-        <lg-page>
-          ${header}
-          <lg-hero [overlap]="overlap">
-            ${productHeroHTML}
-          </lg-hero>
-          <div lgContainer>
-            <div lgRow>
-              <div lgCol="12">
-                <lg-card lgMarginHorizontal="none">
-                  {{card1Content}} <br /><br />
-                  {{card2Content}} <br /><br />
-                  {{card3Content}}
-                </lg-card>
-              </div>
-            </div>
+          <div lgCol="12" lgColMd="4" lgColLg="3">
+            <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
+            <lg-card lgMarginHorizontal="none">{{card3Content}}</lg-card>
           </div>
-          ${footer}
-        </lg-page>
-      `
-    };
+        </div>
+      </div>
+      ${footer}
+    </lg-page>
+  `
+});
+
+export const fullWidth = () => ({
+  props: createProps(),
+  template: `
+    <lg-page>
+      ${header}
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-card lgMarginHorizontal="none">
+              {{card1Content}} <br /><br />
+              {{card2Content}} <br /><br />
+              {{card3Content}}
+            </lg-card>
+          </div>
+        </div>
+      </div>
+      ${footer}
+    </lg-page>
+  `
+});
+
+export const fullWidthWithHero = () => ({
+  props: {
+    ...createProps(),
+    title: text('Title', 'Pension Annuity'),
+    overlap: number('Overlap', 2)
   },
-  {
-    notes: {
-      markdown: notes
-    }
-  }
-);
+  template: `
+    <lg-page>
+      ${header}
+      <lg-hero [overlap]="overlap">
+        ${productHeroHTML}
+      </lg-hero>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-card lgMarginHorizontal="none">
+              {{card1Content}} <br /><br />
+              {{card2Content}} <br /><br />
+              {{card3Content}}
+            </lg-card>
+          </div>
+        </div>
+      </div>
+      ${footer}
+    </lg-page>
+  `
+});
