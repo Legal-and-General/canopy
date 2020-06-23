@@ -1,10 +1,9 @@
 import { number, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
+import { fullScreen } from '../../../../../.storybook/addons/full-screen';
 import { CanopyModule } from '../canopy.module';
 import { notes } from './hero.notes';
-
-const stories = storiesOf('Components/Hero', module).addDecorator(withKnobs);
 
 const bodyHTML = `
   <div lgContainer>
@@ -128,64 +127,46 @@ export const conversationalHeroHTML = `
 </lg-hero>
 `;
 
-const heroNotes = notes(productHeroHTML, conversationalHeroHTML);
-
-stories.add(
-  'Product data',
-  () => {
-    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
-
-    return {
-      moduleMetadata: {
+export default {
+  title: 'Components/Hero',
+  excludeStories: ['bodyHTML', 'productHeroHTML', 'conversationalHeroHTML'],
+  parameters: {
+    decorators: [
+      fullScreen,
+      withKnobs,
+      moduleMetadata({
         imports: [CanopyModule]
-      },
-      // lg-hero has an override top margin applied in this story in order to override
-      // the baked in margin that exists to allow the hero to sit flush against the
-      // header when in the context of a page
-      template: `
-        <lg-hero [overlap]="overlap" lgMarginTop="none">
-          ${productHeroHTML}
-        </lg-hero>
-        ${bodyHTML}
-      `,
-      props: {
-        overlap: number('Overlap', 2),
-        title: text('Title', 'Pension Annuity')
-      }
-    };
-  },
-  {
+      })
+    ],
+    'in-dsm': {
+      id: '5ec504bc07ffe609bec12b76'
+    },
     notes: {
-      markdown: heroNotes
+      markdown: notes(productHeroHTML, conversationalHeroHTML)
     }
   }
-);
+};
 
-stories.add(
-  'Conversational UI',
-  () => {
-    require('!style-loader!css-loader!sass-loader!./../../../../../.storybook/full-screen.css');
-
-    return {
-      moduleMetadata: {
-        imports: [CanopyModule]
-      },
-      // lg-hero has an override top margin applied in this story in order to override
-      // the baked in margin that exists to allow the hero to sit flush against the
-      // header when in the context of a page
-      template: `
-        ${conversationalHeroHTML}
-        ${bodyHTML}
-      `,
-      props: {
-        overlap: number('Overlap', 2),
-        title: text('Title', 'Pension Annuity')
-      }
-    };
-  },
-  {
-    notes: {
-      markdown: heroNotes
-    }
+export const productData = () => ({
+  template: `
+    <lg-hero [overlap]="overlap" lgMarginTop="none">
+      ${productHeroHTML}
+    </lg-hero>
+    ${bodyHTML}
+  `,
+  props: {
+    overlap: number('Overlap', 2),
+    title: text('Title', 'Pension Annuity')
   }
-);
+});
+
+export const conversationalUI = () => ({
+  template: `
+    ${conversationalHeroHTML}
+    ${bodyHTML}
+  `,
+  props: {
+    overlap: number('Overlap', 2),
+    title: text('Title', 'Pension Annuity')
+  }
+});
