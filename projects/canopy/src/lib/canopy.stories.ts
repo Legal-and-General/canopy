@@ -1,21 +1,24 @@
 import { CommonModule } from '@angular/common';
+import { moduleMetadata } from '@storybook/angular';
 
-import { storiesOf } from '@storybook/angular';
-
+import { fullScreen } from '../../../../.storybook/addons/full-screen';
 import { AppComponent } from '../../../canopy-test-app/src/app/app.component';
 import { CanopyModule } from './canopy.module';
 
-const stories = storiesOf('Test Page', module);
+export default {
+  title: 'Test Page',
+  parameters: {
+    decorators: [
+      fullScreen,
+      moduleMetadata({
+        declarations: [AppComponent],
+        entryComponents: [AppComponent],
+        imports: [CommonModule, CanopyModule]
+      })
+    ]
+  }
+};
 
-stories.add('All', () => {
-  require('!style-loader!css-loader!sass-loader!../../../../.storybook/full-screen.css');
-
-  return {
-    moduleMetadata: {
-      declarations: [AppComponent],
-      entryComponents: [AppComponent],
-      imports: [CommonModule, CanopyModule]
-    },
-    template: `<app-root></app-root>`
-  };
+export const standard = () => ({
+  template: `<app-root></app-root>`
 });
