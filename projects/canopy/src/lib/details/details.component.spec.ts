@@ -74,5 +74,17 @@ describe('LgDetailsComponent', () => {
     it('should have inactive panels', () => {
       expect(component.panelHeading.isActive).toEqual(false);
     });
+
+    it(`should emit the isActive status of true`, () => {
+      const componentEventSpy = spyOn(component.detailsEvent, 'emit');
+      component.panelHeading.event.emit(true);
+      expect(componentEventSpy).toHaveBeenCalledWith({ isActive: true });
+    });
+
+    it(`should emit the isActive status of false`, () => {
+      const componentEventSpy = spyOn(component.detailsEvent, 'emit');
+      component.panelHeading.event.emit(false);
+      expect(componentEventSpy).toHaveBeenCalledWith({ isActive: false });
+    });
   });
 });

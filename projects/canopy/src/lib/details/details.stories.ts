@@ -1,6 +1,7 @@
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
+import { action } from '@storybook/addon-actions';
 import { LgHeadingModule } from '../heading';
 import { LgDetailsModule } from './details.module';
 import { notes } from './details.notes';
@@ -25,7 +26,10 @@ export default {
 
 export const standard = () => ({
   template: `
-    <lg-details [isActive]="expand">
+    <lg-details
+      [isActive]="expand"
+      (detailsEvent)="detailsEvent($event)"
+    >
       <lg-details-panel-heading [headingLevel]="headingLevel">{{
         header
       }}</lg-details-panel-heading>
@@ -36,6 +40,7 @@ export const standard = () => ({
   props: {
     header: text('Header', 'How do I change my payment details?'),
     expand: boolean('Default expand', false),
-    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 5)
+    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 5),
+    detailsEvent: action('Details active state change')
   }
 });

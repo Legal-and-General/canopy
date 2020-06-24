@@ -32,6 +32,12 @@ and in your HTML:
 | \`\`isActive\`\` | Expand the details | boolean | false | no |
 | \`\`headingLevel\`\` | The level of the accordion headings: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
 
+## Outputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`detailsEvent\`\` | Event emitted when the details \`isActive\` state changes | EventEmitter<{ isActive: boolean }> | n/a | No |
+
 ## Using only the SCSS files
 
 | Class | Description |

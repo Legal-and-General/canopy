@@ -4,9 +4,11 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
+  EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
+  Output,
   ViewEncapsulation
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -29,6 +31,8 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
 
   @Input() isActive = false;
 
+  @Output() detailsEvent = new EventEmitter<{ isActive: boolean }>();
+
   id = nextUniqueId++;
 
   toggleId = `lg-details-header-${this.id}`;
@@ -44,6 +48,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
 
     this.subscription = this.panelHeading.event.subscribe(value => {
       this.isActive = value;
+      this.detailsEvent.emit({ isActive: this.isActive });
       this.cd.detectChanges();
     });
   }
