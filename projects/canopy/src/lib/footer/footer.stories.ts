@@ -3,6 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 
 import { action } from '@storybook/addon-actions';
 
+import { fullScreen } from '../../../../../.storybook/addons/full-screen';
 import { LgFooterComponent } from '../footer/footer.component';
 import { notes } from './footer.notes';
 
@@ -11,6 +12,7 @@ export default {
   excludeStories: ['primaryLinks', 'secondaryLinks'],
   parameters: {
     decorators: [
+      fullScreen,
       withKnobs,
       moduleMetadata({
         declarations: [LgFooterComponent]

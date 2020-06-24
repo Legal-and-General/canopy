@@ -1,6 +1,7 @@
 import { number, object, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
+import { fullScreen } from '../../../../../.storybook/addons/full-screen';
 import { CanopyModule } from '../canopy.module';
 import { primaryLinks, secondaryLinks } from '../footer/footer.stories';
 import { productHeroHTML } from '../hero/hero.stories';
@@ -68,6 +69,7 @@ export default {
   title: 'Components/Page',
   parameters: {
     decorators: [
+      fullScreen,
       withKnobs,
       moduleMetadata({
         imports: [CanopyModule]

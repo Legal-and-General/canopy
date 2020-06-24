@@ -1,6 +1,7 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
+import { fullScreen } from '../../../../../.storybook/addons/full-screen';
 import { LgHeaderComponent } from '../header/header.component';
 import { notes } from './header.notes';
 
@@ -8,6 +9,7 @@ export default {
   title: 'Components/Header',
   parameters: {
     decorators: [
+      fullScreen,
       withKnobs,
       moduleMetadata({
         declarations: [LgHeaderComponent]

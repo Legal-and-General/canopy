@@ -7,8 +7,6 @@ const stories = storiesOf('Grid', module);
 stories.add(
   'Grid',
   () => {
-    require('!style-loader!css-loader!sass-loader!../../../../.storybook/full-screen.css');
-
     return {
       template: `
     <div>
