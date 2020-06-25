@@ -9,14 +9,14 @@ Fixes # (issue)
 Please briefly outline any requirements for the work which may aid the testing and review process.
 
 Storybook link: (once netlify has deployed link provide a link to the component)
-Zeplin link: (link to Zeplin or delete if not required)
+Design link: (link to design or delete if not required)
 Screenshot: (if appropriate provide a quick screen grab of the changes)
 
 # Checklist:
 
-- [ ] The commit messages follow the [convention for this project](https://github.com/canopy-collective/canopy/blob/master/CONTRIBUTING.md#conventional-commits)
+- [ ] The commit messages follow the [convention for this project](./blob/master/CONTRIBUTING.md#conventional-commits)
 - [ ] I have provided an adequate amount of test coverage
-- [ ] I have added the functionality to the [test app](/projects/canopy-test-app)
+- [ ] I have added the functionality to the [test app](./blob/master/CONTRIBUTING.md#build-test-application)
 - [ ] I have provided a story in storybook to document the changes
 - [ ] I have provided documentation in the notes section of the story
 - [ ] I have added any new public feature modules to public-api.ts

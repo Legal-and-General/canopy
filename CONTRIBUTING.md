@@ -2,6 +2,49 @@
 
 Hi, glad you are here all contributions are very much welcome!
 
+## Storybook
+
+Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed.
+
+Running `npm start` will run storybook locally, this will hot reload any changes and is the most seamless way to modify or create existing components.
+
+### Netlify Deployments
+
+Pull requests are automatically deployed via [Netlify](https://netlify.com), a status check will be added to any pull request with a link to the deployment which will run the storybook application. [Netlify config](./netlify.toml) is checked into the project
+
+The master branch is also deployed to netlify, this currently provides the most up to date documentation for the latest version.
+
+https://canopy-e66e57.netlify.com/
+
+When seeking QA approval for your work please provide a link on the PR to the specific component in question, e.g.
+
+https://canopy-e66e57.netlify.com/?path=/story/button--single-button
+
+## Build
+
+Run `npm run build` to build the library and global styles.
+
+The build artifacts will be stored in the `dist/` directory.
+
+### Build test application
+
+A test application is located in the `projects/canopy-test-app` folder. This application helps to capture any issues with exported modules. Run `npm run build:test-app` to build the test application, this happens automatically as part of the pull request pipeline.
+
+The test application includes a test page which contains all of the Canopy components to ensure that they layout correctly. This page is also accessible in storybook via the main navigation, where possible all new components should be added to the test page.
+
+## Running unit tests
+
+Run `npm test` to execute the library unit tests, this step is also run as part of the pull request pipeline.
+
+## Running lint
+
+Run `npm run lint` to execute the library unit tests, this step is also run as part of the pull request pipeline.
+
+Current linting includes
+
+- `tslint` for typescript files
+- `stylelint` for scss file
+
 ## Conventional commits
 
 This repository is set up to work with the [angular version](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines) of [conventional commits](https://www.conventionalcommits.org).
@@ -52,22 +95,6 @@ Pull requests require two successful approvals before they can be merged. One re
 ### Code Owners
 
 Code Owners are chosen based on a history of consistent contributions. Code Owners should have an understanding of the current issues list and have a wider view of the technical direction of the project. They should help to steer technical direction via pull request reviews and be focused on the longer term success of the project. Code Owners are not limited to being from our particular organisation.
-
-## Storybook
-
-Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed.
-
-### Netlify Deployments
-
-Pull requests are automatically deployed via [Netlify](https://netlify.com), a status check will be added to any pull request with a link to the deployment which will run the storybook application. [Netlify config](./netlify.toml) is checked into the project
-
-The master branch is also deployed to netlify, this currently provides the most up to date documentation for the latest version.
-
-https://canopy-e66e57.netlify.com/
-
-When seeking QA approval for your work please provide a link on the PR to the specific component in question, e.g.
-
-https://canopy-e66e57.netlify.com/?path=/story/button--single-button
 
 ## Github Actions
 
