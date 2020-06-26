@@ -78,6 +78,6 @@ jobs:
       - name: add dsm secret
         env:
           GITHUB_TOKEN: ${{ secrets.DSM_AUTH_TOKEN }}
-        run: sed -i '' "s/DSM_AUTH_TOKEN/$DSM_AUTH_TOKEN/g" .dsmrc
+        run: sed -i "s/DSM_AUTH_TOKEN/$DSM_AUTH_TOKEN/g" .dsmrc
       - name: publish dsm
         run: npm run dsm-storybook:publish
