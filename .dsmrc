@@ -1,5 +1,5 @@
 { 
-  "authToken": "DSM_AUTH_TOKEN"
+  "authToken": "DSM_AUTH_TOKEN",
   "dsmHost": "legalandgeneral.invisionapp.com",
   "organization": "legalandgeneral",
   "outputDir": ".dsm",
