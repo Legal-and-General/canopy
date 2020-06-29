@@ -4,9 +4,9 @@ import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { LgHeadingComponent } from '../heading';
 import { LgIconComponent } from '../icon';
+import { LgAccordionItemContentDirective } from './accordion-item/accordion-item-content.directive';
 import { LgAccordionItemComponent } from './accordion-item/accordion-item.component';
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading/accordion-panel-heading.component';
-
 import { LgAccordionComponent } from './accordion.component';
 
 @Component({
@@ -33,6 +33,7 @@ describe('LgAccordionComponent', () => {
         TestAccordionComponent,
         LgAccordionComponent,
         LgAccordionItemComponent,
+        LgAccordionItemContentDirective,
         LgAccordionPanelHeadingComponent,
         MockComponents(LgHeadingComponent, LgIconComponent)
       ]

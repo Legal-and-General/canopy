@@ -5,6 +5,7 @@ import { LgHeadingModule } from '../heading/heading.module';
 import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { lgIconChevronDown } from '../icon/icons.interface';
+import { LgAccordionItemContentDirective } from './accordion-item/accordion-item-content.directive';
 import { LgAccordionItemComponent } from './accordion-item/accordion-item.component';
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading/accordion-panel-heading.component';
 import { LgAccordionComponent } from './accordion.component';
@@ -12,7 +13,8 @@ import { LgAccordionComponent } from './accordion.component';
 const components = [
   LgAccordionComponent,
   LgAccordionItemComponent,
-  LgAccordionPanelHeadingComponent
+  LgAccordionPanelHeadingComponent,
+  LgAccordionItemContentDirective
 ];
 
 @NgModule({

@@ -5,5 +5,9 @@
   [class.lg-accordion__panel--active]="isActive"
   [attr.aria-labelledby]="_toggleId"
 >
-  <ng-content></ng-content>
+  <ng-container [ngTemplateOutlet]="_contentTemplate" *ngIf="_showContent"></ng-container>
 </div>
+
+<ng-template lgAccordionItemContent>
+  <ng-content></ng-content>
+</ng-template>

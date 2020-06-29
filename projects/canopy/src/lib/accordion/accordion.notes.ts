@@ -32,6 +32,15 @@ and in your HTML:
         Test primary button
       </button>
     </lg-accordion-item>
+    <lg-accordion-item (opened)="loadDynamicContent()">
+      <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+
+      <ng-template lgAccordionItemContent>
+        <app-dynamic-component [content]="dynamicContentItems$ | async">
+            An example component that loads data from the network when this panel is opened.
+        </app-dynamic-component>
+      </ng-template>
+    </lg-accordion-item>
   </lg-accordion>
 ~~~
 
@@ -55,6 +64,13 @@ and in your HTML:
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`opened\`\` | Event emitted when the accordion item is opened | EventEmitter<void> | n/a | No |
 | \`\`closed\`\` | Event emitted when the accordion item is closed | EventEmitter<void> | n/a | No |
+
+
+## Lazy content initialisation
+
+Wrap the panel content in a \`ng-template\` with the \`lgAccordionContent\` directive to only initialise and render
+the panel when it is first opened.
+
 
 ## Using only the SCSS files
 

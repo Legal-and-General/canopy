@@ -8,10 +8,13 @@ import {
   OnDestroy,
   Output,
   SimpleChanges,
+  TemplateRef,
+  ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
+import { LgAccordionItemContentDirective } from './accordion-item-content.directive';
 
 let nextUniqueId = 0;
 
@@ -26,16 +29,23 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   @Output() opened = new EventEmitter<void>();
   @Output() closed = new EventEmitter<void>();
 
-  _toggleSubscription: Subscription;
-  _id = nextUniqueId++;
-  _toggleId = `lg-accordion-panel-heading-${this._id}`;
-  _panelId = `lg-accordion-panel-${this._id}`;
-
+  @ViewChild(LgAccordionItemContentDirective, { static: true }) defaultContent: LgAccordionItemContentDirective;
+  @ContentChild(LgAccordionItemContentDirective, { static: false }) lazyContent: LgAccordionItemContentDirective;
   @ContentChild(LgAccordionPanelHeadingComponent, { static: false })
   accordionPanelHeading: LgAccordionPanelHeadingComponent;
 
+  _id = nextUniqueId++;
+  _toggleId = `lg-accordion-panel-heading-${this._id}`;
+  _panelId = `lg-accordion-panel-${this._id}`;
+  _showContent = false;
+  _contentTemplate: TemplateRef<any>;
+
+  private _toggleSubscription: Subscription;
+
   ngAfterContentInit() {
     this.accordionPanelHeading.isActive = this.isActive;
+    this._showContent = this.isActive || !this.lazyContent;
+    this._contentTemplate = (this.lazyContent || this.defaultContent)._template;
 
     this._toggleSubscription = this.accordionPanelHeading.toggleActive.subscribe(isActive => {
       this.isActive = isActive;
@@ -58,8 +68,12 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
     }
   }
 
-  private toggleActiveState(isActive) {
+  private toggleActiveState(isActive: boolean) {
     if (isActive) {
+      if (!this._showContent) {
+        this._showContent = true;
+      }
+
       this.opened.emit();
     } else {
       this.closed.emit();

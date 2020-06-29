@@ -6,19 +6,28 @@ import { take } from 'rxjs/operators';
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
+import { LgAccordionItemContentDirective } from './accordion-item-content.directive';
 import { LgAccordionItemComponent } from './accordion-item.component';
-import Spy = jasmine.Spy;
 
 @Component({
   selector: 'lg-test',
   template: `
     <lg-accordion-item [isActive]="isActive">
       <lg-accordion-panel-heading [headingLevel]="2"></lg-accordion-panel-heading>
+      <div class="default-content">Hello!</div>
+    </lg-accordion-item>
+
+    <lg-accordion-item [isActive]="lazyIsOpen">
+      <lg-accordion-panel-heading [headingLevel]="2"></lg-accordion-panel-heading>
+      <ng-template lgAccordionItemContent>
+        <div class="lazy-content">Hola!</div>
+      </ng-template>
     </lg-accordion-item>
   `
 })
 class TestAccordionWrapperItemComponent {
   isActive: boolean;
+  lazyIsOpen = false;
 }
 
 describe('LgAccordionItemComponent', () => {
@@ -32,6 +41,7 @@ describe('LgAccordionItemComponent', () => {
         TestAccordionWrapperItemComponent,
         LgAccordionItemComponent,
         LgAccordionPanelHeadingComponent,
+        LgAccordionItemContentDirective,
         MockComponents(LgHeadingComponent, LgIconComponent)
       ]
     }).compileComponents();
@@ -51,9 +61,32 @@ describe('LgAccordionItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should render panel content', () => {
+    expect(fixture.debugElement.query(By.css('.default-content'))).toBeDefined();
+  });
+
+  describe('when panel content is lazy loaded', () => {
+    describe('and panel is not active', () => {
+      it('should not show content', () => {
+        expect(fixture.debugElement.query(By.css('.lazy-content'))).toBeNull();
+      });
+    });
+
+    describe('and panel is active', () => {
+      beforeEach(() => {
+        fixture.debugElement.componentInstance.lazyIsOpen = true;
+        fixture.detectChanges();
+      });
+
+      it('should show content', () => {
+        expect(fixture.debugElement.query(By.css('.lazy-content'))).toBeDefined();
+      });
+    });
+  });
+
   describe('clicking on the child component trigger', () => {
-    let openedSpy: Spy;
-    let closedSpy: Spy;
+    let openedSpy: jasmine.Spy;
+    let closedSpy: jasmine.Spy;
 
     beforeEach(() => {
       openedSpy = spyOn(component.opened, 'emit');
