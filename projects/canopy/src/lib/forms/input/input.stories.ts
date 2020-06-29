@@ -58,6 +58,9 @@ export default {
         imports: [ReactiveFormsModule, CanopyModule]
       })
     ],
+    'in-dsm': {
+      id: '5ef4b4da9137317adbb4da5d'
+    },
     notes: {
       markdown: notes
     }
