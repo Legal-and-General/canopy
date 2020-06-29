@@ -41,8 +41,13 @@ and in your HTML:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| \`\`isActive\`\` | The active state of the accordion item | boolean | false | No |
 | \`\`headingLevel\`\` | The level of the accordion headings: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
 
+## Outputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`accordionItemEvent\`\` | Event emitted when the accordion item \`isActive\` state changes | EventEmitter<{ isActive: boolean }> | n/a | No |
 
 ## Using only the SCSS files
 

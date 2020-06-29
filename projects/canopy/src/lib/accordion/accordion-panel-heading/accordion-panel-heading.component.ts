@@ -17,16 +17,15 @@ let nextUniqueId = 0;
 })
 export class LgAccordionPanelHeadingComponent {
   @Input() headingLevel: HeadingLevel;
+  @Input() isActive = false;
+  @Output() toggleActive = new EventEmitter<boolean>();
 
   _id = nextUniqueId++;
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
-  isActive: boolean;
-
-  @Output() event: EventEmitter<boolean> = new EventEmitter();
 
   toggle() {
     this.isActive = !this.isActive;
-    this.event.emit(this.isActive);
+    this.toggleActive.emit(this.isActive);
   }
 }

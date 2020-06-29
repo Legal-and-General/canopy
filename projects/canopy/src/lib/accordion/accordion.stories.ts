@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgButtonModule } from '../button';
@@ -27,12 +28,16 @@ export default {
 export const standard = () => ({
   template: `
     <lg-accordion [headingLevel]="headingLevel">
-      <lg-accordion-item>
+      <lg-accordion-item [isActive]="itemOneActive"
+                         (opened)="toggle('Item 1 opened')"
+                         (closed)="toggle('Item 1 closed')">
         <lg-accordion-panel-heading [headingLevel]="headingLevel">Item 1</lg-accordion-panel-heading>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.</p>
       </lg-accordion-item>
-      <lg-accordion-item>
+      <lg-accordion-item [isActive]="itemTwoActive"
+                         (opened)="toggle('Item 3 opened')"
+                         (closed)="toggle('Item 2 closed')">
         <lg-accordion-panel-heading [headingLevel]="headingLevel">Item 2</lg-accordion-panel-heading>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
           ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -45,6 +50,9 @@ export const standard = () => ({
     </lg-accordion>
   `,
   props: {
-    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 2)
+    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 2),
+    toggle: action('Toggle item'),
+    itemOneActive: boolean('Item 1 active', false),
+    itemTwoActive: boolean('Item 2 active', true)
   }
 });

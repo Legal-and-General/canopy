@@ -65,7 +65,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
       });
 
       it('should set the `aria-expanded` attribute to true', () => {
-        expect(triggerElement.attributes['aria-expanded']).toBeNull();
+        expect(triggerElement.attributes['aria-expanded']).toBe('false');
 
         triggerElement.nativeElement.click();
         fixture.detectChanges();
@@ -111,7 +111,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
     });
 
     it(`should emit an event with the value of 'isActive'`, () => {
-      const componentEventSpy = spy(component.event);
+      const componentEventSpy = spy(component.toggleActive);
       component.toggle();
 
       verify(componentEventSpy.emit(true)).once();

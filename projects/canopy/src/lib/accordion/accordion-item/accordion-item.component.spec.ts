@@ -2,22 +2,24 @@ import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
+import { take } from 'rxjs/operators';
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
 import { LgAccordionItemComponent } from './accordion-item.component';
+import Spy = jasmine.Spy;
 
 @Component({
   selector: 'lg-test',
   template: `
-    <lg-accordion-item>
-      <lg-accordion-panel-heading
-        [headingLevel]="2"
-      ></lg-accordion-panel-heading>
+    <lg-accordion-item [isActive]="isActive">
+      <lg-accordion-panel-heading [headingLevel]="2"></lg-accordion-panel-heading>
     </lg-accordion-item>
   `
 })
-class TestAccordionWrapperItemComponent {}
+class TestAccordionWrapperItemComponent {
+  isActive: boolean;
+}
 
 describe('LgAccordionItemComponent', () => {
   let component: LgAccordionItemComponent;
@@ -50,14 +52,29 @@ describe('LgAccordionItemComponent', () => {
   });
 
   describe('clicking on the child component trigger', () => {
+    let openedSpy: Spy;
+    let closedSpy: Spy;
+
+    beforeEach(() => {
+      openedSpy = spyOn(component.opened, 'emit');
+      closedSpy = spyOn(component.closed, 'emit');
+    });
+
     it(`should update 'isActive'`, () => {
       triggerElement.nativeElement.click();
-
       expect(component.isActive).toBe(true);
 
       triggerElement.nativeElement.click();
       expect(component.isActive).toBe(false);
     });
+
+    it('should emit events', async(() => {
+      triggerElement.nativeElement.click();
+      expect(openedSpy).toHaveBeenCalled();
+
+      triggerElement.nativeElement.click();
+      expect(closedSpy).toHaveBeenCalled();
+    }));
   });
 
   it('should toggle the `active` class on the panel', () => {
@@ -78,5 +95,27 @@ describe('LgAccordionItemComponent', () => {
         'lg-accordion__panel--active'
       )
     ).toBe(true);
+  });
+
+  describe('when updating isActive input', () => {
+    it('should set heading active', () => {
+      fixture.debugElement.componentInstance.isActive = true;
+      fixture.detectChanges();
+
+      expect(component.isActive).toBeTruthy();
+      expect(component.accordionPanelHeading.isActive).toBeTruthy();
+    });
+
+    it('should emit opened event', async(() => {
+      component.opened.pipe(take(1)).subscribe(ev => expect(ev).toBeUndefined());
+      fixture.debugElement.componentInstance.isActive = true;
+      fixture.detectChanges();
+    }));
+
+    it('should emit closed event', async(() => {
+      component.closed.pipe(take(1)).subscribe(ev => expect(ev).toBeUndefined());
+      fixture.debugElement.componentInstance.isActive = false;
+      fixture.detectChanges();
+    }));
   });
 });
