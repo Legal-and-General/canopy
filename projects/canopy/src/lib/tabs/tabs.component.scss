@@ -21,6 +21,10 @@
   padding: 0 var(--tabs-horizontal-padding);
   margin-left: 0;
 
+  @include lg-breakpoint('md') {
+    padding: 0 var(--tabs-md-horizontal-padding);
+  }
+
   @include lg-breakpoint('lg') {
     padding: 0 var(--tabs-lg-horizontal-padding);
   }
@@ -100,6 +104,10 @@
 
 .lg-tabs__content-section {
   padding: var(--tabs-horizontal-padding);
+
+  @include lg-breakpoint('md') {
+    padding: var(--tabs-md-horizontal-padding);
+  }
 
   @include lg-breakpoint('lg') {
     padding: var(--tabs-lg-horizontal-padding);
