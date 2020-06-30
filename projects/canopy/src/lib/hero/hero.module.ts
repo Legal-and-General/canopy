@@ -17,6 +17,7 @@ import { LgHeroCardComponent } from './hero-card/hero-card.component';
 import { LgHeroHeaderComponent } from './hero-content/hero-header.component';
 import { LgHeroContentComponent } from './hero-header/hero-content.component';
 import { LgHeroComponent } from './hero.component';
+import { LgHeroCardFooterComponent } from './lg-hero-card-footer/lg-hero-card-footer.component';
 
 @NgModule({
   imports: [CommonModule, LgHeadingModule],
@@ -35,7 +36,8 @@ import { LgHeroComponent } from './hero.component';
     LgHeroCardPrincipleDataPointLabelComponent,
     LgHeroCardPrincipleDataPointValueComponent,
     LgHeroContentComponent,
-    LgHeroHeaderComponent
+    LgHeroHeaderComponent,
+    LgHeroCardFooterComponent
   ],
   exports: [
     LgHeroComponent,
@@ -52,7 +54,8 @@ import { LgHeroComponent } from './hero.component';
     LgHeroCardPrincipleDataPointLabelComponent,
     LgHeroCardPrincipleDataPointValueComponent,
     LgHeroContentComponent,
-    LgHeroHeaderComponent
+    LgHeroHeaderComponent,
+    LgHeroCardFooterComponent
   ]
 })
 export class LgHeroModule {}

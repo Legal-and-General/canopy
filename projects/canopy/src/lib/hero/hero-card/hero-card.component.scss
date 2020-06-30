@@ -9,9 +9,4 @@
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
   }
-
-  @include lg-breakpoint('lg') {
-    padding-top: var(--space-xxxl);
-    padding-bottom: var(--space-sm);
-  }
 }

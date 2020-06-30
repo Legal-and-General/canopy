@@ -100,6 +100,9 @@ export const productHeroHTML = `
               </lg-hero-card-data-point>
             </lg-hero-card-data-point-list>
           </lg-hero-card-content>
+          <lg-hero-card-footer>
+            <small class="lg-font-size-0-6">* This is not a guaranteed amount and could be subject to change.</small>
+          </lg-hero-card-footer>
         </lg-hero-card>
       </div>
     </div>

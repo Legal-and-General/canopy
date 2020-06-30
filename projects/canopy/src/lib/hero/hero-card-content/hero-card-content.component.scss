@@ -7,6 +7,6 @@
   @include lg-breakpoint('md') {
     margin-top: var(--space-md);
     flex-direction: row;
-    margin-bottom: var(--space-xxl);
+    margin-bottom: var(--space-md);
   }
 }

@@ -9,7 +9,7 @@ export const notes = (
 A flexible component that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.
 
 ### LgHeroComponent
-This is the branded bar which runs across 
+This is the branded bar which runs across
 the top of the page. It also controls the functionality to create the 'overlap' between the page content.
 
 #### Configure Overlap
@@ -54,7 +54,7 @@ This is the top section of the hero bar, it stretches the full width and is agno
 A container component for displaying content within the hero area. The hero and hero card components are agnostic of the grid layout of the page. You will need to wrap the hero card component with the specific grid that is required.
 
 ### LgHeroCardHeaderComponent
-This is the primary layout section of the hero component, it is used to contain the title, subtitle and principle value. 
+This is the primary layout section of the hero component, it is used to contain the title, subtitle and principle value.
 
 ### LgHeroCardTitleComponent
 This is where the main hero title should be provided. It should be located inside the hero header.
@@ -84,7 +84,7 @@ This is where the label for the data point should be projected. A data point sho
 | \`\`headingLevel\`\` | The level of the heading in the label: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
 
 ### LgHeroCardContent
-This is the secondary layout section of the hero component, it is used to contain secondary information. 
+This is the secondary layout section of the hero component, it is used to contain secondary information.
 
 ### LgHeroCardDataPointList
 When the hero card is being used to display secondary data points, those data points should be wrapped in a list. This element provides the list semantics, it should be contained inside the hero content.
@@ -104,6 +104,8 @@ This is where the label for the data point should be projected. A data point sho
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`headingLevel\`\` | The level of the heading in the label: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
 
+### LgHeroCardFooter
+This where any extra text related to the hero card can be displayed, such as a small print.
 
 ## Usage
 ~~~js
