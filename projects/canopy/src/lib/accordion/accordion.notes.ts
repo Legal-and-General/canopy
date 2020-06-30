@@ -1,7 +1,6 @@
 export const notes = `
 # Accordion Component
 
-
 ## Purpose
 Accordions allow users to quickly expand and collapse grouped sections of content.
 
@@ -36,7 +35,6 @@ and in your HTML:
   </lg-accordion>
 ~~~
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -47,7 +45,8 @@ and in your HTML:
 ## Outputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`accordionItemEvent\`\` | Event emitted when the accordion item \`isActive\` state changes | EventEmitter<{ isActive: boolean }> | n/a | No |
+| \`\`opened\`\` | Event emitted when the accordion item is opened | EventEmitter<void> | n/a | No |
+| \`\`closed\`\` | Event emitted when the accordion item is closed | EventEmitter<void> | n/a | No |
 
 ## Using only the SCSS files
 
