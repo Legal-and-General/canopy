@@ -4,7 +4,7 @@ export const notes = `
 # Table Component
 
 ## Purpose
-The table component provides a way to present tabular data in a responsive format. The \`thead\` property should be added to a \`lg-table-row\` component to specify that row as the table head. The title property is used instead of the table head on smaller screens which display a card style format.
+The table component provides a way to present tabular data in a responsive format.
 
 ## Usage
 ~~~js
