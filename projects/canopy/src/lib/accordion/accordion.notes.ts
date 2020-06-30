@@ -17,7 +17,7 @@ and in your HTML:
 
 ~~~html
   <lg-accordion [headingLevel]="2">
-    <lg-accordion-item>
+    <lg-accordion-item [isActive]="isActive" (opened)="handleItemOpened()" (closed)="handleItemClosed()">
       <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -35,14 +35,22 @@ and in your HTML:
   </lg-accordion>
 ~~~
 
-## Inputs
+## Accordion Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`headingLevel\`\` | The level of the accordion headings: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
+
+
+## Accordion Item Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`isActive\`\` | The active state of the accordion item | boolean | false | No |
-| \`\`headingLevel\`\` | The level of the accordion headings: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
 
-## Outputs
+
+## Accordion Item Outputs
+
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`opened\`\` | Event emitted when the accordion item is opened | EventEmitter<void> | n/a | No |
