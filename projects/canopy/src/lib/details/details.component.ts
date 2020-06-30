@@ -1,7 +1,6 @@
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ContentChild,
   EventEmitter,
@@ -30,26 +29,26 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   panelHeading: LgDetailsPanelHeadingComponent;
 
   @Input() isActive = false;
-
-  @Output() detailsEvent = new EventEmitter<{ isActive: boolean }>();
+  @Output() opened = new EventEmitter<void>();
+  @Output() closed = new EventEmitter<void>();
 
   id = nextUniqueId++;
-
   toggleId = `lg-details-header-${this.id}`;
-
   panelId = `lg-details-content-${this.id}`;
 
   private subscription: Subscription;
 
-  constructor(private cd: ChangeDetectorRef) {}
-
   ngAfterContentInit() {
     this.panelHeading.isActive = this.isActive;
 
-    this.subscription = this.panelHeading.event.subscribe(value => {
-      this.isActive = value;
-      this.detailsEvent.emit({ isActive: this.isActive });
-      this.cd.detectChanges();
+    this.subscription = this.panelHeading.toggleActive.subscribe(isActive => {
+      this.isActive = isActive;
+
+      if (isActive) {
+        this.opened.emit();
+      } else {
+        this.closed.emit();
+      }
     });
   }
 

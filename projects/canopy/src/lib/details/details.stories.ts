@@ -28,11 +28,10 @@ export const standard = () => ({
   template: `
     <lg-details
       [isActive]="expand"
-      (detailsEvent)="detailsEvent($event)"
-    >
-      <lg-details-panel-heading [headingLevel]="headingLevel">{{
-        header
-      }}</lg-details-panel-heading>
+      (opened)="toggle('Detail opened')"
+      (closed)="toggle('Detail closed')">
+      <lg-details-panel-heading [headingLevel]="headingLevel">{{ header }}</lg-details-panel-heading>
+
       Give us a call on 0800 123 4567 and we'll be happy to help you change your
       payment details
     </lg-details>
@@ -41,6 +40,6 @@ export const standard = () => ({
     header: text('Header', 'How do I change my payment details?'),
     expand: boolean('Default expand', false),
     headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 5),
-    detailsEvent: action('Details active state change')
+    toggle: action('Details active state change')
   }
 });

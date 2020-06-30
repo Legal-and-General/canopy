@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
-import { LgHeadingComponent } from '../../heading/heading.component';
-import { LgIconComponent } from '../../icon/icon.component';
+import { take } from 'rxjs/operators';
+import { LgHeadingComponent } from '../../heading';
+import { LgIconComponent } from '../../icon';
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading.component';
 
 describe('LgDetailsPanelHeadingComponent', () => {
@@ -40,6 +41,12 @@ describe('LgDetailsPanelHeadingComponent', () => {
       expect(component.isActive).toBe(false);
     });
 
+    it('should emit toggleActive event', async(() => {
+      component.toggleActive.pipe(take(1)).subscribe(isActive => expect(isActive).toBeFalsy());
+      component.isActive = true;
+      component.toggle();
+    }));
+
     it(`should set the 'active' class`, () => {
       expect(
         triggerElement.nativeElement.classList.contains(
@@ -72,6 +79,12 @@ describe('LgDetailsPanelHeadingComponent', () => {
 
       expect(component.isActive).toBe(true);
     });
+
+    it('should emit toggleActive event', async(() => {
+      component.toggleActive.pipe(take(1)).subscribe(isActive => expect(isActive).toBeTruthy());
+      component.isActive = false;
+      component.toggle();
+    }));
 
     it('should remove the `active` class', () => {
       triggerElement.nativeElement.click();

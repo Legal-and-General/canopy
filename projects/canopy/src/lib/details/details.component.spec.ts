@@ -76,15 +76,15 @@ describe('LgDetailsComponent', () => {
     });
 
     it(`should emit the isActive status of true`, () => {
-      const componentEventSpy = spyOn(component.detailsEvent, 'emit');
-      component.panelHeading.event.emit(true);
-      expect(componentEventSpy).toHaveBeenCalledWith({ isActive: true });
+      const componentEventSpy = spyOn(component.opened, 'emit');
+      component.panelHeading.toggleActive.emit(true);
+      expect(componentEventSpy).toHaveBeenCalled();
     });
 
     it(`should emit the isActive status of false`, () => {
-      const componentEventSpy = spyOn(component.detailsEvent, 'emit');
-      component.panelHeading.event.emit(false);
-      expect(componentEventSpy).toHaveBeenCalledWith({ isActive: false });
+      const componentEventSpy = spyOn(component.closed, 'emit');
+      component.panelHeading.toggleActive.emit(false);
+      expect(componentEventSpy).toHaveBeenCalled();
     });
   });
 });

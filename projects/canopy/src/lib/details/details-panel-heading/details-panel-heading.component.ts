@@ -6,7 +6,7 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
-import { lgIconChevronDown } from '../../icon/icons.interface';
+import { lgIconChevronDown } from '../../icon';
 
 let nextUniqueId = 0;
 @Component({
@@ -18,21 +18,16 @@ let nextUniqueId = 0;
 })
 export class LgDetailsPanelHeadingComponent {
   @Input() headingLevel;
-
   @Input() isActive = false;
-
-  @Output() event = new EventEmitter<boolean>();
+  @Output() toggleActive = new EventEmitter<boolean>();
 
   chevronDown = lgIconChevronDown.name;
-
   id = nextUniqueId++;
-
   toggleId = `lg-details-header-${this.id}`;
-
   panelId = `lg-details-content-${this.id}`;
 
   toggle() {
     this.isActive = !this.isActive;
-    this.event.emit(this.isActive);
+    this.toggleActive.emit(this.isActive);
   }
 }
