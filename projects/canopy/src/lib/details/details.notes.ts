@@ -36,7 +36,8 @@ and in your HTML:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`detailsEvent\`\` | Event emitted when the details \`isActive\` state changes | EventEmitter<{ isActive: boolean }> | n/a | No |
+| \`\`opened\`\` | Event emitted when the details are opened | EventEmitter<void> | n/a | No |
+| \`\`closed\`\` | Event emitted when the details are closed | EventEmitter<void> | n/a | No |
 
 ## Using only the SCSS files
 
