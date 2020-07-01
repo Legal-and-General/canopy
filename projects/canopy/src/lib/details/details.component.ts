@@ -1,6 +1,7 @@
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChild,
   EventEmitter,
@@ -38,6 +39,8 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
 
   private subscription: Subscription;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngAfterContentInit() {
     this.panelHeading.isActive = this.isActive;
 
@@ -49,6 +52,8 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
       } else {
         this.closed.emit();
       }
+
+      this.cdr.markForCheck();
     });
   }
 
