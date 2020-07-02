@@ -67,7 +67,7 @@ function getDefultTableContent(): TableStoryItem[] {
       published: '1945'
     },
     {
-      author: 'George Orwell',
+      author: 'Chinua Achebe',
       title: 'Things Fall Apart',
       published: '1958'
     }
