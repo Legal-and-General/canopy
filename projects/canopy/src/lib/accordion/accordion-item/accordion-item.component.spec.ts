@@ -5,7 +5,9 @@ import { MockComponents } from 'ng-mocks';
 import { take } from 'rxjs/operators';
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
+import { UniqueSelectionDispatcher } from '../../utils/unique-selection-dispatcher';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
+import { LG_ACCORDION } from '../accordion.component';
 import { LgAccordionItemContentDirective } from './accordion-item-content.directive';
 import { LgAccordionItemComponent } from './accordion-item.component';
 
@@ -34,8 +36,11 @@ describe('LgAccordionItemComponent', () => {
   let component: LgAccordionItemComponent;
   let fixture: ComponentFixture<TestAccordionWrapperItemComponent>;
   let triggerElement: DebugElement;
+  let selectionDispatcher: UniqueSelectionDispatcher;
+  let accordionMock: any;
 
   beforeEach(async(() => {
+    accordionMock = { id: 'lgAccordion123' };
     TestBed.configureTestingModule({
       declarations: [
         TestAccordionWrapperItemComponent,
@@ -43,11 +48,15 @@ describe('LgAccordionItemComponent', () => {
         LgAccordionPanelHeadingComponent,
         LgAccordionItemContentDirective,
         MockComponents(LgHeadingComponent, LgIconComponent)
+      ],
+      providers: [
+        { provide: LG_ACCORDION, useFactory: () => accordionMock }
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
+    selectionDispatcher = TestBed.get(UniqueSelectionDispatcher);
     fixture = TestBed.createComponent(TestAccordionWrapperItemComponent);
     component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();
@@ -87,10 +96,12 @@ describe('LgAccordionItemComponent', () => {
   describe('clicking on the child component trigger', () => {
     let openedSpy: jasmine.Spy;
     let closedSpy: jasmine.Spy;
+    let selectionDispatcherSpy: jasmine.Spy;
 
     beforeEach(() => {
       openedSpy = spyOn(component.opened, 'emit');
       closedSpy = spyOn(component.closed, 'emit');
+      selectionDispatcherSpy = spyOn(selectionDispatcher, 'notify');
     });
 
     it(`should update 'isActive'`, () => {
@@ -104,9 +115,11 @@ describe('LgAccordionItemComponent', () => {
     it('should emit events', async(() => {
       triggerElement.nativeElement.click();
       expect(openedSpy).toHaveBeenCalled();
+      expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
 
       triggerElement.nativeElement.click();
       expect(closedSpy).toHaveBeenCalled();
+      expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
     }));
   });
 
@@ -150,5 +163,40 @@ describe('LgAccordionItemComponent', () => {
       fixture.debugElement.componentInstance.isActive = false;
       fixture.detectChanges();
     }));
+  });
+
+  describe('when notified of sibling accordion item activated', () => {
+    const someOtherId = 'some-other-id';
+    let closedSpy: jasmine.Spy;
+
+    beforeEach(() => {
+      fixture.debugElement.componentInstance.isActive = true;
+      fixture.detectChanges();
+      closedSpy = spyOn(component.closed, 'emit');
+    });
+
+    describe('and accordion is in multi mode', () => {
+      beforeEach(() => {
+        accordionMock.multi = true;
+      });
+
+      it('does nothing', () => {
+        selectionDispatcher.notify(someOtherId, accordionMock.id);
+        expect(closedSpy).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('and accordion is in single item active mode', () => {
+      beforeEach(() => {
+        accordionMock.multi = false;
+      });
+
+      it('deactivates active panel', () => {
+        selectionDispatcher.notify(someOtherId, accordionMock.id);
+        expect(closedSpy).toHaveBeenCalled();
+        expect(component.isActive).toBeFalsy();
+        expect(component.accordionPanelHeading.isActive).toBeFalsy();
+      });
+    });
   });
 });

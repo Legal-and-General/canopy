@@ -3,8 +3,8 @@
     type="button"
     [id]="_toggleId"
     class="lg-accordion__heading-toggle"
-    [class.lg-accordion__heading-toggle--active]="isActive"
-    [attr.aria-expanded]="isActive"
+    [class.lg-accordion__heading-toggle--active]="_isActive"
+    [attr.aria-expanded]="_isActive"
     [attr.aria-controls]="_panelId"
     (click)="toggle()"
   >

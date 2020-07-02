@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
@@ -12,8 +12,13 @@ import { LgAccordionComponent } from './accordion.component';
 @Component({
   selector: 'lg-test',
   template: `
-    <lg-accordion [headingLevel]="2">
+    <lg-accordion [headingLevel]="2" [multi]="isMulti">
       <lg-accordion-item>
+        <lg-accordion-panel-heading>Test</lg-accordion-panel-heading>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </lg-accordion-item>
+      <lg-accordion-item [isActive]="true">
         <lg-accordion-panel-heading>Test</lg-accordion-panel-heading>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
@@ -21,7 +26,9 @@ import { LgAccordionComponent } from './accordion.component';
     </lg-accordion>
   `
 })
-class TestAccordionComponent {}
+class TestAccordionComponent {
+  isMulti = true;
+}
 
 describe('LgAccordionComponent', () => {
   let component: TestAccordionComponent;
@@ -50,14 +57,34 @@ describe('LgAccordionComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('sets the heading level on the accordion panel heading', () => {
-    const accordionPanelHeadingElement = fixture.debugElement.query(
-      By.css('lg-accordion-panel-heading')
-    );
-    const accordionPanelHeadingInstance = accordionPanelHeadingElement.injector.get<
-      LgAccordionPanelHeadingComponent
-    >(LgAccordionPanelHeadingComponent);
+  it('should set the heading level on the panel headings', () => {
+    fixture.debugElement.queryAll(By.css('lg-accordion-panel-heading')).forEach(heading =>
+      expect(heading.injector.get<LgAccordionPanelHeadingComponent>(LgAccordionPanelHeadingComponent).headingLevel)
+        .toBe(2));
+  });
 
-    expect(accordionPanelHeadingInstance.headingLevel).toBe(2);
+  describe('when using single item active view', () => {
+    let itemOne: DebugElement;
+    let itemTwo: DebugElement;
+
+    beforeEach(() => {
+      component.isMulti = false;
+      fixture.detectChanges();
+
+      const items = fixture.debugElement.queryAll(By.css('lg-accordion-item'));
+      itemOne = items[0];
+      itemTwo = items[1];
+    });
+
+    it('should toggle the active open panel', () => {
+      expect(itemOne.componentInstance.isActive).toBeFalsy();
+      expect(itemTwo.componentInstance.isActive).toBeTruthy();
+
+      itemOne.nativeElement.querySelector('.lg-accordion__heading-toggle').click();
+      fixture.detectChanges();
+
+      expect(itemOne.componentInstance.isActive).toBeTruthy();
+      expect(itemTwo.componentInstance.isActive).toBeFalsy();
+    });
   });
 });
