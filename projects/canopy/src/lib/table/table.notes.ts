@@ -47,6 +47,10 @@ A component that acts as a standard table cell.
 ### LgTableHeadComponent
 A component that acts as a standard table header cell.
 
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`align\`\` | Alignment option for the header and its respective column | \`\`start\`\`, \`\`end\`\` | n/a | No |
+
 ## Using only the SCSS files
 
 Generate the markup as show in the example below.

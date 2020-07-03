@@ -15,6 +15,12 @@
   @include lg-breakpoint('md') {
     text-align: left;
   }
+
+  &--align-end {
+    @include lg-breakpoint('md') {
+      text-align: right;
+    }
+  }
 }
 
 .lg-table-cell__label {

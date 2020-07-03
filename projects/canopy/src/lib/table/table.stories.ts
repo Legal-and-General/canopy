@@ -1,6 +1,7 @@
 import { object, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
+import { AlignmentOptions } from './table.interface';
 import { LgTableModule } from './table.module';
 import { notes } from './table.notes';
 
@@ -34,7 +35,7 @@ export const standard = () => ({
       <lg-table-row>
         <lg-table-head>Author</lg-table-head>
         <lg-table-head>Book</lg-table-head>
-        <lg-table-head>Published</lg-table-head>
+        <lg-table-head [align]="alignPublishColumn">Published</lg-table-head>
       </lg-table-row>
 
       <lg-table-row *ngFor="let book of books">
@@ -45,7 +46,8 @@ export const standard = () => ({
     </lg-table>
   `,
   props: {
-    books: object('Books', getDefultTableContent())
+    books: object('Books', getDefultTableContent(), 'lg-table'),
+    alignPublishColumn: AlignmentOptions.End
   }
 });
 

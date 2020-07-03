@@ -1,11 +1,13 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostBinding,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
+import { AlignmentOptions } from '../table.interface';
 
 @Component({
   selector: 'lg-table-cell',
@@ -21,4 +23,20 @@ export class LgTableCellComponent {
 
   @ViewChild('label', { static: true })
   label: ElementRef;
+
+  alignOptions = AlignmentOptions;
+
+  set align(align: AlignmentOptions) {
+    this._align = align;
+
+    this.cd.detectChanges();
+  }
+
+  get align() {
+    return this._align;
+  }
+
+  private _align: AlignmentOptions = AlignmentOptions.Start;
+
+  constructor(private cd: ChangeDetectorRef) {}
 }

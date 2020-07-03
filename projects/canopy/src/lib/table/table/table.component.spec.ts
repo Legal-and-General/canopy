@@ -119,4 +119,33 @@ describe('TableComponent', () => {
         .innerHTML
     ).toBe('Published');
   });
+
+  describe('when the publish column has align set to end', () => {
+    beforeEach(() => {
+      fixture = MockRender(`
+        <lg-table>
+          <lg-table-row>
+            <lg-table-head [align]="'end'">Title</lg-table-head>
+          </lg-table-row>
+          <lg-table-row>
+            <lg-table-cell>Accelerate: The Science of Lean Software and Devops</lg-table-cell>
+          </lg-table-row>
+        </lg-table>`);
+      debugElement = fixture.debugElement;
+      tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+      fixture.detectChanges();
+    });
+
+    it('should set the align end class on the cell', () => {
+      const [titleCell] = tableDebugElement.queryAll(
+        By.directive(LgTableCellComponent)
+      );
+
+      expect(
+        titleCell
+          .query(By.css('.lg-table-cell__content'))
+          .nativeElement.getAttribute('class')
+      ).toContain('lg-table-cell__content--align-end');
+    });
+  });
 });

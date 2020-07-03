@@ -1,15 +1,13 @@
 import {
-  AfterViewInit,
+  AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChildren,
   HostBinding,
-  OnDestroy,
   QueryList,
   ViewEncapsulation
 } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
 import { LgTableRowComponent } from '../table-row/table-row.component';
 
@@ -20,7 +18,7 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LgTableComponent implements AfterViewInit, OnDestroy {
+export class LgTableComponent implements AfterViewChecked {
   @HostBinding('class') class = 'lg-table';
 
   @HostBinding('attr.role') role = 'table';
@@ -31,20 +29,10 @@ export class LgTableComponent implements AfterViewInit, OnDestroy {
 
   bodyRows: LgTableRowComponent[];
 
-  private subscription: Subscription;
-
   constructor(private cd: ChangeDetectorRef) {}
 
-  ngAfterViewInit() {
-    this.subscription = this.rows.changes.subscribe(() => {
-      this.handleRows();
-    });
-
+  ngAfterViewChecked() {
     this.handleRows();
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   private handleRows() {
@@ -65,11 +53,14 @@ export class LgTableComponent implements AfterViewInit, OnDestroy {
         (cell: LgTableHeadComponent) => cell.element.nativeElement.innerHTML
       );
 
+      const headCellList: LgTableHeadComponent[] = this.headerRow.headCells.toArray();
+
       this.rows
         .filter(row => row.headCells.length === 0)
         .forEach(row => {
-          row.cells.forEach(({ label }, i) => {
-            label.nativeElement.innerHTML = headContent[i];
+          row.cells.forEach((cell, i) => {
+            cell.align = headCellList[i].align;
+            cell.label.nativeElement.innerHTML = headContent[i];
           });
         });
     }
