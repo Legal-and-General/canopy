@@ -24,7 +24,8 @@
     "storybook": "start-storybook",
     "stylelint": "stylelint \"projects/**/*.scss\"",
     "build-storybook": "build-storybook --quiet",
-    "build-styles": "webpack --config webpack.global.config.js"
+    "build-styles": "webpack --config webpack.global.config.js",
+    "license-check:build": "npx license-checker --summary --start dist/canopy --onlyAllow 'MIT;Apache-2.0;0BSD'"
   },
   "engines": {
     "node": ">=12.13.0"
@@ -96,7 +97,8 @@
     "karma-coverage-istanbul-reporter": "^2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "lint-staged": "^10.2.11",
+    "license-checker": "^25.0.1",
+    "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.8.0",
     "ng-mocks": "^9.4.0",
     "ng-packagr": "^5.7.0",

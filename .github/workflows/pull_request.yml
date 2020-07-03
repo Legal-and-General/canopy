@@ -29,5 +29,9 @@ jobs:
         run: npm run test:ci
       - name: build
         run: npm run build
+      - name: install build dependencies
+        run: npm --prefix ./dist/canopy install
+      - name: license check build dependencies
+        run: npm run license-check:build'
       - name: build:test-app
         run: npm run build:test-app
