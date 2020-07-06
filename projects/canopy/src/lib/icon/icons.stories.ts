@@ -89,6 +89,7 @@ export const iconsArray: Array<iconSet.Icon> = [
   iconSet.lgIconDragHandle,
   iconSet.lgIconDrilldown,
   iconSet.lgIconEdit,
+  iconSet.lgIconEditNote,
   iconSet.lgIconEmail,
   iconSet.lgIconErrorFill,
   iconSet.lgIconError,

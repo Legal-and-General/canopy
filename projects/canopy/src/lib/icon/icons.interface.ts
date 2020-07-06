@@ -406,6 +406,11 @@ export const lgIconDrilldown: Icon = {
   data:
     '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M15 27l2-1v2l-2 1v-2zm-2-3l6-3v2l-6 3v-2zm-2-3l10-5v2l-10 5v-2zm-2-3l14-7v2L9 20v-2zm7-14a1 1 0 011 1v9l-2 1V5a1 1 0 011-1z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>'
 };
+export const lgIconEditNote: Icon = {
+  name: 'edit-note',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#00000" fill-rule="evenodd" d="M16.942 3.058c.54.54.67 1.177.468 1.783-.113.343-.296.6-.461.765L15 7.553V15.5a2 2 0 01-2 2H4.5a2 2 0 01-2-2V7a2 2 0 012-2h7.945l1.95-1.949a1.93 1.93 0 01.764-.461c.606-.201 1.244-.072 1.783.468zM11.195 6.25H3.75v10h10V8.803l-3.68 3.682-3.82 1.265 1.265-3.82 3.68-3.68zm2.771-1.068l-5.4 5.4-.421 1.273 1.273-.421 5.4-5.4-.852-.852zm1.575-1.452a.835.835 0 00-.295.173l-.433.432.852.851.432-.432a.835.835 0 00.173-.295c.063-.19.03-.349-.175-.554-.205-.205-.364-.238-.554-.175z"/></svg>'
+};
 export const lgIconEdit: Icon = {
   name: 'edit',
   data:
@@ -1353,6 +1358,7 @@ export type IconName =
   | 'download'
   | 'drag-handle'
   | 'drilldown'
+  | 'edit-note'
   | 'edit'
   | 'email'
   | 'error-fill'
