@@ -9,7 +9,8 @@ import * as picSet from './pictograms.interface';
 export const pictogramArray: Array<picSet.Pictogram> = [
   picSet.lgPictogramSun,
   picSet.lgPictogramPiggyBank,
-  picSet.lgPictogramCookiesAndArrows
+  picSet.lgPictogramCookiesAndArrows,
+  picSet.lgPictogramErrorInBrowser
 ];
 
 @Component({
