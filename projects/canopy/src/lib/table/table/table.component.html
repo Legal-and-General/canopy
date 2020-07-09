@@ -1,10 +1,1 @@
-<thead class="lg-table__head">
-  <tr>
-    <ng-container *ngTemplateOutlet="headerRow?.headerTemplate"></ng-container>
-  </tr>
-</thead>
-<tbody class="lg-table__body">
-  <tr *ngFor="let row of bodyRows" class="lg-table-row">
-    <ng-container *ngTemplateOutlet="row?.bodyTemplate"></ng-container>
-  </tr>
-</tbody>
+<ng-content></ng-content>

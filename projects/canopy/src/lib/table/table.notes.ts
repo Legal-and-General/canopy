@@ -17,39 +17,50 @@ The table component provides a way to present tabular data in a responsive forma
 and in your HTML:
 
 ~~~html
-<lg-table>
-  <lg-table-row>
-    <lg-table-head>Author</lg-table-head>
-    <lg-table-head>Book</lg-table-head>
-    <lg-table-head>Published</lg-table-head>
-  </lg-table-row>
-  <lg-table-row>
-    <lg-table-cell>Orhan Pamuk</lg-table-cell>
-    <lg-table-cell>Strangeness in my Mind</lg-table-cell>
-    <lg-table-cell>2016</lg-table-cell>
-  </lg-table-row>
-  <lg-table-row>
-    <lg-table-cell>Albert Camus</lg-table-cell>
-    <lg-table-cell>The Plague</lg-table-cell>
-    <lg-table-cell>1947</lg-table-cell>
-  </lg-table-row>
-</lg-table>
+<table lg-table>
+  <thead lg-table-head>
+    <tr lg-table-row>
+      <th lg-table-head-cell>Author</th>
+      <th lg-table-head-cell>Book</th>
+      <th lg-table-head-cell>Published</th>
+    </tr>
+  </thead>
+
+  <tbody lg-table-body>
+    <tr lg-table-row>
+      <td lg-table-cell>Orhan Pamuk</td>
+      <td lg-table-cell>Strangeness in my Mind</td>
+      <td lg-table-cell>2016</td>
+    </tr>
+    <tr lg-table-row>
+      <td lg-table-cell>Albert Camus</td>
+      <td lg-table-cell>The Plague</td>
+      <td lg-table-cell>1947</td>
+    </tr>
+  </tbody>
+</table>
 ~~~
 
 ## Inputs
 
-### LgTableRowComponent
-A component that acts as a standard table row.
+### LgTableBodyComponent
+A component that acts as a standard table body.
 
 ### LgTableCellComponent
 A component that acts as a standard table cell.
 
 ### LgTableHeadComponent
+A component that acts as a standard table head.
+
+### LgTableHeadCellComponent
 A component that acts as a standard table header cell.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`align\`\` | Alignment option for the header and its respective column | \`\`start\`\`, \`\`end\`\` | n/a | No |
+
+### LgTableRowComponent
+A component that acts as a standard table row.
 
 ## Using only the SCSS files
 
@@ -58,10 +69,10 @@ Generate the markup as show in the example below.
 | Class | Description |
 |-------|-------------|
 | \`\`lg-table\`\` | Adds styles to the table styling |
-| \`\`lg-table__head\`\` | Adds styles to the thead |
+| \`\`lg-table-head'\`\` | Adds styles to the thead |
 | \`\`lg-table-row\`\` | Adds styles to the table row |
-| \`\`lg-table-head\`\` | Adds styles to the table header cell |
-| \`\`lg-table__body\`\` | Adds styles to the tbody |
+| \`\`lg-table-head-cell'\`\` | Adds styles to the table header cell |
+| \`\`lg-table-body\`\` | Adds styles to the tbody |
 | \`\`lg-table-cell\`\` | Adds styles to the table cell |
 | \`\`lg-table-cell__content\`\` | Adds styles to the table cell content |
 | \`\`lg-table-cell__label\`\` | Adds styles to the table cell label for smaller screens |
@@ -71,41 +82,26 @@ Generate the markup as show in the example below.
 
 ~~~html
 <table class="lg-table">
-  <thead class="lg-table__head">
+  <thead class="lg-table-head">
     <tr class="lg-table-row">
-      <th class="lg-table-head">Author</th>
-      <th class="lg-table-head">Book</th>
-      <th class="lg-table-head">Published</th>
+      <th class="lg-table-head-cell">Author</th>
+      <th class="lg-table-head-cell">Book</th>
+      <th class="lg-table-head-cell">Published</th>
     </tr>
   </thead>
-  <tbody class="lg-table__body">
+
+  <tbody class="lg-table-body">
     <tr class="lg-table-row">
-      <td class="lg-table-cell">
-        <span class="lg-table-cell__label">
-          Author
-        </span>
-        <span class="lg-table-cell__content">
-          Orhan Pamuk
-        </span>
-      </td>
-      <td class="lg-table-cell">
-        <span class="lg-table-cell__label">
-          Book
-        </span>
-        <span class="lg-table-cell__content">
-          Strangeness in my Mind
-        </span>
-      </td>
-      <td class="lg-table-cell">
-        <span class="lg-table-cell__label">
-          Published
-        </span>
-        <span class="lg-table-cell__content">
-          2016
-        </span>
-      </td>
+      <td class="lg-table-cell">Orhan Pamuk</td>
+      <td class="lg-table-cell">Strangeness in my Mind</td>
+      <td class="lg-table-cell">2016</td>
+    </tr>
+    <tr class="lg-table-row">
+      <td class="lg-table-cell">Albert Camus</td>
+      <td class="lg-table-cell">The Plague</td>
+      <td class="lg-table-cell">1947</td>
     </tr>
   </tbody>
-</lg-table>
+</table>
 ~~~
 `;

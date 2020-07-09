@@ -31,20 +31,25 @@ export default {
 
 export const standard = () => ({
   template: `
-    <lg-table>
-      <lg-table-row>
-        <lg-table-head>Author</lg-table-head>
-        <lg-table-head>Book</lg-table-head>
-        <lg-table-head [align]="alignPublishColumn">Published</lg-table-head>
-      </lg-table-row>
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Author</th>
+          <th lg-table-head-cell>Title</th>
+          <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
+        </tr>
+      </thead>
 
-      <lg-table-row *ngFor="let book of books">
-        <lg-table-cell>{{ book.author }}</lg-table-cell>
-        <lg-table-cell>{{ book.title }}</lg-table-cell>
-        <lg-table-cell>{{ book.published }}</lg-table-cell>
-      </lg-table-row>
-    </lg-table>
+      <tbody lg-table-body>
+        <tr lg-table-row *ngFor="let book of books">
+          <td lg-table-cell>{{ book.author }}</td>
+          <td lg-table-cell>{{ book.title }}</td>
+          <td lg-table-cell>{{ book.published }}</td>
+        </tr>
+      </tbody>
+    </table>
   `,
+
   props: {
     books: object('Books', getDefultTableContent(), 'lg-table'),
     alignPublishColumn: AlignmentOptions.End,
@@ -72,6 +77,36 @@ function getDefultTableContent(): Array<TableStoryItem> {
       author: 'Chinua Achebe',
       title: 'Things Fall Apart',
       published: '1958',
+    },
+    {
+      author: 'Brian Greene',
+      title: 'The Elegant Universe',
+      published: '1999',
+    },
+    {
+      author: 'Julia Donaldson',
+      title: 'The Gruffalo',
+      published: '1999',
+    },
+    {
+      author: 'Dan Brown',
+      title: 'The Da Vinci Code',
+      published: '2003',
+    },
+    {
+      author: 'Charles Dickens',
+      title: 'Oliver Twist',
+      published: '1838',
+    },
+    {
+      author: 'Doug McGuff and John Little',
+      title: 'Body by Science',
+      published: '2008',
+    },
+    {
+      author: 'Douglas Crockford',
+      title: 'JavaScript: The Good Parts',
+      published: '2008',
     },
   ];
 }

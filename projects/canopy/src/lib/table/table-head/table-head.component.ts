@@ -1,32 +1,28 @@
 import {
+  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
+  ContentChildren,
   HostBinding,
-  Input,
+  QueryList,
   ViewEncapsulation,
 } from '@angular/core';
 
-import { AlignmentOptions } from '../table.interface';
+import { LgTableRowComponent } from '../table-row/table-row.component';
 
 @Component({
-  selector: 'lg-table-head',
+  selector: '[lg-table-head]',
   templateUrl: './table-head.component.html',
   styleUrls: ['./table-head.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgTableHeadComponent {
+export class LgTableHeadComponent implements AfterViewChecked {
   @HostBinding('class') class = 'lg-table-head';
 
-  @HostBinding('attr.role') role = 'columnheader';
+  @ContentChildren(LgTableRowComponent) headRows: QueryList<LgTableRowComponent>;
 
-  @HostBinding('class.lg-table-head--align-end')
-  get alignment() {
-    return this.align === AlignmentOptions.End;
+  ngAfterViewChecked() {
+    this.headRows.forEach(row => (row.isHeadRow = true));
   }
-
-  @Input() align: AlignmentOptions;
-
-  constructor(public element: ElementRef) {}
 }

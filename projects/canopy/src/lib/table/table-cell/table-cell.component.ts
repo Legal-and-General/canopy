@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   HostBinding,
+  Input,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -11,7 +12,7 @@ import {
 import { AlignmentOptions } from '../table.interface';
 
 @Component({
-  selector: 'lg-table-cell',
+  selector: '[lg-table-cell]',
   templateUrl: './table-cell.component.html',
   styleUrls: ['./table-cell.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -20,14 +21,24 @@ import { AlignmentOptions } from '../table.interface';
 export class LgTableCellComponent {
   @HostBinding('class') class = 'lg-table-cell';
 
-  @HostBinding('attr.role') role = 'cell';
-
   @ViewChild('label', { static: true })
   label: ElementRef;
 
   alignOptions = AlignmentOptions;
 
-  set align(align: AlignmentOptions) {
+  set columnLabel(columnLabel: string) {
+    this._columnLabel = columnLabel;
+
+    this.cd.detectChanges();
+  }
+
+  get columnLabel() {
+    return this._columnLabel;
+  }
+
+  @Input() cellIndex: number;
+
+  @Input() set align(align: AlignmentOptions) {
     this._align = align;
 
     this.cd.detectChanges();
@@ -38,6 +49,8 @@ export class LgTableCellComponent {
   }
 
   private _align: AlignmentOptions = AlignmentOptions.Start;
+
+  private _columnLabel = '';
 
   constructor(private cd: ChangeDetectorRef) {}
 }

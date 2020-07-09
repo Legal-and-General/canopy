@@ -334,28 +334,33 @@
             lgMarginTop="xxl"
           ></lg-spinner>
 
-          <lg-table>
-            <lg-table-row>
-              <lg-table-head>Author</lg-table-head>
-              <lg-table-head>Book</lg-table-head>
-              <lg-table-head align="end">Published</lg-table-head>
-            </lg-table-row>
-            <lg-table-row>
-              <lg-table-cell>Orhan Pamuk</lg-table-cell>
-              <lg-table-cell>Strangeness in my Mind</lg-table-cell>
-              <lg-table-cell>2016</lg-table-cell>
-            </lg-table-row>
-            <lg-table-row>
-              <lg-table-cell>Albert Camus</lg-table-cell>
-              <lg-table-cell>The Plague</lg-table-cell>
-              <lg-table-cell>1947</lg-table-cell>
-            </lg-table-row>
-            <lg-table-row>
-              <lg-table-cell>George Orwell</lg-table-cell>
-              <lg-table-cell>Animal Farm</lg-table-cell>
-              <lg-table-cell>1945</lg-table-cell>
-            </lg-table-row>
-          </lg-table>
+          <table lg-table>
+            <thead lg-table-head>
+              <tr lg-table-row>
+                <th lg-table-head-cell>Author</th>
+                <th lg-table-head-cell>Book</th>
+                <th lg-table-head-cell align="end">Published</th>
+              </tr>
+            </thead>
+
+            <tbody lg-table-body>
+              <tr lg-table-row>
+                <td lg-table-cell>Orhan Pamuk</td>
+                <td lg-table-cell>Strangeness in my Mind</td>
+                <td lg-table-cell>2016</td>
+              </tr>
+              <tr lg-table-row>
+                <td lg-table-cell>Albert Camus</td>
+                <td lg-table-cell>The Plague</td>
+                <td lg-table-cell>1947</td>
+              </tr>
+              <tr lg-table-row>
+                <td lg-table-cell>George Orwell</td>
+                <td lg-table-cell>Animal Farm</td>
+                <td lg-table-cell>1945</td>
+              </tr>
+            </tbody>
+          </table>
         </lg-card>
       </div>
       <div lgCol="12" lgColLg="3" lgColMdOffset="0">

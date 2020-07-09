@@ -4,10 +4,26 @@ import { By } from '@angular/platform-browser';
 
 import { MockRender } from 'ng-mocks';
 
+import { LgTableComponent } from './table.component';
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
 import { LgTableRowComponent } from '../table-row/table-row.component';
-import { LgTableComponent } from './table.component';
+import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.component';
+import { LgTableBodyComponent } from '../table-body/table-body.component';
+import { AlignmentOptions } from '../table.interface';
+
+const books = [
+  {
+    author: 'Orhan Pamuk',
+    title: 'Strangeness In My Mind',
+    published: '2016',
+  },
+  {
+    author: 'Albert Camus',
+    title: 'The Plague',
+    published: '1947',
+  },
+];
 
 describe('TableComponent', () => {
   let component: LgTableComponent;
@@ -15,51 +31,46 @@ describe('TableComponent', () => {
   let debugElement: DebugElement;
   let tableDebugElement: DebugElement;
 
-  const books = [
-    {
-      author: 'Orhan Pamuk',
-      title: 'Strangeness In My Mind',
-      published: '2016',
-    },
-    {
-      author: 'Albert Camus',
-      title: 'The Plague',
-      published: '1947',
-    },
-  ];
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         LgTableComponent,
-        LgTableCellComponent,
-        LgTableRowComponent,
         LgTableHeadComponent,
+        LgTableBodyComponent,
+        LgTableRowComponent,
+        LgTableHeadCellComponent,
+        LgTableCellComponent,
       ],
     }).compileComponents();
 
     fixture = MockRender(
       `
-      <lg-table>
-        <lg-table-row>
-          <lg-table-head>Author</lg-table-head>
-          <lg-table-head>Title</lg-table-head>
-          <lg-table-head>Published</lg-table-head>
-        </lg-table-row>
-        <lg-table-row *ngFor="let book of books">
-          <lg-table-cell>{{ book.author }}</lg-table-cell>
-          <lg-table-cell>{{ book.title }}</lg-table-cell>
-          <lg-table-cell>{{ book.published }}</lg-table-cell>
-        </lg-table-row>
-      </lg-table>
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Author</th>
+          <th lg-table-head-cell>Title</th>
+          <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row *ngFor="let book of books">
+          <td lg-table-cell>{{book.author}}</td>
+          <td lg-table-cell>{{book.title}}</td>
+          <td lg-table-cell>{{book.published}}</td>
+        </tr>
+      </tbody>
+    </table>
     `,
       {
         books,
+        alignPublishColumn: AlignmentOptions.End,
       },
     );
 
     debugElement = fixture.debugElement;
-    component = fixture.componentInstance;
+    component = fixture.debugElement.children[0].componentInstance;
     tableDebugElement = debugElement.query(By.directive(LgTableComponent));
     fixture.detectChanges();
   }));
@@ -69,13 +80,7 @@ describe('TableComponent', () => {
   });
 
   it('should have the default class', () => {
-    expect(tableDebugElement.nativeElement.getAttribute('class')).toBe(
-      'lg-table',
-    );
-  });
-
-  it('should have the "table" role applied', () => {
-    expect(tableDebugElement.nativeElement.getAttribute('role')).toBe('table');
+    expect(tableDebugElement.nativeElement.getAttribute('class')).toBe('lg-table');
   });
 
   it('passes the head content to the respective label template', () => {
@@ -86,12 +91,11 @@ describe('TableComponent', () => {
     expect(
       authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Author');
+    expect(titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML).toBe(
+      'Title',
+    );
     expect(
-      titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
-    ).toBe('Title');
-    expect(
-      publishedCell.query(By.css('.lg-table-cell__label')).nativeElement
-        .innerHTML,
+      publishedCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Published');
   });
 
@@ -111,35 +115,26 @@ describe('TableComponent', () => {
     expect(
       authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Author');
+    expect(titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML).toBe(
+      'Title',
+    );
     expect(
-      titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
-    ).toBe('Title');
-    expect(
-      publishedCell.query(By.css('.lg-table-cell__label')).nativeElement
-        .innerHTML,
+      publishedCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Published');
   });
 
   describe('when the publish column has align set to end', () => {
     beforeEach(() => {
-      fixture = MockRender(`
-        <lg-table>
-          <lg-table-row>
-            <lg-table-head [align]="'end'">Title</lg-table-head>
-          </lg-table-row>
-          <lg-table-row>
-            <lg-table-cell>Accelerate: The Science of Lean Software and Devops</lg-table-cell>
-          </lg-table-row>
-        </lg-table>`);
+      fixture = MockRender(getAlignmentMockRender(), {
+        alignPublishColumn: AlignmentOptions.End,
+      });
       debugElement = fixture.debugElement;
       tableDebugElement = debugElement.query(By.directive(LgTableComponent));
       fixture.detectChanges();
     });
 
     it('should set the align end class on the cell', () => {
-      const [titleCell] = tableDebugElement.queryAll(
-        By.directive(LgTableCellComponent),
-      );
+      const [titleCell] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
 
       expect(
         titleCell
@@ -148,4 +143,74 @@ describe('TableComponent', () => {
       ).toContain('lg-table-cell__content--align-end');
     });
   });
+
+  describe('when the publish column has align set to start', () => {
+    beforeEach(() => {
+      fixture = MockRender(getAlignmentMockRender(), {
+        alignPublishColumn: AlignmentOptions.Start,
+      });
+      debugElement = fixture.debugElement;
+      tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+      fixture.detectChanges();
+    });
+
+    it('should not set the align end class on the cell ', () => {
+      const [titleCell] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
+
+      expect(
+        titleCell
+          .query(By.css('.lg-table-cell__content'))
+          .nativeElement.getAttribute('class'),
+      ).not.toContain('lg-table-cell__content--align-end');
+    });
+  });
+
+  describe('when the publish column has no alignment set', () => {
+    beforeEach(() => {
+      fixture = MockRender(`
+      <table lg-table>
+        <thead lg-table-head>
+          <tr lg-table-row>
+            <th lg-table-head-cell>Title</th>
+          </tr>
+        </thead>
+
+        <tbody lg-table-body>
+          <tr lg-table-row>
+            <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+          </tr>
+        </tbody>
+      </table>`);
+      debugElement = fixture.debugElement;
+      tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+      fixture.detectChanges();
+    });
+
+    it('should not set the align end class on the cell ', () => {
+      const [titleCell] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
+
+      expect(
+        titleCell
+          .query(By.css('.lg-table-cell__content'))
+          .nativeElement.getAttribute('class'),
+      ).not.toContain('lg-table-cell__content--align-end');
+    });
+  });
+
+  function getAlignmentMockRender() {
+    return `
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell [align]="alignPublishColumn">Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
 });

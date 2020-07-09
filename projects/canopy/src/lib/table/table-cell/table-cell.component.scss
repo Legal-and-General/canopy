@@ -10,7 +10,6 @@
 }
 
 .lg-table-cell__content {
-  text-align: right;
   margin-left: auto;
 
   @include lg-breakpoint('md') {
@@ -26,7 +25,6 @@
 
 .lg-table-cell__label {
   font-weight: var(--font-weight-bold);
-  padding-right: var(--space-sm);
 
   @include lg-breakpoint('md') {
     display: none;

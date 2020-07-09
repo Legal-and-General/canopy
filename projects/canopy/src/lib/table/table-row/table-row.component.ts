@@ -1,37 +1,47 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChildren,
+  EventEmitter,
   HostBinding,
+  Output,
   QueryList,
-  TemplateRef,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
-import { LgTableHeadComponent } from '../table-head/table-head.component';
+import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.component';
 
 @Component({
-  selector: 'lg-table-row',
+  selector: '[lg-table-row]',
   templateUrl: './table-row.component.html',
   styleUrls: ['./table-row.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableRowComponent {
+  @Output() toggleDetail = new EventEmitter();
+
   @HostBinding('class') class = 'lg-table-row';
 
-  @HostBinding('attr.role') role = 'row';
+  @ContentChildren(LgTableCellComponent) bodyCells: QueryList<LgTableCellComponent>;
 
-  @ViewChild('headerTemplate', { static: false })
-  headerTemplate: TemplateRef<any>;
+  @ContentChildren(LgTableHeadCellComponent) headCells: QueryList<
+    LgTableHeadCellComponent
+  >;
 
-  @ViewChild('bodyTemplate', { static: false })
-  bodyTemplate: TemplateRef<any>;
+  set isHeadRow(isHeadRow: boolean) {
+    this._isHeadRow = isHeadRow;
 
-  @ContentChildren(LgTableCellComponent) cells: QueryList<LgTableCellComponent>;
+    this.cd.detectChanges();
+  }
 
-  @ContentChildren(LgTableHeadComponent)
-  headCells: QueryList<LgTableHeadComponent>;
+  get isHeadRow() {
+    return this._isHeadRow;
+  }
+
+  private _isHeadRow = false;
+
+  constructor(private cd: ChangeDetectorRef) {}
 }

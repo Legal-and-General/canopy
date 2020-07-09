@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MockComponent } from 'ng-mocks';
+
+import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableRowComponent } from './table-row.component';
 
 describe('LgTableRowComponent', () => {
@@ -8,7 +11,7 @@ describe('LgTableRowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgTableRowComponent],
+      declarations: [LgTableRowComponent, MockComponent(LgTableCellComponent)],
     }).compileComponents();
   }));
 
@@ -24,9 +27,5 @@ describe('LgTableRowComponent', () => {
 
   it('should have the table row class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toBe('lg-table-row');
-  });
-
-  it('should have the "row" role applied', () => {
-    expect(fixture.nativeElement.getAttribute('role')).toBe('row');
   });
 });
