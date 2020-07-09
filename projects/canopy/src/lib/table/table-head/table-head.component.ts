@@ -1,11 +1,10 @@
 import {
-  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
-  ContentChildren,
   HostBinding,
-  QueryList,
   ViewEncapsulation,
+  AfterContentChecked,
+  ContentChild,
 } from '@angular/core';
 
 import { LgTableRowComponent } from '../table-row/table-row.component';
@@ -17,12 +16,14 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgTableHeadComponent implements AfterViewChecked {
+export class LgTableHeadComponent implements AfterContentChecked {
   @HostBinding('class') class = 'lg-table-head';
 
-  @ContentChildren(LgTableRowComponent) headRows: QueryList<LgTableRowComponent>;
+  @ContentChild(LgTableRowComponent, { static: false }) headRow: LgTableRowComponent;
 
-  ngAfterViewChecked() {
-    this.headRows.forEach(row => (row.isHeadRow = true));
+  ngAfterContentChecked() {
+    if (this.headRow) {
+      this.headRow.isHeadRow = true;
+    }
   }
 }

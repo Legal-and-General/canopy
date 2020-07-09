@@ -1,5 +1,6 @@
-<span #label aria-hidden="true" class="lg-table-cell__label"></span>
+<span #label aria-hidden="true" class="lg-table-cell__label">{{ columnLabel }}</span>
 <div
+  #content
   class="lg-table-cell__content"
   [ngClass]="{
     'lg-table-cell__content--align-end': align === alignOptions.End

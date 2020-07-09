@@ -8,4 +8,12 @@
   @include lg-breakpoint('md') {
     display: table-row;
   }
+
+  &__detail {
+    padding: 0;
+  }
+
+  &--hidden {
+    @include lg-visually-hidden;
+  }
 }

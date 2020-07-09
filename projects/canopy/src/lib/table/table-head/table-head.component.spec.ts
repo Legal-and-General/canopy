@@ -35,6 +35,6 @@ describe('LgTableHeadComponent', () => {
 
   it('should set the head row flag on the child rows', () => {
     component = fixture.debugElement.children[0].componentInstance;
-    expect(component.headRows.first.isHeadRow).toEqual(true);
+    expect(component.headRow.isHeadRow).toEqual(true);
   });
 });

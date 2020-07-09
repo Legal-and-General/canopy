@@ -7,6 +7,23 @@
     display: table-cell;
     padding: var(--space-sm);
   }
+
+  &--toggle-cell {
+    order: 1;
+    padding: 0;
+
+    .lg-table-cell__label {
+      display: none;
+    }
+
+    .lg-table-cell__content {
+      margin-left: 0;
+    }
+
+    @include lg-breakpoint('md') {
+      min-width: var(--table-toggle-width);
+    }
+  }
 }
 
 .lg-table-cell__content {

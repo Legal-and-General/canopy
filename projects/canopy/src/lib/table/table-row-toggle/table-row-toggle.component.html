@@ -1,0 +1,17 @@
+<button
+  type="button"
+  class="lg-table-row-toggle__btn"
+  [id]="id"
+  [attr.aria-expanded]="isActive"
+  [attr.aria-controls]="controlsId"
+>
+  <lg-icon
+    class="lg-table-row-toggle__heading-icon"
+    name="chevron-down"
+    [ngClass]="{
+      'lg-table-row-toggle__heading-icon--active': isActive
+    }"
+  ></lg-icon>
+  <span class="lg-table-row-toggle__label">{{ labelText }}</span>
+  <span class="lg-visually-hidden">{{ context }}</span>
+</button>

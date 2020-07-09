@@ -1,4 +1,6 @@
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { Component, Input, ChangeDetectorRef } from '@angular/core';
+
+import { object, withKnobs, select } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { AlignmentOptions } from './table.interface';
@@ -11,13 +13,85 @@ interface TableStoryItem {
   published: string;
 }
 
+@Component({
+  selector: 'story-table-detail',
+  template: `
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th scope="col" lg-table-head-cell>
+            <span class="lg-visually-hidden">Toggle</span>
+          </th>
+          <th lg-table-head-cell>Author</th>
+          <th lg-table-head-cell>Book</th>
+          <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <ng-container *ngFor="let book of books; index as i">
+          <tr lg-table-row>
+            <td lg-table-cell>
+              <lg-table-row-toggle
+                (click)="toggleRow(i)"
+                [isActive]="expandedRows.indexOf(i) > -1"
+              >
+              </lg-table-row-toggle>
+            </td>
+            <td lg-table-cell>{{ book.author }}</td>
+            <td lg-table-cell>{{ book.title }}</td>
+            <td lg-table-cell>{{ book.published }}</td>
+          </tr>
+          <tr lg-table-row [isHidden]="expandedRows.indexOf(i) < 0">
+            <td lg-table-cell [colspan]="colspan">
+              <lg-table-expanded-detail>
+                {{ book.title }} was published in {{ book.published }} by
+                {{ book.author }}
+              </lg-table-expanded-detail>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  `,
+})
+export class StoryTableDetailComponent {
+  @Input() books: Array<TableStoryItem> = [];
+
+  @Input() alignPublishColumn: AlignmentOptions;
+
+  @Input() expandedRows: Array<number> = [];
+
+  get colspan() {
+    return Object.keys(this.books[0]).length + 1;
+  }
+
+  constructor(private cd: ChangeDetectorRef) {}
+
+  toggleRow(index: number) {
+    const matchIndex = this.expandedRows.findIndex(i => i === index);
+
+    if (matchIndex < 0) {
+      this.expandedRows.push(index);
+    } else {
+      this.expandedRows.splice(matchIndex, 1);
+    }
+
+    // Force story to respond to toggle events after data input changes
+    // https://github.com/storybookjs/storybook/issues/7242
+    this.cd.detectChanges();
+  }
+}
+
 export default {
   title: 'Components/Table  ',
+  excludeStories: ['StoryTableDetailComponent'],
   parameters: {
     decorators: [
       withKnobs,
       moduleMetadata({
         imports: [LgTableModule],
+        declarations: [StoryTableDetailComponent],
       }),
     ],
     'in-dsm': {
@@ -53,6 +127,20 @@ export const standard = () => ({
   props: {
     books: object('Books', getDefultTableContent(), 'lg-table'),
     alignPublishColumn: AlignmentOptions.End,
+  },
+});
+
+export const detail = () => ({
+  template: `<story-table-detail [books]="books" [alignPublishColumn]="alignPublishColumn"></story-table-detail>`,
+
+  props: {
+    books: object('Books', getDefultTableContent(), 'lg-table'),
+    alignPublishColumn: select(
+      'Published column alignment',
+      [AlignmentOptions.Start, AlignmentOptions.End],
+      AlignmentOptions.End,
+      'lg-table',
+    ),
   },
 });
 

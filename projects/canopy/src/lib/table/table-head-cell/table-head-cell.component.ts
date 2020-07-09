@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   HostBinding,
@@ -25,17 +24,7 @@ export class LgTableHeadCellComponent {
     return this.align === AlignmentOptions.End ? 'right' : 'left';
   }
 
-  @Input() set align(align: AlignmentOptions) {
-    this._align = align;
+  @Input() align: AlignmentOptions = AlignmentOptions.Start;
 
-    this.cd.detectChanges();
-  }
-
-  get align() {
-    return this._align;
-  }
-
-  private _align: AlignmentOptions = AlignmentOptions.Start;
-
-  constructor(private cd: ChangeDetectorRef, public element: ElementRef) {}
+  constructor(public element: ElementRef) {}
 }

@@ -12,9 +12,23 @@
     width: 100%;
   }
 
-  tr {
-    &:nth-child(even) {
-      background-color: var(--table-stripe-color);
+  &--expandable {
+    tr {
+      &:nth-child(4n + 3) {
+        background-color: var(--table-stripe-color);
+      }
+
+      &:nth-child(4n + 4) {
+        background-color: var(--table-stripe-color);
+      }
+    }
+  }
+
+  &:not(&--expandable) {
+    tr {
+      &:nth-child(even) {
+        background-color: var(--table-stripe-color);
+      }
     }
   }
 }

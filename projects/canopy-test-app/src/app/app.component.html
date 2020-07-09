@@ -337,6 +337,9 @@
           <table lg-table>
             <thead lg-table-head>
               <tr lg-table-row>
+                <th scope="col" lg-table-head-cell>
+                  <span class="lg-visually-hidden">Toggle</span>
+                </th>
                 <th lg-table-head-cell>Author</th>
                 <th lg-table-head-cell>Book</th>
                 <th lg-table-head-cell align="end">Published</th>
@@ -344,21 +347,27 @@
             </thead>
 
             <tbody lg-table-body>
-              <tr lg-table-row>
-                <td lg-table-cell>Orhan Pamuk</td>
-                <td lg-table-cell>Strangeness in my Mind</td>
-                <td lg-table-cell>2016</td>
-              </tr>
-              <tr lg-table-row>
-                <td lg-table-cell>Albert Camus</td>
-                <td lg-table-cell>The Plague</td>
-                <td lg-table-cell>1947</td>
-              </tr>
-              <tr lg-table-row>
-                <td lg-table-cell>George Orwell</td>
-                <td lg-table-cell>Animal Farm</td>
-                <td lg-table-cell>1945</td>
-              </tr>
+              <ng-container *ngFor="let item of expandedTableRowData; index as i">
+                <tr lg-table-row>
+                  <td lg-table-cell>
+                    <lg-table-row-toggle
+                      (click)="toggleTableRow(i)"
+                      [isActive]="expandedTableRow === i"
+                    >
+                    </lg-table-row-toggle>
+                  </td>
+                  <td lg-table-cell>{{item.author}}</td>
+                  <td lg-table-cell>{{item.title}}</td>
+                  <td lg-table-cell>{{item.published}}</td>
+                </tr>
+                <tr lg-table-row [isHidden]="expandedTableRow !== i">
+                  <td lg-table-cell colspan="4">
+                    <lg-table-expanded-detail>
+                      This is the details section for {{item.title}}
+                    </lg-table-expanded-detail>
+                  </td>
+                </tr>
+              </ng-container>
             </tbody>
           </table>
         </lg-card>

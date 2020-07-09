@@ -2,7 +2,7 @@ import { DebugElement } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { MockRender } from 'ng-mocks';
+import { MockRender, MockComponents } from 'ng-mocks';
 
 import { LgTableComponent } from './table.component';
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
@@ -11,6 +11,9 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
 import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.component';
 import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { AlignmentOptions } from '../table.interface';
+import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
+import { LgIconComponent } from '../../icon/icon.component';
+import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 
 const books = [
   {
@@ -40,6 +43,8 @@ describe('TableComponent', () => {
         LgTableRowComponent,
         LgTableHeadCellComponent,
         LgTableCellComponent,
+        LgTableRowToggleComponent,
+        MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
       ],
     }).compileComponents();
 
@@ -165,35 +170,98 @@ describe('TableComponent', () => {
     });
   });
 
-  describe('when the publish column has no alignment set', () => {
-    beforeEach(() => {
-      fixture = MockRender(`
-      <table lg-table>
-        <thead lg-table-head>
-          <tr lg-table-row>
-            <th lg-table-head-cell>Title</th>
-          </tr>
-        </thead>
+  describe('when there is an expanded detail', () => {
+    let headerRow: DebugElement;
+    let bodyRow: DebugElement;
+    let detailBodyRow: DebugElement;
+    let rowToggle: DebugElement;
 
-        <tbody lg-table-body>
-          <tr lg-table-row>
-            <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
-          </tr>
-        </tbody>
-      </table>`);
+    beforeEach(() => {
+      fixture = MockRender(getExpandableTableMockRender(), {
+        colspan: 4,
+        isActive: true,
+      });
       debugElement = fixture.debugElement;
       tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+      fixture.componentInstance.id = 0;
+      fixture.detectChanges();
+
+      [headerRow, bodyRow, detailBodyRow] = tableDebugElement.queryAll(
+        By.directive(LgTableRowComponent),
+      );
+      rowToggle = tableDebugElement.query(By.css('.lg-table-row-toggle__btn'));
+    });
+
+    it('should not set the aria id on the header row', () => {
+      expect(headerRow.nativeElement.getAttribute('id')).toBeNull();
+    });
+
+    it('should not set the aria id on the body row', () => {
+      expect(bodyRow.nativeElement.getAttribute('id')).toBeNull();
+    });
+
+    it('should set the aria id on the detail body row', () => {
+      expect(detailBodyRow.nativeElement.getAttribute('id')).toMatch(
+        'lg-table-[0-9]+-detail-row-0',
+      );
+    });
+
+    it('should not set the aria labelled by attribute on the header row', () => {
+      expect(headerRow.nativeElement.getAttribute('aria-labelledby')).toBeNull();
+    });
+
+    it('should not set the aria labelled by attribute on the body row', () => {
+      expect(bodyRow.nativeElement.getAttribute('aria-labelledby')).toBeNull();
+    });
+
+    it('should set the aria labelled by attribute on the detail body row', () => {
+      expect(detailBodyRow.nativeElement.getAttribute('aria-labelledby')).toMatch(
+        'lg-table-[0-9]+-toggle-row-0',
+      );
+    });
+
+    it('should set the id on the toggle', () => {
+      expect(rowToggle.nativeElement.getAttribute('id')).toMatch(
+        'lg-table-[0-9]+-toggle-row-0',
+      );
+    });
+
+    it('should set the aria expanded attribute on the toggle to true', () => {
+      expect(rowToggle.nativeElement.getAttribute('aria-expanded')).toBe('true');
+    });
+
+    it('should set the id on the toggle', () => {
+      expect(rowToggle.nativeElement.getAttribute('id')).toMatch(
+        'lg-table-[0-9]+-toggle-row-0',
+      );
+    });
+
+    it('should set the toggle label context to the first non toggle column content', () => {
+      expect(rowToggle.query(By.css('.lg-visually-hidden')).nativeElement.innerHTML).toBe(
+        'Gene Kim, Jez Humble, and Nicole Forsgren',
+      );
+    });
+  });
+
+  describe('when the toggle is clicked on an table with expanded detail', () => {
+    const clickSpy = jasmine.createSpy();
+
+    beforeEach(() => {
+      fixture = MockRender(getExpandableTableMockRender(), {
+        colspan: 4,
+        isActive: true,
+        toggleRow: clickSpy,
+      });
+      debugElement = fixture.debugElement;
+      tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+      fixture.componentInstance.id = 0;
+      const toggle = fixture.debugElement.query(By.directive(LgTableRowToggleComponent));
+      toggle.nativeElement.click();
       fixture.detectChanges();
     });
 
-    it('should not set the align end class on the cell ', () => {
-      const [titleCell] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
-
-      expect(
-        titleCell
-          .query(By.css('.lg-table-cell__content'))
-          .nativeElement.getAttribute('class'),
-      ).not.toContain('lg-table-cell__content--align-end');
+    it('should emit the click event with the row index 0', () => {
+      expect(clickSpy).toHaveBeenCalledWith(0);
     });
   });
 
@@ -209,6 +277,42 @@ describe('TableComponent', () => {
       <tbody lg-table-body>
         <tr lg-table-row>
           <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+  function getExpandableTableMockRender() {
+    return `
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th scope="col" lg-table-head-cell>
+            <span class="lg-visually-hidden">Toggle</span>
+          </th>
+          <th lg-table-head-cell>Author</th>
+          <th lg-table-head-cell>Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>
+            <lg-table-row-toggle
+              (click)="toggleRow(0)"
+              [isActive]="isActive"
+            >
+            </lg-table-row-toggle>
+          </td>
+          <td lg-table-cell>Gene Kim, Jez Humble, and Nicole Forsgren</td>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+        <tr lg-table-row>
+          <td lg-table-cell [colspan]="colspan">
+            <lg-table-expanded-detail>
+              Content goes here
+            </lg-table-expanded-detail>
+          </td>
         </tr>
       </tbody>
     </table>`;
