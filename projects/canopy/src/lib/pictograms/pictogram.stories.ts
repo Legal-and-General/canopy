@@ -10,7 +10,8 @@ export const pictogramArray: Array<picSet.Pictogram> = [
   picSet.lgPictogramSun,
   picSet.lgPictogramPiggyBank,
   picSet.lgPictogramCookiesAndArrows,
-  picSet.lgPictogramErrorInBrowser
+  picSet.lgPictogramErrorInBrowser,
+  picSet.lgPictogramNeedHelp
 ];
 
 @Component({
