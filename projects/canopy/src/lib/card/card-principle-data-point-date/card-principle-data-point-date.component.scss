@@ -1,0 +1,7 @@
+@import '../../../styles/mixins.scss';
+
+.lg-card-principle-data-point-date {
+  color: var(--card-principle-data-point-date-color);
+  display: block;
+  @include lg-font-size('8');
+}

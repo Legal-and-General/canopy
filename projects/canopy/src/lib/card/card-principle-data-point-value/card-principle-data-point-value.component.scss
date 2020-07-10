@@ -1,0 +1,9 @@
+@import '../../../styles/mixins';
+
+.lg-card-principle-data-point-value {
+  @include lg-font-size('6');
+
+  color: var(--card-principle-data-point-value-color);
+  display: block;
+  font-weight: var(--font-weight-thin);
+}

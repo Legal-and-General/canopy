@@ -1,0 +1,10 @@
+@import '../../../styles/mixins.scss';
+
+.lg-card-principle-data-point {
+  display: block;
+
+  @include lg-breakpoint('md') {
+    display: flex;
+    flex-direction: column;
+  }
+}

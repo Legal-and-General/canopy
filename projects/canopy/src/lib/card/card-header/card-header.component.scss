@@ -1,0 +1,31 @@
+@import '../../../styles/mixins.scss';
+
+.lg-card-header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include lg-breakpoint('md') {
+    flex-direction: row;
+  }
+
+  &--with-content {
+    border-bottom: solid var(--border-width) var(--card-title-border-color);
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+}
+
+.lg-card-header__title {
+  @include lg-breakpoint('md') {
+    flex: 1 1 0;
+    margin-right: var(--space-lg);
+  }
+}
+
+.lg-card-header__data {
+  @include lg-breakpoint('md') {
+    text-align: right;
+    flex: 0 0 auto;
+  }
+}

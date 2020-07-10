@@ -13,7 +13,6 @@ Import the component in your application:
   imports: [LgCardModule],
 })
 ~~~
-
 and in your HTML:
 
 ~~~html
@@ -27,7 +26,33 @@ and in your HTML:
 </lg-card>
 ~~~
 
-## Inputs
+or for a Product card:
+
+~~~html
+<lg-card>
+  <lg-card-header>
+    <lg-card-title headingLevel="3">
+      Card Title
+    </lg-card-title>
+    <lg-card-subtitle>
+      Payroll Reference Number P23456
+    </lg-card-subtitle>
+    <lg-card-principle-data-point>
+      <lg-card-principle-data-point-label>
+        Last payment (after tax and deductions)
+      </lg-card-principle-data-point-label>
+      <lg-card-principle-data-point-value>
+        <span><span class="lg-font-size-3">£</span>230.20</span>
+      </lg-card-principle-data-point-value>
+      <lg-card-principle-data-point-date>
+        as of 01 Jan 2020
+      </lg-card-principle-data-point-date>
+    </lg-card-principle-data-point>
+  </lg-card-header>
+</lg-card>
+~~~
+
+### Inputs
 
 Content projection slots
 
@@ -35,15 +60,62 @@ Content projection slots
 |------|-------------|
 | \`\`<default>\`\` | The main body content of the card
 
-## Using only the SCSS files
+### LgCardHeaderComponent
+This is the primary layout section of the card component, it is used to contain the title, subtitle and principle value. 
 
+### LgCardTitleComponent
+This is where the main title should be provided. It should be located inside the card header.
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`headingLevel\`\` | The level of the card heading: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
+
+### LgCardSubtitleComponent
+If the card has a subtitle it should be located within this component. If a card has a subtitle it is expected to also implicitly have a title. It should be located inside the card header.
+
+### LgCardPrincipleDataPoint
+Sometimes the card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the card header which will controls it's layout
+
+### LgCardPrincipleDataPointValue
+This is where the value for the data point should be projected. It should be located inside the card principle data point
+
+### LgCardPrincipleDataPointLabel
+This is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the card principle data point
+
+### LgCardPrincipleDataPointDate
+This is where the date for the data point should be projected. It should be located inside the card principle data point
+
+### LgCardContent
+This is the secondary layout section of the card component, it is used to contain secondary information. 
+
+### Using only the SCSS files
 Generate the markup as show in the example below, no current modifiers.
 
 | Class | Description |
 |------|-------------|
 | \`\`lg-card\`\` | Adds styles to the outer card element |
+| \`\`lg-card-title\`\` | Adds styles to the outer card element |
+| \`\`lg-card-subtitle\`\` | Adds styles to the outer card element |
+| \`\`lg-card-principle-data-point\`\` | Adds styles to the outer principle-data-point element |
+| \`\`lg-card-principle-data-label\`\` | Adds styles to the principle-data-label element |
+| \`\`lg-card-principle-data-value\`\` | Adds styles to the principle-data-value element |
+| \`\`lg-card-principle-data-date\`\` | Adds styles to the principle-data-date element |
 
-## Using a nested grid
+#### Examples:
+~~~html
+<div class="lg-card">
+    <div class="lg-card-header">
+        Your title
+    </div>
+    <div class="lg-card-content">
+        Your content
+    </div>
+</div>
+~~~
+
+### Using a nested grid:
 
 When the content of a card is set in a nested grid you will need to suppress the default horizontal padding of the card via the lgPadding directive.
 
@@ -59,19 +131,5 @@ When the content of a card is set in a nested grid you will need to suppress the
     </div>
   </div>
 </lg-card>
-~~~
-
-
-
-### Examples:
-~~~html
-<div class="lg-card">
-    <div class="lg-card-header">
-        Your title
-    </div>
-    <div class="lg-card-content">
-        Your content
-    </div>
-</div>
 ~~~
 `;
