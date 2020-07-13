@@ -1,5 +1,10 @@
 @import '../../../styles/mixins';
 
+@mixin full-width {
+  display: block;
+  width: 100%;
+}
+
 .lg-btn {
   border-width: var(--border-width);
   border-style: solid;
@@ -7,7 +12,9 @@
   font-size: var(--btn-font-size);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
-  display: inline-block;
+
+  @include full-width();
+
   line-height: 1;
   padding: var(--space-xs);
   position: relative;
@@ -20,9 +27,14 @@
     @include lg-outer-focus-outline(var(--default-focus-color));
   }
 
-  &--block {
-    display: block;
-    width: 100%;
+  // Always go full width on small screens. For larger ones, only if the --block modifier is present (i.e. the fullWidth input property on the component is set to true)
+  @include lg-breakpoint('md') {
+    display: inline-block;
+    width: auto;
+
+    &--block {
+      @include full-width();
+    }
   }
 
   &--rounded {
