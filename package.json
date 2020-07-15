@@ -7,11 +7,11 @@
     "ng": "ng",
     "start": "npm run storybook",
     "start:test-app": "ng serve",
-    "build": "npm run generate-icons && npm run generate-pictograms && ng build && npm run build-styles",
+    "build": "npm run optimise-svgs && npm run generate-icons && npm run generate-pictograms && ng build && npm run build-styles",
     "build:test-app": "npm run build && ng build canopy-test-app --prod --outputPath ./test-dist",
-    "generate-icons": "npm run svgo -- -f projects/canopy/src/assets/icons && svg-to-ts -s projects/canopy/src/assets/icons -o projects/canopy/src/lib/icon -f icons.interface -p lgIcon -t IconName -i Icon -d KEBAB && node svg-info.ts icon/icons.interface.ts",
-    "generate-pictograms": "npm run svgo -- -f projects/canopy/src/assets/pictograms && svg-to-ts -s projects/canopy/src/assets/pictograms -o projects/canopy/src/lib/pictograms -f pictograms.interface -p lgPictogram -t PictogramName -i Pictogram -d KEBAB && node svg-info.ts pictograms/pictograms.interface.ts",
-    "svgo": "svgo --config=svgo.json",
+    "generate-icons": "svg-to-ts -s projects/canopy/src/assets/icons -o projects/canopy/src/lib/icon -f icons.interface -p lgIcon -t IconName -i Icon -d KEBAB && node svg-info.ts icon/icons.interface.ts",
+    "generate-pictograms": "svg-to-ts -s projects/canopy/src/assets/pictograms -o projects/canopy/src/lib/pictograms -f pictograms.interface -p lgPictogram -t PictogramName -i Pictogram -d KEBAB && node svg-info.ts pictograms/pictograms.interface.ts",
+    "optimise-svgs": "svgo projects/canopy/src/assets/ -r --config=svgo.json",
     "dsm-storybook:publish": "dsm-storybook publish",
     "dsm-storybook:preview": "dsm-storybook preview",
     "test": "ng test",
@@ -22,8 +22,7 @@
     "storybook": "start-storybook",
     "stylelint": "stylelint \"projects/**/*.scss\"",
     "build-storybook": "build-storybook --quiet",
-    "build-styles": "webpack --config webpack.global.config.js",
-    "pretty-quick": "pretty-quick"
+    "build-styles": "webpack --config webpack.global.config.js"
   },
   "engines": {
     "node": ">=12.13.0"
@@ -95,7 +94,7 @@
     "karma-coverage-istanbul-reporter": "^2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "lint-staged": "^9.4.2",
+    "lint-staged": "^10.2.11",
     "mini-css-extract-plugin": "^0.8.0",
     "ng-mocks": "^9.0.0",
     "ng-packagr": "^5.7.0",
@@ -121,11 +120,17 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
+    "src/**/*.svg": [
+      "optimise-svgs",
+      "generate-icons",
+      "generate-pictograms",
+      "git add"
+    ],
     "src/**/*.{html, json, js}": [
       "prettier --write",
       "git add"

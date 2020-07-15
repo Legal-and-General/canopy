@@ -80,3 +80,9 @@ Each time a merge is made to the master branch we run the `dsm-storybook publish
     id: '5ec4dbf0c4b3aed7e94e8886'
   },
 ```
+
+## SVG Icons
+
+To add a new SVG icon or pictogram to Canopy simply add the file to either the `icons` or `pictograms` folder within `assets`.
+
+When committing the new icons [lint-staged](https://github.com/okonet/lint-staged) will run and generate all the `ts` files automatically.
