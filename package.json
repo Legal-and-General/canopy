@@ -125,22 +125,22 @@
     }
   },
   "lint-staged": {
-    "src/**/*.svg": [
+    "projects/canopy/src/**/*.svg": [
       "optimise-svgs",
       "generate-icons",
       "generate-pictograms",
       "git add"
     ],
-    "src/**/*.{html, json, js}": [
+    "projects/canopy/src/**/*.{html, json, js}": [
       "prettier --write",
       "git add"
     ],
-    "src/**/*.{scss, css}": [
+    "projects/canopy/src/**/*.{scss, css}": [
       "prettier --write",
       "stylelint --fix",
       "git add"
     ],
-    "src/**/*.ts": [
+    "projects/canopy/src/**/*.ts": [
       "prettier --write",
       "tslint -p tsconfig.json -c tslint.json --fix",
       "git add"
