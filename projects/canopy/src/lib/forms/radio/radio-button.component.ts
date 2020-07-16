@@ -1,28 +1,32 @@
 import {
   Component,
+  ElementRef,
   Host,
   HostBinding,
   Input,
   OnInit,
   Optional,
+  Renderer2,
   Self,
   SkipSelf,
   ViewEncapsulation,
-  Renderer2,
-  ElementRef,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgRadioGroupComponent } from './radio-group.component';
-import { RadioVariant } from './radio.interface';
+import { RadioStack, RadioVariant } from './radio.interface';
 
 let nextUniqueId = 0;
 
 @Component({
-  selector: 'lg-radio-button, lg-filter-button',
+  selector: 'lg-radio-button, lg-filter-button, lg-segment-button',
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.scss', './radio-button--filter.component.scss'],
+  styleUrls: [
+    './radio-button.component.scss',
+    './radio-button--filter.component.scss',
+    './radio-button--segment.component.scss',
+  ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioButtonComponent implements OnInit {
@@ -45,6 +49,21 @@ export class LgRadioButtonComponent implements OnInit {
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
   @Input() name: string;
   @Input() value: string;
+
+  _stacked: RadioStack;
+  set stacked(stacked: RadioStack) {
+    this.renderer.removeClass(
+      this.hostElement.nativeElement,
+      `lg-radio-button--stacked-${this._stacked}`,
+    );
+    if (stacked) {
+      this.renderer.addClass(
+        this.hostElement.nativeElement,
+        `lg-radio-button--stacked-${stacked}`,
+      );
+    }
+    this._stacked = stacked;
+  }
 
   @Input()
   _disabled = false;

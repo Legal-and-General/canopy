@@ -1,0 +1,15 @@
+:root {
+  --radio-bg-color: var(--color-super-blue);
+  --radio-color: var(--color-white);
+  --radio-border-color: var(--border-color);
+  --radio-disabled-color: var(--color-taupe-grey);
+
+  --radio-inner-height: 0.5rem;
+  --radio-inner-width: var(--radio-inner-height);
+  --radio-outer-height: 1rem;
+  --radio-outer-width: var(--radio-outer-height);
+
+  --radio-segment-separator-border-width: calc(var(--border-width) / 10);
+  --radio-segment-separator-border-color: var(--color-platinum);
+  --radio-segment-label-min-width: calc(6 * var(--space-unit));
+}

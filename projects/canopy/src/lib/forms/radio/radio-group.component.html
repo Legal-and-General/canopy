@@ -3,7 +3,15 @@
     <ng-content></ng-content>
   </legend>
   <ng-content select="lg-hint"></ng-content>
-  <ng-content select="lg-radio-button, lg-filter-button"></ng-content>
+
+  <div *ngIf="variant === 'segment'" class="lg-radio-segment">
+    <ng-content select="lg-segment-button"></ng-content>
+  </div>
+
+  <ng-container *ngIf="variant !== 'segment'">
+    <ng-content select="lg-radio-button, lg-filter-button"></ng-content>
+  </ng-container>
+
   <ng-content select="lg-validation"></ng-content>
 </fieldset>
 <ng-content select="lg-hint"></ng-content>
