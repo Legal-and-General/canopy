@@ -17,10 +17,10 @@ and in your HTML:
 
 ~~~html
 <lg-card>
-  <lg-card-header> 
+  <lg-card-header>
     Your title
   </lg-card-header>
-  <lg-card-content> 
+  <lg-card-content>
     Your content
   </lg-card-content>
 </lg-card>
@@ -61,7 +61,7 @@ Content projection slots
 | \`\`<default>\`\` | The main body content of the card
 
 ### LgCardHeaderComponent
-This is the primary layout section of the card component, it is used to contain the title, subtitle and principle value. 
+This is the primary layout section of the card component, it is used to contain the title, subtitle and principle value.
 
 ### LgCardTitleComponent
 This is where the main title should be provided. It should be located inside the card header.
@@ -88,7 +88,7 @@ This is where the label for the data point should be projected. A data point sho
 This is where the date for the data point should be projected. It should be located inside the card principle data point
 
 ### LgCardContent
-This is the secondary layout section of the card component, it is used to contain secondary information. 
+This is the secondary layout section of the card component, it is used to contain secondary information.
 
 ### Using only the SCSS files
 Generate the markup as show in the example below, no current modifiers.
@@ -124,7 +124,7 @@ When the content of a card is set in a nested grid you will need to suppress the
   <div lgContainer>
     <div lgRow>
       <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-        <lg-card-content> 
+        <lg-card-content>
           Your content
         </lg-card-content>
       </div>

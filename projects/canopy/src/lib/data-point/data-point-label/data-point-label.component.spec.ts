@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { MockComponent, MockRender } from 'ng-mocks';
+
 import { LgHeadingComponent } from '../../heading';
 import { LgDataPointLabelComponent } from './data-point-label.component';
 
@@ -14,10 +15,7 @@ describe('LgDataPointLabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LgDataPointLabelComponent,
-        MockComponent(LgHeadingComponent)
-      ]
+      declarations: [LgDataPointLabelComponent, MockComponent(LgHeadingComponent)],
     }).compileComponents();
   }));
 
@@ -43,9 +41,7 @@ describe('LgDataPointLabelComponent', () => {
 
   it(`should wrap the content with the lg heading`, () => {
     const headingElement = fixture.debugElement.query(By.css('lg-heading'));
-    expect(headingElement.nativeElement.tagName.toLowerCase()).toEqual(
-      'lg-heading'
-    );
+    expect(headingElement.nativeElement.tagName.toLowerCase()).toEqual('lg-heading');
   });
 
   it(`should render the heading`, () => {

@@ -10,16 +10,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        declarations: [LgHeadingComponent]
-      })
+        declarations: [LgHeadingComponent],
+      }),
     ],
     'in-dsm': {
-      id: '5ec4f36b45894b0873022460'
+      id: '5ec4f36b45894b0873022460',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 const groupId = 'lg-heading';
@@ -34,6 +34,6 @@ export const standard = () => ({
   `,
   props: {
     content: text('text', 'Heading', groupId),
-    level: select('level', [1, 2, 3, 4, 5, 6], 1, groupId)
-  }
+    level: select('level', [1, 2, 3, 4, 5, 6], 1, groupId),
+  },
 });

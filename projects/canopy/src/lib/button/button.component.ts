@@ -4,15 +4,16 @@ import {
   HostBinding,
   Input,
   Renderer2,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { Variant } from './button.interface';
 
 @Component({
   selector: '[lg-button]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgButtonComponent {
   @HostBinding('class.lg-btn') class = true;
@@ -23,13 +24,10 @@ export class LgButtonComponent {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-btn--${this.variant}`
+        `lg-btn--${this.variant}`,
       );
     }
-    this.renderer.addClass(
-      this.hostElement.nativeElement,
-      `lg-btn--${variant}`
-    );
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-btn--${variant}`);
     this._variant = variant;
   }
   get variant() {

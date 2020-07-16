@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[lgCol],[lgColSm],[lgColMd],[lgColLg]'
+  selector: '[lgCol],[lgColSm],[lgColMd],[lgColLg]',
 })
 export class LgGridColDirective {
   lgColClass: string;
@@ -9,7 +9,7 @@ export class LgGridColDirective {
   set lgCol(columns: number) {
     this.lgColClass = this.toggleColumnClass(
       `lg-col-xs-${columns}`,
-      this.lgColClass
+      this.lgColClass,
     );
   }
 
@@ -18,7 +18,7 @@ export class LgGridColDirective {
   set lgColSm(columns: number) {
     this.lgColSmClass = this.toggleColumnClass(
       `lg-col-sm-${columns}`,
-      this.lgColSmClass
+      this.lgColSmClass,
     );
   }
 
@@ -27,7 +27,7 @@ export class LgGridColDirective {
   set lgColMd(columns: number) {
     this.lgColMdClass = this.toggleColumnClass(
       `lg-col-md-${columns}`,
-      this.lgColMdClass
+      this.lgColMdClass,
     );
   }
 
@@ -36,7 +36,7 @@ export class LgGridColDirective {
   set lgColLg(columns: number) {
     this.lgColLgClass = this.toggleColumnClass(
       `lg-col-lg-${columns}`,
-      this.lgColLgClass
+      this.lgColLgClass,
     );
   }
 
@@ -45,7 +45,7 @@ export class LgGridColDirective {
   set lgColOffset(columns: number) {
     this.lgColOffsetClass = this.toggleColumnClass(
       `lg-col-xs-offset-${columns}`,
-      this.lgColOffsetClass
+      this.lgColOffsetClass,
     );
   }
 
@@ -54,7 +54,7 @@ export class LgGridColDirective {
   set lgColSmOffset(columns: number) {
     this.lgColSmOffsetClass = this.toggleColumnClass(
       `lg-col-sm-offset-${columns}`,
-      this.lgColSmOffsetClass
+      this.lgColSmOffsetClass,
     );
   }
 
@@ -63,7 +63,7 @@ export class LgGridColDirective {
   set lgColMdOffset(columns: number) {
     this.lgColMdOffsetClass = this.toggleColumnClass(
       `lg-col-md-offset-${columns}`,
-      this.lgColMdOffsetClass
+      this.lgColMdOffsetClass,
     );
   }
 
@@ -72,7 +72,7 @@ export class LgGridColDirective {
   set lgColLgOffset(columns: number) {
     this.lgColLgOffsetClass = this.toggleColumnClass(
       `lg-col-lg-offset-${columns}`,
-      this.lgColLgOffsetClass
+      this.lgColLgOffsetClass,
     );
   }
 

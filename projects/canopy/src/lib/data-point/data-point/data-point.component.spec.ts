@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { MockComponents, MockRender } from 'ng-mocks';
+
 import { LgDataPointLabelComponent } from '../data-point-label/data-point-label.component';
 import { LgDataPointValueComponent } from '../data-point-value/data-point-value.component';
 import { LgDataPointComponent } from './data-point.component';
@@ -17,8 +18,8 @@ describe('LgDataPointComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LgDataPointComponent,
-        MockComponents(LgDataPointLabelComponent, LgDataPointValueComponent)
-      ]
+        MockComponents(LgDataPointLabelComponent, LgDataPointValueComponent),
+      ],
     }).compileComponents();
   }));
 
@@ -52,16 +53,12 @@ describe('LgDataPointComponent', () => {
   });
 
   it('should render the heading', () => {
-    const headingElement = fixture.debugElement.query(
-      By.css('lg-data-point-label')
-    );
+    const headingElement = fixture.debugElement.query(By.css('lg-data-point-label'));
     expect(headingElement.nativeElement.innerHTML).toContain('Heading');
   });
 
   it('should render the content component', () => {
-    const contentElement = fixture.debugElement.query(
-      By.css('lg-data-point-value')
-    );
+    const contentElement = fixture.debugElement.query(By.css('lg-data-point-value'));
     expect(contentElement.nativeElement.innerHTML).toContain('Content');
   });
 

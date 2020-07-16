@@ -9,9 +9,11 @@ import {
   Input,
   OnDestroy,
   Output,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { Subscription } from 'rxjs';
+
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 
 let nextUniqueId = 0;
@@ -21,7 +23,7 @@ let nextUniqueId = 0;
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   @HostBinding('class.lg-details') class = true;

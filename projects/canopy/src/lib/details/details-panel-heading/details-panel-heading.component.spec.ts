@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { MockComponents } from 'ng-mocks';
 import { take } from 'rxjs/operators';
+
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading.component';
@@ -15,8 +17,8 @@ describe('LgDetailsPanelHeadingComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LgDetailsPanelHeadingComponent,
-        MockComponents(LgIconComponent, LgHeadingComponent)
-      ]
+        MockComponents(LgIconComponent, LgHeadingComponent),
+      ],
     }).compileComponents();
   }));
 
@@ -24,7 +26,7 @@ describe('LgDetailsPanelHeadingComponent', () => {
     fixture = TestBed.createComponent(LgDetailsPanelHeadingComponent);
     component = fixture.componentInstance;
     triggerElement = fixture.debugElement.query(
-      By.css('.lg-details-panel-heading__toggle')
+      By.css('.lg-details-panel-heading__toggle'),
     );
     fixture.detectChanges();
   });
@@ -42,7 +44,9 @@ describe('LgDetailsPanelHeadingComponent', () => {
     });
 
     it('should emit toggleActive event', async(() => {
-      component.toggleActive.pipe(take(1)).subscribe(isActive => expect(isActive).toBeFalsy());
+      component.toggleActive
+        .pipe(take(1))
+        .subscribe(isActive => expect(isActive).toBeFalsy());
       component.isActive = true;
       component.toggle();
     }));
@@ -50,16 +54,16 @@ describe('LgDetailsPanelHeadingComponent', () => {
     it(`should set the 'active' class`, () => {
       expect(
         triggerElement.nativeElement.classList.contains(
-          'lg-details-panel-heading__toggle--active'
-        )
+          'lg-details-panel-heading__toggle--active',
+        ),
       ).toBe(false);
 
       triggerElement.nativeElement.click();
       fixture.detectChanges();
       expect(
         triggerElement.nativeElement.classList.contains(
-          'lg-details-panel-heading__toggle--active'
-        )
+          'lg-details-panel-heading__toggle--active',
+        ),
       ).toBe(true);
     });
 
@@ -81,7 +85,9 @@ describe('LgDetailsPanelHeadingComponent', () => {
     });
 
     it('should emit toggleActive event', async(() => {
-      component.toggleActive.pipe(take(1)).subscribe(isActive => expect(isActive).toBeTruthy());
+      component.toggleActive
+        .pipe(take(1))
+        .subscribe(isActive => expect(isActive).toBeTruthy());
       component.isActive = false;
       component.toggle();
     }));
@@ -91,16 +97,16 @@ describe('LgDetailsPanelHeadingComponent', () => {
       fixture.detectChanges();
       expect(
         triggerElement.nativeElement.classList.contains(
-          'lg-details-panel-heading__toggle--active'
-        )
+          'lg-details-panel-heading__toggle--active',
+        ),
       ).toBe(true);
 
       triggerElement.nativeElement.click();
       fixture.detectChanges();
       expect(
         triggerElement.nativeElement.classList.contains(
-          'lg-details-panel-heading__toggle--active'
-        )
+          'lg-details-panel-heading__toggle--active',
+        ),
       ).toBe(false);
     });
 

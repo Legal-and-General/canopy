@@ -5,7 +5,7 @@ export type UniqueSelectionListener = (key: string, context: string) => void;
 @Injectable({ providedIn: 'root' })
 export class UniqueSelectionDispatcher implements OnDestroy {
 
-  private _listeners: UniqueSelectionListener[] = [];
+  private _listeners: Array<UniqueSelectionListener> = [];
 
   ngOnDestroy() {
     this._listeners = [];

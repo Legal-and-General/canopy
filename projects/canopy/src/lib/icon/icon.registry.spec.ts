@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+
 import { LgIconRegistry } from './icon.registry';
 import { Icon } from './icons.interface';
 
@@ -16,7 +17,7 @@ describe('LgIconRegistry', () => {
   it('should get a registered icon', () => {
     const icon = {
       name: 'add',
-      data: 'test'
+      data: 'test',
     } as Icon;
 
     expect(registry.getIcon(icon.name)).toBeUndefined();
@@ -32,7 +33,7 @@ describe('LgIconRegistry', () => {
 
     expect(registry.getIcon(unexpectedIcon)).toBeUndefined();
     expect(spy).toHaveBeenCalledWith(
-      `${unexpectedIcon}: Icon not found, ensure it is added to the icon registry`
+      `${unexpectedIcon}: Icon not found, ensure it is added to the icon registry`,
     );
   });
 });

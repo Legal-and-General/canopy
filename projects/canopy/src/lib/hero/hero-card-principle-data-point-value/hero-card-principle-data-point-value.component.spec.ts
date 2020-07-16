@@ -8,13 +8,13 @@ describe('LgHeroCardPrincipleDataPointValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHeroCardPrincipleDataPointValueComponent]
+      declarations: [LgHeroCardPrincipleDataPointValueComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(
-      LgHeroCardPrincipleDataPointValueComponent
+      LgHeroCardPrincipleDataPointValueComponent,
     );
     component = fixture.componentInstance;
     fixture.detectChanges();

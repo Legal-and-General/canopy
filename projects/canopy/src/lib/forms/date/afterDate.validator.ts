@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+
 import format from 'date-fns/format';
 import isAfter from 'date-fns/isAfter';
 import isValid from 'date-fns/isValid';
@@ -18,8 +19,8 @@ export function afterDateValidator(dateToCompare: Date): ValidatorFn {
       : {
           afterDate: {
             required: format(dateToCompare, dateFormat),
-            actual: format(date, dateFormat)
-          }
+            actual: format(date, dateFormat),
+          },
         };
   };
 }

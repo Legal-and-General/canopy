@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { MockComponents } from 'ng-mocks';
 
 import { LgHeadingComponent } from '../../heading/heading.component';
@@ -10,7 +11,7 @@ describe('LgCardTitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgCardTitleComponent, MockComponents(LgHeadingComponent)]
+      declarations: [LgCardTitleComponent, MockComponents(LgHeadingComponent)],
     }).compileComponents();
   }));
 
@@ -25,8 +26,6 @@ describe('LgCardTitleComponent', () => {
   });
 
   it('should contain the default class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-title'
-    );
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-card-title');
   });
 });

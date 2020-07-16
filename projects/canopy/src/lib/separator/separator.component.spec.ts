@@ -8,7 +8,7 @@ describe('LgSeparatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgSeparatorComponent]
+      declarations: [LgSeparatorComponent],
     }).compileComponents();
   }));
 
@@ -24,7 +24,7 @@ describe('LgSeparatorComponent', () => {
 
   it('should contain the class lg-separator', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-separator'
+      'lg-separator',
     );
   });
 

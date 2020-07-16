@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import {
   templateUrl: './card-subtitle.component.html',
   styleUrls: ['./card-subtitle.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgCardSubtitleComponent {
   @HostBinding('class.lg-card-subtitle') class = true;

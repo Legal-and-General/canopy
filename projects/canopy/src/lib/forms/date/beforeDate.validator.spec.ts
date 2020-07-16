@@ -1,4 +1,5 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import subDays from 'date-fns/subDays';
@@ -38,16 +39,16 @@ describe('beforeDate', () => {
     it('includes the date to compare against', () => {
       expect(validator(instance(control)).beforeDate).toEqual(
         jasmine.objectContaining({
-          required: format(dateToCompare, dateFormat)
-        })
+          required: format(dateToCompare, dateFormat),
+        }),
       );
     });
 
     it('includes the date that was entered', () => {
       expect(validator(instance(control)).beforeDate).toEqual(
         jasmine.objectContaining({
-          actual: format(date, dateFormat)
-        })
+          actual: format(date, dateFormat),
+        }),
       );
     });
   });

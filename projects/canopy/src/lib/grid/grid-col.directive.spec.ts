@@ -18,7 +18,7 @@ import { LgGridColDirective } from './grid-col.directive';
     >
       Test feature
     </div>
-  `
+  `,
 })
 class TestComponent {
   @Input() lgCol;
@@ -38,7 +38,7 @@ describe('LgColDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgGridColDirective]
+      declarations: [TestComponent, LgGridColDirective],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);
@@ -54,7 +54,7 @@ describe('LgColDirective', () => {
     component.lgCol = '12';
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-col-xs-12'
+      'lg-col-xs-12',
     );
   });
 
@@ -63,7 +63,7 @@ describe('LgColDirective', () => {
       component[`lgCol${size[0].toUpperCase()}${size.slice(1)}`] = '4';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
-        `lg-col-${size}-4`
+        `lg-col-${size}-4`,
       );
     });
   });
@@ -72,7 +72,7 @@ describe('LgColDirective', () => {
     component.lgColOffset = 2;
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      `lg-col-xs-offset-2`
+      `lg-col-xs-offset-2`,
     );
   });
 
@@ -81,7 +81,7 @@ describe('LgColDirective', () => {
       component[`lgCol${size[0].toUpperCase()}${size.slice(1)}Offset`] = '2';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
-        `lg-col-${size}-offset-2`
+        `lg-col-${size}-offset-2`,
       );
     });
   });

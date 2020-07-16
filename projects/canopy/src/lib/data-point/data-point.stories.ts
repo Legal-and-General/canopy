@@ -1,5 +1,6 @@
 import { select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
+
 import { CanopyModule } from '../canopy.module';
 import { notes } from './data-point.notes';
 
@@ -9,13 +10,13 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [CanopyModule]
-      })
+        imports: [CanopyModule],
+      }),
     ],
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const singleDataPoint = () => ({
@@ -36,8 +37,8 @@ export const singleDataPoint = () => ({
     </div>
   `,
   props: {
-    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 4)
-  }
+    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 4),
+  },
 });
 
 export const dataPointList = () => ({
@@ -76,6 +77,6 @@ export const dataPointList = () => ({
     </div>
   `,
   props: {
-    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 4)
-  }
+    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 4),
+  },
 });

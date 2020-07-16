@@ -10,12 +10,12 @@ import {
   QueryList,
   Self,
   SkipSelf,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import {
   ControlValueAccessor,
   FormGroupDirective,
-  NgControl
+  NgControl,
 } from '@angular/forms';
 
 import { LgDomService } from '../../utils/dom.service';
@@ -30,7 +30,7 @@ let nextUniqueId = 0;
   selector: 'lg-radio-group',
   templateUrl: './radio-group.component.html',
   styleUrls: ['./radio-group.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioGroupComponent implements ControlValueAccessor {
   private _name = `lg-radio-group-${nextUniqueId++}`;
@@ -50,7 +50,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
 
   _radios: QueryList<LgRadioButtonComponent>;
   @ContentChildren(forwardRef(() => LgRadioButtonComponent), {
-    descendants: true
+    descendants: true,
   })
   set radios(radios: QueryList<LgRadioButtonComponent>) {
     radios.toArray().forEach((radio: LgRadioButtonComponent) => {
@@ -68,7 +68,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
       this._validationElement,
-      element
+      element,
     );
     this._hintElement = element;
   }
@@ -79,7 +79,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
       this._validationElement,
-      element
+      element,
     );
     this._validationElement = element;
   }
@@ -116,7 +116,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     @Host()
     @SkipSelf()
     private controlContainer: FormGroupDirective,
-    private domService: LgDomService
+    private domService: LgDomService,
   ) {
     if (this.control != null) {
       this.control.valueAccessor = this;

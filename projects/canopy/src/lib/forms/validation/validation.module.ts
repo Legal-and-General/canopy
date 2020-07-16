@@ -7,7 +7,7 @@ import {
   lgIconCheckmarkSpotFill,
   lgIconCrossmarkSpotFill,
   lgIconInformationFill,
-  lgIconWarningFill
+  lgIconWarningFill,
 } from '../../icon/icons.interface';
 import { LgErrorStateMatcher } from './error-state-matcher';
 import { LgValidationComponent } from './validation.component';
@@ -16,7 +16,7 @@ import { LgValidationComponent } from './validation.component';
   imports: [CommonModule, LgIconModule],
   declarations: [LgValidationComponent],
   exports: [LgValidationComponent],
-  providers: [LgErrorStateMatcher]
+  providers: [LgErrorStateMatcher],
 })
 export class LgValidationModule {
   constructor(private iconRegistry: LgIconRegistry) {
@@ -24,7 +24,7 @@ export class LgValidationModule {
       lgIconCrossmarkSpotFill,
       lgIconInformationFill,
       lgIconWarningFill,
-      lgIconCheckmarkSpotFill
+      lgIconCheckmarkSpotFill,
     ]);
   }
 }

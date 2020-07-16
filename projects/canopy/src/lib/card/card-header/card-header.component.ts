@@ -3,7 +3,7 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ import {
   templateUrl: './card-header.component.html',
   styleUrls: ['./card-header.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgCardHeaderComponent {
   @HostBinding('class.lg-card-header') class = true;

@@ -3,8 +3,9 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { HeadingLevel } from '../../heading';
 
 @Component({
@@ -12,7 +13,7 @@ import { HeadingLevel } from '../../heading';
   templateUrl: './hero-card-principle-data-point-label.component.html',
   styleUrls: ['./hero-card-principle-data-point-label.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgHeroCardPrincipleDataPointLabelComponent {
   @HostBinding('class.lg-hero-card-principle-data-point-label') class = true;

@@ -5,8 +5,9 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { HeadingLevel } from '../../heading';
 
 let nextUniqueId = 0;
@@ -16,16 +17,18 @@ let nextUniqueId = 0;
   templateUrl: './accordion-panel-heading.component.html',
   styleUrls: ['./accordion-panel-heading.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgAccordionPanelHeadingComponent {
   @Input() headingLevel: HeadingLevel;
   @Input()
-  get isActive() { return this._isActive }
+  get isActive() {
+    return this._isActive;
+  }
   set isActive(isActive: boolean) {
     this._isActive = isActive;
     this.cdr.markForCheck();
-  };
+  }
   @Output() toggleActive = new EventEmitter<boolean>();
 
   _id = nextUniqueId++;

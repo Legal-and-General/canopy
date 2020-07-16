@@ -51,7 +51,7 @@ In your component(s) add the structural directive like in the example below:
 </div>
 ~~~
 
-## FeatureToggleGuard configuration 
+## FeatureToggleGuard configuration
 
 To use the FeatureToggleGuard you need to add it to your routes configuration in the usual canActive, canActivateChild, canLoad, and then add in the data property like
 

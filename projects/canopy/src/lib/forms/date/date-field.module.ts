@@ -13,10 +13,10 @@ import { LgDateFieldComponent } from './date-field.component';
     ReactiveFormsModule,
     LgLabelModule,
     LgInputModule,
-    LgValidationModule
+    LgValidationModule,
   ],
   declarations: [LgDateFieldComponent],
   exports: [LgDateFieldComponent],
-  entryComponents: [LgDateFieldComponent]
+  entryComponents: [LgDateFieldComponent],
 })
 export class LgDateFieldModule {}

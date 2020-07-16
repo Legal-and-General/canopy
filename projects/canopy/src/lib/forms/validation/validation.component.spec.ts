@@ -13,7 +13,7 @@ describe('LgValidationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CanopyModule]
+      imports: [CanopyModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgValidationComponent);
@@ -27,7 +27,7 @@ describe('LgValidationComponent', () => {
 
   it('adds a unique identifier', () => {
     expect(
-      /lg-validation-\d/.test(fixture.nativeElement.getAttribute('id'))
+      /lg-validation-\d/.test(fixture.nativeElement.getAttribute('id')),
     ).toBe(true);
   });
 
@@ -48,12 +48,12 @@ describe('LgValidationComponent', () => {
       { variant: 'error', icon: 'crossmark-spot-fill' },
       { variant: 'info', icon: 'information-fill' },
       { variant: 'warning', icon: 'warning-fill' },
-      { variant: 'success', icon: 'checkmark-spot-fill' }
+      { variant: 'success', icon: 'checkmark-spot-fill' },
     ].forEach(({ variant, icon }) => {
       component.variant = variant as ValidationVariant;
       fixture.detectChanges();
       expect(
-        fixture.debugElement.query(By.css(`[name="${icon}"]`))
+        fixture.debugElement.query(By.css(`[name="${icon}"]`)),
       ).not.toBeNull();
     });
   });

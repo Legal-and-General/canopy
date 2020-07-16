@@ -6,6 +6,6 @@ import { LgSeparatorComponent } from './separator.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [LgSeparatorComponent],
-  exports: [LgSeparatorComponent]
+  exports: [LgSeparatorComponent],
 })
 export class LgSeparatorModule {}

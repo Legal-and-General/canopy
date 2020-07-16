@@ -9,7 +9,7 @@ describe('LgSpinnerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgSpinnerComponent]
+      declarations: [LgSpinnerComponent],
     }).compileComponents();
   }));
 
@@ -36,10 +36,10 @@ describe('LgSpinnerComponent', () => {
     describe('when not specified', () => {
       it('should add a visually hidden element with default text', () => {
         const hiddenEl = fixture.nativeElement.querySelector(
-          '.lg-visually-hidden'
+          '.lg-visually-hidden',
         );
         const textEl = fixture.nativeElement.querySelector(
-          '.lg-spinner__content'
+          '.lg-spinner__content',
         );
 
         expect(textEl).toBeNull();
@@ -54,10 +54,10 @@ describe('LgSpinnerComponent', () => {
         fixture.detectChanges();
 
         const hiddenEl = fixture.nativeElement.querySelector(
-          '.lg-visually-hidden'
+          '.lg-visually-hidden',
         );
         const textEl = fixture.nativeElement.querySelector(
-          '.lg-spinner__content'
+          '.lg-spinner__content',
         );
 
         expect(hiddenEl).toBeNull();

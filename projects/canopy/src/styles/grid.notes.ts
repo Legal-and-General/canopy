@@ -4,7 +4,7 @@ export const notes = `
 ## Purpose
 Provides responsive grid system.
 
-The grid system is useful for responsive page layouts, we recommend that it is used sparingly, for the majority of cases you may be better off just using using flexbox. 
+The grid system is useful for responsive page layouts, we recommend that it is used sparingly, for the majority of cases you may be better off just using using flexbox.
 
 The grid system is based on a subset of the excellent [flexboxgrid](http://flexboxgrid.com/) by [kristoferjoseph](http://github.com/kristoferjoseph).
 The code is a direct port with some additional modifications to:

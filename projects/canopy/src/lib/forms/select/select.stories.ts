@@ -22,13 +22,13 @@ import { notes } from './select.notes';
         </select>
       </lg-select-field>
     </form>
-  `
+  `,
 })
 class ReactiveFormComponent {
   @Input() block: boolean;
   @Input() hint: string;
   @Input() label: string;
-  @Input() options: string[];
+  @Input() options: Array<string>;
 
   @Input()
   set disabled(disabled: boolean) {
@@ -48,7 +48,7 @@ class ReactiveFormComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      color: { value: '', disabled: false }
+      color: { value: '', disabled: false },
     });
     this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
   }
@@ -61,16 +61,16 @@ export default {
       withKnobs,
       moduleMetadata({
         declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule]
-      })
+        imports: [ReactiveFormsModule, CanopyModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec4feff4b3101813389ae08'
+      id: '5ec4feff4b3101813389ae08',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -88,6 +88,6 @@ export const standard = () => ({
     hint: text('hint', 'Please select a color'),
     block: boolean('block', false),
     options: object('options', ['Red', 'Blue', 'Green', 'Yellow']),
-    disabled: boolean('disabled', false)
-  }
+    disabled: boolean('disabled', false),
+  },
 });

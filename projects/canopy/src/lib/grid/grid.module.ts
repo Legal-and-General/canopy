@@ -10,8 +10,8 @@ import { LgGridRowDirective } from './grid-row.directive';
   declarations: [
     LgGridContainerDirective,
     LgGridColDirective,
-    LgGridRowDirective
+    LgGridRowDirective,
   ],
-  exports: [LgGridContainerDirective, LgGridColDirective, LgGridRowDirective]
+  exports: [LgGridContainerDirective, LgGridColDirective, LgGridRowDirective],
 })
 export class LgGridModule {}

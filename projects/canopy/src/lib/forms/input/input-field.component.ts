@@ -4,7 +4,7 @@ import {
   HostBinding,
   Input,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { LgDomService } from '../../utils/dom.service';
@@ -19,7 +19,7 @@ let nextUniqueId = 0;
   selector: 'lg-input-field',
   templateUrl: './input-field.component.html',
   styleUrls: ['./input-field.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgInputFieldComponent {
   @Input() id = `lg-input-${nextUniqueId++}`;
@@ -54,7 +54,7 @@ export class LgInputFieldComponent {
     this._inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._inputElement.ariaDescribedBy,
       this._hintElement,
-      element
+      element,
     );
     this._hintElement = element;
   }
@@ -65,7 +65,7 @@ export class LgInputFieldComponent {
     this._inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._inputElement.ariaDescribedBy,
       this._validationElement,
-      element
+      element,
     );
     this._validationElement = element;
   }

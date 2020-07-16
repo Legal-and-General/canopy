@@ -9,7 +9,7 @@ describe('HeroCardDataPointLabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHeroCardDataPointLabelComponent, LgHeadingComponent]
+      declarations: [LgHeroCardDataPointLabelComponent, LgHeadingComponent],
     }).compileComponents();
   }));
 

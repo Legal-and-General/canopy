@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  DebugElement
+  DebugElement,
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
@@ -9,7 +9,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
@@ -28,11 +28,11 @@ import { LgErrorStateMatcher } from '../validation/error-state-matcher';
       </select>
     </form>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class TestSelectComponent {
   form = new FormGroup({
-    name: new FormControl('', [Validators.required])
+    name: new FormControl('', [Validators.required]),
   });
 }
 
@@ -49,16 +49,16 @@ describe('LgSelectDirective', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock)
-        }
-      ]
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestSelectComponent);
     component = fixture.componentInstance;
 
     selectDebugElement = fixture.debugElement.query(
-      By.directive(LgSelectDirective)
+      By.directive(LgSelectDirective),
     );
   }));
 
@@ -74,11 +74,11 @@ describe('LgSelectDirective', () => {
 
   it('adds an error class when the field has a validation error', () => {
     when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything())
+      errorStateMatcherMock.isControlInvalid(anything(), anything()),
     ).thenReturn(true);
     fixture.detectChanges();
     expect(selectDebugElement.nativeElement.className).toContain(
-      'lg-select--error'
+      'lg-select--error',
     );
   });
 
@@ -86,7 +86,7 @@ describe('LgSelectDirective', () => {
     component.form.get('name').setValue('test');
     component.form.get('name').markAsTouched();
     expect(selectDebugElement.nativeElement.className).not.toContain(
-      'lg-input--error'
+      'lg-input--error',
     );
   });
 });

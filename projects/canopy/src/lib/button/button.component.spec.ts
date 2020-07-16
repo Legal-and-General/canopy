@@ -10,7 +10,7 @@ describe('LgButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgButtonComponent, LgSpinnerComponent]
+      declarations: [LgButtonComponent, LgSpinnerComponent],
     }).compileComponents();
   }));
 
@@ -32,7 +32,7 @@ describe('LgButtonComponent', () => {
     describe('when not specified', () => {
       it('should set the solid primary class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--solid-primary'
+          'lg-btn--solid-primary',
         );
       });
     });
@@ -43,7 +43,7 @@ describe('LgButtonComponent', () => {
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--outline-secondary'
+          'lg-btn--outline-secondary',
         );
       });
     });
@@ -64,7 +64,7 @@ describe('LgButtonComponent', () => {
 
       it('should add the loading class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--loading'
+          'lg-btn--solid-primary lg-btn lg-btn--loading',
         );
       });
 
@@ -74,7 +74,7 @@ describe('LgButtonComponent', () => {
 
       it('should display the spinner', () => {
         const spinnerComponent = fixture.debugElement.query(
-          By.directive(LgSpinnerComponent)
+          By.directive(LgSpinnerComponent),
         );
 
         expect(spinnerComponent).toBeDefined();
@@ -84,13 +84,13 @@ describe('LgButtonComponent', () => {
     describe('when set to false', () => {
       it('should not add the loading class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--loading'
+          'lg-btn--solid-primary lg-btn lg-btn--loading',
         );
       });
 
       it(`shouldn'tdisplay the spinner`, () => {
         const spinnerComponent = fixture.debugElement.query(
-          By.directive(LgSpinnerComponent)
+          By.directive(LgSpinnerComponent),
         );
 
         expect(spinnerComponent).toBeNull();
@@ -111,7 +111,7 @@ describe('LgButtonComponent', () => {
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--block'
+          'lg-btn--solid-primary lg-btn lg-btn--block',
         );
       });
     });
@@ -119,7 +119,7 @@ describe('LgButtonComponent', () => {
     describe('when set to false', () => {
       it('should not set the block class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--block'
+          'lg-btn--solid-primary lg-btn lg-btn--block',
         );
       });
     });

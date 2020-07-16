@@ -8,7 +8,7 @@ describe('HeroCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHeroCardComponent]
+      declarations: [LgHeroCardComponent],
     }).compileComponents();
   }));
 

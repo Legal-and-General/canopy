@@ -2,13 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   TemplateRef,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 
 @Component({
   selector: 'lg-tab-item',
   templateUrl: './tab-item.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTabItemComponent {
   @ViewChild('navItemTemplate', { static: true })

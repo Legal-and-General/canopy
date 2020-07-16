@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import {
   templateUrl: './card-principle-data-point-value.component.html',
   styleUrls: ['./card-principle-data-point-value.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgCardPrincipleDataPointValueComponent {
   @HostBinding('class.lg-card-principle-data-point-value') class = true;

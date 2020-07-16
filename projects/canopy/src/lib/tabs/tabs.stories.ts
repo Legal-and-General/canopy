@@ -12,16 +12,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [LgTabsModule, LgMarginModule]
-      })
+        imports: [LgTabsModule, LgMarginModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec50da107ffe67b65c12ef7'
+      id: '5ec50da107ffe67b65c12ef7',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -45,8 +45,8 @@ export const standard = () => ({
   props: {
     tabs: object('Tabs', getDefultTabsContent()),
     headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 2),
-    tabEvent: action('tab selected')
-  }
+    tabEvent: action('tab selected'),
+  },
 });
 
 interface TabStoryItem {
@@ -54,25 +54,25 @@ interface TabStoryItem {
   content: string;
 }
 
-function getDefultTabsContent(): TabStoryItem[] {
+function getDefultTabsContent(): Array<TabStoryItem> {
   return [
     {
       header: 'Product details',
       content:
-        'You have a standard lifetime annuity. We will pay you a guaranteed income for life'
+        'You have a standard lifetime annuity. We will pay you a guaranteed income for life',
     },
     {
       header: 'Payments and tax',
-      content: 'Your last payment was £230.20 after tax and deductions'
+      content: 'Your last payment was £230.20 after tax and deductions',
     },
     {
       header: 'Death and benefits',
       content:
-        'You have selected a single life policy with no continuation benefits'
+        'You have selected a single life policy with no continuation benefits',
     },
     {
       header: 'Documents',
-      content: 'Your documents are available in multiple formats'
-    }
+      content: 'Your documents are available in multiple formats',
+    },
   ];
 }

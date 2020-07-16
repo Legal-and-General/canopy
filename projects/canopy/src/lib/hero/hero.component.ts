@@ -3,7 +3,7 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ import {
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgHeroComponent {
   @HostBinding('class.lg-hero') class = true;

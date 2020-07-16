@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
+
 import { MockComponent, MockRender } from 'ng-mocks';
+
 import { LgCardContentComponent } from './card-content/card-content.component';
 import { LgCardHeaderComponent } from './card-header/card-header.component';
 import { LgCardComponent } from './card.component';
@@ -17,8 +18,8 @@ describe('LgCardComponent', () => {
       declarations: [
         LgCardComponent,
         MockComponent(LgCardHeaderComponent),
-        MockComponent(LgCardContentComponent)
-      ]
+        MockComponent(LgCardContentComponent),
+      ],
     }).compileComponents();
   }));
 

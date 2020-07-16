@@ -6,22 +6,22 @@ import {
   OnInit,
   Optional,
   TemplateRef,
-  ViewContainerRef
+  ViewContainerRef,
 } from '@angular/core';
 
 import { filter, tap } from 'rxjs/operators';
-
 import { Subscription } from 'rxjs';
+
 import {
   LgFeatureToggleConfig,
   LgFeatureToggleOptions,
-  togglesOptionsInjectable
+  togglesOptionsInjectable,
 } from './feature-toggle.interface';
 
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Directive({
-  selector: '[lgFeatureToggle]'
+  selector: '[lgFeatureToggle]',
 })
 export class LgFeatureToggleDirective implements OnInit, OnDestroy {
   @Input() lgFeatureToggle: string;
@@ -33,7 +33,7 @@ export class LgFeatureToggleDirective implements OnInit, OnDestroy {
     private viewContainer: ViewContainerRef,
     @Optional()
     @Inject(togglesOptionsInjectable)
-    private options?: LgFeatureToggleOptions
+    private options?: LgFeatureToggleOptions,
   ) {}
 
   ngOnInit(): void {
@@ -42,10 +42,9 @@ export class LgFeatureToggleDirective implements OnInit, OnDestroy {
         tap(() => this.viewContainer.clear()),
         filter(
           (toggles: LgFeatureToggleConfig) =>
-            (toggles[this.lgFeatureToggle] === undefined &&
-              !this.isDefaultHideSet()) ||
-            toggles[this.lgFeatureToggle]
-        )
+            (toggles[this.lgFeatureToggle] === undefined && !this.isDefaultHideSet()) ||
+            toggles[this.lgFeatureToggle],
+        ),
       )
       .subscribe(() => {
         this.viewContainer.createEmbeddedView(this.templateRef);

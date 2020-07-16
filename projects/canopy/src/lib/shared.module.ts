@@ -6,6 +6,6 @@ import { LgSpinnerComponent } from './spinner/spinner.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [LgSpinnerComponent],
-  exports: [LgSpinnerComponent]
+  exports: [LgSpinnerComponent],
 })
 export class LgButtonModule {}

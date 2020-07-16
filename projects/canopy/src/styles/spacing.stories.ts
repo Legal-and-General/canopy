@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/angular';
+
 import { notes } from './spacing.notes';
 
 const stories = storiesOf('Spacing', module);
@@ -6,9 +7,9 @@ const stories = storiesOf('Spacing', module);
 stories.add(
   'Spacing',
   () => ({
-    template: ``
+    template: ``,
   }),
   {
-    notes: { markdown: notes }
-  }
+    notes: { markdown: notes },
+  },
 );

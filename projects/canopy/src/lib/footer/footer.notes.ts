@@ -3,7 +3,7 @@ export const notes = `
 
 ## Purpose
 Provides a generic footer for display at the bottom of the page.
-The current implementation is brand agnostic but eventually the branding should be encapsulated into the component.  
+The current implementation is brand agnostic but eventually the branding should be encapsulated into the component.
 Certain links may eventually be hardcoded into the component but the option will be given to add custom links.
 The component uses an attribute selector which allows you to use the html [footer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) element as the host.
 
@@ -74,7 +74,7 @@ The following markup will render the full footer.
       </ul>
     </nav>
     <nav class="lg-footer__secondary-nav">
-      <ul class="lg-footer__secondary-nav-list"> 
+      <ul class="lg-footer__secondary-nav-list">
         <li class="lg-footer__secondary-nav-item">
           <a class="lg-footer__secondary-nav-link" href="https://somecompany.com/accessibility">
             Accessibility

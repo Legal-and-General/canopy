@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
+
 import { MockRender } from 'ng-mocks';
+
 import { LgDataPointValueComponent } from './data-point-value.component';
 
 describe('LgDataPointValueComponent', () => {
@@ -12,7 +13,7 @@ describe('LgDataPointValueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgDataPointValueComponent]
+      declarations: [LgDataPointValueComponent],
     }).compileComponents();
   }));
 

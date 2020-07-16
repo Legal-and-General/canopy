@@ -72,7 +72,7 @@ The current significance of errors with their recommended messages is as follows
 
 #### 1. Invalid fields
 
-One field is invalid, this may be a non numerical character, or a number outside the valid range .e.g 13 for a month.  
+One field is invalid, this may be a non numerical character, or a number outside the valid range .e.g 13 for a month.
 \`Enter a valid month\`
 
 ~~~json
@@ -80,14 +80,14 @@ One field is invalid, this may be a non numerical character, or a number outside
 ~~~
 
 
-As above but with two fields displaying an error.  
+As above but with two fields displaying an error.
 \`Enter a valid month and year\`
 
 ~~~json
 { invalidFields: ['day', 'month']}
 ~~~
 
-If all three fields are invalid a generic 'invalidDate' message is provided.  
+If all three fields are invalid a generic 'invalidDate' message is provided.
 \`Enter a valid date of birth\`
 
 ~~~json
@@ -96,14 +96,14 @@ If all three fields are invalid a generic 'invalidDate' message is provided.
 
 #### 2. Required fields
 
-If one field is empty either through form submission or inline deletion of the content. 
+If one field is empty either through form submission or inline deletion of the content.
 \`Date of birth must include month\`
 
 ~~~json
 { requiredField: 'month'}
 ~~~
 
-As above but with two fields missing.  
+As above but with two fields missing.
 \`Date of birth must include a month and year\`
 
 
@@ -111,7 +111,7 @@ As above but with two fields missing.
 { invalidFields: ['day', 'month']}
 ~~~
 
-If all three fields are missing an 'invalidDate' message is provided.  
+If all three fields are missing an 'invalidDate' message is provided.
 \`Enter a valid date of birth\`
 
 ~~~json

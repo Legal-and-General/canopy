@@ -37,7 +37,7 @@ import { LgHeroCardFooterComponent } from './lg-hero-card-footer/lg-hero-card-fo
     LgHeroCardPrincipleDataPointValueComponent,
     LgHeroContentComponent,
     LgHeroHeaderComponent,
-    LgHeroCardFooterComponent
+    LgHeroCardFooterComponent,
   ],
   exports: [
     LgHeroComponent,
@@ -55,7 +55,7 @@ import { LgHeroCardFooterComponent } from './lg-hero-card-footer/lg-hero-card-fo
     LgHeroCardPrincipleDataPointValueComponent,
     LgHeroContentComponent,
     LgHeroHeaderComponent,
-    LgHeroCardFooterComponent
-  ]
+    LgHeroCardFooterComponent,
+  ],
 })
 export class LgHeroModule {}

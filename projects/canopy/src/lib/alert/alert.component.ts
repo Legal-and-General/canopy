@@ -4,7 +4,7 @@ import {
   HostBinding,
   Input,
   Renderer2,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { AlertVariant } from './alert.interface';
@@ -13,7 +13,7 @@ import { AlertVariant } from './alert.interface';
   selector: 'lg-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgAlertComponent {
   @HostBinding('class.lg-alert') class = true;
@@ -26,12 +26,12 @@ export class LgAlertComponent {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-alert--${this._variant}`
+        `lg-alert--${this._variant}`,
       );
     }
     this.renderer.addClass(
       this.hostElement.nativeElement,
-      `lg-alert--${variant}`
+      `lg-alert--${variant}`,
     );
     this._variant = variant;
   }

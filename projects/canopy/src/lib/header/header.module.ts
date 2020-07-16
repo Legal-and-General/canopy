@@ -7,6 +7,6 @@ import { LgHeaderComponent } from './header.component';
   declarations: [LgHeaderComponent],
   exports: [LgHeaderComponent],
   entryComponents: [LgHeaderComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class LgHeaderModule {}

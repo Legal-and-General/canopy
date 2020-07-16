@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { MockComponents } from 'ng-mocks';
 
 import { LgHeadingComponent } from '../../heading';
@@ -10,10 +11,7 @@ describe('HeroCardTitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LgHeroCardTitleComponent,
-        MockComponents(LgHeadingComponent)
-      ]
+      declarations: [LgHeroCardTitleComponent, MockComponents(LgHeadingComponent)],
     }).compileComponents();
   }));
 

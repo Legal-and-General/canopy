@@ -31,8 +31,8 @@ describe('LgErrorStateMatcher', () => {
         expect(
           service.isControlInvalid(
             instance(control),
-            instance(controlContainer)
-          )
+            instance(controlContainer),
+          ),
         ).toBe(true);
       });
     });
@@ -67,8 +67,8 @@ describe('LgErrorStateMatcher', () => {
         expect(
           service.isControlInvalid(
             instance(control),
-            instance(controlContainer)
-          )
+            instance(controlContainer),
+          ),
         ).toBe(false);
       });
     });

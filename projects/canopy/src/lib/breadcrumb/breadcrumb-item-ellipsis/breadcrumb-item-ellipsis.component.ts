@@ -3,15 +3,16 @@ import {
   ElementRef,
   HostBinding,
   Renderer2,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
 
 @Component({
   selector: 'lg-breadcrumb-item-ellipsis',
   templateUrl: './breadcrumb-item-ellipsis.component.html',
   styleUrls: ['./breadcrumb-item-ellipsis.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgBreadcrumbItemEllipsisComponent {
   @HostBinding('class.lg-breadcrumb-item-ellipsis') class = true;
@@ -20,12 +21,12 @@ export class LgBreadcrumbItemEllipsisComponent {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-breadcrumb-item-ellipsis--${this.variant}`
+        `lg-breadcrumb-item-ellipsis--${this.variant}`,
       );
     }
     this.renderer.addClass(
       this.hostElement.nativeElement,
-      `lg-breadcrumb-item-ellipsis--${variant}`
+      `lg-breadcrumb-item-ellipsis--${variant}`,
     );
     this._variant = variant;
   }

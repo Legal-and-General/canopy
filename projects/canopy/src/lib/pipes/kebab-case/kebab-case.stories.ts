@@ -1,5 +1,6 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
+
 import { notes } from './kebab-case.notes';
 import { LgKebabCasePipe } from './kebab-case.pipe';
 
@@ -10,16 +11,16 @@ stories.add(
   'Kebab case',
   () => ({
     moduleMetadata: {
-      declarations: [LgKebabCasePipe]
+      declarations: [LgKebabCasePipe],
     },
     template: `
       <p>{{text | kebabCase}}</p>
     `,
     props: {
-      text: text('text', 'kebab case me')
-    }
+      text: text('text', 'kebab case me'),
+    },
   }),
   {
-    notes: { markdown: notes }
-  }
+    notes: { markdown: notes },
+  },
 );

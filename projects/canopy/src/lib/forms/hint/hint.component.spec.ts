@@ -8,7 +8,7 @@ describe('FormHintComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHintComponent]
+      declarations: [LgHintComponent],
     }).compileComponents();
   }));
 
@@ -25,7 +25,7 @@ describe('FormHintComponent', () => {
   it('adds a unique id', () => {
     fixture.detectChanges();
     expect(/lg-hint-\d/.test(fixture.nativeElement.getAttribute('id'))).toBe(
-      true
+      true,
     );
   });
 });

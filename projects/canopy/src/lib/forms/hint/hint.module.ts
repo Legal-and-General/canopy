@@ -4,6 +4,6 @@ import { LgHintComponent } from './hint.component';
 
 @NgModule({
   declarations: [LgHintComponent],
-  exports: [LgHintComponent]
+  exports: [LgHintComponent],
 })
 export class LgHintModule {}

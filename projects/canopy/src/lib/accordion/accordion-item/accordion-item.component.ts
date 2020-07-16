@@ -15,9 +15,11 @@ import {
   SkipSelf,
   TemplateRef,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { Subscription } from 'rxjs';
+
 import { UniqueSelectionDispatcher } from '../../utils/unique-selection-dispatcher';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
 import { LG_ACCORDION, LgAccordionComponent } from '../accordion.component';
@@ -32,15 +34,17 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   // Do not provide LG_ACCORDION to nested accordion components
-  providers: [{ provide: LG_ACCORDION, useValue: undefined }]
+  providers: [{ provide: LG_ACCORDION, useValue: undefined }],
 })
 export class LgAccordionItemComponent implements AfterContentInit, OnChanges, OnDestroy {
   @Input() isActive = false;
   @Output() opened = new EventEmitter<void>();
   @Output() closed = new EventEmitter<void>();
 
-  @ViewChild(LgAccordionItemContentDirective, { static: true }) defaultContent: LgAccordionItemContentDirective;
-  @ContentChild(LgAccordionItemContentDirective, { static: false }) lazyContent: LgAccordionItemContentDirective;
+  @ViewChild(LgAccordionItemContentDirective, { static: true })
+  defaultContent: LgAccordionItemContentDirective;
+  @ContentChild(LgAccordionItemContentDirective, { static: false })
+  lazyContent: LgAccordionItemContentDirective;
   @ContentChild(LgAccordionPanelHeadingComponent, { static: false })
   accordionPanelHeading: LgAccordionPanelHeadingComponent;
 
@@ -53,18 +57,27 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   private _toggleSubscription: Subscription;
   private readonly _removeSingleItemSelectionListener: () => void = () => {};
 
-  constructor(@Optional() @SkipSelf() @Inject(LG_ACCORDION) public accordion: LgAccordionComponent,
-              private selectionDispatcher: UniqueSelectionDispatcher,
-              private cdr: ChangeDetectorRef) {
-    this._removeSingleItemSelectionListener = selectionDispatcher.listen((id: string, accordionId: string) => {
-      if (accordion && !accordion.multi && accordion.id === accordionId && this._id !== id) {
-        this.isActive = false;
-        this.accordionPanelHeading.isActive = false;
+  constructor(
+    @Optional() @SkipSelf() @Inject(LG_ACCORDION) public accordion: LgAccordionComponent,
+    private selectionDispatcher: UniqueSelectionDispatcher,
+    private cdr: ChangeDetectorRef,
+  ) {
+    this._removeSingleItemSelectionListener = selectionDispatcher.listen(
+      (id: string, accordionId: string) => {
+        if (
+          accordion &&
+          !accordion.multi &&
+          accordion.id === accordionId &&
+          this._id !== id
+        ) {
+          this.isActive = false;
+          this.accordionPanelHeading.isActive = false;
 
-        this.closed.emit();
-        this.cdr.markForCheck();
-      }
-    });
+          this.closed.emit();
+          this.cdr.markForCheck();
+        }
+      },
+    );
   }
 
   ngAfterContentInit() {
@@ -76,12 +89,14 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
       this.toggleActiveState(this.isActive);
     }
 
-    this._toggleSubscription = this.accordionPanelHeading.toggleActive.subscribe(isActive => {
-      this.isActive = isActive;
+    this._toggleSubscription = this.accordionPanelHeading.toggleActive.subscribe(
+      isActive => {
+        this.isActive = isActive;
 
-      this.toggleActiveState(isActive);
-      this.cdr.markForCheck();
-    });
+        this.toggleActiveState(isActive);
+        this.cdr.markForCheck();
+      },
+    );
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -108,7 +123,10 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
       }
 
       this.opened.emit();
-      this.selectionDispatcher.notify(this._id, this.accordion ? this.accordion.id : this._panelId);
+      this.selectionDispatcher.notify(
+        this._id,
+        this.accordion ? this.accordion.id : this._panelId,
+      );
     } else {
       this.closed.emit();
     }

@@ -1,6 +1,8 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { MockComponent } from 'ng-mocks';
+
 import { LgIconComponent } from '../../icon/icon.component';
 import { LgBreadcrumbItemComponent } from './breadcrumb-item.component';
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
@@ -13,7 +15,7 @@ describe('LgBreadcrumbItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgBreadcrumbItemComponent, MockComponent(LgIconComponent)]
+      declarations: [LgBreadcrumbItemComponent, MockComponent(LgIconComponent)],
     }).compileComponents();
   }));
 
@@ -30,9 +32,7 @@ describe('LgBreadcrumbItemComponent', () => {
   });
 
   it(`the class should contain 'lg-breadcrumb-item'`, () => {
-    expect(breadcrumbItemEl.getAttribute('class')).toContain(
-      'lg-breadcrumb-item'
-    );
+    expect(breadcrumbItemEl.getAttribute('class')).toContain('lg-breadcrumb-item');
   });
 
   describe('when the variant is set to light', () => {
@@ -42,13 +42,13 @@ describe('LgBreadcrumbItemComponent', () => {
 
     it(`the class should contain 'lg-breadcrumb-item--light'`, () => {
       expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--light'
+        'lg-breadcrumb-item--light',
       );
     });
 
     it(`the class should not contain 'lg-breadcrumb-item--dark'`, () => {
       expect(breadcrumbItemEl.getAttribute('class')).not.toContain(
-        'lg-breadcrumb-item--dark'
+        'lg-breadcrumb-item--dark',
       );
     });
   });
@@ -60,13 +60,13 @@ describe('LgBreadcrumbItemComponent', () => {
 
     it(`the class should contain 'lg-breadcrumb-item--dark'`, () => {
       expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--dark'
+        'lg-breadcrumb-item--dark',
       );
     });
 
     it(`the class should not contain 'lg-breadcrumb-item--light'`, () => {
       expect(breadcrumbItemEl.getAttribute('class')).not.toContain(
-        'lg-breadcrumb-item--light'
+        'lg-breadcrumb-item--light',
       );
     });
   });
@@ -79,7 +79,7 @@ describe('LgBreadcrumbItemComponent', () => {
 
     it(`the class should contain 'lg-breadcrumb-item--sm-screen-visible-item'`, () => {
       expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--sm-screen-visible-item'
+        'lg-breadcrumb-item--sm-screen-visible-item',
       );
     });
   });
@@ -92,7 +92,7 @@ describe('LgBreadcrumbItemComponent', () => {
 
     it(`the class should contain 'lg-breadcrumb-item--hide-icons'`, () => {
       expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--hide-icons'
+        'lg-breadcrumb-item--hide-icons',
       );
     });
   });

@@ -12,13 +12,13 @@ export default {
       fullScreen,
       withKnobs,
       moduleMetadata({
-        declarations: [LgHeaderComponent]
-      })
+        declarations: [LgHeaderComponent],
+      }),
     ],
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 const groupId = 'header';
@@ -31,9 +31,9 @@ export const standard = () => ({
     logo: text(
       'logo',
       'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
-      groupId
+      groupId,
     ),
     logoAlt: text('logoAlt', 'Company name', groupId),
-    logoHref: text('logoHref', 'https://storybook.js.org', groupId)
-  }
+    logoHref: text('logoHref', 'https://storybook.js.org', groupId),
+  },
 });

@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/angular';
+
 import { notes } from './mixins.notes';
 
 const stories = storiesOf('Mixins', module);
@@ -6,9 +7,9 @@ const stories = storiesOf('Mixins', module);
 stories.add(
   'Mixins',
   () => ({
-    template: ``
+    template: ``,
   }),
   {
-    notes: { markdown: notes }
-  }
+    notes: { markdown: notes },
+  },
 );

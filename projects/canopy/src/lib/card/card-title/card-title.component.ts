@@ -3,8 +3,9 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { HeadingLevel } from '../../heading';
 
 @Component({
@@ -12,7 +13,7 @@ import { HeadingLevel } from '../../heading';
   templateUrl: './card-title.component.html',
   styleUrls: ['./card-title.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgCardTitleComponent {
   @HostBinding('class.lg-card-title') class = true;

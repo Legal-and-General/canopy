@@ -8,8 +8,9 @@ import {
   ReactiveFormsModule,
   ValidationErrors,
   ValidatorFn,
-  Validators
+  Validators,
 } from '@angular/forms';
+
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
@@ -30,21 +31,17 @@ function invalidValidator(): ValidatorFn {
 @Component({
   selector: 'lg-validation-form',
   template: `
-    <form
-      [formGroup]="form"
-      (ngSubmit)="onSubmit(form)"
-      #validationForm="ngForm"
-    >
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" #validationForm="ngForm">
       <h2>Validation test form</h2>
 
       <p>
-        This is a test form to ensure validation works and that the fields have
-        the correct aria controls.
+        This is a test form to ensure validation works and that the fields have the
+        correct aria controls.
       </p>
       <p>
-        All fields are required. selecting or typing the word 'invalid' into a
-        field will trigger inline validation. All validation rules are also ran
-        on submission of the form.
+        All fields are required. selecting or typing the word 'invalid' into a field will
+        trigger inline validation. All validation rules are also ran on submission of the
+        form.
       </p>
 
       <lg-input-field>
@@ -52,23 +49,17 @@ function invalidValidator(): ValidatorFn {
         <input lgInput formControlName="text" />
         <lg-hint>This is a standard input field</lg-hint>
         <lg-validation
-          *ngIf="
-            isControlInvalid(text, validationForm) && text.hasError('required')
-          "
+          *ngIf="isControlInvalid(text, validationForm) && text.hasError('required')"
         >
           Text is a required field
         </lg-validation>
         <lg-validation
-          *ngIf="
-            isControlInvalid(text, validationForm) && text.hasError('minlength')
-          "
+          *ngIf="isControlInvalid(text, validationForm) && text.hasError('minlength')"
         >
           Text should be at least 4 characters
         </lg-validation>
         <lg-validation
-          *ngIf="
-            isControlInvalid(text, validationForm) && text.hasError('invalid')
-          "
+          *ngIf="isControlInvalid(text, validationForm) && text.hasError('invalid')"
         >
           Please enter a valid value
         </lg-validation>
@@ -85,18 +76,12 @@ function invalidValidator(): ValidatorFn {
           <option value="invalid">Invalid</option>
         </select>
         <lg-validation
-          *ngIf="
-            isControlInvalid(select, validationForm) &&
-            select.hasError('invalid')
-          "
+          *ngIf="isControlInvalid(select, validationForm) && select.hasError('invalid')"
         >
           Please select a valid option
         </lg-validation>
         <lg-validation
-          *ngIf="
-            isControlInvalid(select, validationForm) &&
-            select.hasError('required')
-          "
+          *ngIf="isControlInvalid(select, validationForm) && select.hasError('required')"
         >
           Select is a required field
         </lg-validation>
@@ -110,17 +95,12 @@ function invalidValidator(): ValidatorFn {
         <lg-radio-button value="blue">Blue</lg-radio-button>
         <lg-radio-button value="invalid">Invalid</lg-radio-button>
         <lg-validation
-          *ngIf="
-            isControlInvalid(radio, validationForm) && radio.hasError('invalid')
-          "
+          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('invalid')"
         >
           Please select a valid option
         </lg-validation>
         <lg-validation
-          *ngIf="
-            isControlInvalid(radio, validationForm) &&
-            radio.hasError('required')
-          "
+          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('required')"
         >
           Please select an option
         </lg-validation>
@@ -130,8 +110,7 @@ function invalidValidator(): ValidatorFn {
         Checkbox
         <lg-validation
           *ngIf="
-            isControlInvalid(checkbox, validationForm) &&
-            checkbox.hasError('required')
+            isControlInvalid(checkbox, validationForm) && checkbox.hasError('required')
           "
         >
           You must check the checkbox
@@ -141,10 +120,7 @@ function invalidValidator(): ValidatorFn {
       <lg-toggle formControlName="switch" [value]="true" variant="switch">
         Checkbox
         <lg-validation
-          *ngIf="
-            isControlInvalid(switch, validationForm) &&
-            switch.hasError('required')
-          "
+          *ngIf="isControlInvalid(switch, validationForm) && switch.hasError('required')"
         >
           You must toggle the switch
         </lg-validation>
@@ -184,7 +160,7 @@ function invalidValidator(): ValidatorFn {
         Submit
       </button>
     </form>
-  `
+  `,
 })
 class ReactiveFormComponent {
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
@@ -219,15 +195,12 @@ class ReactiveFormComponent {
 
   constructor(public fb: FormBuilder, private errorState: LgErrorStateMatcher) {
     this.form = this.fb.group({
-      text: [
-        '',
-        [Validators.required, Validators.minLength(4), invalidValidator()]
-      ],
+      text: ['', [Validators.required, Validators.minLength(4), invalidValidator()]],
       select: ['', [Validators.required, invalidValidator()]],
       radio: ['', [Validators.required, invalidValidator()]],
       checkbox: ['', [Validators.requiredTrue]],
       switch: ['', [Validators.requiredTrue]],
-      date: ['', [Validators.required, pastDateValidator()]]
+      date: ['', [Validators.required, pastDateValidator()]],
     });
   }
 
@@ -247,13 +220,13 @@ export default {
       withKnobs,
       moduleMetadata({
         declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule]
-      })
+        imports: [ReactiveFormsModule, CanopyModule],
+      }),
     ],
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -263,6 +236,6 @@ export const standard = () => ({
     </lg-validation-form>
   `,
   props: {
-    formSubmit: action('formSubmit')
-  }
+    formSubmit: action('formSubmit'),
+  },
 });

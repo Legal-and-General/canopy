@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { LgHeadingComponent } from './heading.component';
 
 describe('LgHeadingComponent', () => {
@@ -7,9 +8,8 @@ describe('LgHeadingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgHeadingComponent ]
-    })
-    .compileComponents();
+      declarations: [LgHeadingComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

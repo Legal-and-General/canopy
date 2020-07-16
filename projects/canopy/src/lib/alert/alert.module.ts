@@ -7,14 +7,14 @@ import {
   lgIconCheckmarkSpotFill,
   lgIconCrossmarkSpotFill,
   lgIconInformationFill,
-  lgIconWarningFill
+  lgIconWarningFill,
 } from '../icon/icons.interface';
 import { LgAlertComponent } from './alert.component';
 
 @NgModule({
   imports: [CommonModule, LgIconModule],
   declarations: [LgAlertComponent],
-  exports: [LgAlertComponent]
+  exports: [LgAlertComponent],
 })
 export class LgAlertModule {
   constructor(private iconRegistry: LgIconRegistry) {
@@ -22,7 +22,7 @@ export class LgAlertModule {
       lgIconCrossmarkSpotFill,
       lgIconInformationFill,
       lgIconWarningFill,
-      lgIconCheckmarkSpotFill
+      lgIconCheckmarkSpotFill,
     ]);
   }
 }

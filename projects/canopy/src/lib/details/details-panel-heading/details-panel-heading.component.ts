@@ -4,8 +4,9 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { lgIconChevronDown } from '../../icon';
 
 let nextUniqueId = 0;
@@ -14,7 +15,7 @@ let nextUniqueId = 0;
   templateUrl: './details-panel-heading.component.html',
   styleUrls: ['./details-panel-heading.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgDetailsPanelHeadingComponent {
   @Input() headingLevel;

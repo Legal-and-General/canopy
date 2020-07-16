@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
+
 import { LgIconComponent } from './icon.component';
 import { notes } from './icon.notes';
 import { LgIconRegistry } from './icon.registry';
@@ -261,7 +263,7 @@ export const iconsArray: Array<iconSet.Icon> = [
   iconSet.lgIconZoomInFill,
   iconSet.lgIconZoomIn,
   iconSet.lgIconZoomOutFill,
-  iconSet.lgIconZoomOut
+  iconSet.lgIconZoomOut,
 ];
 
 @Component({
@@ -287,8 +289,8 @@ export const iconsArray: Array<iconSet.Icon> = [
       .swatch__svg {
         margin-right: var(--space-md);
       }
-    `
-  ]
+    `,
+  ],
 })
 class SwatchIconComponent {
   icons = iconsArray;
@@ -305,17 +307,17 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        declarations: [SwatchIconComponent, LgIconComponent]
-      })
+        declarations: [SwatchIconComponent, LgIconComponent],
+      }),
     ],
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
   template: `
     <lg-swatch-icon></lg-swatch-icon>
-  `
+  `,
 });

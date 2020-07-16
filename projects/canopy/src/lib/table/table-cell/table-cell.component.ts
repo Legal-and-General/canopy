@@ -5,8 +5,9 @@ import {
   ElementRef,
   HostBinding,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { AlignmentOptions } from '../table.interface';
 
 @Component({
@@ -14,7 +15,7 @@ import { AlignmentOptions } from '../table.interface';
   templateUrl: './table-cell.component.html',
   styleUrls: ['./table-cell.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableCellComponent {
   @HostBinding('class') class = 'lg-table-cell';

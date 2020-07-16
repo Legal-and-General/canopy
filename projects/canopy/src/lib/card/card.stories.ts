@@ -13,16 +13,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [LgCardModule, LgGridModule, LgPaddingModule]
-      })
+        imports: [LgCardModule, LgGridModule, LgPaddingModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ede22091f488863e2eeaa35'
+      id: '5ede22091f488863e2eeaa35',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -45,9 +45,9 @@ export const standard = () => ({
       `Leverage agile frameworks to provide a robust synopsis for high level
     overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall
     value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity
-    and empowerment.`
-    )
-  }
+    and empowerment.`,
+    ),
+  },
 });
 
 export const nestedGrid = () => ({
@@ -56,7 +56,7 @@ export const nestedGrid = () => ({
     <div lgContainer>
       <div lgRow>
         <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-          <lg-card-content> 
+          <lg-card-content>
             {{cardContent}}
           </lg-card-content>
         </div>
@@ -70,9 +70,9 @@ export const nestedGrid = () => ({
       `Leverage agile frameworks to provide a robust synopsis for high level
     overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall
     value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity
-    and empowerment.`
-    )
-  }
+    and empowerment.`,
+    ),
+  },
 });
 
 export const product = () => ({
@@ -100,6 +100,6 @@ export const product = () => ({
     </lg-card>
   `,
   props: {
-    title: text('title', 'Standard Lifetime Annuity Joint Life Full')
-  }
+    title: text('title', 'Standard Lifetime Annuity Joint Life Full'),
+  },
 });

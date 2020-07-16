@@ -10,16 +10,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [LgAlertModule]
-      })
+        imports: [LgAlertModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec504bc07ffe609bec12b76'
+      id: '5ec504bc07ffe609bec12b76',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -36,7 +36,7 @@ export const standard = () => ({
     variant: select(
       'variant',
       ['generic', 'info', 'success', 'warning', 'error'],
-      'generic'
-    )
-  }
+      'generic',
+    ),
+  },
 });

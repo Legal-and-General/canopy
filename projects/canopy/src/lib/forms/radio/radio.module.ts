@@ -8,6 +8,6 @@ import { LgRadioGroupComponent } from './radio-group.component';
   imports: [LgLabelModule],
   declarations: [LgRadioGroupComponent, LgRadioButtonComponent],
   exports: [LgRadioGroupComponent, LgRadioButtonComponent],
-  entryComponents: [LgRadioGroupComponent, LgRadioButtonComponent]
+  entryComponents: [LgRadioGroupComponent, LgRadioButtonComponent],
 })
 export class LgRadioModule {}

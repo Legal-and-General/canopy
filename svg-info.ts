@@ -12,7 +12,7 @@ const buffer = Buffer.from(
   `// NOTE: this file is created automatically by \`svg-to-ts\`.
 // For more information check: https://github.com/kreuzerk/svg-to-ts.
 
-`
+`,
 );
 
 fs.writeSync(fd, buffer, 0, buffer.length, 0); // write new data

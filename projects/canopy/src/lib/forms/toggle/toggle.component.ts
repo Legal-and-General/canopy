@@ -9,13 +9,10 @@ import {
   Self,
   SkipSelf,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormGroupDirective,
-  NgControl
-} from '@angular/forms';
+import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
+
 import { LgDomService } from '../../utils/dom.service';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
@@ -26,7 +23,7 @@ let nextUniqueId = 0;
   selector: 'lg-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgToggleComponent implements ControlValueAccessor {
   uniqueId = nextUniqueId++;
@@ -52,7 +49,7 @@ export class LgToggleComponent implements ControlValueAccessor {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
       this._validationElement,
-      element
+      element,
     );
     this._validationElement = element;
   }
@@ -94,7 +91,7 @@ export class LgToggleComponent implements ControlValueAccessor {
     @Optional()
     @Host()
     @SkipSelf()
-    private controlContainer: FormGroupDirective
+    private controlContainer: FormGroupDirective,
   ) {
     if (this.control != null) {
       this.control.valueAccessor = this;

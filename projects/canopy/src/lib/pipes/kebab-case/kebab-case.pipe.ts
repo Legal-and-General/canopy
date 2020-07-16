@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'kebabCase'
+  name: 'kebabCase',
 })
 export class LgKebabCasePipe implements PipeTransform {
   transform(str: string): any {

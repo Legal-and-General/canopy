@@ -11,7 +11,7 @@ describe('LgHeroCardFooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHeroCardFooterComponent]
+      declarations: [LgHeroCardFooterComponent],
     }).compileComponents();
   }));
 

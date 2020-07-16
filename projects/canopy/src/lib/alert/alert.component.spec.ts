@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
+import { MockComponents } from 'ng-mocks';
+
 import { AlertVariant } from '../alert';
 import { LgAlertComponent } from './alert.component';
-
-import { MockComponents } from 'ng-mocks';
 import { LgIconComponent } from '../icon';
 
 describe('LgAlertComponent', () => {
@@ -13,7 +13,7 @@ describe('LgAlertComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgAlertComponent, MockComponents(LgIconComponent)]
+      declarations: [LgAlertComponent, MockComponents(LgIconComponent)],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgAlertComponent);
@@ -63,14 +63,12 @@ describe('LgAlertComponent', () => {
     { variant: 'error', icon: 'crossmark-spot-fill' },
     { variant: 'info', icon: 'information-fill' },
     { variant: 'warning', icon: 'warning-fill' },
-    { variant: 'success', icon: 'checkmark-spot-fill' }
+    { variant: 'success', icon: 'checkmark-spot-fill' },
   ].forEach(({ variant, icon }) => {
     it(`renders the correct icon for the ${variant} alert`, () => {
       component.variant = variant as AlertVariant;
       fixture.detectChanges();
-      expect(
-        fixture.debugElement.query(By.css(`[name="${icon}"]`))
-      ).not.toBeNull();
+      expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();
     });
   });
 });

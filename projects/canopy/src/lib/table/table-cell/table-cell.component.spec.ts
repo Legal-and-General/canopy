@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { By } from '@angular/platform-browser';
+
 import { AlignmentOptions } from '../table.interface';
 import { LgTableCellComponent } from './table-cell.component';
 
@@ -10,7 +10,7 @@ describe('LgTableCellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgTableCellComponent]
+      declarations: [LgTableCellComponent],
     }).compileComponents();
   }));
 
@@ -40,10 +40,10 @@ describe('LgTableCellComponent', () => {
 
     it('should set the alignment class modifier', () => {
       const headDebugElement = fixture.debugElement.query(
-        By.css('.lg-table-cell__content')
+        By.css('.lg-table-cell__content'),
       );
       expect(headDebugElement.nativeElement.getAttribute('class')).toContain(
-        'lg-table-cell__content--align-end'
+        'lg-table-cell__content--align-end',
       );
     });
   });

@@ -5,19 +5,19 @@ import {
   LgFeatureToggleOptions,
   LgToggles,
   togglesInjectable,
-  togglesOptionsInjectable
+  togglesOptionsInjectable,
 } from './feature-toggle.interface';
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @NgModule({
   declarations: [LgFeatureToggleDirective],
   providers: [LgFeatureToggleService],
-  exports: [LgFeatureToggleDirective]
+  exports: [LgFeatureToggleDirective],
 })
 export class LgFeatureToggleModule {
   static forRoot(
     toggles: LgToggles,
-    optionsInjectable?: LgFeatureToggleOptions
+    optionsInjectable?: LgFeatureToggleOptions,
   ): ModuleWithProviders {
     return {
       ngModule: LgFeatureToggleModule,
@@ -26,13 +26,13 @@ export class LgFeatureToggleModule {
         {
           provide: togglesInjectable,
           useFactory: toggles.useFactory,
-          deps: toggles.deps
+          deps: toggles.deps,
         },
         {
           provide: togglesOptionsInjectable,
-          useValue: optionsInjectable
-        }
-      ]
+          useValue: optionsInjectable,
+        },
+      ],
     };
   }
 }

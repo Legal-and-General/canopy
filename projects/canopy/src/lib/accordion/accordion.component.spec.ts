@@ -1,7 +1,9 @@
 import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { MockComponents } from 'ng-mocks';
+
 import { LgHeadingComponent } from '../heading';
 import { LgIconComponent } from '../icon';
 import { LgAccordionItemContentDirective } from './accordion-item/accordion-item-content.directive';
@@ -15,16 +17,16 @@ import { LgAccordionComponent } from './accordion.component';
     <lg-accordion [headingLevel]="2" [multi]="isMulti">
       <lg-accordion-item>
         <lg-accordion-panel-heading>Test</lg-accordion-panel-heading>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua.
       </lg-accordion-item>
       <lg-accordion-item [isActive]="true">
         <lg-accordion-panel-heading>Test</lg-accordion-panel-heading>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua.
       </lg-accordion-item>
     </lg-accordion>
-  `
+  `,
 })
 class TestAccordionComponent {
   isMulti = true;
@@ -42,8 +44,8 @@ describe('LgAccordionComponent', () => {
         LgAccordionItemComponent,
         LgAccordionItemContentDirective,
         LgAccordionPanelHeadingComponent,
-        MockComponents(LgHeadingComponent, LgIconComponent)
-      ]
+        MockComponents(LgHeadingComponent, LgIconComponent),
+      ],
     }).compileComponents();
   }));
 
@@ -58,9 +60,15 @@ describe('LgAccordionComponent', () => {
   });
 
   it('should set the heading level on the panel headings', () => {
-    fixture.debugElement.queryAll(By.css('lg-accordion-panel-heading')).forEach(heading =>
-      expect(heading.injector.get<LgAccordionPanelHeadingComponent>(LgAccordionPanelHeadingComponent).headingLevel)
-        .toBe(2));
+    fixture.debugElement
+      .queryAll(By.css('lg-accordion-panel-heading'))
+      .forEach(heading =>
+        expect(
+          heading.injector.get<LgAccordionPanelHeadingComponent>(
+            LgAccordionPanelHeadingComponent,
+          ).headingLevel,
+        ).toBe(2),
+      );
   });
 
   describe('when using single item active view', () => {

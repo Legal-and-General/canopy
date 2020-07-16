@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+
 import { Pictogram, PictogramName } from './pictograms.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LgPictogramRegistry {
   private registry = new Map<PictogramName, string>();
 
-  registerPictogram(pictograms: Pictogram[]): void {
+  registerPictogram(pictograms: Array<Pictogram>): void {
     pictograms.forEach(pictogram => {
       this.registry.set(pictogram.name, pictogram.data);
     });
@@ -16,7 +17,7 @@ export class LgPictogramRegistry {
   getPictogram(name: PictogramName): string | undefined {
     if (!this.registry.has(name)) {
       console.warn(
-        `${name}: Pictogram not found, ensure it is added to the pictogram registry`
+        `${name}: Pictogram not found, ensure it is added to the pictogram registry`,
       );
     }
 

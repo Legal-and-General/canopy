@@ -10,7 +10,7 @@ stories.add(
   'Headings',
   () => ({
     moduleMetadata: {
-      declarations: [LgCardComponent]
+      declarations: [LgCardComponent],
     },
     template: `
     <p class="lg-font-size-7">{{lgFontSize7}}</p>
@@ -32,14 +32,14 @@ stories.add(
       lgFontSize2: text('font size 2', '.lg-font-size-2'),
       lgFontSize1: text('font size 1', '.lg-font-size-1'),
       lgFontSize08: text('font size 08', '.lg-font-size-0-8'),
-      lgFontSize06: text('font size 06', '.lg-font-size-0-6')
-    }
+      lgFontSize06: text('font size 06', '.lg-font-size-0-6'),
+    },
   }),
   {
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 );
 
 stories.add(
@@ -73,11 +73,11 @@ stories.add(
         The Plague (French: La Peste) is a novel by Albert Camus, published in
         1947
       </p>
-  `
+  `,
   }),
   {
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 );

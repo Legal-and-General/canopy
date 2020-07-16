@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponents } from 'ng-mocks';
 
+import { MockComponents } from 'ng-mocks';
 import { spy, verify } from 'ts-mockito';
+
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
 
@@ -17,8 +18,8 @@ describe('LgAccordionPanelHeadingComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LgAccordionPanelHeadingComponent,
-        MockComponents(LgHeadingComponent, LgIconComponent)
-      ]
+        MockComponents(LgHeadingComponent, LgIconComponent),
+      ],
     }).compileComponents();
   }));
 
@@ -36,7 +37,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
   describe('#toggle', () => {
     beforeEach(() => {
       triggerElement = fixture.debugElement.query(
-        By.css('.lg-accordion__heading-toggle')
+        By.css('.lg-accordion__heading-toggle'),
       );
     });
 
@@ -51,16 +52,16 @@ describe('LgAccordionPanelHeadingComponent', () => {
       it(`should set the 'active' class`, () => {
         expect(
           triggerElement.nativeElement.classList.contains(
-            'lg-accordion__heading-toggle--active'
-          )
+            'lg-accordion__heading-toggle--active',
+          ),
         ).toBe(false);
 
         triggerElement.nativeElement.click();
         fixture.detectChanges();
         expect(
           triggerElement.nativeElement.classList.contains(
-            'lg-accordion__heading-toggle--active'
-          )
+            'lg-accordion__heading-toggle--active',
+          ),
         ).toBe(true);
       });
 
@@ -86,16 +87,16 @@ describe('LgAccordionPanelHeadingComponent', () => {
         fixture.detectChanges();
         expect(
           triggerElement.nativeElement.classList.contains(
-            'lg-accordion__heading-toggle--active'
-          )
+            'lg-accordion__heading-toggle--active',
+          ),
         ).toBe(true);
 
         triggerElement.nativeElement.click();
         fixture.detectChanges();
         expect(
           triggerElement.nativeElement.classList.contains(
-            'lg-accordion__heading-toggle--active'
-          )
+            'lg-accordion__heading-toggle--active',
+          ),
         ).toBe(false);
       });
 

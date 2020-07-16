@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { of } from 'rxjs';
-
 import { instance, mock, when } from 'ts-mockito';
+
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
 import { LgFeatureToggleOptions } from './feature-toggle.interface';
 import { LgFeatureToggleService } from './feature-toggle.service';
@@ -12,7 +12,7 @@ import { LgFeatureToggleService } from './feature-toggle.service';
 @Component({
   template: `
     <section *lgFeatureToggle="'feature'" id="feature">Test feature</section>
-  `
+  `,
 })
 class TestComponent {}
 
@@ -29,10 +29,10 @@ describe('LgFeatureToggleDirective', () => {
         ViewContainerRef,
         {
           provide: LgFeatureToggleService,
-          useFactory: () => instance(lgFeatureToggleServiceMock)
+          useFactory: () => instance(lgFeatureToggleServiceMock),
         },
-        LgFeatureToggleDirective
-      ]
+        LgFeatureToggleDirective,
+      ],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -41,9 +41,7 @@ describe('LgFeatureToggleDirective', () => {
 
   describe('when the toggle is set to true', () => {
     it('should enable a feature', () => {
-      when(lgFeatureToggleServiceMock.toggles$).thenReturn(
-        of({ feature: true })
-      );
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ feature: true }));
       fixture.detectChanges();
 
       const el = fixture.debugElement.query(By.css('#feature')).nativeElement;
@@ -53,9 +51,7 @@ describe('LgFeatureToggleDirective', () => {
 
   describe('when the toggle is set to false', () => {
     it('should disable a feature', () => {
-      when(lgFeatureToggleServiceMock.toggles$).thenReturn(
-        of({ feature: false })
-      );
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ feature: false }));
       fixture.detectChanges();
 
       const de = fixture.debugElement.query(By.css('#feature'));
@@ -65,9 +61,7 @@ describe('LgFeatureToggleDirective', () => {
 
   describe('when the toggle is set to undefined', () => {
     it('should enable a feature', () => {
-      when(lgFeatureToggleServiceMock.toggles$).thenReturn(
-        of({ feature: undefined })
-      );
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ feature: undefined }));
       fixture.detectChanges();
 
       const el = fixture.debugElement.query(By.css('#feature')).nativeElement;
@@ -77,9 +71,7 @@ describe('LgFeatureToggleDirective', () => {
 
   describe('when the defaultHide is set to False and feature is undefined', () => {
     it('should enable a feature', () => {
-      when(lgFeatureToggleServiceMock.toggles$).thenReturn(
-        of({ feature: undefined })
-      );
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ feature: undefined }));
       directive.setOptions(null);
       fixture.detectChanges();
 
@@ -90,11 +82,9 @@ describe('LgFeatureToggleDirective', () => {
 
   describe('when the defaultHide is set to True and feature is undefined', () => {
     it('should disable a feature', () => {
-      when(lgFeatureToggleServiceMock.toggles$).thenReturn(
-        of({ feature: undefined })
-      );
+      when(lgFeatureToggleServiceMock.toggles$).thenReturn(of({ feature: undefined }));
       directive.setOptions({
-        defaultHide: true
+        defaultHide: true,
       } as LgFeatureToggleOptions);
 
       const de = fixture.debugElement.query(By.css('#feature'));
@@ -114,9 +104,7 @@ describe('LgFeatureToggleDirective', () => {
 
   describe('cleanup', () => {
     it('should unsubscribe only when there is a subscription in ngOnDestroy', () => {
-      const mockSubscription = jasmine.createSpyObj('Subscription', [
-        'unsubscribe'
-      ]);
+      const mockSubscription = jasmine.createSpyObj('Subscription', ['unsubscribe']);
       directive.subscription = mockSubscription;
 
       directive.ngOnDestroy();

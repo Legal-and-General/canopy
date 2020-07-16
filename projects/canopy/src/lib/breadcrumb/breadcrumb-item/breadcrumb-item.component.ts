@@ -3,8 +3,9 @@ import {
   ElementRef,
   HostBinding,
   Renderer2,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import * as iconSet from '../../icon/icons.interface';
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
@@ -12,7 +13,7 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   selector: 'lg-breadcrumb-item',
   templateUrl: './breadcrumb-item.component.html',
   styleUrls: ['./breadcrumb-item.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgBreadcrumbItemComponent {
   @HostBinding('class.lg-breadcrumb-item') class = true;
@@ -43,12 +44,12 @@ export class LgBreadcrumbItemComponent {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-breadcrumb-item--${this.variant}`
+        `lg-breadcrumb-item--${this.variant}`,
       );
     }
     this.renderer.addClass(
       this.hostElement.nativeElement,
-      `lg-breadcrumb-item--${variant}`
+      `lg-breadcrumb-item--${variant}`,
     );
     this._variant = variant;
   }

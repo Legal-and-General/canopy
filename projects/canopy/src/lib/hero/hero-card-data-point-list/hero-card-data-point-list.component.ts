@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import {
   templateUrl: './hero-card-data-point-list.component.html',
   styleUrls: ['./hero-card-data-point-list.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgHeroCardDataPointListComponent {
   @HostBinding('class.lg-hero-card-data-point-list') class = true;

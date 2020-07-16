@@ -23,13 +23,13 @@ describe('LgRadioButtonComponent', () => {
       providers: [
         {
           provide: LgRadioGroupComponent,
-          useFactory: () => instance(radioGroupMock)
+          useFactory: () => instance(radioGroupMock),
         },
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock)
-        }
-      ]
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgRadioButtonComponent);
@@ -69,11 +69,11 @@ describe('LgRadioButtonComponent', () => {
 
   it('adds the error class if the form field is invalid', () => {
     when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything())
+      errorStateMatcherMock.isControlInvalid(anything(), anything()),
     ).thenReturn(true);
     fixture.detectChanges();
     expect(fixture.debugElement.nativeElement.className).toContain(
-      'lg-radio-button--error'
+      'lg-radio-button--error',
     );
   });
 });

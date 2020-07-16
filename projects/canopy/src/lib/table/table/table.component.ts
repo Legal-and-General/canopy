@@ -6,8 +6,9 @@ import {
   ContentChildren,
   HostBinding,
   QueryList,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { LgTableHeadComponent } from '../table-head/table-head.component';
 import { LgTableRowComponent } from '../table-row/table-row.component';
 
@@ -16,7 +17,7 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableComponent implements AfterViewChecked {
   @HostBinding('class') class = 'lg-table';
@@ -27,7 +28,7 @@ export class LgTableComponent implements AfterViewChecked {
 
   headerRow: LgTableRowComponent;
 
-  bodyRows: LgTableRowComponent[];
+  bodyRows: Array<LgTableRowComponent>;
 
   constructor(private cd: ChangeDetectorRef) {}
 
@@ -49,11 +50,13 @@ export class LgTableComponent implements AfterViewChecked {
 
   private updateLabels() {
     if (this.headerRow) {
-      const headContent: string[] = this.headerRow.headCells.map(
-        (cell: LgTableHeadComponent) => cell.element.nativeElement.innerHTML
+      const headContent: Array<string> = this.headerRow.headCells.map(
+        (cell: LgTableHeadComponent) => cell.element.nativeElement.innerHTML,
       );
 
-      const headCellList: LgTableHeadComponent[] = this.headerRow.headCells.toArray();
+      const headCellList: Array<
+        LgTableHeadComponent
+      > = this.headerRow.headCells.toArray();
 
       this.rows
         .filter(row => row.headCells.length === 0)

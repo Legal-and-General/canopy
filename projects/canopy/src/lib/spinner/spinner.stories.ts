@@ -10,16 +10,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        declarations: [LgSpinnerComponent]
-      })
+        declarations: [LgSpinnerComponent],
+      }),
     ],
     'in-dsm': {
-      id: '5ec3e4a143bdfa89c1e8b343'
+      id: '5ec3e4a143bdfa89c1e8b343',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -30,8 +30,8 @@ export const standard = () => ({
     variant: select(
       'variant',
       ['dark', 'light', 'color', 'inherit'],
-      'spinner'
+      'spinner',
     ),
-    text: text('text', '')
-  }
+    text: text('text', ''),
+  },
 });

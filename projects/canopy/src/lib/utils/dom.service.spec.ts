@@ -9,13 +9,13 @@ describe('LgErrorStateMatcher', () => {
 
   it('defaults the property to a string if it is undefined', () => {
     expect(service.toggleIdInStringProperty(undefined, { id: 'id-1' })).toBe(
-      ''
+      '',
     );
   });
 
   it('removes the id of the old element if there is one', () => {
     expect(service.toggleIdInStringProperty('id-1 id-2', { id: 'id-1' })).toBe(
-      'id-2'
+      'id-2',
     );
   });
 
@@ -24,8 +24,8 @@ describe('LgErrorStateMatcher', () => {
       service.toggleIdInStringProperty(
         'id-1 id-2',
         { id: 'id-1' },
-        { id: 'id-3' }
-      )
+        { id: 'id-3' },
+      ),
     ).toContain('id-3');
   });
 
@@ -34,8 +34,8 @@ describe('LgErrorStateMatcher', () => {
       service.toggleIdInStringProperty(
         'id-1 id-2',
         { id: 'id-1' },
-        { id: 'id-3 ' }
-      )
+        { id: 'id-3 ' },
+      ),
     ).toBe('id-2 id-3');
   });
 });

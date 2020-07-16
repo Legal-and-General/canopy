@@ -8,6 +8,6 @@ import { LgInputDirective } from './input.directive';
   imports: [LgLabelModule],
   declarations: [LgInputDirective, LgInputFieldComponent],
   exports: [LgInputDirective, LgInputFieldComponent],
-  entryComponents: [LgInputFieldComponent]
+  entryComponents: [LgInputFieldComponent],
 })
 export class LgInputModule {}

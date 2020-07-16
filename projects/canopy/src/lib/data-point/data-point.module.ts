@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
 import { LgHeadingModule } from '../heading/heading.module';
 import { LgDataPointLabelComponent } from './data-point-label/data-point-label.component';
 import { LgDataPointListComponent } from './data-point-list/data-point-list.component';
@@ -11,14 +12,14 @@ import { LgDataPointComponent } from './data-point/data-point.component';
     LgDataPointListComponent,
     LgDataPointComponent,
     LgDataPointValueComponent,
-    LgDataPointLabelComponent
+    LgDataPointLabelComponent,
   ],
   exports: [
     LgDataPointListComponent,
     LgDataPointComponent,
     LgDataPointValueComponent,
-    LgDataPointLabelComponent
+    LgDataPointLabelComponent,
   ],
-  imports: [CommonModule, LgHeadingModule]
+  imports: [CommonModule, LgHeadingModule],
 })
 export class LgDataPointModule {}

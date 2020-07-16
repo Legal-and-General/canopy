@@ -12,7 +12,7 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHeaderComponent]
+      declarations: [LgHeaderComponent],
     }).compileComponents();
   }));
 
@@ -36,7 +36,7 @@ describe('FooterComponent', () => {
     component.logoHref = href;
     fixture.detectChanges();
     expect(
-      fixture.debugElement.query(By.css(`a[href="${href}"]`))
+      fixture.debugElement.query(By.css(`a[href="${href}"]`)),
     ).toBeTruthy();
   });
 });

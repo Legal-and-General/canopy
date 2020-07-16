@@ -5,8 +5,9 @@ import {
   HostBinding,
   Inject,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { LgPictogramRegistry } from './pictogram.registry';
 import { PictogramName } from './pictograms.interface';
 
@@ -18,7 +19,7 @@ let nextUniqueId = 0;
   selector: 'lg-pictogram',
   templateUrl: './pictogram.component.html',
   styleUrls: ['./pictogram.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgPictogramComponent {
   private svgPictogram: SVGElement;
@@ -40,7 +41,7 @@ export class LgPictogramComponent {
   constructor(
     private elementRef: ElementRef,
     private iconRegistry: LgPictogramRegistry,
-    @Inject(DOCUMENT) private document: any
+    @Inject(DOCUMENT) private document: any,
   ) {}
 
   /*
@@ -52,10 +53,7 @@ export class LgPictogramComponent {
   private setSVGAttributes(svgData: string): string {
     return svgData
       .replace(/id="\w+"/g, () => `id="lg-pictogram-${this.id}"`)
-      .replace(
-        /xlink:href="#\w+"/g,
-        () => `xlink:href="#lg-pictogram-${this.id}"`
-      );
+      .replace(/xlink:href="#\w+"/g, () => `xlink:href="#lg-pictogram-${this.id}"`);
   }
 
   private svgElementFromString(svgContent: string): SVGElement {

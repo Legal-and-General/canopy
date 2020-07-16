@@ -1,5 +1,6 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
+
 import { notes } from './camel-case.notes';
 import { LgCamelCasePipe } from './camel-case.pipe';
 
@@ -10,16 +11,16 @@ stories.add(
   'Camel case',
   () => ({
     moduleMetadata: {
-      declarations: [LgCamelCasePipe]
+      declarations: [LgCamelCasePipe],
     },
     template: `
       <p>{{text | camelCase}}</p>
     `,
     props: {
-      text: text('text', 'camel case me')
-    }
+      text: text('text', 'camel case me'),
+    },
   }),
   {
-    notes: { markdown: notes }
-  }
+    notes: { markdown: notes },
+  },
 );

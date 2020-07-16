@@ -5,7 +5,7 @@ import {
   HostBinding,
   Inject,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { LgIconRegistry } from './icon.registry';
@@ -19,7 +19,7 @@ let nextUniqueId = 0;
   selector: 'lg-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgIconComponent {
   private svgIcon: SVGElement;
@@ -42,7 +42,7 @@ export class LgIconComponent {
   constructor(
     private elementRef: ElementRef,
     private iconRegistry: LgIconRegistry,
-    @Inject(DOCUMENT) private document: any
+    @Inject(DOCUMENT) private document: any,
   ) {}
 
   /*

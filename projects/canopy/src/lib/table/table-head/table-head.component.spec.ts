@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { By } from '@angular/platform-browser';
+
 import { MockRender } from 'ng-mocks';
+
 import { LgTableHeadComponent } from './table-head.component';
 
 describe('LgTableHeadComponent', () => {
@@ -10,7 +11,7 @@ describe('LgTableHeadComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgTableHeadComponent]
+      declarations: [LgTableHeadComponent],
     }).compileComponents();
   }));
 
@@ -34,7 +35,7 @@ describe('LgTableHeadComponent', () => {
 
   it('should not have the align class applied', () => {
     expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-      'lg-table-head--align-end'
+      'lg-table-head--align-end',
     );
   });
 
@@ -44,11 +45,9 @@ describe('LgTableHeadComponent', () => {
     });
 
     it('should have the align class applied', () => {
-      const headDebugElement = fixture.debugElement.query(
-        By.css('.lg-table-head')
-      );
+      const headDebugElement = fixture.debugElement.query(By.css('.lg-table-head'));
       expect(headDebugElement.nativeElement.getAttribute('class')).toContain(
-        'lg-table-head--align-end'
+        'lg-table-head--align-end',
       );
     });
   });

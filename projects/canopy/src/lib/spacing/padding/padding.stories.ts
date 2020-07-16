@@ -18,20 +18,20 @@ const spaces = [
   'xl',
   'xxl',
   'xxxl',
-  'xxxxl'
+  'xxxxl',
 ];
 
 stories.addDecorator(withKnobs);
 
 stories
   .addParameters({
-    backgrounds: [{ name: 'default', value: '#0076d6', default: true }]
+    backgrounds: [{ name: 'default', value: '#0076d6', default: true }],
   })
   .add(
     'Padding',
     () => ({
       moduleMetadata: {
-        declarations: [LgCardComponent, LgPaddingDirective]
+        declarations: [LgCardComponent, LgPaddingDirective],
       },
       template: `
         <lg-card
@@ -49,12 +49,12 @@ stories
         paddingTop: select('paddingTop', spaces, 'undefined'),
         paddingRight: select('paddingRight', spaces, 'undefined'),
         paddingBottom: select('paddingBottom', spaces, 'undefined'),
-        paddingLeft: select('paddingLeft', spaces, 'undefined')
-      }
+        paddingLeft: select('paddingLeft', spaces, 'undefined'),
+      },
     }),
     {
       notes: {
-        markdown: notes
-      }
-    }
+        markdown: notes,
+      },
+    },
   );

@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  DebugElement
+  DebugElement,
 } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
@@ -9,7 +9,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
@@ -25,11 +25,11 @@ import { LgErrorStateMatcher } from '../validation/error-state-matcher';
       <input lgInput formControlName="name" />
     </form>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class TestInputComponent {
   form = new FormGroup({
-    name: new FormControl('', [Validators.required])
+    name: new FormControl('', [Validators.required]),
   });
 }
 
@@ -47,20 +47,20 @@ describe('LgInputDirective', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock)
-        }
-      ]
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestInputComponent);
     component = fixture.componentInstance;
 
     inputDebugElement = fixture.debugElement.query(
-      By.directive(LgInputDirective)
+      By.directive(LgInputDirective),
     );
 
     inputInstance = inputDebugElement.injector.get<LgInputDirective>(
-      LgInputDirective
+      LgInputDirective,
     );
   }));
 
@@ -78,17 +78,17 @@ describe('LgInputDirective', () => {
     inputInstance.block = true;
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.className).toContain(
-      'lg-input--block'
+      'lg-input--block',
     );
   });
 
   it('adds an error class when the field has a validation error', () => {
     when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything())
+      errorStateMatcherMock.isControlInvalid(anything(), anything()),
     ).thenReturn(true);
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.className).toContain(
-      'lg-input--error'
+      'lg-input--error',
     );
   });
 
@@ -96,7 +96,7 @@ describe('LgInputDirective', () => {
     component.form.get('name').setValue('test');
     component.form.get('name').markAsTouched();
     expect(inputDebugElement.nativeElement.className).not.toContain(
-      'lg-input--error'
+      'lg-input--error',
     );
   });
 });

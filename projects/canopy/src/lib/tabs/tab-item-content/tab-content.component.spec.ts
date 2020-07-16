@@ -8,7 +8,7 @@ describe('LgTabItemContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgTabItemContentComponent]
+      declarations: [LgTabItemContentComponent],
     }).compileComponents();
   }));
 

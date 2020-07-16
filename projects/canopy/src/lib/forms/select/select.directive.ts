@@ -5,15 +5,16 @@ import {
   Input,
   Optional,
   Self,
-  SkipSelf
+  SkipSelf,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
+
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 
 let nextUniqueId = 0;
 
 @Directive({
-  selector: '[lgSelect]'
+  selector: '[lgSelect]',
 })
 export class LgSelectDirective {
   @HostBinding('class.lg-select') class = true;
@@ -48,6 +49,6 @@ export class LgSelectDirective {
     @Optional()
     @Host()
     @SkipSelf()
-    public controlContainer: FormGroupDirective
+    public controlContainer: FormGroupDirective,
   ) {}
 }

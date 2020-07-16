@@ -8,7 +8,7 @@ describe('LgTableRowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgTableRowComponent]
+      declarations: [LgTableRowComponent],
     }).compileComponents();
   }));
 

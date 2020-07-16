@@ -14,13 +14,13 @@ const components = [
   LgAccordionComponent,
   LgAccordionItemComponent,
   LgAccordionPanelHeadingComponent,
-  LgAccordionItemContentDirective
+  LgAccordionItemContentDirective,
 ];
 
 @NgModule({
   imports: [CommonModule, LgHeadingModule, LgIconModule],
   declarations: [...components],
-  exports: [...components]
+  exports: [...components],
 })
 export class LgAccordionModule {
   constructor(private iconRegistry: LgIconRegistry) {

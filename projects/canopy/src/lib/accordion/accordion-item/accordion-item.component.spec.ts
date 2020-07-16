@@ -1,8 +1,10 @@
 import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { MockComponents } from 'ng-mocks';
 import { take } from 'rxjs/operators';
+
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
 import { UniqueSelectionDispatcher } from '../../utils/unique-selection-dispatcher';
@@ -25,7 +27,7 @@ import { LgAccordionItemComponent } from './accordion-item.component';
         <div class="lazy-content">Hola!</div>
       </ng-template>
     </lg-accordion-item>
-  `
+  `,
 })
 class TestAccordionWrapperItemComponent {
   isActive: boolean;
@@ -47,11 +49,9 @@ describe('LgAccordionItemComponent', () => {
         LgAccordionItemComponent,
         LgAccordionPanelHeadingComponent,
         LgAccordionItemContentDirective,
-        MockComponents(LgHeadingComponent, LgIconComponent)
+        MockComponents(LgHeadingComponent, LgIconComponent),
       ],
-      providers: [
-        { provide: LG_ACCORDION, useFactory: () => accordionMock }
-      ]
+      providers: [{ provide: LG_ACCORDION, useFactory: () => accordionMock }],
     }).compileComponents();
   }));
 
@@ -61,9 +61,7 @@ describe('LgAccordionItemComponent', () => {
     component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();
 
-    triggerElement = fixture.debugElement.query(
-      By.css('.lg-accordion__heading-toggle')
-    );
+    triggerElement = fixture.debugElement.query(By.css('.lg-accordion__heading-toggle'));
   });
 
   it('should create', () => {
@@ -124,22 +122,16 @@ describe('LgAccordionItemComponent', () => {
   });
 
   it('should toggle the `active` class on the panel', () => {
-    const panelElement = fixture.debugElement.query(
-      By.css('.lg-accordion__panel')
-    );
+    const panelElement = fixture.debugElement.query(By.css('.lg-accordion__panel'));
 
     expect(
-      panelElement.nativeElement.classList.contains(
-        'lg-accordion__panel--active'
-      )
+      panelElement.nativeElement.classList.contains('lg-accordion__panel--active'),
     ).toBe(false);
 
     triggerElement.nativeElement.click();
     fixture.detectChanges();
     expect(
-      panelElement.nativeElement.classList.contains(
-        'lg-accordion__panel--active'
-      )
+      panelElement.nativeElement.classList.contains('lg-accordion__panel--active'),
     ).toBe(true);
   });
 

@@ -1,4 +1,4 @@
-//Document the lower components
+// Document the lower components
 
 export const notes = `
 # Table Component

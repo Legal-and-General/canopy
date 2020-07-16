@@ -3,7 +3,7 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ import {
   templateUrl: './data-point.component.html',
   styleUrls: ['./data-point.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgDataPointComponent {
   @HostBinding('class.lg-data-point') class = true;

@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+
 import { LgPictogramRegistry } from './pictogram.registry';
 import { Pictogram } from './pictograms.interface';
 
@@ -16,7 +17,7 @@ describe('LgPictogramRegistry', () => {
   it('should get a registered pictogram', () => {
     const pictogram = {
       name: 'sun',
-      data: 'test'
+      data: 'test',
     } as Pictogram;
 
     expect(registry.getPictogram(pictogram.name)).toBeUndefined();
@@ -32,7 +33,7 @@ describe('LgPictogramRegistry', () => {
 
     expect(registry.getPictogram(unexpectedPictogram)).toBeUndefined();
     expect(spy).toHaveBeenCalledWith(
-      `${unexpectedPictogram}: Pictogram not found, ensure it is added to the pictogram registry`
+      `${unexpectedPictogram}: Pictogram not found, ensure it is added to the pictogram registry`,
     );
   });
 });

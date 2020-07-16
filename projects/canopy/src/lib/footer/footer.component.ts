@@ -4,7 +4,7 @@ import {
   HostBinding,
   Input,
   Output,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 interface Link {
@@ -16,7 +16,7 @@ interface Link {
   selector: '[lg-footer]',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgFooterComponent {
   @HostBinding('class.lg-footer') class = true;
@@ -28,8 +28,8 @@ export class LgFooterComponent {
   @Input() logo: string;
   @Input() logoAlt = '';
   @Input() copyright: string;
-  @Input() primaryLinks: Link[];
-  @Input() secondaryLinks: Link[];
+  @Input() primaryLinks: Array<Link>;
+  @Input() secondaryLinks: Array<Link>;
 
   handlePrimaryLinkClick(event) {
     this.primaryLinkClicked.emit(event);

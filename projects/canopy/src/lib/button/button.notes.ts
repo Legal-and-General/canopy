@@ -70,7 +70,7 @@ Use the \`\`lg-btn--loading\`\` modifier class, include the \`\`disabled\`\` att
   <span class="lg-btn__hidden-content" aria-hidden="true">
     Primary button
   </span>
-  
+
   <div class="lg-spinner" aria-busy="true" role="alert">
     <div class="lg-spinner__ring"></div>
     <span class="hidden">Loading</span>

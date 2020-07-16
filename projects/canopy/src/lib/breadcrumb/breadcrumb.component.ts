@@ -6,8 +6,9 @@ import {
   HostBinding,
   Input,
   QueryList,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
 import { LgBreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.component';
 import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
@@ -16,7 +17,7 @@ import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
   selector: 'lg-breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgBreadcrumbComponent implements AfterContentInit {
   @HostBinding('class.lg-breadcrumb') class = true;
@@ -26,12 +27,12 @@ export class LgBreadcrumbComponent implements AfterContentInit {
   @HostBinding('attr.role') role = 'navigation';
 
   @ContentChildren(forwardRef(() => LgBreadcrumbItemComponent), {
-    descendants: true
+    descendants: true,
   })
   crumbs: QueryList<LgBreadcrumbItemComponent>;
 
   @ContentChildren(forwardRef(() => LgBreadcrumbItemEllipsisComponent), {
-    descendants: true
+    descendants: true,
   })
   ellipsis: QueryList<LgBreadcrumbItemEllipsisComponent>;
 
@@ -60,9 +61,7 @@ export class LgBreadcrumbComponent implements AfterContentInit {
 
   private setVariantOnChildren() {
     this.crumbs.forEach(crumb => (crumb.variant = this.variant));
-    this.ellipsis.forEach(
-      ellipsisItem => (ellipsisItem.variant = this.variant)
-    );
+    this.ellipsis.forEach(ellipsisItem => (ellipsisItem.variant = this.variant));
   }
 
   private setCrumbProperties() {

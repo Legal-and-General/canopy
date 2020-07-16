@@ -1,5 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { LgHeroComponent } from './hero.component';
 
 describe('LgHeroComponent', () => {
@@ -10,7 +11,7 @@ describe('LgHeroComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHeroComponent]
+      declarations: [LgHeroComponent],
     }).compileComponents();
   }));
 

@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { MockComponents, MockRender } from 'ng-mocks';
+
 import { LgTabItemContentComponent } from '../tab-item-content/tab-item-content.component';
 import { LgTabItemHeadingComponent } from '../tab-item-heading/tab-item-heading.component';
 import { LgTabItemComponent } from './tab-item.component';
@@ -16,8 +17,8 @@ describe('LgTabItemComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LgTabItemComponent,
-        MockComponents(LgTabItemHeadingComponent, LgTabItemContentComponent)
-      ]
+        MockComponents(LgTabItemHeadingComponent, LgTabItemContentComponent),
+      ],
     }).compileComponents();
   }));
 

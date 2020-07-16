@@ -12,16 +12,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [LgIconModule, LgBreadcrumbModule]
-      })
+        imports: [LgIconModule, LgBreadcrumbModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec4dd06b5f14853257d7705'
+      id: '5ec4dd06b5f14853257d7705',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const twoItems = () => ({
@@ -42,9 +42,9 @@ export const twoItems = () => ({
     variant: select(
       'Variant',
       [BreadcrumbVariant.light, BreadcrumbVariant.dark],
-      BreadcrumbVariant.dark
-    )
-  }
+      BreadcrumbVariant.dark,
+    ),
+  },
 });
 
 export const threeItems = () => ({
@@ -68,7 +68,7 @@ export const threeItems = () => ({
     variant: select(
       'Variant',
       [BreadcrumbVariant.light, BreadcrumbVariant.dark],
-      BreadcrumbVariant.dark
-    )
-  }
+      BreadcrumbVariant.dark,
+    ),
+  },
 });

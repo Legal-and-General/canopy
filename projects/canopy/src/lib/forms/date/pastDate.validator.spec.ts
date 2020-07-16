@@ -1,4 +1,5 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
+
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import subDays from 'date-fns/subDays';
@@ -15,11 +16,9 @@ describe('pastDate', () => {
   });
 
   it('returns a pastDate error if the date is not in the past', () => {
-    when(control.value).thenReturn(
-      format(addDays(new Date(), 10), 'yyyy-MM-dd')
-    );
+    when(control.value).thenReturn(format(addDays(new Date(), 10), 'yyyy-MM-dd'));
     expect(validator(instance(control))).toEqual({
-      pastDate: true
+      pastDate: true,
     });
   });
 
@@ -29,9 +28,7 @@ describe('pastDate', () => {
   });
 
   it('returns null if date is in the past', () => {
-    when(control.value).thenReturn(
-      format(subDays(new Date(), 10), 'yyyy-MM-dd')
-    );
+    when(control.value).thenReturn(format(subDays(new Date(), 10), 'yyyy-MM-dd'));
     expect(validator(instance(control))).toBe(null);
   });
 });

@@ -2,7 +2,7 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 let nextUniqueId = 0;
@@ -11,7 +11,7 @@ let nextUniqueId = 0;
   selector: 'lg-hint',
   templateUrl: './hint.component.html',
   styleUrls: ['./hint.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgHintComponent {
   @HostBinding('id')

@@ -4,8 +4,9 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { AlignmentOptions } from '../table.interface';
 
 @Component({
@@ -13,7 +14,7 @@ import { AlignmentOptions } from '../table.interface';
   templateUrl: './table-head.component.html',
   styleUrls: ['./table-head.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableHeadComponent {
   @HostBinding('class') class = 'lg-table-head';

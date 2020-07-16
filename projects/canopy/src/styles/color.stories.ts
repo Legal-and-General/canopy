@@ -5,7 +5,7 @@ import {
   Input,
   QueryList,
   ViewChild,
-  ViewChildren
+  ViewChildren,
 } from '@angular/core';
 
 import { storiesOf } from '@storybook/angular';
@@ -25,11 +25,7 @@ interface Color {
 @Component({
   selector: 'lg-swatch',
   template: `
-    <div
-      #swatch
-      class="swatch__color"
-      [ngStyle]="{ background: color.background }"
-    ></div>
+    <div #swatch class="swatch__color" [ngStyle]="{ background: color.background }"></div>
     <div class="swatch__details">
       <span class="swatch__name">{{ color.name }}</span>
       <span class="swatch__text">#{{ color.hex }}</span>
@@ -60,8 +56,8 @@ interface Color {
         display: block;
         font-size: var(--text-xs);
       }
-    `
-  ]
+    `,
+  ],
 })
 class SwatchComponent implements AfterViewInit {
   @HostBinding('class') class = 'swatch';
@@ -77,7 +73,7 @@ class SwatchComponent implements AfterViewInit {
       name: val,
       background: `var(${val})`,
       rgb: null,
-      hex: null
+      hex: null,
     };
   }
   get name() {
@@ -137,11 +133,11 @@ class SwatchComponent implements AfterViewInit {
         display: block;
         font-size: var(--text-xs);
       }
-    `
-  ]
+    `,
+  ],
 })
 class TintSwatchComponent implements AfterViewInit {
-  colors: Color[];
+  colors: Array<Color>;
 
   @HostBinding('class') class = 'tint-swatch';
 
@@ -151,9 +147,7 @@ class TintSwatchComponent implements AfterViewInit {
     this.swatches.forEach((swatch, i) => {
       const styles = window.getComputedStyle(swatch.nativeElement);
       this.colors[i].rgb = styles.backgroundColor;
-      this.colors[i].hex = convert.rgb.hex(
-        styles.backgroundColor.match(/\d+/g)
-      );
+      this.colors[i].hex = convert.rgb.hex(styles.backgroundColor.match(/\d+/g));
     });
   }
 
@@ -163,7 +157,7 @@ class TintSwatchComponent implements AfterViewInit {
       name,
       rgb: null,
       hex: null,
-      background: `var(${name})`
+      background: `var(${name})`,
     }));
   }
 }
@@ -172,7 +166,7 @@ stories.add(
   'Colors',
   () => ({
     moduleMetadata: {
-      declarations: [SwatchComponent, TintSwatchComponent]
+      declarations: [SwatchComponent, TintSwatchComponent],
     },
     template: `
     <h2>Shades</h2>
@@ -220,25 +214,25 @@ stories.add(
 
     <div>
       <div>
-        <lg-tint-swatch 
+        <lg-tint-swatch
           names="--color-super-blue-lightest,--color-super-blue-light,--color-super-blue,--color-super-blue-dark,--color-super-blue-darkest">
         </lg-tint-swatch>
-        <lg-tint-swatch 
+        <lg-tint-swatch
           names="--color-leafy-green-lightest,--color-leafy-green-light,--color-leafy-green,--color-leafy-green-dark,--color-leafy-green-darkest">
         </lg-tint-swatch>
-        <lg-tint-swatch 
+        <lg-tint-swatch
           names="--color-poppy-red-lightest,--color-poppy-red-light,--color-poppy-red,--color-poppy-red-dark">
         </lg-tint-swatch>
-        <lg-tint-swatch 
+        <lg-tint-swatch
           names="--color-dandelion-yellow-lightest,--color-dandelion-yellow-light,--color-dandelion-yellow,--color-dandelion-yellow-dark">
         </lg-tint-swatch>
       </div>
     </div>
-  `
+  `,
   }),
   {
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 );

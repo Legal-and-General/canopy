@@ -6,6 +6,6 @@ import { LgHeadingComponent } from './heading.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [LgHeadingComponent],
-  exports: [LgHeadingComponent]
+  exports: [LgHeadingComponent],
 })
 export class LgHeadingModule {}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LgDomService {
   /**
@@ -23,7 +23,7 @@ export class LgDomService {
   toggleIdInStringProperty(
     property = '',
     oldElement: { id: string },
-    newElement?: { id: string }
+    newElement?: { id: string },
   ): string {
     if (oldElement && oldElement.id) {
       property = property.replace(oldElement.id, '');

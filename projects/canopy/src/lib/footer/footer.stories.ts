@@ -15,29 +15,29 @@ export default {
       fullScreen,
       withKnobs,
       moduleMetadata({
-        declarations: [LgFooterComponent]
-      })
+        declarations: [LgFooterComponent],
+      }),
     ],
     'in-dsm': {
-      id: '5ec4f36b45894b0873022460'
+      id: '5ec4f36b45894b0873022460',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const primaryLinks = [
   { text: 'My account', href: 'https://app.somecompany.com' },
   { text: 'My quotes', href: 'https://somecompany.com/quotes' },
   { text: 'Support centre', href: 'https://somecompany.com/support' },
-  { text: 'Contact', href: 'https://somecompany.com/contact' }
+  { text: 'Contact', href: 'https://somecompany.com/contact' },
 ];
 
 export const secondaryLinks = [
   { text: 'Accessibility', href: 'https://somecompany.com/accessibility' },
   { text: 'Security', href: 'https://somecompany.com/security' },
-  { text: 'Legal and regulatory', href: 'https://somecompany.com/legal' }
+  { text: 'Legal and regulatory', href: 'https://somecompany.com/legal' },
 ];
 
 const groupId = 'footer';
@@ -58,13 +58,13 @@ export const standard = () => ({
     logo: text(
       'logo',
       'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
-      groupId
+      groupId,
     ),
     logoAlt: text('logoAlt', 'Company name', groupId),
     copyright: text('copyright', '© Some Company plc 2018', groupId),
     secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
     primaryLinks: object('primaryLinks', primaryLinks, groupId),
     primaryLinkClicked: action('primaryLinkClicked'),
-    secondaryLinkClicked: action('secondaryLinkClicked')
-  }
+    secondaryLinkClicked: action('secondaryLinkClicked'),
+  },
 });

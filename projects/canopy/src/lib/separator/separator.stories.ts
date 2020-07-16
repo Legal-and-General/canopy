@@ -8,20 +8,20 @@ export default {
   parameters: {
     decorators: [
       moduleMetadata({
-        declarations: [LgSeparatorComponent]
-      })
+        declarations: [LgSeparatorComponent],
+      }),
     ],
     'in-dsm': {
-      id: '5ec502c64b3101d78189aeef'
+      id: '5ec502c64b3101d78189aeef',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
   template: `
     <lg-separator></lg-separator>
-  `
+  `,
 });

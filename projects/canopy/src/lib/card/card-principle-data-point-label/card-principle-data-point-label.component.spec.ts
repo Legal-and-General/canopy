@@ -8,7 +8,7 @@ describe('LgCardPrincipleDataPointLabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgCardPrincipleDataPointLabelComponent]
+      declarations: [LgCardPrincipleDataPointLabelComponent],
     }).compileComponents();
   }));
 
@@ -24,7 +24,7 @@ describe('LgCardPrincipleDataPointLabelComponent', () => {
 
   it('should contain the default class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-principle-data-point-label'
+      'lg-card-principle-data-point-label',
     );
   });
 });

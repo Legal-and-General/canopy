@@ -10,7 +10,7 @@ import {
   Self,
   SkipSelf,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -19,20 +19,19 @@ import {
   FormGroupDirective,
   NgControl,
   ValidationErrors,
-  Validators
+  Validators,
 } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import isValid from 'date-fns/isValid';
+import parseISO from 'date-fns/parseISO';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { DateField } from './date-field.interface';
-
-import isValid from 'date-fns/isValid';
-import parseISO from 'date-fns/parseISO';
 import omit from '../../utils/omit';
 
 let nextUniqueId = 0;
@@ -40,17 +39,16 @@ let nextUniqueId = 0;
 const labelFieldMap = {
   date: 'day',
   month: 'month',
-  year: 'year'
+  year: 'year',
 };
 
 @Component({
   selector: 'lg-date-field',
   templateUrl: './date-field.component.html',
   styleUrls: ['./date-field.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
-export class LgDateFieldComponent
-  implements OnInit, ControlValueAccessor, OnDestroy {
+export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDestroy {
   @HostBinding('class.lg-date-field') class = true;
 
   private uniqueId = nextUniqueId++;
@@ -73,7 +71,7 @@ export class LgDateFieldComponent
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
       this._hintElement,
-      element
+      element,
     );
     this._hintElement = element;
   }
@@ -84,7 +82,7 @@ export class LgDateFieldComponent
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
       this._validationElement,
-      element
+      element,
     );
     this._validationElement = element;
   }
@@ -101,7 +99,7 @@ export class LgDateFieldComponent
     @Optional()
     @Host()
     @SkipSelf()
-    private parentFormGroupDirective: FormGroupDirective
+    private parentFormGroupDirective: FormGroupDirective,
   ) {
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
@@ -113,27 +111,27 @@ export class LgDateFieldComponent
       Validators.required,
       Validators.pattern(/^\d{1,2}$/),
       Validators.min(1),
-      Validators.max(31)
+      Validators.max(31),
     ]);
     this.month = new FormControl(null, [
       Validators.required,
       Validators.pattern(/^\d{1,2}$/),
       Validators.min(1),
-      Validators.max(12)
+      Validators.max(12),
     ]);
     this.year = new FormControl(null, [
       Validators.required,
-      Validators.pattern(/^\d\d\d\d$/)
+      Validators.pattern(/^\d\d\d\d$/),
     ]);
     this.dateFormGroup = new FormGroup(
       {
         date: this.date,
         month: this.month,
-        year: this.year
+        year: this.year,
       },
       {
-        updateOn: 'blur'
-      }
+        updateOn: 'blur',
+      },
     );
 
     const validators = [this.validate.bind(this)];
@@ -146,14 +144,12 @@ export class LgDateFieldComponent
       this.ngControl.control.updateValueAndValidity();
     }
 
-    this.valueChanges = this.dateFormGroup.valueChanges.subscribe(
-      (date: DateField) => {
-        const day = date.date ? ('0' + date.date).slice(-2) : '';
-        const month = date.month ? ('0' + date.month).slice(-2) : '';
-        const year = date.year ? date.year : '';
-        this.onChange(`${year}-${month}-${day}`);
-      }
-    );
+    this.valueChanges = this.dateFormGroup.valueChanges.subscribe((date: DateField) => {
+      const day = date.date ? ('0' + date.date).slice(-2) : '';
+      const month = date.month ? ('0' + date.month).slice(-2) : '';
+      const year = date.year ? date.year : '';
+      this.onChange(`${year}-${month}-${day}`);
+    });
 
     // submit the group when the parent form is submitted
     this.parentFormGroupDirective.ngSubmit
@@ -183,11 +179,11 @@ export class LgDateFieldComponent
       {
         date,
         month,
-        year
+        year,
       },
       {
-        emitEvent: false
-      }
+        emitEvent: false,
+      },
     );
   }
 
@@ -196,7 +192,7 @@ export class LgDateFieldComponent
     this.month.setErrors(omit(this.month.errors, 'invalidDate'));
     this.year.setErrors(omit(this.year.errors, 'invalidDate'));
 
-    const invalidFields: string[] = [];
+    const invalidFields: Array<string> = [];
     Object.keys(this.dateFormGroup.controls).forEach(fieldName => {
       if (
         this.dateFormGroup.controls[fieldName].invalid &&
@@ -207,8 +203,8 @@ export class LgDateFieldComponent
       }
     });
 
-    const invalidFieldNames: string[] = [];
-    const requiredFieldNames: string[] = [];
+    const invalidFieldNames: Array<string> = [];
+    const requiredFieldNames: Array<string> = [];
     invalidFields.forEach(fieldName => {
       if (this.dateFormGroup.controls[fieldName].hasError('required')) {
         requiredFieldNames.push(labelFieldMap[fieldName]);

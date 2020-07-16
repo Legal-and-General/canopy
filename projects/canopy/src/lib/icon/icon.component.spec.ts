@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { instance, mock, when } from 'ts-mockito';
+
 import { LgIconComponent } from './icon.component';
 import { LgIconRegistry } from './icon.registry';
 
@@ -16,9 +18,9 @@ describe('LgIconComponent', () => {
       providers: [
         {
           provide: LgIconRegistry,
-          useFactory: () => instance(iconRegistryMock)
-        }
-      ]
+          useFactory: () => instance(iconRegistryMock),
+        },
+      ],
     }).compileComponents();
   }));
 
@@ -45,9 +47,7 @@ describe('LgIconComponent', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
       expect(fixture.nativeElement.querySelector('#lg-icon-0')).toBeNull();
 
-      when(iconRegistryMock.getIcon('add')).thenReturn(
-        '<svg id="test">test-svg</svg>'
-      );
+      when(iconRegistryMock.getIcon('add')).thenReturn('<svg id="test">test-svg</svg>');
 
       component.name = 'add';
       fixture.detectChanges();

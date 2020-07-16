@@ -4,7 +4,7 @@ import {
   HostBinding,
   Input,
   Renderer2,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { ValidationVariant } from './validation';
@@ -15,7 +15,7 @@ let nextUniqueId = 0;
   selector: 'lg-validation',
   templateUrl: './validation.component.html',
   styleUrls: ['./validation.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgValidationComponent {
   @HostBinding('class.lg-validation')
@@ -29,12 +29,12 @@ export class LgValidationComponent {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-validation--${this._variant}`
+        `lg-validation--${this._variant}`,
       );
     }
     this.renderer.addClass(
       this.hostElement.nativeElement,
-      `lg-validation--${variant}`
+      `lg-validation--${variant}`,
     );
     this._variant = variant;
   }

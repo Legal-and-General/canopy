@@ -17,16 +17,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [LgTableModule]
-      })
+        imports: [LgTableModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec5304f07ffe6a6e1c14b31'
+      id: '5ec5304f07ffe6a6e1c14b31',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -47,31 +47,31 @@ export const standard = () => ({
   `,
   props: {
     books: object('Books', getDefultTableContent(), 'lg-table'),
-    alignPublishColumn: AlignmentOptions.End
-  }
+    alignPublishColumn: AlignmentOptions.End,
+  },
 });
 
-function getDefultTableContent(): TableStoryItem[] {
+function getDefultTableContent(): Array<TableStoryItem> {
   return [
     {
       author: 'Orhan Pamuk',
       title: 'Strangeness In My Mind',
-      published: '2016'
+      published: '2016',
     },
     {
       author: 'Albert Camus',
       title: 'The Plague',
-      published: '1947'
+      published: '1947',
     },
     {
       author: 'George Orwell',
       title: 'Animal Farm',
-      published: '1945'
+      published: '1945',
     },
     {
       author: 'Chinua Achebe',
       title: 'Things Fall Apart',
-      published: '1958'
-    }
+      published: '1958',
+    },
   ];
 }

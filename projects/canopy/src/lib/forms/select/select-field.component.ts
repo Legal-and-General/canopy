@@ -4,7 +4,7 @@ import {
   HostBinding,
   Input,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { LgDomService } from '../../utils/dom.service';
@@ -20,7 +20,7 @@ let nextUniqueId = 0;
   selector: 'lg-select-field',
   templateUrl: './select-field.component.html',
   styleUrls: ['./select-field.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgSelectFieldComponent {
   @Input() id = `lg-select-${nextUniqueId++}`;
@@ -28,7 +28,7 @@ export class LgSelectFieldComponent {
   @HostBinding('class.lg-select-field--error') get errorClass() {
     return this.errorState.isControlInvalid(
       this._selectElement.control,
-      this._selectElement.controlContainer
+      this._selectElement.controlContainer,
     );
   }
 
@@ -64,7 +64,7 @@ export class LgSelectFieldComponent {
     this._selectElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._selectElement.ariaDescribedBy,
       this._hintElement,
-      element
+      element,
     );
     this._hintElement = element;
   }
@@ -75,13 +75,13 @@ export class LgSelectFieldComponent {
     this._selectElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._selectElement.ariaDescribedBy,
       this._validationElement,
-      element
+      element,
     );
     this._validationElement = element;
   }
 
   constructor(
     private errorState: LgErrorStateMatcher,
-    private domService: LgDomService
+    private domService: LgDomService,
   ) {}
 }

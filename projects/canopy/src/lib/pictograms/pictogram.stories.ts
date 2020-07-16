@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
+
 import { LgPictogramComponent } from './pictogram.component';
 import { notes } from './pictogram.notes';
 import { LgPictogramRegistry } from './pictogram.registry';
@@ -11,7 +13,7 @@ export const pictogramArray: Array<picSet.Pictogram> = [
   picSet.lgPictogramPiggyBank,
   picSet.lgPictogramCookiesAndArrows,
   picSet.lgPictogramErrorInBrowser,
-  picSet.lgPictogramNeedHelp
+  picSet.lgPictogramNeedHelp,
 ];
 
 @Component({
@@ -45,8 +47,8 @@ export const pictogramArray: Array<picSet.Pictogram> = [
         margin-right: var(--space-md);
         display: inline;
       }
-    `
-  ]
+    `,
+  ],
 })
 class SwatchPictogramComponent {
   pictograms = pictogramArray;
@@ -63,17 +65,17 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        declarations: [SwatchPictogramComponent, LgPictogramComponent]
-      })
+        declarations: [SwatchPictogramComponent, LgPictogramComponent],
+      }),
     ],
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
   template: `
     <lg-swatch-pictogram></lg-swatch-pictogram>
-  `
+  `,
 });

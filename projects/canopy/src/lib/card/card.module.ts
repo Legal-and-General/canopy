@@ -23,11 +23,11 @@ const components = [
   LgCardPrincipleDataPointLabelComponent,
   LgCardPrincipleDataPointValueComponent,
   LgCardPrincipleDataPointDateComponent,
-  LgCardContentComponent
+  LgCardContentComponent,
 ];
 @NgModule({
   imports: [CommonModule, LgHeadingModule],
   declarations: [components],
-  exports: [components]
+  exports: [components],
 })
 export class LgCardModule {}

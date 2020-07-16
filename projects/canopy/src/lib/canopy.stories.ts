@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+
 import { moduleMetadata } from '@storybook/angular';
 
 import { fullScreen } from '../../../../.storybook/addons/full-screen';
@@ -13,12 +14,12 @@ export default {
       moduleMetadata({
         declarations: [AppComponent],
         entryComponents: [AppComponent],
-        imports: [CommonModule, CanopyModule]
-      })
-    ]
-  }
+        imports: [CommonModule, CanopyModule],
+      }),
+    ],
+  },
 };
 
 export const standard = () => ({
-  template: `<app-root></app-root>`
+  template: `<app-root></app-root>`,
 });

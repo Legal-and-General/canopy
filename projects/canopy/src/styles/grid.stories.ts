@@ -14,7 +14,7 @@ stories.add(
         <div class="lg-row">
           <div class="lg-col-xs-12">
             <h2>Responsive</h2>
-            <p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths.</p>    
+            <p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths.</p>
           </div>
         </div>
         <div class="lg-row">
@@ -52,7 +52,7 @@ stories.add(
         <div class="lg-row">
           <div class="lg-col-xs-12">
             <h2>Fluid</h2>
-            <p>Percent based widths allow fluid resizing of columns and rows.</p>    
+            <p>Percent based widths allow fluid resizing of columns and rows.</p>
           </div>
         </div>
         <div class="lg-row">
@@ -100,7 +100,7 @@ stories.add(
         <div class="lg-row">
           <div class="lg-col-xs-12">
             <h2>Offsets</h2>
-            <p>Offset a column</p>    
+            <p>Offset a column</p>
           </div>
         </div>
         <div class="lg-row">
@@ -144,7 +144,7 @@ stories.add(
         <div class="lg-row">
           <div class="lg-col-xs-12">
             <h2>Auto Width</h2>
-            <p>Add any number of auto sizing columns to a row. Let the grid figure it out.</p>    
+            <p>Add any number of auto sizing columns to a row. Let the grid figure it out.</p>
           </div>
         </div>
         <div class="lg-row">
@@ -164,7 +164,7 @@ stories.add(
         <div class="lg-row">
           <div class="lg-col-xs-12">
             <h2>Nested Grid</h2>
-            <p>Nest grids inside grids inside grids.</p>    
+            <p>Nest grids inside grids inside grids.</p>
           </div>
         </div>
         <div class="lg-row nested">
@@ -236,7 +236,7 @@ stories.add(
           padding: var(--space-sm);
           margin-bottom: var(--space-md);
         }
-        
+
         .nested .box .box {
           background-color: var(--color-super-blue-light);
           margin-bottom: 0;
@@ -253,13 +253,13 @@ stories.add(
         p:last-child {
           margin-bottom: var(--text-bottom-margin)
         }
-      `
-      ]
+      `,
+      ],
     };
   },
   {
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 );

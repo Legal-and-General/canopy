@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { instance, mock, when } from 'ts-mockito';
+
 import { LgPictogramComponent } from './pictogram.component';
 import { LgPictogramRegistry } from './pictogram.registry';
 
@@ -16,9 +18,9 @@ describe('LgPictogramComponent', () => {
       providers: [
         {
           provide: LgPictogramRegistry,
-          useFactory: () => instance(pictogramRegistryMock)
-        }
-      ]
+          useFactory: () => instance(pictogramRegistryMock),
+        },
+      ],
     }).compileComponents();
   }));
 
@@ -33,9 +35,7 @@ describe('LgPictogramComponent', () => {
   });
 
   it('should add the generic pictogram class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-pictogram'
-    );
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram');
   });
 
   it('should set `aria-hidden` to true', () => {
@@ -48,16 +48,14 @@ describe('LgPictogramComponent', () => {
       expect(fixture.nativeElement.querySelector('#lg-pictogram-0')).toBeNull();
 
       when(pictogramRegistryMock.getPictogram('sun')).thenReturn(
-        '<svg id="test">test-svg</svg>'
+        '<svg id="test">test-svg</svg>',
       );
 
       component.name = 'sun';
       fixture.detectChanges();
 
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
-      expect(
-        fixture.nativeElement.querySelector('#lg-pictogram-0')
-      ).toBeDefined();
+      expect(fixture.nativeElement.querySelector('#lg-pictogram-0')).toBeDefined();
     });
   });
 });

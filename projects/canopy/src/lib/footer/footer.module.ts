@@ -7,6 +7,6 @@ import { LgFooterComponent } from './footer.component';
   declarations: [LgFooterComponent],
   exports: [LgFooterComponent],
   entryComponents: [LgFooterComponent],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class LgFooterModule {}

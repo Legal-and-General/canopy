@@ -7,6 +7,6 @@ import { LgToggleComponent } from './toggle.component';
   declarations: [LgToggleComponent],
   exports: [LgToggleComponent],
   imports: [CommonModule],
-  entryComponents: [LgToggleComponent]
+  entryComponents: [LgToggleComponent],
 })
 export class LgToggleModule {}

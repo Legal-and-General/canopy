@@ -1,13 +1,11 @@
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgToggleComponent } from './toggle.component';
 import { notes } from './toggle.notes';
-import {
-  createToggleStory,
-  ReactiveToggleFormComponent
-} from './toggle.stories.common';
+import { createToggleStory, ReactiveToggleFormComponent } from './toggle.stories.common';
 
 export default {
   title: 'Components/Form/Switch',
@@ -16,16 +14,16 @@ export default {
       withKnobs,
       moduleMetadata({
         imports: [ReactiveFormsModule],
-        declarations: [LgToggleComponent, ReactiveToggleFormComponent]
-      })
+        declarations: [LgToggleComponent, ReactiveToggleFormComponent],
+      }),
     ],
     'in-dsm': {
-      id: '5ed65458a269db897a682602'
+      id: '5ed65458a269db897a682602',
     },
     notes: {
-      markdown: notes('Switch')
-    }
-  }
+      markdown: notes('Switch'),
+    },
+  },
 };
 
 export const standard = () => createToggleStory('Switch', 'switch');

@@ -6,8 +6,9 @@ import {
   QueryList,
   TemplateRef,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
 
@@ -16,7 +17,7 @@ import { LgTableHeadComponent } from '../table-head/table-head.component';
   templateUrl: './table-row.component.html',
   styleUrls: ['./table-row.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableRowComponent {
   @HostBinding('class') class = 'lg-table-row';

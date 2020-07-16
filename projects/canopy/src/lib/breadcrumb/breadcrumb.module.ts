@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
 import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import * as iconSet from '../icon/icons.interface';
@@ -11,14 +12,14 @@ import { LgBreadcrumbComponent } from './breadcrumb.component';
   declarations: [
     LgBreadcrumbComponent,
     LgBreadcrumbItemComponent,
-    LgBreadcrumbItemEllipsisComponent
+    LgBreadcrumbItemEllipsisComponent,
   ],
   exports: [
     LgBreadcrumbComponent,
     LgBreadcrumbItemComponent,
-    LgBreadcrumbItemEllipsisComponent
+    LgBreadcrumbItemEllipsisComponent,
   ],
-  imports: [CommonModule, LgIconModule]
+  imports: [CommonModule, LgIconModule],
 })
 export class LgBreadcrumbModule {
   constructor(private registry: LgIconRegistry) {
@@ -26,7 +27,7 @@ export class LgBreadcrumbModule {
       iconSet.lgIconHome,
       iconSet.lgIconCaretLeft,
       iconSet.lgIconCaretRight,
-      iconSet.lgIconOverflowHorizontal
+      iconSet.lgIconOverflowHorizontal,
     ]);
   }
 }

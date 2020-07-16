@@ -4,7 +4,7 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   selector: 'lg-hero-card-subtitle',
   templateUrl: './hero-card-subtitle.component.html',
   styleUrls: ['./hero-card-subtitle.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgHeroCardSubtitleComponent {
   @HostBinding('class.lg-hero-card-subtitle') class = true;

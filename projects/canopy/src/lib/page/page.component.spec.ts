@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { LgPageComponent } from './page.component';
 
 describe('LgPageComponent', () => {
@@ -10,7 +10,7 @@ describe('LgPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgPageComponent]
+      declarations: [LgPageComponent],
     }).compileComponents();
   }));
 
@@ -25,9 +25,7 @@ describe('LgPageComponent', () => {
   });
 
   it('should focus to main container on click of skip to main content', () => {
-    const mainElement: DebugElement = fixture.debugElement.query(
-      By.css('#main')
-    );
+    const mainElement: DebugElement = fixture.debugElement.query(By.css('#main'));
     const focusSpy = spyOn(mainElement.nativeElement, 'focus');
     fixture.debugElement
       .query(By.css('.lg-page__skip-link'))

@@ -10,12 +10,12 @@ const components = [
   LgTableComponent,
   LgTableCellComponent,
   LgTableHeadComponent,
-  LgTableRowComponent
+  LgTableRowComponent,
 ];
 
 @NgModule({
   imports: [CommonModule],
   declarations: [...components],
-  exports: [...components]
+  exports: [...components],
 })
 export class LgTableModule {}

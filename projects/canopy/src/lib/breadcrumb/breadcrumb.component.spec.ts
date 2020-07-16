@@ -1,6 +1,8 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { MockComponent, MockRender } from 'ng-mocks';
+
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
 import { LgBreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.component';
 import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
@@ -17,8 +19,8 @@ describe('LgBreadcrumbComponent', () => {
       declarations: [
         LgBreadcrumbComponent,
         MockComponent(LgBreadcrumbItemComponent),
-        MockComponent(LgBreadcrumbItemEllipsisComponent)
-      ]
+        MockComponent(LgBreadcrumbItemEllipsisComponent),
+      ],
     }).compileComponents();
   }));
 

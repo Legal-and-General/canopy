@@ -4,19 +4,20 @@ import {
   CanActivate,
   CanLoad,
   Route,
-  Router
+  Router,
 } from '@angular/router';
+
 import { first, map } from 'rxjs/operators';
 
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FeatureToggleGuard implements CanActivate, CanLoad {
   constructor(
     private featureToggleService: LgFeatureToggleService,
-    private router: Router
+    private router: Router,
   ) {}
 
   canLoad(route: Route) {
@@ -45,7 +46,7 @@ export class FeatureToggleGuard implements CanActivate, CanLoad {
           this.router.navigate(['/'], { queryParamsHandling: 'merge' });
         }
         return active;
-      })
+      }),
     );
   }
 }
@@ -56,7 +57,7 @@ export class FeatureToggleGuard implements CanActivate, CanLoad {
 export function getDataPropertyValues(
   snapshot: ActivatedRouteSnapshot | Route,
   propertyName: string,
-  values = new Array<any>()
+  values = new Array<any>(),
 ) {
   if (snapshot.data && snapshot.data.hasOwnProperty(propertyName)) {
     values.push(snapshot.data[propertyName]);

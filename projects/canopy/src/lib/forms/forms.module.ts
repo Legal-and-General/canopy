@@ -18,7 +18,7 @@ import { LgValidationModule } from './validation/validation.module';
     LgLabelModule,
     LgRadioModule,
     LgSelectModule,
-    LgToggleModule
-  ]
+    LgToggleModule,
+  ],
 })
 export class LgFormsModule {}

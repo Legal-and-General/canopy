@@ -12,7 +12,7 @@ import { boolean, text } from '@storybook/addon-knobs';
         {{ label }}
       </lg-toggle>
     </form>
-  `
+  `,
 })
 export class ReactiveToggleFormComponent {
   @Input() label: string;
@@ -40,7 +40,7 @@ export class ReactiveToggleFormComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      umbrella: [{ value: '', disabled: false }]
+      umbrella: [{ value: '', disabled: false }],
     });
     this.form.valueChanges.subscribe(val => this.toggleChange.emit(val));
   }
@@ -57,6 +57,6 @@ export const createToggleStory = (name: string, variant?: string) => ({
   props: {
     toggleChange: action('toggleChange'),
     label: text('label', 'I will bring my Umbrella if it is raining'),
-    disabled: boolean('disabled', false)
-  }
+    disabled: boolean('disabled', false),
+  },
 });

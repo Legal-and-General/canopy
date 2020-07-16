@@ -6,6 +6,6 @@ import { LgPageComponent } from './page.component';
 @NgModule({
   imports: [CommonModule],
   declarations: [LgPageComponent],
-  exports: [LgPageComponent]
+  exports: [LgPageComponent],
 })
 export class LgPageModule {}

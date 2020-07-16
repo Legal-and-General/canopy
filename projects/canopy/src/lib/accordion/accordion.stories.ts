@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+
 import { action } from '@storybook/addon-actions';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
@@ -13,16 +14,16 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [CommonModule, LgAccordionModule, LgButtonModule]
-      })
+        imports: [CommonModule, LgAccordionModule, LgButtonModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec4dbf0c4b3aed7e94e8886'
+      id: '5ec4dbf0c4b3aed7e94e8886',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 const accordionItems = `
@@ -62,16 +63,16 @@ function props() {
     toggle: action('Toggle item'),
     itemOneActive: boolean('Item 1 active', false),
     itemTwoActive: boolean('Item 2 active', true),
-    itemThreeActive: boolean('Item 3 active', false)
+    itemThreeActive: boolean('Item 3 active', false),
   };
 }
 
 export const standard = () => ({
   template: `<lg-accordion [headingLevel]="headingLevel">${accordionItems}</lg-accordion>`,
-  props: props()
+  props: props(),
 });
 
 export const singleItemActive = () => ({
   template: `<lg-accordion [headingLevel]="headingLevel" [multi]="false">${accordionItems}</lg-accordion>`,
-  props: props()
+  props: props(),
 });

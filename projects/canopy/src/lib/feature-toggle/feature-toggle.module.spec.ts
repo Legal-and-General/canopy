@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+
 import { togglesOptionsInjectable } from './feature-toggle.interface';
 import { LgFeatureToggleModule } from './feature-toggle.module';
-
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 describe('FeatureToggleModule', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [LgFeatureToggleModule]
+      imports: [LgFeatureToggleModule],
     });
   });
 

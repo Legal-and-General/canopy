@@ -1,6 +1,6 @@
 export const notes = (
   productHeroHTML: string,
-  conversationalHeroHTML: string
+  conversationalHeroHTML: string,
 ) => `
 # Hero Component
 

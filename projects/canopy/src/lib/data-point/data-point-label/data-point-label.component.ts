@@ -3,8 +3,9 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
+
 import { HeadingLevel } from '../../heading';
 
 @Component({
@@ -12,7 +13,7 @@ import { HeadingLevel } from '../../heading';
   templateUrl: './data-point-label.component.html',
   styleUrls: ['./data-point-label.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgDataPointLabelComponent {
   @HostBinding('class.lg-data-point-label') class = true;

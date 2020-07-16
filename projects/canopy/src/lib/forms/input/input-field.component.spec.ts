@@ -27,9 +27,9 @@ describe('LgInputFieldComponent', () => {
           LgInputDirective,
           LgValidationComponent,
           LgLabelComponent,
-          LgHintComponent
-        )
-      ]
+          LgHintComponent,
+        ),
+      ],
     }).compileComponents();
   }));
 
@@ -48,7 +48,7 @@ describe('LgInputFieldComponent', () => {
       .componentInstance;
 
     inputDirectiveInstance = fixture.debugElement.query(
-      By.directive(LgInputDirective)
+      By.directive(LgInputDirective),
     ).componentInstance;
   }
 

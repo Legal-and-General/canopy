@@ -1,5 +1,6 @@
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
+
 import { LgFocusDirective } from './focus.directive';
 import { notes } from './focus.notes';
 
@@ -10,16 +11,16 @@ stories.add(
   'Focus',
   () => ({
     moduleMetadata: {
-      declarations: [LgFocusDirective]
+      declarations: [LgFocusDirective],
     },
     template: `
       <button [lgFocus]="focus">Focus directive example</button>
     `,
     props: {
-      focus: boolean('focus', false, 'lg-focus')
-    }
+      focus: boolean('focus', false, 'lg-focus'),
+    },
   }),
   {
-    notes: { markdown: notes }
-  }
+    notes: { markdown: notes },
+  },
 );

@@ -3,11 +3,11 @@ import {
   ElementRef,
   Input,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 
 @Directive({
-  selector: '[lgFocus]'
+  selector: '[lgFocus]',
 })
 export class LgFocusDirective implements OnChanges {
   @Input() lgFocus: boolean;

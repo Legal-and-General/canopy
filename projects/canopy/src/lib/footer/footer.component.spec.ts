@@ -16,7 +16,7 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgFooterComponent]
+      declarations: [LgFooterComponent],
     }).compileComponents();
   }));
 
@@ -65,7 +65,7 @@ describe('FooterComponent', () => {
       let selectedHref: string;
       component.primaryLinkClicked.subscribe((event: Event) => {
         selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
-          'href'
+          'href',
         ).value;
         event.preventDefault();
       });
@@ -107,7 +107,7 @@ describe('FooterComponent', () => {
       let selectedHref: string;
       component.secondaryLinkClicked.subscribe((event: Event) => {
         selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
-          'href'
+          'href',
         ).value;
         event.preventDefault();
       });

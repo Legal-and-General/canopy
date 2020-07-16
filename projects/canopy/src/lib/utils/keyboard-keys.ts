@@ -2,7 +2,7 @@ export const keyName = {
   KEY_LEFT: 'ArrowLeft',
   KEY_UP: 'ArrowUp',
   KEY_RIGHT: 'ArrowRight',
-  KEY_DOWN: 'ArrowDown'
+  KEY_DOWN: 'ArrowDown',
 };
 
 // event.key in IE and Edge return 'Left', 'Right', 'Up', 'Down' and 'Esc'

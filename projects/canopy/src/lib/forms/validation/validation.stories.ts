@@ -10,13 +10,13 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [LgValidationModule]
-      })
+        imports: [LgValidationModule],
+      }),
     ],
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -33,7 +33,7 @@ export const standard = () => ({
     variant: select(
       'variant',
       ['generic', 'info', 'success', 'warning', 'error'],
-      'error'
-    )
-  }
+      'error',
+    ),
+  },
 });

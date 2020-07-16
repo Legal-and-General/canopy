@@ -8,7 +8,7 @@ describe('LgCardContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgCardContentComponent]
+      declarations: [LgCardContentComponent],
     }).compileComponents();
   }));
 
@@ -24,7 +24,7 @@ describe('LgCardContentComponent', () => {
 
   it('should contain the default class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-content'
+      'lg-card-content',
     );
   });
 });

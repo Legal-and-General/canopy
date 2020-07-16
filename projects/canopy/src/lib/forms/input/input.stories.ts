@@ -18,7 +18,7 @@ import { notes } from './input.notes';
         <input lgInput formControlName="name" [size]="size" />
       </lg-input-field>
     </form>
-  `
+  `,
 })
 class ReactiveFormComponent {
   @Input() block: boolean;
@@ -55,16 +55,16 @@ export default {
       withKnobs,
       moduleMetadata({
         declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule]
-      })
+        imports: [ReactiveFormsModule, CanopyModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ef4b4da9137317adbb4da5d'
+      id: '5ef4b4da9137317adbb4da5d',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -84,6 +84,6 @@ export const standard = () => ({
     hint: text('hint', 'Please enter your name'),
     size: number('input size', 12),
     block: boolean('block', false),
-    disabled: boolean('disabled', false)
-  }
+    disabled: boolean('disabled', false),
+  },
 });

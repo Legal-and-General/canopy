@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { MockComponents, MockDirective, MockRender } from 'ng-mocks';
 import { instance, mock, when } from 'ts-mockito';
+
 import { LgFocusDirective } from '../focus';
 import { LgHeadingComponent } from '../heading/heading.component';
 import { keyName } from '../utils/keyboard-keys';
@@ -27,9 +28,9 @@ describe('LgTabsComponent', () => {
           LgTabItemComponent,
           LgTabItemHeadingComponent,
           LgTabItemContentComponent,
-          LgHeadingComponent
-        )
-      ]
+          LgHeadingComponent,
+        ),
+      ],
     }).compileComponents();
   }));
 
@@ -60,45 +61,39 @@ describe('LgTabsComponent', () => {
 
   it('should have the role tab', () => {
     const listDebugElement = debugElement.query(By.css('.lg-tabs__list'));
-    expect(listDebugElement.nativeElement.getAttribute('role')).toContain(
-      'tab'
-    );
+    expect(listDebugElement.nativeElement.getAttribute('role')).toContain('tab');
   });
 
   it('should set content tab tabindex to zero', () => {
     const secondContentTab = debugElement.query(
-      By.css(`#tab-item-content-${component.id}-0`)
+      By.css(`#tab-item-content-${component.id}-0`),
     );
-    expect(secondContentTab.nativeElement.getAttribute('tabindex')).toEqual(
-      '0'
-    );
+    expect(secondContentTab.nativeElement.getAttribute('tabindex')).toEqual('0');
   });
 
   it('should control tabs with matching label', () => {
     const secondContentTab = debugElement.query(
-      By.css(`#tab-item-heading-${component.id}-0`)
+      By.css(`#tab-item-heading-${component.id}-0`),
     );
-    expect(
-      secondContentTab.nativeElement.getAttribute('aria-controls')
-    ).toEqual(`tab-item-content-${component.id}-0`);
+    expect(secondContentTab.nativeElement.getAttribute('aria-controls')).toEqual(
+      `tab-item-content-${component.id}-0`,
+    );
   });
 
   it('should set labelled by attribute for tab content', () => {
     const secondContentTab = debugElement.query(
-      By.css(`#tab-item-content-${component.id}-0`)
+      By.css(`#tab-item-content-${component.id}-0`),
     );
-    expect(
-      secondContentTab.nativeElement.getAttribute('aria-labelledby')
-    ).toEqual(`tab-item-heading-${component.id}-0`);
+    expect(secondContentTab.nativeElement.getAttribute('aria-labelledby')).toEqual(
+      `tab-item-heading-${component.id}-0`,
+    );
   });
 
   it('should set tabpanel role on tab content', () => {
     const secondContentTab = debugElement.query(
-      By.css(`#tab-item-content-${component.id}-0`)
+      By.css(`#tab-item-content-${component.id}-0`),
     );
-    expect(secondContentTab.nativeElement.getAttribute('role')).toEqual(
-      'tabpanel'
-    );
+    expect(secondContentTab.nativeElement.getAttribute('role')).toEqual('tabpanel');
   });
 
   it('should reset isKeyboardEvent to false on blur', () => {
@@ -125,7 +120,7 @@ describe('LgTabsComponent', () => {
       const listDebugElement = debugElement.query(By.css('.lg-tabs__list'));
 
       expect(listDebugElement.nativeElement.getAttribute('aria-label')).toBe(
-        'investments'
+        'investments',
       );
     });
   });
@@ -160,34 +155,24 @@ describe('LgTabsComponent', () => {
 
     it('second tab content should be hidden', () => {
       const secondContentTab = debugElement.query(
-        By.css(`#tab-item-content-${component.id}-1`)
+        By.css(`#tab-item-content-${component.id}-1`),
       );
-      expect(
-        secondContentTab.nativeElement.getAttribute('hidden')
-      ).toBeDefined();
+      expect(secondContentTab.nativeElement.getAttribute('hidden')).toBeDefined();
     });
 
     it('the second tab should be selected and attributes applied when clicked', () => {
-      const button = debugElement.query(
-        By.css(`#tab-item-heading-${component.id}-1`)
-      );
-      const content = debugElement.query(
-        By.css(`#tab-item-content-${component.id}-1`)
-      );
+      const button = debugElement.query(By.css(`#tab-item-heading-${component.id}-1`));
+      const content = debugElement.query(By.css(`#tab-item-content-${component.id}-1`));
       button.triggerEventHandler('click', {});
       fixture.detectChanges();
 
       expect(component.selectedIndex).toEqual(1);
       expect(button.nativeElement.getAttribute('tabIndex')).not.toEqual(-1);
-      expect(button.nativeElement.getAttribute('aria-selected')).toEqual(
-        'true'
-      );
+      expect(button.nativeElement.getAttribute('aria-selected')).toEqual('true');
       expect(button.nativeElement.getAttribute('class')).toContain(
-        'lg-tabs__list-item-toggle--selected'
+        'lg-tabs__list-item-toggle--selected',
       );
-      expect(button.nativeElement.getAttribute('keyboard-focus')).not.toEqual(
-        'true'
-      );
+      expect(button.nativeElement.getAttribute('keyboard-focus')).not.toEqual('true');
       expect(content.nativeElement.getAttribute('hidden')).toEqual(null);
     });
 

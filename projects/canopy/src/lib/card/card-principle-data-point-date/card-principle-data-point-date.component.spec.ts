@@ -8,7 +8,7 @@ describe('CardPrincipleDataPointDateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgCardPrincipleDataPointDateComponent]
+      declarations: [LgCardPrincipleDataPointDateComponent],
     }).compileComponents();
   }));
 
@@ -24,7 +24,7 @@ describe('CardPrincipleDataPointDateComponent', () => {
 
   it('should contain the default class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-principle-data-point-date'
+      'lg-card-principle-data-point-date',
     );
   });
 });

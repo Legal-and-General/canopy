@@ -19,13 +19,13 @@ describe('TableComponent', () => {
     {
       author: 'Orhan Pamuk',
       title: 'Strangeness In My Mind',
-      published: '2016'
+      published: '2016',
     },
     {
       author: 'Albert Camus',
       title: 'The Plague',
-      published: '1947'
-    }
+      published: '1947',
+    },
   ];
 
   beforeEach(async(() => {
@@ -34,8 +34,8 @@ describe('TableComponent', () => {
         LgTableComponent,
         LgTableCellComponent,
         LgTableRowComponent,
-        LgTableHeadComponent
-      ]
+        LgTableHeadComponent,
+      ],
     }).compileComponents();
 
     fixture = MockRender(
@@ -54,8 +54,8 @@ describe('TableComponent', () => {
       </lg-table>
     `,
       {
-        books
-      }
+        books,
+      },
     );
 
     debugElement = fixture.debugElement;
@@ -70,7 +70,7 @@ describe('TableComponent', () => {
 
   it('should have the default class', () => {
     expect(tableDebugElement.nativeElement.getAttribute('class')).toBe(
-      'lg-table'
+      'lg-table',
     );
   });
 
@@ -80,18 +80,18 @@ describe('TableComponent', () => {
 
   it('passes the head content to the respective label template', () => {
     const [authorCell, titleCell, publishedCell] = tableDebugElement.queryAll(
-      By.directive(LgTableCellComponent)
+      By.directive(LgTableCellComponent),
     );
 
     expect(
-      authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML
+      authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Author');
     expect(
-      titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML
+      titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Title');
     expect(
       publishedCell.query(By.css('.lg-table-cell__label')).nativeElement
-        .innerHTML
+        .innerHTML,
     ).toBe('Published');
   });
 
@@ -99,24 +99,24 @@ describe('TableComponent', () => {
     fixture.componentInstance.books.push({
       author: 'George Orwell',
       title: 'Animal Farm',
-      published: '1945'
+      published: '1945',
     });
 
     fixture.detectChanges();
 
     const [authorCell, titleCell, publishedCell] = tableDebugElement.queryAll(
-      By.directive(LgTableCellComponent)
+      By.directive(LgTableCellComponent),
     );
 
     expect(
-      authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML
+      authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Author');
     expect(
-      titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML
+      titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Title');
     expect(
       publishedCell.query(By.css('.lg-table-cell__label')).nativeElement
-        .innerHTML
+        .innerHTML,
     ).toBe('Published');
   });
 
@@ -138,13 +138,13 @@ describe('TableComponent', () => {
 
     it('should set the align end class on the cell', () => {
       const [titleCell] = tableDebugElement.queryAll(
-        By.directive(LgTableCellComponent)
+        By.directive(LgTableCellComponent),
       );
 
       expect(
         titleCell
           .query(By.css('.lg-table-cell__content'))
-          .nativeElement.getAttribute('class')
+          .nativeElement.getAttribute('class'),
       ).toContain('lg-table-cell__content--align-end');
     });
   });

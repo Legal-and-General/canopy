@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
 import { LgAccordionModule } from './accordion/accordion.module';
 import { LgAlertModule } from './alert/alert.module';
 import { LgBreadcrumbModule } from './breadcrumb/breadcrumb.module';
@@ -49,11 +50,11 @@ const modules = [
   LgSpacingModule,
   LgSpinnerModule,
   LgTableModule,
-  LgTabsModule
+  LgTabsModule,
 ];
 
 @NgModule({
   imports: [CommonModule, ...modules],
-  exports: [...modules]
+  exports: [...modules],
 })
 export class CanopyModule {}

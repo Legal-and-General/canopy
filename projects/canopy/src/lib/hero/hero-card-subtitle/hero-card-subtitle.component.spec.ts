@@ -8,7 +8,7 @@ describe('HeroCardSubtitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgHeroCardSubtitleComponent]
+      declarations: [LgHeroCardSubtitleComponent],
     }).compileComponents();
   }));
 

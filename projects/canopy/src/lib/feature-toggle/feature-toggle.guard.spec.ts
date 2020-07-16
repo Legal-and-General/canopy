@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, Route, Router } from '@angular/router';
+
 import { cold } from 'jasmine-marbles';
 import { of } from 'rxjs';
 import { deepEqual, instance, mock, reset, verify, when } from 'ts-mockito';
@@ -19,9 +20,9 @@ describe('FeatureToggleGuard', () => {
     data: { featureToggle: 'parent' },
     children: [
       {
-        data: { featureToggle: 'child' }
-      } as any
-    ]
+        data: { featureToggle: 'child' },
+      } as any,
+    ],
   };
 
   beforeEach(() => {
@@ -32,10 +33,10 @@ describe('FeatureToggleGuard', () => {
         FeatureToggleGuard,
         {
           provide: LgFeatureToggleService,
-          useFactory: () => instance(configServiceMock)
+          useFactory: () => instance(configServiceMock),
         },
-        { provide: Router, useFactory: () => instance(routerMock) }
-      ]
+        { provide: Router, useFactory: () => instance(routerMock) },
+      ],
     });
     guard = TestBed.get(FeatureToggleGuard);
   });
@@ -43,56 +44,56 @@ describe('FeatureToggleGuard', () => {
   describe('can activate', () => {
     it('should be true when the parent is enabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(enabledConfig));
-      expect(
-        guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)
-      ).toBeObservable(cold('(a|)', { a: true }));
+      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
+        cold('(a|)', { a: true }),
+      );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).never();
       reset(routerMock);
     });
 
     it('should be true when the parent and child is enabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(enabledConfig2));
-      expect(
-        guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)
-      ).toBeObservable(cold('(a|)', { a: true }));
+      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
+        cold('(a|)', { a: true }),
+      );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).never();
       reset(routerMock);
     });
 
     it('should be false when the parent is disabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(disabledConfig));
-      expect(
-        guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)
-      ).toBeObservable(cold('(a|)', { a: false }));
+      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
+        cold('(a|)', { a: false }),
+      );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).once();
       reset(routerMock);
     });
 
     it('should be false when the parent is enabled but not child', () => {
       when(configServiceMock.toggles$).thenReturn(of(disabledConfig2));
-      expect(
-        guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)
-      ).toBeObservable(cold('(a|)', { a: false }));
+      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
+        cold('(a|)', { a: false }),
+      );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).once();
       reset(routerMock);
     });
@@ -102,13 +103,13 @@ describe('FeatureToggleGuard', () => {
     it('should be true when the parent is enabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(enabledConfig));
       expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot)
+        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
       ).toBeObservable(cold('(a|)', { a: true }));
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).never();
       reset(routerMock);
     });
@@ -116,13 +117,13 @@ describe('FeatureToggleGuard', () => {
     it('should be true when the parent and child is enabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(enabledConfig2));
       expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot)
+        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
       ).toBeObservable(cold('(a|)', { a: true }));
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).never();
       reset(routerMock);
     });
@@ -130,13 +131,13 @@ describe('FeatureToggleGuard', () => {
     it('should be false when the parent is disabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(disabledConfig));
       expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot)
+        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
       ).toBeObservable(cold('(a|)', { a: false }));
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).once();
       reset(routerMock);
     });
@@ -144,13 +145,13 @@ describe('FeatureToggleGuard', () => {
     it('should be false when the parent is enabled but not child', () => {
       when(configServiceMock.toggles$).thenReturn(of(disabledConfig2));
       expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot)
+        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
       ).toBeObservable(cold('(a|)', { a: false }));
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).once();
       reset(routerMock);
     });
@@ -159,13 +160,13 @@ describe('FeatureToggleGuard', () => {
     it('should be true when the parent is enabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(enabledConfig));
       expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: true })
+        cold('(a|)', { a: true }),
       );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).never();
       reset(routerMock);
     });
@@ -173,13 +174,13 @@ describe('FeatureToggleGuard', () => {
     it('should be true when the parent and child is enabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(enabledConfig2));
       expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: true })
+        cold('(a|)', { a: true }),
       );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).never();
       reset(routerMock);
     });
@@ -187,13 +188,13 @@ describe('FeatureToggleGuard', () => {
     it('should be false when the parent is disabled', () => {
       when(configServiceMock.toggles$).thenReturn(of(disabledConfig));
       expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: false })
+        cold('(a|)', { a: false }),
       );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).once();
       reset(routerMock);
     });
@@ -201,13 +202,13 @@ describe('FeatureToggleGuard', () => {
     it('should be false when the parent is enabled but not child', () => {
       when(configServiceMock.toggles$).thenReturn(of(disabledConfig2));
       expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: false })
+        cold('(a|)', { a: false }),
       );
       verify(
         routerMock.navigate(
           deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' })
-        )
+          deepEqual({ queryParamsHandling: 'merge' }),
+        ),
       ).once();
       reset(routerMock);
     });

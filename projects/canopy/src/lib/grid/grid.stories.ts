@@ -16,13 +16,13 @@ stories.addDecorator(withKnobs);
 
 stories
   .addParameters({
-    backgrounds: [{ name: 'default', value: '#0076d6', default: true }]
+    backgrounds: [{ name: 'default', value: '#0076d6', default: true }],
   })
   .add(
     'Grid',
     () => ({
       moduleMetadata: {
-        imports: [CanopyModule]
+        imports: [CanopyModule],
       },
       template: `
         <div lgContainer>
@@ -76,13 +76,13 @@ stories
           'offset rows (md+)',
           offsets,
           0,
-          firstColGroupId
+          firstColGroupId,
         ),
         firstColLgOffset: select(
           'offset rows (lg+)',
           offsets,
           1,
-          firstColGroupId
+          firstColGroupId,
         ),
 
         secondCol: select('rows', columns, 12, secondColGroupId),
@@ -93,13 +93,13 @@ stories
           'offset rows (md+)',
           offsets,
           0,
-          secondColGroupId
+          secondColGroupId,
         ),
         secondColLgOffset: select(
           'offset rows (lg+)',
           offsets,
           1,
-          secondColGroupId
+          secondColGroupId,
         ),
 
         thirdCol: select('rows', columns, 12, thirdColGroupId),
@@ -110,19 +110,19 @@ stories
           'offset rows (md+)',
           offsets,
           0,
-          thirdColGroupId
+          thirdColGroupId,
         ),
         thirdColLgOffset: select(
           'offset rows (lg+)',
           offsets,
           1,
-          thirdColGroupId
-        )
-      }
+          thirdColGroupId,
+        ),
+      },
     }),
     {
       notes: {
-        markdown: notes
-      }
-    }
+        markdown: notes,
+      },
+    },
   );

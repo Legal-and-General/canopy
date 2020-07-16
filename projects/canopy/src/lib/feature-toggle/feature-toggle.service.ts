@@ -4,14 +4,14 @@ import { Observable } from 'rxjs';
 
 import {
   LgFeatureToggleConfig,
-  togglesInjectable
+  togglesInjectable,
 } from './feature-toggle.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LgFeatureToggleService {
   constructor(
-    @Inject(togglesInjectable) public toggles$: Observable<LgFeatureToggleConfig>
+    @Inject(togglesInjectable) public toggles$: Observable<LgFeatureToggleConfig>,
   ) {}
 }

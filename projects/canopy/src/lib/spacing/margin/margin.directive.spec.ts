@@ -17,7 +17,7 @@ import { LgMarginDirective } from './margin.directive';
     >
       Test feature
     </div>
-  `
+  `,
 })
 class TestComponent {
   @Input() lgMargin = 'xs';
@@ -36,7 +36,7 @@ describe('LgMargin', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgMarginDirective]
+      declarations: [TestComponent, LgMarginDirective],
     }).compileComponents();
   }));
 
@@ -52,7 +52,7 @@ describe('LgMargin', () => {
 
   it('renders the same margin all round', () => {
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-margin--xs'
+      'lg-margin--xs',
     );
   });
 
@@ -61,7 +61,7 @@ describe('LgMargin', () => {
       component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
-        `lg-margin__${side}--xxxl`
+        `lg-margin__${side}--xxxl`,
       );
     });
   });
@@ -71,15 +71,15 @@ describe('LgMargin', () => {
       component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
-        `lg-margin__${side}--xxxl`
+        `lg-margin__${side}--xxxl`,
       );
       component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'md';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).not.toContain(
-        `lg-margin__${side}--xxxl`
+        `lg-margin__${side}--xxxl`,
       );
       expect(testElement.nativeElement.getAttribute('class')).toContain(
-        `lg-margin__${side}--md`
+        `lg-margin__${side}--md`,
       );
     });
   });
@@ -88,7 +88,7 @@ describe('LgMargin', () => {
     component.lgMargin = 'none';
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      `lg-margin--none`
+      `lg-margin--none`,
     );
   });
 
@@ -97,7 +97,7 @@ describe('LgMargin', () => {
       component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'none';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
-        `lg-margin__${side}--none`
+        `lg-margin__${side}--none`,
       );
     });
   });
@@ -107,7 +107,7 @@ describe('LgMargin', () => {
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       `lg-margin__top--lg`,
-      `lg-margin__bottom--lg`
+      `lg-margin__bottom--lg`,
     );
   });
 
@@ -116,7 +116,7 @@ describe('LgMargin', () => {
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       `lg-margin__left--xxl`,
-      `lg-margin__right--xxl`
+      `lg-margin__right--xxl`,
     );
   });
 });

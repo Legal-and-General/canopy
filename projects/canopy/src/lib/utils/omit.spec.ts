@@ -3,7 +3,7 @@ import omit from './omit';
 describe('omit', () => {
   it('removes the name field from the object', () => {
     expect(omit({ one: true, two: true }, 'two')).toEqual({
-      one: true
+      one: true,
     });
   });
 

@@ -9,7 +9,7 @@ import { LgGridContainerDirective } from './grid-container.directive';
     <div lgContainer>
       Test feature
     </div>
-  `
+  `,
 })
 class TestComponent {}
 
@@ -19,7 +19,7 @@ describe('GridContainerDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgGridContainerDirective]
+      declarations: [TestComponent, LgGridContainerDirective],
     }).compileComponents();
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
@@ -30,7 +30,7 @@ describe('GridContainerDirective', () => {
 
   it('adds the container class', () => {
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-container'
+      'lg-container',
     );
   });
 });

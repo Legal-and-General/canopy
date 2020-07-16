@@ -8,6 +8,6 @@ import { LgButtonComponent } from './button.component';
 @NgModule({
   imports: [CommonModule, LgSpinnerModule, LgMarginModule],
   declarations: [LgButtonComponent],
-  exports: [LgButtonComponent]
+  exports: [LgButtonComponent],
 })
 export class LgButtonModule {}

@@ -18,23 +18,23 @@ const spaces = [
   'xl',
   'xxl',
   'xxxl',
-  'xxxxl'
+  'xxxxl',
 ];
 
 stories.addDecorator(withKnobs);
 
 stories
   .addParameters({
-    backgrounds: [{ name: 'default', value: '#0076d6', default: true }]
+    backgrounds: [{ name: 'default', value: '#0076d6', default: true }],
   })
   .add(
     'Margin',
     () => ({
       moduleMetadata: {
-        declarations: [LgCardComponent, LgMarginDirective]
+        declarations: [LgCardComponent, LgMarginDirective],
       },
       template: `
-        <lg-card 
+        <lg-card
           [lgMargin]="margin"
           [lgMarginTop]="marginTop !== 'undefined' ? marginTop : null"
           [lgMarginRight]="marginRight !== 'undefined' ? marginRight : null"
@@ -49,12 +49,12 @@ stories
         marginTop: select('marginTop', spaces, 'undefined'),
         marginRight: select('marginRight', spaces, 'undefined'),
         marginBottom: select('marginBottom', spaces, 'undefined'),
-        marginLeft: select('marginLeft', spaces, 'undefined')
-      }
+        marginLeft: select('marginLeft', spaces, 'undefined'),
+      },
     }),
     {
       notes: {
-        markdown: notes
-      }
-    }
+        markdown: notes,
+      },
+    },
   );

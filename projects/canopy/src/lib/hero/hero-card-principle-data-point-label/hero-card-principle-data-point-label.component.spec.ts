@@ -11,14 +11,14 @@ describe('LgHeroCardPrincipleDataPointLabelComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LgHeroCardPrincipleDataPointLabelComponent,
-        LgHeadingComponent
-      ]
+        LgHeadingComponent,
+      ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(
-      LgHeroCardPrincipleDataPointLabelComponent
+      LgHeroCardPrincipleDataPointLabelComponent,
     );
     component = fixture.componentInstance;
     fixture.detectChanges();

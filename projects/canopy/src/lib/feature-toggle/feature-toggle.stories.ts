@@ -9,12 +9,12 @@ import { notes } from './feature-toggle.notes';
 const stories = storiesOf('Directives', module);
 const options: LgFeatureToggleOptions = {
   // disable undefined feature e.g. Feature 4 in the following story
-  defaultHide: true
+  defaultHide: true,
 };
 
 stories
   .addParameters({
-    backgrounds: [{ name: 'default', value: '#0076d6', default: true }]
+    backgrounds: [{ name: 'default', value: '#0076d6', default: true }],
   })
   .add(
     'Feature Toggle',
@@ -29,21 +29,21 @@ stories
                   firstFeature: true,
                   secondFeature: false,
                   thirdFeature: true,
-                  fourthFeature: false
-                })
+                  fourthFeature: false,
+                }),
             },
-            options
-          )
-        ]
+            options,
+          ),
+        ],
       },
       template: `
   <lg-card *lgFeatureToggle="'firstFeature'">Feature 1 showing</lg-card>
   <lg-card *lgFeatureToggle="'secondFeature'">Feature 2 not showing</lg-card>
   <lg-card *lgFeatureToggle="'thirdFeature'">Feature 3 showing</lg-card>
   <lg-card *lgFeatureToggle="'fourthFeature'">Feature 4 not showing</lg-card>
-  `
+  `,
     }),
     {
-      notes: { markdown: notes }
-    }
+      notes: { markdown: notes },
+    },
   );

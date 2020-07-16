@@ -138,16 +138,16 @@ export default {
       fullScreen,
       withKnobs,
       moduleMetadata({
-        imports: [CanopyModule]
-      })
+        imports: [CanopyModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec504bc07ffe609bec12b76'
+      id: '5ec504bc07ffe609bec12b76',
     },
     notes: {
-      markdown: notes(productHeroHTML, conversationalHeroHTML)
-    }
-  }
+      markdown: notes(productHeroHTML, conversationalHeroHTML),
+    },
+  },
 };
 
 export const productData = () => ({
@@ -159,8 +159,8 @@ export const productData = () => ({
   `,
   props: {
     overlap: number('Overlap', 2),
-    title: text('Title', 'Pension Annuity')
-  }
+    title: text('Title', 'Pension Annuity'),
+  },
 });
 
 export const conversationalUI = () => ({
@@ -170,6 +170,6 @@ export const conversationalUI = () => ({
   `,
   props: {
     overlap: number('Overlap', 2),
-    title: text('Title', 'Pension Annuity')
-  }
+    title: text('Title', 'Pension Annuity'),
+  },
 });

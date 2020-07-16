@@ -2,7 +2,7 @@ export const notes = `
 # Form Validation
 
 ## Purpose
-To provide a consistent approach to form validation. 
+To provide a consistent approach to form validation.
 
 ## Usage
 The rules to display the error states are incorporated into the individual Canopy
@@ -10,8 +10,8 @@ form components. When used in conjunction with standard [Angular form validation
 the error styles will be displayed automatically.
 
 Error messages need to be handled by the individual applications by utilising the
-[Validation](/?path=/story/components-form-validation--component) component and 
-the LgErrorStateMatcher. 
+[Validation](/?path=/story/components-form-validation--component) component and
+the LgErrorStateMatcher.
 
 Import the module in your core component, e.g.:
 
@@ -37,7 +37,7 @@ isControlInvalid(control: NgControl, form: FormGroupDirective) {
 ~~~
 
 In your HTML add the validation components with the appropriate structural
-directives to determine if they should be visible. The error state matcher will 
+directives to determine if they should be visible. The error state matcher will
 determine wether the form field is in an error state.
 
 ~~~html

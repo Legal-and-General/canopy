@@ -9,7 +9,7 @@ import { LgGridRowDirective } from './grid-row.directive';
     <div lgRow>
       Test feature
     </div>
-  `
+  `,
 })
 class TestComponent {}
 
@@ -19,7 +19,7 @@ describe('GridRowDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgGridRowDirective]
+      declarations: [TestComponent, LgGridRowDirective],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);

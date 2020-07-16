@@ -17,7 +17,7 @@ import { notes } from './date-field.notes';
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
       </lg-date-field>
     </form>
-  `
+  `,
 })
 class ReactiveFormComponent {
   @Input() hint: string;
@@ -41,7 +41,7 @@ class ReactiveFormComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      date: { value: '1970-01-01', disabled: false }
+      date: { value: '1970-01-01', disabled: false },
     });
     this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
@@ -54,13 +54,13 @@ export default {
       withKnobs,
       moduleMetadata({
         declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule]
-      })
+        imports: [ReactiveFormsModule, CanopyModule],
+      }),
     ],
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const standard = () => ({
@@ -74,6 +74,6 @@ export const standard = () => ({
     inputChange: action('inputChange'),
     label: text('label', 'Date of birth'),
     hint: text('hint', 'For example, 12 06 1983'),
-    disabled: boolean('disabled', false)
-  }
+    disabled: boolean('disabled', false),
+  },
 });

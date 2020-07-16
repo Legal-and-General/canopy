@@ -7,7 +7,7 @@ import {
   Optional,
   Self,
   SkipSelf,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -20,7 +20,7 @@ let nextUniqueId = 0;
   selector: 'lg-radio-button',
   templateUrl: './radio-button.component.html',
   styleUrls: ['./radio-button.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioButtonComponent implements OnInit {
   checked = false;
@@ -53,7 +53,7 @@ export class LgRadioButtonComponent implements OnInit {
     @Optional()
     @Host()
     @SkipSelf()
-    private controlContainer: FormGroupDirective
+    private controlContainer: FormGroupDirective,
   ) {}
 
   ngOnInit() {

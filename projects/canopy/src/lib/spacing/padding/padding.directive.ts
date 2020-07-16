@@ -1,4 +1,5 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+
 import { SpacingVariant } from '../spacing.interface';
 
 @Directive({
@@ -10,7 +11,7 @@ import { SpacingVariant } from '../spacing.interface';
     [lgPaddingRight],
     [lgPaddingBottom],
     [lgPaddingLeft]
-  `
+  `,
 })
 export class LgPaddingDirective {
   paddingTopClass: string;
@@ -18,7 +19,7 @@ export class LgPaddingDirective {
   set lgPaddingTop(padding: SpacingVariant) {
     this.paddingTopClass = this.togglePaddingClass(
       `lg-padding__top--${padding}`,
-      this.paddingTopClass
+      this.paddingTopClass,
     );
   }
 
@@ -27,7 +28,7 @@ export class LgPaddingDirective {
   set lgPaddingRight(padding: SpacingVariant) {
     this.paddingRightClass = this.togglePaddingClass(
       `lg-padding__right--${padding}`,
-      this.paddingRightClass
+      this.paddingRightClass,
     );
   }
 
@@ -36,7 +37,7 @@ export class LgPaddingDirective {
   set lgPaddingBottom(padding: SpacingVariant) {
     this.paddingBottomClass = this.togglePaddingClass(
       `lg-padding__bottom--${padding}`,
-      this.paddingBottomClass
+      this.paddingBottomClass,
     );
   }
 
@@ -45,7 +46,7 @@ export class LgPaddingDirective {
   set lgPaddingLeft(padding: SpacingVariant) {
     this.paddingLeftClass = this.togglePaddingClass(
       `lg-padding__left--${padding}`,
-      this.paddingLeftClass
+      this.paddingLeftClass,
     );
   }
 
@@ -66,7 +67,7 @@ export class LgPaddingDirective {
   set lgPadding(padding: SpacingVariant) {
     this.paddingClass = this.togglePaddingClass(
       `lg-padding--${padding}`,
-      this.paddingClass
+      this.paddingClass,
     );
   }
 

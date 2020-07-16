@@ -24,6 +24,6 @@ and in your HTML:
 
 | Name | Description | Type |
 |------|-------------|:----:|
-| \`\`lgFocus\`\` | If the element should have focus or not | boolean | 
+| \`\`lgFocus\`\` | If the element should have focus or not | boolean |
 
 `;

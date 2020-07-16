@@ -15,7 +15,7 @@ const createProps = () => ({
   logo: text(
     'logo',
     'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
-    sharedGroupId
+    sharedGroupId,
   ),
   logoAlt: text('logoAlt', 'Company name', sharedGroupId),
   copyright: text('copyright', '© Some Company plc 2019', footerGroupId),
@@ -26,7 +26,7 @@ const createProps = () => ({
     value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity
     and empowerment.
     `,
-    contentGroupId
+    contentGroupId,
   ),
   card2Content: text(
     'card2Content',
@@ -34,17 +34,17 @@ const createProps = () => ({
     At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading
     towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for
     offshoring.`,
-    contentGroupId
+    contentGroupId,
   ),
   card3Content: text(
     'card3Content',
     `Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one
     customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art
     customer service.`,
-    contentGroupId
+    contentGroupId,
   ),
   primaryLinks: object('primaryLinks', primaryLinks, footerGroupId),
-  secondaryLinks: object('secondaryLinks', secondaryLinks, footerGroupId)
+  secondaryLinks: object('secondaryLinks', secondaryLinks, footerGroupId),
 });
 
 const header = `
@@ -72,16 +72,16 @@ export default {
       fullScreen,
       withKnobs,
       moduleMetadata({
-        imports: [CanopyModule]
-      })
+        imports: [CanopyModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec504bc07ffe609bec12b76'
+      id: '5ec504bc07ffe609bec12b76',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 
 export const oneColumn = () => ({
@@ -106,7 +106,7 @@ export const oneColumn = () => ({
       </div>
       ${footer}
     </lg-page>
-  `
+  `,
 });
 
 export const twoColumn = () => ({
@@ -130,7 +130,7 @@ export const twoColumn = () => ({
       </div>
       ${footer}
     </lg-page>
-  `
+  `,
 });
 
 export const fullWidth = () => ({
@@ -151,14 +151,14 @@ export const fullWidth = () => ({
       </div>
       ${footer}
     </lg-page>
-  `
+  `,
 });
 
 export const fullWidthWithHero = () => ({
   props: {
     ...createProps(),
     title: text('Title', 'Pension Annuity'),
-    overlap: number('Overlap', 2)
+    overlap: number('Overlap', 2),
   },
   template: `
     <lg-page>
@@ -179,5 +179,5 @@ export const fullWidthWithHero = () => ({
       </div>
       ${footer}
     </lg-page>
-  `
+  `,
 });

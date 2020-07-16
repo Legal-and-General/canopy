@@ -8,7 +8,7 @@ describe('LgCardSubtitleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgCardSubtitleComponent]
+      declarations: [LgCardSubtitleComponent],
     }).compileComponents();
   }));
 
@@ -24,7 +24,7 @@ describe('LgCardSubtitleComponent', () => {
 
   it('should contain the class lg-card-subtitle', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-subtitle'
+      'lg-card-subtitle',
     );
   });
 });

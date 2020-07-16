@@ -19,7 +19,7 @@ import { notes } from './radio.notes';
         <lg-radio-button value="yellow">Yellow</lg-radio-button>
       </lg-radio-group>
     </form>
-  `
+  `,
 })
 class ReactiveFormComponent {
   @Input() inline = false;
@@ -54,16 +54,16 @@ export default {
       withKnobs,
       moduleMetadata({
         declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule]
-      })
+        imports: [ReactiveFormsModule, CanopyModule],
+      }),
     ],
     'in-dsm': {
-      id: '5ec4fc77c4b3aef9ba4e98bc'
+      id: '5ec4fc77c4b3aef9ba4e98bc',
     },
     notes: {
-      markdown: notes
-    }
-  }
+      markdown: notes,
+    },
+  },
 };
 export const standard = () => ({
   template: `
@@ -80,6 +80,6 @@ export const standard = () => ({
     label: text('label', 'Color'),
     hint: text('hint', 'Please select a color'),
     radioChange: action('radioChange'),
-    disabled: boolean('disabled', false)
-  }
+    disabled: boolean('disabled', false),
+  },
 });

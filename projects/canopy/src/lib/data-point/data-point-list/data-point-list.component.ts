@@ -6,7 +6,7 @@ import {
   forwardRef,
   HostBinding,
   QueryList,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { LgDataPointComponent } from '../data-point/data-point.component';
@@ -16,14 +16,14 @@ import { LgDataPointComponent } from '../data-point/data-point.component';
   templateUrl: './data-point-list.component.html',
   styleUrls: ['./data-point-list.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgDataPointListComponent implements AfterContentInit {
   @HostBinding('class.lg-data-point-list') class = true;
   @HostBinding('attr.role') attr = 'list';
 
   @ContentChildren(forwardRef(() => LgDataPointComponent), {
-    descendants: true
+    descendants: true,
   })
   dataPoints: QueryList<LgDataPointComponent>;
 

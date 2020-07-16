@@ -8,7 +8,7 @@ describe('LgCardHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgCardHeaderComponent]
+      declarations: [LgCardHeaderComponent],
     }).compileComponents();
   }));
 
@@ -24,7 +24,7 @@ describe('LgCardHeaderComponent', () => {
 
   it('should contain the default class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-header'
+      'lg-card-header',
     );
   });
 
@@ -41,7 +41,7 @@ describe('LgCardHeaderComponent', () => {
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-card-header--with-content'
+          'lg-card-header--with-content',
         );
       });
     });
@@ -49,7 +49,7 @@ describe('LgCardHeaderComponent', () => {
     describe('when set to false', () => {
       it('should not set the withContent class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-card-header--with-content'
+          'lg-card-header--with-content',
         );
       });
     });

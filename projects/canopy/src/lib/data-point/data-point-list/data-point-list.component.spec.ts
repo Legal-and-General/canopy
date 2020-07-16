@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { DebugElement } from '@angular/core';
+
 import { MockComponent, MockRender } from 'ng-mocks';
+
 import { LgDataPointComponent } from '../data-point/data-point.component';
 import { LgDataPointListComponent } from './data-point-list.component';
 
@@ -11,15 +12,12 @@ describe('LgDataPointListComponent', () => {
   let fixture: ComponentFixture<LgDataPointListComponent>;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let dataPointDebugElements: DebugElement[];
-  let dataPointInstances: LgDataPointComponent[];
+  let dataPointDebugElements: Array<DebugElement>;
+  let dataPointInstances: Array<LgDataPointComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LgDataPointListComponent,
-        MockComponent(LgDataPointComponent)
-      ]
+      declarations: [LgDataPointListComponent, MockComponent(LgDataPointComponent)],
     }).compileComponents();
   }));
 
@@ -60,12 +58,10 @@ describe('LgDataPointListComponent', () => {
       el = debugElement.children[0].nativeElement;
       fixture.detectChanges();
 
-      dataPointDebugElements = fixture.debugElement.queryAll(
-        By.css('lg-data-point')
-      );
+      dataPointDebugElements = fixture.debugElement.queryAll(By.css('lg-data-point'));
 
       dataPointInstances = dataPointDebugElements.map(
-        debugEl => debugEl.componentInstance
+        debugEl => debugEl.componentInstance,
       );
     });
 

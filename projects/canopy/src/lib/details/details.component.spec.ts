@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
+
 import { MockComponent, MockRender } from 'ng-mocks';
+
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 import { LgDetailsComponent } from './details.component';
 
@@ -13,10 +14,7 @@ describe('LgDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LgDetailsComponent,
-        MockComponent(LgDetailsPanelHeadingComponent)
-      ]
+      declarations: [LgDetailsComponent, MockComponent(LgDetailsPanelHeadingComponent)],
     }).compileComponents();
   }));
 
