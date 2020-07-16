@@ -9,8 +9,9 @@
     ],
     "component-selector": [
       true,
-      ["element", "attribute"],
-      "lg",
+      "element",
+      "attribute",
+      [ "lg" ],
       "kebab-case"
     ],
     "variable-name": [
