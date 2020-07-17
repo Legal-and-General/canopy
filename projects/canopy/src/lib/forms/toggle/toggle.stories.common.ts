@@ -7,7 +7,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 @Component({
   selector: 'lg-reactive-form',
   template: `
-    <form>
+    <form [formGroup]="form">
       <lg-toggle formControlName="umbrella" [value]="true" [variant]="variant">
         {{ label }}
       </lg-toggle>
