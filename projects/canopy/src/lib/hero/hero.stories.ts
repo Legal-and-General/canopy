@@ -63,6 +63,10 @@ export const productHeroHTML = `
             <lg-hero-card-subtitle>
               Payroll Reference Number P23456
             </lg-hero-card-subtitle>
+            <lg-hero-card-notification>
+              <lg-icon name="information-fill"></lg-icon>
+              <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
+            </lg-hero-card-notification>
             <lg-hero-card-principle-data-point>
               <lg-hero-card-principle-data-point-label headingLevel="5">
                 Last payment (after tax and deductions)

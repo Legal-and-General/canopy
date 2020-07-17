@@ -18,6 +18,7 @@ import { LgHeroHeaderComponent } from './hero-content/hero-header.component';
 import { LgHeroContentComponent } from './hero-header/hero-content.component';
 import { LgHeroComponent } from './hero.component';
 import { LgHeroCardFooterComponent } from './lg-hero-card-footer/lg-hero-card-footer.component';
+import { LgHeroCardNotificationComponent } from './hero-card-notification/hero-card-notification.component';
 
 @NgModule({
   imports: [CommonModule, LgHeadingModule],
@@ -38,6 +39,7 @@ import { LgHeroCardFooterComponent } from './lg-hero-card-footer/lg-hero-card-fo
     LgHeroContentComponent,
     LgHeroHeaderComponent,
     LgHeroCardFooterComponent,
+    LgHeroCardNotificationComponent,
   ],
   exports: [
     LgHeroComponent,
@@ -56,6 +58,7 @@ import { LgHeroCardFooterComponent } from './lg-hero-card-footer/lg-hero-card-fo
     LgHeroContentComponent,
     LgHeroHeaderComponent,
     LgHeroCardFooterComponent,
+    LgHeroCardNotificationComponent,
   ],
 })
 export class LgHeroModule {}

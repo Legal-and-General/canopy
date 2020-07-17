@@ -49,7 +49,6 @@ This is the main section of the hero bar, it stretches the full width and is agn
 ### LgHeroContent
 This is the top section of the hero bar, it stretches the full width and is agnostic of grid system. It is generally used to home the breadcrumb component if there is one. Similar to LgHeroContent you will need to configure the grid in the contents of this component to match your page layout.
 
-
 ### LgHeroCard
 A container component for displaying content within the hero area. The hero and hero card components are agnostic of the grid layout of the page. You will need to wrap the hero card component with the specific grid that is required.
 
@@ -67,6 +66,9 @@ This is where the main hero title should be provided. It should be located insid
 
 ### LgHeroCardSubtitleComponent
 If the hero has a subtitle it should be located within this component. If a hero has a subtitle it is expected to also implicitly have a title. It should be located inside the hero header.
+
+### LgHeroCardNotificationComponent
+Displays a notification associated with a product, for example if the product's payments are in 'suspended' state.
 
 ### LgHeroCardPrincipleDataPoint
 Sometimes the hero card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the hero header which will controls it's layout

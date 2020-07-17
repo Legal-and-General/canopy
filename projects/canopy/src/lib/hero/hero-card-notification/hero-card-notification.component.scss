@@ -1,0 +1,42 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-card-notification {
+  padding: var(--space-xs);
+  margin-bottom: var(--space-md);
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+
+  @include lg-breakpoint(lg) {
+    padding-right: var(--space-sm);
+    margin-bottom: 0;
+  }
+
+  a {
+    color: var(--white);
+
+    &:hover {
+      color: var(--white);
+    }
+
+    &:focus:hover {
+      color: var(--white);
+    }
+  }
+}
+
+.lg-hero-card-notification__overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--hero-bg-color);
+  border-radius: var(--border-radius-sm);
+  opacity: var(--hero-bg-alpha);
+}
+
+.lg-hero-card-notification__icon {
+  margin-right: var(--space-xxs);
+}
