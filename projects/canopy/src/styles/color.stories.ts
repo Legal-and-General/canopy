@@ -224,7 +224,7 @@ stories.add(
           names="--color-poppy-red-lightest,--color-poppy-red-light,--color-poppy-red,--color-poppy-red-dark">
         </lg-tint-swatch>
         <lg-tint-swatch
-          names="--color-dandelion-yellow-lightest,--color-dandelion-yellow-light,--color-dandelion-yellow,--color-dandelion-yellow-dark">
+          names="--color-dandelion-yellow-lightest,--color-dandelion-yellow-light,--color-dandelion-yellow">
         </lg-tint-swatch>
       </div>
     </div>
