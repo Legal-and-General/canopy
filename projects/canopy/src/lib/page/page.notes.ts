@@ -73,7 +73,7 @@ Generate the markup as show in the example below, no current modifiers.
 ~~~html
 <div class="lg-page">
   <div class="lg-header">Header content</div>
-  <div class="class="lg-page__content">...</div>
+  <div class="lg-page__content">...</div>
   <div class="lg-footer">Footer content</div>
 </div>
 ~~~
