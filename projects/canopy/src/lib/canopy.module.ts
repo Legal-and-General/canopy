@@ -20,6 +20,7 @@ import { LgIconModule } from './icon/icon.module';
 import { LgPageModule } from './page/page.module';
 import { LgPictogramModule } from './pictograms/pictogram.module';
 import { LgPipesModule } from './pipes/pipes.module';
+import { LgQuickActionModule } from './quick-action/quick-action.module';
 import { LgSeparatorModule } from './separator/separator.module';
 import { LgSpacingModule } from './spacing/spacing.module';
 import { LgSpinnerModule } from './spinner/spinner.module';
@@ -46,6 +47,7 @@ const modules = [
   LgPageModule,
   LgPictogramModule,
   LgPipesModule,
+  LgQuickActionModule,
   LgSeparatorModule,
   LgSpacingModule,
   LgSpinnerModule,

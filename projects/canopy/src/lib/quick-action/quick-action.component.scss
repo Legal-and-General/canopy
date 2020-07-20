@@ -1,0 +1,37 @@
+@import '../../styles/mixins.scss';
+
+.lg-quick-action {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  padding: 0.375rem;
+  line-height: 1;
+  border-radius: var(--border-radius-sm);
+  transition: background-color var(--animation-duration) var(--animation-fn);
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  color: var(--link-color);
+
+  &:hover {
+    background: var(--quick-action-hover-background-colo);
+  }
+
+  &:active {
+    background: var(--quick-action-active-background-color);
+    color: var(--quick-action-active-color);
+  }
+
+  &:visited {
+    color: var(--quick-action-visited-color);
+  }
+
+  &:focus {
+    @include lg-outer-focus-outline(var(--default-focus-color));
+  }
+}
+
+.lg-quick-action__icon {
+  margin-right: var(--space-xxxs);
+}
