@@ -7,11 +7,12 @@
     "ng": "ng",
     "start": "npm run storybook",
     "start:test-app": "ng serve",
-    "build": "npm run optimise-svgs && npm run generate-icons && npm run generate-pictograms && ng build && npm run build-styles",
+    "build": "npm run build:icons && ng build && npm run build-styles",
     "build:test-app": "npm run build && ng build canopy-test-app --prod --outputPath ./test-dist",
-    "generate-icons": "svg-to-ts -s projects/canopy/src/assets/icons -o projects/canopy/src/lib/icon -f icons.interface -p lgIcon -t IconName -i Icon -d KEBAB && node svg-info.ts icon/icons.interface.ts",
-    "generate-pictograms": "svg-to-ts -s projects/canopy/src/assets/pictograms -o projects/canopy/src/lib/pictograms -f pictograms.interface -p lgPictogram -t PictogramName -i Pictogram -d KEBAB && node svg-info.ts pictograms/pictograms.interface.ts",
-    "optimise-svgs": "svgo projects/canopy/src/assets/ -r --config=svgo.json",
+    "build:icons": "npm run optimise:svgs && npm run generate:icons && npm run generate:pictograms",
+    "generate:icons": "svg-to-ts -s projects/canopy/src/assets/icons -o projects/canopy/src/lib/icon -f icons.interface -p lgIcon -t IconName -i Icon -d KEBAB && node svg-info.ts icon/icons.interface.ts",
+    "generate:pictograms": "svg-to-ts -s projects/canopy/src/assets/pictograms -o projects/canopy/src/lib/pictograms -f pictograms.interface -p lgPictogram -t PictogramName -i Pictogram -d KEBAB && node svg-info.ts pictograms/pictograms.interface.ts",
+    "optimise:svgs": "svgo projects/canopy/src/assets/ -r --config=svgo.json",
     "dsm-storybook:publish": "dsm-storybook publish",
     "dsm-storybook:preview": "dsm-storybook preview",
     "test": "ng test",
@@ -121,30 +122,24 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged && git add .",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "projects/canopy/src/**/*.svg": [
-      "optimise-svgs",
-      "generate-icons",
-      "generate-pictograms",
-      "git add"
+      "npm run build:icons"
     ],
     "projects/canopy/src/**/*.{html, json, js}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "projects/canopy/src/**/*.{scss, css}": [
       "prettier --write",
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ],
     "projects/canopy/src/**/*.ts": [
       "prettier --write",
-      "tslint -p tsconfig.json -c tslint.json --fix",
-      "git add"
+      "tslint -p tsconfig.json -c tslint.json --fix"
     ]
   },
   "config": {
