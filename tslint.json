@@ -8,7 +8,9 @@
   ],
   "linterOptions": {
     "exclude": [
-      "**/test.ts"
+      "**/test.ts",
+      "**/pictograms.interface.ts",
+      "**/icons.interface.ts"
     ]
   },
   "rules": {

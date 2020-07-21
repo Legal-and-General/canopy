@@ -87,4 +87,4 @@ To add a new SVG icon or pictogram to Canopy simply add the file to either the `
 
 When committing the new icons [lint-staged](https://github.com/okonet/lint-staged) will run and generate all the `ts` files automatically.
 
-After that remember to add the new icons to the story.
+After that remember to add the new icons to the story, as they are not automatically added at present.
