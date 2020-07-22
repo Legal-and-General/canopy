@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { moduleMetadata } from '@storybook/angular';
 
@@ -14,7 +15,7 @@ export default {
       moduleMetadata({
         declarations: [AppComponent],
         entryComponents: [AppComponent],
-        imports: [CommonModule, CanopyModule],
+        imports: [ReactiveFormsModule, CommonModule, CanopyModule],
       }),
     ],
   },

@@ -278,44 +278,53 @@
             Test loading button
           </button>
 
-          <lg-input-field>
-            Test input
-            <lg-hint>Enter some text</lg-hint>
-            <input lgInput />
-          </lg-input-field>
-
-          <lg-select-field>
-            Select input
-            <lg-hint>Pick an option</lg-hint>
-            <select lgSelect>
-              <option value="blue">Blue</option>
-              <option value="yellow">Yellow</option>
-              <option value="green">Green</option>
-              <option value="red">Red</option>
-            </select>
-          </lg-select-field>
-
-          <lg-date-field>
-            Date of birth
-            <lg-hint>e.g. 05 12 1980</lg-hint>
-          </lg-date-field>
-
           <lg-separator></lg-separator>
 
-          <lg-toggle>
-            Test checkbox
-          </lg-toggle>
+          <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
 
-          <lg-toggle variant="switch">Toggle switch</lg-toggle>
+            <lg-input-field>
+              Test input
+              <lg-hint>Enter some text</lg-hint>
+              <input lgInput formControlName="text" />
+            </lg-input-field>
 
-          <lg-radio-group>
-            Test radio group
-            <lg-hint>Pick an option</lg-hint>
-            <lg-radio-button value="red">Red</lg-radio-button>
-            <lg-radio-button value="yellow">Yellow</lg-radio-button>
-            <lg-radio-button value="green">Green</lg-radio-button>
-            <lg-radio-button value="blue">Blue</lg-radio-button>
-          </lg-radio-group>
+            <lg-select-field>
+              Select input
+              <lg-hint>Pick an option</lg-hint>
+              <select lgSelect formControlName="select">
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+              </select>
+            </lg-select-field>
+
+            <lg-date-field formControlName="date">
+              Date of birth
+              <lg-hint>e.g. 05 12 1980</lg-hint>
+            </lg-date-field>
+
+            <lg-toggle formControlName="checkbox">
+              Test checkbox
+            </lg-toggle>
+
+            <lg-toggle variant="switch" formControlName="switch">Toggle switch</lg-toggle>
+
+            <lg-radio-group formControlName="radio">
+              Test radio group
+              <lg-hint>Pick an option</lg-hint>
+              <lg-radio-button value="red">Red</lg-radio-button>
+              <lg-radio-button value="yellow">Yellow</lg-radio-button>
+              <lg-radio-button value="green">Green</lg-radio-button>
+              <lg-radio-button value="blue">Blue</lg-radio-button>
+            </lg-radio-group>
+
+            <button lg-button type="submit" variant="solid-primary">
+              Submit
+            </button>
+          </form>
+
+          <lg-separator></lg-separator>
 
           <lg-spinner variant="dark"></lg-spinner>
 
