@@ -5,24 +5,28 @@ $fonts-path: '../assets/fonts' !default;
   font-family: 'Roboto';
   src: url('#{$fonts-path}/roboto/Roboto-Regular-webfont.woff') format('woff');
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Roboto';
   src: url('#{$fonts-path}/roboto/Roboto-Medium-webfont.woff') format('woff');
   font-weight: 500;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Roboto';
   src: url('#{$fonts-path}/roboto/Roboto-Light-webfont.woff') format('woff');
   font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Roboto';
   src: url('#{$fonts-path}/roboto/Roboto-Thin-webfont.woff') format('woff');
   font-weight: 100;
+  font-display: swap;
 }
 
 html,
