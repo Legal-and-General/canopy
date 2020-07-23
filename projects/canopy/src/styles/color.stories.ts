@@ -28,8 +28,8 @@ interface Color {
     <div #swatch class="swatch__color" [ngStyle]="{ background: color.background }"></div>
     <div class="swatch__details">
       <span class="swatch__name">{{ color.name }}</span>
-      <span class="swatch__text">#{{ color.hex }}</span>
-      <span class="swatch__text">{{ color.rgb }}</span>
+      <span class="swatch__text lg-font-size-0-6">#{{ color.hex }}</span>
+      <span class="swatch__text lg-font-size-0-6">{{ color.rgb }}</span>
     </div>
   `,
   styles: [
@@ -49,12 +49,14 @@ interface Color {
         height: 10rem;
       }
       .swatch__name {
+        display: block;
         font-size: var(--text-sm);
         font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-xxxs);
       }
       .swatch__text {
         display: block;
-        font-size: var(--text-xs);
+        margin-bottom: var(--space-xxxs);
       }
     `,
   ],
@@ -93,8 +95,8 @@ class SwatchComponent implements AfterViewInit {
     <div *ngFor="let color of colors" class="tint-swatch__item">
       <div class="tint-swatch__details">
         <strong class="tint-swatch__name">{{ color.name }}</strong>
-        <span class="tint-swatch__text">#{{ color.hex }}</span>
-        <span class="tint-swatch__text">{{ color.rgb }}</span>
+        <span class="tint-swatch__text lg-font-size-0-6">#{{ color.hex }}</span>
+        <span class="tint-swatch__text lg-font-size-0-6">{{ color.rgb }}</span>
       </div>
       <div
         #swatch
@@ -126,12 +128,14 @@ class SwatchComponent implements AfterViewInit {
         flex: 1 1 50%;
       }
       .tint_swatch__name {
+        display: block;
         font-size: var(--text-sm);
         font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-xxxs);
       }
       .tint-swatch__text {
         display: block;
-        font-size: var(--text-xs);
+        margin-bottom: var(--space-xxxs);
       }
     `,
   ],
