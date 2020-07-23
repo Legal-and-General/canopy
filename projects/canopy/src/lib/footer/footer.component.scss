@@ -68,7 +68,8 @@
 .lg-footer__secondary-nav-item {
   margin-bottom: var(--space-sm);
   list-style-type: none;
-  font-size: var(--text-xs);
+
+  @include lg-font-size('-6');
 
   &:last-child {
     margin-bottom: 0;
@@ -76,16 +77,16 @@
 
   @include lg-breakpoint('md') {
     display: inline-block;
-    margin-right: var(--space-sm);
+    margin-right: var(--space-xs);
     margin-bottom: 0;
 
     &:not(:first-child):before {
       content: '';
       display: inline-block;
       width: var(--border-width);
-      height: var(--space-xs);
+      height: var(--space-xxs);
       background-color: var(--footer-text-color);
-      margin-right: var(--space-sm);
+      margin-right: var(--space-xs);
     }
   }
 }
@@ -101,6 +102,8 @@
 
 .lg-footer__copyright {
   display: block;
+
+  @include lg-font-size('-6');
 
   @include lg-breakpoint('md') {
     text-align: right;
