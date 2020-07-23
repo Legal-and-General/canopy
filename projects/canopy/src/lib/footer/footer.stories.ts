@@ -68,3 +68,18 @@ export const standard = () => ({
     secondaryLinkClicked: action('secondaryLinkClicked'),
   },
 });
+
+export const compact = () => ({
+  template: `
+    <footer lg-footer
+      [copyright]="copyright"
+      [secondaryLinks]="secondaryLinks"
+      (secondaryLinkClicked)="secondaryLinkClicked($event)">
+    </footer>
+  `,
+  props: {
+    copyright: text('copyright', '© Some Company plc 2018', groupId),
+    secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
+    secondaryLinkClicked: action('secondaryLinkClicked'),
+  },
+});

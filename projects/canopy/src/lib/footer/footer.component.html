@@ -1,6 +1,6 @@
 <div class="lg-footer__links">
   <nav
-    *ngIf="primaryLinks?.length"
+    *ngIf="primaryLinks && primaryLinks?.length"
     class="lg-footer__primary-nav"
     aria-labelledby="primary-links"
   >
@@ -20,16 +20,13 @@
     </ul>
   </nav>
   <nav
-    *ngIf="secondaryLinks?.length"
+    *ngIf="secondaryLinks && secondaryLinks?.length"
     class="lg-footer__secondary-nav"
     aria-labelledby="secondary-links"
   >
     <h2 class="lg-visually-hidden" id="secondary-links">Secondary links</h2>
     <ul class="lg-footer__secondary-nav-list">
-      <li
-        *ngFor="let link of secondaryLinks"
-        class="lg-footer__secondary-nav-item"
-      >
+      <li *ngFor="let link of secondaryLinks" class="lg-footer__secondary-nav-item">
         <a
           (click)="handleSecondaryLinkClick($event)"
           [attr.href]="link.href"
@@ -45,7 +42,7 @@
 </div>
 
 <div class="lg-footer__org">
-  <img [attr.alt]="logoAlt" [attr.src]="logo" class="lg-footer__logo" />
+  <img [attr.alt]="logoAlt" [attr.src]="logo" class="lg-footer__logo" *ngIf="logo" />
   <span class="lg-footer__copyright">
     {{ copyright }}
   </span>

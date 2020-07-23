@@ -32,6 +32,7 @@
 
 .lg-footer__primary-nav-list {
   margin-bottom: var(--space-lg);
+  margin-left: 0;
 
   @include lg-breakpoint('md') {
     margin-top: var(--space-md);
@@ -57,6 +58,7 @@
 
 .lg-footer__secondary-nav-list {
   margin-bottom: var(--space-xxl);
+  margin-left: 0;
 
   @include lg-breakpoint('md') {
     margin-bottom: 0;

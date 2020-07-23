@@ -25,11 +25,24 @@ export class LgFooterComponent {
   @Output() primaryLinkClicked = new EventEmitter<any>();
   @Output() secondaryLinkClicked = new EventEmitter<any>();
 
-  @Input() logo: string;
-  @Input() logoAlt = '';
+  private _logo: string;
+
+  @Input()
+  get logo(): string | null {
+    return this._logo;
+  }
+
+  set logo(logo) {
+    this._logo = logo;
+    if (!this.logoAlt) {
+      this.logoAlt = '';
+    }
+  }
+
+  @Input() logoAlt: string | null;
   @Input() copyright: string;
-  @Input() primaryLinks: Array<Link>;
-  @Input() secondaryLinks: Array<Link>;
+  @Input() primaryLinks: Array<Link> | null;
+  @Input() secondaryLinks: Array<Link> | null;
 
   handlePrimaryLinkClick(event) {
     this.primaryLinkClicked.emit(event);

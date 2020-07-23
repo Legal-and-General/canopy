@@ -3,8 +3,6 @@ export const notes = `
 
 ## Purpose
 Provides a generic footer for display at the bottom of the page.
-The current implementation is brand agnostic but eventually the branding should be encapsulated into the component.
-Certain links may eventually be hardcoded into the component but the option will be given to add custom links.
 The component uses an attribute selector which allows you to use the html [footer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) element as the host.
 
 The logo height is set internally with different heights for different screen sizes, it can not currently be modified to ensure consistency.
@@ -32,12 +30,21 @@ and in your HTML:
 
 ## Inputs
 
-### LgFooterComponent
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`logo\`\` | A url link to the logo | string | null | Yes |
 | \`\`logoAlt\`\` | alt text to display alongside the logo | string | '2rem' | Yes |
 | \`\`copyright\`\` | Copyright text to display in footer | string | null | No |
+| \`\`primaryLinks\`\` | The primary footer links | \`[{ text: string, href: string }]\` | null | No |
+| \`\`secondaryLinks\`\` | The secondary footer links | \`[{ text: string, href: string }]\` | null | No |
+
+## Outputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`primaryLinkClicked\`\` | Event emitted when a primary link is clicked | EventEmitter<any> | n/a | No |
+| \`\`secondaryLinkClicked\`\` | Event emitted when a secondary link is clicked | EventEmitter<any> | n/a | No |
+
 
 ## Using only the SCSS files
 

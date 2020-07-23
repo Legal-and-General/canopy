@@ -8,6 +8,7 @@ describe('FooterComponent', () => {
   let fixture: ComponentFixture<LgFooterComponent>;
 
   const logo = 'http://a.b/logo.png';
+  const logoAlt = 'logo alt';
   const text1 = 'test1';
   const href1 = 'https://a.b';
 
@@ -32,6 +33,40 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('logo', () => {
+    it('renders the logo when the property is set', () => {
+      component.logo = logo;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('img'));
+      expect(image).toBeTruthy();
+      expect(image.attributes.src).toBe(logo);
+    });
+
+    it('does not render a logo when the property is not set', () => {
+      component.logo = null;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('img'));
+      expect(image).toBeFalsy();
+    });
+
+    it('adds a silent alt when there is a logo', () => {
+      component.logo = logo;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('img'));
+      expect(image).toBeTruthy();
+      expect(image.attributes.alt).toBe('');
+    });
+
+    it('adds a standard alt when alt and logo are set', () => {
+      component.logo = logo;
+      component.logoAlt = logoAlt;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('img'));
+      expect(image).toBeTruthy();
+      expect(image.attributes.alt).toBe(logoAlt);
+    });
   });
 
   describe('for primary links', () => {
@@ -64,9 +99,8 @@ describe('FooterComponent', () => {
     it('emits an event when clicked', () => {
       let selectedHref: string;
       component.primaryLinkClicked.subscribe((event: Event) => {
-        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
-          'href',
-        ).value;
+        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem('href')
+          .value;
         event.preventDefault();
       });
 
@@ -106,9 +140,8 @@ describe('FooterComponent', () => {
     it('emits an event when clicked', () => {
       let selectedHref: string;
       component.secondaryLinkClicked.subscribe((event: Event) => {
-        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
-          'href',
-        ).value;
+        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem('href')
+          .value;
         event.preventDefault();
       });
 
