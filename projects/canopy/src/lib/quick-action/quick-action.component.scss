@@ -15,12 +15,12 @@
   color: var(--link-color);
 
   &:hover {
-    background-color: var(--quick-action-hover-background-color);
+    background-color: var(--quick-action-hover-bg-color);
     color: var(--quick-action-hover-color);
   }
 
   &:active {
-    background-color: var(--quick-action-active-background-color);
+    background-color: var(--quick-action-active-bg-color);
     color: var(--quick-action-active-color);
   }
 
@@ -33,7 +33,7 @@
   }
 
   &:visited:hover {
-    background-color: var(--quick-action-visited-hover-background-color);
+    background-color: var(--quick-action-visited-hover-bg-color);
     color: var(--quick-action-visited-hover-color);
   }
 }
