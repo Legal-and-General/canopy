@@ -95,6 +95,21 @@ In your `angular.json` file you will need to incorporate the global styles into 
   ],
 ```
 
+## To import the styles in a scss format
+An alternative to importing the global canopy.css file is to import only the desired scss files in your project.
+To import all the styles in one go, you can do the following in your project's scss entry file:
+
+projects/canopy-test-app/src/styles.scss:
+```scss
+$fonts-path: 'dist/canopy/fonts';
+@import 'dist/canopy/styles/styles';
+```
+
+You can find the scss files here:
+* dist/styes - containing styles.scss that import all the styles
+* dist/styles/variables - containing all the variables for colors, typography, etc
+* dist/lib - containing all the components styles
+
 ### Supporting IE11
 
 Canopy uses css variables which are not supported by IE11. One way of adding support is to use [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill) in the following way.

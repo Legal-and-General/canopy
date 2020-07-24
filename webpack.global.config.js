@@ -21,9 +21,16 @@ module.exports = {
     }),
     new CopyPlugin([
       {
-        from: path.resolve(__dirname, 'projects/canopy/**/*.scss'),
-        to: path.resolve(__dirname, 'dist/canopy/scss'),
-        flatten: true
+        from: path.resolve(__dirname, 'projects/canopy/src/lib/**/*.scss'),
+        to: path.resolve(__dirname, 'dist/canopy/lib'),
+        flatten: false,
+        context: 'projects/canopy/src/lib/'
+      },
+      {
+        from: path.resolve(__dirname, 'projects/canopy/src/styles/**/*.scss'),
+        to: path.resolve(__dirname, 'dist/canopy/styles'),
+        flatten: false,
+        context: 'projects/canopy/src/styles/'
       },
       {
         from: path.resolve(__dirname, 'projects/canopy/src/assets/icons/*.svg'),
@@ -53,8 +60,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/'
+              name: '[path][name].[ext]',
+              context: 'projects/canopy/src/assets/fonts',
+              outputPath: 'fonts'
             }
           }
         ]
