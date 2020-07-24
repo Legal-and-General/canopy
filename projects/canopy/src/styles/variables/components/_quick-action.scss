@@ -1,7 +1,8 @@
 :root {
   --quick-action-color: var(--link-color);
-  --quick-action-hover-background-color: var(--color-super-blue-lightest);
-  --quick-action-active-background-color: var(--color-super-blue);
+  --quick-action-hover-background-color: var(--color-super-blue);
+  --quick-action-hover-color: var(--color-white);
+  --quick-action-active-background-color: var(--color-super-blue-dark);
   --quick-action-active-color: var(--color-white);
   --quick-action-visited-color: var(--link-visited-color);
 }
