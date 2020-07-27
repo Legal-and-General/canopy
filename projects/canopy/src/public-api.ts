@@ -24,7 +24,7 @@ export * from './lib/icon/index';
 export * from './lib/page/index';
 export * from './lib/pictograms/index';
 export * from './lib/pipes/index';
-export * from './lib/quick-action';
+export * from './lib/quick-action/index';
 export * from './lib/separator/index';
 export * from './lib/spacing/index';
 export * from './lib/spinner/index';
