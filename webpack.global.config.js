@@ -55,7 +55,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
-        test: /\.woff$/,
+        test: /\.(woff(2)?)$/,
         use: [
           {
             loader: 'file-loader',
