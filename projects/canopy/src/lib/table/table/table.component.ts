@@ -45,7 +45,7 @@ export class LgTableComponent implements AfterViewChecked {
       this.tableBody.first.rows.forEach(row => {
         row.bodyCells.forEach((cell, cellIndex) => {
           cell.align = this.columns.get(cellIndex).align;
-          cell.columnLabel = this.columns.get(cellIndex).label;
+          cell.label.nativeElement.innerHTML = this.columns.get(cellIndex).label;
         });
       });
     }

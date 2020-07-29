@@ -26,16 +26,6 @@ export class LgTableCellComponent {
 
   alignOptions = AlignmentOptions;
 
-  set columnLabel(columnLabel: string) {
-    this._columnLabel = columnLabel;
-
-    this.cd.detectChanges();
-  }
-
-  get columnLabel() {
-    return this._columnLabel;
-  }
-
   @Input() cellIndex: number;
 
   @Input() set align(align: AlignmentOptions) {
@@ -49,8 +39,6 @@ export class LgTableCellComponent {
   }
 
   private _align: AlignmentOptions = AlignmentOptions.Start;
-
-  private _columnLabel = '';
 
   constructor(private cd: ChangeDetectorRef) {}
 }
