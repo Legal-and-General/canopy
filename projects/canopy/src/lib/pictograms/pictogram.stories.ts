@@ -16,6 +16,8 @@ export const pictogramArray: Array<picSet.Pictogram> = [
   picSet.lgPictogramNeedHelp,
   picSet.lgPictogramNoInformation,
   picSet.lgPictogramQuestionMark,
+  picSet.lgPictogramRainOrShine,
+  picSet.lgPictogramPeople,
 ];
 
 @Component({
