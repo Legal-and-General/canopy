@@ -16,6 +16,11 @@
     'lg-toggle__label--switch': variant === 'switch'
   }"
 >
+  <lg-icon
+    *ngIf="variant === 'checkbox'"
+    class="lg-toggle__checkbox"
+    name="checkbox-mark"
+  ></lg-icon>
   <ng-content></ng-content>
 </label>
 <ng-content select="lg-validation"></ng-content>

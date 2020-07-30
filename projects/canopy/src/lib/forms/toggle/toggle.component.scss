@@ -1,9 +1,5 @@
 @import '../../../styles/mixins';
 
-:root {
-  --toggle-tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='12' viewBox='0 0 14 12'%3E%3Cpath fill='none' fill-rule='evenodd' stroke='%23FFF' stroke-width='2' d='M12.758 1.415L4.273 9.901l-3.03-3.03'/%3E%3C/svg%3E");
-}
-
 .lg-toggle {
   display: block;
   margin-bottom: var(--component-margin);
@@ -22,28 +18,9 @@
     &::after {
       background-color: var(--toggle-switch-on-dot-bg-color);
       transform: translate(
-        calc(
-          var(--toggle-switch-width) - var(--toggle-switch-dot-offset) - 100%
-        ),
+        calc(var(--toggle-switch-width) - var(--toggle-switch-dot-offset) - 100%),
         -50%
       );
-    }
-  }
-
-  &:focus + .lg-toggle__label--switch::before {
-    @include lg-outer-focus-outline(var(--default-focus-color));
-  }
-
-  &:disabled + .lg-toggle__label--switch {
-    color: var(--toggle-switch-disabled-color);
-
-    &::before {
-      background-color: var(--toggle-switch-disabled-bg-color);
-      border-color: var(--toggle-switch-disabled-border-color);
-    }
-
-    &::after {
-      background-color: var(--toggle-switch-disabled-dot-bg-color);
     }
   }
 }
@@ -64,16 +41,58 @@
   }
 }
 
-.lg-toggle__label::before {
+.lg-toggle__label > .lg-toggle__checkbox {
+  border: var(--border-width) solid var(--toggle-border-color);
+  margin: auto var(--space-sm) auto 0;
+  font-size: 0.8rem;
+
+  &.lg-icon > svg {
+    display: none;
+  }
+
+  .lg-toggle__input:focus + & {
+    @include lg-outer-focus-outline();
+  }
+
+  .lg-toggle__input:checked + & {
+    background-color: var(--toggle-bg-color);
+    color: var(--toggle-checkbox-color);
+    border-color: var(--toggle-checkbox-active-border-color);
+
+    &.lg-icon > svg {
+      display: inline-block;
+      height: auto;
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+}
+
+.lg-toggle__label--switch {
+  &::before,
+  &::after {
+    background-color: var(--toggle-switch-off-dot-bg-color);
+    margin-right: var(--space-xxs);
+    transition: all var(--animation-duration) var(--animation-cubic-bezier-fn);
+  }
+
+  .lg-toggle__input:disabled + & {
+    color: var(--toggle-switch-disabled-color);
+  }
+}
+
+.lg-toggle__label--switch::before {
   content: '';
   left: 0;
   top: 0;
   bottom: 0;
   display: inline-block;
-  height: var(--toggle-outer-height);
-  width: var(--toggle-outer-width);
+  height: var(--toggle-switch-height);
+  width: var(--toggle-switch-width);
   border: var(--border-width) solid var(--border-color);
+  border-radius: calc(var(--toggle-switch-height) / 2);
   margin: auto var(--space-sm) auto 0;
+  background-color: var(--toggle-switch-off-bg-color);
 
   .lg-toggle__input:hover + & {
     border-color: var(--border-hover-color);
@@ -85,12 +104,13 @@
   }
 
   .lg-toggle__input:checked + & {
-    background-color: var(--toggle-color);
-    border-color: var(--toggle-color);
+    background-color: var(--toggle-bg-color);
+    border-color: var(--toggle-switch-on-border-color);
   }
 
   .lg-toggle__input:disabled + & {
-    border-color: var(--border-disabled-color);
+    background-color: var(--toggle-switch-disabled-bg-color);
+    border-color: var(--toggle-switch-disabled-border-color);
   }
 
   .lg-toggle__input:disabled:checked + & {
@@ -108,40 +128,19 @@
   }
 }
 
-.lg-toggle__label::after {
+.lg-toggle__label--switch::after {
   content: ' ';
   position: absolute;
   left: 0;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  bottom: auto;
   margin: auto;
-  background-image: var(--toggle-tick);
-  background-repeat: no-repeat;
-  background-position: center;
   height: var(--toggle-outer-height);
   width: var(--toggle-outer-width);
-}
+  transform: translate(var(--toggle-switch-dot-offset), -50%);
+  border-radius: 50%;
 
-.lg-toggle__label--switch {
-  &::before,
-  &::after {
-    background-color: var(--toggle-switch-off-dot-bg-color);
-    margin-right: var(--space-xxs);
-    transition: all var(--animation-duration) var(--animation-cubic-bazier-fn);
-  }
-
-  &::before {
-    height: var(--toggle-switch-height);
-    width: var(--toggle-switch-width);
-    border-radius: calc(var(--toggle-switch-height) / 2);
-    background-color: var(--toggle-switch-off-bg-color);
-  }
-
-  &::after {
-    top: 50%;
-    bottom: auto;
-    background-image: none;
-    transform: translate(var(--toggle-switch-dot-offset), -50%);
-    border-radius: 50%;
+  .lg-toggle__input:disabled + & {
+    background-color: var(--toggle-switch-disabled-dot-bg-color);
   }
 }

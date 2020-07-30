@@ -14,7 +14,7 @@ import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { anything, instance, mock, when } from 'ts-mockito';
 
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgToggleComponent } from './toggle.component';
@@ -80,7 +80,7 @@ describe('LgToggleComponent', () => {
       declarations: [
         TestToggleComponent,
         LgToggleComponent,
-        MockComponents(LgIconComponent, LgValidationComponent),
+        MockComponents(LgValidationComponent, LgIconComponent),
       ],
       providers: [
         {
@@ -94,9 +94,7 @@ describe('LgToggleComponent', () => {
     fixture.detectChanges();
     component = fixture.componentInstance;
 
-    toggleDebugElement = fixture.debugElement.query(
-      By.directive(LgToggleComponent),
-    );
+    toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
 
     toggleInstance = toggleDebugElement.injector.get<LgToggleComponent>(
       LgToggleComponent,
@@ -114,27 +112,36 @@ describe('LgToggleComponent', () => {
   });
 
   it('sets a unique id for the toggle button', () => {
-    expect(
-      /lg-toggle-\d/.test(inputDebugElement.nativeElement.getAttribute('id')),
-    ).toBe(true);
+    expect(/lg-toggle-\d/.test(inputDebugElement.nativeElement.getAttribute('id'))).toBe(
+      true,
+    );
   });
 
   it('sets the correct modifier class based on the variant', () => {
     component.variant = 'checkbox';
     expect(
-      inputLabelElement.nativeElement.classList.contains(
-        'lg-toggle__label--switch',
-      ),
+      inputLabelElement.nativeElement.classList.contains('lg-toggle__label--switch'),
     ).toBe(false);
 
     component.variant = 'switch';
     fixture.detectChanges();
 
     expect(
-      inputLabelElement.nativeElement.classList.contains(
-        'lg-toggle__label--switch',
-      ),
+      inputLabelElement.nativeElement.classList.contains('lg-toggle__label--switch'),
     ).toBe(true);
+  });
+
+  it('adds the checkbox icon based on the variant', () => {
+    component.variant = 'switch';
+
+    expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox'))).toBeNull();
+
+    component.variant = 'checkbox';
+    fixture.detectChanges();
+
+    expect(
+      fixture.debugElement.query(By.css('.lg-toggle__checkbox')).nativeElement,
+    ).toBeDefined();
   });
 
   it('links the label to the input field with the correct attributes', () => {
@@ -178,22 +185,16 @@ describe('LgToggleComponent', () => {
   });
 
   it('links the error to the fieldset with the correct aria attributes', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
-    expect(
-      inputDebugElement.nativeElement.getAttribute('aria-describedBy'),
-    ).toContain(validationTestId);
+    expect(inputDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
+      validationTestId,
+    );
   });
 
   it('adds the error class if the form field is invalid', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
-    expect(toggleDebugElement.nativeElement.className).toContain(
-      'lg-toggle--error',
-    );
+    expect(toggleDebugElement.nativeElement.className).toContain('lg-toggle--error');
   });
 });

@@ -181,6 +181,11 @@ export const lgIconCheckboxIndeterminate: Icon = {
   data:
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M27 5v22H5V5h22zm-2 2H7v18h18V7zm-12 8h6a1 1 0 010 2h-6a1 1 0 010-2z"/></svg>'
 };
+export const lgIconCheckboxMark: Icon = {
+  name: 'checkbox-mark',
+  data:
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 12"><path fill="none" stroke="currentColor" stroke-width="2" d="M12.758 1.415L4.273 9.901l-3.03-3.03"/></svg>'
+};
 export const lgIconCheckmarkSpotFill: Icon = {
   name: 'checkmark-spot-fill',
   data:
@@ -1313,6 +1318,7 @@ export type IconName =
   | 'checkbox-checked'
   | 'checkbox-empty'
   | 'checkbox-indeterminate'
+  | 'checkbox-mark'
   | 'checkmark-spot-fill'
   | 'checkmark-spot'
   | 'checkmark'

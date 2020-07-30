@@ -1,6 +1,10 @@
 :root {
-  --toggle-color: var(--color-super-blue);
+  --toggle-bg-color: var(--color-super-blue);
+  --toggle-border-color: var(--border-color);
   --toggle-disabled-color: var(--color-taupe-grey);
+
+  --toggle-checkbox-color: var(--color-white);
+  --toggle-checkbox-active-border-color: var(--color-super-blue);
 
   --toggle-inner-height: 0.5rem;
   --toggle-inner-width: var(--toggle-inner-height);
