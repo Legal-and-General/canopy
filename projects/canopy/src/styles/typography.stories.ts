@@ -52,6 +52,12 @@ stories.add(
         for his existential works. The book was published in 1947 and is
         considered one of the most important works by Camus.
       </p>
+      <ul>
+        <li>A Happy Death (La Mort heureuse)</li>
+        <li>The Stranger (L'Étranger, often translated as The Outsider.)</li>
+        <li>The Plague (La Peste)</li>
+        <li>The Fall (La Chute)</li>
+      </ul>
       <p>
         The truth is that everyone is bored, and devotes himself to cultivating
         habits. <b>Our citizens work hard</b>, but solely with the object of
