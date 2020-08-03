@@ -18,6 +18,13 @@ export const pictogramArray: Array<picSet.Pictogram> = [
   picSet.lgPictogramQuestionMark,
   picSet.lgPictogramRainOrShine,
   picSet.lgPictogramPeople,
+  picSet.lgPictogramCalendar,
+  picSet.lgPictogramNoTransactionsMatch,
+  picSet.lgPictogramPensionPot,
+  picSet.lgPictogramPerformance,
+  picSet.lgPictogramThumbsUp,
+  picSet.lgPictogramVideoGuides,
+  picSet.lgPictogramSurvey,
 ];
 
 @Component({
@@ -38,18 +45,16 @@ export const pictogramArray: Array<picSet.Pictogram> = [
       .swatch {
         margin: var(--space-md);
         flex: 0 0 8rem;
-        height: 8rem;
-        width: 8rem;
       }
 
       .swatch__name {
         display: block;
         text-align: center;
+        margin-top: var(--space-xxs);
       }
 
       .swatch__svg {
-        margin-right: var(--space-md);
-        display: inline;
+        display: block;
       }
     `,
   ],

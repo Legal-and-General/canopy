@@ -45,6 +45,7 @@
   border: var(--border-width) solid var(--toggle-border-color);
   margin: auto var(--space-sm) auto 0;
   font-size: 0.8rem;
+  color: var(--toggle-checkbox-color);
 
   &.lg-icon > svg {
     display: none;

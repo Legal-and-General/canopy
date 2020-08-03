@@ -18,7 +18,6 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-pictogram',
   templateUrl: './pictogram.component.html',
-  styleUrls: ['./pictogram.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgPictogramComponent {

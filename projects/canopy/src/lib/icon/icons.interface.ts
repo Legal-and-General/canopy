@@ -184,7 +184,7 @@ export const lgIconCheckboxIndeterminate: Icon = {
 export const lgIconCheckboxMark: Icon = {
   name: 'checkbox-mark',
   data:
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 12"><path fill="none" stroke="currentColor" stroke-width="2" d="M12.758 1.415L4.273 9.901l-3.03-3.03"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M21.698 8.256L14.672 20.55l-4.611-4.612a1.5 1.5 0 00-2.122 2.122l7.389 7.388 8.974-15.705a1.5 1.5 0 10-2.604-1.488z"/></svg>'
 };
 export const lgIconCheckmarkSpotFill: Icon = {
   name: 'checkmark-spot-fill',
