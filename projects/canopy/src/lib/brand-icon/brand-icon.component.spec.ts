@@ -2,30 +2,30 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { instance, mock, when } from 'ts-mockito';
 
-import { LgPictogramComponent } from './pictogram.component';
-import { LgPictogramRegistry } from './pictogram.registry';
+import { LgBrandIconComponent } from './brand-icon.component';
+import { LgBrandIconRegistry } from './brand-icon.registry';
 
-describe('LgPictogramComponent', () => {
-  let component: LgPictogramComponent;
-  let fixture: ComponentFixture<LgPictogramComponent>;
-  let pictogramRegistryMock: LgPictogramRegistry;
+describe('LgBrandIconComponent', () => {
+  let component: LgBrandIconComponent;
+  let fixture: ComponentFixture<LgBrandIconComponent>;
+  let brandIconRegistryMock: LgBrandIconRegistry;
 
   beforeEach(async(() => {
-    pictogramRegistryMock = mock(LgPictogramRegistry);
+    brandIconRegistryMock = mock(LgBrandIconRegistry);
 
     TestBed.configureTestingModule({
-      declarations: [LgPictogramComponent],
+      declarations: [LgBrandIconComponent],
       providers: [
         {
-          provide: LgPictogramRegistry,
-          useFactory: () => instance(pictogramRegistryMock),
+          provide: LgBrandIconRegistry,
+          useFactory: () => instance(brandIconRegistryMock),
         },
       ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LgPictogramComponent);
+    fixture = TestBed.createComponent(LgBrandIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -34,8 +34,8 @@ describe('LgPictogramComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should add the generic pictogram class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram');
+  it('should add the generic brand-icon class', () => {
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-brand-icon');
   });
 
   it('should set `aria-hidden` to true', () => {
@@ -45,9 +45,9 @@ describe('LgPictogramComponent', () => {
   describe('setting the name', () => {
     it('should append the correct svg element to the component', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
-      expect(fixture.nativeElement.querySelector('#lg-pictogram-0')).toBeNull();
+      expect(fixture.nativeElement.querySelector('#lg-brand-icon-0')).toBeNull();
 
-      when(pictogramRegistryMock.getPictogram('sun')).thenReturn(
+      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
         '<svg id="test">test-svg</svg>',
       );
 
@@ -55,14 +55,16 @@ describe('LgPictogramComponent', () => {
       fixture.detectChanges();
 
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
-      expect(fixture.nativeElement.querySelector('#lg-pictogram-0')).toBeDefined();
+      expect(fixture.nativeElement.querySelector('#lg-brand-icon-0')).toBeDefined();
     });
   });
 
   describe('the size input', () => {
     describe('when not specified', () => {
       it('should set the `sm` class modifier', () => {
-        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram--sm');
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-brand-icon--sm',
+        );
       });
     });
 
@@ -72,9 +74,11 @@ describe('LgPictogramComponent', () => {
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-pictogram--sm',
+          'lg-brand-icon--sm',
         );
-        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-pictogram--md');
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-brand-icon--md',
+        );
       });
     });
   });

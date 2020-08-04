@@ -9,7 +9,7 @@
   "linterOptions": {
     "exclude": [
       "**/test.ts",
-      "**/pictograms.interface.ts",
+      "**/brand-icons.interface.ts",
       "**/icons.interface.ts"
     ]
   },

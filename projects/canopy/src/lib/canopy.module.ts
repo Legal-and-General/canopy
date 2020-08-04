@@ -18,7 +18,7 @@ import { LgHeadingModule } from './heading/heading.module';
 import { LgHeroModule } from './hero/hero.module';
 import { LgIconModule } from './icon/icon.module';
 import { LgPageModule } from './page/page.module';
-import { LgPictogramModule } from './pictogram/pictogram.module';
+import { LgBrandIconModule } from './brand-icon/brand-icon.module';
 import { LgPipesModule } from './pipes/pipes.module';
 import { LgQuickActionModule } from './quick-action/quick-action.module';
 import { LgSeparatorModule } from './separator/separator.module';
@@ -45,7 +45,7 @@ const modules = [
   LgHeroModule,
   LgIconModule,
   LgPageModule,
-  LgPictogramModule,
+  LgBrandIconModule,
   LgPipesModule,
   LgQuickActionModule,
   LgSeparatorModule,

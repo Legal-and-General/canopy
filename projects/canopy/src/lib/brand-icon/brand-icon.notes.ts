@@ -1,8 +1,8 @@
 export const notes = `
-# Pictogram Component
+# Brand Icon Component
 
 ## Purpose
-Provides a way of adding common pictograms.
+Provides a way of adding common brand icons.
 
 ## Usage
 Import the component in your application:
@@ -10,17 +10,17 @@ Import the component in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgPictogramModule],
+  imports: [LgBrandIconModule],
 })
 ~~~
 
-Import the \`LgPictogramRegistry\` and register your pictograms:
+Import the \`LgBrandIconRegistry\` and register your brand icons:
 
 ~~~js
 export class AppModule {
-  constructor(private pictogramRegistry: LgPictogramRegistry) {
-    this.pictogramRegistry.registerPictogram([
-      lgPictogramSun
+  constructor(private brandIconRegistry: LgBrandIconRegistry) {
+    this.brandIconRegistry.registerBrandIcon([
+      lgBrandIconSun
     ]);
   }
 }
@@ -29,23 +29,15 @@ export class AppModule {
 and in your HTML:
 
 ~~~html
-<lg-pictogram name="sun"></lg-pictogram>
+<lg-brand-icon name="sun"></lg-brand-icon>
 ~~~
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`name\`\` | the name of the pictogram | string | undefined | yes |
-| \`\`size\`\` | the size of the pictogram | PictogramSize | 'sm' | no |
-
-All pictograms have height and width equal to 1em. This means the pictograms will be as big as the font-size specified by the parent.
-
-*By default the pictograms have the \`\`fill\`\` css property set to \`\`currentColor\`\`.*
-
-> \`\`currentColor\`\` acts like a variable for the current value of the \`\`color\`\` property on the element. And the Cascading part of CSS is still effective, so if there’s no defined \`\`color\`\` property on an element, the cascade will determine the value of \`\`currentColor\`\`.
->
-> *Understanding the currentColor Keyword in CSS - https://alligator.io/css/currentcolor/*
+| \`\`name\`\` | the name of the icon | string | undefined | yes |
+| \`\`size\`\` | the size of the icon | BrandIconSize | 'sm' | no |
 
 ## Using only the SCSS files
 
@@ -53,13 +45,13 @@ Generate the markup as show in the example below, no current modifiers.
 
 | Class | Description |
 |------|-------------|
-| \`\`lg-pictogram\`\` | Adds the default styles to the pictogram |
+| \`\`lg-brand-icon\`\` | Adds the default styles to the icon |
 
 Make sure you remove the styles on the svg itself.
 
 ### Examples:
 ~~~html
-<div class="lg-pictogram">
+<div class="lg-brand-icon">
   <svg xmlns="http://www.w3.org/2000/svg" width="152" height="152" viewBox="0 0 152 152">
     <g fill="none" fill-rule="evenodd">
         <path fill="#FFD500" fill-rule="nonzero" d="M76 36c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40c0-10.609-4.214-20.783-11.716-28.284C96.783 40.214 86.61 36 76 36z"/>

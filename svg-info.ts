@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 
 /*
- * Add a note at the top of icons.interface.ts
+ * Add a note at the top of icons.interface.ts and brand-icons.interface.ts
  */
 const componentPath = process.argv.slice(2)[0];
 const filePath = `./projects/canopy/src/lib/${componentPath}`;

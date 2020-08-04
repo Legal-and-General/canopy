@@ -46,6 +46,8 @@ All icons have height and width equal to 1em. This means the icons will be as bi
 >
 > *Understanding the currentColor Keyword in CSS - https://alligator.io/css/currentcolor/*
 
+*Please note that the 'need-help' and 'question-mark' icons currently don't have the ability to change colour.*
+
 ## Using only the SCSS files
 
 Generate the markup as show in the example below, no current modifiers.
