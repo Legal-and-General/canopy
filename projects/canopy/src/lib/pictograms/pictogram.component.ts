@@ -5,6 +5,7 @@ import {
   HostBinding,
   Inject,
   Input,
+  Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -15,9 +16,12 @@ type Name = PictogramName;
 
 let nextUniqueId = 0;
 
+export type PictogramSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+
 @Component({
   selector: 'lg-pictogram',
   templateUrl: './pictogram.component.html',
+  styleUrls: ['./pictogram.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgPictogramComponent {
@@ -26,6 +30,22 @@ export class LgPictogramComponent {
 
   @HostBinding('class.lg-pictogram') class = true;
   @HostBinding('attr.aria-hidden') hidden = true;
+
+  _size: PictogramSize = 'sm';
+  @Input()
+  set size(size: PictogramSize) {
+    if (this._size) {
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-pictogram--${this.size}`,
+      );
+    }
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-pictogram--${size}`);
+    this._size = size;
+  }
+  get size() {
+    return this._size;
+  }
 
   @Input()
   set name(name: Name) {
@@ -41,7 +61,11 @@ export class LgPictogramComponent {
     private elementRef: ElementRef,
     private iconRegistry: LgPictogramRegistry,
     @Inject(DOCUMENT) private document: any,
-  ) {}
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-pictogram--${this._size}`);
+  }
 
   /*
    * The following code replaces the ID and the xlink:href of the SVG before adding it to the registry.

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { withKnobs } from '@storybook/addon-knobs';
+import { select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgPictogramComponent } from './pictogram.component';
@@ -31,7 +31,11 @@ export const pictogramArray: Array<picSet.Pictogram> = [
   selector: 'lg-swatch-pictogram',
   template: `
     <div class="swatch" *ngFor="let pictogram of pictograms">
-      <lg-pictogram class="swatch__svg" [name]="pictogram.name"></lg-pictogram>
+      <lg-pictogram
+        class="swatch__svg"
+        [name]="pictogram.name"
+        [size]="size"
+      ></lg-pictogram>
       <span class="swatch__name">{{ pictogram.name }}</span>
     </div>
   `,
@@ -55,6 +59,7 @@ export const pictogramArray: Array<picSet.Pictogram> = [
 
       .swatch__svg {
         display: block;
+        margin: 0 auto;
       }
     `,
   ],
@@ -62,10 +67,14 @@ export const pictogramArray: Array<picSet.Pictogram> = [
 class SwatchPictogramComponent {
   pictograms = pictogramArray;
 
+  @Input() size;
+
   constructor(private registry: LgPictogramRegistry) {
     this.registry.registerPictogram(this.pictograms);
   }
 }
+
+const spaces = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 export default {
   title: 'Components/Pictogram',
@@ -85,6 +94,9 @@ export default {
 
 export const standard = () => ({
   template: `
-    <lg-swatch-pictogram></lg-swatch-pictogram>
+    <lg-swatch-pictogram [size]="size"></lg-swatch-pictogram>
   `,
+  props: {
+    size: select('size', spaces, 'xs'),
+  },
 });

@@ -37,6 +37,7 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`name\`\` | the name of the pictogram | string | undefined | yes |
+| \`\`size\`\` | the size of the pictogram | PictogramSize | 'sm' | no |
 
 All pictograms have height and width equal to 1em. This means the pictograms will be as big as the font-size specified by the parent.
 
