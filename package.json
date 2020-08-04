@@ -7,7 +7,7 @@
     "ng": "ng",
     "start": "npm run storybook",
     "start:test-app": "ng serve",
-    "build": "npm run build:icons && ng build && npm run build-styles",
+    "build": "ng build && npm run build-styles",
     "build:test-app": "npm run build && ng build canopy-test-app --prod --outputPath ./test-dist",
     "build:icons": "npm run optimise:svgs && npm run generate:icons && npm run generate:pictograms",
     "generate:icons": "svg-to-ts -s projects/canopy/src/assets/icons -o projects/canopy/src/lib/icon -f icons.interface -p lgIcon -t IconName -i Icon -d KEBAB && node svg-info.ts icon/icons.interface.ts",
