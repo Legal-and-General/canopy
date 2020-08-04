@@ -11,7 +11,7 @@
     "build:test-app": "npm run build && ng build canopy-test-app --prod --outputPath ./test-dist",
     "build:icons": "npm run optimise:svgs && npm run generate:icons && npm run generate:pictograms",
     "generate:icons": "svg-to-ts -s projects/canopy/src/assets/icons -o projects/canopy/src/lib/icon -f icons.interface -p lgIcon -t IconName -i Icon -d KEBAB && node svg-info.ts icon/icons.interface.ts",
-    "generate:pictograms": "svg-to-ts -s projects/canopy/src/assets/pictograms -o projects/canopy/src/lib/pictograms -f pictograms.interface -p lgPictogram -t PictogramName -i Pictogram -d KEBAB && node svg-info.ts pictograms/pictograms.interface.ts",
+    "generate:pictograms": "svg-to-ts -s projects/canopy/src/assets/pictograms -o projects/canopy/src/lib/pictogram -f pictograms.interface -p lgPictogram -t PictogramName -i Pictogram -d KEBAB && node svg-info.ts pictograms/pictograms.interface.ts",
     "optimise:svgs": "svgo projects/canopy/src/assets/ -r --config=svgo.json",
     "dsm-storybook:publish": "dsm-storybook publish",
     "dsm-storybook:preview": "dsm-storybook preview",

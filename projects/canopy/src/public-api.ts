@@ -22,7 +22,7 @@ export * from './lib/heading/index';
 export * from './lib/hero/index';
 export * from './lib/icon/index';
 export * from './lib/page/index';
-export * from './lib/pictograms/index';
+export * from './lib/pictogram/index';
 export * from './lib/pipes/index';
 export * from './lib/quick-action/index';
 export * from './lib/separator/index';
