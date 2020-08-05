@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 import { select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
@@ -29,7 +30,12 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
   selector: 'lg-swatch-brand-icon',
   template: `
     <div class="swatch" *ngFor="let icon of icons">
-      <lg-brand-icon class="swatch__svg" [name]="icon.name" [size]="size"></lg-brand-icon>
+      <lg-brand-icon
+        class="swatch__svg"
+        [name]="icon.name"
+        [size]="size"
+        [attr.style]="cssVar"
+      ></lg-brand-icon>
       <span class="swatch__name">{{ icon.name }}</span>
     </div>
   `,
@@ -58,17 +64,27 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
     `,
   ],
 })
-class SwatchBrandIconComponent {
+class SwatchBrandIconComponent implements OnChanges {
+  @Input() size: string;
+  @Input() colour: string;
+
   icons = brandIconsArray;
+  cssVar: SafeStyle;
 
-  @Input() size;
-
-  constructor(private registry: LgBrandIconRegistry) {
+  constructor(private registry: LgBrandIconRegistry, private sanitizer: DomSanitizer) {
     this.registry.registerBrandIcon(this.icons);
+  }
+
+  ngOnChanges({ colour }: SimpleChanges) {
+    if (colour && colour.currentValue) {
+      this.cssVar = this.sanitizer.bypassSecurityTrustStyle(
+        `--brand-icon-fill-primary: var(${colour.currentValue})`,
+      );
+    }
   }
 }
 
-const spaces = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 export default {
   title: 'Components/Brand Icon',
@@ -86,11 +102,19 @@ export default {
   },
 };
 
+const colours = [
+  '--color-dandelion-yellow',
+  '--color-super-blue',
+  '--color-lily-green',
+  '--color-shocking-pink',
+];
+
 export const standard = () => ({
   template: `
-    <lg-swatch-brand-icon [size]="size"></lg-swatch-brand-icon>
+    <lg-swatch-brand-icon [size]="size" [colour]="colour"></lg-swatch-brand-icon>
   `,
   props: {
-    size: select('size', spaces, 'xs'),
+    size: select('size', sizes, 'xs'),
+    colour: select('colour examples', colours, '--color-dandelion-yellow'),
   },
 });
