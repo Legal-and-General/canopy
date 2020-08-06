@@ -12,6 +12,7 @@
   font-size: var(--btn-font-size);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
+  min-width: var(--btn-min-width);
 
   @include full-width();
 
