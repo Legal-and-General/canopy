@@ -55,15 +55,11 @@ Code Owners are chosen based on a history of consistent contributions. Code Owne
 
 ## Storybook
 
-Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed. This file will need to be manually added to the [storybook config file](https://github.com/canopy-collective/canopy/blob/master/.storybook/config.js).
-
-It is possible to scan for story files automatically however this caused some issues with Netlify timing out, so in the interim files need to be added manually.
+Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed.
 
 ### Netlify Deployments
 
 Pull requests are automatically deployed via [Netlify](https://netlify.com), a status check will be added to any pull request with a link to the deployment which will run the storybook application. [Netlify config](./netlify.toml) is checked into the project
-
-Netlify deployments are currently password protected, speak to a project admin to get hold of the current password.
 
 The master branch is also deployed to netlify, this currently provides the most up to date documentation for the latest version.
 
