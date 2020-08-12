@@ -45,6 +45,14 @@ To ensure that changes come from an entrusted source all commits must be [signed
 2. [Adding a new GPG key to your GitHub account](https://help.github.com/en/articles/adding-a-new-gpg-key-to-your-github-account)
 3. [Signing commits](https://help.github.com/en/articles/signing-commits)
 
+## Review Process
+
+Pull requests require two successful approvals before they can be merged. One review must be from a [CODEWONER](./.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
+
+### Code Owners
+
+Code Owners are chosen based on a history of consistent contributions. Code Owners should have an understanding of the current issues list and have a wider view of the technical direction of the project. They should help to steer technical direction via pull request reviews and be focused on the longer term success of the project. Code Owners are not limited to being from our particular organisation.
+
 ## Storybook
 
 Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed. This file will need to be manually added to the [storybook config file](https://github.com/canopy-collective/canopy/blob/master/.storybook/config.js).
