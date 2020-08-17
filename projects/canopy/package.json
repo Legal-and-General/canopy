@@ -2,11 +2,12 @@
   "name": "@legal-and-general/canopy",
   "version": "0.0.1",
   "url": "git://github.com/Legal-and-General/canopy.git",
+  "repository": "https://github.com/Legal-and-General/canopy",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/common": "^8.2.9",
-    "@angular/core": "^8.2.9",
-    "date-fns": "^2.12.0"
+    "@angular/common": "^10.0.10",
+    "@angular/core": "^10.0.10",
+    "date-fns": "^2.15.0"
   },
   "devDependencies": {
     "jasmine-marbles": "^0.6.0"
@@ -25,6 +26,6 @@
   "metadata": "canopy.metadata.json",
   "sideEffects": false,
   "dependencies": {
-    "tslib": "^1.9.0"
+    "tslib": "^2.0.1"
   }
 }

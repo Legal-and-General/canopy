@@ -64,7 +64,7 @@ interface Color {
 class SwatchComponent implements AfterViewInit {
   @HostBinding('class') class = 'swatch';
 
-  @ViewChild('swatch', { static: false }) swatch;
+  @ViewChild('swatch') swatch;
 
   @Input()
   color: Color;

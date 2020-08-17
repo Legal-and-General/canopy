@@ -1,8 +1,7 @@
 import { select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgCardComponent } from '../../card/card.component';
-import { LgMarginDirective } from './margin.directive';
+import { CanopyModule } from '../../canopy.module';
 import { notes } from './margin.notes';
 
 const stories = storiesOf('Directives', module);
@@ -31,7 +30,7 @@ stories
     'Margin',
     () => ({
       moduleMetadata: {
-        declarations: [LgCardComponent, LgMarginDirective],
+        imports: [CanopyModule],
       },
       template: `
         <lg-card

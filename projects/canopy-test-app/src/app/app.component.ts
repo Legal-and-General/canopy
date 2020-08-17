@@ -9,13 +9,9 @@ import { tableTestData } from 'projects/canopy/src/lib/table/test.data';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
   title = 'canopy-test-app';
-
   expandedTableRowData = tableTestData;
-
   expandedTableRow: number;
-
   form: FormGroup;
 
   toggleTableRow(index: number) {

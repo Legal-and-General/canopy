@@ -38,7 +38,7 @@ describe('FeatureToggleGuard', () => {
         { provide: Router, useFactory: () => instance(routerMock) },
       ],
     });
-    guard = TestBed.get(FeatureToggleGuard);
+    guard = TestBed.inject(FeatureToggleGuard);
   });
 
   describe('can activate', () => {

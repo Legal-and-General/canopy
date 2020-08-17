@@ -13,11 +13,11 @@ describe('FeatureToggleModule', () => {
 
   describe('when FeatureToggleModule is created', () => {
     it(`should provide 'LgFeatureToggleService' service`, () => {
-      expect(() => TestBed.get(LgFeatureToggleService)).toBeTruthy();
+      expect(() => TestBed.inject(LgFeatureToggleService)).toBeTruthy();
     });
 
     it(`should provide 'togglesOptionsInjectable'`, () => {
-      expect(() => TestBed.get(togglesOptionsInjectable)).toBeTruthy();
+      expect(() => TestBed.inject(togglesOptionsInjectable)).toBeTruthy();
     });
   });
 });

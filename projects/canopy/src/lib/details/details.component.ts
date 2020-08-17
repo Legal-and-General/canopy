@@ -28,7 +28,7 @@ let nextUniqueId = 0;
 export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   @HostBinding('class.lg-details') class = true;
 
-  @ContentChild(LgDetailsPanelHeadingComponent, { static: false })
+  @ContentChild(LgDetailsPanelHeadingComponent)
   panelHeading: LgDetailsPanelHeadingComponent;
 
   @Input() isActive = false;

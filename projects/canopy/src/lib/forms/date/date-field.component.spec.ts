@@ -60,7 +60,7 @@ class TestDateInputComponent {
 
   form: FormGroup;
 
-  @ViewChild('testForm', { static: false })
+  @ViewChild('testForm')
   testFormDirective: FormGroupDirective;
 
   constructor(public fb: FormBuilder) {

@@ -7,7 +7,7 @@ describe('LgBrandIconRegistry', () => {
   let registry: LgBrandIconRegistry;
 
   beforeEach(() => {
-    registry = TestBed.get(LgBrandIconRegistry);
+    registry = TestBed.inject(LgBrandIconRegistry);
   });
 
   it('should be created', () => {

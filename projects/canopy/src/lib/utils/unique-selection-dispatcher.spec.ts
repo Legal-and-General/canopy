@@ -10,7 +10,7 @@ describe('SingleItemDispatcherService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    dispatcher = TestBed.get(UniqueSelectionDispatcher);
+    dispatcher = TestBed.inject(UniqueSelectionDispatcher);
   });
 
   it('should be created', () => {

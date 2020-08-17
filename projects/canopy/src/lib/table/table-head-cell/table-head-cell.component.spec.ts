@@ -1,12 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 
-import { MockRender } from 'ng-mocks';
+import { MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgTableHeadCellComponent } from './table-head-cell.component';
 
 describe('LgTableHeadCellComponent', () => {
-  let component: LgTableHeadCellComponent;
-  let fixture: ComponentFixture<LgTableHeadCellComponent>;
+  let component: any;
+  let fixture: MockedComponentFixture<LgTableHeadCellComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

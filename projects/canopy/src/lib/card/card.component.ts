@@ -19,10 +19,10 @@ import { LgCardHeaderComponent } from './card-header/card-header.component';
 export class LgCardComponent implements AfterContentInit {
   @HostBinding('class.lg-card') class = true;
 
-  @ContentChild(LgCardHeaderComponent, { static: false })
+  @ContentChild(LgCardHeaderComponent)
   lgCardHeaderComponent: LgCardHeaderComponent;
 
-  @ContentChild(LgCardContentComponent, { static: false })
+  @ContentChild(LgCardContentComponent)
   lgCardContentComponent: LgCardContentComponent;
 
   cardContent: QueryList<LgCardContentComponent>;

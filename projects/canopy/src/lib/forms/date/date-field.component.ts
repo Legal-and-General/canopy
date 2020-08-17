@@ -66,7 +66,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
   @Input() ariaDescribedBy: string;
 
   _hintElement: LgHintComponent;
-  @ContentChild(LgHintComponent, { static: false })
+  @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
@@ -77,7 +77,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
   }
 
   _validationElement: LgValidationComponent;
-  @ContentChild(LgValidationComponent, { static: false })
+  @ContentChild(LgValidationComponent)
   set errorContentElement(element: LgValidationComponent) {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
@@ -87,7 +87,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     this._validationElement = element;
   }
 
-  @ViewChild('dateFormDirective', { static: false })
+  @ViewChild('dateFormDirective')
   formGroupDirective: FormGroupDirective;
 
   constructor(

@@ -49,7 +49,7 @@ export class LgInputFieldComponent {
   }
 
   _hintElement: LgHintComponent;
-  @ContentChild(LgHintComponent, { static: false })
+  @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
     this._inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._inputElement.ariaDescribedBy,
@@ -60,7 +60,7 @@ export class LgInputFieldComponent {
   }
 
   _validationElement: LgValidationComponent;
-  @ContentChild(LgValidationComponent, { static: false })
+  @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
     this._inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._inputElement.ariaDescribedBy,

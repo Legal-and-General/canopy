@@ -1,7 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LgHeroCardFooterComponent } from './lg-hero-card-footer.component';
+import { LgHeroCardFooterComponent } from './hero-card-footer.component';
 
 describe('LgHeroCardFooterComponent', () => {
   let component: LgHeroCardFooterComponent;

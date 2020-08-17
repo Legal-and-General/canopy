@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { MockComponents, MockRender } from 'ng-mocks';
+import { MockComponents, MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgHintComponent } from '../hint';
 import { LgInputFieldComponent } from '../input/input-field.component';
@@ -11,7 +11,7 @@ import { LgValidationComponent } from '../validation/validation.component';
 import { LgInputDirective } from './input.directive';
 
 describe('LgInputFieldComponent', () => {
-  let fixture: ComponentFixture<LgInputFieldComponent>;
+  let fixture: MockedComponentFixture<LgInputFieldComponent>;
   let labelInstance: LgLabelComponent;
   let inputDirectiveInstance: LgInputDirective;
 
@@ -47,9 +47,8 @@ describe('LgInputFieldComponent', () => {
     labelInstance = fixture.debugElement.query(By.directive(LgLabelComponent))
       .componentInstance;
 
-    inputDirectiveInstance = fixture.debugElement.query(
-      By.directive(LgInputDirective),
-    ).componentInstance;
+    inputDirectiveInstance = fixture.debugElement.query(By.directive(LgInputDirective))
+      .componentInstance;
   }
 
   it('adds the for attribute to the label', () => {

@@ -56,7 +56,7 @@ describe('LgAccordionItemComponent', () => {
   }));
 
   beforeEach(() => {
-    selectionDispatcher = TestBed.get(UniqueSelectionDispatcher);
+    selectionDispatcher = TestBed.inject(UniqueSelectionDispatcher);
     fixture = TestBed.createComponent(TestAccordionWrapperItemComponent);
     component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();

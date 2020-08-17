@@ -43,9 +43,9 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
 
   @ViewChild(LgAccordionItemContentDirective, { static: true })
   defaultContent: LgAccordionItemContentDirective;
-  @ContentChild(LgAccordionItemContentDirective, { static: false })
+  @ContentChild(LgAccordionItemContentDirective)
   lazyContent: LgAccordionItemContentDirective;
-  @ContentChild(LgAccordionPanelHeadingComponent, { static: false })
+  @ContentChild(LgAccordionPanelHeadingComponent)
   accordionPanelHeading: LgAccordionPanelHeadingComponent;
 
   _id = `${nextUniqueId++}`;

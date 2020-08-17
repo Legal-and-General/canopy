@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/angular';
 import { of } from 'rxjs';
 
-import { LgCardComponent } from '../card';
+import { CanopyModule } from '../canopy.module';
 import { LgFeatureToggleOptions } from './feature-toggle.interface';
 import { LgFeatureToggleModule } from './feature-toggle.module';
 import { notes } from './feature-toggle.notes';
@@ -20,8 +20,8 @@ stories
     'Feature Toggle',
     () => ({
       moduleMetadata: {
-        declarations: [LgCardComponent],
         imports: [
+          CanopyModule,
           LgFeatureToggleModule.forRoot(
             {
               useFactory: () =>

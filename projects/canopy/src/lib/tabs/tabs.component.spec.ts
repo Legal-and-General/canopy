@@ -1,8 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-import { MockComponents, MockDirective, MockRender } from 'ng-mocks';
+import {
+  MockComponents,
+  MockDirective,
+  MockRender,
+  MockedComponentFixture,
+} from 'ng-mocks';
 import { instance, mock, when } from 'ts-mockito';
 
 import { LgFocusDirective } from '../focus';
@@ -15,7 +20,7 @@ import { LgTabsComponent } from './tabs.component';
 
 describe('LgTabsComponent', () => {
   let component: LgTabsComponent;
-  let fixture: ComponentFixture<LgTabsComponent>;
+  let fixture: MockedComponentFixture<LgTabsComponent>;
   let debugElement: DebugElement;
   let el: HTMLElement;
 

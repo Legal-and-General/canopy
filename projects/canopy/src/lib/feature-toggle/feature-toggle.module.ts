@@ -18,7 +18,7 @@ export class LgFeatureToggleModule {
   static forRoot(
     toggles: LgToggles,
     optionsInjectable?: LgFeatureToggleOptions,
-  ): ModuleWithProviders {
+  ): ModuleWithProviders<LgFeatureToggleModule> {
     return {
       ngModule: LgFeatureToggleModule,
       providers: [

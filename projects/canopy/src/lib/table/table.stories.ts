@@ -1,6 +1,6 @@
-import { Component, Input, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 
-import { object, withKnobs, select } from '@storybook/addon-knobs';
+import { object, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { AlignmentOptions } from './table.interface';
@@ -109,7 +109,7 @@ export const standard = () => ({
       <thead lg-table-head>
         <tr lg-table-row>
           <th lg-table-head-cell>Author</th>
-          <th lg-table-head-cell>Title</th>
+          <th lg-table-head-cell [align]="alignTitleColumn">Title</th>
           <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
         </tr>
       </thead>
@@ -126,7 +126,16 @@ export const standard = () => ({
 
   props: {
     books: object('Books', getDefultTableContent(), 'lg-table'),
-    alignPublishColumn: AlignmentOptions.End,
+    alignTitleColumn: select(
+      'Align Title column',
+      [AlignmentOptions.End, AlignmentOptions.Start],
+      AlignmentOptions.Start,
+    ),
+    alignPublishColumn: select(
+      'Align Publish column',
+      [AlignmentOptions.End, AlignmentOptions.Start],
+      AlignmentOptions.End,
+    ),
   },
 });
 

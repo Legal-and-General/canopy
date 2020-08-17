@@ -19,33 +19,35 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new CopyPlugin([
-      {
-        from: path.resolve(__dirname, 'projects/canopy/src/lib/**/*.scss'),
-        to: path.resolve(__dirname, 'dist/canopy/lib'),
-        flatten: false,
-        context: 'projects/canopy/src/lib/'
-      },
-      {
-        from: path.resolve(__dirname, 'projects/canopy/src/styles/**/*.scss'),
-        to: path.resolve(__dirname, 'dist/canopy/styles'),
-        flatten: false,
-        context: 'projects/canopy/src/styles/'
-      },
-      {
-        from: path.resolve(__dirname, 'projects/canopy/src/assets/icons/*.svg'),
-        to: path.resolve(__dirname, 'dist/canopy/icons'),
-        flatten: true
-      },
-      {
-        from: path.resolve(
-          __dirname,
-          'projects/canopy/src/assets/brand-icons/*.svg'
-        ),
-        to: path.resolve(__dirname, 'dist/canopy/brand-icons'),
-        flatten: true
-      }
-    ])
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'projects/canopy/src/lib/**/*.scss'),
+          to: path.resolve(__dirname, 'dist/canopy/lib'),
+          flatten: false,
+          context: 'projects/canopy/src/lib/'
+        },
+        {
+          from: path.resolve(__dirname, 'projects/canopy/src/styles/**/*.scss'),
+          to: path.resolve(__dirname, 'dist/canopy/styles'),
+          flatten: false,
+          context: 'projects/canopy/src/styles/'
+        },
+        {
+          from: path.resolve(__dirname, 'projects/canopy/src/assets/icons/*.svg'),
+          to: path.resolve(__dirname, 'dist/canopy/icons'),
+          flatten: true
+        },
+        {
+          from: path.resolve(
+            __dirname,
+            'projects/canopy/src/assets/brand-icons/*.svg'
+          ),
+          to: path.resolve(__dirname, 'dist/canopy/brand-icons'),
+          flatten: true
+        }
+      ]
+    })
   ],
   mode: 'production',
   module: {

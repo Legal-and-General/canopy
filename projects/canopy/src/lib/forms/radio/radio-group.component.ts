@@ -63,7 +63,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   }
 
   _hintElement: LgHintComponent;
-  @ContentChild(LgHintComponent, { static: false })
+  @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
@@ -74,7 +74,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   }
 
   _validationElement: LgValidationComponent;
-  @ContentChild(LgValidationComponent, { static: false })
+  @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,

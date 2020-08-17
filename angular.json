@@ -61,7 +61,6 @@
               "projects/canopy-test-app/src/assets"
             ],
             "styles": [
-              "projects/canopy-test-app/src/styles.scss",
               "dist/canopy/canopy.css"
             ],
             "scripts": []
@@ -121,15 +120,7 @@
             "main": "projects/canopy-test-app/src/test.ts",
             "polyfills": "projects/canopy-test-app/src/polyfills.ts",
             "tsConfig": "projects/canopy-test-app/tsconfig.spec.json",
-            "karmaConfig": "projects/canopy-test-app/karma.conf.js",
-            "assets": [
-              "projects/canopy-test-app/src/favicon.ico",
-              "projects/canopy-test-app/src/assets"
-            ],
-            "styles": [
-              "projects/canopy-test-app/src/styles.scss"
-            ],
-            "scripts": []
+            "karmaConfig": "projects/canopy-test-app/karma.conf.js"
           }
         },
         "lint": {

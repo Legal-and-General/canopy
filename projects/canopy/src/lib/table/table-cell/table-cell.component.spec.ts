@@ -1,16 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { MockRender, MockComponent } from 'ng-mocks';
+import { MockComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
+
+import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
+import { AlignmentOptions } from '../table.interface';
 
 import { LgTableCellComponent } from './table-cell.component';
-import { AlignmentOptions } from '../table.interface';
-import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 
 describe('LgTableCellComponent', () => {
   let component: LgTableCellComponent;
-  let fixture: ComponentFixture<LgTableCellComponent>;
+  let fixture:
+    | ComponentFixture<LgTableCellComponent>
+    | MockedComponentFixture<LgTableCellComponent>;
   let debugElement: DebugElement;
 
   beforeEach(async(() => {

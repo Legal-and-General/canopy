@@ -36,7 +36,7 @@ describe('LgFeatureToggleDirective', () => {
     });
 
     fixture = TestBed.createComponent(TestComponent);
-    directive = TestBed.get(LgFeatureToggleDirective);
+    directive = TestBed.inject(LgFeatureToggleDirective);
   });
 
   describe('when the toggle is set to true', () => {

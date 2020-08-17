@@ -14,10 +14,10 @@ import { LgHeroCardPrincipleDataPointComponent } from './hero-card-principle-dat
 import { LgHeroCardSubtitleComponent } from './hero-card-subtitle/hero-card-subtitle.component';
 import { LgHeroCardTitleComponent } from './hero-card-title/hero-card-title.component';
 import { LgHeroCardComponent } from './hero-card/hero-card.component';
-import { LgHeroHeaderComponent } from './hero-content/hero-header.component';
-import { LgHeroContentComponent } from './hero-header/hero-content.component';
+import { LgHeroHeaderComponent } from './hero-header/hero-header.component';
+import { LgHeroContentComponent } from './hero-content/hero-content.component';
 import { LgHeroComponent } from './hero.component';
-import { LgHeroCardFooterComponent } from './lg-hero-card-footer/lg-hero-card-footer.component';
+import { LgHeroCardFooterComponent } from './hero-card-footer/hero-card-footer.component';
 import { LgHeroCardNotificationComponent } from './hero-card-notification/hero-card-notification.component';
 
 @NgModule({

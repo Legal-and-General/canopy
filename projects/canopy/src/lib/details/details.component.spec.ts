@@ -1,14 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 
-import { MockComponent, MockRender } from 'ng-mocks';
+import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 import { LgDetailsComponent } from './details.component';
 
 describe('LgDetailsComponent', () => {
   let component: LgDetailsComponent;
-  let fixture: ComponentFixture<LgDetailsComponent>;
+  let fixture: MockedComponentFixture<LgDetailsComponent>;
   let detailsDebugElement: DebugElement;
   let detailsEl: HTMLElement;
 

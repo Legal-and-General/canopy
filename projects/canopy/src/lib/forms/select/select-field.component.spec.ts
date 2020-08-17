@@ -1,9 +1,9 @@
 import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { MockComponents, MockRender } from 'ng-mocks';
+import { MockComponents, MockRender, MockedComponentFixture } from 'ng-mocks';
 import { anything, instance, mock, when } from 'ts-mockito';
 
 import { LgIconComponent } from '../../icon/icon.component';
@@ -15,7 +15,7 @@ import { LgSelectFieldComponent } from './select-field.component';
 import { LgSelectDirective } from './select.directive';
 
 describe('LgSelectFieldComponent', () => {
-  let fixture: ComponentFixture<LgSelectFieldComponent>;
+  let fixture: MockedComponentFixture<LgSelectFieldComponent>;
   let labelInstance: LgLabelComponent;
   let selectDirectiveInstance: LgSelectDirective;
   let selectFieldDebugElement: DebugElement;
@@ -67,9 +67,8 @@ describe('LgSelectFieldComponent', () => {
     labelInstance = fixture.debugElement.query(By.directive(LgLabelComponent))
       .componentInstance;
 
-    selectDirectiveInstance = fixture.debugElement.query(
-      By.directive(LgSelectDirective),
-    ).componentInstance;
+    selectDirectiveInstance = fixture.debugElement.query(By.directive(LgSelectDirective))
+      .componentInstance;
   }
 
   it('adds the for attribute to the label', () => {
@@ -89,9 +88,7 @@ describe('LgSelectFieldComponent', () => {
 
   it('combines both the hint and error ids to create the aria described attribute', () => {
     renderComponent();
-    expect(selectDirectiveInstance.ariaDescribedBy).toBe(
-      `${hintId} ${errorId}`,
-    );
+    expect(selectDirectiveInstance.ariaDescribedBy).toBe(`${hintId} ${errorId}`);
   });
 
   it('sets the input element to block if block property is set', () => {
@@ -100,9 +97,7 @@ describe('LgSelectFieldComponent', () => {
   });
 
   it('adds the error class to the select field when the input field is invalid', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     renderComponent();
     expect(selectFieldDebugElement.nativeElement.className).toContain(
       'lg-select-field--error',
@@ -110,9 +105,9 @@ describe('LgSelectFieldComponent', () => {
   });
 
   it('does not add the error class to the select field when the input field is valid', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(false);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+      false,
+    );
     renderComponent();
     expect(selectFieldDebugElement.nativeElement.className).not.toContain(
       'lg-select-field--error',

@@ -1,7 +1,7 @@
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
-import { LgCardComponent } from '../lib/card/card.component';
+import { CanopyModule } from '../lib/canopy.module';
 import { notes } from './typography.notes';
 
 const stories = storiesOf('Typography', module).addDecorator(withKnobs);
@@ -10,7 +10,7 @@ stories.add(
   'Headings',
   () => ({
     moduleMetadata: {
-      declarations: [LgCardComponent],
+      imports: [CanopyModule],
     },
     template: `
     <p class="lg-font-size-7">{{lgFontSize7}}</p>

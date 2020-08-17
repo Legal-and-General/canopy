@@ -44,7 +44,7 @@ export class LgToggleComponent implements ControlValueAccessor {
   @ViewChild('input', { static: true }) inputRef: ElementRef;
 
   _validationElement: LgValidationComponent;
-  @ContentChild(LgValidationComponent, { static: false })
+  @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this.ariaDescribedBy,
