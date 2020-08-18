@@ -122,24 +122,28 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && git add .",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "projects/canopy/src/**/*.svg": [
-      "npm run build:icons"
+      "npm run build:icons",
+      "git add"
     ],
     "projects/canopy/src/**/*.{html, json, js}": [
-      "prettier --write"
+      "prettier --write",
+      "git add"
     ],
     "projects/canopy/src/**/*.{scss, css}": [
       "prettier --write",
-      "stylelint --fix"
+      "stylelint --fix",
+      "git add"
     ],
     "projects/canopy/src/**/*.ts": [
       "prettier --write",
-      "tslint -p tsconfig.json -c tslint.json --fix"
+      "tslint -p tsconfig.json -c tslint.json --fix",
+      "git add"
     ]
   },
   "config": {
