@@ -43,7 +43,7 @@
 
 .lg-toggle__label > .lg-toggle__checkbox {
   border: var(--border-width) solid var(--toggle-border-color);
-  margin: auto var(--space-sm) auto 0;
+  margin: var(--space-xxxs) var(--space-sm) auto 0;
   font-size: 0.8rem;
   color: var(--toggle-checkbox-color);
 
@@ -92,8 +92,9 @@
   width: var(--toggle-switch-width);
   border: var(--border-width) solid var(--border-color);
   border-radius: calc(var(--toggle-switch-height) / 2);
-  margin: auto var(--space-sm) auto 0;
+  margin: var(--space-xxxs) var(--space-sm) auto 0;
   background-color: var(--toggle-switch-off-bg-color);
+  min-width: var(--toggle-switch-width);
 
   .lg-toggle__input:hover + & {
     border-color: var(--border-hover-color);
@@ -133,7 +134,7 @@
   content: ' ';
   position: absolute;
   left: 0;
-  top: 50%;
+  top: var(--space-sm);
   bottom: auto;
   margin: auto;
   height: var(--toggle-outer-height);

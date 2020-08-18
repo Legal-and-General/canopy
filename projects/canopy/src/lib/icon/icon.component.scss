@@ -3,6 +3,7 @@
   vertical-align: text-top;
   height: var(--icon-height);
   width: var(--icon-width);
+  min-width: var(--icon-width);
   line-height: var(--icon-line-height);
 
   > svg {
