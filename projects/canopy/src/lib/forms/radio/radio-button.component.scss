@@ -71,7 +71,7 @@
   border-radius: 50%;
 
   .lg-radio-button__input:checked + & {
-    background-color: var(--toggle-color);
+    background-color: var(--toggle-bg-color);
   }
 
   .lg-radio-button__input:disabled:checked + & {
