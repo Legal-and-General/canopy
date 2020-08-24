@@ -2,8 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+import { MockRender, MockComponent } from 'ng-mocks';
+
 import { LgTableCellComponent } from './table-cell.component';
 import { AlignmentOptions } from '../table.interface';
+import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 
 describe('LgTableCellComponent', () => {
   let component: LgTableCellComponent;
@@ -12,7 +15,7 @@ describe('LgTableCellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgTableCellComponent],
+      declarations: [LgTableCellComponent, MockComponent(LgTableExpandedDetailComponent)],
     }).compileComponents();
   }));
 
@@ -60,6 +63,23 @@ describe('LgTableCellComponent', () => {
       const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
       expect(contentElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-table-cell__content--align-end',
+      );
+    });
+  });
+
+  describe('when there is a expandable detail', () => {
+    beforeEach(() => {
+      fixture = MockRender(`
+        <td lg-table-cell>
+          <lg-table-expanded-detail>
+          </lg-table-expanded-detail>
+        </td>
+      `);
+    });
+
+    it('should set the expanding detail class', () => {
+      expect(fixture.debugElement.children[0].nativeElement.getAttribute('class')).toBe(
+        'lg-table-cell lg-table-cell--expandable-content',
       );
     });
   });

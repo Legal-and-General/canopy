@@ -29,6 +29,11 @@ export class LgTableCellComponent {
     return typeof this.colspan !== undefined ? this.colspan : null;
   }
 
+  @HostBinding('class.lg-table-cell--expandable-content')
+  get expandableClass() {
+    return this.expandableDetail;
+  }
+
   @HostBinding('class.lg-table-cell--toggle-cell')
   get toggleClass() {
     return this.toggle;

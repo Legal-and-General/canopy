@@ -40,6 +40,12 @@
   }
 }
 
+.lg-table-cell--expandable-content {
+  .lg-table-cell__content {
+    margin-left: 0;
+  }
+}
+
 .lg-table-cell__label {
   font-weight: var(--font-weight-bold);
 
