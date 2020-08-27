@@ -2,7 +2,7 @@
   // lg screen size
   @media (min-width: 64rem) {
     // this is a workaround until we can set varying overlaps based upon screen size
-    // https://github.com/canopy-collective/canopy/issues/278
+    // https://github.com/Legal-and-General/canopy/issues/278
     margin-bottom: calc(-1 * var(--tabs-list-item-lg-line-height)) !important;
     padding-bottom: var(--tabs-list-item-lg-line-height) !important;
   }

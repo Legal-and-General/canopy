@@ -4,10 +4,10 @@ The Canopy library is currently deployed to the [GitHub package registry](https:
 
 ## Setting up the GitHub registry
 
-Add the following to the `.npmrc` file within your project. This tells npm to look in the GitHub registry for any modules with the `canopy-collective` namespace.
+Add the following to the `.npmrc` file within your project. This tells npm to look in the GitHub registry for any modules with the `legal-and-general` namespace.
 
 ```
-@canopy-collective:registry=https://npm.pkg.github.com/
+@legal-and-general:registry=https://npm.pkg.github.com/
 ```
 
 ## Authenticating against the GitHub registry
@@ -28,7 +28,7 @@ Authenticating a CI tool against the registry should be very similar to the abov
 
 You should now be able to install the module.
 
-`npm install @canopy-collective/canopy`
+`npm install @legal-and-general/canopy`
 
 ## Import the Library
 
@@ -43,7 +43,7 @@ import {
   LgButtonModule,
   LgCardModule,
   LgFormModule
-} from '@canopy-collective/canopy';
+} from '@legal-and-general/canopy';
 ```
 
 and add it to the imports section of your module.
@@ -66,7 +66,7 @@ and add it to the imports section of your module.
 Importing all of the modules is useful for rapid prototyping where build size may be less of a consideration.
 
 ```js
-import { CanopyModule } from '@canopy-collective/canopy';
+import { CanopyModule } from '@legal-and-general/canopy';
 ```
 
 and add it to the imports section of your module.
@@ -91,7 +91,7 @@ In your `angular.json` file you will need to incorporate the global styles into 
 ```json
   "styles": [
     ...
-    "node_modules/@canopy-collective/canopy/canopy.css"
+    "node_modules/@legal-and-general/canopy/canopy.css"
   ],
 ```
 
@@ -135,8 +135,8 @@ The `notes` tab explains the usage of each component. The `story` tab displays t
 
 Canopy uses [semantic versioning](https://semver.org/) and a new version is deployed automatically on each code merge to the master branch. From time to time there will be breaking changes and like all modules it is recommended that you stay up to date where possible. It may be worth [subscribing to release notifications](https://help.github.com/en/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository) to be keep up to date with changes.
 
-The [releases section](https://github.com/canopy-collective/canopy/releases) on GitHub documents the changes between releases. Keep an eye out for anything labelled as a `BREAKING CHANGE` as this may require some code changes in your application.
+The [releases section](https://github.com/Legal-and-General/canopy/releases) on GitHub documents the changes between releases. Keep an eye out for anything labelled as a `BREAKING CHANGE` as this may require some code changes in your application.
 
 ## Logging issues
 
-If you encounter a bug or have any issue with anything to do with Canopy please do not hesitate to raise a [github issue](https://github.com/canopy-collective/canopy/issues/new).
+If you encounter a bug or have any issue with anything to do with Canopy please do not hesitate to raise a [github issue](https://github.com/Legal-and-General/canopy/issues/new).

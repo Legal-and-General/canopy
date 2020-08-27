@@ -24,7 +24,7 @@
       "canopy": [
         "dist/canopy"
       ],
-      "@canopy-collective/canopy": [
+      "@legal-and-general/canopy": [
         "dist/canopy"
       ],
       "canopy/*": [

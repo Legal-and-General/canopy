@@ -19,7 +19,7 @@ Import the css into the angular.json file of your application, the grid classes 
 
 ~~~json
   "styles": [
-    "node_modules/@canopy-collective/canopy/canopy.css"
+    "node_modules/@legal-and-general/canopy/canopy.css"
   ],
 ~~~
 

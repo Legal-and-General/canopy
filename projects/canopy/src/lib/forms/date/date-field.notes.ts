@@ -160,7 +160,7 @@ To aid with common validation needs some additional reactive form validators are
 This validator checks if the specified date is in the future, if not it returns a futureDate error
 
 ~~~js
-import { futureDateValidator } from '@canopy-collective/canopy';
+import { futureDateValidator } from '@legal-and-general/canopy';
 
 const control = new FormControl('', {
   validators: [futureDateValidator()]
@@ -177,7 +177,7 @@ const control = new FormControl('', {
 This validator checks if the specified date is in the past, if not it returns a pastDate error
 
 ~~~js
-import { pastDateValidator } from '@canopy-collective/canopy';
+import { pastDateValidator } from '@legal-and-general/canopy';
 
 const control = new FormControl('', {
   validators: [pastDateValidator()]
@@ -195,7 +195,7 @@ This validator checks if the specified date is before another specified date, if
 The beforeDate error contains the date that it was compared against.
 
 ~~~js
-import { beforeDateValidator } from '@canopy-collective/canopy';
+import { beforeDateValidator } from '@legal-and-general/canopy';
 import parseISO from 'date-fns/parseISO';
 
 const control = new FormControl('', {
@@ -214,7 +214,7 @@ This validator checks if the specified date is after another specified date, if 
 The afterDate error contains the date that it was compared against.
 
 ~~~js
-import { afterDateValidator } from '@canopy-collective/canopy';
+import { afterDateValidator } from '@legal-and-general/canopy';
 import parseISO from 'date-fns/parseISO';
 
 const control = new FormControl('', {
