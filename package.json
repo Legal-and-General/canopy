@@ -2,6 +2,7 @@
   "name": "@canopy-collective/canopy",
   "version": "0.0.0",
   "url": "git://github.com/canopy-collective/canopy.git",
+  "license": "Apache-2.0",
   "scripts": {
     "commit": "npx git-cz",
     "ng": "ng",
