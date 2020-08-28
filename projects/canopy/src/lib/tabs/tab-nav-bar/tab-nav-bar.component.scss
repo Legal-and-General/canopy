@@ -1,0 +1,51 @@
+@import '../scss-modules/tab-item';
+
+.lg-tab-nav-bar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 var(--space-sm);
+  font-size: var(--text-base-size);
+  font-weight: var(--tabs-list-item-font-weight);
+
+  @include lg-breakpoint('md') {
+    padding: 0 var(--space-md);
+  }
+
+  @include lg-breakpoint('lg') {
+    padding: 0 var(--space-lg);
+  }
+
+  &:after {
+    content: '';
+    height: 0;
+    position: absolute;
+    bottom: var(--tabs-border-bottom-width);
+    left: 0;
+    right: 0;
+    border-top: var(--tabs-border-bottom-width) solid var(--tabs-border-bottom-color);
+    z-index: 0;
+  }
+}
+
+.lg-tab-nav-bar-link {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  z-index: 1;
+  @include lg-tab-item();
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:visited {
+    color: var(--tabs-list-item-color);
+  }
+
+  &--selected:visited {
+    color: var(--tabs-active-color);
+  }
+}

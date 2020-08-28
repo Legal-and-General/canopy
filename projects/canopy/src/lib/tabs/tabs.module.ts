@@ -8,6 +8,9 @@ import { LgTabItemContentComponent } from './tab-item-content/tab-item-content.c
 import { LgTabItemHeadingComponent } from './tab-item-heading/tab-item-heading.component';
 import { LgTabItemComponent } from './tab-item/tab-item.component';
 import { LgTabsComponent } from './tabs.component';
+import { LgTabNavBarComponent } from './tab-nav-bar/tab-nav-bar.component';
+import { LgTabNavContentComponent } from './tab-nav-content/tab-nav-content.component';
+import { LgTabNavBarLinkDirective } from './tab-nav-bar/tab-nav-bar-link.directive';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,18 @@ import { LgTabsComponent } from './tabs.component';
     LgTabItemComponent,
     LgTabItemHeadingComponent,
     LgTabItemContentComponent,
+    LgTabNavBarComponent,
+    LgTabNavContentComponent,
+    LgTabNavBarLinkDirective,
   ],
   exports: [
     LgTabsComponent,
     LgTabItemComponent,
     LgTabItemHeadingComponent,
     LgTabItemContentComponent,
+    LgTabNavBarComponent,
+    LgTabNavContentComponent,
+    LgTabNavBarLinkDirective,
   ],
   imports: [CommonModule, LgFocusModule, LgSeparatorModule, LgHeadingModule],
 })
