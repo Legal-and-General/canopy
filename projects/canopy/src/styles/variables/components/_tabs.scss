@@ -1,23 +1,17 @@
 :root {
   --tabs-border-bottom-width: var(--border-width);
   --tabs-border-bottom-color: var(--color-platinum);
-  --tabs-horizontal-padding: var(--space-sm);
-  --tabs-md-horizontal-padding: var(--space-md);
-  --tabs-lg-horizontal-padding: var(--space-lg);
 
-  --tab-list-item-horizontal-padding: var(--space-xxs);
-  --tabs-list-item-margin-right: var(--space-sm);
-  --tabs-list-item-lg-margin-right: var(--space-lg);
   --tabs-list-item-line-height: var(--space-xxl);
   --tabs-list-item-lg-line-height: 3.25rem; // 52px;
-  --tabs-list-item-colour: var(--color-charcoal);
+  --tabs-list-item-color: var(--color-charcoal);
   --tabs-list-item-font-weight: var(--font-weight-regular);
 
   --tabs-hover-border-width: 0.3125rem; // 5px;
   --tabs-hover-color: var(--color-super-blue-dark);
 
-  --tabs-active-border-colour: var(--color-super-blue);
-  --tabs-active-colour: var(--color-super-blue);
+  --tabs-active-border-color: var(--color-super-blue);
+  --tabs-active-color: var(--color-super-blue);
   --tabs-active-font-weight: var(--font-weight-bold);
   --tabs-active-border-width: var(--keyline-width);
 }

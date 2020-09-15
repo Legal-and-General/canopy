@@ -1,0 +1,62 @@
+@import '../../../styles/mixins';
+
+@mixin lg-tab-item() {
+  position: relative;
+  padding: 0 var(--space-xxs);
+  height: var(--tabs-list-item-line-height);
+  margin-top: 0;
+  margin-right: var(--space-sm);
+  margin-left: calc(-1 * var(--space-xxs));
+  background: transparent;
+  border: 0;
+  white-space: nowrap;
+  color: var(--tabs-list-item-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% + var(--space-sm));
+
+  @include lg-breakpoint('lg') {
+    margin-right: var(--space-lg);
+    height: var(--tabs-list-item-lg-line-height);
+  }
+
+  &--active {
+    color: var(--tabs-list-item-color);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - var(--space-xxs) - var(--space-xxs));
+    left: var(--space-xxs);
+  }
+
+  &--selected {
+    color: var(--tabs-active-color);
+    font-weight: var(--tabs-active-font-weight);
+
+    &::after {
+      background-color: var(--tabs-active-border-color);
+      height: var(--tabs-active-border-width);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: var(--tabs-hover-color);
+
+    &::after {
+      background-color: var(--tabs-hover-color);
+      height: var(--tabs-hover-border-width);
+    }
+  }
+
+  &[keyboard-focus]:focus {
+    @include lg-outer-focus-outline();
+  }
+}

@@ -13,6 +13,8 @@ export class AppComponent {
   expandedTableRowData = tableTestData;
   expandedTableRow: number;
   form: FormGroup;
+  selectedTabIndex = 0;
+  tabs: Array<any>;
 
   toggleTableRow(index: number) {
     this.expandedTableRow = this.expandedTableRow === index ? null : index;
@@ -20,6 +22,11 @@ export class AppComponent {
 
   onSubmit(event) {
     console.log(event.value);
+  }
+
+  handleTabClick(event: MouseEvent, index: number) {
+    event.preventDefault();
+    this.selectedTabIndex = index;
   }
 
   constructor(public fb: FormBuilder) {
@@ -31,5 +38,20 @@ export class AppComponent {
       switch: [''],
       date: [''],
     });
+
+    this.tabs = [
+      {
+        path: './tab-1',
+        label: 'Nav tab 1',
+      },
+      {
+        path: './tab-2',
+        label: 'Nav tab 2',
+      },
+      {
+        path: './tab-3',
+        label: 'Nav tab 3',
+      },
+    ];
   }
 }

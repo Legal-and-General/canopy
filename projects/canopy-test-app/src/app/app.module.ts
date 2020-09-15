@@ -4,10 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { CanopyModule } from 'canopy';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TabStoryContentComponent } from './tab-story-content.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [ReactiveFormsModule, BrowserModule, CanopyModule],
+  declarations: [AppComponent, TabStoryContentComponent],
+  imports: [AppRoutingModule, ReactiveFormsModule, BrowserModule, CanopyModule],
   providers: [],
   bootstrap: [AppComponent],
 })
