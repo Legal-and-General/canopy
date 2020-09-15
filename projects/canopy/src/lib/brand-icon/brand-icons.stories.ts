@@ -14,6 +14,7 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
   brandIconSet.lgBrandIconPiggyBank,
   brandIconSet.lgBrandIconCookiesAndArrows,
   brandIconSet.lgBrandIconErrorInBrowser,
+  brandIconSet.lgBrandIconGuaranteedIncome,
   brandIconSet.lgBrandIconNoInformation,
   brandIconSet.lgBrandIconRainOrShine,
   brandIconSet.lgBrandIconPeople,
