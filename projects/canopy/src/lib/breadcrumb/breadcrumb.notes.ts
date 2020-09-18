@@ -60,21 +60,31 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
 |------|-------------|
 | \`\`lg-breadcrumb\`\` | Adds the default styles to the breadcrumbs
 | \`\`lg-breadcrumb-item\`\` | Adds the default styles to the breadcrumb items
+| \`\`lg-breadcrumb-item__container\`\` | Adds the default styles to the breadcrumb items container
+| \`\`lg-breadcrumb-item__container--visible-sm\`\` | Adds the default styles to set a breadcrumb item to be visible on small screens
+| \`\`lg-breadcrumb-item__icon-wrapper\`\` | Adds the default styles to set a breadcrumb item icon wrapper
+| \`\`lg-breadcrumb-item__icon\`\` | Adds the default styles to set a breadcrumb item icon
+| \`\`lg-breadcrumb-item__icon-backward\`\` | Adds the default styles to set a breadcrumb item backward icon
+| \`\`lg-breadcrumb-item__icon-forward\`\` | Adds the default styles to set a breadcrumb item forward icon
 
 ### Examples:
 ~~~html
 <div class="lg-breadcrumb" aria-label="breadcrumb" role="navigation">
   <div class="lg-breadcrumb-item--dark lg-breadcrumb-item">
-    <span class="lg-breadcrumb-item__content">
-      <span class="lg-visually-hidden">1.</span>
-      <a href="#" aria-current="page">Home</a>
-    </span>
+    <div class="lg-breadcrumb-item__container lg-breadcrumb-item__container--visible-sm">
+      <span class="lg-breadcrumb-item__content">
+        <span class="lg-visually-hidden">1.</span>
+        <a href="#" aria-current="page">Home</a>
+      </span>
+    </div>
   </div>
     <div class="lg-breadcrumb-item--dark lg-breadcrumb-item">
-      <span class="lg-breadcrumb-item__content">
-        <span class="lg-visually-hidden">2.</span>
-        <a href="#" aria-current="page">Product</a>
-      </span>
+      <div class="lg-breadcrumb-item__container">
+        <span class="lg-breadcrumb-item__content">
+          <span class="lg-visually-hidden">2.</span>
+          <a href="#" aria-current="page">Product</a>
+        </span>
+      </div>
   </div>
 </div>
 ~~~

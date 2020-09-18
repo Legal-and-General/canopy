@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   Component,
   ContentChildren,
   forwardRef,
@@ -7,6 +6,8 @@ import {
   Input,
   QueryList,
   ViewEncapsulation,
+  AfterContentChecked,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
@@ -18,22 +19,29 @@ import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgBreadcrumbComponent implements AfterContentInit {
+export class LgBreadcrumbComponent implements AfterContentChecked {
   @HostBinding('class.lg-breadcrumb') class = true;
 
   @HostBinding('attr.aria-label') attr = 'breadcrumb';
 
   @HostBinding('attr.role') role = 'navigation';
 
-  @ContentChildren(forwardRef(() => LgBreadcrumbItemComponent), {
-    descendants: true,
-  })
+  @ContentChildren(
+    forwardRef(() => LgBreadcrumbItemComponent),
+    {
+      descendants: true,
+    },
+  )
   crumbs: QueryList<LgBreadcrumbItemComponent>;
 
-  @ContentChildren(forwardRef(() => LgBreadcrumbItemEllipsisComponent), {
-    descendants: true,
-  })
+  @ContentChildren(
+    forwardRef(() => LgBreadcrumbItemEllipsisComponent),
+    {
+      descendants: true,
+    },
+  )
   ellipsis: QueryList<LgBreadcrumbItemEllipsisComponent>;
 
   @Input() set variant(variant: BreadcrumbVariant) {
@@ -52,7 +60,7 @@ export class LgBreadcrumbComponent implements AfterContentInit {
 
   private contentHasInit = false;
 
-  ngAfterContentInit() {
+  ngAfterContentChecked() {
     this.setVariantOnChildren();
     this.setCrumbProperties();
 

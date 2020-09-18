@@ -1,5 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { MockComponent } from 'ng-mocks';
 
@@ -77,9 +78,12 @@ describe('LgBreadcrumbItemComponent', () => {
       fixture.detectChanges();
     });
 
-    it(`the class should contain 'lg-breadcrumb-item--sm-screen-visible-item'`, () => {
-      expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--sm-screen-visible-item',
+    it(`the class should contain small screen visibility class`, () => {
+      const containerEL = fixture.debugElement.query(
+        By.css('.lg-breadcrumb-item__container'),
+      );
+      expect(containerEL.nativeElement.getAttribute('class')).toContain(
+        'lg-breadcrumb-item__container--visible-sm',
       );
     });
   });

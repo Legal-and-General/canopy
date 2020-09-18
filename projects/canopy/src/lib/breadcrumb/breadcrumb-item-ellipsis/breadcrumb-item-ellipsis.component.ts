@@ -4,6 +4,7 @@ import {
   HostBinding,
   Renderer2,
   ViewEncapsulation,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
@@ -13,6 +14,7 @@ import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface'
   templateUrl: './breadcrumb-item-ellipsis.component.html',
   styleUrls: ['./breadcrumb-item-ellipsis.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgBreadcrumbItemEllipsisComponent {
   @HostBinding('class.lg-breadcrumb-item-ellipsis') class = true;
