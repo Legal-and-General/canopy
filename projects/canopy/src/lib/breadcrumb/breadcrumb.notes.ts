@@ -61,6 +61,7 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
 | \`\`lg-breadcrumb\`\` | Adds the default styles to the breadcrumbs
 | \`\`lg-breadcrumb-item\`\` | Adds the default styles to the breadcrumb items
 | \`\`lg-breadcrumb-item__container\`\` | Adds the default styles to the breadcrumb items container
+| \`\`lg-breadcrumb-item__container--hide-icons\`\` | Adds the default styles to hide icons (excluding forward and backward icons)
 | \`\`lg-breadcrumb-item__container--visible-sm\`\` | Adds the default styles to set a breadcrumb item to be visible on small screens
 | \`\`lg-breadcrumb-item__icon-wrapper\`\` | Adds the default styles to set a breadcrumb item icon wrapper
 | \`\`lg-breadcrumb-item__icon\`\` | Adds the default styles to set a breadcrumb item icon

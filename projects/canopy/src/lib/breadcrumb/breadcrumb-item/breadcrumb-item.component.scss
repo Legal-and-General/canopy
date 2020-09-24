@@ -16,6 +16,16 @@
     }
   }
 
+  &__container--hide-icons {
+    .lg-breadcrumb-item__content .lg-icon {
+      display: none;
+
+      @include lg-breakpoint('md') {
+        display: inline;
+      }
+    }
+  }
+
   .lg-icon {
     @include lg-breakpoint('md') {
       display: inline;
@@ -25,16 +35,6 @@
   &__content {
     .lg-icon {
       margin-right: var(--space-xxs);
-    }
-  }
-
-  &--hide-icons {
-    .lg-breadcrumb-item__content .lg-icon {
-      display: none;
-
-      @include lg-breakpoint('md') {
-        display: inline;
-      }
     }
   }
 
