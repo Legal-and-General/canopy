@@ -94,9 +94,12 @@ describe('LgBreadcrumbItemComponent', () => {
       fixture.detectChanges();
     });
 
-    it(`the class should contain 'lg-breadcrumb-item--hide-icons'`, () => {
-      expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--hide-icons',
+    it('the class should contain hide-icons class', () => {
+      const containerEL = fixture.debugElement.query(
+        By.css('.lg-breadcrumb-item__container'),
+      );
+      expect(containerEL.nativeElement.getAttribute('class')).toContain(
+        'lg-breadcrumb-item__container--hide-icons',
       );
     });
   });

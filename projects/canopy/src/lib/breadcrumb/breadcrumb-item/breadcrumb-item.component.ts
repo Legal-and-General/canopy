@@ -21,16 +21,19 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
 export class LgBreadcrumbItemComponent {
   @HostBinding('class.lg-breadcrumb-item') class = true;
 
-  @HostBinding('class.lg-breadcrumb-item--hide-icons')
-  get iconControl() {
-    return this.hideIcons;
-  }
-
-  hideIcons = false;
-
   icons = iconSet;
 
   index: number;
+
+  set hideIcons(hideIcons: boolean) {
+    this._hideIcons = hideIcons;
+
+    this.cd.detectChanges();
+  }
+
+  get hideIcons() {
+    return this._hideIcons;
+  }
 
   set isSmScreenFeaturedItem(isSmScreenFeaturedItem: boolean) {
     this._isSmScreenFeaturedItem = isSmScreenFeaturedItem;
@@ -87,6 +90,8 @@ export class LgBreadcrumbItemComponent {
   private _showForwardChevron = false;
 
   private _isSmScreenFeaturedItem = false;
+
+  private _hideIcons = false;
 
   constructor(
     private renderer: Renderer2,
