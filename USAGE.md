@@ -10,19 +10,7 @@ Add the following to the `.npmrc` file within your project. This tells npm to lo
 @legal-and-general:registry=https://npm.pkg.github.com/
 ```
 
-## Authenticating against the GitHub registry
-
-Currently the project is hosted on a private GitHub repository, to be able to [authenticate against the GitHub registry](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#authenticating-to-github-package-registry) you will need to create a [personal access token](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages) with `read:packages` repository permissions.
-
-You will need to add the following to your [users `.npmrc` file](https://docs.npmjs.com/configuring-npm/npmrc.html). (This is different from your projects npmrc file, do not check in your token).
-
-```
-//npm.pkg.github.com/:_authToken=PERSONAL-ACCESS-TOKEN
-```
-
-If you are working on a poorly configured corporate proxy you may need to add `strict-ssl=false` in order to overcome cert errors such as `UNABLE_TO_GET_ISSUER_CERT_LOCALLY` .
-
-Authenticating a CI tool against the registry should be very similar to the above. You will have to store the token appropriately in a secret and inject it into the `~/.npmrc` file at build time.
+If you are working on a poorly configured proxy you may need to add `strict-ssl=false` in order to overcome cert errors such as `UNABLE_TO_GET_ISSUER_CERT_LOCALLY` .
 
 ## NPM install
 
