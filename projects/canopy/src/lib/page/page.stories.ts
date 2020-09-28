@@ -12,11 +12,7 @@ const contentGroupId = 'content';
 const sharedGroupId = 'common';
 
 const createProps = () => ({
-  logo: text(
-    'logo',
-    'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
-    sharedGroupId,
-  ),
+  logo: text('logo', 'legal-and-general-logo.png', sharedGroupId),
   logoAlt: text('logoAlt', 'Company name', sharedGroupId),
   copyright: text('copyright', '© Some Company plc 2019', footerGroupId),
   card1Content: text(
