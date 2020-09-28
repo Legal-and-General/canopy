@@ -28,11 +28,7 @@ export const standard = () => ({
     <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></header>
   `,
   props: {
-    logo: text(
-      'logo',
-      'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
-      groupId,
-    ),
+    logo: text('logo', 'legal-and-general-logo.png', groupId),
     logoAlt: text('logoAlt', 'Company name', groupId),
     logoHref: text('logoHref', 'https://storybook.js.org', groupId),
   },
