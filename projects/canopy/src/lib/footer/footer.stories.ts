@@ -55,11 +55,7 @@ export const standard = () => ({
     </footer>
   `,
   props: {
-    logo: text(
-      'logo',
-      'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo3.png',
-      groupId,
-    ),
+    logo: text('logo', 'legal-and-general-logo.png', groupId),
     logoAlt: text('logoAlt', 'Company name', groupId),
     copyright: text('copyright', '© Some Company plc 2018', groupId),
     secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
