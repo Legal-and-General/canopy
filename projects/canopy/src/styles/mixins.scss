@@ -22,10 +22,15 @@
   outline: var(--link-focus-outline) solid $bg-color;
 }
 
-@mixin lg-font-size($size) {
+@mixin lg-font-size($size, $modifier: null) {
   font-size: var(--text-fs-#{$size}-size);
   line-height: var(--text-fs-#{$size}-line-height);
-  font-weight: var(--text-fs-#{$size}-weight);
+
+  @if $modifier {
+    font-weight: var(--text-fs-#{$size}-weight--#{$modifier});
+  } @else {
+    font-weight: var(--text-fs-#{$size}-weight);
+  }
 }
 
 @mixin lg-visually-hidden {

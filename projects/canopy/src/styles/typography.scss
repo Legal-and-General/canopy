@@ -114,8 +114,16 @@ h6,
   @include lg-font-size('7');
 }
 
+.lg-font-size-7--strong {
+  @include lg-font-size('7', 'strong');
+}
+
 .lg-font-size-6 {
   @include lg-font-size('6');
+}
+
+.lg-font-size-6--strong {
+  @include lg-font-size('6', 'strong');
 }
 
 h1,
@@ -123,9 +131,17 @@ h1,
   @include lg-font-size('5');
 }
 
+.lg-font-size-5--strong {
+  @include lg-font-size('5', 'strong');
+}
+
 h2,
 .lg-font-size-4 {
   @include lg-font-size('4');
+}
+
+.lg-font-size-4--strong {
+  @include lg-font-size('4', 'strong');
 }
 
 h3,
@@ -133,14 +149,26 @@ h3,
   @include lg-font-size('3');
 }
 
+.lg-font-size-3--strong {
+  @include lg-font-size('3', 'strong');
+}
+
 h4,
 .lg-font-size-2 {
   @include lg-font-size('2');
 }
 
+.lg-font-size-2--strong {
+  @include lg-font-size('2', 'strong');
+}
+
 h5,
 .lg-font-size-1 {
   @include lg-font-size('1');
+}
+
+.lg-font-size-1--strong {
+  @include lg-font-size('1', 'strong');
 }
 
 h6,
