@@ -74,38 +74,48 @@ stories.add(
   'Page',
   () => ({
     template: `
-      <h1 class="h1">Albert Camus</h1>
+      <h1 class="h1">Accusantium doloremque laudantium</h1>
       <p>
-        The Plague is a famous allegorical novel by Albert Camus, who's known
-        for his existential works. The book was published in 1947 and is
-        considered one of the most important works by Camus.
+        Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+        illo. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+        suscipit laboriosam. Accusantium doloremque laudantium, totam rem aperiam,
+        eaque ipsa quae ab illo.
       </p>
       <ul>
-        <li>A Happy Death (La Mort heureuse)</li>
-        <li>The Stranger (L'Étranger, often translated as The Outsider.)</li>
-        <li>The Plague (La Peste)</li>
-        <li>The Fall (La Chute)</li>
+        <li>Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</li>
+        <li>Do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Laboris nisi ut aliquip ex ea commodo consequat.</li>
       </ul>
+
+      <h2>Qui officia deserunt mollit anim id est laborum.</h2>
       <p>
-        The truth is that everyone is bored, and devotes himself to cultivating
-        habits. <b>Our citizens work hard</b>, but solely with the object of
-        getting rich. Their chief interest is commerce, and their chief aim in
-        life is, as they call it, 'doing business.
+        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+        adipisci velit. Et harum quidem rerum facilis est et expedita distinctio.
+        Animi, id est laborum et dolorum fuga. Itaque earum rerum hic tenetur a
+        sapiente delectus.
       </p>
+
       <p>
-        You must picture the consternation of our
-        <a href="https://en.wikipedia.org/wiki/Oran">little town</a> hitherto
-        so tranquil, and now, out of the blue, shaken to its core, like a quite
-        healthy man who all of a sudden feels his temperature shoot up and the
-        blood seething like wildfire in his veins.
+        Laboris nisi ut aliquip ex ea commodo consequat. Architecto beatae vitae
+        dicta sunt explicabo. Fugiat quo voluptas nulla pariatur? Cupiditate non
+        provident, similique sunt in culpa qui officia deserunt mollitia.
       </p>
+
+      <h3>Inventore veritatis</h3>
       <p>
-        <small>They fancied themselves free, and no one will ever be free so
-        long as there are pestilences.</small>
+        Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+        <a href="https://en.wikipedia.org/wiki/Oran">Oran hitherto.</a> Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa. Fugiat quo voluptas
+        nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit.
       </p>
-      <p class="fs-0-6">
-        The Plague (French: La Peste) is a novel by Albert Camus, published in
-        1947
+
+      <h4>Inventore veritatis</h4>
+      <p class="lg-font-size-0-8">
+        Totam rem aperiam. Inventore veritatis et quasi architecto beatae
+        vitae dicta sunt explicabo.
+      </p>
+      <p class="lg-font-size-0-6">
+        Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
       </p>
   `,
   }),
