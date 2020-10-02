@@ -14,23 +14,51 @@ stories.add(
     },
     template: `
     <p class="lg-font-size-7">{{lgFontSize7}}</p>
+    <p class="lg-font-size-7--strong">{{lgFontSize7Strong}}</p>
+
     <p class="lg-font-size-6">{{lgFontSize6}}</p>
+    <p class="lg-font-size-6--strong">{{lgFontSize6Strong}}</p>
+
     <p class="lg-font-size-5">{{lgFontSize5}}</p>
+    <p class="lg-font-size-5--strong">{{lgFontSize5Strong}}</p>
+
     <p class="lg-font-size-4">{{lgFontSize4}}</p>
+    <p class="lg-font-size-4--strong">{{lgFontSize4Strong}}</p>
+
     <p class="lg-font-size-3">{{lgFontSize3}}</p>
+    <p class="lg-font-size-3--strong">{{lgFontSize3Strong}}</p>
+
     <p class="lg-font-size-2">{{lgFontSize2}}</p>
+    <p class="lg-font-size-2--strong">{{lgFontSize2Strong}}</p>
+
     <p class="lg-font-size-1">{{lgFontSize1}}</p>
+    <p class="lg-font-size-1--strong">{{lgFontSize1Strong}}</p>
+
     <p class="lg-font-size-0-8">{{lgFontSize08}}</p>
     <p class="lg-font-size-0-6">{{lgFontSize06}}</p>
     `,
     props: {
       lgFontSize7: text('font size 7', '.lg-font-size-7'),
+      lgFontSize7Strong: text('font size 7 strong', '.lg-font-size-7--strong'),
+
       lgFontSize6: text('font size 6', '.lg-font-size-6'),
+      lgFontSize6Strong: text('font size 6 strong', '.lg-font-size-6--strong'),
+
       lgFontSize5: text('font size 5', '.lg-font-size-5'),
+      lgFontSize5Strong: text('font size 5 strong', '.lg-font-size-5--strong'),
+
       lgFontSize4: text('font size 4', '.lg-font-size-4'),
+      lgFontSize4Strong: text('font size 4 strong', '.lg-font-size-4--strong'),
+
       lgFontSize3: text('font size 3', '.lg-font-size-3'),
+      lgFontSize3Strong: text('font size 3 strong', '.lg-font-size-3--strong'),
+
       lgFontSize2: text('font size 2', '.lg-font-size-2'),
+      lgFontSize2Strong: text('font size 2 strong', '.lg-font-size-2--strong'),
+
       lgFontSize1: text('font size 1', '.lg-font-size-1'),
+      lgFontSize1Strong: text('font size 1 strong', '.lg-font-size-1--strong'),
+
       lgFontSize08: text('font size 08', '.lg-font-size-0-8'),
       lgFontSize06: text('font size 06', '.lg-font-size-0-6'),
     },
