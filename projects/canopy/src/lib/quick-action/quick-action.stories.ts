@@ -78,9 +78,14 @@ export const link = () => ({
   `,
   props: {
     content: text('text', 'Send us a message', groupId),
-    link: text('link', '/mailbox', groupId),
+    link: text('link', 'https://google.com', groupId),
     target: select('target', ['_blank', '_self'], '_blank', groupId),
-    icon: select('icon', iconsArray.map(icon => icon.name), 'secure-messaging', groupId),
+    icon: select(
+      'icon',
+      iconsArray.map(icon => icon.name),
+      'secure-messaging',
+      groupId,
+    ),
   },
 });
 
@@ -93,6 +98,11 @@ export const button = () => ({
   `,
   props: {
     content: text('text', 'Load more', groupId),
-    icon: select('icon', iconsArray.map(icon => icon.name), 'repeat', groupId),
+    icon: select(
+      'icon',
+      iconsArray.map(icon => icon.name),
+      'repeat',
+      groupId,
+    ),
   },
 });
