@@ -5,7 +5,7 @@ import { LgValidationModule } from './validation.module';
 import { notes } from './validation.notes';
 
 export default {
-  title: 'Components/Form/Validation',
+  title: 'Components/Validation',
   parameters: {
     decorators: [
       withKnobs,

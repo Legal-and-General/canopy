@@ -48,7 +48,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Radio',
+  title: 'Components/Radio',
   parameters: {
     decorators: [
       withKnobs,

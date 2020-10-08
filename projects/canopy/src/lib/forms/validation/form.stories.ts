@@ -259,7 +259,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Form Validation',
+  title: 'Components/Form Validation',
   parameters: {
     decorators: [
       withKnobs,

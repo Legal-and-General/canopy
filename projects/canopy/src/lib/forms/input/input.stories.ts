@@ -49,7 +49,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Input',
+  title: 'Components/Input',
   parameters: {
     decorators: [
       withKnobs,

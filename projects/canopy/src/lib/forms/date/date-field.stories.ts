@@ -48,7 +48,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Date Input',
+  title: 'Components/Date Input',
   parameters: {
     decorators: [
       withKnobs,

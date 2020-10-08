@@ -8,7 +8,7 @@ import { notes } from './toggle.notes';
 import { createToggleStory, ReactiveToggleFormComponent } from './toggle.stories.common';
 
 export default {
-  title: 'Components/Form/Checkbox',
+  title: 'Components/Checkbox',
   parameters: {
     decorators: [
       withKnobs,

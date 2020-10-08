@@ -16,9 +16,7 @@ import { notes } from './select.notes';
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <select lgSelect formControlName="color">
-          <option *ngFor="let option of options" [value]="option">{{
-            option
-          }}</option>
+          <option *ngFor="let option of options" [value]="option">{{ option }}</option>
         </select>
       </lg-select-field>
     </form>
@@ -55,7 +53,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Select',
+  title: 'Components/Select',
   parameters: {
     decorators: [
       withKnobs,
