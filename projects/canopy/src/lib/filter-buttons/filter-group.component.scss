@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+
+.lg-filter-group {
+  display: block;
+  margin-bottom: var(--component-margin);
+
+  .lg-filter-button {
+    display: inline-block;
+    margin-right: var(--space-xs);
+  }
+
+  .lg-filter-button:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.lg-filter-group--no-icons {
+  .lg-filter-button__input[type='checkbox'] + .lg-filter-button__label {
+    padding-left: var(--space-sm);
+  }
+
+  .lg-filter-button__icon-wrapper {
+    @include lg-visually-hidden;
+  }
+}

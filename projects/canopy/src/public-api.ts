@@ -13,6 +13,7 @@ export * from './lib/card/index';
 export * from './lib/data-point/index';
 export * from './lib/details/index';
 export * from './lib/feature-toggle/index';
+export * from './lib/filter-buttons/index';
 export * from './lib/focus/index';
 export * from './lib/footer/index';
 export * from './lib/forms/index';

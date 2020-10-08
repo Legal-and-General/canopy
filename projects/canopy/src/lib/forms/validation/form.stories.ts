@@ -106,6 +106,41 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-radio-group>
 
+      <lg-filter-group formControlName="filterButton">
+        Filter options select one
+        <lg-filter-button value="yellow">Yellow</lg-filter-button>
+        <lg-filter-button value="red">Red</lg-filter-button>
+        <lg-filter-button value="blue">Blue</lg-filter-button>
+        <lg-validation
+          *ngIf="
+            isControlInvalid(filterButton, validationForm) &&
+            filterButton.hasError('required')
+          "
+        >
+          Please select an option
+        </lg-validation>
+      </lg-filter-group>
+
+      <lg-filter-group
+        variant="select-multiple"
+        valueArrayName="filters"
+        formArrayName="filters"
+      >
+        Filter options select multiple
+        <lg-filter-button value="yellow">
+          Yellow
+        </lg-filter-button>
+        <lg-filter-button value="red">Red</lg-filter-button>
+        <lg-filter-button value="blue">Blue</lg-filter-button>
+        <lg-validation
+          *ngIf="
+            isControlInvalid(filters, validationForm) && filters.hasError('required')
+          "
+        >
+          Please select at least one option
+        </lg-validation>
+      </lg-filter-group>
+
       <lg-toggle formControlName="checkbox" [value]="true" variant="checkbox">
         Checkbox
         <lg-validation
@@ -183,6 +218,14 @@ class ReactiveFormComponent {
     return this.form.get('radio');
   }
 
+  get filterButton() {
+    return this.form.get('filterButton');
+  }
+
+  get filters() {
+    return this.form.get('filters');
+  }
+
   get checkbox() {
     return this.form.get('checkbox');
   }
@@ -198,6 +241,8 @@ class ReactiveFormComponent {
       text: ['', [Validators.required, Validators.minLength(4), invalidValidator()]],
       select: ['', [Validators.required, invalidValidator()]],
       radio: ['', [Validators.required, invalidValidator()]],
+      filterButton: ['', [Validators.required]],
+      filters: this.fb.array([], [Validators.required]),
       checkbox: ['', [Validators.requiredTrue]],
       switch: ['', [Validators.requiredTrue]],
       date: ['', [Validators.required, pastDateValidator()]],

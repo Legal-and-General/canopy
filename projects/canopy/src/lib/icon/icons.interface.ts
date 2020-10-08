@@ -925,6 +925,10 @@ export const lgIconStop: Icon = {
   name: 'stop',
   data: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M8 8h16v16H8z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>`
 };
+export const lgIconSubtractSpotOutline: Icon = {
+  name: 'subtract-spot-outline',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 4c6.627 0 12 5.373 12 12s-5.373 12-12 12S4 22.627 4 16 9.373 4 16 4zm0 2C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm5 9a1 1 0 010 2H11a1 1 0 010-2h10z"/></svg>`
+};
 export const lgIconSubtract: Icon = {
   name: 'subtract',
   data: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M10 17h12a1 1 0 000-2H10a1 1 0 000 2z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>`
@@ -1267,6 +1271,7 @@ export type IconName =
   | 'star-half-fill'
   | 'star'
   | 'stop'
+  | 'subtract-spot-outline'
   | 'subtract'
   | 'svg'
   | 'switch-funds'

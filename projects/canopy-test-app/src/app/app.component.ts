@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 
 import { tableTestData } from 'projects/canopy/src/lib/table/test.data';
 
@@ -34,6 +34,8 @@ export class AppComponent {
       text: [''],
       select: [''],
       radio: [''],
+      filter: [''],
+      filters: new FormArray([]),
       checkbox: [''],
       switch: [''],
       date: [''],

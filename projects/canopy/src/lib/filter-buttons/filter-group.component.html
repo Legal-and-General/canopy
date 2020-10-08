@@ -1,0 +1,7 @@
+<fieldset [attr.aria-describedby]="ariaDescribedBy || null">
+  <legend lg-label [attr.for]="id" lgMarginBottom="xs">
+    <ng-content></ng-content>
+  </legend>
+  <ng-content select="lg-filter-button"></ng-content>
+  <ng-content select="lg-validation"></ng-content>
+</fieldset>
