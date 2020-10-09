@@ -42,6 +42,22 @@ e.g. Apply an xl margin all round, but xxxl margin to the bottom
 </lg-card>
 ~~~
 
+e.g. Apply an lg margin to both the left and the right
+
+~~~html
+<lg-card lgMarginHorizontal="lg">
+  Your content
+</lg-card>
+~~~
+
+e.g. Apply an lg margin to both the top and the bottom
+
+~~~html
+<lg-card lgMarginVertical="lg">
+  Your content
+</lg-card>
+~~~
+
 ## Inputs
 
 The current available variants are 'none', xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'.
@@ -53,6 +69,8 @@ The current available variants are 'none', xxxs', 'xxs', 'xs', 'sm', 'md', 'lg',
 | \`\`lgMarginRight\`\` | The margin variant applied to the right | string | null | No |
 | \`\`lgMarginBottom\`\` | The margin variant applied to the bottom | string | null | No |
 | \`\`lgMarginLeft\`\` | The margin variant applied to the left | string | null | No |
+| \`\`lgMarginHorizontal\`\` | The margin variant applied to the left and the right | string | null | No |
+| \`\`lgMarginVertical\`\` | The margin variant applied to the top and the bottom | string | null | No |
 
 
 ## Using only the SCSS files
