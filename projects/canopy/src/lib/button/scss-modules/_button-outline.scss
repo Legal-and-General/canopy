@@ -1,4 +1,0 @@
-@import 'helpers/button.mixins';
-
-$variants: 'outline-primary', 'outline-secondary';
-@include createButtons($variants);

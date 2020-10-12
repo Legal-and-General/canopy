@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Variant } from './button.interface';
+import { Variant, ButtonIconPosition } from './button.interface';
 
 @Component({
   selector: '[lg-button]',
@@ -47,7 +47,18 @@ export class LgButtonComponent {
     return this.fullWidth;
   }
 
+  @Input() iconPosition: ButtonIconPosition;
+  @HostBinding('class.lg-btn--icon-left') get leftIconClass() {
+    return this.iconPosition === 'left';
+  }
+
+  @Input() iconButton = false;
+  @HostBinding('class.lg-btn--icon-only') get iconButtonClass() {
+    return this.iconButton;
+  }
+
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {
     this.variant = 'solid-primary';
+    this.iconPosition = 'right';
   }
 }
