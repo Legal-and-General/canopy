@@ -9,7 +9,7 @@
             <lg-breadcrumb variant="light" lgMarginBottom="none">
               <lg-breadcrumb-item>
                 <a href="#">
-                  <lg-icon [name]="'home'"></lg-icon>
+                  <lg-icon name="home"></lg-icon>
                   Home
                 </a>
               </lg-breadcrumb-item>
@@ -223,28 +223,47 @@
           </lg-card>
 
           <button lg-button variant="solid-primary">
-            Test solid primary button
+            Solid primary button
           </button>
           <br />
 
           <button lg-button variant="solid-secondary">
-            Test solid secondary button
+            Solid secondary button
           </button>
           <br />
 
           <button lg-button variant="outline-primary">
-            Test outline primary button
+            Outline primary button
           </button>
           <br />
 
           <button lg-button variant="outline-secondary">
-            Test outline secondary button
+            Outline secondary button
           </button>
           <br />
 
           <button lg-button variant="solid-primary" [loading]="true">
-            Test loading button
+            Loading button
           </button>
+          <br />
+
+          <button lg-button variant="solid-secondary">
+            Button with icon
+            <lg-icon name="add"></lg-icon>
+          </button>
+          <br />
+
+          <button lg-button variant="outline-primary" iconPosition="left">
+            Button with left aligned icon
+            <lg-icon name="arrow-down"></lg-icon>
+          </button>
+          <br />
+
+          <button lg-button variant="solid-primary" [iconButton]="true">
+            Icon Button
+            <lg-icon name="close"></lg-icon>
+          </button>
+          <br />
 
           <lg-separator></lg-separator>
 

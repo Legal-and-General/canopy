@@ -49,6 +49,38 @@ describe('LgButtonComponent', () => {
     });
   });
 
+  describe('the icon position input', () => {
+    describe('when not specified', () => {
+      it('should not set an icon class modifier', () => {
+        expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+          'lg-btn--icon-',
+        );
+      });
+    });
+
+    describe('when specified as left', () => {
+      it('should set the correct class modifier', () => {
+        component.iconPosition = 'left';
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-btn--icon-left',
+        );
+      });
+    });
+
+    describe('when specified as right', () => {
+      it('uses the default styles without a modifier', () => {
+        component.iconPosition = 'right';
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+          'lg-btn--icon-',
+        );
+      });
+    });
+  });
+
   describe('the loading input', () => {
     describe('when not set', () => {
       it('should set the default value to false', () => {
@@ -63,9 +95,7 @@ describe('LgButtonComponent', () => {
       });
 
       it('should add the loading class modifier', () => {
-        expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--loading',
-        );
+        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--loading');
       });
 
       it('should set the disabled attribute', () => {
@@ -84,11 +114,11 @@ describe('LgButtonComponent', () => {
     describe('when set to false', () => {
       it('should not add the loading class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--loading',
+          'lg-btn--loading',
         );
       });
 
-      it(`shouldn'tdisplay the spinner`, () => {
+      it(`shouldn't display the spinner`, () => {
         const spinnerComponent = fixture.debugElement.query(
           By.directive(LgSpinnerComponent),
         );
@@ -110,16 +140,44 @@ describe('LgButtonComponent', () => {
         component.fullWidth = true;
         fixture.detectChanges();
 
-        expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--block',
-        );
+        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--block');
       });
     });
 
     describe('when set to false', () => {
       it('should not set the block class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-btn--solid-primary lg-btn lg-btn--block',
+          'lg-btn--block',
+        );
+      });
+    });
+  });
+
+  describe('the iconButton input', () => {
+    describe('when not set', () => {
+      it('should set the default value to false', () => {
+        expect(component.iconButton).toBe(false);
+      });
+    });
+
+    describe('when set to true', () => {
+      it('should set the icon button class modifier', () => {
+        component.iconButton = true;
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.getAttribute('class')).toContain(
+          'lg-btn--icon-only',
+        );
+      });
+    });
+
+    describe('when set to false', () => {
+      it('should not set the icon button modifier', () => {
+        component.iconButton = false;
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+          'lg-btn--icon-only',
         );
       });
     });

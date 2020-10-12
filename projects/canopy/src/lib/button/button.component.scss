@@ -1,4 +1,126 @@
-@import 'scss-modules/button';
-@import 'scss-modules/button-solid';
-@import 'scss-modules/button-outline';
-@import 'scss-modules/button-reverse';
+@import '../../styles/mixins.scss';
+
+.lg-btn {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: solid var(--border-width);
+  border-radius: var(--btn-border-radius);
+  font-size: var(--btn-font-size);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  min-width: var(--btn-min-width);
+  line-height: var(--btn-line-height);
+  padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
+  text-align: center;
+  transition: background-color var(--animation-duration) var(--animation-fn);
+  margin-bottom: var(--component-margin);
+  text-decoration: none;
+
+  &:focus {
+    @include lg-outer-focus-outline(var(--default-focus-color));
+  }
+
+  :not(&--loading):disabled {
+    background-color: var(--btn-disabled-bg-color);
+    border-color: var(--btn-disabled-border-color);
+    color: var(--btn-disabled-color);
+    cursor: not-allowed;
+  }
+
+  &__hidden-content {
+    display: flex;
+    position: relative;
+    visibility: hidden;
+  }
+
+  &__spinner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  &--loading {
+    cursor: not-allowed;
+  }
+
+  &--rounded {
+    border-radius: var(--btn-rounded-radius);
+    min-width: auto;
+  }
+
+  .lg-icon {
+    margin-left: var(--space-xxs);
+  }
+
+  &--icon-left {
+    .lg-icon {
+      order: -1;
+      margin-left: 0;
+      margin-right: var(--space-xxs);
+    }
+  }
+
+  // Always full width on 'sm', above 'sm' only when --block is applied`
+  @include lg-breakpoint('md') {
+    display: inline-flex;
+    width: auto;
+
+    &--block {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  &--icon-only {
+    min-width: auto;
+    width: auto;
+    display: inline-flex;
+    padding: var(--btn-icon-only-padding);
+
+    .lg-btn__text {
+      // retain height but not width
+      visibility: hidden;
+      white-space: nowrap;
+      width: 0;
+    }
+
+    .lg-icon {
+      margin-left: 0;
+      margin-right: 0;
+      height: var(--space-md);
+      width: var(--space-md);
+    }
+  }
+}
+
+$variants: 'solid-primary', 'solid-secondary', 'reverse-primary', 'reverse-secondary',
+  'outline-primary', 'outline-secondary' !default;
+
+@each $variant in $variants {
+  .lg-btn--#{$variant},
+  .lg-btn--#{$variant}:visited {
+    background-color: var(--btn-#{$variant}-bg-color);
+    border-color: var(--btn-#{$variant}-border-color);
+    color: var(--btn-#{$variant}-color);
+
+    &:not(:disabled) {
+      &:active,
+      &:active:hover {
+        background-color: var(--btn-#{$variant}-active-bg-color);
+        color: var(--btn-#{$variant}-active-color);
+        border-color: var(--btn-#{$variant}-active-border-color);
+      }
+
+      &:hover {
+        background-color: var(--btn-#{$variant}-hover-bg-color);
+        color: var(--btn-#{$variant}-hover-color);
+        border-color: var(--btn-#{$variant}-hover-border-color);
+      }
+    }
+  }
+}

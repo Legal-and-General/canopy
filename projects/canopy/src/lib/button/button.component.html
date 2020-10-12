@@ -1,10 +1,15 @@
-<ng-template #transclude><ng-content></ng-content></ng-template>
-
-<ng-container *ngIf="loading; else transclude">
-  <span class="lg-btn__hidden-content" aria-hidden="true">
-    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+<ng-template #standard>
+  <span class="lg-btn__text">
+    <ng-content></ng-content>
   </span>
 
-  <lg-spinner class="lg-btn__spinner" [variant]="'inherit'" lgMargin="none">
-  </lg-spinner>
+  <ng-content select="lg-icon"></ng-content>
+</ng-template>
+
+<ng-container *ngIf="loading; else standard">
+  <span class="lg-btn__hidden-content" aria-hidden="true">
+    <ng-container *ngTemplateOutlet="standard"></ng-container>
+  </span>
+
+  <lg-spinner class="lg-btn__spinner" [variant]="'inherit'" lgMargin="none"> </lg-spinner>
 </ng-container>
