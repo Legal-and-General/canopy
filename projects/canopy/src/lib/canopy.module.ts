@@ -40,6 +40,7 @@ import { LgQuickActionModule } from './quick-action/quick-action.module';
 import { LgSeparatorModule } from './separator/separator.module';
 import { LgShowAtModule } from './show-at/show-at.module';
 import { LgSideNavModule } from './side-nav/side-nav.module';
+import { LgSkeletonModule } from './skeleton/skeleton.module';
 import { LgSpacingModule } from './spacing/spacing.module';
 import { LgSpinnerModule } from './spinner/spinner.module';
 import { LgSuffixModule } from './suffix/suffix.module';
@@ -84,6 +85,7 @@ const modules = [
   LgSeparatorModule,
   LgShowAtModule,
   LgSideNavModule,
+  LgSkeletonModule,
   LgSpacingModule,
   LgSpinnerModule,
   LgSuffixModule,

@@ -1,0 +1,62 @@
+$rgba-transparent: rgba(255, 255, 255, 0);
+
+.lg-skeleton {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    var(--color-platinum) calc(100% - 0.063em),
+    transparent 0
+  );
+  text-indent: -9999em;
+  max-width: 100%;
+}
+
+.lg-skeleton--right {
+  align-self: flex-end;
+  text-indent: 9999em;
+}
+
+.lg-skeleton:before {
+  content: '\200B';
+}
+
+.lg-skeleton:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: Shimmer 1.5s infinite;
+  background-image: linear-gradient(
+    -75deg,
+    $rgba-transparent 30%,
+    #fff 50%,
+    $rgba-transparent 70%
+  );
+  background-repeat: no-repeat;
+  background-size: 100vw 100%;
+
+  @include lg-breakpoint(md) {
+    animation: Shimmer 2.5s infinite;
+  }
+}
+
+.lg-skeleton--right:after {
+  left: calc(-1 * 100vw + 100%);
+}
+
+@keyframes Shimmer {
+  0% {
+    background-position: -100vw;
+  }
+
+  100% {
+    background-position: 100vw;
+  }
+}
