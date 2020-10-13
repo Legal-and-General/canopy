@@ -29,7 +29,7 @@ e.g. Apply an xxl padding to the bottom
 e.g. Apply an sm padding to the left and right
 
 ~~~html
-<lg-card lgPaddingLeft="sm" lgPaddingRight="sm">
+<lg-card lgPaddingHorizontal="sm">
   Your content
 </lg-card>
 ~~~
@@ -38,6 +38,14 @@ e.g. Apply an xl padding all round, but xxxl padding to the bottom
 
 ~~~html
 <lg-card lgPadding="xl" lgPaddingBottom="xxxl">
+  Your content
+</lg-card>
+~~~
+
+e.g. Apply an lg padding to the top and bottom
+
+~~~html
+<lg-card lgPaddingVertical="lg">
   Your content
 </lg-card>
 ~~~
@@ -53,6 +61,8 @@ The current available variants are 'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg'
 | \`\`lgPaddingRight\`\` | The padding variant applied to the right | string | null | No |
 | \`\`lgPaddingBottom\`\` | The padding variant applied to the bottom | string | null | No |
 | \`\`lgPaddingLeft\`\` | The padding variant applied to the left | string | null | No |
+| \`\`lgPaddingHorizontal\`\` | The padding variant applied to the left and the right | string | null | No |
+| \`\`lgPaddingVertical\`\` | The padding variant applied to the top and the bottom | string | null | No |
 
 
 ## Using only the SCSS files
