@@ -106,6 +106,20 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-radio-group>
 
+      <lg-checkbox-group formControlName="colors">
+        Checkbox group
+        <lg-hint>This is a standard checkbox group</lg-hint>
+        <lg-toggle value="red">Red</lg-toggle>
+        <lg-toggle value="yellow">Yellow</lg-toggle>
+        <lg-toggle value="green">Green</lg-toggle>
+        <lg-toggle value="blue">Blue</lg-toggle>
+        <lg-validation
+          *ngIf="isControlInvalid(colors, validationForm) && colors.hasError('required')"
+        >
+          Please select an option
+        </lg-validation>
+      </lg-checkbox-group>
+
       <lg-toggle formControlName="checkbox" [value]="true" variant="checkbox">
         Checkbox
         <lg-validation
@@ -183,6 +197,10 @@ class ReactiveFormComponent {
     return this.form.get('radio');
   }
 
+  get colors() {
+    return this.form.get('colors');
+  }
+
   get checkbox() {
     return this.form.get('checkbox');
   }
@@ -198,6 +216,7 @@ class ReactiveFormComponent {
       text: ['', [Validators.required, Validators.minLength(4), invalidValidator()]],
       select: ['', [Validators.required, invalidValidator()]],
       radio: ['', [Validators.required, invalidValidator()]],
+      colors: this.fb.control([], [Validators.required]),
       checkbox: ['', [Validators.requiredTrue]],
       switch: ['', [Validators.requiredTrue]],
       date: ['', [Validators.required, pastDateValidator()]],

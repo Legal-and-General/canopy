@@ -8,9 +8,11 @@ import { LgRadioModule } from './radio/radio.module';
 import { LgSelectModule } from './select/select.module';
 import { LgToggleModule } from './toggle/toggle.module';
 import { LgValidationModule } from './validation/validation.module';
+import { LgCheckboxGroupModule } from './checkbox-group';
 
 @NgModule({
   exports: [
+    LgCheckboxGroupModule,
     LgDateFieldModule,
     LgValidationModule,
     LgHintModule,
