@@ -48,7 +48,9 @@
   color: var(--toggle-checkbox-color);
 
   &.lg-icon > svg {
-    display: none;
+    display: inline-block;
+    height: auto;
+    width: auto;
   }
 
   .lg-toggle__input:focus + & {
@@ -59,13 +61,6 @@
     background-color: var(--toggle-bg-color);
     color: var(--toggle-checkbox-color);
     border-color: var(--toggle-checkbox-active-border-color);
-
-    &.lg-icon > svg {
-      display: inline-block;
-      height: auto;
-      width: auto;
-      vertical-align: middle;
-    }
   }
 }
 

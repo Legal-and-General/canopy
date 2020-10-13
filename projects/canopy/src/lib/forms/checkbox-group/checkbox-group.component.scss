@@ -1,0 +1,19 @@
+.lg-checkbox-group {
+  display: block;
+  margin-bottom: var(--component-margin);
+
+  .lg-toggle {
+    margin-bottom: var(--space-xs);
+  }
+}
+
+.lg-checkbox-group--inline {
+  .lg-toggle {
+    display: inline-block;
+    margin-right: var(--space-md);
+  }
+
+  .lg-toggle:last-of-type {
+    margin-right: 0;
+  }
+}
