@@ -14,10 +14,10 @@ Screenshot: (if appropriate provide a quick screen grab of the changes)
 
 # Checklist:
 
-- [ ] The commit messages follow the [convention for this project](./blob/master/CONTRIBUTING.md#conventional-commits)
+- [ ] The commit messages follow the [convention for this project](./blob/master/docs/CONTRIBUTING.md#conventional-commits)
 - [ ] I have provided an adequate amount of test coverage
-- [ ] I have added the functionality to the [test app](./blob/master/CONTRIBUTING.md#build-test-application)
+- [ ] I have added the functionality to the [test app](./blob/master/docs/CONTRIBUTING.md#build-test-application)
 - [ ] I have provided a story in storybook to document the changes
 - [ ] I have provided documentation in the notes section of the story
 - [ ] I have added any new public feature modules to public-api.ts
-- [ ] I have [linked the new component](<(https://github.com/Legal-and-General/canopy/blob/master/CONTRIBUTING.md#invision-dsm)>) to adobe DSM (if appropriate)
+- [ ] I have [linked the new component](<(https://github.com/Legal-and-General/canopy/blob/master/docs/CONTRIBUTING.md#invision-dsm)>) to adobe DSM (if appropriate)
