@@ -2,6 +2,8 @@
 
 Hi, glad you are here all contributions are very much welcome!
 
+Before you start Contributing to Canopy it is worth familiarising yourself with the [best practice](./BEST_PRACTICE.md) guidelines.
+
 ## Storybook
 
 Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed.

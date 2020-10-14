@@ -1,5 +1,7 @@
 # Usage
 
+Before using Canopy in a project it is worth familiarising yourself with the [best practice](./BEST_PRACTICE.md) guidelines.
+
 The Canopy library is currently deployed to the [GitHub package registry](https://github.com/features/package-registry). Some [simple setup](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#installing-a-package) is required to be able to use the GitHub registry alongside any existing registry you may have.
 
 ## Setting up the GitHub registry
