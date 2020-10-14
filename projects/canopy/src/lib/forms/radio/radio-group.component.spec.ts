@@ -32,10 +32,7 @@ const hintTestId = 'test-hint-id';
         <lg-radio-button value="red">Red</lg-radio-button>
         <lg-radio-button value="yellow">Yellow</lg-radio-button>
         <lg-radio-button value="blue">Blue</lg-radio-button>
-        <lg-validation
-          id="${validationTestId}"
-          *ngIf="isControlInvalid(color, testForm)"
-        >
+        <lg-validation id="${validationTestId}" *ngIf="isControlInvalid(color, testForm)">
           Error
         </lg-validation>
       </lg-radio-group>
@@ -94,26 +91,18 @@ describe('LgRadioGroupComponent', () => {
     fixture = TestBed.createComponent(TestRadioGroupComponent);
     component = fixture.componentInstance;
 
-    groupDebugElement = fixture.debugElement.query(
-      By.directive(LgRadioGroupComponent),
-    );
+    groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
     groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
       LgRadioGroupComponent,
     );
 
-    hintDebugElement = fixture.debugElement.query(
-      By.directive(LgHintComponent),
-    );
+    hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
 
     fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
 
-    radioDebugElements = fixture.debugElement.queryAll(
-      By.css('lg-radio-button'),
-    );
+    radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
 
-    radioInstances = radioDebugElements.map(
-      debugEl => debugEl.componentInstance,
-    );
+    radioInstances = radioDebugElements.map(debugEl => debugEl.componentInstance);
 
     fixture.detectChanges();
   }));
@@ -124,6 +113,16 @@ describe('LgRadioGroupComponent', () => {
     for (const radio of radioInstances) {
       expect(radio.name).toBe(name);
     }
+  });
+
+  it('sets the correct variant based on the selector', () => {
+    expect(fixture.debugElement.query(By.css('.lg-radio-group'))).toBeDefined();
+    fixture.detectChanges();
+    expect(groupInstance.variant === 'radio').toBe(true);
+  });
+
+  it('sets the correct style variant wrapper on the button based on the selector', () => {
+    expect(fixture.debugElement.query(By.css('.lg-radio-button--radio'))).toBeDefined();
   });
 
   it('checks the selected radio button when a value is provided', () => {
@@ -167,46 +166,34 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('links the hint to the fieldset with the correct aria attributes', () => {
-    expect(
-      hintDebugElement.nativeElement.getAttribute('id').length,
-    ).not.toEqual(0);
-    expect(
-      fieldsetDebugElement.nativeElement.getAttribute('aria-describedBy'),
-    ).toContain(hintDebugElement.nativeElement.getAttribute('id'));
+    expect(hintDebugElement.nativeElement.getAttribute('id').length).not.toEqual(0);
+    expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
+      hintDebugElement.nativeElement.getAttribute('id'),
+    );
   });
 
   it('links the error to the fieldset with the correct aria attributes', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
-    errorDebugElement = fixture.debugElement.query(
-      By.directive(LgValidationComponent),
-    );
+    errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
-    expect(
-      errorDebugElement.nativeElement.getAttribute('id').length,
-    ).not.toEqual(0);
-    expect(
-      fieldsetDebugElement.nativeElement.getAttribute('aria-describedBy'),
-    ).toContain(errorDebugElement.nativeElement.getAttribute('id'));
+    expect(errorDebugElement.nativeElement.getAttribute('id').length).not.toEqual(0);
+    expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
+      errorDebugElement.nativeElement.getAttribute('id'),
+    );
   });
 
   it('combines both the hint and error ids to create the aria described attribute', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
-    errorDebugElement = fixture.debugElement.query(
-      By.directive(LgValidationComponent),
-    );
+    errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
     const errorId = errorDebugElement.nativeElement.getAttribute('id');
     const hintId = hintDebugElement.nativeElement.getAttribute('id');
     fixture.detectChanges();
-    expect(
-      fieldsetDebugElement.nativeElement.getAttribute('aria-describedby'),
-    ).toBe(`${hintId} ${errorId}`);
+    expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedby')).toBe(
+      `${hintId} ${errorId}`,
+    );
   });
 
   it('disables the options when the disabled property is set', () => {
@@ -218,19 +205,15 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('adds the error class if the form field is invalid', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
-    expect(groupDebugElement.nativeElement.className).toContain(
-      'lg-radio-group--error',
-    );
+    expect(groupDebugElement.nativeElement.className).toContain('lg-radio-group--error');
   });
 
   it('removes the error class if the form field is valid', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(false);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+      false,
+    );
     fixture.detectChanges();
     expect(groupDebugElement.nativeElement.className).not.toContain(
       'lg-radio-group--error',

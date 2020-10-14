@@ -1,0 +1,11 @@
+:root {
+  --filter-btn-bg-color-hover: var(--color-taupe-grey);
+  --filter-btn-bg-color-active: var(--color-charcoal);
+  --filter-btn-bg-color-disabled: var(--color-platinum);
+  --filter-btn-bg-color-selected: var(--color-leafy-green);
+  --filter-btn-bg-color-selected-hover: var(--color-leafy-green-dark);
+  --filter-btn-bg-color-selected-active: var(--color-leafy-green-darkest);
+
+  --filter-btn-text-color-selected: var(--color-white);
+  --filter-btn-text-color-disabled: var(--color-taupe-grey);
+}

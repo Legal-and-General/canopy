@@ -1,8 +1,8 @@
-export const notes = `
-# Radio Group and Radio Button Components
+export const notes = (name: string) => `
+# ${name} Group and ${name} Button Components
 
 ## Purpose
-Provides a set of components to implement radio buttons in a form. The Radio Group component is a container which displays the label with an optional hint and should contain two or more Radio Button components. The Radio Button component represents a single radio button. The Hint component may be used to provide extra context to the user.
+Provides a set of components to implement ${name} buttons in a form. The ${name} Group component is a container which displays the label with an optional hint and should contain two or more ${name} Button components. The ${name} Button component represents a single ${name} button. The Hint component may be used to provide extra context to the user.
 
 ## Usage
 Import the Radio Module into your application:
@@ -17,12 +17,12 @@ Import the Radio Module into your application:
 and in your HTML:
 
 ~~~html
-<lg-radio-group [inline]="true" formControlName="color">
+<lg-${name.toLowerCase()}-group [inline]="true" formControlName="color">
   Colour
   <lg-hint>Please select a colour</lg-hint>
-  <lg-radio-button value="red">Red</lg-radio-button>
-  <lg-radio-button value="yellow">Yellow</lg-radio-button>
-</lg-radio-group>
+  <lg-${name.toLowerCase()}-button value="red">Red</lg-${name.toLowerCase()}-button>
+  <lg-${name.toLowerCase()}-button value="yellow">Yellow</lg-${name.toLowerCase()}-button>
+</lg-${name.toLowerCase()}-group>
 ~~~
 
 ## Inputs
@@ -47,7 +47,7 @@ and in your HTML:
 
 Generate the markup as show in the example below.
 
-### Radio group
+### ${name} group
 
 | Class | Description |
 |------|-------------|
@@ -57,6 +57,7 @@ Generate the markup as show in the example below.
 ### Radio button
 | Class | Description |
 |------|-------------|
+| \`\`lg-radio-button--filter\`\` | Adds filter variant styles to the radio button element |
 | \`\`lg-radio-button__input\`\` | Adds styles to the radio button input element |
 | \`\`lg-radio-button__label\`\` | Adds styles to the radio label element |
 
@@ -64,8 +65,14 @@ Generate the markup as show in the example below.
 ~~~html
 <div class="lg-radio-group">
   <label class="lg-input__label" for="color">Color</label>
-  <input class="lg-radio-button__input" name="color" value="red" checked="true">
-  <input class="lg-radio-button__input" name="color" value="blue">
+  <div class="lg-radio-button--filter">
+    <input class="lg-radio-button__input" type="radio" name="color" value="red" checked="true">
+    <label class="lg-radio-button__label">Red</label>
+  </div>
+  <div class="lg-radio-button--filter">
+    <input class="lg-radio-button__input" type="radio" name="color" value="blue">
+    <label class="lg-radio-button__label">Red</label>
+  </div>
 </div>
 ~~~
 `;

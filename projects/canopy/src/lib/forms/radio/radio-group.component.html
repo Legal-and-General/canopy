@@ -1,9 +1,9 @@
 <fieldset [attr.aria-describedby]="ariaDescribedBy">
-  <legend lg-label [attr.for]="id">
+  <legend lg-label [attr.for]="id" lgMarginBottom="xs">
     <ng-content></ng-content>
   </legend>
   <ng-content select="lg-hint"></ng-content>
-  <ng-content select="lg-radio-button"></ng-content>
+  <ng-content select="lg-radio-button, lg-filter-button"></ng-content>
   <ng-content select="lg-validation"></ng-content>
 </fieldset>
 <ng-content select="lg-hint"></ng-content>
