@@ -1,7 +1,7 @@
 <input
   (click)="onCheck()"
-  [attr.checked]="checked === true ? true : null"
-  [attr.disabled]="disabled === true ? '' : null"
+  [attr.checked]="checked || null"
+  [attr.disabled]="disabled || null"
   [attr.id]="id"
   [attr.name]="name"
   [attr.value]="value"

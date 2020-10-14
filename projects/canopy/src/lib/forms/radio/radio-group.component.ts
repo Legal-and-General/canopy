@@ -11,23 +11,21 @@ import {
   Self,
   SkipSelf,
   ViewEncapsulation,
+  ElementRef,
 } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormGroupDirective,
-  NgControl,
-} from '@angular/forms';
+import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgRadioButtonComponent } from './radio-button.component';
+import { RadioVariant } from './radio.interface';
 
 let nextUniqueId = 0;
 
 @Component({
-  selector: 'lg-radio-group',
+  selector: 'lg-radio-group, lg-filter-group',
   templateUrl: './radio-group.component.html',
   styleUrls: ['./radio-group.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -39,6 +37,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   @Input() inline = false;
   @Input() disabled = false;
   @Input() ariaDescribedBy: string;
+  variant: RadioVariant;
 
   @HostBinding('class.lg-radio-group') class = true;
   @HostBinding('class.lg-radio-group--inline') public get inlineClass() {
@@ -49,9 +48,12 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   }
 
   _radios: QueryList<LgRadioButtonComponent>;
-  @ContentChildren(forwardRef(() => LgRadioButtonComponent), {
-    descendants: true,
-  })
+  @ContentChildren(
+    forwardRef(() => LgRadioButtonComponent),
+    {
+      descendants: true,
+    },
+  )
   set radios(radios: QueryList<LgRadioButtonComponent>) {
     radios.toArray().forEach((radio: LgRadioButtonComponent) => {
       radio.control = this.control;
@@ -117,7 +119,11 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     @SkipSelf()
     private controlContainer: FormGroupDirective,
     private domService: LgDomService,
+    private hostElement: ElementRef,
   ) {
+    this.variant = this.hostElement.nativeElement.tagName
+      .split('-')[1]
+      .toLowerCase() as RadioVariant;
     if (this.control != null) {
       this.control.valueAccessor = this;
     }

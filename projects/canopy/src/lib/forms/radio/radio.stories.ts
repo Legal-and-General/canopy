@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { action } from '@storybook/addon-actions';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
 
-import { CanopyModule } from '../../canopy.module';
 import { notes } from './radio.notes';
+import { LgRadioModule } from './radio.module';
+import { LgHintModule } from '../hint/hint.module';
 
 @Component({
-  selector: 'lg-reactive-form',
+  selector: 'lg-reactive-form-radio',
   template: `
     <form [formGroup]="form">
       <lg-radio-group [inline]="inline" formControlName="color">
@@ -21,7 +22,7 @@ import { notes } from './radio.notes';
     </form>
   `,
 })
-class ReactiveFormComponent {
+class ReactiveFormRadioComponent {
   @Input() inline = false;
   @Input() label: string;
   @Input() hint: string;
@@ -53,27 +54,28 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule],
+        declarations: [ReactiveFormRadioComponent],
+        imports: [ReactiveFormsModule, LgHintModule, LgRadioModule],
       }),
     ],
     'in-dsm': {
       id: '5ec4fc77c4b3aef9ba4e98bc',
     },
     notes: {
-      markdown: notes,
+      markdown: notes('Radio'),
     },
   },
 };
+
 export const standard = () => ({
   template: `
-    <lg-reactive-form
+    <lg-reactive-form-radio
     [disabled]="disabled"
     [hint]="hint"
     [inline]="inline"
     [label]="label"
     (radioChange)="radioChange($event)">
-  </lg-reactive-form>
+  </lg-reactive-form-radio>
   `,
   props: {
     inline: boolean('inline', false),
