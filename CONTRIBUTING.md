@@ -55,7 +55,7 @@ The commit message format is important as it is what drives the semantic version
 
 ### Breaking Changes
 
-Be particularly aware of any changes which may be deemed a breaking change. In our definition a breaking change is something which may affect the backwards compatibility of pre-existing functionality, when used in a standard way. We can only provide safe versioning under the assumption that a consuming project does not override any css styles.
+Be particularly aware of any changes which may be deemed a breaking change. Refer to our [guide of what is and is not considered a breaking change](./BREAKING_CHANGES.md)
 
 The format for breaking changes is outlined on the [convention commit docs](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#commit-message-with-description-and-breaking-change-in-body)
 
