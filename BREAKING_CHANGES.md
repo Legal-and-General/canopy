@@ -30,7 +30,7 @@ e.g.
 ```
 
 ### CSS variables, mixins and utility classes
-There [may be scenarios where you need to implement custom patterns in your application](./IDEOLOGIES.md#the-pattern-is-not-meant–for–the–design–system). If this is the case we recommend that you familiarise yourself with the css variables, mixins and utility classes provided by Canopy.
+There [may be scenarios where you need to implement custom patterns in your application](./BEST_PRACTICE.md#the-pattern-is-not-meant–for–the–design–system). If this is the case we recommend that you familiarise yourself with the css variables, mixins and utility classes provided by Canopy.
 
 > Utility classes are CSS class names that serve one particular purpose, and are named as such.
 
