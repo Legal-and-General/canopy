@@ -137,6 +137,14 @@ describe('LgRadioGroupComponent', () => {
     expect(checkedOption.componentInstance.value).toBe('blue');
   });
 
+  it('uses the same unique id when setting the group id and the group name', () => {
+    const checkboxGroupNextUniqueId = groupInstance.nextUniqueId;
+    const checkboxGroupId = groupInstance.id;
+    const checkboxGroupName = groupInstance.name;
+    expect(checkboxGroupId).toBe(`lg-radio-group-id-${checkboxGroupNextUniqueId}`);
+    expect(checkboxGroupName).toBe(`lg-radio-group-${checkboxGroupNextUniqueId}`);
+  });
+
   it('sets unique ids on all the radio buttons', () => {
     const radioIds = radioInstances.map(({ id }) => id);
     expect(new Set(radioIds).size).toBe(radioIds.length);

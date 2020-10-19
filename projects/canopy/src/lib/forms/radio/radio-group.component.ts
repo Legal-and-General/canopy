@@ -22,7 +22,7 @@ import { LgValidationComponent } from '../validation/validation.component';
 import { LgRadioButtonComponent } from './radio-button.component';
 import { RadioVariant } from './radio.interface';
 
-let nextUniqueId = 0;
+let uniqueId = 0;
 
 @Component({
   selector: 'lg-radio-group, lg-filter-group',
@@ -31,9 +31,10 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioGroupComponent implements ControlValueAccessor {
-  private _name = `lg-radio-group-${nextUniqueId++}`;
+  nextUniqueId = ++uniqueId;
+  private _name = `lg-radio-group-${this.nextUniqueId}`;
 
-  @Input() id = `lg-radio-group-id-${nextUniqueId++}`;
+  @Input() id = `lg-radio-group-id-${this.nextUniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
   @Input() ariaDescribedBy: string;
