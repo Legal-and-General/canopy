@@ -12,19 +12,18 @@ import { notes } from './checkbox-group.notes';
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-checkbox-group [inline]="inline" formControlName="colors">
+      <lg-filter-multiple-group formControlName="colors">
         {{ label }}
-        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <lg-toggle value="red">Red</lg-toggle>
         <lg-toggle value="yellow">Yellow</lg-toggle>
-      </lg-checkbox-group>
+        <lg-toggle value="green">Green</lg-toggle>
+        <lg-toggle value="blue">Blue</lg-toggle>
+      </lg-filter-multiple-group>
     </form>
   `,
 })
 class ReactiveFormComponent {
-  @Input() inline = false;
   @Input() label: string;
-  @Input() hint: string;
   @Input()
   set disabled(isDisabled: boolean) {
     if (isDisabled === true) {
@@ -48,7 +47,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Checkbox Group',
+  title: 'Components/Filter Buttons',
   parameters: {
     decorators: [
       withKnobs,
@@ -57,25 +56,24 @@ export default {
         imports: [ReactiveFormsModule, CanopyModule],
       }),
     ],
+    'in-dsm': {
+      id: '5f75d9f774621bd9596c8520',
+    },
     notes: {
-      markdown: notes('Checkbox'),
+      markdown: notes('Filter', 'filter-multiple'),
     },
   },
 };
-export const standard = () => ({
+export const selectMultiple = () => ({
   template: `
     <lg-reactive-form
     [disabled]="disabled"
-    [hint]="hint"
-    [inline]="inline"
     [label]="label"
     (checkboxChange)="checkboxChange($event)">
   </lg-reactive-form>
   `,
   props: {
-    inline: boolean('inline', false),
-    label: text('label', 'Color'),
-    hint: text('hint', 'Please select all colors that apply'),
+    label: text('label', 'Select colors'),
     checkboxChange: action('checkboxChange'),
     disabled: boolean('disabled', false),
   },

@@ -132,7 +132,7 @@ function invalidValidator(): ValidatorFn {
       </lg-toggle>
 
       <lg-toggle formControlName="switch" [value]="true" variant="switch">
-        Checkbox
+        Switch
         <lg-validation
           *ngIf="isControlInvalid(switch, validationForm) && switch.hasError('required')"
         >

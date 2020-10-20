@@ -26,4 +26,4 @@ export default {
   },
 };
 
-export const standard = () => createToggleStory('Switch', 'switch');
+export const standard = () => createToggleStory('switch');

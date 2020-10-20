@@ -1,0 +1,97 @@
+@import '../../../styles/mixins';
+
+.lg-toggle__input {
+  &:checked + .lg-toggle__label--switch {
+    &::before,
+    &::after {
+      background-color: var(--toggle-switch-on-bg-color);
+      border-color: var(--toggle-switch-on-border-color);
+    }
+
+    &::after {
+      background-color: var(--toggle-switch-on-dot-bg-color);
+      transform: translate(
+        calc(var(--toggle-switch-width) - var(--toggle-switch-dot-offset) - 100%),
+        -50%
+      );
+    }
+  }
+}
+
+.lg-toggle__label--switch {
+  &::before,
+  &::after {
+    background-color: var(--toggle-switch-off-dot-bg-color);
+    margin-right: var(--space-xxs);
+    transition: all var(--animation-duration) var(--animation-cubic-bezier-fn);
+  }
+
+  .lg-toggle__input:disabled + & {
+    color: var(--toggle-switch-disabled-color);
+  }
+}
+
+.lg-toggle__label--switch::before {
+  content: '';
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  height: var(--toggle-switch-height);
+  width: var(--toggle-switch-width);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: calc(var(--toggle-switch-height) / 2);
+  margin: var(--space-xxxs) var(--space-sm) auto 0;
+  background-color: var(--toggle-switch-off-bg-color);
+  min-width: var(--toggle-switch-width);
+
+  .lg-toggle__input:hover + & {
+    border-color: var(--border-hover-color);
+  }
+
+  .lg-toggle__input:focus + & {
+    border-color: var(--border-focus-color);
+    @include lg-outer-focus-outline();
+  }
+
+  .lg-toggle__input:checked + & {
+    background-color: var(--toggle-bg-color);
+    border-color: var(--toggle-switch-on-border-color);
+  }
+
+  .lg-toggle__input:disabled + & {
+    background-color: var(--toggle-switch-disabled-bg-color);
+    border-color: var(--toggle-switch-disabled-border-color);
+  }
+
+  .lg-toggle__input:disabled:checked + & {
+    border-color: var(--toggle-disabled-color);
+    background-color: var(--toggle-disabled-color);
+  }
+
+  .lg-toggle--error .lg-toggle__input + & {
+    border-color: var(--form-error-border-color);
+  }
+
+  .lg-toggle--error .lg-toggle__input:checked + & {
+    background-color: var(--form-error-color);
+    color: var(--form-error-color);
+  }
+}
+
+.lg-toggle__label--switch::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: var(--space-sm);
+  bottom: auto;
+  margin: auto;
+  height: var(--toggle-outer-height);
+  width: var(--toggle-outer-width);
+  transform: translate(var(--toggle-switch-dot-offset), -50%);
+  border-radius: 50%;
+
+  .lg-toggle__input:disabled + & {
+    background-color: var(--toggle-switch-disabled-dot-bg-color);
+  }
+}

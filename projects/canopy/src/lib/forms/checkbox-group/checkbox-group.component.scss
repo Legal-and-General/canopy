@@ -1,4 +1,6 @@
-.lg-checkbox-group {
+@import '../../../styles/mixins';
+
+.lg-checkbox-group--checkbox {
   display: block;
   margin-bottom: var(--component-margin);
 
@@ -15,5 +17,26 @@
 
   .lg-toggle:last-of-type {
     margin-right: 0;
+  }
+}
+
+.lg-checkbox-group--filter {
+  display: block;
+  margin-bottom: var(--component-margin);
+
+  .lg-toggle {
+    display: inline-block;
+    margin-right: var(--space-xs);
+    margin-bottom: 0;
+  }
+
+  &.lg-checkbox-group--filter--no-icons {
+    .lg-toggle__label--filter {
+      padding-left: var(--space-sm);
+    }
+
+    .lg-toggle__icon-wrapper {
+      @include lg-visually-hidden;
+    }
   }
 }

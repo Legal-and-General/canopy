@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs';
 
+import { ToggleVariant } from './toggle.interface';
+
 @Component({
   selector: 'lg-reactive-form',
   template: `
@@ -16,7 +18,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 })
 export class ReactiveToggleFormComponent {
   @Input() label: string;
-  @Input() variant: 'checkbox' | 'switch';
+  @Input() variant: ToggleVariant;
 
   @Input()
   set disabled(disabled: boolean) {
@@ -46,7 +48,7 @@ export class ReactiveToggleFormComponent {
   }
 }
 
-export const createToggleStory = (name: string, variant?: string) => ({
+export const createToggleStory = (variant: string) => ({
   template: `
   <lg-reactive-form
     [disabled]="disabled"

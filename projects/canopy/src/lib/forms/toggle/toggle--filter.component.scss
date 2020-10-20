@@ -1,0 +1,91 @@
+@import '../../../styles/mixins';
+
+.lg-toggle__label--filter {
+  display: inline-block;
+  border: solid var(--border-width) var(--filter-btn-bg-color-active);
+  border-radius: var(--space-md);
+  padding: var(--space-xxxs) var(--space-sm) var(--space-xxxs) var(--space-xxs);
+  background: transparent;
+  font-size: var(--text-fs--8-size);
+  margin-bottom: var(--space-xs);
+  transition: all var(--animation-duration) var(--animation-fn);
+  cursor: pointer;
+
+  .lg-icon {
+    vertical-align: sub;
+    margin-right: var(--space-xxxs);
+  }
+
+  &::after {
+    content: none;
+  }
+
+  &::before {
+    content: none;
+  }
+
+  &:hover {
+    background-color: var(--filter-btn-bg-color-hover);
+    border-color: var(--filter-btn-bg-color-hover);
+    color: var(--filter-btn-text-color-selected);
+  }
+
+  &:active {
+    background-color: var(--filter-btn-bg-color-active);
+    border-color: var(--filter-btn-bg-color-active);
+    color: var(--filter-btn-text-color-selected);
+  }
+
+  .lg-toggle--error & {
+    color: var(--form-error-color);
+  }
+
+  .lg-toggle__icon-add {
+    display: inline-block;
+  }
+
+  .lg-toggle__icon-selected {
+    display: none;
+  }
+}
+
+.lg-toggle__input:checked {
+  + .lg-toggle__label--filter {
+    background: var(--filter-btn-bg-color-selected);
+    border-color: var(--filter-btn-bg-color-selected);
+    color: var(--filter-btn-text-color-selected);
+
+    &:hover {
+      background: var(--filter-btn-bg-color-selected-hover);
+      border-color: var(--filter-btn-bg-color-selected-hover);
+    }
+
+    &:active {
+      background: var(--filter-btn-bg-color-selected-active);
+      border-color: var(--filter-btn-bg-color-selected-active);
+    }
+
+    .lg-toggle__icon-add {
+      display: none;
+    }
+
+    .lg-toggle__icon-selected {
+      display: inline-block;
+    }
+  }
+}
+
+.lg-toggle__input:focus {
+  + .lg-toggle__label--filter {
+    @include lg-outer-focus-outline();
+  }
+}
+
+.lg-toggle__input:disabled {
+  + .lg-toggle__label--filter {
+    background: var(--filter-btn-bg-color-disabled);
+    border-color: var(--filter-btn-bg-color-disabled);
+    color: var(--filter-btn-text-color-disabled);
+    pointer-events: none;
+  }
+}
