@@ -27,7 +27,7 @@ const hintTestId = 'test-hint-id';
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form" #testForm="ngForm">
-      <lg-checkbox-group formControlName="color">
+      <lg-filter-multiple-group formControlName="color">
         Color
         <lg-hint id="${hintTestId}">Choose your favourite</lg-hint>
         <lg-toggle value="red">Red</lg-toggle>
@@ -36,7 +36,7 @@ const hintTestId = 'test-hint-id';
         <lg-validation id="${validationTestId}" *ngIf="isControlInvalid(color, testForm)">
           Error
         </lg-validation>
-      </lg-checkbox-group>
+      </lg-filter-multiple-group>
     </form>
   `,
 })
@@ -109,6 +109,17 @@ describe('LgCheckboxGroupComponent', () => {
 
     fixture.detectChanges();
   }));
+
+  it('sets the correct variant based on the selector', () => {
+    fixture.detectChanges();
+    expect(groupInstance.variant === 'filter').toBe(true);
+  });
+
+  it('sets the correct style variant on the toggle button based on the selector', () => {
+    expect(fixture.debugElement.query(By.css('label')).nativeElement).toHaveClass(
+      'lg-toggle__label--filter',
+    );
+  });
 
   it('sets all checkbox buttons to the same name', () => {
     expect(groupInstance.name.length > 0).toBe(true);
@@ -229,7 +240,6 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('disables the options when the disabled property is set', () => {
-    console.log(component.color);
     component.form.controls.color.disable();
     fixture.detectChanges();
     for (const checkbox of checkboxInstances) {

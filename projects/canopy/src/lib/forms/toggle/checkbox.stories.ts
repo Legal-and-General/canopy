@@ -26,4 +26,4 @@ export default {
   },
 };
 
-export const standard = () => createToggleStory('Checkbox', 'checkbox');
+export const standard = () => createToggleStory('checkbox');

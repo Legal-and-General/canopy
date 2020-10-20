@@ -18,24 +18,30 @@ import { LgDomService } from '../../utils/dom.service';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
+import { ToggleVariant } from './toggle.interface';
 
 let nextUniqueId = 0;
 
 @Component({
-  selector: 'lg-toggle',
+  selector: 'lg-toggle, lg-checkbox, lg-switch, lg-filter-checkbox',
   templateUrl: './toggle.component.html',
-  styleUrls: ['./toggle.component.scss'],
+  styleUrls: [
+    './toggle.component.scss',
+    './toggle--switch.component.scss',
+    './toggle--filter.component.scss',
+  ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {
   uniqueId = nextUniqueId++;
+  selectorVariant: String;
 
   @Input() checked = false;
   @Input() id = `lg-toggle-${this.uniqueId}`;
   @Input() name = `lg-toggle-${this.uniqueId}`;
   @Input() value: boolean | string = false;
   @Input() ariaDescribedBy: string;
-  @Input() variant: 'checkbox' | 'switch' = 'checkbox';
+  @Input() variant: ToggleVariant = 'checkbox';
   @Input()
   _disabled = false;
   get disabled(): boolean {
@@ -114,7 +120,11 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     @Host()
     @SkipSelf()
     private controlContainer: FormGroupDirective,
+    private hostElement: ElementRef,
   ) {
+    this.selectorVariant = this.hostElement.nativeElement.tagName
+      .split('-')[1]
+      .toLowerCase();
     if (this.checkboxGroup) {
       return;
     }
@@ -125,10 +135,15 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit() {
     if (this.checkboxGroup) {
+      this.variant = this.checkboxGroup.variant;
       if (this.checkboxGroup.value.includes(this.value.toString())) {
         this.checked = true;
       }
       this.name = this.checkboxGroup.name;
+    }
+
+    if (this.selectorVariant !== 'toggle' && !this.checkboxGroup) {
+      this.variant = this.selectorVariant as ToggleVariant;
     }
   }
 }

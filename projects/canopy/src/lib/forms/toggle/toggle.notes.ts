@@ -20,6 +20,12 @@ and in your HTML for a regular *checkbox*:
 <lg-toggle formControlName="confirm" value="yes" variant="${name.toLowerCase()}">Do you agree?</lg-toggle>
 ~~~
 
+or
+
+~~~html
+<lg-${name.toLowerCase()} formControlName="confirm" value="yes">Do you agree?</lg-${name.toLowerCase()}>
+~~~
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -28,7 +34,7 @@ and in your HTML for a regular *checkbox*:
 | \`\`value\`\` | Value that is set when the toggle is checked | string | 'on' | No |
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\${nextUniqueId++}' | No |
 | \`\`name\`\` | HTML Name attribute, auto generated if not provided | string | 'lg-toggle-\${nextUniqueId++}' | No |
-| \`\`variant\`\` | The variant of the toggle | 'checkbox' or 'switch' | 'checkbox | No |
+| \`\`variant\`\` | The variant of the toggle | 'checkbox', 'switch' or 'filter' | 'checkbox | No |
 
 ## Using only the SCSS files
 

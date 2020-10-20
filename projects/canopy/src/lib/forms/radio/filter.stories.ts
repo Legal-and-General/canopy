@@ -47,7 +47,7 @@ class ReactiveFormFilterComponent {
 }
 
 export default {
-  title: 'Components/Filter Button',
+  title: 'Components/Filter Buttons',
   parameters: {
     decorators: [
       withKnobs,

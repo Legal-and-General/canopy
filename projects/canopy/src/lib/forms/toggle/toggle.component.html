@@ -1,8 +1,8 @@
 <input
   (click)="onCheck()"
   [attr.aria-describedby]="ariaDescribedBy"
-  [attr.checked]="checked === true ? true : null"
-  [attr.disabled]="disabled === true ? '' : null"
+  [attr.checked]="checked || null"
+  [attr.disabled]="disabled || null"
   [attr.id]="id"
   [attr.name]="name"
   [attr.value]="value"
@@ -13,9 +13,14 @@
   [attr.for]="id"
   class="lg-toggle__label"
   [ngClass]="{
-    'lg-toggle__label--switch': variant === 'switch'
+    'lg-toggle__label--switch': variant === 'switch',
+    'lg-toggle__label--filter': variant === 'filter'
   }"
 >
+  <span *ngIf="variant === 'filter'" class="lg-toggle__icon-wrapper">
+    <lg-icon class="lg-toggle__icon-add" name="add"></lg-icon>
+    <lg-icon class="lg-toggle__icon-selected" name="checkmark"></lg-icon>
+  </span>
   <lg-icon
     *ngIf="variant === 'checkbox'"
     class="lg-toggle__checkbox"
