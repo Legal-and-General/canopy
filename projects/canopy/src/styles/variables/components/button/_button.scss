@@ -5,7 +5,7 @@
   --btn-disabled-border-color: var(--disabled-color);
   --btn-disabled-color: var(--color-taupe-grey);
 
-  --btn-vertical-padding: 0.5625rem; // 9px
+  --btn-vertical-padding: var(--form-field-vertical-padding); // 9px
   --btn-horizontal-padding: 1.1875rem; // 19px
   --btn-icon-text-padding: 0.625rem; // 2px
   --btn-icon-edge-padding: 0.125rem; // 10px
