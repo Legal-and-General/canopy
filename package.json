@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "Apache-2.0",
   "url": "git://github.com/Legal-and-General/canopy.git",
+  "repository": "https://github.com/Legal-and-General/canopy",
   "scripts": {
     "commit": "npx git-cz",
     "ng": "ng",
