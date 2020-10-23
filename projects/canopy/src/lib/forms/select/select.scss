@@ -1,15 +1,11 @@
 @import '../../../styles/mixins';
 
-:root {
-  --select-icon-width: 0.875rem;
-}
-
 .lg-select {
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
-  padding: calc(var(--space-xs) - var(--border-width))
-    calc(var(--select-icon-width) + (2 * var(--space-sm)))
-    calc(var(--space-xs) - var(--border-width)) var(--space-sm);
+  padding: var(--select-vertical-padding)
+    calc(var(--select-icon-width) + (2 * var(--space-sm))) var(--select-vertical-padding)
+    var(--space-sm);
   line-height: var(--line-height-sm);
   background-color: var(--color-white);
   outline: 0;
@@ -23,9 +19,7 @@
   &:focus {
     border-left-width: var(--keyline-width);
     border-color: var(--border-focus-color);
-    padding-left: calc(
-      var(--space-sm) - var(--keyline-width) + var(--border-width)
-    );
+    padding-left: calc(var(--space-sm) - var(--keyline-width) + var(--border-width));
     @include lg-outer-focus-outline();
   }
 

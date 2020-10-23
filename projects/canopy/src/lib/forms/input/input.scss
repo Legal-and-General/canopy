@@ -4,8 +4,8 @@
   display: block;
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
-  line-height: var(--line-height-sm);
-  padding: var(--space-xs) var(--space-sm);
+  line-height: var(--input-line-height);
+  padding: var(--input-vertical-padding) var(--space-sm);
   outline: 0;
   max-width: 100%;
 
@@ -22,9 +22,7 @@
   &:focus {
     border-left-width: var(--keyline-width);
     border-color: var(--border-focus-color);
-    padding-left: calc(
-      var(--space-sm) - var(--keyline-width) + var(--border-width)
-    );
+    padding-left: calc(var(--space-sm) - var(--keyline-width) + var(--border-width));
 
     @include lg-outer-focus-outline();
   }
