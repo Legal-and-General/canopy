@@ -1,3 +1,4 @@
+export * from './checkbox-group/index';
 export * from './date/index';
 export * from './forms.module';
 export * from './hint/index';
