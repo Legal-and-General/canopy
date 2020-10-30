@@ -14,12 +14,12 @@
 
   .lg-radio-button__label {
     display: inline-block;
-    max-height: var(--space-lg);
     border: solid var(--border-width) var(--filter-btn-bg-color-active);
     border-radius: var(--space-md);
     padding: var(--space-xxxs) var(--space-sm);
     background: transparent;
     font-size: var(--text-fs--8-size);
+    line-height: var(--filter-btn-line-height);
     margin-bottom: var(--space-xs);
     transition: all var(--animation-duration) var(--animation-fn);
     cursor: pointer;
