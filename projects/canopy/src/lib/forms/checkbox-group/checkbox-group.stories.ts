@@ -21,8 +21,9 @@ import { notes } from './checkbox-group.notes';
       <lg-checkbox-group [inline]="inline" formControlName="colors">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <lg-toggle value="red">Red</lg-toggle>
-        <lg-toggle value="yellow">Yellow</lg-toggle>
+        <lg-toggle *ngFor="let color of colors" [value]="color.value">
+          {{ color.label }}
+        </lg-toggle>
       </lg-checkbox-group>
     </form>
   `,
@@ -47,8 +48,23 @@ class ReactiveFormComponent {
 
   form: FormGroup;
 
+  colors = [
+    {
+      label: 'Red',
+      value: 'red',
+    },
+    {
+      label: 'Yellow',
+      value: 'yellow',
+    },
+    {
+      label: 'Green',
+      value: 'green',
+    },
+  ];
+
   constructor(public fb: FormBuilder) {
-    this.form = this.fb.group({ colors: this.fb.control(['red']) });
+    this.form = this.fb.group({ colors: this.fb.control([this.colors[0].value]) });
     this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
   }
 }
