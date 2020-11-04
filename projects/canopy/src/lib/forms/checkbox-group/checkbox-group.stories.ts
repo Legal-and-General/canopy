@@ -1,5 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  FormArray,
+  FormControl,
+} from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
@@ -46,6 +52,54 @@ class ReactiveFormComponent {
     this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
   }
 }
+@Component({
+  selector: 'lg-dynamic-form',
+  template: `
+    <form [formGroup]="form">
+      <div
+        *ngFor="let control of changeTypes.controls; index as i"
+        [formGroup]="control"
+        class="change-types__item"
+      >
+        <lg-toggle
+          [formControl]="control.get('selected')"
+          [value]="true"
+          variant="checkbox"
+          >{{ control.get('name')?.value }}</lg-toggle
+        >
+      </div>
+    </form>
+  `,
+})
+class DynamicFormComponent {
+  @Input() inline = false;
+  @Input() label: string;
+  @Input() hint: string;
+
+  @Output() checkboxChange: EventEmitter<void> = new EventEmitter();
+
+  form: FormGroup;
+
+  get changeTypes() {
+    return this.form.get('changeTypes');
+  }
+
+  constructor(public fb: FormBuilder) {
+    this.form = this.fb.group({
+      changeTypes: new FormArray([
+        new FormGroup({
+          name: new FormControl('existing'),
+          selected: new FormControl(false),
+        }),
+        new FormGroup({
+          name: new FormControl('future'),
+          selected: new FormControl(false),
+        }),
+      ]),
+    });
+    this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
+  }
+}
 
 export default {
   title: 'Components/Form/Checkbox Group',
@@ -53,7 +107,7 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        declarations: [ReactiveFormComponent],
+        declarations: [ReactiveFormComponent, DynamicFormComponent],
         imports: [ReactiveFormsModule, CanopyModule],
       }),
     ],
@@ -78,5 +132,15 @@ export const standard = () => ({
     hint: text('hint', 'Please select all colors that apply'),
     checkboxChange: action('checkboxChange'),
     disabled: boolean('disabled', false),
+  },
+});
+
+export const dynamic = () => ({
+  template: `
+    <lg-dynamic-form (checkboxChange)="checkboxChange($event)">
+  </lg-dynamic-form>
+  `,
+  props: {
+    checkboxChange: action('checkboxChange'),
   },
 });
