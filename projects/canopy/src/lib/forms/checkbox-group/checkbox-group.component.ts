@@ -132,7 +132,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   }
 
   constructor(
-    @Self() @Optional() private control: NgControl,
+    @Self() @Optional() public control: NgControl,
     private errorState: LgErrorStateMatcher,
     @Optional()
     @Host()

@@ -56,18 +56,17 @@ class ReactiveFormComponent {
   selector: 'lg-dynamic-form',
   template: `
     <form [formGroup]="form">
-      <div
-        *ngFor="let control of changeTypes.controls; index as i"
-        [formGroup]="control"
-        class="change-types__item"
-      >
+      <lg-checkbox-group>
+        {{ label }}
+        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <lg-toggle
+          ngDefaultControl
+          *ngFor="let control of changeTypes.controls; index as i"
           [formControl]="control.get('selected')"
-          [value]="true"
-          variant="checkbox"
-          >{{ control.get('name')?.value }}</lg-toggle
         >
-      </div>
+          {{ control.get('name')?.value }}
+        </lg-toggle>
+      </lg-checkbox-group>
     </form>
   `,
 })
@@ -88,12 +87,16 @@ class DynamicFormComponent {
     this.form = this.fb.group({
       changeTypes: new FormArray([
         new FormGroup({
-          name: new FormControl('existing'),
+          name: new FormControl('blue'),
           selected: new FormControl(false),
         }),
         new FormGroup({
-          name: new FormControl('future'),
+          name: new FormControl('red'),
           selected: new FormControl(false),
+        }),
+        new FormGroup({
+          name: new FormControl('green'),
+          selected: new FormControl(true), // setting this to true won't check it
         }),
       ]),
     });
@@ -137,10 +140,15 @@ export const standard = () => ({
 
 export const dynamic = () => ({
   template: `
-    <lg-dynamic-form (checkboxChange)="checkboxChange($event)">
+    <lg-dynamic-form
+      [hint]="hint"
+      [label]="label"
+      (checkboxChange)="checkboxChange($event)">
   </lg-dynamic-form>
   `,
   props: {
+    label: text('label', 'Color'),
+    hint: text('hint', 'Please select all colors that apply'),
     checkboxChange: action('checkboxChange'),
   },
 });

@@ -70,7 +70,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   }
 
   onCheck() {
-    if (this.checkboxGroup) {
+    if (this.checkboxGroup && this.checkboxGroup.control) {
       this.checkboxGroup.onTouched();
       if (this.checkboxGroup.value.includes(this.value.toString())) {
         this.checkboxGroup.value = this.checkboxGroup.value.filter(
@@ -134,7 +134,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   }
 
   ngOnInit() {
-    if (this.checkboxGroup) {
+    if (this.checkboxGroup && this.checkboxGroup.control) {
       this.variant = this.checkboxGroup.variant;
       if (this.checkboxGroup.value.includes(this.value.toString())) {
         this.checked = true;
