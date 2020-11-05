@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Variant, ButtonIconPosition } from './button.interface';
+import { Variant, ButtonIconPosition, ButtonSize } from './button.interface';
 
 @Component({
   selector: '[lg-button]',
@@ -55,6 +55,11 @@ export class LgButtonComponent {
   @Input() iconButton = false;
   @HostBinding('class.lg-btn--icon-only') get iconButtonClass() {
     return this.iconButton;
+  }
+
+  @Input() size: ButtonSize = 'md';
+  @HostBinding('class.lg-btn--sm') get sizeClass() {
+    return this.size === 'sm';
   }
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {

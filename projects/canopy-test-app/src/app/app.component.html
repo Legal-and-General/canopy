@@ -285,6 +285,16 @@
           </button>
           <br />
 
+          <button lg-button variant="solid-primary" size="sm">
+            Small button
+          </button>
+          <br />
+
+          <button lg-button variant="solid-primary" size="sm" [loading]="true">
+            Small button
+          </button>
+          <br />
+
           <lg-separator></lg-separator>
 
           <form [formGroup]="form" (ngSubmit)="onSubmit(form)">

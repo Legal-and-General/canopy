@@ -44,6 +44,14 @@
     bottom: 0;
   }
 
+  &--sm {
+    padding: var(--btn-vertical-padding--sm) var(--btn-horizontal-padding--sm);
+  }
+
+  &--sm#{&}--icon-only {
+    padding: var(--btn-icon-only-padding--sm);
+  }
+
   &--loading {
     cursor: not-allowed;
   }
