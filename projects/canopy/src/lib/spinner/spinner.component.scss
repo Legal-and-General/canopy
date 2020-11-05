@@ -17,6 +17,11 @@
   border-top-color: var(--spinner-dark-color);
   border-bottom-color: var(--spinner-dark-color);
   animation: spin var(--spinner-rotation-speed) infinite linear;
+
+  .lg-spinner--sm & {
+    width: var(--spinner-diameter--sm);
+    height: var(--spinner-diameter--sm);
+  }
 }
 
 .lg-spinner__ring--color {

@@ -27,6 +27,7 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`variant\`\` | The spinner variant | SpinnerVariant ['dark', 'light', 'color', 'inherit'] | 'dark' | No |
+| \`\`size\`\` | The size of the spinner | SpinnerSize ['sm', 'md'] | 'md' | No |
 | \`\`text\`\` | The text to show under the spinner | string | undefined | No |
 
 
