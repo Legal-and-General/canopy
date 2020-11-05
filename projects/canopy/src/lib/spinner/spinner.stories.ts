@@ -24,10 +24,11 @@ export default {
 
 export const standard = () => ({
   template: `
-    <lg-spinner [variant]="variant" [text]="text ? text : null"></lg-spinner>
+    <lg-spinner [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
   `,
   props: {
-    variant: select('variant', ['dark', 'light', 'color', 'inherit'], 'spinner'),
+    variant: select('variant', ['dark', 'light', 'color', 'inherit'], 'dark'),
+    size: select('size', ['sm', 'md'], 'md'),
     text: text('text', ''),
   },
 });
