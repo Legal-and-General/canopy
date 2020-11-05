@@ -128,6 +128,22 @@ describe('LgButtonComponent', () => {
     });
   });
 
+  describe('the size input', () => {
+    describe('when not set', () => {
+      it('should set the default value to medium', () => {
+        expect(component.size).toBe('md');
+      });
+    });
+
+    describe('when set to "sm"', () => {
+      it('should set the small size modifier', () => {
+        component.size = 'sm';
+        fixture.detectChanges();
+        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--sm');
+      });
+    });
+  });
+
   describe('the fullWidth input', () => {
     describe('when not set', () => {
       it('should set the default value to false', () => {

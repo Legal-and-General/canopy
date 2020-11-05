@@ -8,3 +8,4 @@ export type Variant =
 
 export type Behaviour = 'button' | 'reset' | 'submit' | 'link';
 export type ButtonIconPosition = 'left' | 'right';
+export type ButtonSize = 'md' | 'sm';

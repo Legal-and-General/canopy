@@ -57,6 +57,7 @@ The \`iconButton\` property is used to visually hide that text.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`variant\`\` | The variant of button: \`\`solid-primary\`\`, \`\`solid-secondary\`\`, \`\`outline-primary\`\`, \`\`outline-secondary\`\`, \`\`reverse-primary\`\`, \`\`reverse-secondary\`\`; | string | primary | No |
+| \`\`size\`\` | The size of the button | ButtonSize [\`\`sm\`\`, \`\`md\`\`] | \`\`md\`\` | No |
 | \`\`fullWidth\`\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |
 | \`\`loading\`\` | If the button shows a loading spinner and is also disabled | boolean | false | No |
 | \`\`iconPosition\`\` | The position of the icon in the button | string | right | No |

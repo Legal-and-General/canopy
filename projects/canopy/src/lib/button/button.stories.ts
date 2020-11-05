@@ -8,7 +8,7 @@ import { notes } from './button.notes';
 import { iconsArray } from '../icon/icons.stories';
 import { LgIconModule, LgIconRegistry } from '../icon';
 import { ButtonIconPosition } from '.';
-import { Variant } from './button.interface';
+import { Variant, ButtonSize } from './button.interface';
 
 const buttonVariants = [
   'solid-primary',
@@ -27,11 +27,12 @@ const contentGroupId = 'content';
   template: `
     <button
       lg-button
-      [variant]="variant"
+      [fullWidth]="fullWidth"
       [iconButton]="iconButton"
       [iconPosition]="iconPosition"
       [loading]="loading"
-      [fullWidth]="fullWidth"
+      [size]="size"
+      [variant]="variant"
     >
       <ng-content></ng-content>
       <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
@@ -46,6 +47,7 @@ class ButtonStoryComponent {
   @Input() iconPosition: ButtonIconPosition;
   @Input() loading: boolean;
   @Input() showIcon: boolean;
+  @Input() size: ButtonSize;
   icons = iconsArray;
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(this.icons);
@@ -70,6 +72,7 @@ export default {
 
 interface KnobsConfig {
   variant: Variant;
+  size?: ButtonSize;
   iconButton?: boolean;
   fullWidth?: boolean;
   loading?: boolean;
@@ -79,13 +82,14 @@ interface KnobsConfig {
 const createBtnStory = (config: KnobsConfig) => ({
   template: `
     <lg-button-story
-      [variant]="variant"
       [fullWidth]="fullWidth ? true : null"
+      [icon]="icon"
+      [iconButton]="iconButton"
+      [iconPosition]="iconPosition"
       [loading]="loading ? true : null"
       [showIcon]="showIcon"
-      [iconButton]="iconButton"
-      [icon]="icon"
-      [iconPosition]="iconPosition"
+      [size]="size"
+      [variant]="variant"
       >
       {{content}}
   </lg-button-story>
@@ -98,6 +102,7 @@ const createBtnStory = (config: KnobsConfig) => ({
     loading: boolean('loading', config.loading, propsGroupId),
     content: text('content', 'Button', contentGroupId),
     showIcon: boolean('show icon', config.showIcon, contentGroupId),
+    size: select('size', ['sm', 'md'], 'md', propsGroupId),
     icon: select(
       'icon',
       iconsArray.map((icon) => icon.name),
