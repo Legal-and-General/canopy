@@ -27,6 +27,7 @@ const contentGroupId = 'content';
   template: `
     <button
       lg-button
+      [disabled]="disabled"
       [fullWidth]="fullWidth"
       [iconButton]="iconButton"
       [iconPosition]="iconPosition"
@@ -40,14 +41,15 @@ const contentGroupId = 'content';
   `,
 })
 class ButtonStoryComponent {
-  @Input() icon: string;
-  @Input() variant: string;
+  @Input() disabled: boolean;
   @Input() fullWidth: boolean;
+  @Input() icon: string;
   @Input() iconButton: boolean;
   @Input() iconPosition: ButtonIconPosition;
   @Input() loading: boolean;
   @Input() showIcon: boolean;
   @Input() size: ButtonSize;
+  @Input() variant: string;
   icons = iconsArray;
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(this.icons);
@@ -71,17 +73,19 @@ export default {
 };
 
 interface KnobsConfig {
-  variant: Variant;
-  size?: ButtonSize;
-  iconButton?: boolean;
+  disabled?: boolean;
   fullWidth?: boolean;
+  iconButton?: boolean;
   loading?: boolean;
   showIcon?: boolean;
+  size?: ButtonSize;
+  variant: Variant;
 }
 
 const createBtnStory = (config: KnobsConfig) => ({
   template: `
     <lg-button-story
+      [disabled]="disabled"
       [fullWidth]="fullWidth ? true : null"
       [icon]="icon"
       [iconButton]="iconButton"
@@ -95,20 +99,21 @@ const createBtnStory = (config: KnobsConfig) => ({
   </lg-button-story>
   `,
   props: {
-    variant: select('variant', buttonVariants, config.variant, propsGroupId),
-    iconButton: boolean('iconButton', config.iconButton, propsGroupId),
-    iconPosition: select('iconPosition', ['left', 'right'], 'right', propsGroupId),
-    fullWidth: boolean('fullWidth', config.fullWidth, propsGroupId),
-    loading: boolean('loading', config.loading, propsGroupId),
+    disabled: boolean('disabled', false, propsGroupId),
     content: text('content', 'Button', contentGroupId),
-    showIcon: boolean('show icon', config.showIcon, contentGroupId),
-    size: select('size', ['sm', 'md'], 'md', propsGroupId),
+    fullWidth: boolean('fullWidth', config.fullWidth, propsGroupId),
     icon: select(
       'icon',
       iconsArray.map((icon) => icon.name),
       'add',
       contentGroupId,
     ),
+    iconButton: boolean('iconButton', config.iconButton, propsGroupId),
+    iconPosition: select('iconPosition', ['left', 'right'], 'right', propsGroupId),
+    loading: boolean('loading', config.loading, propsGroupId),
+    showIcon: boolean('show icon', config.showIcon, contentGroupId),
+    size: select('size', ['sm', 'md'], 'md', propsGroupId),
+    variant: select('variant', buttonVariants, config.variant, propsGroupId),
   },
 });
 
