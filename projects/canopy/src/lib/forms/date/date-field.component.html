@@ -10,48 +10,54 @@
   >
     <div class="lg-date-field__date">
       <label lg-label [for]="dateId">Day</label>
-      <input
-        lgInput
-        [id]="dateId"
-        (blur)="onBlur()"
-        (input)="date.setValue($event.target.value)"
-        formControlName="date"
-        inputmode="numeric"
-        maxlength="2"
-        placeholder="DD"
-        size="2"
-        type="text"
-      />
+      <lg-input-field>
+        <input
+          lgInput
+          [id]="dateId"
+          (blur)="onBlur()"
+          (input)="date.setValue($event.target.value)"
+          formControlName="date"
+          inputmode="numeric"
+          maxlength="2"
+          placeholder="DD"
+          size="2"
+          type="text"
+        />
+      </lg-input-field>
     </div>
     <div class="lg-date-field__month">
       <label lg-label [for]="monthId">Month</label>
-      <input
-        lgInput
-        [id]="monthId"
-        (blur)="onBlur()"
-        (input)="month.setValue($event.target.value)"
-        formControlName="month"
-        inputmode="numeric"
-        maxlength="2"
-        placeholder="MM"
-        size="2"
-        type="text"
-      />
+      <lg-input-field>
+        <input
+          lgInput
+          [id]="monthId"
+          (blur)="onBlur()"
+          (input)="month.setValue($event.target.value)"
+          formControlName="month"
+          inputmode="numeric"
+          maxlength="2"
+          placeholder="MM"
+          size="2"
+          type="text"
+        />
+      </lg-input-field>
     </div>
     <div class="lg-date-field__year">
       <label lg-label [for]="yearId">Year</label>
-      <input
-        lgInput
-        [id]="yearId"
-        (blur)="onBlur()"
-        (input)="year.setValue($event.target.value)"
-        formControlName="year"
-        inputmode="numeric"
-        maxlength="4"
-        placeholder="YYYY"
-        size="4"
-        type="text"
-      />
+      <lg-input-field>
+        <input
+          lgInput
+          [id]="yearId"
+          (blur)="onBlur()"
+          (input)="year.setValue($event.target.value)"
+          formControlName="year"
+          inputmode="numeric"
+          maxlength="4"
+          placeholder="YYYY"
+          size="4"
+          type="text"
+        />
+      </lg-input-field>
     </div>
   </div>
 

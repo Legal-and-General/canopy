@@ -23,7 +23,7 @@
     @include lg-outer-focus-outline(var(--default-focus-color));
   }
 
-  :not(&--loading):disabled {
+  &:not(&--loading):disabled {
     background-color: var(--btn-disabled-bg-color);
     border-color: var(--btn-disabled-border-color);
     color: var(--btn-disabled-color);

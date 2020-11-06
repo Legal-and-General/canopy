@@ -299,9 +299,60 @@
 
           <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
             <lg-input-field>
-              Test input
+              Text input
               <lg-hint>Enter some text</lg-hint>
               <input lgInput formControlName="text" />
+            </lg-input-field>
+
+
+            <lg-input-field>
+              Text input with icon
+              <input lgInput formControlName="textSearch" />
+              <button
+                lg-button
+                lgSuffix
+                size="sm"
+                [iconButton]="true"
+              >
+                Search
+                <lg-icon name="search"></lg-icon>
+              </button>
+            </lg-input-field>
+
+            <lg-input-field>
+                Text input with add-on icon
+                <input lgInput formControlName="textSearch" />
+                <button
+                  lg-button
+                  lgSuffix
+                  size="sm"
+                  [iconButton]="true"
+                  variant="add-on"
+                >
+                  Cancel
+                  <lg-icon name="close"></lg-icon>
+                </button>
+                <button
+                  lg-button
+                  lgSuffix
+                  size="sm"
+                  [iconButton]="true"
+                >
+                Search
+                <lg-icon name="search"></lg-icon>
+              </button>
+              </lg-input-field>
+
+            <lg-input-field>
+              Text input with prefix
+              <input lgInput formControlName="textPound" />
+              <span lgPrefix>£</span>
+            </lg-input-field>
+
+            <lg-input-field>
+              Text input with suffix
+              <input lgInput formControlName="textPercent" />
+              <span lgSuffix>%</span>
             </lg-input-field>
 
             <lg-select-field>

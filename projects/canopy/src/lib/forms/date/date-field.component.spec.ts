@@ -21,10 +21,10 @@ import { skip } from 'rxjs/operators';
 import { anything, instance, mock, when } from 'ts-mockito';
 
 import { LgHintComponent } from '../hint/hint.component';
-import { LgInputDirective } from '../input/input.directive';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgDateFieldComponent } from './date-field.component';
+import { LgInputModule } from '../input';
 
 const errorId = 'test-error-id';
 const hintId = 'test-hint-id';
@@ -85,11 +85,10 @@ describe('LgDateFieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
+      imports: [FormsModule, ReactiveFormsModule, LgInputModule],
       declarations: [
         TestDateInputComponent,
         LgDateFieldComponent,
-        LgInputDirective,
         MockComponents(LgHintComponent, LgValidationComponent),
       ],
       providers: [

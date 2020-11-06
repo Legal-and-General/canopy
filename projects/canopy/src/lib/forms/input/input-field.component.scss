@@ -1,9 +1,119 @@
 @import '../../../styles/mixins';
-@import './input.scss';
+
+:root {
+  --suffix-margin: var(--space-sm);
+  --suffix-button-margin: 0.3125rem;
+}
 
 .lg-input-field {
+  $block: &;
+
   display: block;
   margin-bottom: var(--component-margin);
   background-color: var(--color-white);
   line-height: var(--line-height-sm);
+
+  &__prefix,
+  &__suffix {
+    display: flex;
+    font-weight: var(--font-weight-bold);
+    align-items: center;
+
+    .lg-icon {
+      height: var(--space-md);
+      width: var(--space-md);
+    }
+  }
+
+  &--focus .lg-input {
+    padding-left: calc(var(--space-sm) - var(--keyline-width) + var(--border-width));
+  }
+
+  &--focus &__prefix {
+    margin-left: calc(var(--suffix-margin) - var(--keyline-width) + var(--border-width));
+
+    + .lg-input {
+      padding-left: var(--space-sm);
+    }
+  }
+
+  &__prefix {
+    margin-left: var(--suffix-margin);
+  }
+
+  &__suffix {
+    margin-right: var(--suffix-margin);
+
+    > .lg-btn {
+      margin-bottom: 0;
+      margin-top: 0;
+      margin-right: var(--suffix-button-margin);
+    }
+
+    > .lg-btn:last-child {
+      margin-right: calc((-1 * var(--suffix-margin)) + var(--suffix-button-margin));
+    }
+  }
+
+  &__inputs {
+    display: inline-flex;
+    align-items: center;
+    border: solid var(--border-width) var(--border-color);
+    border-radius: var(--border-radius-sm);
+
+    #{$block}--hover & {
+      border-color: var(--border-hover-color);
+    }
+
+    #{$block}--error & {
+      color: var(--form-error-color);
+      border-color: var(--form-error-border-color);
+    }
+
+    #{$block}--error#{$block}--hover#{$block}--focus & {
+      color: inherit;
+    }
+
+    #{$block}--disabled & {
+      color: var(--disabled-color);
+      background-color: var(--background-disabled-color);
+      border-color: var(--border-disabled-color);
+    }
+
+    #{$block}--focus & {
+      border-left-width: var(--keyline-width);
+      border-color: var(--border-focus-color);
+
+      @include lg-outer-focus-outline();
+    }
+
+    #{$block}--block & {
+      display: flex;
+
+      @include lg-breakpoint('md') {
+        display: inline-flex;
+      }
+    }
+  }
+}
+
+.lg-input {
+  flex: 1 0 auto;
+  display: block;
+  border: none;
+  line-height: var(--input-line-height);
+  margin: 0;
+  padding: var(--input-vertical-padding) var(--space-sm);
+  outline: 0;
+  max-width: 100%;
+
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:-webkit-autofill {
+    -webkit-background-clip: text;
+  }
 }

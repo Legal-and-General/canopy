@@ -2,5 +2,21 @@
   <ng-content></ng-content>
 </label>
 <ng-content select="lg-hint"></ng-content>
-<ng-content select="[lgInput]"></ng-content>
+<div
+  class="lg-input-field__inputs"
+  (focusin)="onFocusIn($event)"
+  (focusout)="onFocusOut()"
+  (mouseenter)="onMouseOver()"
+  (mouseleave)="onMouseOut()"
+>
+  <div class="lg-input-field__prefix" *ngIf="prefixChildren.length">
+    <ng-content select="[lgPrefix]"></ng-content>
+  </div>
+
+  <ng-content select="[lgInput]"></ng-content>
+
+  <div class="lg-input-field__suffix" *ngIf="suffixChildren.length">
+    <ng-content select="[lgSuffix]"></ng-content>
+  </div>
+</div>
 <ng-content select="lg-validation"></ng-content>

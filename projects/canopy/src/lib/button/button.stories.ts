@@ -8,7 +8,7 @@ import { notes } from './button.notes';
 import { iconsArray } from '../icon/icons.stories';
 import { LgIconModule, LgIconRegistry } from '../icon';
 import { ButtonIconPosition } from '.';
-import { Variant, ButtonSize } from './button.interface';
+import { ButtonVariant, ButtonSize } from './button.interface';
 
 const buttonVariants = [
   'add-on',
@@ -80,7 +80,7 @@ interface KnobsConfig {
   loading?: boolean;
   showIcon?: boolean;
   size?: ButtonSize;
-  variant: Variant;
+  variant: ButtonVariant;
 }
 
 const createBtnStory = (config: KnobsConfig) => ({

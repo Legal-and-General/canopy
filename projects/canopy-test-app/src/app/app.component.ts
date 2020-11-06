@@ -8,6 +8,7 @@ import {
   lgIconAdd,
   lgIconArrowDown,
   lgIconClose,
+  lgIconSearch,
 } from 'projects/canopy/src/lib/icon';
 
 @Component({
@@ -37,9 +38,18 @@ export class AppComponent {
   }
 
   constructor(public fb: FormBuilder, private registry: LgIconRegistry) {
-    this.registry.registerIcons([lgIconHome, lgIconAdd, lgIconArrowDown, lgIconClose]);
+    this.registry.registerIcons([
+      lgIconHome,
+      lgIconAdd,
+      lgIconArrowDown,
+      lgIconClose,
+      lgIconSearch,
+    ]);
     this.form = this.fb.group({
       text: [''],
+      textSearch: [''],
+      textPound: [''],
+      textPercent: [''],
       select: [''],
       radio: [''],
       filter: [''],
