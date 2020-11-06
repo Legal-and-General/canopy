@@ -5,13 +5,22 @@ import {
   Input,
   ViewChild,
   ViewEncapsulation,
+  AfterContentInit,
+  ContentChildren,
+  QueryList,
+  OnDestroy,
 } from '@angular/core';
+
+import { Subscription } from 'rxjs';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgLabelComponent } from '../label/label.component';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgInputDirective } from './input.directive';
+import { LgButtonComponent } from '../../button';
+import { LgSuffixDirective } from '../../suffix/suffix.directive';
+import { LgPrefixDirective } from '../../prefix/prefix.directive';
 
 let nextUniqueId = 0;
 
@@ -21,8 +30,9 @@ let nextUniqueId = 0;
   styleUrls: ['./input-field.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class LgInputFieldComponent {
-  @Input() id = `lg-input-${nextUniqueId++}`;
+export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
+  private _id = nextUniqueId++;
+
   @Input() public set block(block: boolean) {
     if (this._inputElement) {
       this._inputElement.block = block;
@@ -31,14 +41,39 @@ export class LgInputFieldComponent {
 
   @HostBinding('class.lg-input-field') class = true;
 
-  _labelElement: LgLabelComponent;
+  @HostBinding('class.lg-input-field--focus')
+  get focusClass(): boolean {
+    return this.hasFocus;
+  }
+
+  @HostBinding('class.lg-input-field--hover')
+  get hoverClass(): boolean {
+    return this.hasHover;
+  }
+
+  @HostBinding('class.lg-input-field--error')
+  get errorClass(): LgValidationComponent {
+    return this._validationElement;
+  }
+
+  @HostBinding('class.lg-input-field--block')
+  get blockClass(): boolean {
+    return this._inputElement.block;
+  }
+
+  @HostBinding('class.lg-input-field--disabled')
+  get disabledClass(): boolean {
+    return this._inputElement.control && this._inputElement.control.status === 'DISABLED';
+  }
+
+  private _labelElement: LgLabelComponent;
   @ViewChild(LgLabelComponent, { static: true })
   set labelElement(element: LgLabelComponent) {
     this._labelElement = element;
     this._labelElement.for = this.id;
   }
 
-  _inputElement: LgInputDirective;
+  private _inputElement: LgInputDirective;
   @ContentChild(LgInputDirective, { static: true })
   set inputElement(element: LgInputDirective) {
     if (!element) {
@@ -47,28 +82,78 @@ export class LgInputFieldComponent {
     this._inputElement = element;
     this._inputElement.id = this.id;
   }
+  get inputElement(): LgInputDirective {
+    return this._inputElement;
+  }
 
-  _hintElement: LgHintComponent;
+  private _hintElement: LgHintComponent;
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
-    this._inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this._inputElement.ariaDescribedBy,
+    this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.inputElement.ariaDescribedBy,
       this._hintElement,
       element,
     );
     this._hintElement = element;
   }
 
-  _validationElement: LgValidationComponent;
+  private _validationElement: LgValidationComponent;
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
-    this._inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this._inputElement.ariaDescribedBy,
+    this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.inputElement.ariaDescribedBy,
       this._validationElement,
       element,
     );
     this._validationElement = element;
   }
 
+  @ContentChild(LgButtonComponent) buttonElement: LgButtonComponent;
+  @ContentChildren(LgSuffixDirective) suffixChildren: QueryList<LgSuffixDirective>;
+  @ContentChildren(LgPrefixDirective) prefixChildren: QueryList<LgPrefixDirective>;
+
+  @Input() id = `lg-input-${this._id++}`;
+
   constructor(private domService: LgDomService) {}
+
+  /*
+    The input field control element mimics the border of the input field.
+    This allows us to add buttons and icons inside the input field.
+    Lack of IE11 support for :focus-within necessitates us doing this in JS
+  */
+  private hasFocus = false;
+  private hasHover = false;
+  private disabledStateChanges: Subscription;
+
+  ngAfterContentInit(): void {
+    if (this.inputElement && this.buttonElement) {
+      this.inputElement.control.statusChanges.subscribe((status) => {
+        this.buttonElement.disabled = status === 'DISABLED';
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.disabledStateChanges) {
+      this.disabledStateChanges.unsubscribe();
+    }
+  }
+
+  onFocusIn($event: FocusEvent): void {
+    if (($event.target as HTMLElement).nodeName === 'INPUT') {
+      this.hasFocus = true;
+    }
+  }
+
+  onFocusOut(): void {
+    this.hasFocus = false;
+  }
+
+  onMouseOver(): void {
+    this.hasHover = true;
+  }
+
+  onMouseOut(): void {
+    this.hasHover = false;
+  }
 }

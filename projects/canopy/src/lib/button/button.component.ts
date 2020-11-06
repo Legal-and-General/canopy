@@ -61,7 +61,7 @@ export class LgButtonComponent {
     return this.iconButton;
   }
 
-  @Input() size: ButtonSize = 'md';
+  @Input() size: ButtonSize;
   @HostBinding('class.lg-btn--sm') get sizeClass() {
     return this.size === 'sm';
   }
@@ -69,5 +69,6 @@ export class LgButtonComponent {
   constructor(private renderer: Renderer2, public hostElement: ElementRef) {
     this.variant = 'solid-primary';
     this.iconPosition = 'right';
+    this.size = 'md';
   }
 }

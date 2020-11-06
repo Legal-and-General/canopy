@@ -104,7 +104,6 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }
-
     this.date = new FormControl(null, [
       Validators.required,
       Validators.pattern(/^\d{1,2}$/),
