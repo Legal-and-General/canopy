@@ -35,9 +35,13 @@ export class LgButtonComponent {
   }
 
   @Input() loading = false;
+
   @HostBinding('attr.disabled') get disabledAttr() {
-    return this.loading ? '' : null;
+    return this.loading || this.disabled ? '' : null;
   }
+
+  @Input() disabled = false;
+
   @HostBinding('class.lg-btn--loading') get loadingClass() {
     return this.loading;
   }
@@ -62,7 +66,7 @@ export class LgButtonComponent {
     return this.size === 'sm';
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+  constructor(private renderer: Renderer2, public hostElement: ElementRef) {
     this.variant = 'solid-primary';
     this.iconPosition = 'right';
   }

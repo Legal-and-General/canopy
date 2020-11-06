@@ -81,6 +81,22 @@ describe('LgButtonComponent', () => {
     });
   });
 
+  describe('the disabled input', () => {
+    describe('when not set', () => {
+      it('should not set the disabled attribute', () => {
+        expect(fixture.nativeElement.hasAttribute('disabled')).toBe(false);
+      });
+    });
+
+    describe('when set to true', () => {
+      it('should set the disabled attribute', () => {
+        component.disabled = true;
+        fixture.detectChanges();
+        expect(fixture.nativeElement.hasAttribute('disabled')).toBe(true);
+      });
+    });
+  });
+
   describe('the loading input', () => {
     describe('when not set', () => {
       it('should set the default value to false', () => {
