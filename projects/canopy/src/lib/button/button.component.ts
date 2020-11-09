@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Variant, ButtonIconPosition, ButtonSize } from './button.interface';
+import { ButtonVariant, ButtonIconPosition, ButtonSize } from './button.interface';
 
 @Component({
   selector: '[lg-button]',
@@ -18,9 +18,9 @@ import { Variant, ButtonIconPosition, ButtonSize } from './button.interface';
 export class LgButtonComponent {
   @HostBinding('class.lg-btn') class = true;
 
-  _variant: Variant;
+  _variant: ButtonVariant;
   @Input()
-  set variant(variant: Variant) {
+  set variant(variant: ButtonVariant) {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
