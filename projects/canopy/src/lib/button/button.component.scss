@@ -107,7 +107,7 @@
 }
 
 $variants: 'solid-primary', 'solid-secondary', 'reverse-primary', 'reverse-secondary',
-  'outline-primary', 'outline-secondary' !default;
+  'outline-primary', 'outline-secondary', 'add-on' !default;
 
 @each $variant in $variants {
   .lg-btn--#{$variant},
