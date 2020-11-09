@@ -11,6 +11,7 @@ import { ButtonIconPosition } from '.';
 import { Variant, ButtonSize } from './button.interface';
 
 const buttonVariants = [
+  'add-on',
   'solid-primary',
   'solid-secondary',
   'outline-primary',
