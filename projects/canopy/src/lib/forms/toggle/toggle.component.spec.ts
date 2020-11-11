@@ -229,6 +229,14 @@ describe('LgToggleComponent', () => {
     );
   });
 
+  it('unlinks the error from the fieldset with the correct aria attributes when valid', () => {
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+      false,
+    );
+    fixture.detectChanges();
+    expect(inputDebugElement.nativeElement.hasAttribute('aria-describedBy')).toBe(false);
+  });
+
   it('adds the error class if the form field is invalid', () => {
     when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
