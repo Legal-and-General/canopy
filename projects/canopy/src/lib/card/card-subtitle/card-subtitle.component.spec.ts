@@ -23,8 +23,6 @@ describe('LgCardSubtitleComponent', () => {
   });
 
   it('should contain the class lg-card-subtitle', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-subtitle',
-    );
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-card-subtitle');
   });
 });

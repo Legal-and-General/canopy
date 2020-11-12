@@ -82,7 +82,7 @@ export const link = () => ({
     target: select('target', ['_blank', '_self'], '_blank', groupId),
     icon: select(
       'icon',
-      iconsArray.map(icon => icon.name),
+      iconsArray.map((icon) => icon.name),
       'secure-messaging',
       groupId,
     ),
@@ -100,7 +100,7 @@ export const button = () => ({
     content: text('text', 'Load more', groupId),
     icon: select(
       'icon',
-      iconsArray.map(icon => icon.name),
+      iconsArray.map((icon) => icon.name),
       'repeat',
       groupId,
     ),

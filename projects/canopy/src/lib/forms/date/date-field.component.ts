@@ -154,7 +154,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     // submit the group when the parent form is submitted
     this.parentFormGroupDirective.ngSubmit
       .pipe(filter(({ type }) => type === 'submit'))
-      .subscribe(event => {
+      .subscribe((event) => {
         this.formGroupDirective.onSubmit(event);
         this.ngControl.control.updateValueAndValidity();
       });
@@ -193,7 +193,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     this.year.setErrors(omit(this.year.errors, 'invalidDate'));
 
     const invalidFields: Array<string> = [];
-    Object.keys(this.dateFormGroup.controls).forEach(fieldName => {
+    Object.keys(this.dateFormGroup.controls).forEach((fieldName) => {
       if (
         this.dateFormGroup.controls[fieldName].invalid &&
         (this.dateFormGroup.controls[fieldName].dirty ||
@@ -205,7 +205,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
 
     const invalidFieldNames: Array<string> = [];
     const requiredFieldNames: Array<string> = [];
-    invalidFields.forEach(fieldName => {
+    invalidFields.forEach((fieldName) => {
       if (this.dateFormGroup.controls[fieldName].hasError('required')) {
         requiredFieldNames.push(labelFieldMap[fieldName]);
       } else {

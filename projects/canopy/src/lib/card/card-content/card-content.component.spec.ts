@@ -23,8 +23,6 @@ describe('LgCardContentComponent', () => {
   });
 
   it('should contain the default class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-content',
-    );
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-card-content');
   });
 });

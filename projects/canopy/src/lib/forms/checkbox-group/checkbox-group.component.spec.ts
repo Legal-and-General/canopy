@@ -105,7 +105,7 @@ describe('LgCheckboxGroupComponent', () => {
 
     checkboxDebugElements = fixture.debugElement.queryAll(By.css('lg-toggle'));
 
-    checkboxInstances = checkboxDebugElements.map(debugEl => debugEl.componentInstance);
+    checkboxInstances = checkboxDebugElements.map((debugEl) => debugEl.componentInstance);
 
     fixture.detectChanges();
   }));
@@ -133,7 +133,7 @@ describe('LgCheckboxGroupComponent', () => {
     groupInstance.value = ['red'];
     fixture.detectChanges();
     const checkedOption: DebugElement = checkboxDebugElements.find(
-      checkboxDebugElement => checkboxDebugElement.componentInstance.checked === true,
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.checked === true,
     );
     expect(checkedOption.componentInstance.value).toContain('red');
   });
@@ -156,13 +156,13 @@ describe('LgCheckboxGroupComponent', () => {
 
   it('marks the selected checkbox when the value is changed', () => {
     const redOption: DebugElement = checkboxDebugElements.find(
-      checkboxDebugElement => checkboxDebugElement.componentInstance.value === 'red',
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.value === 'red',
     );
     redOption.query(By.css('input')).triggerEventHandler('click', null);
     fixture.detectChanges();
-    const selected = checkboxInstances.find(checkbox => checkbox.value === 'red');
+    const selected = checkboxInstances.find((checkbox) => checkbox.value === 'red');
     expect(selected.checked).toBe(true);
-    const notSelected = checkboxInstances.filter(checkbox => checkbox.value !== 'red');
+    const notSelected = checkboxInstances.filter((checkbox) => checkbox.value !== 'red');
     for (const checkbox of notSelected) {
       expect(checkbox.checked).toBe(false);
     }
@@ -170,7 +170,7 @@ describe('LgCheckboxGroupComponent', () => {
 
   it('updates the model value when a checkbox option is checked', () => {
     const redOption: DebugElement = checkboxDebugElements.find(
-      checkboxDebugElement => checkboxDebugElement.componentInstance.value === 'red',
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.value === 'red',
     );
     redOption.query(By.css('input')).triggerEventHandler('click', null);
     fixture.detectChanges();
@@ -179,10 +179,10 @@ describe('LgCheckboxGroupComponent', () => {
 
   it('updates the model value when multiple checkbox options are selected', () => {
     const redOption: DebugElement = checkboxDebugElements.find(
-      checkboxDebugElement => checkboxDebugElement.componentInstance.value === 'red',
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.value === 'red',
     );
     const blueOption: DebugElement = checkboxDebugElements.find(
-      checkboxDebugElement => checkboxDebugElement.componentInstance.value === 'blue',
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.value === 'blue',
     );
     redOption.query(By.css('input')).triggerEventHandler('click', null);
     blueOption.query(By.css('input')).triggerEventHandler('click', null);
@@ -197,10 +197,10 @@ describe('LgCheckboxGroupComponent', () => {
     fixture.detectChanges();
     expect(component.form.controls.color.value.length).toBe(2);
     const redOption: DebugElement = checkboxDebugElements.find(
-      checkboxDebugElement => checkboxDebugElement.componentInstance.value === 'red',
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.value === 'red',
     );
     const blueOption: DebugElement = checkboxDebugElements.find(
-      checkboxDebugElement => checkboxDebugElement.componentInstance.value === 'blue',
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.value === 'blue',
     );
     redOption.query(By.css('input')).triggerEventHandler('click', null);
     blueOption.query(By.css('input')).triggerEventHandler('click', null);

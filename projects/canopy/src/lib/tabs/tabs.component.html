@@ -14,9 +14,7 @@
       [attr.tabIndex]="index !== selectedIndex ? '-1' : null"
       [attr.aria-selected]="index === selectedIndex"
       [attr.aria-controls]="'tab-item-content-' + id + '-' + index"
-      [attr.keyboard-focus]="
-        (isKeyboardEvent && selectedIndex === index) || null
-      "
+      [attr.keyboard-focus]="(isKeyboardEvent && selectedIndex === index) || null"
       [id]="'tab-item-heading-' + id + '-' + index"
       (click)="navigateToTab(index)"
       (blur)="blur(index)"

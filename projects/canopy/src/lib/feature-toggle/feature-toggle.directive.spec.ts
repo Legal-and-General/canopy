@@ -10,9 +10,7 @@ import { LgFeatureToggleOptions } from './feature-toggle.interface';
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Component({
-  template: `
-    <section *lgFeatureToggle="'feature'" id="feature">Test feature</section>
-  `,
+  template: ` <section *lgFeatureToggle="'feature'" id="feature">Test feature</section> `,
 })
 class TestComponent {}
 

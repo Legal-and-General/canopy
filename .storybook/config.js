@@ -9,12 +9,12 @@ addParameters({
     { name: 'Midnight Blue', value: '#005380' },
     { name: 'Charcoal', value: '#333' },
     { name: 'Super Blue', value: '#0076d6' },
-    { name: 'Leafy Green', value: '#028844' }
-  ]
+    { name: 'Leafy Green', value: '#028844' },
+  ],
 });
 
 cssVars({
-  watch: true
+  watch: true,
 });
 
 addParameters({ docs: { page: null } });
@@ -26,9 +26,6 @@ initDsm({
   addParameters,
   callback: () => {
     require('!style-loader!css-loader!sass-loader!../projects/canopy/src/styles/styles.scss');
-    configure(
-      require.context('../projects/canopy', true, /\.stories\.ts$/),
-      module
-    );
-  }
+    configure(require.context('../projects/canopy', true, /\.stories\.ts$/), module);
+  },
 });

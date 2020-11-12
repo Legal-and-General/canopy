@@ -41,11 +41,7 @@ In your angular `app.module.ts' file you can choose to import all of the compone
 Importing specific modules is considered best practice as it only includes the code that you need and keeps build size to a minimum. Refer to the [storybook](https://canopy-e66e57.netlify.com/) notes tabs for documentation specific to each module.
 
 ```js
-import {
-  LgButtonModule,
-  LgCardModule,
-  LgFormModule
-} from '@legal-and-general/canopy';
+import { LgButtonModule, LgCardModule, LgFormModule } from '@legal-and-general/canopy';
 ```
 
 and add it to the imports section of your module.
@@ -98,19 +94,22 @@ In your `angular.json` file you will need to incorporate the global styles into 
 ```
 
 ## To import the styles in a scss format
+
 An alternative to importing the global canopy.css file is to import only the desired scss files in your project.
 To import all the styles in one go, you can do the following in your project's scss entry file:
 
 projects/canopy-test-app/src/styles.scss:
+
 ```scss
 $fonts-path: 'dist/canopy/fonts';
 @import 'dist/canopy/styles/styles';
 ```
 
 You can find the scss files here:
-* dist/styes - containing styles.scss that import all the styles
-* dist/styles/variables - containing all the variables for colors, typography, etc
-* dist/lib - containing all the components styles
+
+- dist/styes - containing styles.scss that import all the styles
+- dist/styles/variables - containing all the variables for colors, typography, etc
+- dist/lib - containing all the components styles
 
 ### Supporting IE11
 

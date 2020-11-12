@@ -44,7 +44,7 @@ export class ReactiveToggleFormComponent {
     this.form = this.fb.group({
       umbrella: [{ value: '', disabled: false }],
     });
-    this.form.valueChanges.subscribe(val => this.toggleChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.toggleChange.emit(val));
   }
 }
 

@@ -46,7 +46,7 @@ describe('LgDetailsPanelHeadingComponent', () => {
     it('should emit toggleActive event', async(() => {
       component.toggleActive
         .pipe(take(1))
-        .subscribe(isActive => expect(isActive).toBeFalsy());
+        .subscribe((isActive) => expect(isActive).toBeFalsy());
       component.isActive = true;
       component.toggle();
     }));
@@ -87,7 +87,7 @@ describe('LgDetailsPanelHeadingComponent', () => {
     it('should emit toggleActive event', async(() => {
       component.toggleActive
         .pipe(take(1))
-        .subscribe(isActive => expect(isActive).toBeTruthy());
+        .subscribe((isActive) => expect(isActive).toBeTruthy());
       component.isActive = false;
       component.toggle();
     }));

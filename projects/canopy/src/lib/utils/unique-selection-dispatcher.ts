@@ -4,7 +4,6 @@ export type UniqueSelectionListener = (key: string, context: string) => void;
 
 @Injectable({ providedIn: 'root' })
 export class UniqueSelectionDispatcher implements OnDestroy {
-
   private _listeners: Array<UniqueSelectionListener> = [];
 
   ngOnDestroy() {
@@ -31,7 +30,7 @@ export class UniqueSelectionDispatcher implements OnDestroy {
     this._listeners.push(listener);
 
     return () => {
-      this._listeners = this._listeners.filter(l => l !== listener);
+      this._listeners = this._listeners.filter((l) => l !== listener);
     };
   }
 
@@ -47,6 +46,6 @@ export class UniqueSelectionDispatcher implements OnDestroy {
    *     dispatcher.notify(this._id, this._menuContext);
    */
   notify(id: string, context: string) {
-    this._listeners.forEach(listener => listener(id, context));
+    this._listeners.forEach((listener) => listener(id, context));
   }
 }

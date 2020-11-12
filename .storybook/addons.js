@@ -10,7 +10,7 @@ import { addons } from '@storybook/addons';
 import canopyTheme from './canopy-theme';
 
 addons.setConfig({
-  theme: canopyTheme
+  theme: canopyTheme,
 });
 
 registerDsm(process.env.STORYBOOK_DSM);

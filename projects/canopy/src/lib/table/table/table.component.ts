@@ -40,14 +40,14 @@ export class LgTableComponent implements AfterContentChecked {
 
   ngAfterContentChecked() {
     if (this.tableHead && this.tableBody) {
-      this.tableBody.rows.forEach(row =>
-        row.bodyCells.forEach(cell => {
+      this.tableBody.rows.forEach((row) =>
+        row.bodyCells.forEach((cell) => {
           if (cell.expandableDetail) {
             row.isDetailRow = true;
           }
         }),
       );
-      this.isExpandable = this.tableBody.rows.some(row => row.isDetailRow);
+      this.isExpandable = this.tableBody.rows.some((row) => row.isDetailRow);
 
       this.handleHeadCells();
 
@@ -69,7 +69,7 @@ export class LgTableComponent implements AfterContentChecked {
 
   private handleDetailRows() {
     this.tableBody.rows
-      .filter(row => row.isDetailRow)
+      .filter((row) => row.isDetailRow)
       .forEach((detailRow, index) => {
         detailRow.ariaId = `lg-table-${this.id}-detail-row-${index}`;
         detailRow.ariaLabelledBy = `lg-table-${this.id}-toggle-row-${index}`;
@@ -78,10 +78,10 @@ export class LgTableComponent implements AfterContentChecked {
 
   private handleBodyRows() {
     this.tableBody.rows
-      .filter(row => !row.isDetailRow)
+      .filter((row) => !row.isDetailRow)
       .forEach((row, index) => {
         row.bodyCells
-          .filter(cell => !cell.expandableDetail)
+          .filter((cell) => !cell.expandableDetail)
           .forEach((cell, cellIndex) => {
             cell.align = this.columns.get(cellIndex).align;
             cell.label.nativeElement.innerHTML = this.columns.get(cellIndex).label;
@@ -98,8 +98,8 @@ export class LgTableComponent implements AfterContentChecked {
         });
 
         row.bodyCells
-          .filter(cell => !!cell.toggle)
-          .forEach(cell => {
+          .filter((cell) => !!cell.toggle)
+          .forEach((cell) => {
             cell.toggle.tableId = this.id;
             cell.toggle.rowId = index;
             cell.toggle.context = toggleContext;

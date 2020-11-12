@@ -90,7 +90,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
     }
 
     this._toggleSubscription = this.accordionPanelHeading.toggleActive.subscribe(
-      isActive => {
+      (isActive) => {
         this.isActive = isActive;
 
         this.toggleActiveState(isActive);

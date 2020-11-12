@@ -145,13 +145,13 @@ describe('LgAccordionItemComponent', () => {
     });
 
     it('should emit opened event', async(() => {
-      component.opened.pipe(take(1)).subscribe(ev => expect(ev).toBeUndefined());
+      component.opened.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
       fixture.debugElement.componentInstance.isActive = true;
       fixture.detectChanges();
     }));
 
     it('should emit closed event', async(() => {
-      component.closed.pipe(take(1)).subscribe(ev => expect(ev).toBeUndefined());
+      component.closed.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
       fixture.debugElement.componentInstance.isActive = false;
       fixture.detectChanges();
     }));

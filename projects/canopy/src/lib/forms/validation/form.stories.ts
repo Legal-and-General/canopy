@@ -170,9 +170,7 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-date-field>
 
-      <button lg-button type="submit" variant="solid-primary">
-        Submit
-      </button>
+      <button lg-button type="submit" variant="solid-primary">Submit</button>
     </form>
   `,
 })

@@ -13,9 +13,7 @@ describe('LgHeroCardPrincipleDataPointValueComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(
-      LgHeroCardPrincipleDataPointValueComponent,
-    );
+    fixture = TestBed.createComponent(LgHeroCardPrincipleDataPointValueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

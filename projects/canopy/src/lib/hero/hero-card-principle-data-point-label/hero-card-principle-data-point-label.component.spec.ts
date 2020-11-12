@@ -9,17 +9,12 @@ describe('LgHeroCardPrincipleDataPointLabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LgHeroCardPrincipleDataPointLabelComponent,
-        LgHeadingComponent,
-      ],
+      declarations: [LgHeroCardPrincipleDataPointLabelComponent, LgHeadingComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(
-      LgHeroCardPrincipleDataPointLabelComponent,
-    );
+    fixture = TestBed.createComponent(LgHeroCardPrincipleDataPointLabelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

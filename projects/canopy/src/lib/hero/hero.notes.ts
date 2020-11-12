@@ -1,7 +1,4 @@
-export const notes = (
-  productHeroHTML: string,
-  conversationalHeroHTML: string,
-) => `
+export const notes = (productHeroHTML: string, conversationalHeroHTML: string) => `
 # Hero Component
 
 

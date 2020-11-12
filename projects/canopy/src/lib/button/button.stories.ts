@@ -100,7 +100,7 @@ const createBtnStory = (config: KnobsConfig) => ({
     showIcon: boolean('show icon', config.showIcon, contentGroupId),
     icon: select(
       'icon',
-      iconsArray.map(icon => icon.name),
+      iconsArray.map((icon) => icon.name),
       'add',
       contentGroupId,
     ),

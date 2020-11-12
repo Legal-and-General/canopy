@@ -49,12 +49,9 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   }
 
   _radios: QueryList<LgRadioButtonComponent>;
-  @ContentChildren(
-    forwardRef(() => LgRadioButtonComponent),
-    {
-      descendants: true,
-    },
-  )
+  @ContentChildren(forwardRef(() => LgRadioButtonComponent), {
+    descendants: true,
+  })
   set radios(radios: QueryList<LgRadioButtonComponent>) {
     radios.toArray().forEach((radio: LgRadioButtonComponent) => {
       radio.control = this.control;
@@ -96,7 +93,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     this._value = value;
     this.onChange(value);
     if (this.radios) {
-      const selectedRadio = this.radios.find(option => option.value === value);
+      const selectedRadio = this.radios.find((option) => option.value === value);
       if (selectedRadio && !selectedRadio.checked) {
         selectedRadio.checked = true;
       }
@@ -150,7 +147,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
 
   private _updateRadioButtonNames(): void {
     if (this.radios) {
-      this.radios.forEach(radio => {
+      this.radios.forEach((radio) => {
         radio.name = this.name;
       });
     }

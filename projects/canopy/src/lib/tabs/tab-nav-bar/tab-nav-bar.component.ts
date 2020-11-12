@@ -54,7 +54,7 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
 
     event.preventDefault();
 
-    const currentSelectedTabIndex = this.tabs.findIndex(tab => tab.isActive);
+    const currentSelectedTabIndex = this.tabs.findIndex((tab) => tab.isActive);
 
     if (isPreviousKey) {
       this.selectedIndex =
@@ -98,7 +98,7 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
     });
 
     // Update tab link active states when active tab changes
-    const tabOutputs = this.tabs.map(tab => tab.selectedTabIndexChange);
+    const tabOutputs = this.tabs.map((tab) => tab.selectedTabIndexChange);
 
     merge(...tabOutputs)
       .pipe(takeUntil(this.ngUnsubscribe))

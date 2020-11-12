@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DebugElement,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   FormControl,
@@ -55,13 +51,9 @@ describe('LgInputDirective', () => {
     fixture = TestBed.createComponent(TestInputComponent);
     component = fixture.componentInstance;
 
-    inputDebugElement = fixture.debugElement.query(
-      By.directive(LgInputDirective),
-    );
+    inputDebugElement = fixture.debugElement.query(By.directive(LgInputDirective));
 
-    inputInstance = inputDebugElement.injector.get<LgInputDirective>(
-      LgInputDirective,
-    );
+    inputInstance = inputDebugElement.injector.get<LgInputDirective>(LgInputDirective);
   }));
 
   it('adds a unique name', () => {
@@ -77,26 +69,18 @@ describe('LgInputDirective', () => {
   it('adds a block class when the block property is set', () => {
     inputInstance.block = true;
     fixture.detectChanges();
-    expect(inputDebugElement.nativeElement.className).toContain(
-      'lg-input--block',
-    );
+    expect(inputDebugElement.nativeElement.className).toContain('lg-input--block');
   });
 
   it('adds an error class when the field has a validation error', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
-    expect(inputDebugElement.nativeElement.className).toContain(
-      'lg-input--error',
-    );
+    expect(inputDebugElement.nativeElement.className).toContain('lg-input--error');
   });
 
   it('removes the error class when the field is valid', () => {
     component.form.get('name').setValue('test');
     component.form.get('name').markAsTouched();
-    expect(inputDebugElement.nativeElement.className).not.toContain(
-      'lg-input--error',
-    );
+    expect(inputDebugElement.nativeElement.className).not.toContain('lg-input--error');
   });
 });

@@ -16,9 +16,7 @@ import { notes } from './select.notes';
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <select lgSelect formControlName="color">
-          <option *ngFor="let option of options" [value]="option">{{
-            option
-          }}</option>
+          <option *ngFor="let option of options" [value]="option">{{ option }}</option>
         </select>
       </lg-select-field>
     </form>
@@ -50,7 +48,7 @@ class ReactiveFormComponent {
     this.form = this.fb.group({
       color: { value: '', disabled: false },
     });
-    this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.selectChange.emit(val));
   }
 }
 
