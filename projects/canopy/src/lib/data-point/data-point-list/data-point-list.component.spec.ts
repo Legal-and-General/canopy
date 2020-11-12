@@ -61,7 +61,7 @@ describe('LgDataPointListComponent', () => {
       dataPointDebugElements = fixture.debugElement.queryAll(By.css('lg-data-point'));
 
       dataPointInstances = dataPointDebugElements.map(
-        debugEl => debugEl.componentInstance,
+        (debugEl) => debugEl.componentInstance,
       );
     });
 
@@ -70,7 +70,7 @@ describe('LgDataPointListComponent', () => {
     });
 
     it('should set isListItem to true on all data points', () => {
-      dataPointInstances.forEach(dataPoint => {
+      dataPointInstances.forEach((dataPoint) => {
         expect(dataPoint.isListItem).toBe(true);
       });
     });

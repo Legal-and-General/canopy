@@ -51,13 +51,11 @@ describe('LgPadding', () => {
   }));
 
   it('renders the same padding all round', () => {
-    expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-padding--xs',
-    );
+    expect(testElement.nativeElement.getAttribute('class')).toContain('lg-padding--xs');
   });
 
   it('adds paddings to the specified sides', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(side => {
+    ['top', 'right', 'bottom', 'left'].forEach((side) => {
       component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -67,7 +65,7 @@ describe('LgPadding', () => {
   });
 
   it('updates paddings to the specified sides', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(side => {
+    ['top', 'right', 'bottom', 'left'].forEach((side) => {
       component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -87,13 +85,11 @@ describe('LgPadding', () => {
   it('adds paddings of none to all sides', () => {
     component.lgPadding = 'none';
     fixture.detectChanges();
-    expect(testElement.nativeElement.getAttribute('class')).toContain(
-      `lg-padding--none`,
-    );
+    expect(testElement.nativeElement.getAttribute('class')).toContain(`lg-padding--none`);
   });
 
   it('adds paddings of none to specified sides', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(side => {
+    ['top', 'right', 'bottom', 'left'].forEach((side) => {
       component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = 'none';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(

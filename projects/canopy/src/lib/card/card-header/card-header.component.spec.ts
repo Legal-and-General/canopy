@@ -23,9 +23,7 @@ describe('LgCardHeaderComponent', () => {
   });
 
   it('should contain the default class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-card-header',
-    );
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-card-header');
   });
 
   describe('the hasContent input', () => {

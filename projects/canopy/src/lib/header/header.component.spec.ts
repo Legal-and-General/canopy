@@ -35,8 +35,6 @@ describe('FooterComponent', () => {
   it('renders a link if an href is provided', () => {
     component.logoHref = href;
     fixture.detectChanges();
-    expect(
-      fixture.debugElement.query(By.css(`a[href="${href}"]`)),
-    ).toBeTruthy();
+    expect(fixture.debugElement.query(By.css(`a[href="${href}"]`))).toBeTruthy();
   });
 });

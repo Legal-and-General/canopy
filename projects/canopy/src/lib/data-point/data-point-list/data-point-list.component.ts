@@ -28,7 +28,7 @@ export class LgDataPointListComponent implements AfterContentInit {
   dataPoints: QueryList<LgDataPointComponent>;
 
   ngAfterContentInit() {
-    this.dataPoints.forEach(dataPoint => {
+    this.dataPoints.forEach((dataPoint) => {
       dataPoint.isListItem = true;
     });
   }

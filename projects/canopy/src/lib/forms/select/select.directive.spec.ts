@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DebugElement,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   FormControl,
@@ -57,9 +53,7 @@ describe('LgSelectDirective', () => {
     fixture = TestBed.createComponent(TestSelectComponent);
     component = fixture.componentInstance;
 
-    selectDebugElement = fixture.debugElement.query(
-      By.directive(LgSelectDirective),
-    );
+    selectDebugElement = fixture.debugElement.query(By.directive(LgSelectDirective));
   }));
 
   it('adds a unique name', () => {
@@ -73,20 +67,14 @@ describe('LgSelectDirective', () => {
   });
 
   it('adds an error class when the field has a validation error', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
-    expect(selectDebugElement.nativeElement.className).toContain(
-      'lg-select--error',
-    );
+    expect(selectDebugElement.nativeElement.className).toContain('lg-select--error');
   });
 
   it('removes the error class when the field is valid', () => {
     component.form.get('name').setValue('test');
     component.form.get('name').markAsTouched();
-    expect(selectDebugElement.nativeElement.className).not.toContain(
-      'lg-input--error',
-    );
+    expect(selectDebugElement.nativeElement.className).not.toContain('lg-input--error');
   });
 });

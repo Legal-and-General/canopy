@@ -32,10 +32,7 @@ export class LgValidationComponent {
         `lg-validation--${this._variant}`,
       );
     }
-    this.renderer.addClass(
-      this.hostElement.nativeElement,
-      `lg-validation--${variant}`,
-    );
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-validation--${variant}`);
     this._variant = variant;
   }
   get variant() {

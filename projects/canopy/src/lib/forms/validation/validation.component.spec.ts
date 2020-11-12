@@ -26,9 +26,7 @@ describe('LgValidationComponent', () => {
   });
 
   it('adds a unique identifier', () => {
-    expect(
-      /lg-validation-\d/.test(fixture.nativeElement.getAttribute('id')),
-    ).toBe(true);
+    expect(/lg-validation-\d/.test(fixture.nativeElement.getAttribute('id'))).toBe(true);
   });
 
   it('renders an icon by default', () => {
@@ -52,9 +50,7 @@ describe('LgValidationComponent', () => {
     ].forEach(({ variant, icon }) => {
       component.variant = variant as ValidationVariant;
       fixture.detectChanges();
-      expect(
-        fixture.debugElement.query(By.css(`[name="${icon}"]`)),
-      ).not.toBeNull();
+      expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();
     });
   });
 });

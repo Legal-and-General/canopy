@@ -5,11 +5,7 @@ import { By } from '@angular/platform-browser';
 import { LgGridContainerDirective } from './grid-container.directive';
 
 @Component({
-  template: `
-    <div lgContainer>
-      Test feature
-    </div>
-  `,
+  template: ` <div lgContainer>Test feature</div> `,
 })
 class TestComponent {}
 
@@ -29,8 +25,6 @@ describe('GridContainerDirective', () => {
   });
 
   it('adds the container class', () => {
-    expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-container',
-    );
+    expect(testElement.nativeElement.getAttribute('class')).toContain('lg-container');
   });
 });

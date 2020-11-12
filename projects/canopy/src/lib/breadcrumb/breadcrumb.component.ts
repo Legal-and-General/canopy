@@ -28,20 +28,14 @@ export class LgBreadcrumbComponent implements AfterContentChecked {
 
   @HostBinding('attr.role') role = 'navigation';
 
-  @ContentChildren(
-    forwardRef(() => LgBreadcrumbItemComponent),
-    {
-      descendants: true,
-    },
-  )
+  @ContentChildren(forwardRef(() => LgBreadcrumbItemComponent), {
+    descendants: true,
+  })
   crumbs: QueryList<LgBreadcrumbItemComponent>;
 
-  @ContentChildren(
-    forwardRef(() => LgBreadcrumbItemEllipsisComponent),
-    {
-      descendants: true,
-    },
-  )
+  @ContentChildren(forwardRef(() => LgBreadcrumbItemEllipsisComponent), {
+    descendants: true,
+  })
   ellipsis: QueryList<LgBreadcrumbItemEllipsisComponent>;
 
   @Input() set variant(variant: BreadcrumbVariant) {
@@ -68,8 +62,8 @@ export class LgBreadcrumbComponent implements AfterContentChecked {
   }
 
   private setVariantOnChildren() {
-    this.crumbs.forEach(crumb => (crumb.variant = this.variant));
-    this.ellipsis.forEach(ellipsisItem => (ellipsisItem.variant = this.variant));
+    this.crumbs.forEach((crumb) => (crumb.variant = this.variant));
+    this.ellipsis.forEach((ellipsisItem) => (ellipsisItem.variant = this.variant));
   }
 
   private setCrumbProperties() {

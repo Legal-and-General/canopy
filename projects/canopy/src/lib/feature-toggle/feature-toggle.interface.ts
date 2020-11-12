@@ -28,6 +28,6 @@ export const togglesInjectable = new InjectionToken<LgFeatureToggleConfig>(
   'Toggles configuration',
 );
 
-export const togglesOptionsInjectable = new InjectionToken<
-  LgFeatureToggleOptions
->('Toggles options');
+export const togglesOptionsInjectable = new InjectionToken<LgFeatureToggleOptions>(
+  'Toggles options',
+);

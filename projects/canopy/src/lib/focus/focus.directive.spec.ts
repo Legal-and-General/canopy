@@ -5,9 +5,7 @@ import { By } from '@angular/platform-browser';
 import { LgFocusDirective } from './focus.directive';
 
 @Component({
-  template: `
-    <button type="button" [lgFocus]="testVar">Test button</button>
-  `,
+  template: ` <button type="button" [lgFocus]="testVar">Test button</button> `,
 })
 class TestFocusComponent {
   testVar = false;

@@ -42,7 +42,7 @@ class ReactiveFormComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ colors: this.fb.control(['red']) });
-    this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.checkboxChange.emit(val));
   }
 }
 

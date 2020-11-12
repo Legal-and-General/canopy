@@ -46,7 +46,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   ngAfterContentInit() {
     this.panelHeading.isActive = this.isActive;
 
-    this.subscription = this.panelHeading.toggleActive.subscribe(isActive => {
+    this.subscription = this.panelHeading.toggleActive.subscribe((isActive) => {
       this.isActive = isActive;
 
       if (isActive) {

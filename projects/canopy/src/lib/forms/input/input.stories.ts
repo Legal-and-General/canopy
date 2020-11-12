@@ -44,7 +44,7 @@ class ReactiveFormComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ name: { value: '', disabled: false } });
-    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
   }
 }
 

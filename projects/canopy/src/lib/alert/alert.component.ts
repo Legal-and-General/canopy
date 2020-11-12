@@ -29,10 +29,7 @@ export class LgAlertComponent {
         `lg-alert--${this._variant}`,
       );
     }
-    this.renderer.addClass(
-      this.hostElement.nativeElement,
-      `lg-alert--${variant}`,
-    );
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-alert--${variant}`);
     this._variant = variant;
   }
   get variant() {

@@ -68,9 +68,7 @@ describe('LgRadioButtonComponent', () => {
   });
 
   it('adds the error class if the form field is invalid', () => {
-    when(
-      errorStateMatcherMock.isControlInvalid(anything(), anything()),
-    ).thenReturn(true);
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
     expect(fixture.debugElement.nativeElement.className).toContain(
       'lg-radio-button--error',

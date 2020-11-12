@@ -35,12 +35,8 @@ describe('LgSpinnerComponent', () => {
   describe('text input', () => {
     describe('when not specified', () => {
       it('should add a visually hidden element with default text', () => {
-        const hiddenEl = fixture.nativeElement.querySelector(
-          '.lg-visually-hidden',
-        );
-        const textEl = fixture.nativeElement.querySelector(
-          '.lg-spinner__content',
-        );
+        const hiddenEl = fixture.nativeElement.querySelector('.lg-visually-hidden');
+        const textEl = fixture.nativeElement.querySelector('.lg-spinner__content');
 
         expect(textEl).toBeNull();
         expect(hiddenEl).toBeDefined();
@@ -53,12 +49,8 @@ describe('LgSpinnerComponent', () => {
         component.text = 'Test text';
         fixture.detectChanges();
 
-        const hiddenEl = fixture.nativeElement.querySelector(
-          '.lg-visually-hidden',
-        );
-        const textEl = fixture.nativeElement.querySelector(
-          '.lg-spinner__content',
-        );
+        const hiddenEl = fixture.nativeElement.querySelector('.lg-visually-hidden');
+        const textEl = fixture.nativeElement.querySelector('.lg-spinner__content');
 
         expect(hiddenEl).toBeNull();
         expect(textEl).toBeDefined();

@@ -67,12 +67,9 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   }
 
   _checkboxes: QueryList<LgToggleComponent>;
-  @ContentChildren(
-    forwardRef(() => LgToggleComponent),
-    {
-      descendants: true,
-    },
-  )
+  @ContentChildren(forwardRef(() => LgToggleComponent), {
+    descendants: true,
+  })
   set checkboxes(checkboxes: QueryList<LgToggleComponent>) {
     checkboxes.toArray().forEach((checkbox: LgToggleComponent) => {
       checkbox.control = this.control;
@@ -114,7 +111,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     this._value = value;
     this.onChange(value);
     if (this.checkboxes) {
-      this.checkboxes.forEach(checkbox => {
+      this.checkboxes.forEach((checkbox) => {
         if (value.includes(checkbox.value.toString())) {
           checkbox.checked = true;
         }
@@ -170,7 +167,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
 
   private _updateRadioButtonNames(): void {
     if (this.checkboxes) {
-      this.checkboxes.forEach(checkbox => {
+      this.checkboxes.forEach((checkbox) => {
         checkbox.name = this.name;
       });
     }

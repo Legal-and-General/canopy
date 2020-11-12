@@ -42,7 +42,7 @@ class ReactiveFormFilterComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: '' });
-    this.form.valueChanges.subscribe(val => this.filterChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.filterChange.emit(val));
   }
 }
 

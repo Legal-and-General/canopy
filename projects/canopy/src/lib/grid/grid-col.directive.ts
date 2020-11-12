@@ -7,37 +7,25 @@ export class LgGridColDirective {
   lgColClass: string;
   @Input()
   set lgCol(columns: number) {
-    this.lgColClass = this.toggleColumnClass(
-      `lg-col-xs-${columns}`,
-      this.lgColClass,
-    );
+    this.lgColClass = this.toggleColumnClass(`lg-col-xs-${columns}`, this.lgColClass);
   }
 
   lgColSmClass: string;
   @Input()
   set lgColSm(columns: number) {
-    this.lgColSmClass = this.toggleColumnClass(
-      `lg-col-sm-${columns}`,
-      this.lgColSmClass,
-    );
+    this.lgColSmClass = this.toggleColumnClass(`lg-col-sm-${columns}`, this.lgColSmClass);
   }
 
   lgColMdClass: string;
   @Input()
   set lgColMd(columns: number) {
-    this.lgColMdClass = this.toggleColumnClass(
-      `lg-col-md-${columns}`,
-      this.lgColMdClass,
-    );
+    this.lgColMdClass = this.toggleColumnClass(`lg-col-md-${columns}`, this.lgColMdClass);
   }
 
   lgColLgClass: string;
   @Input()
   set lgColLg(columns: number) {
-    this.lgColLgClass = this.toggleColumnClass(
-      `lg-col-lg-${columns}`,
-      this.lgColLgClass,
-    );
+    this.lgColLgClass = this.toggleColumnClass(`lg-col-lg-${columns}`, this.lgColLgClass);
   }
 
   lgColOffsetClass: string;

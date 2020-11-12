@@ -27,11 +27,7 @@ export const standard = () => ({
     <lg-spinner [variant]="variant" [text]="text ? text : null"></lg-spinner>
   `,
   props: {
-    variant: select(
-      'variant',
-      ['dark', 'light', 'color', 'inherit'],
-      'spinner',
-    ),
+    variant: select('variant', ['dark', 'light', 'color', 'inherit'], 'spinner'),
     text: text('text', ''),
   },
 });

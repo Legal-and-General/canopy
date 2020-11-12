@@ -2,7 +2,13 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { tableTestData } from 'projects/canopy/src/lib/table/test.data';
-import { lgIconHome, LgIconRegistry, lgIconAdd, lgIconArrowDown, lgIconClose } from 'projects/canopy/src/lib/icon';
+import {
+  lgIconHome,
+  LgIconRegistry,
+  lgIconAdd,
+  lgIconArrowDown,
+  lgIconClose,
+} from 'projects/canopy/src/lib/icon';
 
 @Component({
   selector: 'app-root',
@@ -31,12 +37,7 @@ export class AppComponent {
   }
 
   constructor(public fb: FormBuilder, private registry: LgIconRegistry) {
-    this.registry.registerIcons([
-      lgIconHome,
-      lgIconAdd,
-      lgIconArrowDown,
-      lgIconClose,
-    ]);
+    this.registry.registerIcons([lgIconHome, lgIconAdd, lgIconArrowDown, lgIconClose]);
     this.form = this.fb.group({
       text: [''],
       select: [''],

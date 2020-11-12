@@ -157,7 +157,7 @@ class TintSwatchComponent implements AfterViewInit {
 
   @Input()
   set names(names: string) {
-    this.colors = names.split(',').map(name => ({
+    this.colors = names.split(',').map((name) => ({
       name,
       rgb: null,
       hex: null,

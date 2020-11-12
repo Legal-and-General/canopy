@@ -18,7 +18,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       imports: [MockModule(CanopyModule)],
-      providers: [ { provide: FormBuilder, useFactory: () => instance(formBuilderMock) } ],
+      providers: [{ provide: FormBuilder, useFactory: () => instance(formBuilderMock) }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);

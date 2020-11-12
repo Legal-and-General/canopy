@@ -29,8 +29,6 @@ describe('LgTableExpandedDetailComponent', () => {
   });
 
   it('should have the expanded detail class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toBe(
-      'lg-table-expanded-detail',
-    );
+    expect(fixture.nativeElement.getAttribute('class')).toBe('lg-table-expanded-detail');
   });
 });

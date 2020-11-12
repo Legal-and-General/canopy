@@ -2,10 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import {
-  LgFeatureToggleConfig,
-  togglesInjectable,
-} from './feature-toggle.interface';
+import { LgFeatureToggleConfig, togglesInjectable } from './feature-toggle.interface';
 
 @Injectable({
   providedIn: 'root',

@@ -62,7 +62,7 @@ describe('LgAccordionComponent', () => {
   it('should set the heading level on the panel headings', () => {
     fixture.debugElement
       .queryAll(By.css('lg-accordion-panel-heading'))
-      .forEach(heading =>
+      .forEach((heading) =>
         expect(
           heading.injector.get<LgAccordionPanelHeadingComponent>(
             LgAccordionPanelHeadingComponent,

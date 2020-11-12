@@ -44,7 +44,7 @@ class ReactiveFormRadioComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: 'red' });
-    this.form.valueChanges.subscribe(val => this.radioChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.radioChange.emit(val));
   }
 }
 

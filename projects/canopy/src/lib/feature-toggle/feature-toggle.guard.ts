@@ -35,9 +35,9 @@ export class FeatureToggleGuard implements CanActivate, CanLoad {
   isActive(route: Route | ActivatedRouteSnapshot) {
     return this.featureToggleService.toggles$.pipe(
       first(),
-      map(configToggles => {
+      map((configToggles) => {
         const active = getDataPropertyValues(route, 'featureToggle')
-          .map(t => {
+          .map((t) => {
             const value = configToggles[t];
             return value === undefined || value;
           })

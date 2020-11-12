@@ -51,13 +51,11 @@ describe('LgMargin', () => {
   }));
 
   it('renders the same margin all round', () => {
-    expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-margin--xs',
-    );
+    expect(testElement.nativeElement.getAttribute('class')).toContain('lg-margin--xs');
   });
 
   it('adds margins to the specified sides', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(side => {
+    ['top', 'right', 'bottom', 'left'].forEach((side) => {
       component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -67,7 +65,7 @@ describe('LgMargin', () => {
   });
 
   it('updates margins to the specified sides', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(side => {
+    ['top', 'right', 'bottom', 'left'].forEach((side) => {
       component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -87,13 +85,11 @@ describe('LgMargin', () => {
   it('adds margins of none to all sides', () => {
     component.lgMargin = 'none';
     fixture.detectChanges();
-    expect(testElement.nativeElement.getAttribute('class')).toContain(
-      `lg-margin--none`,
-    );
+    expect(testElement.nativeElement.getAttribute('class')).toContain(`lg-margin--none`);
   });
 
   it('adds margins of none to specified sides', () => {
-    ['top', 'right', 'bottom', 'left'].forEach(side => {
+    ['top', 'right', 'bottom', 'left'].forEach((side) => {
       component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'none';
       fixture.detectChanges();
       expect(testElement.nativeElement.getAttribute('class')).toContain(
