@@ -1,15 +1,12 @@
-import { storiesOf } from '@storybook/angular';
-
 import { notes } from './utils.notes';
 
-const stories = storiesOf('Utils', module);
-
-stories.add(
-  'Utils',
-  () => ({
-    template: ``,
-  }),
-  {
+export default {
+  title: 'Utils',
+  parameters: {
     notes: { markdown: notes },
   },
-);
+};
+
+export const utils = () => ({
+  template: ``,
+});

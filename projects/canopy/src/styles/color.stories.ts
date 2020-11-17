@@ -8,12 +8,10 @@ import {
   ViewChildren,
 } from '@angular/core';
 
-import { storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import convert from 'color-convert';
 
 import { notes } from './color.notes';
-
-const stories = storiesOf('Colors', module);
 
 interface Color {
   name: string;
@@ -166,13 +164,22 @@ class TintSwatchComponent implements AfterViewInit {
   }
 }
 
-stories.add(
-  'Colors',
-  () => ({
-    moduleMetadata: {
-      declarations: [SwatchComponent, TintSwatchComponent],
+export default {
+  title: 'Colours',
+  parameters: {
+    decorators: [
+      moduleMetadata({
+        declarations: [SwatchComponent, TintSwatchComponent],
+      }),
+    ],
+    notes: {
+      markdown: notes,
     },
-    template: `
+  },
+};
+
+export const colours = () => ({
+  template: `
     <h2>Shades</h2>
 
     <div>
@@ -236,10 +243,4 @@ stories.add(
       </div>
     </div>
   `,
-  }),
-  {
-    notes: {
-      markdown: notes,
-    },
-  },
-);
+});
