@@ -1,14 +1,16 @@
-import { storiesOf } from '@storybook/angular';
-
 import { notes } from './grid.notes';
 
-const stories = storiesOf('Grid', module);
+export default {
+  title: 'Grid',
+  parameters: {
+    notes: {
+      markdown: notes,
+    },
+  },
+};
 
-stories.add(
-  'Grid',
-  () => {
-    return {
-      template: `
+export const grid = () => ({
+  template: `
     <div>
       <div class="lg-container">
         <div class="lg-row">
@@ -222,8 +224,8 @@ stories.add(
       </div>
     </div>
     `,
-      styles: [
-        `
+  styles: [
+    `
         .box {
           background-color: var(--color-super-blue);
           margin-bottom: var(--space-md);
@@ -254,12 +256,5 @@ stories.add(
           margin-bottom: var(--text-bottom-margin)
         }
       `,
-      ],
-    };
-  },
-  {
-    notes: {
-      markdown: notes,
-    },
-  },
-);
+  ],
+});
