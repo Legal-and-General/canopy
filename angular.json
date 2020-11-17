@@ -31,7 +31,9 @@
               "projects/canopy/tsconfig.lib.json",
               "projects/canopy/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -156,5 +158,8 @@
     "@schematics/angular:component": {
       "styleext": "scss"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
