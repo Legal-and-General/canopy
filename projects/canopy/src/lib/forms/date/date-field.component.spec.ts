@@ -113,33 +113,37 @@ describe('LgDateFieldComponent', () => {
     monthInput = fixture.debugElement.query(By.css('[formcontrolname="month"]'));
     yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
 
-    fixture.detectChanges();
-
     when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
       false,
     );
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  describe('markup', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
 
-  it('links the hint to the fieldset with the correct aria attributes', () => {
-    expect(fieldsetElement.nativeElement.getAttribute('aria-describedby')).toContain(
-      hintId,
-    );
-  });
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
 
-  it('links custom error messages to the input field with the correct aria attributes', () => {
-    expect(fieldsetElement.nativeElement.getAttribute('aria-describedby')).toContain(
-      errorId,
-    );
-  });
+    it('links the hint to the fieldset with the correct aria attributes', () => {
+      expect(fieldsetElement.nativeElement.getAttribute('aria-describedby')).toContain(
+        hintId,
+      );
+    });
 
-  it('combines both the hint and error ids to create the aria described attribute', () => {
-    expect(fieldsetElement.nativeElement.getAttribute('aria-describedby')).toBe(
-      `${hintId} ${errorId}`,
-    );
+    it('links custom error messages to the input field with the correct aria attributes', () => {
+      expect(fieldsetElement.nativeElement.getAttribute('aria-describedby')).toContain(
+        errorId,
+      );
+    });
+
+    it('combines both the hint and error ids to create the aria described attribute', () => {
+      expect(fieldsetElement.nativeElement.getAttribute('aria-describedby')).toBe(
+        `${hintId} ${errorId}`,
+      );
+    });
   });
 
   it('sets the individual input fields when a date value is provided', () => {
@@ -153,6 +157,7 @@ describe('LgDateFieldComponent', () => {
   });
 
   it('joins the individual input fields and sets the value even if some are null', () => {
+    fixture.detectChanges();
     dateFieldInstance.year.setValue('1970');
     dateFieldInstance.month.setValue('5');
     dateFieldInstance.date.setValue('');
@@ -160,33 +165,41 @@ describe('LgDateFieldComponent', () => {
   });
 
   it('sets the individual input fields to the empty string when no date value is provided', () => {
+    fixture.detectChanges();
     expect(yearInput.nativeElement.value).toEqual('');
     expect(monthInput.nativeElement.value).toEqual('');
     expect(dateInput.nativeElement.value).toEqual('');
   });
 
-  it('disables the year input field when the disabled property is set', () => {
-    expect(yearInput.nativeElement.disabled).toEqual(false);
-    component.disabled = true;
-    fixture.detectChanges();
-    expect(yearInput.nativeElement.disabled).toEqual(true);
-  });
+  describe('disabling fields', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
 
-  it('disables the month input field when the disabled property is set', () => {
-    expect(monthInput.nativeElement.disabled).toEqual(false);
-    component.disabled = true;
-    fixture.detectChanges();
-    expect(monthInput.nativeElement.disabled).toEqual(true);
-  });
+    it('disables the year input field when the disabled property is set', () => {
+      expect(yearInput.nativeElement.disabled).toEqual(false);
+      component.disabled = true;
+      fixture.detectChanges();
+      expect(yearInput.nativeElement.disabled).toEqual(true);
+    });
 
-  it('disables the date input field when the disabled property is set', () => {
-    expect(dateInput.nativeElement.disabled).toEqual(false);
-    component.disabled = true;
-    fixture.detectChanges();
-    expect(dateInput.nativeElement.disabled).toEqual(true);
+    it('disables the month input field when the disabled property is set', () => {
+      expect(monthInput.nativeElement.disabled).toEqual(false);
+      component.disabled = true;
+      fixture.detectChanges();
+      expect(monthInput.nativeElement.disabled).toEqual(true);
+    });
+
+    it('disables the date input field when the disabled property is set', () => {
+      expect(dateInput.nativeElement.disabled).toEqual(false);
+      component.disabled = true;
+      fixture.detectChanges();
+      expect(dateInput.nativeElement.disabled).toEqual(true);
+    });
   });
 
   it('joins the individual fields to an ISO date string when an input field is changed', () => {
+    fixture.detectChanges();
     dateFieldInstance.year.setValue('1944');
     dateFieldInstance.month.setValue('3');
     dateFieldInstance.date.setValue('7');
@@ -195,12 +208,14 @@ describe('LgDateFieldComponent', () => {
   });
 
   it('sets unique identifiers for each input field', () => {
+    fixture.detectChanges();
     expect(/lg-input-year-\d{1,3}/.test(yearInput.nativeElement.id)).toBe(true);
     expect(/lg-input-month-\d{1,3}/.test(monthInput.nativeElement.id)).toBe(true);
     expect(/lg-input-date-\d{1,3}/.test(dateInput.nativeElement.id)).toBe(true);
   });
 
   it('replaces empty fields with an empty string if date is not complete', (done) => {
+    fixture.detectChanges();
     component.dateChange.pipe(skip(1)).subscribe((change) => {
       expect(change.dateOfBirth).toBe('1944-03-');
       done();
@@ -210,24 +225,28 @@ describe('LgDateFieldComponent', () => {
   });
 
   it('updates the date value on each input change', () => {
+    fixture.detectChanges();
     dateInput.nativeElement.value = '9';
     dateInput.nativeElement.dispatchEvent(new Event('input'));
     expect(dateFieldInstance.date.value).toBe('9');
   });
 
   it('updates the month value on each input change', () => {
+    fixture.detectChanges();
     monthInput.nativeElement.value = '1';
     monthInput.nativeElement.dispatchEvent(new Event('input'));
     expect(dateFieldInstance.month.value).toBe('1');
   });
 
   it('updates the year value on each input change', () => {
+    fixture.detectChanges();
     yearInput.nativeElement.value = '3';
     yearInput.nativeElement.dispatchEvent(new Event('input'));
     expect(dateFieldInstance.year.value).toBe('3');
   });
 
   it('publishes a change when the user enters a date', (done) => {
+    fixture.detectChanges();
     component.dateChange.pipe(skip(2)).subscribe((change) => {
       expect(change.dateOfBirth).toBe('1944-03-07');
       done();
@@ -238,6 +257,10 @@ describe('LgDateFieldComponent', () => {
   });
 
   describe('validation rules', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
+
     it('adds an invalid field validation rule if a field is invalid', () => {
       dateFieldInstance.month.markAsDirty();
       dateFieldInstance.month.setValue('x');

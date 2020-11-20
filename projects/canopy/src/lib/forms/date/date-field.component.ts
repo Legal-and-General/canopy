@@ -104,9 +104,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }
-  }
 
-  ngOnInit() {
     this.date = new FormControl(null, [
       Validators.required,
       Validators.pattern(/^\d{1,2}$/),
@@ -133,7 +131,9 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
         updateOn: 'blur',
       },
     );
+  }
 
+  ngOnInit() {
     const validators = [this.validate.bind(this)];
     // append internal validators to external validators if applicable.
     if (this.ngControl && this.ngControl.control) {
