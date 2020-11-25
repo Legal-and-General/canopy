@@ -109,8 +109,38 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   }
 
   @ContentChild(LgButtonComponent) buttonElement: LgButtonComponent;
-  @ContentChildren(LgSuffixDirective) suffixChildren: QueryList<LgSuffixDirective>;
-  @ContentChildren(LgPrefixDirective) prefixChildren: QueryList<LgPrefixDirective>;
+
+  private _suffixChildren: QueryList<LgSuffixDirective>;
+  @ContentChildren(LgSuffixDirective)
+  set suffixChildren(elements: QueryList<LgSuffixDirective>) {
+    elements.forEach((element) => {
+      this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+        this.inputElement.ariaDescribedBy,
+        this._validationElement,
+        element,
+      );
+    });
+    this._suffixChildren = elements;
+  }
+  get suffixChildren() {
+    return this._suffixChildren;
+  }
+
+  private _prefixChildren: QueryList<LgSuffixDirective>;
+  @ContentChildren(LgPrefixDirective)
+  set prefixChildren(elements: QueryList<LgSuffixDirective>) {
+    elements.forEach((element) => {
+      this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+        this.inputElement.ariaDescribedBy,
+        this._validationElement,
+        element,
+      );
+    });
+    this._prefixChildren = elements;
+  }
+  get prefixChildren() {
+    return this._prefixChildren;
+  }
 
   @Input() id = `lg-input-${this._id++}`;
 
