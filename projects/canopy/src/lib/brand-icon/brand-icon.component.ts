@@ -50,15 +50,14 @@ export class LgBrandIconComponent {
   @Input()
   set name(name: Name) {
     if (this.svgElement) {
-      this.elementRef.nativeElement.removeChild(this.svgElement);
+      this.hostElement.nativeElement.removeChild(this.svgElement);
     }
     const svgData = this.setSVGAttributes(this.iconRegistry.getBrandIcon(name));
     this.svgElement = this.svgElementFromString(svgData);
-    this.elementRef.nativeElement.appendChild(this.svgElement);
+    this.hostElement.nativeElement.appendChild(this.svgElement);
   }
 
   constructor(
-    private elementRef: ElementRef,
     private iconRegistry: LgBrandIconRegistry,
     @Inject(DOCUMENT) private document: any,
     private renderer: Renderer2,
