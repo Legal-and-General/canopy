@@ -31,16 +31,16 @@ export class LgIconComponent {
   @Input()
   set name(name: Name) {
     if (this.svgIcon) {
-      this.elementRef.nativeElement.removeChild(this.svgIcon);
+      this.hostElement.nativeElement.removeChild(this.svgIcon);
     }
 
     const svgData = this.setSVGAttributes(this.iconRegistry.getIcon(name));
     this.svgIcon = this.svgElementFromString(svgData);
-    this.elementRef.nativeElement.appendChild(this.svgIcon);
+    this.hostElement.nativeElement.appendChild(this.svgIcon);
   }
 
   constructor(
-    private elementRef: ElementRef,
+    private hostElement: ElementRef,
     private iconRegistry: LgIconRegistry,
     @Inject(DOCUMENT) private document: any,
   ) {}
