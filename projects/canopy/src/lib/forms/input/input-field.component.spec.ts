@@ -24,6 +24,9 @@ describe('LgInputFieldComponent', () => {
 
   const errorId = 'test-error-id';
   const hintId = 'test-hint-id';
+  const prefixId = 'prefix-id';
+  const suffixId = 'suffix-id';
+
   const suffixText = 'suffix';
   const prefixText = 'prefix';
 
@@ -52,8 +55,8 @@ describe('LgInputFieldComponent', () => {
         <input lgInput />
         <lg-hint id="${hintId}">Hint</lg-hint>
         <lg-validation id="${errorId}">Error</lg-validation>
-        ${hasPrefix && `<span lgPrefix>${prefixText}</span>`}
-        ${hasSuffix && `<span lgSuffix>${suffixText}</span>`}
+        ${hasPrefix && `<span lgPrefix id="${prefixId}">${prefixText}</span>`}
+        ${hasSuffix && `<span lgSuffix id="${suffixId}">${suffixText}</span>`}
         </lg-input-field>
     `);
     fixture.detectChanges();
@@ -177,16 +180,30 @@ describe('LgInputFieldComponent', () => {
   });
 
   describe('suffixes', () => {
-    it('renders the suffix into the suffix wrapper', () => {
+    beforeEach(() => {
       renderComponent({ hasSuffix: true });
+    });
+
+    it('renders the suffix into the suffix wrapper', () => {
       expect(inputWrapperDebugElement.nativeElement.innerText).toContain(suffixText);
+    });
+
+    it('links the hint to the input field with the correct aria attributes', () => {
+      expect(inputDirectiveInstance.ariaDescribedBy).toContain(suffixId);
     });
   });
 
   describe('prefixes', () => {
-    it('renders the prefix into the prefix wrapper', () => {
+    beforeEach(() => {
       renderComponent({ hasPrefix: true });
+    });
+
+    it('renders the prefix into the prefix wrapper', () => {
       expect(inputWrapperDebugElement.nativeElement.innerText).toContain(prefixText);
+    });
+
+    it('links the hint to the input field with the correct aria attributes', () => {
+      expect(inputDirectiveInstance.ariaDescribedBy).toContain(prefixId);
     });
   });
 });
