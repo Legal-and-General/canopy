@@ -244,6 +244,7 @@ export const iconsArray: Array<iconSet.Icon> = [
   iconSet.lgIconSwitchFunds,
   iconSet.lgIconTag,
   iconSet.lgIconTime,
+  iconSet.lgIconTimeDelay,
   iconSet.lgIconTrash,
   iconSet.lgIconTwitter,
   iconSet.lgIconUnhappy,
