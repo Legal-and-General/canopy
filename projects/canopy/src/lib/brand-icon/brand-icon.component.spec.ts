@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { instance, mock, when } from 'ts-mockito';
 
@@ -10,19 +10,21 @@ describe('LgBrandIconComponent', () => {
   let fixture: ComponentFixture<LgBrandIconComponent>;
   let brandIconRegistryMock: LgBrandIconRegistry;
 
-  beforeEach(async(() => {
-    brandIconRegistryMock = mock(LgBrandIconRegistry);
+  beforeEach(
+    waitForAsync(() => {
+      brandIconRegistryMock = mock(LgBrandIconRegistry);
 
-    TestBed.configureTestingModule({
-      declarations: [LgBrandIconComponent],
-      providers: [
-        {
-          provide: LgBrandIconRegistry,
-          useFactory: () => instance(brandIconRegistryMock),
-        },
-      ],
-    }).compileComponents();
-  }));
+      TestBed.configureTestingModule({
+        declarations: [LgBrandIconComponent],
+        providers: [
+          {
+            provide: LgBrandIconRegistry,
+            useFactory: () => instance(brandIconRegistryMock),
+          },
+        ],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBrandIconComponent);

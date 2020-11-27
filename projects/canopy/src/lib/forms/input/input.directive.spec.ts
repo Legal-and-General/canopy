@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormControl,
   FormGroup,
@@ -36,25 +36,27 @@ describe('LgInputDirective', () => {
   let inputInstance: LgInputDirective;
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
-      declarations: [TestInputComponent],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
+        declarations: [TestInputComponent],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(TestInputComponent);
-    component = fixture.componentInstance;
+      fixture = TestBed.createComponent(TestInputComponent);
+      component = fixture.componentInstance;
 
-    inputDebugElement = fixture.debugElement.query(By.directive(LgInputDirective));
+      inputDebugElement = fixture.debugElement.query(By.directive(LgInputDirective));
 
-    inputInstance = inputDebugElement.injector.get<LgInputDirective>(LgInputDirective);
-  }));
+      inputInstance = inputDebugElement.injector.get<LgInputDirective>(LgInputDirective);
+    }),
+  );
 
   it('adds a unique name', () => {
     fixture.detectChanges();

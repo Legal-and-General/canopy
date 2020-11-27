@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
@@ -30,23 +30,25 @@ describe('LgInputFieldComponent', () => {
   const suffixText = 'suffix';
   const prefixText = 'prefix';
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        LgInputFieldComponent,
-        MockComponents(
-          LgInputDirective,
-          LgValidationComponent,
-          LgLabelComponent,
-          LgHintComponent,
-          LgButtonComponent,
-          LgSuffixDirective,
-          LgPrefixDirective,
-        ),
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          LgInputFieldComponent,
+          MockComponents(
+            LgInputDirective,
+            LgValidationComponent,
+            LgLabelComponent,
+            LgHintComponent,
+            LgButtonComponent,
+            LgSuffixDirective,
+            LgPrefixDirective,
+          ),
+        ],
+      }).compileComponents();
+    }),
+  );
 
   function renderComponent({ block = false, hasPrefix = false, hasSuffix = false }) {
     fixture = MockRender(`

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgSpinnerComponent } from '../spinner/spinner.component';
@@ -8,11 +8,13 @@ describe('LgButtonComponent', () => {
   let component: LgButtonComponent;
   let fixture: ComponentFixture<LgButtonComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgButtonComponent, LgSpinnerComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgButtonComponent, LgSpinnerComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgButtonComponent);

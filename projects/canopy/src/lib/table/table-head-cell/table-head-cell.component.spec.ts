@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MockRender, MockedComponentFixture } from 'ng-mocks';
 
@@ -8,11 +8,13 @@ describe('LgTableHeadCellComponent', () => {
   let component: any;
   let fixture: MockedComponentFixture<LgTableHeadCellComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgTableHeadCellComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgTableHeadCellComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = MockRender(`

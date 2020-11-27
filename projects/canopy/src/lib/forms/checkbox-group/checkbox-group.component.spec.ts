@@ -1,5 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormBuilder,
   FormGroup,
@@ -70,45 +70,49 @@ describe('LgCheckboxGroupComponent', () => {
   let component: TestCheckboxGroupComponent;
   let errorStateMatcherMock: LgErrorStateMatcher;
 
-  beforeEach(async(() => {
-    errorStateMatcherMock = mock(LgErrorStateMatcher);
+  beforeEach(
+    waitForAsync(() => {
+      errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        TestCheckboxGroupComponent,
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          TestCheckboxGroupComponent,
+          LgCheckboxGroupComponent,
+          LgToggleComponent,
+          MockComponents(LgValidationComponent, LgHintComponent, LgIconComponent),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestCheckboxGroupComponent);
+      component = fixture.componentInstance;
+
+      groupDebugElement = fixture.debugElement.query(
+        By.directive(LgCheckboxGroupComponent),
+      );
+      groupInstance = groupDebugElement.injector.get<LgCheckboxGroupComponent>(
         LgCheckboxGroupComponent,
-        LgToggleComponent,
-        MockComponents(LgValidationComponent, LgHintComponent, LgIconComponent),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+      );
 
-    fixture = TestBed.createComponent(TestCheckboxGroupComponent);
-    component = fixture.componentInstance;
+      hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
 
-    groupDebugElement = fixture.debugElement.query(
-      By.directive(LgCheckboxGroupComponent),
-    );
-    groupInstance = groupDebugElement.injector.get<LgCheckboxGroupComponent>(
-      LgCheckboxGroupComponent,
-    );
+      fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
 
-    hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
+      checkboxDebugElements = fixture.debugElement.queryAll(By.css('lg-toggle'));
 
-    fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
+      checkboxInstances = checkboxDebugElements.map(
+        (debugEl) => debugEl.componentInstance,
+      );
 
-    checkboxDebugElements = fixture.debugElement.queryAll(By.css('lg-toggle'));
-
-    checkboxInstances = checkboxDebugElements.map((debugEl) => debugEl.componentInstance);
-
-    fixture.detectChanges();
-  }));
+      fixture.detectChanges();
+    }),
+  );
 
   it('sets the correct variant based on the selector', () => {
     fixture.detectChanges();

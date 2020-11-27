@@ -1,5 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
@@ -36,18 +36,20 @@ describe('LgAccordionComponent', () => {
   let component: TestAccordionComponent;
   let fixture: ComponentFixture<TestAccordionComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        TestAccordionComponent,
-        LgAccordionComponent,
-        LgAccordionItemComponent,
-        LgAccordionItemContentDirective,
-        LgAccordionPanelHeadingComponent,
-        MockComponents(LgHeadingComponent, LgIconComponent),
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          TestAccordionComponent,
+          LgAccordionComponent,
+          LgAccordionItemComponent,
+          LgAccordionItemContentDirective,
+          LgAccordionPanelHeadingComponent,
+          MockComponents(LgHeadingComponent, LgIconComponent),
+        ],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestAccordionComponent);
