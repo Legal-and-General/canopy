@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MockComponent, MockRender } from 'ng-mocks';
 
@@ -14,15 +14,17 @@ describe('LgBreadcrumbComponent', () => {
   let breadcrumbDebugElement: DebugElement;
   let breadcrumbEl: HTMLElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        LgBreadcrumbComponent,
-        MockComponent(LgBreadcrumbItemComponent),
-        MockComponent(LgBreadcrumbItemEllipsisComponent),
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          LgBreadcrumbComponent,
+          MockComponent(LgBreadcrumbItemComponent),
+          MockComponent(LgBreadcrumbItemEllipsisComponent),
+        ],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBreadcrumbComponent);

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LgCardPrincipleDataPointValueComponent } from './card-principle-data-point-value.component';
 
@@ -6,11 +6,13 @@ describe('LgCardPrincipleDataPointValueComponent', () => {
   let component: LgCardPrincipleDataPointValueComponent;
   let fixture: ComponentFixture<LgCardPrincipleDataPointValueComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgCardPrincipleDataPointValueComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgCardPrincipleDataPointValueComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardPrincipleDataPointValueComponent);

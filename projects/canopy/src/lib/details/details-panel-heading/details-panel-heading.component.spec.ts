@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
@@ -13,14 +13,16 @@ describe('LgDetailsPanelHeadingComponent', () => {
   let fixture: ComponentFixture<LgDetailsPanelHeadingComponent>;
   let triggerElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        LgDetailsPanelHeadingComponent,
-        MockComponents(LgIconComponent, LgHeadingComponent),
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          LgDetailsPanelHeadingComponent,
+          MockComponents(LgIconComponent, LgHeadingComponent),
+        ],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgDetailsPanelHeadingComponent);
@@ -43,13 +45,16 @@ describe('LgDetailsPanelHeadingComponent', () => {
       expect(component.isActive).toBe(false);
     });
 
-    it('should emit toggleActive event', async(() => {
-      component.toggleActive
-        .pipe(take(1))
-        .subscribe((isActive) => expect(isActive).toBeFalsy());
-      component.isActive = true;
-      component.toggle();
-    }));
+    it(
+      'should emit toggleActive event',
+      waitForAsync(() => {
+        component.toggleActive
+          .pipe(take(1))
+          .subscribe((isActive) => expect(isActive).toBeFalsy());
+        component.isActive = true;
+        component.toggle();
+      }),
+    );
 
     it(`should set the 'active' class`, () => {
       expect(
@@ -84,13 +89,16 @@ describe('LgDetailsPanelHeadingComponent', () => {
       expect(component.isActive).toBe(true);
     });
 
-    it('should emit toggleActive event', async(() => {
-      component.toggleActive
-        .pipe(take(1))
-        .subscribe((isActive) => expect(isActive).toBeTruthy());
-      component.isActive = false;
-      component.toggle();
-    }));
+    it(
+      'should emit toggleActive event',
+      waitForAsync(() => {
+        component.toggleActive
+          .pipe(take(1))
+          .subscribe((isActive) => expect(isActive).toBeTruthy());
+        component.isActive = false;
+        component.toggle();
+      }),
+    );
 
     it('should remove the `active` class', () => {
       triggerElement.nativeElement.click();

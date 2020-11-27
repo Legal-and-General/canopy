@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgFooterComponent } from './footer.component';
@@ -15,11 +15,13 @@ describe('FooterComponent', () => {
   const text2 = 'test2';
   const href2 = 'https://b.c';
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgFooterComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgFooterComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgFooterComponent);

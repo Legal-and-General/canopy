@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
@@ -25,27 +25,29 @@ describe('LgSelectFieldComponent', () => {
 
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        LgSelectFieldComponent,
-        MockComponents(
-          LgSelectDirective,
-          LgValidationComponent,
-          LgLabelComponent,
-          LgIconComponent,
-          LgHintComponent,
-        ),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          LgSelectFieldComponent,
+          MockComponents(
+            LgSelectDirective,
+            LgValidationComponent,
+            LgLabelComponent,
+            LgIconComponent,
+            LgHintComponent,
+          ),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
+    }),
+  );
 
   function renderComponent({ block } = { block: false }) {
     fixture = MockRender(`

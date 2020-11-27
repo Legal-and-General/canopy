@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
@@ -11,15 +11,17 @@ describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
   let fixture: ComponentFixture<LgAlertComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgAlertComponent, MockComponents(LgIconComponent)],
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgAlertComponent, MockComponents(LgIconComponent)],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(LgAlertComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(LgAlertComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    }),
+  );
 
   it('should create', () => {
     expect(component).toBeTruthy();
