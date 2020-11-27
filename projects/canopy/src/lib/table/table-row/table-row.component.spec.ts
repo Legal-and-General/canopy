@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 
 import { MockComponents } from 'ng-mocks';
@@ -14,14 +14,16 @@ describe('LgTableRowComponent', () => {
   let fixture: ComponentFixture<LgTableRowComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        LgTableRowComponent,
-        MockComponents(LgTableCellComponent, LgTableRowToggleComponent),
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          LgTableRowComponent,
+          MockComponents(LgTableCellComponent, LgTableRowToggleComponent),
+        ],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableRowComponent);

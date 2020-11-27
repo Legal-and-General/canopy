@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -12,11 +12,13 @@ describe('LgTableRowToggleComponent', () => {
   let fixture: MockedComponentFixture<LgTableRowToggleComponent, any>;
   let debugElement: DebugElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgTableRowToggleComponent, MockComponent(LgIconComponent)],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgTableRowToggleComponent, MockComponent(LgIconComponent)],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = MockRender(`<lg-table-row-toggle></lg-table-row-toggle>`);

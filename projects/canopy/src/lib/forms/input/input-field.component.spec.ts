@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
@@ -35,31 +35,33 @@ describe('LgInputFieldComponent', () => {
   const suffixText = 'suffix';
   const prefixText = 'prefix';
 
-  beforeEach(async(() => {
-    errorStateMatcherMock = mock(LgErrorStateMatcher);
+  beforeEach(
+    waitForAsync(() => {
+      errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        LgInputFieldComponent,
-        MockComponents(
-          LgInputDirective,
-          LgValidationComponent,
-          LgLabelComponent,
-          LgHintComponent,
-          LgButtonComponent,
-          LgSuffixDirective,
-          LgPrefixDirective,
-        ),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
-  }));
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          LgInputFieldComponent,
+          MockComponents(
+            LgInputDirective,
+            LgValidationComponent,
+            LgLabelComponent,
+            LgHintComponent,
+            LgButtonComponent,
+            LgSuffixDirective,
+            LgPrefixDirective,
+          ),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
+    }),
+  );
 
   function renderComponent({
     block = false,
