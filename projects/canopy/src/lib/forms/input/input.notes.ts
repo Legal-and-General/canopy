@@ -31,7 +31,8 @@ The \`lgSuffix\` directive needs to be added to the button to place it in the co
 Only small size buttons should be placed in the input field. 
 There is an additional 'add-on' button variant for adding a button to the input field which inherits the button spacing but no background or border colours.
 
-Button suffix
+#### Button suffix
+
 ~~~html
 <lg-input-field>
   Name
@@ -42,7 +43,8 @@ Button suffix
 </lg-input-field>
 ~~~
 
-Icon Button suffix with add-on class
+#### Icon Button suffix with add-on class
+
 ~~~html
 <lg-input-field>
   Name
@@ -57,7 +59,8 @@ Icon Button suffix with add-on class
 
 Prefix and suffix text can be added to input fields using the \`lgSuffix\` and \`lgPrefix\` directive.
 
-Text prefix
+#### Text prefix
+
 ~~~html
 <lg-input-field>
   Name
@@ -66,7 +69,8 @@ Text prefix
 </lg-input-field>
 ~~~
 
-Text suffix
+#### Text suffix
+
 ~~~html
 <lg-input-field>
   Name
