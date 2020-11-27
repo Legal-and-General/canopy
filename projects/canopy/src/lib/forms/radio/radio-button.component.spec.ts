@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { anything, instance, mock, verify, when } from 'ts-mockito';
@@ -13,31 +13,33 @@ describe('LgRadioButtonComponent', () => {
   let errorStateMatcherMock: LgErrorStateMatcher;
   let radioGroupMock: LgRadioGroupComponent;
 
-  beforeEach(async(() => {
-    errorStateMatcherMock = mock(LgErrorStateMatcher);
-    radioGroupMock = mock(LgRadioGroupComponent);
-    when(radioGroupMock.name).thenReturn('color');
-    when(radioGroupMock.variant).thenReturn('segment');
+  beforeEach(
+    waitForAsync(() => {
+      errorStateMatcherMock = mock(LgErrorStateMatcher);
+      radioGroupMock = mock(LgRadioGroupComponent);
+      when(radioGroupMock.name).thenReturn('color');
+      when(radioGroupMock.variant).thenReturn('segment');
 
-    TestBed.configureTestingModule({
-      declarations: [LgRadioButtonComponent],
-      providers: [
-        {
-          provide: LgRadioGroupComponent,
-          useFactory: () => instance(radioGroupMock),
-        },
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+      TestBed.configureTestingModule({
+        declarations: [LgRadioButtonComponent],
+        providers: [
+          {
+            provide: LgRadioGroupComponent,
+            useFactory: () => instance(radioGroupMock),
+          },
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(LgRadioButtonComponent);
-    component = fixture.componentInstance;
+      fixture = TestBed.createComponent(LgRadioButtonComponent);
+      component = fixture.componentInstance;
 
-    fixture.detectChanges();
-  }));
+      fixture.detectChanges();
+    }),
+  );
 
   it('sets its name from the radio group name', () => {
     expect(component.name).toBe('color');

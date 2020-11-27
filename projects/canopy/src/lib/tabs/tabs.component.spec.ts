@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -24,20 +24,22 @@ describe('LgTabsComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        LgTabsComponent,
-        MockDirective(LgFocusDirective),
-        MockComponents(
-          LgTabItemComponent,
-          LgTabItemHeadingComponent,
-          LgTabItemContentComponent,
-          LgHeadingComponent,
-        ),
-      ],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [
+          LgTabsComponent,
+          MockDirective(LgFocusDirective),
+          MockComponents(
+            LgTabItemComponent,
+            LgTabItemHeadingComponent,
+            LgTabItemContentComponent,
+            LgHeadingComponent,
+          ),
+        ],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = MockRender(`

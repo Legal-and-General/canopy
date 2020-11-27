@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -15,11 +15,13 @@ describe('LgTabNavBarComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgTabNavBarComponent, LgTabNavBarLinkDirective],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgTabNavBarComponent, LgTabNavBarLinkDirective],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = MockRender(`

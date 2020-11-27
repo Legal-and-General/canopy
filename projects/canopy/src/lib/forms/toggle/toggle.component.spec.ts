@@ -1,5 +1,5 @@
 import { Component, DebugElement, Input } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormBuilder,
   FormGroup,
@@ -111,36 +111,38 @@ describe('LgToggleComponent', () => {
 
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        TestToggleComponent,
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          TestToggleComponent,
+          LgToggleComponent,
+          MockComponents(LgValidationComponent, LgIconComponent),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestToggleComponent);
+      fixture.detectChanges();
+      component = fixture.componentInstance;
+
+      toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
+
+      toggleInstance = toggleDebugElement.injector.get<LgToggleComponent>(
         LgToggleComponent,
-        MockComponents(LgValidationComponent, LgIconComponent),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+      );
 
-    fixture = TestBed.createComponent(TestToggleComponent);
-    fixture.detectChanges();
-    component = fixture.componentInstance;
-
-    toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
-
-    toggleInstance = toggleDebugElement.injector.get<LgToggleComponent>(
-      LgToggleComponent,
-    );
-
-    inputDebugElement = fixture.debugElement.query(By.css('.lg-toggle__input'));
-    inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
-    fixture.detectChanges();
-  }));
+      inputDebugElement = fixture.debugElement.query(By.css('.lg-toggle__input'));
+      inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
+      fixture.detectChanges();
+    }),
+  );
 
   it('sets a unique name for the toggle button', () => {
     expect(
@@ -252,34 +254,36 @@ describe('LgToggleComponent selector variant', () => {
 
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        TestToggleVariantSelectorComponent,
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          TestToggleVariantSelectorComponent,
+          LgToggleComponent,
+          MockComponents(LgValidationComponent, LgIconComponent),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestToggleVariantSelectorComponent);
+      fixture.detectChanges();
+
+      toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
+
+      toggleInstance = toggleDebugElement.injector.get<LgToggleComponent>(
         LgToggleComponent,
-        MockComponents(LgValidationComponent, LgIconComponent),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+      );
 
-    fixture = TestBed.createComponent(TestToggleVariantSelectorComponent);
-    fixture.detectChanges();
-
-    toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
-
-    toggleInstance = toggleDebugElement.injector.get<LgToggleComponent>(
-      LgToggleComponent,
-    );
-
-    inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
-    fixture.detectChanges();
-  }));
+      inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
+      fixture.detectChanges();
+    }),
+  );
 
   it('sets the correct variant based on the selector', () => {
     expect(toggleInstance.variant).toBe('switch');

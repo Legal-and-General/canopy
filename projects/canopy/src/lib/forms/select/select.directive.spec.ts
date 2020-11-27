@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormControl,
   FormGroup,
@@ -38,23 +38,25 @@ describe('LgSelectDirective', () => {
   let selectDebugElement: DebugElement;
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
-      declarations: [TestSelectComponent],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
+        declarations: [TestSelectComponent],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(TestSelectComponent);
-    component = fixture.componentInstance;
+      fixture = TestBed.createComponent(TestSelectComponent);
+      component = fixture.componentInstance;
 
-    selectDebugElement = fixture.debugElement.query(By.directive(LgSelectDirective));
-  }));
+      selectDebugElement = fixture.debugElement.query(By.directive(LgSelectDirective));
+    }),
+  );
 
   it('adds a unique name', () => {
     fixture.detectChanges();

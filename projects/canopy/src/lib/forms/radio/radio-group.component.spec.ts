@@ -1,5 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormBuilder,
   FormGroup,
@@ -69,39 +69,40 @@ describe('LgRadioGroupComponent', () => {
   let component: TestRadioGroupComponent;
   let errorStateMatcherMock: LgErrorStateMatcher;
 
-  beforeEach(async(() => {
-    errorStateMatcherMock = mock(LgErrorStateMatcher);
+  beforeEach(
+    waitForAsync(() => {
+      errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        TestRadioGroupComponent,
-        LgRadioGroupComponent,
-        LgRadioButtonComponent,
-        MockComponents(LgValidationComponent, LgHintComponent),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          TestRadioGroupComponent,
+          LgRadioGroupComponent,
+          LgRadioButtonComponent,
+          MockComponents(LgValidationComponent, LgHintComponent),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
 
     fixture = TestBed.createComponent(TestRadioGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
-    groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
-      LgRadioGroupComponent,
-    );
+      groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
+      groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
+        LgRadioGroupComponent,
+      );
 
-    hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
+      hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
 
-    fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
+      fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
 
-    radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
+      radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
 
     radioInstances = radioDebugElements.map((debugEl) => debugEl.componentInstance);
   }));
