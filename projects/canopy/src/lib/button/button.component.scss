@@ -91,10 +91,7 @@
     padding: var(--btn-icon-only-padding);
 
     .lg-btn__text {
-      // retain height but not width
-      visibility: hidden;
-      white-space: nowrap;
-      width: 0;
+      @include lg-visually-hidden;
     }
 
     .lg-icon {
