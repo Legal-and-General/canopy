@@ -29,7 +29,7 @@
   border: var(--border-width) solid var(--toggle-border-color);
   margin: var(--space-xxxs) var(--space-sm) auto 0;
   font-size: 0.8rem;
-  color: var(--toggle-checkbox-color);
+  color: transparent;
 
   &.lg-icon > svg {
     display: inline-block;
