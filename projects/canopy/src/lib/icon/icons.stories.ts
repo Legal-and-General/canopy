@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
-import { withKnobs } from '@storybook/addon-knobs';
+import { select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgIconComponent } from './icon.component';
@@ -273,7 +274,7 @@ export const iconsArray: Array<iconSet.Icon> = [
   selector: 'lg-swatch-icon',
   template: `
     <div class="swatch" *ngFor="let icon of icons">
-      <lg-icon class="swatch__svg" [name]="icon.name"></lg-icon>
+      <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar"></lg-icon>
       <span class="swatch__name">{{ icon.name }}</span>
     </div>
   `,
@@ -295,11 +296,22 @@ export const iconsArray: Array<iconSet.Icon> = [
     `,
   ],
 })
-class SwatchIconComponent {
-  icons = iconsArray;
+class SwatchIconComponent implements OnChanges {
+  @Input() colour: string;
 
-  constructor(private registry: LgIconRegistry) {
+  icons = iconsArray;
+  colourVar: SafeStyle;
+
+  constructor(private registry: LgIconRegistry, private sanitizer: DomSanitizer) {
     this.registry.registerIcons(this.icons);
+  }
+
+  ngOnChanges({ colour }: SimpleChanges) {
+    if (colour && colour.currentValue) {
+      this.colourVar = this.sanitizer.bypassSecurityTrustStyle(
+        `color: var(${colour.currentValue})`,
+      );
+    }
   }
 }
 
@@ -319,8 +331,18 @@ export default {
   },
 };
 
+const colours = [
+  '--color-charcoal',
+  '--color-super-blue',
+  '--color-leafy-green-dark',
+  '--color-poppy-red-dark',
+];
+
 export const standard = () => ({
   template: `
-    <lg-swatch-icon></lg-swatch-icon>
+    <lg-swatch-icon [colour]="colour"></lg-swatch-icon>
   `,
+  props: {
+    colour: select('colour examples', colours, '--color-charcoal'),
+  },
 });
