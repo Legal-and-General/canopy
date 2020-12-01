@@ -1,5 +1,10 @@
 {
   "plugins": [
+    { "removeAttrs":
+      {
+        "attrs": [ "fill", "path:fill" ]
+      }
+    },
     { "cleanupAttrs": true },
     { "removeDoctype": true },
     { "removeXMLProcInst": true },
