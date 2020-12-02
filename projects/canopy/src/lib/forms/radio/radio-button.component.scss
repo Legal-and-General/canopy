@@ -37,6 +37,7 @@
     display: inline-block;
     height: var(--toggle-outer-height);
     width: var(--toggle-outer-width);
+    background-color: var(--color-white);
     border-radius: 50%;
     border: var(--border-width) solid var(--border-color);
     margin: auto var(--space-sm) auto 0;

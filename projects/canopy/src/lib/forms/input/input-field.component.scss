@@ -10,7 +10,6 @@
 
   display: block;
   margin-bottom: var(--component-margin);
-  background-color: var(--color-white);
   line-height: var(--line-height-sm);
 
   &__prefix,
@@ -58,6 +57,7 @@
   &__inputs {
     display: inline-flex;
     align-items: center;
+    background-color: var(--color-white);
     border: solid var(--border-width) var(--border-color);
     border-radius: var(--border-radius-sm);
 

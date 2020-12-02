@@ -4,7 +4,6 @@
 .lg-select-field {
   display: block;
   margin-bottom: var(--component-margin);
-  background-color: var(--color-white);
   line-height: var(--line-height-sm);
 }
 
@@ -13,9 +12,10 @@
 }
 
 .lg-select-field__inner {
-  position: relative;
   display: inline-block;
+  background-color: var(--color-white);
   max-width: 100%;
+  position: relative;
 
   &--block {
     width: 100%;
