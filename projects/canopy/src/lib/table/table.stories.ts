@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 
-import { object, select, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { AlignmentOptions } from './table.interface';
@@ -22,7 +22,7 @@ interface TableStoryItem {
           <th scope="col" lg-table-head-cell>
             <span class="lg-visually-hidden">Toggle</span>
           </th>
-          <th lg-table-head-cell>Author</th>
+          <th lg-table-head-cell [showLabel]="showAuthorLabel">Author</th>
           <th lg-table-head-cell>Book</th>
           <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
         </tr>
@@ -59,6 +59,7 @@ export class StoryTableDetailComponent {
   @Input() books: Array<TableStoryItem> = [];
 
   @Input() alignPublishColumn: AlignmentOptions;
+  @Input() showAuthorLabel: boolean;
 
   @Input() expandedRows: Array<number> = [];
 
@@ -108,7 +109,7 @@ export const standard = () => ({
     <table lg-table>
       <thead lg-table-head>
         <tr lg-table-row>
-          <th lg-table-head-cell>Author</th>
+          <th lg-table-head-cell [showLabel]="showAuthorLabel">Author</th>
           <th lg-table-head-cell [align]="alignTitleColumn">Title</th>
           <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
         </tr>
@@ -125,7 +126,7 @@ export const standard = () => ({
   `,
 
   props: {
-    books: object('Books', getDefultTableContent(), 'lg-table'),
+    books: object('Books', getDefaultTableContent(), 'lg-table'),
     alignTitleColumn: select(
       'Align Title column',
       [AlignmentOptions.End, AlignmentOptions.Start],
@@ -136,24 +137,26 @@ export const standard = () => ({
       [AlignmentOptions.End, AlignmentOptions.Start],
       AlignmentOptions.End,
     ),
+    showAuthorLabel: boolean('Display author label on mobile', false, 'lg-table'),
   },
 });
 
 export const detail = () => ({
-  template: `<story-table-detail [books]="books" [alignPublishColumn]="alignPublishColumn"></story-table-detail>`,
+  template: `<story-table-detail [books]="books" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel"></story-table-detail>`,
 
   props: {
-    books: object('Books', getDefultTableContent(), 'lg-table'),
+    books: object('Books', getDefaultTableContent(), 'lg-table'),
     alignPublishColumn: select(
       'Published column alignment',
       [AlignmentOptions.Start, AlignmentOptions.End],
       AlignmentOptions.End,
       'lg-table',
     ),
+    showAuthorLabel: boolean('Display author label on mobile', false, 'lg-table'),
   },
 });
 
-function getDefultTableContent(): Array<TableStoryItem> {
+function getDefaultTableContent(): Array<TableStoryItem> {
   return [
     {
       author: 'Orhan Pamuk',

@@ -6,4 +6,5 @@ export enum AlignmentOptions {
 export interface TableColumn {
   label: string;
   align: AlignmentOptions;
+  showLabel: boolean;
 }

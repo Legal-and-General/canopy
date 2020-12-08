@@ -63,6 +63,7 @@ export class LgTableComponent implements AfterContentChecked {
       this.columns.set(cellIndex, {
         align: cell.align,
         label: cell.element.nativeElement.innerHTML,
+        showLabel: cell.showLabel,
       });
     });
   }
@@ -83,8 +84,11 @@ export class LgTableComponent implements AfterContentChecked {
         row.bodyCells
           .filter((cell) => !cell.expandableDetail)
           .forEach((cell, cellIndex) => {
-            cell.align = this.columns.get(cellIndex).align;
-            cell.label.nativeElement.innerHTML = this.columns.get(cellIndex).label;
+            const { align, showLabel, label } = this.columns.get(cellIndex);
+
+            cell.align = align;
+            cell.showLabel = showLabel;
+            cell.label.nativeElement.innerHTML = label;
             cell.tableId = this.id;
           });
 
