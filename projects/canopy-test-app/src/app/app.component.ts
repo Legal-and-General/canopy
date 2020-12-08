@@ -58,6 +58,7 @@ export class AppComponent {
       checkbox: [''],
       switch: [''],
       date: [''],
+      sortCode: ['']
     });
 
     this.tabs = [

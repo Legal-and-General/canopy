@@ -170,6 +170,14 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-date-field>
 
+      <lg-sort-code formControlName="sortCode">
+        Sort Code
+        <lg-hint>Must be 6 digits long</lg-hint>
+        <lg-validation *ngIf="isControlInvalid(sortCode, validationForm)">
+          Your sort code should be a 6 digit number
+        </lg-validation>
+      </lg-sort-code>
+
       <button lg-button type="submit" variant="solid-primary">Submit</button>
     </form>
   `,
@@ -178,6 +186,10 @@ class ReactiveFormComponent {
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
+
+  get sortCode() {
+    return this.form.get('sortCode');
+  }
 
   get date() {
     return this.form.get('date');
@@ -218,6 +230,7 @@ class ReactiveFormComponent {
       checkbox: ['', [Validators.requiredTrue]],
       switch: ['', [Validators.requiredTrue]],
       date: ['', [Validators.required, pastDateValidator()]],
+      sortCode: ['', [Validators.required]],
     });
   }
 

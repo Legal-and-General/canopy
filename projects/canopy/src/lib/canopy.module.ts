@@ -12,6 +12,7 @@ import { LgDetailsModule } from './details/details.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
 import { LgFocusModule } from './focus/focus.module';
 import { LgFooterModule } from './footer/footer.module';
+import { LgSortCodeModule } from './forms/sort-code/sort-code.module';
 import { LgFormsModule } from './forms/forms.module';
 import { LgGridModule } from './grid/grid.module';
 import { LgHeaderModule } from './header/header.module';
@@ -52,6 +53,7 @@ const modules = [
   LgPrefixModule,
   LgQuickActionModule,
   LgSeparatorModule,
+  LgSortCodeModule,
   LgSpacingModule,
   LgSpinnerModule,
   LgSuffixModule,
