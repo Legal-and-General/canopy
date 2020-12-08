@@ -91,7 +91,19 @@ export class LgTableCellComponent {
     return this._align;
   }
 
+  set showLabel(showLabel: boolean) {
+    this._showLabel = showLabel;
+
+    this.cd.detectChanges();
+  }
+
+  get showLabel() {
+    return this._showLabel;
+  }
+
   private _align: AlignmentOptions = AlignmentOptions.Start;
+
+  private _showLabel = true;
 
   private _columnLabel = '';
 
