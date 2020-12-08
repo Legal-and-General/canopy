@@ -1,9 +1,17 @@
-<span #label aria-hidden="true" class="lg-table-cell__label">{{ columnLabel }}</span>
+<span
+  #label
+  [ngClass]="{
+    'lg-visually-hidden': !showLabel
+  }"
+  aria-hidden="true"
+  class="lg-table-cell__label"
+  >{{ columnLabel }}
+</span>
 <div
   #content
-  class="lg-table-cell__content"
   [ngClass]="{
-    'lg-table-cell__content--align-end': align === alignOptions.End
+    'lg-table-cell__content--align-end': align === alignOptions.End,
+    'lg-table-cell__content': showLabel
   }"
 >
   <ng-content></ng-content>
