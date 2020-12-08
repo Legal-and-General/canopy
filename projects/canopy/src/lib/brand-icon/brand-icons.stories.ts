@@ -25,6 +25,7 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
   brandIconSet.lgBrandIconThumbsUp,
   brandIconSet.lgBrandIconVideoGuides,
   brandIconSet.lgBrandIconSurvey,
+  brandIconSet.lgBrandIconWarning,
 ];
 
 @Component({
@@ -108,6 +109,7 @@ const colours = [
   '--color-super-blue',
   '--color-lily-green',
   '--color-shocking-pink',
+  '--color-poppy-red-dark',
 ];
 
 export const standard = () => ({
