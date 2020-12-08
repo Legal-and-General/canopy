@@ -1,0 +1,73 @@
+<fieldset [attr.aria-describedby]="ariaDescribedBy">
+  <legend lg-label [id]="labelId">
+    <ng-content></ng-content>
+  </legend>
+
+  <ng-content select="lg-hint"></ng-content>
+  <div
+    class="lg-sort-code__fields"
+    [formGroup]="sortCodeFormGroup"
+    #sortCodeFormDirective="ngForm"
+  >
+    <div class="lg-sort-code__input">
+      <label lg-label class="lg-visually-hidden" [for]="firstId"
+        >First two digits of your sort code</label
+      >
+
+      <lg-input-field lgMarginBottom="none">
+        <input
+          lgInput
+          [id]="firstId"
+          (blur)="onBlur()"
+          (input)="first.setValue($event.target.value)"
+          formControlName="first"
+          inputmode="numeric"
+          maxlength="2"
+          placeholder="00"
+          size="2"
+          type="text"
+        />
+      </lg-input-field>
+    </div>
+    <div class="lg-sort-code__input">
+      <label lg-label class="lg-visually-hidden" [for]="secondId"
+        >Second two digits of your sort code</label
+      >
+      <lg-input-field lgMarginBottom="none">
+        <input
+          lgInput
+          [id]="secondId"
+          (blur)="onBlur()"
+          (input)="second.setValue($event.target.value)"
+          formControlName="second"
+          inputmode="numeric"
+          maxlength="2"
+          placeholder="00"
+          size="2"
+          type="text"
+        />
+      </lg-input-field>
+    </div>
+    <div class="lg-sort-code__input">
+      <label lg-label class="lg-visually-hidden" [for]="thirdId"
+        >Third two digits of your sort code</label
+      >
+      <lg-input-field lgMarginBottom="none">
+        <input
+          lgInput
+          [id]="thirdId"
+          (blur)="onBlur()"
+          (input)="third.setValue($event.target.value)"
+          formControlName="third"
+          inputmode="numeric"
+          maxlength="2"
+          placeholder="00"
+          size="2"
+          type="text"
+        />
+      </lg-input-field>
+    </div>
+  </div>
+
+  <ng-content select="lg-validation"></ng-content>
+</fieldset>
