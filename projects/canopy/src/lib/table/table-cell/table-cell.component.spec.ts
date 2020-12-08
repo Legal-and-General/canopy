@@ -70,14 +70,52 @@ describe('LgTableCellComponent', () => {
     });
   });
 
+  describe('when showLabel is set to true', () => {
+    beforeEach(() => {
+      component.showLabel = true;
+      fixture.detectChanges();
+    });
+
+    it('should not set the lg-visually-hidden class', () => {
+      const labelElement = debugElement.query(By.css('.lg-table-cell__label'));
+      expect(labelElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-visually-hidden',
+      );
+    });
+
+    it('should set the content class', () => {
+      const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
+      expect(contentElement.nativeElement).toBeDefined();
+    });
+  });
+
+  describe('when showLabel is set to false', () => {
+    beforeEach(() => {
+      component.showLabel = false;
+      fixture.detectChanges();
+    });
+
+    it('should set the lg-visually-hidden class', () => {
+      const labelElement = debugElement.query(By.css('.lg-table-cell__label'));
+      expect(labelElement.nativeElement.getAttribute('class')).toContain(
+        'lg-visually-hidden',
+      );
+    });
+
+    it('should not set the content class', () => {
+      const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
+      expect(contentElement).toBe(null);
+    });
+  });
+
   describe('when there is a expandable detail', () => {
     beforeEach(() => {
-      fixture = MockRender(`
+      fixture = (MockRender(`
         <td lg-table-cell>
           <lg-table-expanded-detail>
           </lg-table-expanded-detail>
         </td>
-      `);
+      `) as unknown) as ComponentFixture<LgTableCellComponent>;
     });
 
     it('should set the expanding detail class', () => {
