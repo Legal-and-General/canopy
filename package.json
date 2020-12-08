@@ -87,7 +87,7 @@
     "color-convert": "^2.0.1",
     "commitizen": "^4.2.1",
     "copy-webpack-plugin": "^6.0.3",
-    "css-vars-ponyfill": "^2.3.2",
+    "css-vars-ponyfill": "^2.4.2",
     "cz-conventional-changelog": "^3.2.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^9.0.1",
