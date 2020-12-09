@@ -25,6 +25,7 @@ export class LgTableHeadCellComponent {
   }
 
   @Input() align: AlignmentOptions = AlignmentOptions.Start;
+  @Input() showLabel = true;
 
   constructor(public element: ElementRef) {}
 }

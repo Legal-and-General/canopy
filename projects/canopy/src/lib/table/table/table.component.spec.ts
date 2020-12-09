@@ -170,6 +170,70 @@ describe('TableComponent', () => {
     });
   });
 
+  describe('showLabel setting', () => {
+    describe('when showLabel is true', () => {
+      beforeEach(() => {
+        fixture = MockRender(getShowLabelMockRender(), {
+          showLabel: true,
+        });
+        debugElement = fixture.debugElement;
+        tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+        fixture.detectChanges();
+      });
+
+      it('should add the lg-table-cell__content class to the table cell', () => {
+        const [titleCell] = tableDebugElement.queryAll(
+          By.directive(LgTableCellComponent),
+        );
+
+        expect(titleCell.query(By.css('.lg-table-cell__content'))).toBeDefined();
+      });
+
+      it('should not add the lg-visually-hidden class to the label', () => {
+        const [titleCell] = tableDebugElement.queryAll(
+          By.directive(LgTableCellComponent),
+        );
+
+        expect(
+          titleCell
+            .query(By.css('.lg-table-cell__label'))
+            .nativeElement.getAttribute('class'),
+        ).not.toContain('lg-visually-hidden');
+      });
+    });
+
+    describe('when showLabel is false', () => {
+      beforeEach(() => {
+        fixture = MockRender(getShowLabelMockRender(), {
+          showLabel: false,
+        });
+        debugElement = fixture.debugElement;
+        tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+        fixture.detectChanges();
+      });
+
+      it('should not add the lg-table-cell__content class to the table cell', () => {
+        const [titleCell] = tableDebugElement.queryAll(
+          By.directive(LgTableCellComponent),
+        );
+
+        expect(titleCell.query(By.css('.lg-table-cell__content'))).toBe(null);
+      });
+
+      it('should add the lg-visually-hidden class to the label', () => {
+        const [titleCell] = tableDebugElement.queryAll(
+          By.directive(LgTableCellComponent),
+        );
+
+        expect(
+          titleCell
+            .query(By.css('.lg-table-cell__label'))
+            .nativeElement.getAttribute('class'),
+        ).toContain('lg-visually-hidden');
+      });
+    });
+  });
+
   describe('when there is an expanded detail', () => {
     let headerRow: DebugElement;
     let bodyRow: DebugElement;
@@ -264,6 +328,23 @@ describe('TableComponent', () => {
       expect(clickSpy).toHaveBeenCalledWith(0);
     });
   });
+
+  function getShowLabelMockRender() {
+    return `
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell [showLabel]="showLabel">Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
 
   function getAlignmentMockRender() {
     return `
