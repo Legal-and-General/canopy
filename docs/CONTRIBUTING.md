@@ -61,6 +61,8 @@ Be particularly aware of any changes which may be deemed a breaking change. Refe
 
 The format for breaking changes is outlined on the [convention commit docs](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#commit-message-with-description-and-breaking-change-in-body)
 
+Whenever introducing a breaking change consider using the `next` branch. Refer to the [next docs](./NEXT_BRANCH.md).
+
 ### Commit message examples
 
 Fix

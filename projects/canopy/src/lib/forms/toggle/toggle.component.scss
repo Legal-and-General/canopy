@@ -26,10 +26,11 @@
 }
 
 .lg-toggle__label > .lg-toggle__checkbox {
+  background-color: var(--color-white);
   border: var(--border-width) solid var(--toggle-border-color);
-  margin: var(--space-xxxs) var(--space-sm) auto 0;
-  font-size: 0.8rem;
   color: transparent;
+  font-size: 0.8rem;
+  margin: var(--space-xxxs) var(--space-sm) auto 0;
 
   &.lg-icon > svg {
     display: inline-block;
