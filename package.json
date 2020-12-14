@@ -64,7 +64,7 @@
     "@invisionapp/dsm-storybook": "0.0.136",
     "@semantic-release/github": "^7.1.1",
     "@semantic-release/npm": "^7.0.6",
-    "@storybook/addon-a11y": "^5.3.19",
+    "@storybook/addon-a11y": "^6.1.11",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-backgrounds": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
