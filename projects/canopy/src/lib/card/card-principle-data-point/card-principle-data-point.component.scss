@@ -6,5 +6,6 @@
   @include lg-breakpoint('md') {
     display: flex;
     flex-direction: column;
+    text-align: right;
   }
 }

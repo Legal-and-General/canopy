@@ -22,7 +22,9 @@ e.g. Apply an xxl margin to the bottom
 
 ~~~html
 <lg-card lgMarginBottom="xxl">
-  Your content
+  <lg-card-content>
+    Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
@@ -30,7 +32,9 @@ e.g. Apply an sm margin to the left and right
 
 ~~~html
 <lg-card lgMarginLeft="sm" lgMarginRight="sm">
-  Your content
+  <lg-card-content>
+    Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
@@ -46,7 +50,9 @@ e.g. Apply an lg margin to both the left and the right
 
 ~~~html
 <lg-card lgMarginHorizontal="lg">
+  <lg-card-content>
   Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
@@ -54,7 +60,9 @@ e.g. Apply an lg margin to both the top and the bottom
 
 ~~~html
 <lg-card lgMarginVertical="lg">
+  <lg-card-content>
   Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
