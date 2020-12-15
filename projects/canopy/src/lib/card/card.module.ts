@@ -13,11 +13,13 @@ import { LgCardTitleComponent } from './card-title/card-title.component';
 import { LgCardComponent } from './card.component';
 
 import { LgHeadingModule } from '../heading/heading.module';
+import { LgCardFooterComponent } from './card-footer/card-footer.component';
 
 const components = [
   LgCardComponent,
   LgCardHeaderComponent,
   LgCardTitleComponent,
+  LgCardFooterComponent,
   LgCardSubtitleComponent,
   LgCardPrincipleDataPointComponent,
   LgCardPrincipleDataPointLabelComponent,

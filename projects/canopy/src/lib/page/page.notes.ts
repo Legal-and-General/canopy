@@ -28,8 +28,8 @@ and in your HTML:
           lgColLg="6"
           lgColLgOffset="3"
         >
-        <lg-card lgMarginHorizontal="none">{{card1Content}}</lg-card>
-        <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1Content}}</lg-card-content></lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>
       </div>
     </div>
   </div>
