@@ -6,6 +6,8 @@ import { MockComponent, MockRender } from 'ng-mocks';
 import { LgCardContentComponent } from './card-content/card-content.component';
 import { LgCardHeaderComponent } from './card-header/card-header.component';
 import { LgCardComponent } from './card.component';
+import { LgCardTopAreaComponent } from './card-top-area/card-top-area.component';
+import { LgCardBottomAreaComponent } from './card-bottom-area/card-bottom-area.component';
 
 describe('LgCardComponent', () => {
   let component: LgCardComponent;
@@ -19,6 +21,8 @@ describe('LgCardComponent', () => {
         LgCardComponent,
         MockComponent(LgCardHeaderComponent),
         MockComponent(LgCardContentComponent),
+        MockComponent(LgCardTopAreaComponent),
+        MockComponent(LgCardBottomAreaComponent),
       ],
     }).compileComponents();
   }));
@@ -86,6 +90,34 @@ describe('LgCardComponent', () => {
 
     it('should set show border to true', () => {
       expect(component.lgCardHeaderComponent.hasContent).toBe(true);
+    });
+  });
+
+  describe('when there is lg-card-top-area and lg-card-bottom-area', () => {
+    beforeEach(() => {
+      const localFixture = MockRender(`
+        <lg-card>
+         <lg-card-top-area>Top</lg-card-top-area>
+         <lg-card-bottom-area>Bottom</lg-card-bottom-area>
+        </lg-card>
+      `);
+
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
+      localFixture.detectChanges();
+    });
+
+    it('should have the default class for form journey', () => {
+      expect(el.getAttribute('class')).toContain('lg-card__form-journey');
+    });
+
+    it('should expect top area to render', () => {
+      expect(component.LgCardTopAreaComponent).toBeDefined();
+    });
+
+    it('should expect bottom area to render', () => {
+      expect(component.LgCardBottomAreaComponent).toBeDefined();
     });
   });
 });

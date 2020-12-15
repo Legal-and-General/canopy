@@ -52,6 +52,47 @@ or for a Product card:
 </lg-card>
 ~~~
 
+or for a Form Journey card:
+
+~~~html
+<lg-card lgPadding="none">
+  <lg-card-top-area lgPadding="sm" lgPaddingBottom="xs">
+    <lg-breadcrumb lgMarginBottom="none">
+      <lg-breadcrumb-item>
+        <a href="#">
+          <lg-icon [name]="'chevron-left'"></lg-icon>
+          Back
+        </a>
+      </lg-breadcrumb-item>
+    </lg-breadcrumb>
+  </lg-card-top-area>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+        <lg-card-header>
+          <lg-card-title headingLevel="4">
+          {{ title }}
+          </lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <p>{{cardContent}}</p>
+          <lg-input-field>
+            {{ label }}
+            <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+            <input lgInput formControlName="accountNumber"/>
+          </lg-input-field>
+        </lg-card-content>
+      </div>
+    </div>
+  </div>
+  <lg-card-bottom-area>
+    <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>
+    <button lg-button type="submit" variant="solid-primary">Confirm</button>
+    <p lgPaddingBottom="md">{{ policy }}</p>
+  </lg-card-bottom-area>
+</lg-card>
+~~~
+
 ### Inputs
 
 Content projection slots
@@ -90,6 +131,12 @@ This is where the date for the data point should be projected. It should be loca
 ### LgCardContent
 This is the secondary layout section of the card component, it is used to contain secondary information.
 
+### LgCardTopArea
+This is the top area layout section of the card component, it is used to contain breadcrumbs or back button references.
+
+### LgCardBottomArea
+This is the bottom area layout section of the card component, it is used to contain call to action buttons as well as messages or hints.
+
 ### Using only the SCSS files
 Generate the markup as show in the example below, no current modifiers.
 
@@ -102,6 +149,9 @@ Generate the markup as show in the example below, no current modifiers.
 | \`\`lg-card-principle-data-label\`\` | Adds styles to the principle-data-label element |
 | \`\`lg-card-principle-data-value\`\` | Adds styles to the principle-data-value element |
 | \`\`lg-card-principle-data-date\`\` | Adds styles to the principle-data-date element |
+| \`\`lg-card-top-area\`\` | Adds styles to the top area layout element |
+| \`\`lg-card-bottom-area\`\` | Adds styles to the top area layout element |
+| \`\`lg-card__form-journey \`\` | Adds the 'form-journey' styles to the outer card element |
 
 #### Examples:
 ~~~html

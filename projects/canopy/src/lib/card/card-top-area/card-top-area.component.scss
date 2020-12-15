@@ -1,0 +1,7 @@
+@import '../../../styles/mixins.scss';
+
+.lg-card-top-area {
+  display: block;
+  border-bottom: solid var(--border-width) var(--card-title-border-color);
+  margin-bottom: var(--space-lg);
+}

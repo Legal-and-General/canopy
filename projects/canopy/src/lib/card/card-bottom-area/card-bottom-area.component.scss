@@ -1,0 +1,11 @@
+@import '../../../styles/mixins.scss';
+
+.lg-card-bottom-area {
+  display: block;
+  border-top: solid var(--border-width) var(--card-title-border-color);
+  padding: var(--space-lg) var(--space-xs) 0 var(--space-xs);
+
+  @include lg-breakpoint('md') {
+    padding: var(--space-lg) var(--space-xxxl) var(--space-xxxs);
+  }
+}
