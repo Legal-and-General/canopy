@@ -102,20 +102,25 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     this._validationElement = element;
   }
 
-  _value: Array<string> = null;
+  _value: Array<string> = [];
   @Input()
   get value() {
     return this._value;
   }
-  set value(value) {
+  set value(value: Array<string>) {
     this._value = value;
     this.onChange(value);
+
     if (this.checkboxes) {
-      this.checkboxes.forEach((checkbox) => {
-        if (value.includes(checkbox.value.toString())) {
-          checkbox.checked = true;
-        }
-      });
+      if (value.length > 0) {
+        this.checkboxes.forEach((checkbox) => {
+          if (value.includes(checkbox.value.toString())) {
+            checkbox.checked = true;
+          }
+        });
+      } else {
+        this.checkboxes.forEach((checkbox) => (checkbox.checked = false));
+      }
     }
   }
 
