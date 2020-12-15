@@ -25,6 +25,7 @@ import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgSortCodeComponent } from './sort-code.component';
 import { LgInputModule } from '../input';
+import { LgButtonComponent } from '../../button/button.component';
 
 const errorId = 'test-error-id';
 const hintId = 'test-hint-id';
@@ -33,12 +34,13 @@ const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
 @Component({
   template: `
-    <form (ngSubmit)="submit()" [formGroup]="form" #testForm="ngForm">
+    <form [formGroup]="form" #testForm="ngForm">
       <lg-sort-code formControlName="sortCode">
         Sort Code
         <lg-hint id="${hintId}">Must be 6 digits long</lg-hint>
         <lg-validation id="${errorId}">Error</lg-validation>
       </lg-sort-code>
+      <button lg-button type="submit" variant="solid-primary">Submit</button>
     </form>
   `,
 })
@@ -91,7 +93,7 @@ describe('SortCodeComponent', () => {
         declarations: [
           TestSortCodeComponent,
           LgSortCodeComponent,
-          MockComponents(LgHintComponent, LgValidationComponent),
+          MockComponents(LgHintComponent, LgValidationComponent, LgButtonComponent),
         ],
         providers: [
           {
@@ -293,6 +295,27 @@ describe('SortCodeComponent', () => {
       expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
         invalidField: true,
       });
+    });
+  });
+
+  describe('when parent form is submitted', () => {
+    let sortCodeComponent: LgSortCodeComponent;
+
+    beforeEach(() => {
+      sortCodeDebugElement = fixture.debugElement.query(
+        By.directive(LgSortCodeComponent),
+      );
+      sortCodeComponent = sortCodeDebugElement.componentInstance;
+    });
+
+    it('should submit the form group', () => {
+      const spy = spyOn(sortCodeComponent.formGroupDirective, 'onSubmit');
+      const buttonDebugElement = fixture.debugElement.query(
+        By.directive(LgButtonComponent),
+      );
+      buttonDebugElement.nativeElement.click();
+
+      expect(spy).toHaveBeenCalled();
     });
   });
 });
