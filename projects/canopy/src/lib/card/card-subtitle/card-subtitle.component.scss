@@ -4,8 +4,4 @@
   display: block;
   color: var(--card-title-color);
   margin: var(--space-xxs) 0 var(--space-lg);
-
-  @include lg-breakpoint('xs') {
-    margin: var(--space-xxs) 0 0;
-  }
 }
