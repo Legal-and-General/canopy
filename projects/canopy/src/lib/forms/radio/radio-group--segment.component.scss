@@ -1,0 +1,17 @@
+@import '../../../styles/mixins';
+
+.lg-radio-group__segment {
+  display: inline-flex;
+  border: var(--border-width) solid var(--radio-border-color);
+  border-radius: var(--border-radius-sm);
+}
+
+$stack-breakpoints: 'sm', 'md', 'lg' !default;
+
+@each $stack-breakpoint in $stack-breakpoints {
+  .lg-radio-group--stack-#{$stack-breakpoint} .lg-radio-group__segment {
+    @include lg-breakpoint($stack-breakpoint, 'max-width') {
+      display: block;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { LgInputModule } from './input/input.module';
 import { LgLabelModule } from './label/label.module';
 import { LgRadioModule } from './radio/radio.module';
 import { LgSelectModule } from './select/select.module';
+import { LgSortCodeModule } from './sort-code/sort-code.module';
 import { LgToggleModule } from './toggle/toggle.module';
 import { LgValidationModule } from './validation/validation.module';
 import { LgCheckboxGroupModule } from './checkbox-group';
@@ -20,6 +21,7 @@ import { LgCheckboxGroupModule } from './checkbox-group';
     LgLabelModule,
     LgRadioModule,
     LgSelectModule,
+    LgSortCodeModule,
     LgToggleModule,
   ],
 })

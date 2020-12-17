@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 import { MockComponents, MockRender, MockedComponentFixture } from 'ng-mocks';
+import { anything, instance, mock, when } from 'ts-mockito';
 
 import { LgHintComponent } from '../hint';
 import { LgInputFieldComponent } from '../input/input-field.component';
@@ -13,6 +14,7 @@ import { LgInputDirective } from './input.directive';
 import { LgSuffixDirective } from '../../suffix/suffix.directive';
 import { LgPrefixDirective } from '../../prefix/prefix.directive';
 import { LgButtonComponent } from '../../button';
+import { LgErrorStateMatcher } from '../validation';
 
 describe('LgInputFieldComponent', () => {
   let fixture: MockedComponentFixture<LgInputFieldComponent>;
@@ -21,6 +23,7 @@ describe('LgInputFieldComponent', () => {
   let inputDirectiveDebugElement: DebugElement;
   let inputFieldDebugElement: DebugElement;
   let inputWrapperDebugElement: DebugElement;
+  let errorStateMatcherMock: LgErrorStateMatcher;
 
   const errorId = 'test-error-id';
   const hintId = 'test-hint-id';
@@ -31,6 +34,8 @@ describe('LgInputFieldComponent', () => {
   const prefixText = 'prefix';
 
   beforeEach(async(() => {
+    errorStateMatcherMock = mock(LgErrorStateMatcher);
+
     TestBed.configureTestingModule({
       imports: [FormsModule, ReactiveFormsModule],
       declarations: [
@@ -44,6 +49,12 @@ describe('LgInputFieldComponent', () => {
           LgSuffixDirective,
           LgPrefixDirective,
         ),
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
       ],
     }).compileComponents();
   }));
@@ -175,6 +186,31 @@ describe('LgInputFieldComponent', () => {
       fixture.detectChanges();
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-input-field--hover',
+      );
+    });
+  });
+
+  describe('error', () => {
+    beforeEach(() => {
+      renderComponent({});
+      fixture.detectChanges();
+    });
+    it('adds an error class to the input wrapper when the control is invalid', () => {
+      when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+        true,
+      );
+      fixture.detectChanges();
+      expect(inputFieldDebugElement.nativeElement.getAttribute('class')).toContain(
+        'lg-input-field--error',
+      );
+    });
+    it('does not add the error class to the input wrapper when the control is valid', () => {
+      when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+        false,
+      );
+      fixture.detectChanges();
+      expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-input-field--error',
       );
     });
   });
