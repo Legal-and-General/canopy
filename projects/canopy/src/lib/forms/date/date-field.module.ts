@@ -6,6 +6,7 @@ import { LgInputModule } from '../input/input.module';
 import { LgLabelModule } from '../label/label.module';
 import { LgValidationModule } from '../validation/validation.module';
 import { LgDateFieldComponent } from './date-field.component';
+import { LgMarginModule } from '../../spacing/margin/margin.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { LgDateFieldComponent } from './date-field.component';
     LgLabelModule,
     LgInputModule,
     LgValidationModule,
+    LgMarginModule,
   ],
   declarations: [LgDateFieldComponent],
   exports: [LgDateFieldComponent],
