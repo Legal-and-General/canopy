@@ -90,6 +90,7 @@ describe('LgRadioGroupComponent', () => {
 
     fixture = TestBed.createComponent(TestRadioGroupComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
 
     groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
     groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
@@ -103,8 +104,6 @@ describe('LgRadioGroupComponent', () => {
     radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
 
     radioInstances = radioDebugElements.map((debugEl) => debugEl.componentInstance);
-
-    fixture.detectChanges();
   }));
 
   it('sets all radio buttons to the same name', () => {
@@ -113,6 +112,16 @@ describe('LgRadioGroupComponent', () => {
     for (const radio of radioInstances) {
       expect(radio.name).toBe(name);
     }
+  });
+
+  it('adds a wrapper for the segment radio in the template', () => {
+    expect(fixture.debugElement.query(By.css('.lg-radio-group__segment'))).toBeNull();
+
+    groupInstance.variant = 'segment';
+    fixture.detectChanges();
+    expect(
+      fixture.debugElement.query(By.css('.lg-radio-group__segment')).nativeElement,
+    ).toBeDefined();
   });
 
   it('sets the correct variant based on the selector', () => {
@@ -127,12 +136,12 @@ describe('LgRadioGroupComponent', () => {
 
   it('checks the selected radio button when a value is provided', () => {
     const blueOption: DebugElement = radioDebugElements.find(
-      (radioDebugElement) => radioDebugElement.componentInstance.value === 'blue',
+      (debugElement) => debugElement.componentInstance.value === 'blue',
     );
     blueOption.query(By.css('input')).triggerEventHandler('click', null);
     fixture.detectChanges();
     const checkedOption: DebugElement = radioDebugElements.find(
-      (radioDebugElement) => radioDebugElement.componentInstance.checked === true,
+      (debugElement) => debugElement.componentInstance.checked === true,
     );
     expect(checkedOption.componentInstance.value).toBe('blue');
   });
@@ -226,5 +235,23 @@ describe('LgRadioGroupComponent', () => {
     expect(groupDebugElement.nativeElement.className).not.toContain(
       'lg-radio-group--error',
     );
+  });
+
+  describe('stack', () => {
+    it('adds or removes a class based on its value', () => {
+      groupInstance.stack = 'sm';
+      fixture.detectChanges();
+
+      expect(groupDebugElement.nativeElement.className).toContain(
+        'lg-radio-group--stack-sm',
+      );
+
+      groupInstance.stack = undefined;
+      fixture.detectChanges();
+
+      expect(groupDebugElement.nativeElement.className).not.toContain(
+        'lg-radio-group--stack-sm',
+      );
+    });
   });
 });

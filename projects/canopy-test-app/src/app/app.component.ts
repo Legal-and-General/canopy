@@ -57,6 +57,7 @@ export class AppComponent {
       filters: this.fb.control([]),
       checkbox: [''],
       switch: [''],
+      segment: [''],
       date: [''],
       sortCode: ['']
     });

@@ -2,16 +2,17 @@ import {
   Component,
   ContentChild,
   ContentChildren,
+  ElementRef,
   forwardRef,
   Host,
   HostBinding,
   Input,
   Optional,
   QueryList,
+  Renderer2,
   Self,
   SkipSelf,
   ViewEncapsulation,
-  ElementRef,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -20,14 +21,14 @@ import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgRadioButtonComponent } from './radio-button.component';
-import { RadioVariant } from './radio.interface';
+import { RadioStackBreakpoint, RadioVariant } from './radio.interface';
 
 let uniqueId = 0;
 
 @Component({
-  selector: 'lg-radio-group, lg-filter-group',
+  selector: 'lg-radio-group, lg-filter-group, lg-segment-group',
   templateUrl: './radio-group.component.html',
-  styleUrls: ['./radio-group.component.scss'],
+  styleUrls: ['./radio-group.component.scss', './radio-group--segment.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioGroupComponent implements ControlValueAccessor {
@@ -39,6 +40,33 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() ariaDescribedBy: string;
   variant: RadioVariant;
+
+  _stack: RadioStackBreakpoint;
+  @Input()
+  set stack(stack: RadioStackBreakpoint) {
+    if (this._stack) {
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-radio-group--stack-${this.stack}`,
+      );
+    }
+    if (stack) {
+      this.renderer.addClass(
+        this.hostElement.nativeElement,
+        `lg-radio-group--stack-${stack}`,
+      );
+    }
+    this._stack = stack;
+
+    if (this.radios) {
+      this.radios.toArray().forEach((radio) => {
+        radio.stacked = this.stack;
+      });
+    }
+  }
+  get stack(): RadioStackBreakpoint {
+    return this._stack;
+  }
 
   @HostBinding('class.lg-radio-group') class = true;
   @HostBinding('class.lg-radio-group--inline') public get inlineClass() {
@@ -118,6 +146,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     private controlContainer: FormGroupDirective,
     private domService: LgDomService,
     private hostElement: ElementRef,
+    private renderer: Renderer2,
   ) {
     this.variant = this.hostElement.nativeElement.tagName
       .split('-')[1]

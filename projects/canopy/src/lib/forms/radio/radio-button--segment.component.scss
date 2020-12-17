@@ -1,0 +1,93 @@
+@import '../../../styles/mixins';
+
+.lg-radio-button--segment {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+  align-items: stretch;
+  padding: 0 var(--space-xxxs);
+  margin: var(--space-xxxs) 0;
+
+  + .lg-radio-button--segment {
+    border-left: var(--radio-segment-separator-border-width) solid
+      var(--radio-segment-separator-border-color);
+  }
+
+  .lg-radio-button__label {
+    display: flex;
+    padding: var(--space-xxxs) var(--space-sm);
+    border-radius: var(--border-radius-sm);
+    min-width: var(--radio-segment-label-min-width);
+    flex-grow: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .lg-radio-button__input {
+    &:checked + .lg-radio-button__label {
+      background-color: var(--radio-bg-color);
+      color: var(--radio-color);
+      transition: all var(--animation-duration) var(--animation-fn);
+    }
+
+    &:disabled:checked + .lg-radio-button__label {
+      background-color: var(--radio-disabled-color);
+      color: var(--radio-color);
+    }
+
+    &:disabled + .lg-radio-button__label {
+      color: var(--disabled-color);
+      cursor: not-allowed;
+    }
+
+    &:focus + .lg-radio-button__label {
+      @include lg-inner-focus-outline(var(--default-focus-color));
+    }
+
+    .lg-radio-button--error &:checked + .lg-radio-button__label {
+      background-color: var(--form-error-color);
+      color: var(--radio-color);
+    }
+  }
+
+  $stack-breakpoints: 'sm', 'md', 'lg' !default;
+
+  @each $stack-breakpoint in $stack-breakpoints {
+    &.lg-radio-button--stacked-#{$stack-breakpoint} {
+      @include lg-breakpoint($stack-breakpoint, 'max-width') {
+        display: flex;
+        flex-flow: column wrap;
+        margin: 0;
+      }
+
+      .lg-radio-button__label {
+        @include lg-breakpoint($stack-breakpoint, 'max-width') {
+          margin: calc(var(--space-xxxs) + var(--radio-segment-separator-border-width)) 0
+            var(--space-xxxs);
+        }
+      }
+
+      + .lg-radio-button--segment {
+        @include lg-breakpoint($stack-breakpoint, 'max-width') {
+          border-left: 0;
+        }
+
+        &::before {
+          @include lg-breakpoint($stack-breakpoint, 'max-width') {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: var(--radio-segment-separator-border-width);
+            background-color: var(--radio-segment-separator-border-color);
+          }
+        }
+      }
+    }
+  }
+}
