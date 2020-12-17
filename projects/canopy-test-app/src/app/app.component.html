@@ -393,6 +393,14 @@
               <lg-radio-button value="blue">Blue</lg-radio-button>
             </lg-radio-group>
 
+
+            <lg-segment-group formControlName="segment" value="top" stack="md">
+              Test segment
+              <lg-segment-button value="top">Top</lg-segment-button>
+              <lg-segment-button value="right">Right</lg-segment-button>
+              <lg-segment-button value="bottom">Bottom</lg-segment-button>
+            </lg-segment-group>
+
             <lg-filter-group formControlName="filter">
               Test filter group
               <lg-filter-button value="red">Red</lg-filter-button>
@@ -408,6 +416,11 @@
               <lg-filter-checkbox value="green">Green</lg-filter-checkbox>
               <lg-filter-checkbox value="blue">Blue</lg-filter-checkbox>
             </lg-filter-multiple-group>
+
+            <lg-sort-code formControlName="sortCode">
+              Sort Code
+              <lg-hint>Must be 6 digits long</lg-hint>
+            </lg-sort-code>
 
             <button lg-button type="submit" variant="solid-primary">Submit</button>
           </form>

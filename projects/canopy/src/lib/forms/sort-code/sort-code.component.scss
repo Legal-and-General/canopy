@@ -1,0 +1,15 @@
+.lg-sort-code-field {
+  display: block;
+  margin-bottom: var(--component-margin);
+  line-height: var(--line-height-sm);
+}
+
+.lg-sort-code__fields {
+  display: flex;
+}
+
+.lg-sort-code__input {
+  flex-direction: column;
+  margin-right: var(--space-sm);
+  width: 3.75rem; // 60px
+}
