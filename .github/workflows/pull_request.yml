@@ -3,6 +3,9 @@ name: Pull request
 on:
   pull_request:
     types: [opened, synchronize]
+    # The next branch already runs on push so there is no need for it to run this workflow
+    branches-ignore:
+      - 'next'
 
 jobs:
   verify:
