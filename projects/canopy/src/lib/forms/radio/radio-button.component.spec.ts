@@ -17,6 +17,7 @@ describe('LgRadioButtonComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
     radioGroupMock = mock(LgRadioGroupComponent);
     when(radioGroupMock.name).thenReturn('color');
+    when(radioGroupMock.variant).thenReturn('segment');
 
     TestBed.configureTestingModule({
       declarations: [LgRadioButtonComponent],
@@ -40,6 +41,26 @@ describe('LgRadioButtonComponent', () => {
 
   it('sets its name from the radio group name', () => {
     expect(component.name).toBe('color');
+  });
+
+  describe('the variant', () => {
+    it('should be set based on the radio group variant', () => {
+      expect(component.variant).toBe('segment');
+    });
+
+    it('should set the correct class modifier', () => {
+      expect(fixture.debugElement.nativeElement.getAttribute('class')).toContain(
+        'lg-radio-button--segment',
+      );
+
+      when(radioGroupMock.variant).thenReturn('radio');
+      fixture = TestBed.createComponent(LgRadioButtonComponent);
+      component = fixture.componentInstance;
+
+      expect(fixture.debugElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-radio-button--segment',
+      );
+    });
   });
 
   // https://github.com/NagRock/ts-mockito/issues/120
