@@ -138,6 +138,17 @@ describe('LgCheckboxGroupComponent', () => {
     expect(checkedOption.componentInstance.value).toContain('red');
   });
 
+  it('unchecks the selected checkbox buttons when an empty array value is provided', () => {
+    groupInstance.value = ['red'];
+    fixture.detectChanges();
+    groupInstance.value = [];
+    fixture.detectChanges();
+    const checkedOptions: DebugElement = checkboxDebugElements.find(
+      (checkboxDebugElement) => checkboxDebugElement.componentInstance.checked === true,
+    );
+    expect(checkedOptions).not.toBeDefined();
+  });
+
   it('uses same unique id when setting the group id and the group name', () => {
     const checkboxGroupNextUniqueId = groupInstance.nextUniqueId;
     const checkboxGroupId = groupInstance.id;
