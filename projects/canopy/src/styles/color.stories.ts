@@ -48,7 +48,6 @@ interface Color {
       }
       .swatch__name {
         display: block;
-        font-size: var(--text-sm);
         font-weight: var(--font-weight-bold);
         margin-bottom: var(--space-xxxs);
       }
@@ -127,7 +126,6 @@ class SwatchComponent implements AfterViewInit {
       }
       .tint_swatch__name {
         display: block;
-        font-size: var(--text-sm);
         font-weight: var(--font-weight-bold);
         margin-bottom: var(--space-xxxs);
       }
