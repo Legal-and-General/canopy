@@ -32,7 +32,7 @@
   &--error,
   &--error:hover {
     color: var(--form-error-color);
-    border-color: var(--form-border-error-color);
+    border-color: var(--form-error-border-color);
 
     &:focus {
       color: inherit;
