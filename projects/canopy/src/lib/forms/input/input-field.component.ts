@@ -1,17 +1,15 @@
 import {
+  AfterContentInit,
   Component,
   ContentChild,
+  ContentChildren,
   HostBinding,
   Input,
+  OnDestroy,
+  QueryList,
   ViewChild,
   ViewEncapsulation,
-  AfterContentInit,
-  ContentChildren,
-  QueryList,
-  OnDestroy,
-  Optional,
 } from '@angular/core';
-import { FormGroupDirective } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
 
@@ -23,7 +21,6 @@ import { LgInputDirective } from './input.directive';
 import { LgButtonComponent } from '../../button';
 import { LgSuffixDirective } from '../../suffix/suffix.directive';
 import { LgPrefixDirective } from '../../prefix/prefix.directive';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 
 let nextUniqueId = 0;
 
@@ -56,10 +53,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   @HostBinding('class.lg-input-field--error')
   get errorClass(): boolean {
-    return this.errorState.isControlInvalid(
-      this._inputElement.control,
-      this.controlContainer,
-    );
+    return this._inputElement.errorClass;
   }
 
   @HostBinding('class.lg-input-field--block')
@@ -150,12 +144,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   @Input() id = `lg-input-${this._id++}`;
 
-  constructor(
-    private domService: LgDomService,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    private controlContainer: FormGroupDirective,
-  ) {}
+  constructor(private domService: LgDomService) {}
 
   /*
     The input field control element mimics the border of the input field.
