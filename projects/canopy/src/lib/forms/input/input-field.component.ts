@@ -36,6 +36,7 @@ let nextUniqueId = 0;
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _id = nextUniqueId++;
 
+  @Input() showLabel = true;
   @Input() public set block(block: boolean) {
     if (this._inputElement) {
       this._inputElement.block = block;
