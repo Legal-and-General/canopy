@@ -28,6 +28,7 @@ interface KnobsConfig {
   icon?: string;
   iconButton?: boolean;
   label?: string;
+  showLabel?: boolean;
   showButton?: boolean;
   showSecondaryButton?: boolean;
   showTextPrefix?: boolean;
@@ -49,6 +50,7 @@ const createInputStory = (config: KnobsConfig) => ({
       [icon]="icon"
       [iconButton]="iconButton"
       [label]="label"
+      [showLabel]="showLabel"
       [prefix]="prefix"
       [size]="size"
       [suffix]="suffix"
@@ -82,6 +84,7 @@ const createInputStory = (config: KnobsConfig) => ({
     ),
     inputChange: action('inputChange'),
     label: text('label', config.label || 'Name', contentGroupId),
+    showLabel: boolean('show label', true, propsGroupId),
     prefix: text('prefix', '£', contentGroupId),
     showButton: boolean('show button', config.showButton, contentGroupId),
     iconButton: boolean('icon button', true, contentGroupId),
@@ -101,7 +104,7 @@ const createInputStory = (config: KnobsConfig) => ({
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-      <lg-input-field [block]="block">
+      <lg-input-field [block]="block" [showLabel]="showLabel">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <span lgPrefix *ngIf="showTextPrefix">{{ prefix }}</span>
@@ -153,6 +156,7 @@ class ReactiveFormComponent {
   @Input() icon: string;
   @Input() iconButton: boolean;
   @Input() label: string;
+  @Input() showLabel: boolean;
   @Input() prefix: string;
   @Input() showButton: boolean;
   @Input() showSecondaryButton: boolean;

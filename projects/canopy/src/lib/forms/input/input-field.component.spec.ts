@@ -25,6 +25,7 @@ describe('LgInputFieldComponent', () => {
   let inputFieldDebugElement: DebugElement;
   let inputWrapperDebugElement: DebugElement;
   let errorStateMatcherMock: LgErrorStateMatcher;
+  let labelDebugElement: DebugElement;
 
   const errorId = 'test-error-id';
   const hintId = 'test-hint-id';
@@ -60,9 +61,14 @@ describe('LgInputFieldComponent', () => {
     }).compileComponents();
   }));
 
-  function renderComponent({ block = false, hasPrefix = false, hasSuffix = false }) {
+  function renderComponent({
+    block = false,
+    hasPrefix = false,
+    hasSuffix = false,
+    showLabel = true,
+  }) {
     fixture = MockRender(`
-      <lg-input-field [block]="${block}">
+      <lg-input-field [block]="${block}" [showLabel]="${showLabel}">
         Label
         <input lgInput />
         <lg-hint id="${hintId}">Hint</lg-hint>
@@ -86,6 +92,7 @@ describe('LgInputFieldComponent', () => {
       By.css('.lg-input-field__inputs'),
     );
     inputDirectiveInstance = inputDirectiveDebugElement.componentInstance;
+    labelDebugElement = fixture.debugElement.query(By.directive(LgLabelComponent));
   }
 
   describe('markup', () => {
@@ -107,6 +114,23 @@ describe('LgInputFieldComponent', () => {
 
     it('combines both the hint and error ids to create the aria described attribute', () => {
       expect(inputDirectiveInstance.ariaDescribedBy).toBe(`${hintId} ${errorId}`);
+    });
+  });
+
+  describe('showLabel', () => {
+    it("doesn't add the visually hidden class if the showLabel property is true", () => {
+      renderComponent({ showLabel: true });
+      expect(labelDebugElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-visually-hidden',
+      );
+    });
+
+    it('adds the visually hidden class if the showLabel property is false', () => {
+      renderComponent({ showLabel: false });
+
+      expect(labelDebugElement.nativeElement.getAttribute('class')).toContain(
+        'lg-visually-hidden',
+      );
     });
   });
 
