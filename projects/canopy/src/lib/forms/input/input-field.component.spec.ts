@@ -3,8 +3,8 @@ import { async, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { MockComponents, MockRender, MockedComponentFixture } from 'ng-mocks';
-import { anything, instance, mock, when } from 'ts-mockito';
+import { MockComponents, MockedComponentFixture, MockRender } from 'ng-mocks';
+import { instance, mock, spy, when } from 'ts-mockito';
 
 import { LgHintComponent } from '../hint';
 import { LgInputFieldComponent } from '../input/input-field.component';
@@ -18,6 +18,7 @@ import { LgErrorStateMatcher } from '../validation';
 
 describe('LgInputFieldComponent', () => {
   let fixture: MockedComponentFixture<LgInputFieldComponent>;
+  let component: LgInputFieldComponent;
   let labelInstance: LgLabelComponent;
   let inputDirectiveInstance: LgInputDirective;
   let inputDirectiveDebugElement: DebugElement;
@@ -76,6 +77,7 @@ describe('LgInputFieldComponent', () => {
         ${hasSuffix && `<span lgSuffix id="${suffixId}">${suffixText}</span>`}
         </lg-input-field>
     `);
+    component = fixture.point.componentInstance;
     fixture.detectChanges();
 
     inputFieldDebugElement = fixture.debugElement.query(
@@ -215,24 +217,27 @@ describe('LgInputFieldComponent', () => {
   });
 
   describe('error', () => {
+    let componentSpy: LgInputFieldComponent;
+
     beforeEach(() => {
       renderComponent({});
+      componentSpy = spy(component);
       fixture.detectChanges();
     });
+
     it('adds an error class to the input wrapper when the control is invalid', () => {
-      when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-        true,
-      );
+      when(componentSpy.errorClass).thenReturn(true);
       fixture.detectChanges();
+
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).toContain(
         'lg-input-field--error',
       );
     });
+
     it('does not add the error class to the input wrapper when the control is valid', () => {
-      when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-        false,
-      );
+      when(componentSpy.errorClass).thenReturn(false);
       fixture.detectChanges();
+
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-input-field--error',
       );
