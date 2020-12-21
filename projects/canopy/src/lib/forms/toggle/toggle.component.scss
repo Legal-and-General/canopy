@@ -14,7 +14,6 @@
   align-items: center;
   position: relative;
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-sm);
 
   .lg-toggle__input:disabled + & {
     color: var(--disabled-color);
