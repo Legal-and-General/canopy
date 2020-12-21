@@ -12,7 +12,6 @@
   position: relative;
   text-align: left;
   width: 100%;
-  line-height: var(--line-height-body);
 
   &:focus {
     @include lg-inner-focus-outline(var(--default-focus-color));
