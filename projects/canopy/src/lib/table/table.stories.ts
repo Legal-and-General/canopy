@@ -4,6 +4,9 @@ import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { AlignmentOptions } from './table.interface';
+import { LgInputModule } from '../forms';
+import { LgMarginModule } from '../spacing';
+import { LgSuffixModule } from '../suffix';
 import { LgTableModule } from './table.module';
 import { notes } from './table.notes';
 
@@ -11,6 +14,61 @@ interface TableStoryItem {
   author: string;
   title: string;
   published: string;
+}
+
+function getDefaultTableContent(): Array<TableStoryItem> {
+  return [
+    {
+      author: 'Orhan Pamuk',
+      title: 'Strangeness In My Mind',
+      published: '2016',
+    },
+    {
+      author: 'Albert Camus',
+      title: 'The Plague',
+      published: '1947',
+    },
+    {
+      author: 'George Orwell',
+      title: 'Animal Farm',
+      published: '1945',
+    },
+    {
+      author: 'Chinua Achebe',
+      title: 'Things Fall Apart',
+      published: '1958',
+    },
+    {
+      author: 'Brian Greene',
+      title: 'The Elegant Universe',
+      published: '1999',
+    },
+    {
+      author: 'Julia Donaldson',
+      title: 'The Gruffalo',
+      published: '1999',
+    },
+    {
+      author: 'Dan Brown',
+      title: 'The Da Vinci Code',
+      published: '2003',
+    },
+    {
+      author: 'Charles Dickens',
+      title: 'Oliver Twist',
+      published: '1838',
+    },
+    {
+      author: 'Doug McGuff and John Little',
+      title: 'Body by Science',
+      published: '2008',
+    },
+    {
+      author: 'Douglas Crockford',
+      title: 'JavaScript: The Good Parts',
+      published: '2008',
+    },
+  ];
 }
 
 @Component({
@@ -91,7 +149,7 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [LgTableModule],
+        imports: [LgTableModule, LgInputModule, LgSuffixModule, LgMarginModule],
         declarations: [StoryTableDetailComponent],
       }),
     ],
@@ -156,57 +214,31 @@ export const detail = () => ({
   },
 });
 
-function getDefaultTableContent(): Array<TableStoryItem> {
-  return [
-    {
-      author: 'Orhan Pamuk',
-      title: 'Strangeness In My Mind',
-      published: '2016',
-    },
-    {
-      author: 'Albert Camus',
-      title: 'The Plague',
-      published: '1947',
-    },
-    {
-      author: 'George Orwell',
-      title: 'Animal Farm',
-      published: '1945',
-    },
-    {
-      author: 'Chinua Achebe',
-      title: 'Things Fall Apart',
-      published: '1958',
-    },
-    {
-      author: 'Brian Greene',
-      title: 'The Elegant Universe',
-      published: '1999',
-    },
-    {
-      author: 'Julia Donaldson',
-      title: 'The Gruffalo',
-      published: '1999',
-    },
-    {
-      author: 'Dan Brown',
-      title: 'The Da Vinci Code',
-      published: '2003',
-    },
-    {
-      author: 'Charles Dickens',
-      title: 'Oliver Twist',
-      published: '1838',
-    },
-    {
-      author: 'Doug McGuff and John Little',
-      title: 'Body by Science',
-      published: '2008',
-    },
-    {
-      author: 'Douglas Crockford',
-      title: 'JavaScript: The Good Parts',
-      published: '2008',
-    },
-  ];
-}
+export const withInput = () => ({
+  template: `
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Author</th>
+          <th lg-table-head-cell>Rating</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row *ngFor="let book of books">
+          <td lg-table-cell>{{ book.author }}</td>
+          <td lg-table-cell>
+            <lg-input-field lgMarginBottom="none">
+              <input lgInput size="2" />
+              <span lgSuffix>%</span>
+            </lg-input-field>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `,
+
+  props: {
+    books: object('Books', getDefaultTableContent(), 'lg-table'),
+  },
+});
