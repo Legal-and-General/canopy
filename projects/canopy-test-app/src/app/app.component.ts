@@ -9,6 +9,7 @@ import {
   lgIconArrowDown,
   lgIconClose,
   lgIconSearch,
+  lgIconChevronLeft,
 } from 'projects/canopy/src/lib/icon';
 
 @Component({
@@ -44,6 +45,7 @@ export class AppComponent {
       lgIconArrowDown,
       lgIconClose,
       lgIconSearch,
+      lgIconChevronLeft,
     ]);
     this.form = this.fb.group({
       text: [''],

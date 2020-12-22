@@ -39,9 +39,11 @@ stories
           [lgMarginRight]="marginRight !== 'undefined' ? marginRight : null"
           [lgMarginBottom]="marginBottom !== 'undefined' ? marginBottom : null"
           [lgMarginLeft]="marginLeft !== 'undefined' ? marginLeft : null">
-            Card with directive applied
+            <lg-card-content>
+              Card with directive applied
+            </lg-card-content>
         </lg-card>
-        <lg-card>Card without directive applied</lg-card>
+        <lg-card><lg-card-content>Card without directive applied</lg-card-content></lg-card>
       `,
       props: {
         margin: select('margin', spaces, 'md'),

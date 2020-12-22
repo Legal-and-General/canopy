@@ -22,7 +22,9 @@ e.g. Apply an xxl padding to the bottom
 
 ~~~html
 <lg-card lgPaddingBottom="xxl">
-  Your content
+  <lg-card-content>
+    Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
@@ -30,7 +32,9 @@ e.g. Apply an sm padding to the left and right
 
 ~~~html
 <lg-card lgPaddingHorizontal="sm">
-  Your content
+  <lg-card-content>
+    Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
@@ -38,7 +42,9 @@ e.g. Apply an xl padding all round, but xxxl padding to the bottom
 
 ~~~html
 <lg-card lgPadding="xl" lgPaddingBottom="xxxl">
-  Your content
+  <lg-card-content>
+    Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
@@ -46,7 +52,9 @@ e.g. Apply an lg padding to the top and bottom
 
 ~~~html
 <lg-card lgPaddingVertical="lg">
-  Your content
+  <lg-card-content>
+    Your content
+  </lg-card-content>
 </lg-card>
 ~~~
 
