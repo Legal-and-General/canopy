@@ -2,6 +2,7 @@
 
 .lg-table-cell {
   display: flex;
+  align-items: baseline;
 
   @include lg-breakpoint('md') {
     display: table-cell;

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LgCardHeaderComponent } from './card-header.component';
+import { LgCardFooterComponent } from './card-footer.component';
 
-describe('LgCardHeaderComponent', () => {
-  let component: LgCardHeaderComponent;
-  let fixture: ComponentFixture<LgCardHeaderComponent>;
+describe('LgCardFooterComponent', () => {
+  let component: LgCardFooterComponent;
+  let fixture: ComponentFixture<LgCardFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LgCardHeaderComponent],
+      declarations: [LgCardFooterComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LgCardHeaderComponent);
+    fixture = TestBed.createComponent(LgCardFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,6 +23,6 @@ describe('LgCardHeaderComponent', () => {
   });
 
   it('should contain the default class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-card-header');
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-card-footer');
   });
 });
