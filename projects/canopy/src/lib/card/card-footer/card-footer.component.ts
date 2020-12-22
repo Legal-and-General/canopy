@@ -6,12 +6,12 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'lg-card-header',
-  templateUrl: './card-header.component.html',
-  styleUrls: ['./card-header.component.scss'],
+  selector: 'lg-card-footer',
+  templateUrl: './card-footer.component.html',
+  styleUrls: ['./card-footer.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgCardHeaderComponent {
-  @HostBinding('class.lg-card-header') class = true;
+export class LgCardFooterComponent {
+  @HostBinding('class.lg-card-footer') class = true;
 }

@@ -36,7 +36,9 @@ stories
                 [lgColLgOffset]="firstColLgOffset"
               >
               <lg-card lgMarginHorizontal="none">
-                ${firstColGroupId}
+                <lg-card-content>
+                  ${firstColGroupId}
+                </lg-card-content>
               </lg-card>
             </div>
             <div
@@ -48,7 +50,9 @@ stories
                 [lgColLgOffset]="secondColLgOffset"
               >
               <lg-card lgMarginHorizontal="none">
-              ${secondColGroupId}
+                <lg-card-content>
+                  ${secondColGroupId}
+                </lg-card-content>
               </lg-card>
             </div>
             <div
@@ -60,7 +64,9 @@ stories
                 [lgColLgOffset]="thirdColLgOffset"
               >
               <lg-card lgMarginHorizontal="none">
-                ${thirdColGroupId}
+                <lg-card-content>
+                  ${thirdColGroupId}
+                </lg-card-content>
               </lg-card>
             </div>
           </div>
