@@ -1,11 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 import { MockComponent, MockRender } from 'ng-mocks';
 
 import { LgCardContentComponent } from './card-content/card-content.component';
 import { LgCardHeaderComponent } from './card-header/card-header.component';
 import { LgCardComponent } from './card.component';
+import { LgCardFooterComponent } from './card-footer/card-footer.component';
 
 describe('LgCardComponent', () => {
   let component: LgCardComponent;
@@ -19,18 +21,16 @@ describe('LgCardComponent', () => {
         LgCardComponent,
         MockComponent(LgCardHeaderComponent),
         MockComponent(LgCardContentComponent),
+        MockComponent(LgCardFooterComponent),
       ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = MockRender(`
-      <lg-card>
-      </lg-card>
-    `);
+    fixture = TestBed.createComponent(LgCardComponent);
     debugElement = fixture.debugElement;
     component = fixture.componentInstance;
-    el = debugElement.children[0].nativeElement;
+    el = debugElement.nativeElement;
     fixture.detectChanges();
   });
 
@@ -42,24 +42,24 @@ describe('LgCardComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-card');
   });
 
-  describe('when there is lg-card-header', () => {
+  describe('when there is only lg-card-content', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-card>
-         <lg-card-header>Title</lg-card-header>
+         <lg-card-content>Content</lg-card-content>
         </lg-card>
       `);
 
-      component = localFixture.debugElement.children[0].componentInstance;
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
       localFixture.detectChanges();
     });
 
-    it('should expect first element to render', () => {
-      expect(component.lgCardHeaderComponent).toBeDefined();
-    });
-
-    it('should expect second element not to render', () => {
-      expect(component.lgCardContentComponent).toBeUndefined();
+    it('should expect card content to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardContentComponent)),
+      ).toBeDefined();
     });
   });
 
@@ -67,25 +67,90 @@ describe('LgCardComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-card>
-         <lg-card-header>Title</lg-card-header>
-         <lg-card-content>Card content</lg-card-content>
+         <lg-card-header>Top</lg-card-header>
+         <lg-card-content>Content</lg-card-content>
         </lg-card>
       `);
 
-      component = localFixture.debugElement.children[0].componentInstance;
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
       localFixture.detectChanges();
     });
 
-    it('should expect first element to render', () => {
-      expect(component.lgCardHeaderComponent).toBeDefined();
+    it('should expect card header to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardHeaderComponent)),
+      ).toBeDefined();
     });
 
-    it('should expect second element to render', () => {
-      expect(component.lgCardContentComponent).toBeDefined();
+    it('should expect card content to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardContentComponent)),
+      ).toBeDefined();
+    });
+  });
+
+  describe('when there is lg-card-content and lg-card-footer', () => {
+    beforeEach(() => {
+      const localFixture = MockRender(`
+        <lg-card>
+         <lg-card-content>Content</lg-card-content>
+         <lg-card-footer>Footer</lg-card-footer>
+        </lg-card>
+      `);
+
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
+      localFixture.detectChanges();
     });
 
-    it('should set show border to true', () => {
-      expect(component.lgCardHeaderComponent.hasContent).toBe(true);
+    it('should expect card content to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardContentComponent)),
+      ).toBeDefined();
+    });
+
+    it('should expect card footer to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardFooterComponent)),
+      ).toBeDefined();
+    });
+  });
+
+  describe('when there is lg-card-header, lg-card-content and lg-card-footer', () => {
+    beforeEach(() => {
+      const localFixture = MockRender(`
+        <lg-card>
+         <lg-card-header>Top</lg-card-header>
+         <lg-card-content>Content</lg-card-content>
+         <lg-card-footer>Footer</lg-card-footer>
+        </lg-card>
+      `);
+
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
+      localFixture.detectChanges();
+    });
+
+    it('should expect card header to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardHeaderComponent)),
+      ).toBeDefined();
+    });
+
+    it('should expect card content to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardContentComponent)),
+      ).toBeDefined();
+    });
+
+    it('should expect card footer to render', () => {
+      expect(
+        fixture.debugElement.query(By.directive(LgCardFooterComponent)),
+      ).toBeDefined();
     });
   });
 });

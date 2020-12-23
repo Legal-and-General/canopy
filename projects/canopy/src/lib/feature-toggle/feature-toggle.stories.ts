@@ -37,10 +37,10 @@ stories
         ],
       },
       template: `
-  <lg-card *lgFeatureToggle="'firstFeature'">Feature 1 showing</lg-card>
-  <lg-card *lgFeatureToggle="'secondFeature'">Feature 2 not showing</lg-card>
-  <lg-card *lgFeatureToggle="'thirdFeature'">Feature 3 showing</lg-card>
-  <lg-card *lgFeatureToggle="'fourthFeature'">Feature 4 not showing</lg-card>
+  <lg-card *lgFeatureToggle="'firstFeature'"><lg-card-content>Feature 1 showing</lg-card-content></lg-card>
+  <lg-card *lgFeatureToggle="'secondFeature'"><lg-card-content>Feature 2 not showing</lg-card-content></lg-card>
+  <lg-card *lgFeatureToggle="'thirdFeature'"><lg-card-content>Feature 3 showing</lg-card-content></lg-card>
+  <lg-card *lgFeatureToggle="'fourthFeature'"><lg-card-content>Feature 4 not showing</lg-card-content></lg-card>
   `,
     }),
     {
