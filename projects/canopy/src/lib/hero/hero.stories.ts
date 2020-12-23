@@ -10,7 +10,8 @@ const bodyHTML = `
     <div lgRow>
       <div lgCol="12">
         <lg-card>
-          <p>
+          <lg-card-content>
+            <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Fusce iaculis nunc vel pulvinar molestie. Quisque porta
             interdum ligula, in pellentesque purus ultrices sed.
@@ -21,7 +22,8 @@ const bodyHTML = `
             at mattis efficitur. Nunc tempor auctor enim, in hendrerit
             neque blandit sit amet. Donec efficitur mauris ut molestie
             lobortis. Integer nec consectetur odio, ut aliquam tortor.
-          </p>
+            </p>
+          </lg-card-content>
         </lg-card>
       </div>
     </div>
