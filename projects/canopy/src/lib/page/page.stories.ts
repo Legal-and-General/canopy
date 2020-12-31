@@ -95,8 +95,8 @@ export const oneColumn = () => ({
               lgColMdOffset="2"
               lgColLg="6"
               lgColLgOffset="3">
-            <lg-card lgMarginHorizontal="none">{{card1Content}}</lg-card>
-            <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
+            <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1Content}}</lg-card-content></lg-card>
+            <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>
           </div>
         </div>
       </div>
@@ -114,13 +114,15 @@ export const twoColumn = () => ({
         <div lgRow>
           <div lgCol="12" lgColMd="8" lgColLg="5" lgColLgOffset="2">
             <lg-card lgMarginHorizontal="none">
-              {{card1Content}}
-              {{card3Content}}
+              <lg-card-content>
+                {{card1Content}}
+                {{card3Content}}
+              </lg-card-content>
             </lg-card>
           </div>
           <div lgCol="12" lgColMd="4" lgColLg="3">
-            <lg-card lgMarginHorizontal="none">{{card2Content}}</lg-card>
-            <lg-card lgMarginHorizontal="none">{{card3Content}}</lg-card>
+            <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>
+            <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3Content}}</lg-card-content></lg-card>
           </div>
         </div>
       </div>
@@ -138,9 +140,11 @@ export const fullWidth = () => ({
         <div lgRow>
           <div lgCol="12">
             <lg-card lgMarginHorizontal="none">
-              {{card1Content}} <br /><br />
-              {{card2Content}} <br /><br />
-              {{card3Content}}
+              <lg-card-content>
+                {{card1Content}} <br /><br />
+                {{card2Content}} <br /><br />
+                {{card3Content}}
+              </lg-card-content>
             </lg-card>
           </div>
         </div>
@@ -166,9 +170,11 @@ export const fullWidthWithHero = () => ({
         <div lgRow>
           <div lgCol="12">
             <lg-card lgMarginHorizontal="none">
-              {{card1Content}} <br /><br />
-              {{card2Content}} <br /><br />
-              {{card3Content}}
+              <lg-card-content>
+                {{card1Content}} <br /><br />
+                {{card2Content}} <br /><br />
+                {{card3Content}}
+              </lg-card-content>
             </lg-card>
           </div>
         </div>

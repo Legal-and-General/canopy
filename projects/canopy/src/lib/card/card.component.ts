@@ -1,14 +1,4 @@
-import {
-  AfterContentInit,
-  Component,
-  ContentChild,
-  HostBinding,
-  QueryList,
-  ViewEncapsulation,
-} from '@angular/core';
-
-import { LgCardContentComponent } from './card-content/card-content.component';
-import { LgCardHeaderComponent } from './card-header/card-header.component';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lg-card',
@@ -16,20 +6,6 @@ import { LgCardHeaderComponent } from './card-header/card-header.component';
   styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class LgCardComponent implements AfterContentInit {
+export class LgCardComponent {
   @HostBinding('class.lg-card') class = true;
-
-  @ContentChild(LgCardHeaderComponent)
-  lgCardHeaderComponent: LgCardHeaderComponent;
-
-  @ContentChild(LgCardContentComponent)
-  lgCardContentComponent: LgCardContentComponent;
-
-  cardContent: QueryList<LgCardContentComponent>;
-
-  ngAfterContentInit() {
-    if (this.lgCardHeaderComponent && this.lgCardContentComponent) {
-      this.lgCardHeaderComponent.hasContent = true;
-    }
-  }
 }

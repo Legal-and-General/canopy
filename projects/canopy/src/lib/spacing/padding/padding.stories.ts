@@ -39,9 +39,11 @@ stories
           [lgPaddingRight]="paddingRight !== 'undefined' ? paddingRight : null"
           [lgPaddingBottom]="paddingBottom !== 'undefined' ? paddingBottom : null"
           [lgPaddingLeft]="paddingLeft !== 'undefined' ? paddingLeft : null">
-            Card with directive applied
+            <lg-card-content>
+              Card with directive applied
+            </lg-card-content>
         </lg-card>
-        <lg-card>Card without directive applied</lg-card>
+        <lg-card><lg-card-content>Card without directive applied</lg-card-content></lg-card>
       `,
       props: {
         padding: select('padding', spaces, 'md'),

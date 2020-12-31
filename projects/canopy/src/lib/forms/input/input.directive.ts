@@ -17,6 +17,8 @@ let nextUniqueId = 0;
   selector: '[lgInput]',
 })
 export class LgInputDirective {
+  uniqueId = nextUniqueId++;
+
   @HostBinding('class.lg-input') class = true;
   @HostBinding('class.lg-input--block')
   public get blockClass() {
@@ -33,11 +35,11 @@ export class LgInputDirective {
 
   @Input()
   @HostBinding('name')
-  name = `lg-input-${nextUniqueId++}`;
+  name = `lg-input-${this.uniqueId}`;
 
   @Input()
   @HostBinding('id')
-  id = `lg-input-${nextUniqueId++}`;
+  id = `lg-input-${this.uniqueId}`;
 
   @Input()
   @HostBinding('disabled')
