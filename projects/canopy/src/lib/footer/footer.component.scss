@@ -120,8 +120,6 @@
 }
 
 .lg-footer__org {
-  font-size: var(--text-xs);
-
   @include lg-breakpoint('md') {
     display: flex;
     flex-direction: column;

@@ -17,7 +17,6 @@
   display: flex;
   position: relative;
   font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-sm);
 
   .lg-radio-button__input:disabled + & {
     color: var(--disabled-color);
