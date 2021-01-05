@@ -6,7 +6,6 @@
   padding: var(--select-vertical-padding)
     calc(var(--select-icon-width) + (2 * var(--space-sm))) var(--select-vertical-padding)
     var(--space-sm);
-  line-height: var(--line-height-sm);
   background-color: var(--color-white);
   outline: 0;
   appearance: none;
@@ -32,7 +31,7 @@
   &--error,
   &--error:hover {
     color: var(--form-error-color);
-    border-color: var(--form-border-error-color);
+    border-color: var(--form-error-border-color);
 
     &:focus {
       color: inherit;
