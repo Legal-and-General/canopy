@@ -85,10 +85,6 @@ a {
   }
 }
 
-small {
-  font-size: var(--text-sm);
-}
-
 b,
 strong {
   font-weight: var(--font-weight-bold);
@@ -176,6 +172,7 @@ h6,
   @include lg-font-size('-8');
 }
 
+small,
 .lg-font-size-0-6 {
   @include lg-font-size('-6');
 }
