@@ -1,13 +1,10 @@
 @import '../../../styles/mixins.scss';
+@import '../table.breakpoints';
 
 .lg-table-row {
   display: flex;
   flex-direction: column;
   padding: var(--space-xs);
-
-  @include lg-breakpoint('md') {
-    display: table-row;
-  }
 
   &__detail {
     padding: 0;
@@ -15,5 +12,15 @@
 
   &--hidden {
     @include lg-visually-hidden;
+  }
+}
+
+@each $columns-breakpoint in $columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    .lg-table-row {
+      @include lg-breakpoint($columns-breakpoint) {
+        display: table-row;
+      }
+    }
   }
 }

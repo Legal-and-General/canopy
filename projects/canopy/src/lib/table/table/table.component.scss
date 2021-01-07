@@ -1,16 +1,11 @@
 @import '../../../styles/mixins.scss';
+@import '../table.breakpoints';
 
 .lg-table {
   display: flex;
   flex-direction: column;
   margin-bottom: var(--component-margin);
   border-spacing: 0;
-
-  @include lg-breakpoint('md') {
-    display: table;
-    table-layout: auto;
-    width: 100%;
-  }
 
   &--expandable {
     tr {
@@ -29,6 +24,16 @@
       &:nth-child(even) {
         background-color: var(--table-stripe-color);
       }
+    }
+  }
+}
+
+@each $columns-breakpoint in $columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    @include lg-breakpoint($columns-breakpoint) {
+      display: table;
+      table-layout: auto;
+      width: 100%;
     }
   }
 }

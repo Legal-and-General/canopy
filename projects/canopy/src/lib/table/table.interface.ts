@@ -8,3 +8,9 @@ export interface TableColumn {
   align: AlignmentOptions;
   showLabel: boolean;
 }
+
+export enum TableColumnLayoutBreakpoints {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg',
+}
