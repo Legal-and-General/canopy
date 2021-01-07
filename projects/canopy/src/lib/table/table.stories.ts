@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
-import { AlignmentOptions } from './table.interface';
+import { AlignmentOptions, TableColumnLayoutBreakpoints } from './table.interface';
 import { LgInputModule } from '../forms';
 import { LgMarginModule } from '../spacing';
 import { LgSuffixModule } from '../suffix';
@@ -74,7 +74,7 @@ function getDefaultTableContent(): Array<TableStoryItem> {
 @Component({
   selector: 'story-table-detail',
   template: `
-    <table lg-table>
+    <table lg-table [showColumnsAt]="columnBreakpoint">
       <thead lg-table-head>
         <tr lg-table-row>
           <th scope="col" lg-table-head-cell>
@@ -118,6 +118,7 @@ export class StoryTableDetailComponent {
 
   @Input() alignPublishColumn: AlignmentOptions;
   @Input() showAuthorLabel: boolean;
+  @Input() columnBreakpoint: TableColumnLayoutBreakpoints;
 
   @Input() expandedRows: Array<number> = [];
 
@@ -143,7 +144,7 @@ export class StoryTableDetailComponent {
 }
 
 export default {
-  title: 'Components/Table  ',
+  title: 'Components/Table',
   excludeStories: ['StoryTableDetailComponent'],
   parameters: {
     decorators: [
@@ -164,7 +165,7 @@ export default {
 
 export const standard = () => ({
   template: `
-    <table lg-table>
+    <table lg-table [showColumnsAt]="columnBreakpoint">
       <thead lg-table-head>
         <tr lg-table-row>
           <th lg-table-head-cell [showLabel]="showAuthorLabel">Author</th>
@@ -184,33 +185,63 @@ export const standard = () => ({
   `,
 
   props: {
-    books: object('Books', getDefaultTableContent(), 'lg-table'),
+    books: object('Books', getDefaultTableContent(), 'Table data'),
     alignTitleColumn: select(
       'Align Title column',
       [AlignmentOptions.End, AlignmentOptions.Start],
       AlignmentOptions.Start,
+      'Alignment',
     ),
     alignPublishColumn: select(
       'Align Publish column',
       [AlignmentOptions.End, AlignmentOptions.Start],
       AlignmentOptions.End,
+      'Alignment',
     ),
-    showAuthorLabel: boolean('Display author label on mobile', false, 'lg-table'),
+    columnBreakpoint: select(
+      'Minimum breakpoint where column layout is used',
+      [
+        TableColumnLayoutBreakpoints.Small,
+        TableColumnLayoutBreakpoints.Medium,
+        TableColumnLayoutBreakpoints.Large,
+      ],
+      TableColumnLayoutBreakpoints.Medium,
+      'Responsive options',
+    ),
+    showAuthorLabel: boolean(
+      'Display author label on mobile',
+      false,
+      'Responsive options',
+    ),
   },
 });
 
 export const detail = () => ({
-  template: `<story-table-detail [books]="books" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel"></story-table-detail>`,
+  template: `<story-table-detail [books]="books" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></story-table-detail>`,
 
   props: {
-    books: object('Books', getDefaultTableContent(), 'lg-table'),
+    books: object('Books', getDefaultTableContent(), 'Table data'),
     alignPublishColumn: select(
-      'Published column alignment',
+      'Align Publish column',
       [AlignmentOptions.Start, AlignmentOptions.End],
       AlignmentOptions.End,
-      'lg-table',
+      'Alignment',
     ),
-    showAuthorLabel: boolean('Display author label on mobile', false, 'lg-table'),
+    columnBreakpoint: select(
+      'Minimum breakpoint where column layout is used',
+      [
+        TableColumnLayoutBreakpoints.Small,
+        TableColumnLayoutBreakpoints.Medium,
+        TableColumnLayoutBreakpoints.Large,
+      ],
+      TableColumnLayoutBreakpoints.Medium,
+      'Responsive options',
+    ),
+    showAuthorLabel: boolean(
+      'Display author label on mobile',
+      false,
+      'Responsive options',
+    ),
   },
 });
 
@@ -239,6 +270,6 @@ export const withInput = () => ({
   `,
 
   props: {
-    books: object('Books', getDefaultTableContent(), 'lg-table'),
+    books: object('Books', getDefaultTableContent(), 'Table data'),
   },
 });
