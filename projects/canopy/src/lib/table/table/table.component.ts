@@ -6,7 +6,6 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  OnInit,
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
@@ -24,7 +23,7 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgTableComponent implements AfterContentChecked, OnInit {
+export class LgTableComponent implements AfterContentChecked {
   @HostBinding('class') class = 'lg-table';
 
   @ContentChild(LgTableHeadComponent, { static: false }) tableHead: LgTableHeadComponent;
@@ -36,13 +35,14 @@ export class LgTableComponent implements AfterContentChecked, OnInit {
     return this.isExpandable;
   }
 
-  private _columnsBreakpoint: TableColumnLayoutBreakpoints;
+  private _showColumnsAt: TableColumnLayoutBreakpoints;
   @Input()
   set showColumnsAt(columnsBreakpoint: TableColumnLayoutBreakpoints) {
     this.addColumnsBreakpoint(columnsBreakpoint);
+    this._showColumnsAt = columnsBreakpoint;
   }
   get showColumnsAt(): TableColumnLayoutBreakpoints {
-    return this._columnsBreakpoint;
+    return this._showColumnsAt;
   }
 
   isExpandable = false;
@@ -51,7 +51,9 @@ export class LgTableComponent implements AfterContentChecked, OnInit {
 
   columns = new Map<number, TableColumn>();
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+    this.showColumnsAt = TableColumnLayoutBreakpoints.Medium;
+  }
 
   ngAfterContentChecked() {
     if (this.tableHead && this.tableBody) {
@@ -72,24 +74,16 @@ export class LgTableComponent implements AfterContentChecked, OnInit {
     }
   }
 
-  ngOnInit() {
-    if (!this._columnsBreakpoint) {
-      this.addColumnsBreakpoint(TableColumnLayoutBreakpoints.Medium);
-    }
-  }
-
   private addColumnsBreakpoint(columnsBreakpoint: TableColumnLayoutBreakpoints) {
     this.renderer.removeClass(
       this.hostElement.nativeElement,
-      `lg-table--columns-${this._columnsBreakpoint}`,
+      `lg-table--columns-${this._showColumnsAt}`,
     );
 
     this.renderer.addClass(
       this.hostElement.nativeElement,
       `lg-table--columns-${columnsBreakpoint}`,
     );
-
-    this._columnsBreakpoint = columnsBreakpoint;
   }
 
   private handleHeadCells() {

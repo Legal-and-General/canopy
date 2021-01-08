@@ -209,7 +209,7 @@ export const standard = () => ({
       'Responsive options',
     ),
     showAuthorLabel: boolean(
-      'Display author label on mobile',
+      'Display author label in non-columns view',
       false,
       'Responsive options',
     ),
@@ -238,7 +238,7 @@ export const detail = () => ({
       'Responsive options',
     ),
     showAuthorLabel: boolean(
-      'Display author label on mobile',
+      'Display author label in non-columns view',
       false,
       'Responsive options',
     ),

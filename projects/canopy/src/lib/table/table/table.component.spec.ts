@@ -351,7 +351,7 @@ describe('TableComponent', () => {
 
     describe('when showColumnsAt is not set', () => {
       beforeEach(() => {
-        fixture = MockRender(getShowColumnsAtMockRender());
+        fixture = MockRender(getShowColumnsAtMockRenderDefault());
         debugElement = fixture.debugElement;
         tableDebugElement = debugElement.query(By.directive(LgTableComponent));
         fixture.detectChanges();
@@ -385,6 +385,23 @@ describe('TableComponent', () => {
   function getShowColumnsAtMockRender() {
     return `
     <table lg-table [showColumnsAt]="showColumnsAt">
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+  function getShowColumnsAtMockRenderDefault() {
+    return `
+    <table lg-table>
       <thead lg-table-head>
         <tr lg-table-row>
           <th lg-table-head-cell>Title</th>
