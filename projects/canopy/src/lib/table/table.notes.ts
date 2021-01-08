@@ -101,7 +101,7 @@ A component that acts as a standard table header cell.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`align\`\` | Alignment option for the header and its respective column | \`\`start\`\`, \`\`end\`\` | n/a | No |
-| \`\`showLabel\`\` | Whether to show label for this header in each row on mobile | boolean | true | No |
+| \`\`showLabel\`\` | Whether to show label for this header in each row in non-column layout | boolean | true | No |
 
 ### LgTableRowComponent
 A component that acts as a standard table row.
