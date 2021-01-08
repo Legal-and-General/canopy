@@ -21,29 +21,69 @@ import { iconsArray } from '../icon/icons.stories';
 import { LgIconRegistry } from '../icon/icon.registry';
 
 @Component({
-  selector: 'card-with-icons',
-  template: ` <ng-content></ng-content> `,
-})
-class CardWithIconsComponent {
-  icons = iconsArray;
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(this.icons);
-  }
-}
-
-@Component({
-  selector: 'lg-reactive-form',
+  selector: 'lg-form-journey',
   template: `
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-      <lg-input-field [block]="block">
-        {{ label }}
-        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <input lgInput formControlName="accountNumber" size="8" />
-      </lg-input-field>
-    </form>
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12" lgColLg="6" lgColLgOffset="3" lgColMd="10" lgColMdOffset="1">
+          <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+            <lg-card lgPadding="none">
+              <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
+                <lg-breadcrumb lgMarginBottom="none">
+                  <lg-breadcrumb-item>
+                    <a href="#">
+                      <lg-icon [name]="'chevron-left'"></lg-icon>
+                      Back
+                    </a>
+                  </lg-breadcrumb-item>
+                </lg-breadcrumb>
+              </lg-card-header>
+              <lg-card-content>
+                <div lgContainer>
+                  <div lgRow>
+                    <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+                      <lg-card-title headingLevel="3" lgPaddingBottom="md">{{
+                        title
+                      }}</lg-card-title>
+                      <p>{{ cardContent }}</p>
+
+                      <lg-input-field [block]="block">
+                        {{ label }}
+                        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+                        <input lgInput formControlName="accountNumber" size="8" />
+                      </lg-input-field>
+                    </div>
+                  </div>
+                </div>
+              </lg-card-content>
+              <lg-card-footer>
+                <div lgContainer>
+                  <div lgRow>
+                    <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+                      <button
+                        lg-button
+                        type="button"
+                        variant="outline-primary"
+                        lgMarginRight="sm"
+                      >
+                        Back
+                      </button>
+                      <button lg-button type="submit" variant="solid-primary">
+                        Confirm
+                      </button>
+                      <p *ngIf="policy" lgPaddingBottom="md">{{ policy }}</p>
+                    </div>
+                  </div>
+                </div>
+              </lg-card-footer>
+            </lg-card>
+          </form>
+        </div>
+      </div>
+    </div>
   `,
 })
-class ReactiveFormComponent {
+class FormJourneyComponent {
   @Input()
   set disabled(disabled: boolean) {
     if (disabled === true) {
@@ -58,13 +98,18 @@ class ReactiveFormComponent {
 
   @Input() hint: string;
   @Input() label: string;
+  @Input() title: string;
+  @Input() cardContent: string;
+  @Input() policy: string;
 
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
+  icons = iconsArray;
 
-  constructor(public fb: FormBuilder) {
+  constructor(private registry: LgIconRegistry, public fb: FormBuilder) {
+    this.registry.registerIcons(this.icons);
     this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
     this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
   }
@@ -80,7 +125,7 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        declarations: [ReactiveFormComponent, CardWithIconsComponent],
+        declarations: [FormJourneyComponent],
         imports: [
           ReactiveFormsModule,
           LgInputModule,
@@ -191,57 +236,16 @@ export const product = () => ({
 
 export const formJourney = () => ({
   template: `
-    <div lgContainer>
-      <div lgRow>
-        <div lgCol="12" lgColLg="6" lgColLgOffset="3" lgColMd="10" lgColMdOffset="1">
-          <card-with-icons>
-            <lg-card lgPadding="none">
-              <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
-                <lg-breadcrumb lgMarginBottom="none">
-                  <lg-breadcrumb-item>
-                    <a href="#">
-                      <lg-icon [name]="'chevron-left'"></lg-icon>
-                      Back
-                    </a>
-                  </lg-breadcrumb-item>
-                </lg-breadcrumb>
-              </lg-card-header>
-              <lg-card-content>
-                <div lgContainer>
-                  <div lgRow>
-                    <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                      <lg-card-title headingLevel="4">
-                      {{ title }}
-                      </lg-card-title>
-                      <lg-separator aria-hidden="true"></lg-separator>
-                      <p>{{cardContent}}</p>
-                      <lg-reactive-form
-                        (formSubmit)="formSubmit($event)"
-                        (inputChange)="inputChange($event)"
-                        [disabled]="disabled"
-                        [hint]="hint"
-                        [label]="label"
-                      ></lg-reactive-form>
-                    </div>
-                  </div>
-                </div>
-              </lg-card-content>
-              <lg-card-footer>
-                <div lgContainer>
-                  <div lgRow>
-                    <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                      <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>
-                      <button lg-button type="submit" variant="solid-primary">Confirm</button>
-                      <p *ngIf="policy" lgPaddingBottom="md">{{ policy }}</p>
-                    </div>
-                  </div>
-                </div>
-              </lg-card-footer>
-            </lg-card>
-          </card-with-icons>
-        </div>
-      </div>
-    </div>
+    <lg-form-journey
+      [title]="title"
+      [cardContent]="cardContent"
+      [disabled]="disabled"
+      [hint]="hint"
+      [policy]="policy"
+      [label]="label"
+      (inputChange)="inputChange($event)"
+    >
+    </lg-form-journey>
   `,
   props: {
     title: text('title', 'New bank details'),
