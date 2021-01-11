@@ -1,4 +1,5 @@
 @import '../../../styles/mixins.scss';
+@import '../table.breakpoints';
 
 .lg-table-head-cell {
   display: block;
@@ -7,12 +8,18 @@
   border-bottom: solid var(--table-header-border-width) var(--table-header-border-color);
   padding: var(--space-xs) 0;
 
-  @include lg-breakpoint('md') {
-    padding: var(--space-sm);
-    display: table-cell;
-  }
-
   &--align-end {
     text-align: right;
+  }
+}
+
+@each $columns-breakpoint in $columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    .lg-table-head-cell {
+      @include lg-breakpoint($columns-breakpoint) {
+        padding: var(--space-sm);
+        display: table-cell;
+      }
+    }
   }
 }

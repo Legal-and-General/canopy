@@ -71,6 +71,14 @@ and in your HTML:
 
 ## Inputs
 
+### LgTableComponent
+A component that acts as a standard table.
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`showColumnsAt\`\` | Sets the minimum screen width from which the column layout is displayed. Accepts \`sm\`, \`md\` or \`lg\` | string | 'md' | No |
+
+
 ### LgTableBodyComponent
 A component that acts as a standard table body.
 
@@ -93,7 +101,7 @@ A component that acts as a standard table header cell.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`align\`\` | Alignment option for the header and its respective column | \`\`start\`\`, \`\`end\`\` | n/a | No |
-| \`\`showLabel\`\` | Whether to show label for this header in each row on mobile | boolean | true | No |
+| \`\`showLabel\`\` | Whether to show label for this header in each row in non-column layout | boolean | true | No |
 
 ### LgTableRowComponent
 A component that acts as a standard table row.

@@ -1,11 +1,8 @@
 @import '../../../styles/mixins.scss';
+@import '../table.breakpoints';
 
 .lg-table-row-toggle {
   font-weight: var(--font-weight-bold);
-
-  @include lg-breakpoint('md') {
-    font-weight: normal;
-  }
 
   &__btn {
     border: none;
@@ -16,18 +13,8 @@
     min-width: var(--table-toggle-width);
     min-height: var(--table-toggle-width);
 
-    @include lg-breakpoint('md') {
-      padding: 0;
-    }
-
     &:focus {
       @include lg-inner-focus-outline(var(--default-focus-color));
-    }
-  }
-
-  &__label {
-    @include lg-breakpoint('md') {
-      @include lg-visually-hidden;
     }
   }
 
@@ -35,12 +22,36 @@
     transition: transform var(--animation-duration) var(--animation-fn);
     margin-right: var(--space-xxs);
 
-    @include lg-breakpoint('md') {
-      margin-right: 0;
-    }
-
     &--active {
       transform: rotateX(180deg);
+    }
+  }
+}
+
+@each $columns-breakpoint in $columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    .lg-table-row-toggle {
+      @include lg-breakpoint($columns-breakpoint) {
+        font-weight: normal;
+      }
+
+      &__btn {
+        @include lg-breakpoint($columns-breakpoint) {
+          padding: 0;
+        }
+      }
+
+      &__label {
+        @include lg-breakpoint($columns-breakpoint) {
+          @include lg-visually-hidden;
+        }
+      }
+
+      &__heading-icon {
+        @include lg-breakpoint($columns-breakpoint) {
+          margin-right: 0;
+        }
+      }
     }
   }
 }
