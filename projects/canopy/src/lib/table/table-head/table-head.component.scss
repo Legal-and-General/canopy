@@ -1,11 +1,16 @@
 @import '../../../styles/mixins.scss';
+@import '../table.breakpoints';
 
-.lg-table-head {
-  @include lg-breakpoint('md', 'max-width') {
-    @include lg-visually-hidden();
-  }
+@each $columns-breakpoint in $columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    .lg-table-head {
+      @include lg-breakpoint($columns-breakpoint, 'max-width') {
+        @include lg-visually-hidden();
+      }
 
-  @include lg-breakpoint('md') {
-    display: table-header-group;
+      @include lg-breakpoint($columns-breakpoint) {
+        display: table-header-group;
+      }
+    }
   }
 }

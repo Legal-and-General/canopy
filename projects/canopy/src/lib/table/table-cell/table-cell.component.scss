@@ -1,13 +1,9 @@
 @import '../../../styles/mixins.scss';
+@import '../table.breakpoints';
 
 .lg-table-cell {
   display: flex;
   align-items: baseline;
-
-  @include lg-breakpoint('md') {
-    display: table-cell;
-    padding: var(--space-sm);
-  }
 
   &--toggle-cell {
     order: 1;
@@ -20,25 +16,11 @@
     .lg-table-cell__content {
       margin-left: 0;
     }
-
-    @include lg-breakpoint('md') {
-      min-width: var(--table-toggle-width);
-    }
   }
 }
 
 .lg-table-cell__content {
   margin-left: auto;
-
-  @include lg-breakpoint('md') {
-    text-align: left;
-  }
-
-  &--align-end {
-    @include lg-breakpoint('md') {
-      text-align: right;
-    }
-  }
 }
 
 .lg-table-cell--expandable-content {
@@ -49,8 +31,40 @@
 
 .lg-table-cell__label {
   font-weight: var(--font-weight-bold);
+}
 
-  @include lg-breakpoint('md') {
-    display: none;
+@each $columns-breakpoint in $columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    .lg-table-cell {
+      @include lg-breakpoint($columns-breakpoint) {
+        display: table-cell;
+        padding: var(--space-sm);
+      }
+
+      &--toggle-cell {
+        @include lg-breakpoint($columns-breakpoint) {
+          min-width: var(--table-toggle-width);
+          padding: 0;
+        }
+      }
+
+      &__content {
+        @include lg-breakpoint($columns-breakpoint) {
+          text-align: left;
+        }
+
+        &--align-end {
+          @include lg-breakpoint($columns-breakpoint) {
+            text-align: right;
+          }
+        }
+      }
+
+      &__label {
+        @include lg-breakpoint($columns-breakpoint) {
+          display: none;
+        }
+      }
+    }
   }
 }

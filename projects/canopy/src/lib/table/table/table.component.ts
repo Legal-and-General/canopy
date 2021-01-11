@@ -1,15 +1,18 @@
 import {
+  AfterContentChecked,
   ChangeDetectionStrategy,
   Component,
-  HostBinding,
-  ViewEncapsulation,
-  AfterContentChecked,
   ContentChild,
+  ElementRef,
+  HostBinding,
+  Input,
+  Renderer2,
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
-import { TableColumn } from '../table.interface';
+import { TableColumn, TableColumnLayoutBreakpoints } from '../table.interface';
 
 let nextUniqueId = 0;
 
@@ -32,11 +35,25 @@ export class LgTableComponent implements AfterContentChecked {
     return this.isExpandable;
   }
 
+  private _showColumnsAt: TableColumnLayoutBreakpoints;
+  @Input()
+  set showColumnsAt(columnsBreakpoint: TableColumnLayoutBreakpoints) {
+    this.addColumnsBreakpoint(columnsBreakpoint);
+    this._showColumnsAt = columnsBreakpoint;
+  }
+  get showColumnsAt(): TableColumnLayoutBreakpoints {
+    return this._showColumnsAt;
+  }
+
   isExpandable = false;
 
   id = nextUniqueId++;
 
   columns = new Map<number, TableColumn>();
+
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+    this.showColumnsAt = TableColumnLayoutBreakpoints.Medium;
+  }
 
   ngAfterContentChecked() {
     if (this.tableHead && this.tableBody) {
@@ -55,6 +72,18 @@ export class LgTableComponent implements AfterContentChecked {
 
       this.handleBodyRows();
     }
+  }
+
+  private addColumnsBreakpoint(columnsBreakpoint: TableColumnLayoutBreakpoints) {
+    this.renderer.removeClass(
+      this.hostElement.nativeElement,
+      `lg-table--columns-${this._showColumnsAt}`,
+    );
+
+    this.renderer.addClass(
+      this.hostElement.nativeElement,
+      `lg-table--columns-${columnsBreakpoint}`,
+    );
   }
 
   private handleHeadCells() {

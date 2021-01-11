@@ -85,7 +85,9 @@ describe('TableComponent', () => {
   });
 
   it('should have the default class', () => {
-    expect(tableDebugElement.nativeElement.getAttribute('class')).toBe('lg-table');
+    expect(tableDebugElement.nativeElement.getAttribute('class')).toBe(
+      'lg-table--columns-md lg-table',
+    );
   });
 
   it('passes the head content to the respective label template', () => {
@@ -329,12 +331,80 @@ describe('TableComponent', () => {
     });
   });
 
+  describe('showColumnsAt setting', () => {
+    describe('when showColumnsAt is set', () => {
+      beforeEach(() => {
+        fixture = MockRender(getShowColumnsAtMockRender(), {
+          showColumnsAt: 'sm',
+        });
+        debugElement = fixture.debugElement;
+        tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+        fixture.detectChanges();
+      });
+
+      it('should add the lg-table--columns-* class to the table', () => {
+        expect(tableDebugElement.classes['lg-table--columns-sm']).toBe(true);
+        expect(tableDebugElement.classes['lg-table--columns-lg']).toBe(undefined);
+        expect(tableDebugElement.classes['lg-table--columns-md']).toBe(undefined);
+      });
+    });
+
+    describe('when showColumnsAt is not set', () => {
+      beforeEach(() => {
+        fixture = MockRender(getShowColumnsAtMockRenderDefault());
+        debugElement = fixture.debugElement;
+        tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+        fixture.detectChanges();
+      });
+
+      it('should add the default lg-table--columns-md class to the table', () => {
+        expect(tableDebugElement.classes['lg-table--columns-md']).toBe(true);
+        expect(tableDebugElement.classes['lg-table--columns-sm']).toBe(undefined);
+        expect(tableDebugElement.classes['lg-table--columns-lg']).toBe(undefined);
+      });
+    });
+  });
+
   function getShowLabelMockRender() {
     return `
     <table lg-table>
       <thead lg-table-head>
         <tr lg-table-row>
           <th lg-table-head-cell [showLabel]="showLabel">Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+  function getShowColumnsAtMockRender() {
+    return `
+    <table lg-table [showColumnsAt]="showColumnsAt">
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+  function getShowColumnsAtMockRenderDefault() {
+    return `
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Title</th>
         </tr>
       </thead>
 
