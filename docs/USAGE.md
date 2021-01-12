@@ -38,7 +38,7 @@ In your angular `app.module.ts' file you can choose to import all of the compone
 
 ### Importing specific component modules (recommended)
 
-Importing specific modules is considered best practice as it only includes the code that you need and keeps build size to a minimum. Refer to the [storybook](https://canopy-e66e57.netlify.com/) notes tabs for documentation specific to each module.
+Importing specific modules is considered best practice as it only includes the code that you need and keeps build size to a minimum. Refer to the [storybook](https://legal-and-general-canopy.netlify.app/) notes tabs for documentation specific to each module.
 
 ```js
 import { LgButtonModule, LgCardModule, LgFormModule } from '@legal-and-general/canopy';
@@ -128,7 +128,7 @@ import cssVars from 'css-vars-ponyfill';
 
 ## Using the components
 
-Each components is individually documented on Storybook, refer to the latest version which is available at https://canopy-e66e57.netlify.com/
+Each components is individually documented on Storybook, refer to the latest version which is available at https://legal-and-general-canopy.netlify.app/
 
 The `notes` tab explains the usage of each component. The `story` tab displays the code required to render that particular documentation page, and is a useful reference point.
 
