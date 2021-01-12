@@ -84,10 +84,27 @@ describe('TableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have the default class', () => {
+  it('should have the default classes', () => {
     expect(tableDebugElement.nativeElement.getAttribute('class')).toBe(
-      'lg-table--columns-md lg-table',
+      'lg-table--striped lg-table--columns-md lg-table',
     );
+    expect(tableDebugElement.nativeElement.getAttribute('class')).not.toContain(
+      'lg-table--bordered',
+    );
+  });
+
+  describe('when a variant is specified', () => {
+    it('should set the correct class modifier', () => {
+      component.variant = 'bordered';
+      fixture.detectChanges();
+
+      expect(tableDebugElement.nativeElement.getAttribute('class')).toContain(
+        'lg-table--bordered',
+      );
+      expect(tableDebugElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table--striped',
+      );
+    });
   });
 
   it('passes the head content to the respective label template', () => {
