@@ -2,11 +2,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChild,
   ContentChildren,
   HostBinding,
+  Input,
   QueryList,
   ViewEncapsulation,
-  Input,
 } from '@angular/core';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
@@ -46,9 +47,21 @@ export class LgTableRowComponent {
 
   @ContentChildren(LgTableCellComponent) bodyCells: QueryList<LgTableCellComponent>;
 
-  @ContentChildren(LgTableHeadCellComponent) headCells: QueryList<
-    LgTableHeadCellComponent
-  >;
+  @ContentChildren(LgTableHeadCellComponent)
+  headCells: QueryList<LgTableHeadCellComponent>;
+
+  @ContentChild(LgTableCellComponent, { static: true })
+  tableCellComponent: LgTableCellComponent;
+
+  @HostBinding('class.lg-table-row__toggle--active')
+  get isToggledActive(): boolean {
+    return !!this.tableCellComponent?.toggleClass?.isActive;
+  }
+
+  @HostBinding('class.lg-table-row__toggle')
+  get hasToggle(): boolean {
+    return !!this.tableCellComponent?.toggleClass;
+  }
 
   isDetailRow = false;
 

@@ -7,23 +7,33 @@
   margin-bottom: var(--component-margin);
   border-spacing: 0;
 
-  &--expandable {
-    tr {
-      &:nth-child(4n + 3) {
-        background-color: var(--table-stripe-color);
-      }
+  &--striped:not(&--expandable) tr:nth-child(even) {
+    background-color: var(--table-stripe-color);
+  }
 
-      &:nth-child(4n + 4) {
-        background-color: var(--table-stripe-color);
-      }
+  &--bordered {
+    border-collapse: collapse;
+
+    tr {
+      border-bottom: solid var(--border-width) var(--table-row-border-color);
     }
   }
 
-  &:not(&--expandable) {
-    tr {
-      &:nth-child(even) {
-        background-color: var(--table-stripe-color);
+  &--expandable {
+    &.lg-table--striped {
+      tr {
+        &:nth-child(4n + 3) {
+          background-color: var(--table-stripe-color);
+        }
+
+        &:nth-child(4n + 4) {
+          background-color: var(--table-stripe-color);
+        }
       }
+    }
+
+    &.lg-table--bordered .lg-table-row__toggle--active {
+      border-bottom: 0;
     }
   }
 }
