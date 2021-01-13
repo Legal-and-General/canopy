@@ -144,7 +144,7 @@
     ],
     "projects/canopy/src/**/*.{scss, css}": [
       "prettier --write",
-      "stylelint --fix",
+      "stylelint --syntax scss --fix",
       "git add"
     ],
     "projects/canopy/src/**/*.ts": [
