@@ -40,59 +40,55 @@ $spacing-list: (
   'xxxxl'
 );
 
-body {
-  // utility classes require additional specificity
+@function space($val) {
+  @if $val == 'none' {
+    @return 0;
+  } @else {
+    @return var(--space-#{$val});
+  }
+}
 
-  @function space($val) {
-    @if $val == 'none' {
-      @return 0;
-    } @else {
-      @return var(--space-#{$val});
-    }
+@each $val in $spacing-list {
+  .lg-margin--#{$val} {
+    margin: space($val) !important;
   }
 
-  @each $val in $spacing-list {
-    .lg-margin--#{$val} {
-      margin: space($val);
-    }
+  .lg-padding--#{$val} {
+    padding: space($val) !important;
+  }
+}
 
-    .lg-padding--#{$val} {
-      padding: space($val);
-    }
+@each $val in $spacing-list {
+  .lg-margin__top--#{$val} {
+    margin-top: space($val) !important;
   }
 
-  @each $val in $spacing-list {
-    .lg-margin__top--#{$val} {
-      margin-top: space($val);
-    }
+  .lg-padding__top--#{$val} {
+    padding-top: space($val) !important;
+  }
 
-    .lg-padding__top--#{$val} {
-      padding-top: space($val);
-    }
+  .lg-margin__right--#{$val} {
+    margin-right: space($val) !important;
+  }
 
-    .lg-margin__right--#{$val} {
-      margin-right: space($val);
-    }
+  .lg-padding__right--#{$val} {
+    padding-right: space($val) !important;
+  }
 
-    .lg-padding__right--#{$val} {
-      padding-right: space($val);
-    }
+  .lg-margin__bottom--#{$val} {
+    margin-bottom: space($val) !important;
+  }
 
-    .lg-margin__bottom--#{$val} {
-      margin-bottom: space($val);
-    }
+  .lg-padding__bottom--#{$val} {
+    padding-bottom: space($val) !important;
+  }
 
-    .lg-padding__bottom--#{$val} {
-      padding-bottom: space($val);
-    }
+  .lg-margin__left--#{$val} {
+    margin-left: space($val) !important;
+  }
 
-    .lg-margin__left--#{$val} {
-      margin-left: space($val);
-    }
-
-    .lg-padding__left--#{$val} {
-      padding-left: space($val);
-    }
+  .lg-padding__left--#{$val} {
+    padding-left: space($val) !important;
   }
 }
 
