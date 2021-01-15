@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 
 import { MockComponents } from 'ng-mocks';
+import { spy, when } from 'ts-mockito';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
@@ -9,6 +10,7 @@ import { LgTableRowComponent } from './table-row.component';
 
 describe('LgTableRowComponent', () => {
   let component: LgTableRowComponent;
+  let componentSpy: LgTableRowComponent;
   let fixture: ComponentFixture<LgTableRowComponent>;
   let debugElement: DebugElement;
 
@@ -24,6 +26,7 @@ describe('LgTableRowComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableRowComponent);
     component = fixture.componentInstance;
+    componentSpy = spy(component);
     debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
@@ -34,6 +37,40 @@ describe('LgTableRowComponent', () => {
 
   it('should have the table row class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-table-row');
+  });
+
+  it('should have the table row toggle class if the row is expandable', () => {
+    when(componentSpy.hasToggle).thenReturn(true);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-table-row__toggle');
+  });
+
+  it("shouldn't have the table row toggle class if the row is not expandable", () => {
+    when(componentSpy.hasToggle).thenReturn(false);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+      'lg-table-row__toggle',
+    );
+  });
+
+  it('should have the active class if the row is toggled active', () => {
+    when(componentSpy.isToggledActive).thenReturn(true);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.getAttribute('class')).toContain(
+      'lg-table-row__toggle--active',
+    );
+  });
+
+  it("shouldn't have the active class if the row is not toggled active", () => {
+    when(componentSpy.isToggledActive).thenReturn(false);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+      'lg-table-row__toggle--active',
+    );
   });
 
   describe('when the id by is not set', () => {

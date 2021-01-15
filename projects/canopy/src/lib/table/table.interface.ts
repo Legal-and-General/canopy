@@ -1,3 +1,5 @@
+export type TableVariant = 'striped' | 'bordered';
+
 export enum AlignmentOptions {
   Start = 'start',
   End = 'end',

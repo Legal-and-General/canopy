@@ -12,7 +12,11 @@ import {
 
 import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
-import { TableColumn, TableColumnLayoutBreakpoints } from '../table.interface';
+import {
+  TableColumn,
+  TableColumnLayoutBreakpoints,
+  TableVariant,
+} from '../table.interface';
 
 let nextUniqueId = 0;
 
@@ -27,7 +31,6 @@ export class LgTableComponent implements AfterContentChecked {
   @HostBinding('class') class = 'lg-table';
 
   @ContentChild(LgTableHeadComponent, { static: false }) tableHead: LgTableHeadComponent;
-
   @ContentChild(LgTableBodyComponent, { static: false }) tableBody: LgTableBodyComponent;
 
   @HostBinding('class.lg-table--expandable')
@@ -45,6 +48,22 @@ export class LgTableComponent implements AfterContentChecked {
     return this._showColumnsAt;
   }
 
+  _variant: TableVariant;
+  @Input()
+  set variant(variant: TableVariant) {
+    if (this._variant) {
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-table--${this.variant}`,
+      );
+    }
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-table--${variant}`);
+    this._variant = variant;
+  }
+  get variant() {
+    return this._variant;
+  }
+
   isExpandable = false;
 
   id = nextUniqueId++;
@@ -52,6 +71,7 @@ export class LgTableComponent implements AfterContentChecked {
   columns = new Map<number, TableColumn>();
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+    this.variant = 'striped';
     this.showColumnsAt = TableColumnLayoutBreakpoints.Medium;
   }
 

@@ -77,6 +77,7 @@ A component that acts as a standard table.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`showColumnsAt\`\` | Sets the minimum screen width from which the column layout is displayed. Accepts \`sm\`, \`md\` or \`lg\` | string | 'md' | No |
+| \`\`variant\`\` | The variant of table. Accepts \`striped\` or \`bordered\` | string | 'striped' | No |
 
 
 ### LgTableBodyComponent

@@ -3,7 +3,11 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
-import { AlignmentOptions, TableColumnLayoutBreakpoints } from './table.interface';
+import {
+  AlignmentOptions,
+  TableColumnLayoutBreakpoints,
+  TableVariant,
+} from './table.interface';
 import { LgInputModule } from '../forms';
 import { LgMarginModule } from '../spacing';
 import { LgSuffixModule } from '../suffix';
@@ -74,7 +78,7 @@ function getDefaultTableContent(): Array<TableStoryItem> {
 @Component({
   selector: 'story-table-detail',
   template: `
-    <table lg-table [showColumnsAt]="columnBreakpoint">
+    <table lg-table [showColumnsAt]="columnBreakpoint" [variant]="variant">
       <thead lg-table-head>
         <tr lg-table-row>
           <th scope="col" lg-table-head-cell>
@@ -115,11 +119,10 @@ function getDefaultTableContent(): Array<TableStoryItem> {
 })
 export class StoryTableDetailComponent {
   @Input() books: Array<TableStoryItem> = [];
-
+  @Input() variant: TableVariant;
   @Input() alignPublishColumn: AlignmentOptions;
   @Input() showAuthorLabel: boolean;
   @Input() columnBreakpoint: TableColumnLayoutBreakpoints;
-
   @Input() expandedRows: Array<number> = [];
 
   get colspan() {
@@ -165,7 +168,7 @@ export default {
 
 export const standard = () => ({
   template: `
-    <table lg-table [showColumnsAt]="columnBreakpoint">
+    <table lg-table [showColumnsAt]="columnBreakpoint" [variant]="variant">
       <thead lg-table-head>
         <tr lg-table-row>
           <th lg-table-head-cell [showLabel]="showAuthorLabel">Author</th>
@@ -186,6 +189,7 @@ export const standard = () => ({
 
   props: {
     books: object('Books', getDefaultTableContent(), 'Table data'),
+    variant: select('Variant', ['striped', 'bordered'], 'striped', 'Variant'),
     alignTitleColumn: select(
       'Align Title column',
       [AlignmentOptions.End, AlignmentOptions.Start],
@@ -217,10 +221,11 @@ export const standard = () => ({
 });
 
 export const detail = () => ({
-  template: `<story-table-detail [books]="books" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></story-table-detail>`,
+  template: `<story-table-detail [books]="books" [variant]="variant" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></story-table-detail>`,
 
   props: {
     books: object('Books', getDefaultTableContent(), 'Table data'),
+    variant: select('Variant', ['striped', 'bordered'], 'striped', 'Variant'),
     alignPublishColumn: select(
       'Align Publish column',
       [AlignmentOptions.Start, AlignmentOptions.End],
@@ -247,7 +252,7 @@ export const detail = () => ({
 
 export const withInput = () => ({
   template: `
-    <table lg-table>
+    <table lg-table [variant]="variant">
       <thead lg-table-head>
         <tr lg-table-row>
           <th lg-table-head-cell>Author</th>
@@ -271,5 +276,6 @@ export const withInput = () => ({
 
   props: {
     books: object('Books', getDefaultTableContent(), 'Table data'),
+    variant: select('Variant', ['striped', 'bordered'], 'striped', 'Variant'),
   },
 });
