@@ -156,7 +156,7 @@ export default {
   },
 };
 
-export const productData = () => ({
+export const productDetails = () => ({
   template: `
     <lg-hero [overlap]="overlap" lgMarginTop="none">
       ${productHeroHTML}

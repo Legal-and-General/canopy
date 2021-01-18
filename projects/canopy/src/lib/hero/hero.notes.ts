@@ -5,6 +5,133 @@ export const notes = (productHeroHTML: string, conversationalHeroHTML: string) =
 ## Purpose
 A flexible component that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.
 
+## Usage
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgHeroModule ],
+})
+~~~
+
+and in your HTML...
+
+~~~html
+<lg-hero [overlap]="2">
+  <lg-hero-content>
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-hero-card>
+            <lg-hero-card-header>
+              <lg-hero-card-title headingLevel="2">
+                Good morning, Gene
+              </lg-hero-card-title>
+            </lg-hero-card-header>
+          </lg-hero-card>
+        </div>
+      </div>
+    </div>
+  </lg-hero-content>
+</lg-hero>
+~~~
+
+---
+
+### Other hero types and templates
+
+You can extend the basic Hero component and create specific Hero layouts and implementations.
+
+#### Product details
+
+This component can used to display product data, for example on a prodcut details page. Note the extensive use of presentation components to acheive the desired layout.
+
+~~~html
+<lg-hero-header>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12">
+        <lg-breadcrumb variant="light" lgMarginBottom="none">
+          <lg-breadcrumb-item>
+            <a href="#">
+              <lg-icon [name]="'home'"></lg-icon>
+              Home
+            </a>
+          </lg-breadcrumb-item>
+          <lg-breadcrumb-item>
+            <a href="#">Products</a>
+          </lg-breadcrumb-item>
+          <lg-breadcrumb-item>
+            <a href="#" aria-current="page">Pension Annuity</a>
+          </lg-breadcrumb-item>
+        </lg-breadcrumb>
+      </div>
+    </div>
+  </div>
+</lg-hero-header>
+<lg-hero-content>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12">
+        <lg-hero-card>
+          <lg-hero-card-header>
+            <lg-hero-card-title headingLevel="4">
+              Pension annuity
+            </lg-hero-card-title>
+            <lg-hero-card-subtitle>
+              Payroll Reference Number P23456
+            </lg-hero-card-subtitle>
+            <lg-hero-card-notification>
+              <lg-icon name="information-fill"></lg-icon>
+              <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
+            </lg-hero-card-notification>
+            <lg-hero-card-principle-data-point>
+              <lg-hero-card-principle-data-point-label headingLevel="5">
+                Last payment (after tax and deductions)
+              </lg-hero-card-principle-data-point-label>
+              <lg-hero-card-principle-data-point-value>
+                £230.20
+              </lg-hero-card-principle-data-point-value>
+            </lg-hero-card-principle-data-point>
+          </lg-hero-card-header>
+          <lg-hero-card-content>
+            <lg-hero-card-data-point-list>
+              <lg-hero-card-data-point>
+                <lg-hero-card-data-point-label headingLevel="6">
+                  Payment due
+                </lg-hero-card-data-point-label>
+                <lg-hero-card-data-point-value>
+                  15 Jan 2020
+                </lg-hero-card-data-point-value>
+              </lg-hero-card-data-point>
+              <lg-hero-card-data-point>
+                <lg-hero-card-data-point-label headingLevel="6">
+                  Payment frequency
+                </lg-hero-card-data-point-label>
+                <lg-hero-card-data-point-value>
+                  Monthly
+                </lg-hero-card-data-point-value>
+              </lg-hero-card-data-point>
+              <lg-hero-card-data-point>
+                <lg-hero-card-data-point-label headingLevel="6">
+                  Tax code
+                </lg-hero-card-data-point-label>
+                <lg-hero-card-data-point-value>
+                  2T <span lgMarginLeft="sm" class="lg-font-size-1">Received on 12 Mar 2019</span>
+                </lg-hero-card-data-point-value>
+              </lg-hero-card-data-point>
+            </lg-hero-card-data-point-list>
+          </lg-hero-card-content>
+          <lg-hero-card-footer>
+            <small class="lg-font-size-0-6">* This is not a guaranteed amount and could be subject to change.</small>
+          </lg-hero-card-footer>
+        </lg-hero-card>
+      </div>
+    </div>
+  </div>
+</lg-hero-content>
+~~~
+
+
 ### LgHeroComponent
 This is the branded bar which runs across
 the top of the page. It also controls the functionality to create the 'overlap' between the page content.

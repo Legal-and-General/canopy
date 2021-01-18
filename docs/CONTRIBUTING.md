@@ -16,11 +16,11 @@ Pull requests are automatically deployed via [Netlify](https://netlify.com), a s
 
 The master branch is also deployed to netlify, this currently provides the most up to date documentation for the latest version.
 
-https://canopy-e66e57.netlify.com/
+https://legal-and-general-canopy.netlify.app/
 
 When seeking QA approval for your work please provide a link on the PR to the specific component in question, e.g.
 
-https://canopy-e66e57.netlify.com/?path=/story/button--single-button
+https://legal-and-general-canopy.netlify.app/?path=/story/components-button--primary-button
 
 ## Build
 
