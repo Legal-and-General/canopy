@@ -23,3 +23,6 @@ updates:
       prefix: 'npm'
       include: 'scope'
     versioning-strategy: increase
+    ignore:
+      - dependency_name: "@storybook/*"
+        versions: ["6.x"]
