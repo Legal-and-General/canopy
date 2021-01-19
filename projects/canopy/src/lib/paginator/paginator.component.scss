@@ -1,0 +1,35 @@
+.lg-paginator {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+
+  &__page-size {
+    align-items: center;
+    display: flex !important;
+    margin: 0 var(--space-xs) 0 0 !important;
+    padding: 0;
+
+    label {
+      margin: 0 var(--space-xxs) 0 0;
+    }
+
+    &-selection {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &__btn-prev,
+  &__btn-next,
+  &__btn-first,
+  &__btn-last {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: var(--space-xxxs);
+
+    &:disabled {
+      background: transparent !important;
+    }
+  }
+}

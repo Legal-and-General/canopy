@@ -22,6 +22,7 @@ export * from './lib/heading/index';
 export * from './lib/hero/index';
 export * from './lib/icon/index';
 export * from './lib/page/index';
+export * from './lib/paginator/index';
 export * from './lib/brand-icon/index';
 export * from './lib/pipes/index';
 export * from './lib/prefix/index';

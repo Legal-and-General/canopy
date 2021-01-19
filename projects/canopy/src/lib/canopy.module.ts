@@ -19,6 +19,7 @@ import { LgHeadingModule } from './heading/heading.module';
 import { LgHeroModule } from './hero/hero.module';
 import { LgIconModule } from './icon/icon.module';
 import { LgPageModule } from './page/page.module';
+import { LgPaginatorModule } from './paginator/paginator.module';
 import { LgPipesModule } from './pipes/pipes.module';
 import { LgPrefixModule } from './prefix/prefix.module';
 import { LgQuickActionModule } from './quick-action/quick-action.module';
@@ -47,6 +48,7 @@ const modules = [
   LgHeroModule,
   LgIconModule,
   LgPageModule,
+  LgPaginatorModule,
   LgBrandIconModule,
   LgPipesModule,
   LgPrefixModule,
