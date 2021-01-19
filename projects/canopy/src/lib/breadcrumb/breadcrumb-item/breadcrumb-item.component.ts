@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
+  Input,
 } from '@angular/core';
 
 import * as iconSet from '../../icon/icons.interface';
@@ -21,29 +22,11 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
 export class LgBreadcrumbItemComponent {
   @HostBinding('class.lg-breadcrumb-item') class = true;
 
+  @Input() showOnSmScreens = false;
+
   icons = iconSet;
 
   index: number;
-
-  set hideIcons(hideIcons: boolean) {
-    this._hideIcons = hideIcons;
-
-    this.cd.detectChanges();
-  }
-
-  get hideIcons() {
-    return this._hideIcons;
-  }
-
-  set isSmScreenFeaturedItem(isSmScreenFeaturedItem: boolean) {
-    this._isSmScreenFeaturedItem = isSmScreenFeaturedItem;
-
-    this.cd.detectChanges();
-  }
-
-  get isSmScreenFeaturedItem() {
-    return this._isSmScreenFeaturedItem;
-  }
 
   set variant(variant: BreadcrumbVariant) {
     if (this._variant) {
@@ -88,10 +71,6 @@ export class LgBreadcrumbItemComponent {
   private _showBackChevron = false;
 
   private _showForwardChevron = false;
-
-  private _isSmScreenFeaturedItem = false;
-
-  private _hideIcons = false;
 
   constructor(
     private renderer: Renderer2,

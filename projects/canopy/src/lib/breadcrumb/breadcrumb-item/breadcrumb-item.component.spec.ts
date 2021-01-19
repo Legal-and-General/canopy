@@ -2,7 +2,7 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { MockComponent } from 'ng-mocks';
+import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon/icon.component';
 import { LgBreadcrumbItemComponent } from './breadcrumb-item.component';
@@ -74,14 +74,16 @@ describe('LgBreadcrumbItemComponent', () => {
     });
   });
 
-  describe('when isSmScreenFeaturedItem is true', () => {
+  describe('when showOnSmScreens is true', () => {
+    let localFixture: MockedComponentFixture<LgBreadcrumbItemComponent>;
     beforeEach(() => {
-      component.isSmScreenFeaturedItem = true;
-      fixture.detectChanges();
+      localFixture = MockRender(`<lg-breadcrumb-item [showOnSmScreens]="true"></lg-breadcrumb-item>`)
+      component = localFixture.debugElement.children[0].componentInstance;
+      localFixture.detectChanges();
     });
 
     it(`the class should contain small screen visibility class`, () => {
-      const containerEL = fixture.debugElement.query(
+      const containerEL = localFixture.debugElement.query(
         By.css('.lg-breadcrumb-item__container'),
       );
       expect(containerEL.nativeElement.getAttribute('class')).toContain(
@@ -90,19 +92,4 @@ describe('LgBreadcrumbItemComponent', () => {
     });
   });
 
-  describe('when hideIcons is true', () => {
-    beforeEach(() => {
-      component.hideIcons = true;
-      fixture.detectChanges();
-    });
-
-    it('the class should contain hide-icons class', () => {
-      const containerEL = fixture.debugElement.query(
-        By.css('.lg-breadcrumb-item__container'),
-      );
-      expect(containerEL.nativeElement.getAttribute('class')).toContain(
-        'lg-breadcrumb-item__container--hide-icons',
-      );
-    });
-  });
 });

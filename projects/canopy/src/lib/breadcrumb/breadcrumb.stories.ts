@@ -16,7 +16,8 @@ interface Breadcrumb {
   selector: 'async-breadcrumb-story',
   template: `
     <lg-breadcrumb [variant]="variant">
-      <lg-breadcrumb-item *ngFor="let crumb of crumbs; index as i">
+      <lg-breadcrumb-item *ngFor="let crumb of crumbs; index as i"
+        [showOnSmScreens]="i === 1">
         <a href="#" [attr.aria-current]="isCurrentAttribute(i)">
           <lg-icon *ngIf="!i" [name]="'home'"></lg-icon>
           {{ crumb.text }}
@@ -72,7 +73,7 @@ export default {
 export const twoItems = () => ({
   template: `
     <lg-breadcrumb [variant]="variant">
-      <lg-breadcrumb-item>
+      <lg-breadcrumb-item showOnSmScreens="true">
         <a href="#">
           <lg-icon [name]="'home'"></lg-icon>
           Home
@@ -101,7 +102,7 @@ export const threeItems = () => ({
           Home
         </a>
       </lg-breadcrumb-item>
-      <lg-breadcrumb-item>
+      <lg-breadcrumb-item showOnSmScreens="true">
         <a href="#">Home Insurance</a>
       </lg-breadcrumb-item>
       <lg-breadcrumb-item>

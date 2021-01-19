@@ -72,14 +72,9 @@ export class LgBreadcrumbComponent implements AfterContentChecked {
 
       crumb.index = index;
 
-      crumb.hideIcons = totalCrumbCount === 2 && !index;
-
       crumb.showBackChevron = totalCrumbCount > 1;
 
       crumb.showForwardChevron = index + 1 !== totalCrumbCount;
-
-      crumb.isSmScreenFeaturedItem =
-        (!index && totalCrumbCount === 1) || index + 2 === totalCrumbCount;
     });
   }
 }

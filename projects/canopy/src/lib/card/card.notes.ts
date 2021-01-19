@@ -78,7 +78,7 @@ Creates the Form Journey template, used to display a single page form. Note that
       <lg-card lgPadding="none">
         <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
           <lg-breadcrumb lgMarginBottom="none">
-            <lg-breadcrumb-item>
+            <lg-breadcrumb-item showOnSmScreens="true">
               <a href="#">
                 <lg-icon [name]="'chevron-left'"></lg-icon>
                 Back

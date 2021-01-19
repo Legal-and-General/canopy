@@ -42,7 +42,7 @@ export const productHeroHTML = `
               Home
             </a>
           </lg-breadcrumb-item>
-          <lg-breadcrumb-item>
+          <lg-breadcrumb-item showOnSmScreens="true">
             <a href="#">Products</a>
           </lg-breadcrumb-item>
           <lg-breadcrumb-item>

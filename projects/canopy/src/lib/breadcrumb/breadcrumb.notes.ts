@@ -25,7 +25,7 @@ and in your HTML:
       Home
     </a>
   </lg-breadcrumb-item>
-  <lg-breadcrumb-item>
+  <lg-breadcrumb-item showOnSmScreens="true">
     <a href="#">Products</a>
   </lg-breadcrumb-item>
   <lg-breadcrumb-item>
@@ -48,11 +48,17 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
 <lg-breadcrumb-item-ellipsis></lg-breadcrumb-item-ellipsis>
 ~~~
 
-## Inputs
+## Breadcrumb Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`variant\`\` | The colour variants available: \`\`light\`\`, \`\`dark\`\` | string | dark | No |
+
+## Breadcrumb Item Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`showOnSmScreens\`\` | Specify whether to show a crumb item on small screen devices  | boolean | false | No |
 
 ## Using only the SCSS files
 
@@ -61,7 +67,6 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
 | \`\`lg-breadcrumb\`\` | Adds the default styles to the breadcrumbs
 | \`\`lg-breadcrumb-item\`\` | Adds the default styles to the breadcrumb items
 | \`\`lg-breadcrumb-item__container\`\` | Adds the default styles to the breadcrumb items container
-| \`\`lg-breadcrumb-item__container--hide-icons\`\` | Adds the default styles to hide icons (excluding forward and backward icons)
 | \`\`lg-breadcrumb-item__container--visible-sm\`\` | Adds the default styles to set a breadcrumb item to be visible on small screens
 | \`\`lg-breadcrumb-item__icon-wrapper\`\` | Adds the default styles to set a breadcrumb item icon wrapper
 | \`\`lg-breadcrumb-item__icon\`\` | Adds the default styles to set a breadcrumb item icon
@@ -79,13 +84,13 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
       </span>
     </div>
   </div>
-    <div class="lg-breadcrumb-item--dark lg-breadcrumb-item">
-      <div class="lg-breadcrumb-item__container">
-        <span class="lg-breadcrumb-item__content">
-          <span class="lg-visually-hidden">2.</span>
-          <a href="#" aria-current="page">Product</a>
-        </span>
-      </div>
+  <div class="lg-breadcrumb-item--dark lg-breadcrumb-item">
+    <div class="lg-breadcrumb-item__container">
+      <span class="lg-breadcrumb-item__content">
+        <span class="lg-visually-hidden">2.</span>
+        <a href="#" aria-current="page">Product</a>
+      </span>
+    </div>
   </div>
 </div>
 ~~~

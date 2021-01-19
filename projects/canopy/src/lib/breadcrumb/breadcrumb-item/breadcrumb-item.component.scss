@@ -16,13 +16,11 @@
     }
   }
 
-  &__container--hide-icons {
-    .lg-breadcrumb-item__content .lg-icon {
-      display: none;
+  .lg-breadcrumb-item__content .lg-icon {
+    display: none;
 
-      @include lg-breakpoint('md') {
-        display: inline;
-      }
+    @include lg-breakpoint('md') {
+      display: inline;
     }
   }
 
@@ -96,3 +94,4 @@
     }
   }
 }
+

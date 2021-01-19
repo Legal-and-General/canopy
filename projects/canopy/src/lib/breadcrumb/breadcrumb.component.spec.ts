@@ -54,15 +54,11 @@ describe('LgBreadcrumbComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
-          <lg-breadcrumb-item>Home</lg-breadcrumb-item>
+          <lg-breadcrumb-item [showOnSmScreens]="true">Home</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
       component = localFixture.debugElement.children[0].componentInstance;
       localFixture.detectChanges();
-    });
-
-    it('hide custom items should be false', () => {
-      expect(component.crumbs.first.hideIcons).toBe(false);
     });
 
     it('show back button should be false', () => {
@@ -73,8 +69,8 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.first.showForwardChevron).toBe(false);
     });
 
-    it('the first item should be the isSmScreenFeaturedItem', () => {
-      expect(component.crumbs.first.isSmScreenFeaturedItem).toBe(true);
+    it('the first item should set showOnSmScreens to true', () => {
+      expect(component.crumbs.first.showOnSmScreens).toBe(true);
     });
 
     it('the breadcrumb item variant should be dark', () => {
@@ -88,16 +84,12 @@ describe('LgBreadcrumbComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
-          <lg-breadcrumb-item>Home</lg-breadcrumb-item>
+          <lg-breadcrumb-item [showOnSmScreens]="true">Home</lg-breadcrumb-item>
           <lg-breadcrumb-item>Retirement</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
       component = localFixture.debugElement.children[0].componentInstance;
       localFixture.detectChanges();
-    });
-
-    it('hide custom icons for the first item', () => {
-      expect(component.crumbs.first.hideIcons).toBe(true);
     });
 
     it('show back button should be true for first item', () => {
@@ -108,8 +100,8 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.first.showForwardChevron).toBe(true);
     });
 
-    it('the first item should be the isSmScreenFeaturedItem', () => {
-      expect(component.crumbs.first.isSmScreenFeaturedItem).toBe(true);
+    it('the first item should set showOnSmScreens to true', () => {
+      expect(component.crumbs.first.showOnSmScreens).toBe(true);
     });
   });
 
@@ -118,17 +110,13 @@ describe('LgBreadcrumbComponent', () => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
           <lg-breadcrumb-item>Home</lg-breadcrumb-item>
-          <lg-breadcrumb-item>Retirement</lg-breadcrumb-item>
+          <lg-breadcrumb-item [showOnSmScreens]="true">Retirement</lg-breadcrumb-item>
           <lg-breadcrumb-item-ellipsis></lg-breadcrumb-item-ellipsis>
           <lg-breadcrumb-item>Pensions</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
       component = localFixture.debugElement.children[0].componentInstance;
       localFixture.detectChanges();
-    });
-
-    it('hide custom items should be false for the first item', () => {
-      expect(component.crumbs.first.hideIcons).toBe(false);
     });
 
     it('show back button should be true for first item', () => {
@@ -155,16 +143,16 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.toArray()[2].showForwardChevron).toBe(false);
     });
 
-    it('the first item should not be the isSmScreenFeaturedItem', () => {
-      expect(component.crumbs.toArray()[0].isSmScreenFeaturedItem).toBe(false);
+    it('the first item should set showOnSmScreens to false', () => {
+      expect(component.crumbs.toArray()[0].showOnSmScreens).toBe(false);
     });
 
-    it('the second item should be the isSmScreenFeaturedItem', () => {
-      expect(component.crumbs.toArray()[1].isSmScreenFeaturedItem).toBe(true);
+    it('the second item should set showOnSmScreens to true', () => {
+      expect(component.crumbs.toArray()[1].showOnSmScreens).toBe(true);
     });
 
-    it('the third item should not be the isSmScreenFeaturedItem', () => {
-      expect(component.crumbs.toArray()[2].isSmScreenFeaturedItem).toBe(false);
+    it('the third item should set showOnSmScreens to false', () => {
+      expect(component.crumbs.toArray()[2].showOnSmScreens).toBe(false);
     });
 
     it('the breadcrumb item ellipsis variant should be dark', () => {
