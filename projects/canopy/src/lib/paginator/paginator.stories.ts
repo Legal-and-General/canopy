@@ -2,12 +2,10 @@ import { CommonModule } from '@angular/common';
 
 import { action } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
-import { withKnobs } from '@storybook/addon-knobs';
+import { array, boolean, number, select, withKnobs } from '@storybook/addon-knobs';
 
 import { LgPaginatorModule } from './paginator.module';
 import { notes } from './paginator.notes';
-
-const pageSizes = [10, 20, 25, 50, 100];
 
 export default {
   title: 'Components/Paginator',
@@ -24,21 +22,36 @@ export default {
   }
 };
 
+function props(p = {}) {
+  const pageSizes = {
+    '10': 10,
+    '20': 20,
+    '25': 25,
+    '50': 50,
+    '100': 100,
+  };
+
+  return {
+    pageSizes: array('pageSizes', Object.keys(pageSizes)),
+    length: number('length', 125),
+    pageSize: select('pageSize', pageSizes, 25),
+    pageIndex: number('pageIndex', 0),
+    page: action('page'),
+    ...p,
+  };
+}
+
 export const standard = () => ({
   template: `
     <lg-paginator
       [length]="length"
       [pageSize]="pageSize"
       [pageSizes]="pageSizes"
+      [pageIndex]="pageIndex"
       (page)="page($event)">
     </lg-paginator>
   `,
-  props: {
-    pageSizes,
-    length: 125,
-    pageSize: 25,
-    page: action('page'),
-  },
+  props: props(),
 });
 
 export const firstLastButtons = () => ({
@@ -47,17 +60,14 @@ export const firstLastButtons = () => ({
       [length]="length"
       [pageSize]="pageSize"
       [pageSizes]="pageSizes"
+      [pageIndex]="pageIndex"
       [showFirstLastButtons]="showFirstLastButtons"
       (page)="page($event)">
     </lg-paginator>
   `,
-  props: {
-    pageSizes,
-    length: 125,
-    pageSize: 25,
-    showFirstLastButtons: true,
-    page: action('page'),
- },
+  props: props({
+    showFirstLastButtons: boolean('showFirstLastButtons', true),
+  }),
 });
 
 export const noPageSelection = () => ({
@@ -66,15 +76,12 @@ export const noPageSelection = () => ({
       [length]="length"
       [pageSize]="pageSize"
       [pageSizes]="pageSizes"
+      [pageIndex]="pageIndex"
       [hidePageSize]="hidePageSize"
       (page)="page($event)">
     </lg-paginator>
   `,
-  props: {
-    pageSizes,
-    length: 125,
-    pageSize: 25,
-    hidePageSize: true,
-    page: action('page'),
-  },
+  props: props({
+    hidePageSize: boolean('hidePageSize', true),
+  }),
 });
