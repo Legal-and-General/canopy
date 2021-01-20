@@ -15,3 +15,23 @@
     }
   }
 }
+
+.lg-details--generic {
+  @include lg-variant('generic');
+}
+
+.lg-details--info {
+  @include lg-variant('info');
+}
+
+.lg-details--success {
+  @include lg-variant('success');
+}
+
+.lg-details--warning {
+  @include lg-variant('warning');
+}
+
+.lg-details--error {
+  @include lg-variant('error');
+}

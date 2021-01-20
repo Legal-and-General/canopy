@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -8,6 +9,7 @@ import {
 } from '@angular/core';
 
 import { lgIconChevronDown } from '../../icon';
+import { DetailsVariant } from '../details.interface';
 
 let nextUniqueId = 0;
 @Component({
@@ -20,12 +22,35 @@ let nextUniqueId = 0;
 export class LgDetailsPanelHeadingComponent {
   @Input() headingLevel;
   @Input() isActive = false;
+
+  _showIcon = true;
+  @Input()
+  set showIcon(showIcon: boolean) {
+    this._showIcon = showIcon;
+    this.cdr.detectChanges();
+  }
+  get showIcon(): boolean {
+    return this._showIcon;
+  }
+
+  _variant: DetailsVariant = 'generic';
+  @Input()
+  set variant(variant: DetailsVariant) {
+    this._variant = variant;
+    this.cdr.detectChanges();
+  }
+  get variant(): DetailsVariant {
+    return this._variant;
+  }
+
   @Output() toggleActive = new EventEmitter<boolean>();
 
   chevronDown = lgIconChevronDown.name;
   id = nextUniqueId++;
   toggleId = `lg-details-header-${this.id}`;
   panelId = `lg-details-content-${this.id}`;
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   toggle() {
     this.isActive = !this.isActive;
