@@ -264,7 +264,7 @@ export const withInput = () => ({
         <tr lg-table-row *ngFor="let book of books">
           <td lg-table-cell>{{ book.author }}</td>
           <td lg-table-cell>
-            <lg-input-field lgMarginBottom="none">
+            <lg-input-field lgMarginBottom="none" [showLabel]="false">
               <input lgInput size="2" />
               <span lgSuffix>%</span>
             </lg-input-field>
