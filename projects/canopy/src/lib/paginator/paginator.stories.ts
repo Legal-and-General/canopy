@@ -2,64 +2,79 @@ import { CommonModule } from '@angular/common';
 
 import { action } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
+import { withKnobs } from '@storybook/addon-knobs';
 
-import { LgPaginatorComponent } from './paginator.component';
 import { LgPaginatorModule } from './paginator.module';
+import { notes } from './paginator.notes';
 
 const pageSizes = [10, 20, 25, 50, 100];
 
 export default {
-  title: '@lgim/canopy/Paginator',
-  component: LgPaginatorComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [CommonModule, LgPaginatorModule],
-    }),
-  ],
-  argTypes: {
-    pageSize: {
-      control: {
-        type: 'select',
-        options: pageSizes,
-      },
-    },
+  title: 'Components/Paginator',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        imports: [CommonModule, LgPaginatorModule],
+      }),
+    ],
+    notes: {
+      markdown: notes
+    }
+  }
+};
+
+export const standard = () => ({
+  template: `
+    <lg-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizes]="pageSizes"
+      (page)="page($event)">
+    </lg-paginator>
+  `,
+  props: {
+    pageSizes,
+    length: 125,
+    pageSize: 25,
+    page: action('page'),
   },
-};
+});
 
-export const standard = (args => ({
-  component: LgPaginatorComponent,
-  props: { ...args },
-})).bind({});
+export const firstLastButtons = () => ({
+  template: `
+    <lg-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizes]="pageSizes"
+      [showFirstLastButtons]="showFirstLastButtons"
+      (page)="page($event)">
+    </lg-paginator>
+  `,
+  props: {
+    pageSizes,
+    length: 125,
+    pageSize: 25,
+    showFirstLastButtons: true,
+    page: action('page'),
+ },
+});
 
-standard.args = {
-  pageSizes,
-  length: 125,
-  pageSize: 25,
-  page: action('page'),
-};
-
-export const firstLastButtons = (args => ({
-  component: LgPaginatorComponent,
-  props: { ...args },
-})).bind({});
-
-firstLastButtons.args = {
-  pageSizes,
-  length: 125,
-  pageSize: 25,
-  showFirstLastButtons: true,
-  page: action('page'),
-};
-
-export const noPageSelection = (args => ({
-  component: LgPaginatorComponent,
-  props: { ...args },
-})).bind({});
-
-noPageSelection.args = {
-  pageSizes,
-  length: 125,
-  pageSize: 25,
-  hidePageSize: true,
-  page: action('page'),
-};
+export const noPageSelection = () => ({
+  template: `
+    <lg-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizes]="pageSizes"
+      [hidePageSize]="hidePageSize"
+      (page)="page($event)">
+    </lg-paginator>
+  `,
+  props: {
+    pageSizes,
+    length: 125,
+    pageSize: 25,
+    hidePageSize: true,
+    page: action('page'),
+  },
+});

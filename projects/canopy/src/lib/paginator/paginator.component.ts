@@ -16,9 +16,8 @@ import {
   lgIconChevronLeft,
   lgIconChevronRight,
   lgIconGotoFirst,
-  lgIconGotoLast,
-  LgIconRegistry,
-} from '@legal-and-general/canopy';
+  lgIconGotoLast
+} from '../icon/icons.interface';
 
 /**
  * Event raised when the page index is updated
@@ -173,21 +172,12 @@ export class LgPaginatorComponent {
    * Creates the paginator from any defined default options.
    *
    * @param cdr injected change detector ref
-   * @param lgIconRegistry injected canopy icon registry
    * @param defaults default paginator options
    */
   constructor(
     private cdr: ChangeDetectorRef,
-    lgIconRegistry: LgIconRegistry,
     @Optional() @Inject(LG_PAGINATOR_DEFAULT_OPTIONS) defaults?: PaginationOptions,
   ) {
-    lgIconRegistry.registerIcons([
-      lgIconChevronLeft,
-      lgIconChevronRight,
-      lgIconGotoFirst,
-      lgIconGotoLast,
-    ]);
-
     if (defaults) {
       const { pageSize, pageSizes, hidePageSize, showFirstLastButtons } = defaults;
 

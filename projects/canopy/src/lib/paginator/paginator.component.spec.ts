@@ -2,21 +2,23 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { LgButtonModule, LgIconModule, LgSelectModule } from '@legal-and-general/canopy';
-
+import { LgSelectModule } from '../forms/select/select.module';
+import { LgButtonModule } from '../button/button.module';
+import { LgIconComponent } from '../icon/icon.component';
 import {
   LG_PAGINATOR_DEFAULT_OPTIONS,
   LgPaginatorComponent,
   PaginationOptions,
 } from './paginator.component';
+import { MockComponents } from 'ng-mocks';
 
 describe('PaginatorComponent', () => {
   let status: HTMLSpanElement;
   let component: LgPaginatorComponent;
   let fixture: ComponentFixture<LgPaginatorComponent>;
 
-  const imports = [LgSelectModule, LgButtonModule, LgIconModule, FormsModule];
-  const declarations = [LgPaginatorComponent];
+  const imports = [LgSelectModule, LgButtonModule, FormsModule];
+  const declarations = [LgPaginatorComponent, MockComponents(LgIconComponent)];
 
   const length = 182;
 
@@ -38,20 +40,18 @@ describe('PaginatorComponent', () => {
       hidePageSize: false,
     };
 
-    beforeEach(
-      waitForAsync(() => {
-        TestBed.configureTestingModule({
-          imports,
-          declarations,
-          providers: [
-            {
-              provide: LG_PAGINATOR_DEFAULT_OPTIONS,
-              useValue: defaults,
-            },
-          ],
-        }).compileComponents();
-      }),
-    );
+    beforeEach(async () => {
+      await TestBed.configureTestingModule({
+        imports,
+        declarations,
+        providers: [
+          {
+            provide: LG_PAGINATOR_DEFAULT_OPTIONS,
+            useValue: defaults,
+          },
+        ],
+      }).compileComponents();
+    });
 
     beforeEach(setup);
 
@@ -75,7 +75,7 @@ describe('PaginatorComponent', () => {
       fixture.detectChanges();
       fixture.debugElement.query(By.css('.lg-paginator__btn-last')).nativeElement.click();
       fixture.detectChanges();
-      expect(status.innerHTML).toMatch(`91 - 100 of 100`);
+      expect(status.innerHTML).toMatch('91 - 100 of 100');
 
       component.length = 85;
       component.pageIndex = 0;
@@ -83,7 +83,7 @@ describe('PaginatorComponent', () => {
       fixture.detectChanges();
       fixture.debugElement.query(By.css('.lg-paginator__btn-last')).nativeElement.click();
       fixture.detectChanges();
-      expect(status.innerHTML).toMatch(`81 - 85 of 85`);
+      expect(status.innerHTML).toMatch('81 - 85 of 85');
       expect(
         fixture.debugElement.query(By.css('.lg-paginator__btn-next')).nativeElement
           .disabled,
@@ -113,7 +113,7 @@ describe('PaginatorComponent', () => {
         .query(By.css('.lg-paginator__btn-first'))
         .nativeElement.click();
       fixture.detectChanges();
-      expect(status.innerHTML).toMatch(`1 - 10 of 100`);
+      expect(status.innerHTML).toMatch('1 - 10 of 100');
       expect(
         fixture.debugElement.query(By.css('.lg-paginator__btn-prev')).nativeElement
           .disabled,
@@ -187,22 +187,20 @@ describe('PaginatorComponent', () => {
   });
 
   describe('with partial default options', () => {
-    beforeEach(
-      waitForAsync(() => {
-        TestBed.configureTestingModule({
-          imports,
-          declarations,
-          providers: [
-            {
-              provide: LG_PAGINATOR_DEFAULT_OPTIONS,
-              useValue: {
-                hidePageSize: true,
-              },
+    beforeEach(async () => {
+      await TestBed.configureTestingModule({
+        imports,
+        declarations,
+        providers: [
+          {
+            provide: LG_PAGINATOR_DEFAULT_OPTIONS,
+            useValue: {
+              hidePageSize: true,
             },
-          ],
-        }).compileComponents();
-      }),
-    );
+          },
+        ],
+      }).compileComponents();
+    });
 
     beforeEach(setup);
 
@@ -215,14 +213,12 @@ describe('PaginatorComponent', () => {
   });
 
   describe('without default options', () => {
-    beforeEach(
-      waitForAsync(() => {
-        TestBed.configureTestingModule({
-          imports,
-          declarations,
-        }).compileComponents();
-      }),
-    );
+    beforeEach(async () => {
+      await TestBed.configureTestingModule({
+        imports,
+        declarations,
+      }).compileComponents();
+    });
 
     beforeEach(setup);
 
