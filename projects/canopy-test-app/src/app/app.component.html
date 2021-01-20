@@ -167,6 +167,8 @@
               </lg-tab-item>
             </lg-tabs>
 
+            <lg-heading level="3">Tabs</lg-heading>
+
             <lg-tab-nav-bar label="Test nav tabs">
               <a
                 id="nav-tab-{{ i }}"
@@ -182,6 +184,8 @@
             <lg-tab-nav-content [selectedTabId]="'nav-tab-' + selectedTabIndex">
               <router-outlet></router-outlet>
             </lg-tab-nav-content>
+
+            <lg-heading level="3">Accordion</lg-heading>
 
             <lg-accordion [headingLevel]="3">
               <lg-accordion-item>
@@ -204,6 +208,40 @@
               </lg-accordion-item>
             </lg-accordion>
 
+            <lg-heading level="3">Details</lg-heading>
+
+            <lg-details>
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="info">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="warning">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="success">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="error">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-heading level="3">Alert</lg-heading>
+
             <lg-alert variant="info">
               <lg-heading level="4">Test heading</lg-heading>
               Information alert
@@ -213,9 +251,10 @@
 
             <lg-alert variant="success"> Success alert </lg-alert>
 
-            <lg-alert variant="error" lgMarginBottom="xxxl"> Error alert </lg-alert>
+            <lg-alert variant="error"> Error alert </lg-alert>
 
             <lg-alert variant="generic">
+              Generic alert
               <ul>
                 <li>Item 1</li>
                 <li>Item 2</li>
@@ -223,6 +262,8 @@
                 <li>Item 4</li>
               </ul>
             </lg-alert>
+
+            <lg-heading level="3">Cards</lg-heading>
 
             <lg-card>
               <lg-card-header>
@@ -298,6 +339,8 @@
               </div>
             </div>
 
+            <lg-heading level="3">Buttons</lg-heading>
+
             <button lg-button variant="solid-primary">Solid primary button</button>
             <br />
 
@@ -344,6 +387,8 @@
             <br />
 
             <lg-separator></lg-separator>
+
+            <lg-heading level="3">Form</lg-heading>
 
             <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
               <lg-input-field>
@@ -475,6 +520,8 @@
 
             <lg-separator></lg-separator>
 
+            <lg-heading level="3">Spinners</lg-heading>
+
             <lg-spinner variant="dark"></lg-spinner>
 
             <lg-spinner
@@ -489,6 +536,9 @@
               lgMarginTop="xxl"
               size="sm"
             ></lg-spinner>
+
+
+            <lg-heading level="3">Table</lg-heading>
 
             <table lg-table>
               <thead lg-table-head>

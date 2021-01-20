@@ -8,7 +8,7 @@
   &__toggle {
     background: transparent;
     border: none;
-    color: var(--details-color);
+    color: inherit;
     cursor: pointer;
     display: inline-flex;
     padding: var(--space-sm);
@@ -34,4 +34,8 @@
     top: var(--details-chevron-top-positon);
     transition: transform var(--animation-duration) var(--animation-fn);
   }
+}
+
+.lg-details-panel-heading__icon {
+  margin-right: var(--space-xs);
 }
