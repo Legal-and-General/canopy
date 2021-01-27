@@ -1,6 +1,6 @@
 .lg-hero {
   display: block;
   margin-top: calc(-1 * var(--page-vertical-padding));
-  background-image: var(--hero-bg-image);
+  background-color: var(--hero-bg-color);
   color: var(--hero-color);
 }
