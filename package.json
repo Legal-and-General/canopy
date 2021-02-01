@@ -71,7 +71,7 @@
     "@storybook/addon-notes": "^5.3.21",
     "@storybook/addon-options": "^5.3.21",
     "@storybook/addon-storysource": "^5.3.21",
-    "@storybook/addon-viewport": "^5.3.21",
+    "@storybook/addon-viewport": "^6.1.15",
     "@storybook/addons": "^5.3.21",
     "@storybook/angular": "^5.3.21",
     "@storybook/theming": "^5.3.21",
