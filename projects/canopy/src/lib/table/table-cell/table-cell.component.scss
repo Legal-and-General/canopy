@@ -21,9 +21,14 @@
 
 .lg-table-cell__content {
   margin-left: auto;
+  white-space: nowrap;
 }
 
 .lg-table-cell--expandable-content {
+  .lg-table-cell__label {
+    padding-right: 0;
+  }
+
   .lg-table-cell__content {
     margin-left: 0;
   }
@@ -31,6 +36,7 @@
 
 .lg-table-cell__label {
   font-weight: var(--font-weight-bold);
+  padding-right: var(--space-md);
 }
 
 @each $columns-breakpoint in $columns-breakpoints {
