@@ -105,7 +105,7 @@
     "ng-mocks": "^11.5.0",
     "ng-packagr": "^11.1.2",
     "node-sass": "^4.14.1",
-    "postcss": "^7.0.32",
+    "postcss": "^8.2.4",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "protractor": "^7.0.0",
