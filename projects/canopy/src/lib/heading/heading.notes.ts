@@ -8,7 +8,7 @@ This component allows for headings to be set dynamically.
 
 Import the component in your module:
 
-~~~
+~~~js
 @NgModule({
   ...
   imports: [ ..., LgHeadingModule ],
@@ -17,7 +17,7 @@ Import the component in your module:
 
 and in your HTML:
 
-~~~
+~~~html
 <lg-heading [level]="1">Heading</lg-heading>
 ~~~
 
