@@ -8,7 +8,7 @@ import { notes } from './hero.notes';
 const bodyHTML = `
   <div lgContainer>
     <div lgRow>
-      <div lgCol="12">
+      <div [lgCol]="12">
         <lg-card>
           <lg-card-content>
             <p>
@@ -34,7 +34,7 @@ export const productHeroHTML = `
 <lg-hero-header>
   <div lgContainer>
     <div lgRow>
-      <div lgCol="12">
+      <div [lgCol]="12">
         <lg-breadcrumb variant="light" lgMarginBottom="none">
           <lg-breadcrumb-item>
             <a href="#">
@@ -56,10 +56,10 @@ export const productHeroHTML = `
 <lg-hero-content>
   <div lgContainer>
     <div lgRow>
-      <div lgCol="12">
+      <div [lgCol]="12">
         <lg-hero-card>
           <lg-hero-card-header>
-            <lg-hero-card-title headingLevel="4">
+            <lg-hero-card-title [headingLevel]="4">
               Pension annuity
             </lg-hero-card-title>
             <lg-hero-card-subtitle>
@@ -70,7 +70,7 @@ export const productHeroHTML = `
               <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
             </lg-hero-card-notification>
             <lg-hero-card-principle-data-point>
-              <lg-hero-card-principle-data-point-label headingLevel="5">
+              <lg-hero-card-principle-data-point-label [headingLevel]="5">
                 Last payment (after tax and deductions)
               </lg-hero-card-principle-data-point-label>
               <lg-hero-card-principle-data-point-value>
@@ -81,7 +81,7 @@ export const productHeroHTML = `
           <lg-hero-card-content>
             <lg-hero-card-data-point-list>
               <lg-hero-card-data-point>
-                <lg-hero-card-data-point-label headingLevel="6">
+                <lg-hero-card-data-point-label [headingLevel]="6">
                   Payment due
                 </lg-hero-card-data-point-label>
                 <lg-hero-card-data-point-value>
@@ -89,7 +89,7 @@ export const productHeroHTML = `
                 </lg-hero-card-data-point-value>
               </lg-hero-card-data-point>
               <lg-hero-card-data-point>
-                <lg-hero-card-data-point-label headingLevel="6">
+                <lg-hero-card-data-point-label [headingLevel]="6">
                   Payment frequency
                 </lg-hero-card-data-point-label>
                 <lg-hero-card-data-point-value>
@@ -97,7 +97,7 @@ export const productHeroHTML = `
                 </lg-hero-card-data-point-value>
               </lg-hero-card-data-point>
               <lg-hero-card-data-point>
-                <lg-hero-card-data-point-label headingLevel="6">
+                <lg-hero-card-data-point-label [headingLevel]="6">
                   Tax code
                 </lg-hero-card-data-point-label>
                 <lg-hero-card-data-point-value>
@@ -121,10 +121,10 @@ export const conversationalHeroHTML = `
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>
-        <div lgCol="12">
+        <div [lgCol]="12">
           <lg-hero-card>
             <lg-hero-card-header>
-              <lg-hero-card-title headingLevel="4">
+              <lg-hero-card-title [headingLevel]="4">
                 Good morning, Gene
               </lg-hero-card-title>
             </lg-hero-card-header>

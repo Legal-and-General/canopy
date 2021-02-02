@@ -20,10 +20,10 @@ and in your HTML...
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>
-        <div lgCol="12">
+        <div [lgCol]="12">
           <lg-hero-card>
             <lg-hero-card-header>
-              <lg-hero-card-title headingLevel="2">
+              <lg-hero-card-title [headingLevel]="2">
                 Good morning, Gene
               </lg-hero-card-title>
             </lg-hero-card-header>
@@ -35,100 +35,103 @@ and in your HTML...
 </lg-hero>
 ~~~
 
----
-
-### Other hero types and templates
+## Other hero types and templates
 
 You can extend the basic Hero component and create specific Hero layouts and implementations.
 
-#### Product details
+### Hero with breadcrumbs
+
+Using the \`\`LgHeroCardHeaderComponent\`\` together with \`\`LgBreadcrumbComponent\`\`, some breadcrumbs can be easily added to the hero. Note that you should use the "light" variant of the Breadcrumbs, as it's rendering against a dark blue background.
+
+~~~html
+<lg-hero [overlap]="overlap">
+  <lg-hero-header>
+    <div lgContainer>
+      <div lgRow>
+        <div [lgCol]="12">
+          <lg-breadcrumb lgMarginBottom="none">
+            <lg-breadcrumb-item>
+              <a href="#"><lg-icon [name]="'home'"></lg-icon>Home</a>
+            </lg-breadcrumb-item>
+            <lg-breadcrumb-item>
+              <a href="#" aria-current="page">Product Details</a>
+            </lg-breadcrumb-item>
+          </lg-breadcrumb>
+        </div>
+      </div>
+    </div>
+  </lg-hero-header>
+</lg-hero>
+~~~
+
+### Product details
 
 This component can used to display product data, for example on a prodcut details page. Note the extensive use of presentation components to acheive the desired layout.
 
 ~~~html
-<lg-hero-header>
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <lg-breadcrumb variant="light" lgMarginBottom="none">
-          <lg-breadcrumb-item>
-            <a href="#">
-              <lg-icon [name]="'home'"></lg-icon>
-              Home
-            </a>
-          </lg-breadcrumb-item>
-          <lg-breadcrumb-item>
-            <a href="#">Products</a>
-          </lg-breadcrumb-item>
-          <lg-breadcrumb-item>
-            <a href="#" aria-current="page">Pension Annuity</a>
-          </lg-breadcrumb-item>
-        </lg-breadcrumb>
+<lg-hero [overlap]="2">
+  <lg-hero-content>
+    <div lgContainer>
+      <div lgRow>
+        <div [lgCol]="12">
+          <lg-hero-card>
+            <lg-hero-card-header>
+              <lg-hero-card-title [headingLevel]="4">
+                Pension annuity
+              </lg-hero-card-title>
+              <lg-hero-card-subtitle>
+                Payroll Reference Number P23456
+              </lg-hero-card-subtitle>
+              <lg-hero-card-notification>
+                <lg-icon name="information-fill"></lg-icon>
+                <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
+              </lg-hero-card-notification>
+              <lg-hero-card-principle-data-point>
+                <lg-hero-card-principle-data-point-label headingLevel="5">
+                  Last payment (after tax and deductions)
+                </lg-hero-card-principle-data-point-label>
+                <lg-hero-card-principle-data-point-value>
+                  £230.20
+                </lg-hero-card-principle-data-point-value>
+              </lg-hero-card-principle-data-point>
+            </lg-hero-card-header>
+            <lg-hero-card-content>
+              <lg-hero-card-data-point-list>
+                <lg-hero-card-data-point>
+                  <lg-hero-card-data-point-label [headingLevel]="6">
+                    Payment due
+                  </lg-hero-card-data-point-label>
+                  <lg-hero-card-data-point-value>
+                    15 Jan 2020
+                  </lg-hero-card-data-point-value>
+                </lg-hero-card-data-point>
+                <lg-hero-card-data-point>
+                  <lg-hero-card-data-point-label [headingLevel]="6">
+                    Payment frequency
+                  </lg-hero-card-data-point-label>
+                  <lg-hero-card-data-point-value>
+                    Monthly
+                  </lg-hero-card-data-point-value>
+                </lg-hero-card-data-point>
+                <lg-hero-card-data-point>
+                  <lg-hero-card-data-point-label [headingLevel]="6">
+                    Tax code
+                  </lg-hero-card-data-point-label>
+                  <lg-hero-card-data-point-value>
+                    2T <span lgMarginLeft="sm" class="lg-font-size-1">Received on 12 Mar 2019</span>
+                  </lg-hero-card-data-point-value>
+                </lg-hero-card-data-point>
+              </lg-hero-card-data-point-list>
+            </lg-hero-card-content>
+            <lg-hero-card-footer>
+              <small class="lg-font-size-0-6">* This is not a guaranteed amount and could be subject to change.</small>
+            </lg-hero-card-footer>
+          </lg-hero-card>
+        </div>
       </div>
     </div>
-  </div>
-</lg-hero-header>
-<lg-hero-content>
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <lg-hero-card>
-          <lg-hero-card-header>
-            <lg-hero-card-title headingLevel="4">
-              Pension annuity
-            </lg-hero-card-title>
-            <lg-hero-card-subtitle>
-              Payroll Reference Number P23456
-            </lg-hero-card-subtitle>
-            <lg-hero-card-notification>
-              <lg-icon name="information-fill"></lg-icon>
-              <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
-            </lg-hero-card-notification>
-            <lg-hero-card-principle-data-point>
-              <lg-hero-card-principle-data-point-label headingLevel="5">
-                Last payment (after tax and deductions)
-              </lg-hero-card-principle-data-point-label>
-              <lg-hero-card-principle-data-point-value>
-                £230.20
-              </lg-hero-card-principle-data-point-value>
-            </lg-hero-card-principle-data-point>
-          </lg-hero-card-header>
-          <lg-hero-card-content>
-            <lg-hero-card-data-point-list>
-              <lg-hero-card-data-point>
-                <lg-hero-card-data-point-label headingLevel="6">
-                  Payment due
-                </lg-hero-card-data-point-label>
-                <lg-hero-card-data-point-value>
-                  15 Jan 2020
-                </lg-hero-card-data-point-value>
-              </lg-hero-card-data-point>
-              <lg-hero-card-data-point>
-                <lg-hero-card-data-point-label headingLevel="6">
-                  Payment frequency
-                </lg-hero-card-data-point-label>
-                <lg-hero-card-data-point-value>
-                  Monthly
-                </lg-hero-card-data-point-value>
-              </lg-hero-card-data-point>
-              <lg-hero-card-data-point>
-                <lg-hero-card-data-point-label headingLevel="6">
-                  Tax code
-                </lg-hero-card-data-point-label>
-                <lg-hero-card-data-point-value>
-                  2T <span lgMarginLeft="sm" class="lg-font-size-1">Received on 12 Mar 2019</span>
-                </lg-hero-card-data-point-value>
-              </lg-hero-card-data-point>
-            </lg-hero-card-data-point-list>
-          </lg-hero-card-content>
-          <lg-hero-card-footer>
-            <small class="lg-font-size-0-6">* This is not a guaranteed amount and could be subject to change.</small>
-          </lg-hero-card-footer>
-        </lg-hero-card>
-      </div>
-    </div>
-  </div>
-</lg-hero-content>
+  </lg-hero-content>
+</lg-hero>
 ~~~
 
 
@@ -159,7 +162,7 @@ This is the main section of the hero bar, it stretches the full width and is agn
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>
-        <div lgCol="12">
+        <div [lgCol]="12">
           <lg-hero-card>
             ...
           </lg-hero-card>
