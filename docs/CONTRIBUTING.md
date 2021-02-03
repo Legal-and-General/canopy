@@ -94,7 +94,7 @@ To ensure that changes come from an entrusted source all commits must be [signed
 
 ## Review Process
 
-Pull requests require two successful approvals before they can be merged. One review must be from a [CODEWONER](./.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
+Pull requests require two successful approvals before they can be merged. One review must be from a [CODEOWNER](./.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
 
 ### Code Owners
 
