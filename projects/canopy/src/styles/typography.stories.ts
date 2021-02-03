@@ -1,17 +1,91 @@
+import { Component, Input } from '@angular/core';
+
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../lib/canopy.module';
 import { notes } from './typography.notes';
 
+const pangram = 'The five boxing wizards jump quickly';
+
+const availableFontSizesRoboto = ['7', '6', '5', '4', '3', '2', '1', '0-6', '0-8'];
+const availableFontSizesLyon = ['7', '6', '5', '4'];
+
+@Component({
+  selector: 'lg-display-font-size',
+  template: `
+    <div lgMarginBottom="xxl">
+      <p [ngClass]="fontClass" lgMarginBottom="none">{{ textString }}</p>
+      <pre>{{ classString }}</pre>
+    </div>
+  `,
+})
+class LgDisplayFontSizeComponent {
+  @Input() textString: string;
+  @Input() classString: string;
+  @Input() fontClass: string;
+}
+@Component({
+  selector: 'lg-font-sizes-panel',
+  template: `
+    <div class="font-panels">
+      <div class="font-panels__panel">
+        Productive Font (Roboto)
+        <ng-container *ngFor="let fontSize of fontSizesRoboto">
+          <lg-display-font-size
+            textString="{{ textString }}"
+            classString=".lg-font-size-{{ fontSize }}"
+            fontClass="lg-font-size-{{ fontSize }}"
+          >
+          </lg-display-font-size>
+          <lg-display-font-size
+            textString="{{ textString }}"
+            classString=".lg-font-size-{{ fontSize }}--strong"
+            fontClass="lg-font-size-{{ fontSize }}--strong"
+          >
+          </lg-display-font-size>
+        </ng-container>
+      </div>
+      <div class="font-panels__panel">
+        Expressive Font (Lyon)
+        <ng-container *ngFor="let fontSize of fontSizesLyon">
+          <lg-display-font-size
+            textString="{{ textString }}"
+            classString=".lg-font-size-{{ fontSize }}"
+            fontClass="lg-font-size-{{ fontSize }} lg-font--expressive"
+          >
+          </lg-display-font-size>
+          <lg-display-font-size
+            textString="{{ textString }}"
+            classString=".lg-font-size-{{ fontSize }}--strong"
+            fontClass="lg-font-size-{{ fontSize }}--strong lg-font--expressive"
+          >
+          </lg-display-font-size>
+        </ng-container>
+      </div>
+    </div>
+  `,
+  styles: [
+    '.font-panels { display: flex; }',
+    '.font-panels__panel { width: 50%; padding-right: 20px; }',
+  ],
+})
+class LgFontPanelComponent {
+  @Input() textString: string;
+  fontSizesRoboto = availableFontSizesRoboto;
+  fontSizesLyon = availableFontSizesLyon;
+}
+
 export default {
   title: 'Typography',
+  decorators: [
+    withKnobs,
+    moduleMetadata({
+      declarations: [LgDisplayFontSizeComponent, LgFontPanelComponent],
+      imports: [CanopyModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      moduleMetadata({
-        imports: [CanopyModule],
-      }),
-    ],
     notes: {
       markdown: notes,
     },
@@ -20,57 +94,10 @@ export default {
 
 export const headings = () => ({
   template: `
-    <p class="lg-font-size-7">{{lgFontSize7}}</p>
-    <p class="lg-font-size-7--strong">{{lgFontSize7Strong}}</p>
-
-    <p class="lg-font-size-6">{{lgFontSize6}}</p>
-    <p class="lg-font-size-6--strong">{{lgFontSize6Strong}}</p>
-
-    <p class="lg-font-size-5">{{lgFontSize5}}</p>
-    <p class="lg-font-size-5--strong">{{lgFontSize5Strong}}</p>
-
-    <p class="lg-font-size-4">{{lgFontSize4}}</p>
-    <p class="lg-font-size-4--strong">{{lgFontSize4Strong}}</p>
-
-    <p class="lg-font-size-3">{{lgFontSize3}}</p>
-    <p class="lg-font-size-3--strong">{{lgFontSize3Strong}}</p>
-
-    <p class="lg-font-size-2">{{lgFontSize2}}</p>
-    <p class="lg-font-size-2--strong">{{lgFontSize2Strong}}</p>
-
-    <p class="lg-font-size-1">{{lgFontSize1}}</p>
-    <p class="lg-font-size-1--strong">{{lgFontSize1Strong}}</p>
-
-    <p class="lg-font-size-0-8">{{lgFontSize08}}</p>
-    <p class="lg-font-size-0-6">{{lgFontSize06}}</p>
+    <lg-font-sizes-panel [textString]="textString"></lg-font-sizes-panel>
   `,
   props: {
-    lgFontSize7: text('font size 7', '.lg-font-size-7'),
-    lgFontSize7Strong: text('font size 7 strong', '.lg-font-size-7--strong'),
-
-    lgFontSize6: text('font size 6', '.lg-font-size-6'),
-    lgFontSize6Strong: text('font size 6 strong', '.lg-font-size-6--strong'),
-
-    lgFontSize5: text('font size 5', '.lg-font-size-5'),
-    lgFontSize5Strong: text('font size 5 strong', '.lg-font-size-5--strong'),
-
-    lgFontSize4: text('font size 4', '.lg-font-size-4'),
-    lgFontSize4Strong: text('font size 4 strong', '.lg-font-size-4--strong'),
-
-    lgFontSize3: text('font size 3', '.lg-font-size-3'),
-    lgFontSize3Strong: text('font size 3 strong', '.lg-font-size-3--strong'),
-
-    lgFontSize2: text('font size 2', '.lg-font-size-2'),
-    lgFontSize2Strong: text('font size 2 strong', '.lg-font-size-2--strong'),
-
-    lgFontSize1: text('font size 1', '.lg-font-size-1'),
-    lgFontSize1Strong: text('font size 1 strong', '.lg-font-size-1--strong'),
-
-    lgFontSize08: text('font size 08', '.lg-font-size-0-8'),
-    lgFontSize06: text('font size 06', '.lg-font-size-0-6'),
-  },
-  parameters: {
-    decorators: [withKnobs],
+    textString: text('Text string', pangram),
   },
 });
 
