@@ -12,6 +12,6 @@ export class LgCamelCasePipe implements PipeTransform {
           .replace(/(?:^\w|[A-Z]|\b\w)/g, (ltr, idx) =>
             idx === 0 ? ltr.toLowerCase() : ltr.toUpperCase(),
           )
-          .replace(/(\s|-|\/|')+/g, '');
+          .replace(/(\s|-|\/|')/g, '');
   }
 }
