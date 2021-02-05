@@ -19,7 +19,7 @@ describe('LgBreadcrumbComponent', () => {
       TestBed.configureTestingModule({
         declarations: [
           LgBreadcrumbComponent,
-          MockComponent(LgBreadcrumbItemComponent),
+          LgBreadcrumbItemComponent,
           MockComponent(LgBreadcrumbItemEllipsisComponent),
         ],
       }).compileComponents();
