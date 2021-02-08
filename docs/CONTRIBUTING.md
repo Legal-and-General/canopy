@@ -94,7 +94,7 @@ To ensure that changes come from an entrusted source all commits must be [signed
 
 ## Review Process
 
-Pull requests require two successful approvals before they can be merged. One review must be from a [CODEWONER](./.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
+Pull requests require two successful approvals before they can be merged. One review must be from a [CODEOWNER](./.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
 
 ### Code Owners
 
@@ -123,3 +123,12 @@ To add a new SVG icon to Canopy simply add the file to either the `icons` or `br
 When committing the new icons [lint-staged](https://github.com/okonet/lint-staged) will run and generate all the `ts` files automatically.
 
 After that remember to add the new icons to the story, as they are not automatically added at present.
+
+
+## Fonts
+
+The Roboto font is stored in **/projects/canopy/src/assets/fonts/roboto** as normal and is included in the distributed Canopy package.
+
+The Lyon font files are stored in **/assets/fonts** and ommitted from the distributed package via the Webpack config. The `css-loader` options prevent it from transforming any URL referencing the Lyon font. This means the path will stay as relative to the base URL of the consuming application (/assets/fonts), therefore looking in the assets directory of consuming app.
+
+For more info, see the fonts section in USAGE.md.

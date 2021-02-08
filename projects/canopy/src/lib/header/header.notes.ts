@@ -11,7 +11,7 @@ The logo height is set internally with different heights for different screen si
 ## Usage
 Import the component in your application:
 
-~~~
+~~~js
 @NgModule({
   ...
   imports: [LgHeaderModule],
@@ -20,7 +20,7 @@ Import the component in your application:
 
 and in your HTML:
 
-~~~
+~~~html
 <header
   lg-header
   logo="/logo.svg"
