@@ -17,6 +17,7 @@ import { LgGridModule } from './grid/grid.module';
 import { LgHeaderModule } from './header/header.module';
 import { LgHeadingModule } from './heading/heading.module';
 import { LgHeroModule } from './hero/hero.module';
+import { LgHideAtModule } from './hide-at/hide-at.module';
 import { LgIconModule } from './icon/icon.module';
 import { LgPageModule } from './page/page.module';
 import { LgPipesModule } from './pipes/pipes.module';
@@ -24,6 +25,7 @@ import { LgPrefixModule } from './prefix/prefix.module';
 import { LgPromoCardModule } from './promo-card/promo-card.module';
 import { LgQuickActionModule } from './quick-action/quick-action.module';
 import { LgSeparatorModule } from './separator/separator.module';
+import { LgShowAtModule } from './show-at/show-at.module';
 import { LgSpacingModule } from './spacing/spacing.module';
 import { LgSpinnerModule } from './spinner/spinner.module';
 import { LgSuffixModule } from './suffix/suffix.module';
@@ -36,6 +38,7 @@ const modules = [
   LgAlertModule,
   LgBreadcrumbModule,
   LgButtonModule,
+  LgBrandIconModule,
   LgCardModule,
   LgDataPointModule,
   LgDetailsModule,
@@ -47,14 +50,15 @@ const modules = [
   LgHeaderModule,
   LgHeadingModule,
   LgHeroModule,
+  LgHideAtModule,
   LgIconModule,
   LgPageModule,
-  LgBrandIconModule,
   LgPipesModule,
   LgPrefixModule,
   LgPromoCardModule,
   LgQuickActionModule,
   LgSeparatorModule,
+  LgShowAtModule,
   LgSpacingModule,
   LgSpinnerModule,
   LgSuffixModule,
