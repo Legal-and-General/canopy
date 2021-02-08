@@ -74,7 +74,7 @@
     "@storybook/addon-viewport": "^5.3.21",
     "@storybook/addons": "^5.3.21",
     "@storybook/angular": "^5.3.21",
-    "@storybook/theming": "^5.3.21",
+    "@storybook/theming": "^6.1.17",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@stylelint/postcss-markdown": "^0.36.1",
     "@types/jasmine": "^3.6.3",
