@@ -60,7 +60,7 @@
     "@commitlint/config-angular": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@commitlint/prompt": "^11.0.0",
-    "@invisionapp/dsm-storybook": "0.0.136",
+    "@invisionapp/dsm-storybook": "0.0.141",
     "@semantic-release/github": "^7.2.0",
     "@semantic-release/npm": "^7.0.10",
     "@storybook/addon-a11y": "^5.3.21",
