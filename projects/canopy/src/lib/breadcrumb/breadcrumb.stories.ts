@@ -7,7 +7,7 @@ import { LgIconModule } from '../icon/icon.module';
 import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
 import { LgBreadcrumbModule } from './breadcrumb.module';
 import { notes } from './breadcrumb.notes';
-import { BreadcrumbBreakpoints } from './breadcrumb-item/breadcrumb-item.component';
+import { BreadcrumbItemBreakpoints } from './breadcrumb-item/breadcrumb-item.interface';
 
 interface Breadcrumb {
   text: string;
@@ -17,8 +17,12 @@ interface Breadcrumb {
   selector: 'async-breadcrumb-story',
   template: `
     <lg-breadcrumb [variant]="variant">
-      <lg-breadcrumb-item *ngFor="let crumb of crumbs; index as i"
-        [showItemAt]="i === 1 ? breadcrumbBreakpoints.Small : breadcrumbBreakpoints.Medium">
+      <lg-breadcrumb-item
+        *ngFor="let crumb of crumbs; index as i"
+        [showItemAt]="
+          i === 1 ? breadcrumbItemBreakpoints.Small : breadcrumbItemBreakpoints.Medium
+        "
+      >
         <a href="#" [attr.aria-current]="isCurrentAttribute(i)">
           <lg-icon *ngIf="!i" [name]="'home'"></lg-icon>
           {{ crumb.text }}
@@ -30,7 +34,7 @@ interface Breadcrumb {
 export class AsyncBreadcrumbStoryComponent implements OnInit {
   @Input() variant: BreadcrumbVariant;
 
-  breadcrumbBreakpoints = BreadcrumbBreakpoints;
+  breadcrumbItemBreakpoints = BreadcrumbItemBreakpoints;
 
   crumbs: Array<Breadcrumb> = [];
 
@@ -76,7 +80,7 @@ export default {
 export const twoItems = () => ({
   template: `
     <lg-breadcrumb [variant]="variant">
-      <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">
+      <lg-breadcrumb-item showItemAt="${BreadcrumbItemBreakpoints.Small}">
         <a href="#">
           <lg-icon [name]="'home'"></lg-icon>
           Home
@@ -105,7 +109,7 @@ export const threeItems = () => ({
           Home
         </a>
       </lg-breadcrumb-item>
-      <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">
+      <lg-breadcrumb-item showItemAt="${BreadcrumbItemBreakpoints.Small}">
         <a href="#">Home Insurance</a>
       </lg-breadcrumb-item>
       <lg-breadcrumb-item>

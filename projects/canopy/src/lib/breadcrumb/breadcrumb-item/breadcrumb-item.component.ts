@@ -10,13 +10,10 @@ import {
 } from '@angular/core';
 
 import * as iconSet from '../../icon/icons.interface';
-import { BreadcrumbVariant } from './breadcrumb-item.interface';
-
-export enum BreadcrumbBreakpoints {
-  Small = 'sm',
-  Medium = 'md',
-  Large = 'lg',
-}
+import {
+  BreadcrumbVariant,
+  BreadcrumbItemBreakpoints,
+} from './breadcrumb-item.interface';
 
 @Component({
   selector: 'lg-breadcrumb-item',
@@ -28,9 +25,9 @@ export enum BreadcrumbBreakpoints {
 export class LgBreadcrumbItemComponent {
   @HostBinding('class.lg-breadcrumb-item') class = true;
 
-  @Input() showItemAt: BreadcrumbBreakpoints = BreadcrumbBreakpoints.Medium;
+  @Input() showItemAt = BreadcrumbItemBreakpoints.Medium;
 
-  breadcrumbBreakpoints = BreadcrumbBreakpoints;
+  breadcrumbItemBreakpoints = BreadcrumbItemBreakpoints;
 
   icons = iconSet;
 

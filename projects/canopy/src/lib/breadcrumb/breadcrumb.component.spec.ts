@@ -4,8 +4,11 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MockComponent, MockRender } from 'ng-mocks';
 
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
-import { LgBreadcrumbItemComponent, BreadcrumbBreakpoints } from './breadcrumb-item/breadcrumb-item.component';
-import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
+import { LgBreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.component';
+import {
+  BreadcrumbVariant,
+  BreadcrumbItemBreakpoints,
+} from './breadcrumb-item/breadcrumb-item.interface';
 import { LgBreadcrumbComponent } from './breadcrumb.component';
 
 describe('LgBreadcrumbComponent', () => {
@@ -54,7 +57,7 @@ describe('LgBreadcrumbComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
-          <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">Home</lg-breadcrumb-item>
+          <lg-breadcrumb-item showItemAt="${BreadcrumbItemBreakpoints.Small}">Home</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
       component = localFixture.debugElement.children[0].componentInstance;
@@ -70,7 +73,7 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('the first item should set showItemAt to sm', () => {
-      expect(component.crumbs.first.showItemAt).toBe(BreadcrumbBreakpoints.Small);
+      expect(component.crumbs.first.showItemAt).toBe(BreadcrumbItemBreakpoints.Small);
     });
 
     it('the breadcrumb item variant should be dark', () => {
@@ -84,7 +87,7 @@ describe('LgBreadcrumbComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
-          <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">Home</lg-breadcrumb-item>
+          <lg-breadcrumb-item showItemAt="${BreadcrumbItemBreakpoints.Small}">Home</lg-breadcrumb-item>
           <lg-breadcrumb-item>Retirement</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
@@ -101,7 +104,7 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('the first item should set showItemAt to sm', () => {
-      expect(component.crumbs.first.showItemAt).toBe(BreadcrumbBreakpoints.Small);
+      expect(component.crumbs.first.showItemAt).toBe(BreadcrumbItemBreakpoints.Small);
     });
   });
 
@@ -110,7 +113,7 @@ describe('LgBreadcrumbComponent', () => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
           <lg-breadcrumb-item>Home</lg-breadcrumb-item>
-          <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">Retirement</lg-breadcrumb-item>
+          <lg-breadcrumb-item showItemAt="${BreadcrumbItemBreakpoints.Small}">Retirement</lg-breadcrumb-item>
           <lg-breadcrumb-item-ellipsis></lg-breadcrumb-item-ellipsis>
           <lg-breadcrumb-item>Pensions</lg-breadcrumb-item>
         </lg-breadcrumb>
@@ -144,15 +147,21 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('the first item should set showItemAt to md', () => {
-      expect(component.crumbs.toArray()[0].showItemAt).toBe(BreadcrumbBreakpoints.Medium);
+      expect(component.crumbs.toArray()[0].showItemAt).toBe(
+        BreadcrumbItemBreakpoints.Medium,
+      );
     });
 
     it('the second item should set showItemAt to sm', () => {
-      expect(component.crumbs.toArray()[1].showItemAt).toBe(BreadcrumbBreakpoints.Small);
+      expect(component.crumbs.toArray()[1].showItemAt).toBe(
+        BreadcrumbItemBreakpoints.Small,
+      );
     });
 
     it('the third item should set showItemAt to md', () => {
-      expect(component.crumbs.toArray()[2].showItemAt).toBe(BreadcrumbBreakpoints.Medium);
+      expect(component.crumbs.toArray()[2].showItemAt).toBe(
+        BreadcrumbItemBreakpoints.Medium,
+      );
     });
 
     it('the breadcrumb item ellipsis variant should be dark', () => {

@@ -11,7 +11,7 @@ import {
   lgIconSearch,
   lgIconChevronLeft,
 } from 'projects/canopy/src/lib/icon';
-import { BreadcrumbBreakpoints } from 'projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.component';
+import { BreadcrumbItemBreakpoints } from 'projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.interface';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent {
   form: FormGroup;
   selectedTabIndex = 0;
   tabs: Array<any>;
-  breadcrumbBreakpoints = BreadcrumbBreakpoints;
+  breadcrumbItemBreakpoints = BreadcrumbItemBreakpoints;
 
   toggleTableRow(index: number) {
     this.expandedTableRow = this.expandedTableRow === index ? null : index;

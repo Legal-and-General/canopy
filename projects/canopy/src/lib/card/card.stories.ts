@@ -19,7 +19,7 @@ import { LgHintModule } from '../forms/hint/hint.module';
 import { LgSeparatorModule } from '../separator/separator.module';
 import { iconsArray } from '../icon/icons.stories';
 import { LgIconRegistry } from '../icon/icon.registry';
-import { BreadcrumbBreakpoints } from '../breadcrumb/breadcrumb-item/breadcrumb-item.component';
+import { BreadcrumbItemBreakpoints } from '../breadcrumb/breadcrumb-item/breadcrumb-item.interface';
 
 @Component({
   selector: 'lg-form-journey',
@@ -31,7 +31,7 @@ import { BreadcrumbBreakpoints } from '../breadcrumb/breadcrumb-item/breadcrumb-
             <lg-card lgPadding="none">
               <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
                 <lg-breadcrumb lgMarginBottom="none">
-                  <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">
+                  <lg-breadcrumb-item showItemAt="${BreadcrumbItemBreakpoints.Small}">
                     <a href="#">
                       <lg-icon [name]="'chevron-left'"></lg-icon>
                       Back

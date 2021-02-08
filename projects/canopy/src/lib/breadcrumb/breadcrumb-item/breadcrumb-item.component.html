@@ -1,9 +1,12 @@
 <div
   class="lg-breadcrumb-item__container"
   [ngClass]="{
-    'lg-breadcrumb-item__container--visible-sm': showItemAt === breadcrumbBreakpoints.Small,
-    'lg-breadcrumb-item__container--visible-md': showItemAt === breadcrumbBreakpoints.Medium,
-    'lg-breadcrumb-item__container--visible-lg': showItemAt === breadcrumbBreakpoints.Large
+    'lg-breadcrumb-item__container--visible-sm':
+      showItemAt === breadcrumbItemBreakpoints.Small,
+    'lg-breadcrumb-item__container--visible-md':
+      showItemAt === breadcrumbItemBreakpoints.Medium,
+    'lg-breadcrumb-item__container--visible-lg':
+      showItemAt === breadcrumbItemBreakpoints.Large
   }"
 >
   <span class="lg-breadcrumb-item__icon-wrapper" *ngIf="showBackChevron">

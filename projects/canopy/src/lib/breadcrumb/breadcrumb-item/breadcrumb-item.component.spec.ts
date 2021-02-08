@@ -5,8 +5,11 @@ import { By } from '@angular/platform-browser';
 import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon/icon.component';
-import { LgBreadcrumbItemComponent, BreadcrumbBreakpoints } from './breadcrumb-item.component';
-import { BreadcrumbVariant } from './breadcrumb-item.interface';
+import { LgBreadcrumbItemComponent } from './breadcrumb-item.component';
+import {
+  BreadcrumbVariant,
+  BreadcrumbItemBreakpoints,
+} from './breadcrumb-item.interface';
 
 describe('LgBreadcrumbItemComponent', () => {
   let component: LgBreadcrumbItemComponent;
@@ -77,7 +80,9 @@ describe('LgBreadcrumbItemComponent', () => {
   describe('when showItemAt is sm', () => {
     let localFixture: MockedComponentFixture<LgBreadcrumbItemComponent>;
     beforeEach(() => {
-      localFixture = MockRender(`<lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}"></lg-breadcrumb-item>`)
+      localFixture = MockRender(
+        `<lg-breadcrumb-item showItemAt="${BreadcrumbItemBreakpoints.Small}"></lg-breadcrumb-item>`,
+      );
       component = localFixture.debugElement.children[0].componentInstance;
       localFixture.detectChanges();
     });
@@ -91,5 +96,4 @@ describe('LgBreadcrumbItemComponent', () => {
       );
     });
   });
-
 });
