@@ -51,7 +51,21 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          {
+            loader: 'css-loader',
+            options: {
+              url: (url) => {
+                if (url.match(/lyon-display([a-z-]+).(woff2|woff)/g)) {
+                  return false;
+                }
+                return true;
+              },
+            }
+          },
+          { loader: 'sass-loader' }
+        ],
       },
       {
         test: /\.(woff(2)?)$/,
