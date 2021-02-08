@@ -25,7 +25,7 @@ and in your HTML:
       Home
     </a>
   </lg-breadcrumb-item>
-  <lg-breadcrumb-item showOnSmScreens="true">
+  <lg-breadcrumb-item showItemAt="sm">
     <a href="#">Products</a>
   </lg-breadcrumb-item>
   <lg-breadcrumb-item>
@@ -58,7 +58,7 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`showOnSmScreens\`\` | Specify whether to show a crumb item on small screen devices  | boolean | false | No |
+| \`\`showItemAt\`\` | Sets the minimum screen width for which a breadcrumb item shows. Accepts \`sm\`, \`md\` or \`lg\`  | string | 'md' | No |
 
 ## Using only the SCSS files
 
@@ -68,6 +68,8 @@ If there are more than 3 levels of hierarchy, a collapsed breadcrumb should be u
 | \`\`lg-breadcrumb-item\`\` | Adds the default styles to the breadcrumb items
 | \`\`lg-breadcrumb-item__container\`\` | Adds the default styles to the breadcrumb items container
 | \`\`lg-breadcrumb-item__container--visible-sm\`\` | Adds the default styles to set a breadcrumb item to be visible on small screens
+| \`\`lg-breadcrumb-item__container--visible-md\`\` | Adds the default styles to set a breadcrumb item to be visible on medium sized screens
+| \`\`lg-breadcrumb-item__container--visible-lg\`\` | Adds the default styles to set a breadcrumb item to be visible on large screens
 | \`\`lg-breadcrumb-item__icon-wrapper\`\` | Adds the default styles to set a breadcrumb item icon wrapper
 | \`\`lg-breadcrumb-item__icon\`\` | Adds the default styles to set a breadcrumb item icon
 | \`\`lg-breadcrumb-item__icon-backward\`\` | Adds the default styles to set a breadcrumb item backward icon

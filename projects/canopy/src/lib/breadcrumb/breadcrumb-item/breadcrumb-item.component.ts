@@ -12,6 +12,12 @@ import {
 import * as iconSet from '../../icon/icons.interface';
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
+export enum BreadcrumbBreakpoints {
+  Small = 'sm',
+  Medium = 'md',
+  Large = 'lg',
+}
+
 @Component({
   selector: 'lg-breadcrumb-item',
   templateUrl: './breadcrumb-item.component.html',
@@ -22,7 +28,9 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
 export class LgBreadcrumbItemComponent {
   @HostBinding('class.lg-breadcrumb-item') class = true;
 
-  @Input() showOnSmScreens = false;
+  @Input() showItemAt: BreadcrumbBreakpoints = BreadcrumbBreakpoints.Medium;
+
+  breadcrumbBreakpoints = BreadcrumbBreakpoints;
 
   icons = iconSet;
 

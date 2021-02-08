@@ -50,7 +50,7 @@ Using the \`\`LgHeroCardHeaderComponent\`\` together with \`\`LgBreadcrumbCompon
       <div lgRow>
         <div [lgCol]="12">
           <lg-breadcrumb lgMarginBottom="none">
-            <lg-breadcrumb-item showOnSmScreens="true">
+            <lg-breadcrumb-item showItemAt="sm">
               <a href="#"><lg-icon [name]="'home'"></lg-icon>Home</a>
             </lg-breadcrumb-item>
             <lg-breadcrumb-item>

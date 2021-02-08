@@ -4,6 +4,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { fullScreen } from '../../../../../.storybook/addons/full-screen';
 import { CanopyModule } from '../canopy.module';
 import { notes } from './hero.notes';
+import { BreadcrumbBreakpoints } from '../breadcrumb/breadcrumb-item/breadcrumb-item.component';
 
 const bodyHTML = `
   <div lgContainer>
@@ -42,7 +43,7 @@ export const productHeroHTML = `
               Home
             </a>
           </lg-breadcrumb-item>
-          <lg-breadcrumb-item showOnSmScreens="true">
+          <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">
             <a href="#">Products</a>
           </lg-breadcrumb-item>
           <lg-breadcrumb-item>

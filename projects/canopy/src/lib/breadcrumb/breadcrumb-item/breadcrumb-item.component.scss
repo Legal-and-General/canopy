@@ -7,12 +7,22 @@
     display: none;
     margin-right: var(--space-xxs);
 
-    @include lg-breakpoint('md') {
-      display: flex;
+    &--visible-sm {
+      @include lg-breakpoint('sm') {
+        display: flex;
+      }
     }
 
-    &--visible-sm {
-      display: flex;
+    &--visible-md {
+      @include lg-breakpoint('md') {
+        display: flex;
+      }
+    }
+
+    &--visible-lg {
+      @include lg-breakpoint('lg') {
+        display: flex;
+      }
     }
   }
 

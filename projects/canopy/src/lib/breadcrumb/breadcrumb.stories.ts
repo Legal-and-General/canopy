@@ -7,6 +7,7 @@ import { LgIconModule } from '../icon/icon.module';
 import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
 import { LgBreadcrumbModule } from './breadcrumb.module';
 import { notes } from './breadcrumb.notes';
+import { BreadcrumbBreakpoints } from './breadcrumb-item/breadcrumb-item.component';
 
 interface Breadcrumb {
   text: string;
@@ -17,7 +18,7 @@ interface Breadcrumb {
   template: `
     <lg-breadcrumb [variant]="variant">
       <lg-breadcrumb-item *ngFor="let crumb of crumbs; index as i"
-        [showOnSmScreens]="i === 1">
+        [showItemAt]="i === 1 ? breadcrumbBreakpoints.Small : breadcrumbBreakpoints.Medium">
         <a href="#" [attr.aria-current]="isCurrentAttribute(i)">
           <lg-icon *ngIf="!i" [name]="'home'"></lg-icon>
           {{ crumb.text }}
@@ -28,6 +29,8 @@ interface Breadcrumb {
 })
 export class AsyncBreadcrumbStoryComponent implements OnInit {
   @Input() variant: BreadcrumbVariant;
+
+  breadcrumbBreakpoints = BreadcrumbBreakpoints;
 
   crumbs: Array<Breadcrumb> = [];
 
@@ -73,7 +76,7 @@ export default {
 export const twoItems = () => ({
   template: `
     <lg-breadcrumb [variant]="variant">
-      <lg-breadcrumb-item showOnSmScreens="true">
+      <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">
         <a href="#">
           <lg-icon [name]="'home'"></lg-icon>
           Home
@@ -102,7 +105,7 @@ export const threeItems = () => ({
           Home
         </a>
       </lg-breadcrumb-item>
-      <lg-breadcrumb-item showOnSmScreens="true">
+      <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">
         <a href="#">Home Insurance</a>
       </lg-breadcrumb-item>
       <lg-breadcrumb-item>

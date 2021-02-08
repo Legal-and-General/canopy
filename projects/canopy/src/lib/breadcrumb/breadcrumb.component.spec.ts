@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MockComponent, MockRender } from 'ng-mocks';
 
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
-import { LgBreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.component';
+import { LgBreadcrumbItemComponent, BreadcrumbBreakpoints } from './breadcrumb-item/breadcrumb-item.component';
 import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
 import { LgBreadcrumbComponent } from './breadcrumb.component';
 
@@ -54,7 +54,7 @@ describe('LgBreadcrumbComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
-          <lg-breadcrumb-item [showOnSmScreens]="true">Home</lg-breadcrumb-item>
+          <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">Home</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
       component = localFixture.debugElement.children[0].componentInstance;
@@ -69,8 +69,8 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.first.showForwardChevron).toBe(false);
     });
 
-    it('the first item should set showOnSmScreens to true', () => {
-      expect(component.crumbs.first.showOnSmScreens).toBe(true);
+    it('the first item should set showItemAt to sm', () => {
+      expect(component.crumbs.first.showItemAt).toBe(BreadcrumbBreakpoints.Small);
     });
 
     it('the breadcrumb item variant should be dark', () => {
@@ -84,7 +84,7 @@ describe('LgBreadcrumbComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
-          <lg-breadcrumb-item [showOnSmScreens]="true">Home</lg-breadcrumb-item>
+          <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">Home</lg-breadcrumb-item>
           <lg-breadcrumb-item>Retirement</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
@@ -100,8 +100,8 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.first.showForwardChevron).toBe(true);
     });
 
-    it('the first item should set showOnSmScreens to true', () => {
-      expect(component.crumbs.first.showOnSmScreens).toBe(true);
+    it('the first item should set showItemAt to sm', () => {
+      expect(component.crumbs.first.showItemAt).toBe(BreadcrumbBreakpoints.Small);
     });
   });
 
@@ -110,7 +110,7 @@ describe('LgBreadcrumbComponent', () => {
       const localFixture = MockRender(`
         <lg-breadcrumb>
           <lg-breadcrumb-item>Home</lg-breadcrumb-item>
-          <lg-breadcrumb-item [showOnSmScreens]="true">Retirement</lg-breadcrumb-item>
+          <lg-breadcrumb-item showItemAt="${BreadcrumbBreakpoints.Small}">Retirement</lg-breadcrumb-item>
           <lg-breadcrumb-item-ellipsis></lg-breadcrumb-item-ellipsis>
           <lg-breadcrumb-item>Pensions</lg-breadcrumb-item>
         </lg-breadcrumb>
@@ -143,16 +143,16 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.toArray()[2].showForwardChevron).toBe(false);
     });
 
-    it('the first item should set showOnSmScreens to false', () => {
-      expect(component.crumbs.toArray()[0].showOnSmScreens).toBe(false);
+    it('the first item should set showItemAt to md', () => {
+      expect(component.crumbs.toArray()[0].showItemAt).toBe(BreadcrumbBreakpoints.Medium);
     });
 
-    it('the second item should set showOnSmScreens to true', () => {
-      expect(component.crumbs.toArray()[1].showOnSmScreens).toBe(true);
+    it('the second item should set showItemAt to sm', () => {
+      expect(component.crumbs.toArray()[1].showItemAt).toBe(BreadcrumbBreakpoints.Small);
     });
 
-    it('the third item should set showOnSmScreens to false', () => {
-      expect(component.crumbs.toArray()[2].showOnSmScreens).toBe(false);
+    it('the third item should set showItemAt to md', () => {
+      expect(component.crumbs.toArray()[2].showItemAt).toBe(BreadcrumbBreakpoints.Medium);
     });
 
     it('the breadcrumb item ellipsis variant should be dark', () => {
