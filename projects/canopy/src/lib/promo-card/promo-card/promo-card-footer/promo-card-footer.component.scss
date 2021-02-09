@@ -1,0 +1,32 @@
+@import '../../../../styles/mixins';
+
+.lg-promo-card-footer {
+  display: block;
+  margin-bottom: var(--space-sm);
+  margin-top: var(--space-md);
+
+  @include lg-breakpoint('sm') {
+    margin-bottom: 0;
+    margin-top: var(--space-lg);
+  }
+
+  @include lg-breakpoint('md') {
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  @include lg-breakpoint('sm', 'max-width') {
+    margin-bottom: var(--space-xxs);
+    margin-top: var(--space-md);
+  }
+}
+
+.lg-promo-card-footer__cta {
+  &.lg-btn {
+    margin-bottom: 0;
+  }
+
+  @include lg-breakpoint('sm') {
+    width: auto;
+  }
+}
