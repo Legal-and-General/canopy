@@ -1,0 +1,19 @@
+@import '../../../../styles/mixins';
+
+.lg-promo-card-header {
+  display: block;
+  margin-bottom: var(--space-sm);
+
+  @include lg-breakpoint('sm') {
+    margin-bottom: var(--space-xxxs);
+  }
+
+  @include lg-breakpoint('md') {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+.lg-promo-card-header__heading {
+  font-weight: bold;
+  margin-bottom: 0;
+}

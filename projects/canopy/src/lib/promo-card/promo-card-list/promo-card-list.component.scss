@@ -1,0 +1,32 @@
+@import '../../../styles/mixins';
+
+.lg-promo-card-list__heading {
+  font-weight: bold;
+  margin-bottom: var(--space-xxl);
+  margin-top: var(--space-xl);
+
+  @include lg-breakpoint('md') {
+    margin-bottom: var(--space-xxl);
+    margin-top: var(--space-xl);
+  }
+
+  @include lg-breakpoint('sm') {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+
+  @include lg-breakpoint('sm', 'max-width') {
+    margin-bottom: var(--space-lg);
+    margin-top: var(--space-md);
+  }
+}
+
+.lg-promo-card-list__separator {
+  border-top: 0.25rem dotted var(--color-charcoal);
+  height: 0.125rem;
+  margin-top: var(--space-xxl);
+
+  @include lg-breakpoint('sm', 'max-width') {
+    margin-top: var(--space-md);
+  }
+}
