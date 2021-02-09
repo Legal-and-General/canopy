@@ -1,4 +1,5 @@
 @import '../../../styles/mixins';
+@import './breadcrumb-item-breakpoints.scss';
 
 .lg-breadcrumb-item {
   align-items: center;
@@ -7,21 +8,11 @@
     display: none;
     margin-right: var(--space-xxs);
 
-    &--visible-sm {
-      @include lg-breakpoint('sm') {
-        display: flex;
-      }
-    }
-
-    &--visible-md {
-      @include lg-breakpoint('md') {
-        display: flex;
-      }
-    }
-
-    &--visible-lg {
-      @include lg-breakpoint('lg') {
-        display: flex;
+    @each $columns-breakpoint in $columns-breakpoints {
+      &--visible-#{$columns-breakpoint} {
+        @include lg-breakpoint($columns-breakpoint) {
+          display: flex;
+        }
       }
     }
   }
@@ -104,4 +95,3 @@
     }
   }
 }
-
