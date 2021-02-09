@@ -1,0 +1,22 @@
+@import '../../../../styles/mixins';
+
+.lg-promo-card-footer {
+  display: block;
+  margin-bottom: var(--space-xxs);
+  margin-top: var(--space-md);
+
+  @include lg-breakpoint('sm') {
+    margin-bottom: var(--space-xxs);
+    margin-top: var(--space-lg);
+  }
+
+  @include lg-breakpoint('md') {
+    margin-bottom: 0;
+    margin-top: var(--space-md);
+  }
+
+  @include lg-breakpoint('lg') {
+    margin-bottom: var(--space-xxs);
+    margin-top: var(--space-md);
+  }
+}

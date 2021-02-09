@@ -4,9 +4,6 @@ export const notes = `
 
 ## Purpose
 Separators are used to separate individual component or group of components.
-They come in several variants:
-* solid
-* dotted
 
 
 ## Usage
@@ -24,6 +21,12 @@ and in your HTML:
 
 <lg-separator variant='dotted'></lg-separator>
 ~~~
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`variant\`\` | The variant of separator: \`\`solid\`\`, \`\`dotted\`\` | SeparatorVariant | 'solid' | No |
 
 ## Using only the SCSS files
 

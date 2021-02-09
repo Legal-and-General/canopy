@@ -8,5 +8,5 @@
 }
 
 .lg-separator--dotted {
-  border-top: dotted 0.25rem var(--color-charcoal);
+  border-top: dotted var(--separator-dotted-border-width) var(--color-charcoal);
 }

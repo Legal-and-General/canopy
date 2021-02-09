@@ -1,0 +1,42 @@
+@import '../../../styles/mixins';
+
+.lg-promo-card-list__separator {
+  margin-top: var(--space-sm);
+
+  @include lg-breakpoint('sm') {
+    margin-top: var(--space-lg);
+  }
+
+  @include lg-breakpoint('lg') {
+    margin-top: var(--space-xxl);
+  }
+}
+
+.lg-promo-card-list__promo-cards {
+  display: flex;
+  flex-direction: column;
+
+  // workaround for lack of 'gap' support
+  // https://coryrylan.com/blog/css-gap-space-with-flexbox
+  margin: calc(-1 * var(--promo-card-gap-sm)) 0 0;
+
+  > * {
+    margin: var(--promo-card-gap-sm) 0 0;
+  }
+  // end of workaround
+
+  @include lg-breakpoint('lg') {
+    flex-direction: row;
+    justify-content: space-between;
+
+    // workaround for lack of 'gap' support
+    // https://coryrylan.com/blog/css-gap-space-with-flexbox
+    margin: 0 calc(-1 * var(--promo-card-gap-lg)) 0 0;
+    width: calc(100% + var(--promo-card-gap-lg));
+
+    > * {
+      margin: 0 var(--promo-card-gap-lg) 0 0;
+    }
+    // end of workaround
+  }
+}
