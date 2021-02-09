@@ -28,11 +28,11 @@ describe('LgSeparatorComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-separator');
   });
 
-  it('should contain the class lg-separator--solid', () => {
+  it('should set the variant to the default value', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-separator--solid');
   });
 
-  it('should contain the class lg-separator--dotted if variant is dotted', () => {
+  it('should set the variant to the provided value', () => {
     component.variant = 'dotted';
 
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-separator--dotted');

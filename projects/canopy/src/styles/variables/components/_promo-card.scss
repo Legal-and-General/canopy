@@ -1,0 +1,8 @@
+:root {
+  --promo-card-gap-sm: var(--space-xxl);
+  --promo-card-gap-lg: var(--space-lg);
+  --promo-card-image-dimension: 21.5rem;
+}
+
+// this has been added as a SASS variable as we cannot use CSS custom properties in media queries
+$promo-card-inline-breakpoint: 37.5rem;

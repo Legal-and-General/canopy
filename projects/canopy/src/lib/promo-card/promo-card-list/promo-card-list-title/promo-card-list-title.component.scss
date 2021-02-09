@@ -1,0 +1,11 @@
+@import '../../../../styles/mixins';
+
+.lg-promo-card-list-title__heading {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
+
+  @include lg-breakpoint('lg') {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xxl);
+  }
+}
