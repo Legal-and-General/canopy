@@ -2,7 +2,9 @@ import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { notes } from './promo-card.notes';
-import { CanopyModule } from '../canopy.module';
+// import { CanopyModule } from '../canopy.module';
+import { LgPromoCardModule } from './promo-card.module';
+import { LgGridModule } from '../grid';
 
 const propsGroupId = 'properties';
 const contentGroupId = 'content';
@@ -14,7 +16,7 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [CanopyModule],
+        imports: [LgPromoCardModule, LgGridModule],
       }),
     ],
     notes: {
@@ -38,9 +40,9 @@ interface PromoCardListKnobsConfig {
 
 const createPromoCardStory = (config: PromoCardKnobsConfig) => ({
   template: `
-<!--    <div lgContainer>-->
-<!--      <div lgRow>-->
-<!--        <div lgColSm='12' lgColMd='4'>-->
+    <!--div lgContainer>
+      <div lgRow>
+        <div [lgColLg]="4"-->
           <lg-promo-card
             [variant]='variant'
           >
@@ -49,9 +51,9 @@ const createPromoCardStory = (config: PromoCardKnobsConfig) => ({
             <lg-promo-card-content [content]='content'></lg-promo-card-content>
             <lg-promo-card-footer [ctaText]='ctaText' [ctaVariant]='variant'></lg-promo-card-footer>
           </lg-promo-card>
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->`,
+        <!--/div>
+      </div>
+    </div-->`,
   props: {
     content: text('content', config.content, contentGroupId),
     ctaText: text('buttonText', config.ctaText, contentGroupId),
@@ -75,22 +77,13 @@ export const promoCard = () =>
 const createPromoCardListStory = (config: PromoCardListKnobsConfig) => ({
   template: `
     <lg-promo-card-list [title]='title'>
-      <div lgContainer>
-        <div lgRow>
-          <div *ngFor='let card of cards'
-              lgColSm='12'
-              lgColMd='4'>
-            <lg-promo-card
-              [variant]='card.variant'
-            >
-              <lg-promo-card-image [imageUrl]='card.imageUrl'></lg-promo-card-image>
-              <lg-promo-card-header [header]='card.header'></lg-promo-card-header>
-              <lg-promo-card-content [content]='card.content'></lg-promo-card-content>
-              <lg-promo-card-footer [ctaText]='card.ctaText' [ctaVariant]='card.variant'></lg-promo-card-footer>
-            </lg-promo-card>
-          </div>
-        </div>
-      </div>
+      <lg-promo-card *ngFor='let card of cards'
+        [variant]='card.variant'>
+        <lg-promo-card-image [imageUrl]='card.imageUrl'></lg-promo-card-image>
+        <lg-promo-card-header [header]='card.header'></lg-promo-card-header>
+        <lg-promo-card-content [content]='card.content'></lg-promo-card-content>
+        <lg-promo-card-footer [ctaText]='card.ctaText' [ctaVariant]='card.variant'></lg-promo-card-footer>
+      </lg-promo-card>
     </lg-promo-card-list>`,
   props: {
     title: text('title', config.title, contentGroupId),
@@ -110,6 +103,15 @@ export const promoCardList = () =>
           'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
         header: 'Need help with Care?',
         variant: 'solid-secondary',
+      },
+      {
+        content:
+          'Our care service can help you understand, find and fund care for you or a loved one.',
+        ctaText: 'Find out more',
+        imageUrl:
+          'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
+        header: 'Need help with Care?',
+        variant: 'reverse-secondary',
       },
       {
         content:

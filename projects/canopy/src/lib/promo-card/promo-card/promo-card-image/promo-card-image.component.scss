@@ -1,27 +1,23 @@
 @import '../../../../styles/mixins';
 
+// TODO: if we keep this, move it somewhere reusable in
+// both this and the image component
+$promo-card-inline-breakpoint: 37.5rem;
+
 .lg-promo-card-image__content {
-  margin: auto;
   width: 100%;
-  height: 24rem;
+  height: 20rem;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center center;
   background-size: cover;
 
-  @include lg-breakpoint('sm') {
-    margin: 0;
-    min-width: 21.5rem;
-    min-height: 21.5rem;
+  @media (min-width: $promo-card-inline-breakpoint) {
     width: 21.5rem;
     height: 21.5rem;
   }
 
-  @include lg-breakpoint('md') {
-    margin: auto;
+  @include lg-breakpoint('lg') {
     width: 100%;
     height: 24rem;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
   }
 }

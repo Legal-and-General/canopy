@@ -30,3 +30,22 @@
     margin-top: var(--space-md);
   }
 }
+
+// Default is stacked on mobile, cols on desktop
+// Could introduce input that changes layout, and orientation of cards
+// export type PromoCardListLayout = 'stacked' | 'inline';
+// export type PromoCardOrientation = 'portrait' | 'landscape'
+
+.lg-promo-card-list__promo-cards {
+  display: flex;
+  flex-direction: column;
+  // TODO: Gap not supported in IE11, Safari, iOS
+  // Workaround: https://coryrylan.com/blog/css-gap-space-with-flexbox
+  gap: var(--space-xxxl);
+
+  @include lg-breakpoint('lg') {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+}
