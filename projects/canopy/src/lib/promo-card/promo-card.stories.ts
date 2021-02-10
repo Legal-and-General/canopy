@@ -2,7 +2,8 @@ import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { notes } from './promo-card.notes';
-import { CanopyModule } from '../canopy.module';
+import { LgPromoCardModule } from './promo-card.module';
+import { LgGridModule } from '../grid';
 
 const propsGroupId = 'properties';
 const contentGroupId = 'content';
@@ -14,7 +15,7 @@ export default {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [CanopyModule],
+        imports: [LgPromoCardModule, LgGridModule],
       }),
     ],
     notes: {
@@ -73,26 +74,17 @@ export const promoCard = () =>
 const createPromoCardListStory = (config: PromoCardListKnobsConfig) => ({
   template: `
     <lg-promo-card-list [title]='title'>
-      <div lgContainer>
-        <div lgRow>
-          <div *ngFor='let card of cards'
-              lgColSm='12'
-              lgColMd='4'>
-            <lg-promo-card
-              [variant]='card.variant'
-            >
-              <lg-promo-card-image [imageUrl]='card.imageUrl'></lg-promo-card-image>
-              <lg-promo-card-title [headingLevel]='2'>{{ card.title }}</lg-promo-card-title>
-              <lg-promo-card-content [content]='card.content'></lg-promo-card-content>
-              <lg-promo-card-footer>
-                <button class="lg-promo-card-footer__cta" lg-button type="button" [variant]="card.variant">
-                  {{ card.ctaText }}
-                </button>
-              </lg-promo-card-footer>
-            </lg-promo-card>
-          </div>
-        </div>
-      </div>
+      <lg-promo-card *ngFor='let card of cards'
+        [variant]='card.variant'>
+        <lg-promo-card-image [imageUrl]='card.imageUrl'></lg-promo-card-image>
+        <lg-promo-card-title [headingLevel]='2'>{{ card.title }}</lg-promo-card-title>
+        <lg-promo-card-content [content]='card.content'></lg-promo-card-content>
+        <lg-promo-card-footer>
+          <button class="lg-promo-card-footer__cta" lg-button type="button" [variant]="card.variant">
+            {{ card.ctaText }}
+          </button>
+        </lg-promo-card-footer>
+      </lg-promo-card>
     </lg-promo-card-list>`,
   props: {
     title: text('title', config.title, contentGroupId),
