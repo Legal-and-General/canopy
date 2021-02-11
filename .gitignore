@@ -12,7 +12,7 @@ storybook-static
 /bazel-out
 
 # dependencies
-/node_modules
+node_modules/
 /.dsm
 
 # profiling files
