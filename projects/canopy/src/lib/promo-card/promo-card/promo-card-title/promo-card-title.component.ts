@@ -14,7 +14,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgPromoCardHeaderComponent implements OnInit {
+export class LgPromoCardTitleComponent implements OnInit {
   @HostBinding('class.lg-promo-card-title') class = true;
 
   @Input() headingLevel: string;

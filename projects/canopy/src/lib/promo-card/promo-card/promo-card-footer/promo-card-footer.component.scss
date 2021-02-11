@@ -22,10 +22,6 @@
 }
 
 .lg-promo-card-footer__cta {
-  &.lg-btn {
-    margin-bottom: 0;
-  }
-
   @include lg-breakpoint('sm') {
     width: auto;
   }

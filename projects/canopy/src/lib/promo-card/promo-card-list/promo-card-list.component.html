@@ -1,9 +1,9 @@
-<div class="lg-promo-card-list__separator"></div>
+<lg-separator class="lg-promo-card-list__separator" variant="dotted"></lg-separator>
 
-<lg-heading [level]="1" class="lg-promo-card-list__heading lg-font--expressive">{{
-  title
-}}</lg-heading>
+<div class="lg-promo-card-list__heading">
+  <ng-content select="lg-heading"></ng-content>
+</div>
 
 <div class="lg-promo-card-list__promo-cards">
-  <ng-content></ng-content>
+  <ng-content select="lg-promo-card"></ng-content>
 </div>

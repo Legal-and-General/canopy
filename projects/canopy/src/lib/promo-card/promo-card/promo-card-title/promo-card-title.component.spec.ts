@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PromoCardHeaderComponent } from './promo-card-title.component';
+import { LgPromoCardTitleComponent } from './promo-card-title.component';
 
-describe('PromoCardHeaderComponent', () => {
-  let component: PromoCardHeaderComponent;
-  let fixture: ComponentFixture<PromoCardHeaderComponent>;
+describe('LgPromoCardTitleComponent', () => {
+  let component: LgPromoCardTitleComponent;
+  let fixture: ComponentFixture<LgPromoCardTitleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PromoCardHeaderComponent],
+      declarations: [LgPromoCardTitleComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PromoCardHeaderComponent);
+    fixture = TestBed.createComponent(LgPromoCardTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

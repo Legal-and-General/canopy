@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lg-promo-card-list',
@@ -8,8 +8,6 @@ import { Component, HostBinding, Input, OnInit, ViewEncapsulation } from '@angul
 })
 export class LgPromoCardListComponent implements OnInit {
   @HostBinding('class.lg-promo-card-list') class = true;
-
-  @Input() public title: string;
 
   constructor() {}
 

@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lg-promo-card-content',
@@ -7,8 +7,6 @@ import { Component, HostBinding, Input, OnInit, ViewEncapsulation } from '@angul
 })
 export class LgPromoCardContentComponent implements OnInit {
   @HostBinding('class.lg-promo-card-content') class = true;
-
-  @Input() content: string;
 
   constructor() {}
 

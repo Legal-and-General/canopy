@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PromoCardFooterComponent } from './promo-card-footer.component';
+import { LgPromoCardFooterComponent } from './promo-card-footer.component';
 
-describe('PromoCardFooterComponent', () => {
-  let component: PromoCardFooterComponent;
-  let fixture: ComponentFixture<PromoCardFooterComponent>;
+describe('LgPromoCardFooterComponent', () => {
+  let component: LgPromoCardFooterComponent;
+  let fixture: ComponentFixture<LgPromoCardFooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PromoCardFooterComponent],
+      declarations: [LgPromoCardFooterComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PromoCardFooterComponent);
+    fixture = TestBed.createComponent(LgPromoCardFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,27 +1,44 @@
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { notes } from './promo-card.notes';
 import { LgPromoCardModule } from './promo-card.module';
 import { LgGridModule } from '../grid';
+import { LgHeadingModule } from '../heading';
+import { LgButtonModule } from '../button';
+import { LgSeparatorModule } from '../separator';
 
-const propsGroupId = 'properties';
-const contentGroupId = 'content';
-const cardVariants = ['reverse-secondary', 'solid-secondary'];
-
-export default {
-  title: 'Components/Promo Card',
-  parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        imports: [LgPromoCardModule, LgGridModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+const cardListConfig = {
+  title: 'Get more from Legal & General',
+  cards: [
+    {
+      content:
+        'Our care service can help you understand, find and fund care for you or a loved one.',
+      ctaText: 'Find out more',
+      imageUrl:
+        'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
+      title: 'Need help with Care?',
+      variant: 'solid-secondary',
     },
-  },
+    {
+      content:
+        'Our care service can help you understand, find and fund care for you or a loved one.',
+      ctaText: 'Find out more',
+      imageUrl:
+        'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
+      title: 'Need help with Care?',
+      variant: 'solid-secondary',
+    },
+    {
+      content:
+        'Our care service can help you understand, find and fund care for you or a loved one.',
+      ctaText: 'Find out more',
+      imageUrl:
+        'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
+      title: 'Need help with Care?',
+      variant: 'reverse-secondary',
+    },
+  ],
 };
 
 interface PromoCardKnobsConfig {
@@ -37,82 +54,59 @@ interface PromoCardListKnobsConfig {
   cards: Array<PromoCardKnobsConfig>;
 }
 
-const createPromoCardStory = (config: PromoCardKnobsConfig) => ({
-  template: `
-          <lg-promo-card
-            [variant]='variant'
-          >
-            <lg-promo-card-image [imageUrl]='imageUrl'></lg-promo-card-image>
-            <lg-promo-card-title [headingLevel]='2'>{{ title }}</lg-promo-card-title>
-            <lg-promo-card-content [content]='content'></lg-promo-card-content>
-            <lg-promo-card-footer>
-              <button class="lg-promo-card-footer__cta" lg-button type="button" [variant]="variant">
-                {{ ctaText }}
-              </button>
-            </lg-promo-card-footer>
-          </lg-promo-card>`,
-  props: {
-    content: text('content', config.content, contentGroupId),
-    ctaText: text('buttonText', config.ctaText, contentGroupId),
-    title: text('title', config.title, contentGroupId),
-    imageUrl: text('imageUrl', config.imageUrl, contentGroupId),
-    variant: select('variant', cardVariants, config.variant, propsGroupId),
+export default {
+  title: 'Components/Promo Card',
+  parameters: {
+    decorators: [
+      withKnobs,
+      moduleMetadata({
+        imports: [
+          LgPromoCardModule,
+          LgGridModule,
+          LgHeadingModule,
+          LgButtonModule,
+          LgSeparatorModule,
+        ],
+      }),
+    ],
+    notes: {
+      markdown: notes,
+    },
   },
-});
+};
 
 export const promoCard = () =>
-  createPromoCardStory({
-    content:
-      'Our care service can help you understand, find and fund care for you or a loved one.',
-    ctaText: 'Find out more',
-    imageUrl:
-      'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
-    title: 'Need help with Care?',
-    variant: 'solid-secondary',
+  createPromoCardListStory({
+    ...cardListConfig,
+    cards: [cardListConfig.cards[0]],
   });
+
+export const promoCardList = () => createPromoCardListStory(cardListConfig);
 
 const createPromoCardListStory = (config: PromoCardListKnobsConfig) => ({
   template: `
-    <lg-promo-card-list [title]='title'>
+    <lg-promo-card-list>
+      <lg-heading [level]="1" class="lg-font--expressive lg-promo-card-list__heading">
+        {{ title }}
+      </lg-heading>
       <lg-promo-card *ngFor='let card of cards'
         [variant]='card.variant'>
         <lg-promo-card-image [imageUrl]='card.imageUrl'></lg-promo-card-image>
-        <lg-promo-card-title [headingLevel]='2'>{{ card.title }}</lg-promo-card-title>
-        <lg-promo-card-content [content]='card.content'></lg-promo-card-content>
+        <lg-promo-card-title [headingLevel]='2'>
+          {{ card.title }}
+        </lg-promo-card-title>
+        <lg-promo-card-content>
+          <p>{{ card.content }}</p>
+        </lg-promo-card-content>
         <lg-promo-card-footer>
-          <button class="lg-promo-card-footer__cta" lg-button type="button" [variant]="card.variant">
+          <button class="lg-promo-card-footer__cta lg-margin__bottom--none" lg-button type="button" [variant]="card.variant">
             {{ card.ctaText }}
           </button>
         </lg-promo-card-footer>
       </lg-promo-card>
     </lg-promo-card-list>`,
   props: {
-    title: text('title', config.title, contentGroupId),
-    cards: object('cards', config.cards, contentGroupId),
+    title: config.title,
+    cards: config.cards,
   },
 });
-
-export const promoCardList = () =>
-  createPromoCardListStory({
-    title: 'Get more from Legal & General',
-    cards: [
-      {
-        content:
-          'Our care service can help you understand, find and fund care for you or a loved one.',
-        ctaText: 'Find out more',
-        imageUrl:
-          'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
-        title: 'Need help with Care?',
-        variant: 'solid-secondary',
-      },
-      {
-        content:
-          'Our care service can help you understand, find and fund care for you or a loved one.',
-        ctaText: 'Find out more',
-        imageUrl:
-          'https://www.legalandgeneral.com/images/responsive/original/_home-page-resources/images/articlesandfeatures/1063686372-retire.jpg',
-        title: 'Need help with Care?',
-        variant: 'reverse-secondary',
-      },
-    ],
-  });

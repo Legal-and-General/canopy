@@ -12,6 +12,13 @@ $promo-card-inline-breakpoint: 37.5rem;
   }
 }
 
+.lg-promo-card--reverse-secondary {
+  .lg-promo-card__content-container {
+    background: var(--color-leafy-green);
+    color: var(--color-white);
+  }
+}
+
 .lg-promo-card__img-wrapper {
   @media (min-width: $promo-card-inline-breakpoint) {
     position: absolute;
