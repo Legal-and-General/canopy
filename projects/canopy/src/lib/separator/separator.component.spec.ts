@@ -28,6 +28,16 @@ describe('LgSeparatorComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-separator');
   });
 
+  it('should contain the class lg-separator--solid', () => {
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-separator--solid');
+  });
+
+  it('should contain the class lg-separator--dotted if variant is dotted', () => {
+    component.variant = 'dotted';
+
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-separator--dotted');
+  });
+
   it('should have the role separator', () => {
     expect(fixture.nativeElement.getAttribute('role')).toEqual('separator');
   });

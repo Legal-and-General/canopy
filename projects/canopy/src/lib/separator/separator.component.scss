@@ -1,5 +1,12 @@
 .lg-separator {
-  border-top: solid var(--border-width) var(--separator-color);
   display: block;
   margin: var(--space-lg) 0;
+}
+
+.lg-separator--solid {
+  border-top: solid var(--border-width) var(--separator-color);
+}
+
+.lg-separator--dotted {
+  border-top: dotted 0.25rem var(--color-charcoal);
 }

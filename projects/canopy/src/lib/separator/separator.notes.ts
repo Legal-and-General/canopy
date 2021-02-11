@@ -3,7 +3,10 @@ export const notes = `
 
 
 ## Purpose
-Separator are used to separate individual component or group of components
+Separators are used to separate individual component or group of components.
+They come in several variants:
+* solid
+* dotted
 
 
 ## Usage
@@ -18,6 +21,8 @@ and in your HTML:
 
 ~~~html
 <lg-separator></lg-separator>
+
+<lg-separator variant='dotted'></lg-separator>
 ~~~
 
 ## Using only the SCSS files
@@ -27,5 +32,7 @@ The \`\`lg-separator\`\` class is required to be able to apply the main style to
 ###Example:
 ~~~html
 <div class="lg-separator" role="separator"></div>
+
+<div class="lg-separator lg-separator--dotted" role="separator"></div>
 ~~~
 `;
