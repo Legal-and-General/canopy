@@ -4,7 +4,7 @@ import { LgSeparatorComponent } from '../separator/separator.component';
 import { notes } from './separator.notes';
 
 export default {
-  title: 'Components/Seperator',
+  title: 'Components/Separator',
   parameters: {
     decorators: [
       moduleMetadata({
@@ -23,5 +23,7 @@ export default {
 export const standard = () => ({
   template: `
     <lg-separator></lg-separator>
+
+    <lg-separator variant='dotted'></lg-separator>
   `,
 });
