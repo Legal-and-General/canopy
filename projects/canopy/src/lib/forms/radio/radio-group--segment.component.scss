@@ -4,6 +4,10 @@
   display: inline-flex;
   border: var(--border-width) solid var(--radio-border-color);
   border-radius: var(--border-radius-sm);
+
+  .lg-radio-group--error & {
+    border-color: var(--form-error-color);
+  }
 }
 
 $stack-breakpoints: 'sm', 'md', 'lg' !default;
