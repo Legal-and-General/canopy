@@ -29,6 +29,11 @@
     }
   }
 
+  &.lg-radio-button--error .lg-radio-button__input:checked + .lg-radio-button__label {
+    background-color: var(--form-error-color);
+    color: var(--radio-color);
+  }
+
   .lg-radio-button__input {
     &:checked + .lg-radio-button__label {
       background-color: var(--radio-bg-color);
@@ -48,11 +53,6 @@
 
     &:focus + .lg-radio-button__label {
       @include lg-inner-focus-outline(var(--default-focus-color));
-    }
-
-    .lg-radio-button--error &:checked + .lg-radio-button__label {
-      background-color: var(--form-error-color);
-      color: var(--radio-color);
     }
   }
 

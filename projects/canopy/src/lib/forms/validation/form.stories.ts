@@ -106,6 +106,25 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-radio-group>
 
+      <lg-segment-group formControlName="segment">
+        Segment option
+        <lg-hint>This is a standard segment group</lg-hint>
+        <lg-segment-button value="yellow">Yellow</lg-segment-button>
+        <lg-segment-button value="red">Red</lg-segment-button>
+        <lg-segment-button value="blue">Blue</lg-segment-button>
+        <lg-segment-button value="invalid">Invalid</lg-segment-button>
+        <lg-validation
+          *ngIf="isControlInvalid(segment, validationForm) && segment.hasError('invalid')"
+        >
+          Please select a valid option
+        </lg-validation>
+        <lg-validation
+          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('required')"
+        >
+          Please select an option
+        </lg-validation>
+      </lg-segment-group>
+
       <lg-checkbox-group formControlName="colors">
         Checkbox group
         <lg-hint>This is a standard checkbox group</lg-hint>
@@ -207,6 +226,10 @@ class ReactiveFormComponent {
     return this.form.get('radio');
   }
 
+  get segment() {
+    return this.form.get('segment');
+  }
+
   get colors() {
     return this.form.get('colors');
   }
@@ -226,6 +249,7 @@ class ReactiveFormComponent {
       text: ['', [Validators.required, Validators.minLength(4), invalidValidator()]],
       select: ['', [Validators.required, invalidValidator()]],
       radio: ['', [Validators.required, invalidValidator()]],
+      segment: ['', [Validators.required, invalidValidator()]],
       colors: this.fb.control([], [Validators.required]),
       checkbox: ['', [Validators.requiredTrue]],
       switch: ['', [Validators.requiredTrue]],
