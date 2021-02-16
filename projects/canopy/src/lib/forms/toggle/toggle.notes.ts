@@ -35,6 +35,7 @@ or
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\${nextUniqueId++}' | No |
 | \`\`name\`\` | HTML Name attribute, auto generated if not provided | string | 'lg-toggle-\${nextUniqueId++}' | No |
 | \`\`variant\`\` | The variant of the toggle | 'checkbox', 'switch' or 'filter' | 'checkbox | No |
+| \`\`focus\`\` | Set the focus on the input field | boolean | null | No |
 
 ## Using only the SCSS files
 

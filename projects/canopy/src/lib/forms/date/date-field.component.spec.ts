@@ -147,6 +147,15 @@ describe('LgDateFieldComponent', () => {
     });
   });
 
+  it('adds the tabindex attribute to the fieldset element', () => {
+    expect(fieldsetElement.nativeElement.getAttribute('tabindex')).toBeNull();
+
+    dateFieldInstance.focus = true;
+    fixture.detectChanges();
+
+    expect(fieldsetElement.nativeElement.getAttribute('tabindex')).toBe('-1');
+  });
+
   it('sets the individual input fields when a date value is provided', () => {
     const testDate = '1970-05-05';
     component.form.get('dateOfBirth').setValue(testDate);

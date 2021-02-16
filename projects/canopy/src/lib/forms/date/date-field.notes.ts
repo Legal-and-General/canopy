@@ -57,6 +57,7 @@ and in your HTML:
 | \`\`monthId\`\` | HTML ID attribute for the month input, auto generated if not provided | string | 'lg-input-month-\${nextUniqueId++}' | No |
 | \`\`yearId\`\` | HTML ID attribute for the year input, auto generated if not provided | string | 'lg-input-year-\${nextUniqueId++}' | No |
 | \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the date field, if not provided it will use the hint field where appropriate | string | null | No |
+| \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
 
 ## Validation
 Date validation is quite complex with a range of different validation errors, where possible we have encapsulated as much of that complexity into the components as we can.
