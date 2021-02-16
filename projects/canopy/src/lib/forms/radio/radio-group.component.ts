@@ -38,6 +38,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   @Input() id = `lg-radio-group-id-${this.nextUniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
+  @Input() focus = false;
   @Input() ariaDescribedBy: string;
   variant: RadioVariant;
 

@@ -17,6 +17,7 @@ let nextUniqueId = 0;
   selector: '[lgSelect]',
 })
 export class LgSelectDirective {
+  private uniqueId = nextUniqueId++;
   @HostBinding('class.lg-select') class = true;
   @HostBinding('class.lg-select--block')
   public get blockClass() {
@@ -33,11 +34,11 @@ export class LgSelectDirective {
 
   @Input()
   @HostBinding('name')
-  name = `lg-select-${nextUniqueId++}`;
+  name = `lg-select-${this.uniqueId}`;
 
   @Input()
   @HostBinding('id')
-  id = `lg-select-${nextUniqueId++}`;
+  id = `lg-select-${this.uniqueId}`;
 
   @Input()
   @HostBinding('attr.aria-describedby')

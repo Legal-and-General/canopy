@@ -7,6 +7,7 @@ import { LgLabelModule } from '../label/label.module';
 import { LgValidationModule } from '../validation/validation.module';
 import { LgDateFieldComponent } from './date-field.component';
 import { LgMarginModule } from '../../spacing/margin/margin.module';
+import { LgFocusModule } from '../../focus/focus.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { LgMarginModule } from '../../spacing/margin/margin.module';
     LgInputModule,
     LgValidationModule,
     LgMarginModule,
+    LgFocusModule,
   ],
   declarations: [LgDateFieldComponent],
   exports: [LgDateFieldComponent],

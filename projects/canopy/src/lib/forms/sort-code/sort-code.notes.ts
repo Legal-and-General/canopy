@@ -32,7 +32,8 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`value\`\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |
-| \`\`disabled\`\` | Sets the three inner input fields to disbaled if \`\`true\`\` | boolean | \`\`false\`\` | No |
+| \`\`disabled\`\` | Set the three inner input fields to disabled if \`\`true\`\` | boolean | \`\`false\`\` | No |
+| \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
 | \`\`labelId\`\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \`\`lg-input-sort-code-label-\${nextUniqueId}\`\` | No |
 | \`\`firstId\`\` | HTML ID attribute for the first number input, auto generated if not provided | string | \`\`lg-input-sort-code-first-\${nextUniqueId}\`\` | No |
 | \`\`secondId\`\` | HTML ID attribute for the second number input, auto generated if not provided | string | \`\`lg-input-sort-code-second-\${nextUniqueId}\`\` | No |

@@ -13,7 +13,7 @@ import { notes } from './sort-code.notes';
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-sort-code formControlName="sortCode">
+      <lg-sort-code formControlName="sortCode" [focus]="focus">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
       </lg-sort-code>
@@ -23,6 +23,7 @@ import { notes } from './sort-code.notes';
 class ReactiveFormComponent {
   @Input() hint: string;
   @Input() label: string;
+  @Input() focus: boolean;
 
   @Input()
   set disabled(disabled: boolean) {
@@ -71,11 +72,13 @@ export const standard = () => ({
     [disabled]="disabled"
     [hint]="hint"
     [label]="label"
+    [focus]="focus"
   ></lg-reactive-form>`,
   props: {
     inputChange: action('inputChange'),
     label: text('label', 'Sort code'),
     hint: text('hint', 'Must be 6 digits long'),
     disabled: boolean('disabled', false),
+    focus: boolean('focus', false),
   },
 });

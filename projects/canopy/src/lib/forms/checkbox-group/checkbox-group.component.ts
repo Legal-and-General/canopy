@@ -38,6 +38,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   @Input() id = `lg-checkbox-group-id-${this.nextUniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
+  @Input() focus: boolean;
   @Input() ariaDescribedBy: string;
   _variant: CheckboxGroupVariant;
 
