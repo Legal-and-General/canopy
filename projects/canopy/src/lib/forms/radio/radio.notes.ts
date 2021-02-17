@@ -50,7 +50,7 @@ Radios are displayed inline, unless given a \`RadioStackBreakpoint\`, which tell
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-radio-group-id-\${nextUniqueId++}' | No |
 | \`\`name\`\` | Set the name value for all inputs in the group, auto-generated if not provided | string | 'lg-radio-group-\${nextUniqueId++}' | No |
-| \`\`value\`\` | Set the default checked radio button, must match the value of the radio button | string | null | No |
+| \`\`value\`\` | Set the default checked radio button, must match the value of the radio button | boolean or string | null | No |
 | \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
 ${
   name === 'Radio'
