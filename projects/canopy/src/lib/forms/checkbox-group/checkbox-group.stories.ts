@@ -12,7 +12,7 @@ import { notes } from './checkbox-group.notes';
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-checkbox-group [inline]="inline" formControlName="colors">
+      <lg-checkbox-group [inline]="inline" [focus]="focus" formControlName="colors">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <lg-toggle value="red">Red</lg-toggle>
@@ -23,6 +23,7 @@ import { notes } from './checkbox-group.notes';
 })
 class ReactiveFormComponent {
   @Input() inline = false;
+  @Input() focus = false;
   @Input() label: string;
   @Input() hint: string;
   @Input()
@@ -68,6 +69,7 @@ export const standard = () => ({
     [disabled]="disabled"
     [hint]="hint"
     [inline]="inline"
+    [focus]="focus"
     [label]="label"
     (checkboxChange)="checkboxChange($event)">
   </lg-reactive-form>
@@ -78,5 +80,6 @@ export const standard = () => ({
     hint: text('hint', 'Please select all colors that apply'),
     checkboxChange: action('checkboxChange'),
     disabled: boolean('disabled', false),
+    focus: boolean('focus', false),
   },
 });

@@ -10,21 +10,23 @@ import { LgBrandIconRegistry } from './brand-icon.registry';
 import * as brandIconSet from './brand-icons.interface';
 
 export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
-  brandIconSet.lgBrandIconSun,
-  brandIconSet.lgBrandIconPiggyBank,
+  brandIconSet.lgBrandIconCalendar,
+  brandIconSet.lgBrandIconChangeExistingHoldings,
+  brandIconSet.lgBrandIconChangeFutureContributions,
   brandIconSet.lgBrandIconCookiesAndArrows,
   brandIconSet.lgBrandIconErrorInBrowser,
   brandIconSet.lgBrandIconGuaranteedIncome,
   brandIconSet.lgBrandIconNoInformation,
-  brandIconSet.lgBrandIconRainOrShine,
-  brandIconSet.lgBrandIconPeople,
-  brandIconSet.lgBrandIconCalendar,
   brandIconSet.lgBrandIconNoTransactionsMatch,
   brandIconSet.lgBrandIconPensionPot,
+  brandIconSet.lgBrandIconPeople,
   brandIconSet.lgBrandIconPerformance,
+  brandIconSet.lgBrandIconPiggyBank,
+  brandIconSet.lgBrandIconRainOrShine,
+  brandIconSet.lgBrandIconSun,
+  brandIconSet.lgBrandIconSurvey,
   brandIconSet.lgBrandIconThumbsUp,
   brandIconSet.lgBrandIconVideoGuides,
-  brandIconSet.lgBrandIconSurvey,
   brandIconSet.lgBrandIconWarning,
 ];
 
