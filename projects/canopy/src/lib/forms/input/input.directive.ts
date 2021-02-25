@@ -47,7 +47,7 @@ export class LgInputDirective {
 
   @Input()
   @HostBinding('attr.aria-describedby')
-  ariaDescribedBy: string;
+  ariaDescribedBy: string | null = null;
 
   constructor(
     @Self() @Optional() public control: NgControl,
