@@ -21,10 +21,10 @@ const cardListConfig = {
     },
     {
       content:
-        'Our care service can help you understand, find and fund care for you or a loved one.',
+        'If you have pension pots that you haven’t accessed yet, we can help you understand the different ways you can use your pension..',
       ctaText: 'Find out more',
       imageUrl: 'promo-card.jpg',
-      title: 'Need help with Care?',
+      title: 'Our other income options',
     },
     {
       content:

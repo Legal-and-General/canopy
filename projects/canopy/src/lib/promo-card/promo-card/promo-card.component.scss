@@ -2,6 +2,7 @@
 @import '../../../styles/variables/components/promo-card';
 
 .lg-promo-card {
+  flex: 1 0;
   position: relative;
 
   @media (min-width: $promo-card-inline-breakpoint) {
