@@ -1,0 +1,24 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/variables/components/promo-card';
+
+.lg-promo-card-image__content {
+  width: 100%;
+  height: 20rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  @media (min-width: $promo-card-inline-breakpoint) {
+    width: var(--promo-card-image-dimension);
+    height: var(--promo-card-image-dimension);
+  }
+
+  @include lg-breakpoint('lg') {
+    width: 100%;
+    height: 20rem;
+  }
+
+  @include lg-breakpoint('xl') {
+    height: 24rem;
+  }
+}

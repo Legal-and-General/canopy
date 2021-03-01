@@ -1,0 +1,52 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables/components/promo-card';
+
+.lg-promo-card {
+  flex: 1 0;
+  position: relative;
+
+  @media (min-width: $promo-card-inline-breakpoint) {
+    min-height: var(--promo-card-image-dimension);
+  }
+}
+
+.lg-promo-card--solid-green {
+  .lg-promo-card__content-inner {
+    background: var(--color-leafy-green);
+    color: var(--color-white);
+  }
+}
+
+.lg-promo-card__img-wrapper {
+  @media (min-width: $promo-card-inline-breakpoint) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  @include lg-breakpoint('lg') {
+    position: relative;
+  }
+}
+
+.lg-promo-card__content-wrapper {
+  margin: calc(var(--space-xxl) * -1) var(--space-sm) 0;
+
+  @media (min-width: $promo-card-inline-breakpoint) {
+    margin: 0;
+    padding: var(--space-xxxl) 0 0 15rem;
+  }
+  @include lg-breakpoint('lg') {
+    margin: calc(var(--space-xxl) * -1) var(--space-md) 0;
+    padding: 0;
+  }
+}
+
+.lg-promo-card__content-inner {
+  position: relative;
+  padding: var(--space-sm);
+  background: var(--color-white);
+
+  @include lg-breakpoint('md') {
+    padding: var(--space-md);
+  }
+}

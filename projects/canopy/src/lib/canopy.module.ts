@@ -21,6 +21,7 @@ import { LgIconModule } from './icon/icon.module';
 import { LgPageModule } from './page/page.module';
 import { LgPipesModule } from './pipes/pipes.module';
 import { LgPrefixModule } from './prefix/prefix.module';
+import { LgPromoCardModule } from './promo-card/promo-card.module';
 import { LgQuickActionModule } from './quick-action/quick-action.module';
 import { LgSeparatorModule } from './separator/separator.module';
 import { LgSpacingModule } from './spacing/spacing.module';
@@ -50,6 +51,7 @@ const modules = [
   LgBrandIconModule,
   LgPipesModule,
   LgPrefixModule,
+  LgPromoCardModule,
   LgQuickActionModule,
   LgSeparatorModule,
   LgSpacingModule,
