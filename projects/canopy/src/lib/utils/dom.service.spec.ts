@@ -7,6 +7,10 @@ describe('LgErrorStateMatcher', () => {
     service = new LgDomService();
   });
 
+  it('does nothing if there is not an id to add and the current property is null', () => {
+    expect(service.toggleIdInStringProperty(null, { id: 'id-1' }, undefined)).toBe(null);
+  });
+
   it('defaults the property to a string if it is undefined', () => {
     expect(service.toggleIdInStringProperty(undefined, { id: 'id-1' })).toBe('');
   });
