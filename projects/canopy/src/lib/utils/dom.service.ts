@@ -17,14 +17,22 @@ export class LgDomService {
    * @return The new value for the property
    *
    * @example
-   *     toggleIdInStringProperty('id-1 id-2', { id: 'id-1' }, { id: 'id-3' })
-   *     // returns 'id-1 id-2'
+   *     toggleIdInStringProperty('red blue', { id: 'red' }, { id: 'green' })
+   *     // returns 'blue green'
    */
   toggleIdInStringProperty(
     property = '',
     oldElement: { id: string },
     newElement?: { id: string },
   ): string {
+    if (!newElement && property === null) {
+      return property;
+    }
+
+    if (property === null) {
+      property = '';
+    }
+
     if (oldElement && oldElement.id) {
       property = property.replace(oldElement.id, '');
     }
