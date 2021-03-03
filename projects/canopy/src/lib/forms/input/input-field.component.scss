@@ -115,4 +115,11 @@
   &:-webkit-autofill {
     -webkit-background-clip: text;
   }
+
+  // This is a bit ugly, but maybe a compromise
+  @for $var from 1 through 20 {
+    &--size-#{$var} {
+      width: #{$var + 2}rem;
+    }
+  }
 }

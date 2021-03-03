@@ -1,9 +1,11 @@
 import {
   Directive,
+  ElementRef,
   Host,
   HostBinding,
   Input,
   Optional,
+  Renderer2,
   Self,
   SkipSelf,
 } from '@angular/core';
@@ -49,6 +51,22 @@ export class LgInputDirective {
   @HostBinding('attr.aria-describedby')
   ariaDescribedBy: string | null = null;
 
+  _size: number;
+  @Input()
+  public set size(size) {
+    if (this._size) {
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-input--size-${this.size}`,
+      );
+    }
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-input--size-${size}`);
+    this._size = size;
+  }
+  public get size(): number {
+    return this._size;
+  }
+
   constructor(
     @Self() @Optional() public control: NgControl,
     private errorState: LgErrorStateMatcher,
@@ -56,5 +74,7 @@ export class LgInputDirective {
     @Host()
     @SkipSelf()
     private controlContainer: FormGroupDirective,
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
   ) {}
 }

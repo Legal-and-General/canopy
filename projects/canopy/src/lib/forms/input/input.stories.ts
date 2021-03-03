@@ -27,6 +27,7 @@ interface KnobsConfig {
   hint?: string | null;
   icon?: string;
   iconButton?: boolean;
+  inputType?: 'number' | 'text' | 'tel'; // TODO add rest or make a string
   label?: string;
   showLabel?: boolean;
   showButton?: boolean;
@@ -97,6 +98,7 @@ const createInputStory = (config: KnobsConfig) => ({
     ),
     suffix: text('suffix', '%', contentGroupId),
     size: number('input size', 12, undefined, propsGroupId),
+    type: text('input type', config.inputType || 'text', contentGroupId),
   },
 });
 
@@ -108,7 +110,7 @@ const createInputStory = (config: KnobsConfig) => ({
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <span lgPrefix *ngIf="showTextPrefix">{{ prefix }}</span>
-        <input lgInput formControlName="name" [size]="size" />
+        <input lgInput formControlName="name" [size]="size" [type]="type" />
         <button
           lg-button
           lgSuffix
