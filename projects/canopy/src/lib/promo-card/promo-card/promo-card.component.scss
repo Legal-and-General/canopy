@@ -7,6 +7,11 @@
 
   @media (min-width: $promo-card-inline-breakpoint) {
     min-height: var(--promo-card-image-dimension);
+    display: flex;
+    align-items: center;
+  }
+  @include lg-breakpoint('lg') {
+    display: block;
   }
 }
 
@@ -33,7 +38,7 @@
 
   @media (min-width: $promo-card-inline-breakpoint) {
     margin: 0;
-    padding: var(--space-xxxl) 0 0 15rem;
+    padding: 0 0 0 15rem;
   }
   @include lg-breakpoint('lg') {
     margin: calc(var(--space-xxl) * -1) var(--space-md) 0;
