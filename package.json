@@ -58,7 +58,7 @@
     "@babel/core": "^7.13.8",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-angular": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/config-conventional": "^12.0.1",
     "@commitlint/prompt": "^11.0.0",
     "@invisionapp/dsm-storybook": "0.0.136",
     "@semantic-release/github": "^7.2.0",
