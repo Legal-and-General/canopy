@@ -15,23 +15,23 @@ const cardListConfig = {
     {
       content:
         'Our care service can help you understand, find and fund care for you or a loved one.',
-      ctaText: 'Find out more',
-      imageUrl: 'promo-card.jpg',
+      ctaText: 'Find care options',
+      imageUrl: 'promo-card/care.jpg',
       title: 'Need help with Care?',
     },
     {
       content:
-        'If you have pension pots that you haven’t accessed yet, we can help you understand the different ways you can use your pension..',
-      ctaText: 'Find out more',
-      imageUrl: 'promo-card.jpg',
+        'You may have pension pots from several employers. We can help you trace any lost pensions and combine them into one easy to manage plan.',
+      ctaText: 'Start consolidating',
+      imageUrl: 'promo-card/pension-consolidation.jpg',
+      title: 'Consolidate your pension pots',
+    },
+    {
+      content:
+        'If you have pension pots that you haven’t accessed yet, we can help you understand the different ways you can use your pension.',
+      ctaText: 'Learn more',
+      imageUrl: 'promo-card/other-income-options.jpg',
       title: 'Our other income options',
-    },
-    {
-      content:
-        'Our care service can help you understand, find and fund care for you or a loved one.',
-      ctaText: 'Find out more',
-      imageUrl: 'promo-card.jpg',
-      title: 'Need help with Care?',
     },
   ],
 };
