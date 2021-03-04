@@ -13,7 +13,7 @@ import { RadioStackBreakpoint } from './radio.interface';
   selector: 'lg-reactive-form-segment',
   template: `
     <form [formGroup]="form">
-      <lg-segment-group formControlName="color" [stack]="stack">
+      <lg-segment-group formControlName="color" [stack]="stack" [focus]="focus">
         {{ label }} {{ itemsInSegment }}
         <lg-segment-button value="red">Red</lg-segment-button>
         <lg-segment-button value="yellow">{{ secondButtonLabel }}</lg-segment-button>
@@ -27,6 +27,7 @@ class ReactiveFormSegmentComponent {
   @Input() label: string;
   @Input() secondButtonLabel: string;
   @Input() stack: RadioStackBreakpoint;
+  @Input() focus: boolean;
   @Input()
   set disabled(isDisabled: boolean) {
     if (isDisabled === true) {
@@ -73,6 +74,7 @@ export const standard = () => ({
     <lg-reactive-form-segment
     [stack]="stack === 'false' ? false : stack"
     [disabled]="disabled"
+    [focus]="focus"
     [label]="label"
     [secondButtonLabel]="secondButtonLabel"
     (segmentChange)="segmentChange($event)">
@@ -83,6 +85,7 @@ export const standard = () => ({
     secondButtonLabel: text('secondButtonLabel', 'Yellow'),
     segmentChange: action('segmentChange'),
     disabled: boolean('disabled', false),
+    focus: boolean('focus', false),
     stack: select('stack', ['false', 'sm', 'md', 'lg'], undefined),
   },
 });

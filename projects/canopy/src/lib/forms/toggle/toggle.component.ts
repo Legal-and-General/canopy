@@ -40,6 +40,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   @Input() id = `lg-toggle-${this.uniqueId}`;
   @Input() name = `lg-toggle-${this.uniqueId}`;
   @Input() value: boolean | string = false;
+  @Input() focus: boolean;
   @Input() ariaDescribedBy: string;
   @Input() variant: ToggleVariant = 'checkbox';
   @Input()

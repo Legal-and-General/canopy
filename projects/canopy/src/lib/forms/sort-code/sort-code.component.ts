@@ -49,6 +49,7 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
 
   @Input() value: string;
   @Input() disabled: false;
+  @Input() focus: boolean;
   @Input() labelId = `lg-input-sort-code-label-${this.uniqueId}`;
   @Input() firstId = `lg-input-sort-code-first-${this.uniqueId}`;
   @Input() secondId = `lg-input-sort-code-second-${this.uniqueId}`;

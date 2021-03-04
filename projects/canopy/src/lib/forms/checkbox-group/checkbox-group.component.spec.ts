@@ -125,6 +125,15 @@ describe('LgCheckboxGroupComponent', () => {
     );
   });
 
+  it('adds the tabindex attribute to the fieldset element', () => {
+    expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBeNull();
+
+    groupInstance.focus = true;
+    fixture.detectChanges();
+
+    expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBe('-1');
+  });
+
   it('sets all checkbox buttons to the same name', () => {
     expect(groupInstance.name.length > 0).toBe(true);
     const name = checkboxInstances.pop().name;
