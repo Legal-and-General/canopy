@@ -26,6 +26,7 @@ export * from './lib/paginator/index';
 export * from './lib/brand-icon/index';
 export * from './lib/pipes/index';
 export * from './lib/prefix/index';
+export * from './lib/promo-card/index';
 export * from './lib/quick-action/index';
 export * from './lib/separator/index';
 export * from './lib/spacing/index';

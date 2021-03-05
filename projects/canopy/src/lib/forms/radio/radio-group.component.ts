@@ -38,6 +38,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   @Input() id = `lg-radio-group-id-${this.nextUniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
+  @Input() focus = false;
   @Input() ariaDescribedBy: string;
   variant: RadioVariant;
 
@@ -112,7 +113,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     this._validationElement = element;
   }
 
-  _value: string = null;
+  _value: boolean | string = null;
   @Input()
   get value() {
     return this._value;
@@ -156,7 +157,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     }
   }
 
-  public onChange(value: string) {
+  public onChange(value: boolean | string) {
     this._value = value;
   }
 

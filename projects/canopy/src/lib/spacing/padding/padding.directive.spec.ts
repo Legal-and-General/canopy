@@ -1,5 +1,5 @@
 import { Component, DebugElement, Input } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgPaddingDirective } from './padding.directive';
@@ -34,21 +34,25 @@ describe('LgPadding', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [TestComponent, LgPaddingDirective],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TestComponent, LgPaddingDirective],
+      }).compileComponents();
+    }),
+  );
 
-  beforeEach(async(() => {
-    fixture = TestBed.createComponent(TestComponent);
-    fixture.detectChanges();
-    component = fixture.componentInstance;
+  beforeEach(
+    waitForAsync(() => {
+      fixture = TestBed.createComponent(TestComponent);
+      fixture.detectChanges();
+      component = fixture.componentInstance;
 
-    testElement = fixture.debugElement.query(By.css('div'));
+      testElement = fixture.debugElement.query(By.css('div'));
 
-    fixture.detectChanges();
-  }));
+      fixture.detectChanges();
+    }),
+  );
 
   it('renders the same padding all round', () => {
     expect(testElement.nativeElement.getAttribute('class')).toContain('lg-padding--xs');

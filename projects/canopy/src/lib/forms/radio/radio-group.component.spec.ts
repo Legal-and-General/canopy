@@ -1,5 +1,5 @@
 import { Component, DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormBuilder,
   FormGroup,
@@ -69,42 +69,44 @@ describe('LgRadioGroupComponent', () => {
   let component: TestRadioGroupComponent;
   let errorStateMatcherMock: LgErrorStateMatcher;
 
-  beforeEach(async(() => {
-    errorStateMatcherMock = mock(LgErrorStateMatcher);
+  beforeEach(
+    waitForAsync(() => {
+      errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
-      declarations: [
-        TestRadioGroupComponent,
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          TestRadioGroupComponent,
+          LgRadioGroupComponent,
+          LgRadioButtonComponent,
+          MockComponents(LgValidationComponent, LgHintComponent),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestRadioGroupComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+
+      groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
+      groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
         LgRadioGroupComponent,
-        LgRadioButtonComponent,
-        MockComponents(LgValidationComponent, LgHintComponent),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+      );
 
-    fixture = TestBed.createComponent(TestRadioGroupComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
 
-    groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
-    groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
-      LgRadioGroupComponent,
-    );
+      fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
 
-    hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
+      radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
 
-    fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
-
-    radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
-
-    radioInstances = radioDebugElements.map((debugEl) => debugEl.componentInstance);
-  }));
+      radioInstances = radioDebugElements.map((debugEl) => debugEl.componentInstance);
+    }),
+  );
 
   it('sets all radio buttons to the same name', () => {
     expect(groupInstance.name.length > 0).toBe(true);
@@ -211,6 +213,15 @@ describe('LgRadioGroupComponent', () => {
     expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedby')).toBe(
       `${hintId} ${errorId}`,
     );
+  });
+
+  it('adds the tabindex attribute to the fieldset element', () => {
+    expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBeNull();
+
+    groupInstance.focus = true;
+    fixture.detectChanges();
+
+    expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBe('-1');
   });
 
   it('disables the options when the disabled property is set', () => {

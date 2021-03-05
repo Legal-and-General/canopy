@@ -20,8 +20,8 @@ A simple one column responsive grid which expands to two columns for larger scre
 ~~~html
 <div lgContainer>
   <div lgRow>
-    <div lgCol=12 lgColMd=6>Column 1</div>
-    <div lgCol=12 lgColMd=6>Column 2</div>
+    <div [lgCol]="12" [lgColMd]="6">Column 1</div>
+    <div [lgCol]="12" [lgColMd]="6">Column 2</div>
   </div>
 </div>
 ~~~

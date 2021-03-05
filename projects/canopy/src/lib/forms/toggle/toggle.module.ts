@@ -10,11 +10,12 @@ import {
 } from '../../icon/icons.interface';
 
 import { LgToggleComponent } from './toggle.component';
+import { LgFocusModule } from '../../focus/focus.module';
 
 @NgModule({
   declarations: [LgToggleComponent],
   exports: [LgToggleComponent],
-  imports: [CommonModule, LgIconModule],
+  imports: [CommonModule, LgIconModule, LgFocusModule],
   entryComponents: [LgToggleComponent],
 })
 export class LgToggleModule {

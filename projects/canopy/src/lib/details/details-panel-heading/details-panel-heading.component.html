@@ -8,6 +8,16 @@
     [attr.aria-controls]="panelId"
     (click)="toggle()"
   >
+    <div
+      *ngIf="showIcon && variant !== 'generic'"
+      [ngSwitch]="variant"
+      class="lg-details-panel-heading__icon"
+    >
+      <lg-icon *ngSwitchCase="'error'" name="crossmark-spot-fill"></lg-icon>
+      <lg-icon *ngSwitchCase="'info'" name="information-fill"></lg-icon>
+      <lg-icon *ngSwitchCase="'warning'" name="warning-fill"></lg-icon>
+      <lg-icon *ngSwitchCase="'success'" name="checkmark-spot-fill"></lg-icon>
+    </div>
     <ng-content></ng-content>
     <lg-icon [name]="chevronDown" class="lg-details-panel-heading__state-icon"></lg-icon>
   </button>

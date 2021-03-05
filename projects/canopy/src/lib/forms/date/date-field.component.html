@@ -1,4 +1,8 @@
-<fieldset [attr.aria-describedby]="ariaDescribedBy">
+<fieldset
+  [attr.aria-describedby]="ariaDescribedBy || null"
+  [attr.tabindex]="focus ? '-1' : null"
+  [lgFocus]="focus"
+>
   <legend lg-label>
     <ng-content></ng-content>
   </legend>

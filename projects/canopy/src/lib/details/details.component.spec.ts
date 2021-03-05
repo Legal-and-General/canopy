@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 
 import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
@@ -12,11 +12,13 @@ describe('LgDetailsComponent', () => {
   let detailsDebugElement: DebugElement;
   let detailsEl: HTMLElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [LgDetailsComponent, MockComponent(LgDetailsPanelHeadingComponent)],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LgDetailsComponent, MockComponent(LgDetailsPanelHeadingComponent)],
+      }).compileComponents();
+    }),
+  );
 
   describe('component', () => {
     beforeEach(() => {
@@ -37,6 +39,51 @@ describe('LgDetailsComponent', () => {
 
     it('should have the default class', () => {
       expect(detailsEl.getAttribute('class')).toContain('lg-details');
+    });
+
+    it('adds generic as the default variant', () => {
+      expect(detailsEl.getAttribute('class')).toContain('generic');
+    });
+  });
+
+  describe('Aria roles', () => {
+    beforeEach(() => {
+      fixture = MockRender(`
+        <lg-details>
+          <lg-details-panel-heading></lg-details-panel-heading>
+        </lg-details>
+      `);
+      detailsDebugElement = fixture.debugElement;
+      detailsEl = detailsDebugElement.children[0].nativeElement;
+      component = fixture.point.componentInstance;
+      fixture.detectChanges();
+    });
+
+    it('does not add an Aria role for the generic variant', () => {
+      expect(detailsEl.getAttribute('role')).toBeNull();
+    });
+
+    it('does not add an Aria role for the info variant', () => {
+      component.variant = 'info';
+      expect(detailsEl.getAttribute('role')).toBeNull();
+    });
+
+    it('adds an Aria role "alert" for the warning variant', () => {
+      component.variant = 'warning';
+      fixture.detectChanges();
+      expect(detailsEl.getAttribute('role')).toBe('alert');
+    });
+
+    it('adds an Aria role "alert" for the error variant', () => {
+      component.variant = 'error';
+      fixture.detectChanges();
+      expect(detailsEl.getAttribute('role')).toBe('alert');
+    });
+
+    it('adds an Aria role "success" for the error variant', () => {
+      component.variant = 'success';
+      fixture.detectChanges();
+      expect(detailsEl.getAttribute('role')).toBe('alert');
     });
   });
 

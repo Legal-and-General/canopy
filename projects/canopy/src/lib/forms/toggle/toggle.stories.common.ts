@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { action } from '@storybook/addon-actions';
@@ -15,6 +22,7 @@ import { ToggleVariant } from './toggle.interface';
         [value]="true"
         [variant]="variant"
         [checked]="umbrella.value"
+        [focus]="focus"
       >
         {{ label }}
       </lg-toggle>
@@ -25,6 +33,7 @@ export class ReactiveToggleFormComponent implements OnChanges {
   @Input() label: string;
   @Input() variant: ToggleVariant;
   @Input() checked: boolean;
+  @Input() focus: boolean;
 
   @Input()
   set disabled(disabled: boolean) {
@@ -53,8 +62,10 @@ export class ReactiveToggleFormComponent implements OnChanges {
     this.form.valueChanges.subscribe((val) => this.toggleChange.emit(val));
   }
 
-  ngOnChanges(changes): void {
-    this.umbrella.setValue(changes.checked.currentValue);
+  ngOnChanges({ checked }: SimpleChanges): void {
+    if (checked?.currentValue) {
+      this.umbrella.setValue(checked.currentValue);
+    }
   }
 }
 
@@ -65,6 +76,7 @@ export const createToggleStory = (variant: string) => ({
     [label]="label"
     variant="${variant}"
     [checked]="checked"
+    [focus]="focus"
     (toggleChange)="toggleChange($event)">
   </lg-reactive-form>`,
   props: {
@@ -72,5 +84,6 @@ export const createToggleStory = (variant: string) => ({
     label: text('label', 'I will bring my Umbrella if it is raining'),
     disabled: boolean('disabled', false),
     checked: boolean('reactively checked', false),
+    focus: boolean('focus', false),
   },
 });

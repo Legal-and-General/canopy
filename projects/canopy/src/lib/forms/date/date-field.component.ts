@@ -60,6 +60,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
 
   @Input() value: string;
   @Input() disabled = false;
+  @Input() focus: boolean;
   @Input() dateId = `lg-input-date-${this.uniqueId++}`;
   @Input() monthId = `lg-input-month-${this.uniqueId++}`;
   @Input() yearId = `lg-input-year-${this.uniqueId++}`;

@@ -6,7 +6,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormBuilder,
   FormGroup,
@@ -83,39 +83,41 @@ describe('LgDateFieldComponent', () => {
   let yearInput: DebugElement;
   let component: TestDateInputComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule, LgInputModule],
-      declarations: [
-        TestDateInputComponent,
-        LgDateFieldComponent,
-        MockComponents(LgHintComponent, LgValidationComponent),
-      ],
-      providers: [
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
-      ],
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [FormsModule, ReactiveFormsModule, LgInputModule],
+        declarations: [
+          TestDateInputComponent,
+          LgDateFieldComponent,
+          MockComponents(LgHintComponent, LgValidationComponent),
+        ],
+        providers: [
+          {
+            provide: LgErrorStateMatcher,
+            useFactory: () => instance(errorStateMatcherMock),
+          },
+        ],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(TestDateInputComponent);
-    component = fixture.componentInstance;
+      fixture = TestBed.createComponent(TestDateInputComponent);
+      component = fixture.componentInstance;
 
-    dateFieldDebugElement = fixture.debugElement.query(
-      By.directive(LgDateFieldComponent),
-    );
-    dateFieldInstance = dateFieldDebugElement.componentInstance;
+      dateFieldDebugElement = fixture.debugElement.query(
+        By.directive(LgDateFieldComponent),
+      );
+      dateFieldInstance = dateFieldDebugElement.componentInstance;
 
-    fieldsetElement = fixture.debugElement.query(By.css('fieldset'));
-    dateInput = fixture.debugElement.query(By.css('[formcontrolname="date"]'));
-    monthInput = fixture.debugElement.query(By.css('[formcontrolname="month"]'));
-    yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
+      fieldsetElement = fixture.debugElement.query(By.css('fieldset'));
+      dateInput = fixture.debugElement.query(By.css('[formcontrolname="date"]'));
+      monthInput = fixture.debugElement.query(By.css('[formcontrolname="month"]'));
+      yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
 
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      false,
-    );
-  }));
+      when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+        false,
+      );
+    }),
+  );
 
   describe('markup', () => {
     beforeEach(() => {
@@ -143,6 +145,15 @@ describe('LgDateFieldComponent', () => {
         `${hintId} ${errorId}`,
       );
     });
+  });
+
+  it('adds the tabindex attribute to the fieldset element', () => {
+    expect(fieldsetElement.nativeElement.getAttribute('tabindex')).toBeNull();
+
+    dateFieldInstance.focus = true;
+    fixture.detectChanges();
+
+    expect(fieldsetElement.nativeElement.getAttribute('tabindex')).toBe('-1');
   });
 
   it('sets the individual input fields when a date value is provided', () => {
