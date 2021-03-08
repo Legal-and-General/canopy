@@ -24,27 +24,27 @@ updates:
       include: 'scope'
     versioning-strategy: increase
     ignore:
-      - dependency_name: "@storybook/addon-a11y"
+      - dependency-name: "@storybook/addon-a11y"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-actions"
+      - dependency-name: "@storybook/addon-actions"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-backgrounds"
+      - dependency-name: "@storybook/addon-backgrounds"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-docs"
+      - dependency-name: "@storybook/addon-docs"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-knobs"
+      - dependency-name: "@storybook/addon-knobs"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-notes"
+      - dependency-name: "@storybook/addon-notes"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-options"
+      - dependency-name: "@storybook/addon-options"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-storysource"
+      - dependency-name: "@storybook/addon-storysource"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addon-viewport"
+      - dependency-name: "@storybook/addon-viewport"
         versions: ["6.x"]
-      - dependency_name: "@storybook/addons"
+      - dependency-name: "@storybook/addons"
         versions: ["6.x"]
-      - dependency_name: "@storybook/angular"
+      - dependency-name: "@storybook/angular"
         versions: ["6.x"]
-      - dependency_name: "@storybook/theming"
+      - dependency-name: "@storybook/theming"
         versions: ["6.x"]
