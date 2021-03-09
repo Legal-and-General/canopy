@@ -80,14 +80,11 @@ export class LgBrandIconComponent {
     let xlinkCount = 0;
 
     return svgData
-      .replace(/id="([^"]+)"/g, () => {
-        idCount++;
-        return `id="lg-brand-icon-${this.id}-${idCount}"`;
-      })
-      .replace(/xlink:href="#\w+"/g, () => {
-        xlinkCount++;
-        return `xlink:href="#lg-brand-icon-${this.id}-${xlinkCount}"`;
-      });
+      .replace(/id="([^"]+)"/g, () => `id="lg-brand-icon-${this.id}-${idCount++}"`)
+      .replace(
+        /xlink:href="#\w+"/g,
+        () => `xlink:href="#lg-brand-icon-${this.id}-${xlinkCount++}"`,
+      );
   }
 
   private svgElementFromString(svgContent: string): SVGElement {
