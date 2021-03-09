@@ -3,7 +3,7 @@
 .lg-radio-button--segment {
   display: flex;
   flex-grow: 1;
-  flex-basis: 0;
+  flex-basis: auto;
   align-items: stretch;
   padding: 0 var(--space-xxxs);
   margin: var(--space-xxxs) 0;
