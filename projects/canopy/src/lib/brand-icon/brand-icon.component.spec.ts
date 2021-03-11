@@ -65,7 +65,39 @@ describe('LgBrandIconComponent', () => {
 
       const pathEl = fixture.nativeElement.querySelector('path');
       expect(pathEl.getAttribute('id')).not.toContain('lg-icon-fill-primary');
-      expect(pathEl.getAttribute('class')).toContain('lg-icon-fill-primary');
+      expect(pathEl.getAttribute('data-colour')).toContain('lg-icon-fill-primary');
+    });
+  });
+
+  describe('the colour input', () => {
+    beforeEach(() => {
+      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+        '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
+      );
+      component.name = 'sun';
+    });
+
+    describe('when not specified', () => {
+      it("shouldn't set the fill colour", () => {
+        fixture.detectChanges();
+        const el = fixture.nativeElement.querySelector(
+          '[data-colour="lg-icon-fill-primary"]',
+        );
+
+        expect(el.style.fill).toEqual('');
+      });
+    });
+
+    describe('when specified', () => {
+      it('should apply the specific colour', () => {
+        component.colour = '--colour-css-variable';
+        fixture.detectChanges();
+        const el = fixture.nativeElement.querySelector(
+          '[data-colour="lg-icon-fill-primary"]',
+        );
+
+        expect(el.style.fill).toEqual('var(--colour-css-variable)');
+      });
     });
   });
 
