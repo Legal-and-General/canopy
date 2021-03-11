@@ -79,12 +79,16 @@ export class LgBrandIconComponent {
     let idCount = 0;
     let xlinkCount = 0;
 
-    return svgData
-      .replace(/id="([^"]+)"/g, () => `id="lg-brand-icon-${this.id}-${idCount++}"`)
-      .replace(
-        /xlink:href="#\w+"/g,
-        () => `xlink:href="#lg-brand-icon-${this.id}-${xlinkCount++}"`,
-      );
+    return (
+      svgData
+        // Changes the lg-icon-fill-primary id to be a class to avoid issues with duplicated ids.
+        .replace(/id="lg-icon-fill-primary"/g, () => 'class="lg-icon-fill-primary"')
+        .replace(/id="([^"]+)"/g, () => `id="lg-brand-icon-${this.id}-${idCount++}"`)
+        .replace(
+          /xlink:href="#\w+"/g,
+          () => `xlink:href="#lg-brand-icon-${this.id}-${xlinkCount++}"`,
+        )
+    );
   }
 
   private svgElementFromString(svgContent: string): SVGElement {

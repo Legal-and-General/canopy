@@ -50,7 +50,7 @@ describe('LgBrandIconComponent', () => {
       expect(fixture.nativeElement.querySelector('svg')).toBeNull();
 
       when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
-        '<svg id="test">test-svg</svg>',
+        '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
       component.name = 'sun';
@@ -62,6 +62,10 @@ describe('LgBrandIconComponent', () => {
           fixture.nativeElement.querySelector('svg').getAttribute('id'),
         ),
       ).toBeTrue();
+
+      const pathEl = fixture.nativeElement.querySelector('path');
+      expect(pathEl.getAttribute('id')).not.toContain('lg-icon-fill-primary');
+      expect(pathEl.getAttribute('class')).toContain('lg-icon-fill-primary');
     });
   });
 
