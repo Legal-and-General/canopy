@@ -34,11 +34,12 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
 @Component({
   selector: 'lg-swatch-brand-icon',
   template: `
-    <div class="swatch" *ngFor="let icon of icons">
+    <div class="swatch" *ngFor="let icon of icons; let i = index">
       <lg-brand-icon
         class="swatch__svg"
         [name]="icon.name"
         [size]="size"
+        [colour]="i === 0 ? specificColour : null"
         [attr.style]="cssVar"
       ></lg-brand-icon>
       <span class="swatch__name">{{ icon.name }}</span>
@@ -72,6 +73,7 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
 class SwatchBrandIconComponent implements OnChanges {
   @Input() size: string;
   @Input() colour: string;
+  @Input() specificColour: string;
 
   icons = brandIconsArray;
   cssVar: SafeStyle;
@@ -117,10 +119,19 @@ const colours = [
 
 export const standard = () => ({
   template: `
-    <lg-swatch-brand-icon [size]="size" [colour]="colour"></lg-swatch-brand-icon>
+    <lg-swatch-brand-icon [size]="size" [colour]="colour" [specificColour]="specificColour"></lg-swatch-brand-icon>
   `,
   props: {
     size: select('size', sizes, 'xs'),
-    colour: select('colour examples', colours, '--color-dandelion-yellow'),
+    colour: select(
+      'example of applying colour globally',
+      colours,
+      '--color-dandelion-yellow',
+    ),
+    specificColour: select(
+      'example of applying colour specifically to an icon',
+      colours,
+      '--color-super-blue',
+    ),
   },
 });

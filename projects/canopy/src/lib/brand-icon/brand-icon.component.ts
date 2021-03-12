@@ -31,6 +31,15 @@ export class LgBrandIconComponent {
   @HostBinding('class.lg-brand-icon') class = true;
   @HostBinding('attr.aria-hidden') hidden = true;
 
+  _colour: string;
+  @Input()
+  set colour(colour: string) {
+    const el = this.hostElement.nativeElement.querySelector(
+      '[data-colour="lg-icon-fill-primary"]',
+    );
+    el.style.fill = `var(${colour})`;
+  }
+
   _size: BrandIconSize = 'sm';
   @Input()
   set size(size: BrandIconSize) {
@@ -79,12 +88,16 @@ export class LgBrandIconComponent {
     let idCount = 0;
     let xlinkCount = 0;
 
-    return svgData
-      .replace(/id="([^"]+)"/g, () => `id="lg-brand-icon-${this.id}-${idCount++}"`)
-      .replace(
-        /xlink:href="#\w+"/g,
-        () => `xlink:href="#lg-brand-icon-${this.id}-${xlinkCount++}"`,
-      );
+    return (
+      svgData
+        // Changes the lg-icon-fill-primary id to be a data attribute to avoid issues with duplicated ids.
+        .replace(/id="lg-icon-fill-primary"/g, () => 'data-colour="lg-icon-fill-primary"')
+        .replace(/id="([^"]+)"/g, () => `id="lg-brand-icon-${this.id}-${idCount++}"`)
+        .replace(
+          /xlink:href="#\w+"/g,
+          () => `xlink:href="#lg-brand-icon-${this.id}-${xlinkCount++}"`,
+        )
+    );
   }
 
   private svgElementFromString(svgContent: string): SVGElement {
