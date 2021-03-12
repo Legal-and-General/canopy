@@ -5,7 +5,7 @@
     width: inherit;
     height: inherit;
 
-    #lg-icon-fill-primary {
+    [data-colour='lg-icon-fill-primary'] {
       fill: var(--brand-icon-fill-primary);
     }
   }

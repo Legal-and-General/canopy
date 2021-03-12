@@ -38,10 +38,14 @@ and in your HTML:
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`name\`\` | the name of the icon | string | undefined | yes |
 | \`\`size\`\` | the size of the icon | BrandIconSize | 'sm' | no |
+| \`\`colour\`\` | the specific colour of the icon (for global colours see the "Branding" section below) | css variable as a string | undefined | no |
 
 ## Branding
 The yellow fill colour of the brand icons can be changed by overriding the \`--brand-icon-fill-primary\` css variable.
+
 Note that changing that variable will update the fill colour of all the icons.
+
+To change the colour of a specific icon use the \`colour\` input (see details in the table above).
 
 ## Using only the SCSS files
 
