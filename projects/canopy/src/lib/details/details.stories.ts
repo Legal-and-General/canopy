@@ -16,9 +16,6 @@ export default {
         imports: [LgDetailsModule, LgHeadingModule, LgIconModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4df6d527162100490bdcc',
-    },
     notes: {
       markdown: notes,
     },

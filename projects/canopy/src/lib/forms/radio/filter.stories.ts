@@ -56,9 +56,6 @@ export default {
         imports: [ReactiveFormsModule, LgRadioModule],
       }),
     ],
-    'in-dsm': {
-      id: '5f75d9e2a5c09c75c88bd402',
-    },
     notes: {
       markdown: notes('Filter'),
     },
