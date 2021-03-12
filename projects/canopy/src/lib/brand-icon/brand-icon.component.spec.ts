@@ -47,7 +47,7 @@ describe('LgBrandIconComponent', () => {
   describe('setting the name', () => {
     it('should append the correct svg element to the component', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
-      expect(fixture.nativeElement.querySelector('#lg-brand-icon-0')).toBeNull();
+      expect(fixture.nativeElement.querySelector('svg')).toBeNull();
 
       when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
         '<svg id="test">test-svg</svg>',
@@ -57,7 +57,11 @@ describe('LgBrandIconComponent', () => {
       fixture.detectChanges();
 
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
-      expect(fixture.nativeElement.querySelector('#lg-brand-icon-0')).toBeDefined();
+      expect(
+        /lg-brand-icon-\d-\d/.test(
+          fixture.nativeElement.querySelector('svg').getAttribute('id'),
+        ),
+      ).toBeTrue();
     });
   });
 
