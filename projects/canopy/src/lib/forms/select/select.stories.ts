@@ -62,9 +62,6 @@ export default {
         imports: [ReactiveFormsModule, CanopyModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4feff4b3101813389ae08',
-    },
     notes: {
       markdown: notes,
     },

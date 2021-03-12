@@ -56,9 +56,6 @@ export default {
         imports: [ReactiveFormsModule, CanopyModule],
       }),
     ],
-    'in-dsm': {
-      id: '5f75d9f774621bd9596c8520',
-    },
     notes: {
       markdown: notes('Filter', 'filter-multiple'),
     },

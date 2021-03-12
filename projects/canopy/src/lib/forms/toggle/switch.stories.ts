@@ -17,9 +17,6 @@ export default {
         declarations: [ReactiveToggleFormComponent],
       }),
     ],
-    'in-dsm': {
-      id: '5ed65458a269db897a682602',
-    },
     notes: {
       markdown: notes('Switch'),
     },

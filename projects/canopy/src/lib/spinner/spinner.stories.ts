@@ -13,9 +13,6 @@ export default {
         declarations: [LgSpinnerComponent],
       }),
     ],
-    'in-dsm': {
-      id: '5ec3e4a143bdfa89c1e8b343',
-    },
     notes: {
       markdown: notes,
     },

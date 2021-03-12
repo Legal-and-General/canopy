@@ -13,7 +13,6 @@ storybook-static
 
 # dependencies
 node_modules/
-/.dsm
 
 # profiling files
 chrome-profiler-events.json
