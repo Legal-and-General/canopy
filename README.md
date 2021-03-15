@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/810bf89b-a76b-4ebd-a6fc-04647372e355/deploy-status)](https://app.netlify.com/sites/legal-and-general-canopy/deploys)
+
 ![Canopy graphic](./assets/canopy-hero.png)
 
 # Canopy
