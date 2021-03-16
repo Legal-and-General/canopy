@@ -57,9 +57,6 @@ export default {
         imports: [LgQuickActionModule, LgIconModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ed4e34ce3f5ee8be6874448',
-    },
     notes: {
       markdown: notes,
     },

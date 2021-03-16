@@ -58,9 +58,6 @@ export default {
         imports: [ReactiveFormsModule, LgHintModule, LgRadioModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4fc77c4b3aef9ba4e98bc',
-    },
     notes: {
       markdown: notes('Radio'),
     },

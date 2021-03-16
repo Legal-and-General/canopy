@@ -18,9 +18,6 @@ export default {
         declarations: [LgFooterComponent],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4f36b45894b0873022460',
-    },
     notes: {
       markdown: notes,
     },

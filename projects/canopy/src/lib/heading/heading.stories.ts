@@ -13,9 +13,6 @@ export default {
         declarations: [LgHeadingComponent],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4f36b45894b0873022460',
-    },
     notes: {
       markdown: notes,
     },

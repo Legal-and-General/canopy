@@ -17,9 +17,6 @@ export default {
         declarations: [ReactiveToggleFormComponent],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4db194dc1ea9f26d698fc',
-    },
     notes: {
       markdown: notes('Checkbox'),
     },

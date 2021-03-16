@@ -13,9 +13,6 @@ export default {
         imports: [LgAlertModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ec504bc07ffe609bec12b76',
-    },
     notes: {
       markdown: notes,
     },

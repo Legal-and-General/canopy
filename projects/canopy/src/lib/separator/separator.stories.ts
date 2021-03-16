@@ -13,9 +13,6 @@ export default {
         declarations: [LgSeparatorComponent],
       }),
     ],
-    'in-dsm': {
-      id: '5ec502c64b3101d78189aeef',
-    },
     notes: {
       markdown: notes,
     },
