@@ -1,7 +1,0 @@
-{ 
-  "authToken": "DSM_AUTH_TOKEN",
-  "dsmHost": "legalandgeneral.invisionapp.com",
-  "organization": "legalandgeneral",
-  "outputDir": ".dsm",
-  "storyPath": "projects/canopy/src/**/*.stories.ts"
-}

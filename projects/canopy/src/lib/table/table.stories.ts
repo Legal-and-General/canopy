@@ -157,9 +157,6 @@ export default {
         declarations: [StoryTableDetailComponent],
       }),
     ],
-    'in-dsm': {
-      id: '5ec5304f07ffe6a6e1c14b31',
-    },
     notes: {
       markdown: notes,
     },

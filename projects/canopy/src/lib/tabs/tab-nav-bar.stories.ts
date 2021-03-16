@@ -14,9 +14,6 @@ export default {
         imports: [LgTabsModule, LgMarginModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ec50da107ffe67b65c12ef7',
-    },
     notes: {
       markdown: tabbedNavNotes,
     },

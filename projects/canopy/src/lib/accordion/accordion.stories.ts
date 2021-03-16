@@ -17,9 +17,6 @@ export default {
         imports: [CommonModule, LgAccordionModule, LgButtonModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4dbf0c4b3aed7e94e8886',
-    },
     notes: {
       markdown: notes,
     },
