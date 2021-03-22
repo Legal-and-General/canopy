@@ -43,7 +43,7 @@
     "@angular/router": "^11.1.0",
     "core-js": "^3.9.1",
     "date-fns": "^2.15.0",
-    "rxjs": "^6.6.3",
+    "rxjs": "^6.6.6",
     "tslib": "^2.0.3",
     "webpack": "^4.46.0",
     "zone.js": "^0.10.3"
