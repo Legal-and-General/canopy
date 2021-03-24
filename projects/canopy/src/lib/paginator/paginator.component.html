@@ -1,0 +1,52 @@
+<lg-select-field class="lg-paginator__page-size" *ngIf="!hidePageSize">
+  <span class="lg-paginator__page-size-label">Items per page</span>
+
+  <select lgSelect [ngModel]="pageSize" (ngModelChange)="handleSelectPageSize($event)">
+    <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+  </select>
+</lg-select-field>
+
+<span class="lg-paginator__status"
+  >{{ currentPageStart }} - {{ currentPageEnd }} of {{ length }}</span
+>
+
+<div class="lg-paginator__controls">
+  <button
+    *ngIf="showFirstLastButtons"
+    class="lg-paginator__btn-first"
+    type="button"
+    (click)="handleShowFirstPage()"
+    aria-label="Show first page"
+    [disabled]="pageIndex === 0"
+  >
+    <lg-icon [name]="firstIcon"></lg-icon>
+  </button>
+  <button
+    class="lg-paginator__btn-prev"
+    type="button"
+    (click)="handlePrevPage()"
+    aria-label="Show previous page"
+    [disabled]="pageIndex === 0"
+  >
+    <lg-icon [name]="prevIcon"></lg-icon>
+  </button>
+  <button
+    class="lg-paginator__btn-next"
+    type="button"
+    (click)="handleNextPage()"
+    aria-label="Show next page"
+    [disabled]="currentPageEnd === length"
+  >
+    <lg-icon [name]="nextIcon"></lg-icon>
+  </button>
+  <button
+    *ngIf="showFirstLastButtons"
+    class="lg-paginator__btn-last"
+    type="button"
+    (click)="handleShowLastPage()"
+    aria-label="Show last page"
+    [disabled]="currentPageEnd === length"
+  >
+    <lg-icon [name]="lastIcon"></lg-icon>
+  </button>
+</div>
