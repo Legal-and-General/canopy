@@ -5,6 +5,8 @@
   display: block;
 
   a {
+    @include lg-unstyled-link;
+
     color: var(--link-color);
     outline: none;
     text-decoration: none;

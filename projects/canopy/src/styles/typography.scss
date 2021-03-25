@@ -118,19 +118,7 @@ p {
 }
 
 a {
-  color: var(--link-color);
-
-  &:visited {
-    color: var(--link-visited-color);
-  }
-
-  &:hover {
-    color: var(--link-hover-color);
-  }
-
-  &:focus {
-    @include lg-outer-focus-outline(var(--default-focus-color));
-  }
+  @include lg-link;
 }
 
 b,

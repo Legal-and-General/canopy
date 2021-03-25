@@ -3,3 +3,7 @@
 .lg-visually-hidden {
   @include lg-visually-hidden;
 }
+
+.lg-unstyled-link {
+  @include lg-unstyled-link;
+}
