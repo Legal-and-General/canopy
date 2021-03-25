@@ -1,12 +1,13 @@
 @import '../../styles/mixins.scss';
 
 .lg-btn {
+  @include lg-unstyled-link;
+
   display: flex;
   position: relative;
   width: 100%;
   align-items: center;
   justify-content: center;
-  border: solid var(--border-width);
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);
   font-weight: var(--font-weight-bold);
@@ -19,13 +20,14 @@
   margin-bottom: var(--component-margin);
   text-decoration: none;
 
-  &:focus {
+  &:focus,
+  &:hover:focus {
     @include lg-outer-focus-outline(var(--default-focus-color));
   }
 
   &:not(&--loading):disabled {
     background-color: var(--btn-disabled-bg-color);
-    border-color: var(--btn-disabled-border-color);
+    border: var(--btn-disabled-border-color) solid var(--border-width);
     color: var(--btn-disabled-color);
     cursor: not-allowed;
   }
@@ -103,23 +105,28 @@ $variants: 'solid-primary', 'solid-secondary', 'reverse-primary', 'reverse-secon
 
 @each $variant in $variants {
   .lg-btn--#{$variant},
+  .lg-btn--#{$variant}:focus,
   .lg-btn--#{$variant}:visited {
     background-color: var(--btn-#{$variant}-bg-color);
-    border-color: var(--btn-#{$variant}-border-color);
+    border: var(--btn-#{$variant}-border-color) solid var(--border-width);
     color: var(--btn-#{$variant}-color);
+
+    &:hover {
+      border: var(--btn-#{$variant}-active-border-color) solid var(--border-width);
+    }
 
     &:not(:disabled) {
       &:active,
       &:active:hover {
         background-color: var(--btn-#{$variant}-active-bg-color);
+        border: var(--btn-#{$variant}-active-border-color) solid var(--border-width);
         color: var(--btn-#{$variant}-active-color);
-        border-color: var(--btn-#{$variant}-active-border-color);
       }
 
       &:hover {
         background-color: var(--btn-#{$variant}-hover-bg-color);
+        border: var(--btn-#{$variant}-hover-border-color) solid var(--border-width);
         color: var(--btn-#{$variant}-hover-color);
-        border-color: var(--btn-#{$variant}-hover-border-color);
       }
     }
   }

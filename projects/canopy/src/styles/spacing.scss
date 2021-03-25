@@ -15,8 +15,6 @@
   --component-padding: var(--space-sm);
   --component-margin: var(--space-md);
 
-  --link-focus-outline: calc(0.125 * var(--space-unit)); // 2
-
   @include lg-breakpoint('md') {
     --component-padding: var(--space-lg);
   }

@@ -13,16 +13,15 @@
   }
 
   a {
-    color: var(--white);
-    position: relative;
-
-    &:hover {
-      color: var(--white);
-    }
-
-    &:focus:hover {
-      color: var(--white);
-    }
+    @include lg-link(
+      $default-color: var(--hero-link-color),
+      $hover-color: var(--hero-link-hover-color),
+      $visited-color: var(--hero-link-visited-color),
+      $active-color: var(--hero-link-active-color),
+      $active-bg-color: var(--hero-link-active-bg-color),
+      $focus-color: var(--hero-link-focus-color),
+      $focus-bg-color: var(--hero-link-focus-bg-color)
+    );
   }
 }
 

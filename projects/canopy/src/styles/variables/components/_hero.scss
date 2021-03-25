@@ -6,4 +6,12 @@
   --hero-overlay-bg-color: var(--color-black);
   --hero-rule-color: rgba(255, 255, 255, 0.2);
   --hero-bg-alpha: 0.1;
+
+  --hero-link-color: var(--hero-color);
+  --hero-link-hover-color: var(--hero-color);
+  --hero-link-visited-color: var(--hero-color);
+  --hero-link-active-color: var(--hero-color);
+  --hero-link-active-bg-color: var(--color-super-blue-darkest);
+  --hero-link-focus-color: var(--color-white);
+  --hero-link-focus-bg-color: var(--color-super-blue-darkest);
 }
