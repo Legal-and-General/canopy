@@ -29,23 +29,40 @@
 }
 
 .lg-tab-nav-bar-link {
+  @include lg-unstyled-link;
+
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   text-decoration: none;
   z-index: 1;
-  @include lg-tab-item();
+  @include lg-tab-item;
+
+  &:hover,
+  &:hover:focus,
+  &:hover:active {
+    color: var(--tabs-hover-color);
+  }
 
   &:focus {
     box-shadow: none;
   }
 
+  &:active {
+    color: var(--tabs-list-item-color);
+  }
+
+  &:focus,
   &:visited {
     color: var(--tabs-list-item-color);
   }
 
-  &--selected:visited {
-    color: var(--tabs-active-color);
+  &--selected {
+    &:focus,
+    &:visited,
+    &:active {
+      color: var(--tabs-active-color);
+    }
   }
 }
