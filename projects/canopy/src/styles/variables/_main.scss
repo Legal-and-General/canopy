@@ -21,9 +21,11 @@
   /* Links */
   --link-color: var(--color-super-blue);
   --link-hover-color: var(--color-super-blue-dark);
-  --link-visited-color: var(--color-super-blue-darkest);
-  --link-focus-background-color: var(--color-black);
+  --link-visited-color: var(--color--charcoal);
+  --link-active-color: var(--color-super-blue-dark);
+  --link-active-bg-color: var(--color-super-blue-lightest);
   --link-focus-color: var(--color-white);
+  --link-focus-bg-color: var(--color-super-blue-darkest);
 
   --disabled-color: var(--color-taupe-grey);
 
