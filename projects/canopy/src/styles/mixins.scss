@@ -13,13 +13,72 @@
   box-shadow: 0 0 0 0.25rem $bg-color;
 }
 
-@mixin lg-background-focus(
-  $bg-color: var(--link-focus-background-color),
-  $color: var(--link-focus-color)
+@mixin lg-link(
+  $default-color: var(--link-color),
+  $hover-color: var(--link-hover-color),
+  $visited-color: var(--link-visited-color),
+  $active-color: var(--link-active-color),
+  $active-bg-color: var(--link-active-bg-color),
+  $focus-color: var(--link-focus-color),
+  $focus-bg-color: var(--link-focus-bg-color)
 ) {
-  background: $bg-color;
-  color: $color;
-  outline: var(--link-focus-outline) solid $bg-color;
+  $box-shadow-inset-width: -0.063rem;
+
+  color: $default-color;
+  text-decoration: none;
+  border-bottom: 0.125rem solid $default-color;
+  padding: 0 0.125rem;
+
+  &:hover {
+    color: $hover-color;
+    border-bottom: 0;
+    box-shadow: inset 0 $box-shadow-inset-width 0 0 $hover-color,
+      0 0.188rem 0 0 $hover-color;
+  }
+
+  &:visited {
+    color: $visited-color;
+    border-color: $visited-color;
+  }
+
+  &:active {
+    background-color: $active-bg-color;
+    border-bottom-color: $active-color;
+    color: $active-color;
+    outline: 0;
+  }
+
+  &:focus {
+    background-color: $focus-bg-color;
+    border-bottom: 0;
+    color: $focus-color;
+    outline: 0.063rem solid $focus-bg-color;
+    outline-offset: 0;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin lg-unstyled-link() {
+  text-decoration: underline;
+  border-bottom: 0;
+  padding: 0;
+
+  &:hover {
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  &:active,
+  &:focus {
+    background-color: transparent;
+  }
+
+  &:focus {
+    @include lg-outer-focus-outline;
+  }
 }
 
 @mixin lg-font-size($size, $modifier: null) {
@@ -74,91 +133,18 @@ $breakpoints: (
 }
 
 @mixin lg-variant($variant: 'generic') {
+  background-color: var(--#{$variant}-bg-color);
+  color: var(--#{$variant}-color);
+
   a {
-    &:visited {
-      color: var(--color-black);
-    }
-
-    &:focus {
-      box-shadow: none;
-      @include lg-background-focus;
-    }
-  }
-
-  @if ($variant == 'generic') {
-    background-color: var(--generic-bg-color);
-    color: var(--generic-color);
-
-    a {
-      color: var(--generic-link-color);
-
-      &:hover {
-        color: var(--generic-link-hover-color);
-      }
-
-      &:focus:hover {
-        color: var(--generic-link-focus-color);
-      }
-    }
-  } @else if ($variant == 'info') {
-    background-color: var(--info-bg-color);
-    color: var(--info-color);
-
-    a {
-      color: var(--info-link-color);
-
-      &:hover {
-        color: var(--info-link-hover-color);
-      }
-
-      &:focus:hover {
-        color: var(--info-link-focus-color);
-      }
-    }
-  } @else if ($variant == 'success') {
-    background-color: var(--success-bg-color);
-    color: var(--success-color);
-
-    a {
-      color: var(--success-link-color);
-
-      &:hover {
-        color: var(--success-link-hover-color);
-      }
-
-      &:focus:hover {
-        color: var(--success-link-focus-color);
-      }
-    }
-  } @else if ($variant == 'warning') {
-    background-color: var(--warning-bg-color);
-    color: var(--warning-color);
-
-    a {
-      color: var(--warning-link-color);
-
-      &:hover {
-        color: var(--warning-link-hover-color);
-      }
-
-      &:focus:hover {
-        color: var(--warning-link-focus-color);
-      }
-    }
-  } @else if ($variant == 'error') {
-    background-color: var(--error-bg-color);
-    color: var(--error-color);
-
-    a {
-      color: var(--error-link-color);
-
-      &:hover {
-        color: var(--error-link-hover-color);
-      }
-
-      &:focus:hover {
-        color: var(--error-link-focus-color);
-      }
-    }
+    @include lg-link(
+      $default-color: var(--#{$variant}-link-color),
+      $hover-color: var(--#{$variant}-link-hover-color),
+      $visited-color: var(--#{$variant}-link-visited-color),
+      $active-color: var(--#{$variant}-link-active-color),
+      $active-bg-color: var(--#{$variant}-link-active-bg-color),
+      $focus-color: var(--#{$variant}-link-focus-color),
+      $focus-bg-color: var(--#{$variant}-link-focus-bg-color)
+    );
   }
 }
