@@ -2,21 +2,21 @@
 
 <ng-template #transclude><ng-content></ng-content></ng-template>
 
-<h1 *ngIf="level == 1" [ngClass]="class">
+<h1 *ngIf="level == 1">
   <ng-container *ngTemplateOutlet="transclude"></ng-container>
 </h1>
-<h2 *ngIf="level == 2" [ngClass]="class">
+<h2 *ngIf="level == 2">
   <ng-container *ngTemplateOutlet="transclude"></ng-container>
 </h2>
-<h3 *ngIf="level == 3" [ngClass]="class">
+<h3 *ngIf="level == 3">
   <ng-container *ngTemplateOutlet="transclude"></ng-container>
 </h3>
-<h4 *ngIf="level == 4" [ngClass]="class">
+<h4 *ngIf="level == 4">
   <ng-container *ngTemplateOutlet="transclude"></ng-container>
 </h4>
-<h5 *ngIf="level == 5" [ngClass]="class">
+<h5 *ngIf="level == 5">
   <ng-container *ngTemplateOutlet="transclude"></ng-container>
 </h5>
-<h6 *ngIf="level == 6" [ngClass]="class">
+<h6 *ngIf="level == 6">
   <ng-container *ngTemplateOutlet="transclude"></ng-container>
 </h6>

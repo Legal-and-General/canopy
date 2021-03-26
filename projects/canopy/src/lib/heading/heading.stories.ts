@@ -24,8 +24,7 @@ const groupId = 'lg-heading';
 export const standard = () => ({
   template: `
     <lg-heading
-      [level]="level"
-      [class]="class">
+      [level]="level">
       {{content}}
     </lg-heading>
   `,
