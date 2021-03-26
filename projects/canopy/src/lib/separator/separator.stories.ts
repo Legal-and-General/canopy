@@ -1,5 +1,5 @@
 import { moduleMetadata } from '@storybook/angular';
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 
 import { LgSeparatorComponent } from '../separator/separator.component';
 import { notes } from './separator.notes';
@@ -21,9 +21,10 @@ export default {
 
 export const standard = () => ({
   template: `
-    <lg-separator [variant]="variant"></lg-separator>
+    <lg-separator [variant]="variant" [hasRole]="hasRole"></lg-separator>
   `,
   props: {
     variant: select('variant', ['solid', 'dotted'], 'solid', ''),
+    hasRole: boolean('hasRole', false),
   },
 });

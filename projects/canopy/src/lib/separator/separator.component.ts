@@ -17,7 +17,14 @@ import { SeparatorVariant } from './separator.interface';
 })
 export class LgSeparatorComponent {
   @HostBinding('class.lg-separator') class = true;
-  @HostBinding('attr.role') role = 'separator';
+
+  @Input() hasRole: boolean;
+  @HostBinding('attr.role') get roleAttr() {
+    return this.hasRole ? 'separator' : null;
+  }
+  @HostBinding('attr.aria-hidden') get ariaHidden() {
+    return !this.hasRole || null;
+  }
 
   private _variant: SeparatorVariant;
 
