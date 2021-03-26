@@ -1,5 +1,19 @@
 @import '../../../styles/mixins';
 
+.lg-accordion__heading {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    font-size: var(--text-base-size);
+    color: var(--accordion-color);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+}
+
 .lg-accordion__heading-toggle {
   appearance: none;
   background-color: var(--accordion-bg-color);
