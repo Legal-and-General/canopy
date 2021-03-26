@@ -26,5 +26,4 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`level\`\` | The heading level | number | undefined | Yes |
-| \`\`class\`\` | The class/classes to apply to the element | string | null | No |
 `;
