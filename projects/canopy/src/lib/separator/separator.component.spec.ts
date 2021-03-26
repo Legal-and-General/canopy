@@ -38,7 +38,22 @@ describe('LgSeparatorComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-separator--dotted');
   });
 
-  it('should have the role separator', () => {
-    expect(fixture.nativeElement.getAttribute('role')).toEqual('separator');
+  it('should have an aria hidden attribute set to true if the role is not specified', () => {
+    expect(fixture.nativeElement.getAttribute('aria-hidden')).toEqual('true');
+  });
+
+  describe('when the role input is set to true', () => {
+    beforeEach(() => {
+      component.hasRole = true;
+      fixture.detectChanges();
+    });
+
+    it('should set the role attribute to "separator"', () => {
+      expect(fixture.nativeElement.getAttribute('role')).toEqual('separator');
+    });
+
+    it("shouldn't set the aria hidden attribute", () => {
+      expect(fixture.nativeElement.getAttribute('aria-hidden')).toBeNull();
+    });
   });
 });
