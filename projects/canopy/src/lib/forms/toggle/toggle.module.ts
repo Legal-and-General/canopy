@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { LgIconModule } from '../../icon/icon.module';
 import { LgIconRegistry } from '../../icon/icon.registry';
 import {
-  lgIconCheckboxMark,
   lgIconAdd,
+  lgIconCheckboxMark,
   lgIconCheckmark,
 } from '../../icon/icons.interface';
 

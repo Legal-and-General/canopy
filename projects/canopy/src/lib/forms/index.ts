@@ -1,6 +1,4 @@
-export * from './checkbox-group/index';
 export * from './date/index';
-export * from './forms.module';
 export * from './hint/index';
 export * from './input/index';
 export * from './label/index';
@@ -9,3 +7,4 @@ export * from './select/index';
 export * from './sort-code/index';
 export * from './toggle/index';
 export * from './validation/index';
+export * from './checkbox-group/index';
