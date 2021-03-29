@@ -13,7 +13,6 @@ import { LgDetailsModule } from './details/details.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
 import { LgFocusModule } from './focus/focus.module';
 import { LgFooterModule } from './footer/footer.module';
-import { LgFormsModule } from './forms/forms.module';
 import { LgGridModule } from './grid/grid.module';
 import { LgHeaderModule } from './header/header.module';
 import { LgHeadingModule } from './heading/heading.module';
@@ -34,6 +33,18 @@ import { LgSuffixModule } from './suffix/suffix.module';
 import { LgTableModule } from './table/table.module';
 import { LgTabsModule } from './tabs/tabs.module';
 import { LgVariantModule } from './variant/variant.module';
+import {
+  LgCheckboxGroupModule,
+  LgDateFieldModule,
+  LgHintModule,
+  LgInputModule,
+  LgLabelModule,
+  LgRadioModule,
+  LgSelectModule,
+  LgSortCodeModule,
+  LgToggleModule,
+  LgValidationModule,
+} from './forms';
 
 const modules = [
   LgAccordionModule,
@@ -47,7 +58,16 @@ const modules = [
   LgFeatureToggleModule,
   LgFocusModule,
   LgFooterModule,
-  LgFormsModule,
+  LgCheckboxGroupModule,
+  LgDateFieldModule,
+  LgValidationModule,
+  LgHintModule,
+  LgInputModule,
+  LgLabelModule,
+  LgRadioModule,
+  LgSelectModule,
+  LgSortCodeModule,
+  LgToggleModule,
   LgGridModule,
   LgHeaderModule,
   LgHeadingModule,
