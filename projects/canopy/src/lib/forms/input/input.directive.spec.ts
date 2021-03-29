@@ -11,7 +11,6 @@ import { By } from '@angular/platform-browser';
 
 import { anything, instance, mock, when } from 'ts-mockito';
 
-import { LgFormsModule } from '../forms.module';
 import { LgInputDirective } from '../input/input.directive';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 
@@ -39,8 +38,8 @@ describe('LgInputDirective', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [LgFormsModule, FormsModule, ReactiveFormsModule],
-        declarations: [TestInputComponent],
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [LgInputDirective, TestInputComponent],
         providers: [
           {
             provide: LgErrorStateMatcher,
