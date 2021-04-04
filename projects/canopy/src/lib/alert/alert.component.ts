@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { AlertVariant } from './alert.interface';
+import { Variant } from '../variant/variant.interface';
 
 @Component({
   selector: 'lg-alert',
@@ -20,16 +20,16 @@ export class LgAlertComponent {
 
   @Input() showIcon = true;
 
-  _variant: AlertVariant;
+  _variant: Variant;
   @Input()
-  set variant(variant: AlertVariant) {
+  set variant(variant: Variant) {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-alert--${this._variant}`,
+        `lg-variant--${this._variant}`,
       );
     }
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-alert--${variant}`);
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
   }
   get variant() {
