@@ -36,14 +36,14 @@ and in your HTML:
 
 The \`\`lg-alert\`\` class is required to be able to apply the main style to the alert.
 
-In addition to \`\`lg-alert\`\`, one of the following is required to apply the specific style:
+In addition to \`\`lg-alert\`\`, one of the following is required to apply the specific variant style, such as "warning" or "success".
 
 | Class | Description |
 |------|-------------|
-| \`\`lg-alert--success\`\` | Adds the success alert style |
-| \`\`lg-alert--warning\`\` | Adds the warning alert style |
-| \`\`lg-alert--error\`\` | Adds the error alert style |
-| \`\`lg-alert--info\`\` | Adds the info alert style |
+| \`\`lg-variant--success\`\` | Adds the success variant style |
+| \`\`lg-variant--warning\`\` | Adds the warning variant style |
+| \`\`lg-variant--error\`\` | Adds the error variant style |
+| \`\`lg-variant--info\`\` | Adds the info variant style |
 
 
 ### Accessibility
@@ -55,8 +55,8 @@ See the Mozilla docs on [ARIA alert role](https://developer.mozilla.org/en-US/do
 ### Examples:
 
 ~~~html
-<div class="lg-alert lg-alert--info">This is an info alert</div>
+<div class="lg-alert lg-variant--info">This is an info alert</div>
 
-<div class="lg-alert lg-alert--error" role="alert">This is an error alert, with an Aria role</div>
+<div class="lg-alert lg-variant--error" role="alert">This is an error alert, with an Aria role</div>
 ~~~
 `;

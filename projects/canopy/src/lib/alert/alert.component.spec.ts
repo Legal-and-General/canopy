@@ -3,9 +3,9 @@ import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
 
-import { AlertVariant } from '../alert';
 import { LgAlertComponent } from './alert.component';
 import { LgIconComponent } from '../icon';
+import { Variant } from '../variant/variant.interface';
 
 describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
@@ -68,7 +68,7 @@ describe('LgAlertComponent', () => {
     { variant: 'success', icon: 'checkmark-spot-fill' },
   ].forEach(({ variant, icon }) => {
     it(`renders the correct icon for the ${variant} alert`, () => {
-      component.variant = variant as AlertVariant;
+      component.variant = variant as Variant;
       fixture.detectChanges();
       expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();
     });

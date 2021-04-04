@@ -16,27 +16,3 @@
     line-height: var(--text-base-line-height);
   }
 }
-
-.lg-alert--generic {
-  @include lg-variant('generic');
-}
-
-.lg-alert--info {
-  @include lg-variant('info');
-}
-
-.lg-alert--success {
-  @include lg-variant('success');
-}
-
-.lg-alert--warning {
-  @include lg-variant('warning');
-}
-
-.lg-alert--error {
-  @include lg-variant('error');
-}
-
-.lg-alert__icon {
-  margin-right: var(--space-xs);
-}
