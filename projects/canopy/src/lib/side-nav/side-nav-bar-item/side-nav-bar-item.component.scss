@@ -1,0 +1,28 @@
+@import '../../../styles/mixins';
+
+.lg-side-nav-bar-item {
+  display: flex;
+  justify-content: space-between;
+
+  .lg-side-nav-bar-item__icon-container {
+    position: relative;
+    padding-right: var(--space-sm);
+
+    @include lg-breakpoint('md') {
+      padding-right: var(--space-sm);
+    }
+
+    @include lg-breakpoint('lg') {
+      padding-right: var(--space-xs);
+    }
+  }
+
+  &__description {
+    padding-top: var(--space-xxxs);
+  }
+
+  .lg-icon {
+    position: absolute;
+    left: calc(-1 * var(--space-xxs));
+  }
+}

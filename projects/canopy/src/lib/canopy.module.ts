@@ -24,6 +24,7 @@ import { LgPrefixModule } from './prefix/prefix.module';
 import { LgPromoCardModule } from './promo-card/promo-card.module';
 import { LgQuickActionModule } from './quick-action/quick-action.module';
 import { LgSeparatorModule } from './separator/separator.module';
+import { LgSideNavModule } from './side-nav/side-nav.module';
 import { LgSpacingModule } from './spacing/spacing.module';
 import { LgSpinnerModule } from './spinner/spinner.module';
 import { LgSuffixModule } from './suffix/suffix.module';
@@ -55,6 +56,7 @@ const modules = [
   LgPromoCardModule,
   LgQuickActionModule,
   LgSeparatorModule,
+  LgSideNavModule,
   LgSpacingModule,
   LgSpinnerModule,
   LgSuffixModule,
