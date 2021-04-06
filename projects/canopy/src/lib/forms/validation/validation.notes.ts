@@ -34,20 +34,19 @@ and in your HTML:
 
 The \`\`lg-validation\`\` class is required to be able to apply the main style to the validation.
 
-In addition to \`\`lg-validation\`\`, one of the following is required to apply the specific style:
+In addition to \`\`lg-validation\`\`, one of the following is required to apply the specific style, such as "warning" or "success".
 
 | Class | Description |
 |------|-------------|
-| \`\`lg-validation--success\`\` | Adds the success validation style |
-| \`\`lg-validation--warning\`\` | Adds the warning validation style |
-| \`\`lg-validation--error\`\` | Adds the error validation style |
-| \`\`lg-validation--info\`\` | Adds the info validation style |
-
+| \`\`lg-variant--success\`\` | Adds the success variant style |
+| \`\`lg-variant--warning\`\` | Adds the warning variant style |
+| \`\`lg-variant--error\`\` | Adds the error variant style |
+| \`\`lg-variant--info\`\` | Adds the info variant style |
 
 ### Examples:
 
 ~~~html
-<div class="lg-validation lg-validation--error">
+<div class="lg-validation lg-variant--error">
   <span class="lg-visually-hidden">Error: </span>
   This is a validation error
 </div>

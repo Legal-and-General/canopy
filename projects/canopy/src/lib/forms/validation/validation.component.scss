@@ -7,26 +7,6 @@
   margin-top: var(--space-xxs);
 }
 
-.lg-validation--generic {
-  @include lg-variant('generic');
-}
-
-.lg-validation--info {
-  @include lg-variant('info');
-}
-
-.lg-validation--success {
-  @include lg-variant('success');
-}
-
-.lg-validation--warning {
-  @include lg-variant('warning');
-}
-
-.lg-validation--error {
-  @include lg-variant('error');
-}
-
 .lg-validation__icon {
   margin-right: var(--space-xs);
 }
