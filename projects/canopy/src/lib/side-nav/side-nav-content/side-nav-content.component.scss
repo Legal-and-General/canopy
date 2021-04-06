@@ -1,0 +1,14 @@
+@import '../../../styles/mixins';
+
+.lg-side-nav-content {
+  margin: 0 0 var(--space-sm) 0;
+  width: 100%;
+
+  &:focus {
+    @include lg-inner-focus-outline(var(--default-focus-color));
+  }
+
+  @include lg-breakpoint('lg') {
+    margin: 0 0 0 var(--space-xl);
+  }
+}

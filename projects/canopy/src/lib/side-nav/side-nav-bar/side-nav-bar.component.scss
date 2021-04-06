@@ -1,0 +1,26 @@
+@import '../../../styles/mixins';
+
+.lg-side-nav-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: var(--space-sm) 0 0 0;
+  font-size: var(--text-base-size);
+  font-weight: var(--tabs-list-item-font-weight);
+
+  > a {
+    text-decoration: none;
+  }
+
+  @include lg-breakpoint('md') {
+    margin: var(--space-sm) 0 0 0;
+  }
+
+  @include lg-breakpoint('lg') {
+    width: 33%;
+    padding: 0 var(--space-xl) 0 0;
+    border-right: var(--border-width) solid var(--color-platinum);
+  }
+}
