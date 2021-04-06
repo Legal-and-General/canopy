@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 import { lgIconChevronDown } from '../../icon';
-import { DetailsVariant } from '../details.interface';
+import { Variant } from '../../variant';
 
 let nextUniqueId = 0;
 @Component({
@@ -33,13 +33,13 @@ export class LgDetailsPanelHeadingComponent {
     return this._showIcon;
   }
 
-  _variant: DetailsVariant = 'generic';
+  _variant: Variant = 'generic';
   @Input()
-  set variant(variant: DetailsVariant) {
+  set variant(variant: Variant) {
     this._variant = variant;
     this.cdr.detectChanges();
   }
-  get variant(): DetailsVariant {
+  get variant(): Variant {
     return this._variant;
   }
 
