@@ -16,8 +16,8 @@ import {
 
 import { Subscription } from 'rxjs';
 
+import { Variant } from '../variant';
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
-import { DetailsVariant } from './details.interface';
 
 let nextUniqueId = 0;
 
@@ -48,19 +48,19 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     return this._showIcon;
   }
 
-  _variant: DetailsVariant;
+  _variant: Variant;
   @Input()
-  set variant(variant: DetailsVariant) {
+  set variant(variant: Variant) {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-details--${this._variant}`,
+        `lg-variant--${this._variant}`,
       );
     }
     if (this.panelHeading) {
       this.panelHeading.variant = variant;
     }
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-details--${variant}`);
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
   }
   get variant() {
