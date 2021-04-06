@@ -5,7 +5,7 @@ import { CanopyModule } from '../../canopy.module';
 import { LgValidationComponent } from './validation.component';
 
 import { LgIconComponent } from '../../icon';
-import { ValidationVariant } from './validation';
+import { Variant } from '../../variant';
 
 describe('LgValidationComponent', () => {
   let component: LgValidationComponent;
@@ -50,7 +50,7 @@ describe('LgValidationComponent', () => {
       { variant: 'warning', icon: 'warning-fill' },
       { variant: 'success', icon: 'checkmark-spot-fill' },
     ].forEach(({ variant, icon }) => {
-      component.variant = variant as ValidationVariant;
+      component.variant = variant as Variant;
       fixture.detectChanges();
       expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();
     });
