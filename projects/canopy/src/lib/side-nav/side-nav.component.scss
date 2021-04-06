@@ -1,0 +1,10 @@
+@import '../../styles/mixins';
+
+.lg-side-nav {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include lg-breakpoint('lg') {
+    flex-direction: row;
+  }
+}
