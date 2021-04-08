@@ -20,4 +20,3 @@ Screenshot: (if appropriate provide a quick screen grab of the changes)
 - [ ] I have provided a story in storybook to document the changes
 - [ ] I have provided documentation in the notes section of the story
 - [ ] I have added any new public feature modules to public-api.ts
-- [ ] I have [linked the new component](<(https://github.com/Legal-and-General/canopy/blob/master/docs/CONTRIBUTING.md#invision-dsm)>) to adobe DSM (if appropriate)
