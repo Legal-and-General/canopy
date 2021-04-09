@@ -8,6 +8,7 @@ import {
 } from '@angular/router';
 
 import { first, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { LgFeatureToggleService } from './feature-toggle.service';
 
@@ -20,19 +21,19 @@ export class FeatureToggleGuard implements CanActivate, CanLoad {
     private router: Router,
   ) {}
 
-  canLoad(route: Route) {
+  canLoad(route: Route): Observable<boolean> {
     return this.isActive(route);
   }
 
-  canActivate(route: ActivatedRouteSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     return this.isActive(route);
   }
 
-  canActivateChild(childRoute: ActivatedRouteSnapshot) {
+  canActivateChild(childRoute: ActivatedRouteSnapshot): Observable<boolean> {
     return this.isActive(childRoute);
   }
 
-  isActive(route: Route | ActivatedRouteSnapshot) {
+  isActive(route: Route | ActivatedRouteSnapshot): Observable<boolean> {
     return this.featureToggleService.toggles$.pipe(
       first(),
       map((configToggles) => {
