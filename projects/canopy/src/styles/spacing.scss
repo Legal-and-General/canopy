@@ -1,3 +1,5 @@
+@import 'mixins';
+
 :root {
   /* spacing values */
   --space-unit: 1rem;
@@ -46,6 +48,7 @@ $spacing-list: (
   }
 }
 
+// Default margin / padding
 @each $val in $spacing-list {
   .lg-margin--#{$val} {
     margin: space($val) !important;
@@ -56,6 +59,7 @@ $spacing-list: (
   }
 }
 
+// Specific margin / padding
 @each $val in $spacing-list {
   .lg-margin__top--#{$val} {
     margin-top: space($val) !important;
