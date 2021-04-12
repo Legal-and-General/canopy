@@ -1,3 +1,5 @@
+@import 'mixins';
+
 :root {
   /* spacing values */
   --space-unit: 1rem;
@@ -46,6 +48,7 @@ $spacing-list: (
   }
 }
 
+// Default margin / padding
 @each $val in $spacing-list {
   .lg-margin--#{$val} {
     margin: space($val) !important;
@@ -56,6 +59,7 @@ $spacing-list: (
   }
 }
 
+// Specific margin / padding
 @each $val in $spacing-list {
   .lg-margin__top--#{$val} {
     margin-top: space($val) !important;
@@ -87,6 +91,54 @@ $spacing-list: (
 
   .lg-padding__left--#{$val} {
     padding-left: space($val) !important;
+  }
+}
+
+// Responsive margin / padding
+// e.g. .lg-margin--{breakpoint}--{spacingVal}
+@each $breakpoint, $val in $breakpoints {
+  @include lg-breakpoint($breakpoint) {
+    @each $val in $spacing-list {
+      .lg-margin--#{$breakpoint}--#{$val} {
+        margin: space($val) !important;
+      }
+      .lg-padding--#{$breakpoint}--#{$val} {
+        padding: space($val) !important;
+      }
+    }
+  }
+}
+
+// Specific responsive margin / padding
+// e.g. .lg-margin--{breakpoint}--{spacingVal}
+@each $breakpoint, $val in $breakpoints {
+  @include lg-breakpoint($breakpoint) {
+    @each $val in $spacing-list {
+      .lg-margin__top--#{$breakpoint}--#{$val} {
+        margin-top: space($val) !important;
+      }
+      .lg-padding__top--#{$breakpoint}--#{$val} {
+        padding-top: space($val) !important;
+      }
+      .lg-margin__right--#{$breakpoint}--#{$val} {
+        margin-right: space($val) !important;
+      }
+      .lg-padding__right--#{$breakpoint}--#{$val} {
+        padding-right: space($val) !important;
+      }
+      .lg-margin__bottom--#{$breakpoint}--#{$val} {
+        margin-bottom: space($val) !important;
+      }
+      .lg-padding__bottom--#{$breakpoint}--#{$val} {
+        padding-bottom: space($val) !important;
+      }
+      .lg-margin__left--#{$breakpoint}--#{$val} {
+        margin-left: space($val) !important;
+      }
+      .lg-padding__left--#{$breakpoint}--#{$val} {
+        padding-left: space($val) !important;
+      }
+    }
   }
 }
 

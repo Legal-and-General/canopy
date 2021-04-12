@@ -10,3 +10,11 @@ export type SpacingVariant =
   | 'xxl'
   | 'xxxl'
   | 'xxxxl';
+
+export interface ResponsiveSpacing {
+  sm?: SpacingVariant;
+  md?: SpacingVariant;
+  lg?: SpacingVariant;
+  xlg?: SpacingVariant;
+  xxlg?: SpacingVariant;
+}

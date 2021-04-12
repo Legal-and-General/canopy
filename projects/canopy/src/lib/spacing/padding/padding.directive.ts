@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import { SpacingVariant } from '../spacing.interface';
+import { ResponsiveSpacing, SpacingVariant } from '../spacing.interface';
 
 @Directive({
   selector: `
@@ -14,69 +14,78 @@ import { SpacingVariant } from '../spacing.interface';
   `,
 })
 export class LgPaddingDirective {
-  paddingTopClass: string;
+  paddingTopClasses: Array<string> = [];
   @Input()
-  set lgPaddingTop(padding: SpacingVariant) {
-    this.paddingTopClass = this.togglePaddingClass(
-      `lg-padding__top--${padding}`,
-      this.paddingTopClass,
-    );
+  set lgPaddingTop(padding: SpacingVariant | ResponsiveSpacing) {
+    const newClasses = this.createNewClasses(padding, 'lg-padding__top');
+    this.paddingTopClasses = this.toggleClasses(newClasses, this.paddingTopClasses);
   }
 
-  paddingRightClass: string;
+  paddingRightClasses: Array<string> = [];
   @Input()
-  set lgPaddingRight(padding: SpacingVariant) {
-    this.paddingRightClass = this.togglePaddingClass(
-      `lg-padding__right--${padding}`,
-      this.paddingRightClass,
-    );
+  set lgPaddingRight(padding: SpacingVariant | ResponsiveSpacing) {
+    const newClasses = this.createNewClasses(padding, 'lg-padding__right');
+    this.paddingRightClasses = this.toggleClasses(newClasses, this.paddingRightClasses);
   }
 
-  paddingBottomClass: string;
+  paddingBottomClasses: Array<string> = [];
   @Input()
-  set lgPaddingBottom(padding: SpacingVariant) {
-    this.paddingBottomClass = this.togglePaddingClass(
-      `lg-padding__bottom--${padding}`,
-      this.paddingBottomClass,
-    );
+  set lgPaddingBottom(padding: SpacingVariant | ResponsiveSpacing) {
+    const newClasses = this.createNewClasses(padding, 'lg-padding__bottom');
+    this.paddingBottomClasses = this.toggleClasses(newClasses, this.paddingBottomClasses);
   }
 
-  paddingLeftClass: string;
+  paddingLeftClasses: Array<string> = [];
   @Input()
-  set lgPaddingLeft(padding: SpacingVariant) {
-    this.paddingLeftClass = this.togglePaddingClass(
-      `lg-padding__left--${padding}`,
-      this.paddingLeftClass,
-    );
+  set lgPaddingLeft(padding: SpacingVariant | ResponsiveSpacing) {
+    const newClasses = this.createNewClasses(padding, 'lg-padding__left');
+    this.paddingLeftClasses = this.toggleClasses(newClasses, this.paddingLeftClasses);
   }
 
   @Input()
-  set lgPaddingHorizontal(padding: SpacingVariant) {
+  set lgPaddingHorizontal(padding: SpacingVariant | ResponsiveSpacing) {
     this.lgPaddingLeft = padding;
     this.lgPaddingRight = padding;
   }
 
   @Input()
-  set lgPaddingVertical(padding: SpacingVariant) {
+  set lgPaddingVertical(padding: SpacingVariant | ResponsiveSpacing) {
     this.lgPaddingTop = padding;
     this.lgPaddingBottom = padding;
   }
 
-  paddingClass: string;
+  paddingClasses: Array<string> = [];
   @Input()
-  set lgPadding(padding: SpacingVariant) {
-    this.paddingClass = this.togglePaddingClass(
-      `lg-padding--${padding}`,
-      this.paddingClass,
-    );
+  set lgPadding(padding: SpacingVariant | ResponsiveSpacing) {
+    const newClasses = this.createNewClasses(padding, 'lg-padding');
+    this.paddingClasses = this.toggleClasses(newClasses, this.paddingClasses);
   }
 
-  togglePaddingClass(newClass: string, oldClass: string): string {
-    if (oldClass) {
-      this.renderer.removeClass(this.hostElement.nativeElement, oldClass);
+  createNewClasses(padding: SpacingVariant | ResponsiveSpacing, classPrefix: string) {
+    const newClasses = [];
+    if (!padding) {
+      return [];
     }
-    this.renderer.addClass(this.hostElement.nativeElement, newClass);
-    return newClass;
+    if (typeof padding === 'object') {
+      Object.keys(padding).forEach((key) => {
+        newClasses.push(`${classPrefix}--${key}--${padding[key]}`);
+      });
+    } else {
+      newClasses.push([`${classPrefix}--${padding}`]);
+    }
+    return newClasses;
+  }
+
+  toggleClasses(newClasses: Array<string>, oldClasses: Array<string>) {
+    if (oldClasses.length) {
+      oldClasses.forEach((oldClass) => {
+        this.renderer.removeClass(this.hostElement.nativeElement, oldClass);
+      });
+    }
+    newClasses.forEach((newClass) => {
+      this.renderer.addClass(this.hostElement.nativeElement, newClass);
+    });
+    return newClasses;
   }
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
