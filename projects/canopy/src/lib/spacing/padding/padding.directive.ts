@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import type { SpacingVariant } from '../spacing.interface';
+import type { SpacingResponsive, SpacingVariant } from '../spacing.interface';
+import { SpacingService } from '../spacing.service';
 
 @Directive({
   selector: `
@@ -14,70 +15,78 @@ import type { SpacingVariant } from '../spacing.interface';
   `,
 })
 export class LgPaddingDirective {
-  paddingTopClass: string;
+  paddingTopClasses: Array<string> = [];
   @Input()
-  set lgPaddingTop(padding: SpacingVariant) {
-    this.paddingTopClass = this.togglePaddingClass(
-      `lg-padding__top--${padding}`,
-      this.paddingTopClass,
+  set lgPaddingTop(padding: SpacingVariant | SpacingResponsive) {
+    this.paddingTopClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(padding, 'padding-top'),
+      this.paddingTopClasses,
     );
   }
 
-  paddingRightClass: string;
+  paddingRightClasses: Array<string> = [];
   @Input()
-  set lgPaddingRight(padding: SpacingVariant) {
-    this.paddingRightClass = this.togglePaddingClass(
-      `lg-padding__right--${padding}`,
-      this.paddingRightClass,
+  set lgPaddingRight(padding: SpacingVariant | SpacingResponsive) {
+    this.paddingRightClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(padding, 'padding-right'),
+      this.paddingRightClasses,
     );
   }
 
-  paddingBottomClass: string;
+  paddingBottomClasses: Array<string> = [];
   @Input()
-  set lgPaddingBottom(padding: SpacingVariant) {
-    this.paddingBottomClass = this.togglePaddingClass(
-      `lg-padding__bottom--${padding}`,
-      this.paddingBottomClass,
+  set lgPaddingBottom(padding: SpacingVariant | SpacingResponsive) {
+    this.paddingBottomClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(padding, 'padding-bottom'),
+      this.paddingBottomClasses,
     );
   }
 
-  paddingLeftClass: string;
+  paddingLeftClasses: Array<string> = [];
   @Input()
-  set lgPaddingLeft(padding: SpacingVariant) {
-    this.paddingLeftClass = this.togglePaddingClass(
-      `lg-padding__left--${padding}`,
-      this.paddingLeftClass,
+  set lgPaddingLeft(padding: SpacingVariant | SpacingResponsive) {
+    this.paddingLeftClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(padding, 'padding-left'),
+      this.paddingLeftClasses,
     );
   }
 
   @Input()
-  set lgPaddingHorizontal(padding: SpacingVariant) {
+  set lgPaddingHorizontal(padding: SpacingVariant | SpacingResponsive) {
     this.lgPaddingLeft = padding;
     this.lgPaddingRight = padding;
   }
 
   @Input()
-  set lgPaddingVertical(padding: SpacingVariant) {
+  set lgPaddingVertical(padding: SpacingVariant | SpacingResponsive) {
     this.lgPaddingTop = padding;
     this.lgPaddingBottom = padding;
   }
 
-  paddingClass: string;
+  paddingClasses: Array<string> = [];
   @Input()
-  set lgPadding(padding: SpacingVariant) {
-    this.paddingClass = this.togglePaddingClass(
-      `lg-padding--${padding}`,
-      this.paddingClass,
+  set lgPadding(padding: SpacingVariant | SpacingResponsive) {
+    this.paddingClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(padding, 'padding'),
+      this.paddingClasses,
     );
   }
 
-  togglePaddingClass(newClass: string, oldClass: string): string {
-    if (oldClass) {
-      this.renderer.removeClass(this.hostElement.nativeElement, oldClass);
+  toggleClasses(newClasses: Array<string>, oldClasses: Array<string>) {
+    if (oldClasses.length) {
+      oldClasses.forEach((oldClass) => {
+        this.renderer.removeClass(this.hostElement.nativeElement, oldClass);
+      });
     }
-    this.renderer.addClass(this.hostElement.nativeElement, newClass);
-    return newClass;
+    newClasses.forEach((newClass) => {
+      this.renderer.addClass(this.hostElement.nativeElement, newClass);
+    });
+    return newClasses;
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+    private spacingService: SpacingService,
+  ) {}
 }

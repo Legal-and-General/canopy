@@ -2,7 +2,7 @@ export const notes = `
 # Margin Directive
 
 ## Purpose
-This directive allows for custom margins to be added without the need to write additional css. It utilises global css utility classes to add the relevant classes.
+This directive allows for custom margin to be added without the need to write additional CSS. It's useful for overriding the default margin on Canopy components, as well as general use within your app. Using this directive ensures that your margin adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.
 
 ## Usage
 
@@ -15,70 +15,102 @@ Import the module in your application:
 })
 ~~~
 
-In your HTML apply the directive to the relevant Canopy component. The directive should provide full control of the element it is applied too.
-If the default lgMargin attribute has no value the default margin will remain, you can then override individual margins by applying the relevant properties (.e.g LgMarginTop).
+In your HTML apply the directive to the relevant component. If the default \`\`lgMargin\`\` attribute has no value, the default margin will remain. You can also override individual margin such as \`\`margin-top\`\` by applying the relevant selector/input (.e.g \`\`LgMarginTop\`\` - see **Inputs** below).
 
-e.g. Apply an xxl margin to the bottom
+Pass in either a **Standard Spacing Variant** or a **Responsive Spacing object** (see below).
 
 ~~~html
-<lg-card lgMarginBottom="xxl">
-  <lg-card-content>
-    Your content
-  </lg-card-content>
-</lg-card>
+Standard spacing variant
+<lg-card lgMargin="sm"></lg-card>
+
+Responsive spacing object
+<lg-card [lgMargin]="{ md: 'lg', lg: 'xxxl' }"></lg-card>
 ~~~
 
-e.g. Apply an sm margin to the left and right
+## Standard vs Responsive Spacing
 
-~~~html
-<lg-card lgMarginLeft="sm" lgMarginRight="sm">
-  <lg-card-content>
-    Your content
-  </lg-card-content>
-</lg-card>
+### Standard Spacing Variant
+
+This is set of predfined variants which will apply the same margin at all breakpoints, as defined by the \`\`SpacingVariant\`\` type. These are:
+
+~~~bash
+'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'
 ~~~
 
-e.g. Apply an xl margin all round, but xxxl margin to the bottom
+### Repsonsive Spacing Object
 
-~~~html
-<lg-card lgMargin="xl" lgMarginBottom="xxxl">
-  Your content
-</lg-card>
+You can apply a responsive spacing object instead, which will apply different margin at the specified breakpoints, as defined by the \`\`SpacingResponsive\`\ type. Example:
+
+~~~js
+{
+  md: "lg",
+  lg: "xxxl"
+}
 ~~~
 
-e.g. Apply an lg margin to both the left and the right
+Each **key** is a mobile-first breakpoint from the standard list of available breakpoints: \`\`sm\`\`, \`\`md\`\`, \`\`lg\`\`, \`\`xl\`\`, \`\`xxl\`\`.
+
+Each **value** is a standard spacing variant.
+
+In the example above, the margin at the \`\`md\`\` breakpoint will be \`\`lg\`\`, and at the \`\`lg\`\` will be \`\`xxxl\`\`.
+
+
+### Standard variant examples
+
+Apply \`\`xxl\`\` margin to the bottom
 
 ~~~html
-<lg-card lgMarginHorizontal="lg">
-  <lg-card-content>
-  Your content
-  </lg-card-content>
-</lg-card>
+<lg-card lgMarginBottom="xxl"></lg-card>
 ~~~
 
-e.g. Apply an lg margin to both the top and the bottom
+Apply \`\`sm\`\` margin to the left and right
 
 ~~~html
-<lg-card lgMarginVertical="lg">
-  <lg-card-content>
-  Your content
-  </lg-card-content>
-</lg-card>
+<lg-card lgMarginHorizontal="sm"></lg-card>
+~~~
+
+Apply \`\`xl\`\` margin all round, but \`\`xxxl\`\` margin to the bottom
+
+~~~html
+<lg-card lgMargin="xl" lgMarginBottom="xxxl"></lg-card>
+~~~
+
+Apply \`\`lg\`\` margin to the top and bottom
+
+~~~html
+<lg-card lgMarginVertical="lg"></lg-card>
+~~~
+
+### Responsive examples
+
+
+At the \`\`sm\`\` breakpoint apply \`\`xl\`\` margin, then at the \`\`md breakpoint\`\` apply \`\`xxxl\`\` margin, all around the component.
+
+~~~html
+<lg-card [lgMargin]="{ sm: 'lg', md: 'xxxl' }"></lg-card>
+~~~
+
+At the \`\`md\`\` breakpoint apply \`\`md\`\` margin, then at the \`\`lg breakpoint\`\` apply \`\`sm\`\` margin, at the bottom of the component.
+
+~~~html
+<lg-card [lgMarginBottom]="{ md: 'md', lg: 'sm' }"></lg-card>
 ~~~
 
 ## Inputs
 
-The current available variants are 'none', xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'.
+The current available spacing variants are \`\`none\`\`, \`\`xxxs\`\`, \`\`xxs\`\`, \`\`xs\`\`, \`\`sm\`\`, \`\`md\`\`, \`\`lg\`\`, \`\`xl\`\`, \`\`xxl\`\`, \`\`xxxl\`\`, \`\`xxxxxl\`\`.
+
+The current available breakpoints are \`\`sm\`\`, \`\`md\`\`, \`\`lg\`\`, \`\`xl\`\`, \`\`xxl\`\`
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`lgMargin\`\` | The margin variant applied to all sides | string | null | No |
-| \`\`lgMarginTop\`\` | The margin variant applied to the top | string | null | No |
-| \`\`lgMarginRight\`\` | The margin variant applied to the right | string | null | No |
-| \`\`lgMarginBottom\`\` | The margin variant applied to the bottom | string | null | No |
-| \`\`lgMarginLeft\`\` | The margin variant applied to the left | string | null | No |
-| \`\`lgMarginHorizontal\`\` | The margin variant applied to the left and the right | string | null | No |
-| \`\`lgMarginVertical\`\` | The margin variant applied to the top and the bottom | string | null | No |
+| \`\`lgMargin\`\` | The margin variant applied to all sides | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
+| \`\`lgMarginTop\`\` | The margin variant applied to the top | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
+| \`\`lgMarginRight\`\` | The margin variant applied to the right | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
+| \`\`lgMarginBottom\`\` | The margin variant applied to the bottom | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
+| \`\`lgMarginLeft\`\` | The margin variant applied to the left | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
+| \`\`lgMarginHorizontal\`\` | The margin variant applied to the left and the right | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
+| \`\`lgMarginVertical\`\` | The margin variant applied to the top and the bottom | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
 
 
 ## Using only the SCSS files
