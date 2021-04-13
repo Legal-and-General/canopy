@@ -1,9 +1,4 @@
 @import '../../../styles/mixins';
-/*
- The below import will be removed in the next breaking change. It is currently included to ensure
- the same scss entities are exported. @deprecated
-*/
-@import '../../../styles/variants';
 
 .lg-validation {
   display: flex;
