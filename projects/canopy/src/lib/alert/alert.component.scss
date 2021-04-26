@@ -1,4 +1,9 @@
-@import '../../styles/mixins.scss';
+@import '../../styles/mixins';
+/*
+ The below import will be removed in the next breaking change. It is currently included to ensure
+ the same scss entities are exported. @deprecated
+*/
+@import '../../styles/variants';
 
 .lg-alert {
   display: flex;
@@ -15,4 +20,8 @@
     font-weight: var(--font-weight-bold);
     line-height: var(--text-base-line-height);
   }
+}
+
+.lg-alert__icon {
+  margin-right: var(--space-xs);
 }

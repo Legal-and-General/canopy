@@ -64,7 +64,15 @@ $breakpoints: (
 */
 @mixin lg-breakpoint($breakpoint, $range: 'min-width') {
   @if map-has-key($breakpoints, $breakpoint) {
-    @media ($range: map-get($breakpoints, $breakpoint)) {
+    $value: map-get($breakpoints, $breakpoint);
+
+    @if $range == 'max-width' {
+      // Removes 1 pixel if using max-width so that there is no
+      // overlap when used with min-width.
+      $value: $value - 0.06rem;
+    }
+
+    @media ($range: $value) {
       @content;
     }
   } @else {
