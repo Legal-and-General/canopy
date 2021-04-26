@@ -9,10 +9,11 @@ import {
   lgIconInformationFill,
   lgIconWarningFill,
 } from '../icon/icons.interface';
+import { LgVariantModule } from '../variant/variant.module';
 import { LgAlertComponent } from './alert.component';
 
 @NgModule({
-  imports: [CommonModule, LgIconModule],
+  imports: [CommonModule, LgIconModule, LgVariantModule],
   declarations: [LgAlertComponent],
   exports: [LgAlertComponent],
 })

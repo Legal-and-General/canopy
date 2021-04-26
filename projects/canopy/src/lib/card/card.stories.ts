@@ -142,9 +142,6 @@ export default {
         ],
       }),
     ],
-    'in-dsm': {
-      id: '5ede22091f488863e2eeaa35',
-    },
     notes: {
       markdown: notes,
     },

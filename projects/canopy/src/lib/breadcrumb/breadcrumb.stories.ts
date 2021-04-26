@@ -60,9 +60,6 @@ export default {
         imports: [LgIconModule, LgBreadcrumbModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ec4dd06b5f14853257d7705',
-    },
     notes: {
       markdown: notes,
     },

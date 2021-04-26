@@ -60,9 +60,6 @@ export default {
         imports: [ReactiveFormsModule, LgRadioModule],
       }),
     ],
-    'in-dsm': {
-      id: '5ed64569a269db443068121a',
-    },
     notes: {
       markdown: notes('Segment'),
     },

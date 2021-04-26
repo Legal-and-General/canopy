@@ -1,0 +1,21 @@
+@import 'mixins';
+
+.lg-variant--generic {
+  @include lg-variant('generic');
+}
+
+.lg-variant--info {
+  @include lg-variant('info');
+}
+
+.lg-variant--success {
+  @include lg-variant('success');
+}
+
+.lg-variant--warning {
+  @include lg-variant('warning');
+}
+
+.lg-variant--error {
+  @include lg-variant('error');
+}

@@ -1,4 +1,9 @@
 @import '../../styles/mixins';
+/*
+ The below import will be removed in the next breaking change. It is currently included to ensure
+ the same scss entities are exported. @deprecated
+*/
+@import '../../styles/variants';
 
 .lg-details {
   background: var(--details-bg-color);
@@ -14,24 +19,4 @@
       display: block;
     }
   }
-}
-
-.lg-details--generic {
-  @include lg-variant('generic');
-}
-
-.lg-details--info {
-  @include lg-variant('info');
-}
-
-.lg-details--success {
-  @include lg-variant('success');
-}
-
-.lg-details--warning {
-  @include lg-variant('warning');
-}
-
-.lg-details--error {
-  @include lg-variant('error');
 }

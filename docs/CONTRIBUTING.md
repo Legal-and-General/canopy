@@ -104,18 +104,6 @@ Code Owners are chosen based on a history of consistent contributions. Code Owne
 
 The build is currently handled by [Github Actions](https://help.github.com/en/actions), the config for which is checked into the [.github](./.github) directory. The build will run on every pull request and run standard verification tasks e.g. linting, unit testing, test build. The build will need to be green in order for a pull request to pass.
 
-## InVision DSM
-
-To ensure the Canopy implementation keeps in sync with the design expectations we use the [InVision Design System Manager](https://legalandgeneral.invisionapp.com/dsm/legalandgeneral/canopy). InVision DSM has a storybook integration which allows us to publish stories directly to the DSM interface, this helps us to keep the design and implementation in sync.
-
-Each time a merge is made to the master branch we run the `dsm-storybook publish` command from GitHub actions, this publishes the latest change to DSM. Some additional markup is required to link a story to it's corresponding DSM page, for comprehensive instructions refer to the [InVision DSM Storybook documentation](https://support.invisionapp.com/hc/en-us/articles/360028510211-Configuring-the-Storybook-DSM-Integration). In the majority of cases it should be as simple as adding an Angular code tab to the relevant DSM page, you will then be provided with an ID that can be added to the config of the story.
-
-```js
-  'in-dsm': {
-    id: '5ec4dbf0c4b3aed7e94e8886'
-  },
-```
-
 ## SVG Icons
 
 To add a new SVG icon to Canopy simply add the file to either the `icons` or `brand-icons` folder within `assets`.

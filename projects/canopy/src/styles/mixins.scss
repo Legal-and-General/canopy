@@ -64,7 +64,15 @@ $breakpoints: (
 */
 @mixin lg-breakpoint($breakpoint, $range: 'min-width') {
   @if map-has-key($breakpoints, $breakpoint) {
-    @media ($range: map-get($breakpoints, $breakpoint)) {
+    $value: map-get($breakpoints, $breakpoint);
+
+    @if $range == 'max-width' {
+      // Removes 1 pixel if using max-width so that there is no
+      // overlap when used with min-width.
+      $value: $value - 0.06rem;
+    }
+
+    @media ($range: $value) {
       @content;
     }
   } @else {
@@ -86,79 +94,109 @@ $breakpoints: (
   }
 
   @if ($variant == 'generic') {
-    background-color: var(--generic-bg-color);
-    color: var(--generic-color);
+    background-color: var(--generic-bg-color) !important;
+    color: var(--generic-color) !important;
 
     a {
-      color: var(--generic-link-color);
+      color: var(--generic-link-color) !important;
 
       &:hover {
-        color: var(--generic-link-hover-color);
+        color: var(--generic-link-hover-color) !important;
       }
 
       &:focus:hover {
-        color: var(--generic-link-focus-color);
+        color: var(--generic-link-focus-color) !important;
       }
+    }
+
+    .lg-btn--outline-primary {
+      background-color: transparent !important;
+      border-color: var(--generic-color) !important;
+      color: var(--generic-color) !important;
     }
   } @else if ($variant == 'info') {
-    background-color: var(--info-bg-color);
-    color: var(--info-color);
+    background-color: var(--info-bg-color) !important;
+    color: var(--info-color) !important;
 
     a {
-      color: var(--info-link-color);
+      color: var(--info-link-color) !important;
 
       &:hover {
-        color: var(--info-link-hover-color);
+        color: var(--info-link-hover-color) !important;
       }
 
       &:focus:hover {
-        color: var(--info-link-focus-color);
+        color: var(--info-link-focus-color) !important;
       }
+    }
+
+    .lg-btn--outline-primary {
+      background-color: transparent !important;
+      border-color: var(--info-color) !important;
+      color: var(--info-color) !important;
     }
   } @else if ($variant == 'success') {
-    background-color: var(--success-bg-color);
-    color: var(--success-color);
+    background-color: var(--success-bg-color) !important;
+    color: var(--success-color) !important;
 
     a {
-      color: var(--success-link-color);
+      color: var(--success-link-color) !important;
 
       &:hover {
-        color: var(--success-link-hover-color);
+        color: var(--success-link-hover-color) !important;
       }
 
       &:focus:hover {
-        color: var(--success-link-focus-color);
+        color: var(--success-link-focus-color) !important;
       }
+    }
+
+    .lg-btn--outline-primary {
+      background-color: transparent !important;
+      border-color: var(--success-color) !important;
+      color: var(--success-color) !important;
     }
   } @else if ($variant == 'warning') {
-    background-color: var(--warning-bg-color);
-    color: var(--warning-color);
+    background-color: var(--warning-bg-color) !important;
+    color: var(--warning-color) !important;
 
     a {
-      color: var(--warning-link-color);
+      color: var(--warning-link-color) !important;
 
       &:hover {
-        color: var(--warning-link-hover-color);
+        color: var(--warning-link-hover-color) !important;
       }
 
       &:focus:hover {
-        color: var(--warning-link-focus-color);
+        color: var(--warning-link-focus-color) !important;
       }
     }
+
+    .lg-btn--outline-primary {
+      background-color: transparent !important;
+      border-color: var(--warning-color) !important;
+      color: var(--warning-color) !important;
+    }
   } @else if ($variant == 'error') {
-    background-color: var(--error-bg-color);
-    color: var(--error-color);
+    background-color: var(--error-bg-color) !important;
+    color: var(--error-color) !important;
 
     a {
-      color: var(--error-link-color);
+      color: var(--error-link-color) !important;
 
       &:hover {
-        color: var(--error-link-hover-color);
+        color: var(--error-link-hover-color) !important;
       }
 
       &:focus:hover {
-        color: var(--error-link-focus-color);
+        color: var(--error-link-focus-color) !important;
       }
+    }
+
+    .lg-btn--outline-primary {
+      background-color: transparent !important;
+      border-color: var(--error-color) !important;
+      color: var(--error-color) !important;
     }
   }
 }

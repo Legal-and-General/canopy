@@ -29,6 +29,7 @@ import { LgSpinnerModule } from './spinner/spinner.module';
 import { LgSuffixModule } from './suffix/suffix.module';
 import { LgTableModule } from './table/table.module';
 import { LgTabsModule } from './tabs/tabs.module';
+import { LgVariantModule } from './variant/variant.module';
 
 const modules = [
   LgAccordionModule,
@@ -59,6 +60,7 @@ const modules = [
   LgSuffixModule,
   LgTableModule,
   LgTabsModule,
+  LgVariantModule,
 ];
 
 @NgModule({

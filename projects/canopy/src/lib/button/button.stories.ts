@@ -122,73 +122,31 @@ export const primaryButton = () =>
   createBtnStory({
     variant: 'solid-primary',
   });
-primaryButton.story = {
-  parameters: {
-    'in-dsm': {
-      id: '5eb292680f022e10952f6b54',
-    },
-  },
-};
 
 export const secondaryButton = () =>
   createBtnStory({
     variant: 'solid-secondary',
   });
-secondaryButton.story = {
-  parameters: {
-    'in-dsm': {
-      id: '5eb4178bd037c0361eb5b9e8',
-    },
-  },
-};
 
 export const outlinePrimary = () =>
   createBtnStory({
     variant: 'outline-primary',
   });
-outlinePrimary.story = {
-  parameters: {
-    'in-dsm': {
-      id: '5ebab3747f701b0829ba471e',
-    },
-  },
-};
 
 export const outlineSecondary = () =>
   createBtnStory({
     variant: 'outline-secondary',
   });
-outlineSecondary.story = {
-  parameters: {
-    'in-dsm': {
-      id: '5ebab380a6ef0234a74a414d',
-    },
-  },
-};
 
 export const reversePrimary = () =>
   createBtnStory({
     variant: 'reverse-primary',
   });
-reversePrimary.story = {
-  parameters: {
-    'in-dsm': {
-      id: '5ebab38d7f701b688aba4724',
-    },
-  },
-};
 
 export const reverseSecondary = () =>
   createBtnStory({
     variant: 'reverse-secondary',
   });
-reversePrimary.story = {
-  parameters: {
-    'in-dsm': {
-      id: '5ebab396602d936ef763d72b',
-    },
-  },
-};
 
 export const textWithIcon = () =>
   createBtnStory({

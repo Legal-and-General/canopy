@@ -33,3 +33,4 @@ export * from './lib/spinner/index';
 export * from './lib/suffix/index';
 export * from './lib/table/index';
 export * from './lib/tabs/index';
+export * from './lib/variant/index';
