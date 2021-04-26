@@ -159,6 +159,12 @@ $breakpoints: (
       $focus-bg-color: var(--#{$variant}-link-focus-bg-color)
     );
   }
+
+  .lg-btn--outline-primary {
+    background-color: transparent !important;
+    border-color: var(--#{$variant}-color) !important;
+    color: var(--#{$variant}-color) !important;
+  }
 }
 
 @mixin lg-card {
