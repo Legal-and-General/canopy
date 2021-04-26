@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { ValidationVariant } from './validation';
+import { Variant } from '../../variant';
 
 let nextUniqueId = 0;
 
@@ -23,16 +23,16 @@ export class LgValidationComponent {
 
   @Input() showIcon = true;
 
-  _variant: ValidationVariant = null;
+  _variant: Variant = null;
   @Input()
-  set variant(variant: ValidationVariant) {
+  set variant(variant: Variant) {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-validation--${this._variant}`,
+        `lg-variant--${this._variant}`,
       );
     }
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-validation--${variant}`);
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
   }
   get variant() {

@@ -52,6 +52,14 @@ and in your HTML:
 | \`\`lg-details\`\` | Adds the default styles to the details
 | \`\`lg-details-panel-heading\`\` | Adds the default styles to the details heading panel
 
+One of the following is required to apply the specific variant style, such as "warning" or "success".
+
+| Class | Description |
+|------|-------------|
+| \`\`lg-variant--success\`\` | Adds the success variant style |
+| \`\`lg-variant--warning\`\` | Adds the warning variant style |
+| \`\`lg-variant--error\`\` | Adds the error variant style |
+| \`\`lg-variant--info\`\` | Adds the info variant style |
 
 ### Examples:
 ~~~html
