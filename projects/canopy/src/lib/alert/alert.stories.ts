@@ -1,39 +1,84 @@
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
-import { LgAlertModule } from '../alert/alert.module';
+import { Variant } from '../variant/variant.interface';
+
+import { LgAlertModule } from './alert.module';
+import { LgAlertComponent } from './alert.component';
 import { notes } from './alert.notes';
 
+// This default export determines where your story goes in the story list
 export default {
   title: 'Components/Alert',
+  component: LgAlertComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [LgAlertModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        imports: [LgAlertModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    content: {
+      description: 'Projected content',
+    },
+    showIcon: {
+      description: 'Whether the icon should display',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: true,
+        },
+      },
+    },
+    variant: {
+      description: 'Variant of alert',
+      table: {
+        type: {
+          summary: Object.values(Variant),
+        },
+        defaultValue: {
+          summary: Variant.Generic,
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(Variant),
+      },
+    },
+  },
+} as Meta;
+
+const template = `
+<lg-alert
+  [showIcon]="showIcon"
+  [variant]="variant">
+  {{content}} Here is some <a href="#"> link text</a>.
+</lg-alert>
+`;
+
+const Template: Story<LgAlertComponent> = (args: LgAlertComponent) => ({
+  props: args,
+  template,
+});
+
+export const StandardAlert = Template.bind({});
+StandardAlert.storyName = 'Standard';
+StandardAlert.args = {
+  content: 'This is an alert.',
+  variant: Variant.Generic,
+};
+StandardAlert.parameters = {
+  docs: {
+    source: {
+      code: template,
     },
   },
 };
-
-export const standard = () => ({
-  template: `
-    <lg-alert
-      [showIcon]="showIcon"
-      [variant]="variant">
-      {{alertContent}} Here is some <a href="#"> link text</a>.
-    </lg-alert>
-  `,
-  props: {
-    alertContent: text('content', 'This is an alert.'),
-    showIcon: boolean('show icon', true),
-    variant: select(
-      'variant',
-      ['generic', 'info', 'success', 'warning', 'error'],
-      'generic',
-    ),
-  },
-});

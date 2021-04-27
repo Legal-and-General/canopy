@@ -1,7 +1,4 @@
 export const notes = `
-# Alert Component
-
-
 ## Purpose
 Alerts are used to communicate important information to the user.
 
@@ -22,29 +19,6 @@ and in your HTML:
 ~~~html
 <lg-alert [variant]="warning">This is an alert</lg-alert>
 ~~~
-
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| \`\`variant\`\` | Applies colour treatment and ARIA role if applicable: \`\`generic\`\`, \`\`info\`\`, \`\`warning\`\`, \`\`error\`\`, \`\`success\`\` | string | 'generic' | No |
-| \`\`showIcon\`\` | Whether the icon should display on the warning, error or success variants | boolean | true | No |
-
-
-## Using only the SCSS files
-
-The \`\`lg-alert\`\` class is required to be able to apply the main style to the alert.
-
-In addition to \`\`lg-alert\`\`, one of the following is required to apply the specific variant style, such as "warning" or "success".
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-variant--success\`\` | Adds the success variant style |
-| \`\`lg-variant--warning\`\` | Adds the warning variant style |
-| \`\`lg-variant--error\`\` | Adds the error variant style |
-| \`\`lg-variant--info\`\` | Adds the info variant style |
-
 
 ### Accessibility
 

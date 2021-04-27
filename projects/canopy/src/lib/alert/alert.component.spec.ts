@@ -32,19 +32,19 @@ describe('LgAlertComponent', () => {
   });
 
   it('adds the variant class to the alert component', () => {
-    component.variant = 'success';
+    component.variant = Variant.Success;
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('class')).toContain('success');
   });
 
   it('does not add a Aria role for the info variant', () => {
-    component.variant = 'info';
+    component.variant = Variant.Info;
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('role')).toBeNull();
   });
 
   it('adds the Aria role "alert" for all other variants', () => {
-    component.variant = 'warning';
+    component.variant = Variant.Warning;
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
   });

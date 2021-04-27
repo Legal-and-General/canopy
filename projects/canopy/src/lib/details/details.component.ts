@@ -87,7 +87,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     private hostElement: ElementRef,
     private cdr: ChangeDetectorRef,
   ) {
-    this.variant = 'generic';
+    this.variant = Variant.Generic;
   }
 
   ngAfterContentInit() {
