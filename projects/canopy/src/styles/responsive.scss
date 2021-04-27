@@ -1,0 +1,17 @@
+@import 'mixins';
+
+@each $name, $bp in $breakpoints {
+  @include lg-breakpoint($name, 'max-width') {
+    .lg-show-at--#{$name} {
+      display: none !important;
+    }
+  }
+}
+
+@each $name, $bp in $breakpoints {
+  @include lg-breakpoint($name, 'min-width') {
+    .lg-hide-at--#{$name} {
+      display: none !important;
+    }
+  }
+}
