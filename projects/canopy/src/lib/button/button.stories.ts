@@ -26,6 +26,7 @@ const contentGroupId = 'content';
 @Component({
   selector: 'lg-button-story',
   template: `
+    <p>Used on a <strong>button</strong> element</p>
     <button
       lg-button
       [disabled]="disabled"
@@ -36,9 +37,24 @@ const contentGroupId = 'content';
       [size]="size"
       [variant]="variant"
     >
-      <ng-content></ng-content>
+      {{ content }}
       <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
     </button>
+    <p>Used on a <strong>link</strong> element</p>
+    <a
+      lg-button
+      href="#"
+      [disabled]="disabled"
+      [fullWidth]="fullWidth"
+      [iconButton]="iconButton"
+      [iconPosition]="iconPosition"
+      [loading]="loading"
+      [size]="size"
+      [variant]="variant"
+    >
+      {{ content }}
+      <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
+    </a>
   `,
 })
 class ButtonStoryComponent {
@@ -51,6 +67,7 @@ class ButtonStoryComponent {
   @Input() showIcon: boolean;
   @Input() size: ButtonSize;
   @Input() variant: string;
+  @Input() content: string;
   icons = iconsArray;
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(this.icons);
@@ -95,8 +112,8 @@ const createBtnStory = (config: KnobsConfig) => ({
       [showIcon]="showIcon"
       [size]="size"
       [variant]="variant"
+      [content]="content"
       >
-      {{content}}
   </lg-button-story>
   `,
   props: {
