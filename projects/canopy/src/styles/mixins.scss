@@ -144,7 +144,7 @@ $breakpoints: (
   background-color: var(--#{$variant}-bg-color) !important;
   color: var(--#{$variant}-color) !important;
 
-  a {
+  a:not(.lg-btn) {
     @include lg-link(
       $default-color: var(--#{$variant}-link-color),
       $hover-color: var(--#{$variant}-link-hover-color),
