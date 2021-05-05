@@ -5,7 +5,14 @@
 }
 
 .lg-hero-card-title__heading {
-  @include lg-font-size(6);
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    @include lg-font-size(6);
 
-  margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
 }
