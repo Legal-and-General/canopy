@@ -145,6 +145,7 @@ export default {
     notes: {
       markdown: notes,
     },
+    backgrounds: [{ name: 'default', value: '#FAF5F7', default: true }],
   },
 };
 

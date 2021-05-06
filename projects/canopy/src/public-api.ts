@@ -30,6 +30,7 @@ export * from './lib/prefix/index';
 export * from './lib/promo-card/index';
 export * from './lib/quick-action/index';
 export * from './lib/separator/index';
+export * from './lib/shadow/index';
 export * from './lib/show-at/index';
 export * from './lib/side-nav/index';
 export * from './lib/spacing/index';
