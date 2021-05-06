@@ -62,9 +62,9 @@ export default {
         ],
       }),
     ],
-  },
-  notes: {
-    markdown: notes,
+    notes: {
+      markdown: notes,
+    },
   },
 };
 
