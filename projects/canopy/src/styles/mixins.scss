@@ -160,5 +160,58 @@ $breakpoints: (
     background-color: transparent !important;
     border-color: var(--#{$variant}-color) !important;
     color: var(--#{$variant}-color) !important;
+
+    @if ($variant == 'generic') {
+      &:hover {
+        background-color: var(--color-taupe-grey) !important;
+        border-color: var(--color-taupe-grey) !important;
+        color: var(--color-white) !important;
+      }
+
+      &:active {
+        background-color: var(--color-charcoal) !important;
+        color: var(--color-white) !important;
+      }
+    } @else if ($variant == 'info') {
+      &:hover {
+        background-color: var(--color-midnight-blue) !important;
+        color: var(--color-white) !important;
+      }
+
+      &:active {
+        background-color: var(--color-super-blue-darkest) !important;
+        color: var(--color-white) !important;
+      }
+    } @else if ($variant == 'success') {
+      &:hover {
+        background-color: var(--color-mexican-green) !important;
+        color: var(--color-white) !important;
+      }
+
+      &:active {
+        background-color: var(--color-leafy-green-dark) !important;
+        color: var(--color-white) !important;
+      }
+    } @else if ($variant == 'warning') {
+      &:hover {
+        background-color: var(--color-earth-brown-dark) !important;
+        color: var(--color-white) !important;
+      }
+
+      &:active {
+        background-color: var(--color-earth-brown-darkest) !important;
+        color: var(--color-white) !important;
+      }
+    } @else if ($variant == 'error') {
+      &:hover {
+        background-color: var(--color-terracotta) !important;
+        color: var(--color-white) !important;
+      }
+
+      &:active {
+        background-color: var(--color-earth-brown-darkest) !important;
+        color: var(--color-white) !important;
+      }
+    }
   }
 }
