@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 
 import { LgHeadingComponent } from './heading.component';
 
-fdescribe('LgHeadingComponent', () => {
+describe('LgHeadingComponent', () => {
   let component: LgHeadingComponent;
   let fixture: ComponentFixture<LgHeadingComponent>;
 
