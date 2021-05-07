@@ -15,8 +15,8 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { LgSideNavBarItemComponent } from './side-nav-bar-item/side-nav-bar-item.component';
 import { LgSideNavContentComponent } from './side-nav-content/side-nav-content.component';
+import { LgSideNavBarLinkDirective } from './side-nav-bar-link/side-nav-bar-link.directive';
 
 @Component({
   selector: 'lg-side-nav',
@@ -28,10 +28,10 @@ import { LgSideNavContentComponent } from './side-nav-content/side-nav-content.c
 export class LgSideNavComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.lg-side-nav') class = true;
 
-  @ContentChildren(forwardRef(() => LgSideNavBarItemComponent), {
+  @ContentChildren(forwardRef(() => LgSideNavBarLinkDirective), {
     descendants: true,
   })
-  navQueryList: QueryList<LgSideNavBarItemComponent>;
+  navQueryList: QueryList<LgSideNavBarLinkDirective>;
 
   @ContentChild(LgSideNavContentComponent, { read: ElementRef })
   sideNavContent: ElementRef;
@@ -39,7 +39,7 @@ export class LgSideNavComponent implements AfterViewInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   ngAfterViewInit() {
-    this.navQueryList.forEach((navItem) => {
+    this.navQueryList.forEach((navItem: LgSideNavBarLinkDirective) => {
       navItem.activated
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe(() => this.focusContent());
