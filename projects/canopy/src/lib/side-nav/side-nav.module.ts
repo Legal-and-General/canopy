@@ -6,11 +6,14 @@ import { LgSideNavContentComponent } from './side-nav-content/side-nav-content.c
 import { LgSideNavBarComponent } from './side-nav-bar/side-nav-bar.component';
 import { LgSideNavBarItemComponent } from './side-nav-bar-item/side-nav-bar-item.component';
 import { LgSideNavBarFooterComponent } from './side-nav-bar-footer/side-nav-bar-footer.component';
+import { LgCardModule } from './../card/card.module';
+import { LgSpacingModule } from './../spacing/spacing.module';
 import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { lgIconChevronRight } from '../icon/icons.interface';
 import { LgSideNavBarItemHeadingComponent } from './side-nav-bar-item-heading/side-nav-bar-item-heading.component';
 import { LgSideNavBarItemContentComponent } from './side-nav-bar-item-content/side-nav-bar-item-content.component';
+import { LgSideNavBarLinkDirective } from './side-nav-bar-link/side-nav-bar-link.directive';
 
 const components = [
   LgSideNavComponent,
@@ -20,10 +23,11 @@ const components = [
   LgSideNavBarFooterComponent,
   LgSideNavBarItemHeadingComponent,
   LgSideNavBarItemContentComponent,
+  LgSideNavBarLinkDirective,
 ];
 
 @NgModule({
-  imports: [CommonModule, LgIconModule],
+  imports: [CommonModule, LgCardModule, LgIconModule, LgSpacingModule],
   declarations: [...components],
   exports: [...components],
 })

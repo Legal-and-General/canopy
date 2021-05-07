@@ -1,7 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .lg-card {
-  display: block;
-  background-color: var(--card-bg-color);
-  border-radius: var(--border-radius-lg);
-  margin-bottom: var(--grid-gutter);
-  padding: var(--component-padding);
+  @include lg-card;
 }
