@@ -7,12 +7,9 @@ Side Navs are components that allow the user to define a series of navigation it
 
 ### Side Nav Bar
 
-Here is where the navigation menu items are put. The links, once clicked on, will display their routes'
+Here is where the navigation menu items are put. The items, once clicked on, will display their routes'
 content in the Side Nav Content component.
 On mobile devices, the menu is below the content area, instead of to the left.
-
-### Side Nav Bar Link
-This \`lgSideNavBarLink\` directive applies the appropriate styling to the links. It also emits an event when the link is activated.
 
 ### Side Nav Bar Footer
 
@@ -40,18 +37,17 @@ and in your HTML:
 <lg-side-nav>
     <lg-side-nav-bar label="Side Nav Demo">
       <a id="side-nav-0"
+         href=""
          [routerLink]="'firstPage'"
-         [isActive]="true"
-         lgSideNavBarLink
-        <lg-side-nav-bar-item>
+        <lg-side-nav-bar-item [isActive]="true">
             <lg-side-nav-bar-item-heading>Overview</lg-side-nav-bar-item-heading>
         </lg-side-nav-bar-item>
       </a>
       <a id="side-nav-1"
+         href=""
          [routerLink]="'secondPage'"
-         lgSideNavBarLink
         >
-        <lg-side-nav-bar-item>
+        <lg-side-nav-bar-item [isActive]="false">
             <lg-side-nav-bar-item-heading>Personal details</lg-side-nav-bar-item-heading>
             <lg-side-nav-bar-item-content>Your name, date of birth, marital status and National Insurance Number.</lg-side-nav-bar-item-content>
         </lg-side-nav-bar-item>
@@ -70,5 +66,5 @@ and in your HTML:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-------:|:--------:|
-| isActive | specifies whether or not the navigation link is in an active state | boolean | false | No
+| isActive | specifies whether or not the navigation item is in an active state | boolean | false | No
 `;

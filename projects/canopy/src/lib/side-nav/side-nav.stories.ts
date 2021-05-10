@@ -16,13 +16,12 @@ import { LgMarginModule } from '../spacing';
       <lg-side-nav-bar label="Side Nav Demo">
         <a
           *ngFor="let item of navItems; index as i"
+          class="lg-side-nav-bar-item__container"
           id="side-nav-{{ i }}"
           href=""
           (click)="onClick($event, i)"
-          [isActive]="i == selectedNavIndex"
-          lgSideBarNavLink
         >
-          <lg-side-nav-bar-item>
+          <lg-side-nav-bar-item [isActive]="i == selectedNavIndex">
             <lg-side-nav-bar-item-heading>{{ item.title }}</lg-side-nav-bar-item-heading>
             <lg-side-nav-bar-item-content *ngIf="item.description">{{
               item.description
@@ -32,7 +31,7 @@ import { LgMarginModule } from '../spacing';
         <lg-side-nav-bar-footer>
           <a
             lg-button
-            lgMarginBottom="none"
+            lgMarginTop="xxl"
             variant="outline-primary"
             [fullWidth]="false"
             href="#"
@@ -67,7 +66,6 @@ export default {
         imports: [LgSideNavModule, LgButtonModule, LgMarginModule],
       }),
     ],
-    backgrounds: [{ name: 'default', value: '#FAF5F7', default: true }],
     notes: {
       markdown: notes,
     },
