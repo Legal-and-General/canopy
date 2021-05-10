@@ -5,49 +5,6 @@
   flex-direction: column-reverse;
 
   @include lg-breakpoint('lg') {
-    @include lg-card;
-
     flex-direction: row;
-    margin-bottom: 0;
-  }
-}
-
-.lg-side-nav-bar-link {
-  text-decoration: none;
-  color: var(--side-nav-bar-link-color);
-  border-bottom: var(--border-width) solid var(--color-platinum);
-  display: block;
-  padding: var(--space-sm);
-  width: 100%;
-
-  @include lg-breakpoint('md') {
-    padding: var(--space-sm);
-  }
-
-  @include lg-breakpoint('lg') {
-    padding: var(--space-sm) var(--space-xs);
-  }
-
-  &:visited {
-    color: var(--side-nav-bar-link-color);
-    text-decoration: none;
-  }
-
-  &:hover {
-    color: var(--side-nav-bar-link-hover-color);
-    border-bottom: var(--side-nav-bar-link-border-width-lg) solid
-      var(--side-nav-bar-link-hover-color);
-    padding-bottom: var(--space-xs);
-  }
-}
-
-.lg-side-nav-bar-link--selected {
-  color: var(--side-nav-bar-link-active-color);
-  border-bottom: var(--side-nav-bar-link-border-width-md) solid
-    var(--side-nav-bar-link-active-color);
-  padding-bottom: calc(var(--space-sm) - var(--side-nav-bar-link-border-width-md));
-
-  &:hover {
-    padding-bottom: calc(var(--space-xs) - var(--border-width));
   }
 }

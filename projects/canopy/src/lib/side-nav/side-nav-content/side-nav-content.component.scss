@@ -1,10 +1,8 @@
 @import '../../../styles/mixins';
 
 .lg-side-nav-content {
-  @include lg-card;
-
+  margin: 0 0 var(--space-sm) 0;
   width: 100%;
-  margin: 0;
 
   &:focus {
     @include lg-inner-focus-outline(var(--default-focus-color));
@@ -12,6 +10,5 @@
 
   @include lg-breakpoint('lg') {
     margin: 0 0 0 var(--space-xl);
-    padding: 0;
   }
 }

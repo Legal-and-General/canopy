@@ -1,14 +1,12 @@
 @import '../../../styles/mixins';
 
 .lg-side-nav-bar {
-  @include lg-card;
-
   position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   padding: 0;
-  margin: var(--component-margin) 0 0 0;
+  margin: var(--space-sm) 0 0 0;
   font-size: var(--text-base-size);
   font-weight: var(--tabs-list-item-font-weight);
 
@@ -16,10 +14,13 @@
     text-decoration: none;
   }
 
+  @include lg-breakpoint('md') {
+    margin: var(--space-sm) 0 0 0;
+  }
+
   @include lg-breakpoint('lg') {
     width: 33%;
-    margin: 0;
-    padding: 0 var(--component-margin) var(--component-margin) 0;
+    padding: 0 var(--space-xl) 0 0;
     border-right: var(--border-width) solid var(--color-platinum);
   }
 }

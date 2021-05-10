@@ -1,7 +1,6 @@
 :root {
-  --side-nav-bar-link-border-width-md: 0.1875rem; // 3px
-  --side-nav-bar-link-border-width-lg: 0.3125rem; // 5px
-  --side-nav-bar-link-color: var(--color-charcoal);
-  --side-nav-bar-link-hover-color: var(--color-midnight-blue);
-  --side-nav-bar-link-active-color: var(--color-super-blue);
+  --side-nav-bar-item-border-width-md: 0.1875rem; // 3px
+  --side-nav-bar-item-border-width-lg: 0.3125rem; // 5px
+  --side-nav-bar-hover-color: var(--color-midnight-blue);
+  --side-nav-bar-active-color: var(--color-super-blue);
 }
