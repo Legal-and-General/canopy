@@ -1,10 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   HostBinding,
-  Input,
-  Output,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -17,20 +14,4 @@ import {
 })
 export class LgSideNavBarItemComponent {
   @HostBinding('class.lg-side-nav-bar-item') class = true;
-
-  _isActive = false;
-
-  @Input()
-  set isActive(isActive) {
-    if (isActive) {
-      this.activated.emit();
-    }
-
-    this._isActive = isActive;
-  }
-  @HostBinding('class.lg-side-nav-bar-item--selected') get isActiveClass() {
-    return this._isActive;
-  }
-
-  @Output() activated: EventEmitter<void> = new EventEmitter();
 }
