@@ -1,5 +1,6 @@
 @import '../../styles/mixins.scss';
 
 .lg-card {
+  display: block;
   @include lg-card;
 }
