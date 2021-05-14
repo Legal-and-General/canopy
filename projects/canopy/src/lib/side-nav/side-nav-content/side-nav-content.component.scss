@@ -14,5 +14,6 @@
   @include lg-breakpoint('lg') {
     margin: 0 0 0 var(--space-xl);
     padding: 0;
+    flex: 2;
   }
 }
