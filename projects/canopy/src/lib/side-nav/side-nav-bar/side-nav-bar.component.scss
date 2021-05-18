@@ -17,9 +17,9 @@
   }
 
   @include lg-breakpoint('lg') {
-    width: 33%;
     margin: 0;
     padding: 0 var(--component-margin) var(--component-margin) 0;
     border-right: var(--border-width) solid var(--color-platinum);
+    flex: 1;
   }
 }
