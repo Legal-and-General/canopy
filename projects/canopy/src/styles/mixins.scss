@@ -22,7 +22,7 @@
   outline: var(--link-focus-outline) solid $bg-color;
 }
 
-@mixin lg-font-size($size, $modifier: null) {
+@mixin lg-font-size($size, $modifier: null, $type: null) {
   font-size: var(--text-fs-#{$size}-size);
   line-height: var(--text-fs-#{$size}-line-height);
 
@@ -30,6 +30,10 @@
     font-weight: var(--text-fs-#{$size}-weight--#{$modifier});
   } @else {
     font-weight: var(--text-fs-#{$size}-weight);
+  }
+
+  @if $type == 'expressive' {
+    font-family: var(--font-family-#{$type});
   }
 }
 
