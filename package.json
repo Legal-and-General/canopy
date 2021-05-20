@@ -26,7 +26,8 @@
     "build-storybook": "build-storybook --quiet -s ./assets",
     "build-styles": "webpack --config webpack.global.config.js",
     "postinstall": "ngcc",
-    "license-check:build": "npx license-checker --summary --start dist/canopy --onlyAllow 'MIT;Apache-2.0;0BSD'"
+    "license-check:build": "npx license-checker --summary --start dist/canopy --onlyAllow 'MIT;Apache-2.0;0BSD'",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=12.13.0"
@@ -87,7 +88,7 @@
     "cz-conventional-changelog": "^3.2.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^9.0.1",
-    "husky": "^4.2.5",
+    "husky": "^6.0.0",
     "jasmine-core": "^3.7.1",
     "jasmine-marbles": "^0.6.0",
     "jasmine-spec-reporter": "^6.0.0",
