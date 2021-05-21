@@ -24,6 +24,10 @@ updates:
       include: 'scope'
     versioning-strategy: increase
     ignore:
+      - dependency-name: "@angular/*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@angular-devkit/*"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "@storybook/addon-a11y"
         versions: ["6.x"]
       - dependency-name: "@storybook/addon-actions"
