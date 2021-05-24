@@ -1,0 +1,59 @@
+<section class="lg-carousel" [attr.aria-labelledby]="description">
+  <lg-heading [level]="headingLevel" class="lg-carousel__heading lg-visually-hidden">{{
+    description
+  }}</lg-heading>
+  <div
+    class="lg-carousel__active-content lg-visually-hidden"
+    aria-atomic="true"
+    aria-live="polite"
+    [innerHTML]="selectedItemContent"
+  ></div>
+  <div
+    class="lg-carousel__wrapper"
+    [style.width.%]="100 * carouselItemCount"
+    [style.left.%]="-100 * selectedItemIndex"
+    [style.transition]="'left ease ' + slideDuration / 1000 + 's'"
+  >
+    <ng-content></ng-content>
+  </div>
+
+  <div class="lg-carousel__navigation" role="tablist">
+    <button
+      role="tab"
+      class="lg-carousel__button"
+      (click)="previousCarouselItem()"
+      [disabled]="!loopMode && selectedItemIndex === 0"
+    >
+      <span class="lg-visually-hidden">Previous {{ description }} item</span>
+      <span class="lg-carousel__button__disk lg-carousel--centered">
+        <lg-icon name="chevron-left"></lg-icon>
+      </span>
+    </button>
+    <button
+      role="tab"
+      class="lg-carousel__button lg-carousel--centered"
+      (click)="selectCarouselItem(i)"
+      *ngFor="let item of carouselItems; let i = index"
+      [tabindex]="'0' ? i === selectedItemIndex : '-1'"
+      [attr.aria-selected]="i === selectedItemIndex"
+    >
+      <span class="lg-visually-hidden">{{ description }} {{ i + 1 }}</span>
+      <span class="lg-visually-hidden" *ngIf="i === selectedItemIndex">(selected)</span>
+      <span
+        class="lg-carousel__bullet"
+        [ngClass]="{ 'lg-carousel__bullet--active': i === selectedItemIndex }"
+      ></span>
+    </button>
+    <button
+      role="tab"
+      class="lg-carousel__button"
+      (click)="nextCarouselItem()"
+      [disabled]="!loopMode && selectedItemIndex === carouselItemCount - 1"
+    >
+      <span class="lg-visually-hidden">Next {{ description }} item</span>
+      <span class="lg-carousel__button__disk lg-carousel--centered">
+        <lg-icon name="chevron-right"></lg-icon>
+      </span>
+    </button>
+  </div>
+</section>

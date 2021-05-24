@@ -1,0 +1,209 @@
+import { Component, DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+
+import { MockComponents } from 'ng-mocks';
+
+import { LgHeadingComponent } from '../heading';
+import { LgIconComponent } from '../icon';
+import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
+import { LgCarouselComponent } from './carousel.component';
+
+@Component({
+  selector: 'lg-test-carousel',
+  template: `
+    <lg-carousel
+      [description]="description"
+      [headingLevel]="headingLevel"
+      [slideDuration]="slideDuration"
+      [loopMode]="loopMode"
+    >
+      <lg-carousel-item>
+        <h3>Carousel item 1</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+      </lg-carousel-item>
+      <lg-carousel-item>
+        <h3>Carousel item 2</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+      </lg-carousel-item>
+      <lg-carousel-item>
+        <h3>Carousel item 3</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+      </lg-carousel-item>
+    </lg-carousel>
+  `,
+})
+class TestCarouselComponent {
+  carouselComponentRef: LgCarouselComponent;
+  description = 'Test Carousel';
+  headingLevel = 1;
+  slideDuration = 500;
+  loopMode = false;
+}
+
+@Component({
+  selector: 'test-wrapper-component',
+  template: '<lg-test-carousel></lg-test-carousel>',
+})
+class TestWrapperComponent {}
+
+describe('LgCarouselComponent', () => {
+  let component: LgCarouselComponent;
+  let fixture: ComponentFixture<TestWrapperComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [
+        TestWrapperComponent,
+        TestWrapperComponent,
+        TestCarouselComponent,
+        LgCarouselItemComponent,
+        LgCarouselComponent,
+        MockComponents(LgHeadingComponent, LgIconComponent),
+      ],
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TestWrapperComponent);
+    component = fixture.debugElement.children[0].children[0].componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should detect the amount of carousel item components are nested in order to build the navigation and apply styles to the carousel wrapper', () => {
+    const wrapperElement = fixture.debugElement.query(By.css('.lg-carousel__wrapper'));
+    expect(component.carouselItemCount).toBe(3);
+    expect(wrapperElement.attributes['style']).toBe(
+      'width: 300%; left: 0%; transition: left 0.5s ease 0s;',
+    );
+  });
+
+  describe('navigation', () => {
+    let prevButton: DebugElement;
+    let bullet1: DebugElement;
+    let bullet2: DebugElement;
+    let bullet3: DebugElement;
+    let nextButton: DebugElement;
+    let bullet1Icon: DebugElement;
+    let bullet2Icon: DebugElement;
+    let bullet3Icon: DebugElement;
+
+    beforeEach(() => {
+      const buttons = fixture.debugElement.queryAll(By.css('.lg-carousel__button'));
+      prevButton = buttons[0];
+      bullet1 = buttons[1];
+      bullet2 = buttons[2];
+      bullet3 = buttons[3];
+      nextButton = buttons[4];
+
+      bullet1Icon = bullet1.query(By.css('.lg-carousel__bullet'));
+      bullet2Icon = bullet2.query(By.css('.lg-carousel__bullet'));
+      bullet3Icon = bullet3.query(By.css('.lg-carousel__bullet'));
+    });
+
+    it('should select the chosen carousel item as expected', () => {
+      expect(component.selectedItemIndex).toBe(0);
+      bullet2.nativeElement.click();
+      expect(component.selectedItemIndex).toBe(1);
+
+      fixture.detectChanges();
+      expect(
+        bullet2Icon.nativeElement.classList.contains('lg-carousel__bullet--active'),
+      ).toBe(true);
+    });
+
+    it('should navigate to the previous slide as expected', () => {
+      expect(component.selectedItemIndex).toBe(0);
+      bullet2.nativeElement.click();
+      fixture.detectChanges();
+      expect(component.selectedItemIndex).toBe(1);
+      prevButton.nativeElement.click();
+      expect(component.selectedItemIndex).toBe(0);
+
+      fixture.detectChanges();
+      expect(
+        bullet1Icon.nativeElement.classList.contains('lg-carousel__bullet--active'),
+      ).toBe(true);
+    });
+
+    it('should navigate to the next slide as expected', () => {
+      expect(component.selectedItemIndex).toBe(0);
+      nextButton.nativeElement.click();
+      expect(component.selectedItemIndex).toBe(1);
+      fixture.detectChanges();
+
+      nextButton.nativeElement.click();
+      expect(component.selectedItemIndex).toBe(2);
+
+      fixture.detectChanges();
+      expect(
+        bullet3Icon.nativeElement.classList.contains('lg-carousel__bullet--active'),
+      ).toBe(true);
+    });
+
+    it('should toggle the disabled attribute for the previous button when loopMode is true - disabled when the first slide is active', () => {
+      expect(prevButton.attributes['disabled']).toBe('');
+      bullet3.nativeElement.click();
+      fixture.detectChanges();
+      expect(prevButton.attributes['disabled']).toBeUndefined();
+    });
+
+    it('should toggle the disabled attribute for the next button when loopMode is true - disabled when the last slide is active', () => {
+      expect(nextButton.attributes['disabled']).toBeUndefined();
+      bullet3.nativeElement.click();
+      fixture.detectChanges();
+      expect(nextButton.attributes['disabled']).toBe('');
+    });
+
+    describe('accessibility', () => {
+      it('should populate the aria-live region with selected item text', () => {
+        const ariaLiveRegion = fixture.debugElement.query(
+          By.css('.lg-carousel__active-content'),
+        );
+
+        expect(ariaLiveRegion.nativeNode.innerText).toBe(
+          'Carousel item 1\n\nLorem ipsum dolor sit amet',
+        );
+
+        bullet2.nativeElement.click();
+        fixture.detectChanges();
+
+        expect(ariaLiveRegion.nativeNode.innerText).toBe(
+          'Carousel item 2\n\nLorem ipsum dolor sit amet',
+        );
+
+        bullet3.nativeElement.click();
+        fixture.detectChanges();
+
+        expect(ariaLiveRegion.nativeNode.innerText).toBe(
+          'Carousel item 3\n\nLorem ipsum dolor sit amet',
+        );
+      });
+    });
+
+    describe('loop mode enabled', () => {
+      beforeEach(() => {
+        component.loopMode = true;
+        fixture.detectChanges();
+      });
+
+      it('should navigate to the last slide when previousCarouselItem is invoked and the first slide is active', () => {
+        expect(component.selectedItemIndex).toBe(0);
+        component.previousCarouselItem();
+        expect(component.selectedItemIndex).toBe(2);
+      });
+
+      it('should navigate to the first slide when nextCarouselItem is invoked and the last slide is active', () => {
+        expect(component.selectedItemIndex).toBe(0);
+        bullet3.nativeElement.click();
+        expect(component.selectedItemIndex).toBe(2);
+        nextButton.nativeElement.click();
+        expect(component.selectedItemIndex).toBe(0);
+      });
+    });
+  });
+});
