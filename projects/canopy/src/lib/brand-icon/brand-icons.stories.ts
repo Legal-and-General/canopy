@@ -29,6 +29,8 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
   brandIconSet.lgBrandIconThumbsUp,
   brandIconSet.lgBrandIconVideoGuides,
   brandIconSet.lgBrandIconWarning,
+  brandIconSet.lgBrandIconMinutes,
+  brandIconSet.lgBrandIconQuickAndEasy,
 ];
 
 @Component({
