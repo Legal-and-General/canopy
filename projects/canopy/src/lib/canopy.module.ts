@@ -7,6 +7,7 @@ import { LgBrandIconModule } from './brand-icon/brand-icon.module';
 import { LgBreadcrumbModule } from './breadcrumb/breadcrumb.module';
 import { LgButtonModule } from './button/button.module';
 import { LgCardModule } from './card/card.module';
+import { LgCarouselModule } from './carousel/carousel.module';
 import { LgDataPointModule } from './data-point/data-point.module';
 import { LgDetailsModule } from './details/details.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
@@ -67,6 +68,7 @@ const modules = [
   LgTableModule,
   LgTabsModule,
   LgVariantModule,
+  LgCarouselModule,
 ];
 
 @NgModule({

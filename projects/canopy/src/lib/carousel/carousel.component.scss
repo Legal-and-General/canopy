@@ -1,0 +1,64 @@
+.lg-carousel {
+  overflow: hidden;
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__navigation {
+    padding-top: var(--space-sm);
+    display: flex;
+    justify-content: center;
+  }
+
+  &--centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &__disk {
+      width: var(--space-xxl);
+      height: var(--space-xxl);
+      border-radius: 100%;
+    }
+
+    &:hover:not([disabled]) .lg-carousel__button__disk {
+      background-color: var(--carousel-nav-background-color);
+    }
+
+    &[disabled] {
+      cursor: default;
+    }
+  }
+
+  &__bullet {
+    width: var(--space-xxs);
+    height: var(--space-xxs);
+    background-color: var(--carousel-bullet-color);
+    display: block;
+    border-radius: 100%;
+    transition: all var(--animation-fn) var(--animation-duration);
+
+    &--active {
+      width: var(--space-xs);
+      height: var(--space-xs);
+      background-color: var(--carousel-active-bullet-color);
+    }
+  }
+}
