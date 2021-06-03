@@ -8,11 +8,11 @@ describe('LgErrorStateMatcher', () => {
   });
 
   it('does nothing if there is not an id to add and the current property is null', () => {
-    expect(service.toggleIdInStringProperty(null, { id: 'id-1' }, undefined)).toBe(null);
+    expect(service.toggleIdInStringProperty(null, { id: 'id-1' }, undefined)).toBeNull();
   });
 
-  it('defaults the property to a string if it is undefined', () => {
-    expect(service.toggleIdInStringProperty(undefined, { id: 'id-1' })).toBe('');
+  it('defaults the property to null if it is undefined', () => {
+    expect(service.toggleIdInStringProperty(undefined, { id: 'id-1' })).toBeNull();
   });
 
   it('removes the id of the old element if there is one', () => {
