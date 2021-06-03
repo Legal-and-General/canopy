@@ -1,9 +1,9 @@
 {
+  "branches": [
+    "master",
+    {"name": "next", "prerelease": true}
+  ],
   "plugins": [
-    "branches": [
-      "master",
-      {"name": "next", "channel": "next", "prerelease": "next"}
-    ],
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/npm", {

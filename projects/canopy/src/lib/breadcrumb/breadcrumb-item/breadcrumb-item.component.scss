@@ -38,6 +38,10 @@
     }
   }
 
+  a {
+    @include lg-unstyled-link;
+  }
+
   a,
   span {
     display: flex;

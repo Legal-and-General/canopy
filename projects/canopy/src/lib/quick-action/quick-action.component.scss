@@ -1,6 +1,8 @@
 @import '../../styles/mixins.scss';
 
 .lg-quick-action {
+  @include lg-unstyled-link;
+
   display: inline-block;
   text-decoration: none;
   font-weight: var(--font-weight-bold);
@@ -14,12 +16,14 @@
   appearance: none;
   color: var(--link-color);
 
-  &:hover {
+  &:hover,
+  &:focus:hover {
     background-color: var(--quick-action-hover-bg-color);
     color: var(--quick-action-hover-color);
   }
 
-  &:active {
+  &:active,
+  &:active:focus {
     background-color: var(--quick-action-active-bg-color);
     color: var(--quick-action-active-color);
   }
@@ -29,6 +33,11 @@
   }
 
   &:focus {
+    color: var(--link-color);
+  }
+
+  &:focus,
+  &:focus:hover {
     @include lg-outer-focus-outline(var(--default-focus-color));
   }
 
