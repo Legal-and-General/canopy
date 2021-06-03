@@ -13,6 +13,8 @@
 }
 
 .lg-side-nav-bar-link {
+  @include lg-unstyled-link();
+
   text-decoration: none;
   color: var(--side-nav-bar-link-color);
   border-bottom: var(--border-width) solid var(--color-platinum);
