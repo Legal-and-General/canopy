@@ -41,6 +41,14 @@ export class LgDomService {
       property = `${property} ${newElement.id}`;
     }
 
-    return property.trim();
+    property = property.trim();
+
+    // We set empty string to null so that the aria-describedby is
+    // not set empty in the DOM
+    if (property === '') {
+      property = null;
+    }
+
+    return property;
   }
 }
