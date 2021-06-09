@@ -11,8 +11,16 @@
   @include lg-breakpoint('lg') {
     margin-bottom: var(--space-sm);
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+
+    @include lg-font-size('4', 'strong', 'expressive');
+  }
 }
 
-.lg-promo-card-title__heading {
-  margin-bottom: 0;
-}

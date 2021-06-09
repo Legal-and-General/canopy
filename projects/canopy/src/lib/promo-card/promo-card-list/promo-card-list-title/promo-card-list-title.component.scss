@@ -1,11 +1,22 @@
 @import '../../../../styles/mixins';
 
-.lg-promo-card-list-title__heading {
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-lg);
+.lg-promo-card-list-title {
 
-  @include lg-breakpoint('lg') {
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-xxl);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-lg);
+
+    @include lg-font-size('5', 'strong', 'expressive');
+
+    @include lg-breakpoint('lg') {
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-xxl);
+    }
   }
 }
