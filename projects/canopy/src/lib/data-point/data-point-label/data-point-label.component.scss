@@ -1,7 +1,12 @@
 .lg-data-point-label {
   margin-bottom: var(--space-xxxs);
 
-  &__heading-wrapper {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-size: var(--text-base-size);
     font-weight: var(--font-weight-bold);
     line-height: var(--text-fs--6-line-height);
