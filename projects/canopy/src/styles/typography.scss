@@ -1,6 +1,6 @@
 @import '../styles/mixins.scss';
 $fonts-path: '../assets/fonts' !default;
-$fonts-path-lyon: '/assets/fonts';
+$fonts-path-lyon: '/assets/fonts' !default;
 
 /*
   Lyon - font path is not transformed by the build, see USAGE.md for details
