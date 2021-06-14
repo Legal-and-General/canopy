@@ -112,6 +112,7 @@
 
 .lg-footer__nav-link {
   @include lg-unstyled-link;
+
   text-decoration: none;
   color: var(--footer-text-color);
 
