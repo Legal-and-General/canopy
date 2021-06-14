@@ -44,4 +44,6 @@ and in your HTML:
 
 All three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.
 
+The form will return \`requiredField\` when all of the inputs are left empty and \`invalidField\` when any of the inputs are invalid.
+
 `;
