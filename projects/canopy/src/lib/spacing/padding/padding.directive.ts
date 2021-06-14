@@ -1,6 +1,8 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import { ResponsiveSpacing, SpacingVariant } from '../spacing.interface';
+import { BreakpointValues } from '../../shared/breakpoints.interface';
+import { DyanmicStyleService } from '../../utils/dynamic-style.service';
+import { SpacingResponsive, SpacingValues, SpacingVariant } from '../spacing.interface';
 
 @Directive({
   selector: `
@@ -16,62 +18,73 @@ import { ResponsiveSpacing, SpacingVariant } from '../spacing.interface';
 export class LgPaddingDirective {
   paddingTopClasses: Array<string> = [];
   @Input()
-  set lgPaddingTop(padding: SpacingVariant | ResponsiveSpacing) {
+  set lgPaddingTop(padding: SpacingVariant | SpacingResponsive) {
     const newClasses = this.createNewClasses(padding, 'lg-padding__top');
     this.paddingTopClasses = this.toggleClasses(newClasses, this.paddingTopClasses);
   }
 
   paddingRightClasses: Array<string> = [];
   @Input()
-  set lgPaddingRight(padding: SpacingVariant | ResponsiveSpacing) {
+  set lgPaddingRight(padding: SpacingVariant | SpacingResponsive) {
     const newClasses = this.createNewClasses(padding, 'lg-padding__right');
     this.paddingRightClasses = this.toggleClasses(newClasses, this.paddingRightClasses);
   }
 
   paddingBottomClasses: Array<string> = [];
   @Input()
-  set lgPaddingBottom(padding: SpacingVariant | ResponsiveSpacing) {
+  set lgPaddingBottom(padding: SpacingVariant | SpacingResponsive) {
     const newClasses = this.createNewClasses(padding, 'lg-padding__bottom');
     this.paddingBottomClasses = this.toggleClasses(newClasses, this.paddingBottomClasses);
   }
 
   paddingLeftClasses: Array<string> = [];
   @Input()
-  set lgPaddingLeft(padding: SpacingVariant | ResponsiveSpacing) {
+  set lgPaddingLeft(padding: SpacingVariant | SpacingResponsive) {
     const newClasses = this.createNewClasses(padding, 'lg-padding__left');
     this.paddingLeftClasses = this.toggleClasses(newClasses, this.paddingLeftClasses);
   }
 
   @Input()
-  set lgPaddingHorizontal(padding: SpacingVariant | ResponsiveSpacing) {
+  set lgPaddingHorizontal(padding: SpacingVariant | SpacingResponsive) {
     this.lgPaddingLeft = padding;
     this.lgPaddingRight = padding;
   }
 
   @Input()
-  set lgPaddingVertical(padding: SpacingVariant | ResponsiveSpacing) {
+  set lgPaddingVertical(padding: SpacingVariant | SpacingResponsive) {
     this.lgPaddingTop = padding;
     this.lgPaddingBottom = padding;
   }
 
   paddingClasses: Array<string> = [];
   @Input()
-  set lgPadding(padding: SpacingVariant | ResponsiveSpacing) {
-    const newClasses = this.createNewClasses(padding, 'lg-padding');
+  set lgPadding(padding: SpacingVariant | SpacingResponsive) {
+    const newClasses = this.createNewClasses(padding, 'padding');
     this.paddingClasses = this.toggleClasses(newClasses, this.paddingClasses);
   }
 
-  createNewClasses(padding: SpacingVariant | ResponsiveSpacing, classPrefix: string) {
+  createNewClasses(spacing: SpacingVariant | SpacingResponsive, spacingProp: string) {
     const newClasses = [];
-    if (!padding) {
+    if (!spacing) {
       return [];
     }
-    if (typeof padding === 'object') {
-      Object.keys(padding).forEach((key) => {
-        newClasses.push(`${classPrefix}--${key}--${padding[key]}`);
+    if (typeof spacing === 'object') {
+      Object.keys(spacing).forEach((key) => {
+        const className = `lg-${spacingProp}--${key}--${spacing[key]}`;
+        const spacingKey = spacing[key];
+        const styleRule = `${spacingProp}: ${SpacingValues[spacingKey]}`;
+        this.dynamicStyleService.addStyleToMediaQuery(
+          className,
+          styleRule,
+          BreakpointValues[key],
+        );
+        newClasses.push(className);
       });
     } else {
-      newClasses.push([`${classPrefix}--${padding}`]);
+      const className = `lg-${spacingProp}--${spacing}`;
+      const styleRule = `${spacingProp}: ${SpacingValues[spacing]}`;
+      this.dynamicStyleService.addStyle(className, styleRule);
+      newClasses.push([`lg-${spacingProp}--${spacing}`]);
     }
     return newClasses;
   }
@@ -88,5 +101,9 @@ export class LgPaddingDirective {
     return newClasses;
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+    private dynamicStyleService: DyanmicStyleService,
+  ) {}
 }
