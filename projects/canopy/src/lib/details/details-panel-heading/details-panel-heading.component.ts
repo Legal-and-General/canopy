@@ -33,7 +33,7 @@ export class LgDetailsPanelHeadingComponent {
     return this._showIcon;
   }
 
-  _variant: Variant = 'generic';
+  _variant: Variant = Variant.Generic;
   @Input()
   set variant(variant: Variant) {
     this._variant = variant;
