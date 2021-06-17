@@ -1,0 +1,10 @@
+@import '../../../styles/mixins';
+
+.lg-modal-body {
+  display: block;
+  padding: var(--space-sm);
+
+  @include lg-breakpoint(md) {
+    padding: var(--space-md);
+  }
+}

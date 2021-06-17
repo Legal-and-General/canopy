@@ -120,3 +120,6 @@ The Roboto font is stored in **/projects/canopy/src/assets/fonts/roboto** as nor
 The Lyon font files are stored in **/assets/fonts** and ommitted from the distributed package via the Webpack config. The `css-loader` options prevent it from transforming any URL referencing the Lyon font. This means the path will stay as relative to the base URL of the consuming application (/assets/fonts), therefore looking in the assets directory of consuming app.
 
 For more info, see the fonts section in USAGE.md.
+
+# Angular Material CDK
+The `@angular/cdk` can be used as long as only the necessary functionality is imported. 
