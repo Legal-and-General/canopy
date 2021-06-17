@@ -17,13 +17,13 @@ Import the component in your module:
 and in your HTML:
 
 ~~~html
-<button lg-button type="button" [variant]="solid-primary">Button</button>
+<button lg-button type="button" variant="solid-primary">Button</button>
 ~~~
 
 or:
 
 ~~~html
-<a lg-button href="#" [variant]="primary">Link</a>
+<a lg-button href="#" variant="primary">Link</a>
 ~~~
 
 ## Button with icon with text
@@ -33,7 +33,7 @@ The \`ButtonIconPosition\` property can be used to locate the icon on the left h
 Content projection is used as Canopy Icons need loading via the \`iconRegistry\` which enables tree shaking of icons.
 
 ~~~html
-<button lg-button type="button" [iconPosition]="left" >
+<button lg-button type="button" iconPosition="left" >
   Add item
   <lg-icon name="add" />
 </button>
@@ -46,13 +46,13 @@ You will still need to include text content inside the button as this informatio
 The \`iconButton\` property is used to visually hide that text.
 
 ~~~html
-<button lg-button type="button" [iconButton]="true" >
+<button lg-button type="button" iconButton="true" >
   Add item
   <lg-icon name="add" />
 </button>
 ~~~
 
-## Inputs
+## ButtonComponent inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
@@ -63,6 +63,17 @@ The \`iconButton\` property is used to visually hide that text.
 | \`\`loading\`\` | If the button shows a loading spinner and is also disabled | boolean | false | No |
 | \`\`iconPosition\`\` | The position of the icon in the button | string | right | No |
 | \`\`iconButton\`\` | The button displays an icon only | boolean | false | No |
+
+## Button group
+
+Buttons can be grouped together by using the \`\`ButtonGroupComponent\`\`:
+
+~~~html
+<lg-button-group>
+  <button lg-button type="button" variant="solid-primary">Button</button>
+  <a lg-button href="#" variant="outline-primary">Link</a>
+</lg-button-group>
+~~~
 
 ## Using only the SCSS files
 

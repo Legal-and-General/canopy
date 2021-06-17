@@ -567,6 +567,20 @@
               </tbody>
             </table>
 
+            <lg-heading level="3">Modal</lg-heading>
+
+            <button lgModalTrigger="modal" lg-button type="button" variant="outline-primary">Open modal</button>
+            <lg-modal id="modal">
+              <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>
+              <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>
+              <lg-modal-footer>
+                <lg-button-group>
+                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>
+                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Cancel</button>
+                </lg-button-group>
+              </lg-modal-footer>
+            </lg-modal>
+
             <lg-heading level="3">Carousel</lg-heading>
 
             <lg-carousel [description]="'Example Carousel'" [headingLevel]="4" [slideDuration]="500">
