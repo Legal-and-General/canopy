@@ -14,14 +14,10 @@
     #sortCodeFormDirective="ngForm"
   >
     <div class="lg-sort-code__input">
-      <label lg-label class="lg-visually-hidden" [for]="firstId"
-        >First two digits of your sort code</label
-      >
-
-      <lg-input-field lgMarginBottom="none">
+      <lg-input-field lgMarginBottom="none" [showLabel]="false">
+        First two digits of your sort code
         <input
           lgInput
-          [id]="firstId"
           (blur)="onBlur()"
           (input)="first.setValue($event.target.value)"
           formControlName="first"
@@ -34,13 +30,10 @@
       </lg-input-field>
     </div>
     <div class="lg-sort-code__input">
-      <label lg-label class="lg-visually-hidden" [for]="secondId"
-        >Second two digits of your sort code</label
-      >
-      <lg-input-field lgMarginBottom="none">
+      <lg-input-field lgMarginBottom="none" [showLabel]="false">
+        Second two digits of your sort code
         <input
           lgInput
-          [id]="secondId"
           (blur)="onBlur()"
           (input)="second.setValue($event.target.value)"
           formControlName="second"
@@ -53,13 +46,10 @@
       </lg-input-field>
     </div>
     <div class="lg-sort-code__input">
-      <label lg-label class="lg-visually-hidden" [for]="thirdId"
-        >Third two digits of your sort code</label
-      >
-      <lg-input-field lgMarginBottom="none">
+      <lg-input-field lgMarginBottom="none" [showLabel]="false">
+        Third two digits of your sort code
         <input
           lgInput
-          [id]="thirdId"
           (blur)="onBlur()"
           (input)="third.setValue($event.target.value)"
           formControlName="third"

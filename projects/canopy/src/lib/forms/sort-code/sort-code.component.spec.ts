@@ -189,18 +189,6 @@ describe('SortCodeComponent', () => {
     });
   });
 
-  it('sets unique identifiers for each input field', () => {
-    expect(/lg-input-sort-code-first-\d{1,3}/.test(firstInput.nativeElement.id)).toBe(
-      true,
-    );
-    expect(/lg-input-sort-code-second-\d{1,3}/.test(secondInput.nativeElement.id)).toBe(
-      true,
-    );
-    expect(/lg-input-sort-code-third-\d{1,3}/.test(thirdInput.nativeElement.id)).toBe(
-      true,
-    );
-  });
-
   it('replaces empty fields with an empty string if sort code is not complete', (done) => {
     component.sortCodeChange.pipe(skip(1)).subscribe((change) => {
       expect(change.sortCode).toBe('1020');
