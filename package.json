@@ -82,7 +82,7 @@
     "babel-loader": "^8.1.0",
     "codelyzer": "^6.0.2",
     "color-convert": "^2.0.1",
-    "commitizen": "^4.2.3",
+    "commitizen": "^4.2.4",
     "copy-webpack-plugin": "^6.4.1",
     "css-vars-ponyfill": "^2.4.3",
     "cz-conventional-changelog": "^3.2.0",
