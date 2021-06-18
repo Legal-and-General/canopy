@@ -35,9 +35,6 @@ and in your HTML:
 | \`\`disabled\`\` | Set the three inner input fields to disabled if \`\`true\`\` | boolean | \`\`false\`\` | No |
 | \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
 | \`\`labelId\`\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \`\`lg-input-sort-code-label-\${nextUniqueId}\`\` | No |
-| \`\`firstId\`\` | HTML ID attribute for the first number input, auto generated if not provided | string | \`\`lg-input-sort-code-first-\${nextUniqueId}\`\` | No |
-| \`\`secondId\`\` | HTML ID attribute for the second number input, auto generated if not provided | string | \`\`lg-input-sort-code-second-\${nextUniqueId}\`\` | No |
-| \`\`thirdId\`\` | HTML ID attribute for the third number input, auto generated if not provided | string | \`\`lg-input-sort-code-third-\${nextUniqueId}\`\` | No |
 | \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |
 
 ## Validation
