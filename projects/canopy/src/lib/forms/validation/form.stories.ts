@@ -193,7 +193,12 @@ function invalidValidator(): ValidatorFn {
         Sort Code
         <lg-hint>Must be 6 digits long</lg-hint>
         <lg-validation *ngIf="isControlInvalid(sortCode, validationForm)">
-          Your sort code should be a 6 digit number
+          <ng-container *ngIf="sortCode.hasError('requiredField')">
+            Enter a sort code
+          </ng-container>
+          <ng-container *ngIf="sortCode.hasError('invalidField')">
+            Enter a valid sort code
+          </ng-container>
         </lg-validation>
       </lg-sort-code>
 

@@ -270,30 +270,16 @@ describe('SortCodeComponent', () => {
       });
     });
 
-    it('adds a required field validation rule if first input field is empty', () => {
+    it('adds a required field validation rule if all the input fields are empty', () => {
       sortCodeFieldInstance.first.markAsDirty();
-      sortCodeFieldInstance.first.setValue('');
-      fixture.detectChanges();
-      expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
-        invalidField: true,
-      });
-    });
-
-    it('adds an invalid field validation rule if the second input field is empty', () => {
       sortCodeFieldInstance.second.markAsDirty();
-      sortCodeFieldInstance.second.setValue('');
-      fixture.detectChanges();
-      expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
-        invalidField: true,
-      });
-    });
-
-    it('adds an invalid field validation rule if the third input field is empty', () => {
       sortCodeFieldInstance.third.markAsDirty();
+      sortCodeFieldInstance.first.setValue('');
+      sortCodeFieldInstance.second.setValue('');
       sortCodeFieldInstance.third.setValue('');
       fixture.detectChanges();
       expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
-        invalidField: true,
+        requiredField: true,
       });
     });
   });

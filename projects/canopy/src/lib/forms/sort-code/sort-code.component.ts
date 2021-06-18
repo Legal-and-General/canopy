@@ -158,18 +158,30 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
   }
 
   validate(): ValidationErrors {
-    const errors: ValidationErrors = {};
+    const invalidFields: Array<string> = [];
     Object.keys(this.sortCodeFormGroup.controls).forEach((fieldName) => {
       if (
         this.sortCodeFormGroup.controls[fieldName].invalid &&
         (this.sortCodeFormGroup.controls[fieldName].dirty ||
           (this.formGroupDirective && this.formGroupDirective.submitted))
       ) {
-        errors.invalidField = true;
+        invalidFields.push(fieldName);
       }
     });
-    if (Object.keys(errors).length) {
-      return errors;
+
+    const requiredFields = invalidFields.filter((fieldName) =>
+      this.sortCodeFormGroup.controls[fieldName].hasError('required'),
+    );
+
+    const error: ValidationErrors = {};
+    if (requiredFields.length === 3) {
+      error.requiredField = true;
+    } else if (invalidFields.length) {
+      error.invalidField = true;
+    }
+
+    if (Object.keys(error).length) {
+      return error;
     }
     return null;
   }
