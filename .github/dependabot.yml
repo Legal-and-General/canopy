@@ -24,6 +24,8 @@ updates:
       include: 'scope'
     versioning-strategy: increase
     ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "@angular/*"
         update-types: ["version-update:semver-major"]
       - dependency-name: "@angular-devkit/*"
