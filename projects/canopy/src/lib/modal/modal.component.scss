@@ -1,0 +1,54 @@
+@import '../../styles/mixins';
+
+.lg-modal-overlay {
+  background-color: var(--overlay-color);
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-index-modal-overlay);
+}
+
+.lg-modal-overlay:before,
+.lg-modal {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.lg-modal {
+  animation-duration: var(--animation-duration);
+  animation-name: opacity;
+  left: 50%;
+  max-height: 100%;
+  overflow-y: auto;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  z-index: var(--z-index-modal);
+
+  @include lg-breakpoint(md) {
+    left: 50%;
+    max-width: 37rem;
+    position: fixed;
+    transform: translate(-50%, -50%);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  @keyframes opacity {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
