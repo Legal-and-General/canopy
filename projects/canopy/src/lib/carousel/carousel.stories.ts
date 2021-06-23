@@ -23,28 +23,28 @@ export default {
 };
 
 const carouselItems = `
-<lg-carousel-item>
+<lg-carousel-item style="background-color: #028844; color: #FFFFFF">
   <h3>Carousel item 1</h3>
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
 </lg-carousel-item>
 
-<lg-carousel-item>
+<lg-carousel-item style="background-color: #0076D6; color: #FFFFFF">
   <h3>Carousel item 2</h3>
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
 </lg-carousel-item>
 
-<lg-carousel-item>
+<lg-carousel-item style="background-color: #028844; color: #FFFFFF">
   <h3>Carousel item 3</h3>
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
 </lg-carousel-item>
 
-<lg-carousel-item>
+<lg-carousel-item style="background-color: #0076D6; color: #FFFFFF">
   <h3>Carousel item 4</h3>
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
@@ -73,5 +73,10 @@ export const standard = () => ({
 
 export const loopModeEnabled = () => ({
   template: `<lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [loopMode]="true">${carouselItems}</lg-carousel>`,
+  props: props(),
+});
+
+export const autoPlayEnabled = () => ({
+  template: `<lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [autoPlayDelay]="5000" [autoPlay]="true">${carouselItems}</lg-carousel>`,
   props: props(),
 });
