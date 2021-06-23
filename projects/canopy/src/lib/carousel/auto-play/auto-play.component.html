@@ -1,0 +1,18 @@
+<button
+  class="lg-carousel-autoplay__btn lg-carousel-autoplay__btn--pause"
+  *ngIf="!pause.value"
+  (click)="pause.next(true)"
+  type="button"
+>
+  <span class="lg-visually-hidden">Stop Animation</span>
+  <lg-icon name="pause"></lg-icon>
+</button>
+<button
+  class="lg-carousel-autoplay__btn lg-carousel-autoplay__btn--play"
+  *ngIf="pause.value"
+  (click)="pause.next(false)"
+  type="button"
+>
+  <span class="lg-visually-hidden">Start Animation</span>
+  <lg-icon name="play"></lg-icon>
+</button>
