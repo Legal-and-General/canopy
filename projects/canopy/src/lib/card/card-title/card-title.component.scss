@@ -4,6 +4,15 @@
   color: var(--card-title-color);
   display: block;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0;
+  }
+
   a {
     @include lg-unstyled-link;
 
@@ -11,8 +20,4 @@
     outline: none;
     text-decoration: none;
   }
-}
-
-.lg-card-title__heading {
-  margin-bottom: 0;
 }
