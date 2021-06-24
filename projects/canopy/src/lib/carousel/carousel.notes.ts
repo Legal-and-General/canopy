@@ -39,4 +39,6 @@ and in your HTML:
 | \`\`slideDuration\`\` | Duration in milliseconds of the transition between slides.                                               | number  |   500     |   No     |
 | \`\`description\`\`   | Text used to describe the carousel content for screen readers. This is visually hidden.                  | string  | undefined |   Yes    |
 | \`\`headingLevel\`\`  | The heading level of the description: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\`   | number  | undefined |   Yes    |
+| \`\`autoPlay\`\`      | Enables auto play mode when set to true.                                                                 | boolean |   false   |   No     |
+| \`\`autoPlayDelay\`\` | Delay time in milliseconds to switch to next slide when autoPlay mode is set to true.                    | number  |   2000    |   No     |
 `;
