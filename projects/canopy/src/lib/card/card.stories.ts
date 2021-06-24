@@ -158,7 +158,7 @@ export const standard = () => ({
         </lg-card-title>
       </lg-card-header>
       <lg-card-content>
-        {{cardContent}}
+        {{cardContent}} <a href="#">Test link</a>.
       </lg-card-content>
     </lg-card>
   `,
