@@ -101,6 +101,10 @@ export class LgTableCellComponent {
     return this._showLabel;
   }
 
+  @HostBinding('class.lg-table-cell--stacked')
+  @Input()
+  stack = false;
+
   private _align: AlignmentOptions = AlignmentOptions.Start;
 
   private _showLabel = true;
