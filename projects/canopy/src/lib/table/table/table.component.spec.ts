@@ -202,12 +202,14 @@ describe('TableComponent', () => {
         fixture.detectChanges();
       });
 
-      it('should add the lg-table-cell__content class to the table cell', () => {
+      it('should not add the lg-table-cell__content--hidden-label class to the table cell', () => {
         const [titleCell] = tableDebugElement.queryAll(
           By.directive(LgTableCellComponent),
         );
 
-        expect(titleCell.query(By.css('.lg-table-cell__content'))).toBeDefined();
+        expect(titleCell.query(By.css('.lg-table-cell__content--hidden-label'))).toBe(
+          null,
+        );
       });
 
       it('should not add the lg-visually-hidden class to the label', () => {
@@ -233,12 +235,14 @@ describe('TableComponent', () => {
         fixture.detectChanges();
       });
 
-      it('should not add the lg-table-cell__content class to the table cell', () => {
+      it('should add the lg-table-cell__content--hidden-label class to the table cell', () => {
         const [titleCell] = tableDebugElement.queryAll(
           By.directive(LgTableCellComponent),
         );
 
-        expect(titleCell.query(By.css('.lg-table-cell__content'))).toBe(null);
+        expect(
+          titleCell.query(By.css('.lg-table-cell__content--hidden-label')),
+        ).toBeDefined();
       });
 
       it('should add the lg-visually-hidden class to the label', () => {
