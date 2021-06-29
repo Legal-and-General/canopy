@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+
+.lg-modal-footer {
+  border-top: var(--border-width) solid var(--color-platinum);
+  display: block;
+  padding: var(--space-sm);
+
+  @include lg-breakpoint(md) {
+    padding: var(--space-md);
+  }
+}

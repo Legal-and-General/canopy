@@ -1,12 +1,17 @@
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChildren,
   Input,
+  OnDestroy,
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
+
+import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
+import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 
 import { HeadingLevel } from '../heading';
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
@@ -18,11 +23,13 @@ import { LgCarouselItemComponent } from './carousel-item/carousel-item.component
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgCarouselComponent implements AfterContentInit {
+export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   @Input() description: string;
   @Input() headingLevel: HeadingLevel;
   @Input() loopMode = false;
   @Input() slideDuration = 500;
+  @Input() autoPlay = false;
+  @Input() autoPlayDelay = 2000;
 
   @ContentChildren(LgCarouselItemComponent, { read: LgCarouselItemComponent })
   carouselItems = new QueryList<LgCarouselItemComponent>();
@@ -30,6 +37,9 @@ export class LgCarouselComponent implements AfterContentInit {
   carouselItemCount: number;
   selectedItemIndex: number;
   selectedItemContent: string;
+  private unsubscribe: Subject<void> = new Subject<void>();
+  pause = new BehaviorSubject<boolean>(false);
+  pausableTimer$: Observable<void>;
 
   selectCarouselItem(index: number): void {
     this.selectedItemIndex = index;
@@ -40,6 +50,7 @@ export class LgCarouselComponent implements AfterContentInit {
       carouselItem.selected = false;
     });
     this.selectedItem.selected = true;
+    this.cd.detectChanges();
   }
 
   nextCarouselItem(): void {
@@ -58,8 +69,31 @@ export class LgCarouselComponent implements AfterContentInit {
     }
   }
 
+  setAutoPlayInterval(): void {
+    this.pausableTimer$ = defer(() => {
+      return interval(this.autoPlayDelay).pipe(
+        takeUntil(this.unsubscribe),
+        withLatestFrom(this.pause),
+        filter(([, paused]) => !paused),
+        map(() => this.nextCarouselItem()),
+      );
+    });
+    this.pausableTimer$.subscribe();
+    this.cd.detectChanges();
+  }
+
   ngAfterContentInit(): void {
     this.carouselItemCount = this.carouselItems.length;
     this.selectCarouselItem(0);
+    if (this.autoPlay) {
+      this.setAutoPlayInterval();
+    }
   }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+  }
+
+  constructor(private cd: ChangeDetectorRef) {}
 }

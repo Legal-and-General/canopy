@@ -2,6 +2,7 @@
   <lg-heading [level]="headingLevel" class="lg-carousel__heading lg-visually-hidden">{{
     description
   }}</lg-heading>
+  <lg-auto-play *ngIf="autoPlay" [pause]="pause"></lg-auto-play>
   <div
     class="lg-carousel__active-content lg-visually-hidden"
     aria-atomic="true"
@@ -43,6 +44,18 @@
         class="lg-carousel__bullet"
         [ngClass]="{ 'lg-carousel__bullet--active': i === selectedItemIndex }"
       ></span>
+      <svg
+        class="lg-carousel__button-timer"
+        *ngIf="autoPlay && i === selectedItemIndex && !pause.value"
+      >
+        <circle
+          class="lg-carousel__button-timer__circle"
+          [style.animation-duration.s]="autoPlayDelay / 1000"
+          r="18"
+          cx="20"
+          cy="20"
+        ></circle>
+      </svg>
     </button>
     <button
       role="tab"

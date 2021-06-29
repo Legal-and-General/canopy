@@ -1,5 +1,11 @@
 import { Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  discardPeriodicTasks,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
@@ -204,6 +210,68 @@ describe('LgCarouselComponent', () => {
         nextButton.nativeElement.click();
         expect(component.selectedItemIndex).toBe(0);
       });
+    });
+
+    describe('auto play', () => {
+      beforeEach(() => {
+        component.autoPlay = true;
+        component.autoPlayDelay = 100;
+        fixture.detectChanges();
+      });
+
+      it('should set the timer correctly', fakeAsync(() => {
+        component.ngAfterContentInit();
+        expect(component.selectedItemIndex).toBe(0);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(1);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(2);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(0);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(1);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(2);
+        discardPeriodicTasks();
+      }));
+
+      it('should pause the timer', fakeAsync(() => {
+        component.ngAfterContentInit();
+        expect(component.selectedItemIndex).toBe(0);
+        component['pause'].next(true);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(0);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(0);
+        discardPeriodicTasks();
+      }));
+
+      it('should restart a paused timer', fakeAsync(() => {
+        component.ngAfterContentInit();
+        expect(component.selectedItemIndex).toBe(0);
+        component['pause'].next(true);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(0);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(0);
+        component['pause'].next(false);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(1);
+        tick(100);
+        fixture.detectChanges();
+        expect(component.selectedItemIndex).toBe(2);
+        discardPeriodicTasks();
+      }));
     });
   });
 });

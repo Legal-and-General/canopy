@@ -5,8 +5,14 @@
 
   --drop-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.12), 0 0 0.25rem 0 rgba(0, 0, 0, 0.16);
   --bottom-shadow: 0 0.3125rem 0.25rem 0 rgba(0, 0, 0, 0.03);
+  --overlay-color: rgba(0, 0, 0, 0.5);
 
   --default-focus-color: var(--color-dandelion-yellow);
+
+  /* z-index */
+  --z-index-modal-overlay: 1000;
+  --z-index-modal: 1010;
+  --z-index-carousel-autoplay: 1;
 
   /* Animation */
   --animation-duration: 0.25s;

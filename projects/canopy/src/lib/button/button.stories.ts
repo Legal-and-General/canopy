@@ -177,3 +177,19 @@ export const iconOnly = () =>
     showIcon: true,
     iconButton: true,
   });
+
+export const buttonGroup = () => ({
+  template: `
+    <lg-button-group>
+      <button
+        lg-button
+        variant="solid-primary"
+      >Button</button>
+      <a
+        lg-button
+        href="#"
+        variant="outline-primary"
+      >Link</a>
+    </lg-button-group>
+  `,
+});

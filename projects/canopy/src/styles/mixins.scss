@@ -29,7 +29,8 @@
   border-bottom: 0.125rem solid $default-color;
   padding: 0 0.125rem;
 
-  &:hover {
+  &:hover,
+  &:hover:visited {
     color: $hover-color;
     border-bottom: 0;
     box-shadow: inset 0 $box-shadow-inset-width 0 0 $hover-color,
@@ -48,7 +49,8 @@
     outline: 0;
   }
 
-  &:focus {
+  &:focus,
+  &:focus:hover {
     background-color: $focus-bg-color;
     border-bottom: 0;
     color: $focus-color;
