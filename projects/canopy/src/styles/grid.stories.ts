@@ -15,8 +15,8 @@ export const grid = () => ({
       <div class="lg-container">
         <div class="lg-row">
           <div class="lg-col-xs-12">
-            <h2>Responsive</h2>
-            <p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md & lg viewport widths.</p>
+            <h2>Responsive sizing and offsets</h2>
+            <p>Responsive modifiers enable specifying different column sizes and offsets at xs, sm, md & lg viewport widths.</p>
           </div>
         </div>
         <div class="lg-row">
@@ -46,6 +46,24 @@ export const grid = () => ({
           </div>
           <div class="lg-col-xs-2 lg-col-sm-6 lg-col-md-4 lg-col-lg-2">
             <div class="box"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg-container">
+        <div class="lg-row">
+          <div class="lg-col-xs-12">
+            <h2>Responsive alignment and distribution</h2>
+            <p>Responsive modifiers enable specifying different alignment and distribution at xs, sm, md & lg viewport widths.</p>
+            <p>Here the sidebar is displayed first below the md viewport size, and second beyond that.</p>
+          </div>
+        </div>
+        <div class="lg-row">
+          <div class="lg-col-xs-9 lg-last-xs lg-first-md">
+            <div class="box">Main content</div>
+          </div>
+          <div class="lg-col-xs-3 lg-first-xs lg-last-md">
+            <div class="box">Sidebar</div>
           </div>
         </div>
       </div>
