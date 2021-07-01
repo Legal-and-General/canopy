@@ -6,6 +6,7 @@
   flex-direction: column;
   margin-bottom: var(--component-margin);
   border-spacing: 0;
+  border-top: solid var(--table-header-border-width) var(--table-header-border-color);
 
   &--striped:not(&--expandable) tr:nth-child(even) {
     background-color: var(--table-stripe-color);
@@ -41,6 +42,7 @@
 @each $columns-breakpoint in $columns-breakpoints {
   .lg-table--columns-#{$columns-breakpoint} {
     @include lg-breakpoint($columns-breakpoint) {
+      border-top: 0;
       display: table;
       table-layout: auto;
       width: 100%;

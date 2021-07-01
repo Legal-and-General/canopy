@@ -49,6 +49,53 @@ $columns: 12;
   max-width: 100%;
 }
 
+@mixin lg-grid-alignment($breakpoint) {
+  // Alignment and distribution
+
+  .lg-start-#{$breakpoint} {
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  .lg-center-#{$breakpoint} {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .lg-end-#{$breakpoint} {
+    justify-content: flex-end;
+    text-align: end;
+  }
+
+  .lg-top-#{$breakpoint} {
+    align-items: flex-start;
+  }
+
+  .lg-middle-#{$breakpoint} {
+    align-items: center;
+  }
+
+  .lg-bottom-#{$breakpoint} {
+    align-items: flex-end;
+  }
+
+  .lg-around-#{$breakpoint} {
+    justify-content: space-around;
+  }
+
+  .lg-between-#{$breakpoint} {
+    justify-content: space-between;
+  }
+
+  .lg-first-#{$breakpoint} {
+    order: -1;
+  }
+
+  .lg-last-#{$breakpoint} {
+    order: 1;
+  }
+}
+
 .lg-col-xs {
   @include col-style;
 
@@ -80,6 +127,8 @@ $columns: 12;
     margin-left: $width;
   }
 }
+
+@include lg-grid-alignment('xs');
 
 @include lg-breakpoint('sm') {
   .lg-col-sm {
@@ -113,6 +162,8 @@ $columns: 12;
       margin-left: $width;
     }
   }
+
+  @include lg-grid-alignment('sm');
 }
 
 @include lg-breakpoint('md') {
@@ -147,6 +198,8 @@ $columns: 12;
       margin-left: $width;
     }
   }
+
+  @include lg-grid-alignment('md');
 }
 
 @include lg-breakpoint('lg') {
@@ -181,4 +234,6 @@ $columns: 12;
       margin-left: $width;
     }
   }
+
+  @include lg-grid-alignment('lg');
 }
