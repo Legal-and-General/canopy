@@ -31,6 +31,7 @@ and in your HTML:
 ~~~
 
 for a timout modal you can use the following structure:
+
 ~~~html
 <button lgModalTrigger="modal-story" lg-button type="button" variant="outline-primary">Open modal</button>
 
