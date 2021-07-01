@@ -18,15 +18,17 @@ import { LgHeadingModule } from '../heading';
 import { LgCardModule } from '../card';
 import { LgPaddingModule } from '../spacing';
 
+const components = [
+  LgModalComponent,
+  LgModalTriggerDirective,
+  LgModalHeaderComponent,
+  LgModalBodyComponent,
+  LgModalFooterComponent,
+  LgModalBodyTimerComponent,
+];
+
 @NgModule({
-  declarations: [
-    LgModalComponent,
-    LgModalTriggerDirective,
-    LgModalHeaderComponent,
-    LgModalBodyComponent,
-    LgModalFooterComponent,
-    LgModalBodyTimerComponent,
-  ],
+  declarations: [...components],
   imports: [
     A11yModule,
     CommonModule,
@@ -38,14 +40,7 @@ import { LgPaddingModule } from '../spacing';
     LgIconModule,
   ],
   providers: [LgModalService],
-  exports: [
-    LgModalComponent,
-    LgModalTriggerDirective,
-    LgModalBodyComponent,
-    LgModalHeaderComponent,
-    LgModalFooterComponent,
-    LgModalBodyTimerComponent,
-  ],
+  exports: [...components],
 })
 export class LgModalModule {
   constructor(private iconRegistry: LgIconRegistry) {
