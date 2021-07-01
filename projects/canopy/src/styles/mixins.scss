@@ -24,10 +24,11 @@
 ) {
   $box-shadow-inset-width: -0.063rem;
 
-  color: $default-color;
-  text-decoration: none;
   border-bottom: 0.125rem solid $default-color;
+  color: $default-color;
+  line-height: initial;
   padding: 0 0.125rem;
+  text-decoration: none;
 
   &:hover,
   &:hover:visited {
