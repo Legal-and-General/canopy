@@ -100,7 +100,7 @@
   }
 }
 
-$variants: 'solid-primary', 'solid-secondary', 'reverse-primary', 'reverse-secondary',
+$variants: 'solid-primary', 'reverse-primary', 'reverse-secondary',
   'outline-primary', 'outline-secondary', 'add-on' !default;
 
 @each $variant in $variants {

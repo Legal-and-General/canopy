@@ -30,7 +30,6 @@ interface KnobsConfig {
   label?: string;
   showLabel?: boolean;
   showButton?: boolean;
-  showSecondaryButton?: boolean;
   showTextPrefix?: boolean;
   showTextSuffix?: boolean;
   size?: number;
@@ -55,7 +54,6 @@ const createInputStory = (config: KnobsConfig) => ({
       [size]="size"
       [suffix]="suffix"
       [showButton]="showButton"
-      [showSecondaryButton]="showSecondaryButton"
       [showTextPrefix]="showTextPrefix"
       [showTextSuffix]="showTextSuffix"
     ></lg-reactive-form>
@@ -90,11 +88,6 @@ const createInputStory = (config: KnobsConfig) => ({
     iconButton: boolean('icon button', true, contentGroupId),
     showTextPrefix: boolean('show text prefix', config.showTextPrefix, contentGroupId),
     showTextSuffix: boolean('show text suffix', config.showTextSuffix, contentGroupId),
-    showSecondaryButton: boolean(
-      'show secondary button',
-      config.showSecondaryButton,
-      contentGroupId,
-    ),
     suffix: text('suffix', '%', contentGroupId),
     size: number('input size', 12, undefined, propsGroupId),
   },
@@ -115,7 +108,6 @@ const createInputStory = (config: KnobsConfig) => ({
           size="sm"
           [iconButton]="true"
           variant="add-on"
-          *ngIf="showSecondaryButton"
         >
           Close
           <lg-icon name="close"></lg-icon>
@@ -159,7 +151,6 @@ class ReactiveFormComponent {
   @Input() showLabel: boolean;
   @Input() prefix: string;
   @Input() showButton: boolean;
-  @Input() showSecondaryButton: boolean;
   @Input() showTextPrefix: boolean;
   @Input() showTextSuffix: boolean;
   @Input() size: number;
@@ -231,5 +222,4 @@ export const withTextPrefix = () =>
 export const withMultipleButtonSuffixes = () =>
   createInputStory({
     showButton: true,
-    showSecondaryButton: true,
   });

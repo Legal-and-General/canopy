@@ -1,6 +1,5 @@
 export type ButtonVariant =
   | 'solid-primary'
-  | 'solid-secondary'
   | 'outline-primary'
   | 'outline-secondary'
   | 'reverse-primary'
