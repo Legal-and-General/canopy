@@ -56,7 +56,7 @@ The \`iconButton\` property is used to visually hide that text.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`variant\`\` | The variant of button: \`\`solid-primary\`\`, \`\`solid-secondary\`\`, \`\`outline-primary\`\`, \`\`outline-secondary\`\`, \`\`reverse-primary\`\`, \`\`reverse-secondary\`\`, \`\`add-on\`\`; | string | solid-primary | No |
+| \`\`variant\`\` | The variant of button: \`\`solid-primary\`\`, \`\`outline-primary\`\`, \`\`outline-secondary\`\`, \`\`reverse-primary\`\`, \`\`reverse-secondary\`\`, \`\`add-on\`\`; | string | solid-primary | No |
 | \`\`size\`\` | The size of the button | ButtonSize [\`\`sm\`\`, \`\`md\`\`] | \`\`md\`\` | No |
 | \`\`fullWidth\`\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |
 | \`\`disabled\`\` | Programmatically disable the button via this property | boolean | false | No |
@@ -85,7 +85,6 @@ In addition to \`\`lg-btn\`\`, one of the following is required to apply the spe
 |------|-------------|
 | \`\`lg-btn--add-on\`\` | Adds the add-on button styles for use inside an input field |
 | \`\`lg-btn--solid-primary\`\` | Adds the solid primary button style |
-| \`\`lg-btn--solid-secondary\`\` | Adds the solid secondary button style |
 | \`\`lg-btn--outline-primary\`\` | Adds the outline primary button style |
 | \`\`lg-btn--outline-secondary\`\` | Adds the outline secondary button style |
 | \`\`lg-btn--reverse-primary\`\` | Adds the reverse primary button style |

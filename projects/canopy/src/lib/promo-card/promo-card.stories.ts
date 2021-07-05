@@ -94,7 +94,7 @@ const createPromoCardListStory = (config: PromoCardListKnobsConfig) => ({
             lgMarginBottom="none"
             lg-button
             type="button"
-            [variant]="variants[i] === 'solid-white' ? 'solid-secondary' : 'reverse-secondary'">
+            [variant]="variants[i] === 'solid-white' ? 'solid-primary' : 'reverse-secondary'">
             {{ card.ctaText }}
           </button>
         </lg-promo-card-footer>

@@ -13,7 +13,6 @@ import { ButtonVariant, ButtonSize } from './button.interface';
 const buttonVariants = [
   'add-on',
   'solid-primary',
-  'solid-secondary',
   'outline-primary',
   'outline-secondary',
   'reverse-primary',
@@ -138,11 +137,6 @@ const createBtnStory = (config: KnobsConfig) => ({
 export const primaryButton = () =>
   createBtnStory({
     variant: 'solid-primary',
-  });
-
-export const secondaryButton = () =>
-  createBtnStory({
-    variant: 'solid-secondary',
   });
 
 export const outlinePrimary = () =>
