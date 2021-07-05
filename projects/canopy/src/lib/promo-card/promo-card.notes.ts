@@ -119,7 +119,7 @@ This example contains only one promo card. Repeat as necessary.
             fund care for you or a loved one.</p></div>
           <div class="lg-promo-card-footer">
             <button type="button"
-                    class="lg-margin__bottom--none lg-btn--solid-secondary lg-btn">
+                    class="lg-margin__bottom--none lg-btn--solid-primary lg-btn">
               <span
                 class="lg-btn__text"> Find out more </span>
             </button>
