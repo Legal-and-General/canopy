@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 
-import { HeadingLevel } from '../../heading';
+import type { HeadingLevel } from '../../heading';
 
 @Component({
   selector: 'lg-hero-card-title',

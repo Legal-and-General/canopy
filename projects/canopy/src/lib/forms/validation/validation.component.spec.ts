@@ -5,7 +5,7 @@ import { CanopyModule } from '../../canopy.module';
 import { LgValidationComponent } from './validation.component';
 
 import { LgIconComponent } from '../../icon';
-import { Variant } from '../../variant';
+import type { Variant } from '../../variant';
 
 describe('LgValidationComponent', () => {
   let component: LgValidationComponent;

@@ -5,7 +5,7 @@ import { MockComponents } from 'ng-mocks';
 
 import { LgAlertComponent } from './alert.component';
 import { LgIconComponent } from '../icon';
-import { Variant } from '../variant/variant.interface';
+import type { Variant } from '../variant/variant.interface';
 
 describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
