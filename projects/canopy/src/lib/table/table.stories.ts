@@ -3,11 +3,8 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
-import {
-  AlignmentOptions,
-  TableColumnLayoutBreakpoints,
-  TableVariant,
-} from './table.interface';
+import type { TableVariant } from './table.interface';
+import { AlignmentOptions, TableColumnLayoutBreakpoints } from './table.interface';
 import { LgInputModule } from '../forms';
 import { LgMarginModule } from '../spacing';
 import { LgSuffixModule } from '../suffix';

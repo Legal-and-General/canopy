@@ -13,7 +13,7 @@ import {
 import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 
-import { HeadingLevel } from '../heading';
+import type { HeadingLevel } from '../heading';
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 
 @Component({

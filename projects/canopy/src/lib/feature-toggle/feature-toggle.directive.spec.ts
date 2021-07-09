@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 import { instance, mock, when } from 'ts-mockito';
 
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
-import { LgFeatureToggleOptions } from './feature-toggle.interface';
+import type { LgFeatureToggleOptions } from './feature-toggle.interface';
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Component({

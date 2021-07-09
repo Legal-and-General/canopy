@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Variant } from '../../variant';
+import type { Variant } from '../../variant';
 
 let nextUniqueId = 0;
 

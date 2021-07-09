@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 import { lgIconChevronDown } from '../../icon';
-import { Variant } from '../../variant';
+import type { Variant } from '../../variant';
 
 let nextUniqueId = 0;
 @Component({

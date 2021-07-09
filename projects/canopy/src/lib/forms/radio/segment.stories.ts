@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 
 import { notes } from './radio.notes';
 import { LgRadioModule } from './radio.module';
-import { RadioStackBreakpoint } from './radio.interface';
+import type { RadioStackBreakpoint } from './radio.interface';
 
 @Component({
   selector: 'lg-reactive-form-segment',
