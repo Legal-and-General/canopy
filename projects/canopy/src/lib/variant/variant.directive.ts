@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import { Variant } from './variant.interface';
+import type { Variant } from './variant.interface';
 
 @Directive({
   selector: '[lgVariant]',

@@ -8,7 +8,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { HeadingLevel } from '../../heading';
+import type { HeadingLevel } from '../../heading';
 import { LgModalService } from '../modal.service';
 
 @Component({

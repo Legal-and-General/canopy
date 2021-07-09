@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import { Breakpoints } from '../shared/breakpoints.interface';
+import type { Breakpoints } from '../shared/breakpoints.interface';
 
 @Directive({
   selector: '[lgHideAt]',

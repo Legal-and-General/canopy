@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { PromoCardVariant } from '../promo-card.interface';
+import type { PromoCardVariant } from '../promo-card.interface';
 
 @Component({
   selector: 'lg-promo-card',

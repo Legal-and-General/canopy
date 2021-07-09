@@ -9,7 +9,7 @@ import { LgGridModule } from '../grid';
 import { LgIconModule, LgIconRegistry } from '../icon';
 import { iconsArray } from '../icon/icons.stories';
 import { LgSpacingModule } from '../spacing';
-import { Variant } from './variant.interface';
+import type { Variant } from './variant.interface';
 import { LgVariantModule } from './variant.module';
 import { notes } from './variant.notes';
 

@@ -12,11 +12,11 @@ import {
 import { filter, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
-import {
+import type {
   LgFeatureToggleConfig,
   LgFeatureToggleOptions,
-  togglesOptionsInjectable,
 } from './feature-toggle.interface';
+import { togglesOptionsInjectable } from './feature-toggle.interface';
 
 import { LgFeatureToggleService } from './feature-toggle.service';
 
