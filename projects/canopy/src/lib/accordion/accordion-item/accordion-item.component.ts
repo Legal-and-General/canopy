@@ -109,10 +109,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   }
 
   ngOnDestroy() {
-    if (this._toggleSubscription) {
-      this._toggleSubscription.unsubscribe();
-    }
-
+    this._toggleSubscription?.unsubscribe();
     this._removeSingleItemSelectionListener();
   }
 
