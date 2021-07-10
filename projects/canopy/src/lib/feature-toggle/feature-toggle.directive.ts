@@ -60,7 +60,6 @@ export class LgFeatureToggleDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    /* istanbul ignore else */
     this.subscription?.unsubscribe();
   }
 }
