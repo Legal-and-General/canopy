@@ -72,15 +72,19 @@
   &:hover {
     border-bottom: 0;
     box-shadow: none;
-  }
-
-  &:active,
-  &:focus {
     background-color: transparent;
     color: inherit;
   }
 
-  &:focus {
+  &:active,
+  &:focus,
+  &:focus:hover {
+    background-color: transparent;
+    color: inherit;
+  }
+
+  &:focus,
+  &:focus:hover {
     @include lg-outer-focus-outline;
   }
 }
