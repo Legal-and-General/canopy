@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Variant } from '../variant/variant.interface';
+import type { Variant } from '../variant/variant.interface';
 
 @Component({
   selector: 'lg-alert',

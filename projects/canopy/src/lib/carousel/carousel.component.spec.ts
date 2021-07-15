@@ -10,7 +10,7 @@ import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
 
-import { LgHeadingComponent } from '../heading';
+import { HeadingLevel, LgHeadingComponent } from '../heading';
 import { LgIconComponent } from '../icon';
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgCarouselComponent } from './carousel.component';
@@ -42,7 +42,7 @@ import { LgCarouselComponent } from './carousel.component';
 class TestCarouselComponent {
   carouselComponentRef: LgCarouselComponent;
   description = 'Test Carousel';
-  headingLevel = 1;
+  headingLevel: HeadingLevel = 1;
   slideDuration = 500;
   loopMode = false;
 }
@@ -56,6 +56,18 @@ class TestWrapperComponent {}
 describe('LgCarouselComponent', () => {
   let component: LgCarouselComponent;
   let fixture: ComponentFixture<TestWrapperComponent>;
+
+  const timerSelectionCheck = () => {
+    component.ngAfterContentInit();
+    expect(component.selectedItemIndex).toBe(0);
+    component['pause'].next(true);
+    tick(100);
+    fixture.detectChanges();
+    expect(component.selectedItemIndex).toBe(0);
+    tick(100);
+    fixture.detectChanges();
+    expect(component.selectedItemIndex).toBe(0);
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -220,49 +232,32 @@ describe('LgCarouselComponent', () => {
       });
 
       it('should set the timer correctly', fakeAsync(() => {
+        const checkSelectedItemIndex = () => {
+          expect(component.selectedItemIndex).toBe(0);
+          tick(100);
+          fixture.detectChanges();
+          expect(component.selectedItemIndex).toBe(1);
+          tick(100);
+          fixture.detectChanges();
+          expect(component.selectedItemIndex).toBe(2);
+        };
+
         component.ngAfterContentInit();
-        expect(component.selectedItemIndex).toBe(0);
+
+        checkSelectedItemIndex();
         tick(100);
         fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(1);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(2);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(0);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(1);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(2);
+        checkSelectedItemIndex();
         discardPeriodicTasks();
       }));
 
       it('should pause the timer', fakeAsync(() => {
-        component.ngAfterContentInit();
-        expect(component.selectedItemIndex).toBe(0);
-        component['pause'].next(true);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(0);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(0);
+        timerSelectionCheck();
         discardPeriodicTasks();
       }));
 
       it('should restart a paused timer', fakeAsync(() => {
-        component.ngAfterContentInit();
-        expect(component.selectedItemIndex).toBe(0);
-        component['pause'].next(true);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(0);
-        tick(100);
-        fixture.detectChanges();
-        expect(component.selectedItemIndex).toBe(0);
+        timerSelectionCheck();
         component['pause'].next(false);
         tick(100);
         fixture.detectChanges();

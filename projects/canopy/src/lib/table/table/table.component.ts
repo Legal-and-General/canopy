@@ -12,11 +12,8 @@ import {
 
 import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
-import {
-  TableColumn,
-  TableColumnLayoutBreakpoints,
-  TableVariant,
-} from '../table.interface';
+import type { TableColumn, TableVariant } from '../table.interface';
+import { TableColumnLayoutBreakpoints } from '../table.interface';
 
 let nextUniqueId = 0;
 

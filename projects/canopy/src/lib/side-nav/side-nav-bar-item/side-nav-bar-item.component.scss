@@ -8,6 +8,10 @@
 .lg-side-nav-bar-item__container {
   display: flex;
   flex-direction: column;
+
+  @include lg-breakpoint('md') {
+    padding-right: var(--space-sm);
+  }
 }
 
 .lg-side-nav-bar-item__icon-container {

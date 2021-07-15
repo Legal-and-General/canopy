@@ -18,7 +18,7 @@ import { LgDomService } from '../../utils/dom.service';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
-import { ToggleVariant } from './toggle.interface';
+import type { ToggleVariant } from './toggle.interface';
 
 let nextUniqueId = 0;
 

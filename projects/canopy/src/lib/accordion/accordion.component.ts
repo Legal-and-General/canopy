@@ -11,7 +11,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { HeadingLevel } from '../heading';
+import type { HeadingLevel } from '../heading';
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading/accordion-panel-heading.component';
 
 export const LG_ACCORDION = new InjectionToken<LgAccordionComponent>('LG_ACCORDION');

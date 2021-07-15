@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/angular';
 import { of } from 'rxjs';
 
 import { CanopyModule } from '../canopy.module';
-import { LgFeatureToggleOptions } from './feature-toggle.interface';
+import type { LgFeatureToggleOptions } from './feature-toggle.interface';
 import { LgFeatureToggleModule } from './feature-toggle.module';
 import { notes } from './feature-toggle.notes';
 

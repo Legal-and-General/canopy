@@ -8,6 +8,12 @@ import { deepEqual, instance, mock, reset, verify, when } from 'ts-mockito';
 import { FeatureToggleGuard } from './feature-toggle.guard';
 import { LgFeatureToggleService } from './feature-toggle.service';
 
+enum GuardTypes {
+  CAN_ACTIVATE = 'canActivate',
+  CAN_LOAD = 'canLoad',
+  CAN_ACTIVATE_CHILD = 'canActivateChild',
+}
+
 describe('FeatureToggleGuard', () => {
   let configServiceMock: LgFeatureToggleService;
   let guard: FeatureToggleGuard;
@@ -23,6 +29,40 @@ describe('FeatureToggleGuard', () => {
         data: { featureToggle: 'child' },
       } as any,
     ],
+  };
+
+  const checkGuardConfigs = (
+    guardType: GuardTypes,
+    config,
+    marbleValue: boolean,
+    onceVerify: boolean = false,
+  ) => {
+    onceVerify
+      ? when(configServiceMock.toggles$).thenReturn(config)
+      : when(configServiceMock.toggles$).thenReturn(of(config));
+
+    switch (guardType) {
+      case GuardTypes.CAN_ACTIVATE:
+        expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
+          cold('(a|)', { a: marbleValue }),
+        );
+        break;
+
+      case GuardTypes.CAN_ACTIVATE_CHILD:
+        expect(
+          guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
+        ).toBeObservable(cold('(a|)', { a: marbleValue }));
+        break;
+
+      case GuardTypes.CAN_LOAD:
+        expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
+          cold('(a|)', { a: marbleValue }),
+        );
+        break;
+    }
+    return verify(
+      routerMock.navigate(deepEqual(['/']), deepEqual({ queryParamsHandling: 'merge' })),
+    );
   };
 
   beforeEach(() => {
@@ -43,173 +83,76 @@ describe('FeatureToggleGuard', () => {
 
   describe('can activate', () => {
     it('should be true when the parent is enabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(enabledConfig));
-      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
-        cold('(a|)', { a: true }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).never();
+      checkGuardConfigs(GuardTypes.CAN_ACTIVATE, enabledConfig, true).never();
       reset(routerMock);
     });
 
     it('should be true when the parent and child is enabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(enabledConfig2));
-      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
-        cold('(a|)', { a: true }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).never();
+      checkGuardConfigs(GuardTypes.CAN_ACTIVATE, enabledConfig2, true).never();
       reset(routerMock);
     });
 
     it('should be false when the parent is disabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(disabledConfig));
-      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
-        cold('(a|)', { a: false }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).once();
+      checkGuardConfigs(GuardTypes.CAN_ACTIVATE_CHILD, disabledConfig, false).once();
       reset(routerMock);
     });
 
     it('should be false when the parent is enabled but not child', () => {
-      when(configServiceMock.toggles$).thenReturn(of(disabledConfig2));
-      expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
-        cold('(a|)', { a: false }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).once();
+      checkGuardConfigs(GuardTypes.CAN_ACTIVATE, disabledConfig2, false).once();
       reset(routerMock);
     });
   });
 
   describe('can activate child', () => {
     it('should be true when the parent is enabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(enabledConfig));
-      expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
-      ).toBeObservable(cold('(a|)', { a: true }));
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).never();
+      checkGuardConfigs(GuardTypes.CAN_ACTIVATE_CHILD, of(enabledConfig), true).never();
       reset(routerMock);
     });
 
     it('should be true when the parent and child is enabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(enabledConfig2));
-      expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
-      ).toBeObservable(cold('(a|)', { a: true }));
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).never();
+      checkGuardConfigs(GuardTypes.CAN_ACTIVATE_CHILD, of(enabledConfig2), true).never();
       reset(routerMock);
     });
 
     it('should be false when the parent is disabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(disabledConfig));
-      expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
-      ).toBeObservable(cold('(a|)', { a: false }));
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
+      checkGuardConfigs(
+        GuardTypes.CAN_ACTIVATE_CHILD,
+        of(disabledConfig),
+        false,
+        true,
       ).once();
       reset(routerMock);
     });
 
     it('should be false when the parent is enabled but not child', () => {
-      when(configServiceMock.toggles$).thenReturn(of(disabledConfig2));
-      expect(
-        guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
-      ).toBeObservable(cold('(a|)', { a: false }));
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
+      checkGuardConfigs(
+        GuardTypes.CAN_ACTIVATE_CHILD,
+        of(disabledConfig2),
+        false,
+        true,
       ).once();
       reset(routerMock);
     });
   });
+
   describe('can load', () => {
     it('should be true when the parent is enabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(enabledConfig));
-      expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: true }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).never();
+      checkGuardConfigs(GuardTypes.CAN_LOAD, of(enabledConfig), true).never();
       reset(routerMock);
     });
 
     it('should be true when the parent and child is enabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(enabledConfig2));
-      expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: true }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).never();
+      checkGuardConfigs(GuardTypes.CAN_LOAD, of(enabledConfig2), true).never();
       reset(routerMock);
     });
 
     it('should be false when the parent is disabled', () => {
-      when(configServiceMock.toggles$).thenReturn(of(disabledConfig));
-      expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: false }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).once();
+      checkGuardConfigs(GuardTypes.CAN_LOAD, of(disabledConfig), false, true).once();
       reset(routerMock);
     });
 
     it('should be false when the parent is enabled but not child', () => {
-      when(configServiceMock.toggles$).thenReturn(of(disabledConfig2));
-      expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
-        cold('(a|)', { a: false }),
-      );
-      verify(
-        routerMock.navigate(
-          deepEqual(['/']),
-          deepEqual({ queryParamsHandling: 'merge' }),
-        ),
-      ).once();
+      checkGuardConfigs(GuardTypes.CAN_LOAD, of(disabledConfig2), false, true).once();
       reset(routerMock);
     });
   });

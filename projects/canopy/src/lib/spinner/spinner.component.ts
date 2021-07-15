@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 
-import { SpinnerVariant, SpinnerSize } from './spinner.interface';
+import type { SpinnerVariant, SpinnerSize } from './spinner.interface';
 
 @Component({
   selector: 'lg-spinner',

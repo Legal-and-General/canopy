@@ -12,7 +12,7 @@ import { LgLabelModule } from '../label/label.module';
 import { LgButtonModule } from '../../button/button.module';
 import { LgHintModule } from '../hint';
 import { iconsArray } from '../../icon/icons.stories';
-import { ButtonVariant } from '../../button';
+import type { ButtonVariant } from '../../button';
 import { LgSuffixModule } from '../../suffix';
 import { LgPrefixModule } from '../../prefix';
 

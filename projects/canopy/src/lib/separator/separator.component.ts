@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { SeparatorVariant } from './separator.interface';
+import type { SeparatorVariant } from './separator.interface';
 
 @Component({
   selector: 'lg-separator',

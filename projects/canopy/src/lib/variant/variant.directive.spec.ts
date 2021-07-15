@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgVariantDirective } from './variant.directive';
-import { Variant } from './variant.interface';
+import type { Variant } from './variant.interface';
 
 @Component({
   template: ` <div [lgVariant]="lgVariant">Test</div> `,

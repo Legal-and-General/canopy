@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs';
 
-import { ToggleVariant } from './toggle.interface';
+import type { ToggleVariant } from './toggle.interface';
 
 @Component({
   selector: 'lg-reactive-form',

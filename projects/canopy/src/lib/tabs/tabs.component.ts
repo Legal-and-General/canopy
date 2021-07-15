@@ -16,7 +16,7 @@ import {
 
 import { Subscription } from 'rxjs';
 
-import { HeadingLevel } from '../heading/heading.interface';
+import type { HeadingLevel } from '../heading/heading.interface';
 import { isKeyDown, isKeyLeft, isKeyRight, isKeyUp } from '../utils/keyboard-keys';
 import { LgTabItemComponent } from './tab-item/tab-item.component';
 

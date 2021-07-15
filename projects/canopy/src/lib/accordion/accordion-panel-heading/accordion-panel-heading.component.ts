@@ -8,7 +8,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { HeadingLevel } from '../../heading';
+import type { HeadingLevel } from '../../heading';
 
 let nextUniqueId = 0;
 

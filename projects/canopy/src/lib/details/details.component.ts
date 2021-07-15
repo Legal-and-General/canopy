@@ -16,7 +16,7 @@ import {
 
 import { Subscription } from 'rxjs';
 
-import { Variant } from '../variant';
+import type { Variant } from '../variant';
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 
 let nextUniqueId = 0;

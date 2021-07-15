@@ -7,8 +7,8 @@ import { LgButtonModule } from './button.module';
 import { notes } from './button.notes';
 import { iconsArray } from '../icon/icons.stories';
 import { LgIconModule, LgIconRegistry } from '../icon';
-import { ButtonIconPosition } from '.';
-import { ButtonVariant, ButtonSize } from './button.interface';
+import type { ButtonIconPosition } from '.';
+import type { ButtonVariant, ButtonSize } from './button.interface';
 
 const buttonVariants = [
   'add-on',

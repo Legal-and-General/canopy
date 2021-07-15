@@ -31,7 +31,6 @@ export class LgBrandIconComponent {
   @HostBinding('class.lg-brand-icon') class = true;
   @HostBinding('attr.aria-hidden') hidden = true;
 
-  _colour: string;
   @Input()
   set colour(colour: string) {
     const el = this.hostElement.nativeElement.querySelector(

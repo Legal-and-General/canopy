@@ -18,7 +18,7 @@ import { LgIconComponent } from '../../icon';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgToggleComponent } from './toggle.component';
-import { ToggleVariant } from './toggle.interface';
+import type { ToggleVariant } from './toggle.interface';
 
 const validationTestId = 'test-validation-id';
 
@@ -134,9 +134,8 @@ describe('LgToggleComponent', () => {
 
       toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
 
-      toggleInstance = toggleDebugElement.injector.get<LgToggleComponent>(
-        LgToggleComponent,
-      );
+      toggleInstance =
+        toggleDebugElement.injector.get<LgToggleComponent>(LgToggleComponent);
 
       inputDebugElement = fixture.debugElement.query(By.css('.lg-toggle__input'));
       inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
@@ -276,9 +275,8 @@ describe('LgToggleComponent selector variant', () => {
 
       toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
 
-      toggleInstance = toggleDebugElement.injector.get<LgToggleComponent>(
-        LgToggleComponent,
-      );
+      toggleInstance =
+        toggleDebugElement.injector.get<LgToggleComponent>(LgToggleComponent);
 
       inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
       fixture.detectChanges();
