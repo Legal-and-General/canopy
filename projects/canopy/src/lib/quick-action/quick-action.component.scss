@@ -12,7 +12,7 @@
   transition: background-color var(--animation-duration) var(--animation-fn);
   cursor: pointer;
   border: 0;
-  background-color: transparent;
+  background-color: var(--quick-action-bg-color);
   appearance: none;
   color: var(--link-color);
 
@@ -39,6 +39,9 @@
   &:focus,
   &:focus:hover {
     @include lg-outer-focus-outline(var(--default-focus-color));
+
+    background-color: var(--quick-action-bg-color);
+    color: var(--link-color);
   }
 
   &:visited:hover {
