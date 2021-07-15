@@ -1,6 +1,8 @@
 @import '../../styles/mixins.scss';
 
 .lg-btn {
+  appearance: none;
+
   @include lg-unstyled-link;
 
   display: flex;
