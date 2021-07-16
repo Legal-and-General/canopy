@@ -1,0 +1,6 @@
+name: '@legal-and-general/gh-pages-storybook'
+description: 'Deploy Storybook to GitHub Pages'
+runs:
+  using: 'node12'
+  main: 'index.js'
+
