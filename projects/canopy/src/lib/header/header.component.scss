@@ -21,6 +21,7 @@
 
 .lg-header__link {
   display: inline-block;
+  @include lg-unstyled-link;
 
   &:focus {
     background-color: transparent;
