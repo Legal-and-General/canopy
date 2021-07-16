@@ -58,3 +58,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: install action dependencies
+        run: cd .github/actions/gh-pages-storybook && npm ci
+      - name: deploy to gh-pages
+        uses: ./.github/actions/gh-pages-storybook
