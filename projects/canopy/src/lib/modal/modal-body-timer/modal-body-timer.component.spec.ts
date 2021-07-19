@@ -27,8 +27,36 @@ describe('LgModalBodyTimerComponent', () => {
   });
 
   it('should return the input in the correct format', () => {
-    const time = [0, 15, 59, 60, 61, 599, 600, 601, 5999];
+    const time = [
+      0,
+      15,
+      59,
+      60,
+      61,
+      599,
+      600,
+      601,
+      5999,
+      '0',
+      '15',
+      '59',
+      '60',
+      '61',
+      '599',
+      '600',
+      '601',
+      '5999',
+    ];
     const result = [
+      '0:00',
+      '0:15',
+      '0:59',
+      '1:00',
+      '1:01',
+      '9:59',
+      '10:00',
+      '10:01',
+      '99:59',
       '0:00',
       '0:15',
       '0:59',
@@ -41,8 +69,8 @@ describe('LgModalBodyTimerComponent', () => {
     ];
     time.forEach((value, index) => {
       component.timer = time[index];
-      component.ngOnInit();
-      expect(component.formattedTime).toBe(result[index]);
+
+      expect(component.formattedTime).toContain(result[index]);
     });
   });
 });
