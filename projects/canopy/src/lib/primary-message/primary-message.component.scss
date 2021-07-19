@@ -1,0 +1,16 @@
+@import '../../styles/mixins';
+
+.lg-primary-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .lg-brand-icon {
+    width: var(--brand-icon-xxs);
+
+    @include lg-breakpoint(md) {
+      width: var(--brand-icon-xs);
+    }
+  }
+}
