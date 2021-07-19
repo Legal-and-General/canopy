@@ -3,7 +3,6 @@ import {
   Component,
   HostBinding,
   Input,
-  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -14,16 +13,21 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgModalBodyTimerComponent implements OnInit {
-  @Input() timer: number;
-  formattedTime: string | number;
+export class LgModalBodyTimerComponent {
+  private _timer: number;
+  formattedTime: string;
 
   @HostBinding('class.lg-modal-body__timer') class = true;
 
-  ngOnInit() {
-    this.formattedTime = `${Math.floor(this.timer / 60)}:${(
+  @Input()
+  set timer(seconds: number | string) {
+    if (typeof seconds === 'string') {
+      seconds = parseInt(seconds, 10);
+    }
+    this._timer = seconds;
+    this.formattedTime = `${Math.floor(this._timer / 60)}:${(
       '0' +
-      (this.timer % 60)
+      (this._timer % 60)
     ).slice(-2)}`;
   }
 }
