@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+
+.lg-primary-message-title {
+  display: block;
+  margin-top: var(--space-sm);
+  @include lg-font-size('3');
+
+  @include lg-breakpoint(md) {
+    margin-top: var(--space-md);
+  }
+}
