@@ -14,7 +14,20 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgModalBodyTimerComponent {
-  @Input() timer: string;
+  private _timer: number;
+  formattedTime: string;
 
   @HostBinding('class.lg-modal-body__timer') class = true;
+
+  @Input()
+  set timer(seconds: number | string) {
+    if (typeof seconds === 'string') {
+      seconds = parseInt(seconds, 10);
+    }
+    this._timer = seconds;
+    this.formattedTime = `${Math.floor(this._timer / 60)}:${(
+      '0' +
+      (this._timer % 60)
+    ).slice(-2)}`;
+  }
 }
