@@ -87,7 +87,7 @@ and to close it:
 ### LgModalBodyTimerComponent
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`timer\`\` | The timer value to apply the styles to | string | n/a | Yes |
+| \`\`timer\`\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |
 
 ### LgModalTriggerDirective
 | Name | Description | Type | Default | Required |

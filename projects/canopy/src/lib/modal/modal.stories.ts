@@ -28,7 +28,7 @@ export const standard = () => ({
       <lg-modal-header [headingLevel]="headingLevel">Lorem ipsum</lg-modal-header>
       <lg-modal-body>
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        <lg-modal-body-timer timer="0:25"></lg-modal-body-timer>
+        <lg-modal-body-timer timer="90"></lg-modal-body-timer>
       </lg-modal-body>
       <lg-modal-footer>
         <lg-button-group>
