@@ -103,7 +103,7 @@
     "mini-css-extract-plugin": "^1.6.2",
     "ng-mocks": "^12.1.2",
     "ng-packagr": "^11.2.4",
-    "node-sass": "^4.14.1",
+    "node-sass": "^6.0.1",
     "postcss": "^8.2.10",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.0",
