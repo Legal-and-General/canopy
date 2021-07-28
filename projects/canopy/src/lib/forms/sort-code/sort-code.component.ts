@@ -20,7 +20,7 @@ import {
 } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgDomService } from '../../utils/dom.service';
@@ -45,7 +45,6 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
   second: FormControl;
   third: FormControl;
   valueChanges: Subscription;
-  hasError: boolean;
 
   @Input() value: string;
   @Input() disabled: false;
@@ -89,18 +88,12 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }
-    this.first = new FormControl(null, [
+    this.first = new FormControl('', [Validators.required, Validators.pattern(/^\d\d$/)]);
+    this.second = new FormControl('', [
       Validators.required,
       Validators.pattern(/^\d\d$/),
     ]);
-    this.second = new FormControl(null, [
-      Validators.required,
-      Validators.pattern(/^\d\d$/),
-    ]);
-    this.third = new FormControl(null, [
-      Validators.required,
-      Validators.pattern(/^\d\d$/),
-    ]);
+    this.third = new FormControl('', [Validators.required, Validators.pattern(/^\d\d$/)]);
     this.sortCodeFormGroup = new FormGroup(
       {
         first: this.first,
@@ -119,6 +112,19 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
       this.ngControl.control.setValidators([this.validate.bind(this)]);
       this.ngControl.control.updateValueAndValidity();
     }
+
+    const sortCodeParentControl = this.parentFormGroupDirective.form.controls['sortCode'];
+
+    // show the error message when the input is invalid
+    sortCodeParentControl.statusChanges.pipe(take(1)).subscribe(() => {
+      this.sortCodeFormGroup.markAllAsTouched();
+      sortCodeParentControl.setErrors({
+        invalidField: true,
+      });
+      Object.keys(this.sortCodeFormGroup.controls).forEach((fieldName) => {
+        this.sortCodeFormGroup.controls[fieldName].markAsDirty();
+      });
+    });
 
     this.valueChanges = this.sortCodeFormGroup.valueChanges.subscribe(
       (sortCode: SortCodeField) => {
