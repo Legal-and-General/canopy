@@ -1,0 +1,12 @@
+<div
+  class="lg-content-scroll__content"
+  [ngClass]="{
+    'lg-content-scroll__content-min-width': mobileFullContent,
+    'lg-content-scroll__content-flat-list': listNoIndent
+  }"
+  [style.width]="getWidth()"
+  [style.height]="getHeight()"
+  tabindex="0"
+>
+  <ng-content></ng-content>
+</div>

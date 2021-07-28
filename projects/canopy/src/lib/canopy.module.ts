@@ -8,6 +8,7 @@ import { LgBreadcrumbModule } from './breadcrumb/breadcrumb.module';
 import { LgButtonModule } from './button/button.module';
 import { LgCardModule } from './card/card.module';
 import { LgCarouselModule } from './carousel/carousel.module';
+import { LgContentScrollModule } from './content-scroll/content-scroll.module';
 import { LgDataPointModule } from './data-point/data-point.module';
 import { LgDetailsModule } from './details/details.module';
 import { LgFeatureToggleModule } from './feature-toggle/feature-toggle.module';
@@ -91,6 +92,7 @@ const modules = [
   LgTabsModule,
   LgVariantModule,
   LgCarouselModule,
+  LgContentScrollModule,
   LgModalModule,
   LgPrimaryMessageModule,
 ];
