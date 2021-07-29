@@ -113,7 +113,8 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
       this.ngControl.control.updateValueAndValidity();
     }
 
-    const sortCodeParentControl = this.parentFormGroupDirective.form.controls['sortCode'];
+    const sortCodeParentControl =
+      this.parentFormGroupDirective.form.controls[this.ngControl.name];
 
     // show the error message when the input is invalid
     sortCodeParentControl.statusChanges.pipe(take(1)).subscribe(() => {
