@@ -18,7 +18,7 @@ import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
 import { instance, mock } from 'ts-mockito';
-import { skip } from 'rxjs/operators';
+import { skip, startWith } from 'rxjs/operators';
 
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
@@ -290,6 +290,21 @@ describe('SortCodeComponent', () => {
       buttonDebugElement.nativeElement.click();
 
       expect(spy).toHaveBeenCalled();
+    });
+
+    it('should have the sort fields marked as dirty and touched', (done) => {
+      const buttonDebugElement = fixture.debugElement.query(
+        By.directive(LgButtonComponent),
+      );
+      buttonDebugElement.nativeElement.click();
+      fixture.detectChanges();
+      sortCodeComponent.formGroupDirective.form.statusChanges
+        .pipe(startWith('INVALID'))
+        .subscribe(() => {
+          expect(sortCodeComponent.sortCodeFormGroup.dirty).toBe(true);
+          expect(sortCodeComponent.sortCodeFormGroup.touched).toBe(true);
+          done();
+        });
     });
   });
 });
