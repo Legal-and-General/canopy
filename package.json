@@ -111,7 +111,7 @@
     "semantic-release": "^17.4.2",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
-    "stylelint-selector-bem-pattern": "^2.1.0",
+    "stylelint-selector-bem-pattern": "^2.1.1",
     "svg-to-ts": "^6.0.1",
     "svgo": "^1.3.0",
     "ts-mockito": "^2.6.1",
