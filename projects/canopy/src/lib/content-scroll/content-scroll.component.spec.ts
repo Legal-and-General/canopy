@@ -1,10 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LgContentSrollComponent } from './content-scroll.component';
+import { ContentScrollBreakpoints } from './content-scroll.interface';
 
 describe('LgContentSrollComponent', () => {
   let component: LgContentSrollComponent;
   let fixture: ComponentFixture<LgContentSrollComponent>;
+  let scrollArea;
   let scrollContent;
 
   beforeEach(
@@ -18,6 +20,7 @@ describe('LgContentSrollComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LgContentSrollComponent);
     component = fixture.componentInstance;
+    scrollArea = fixture.debugElement.nativeElement;
     scrollContent = fixture.debugElement.nativeElement.querySelector(
       '.lg-content-scroll__content',
     );
@@ -28,64 +31,29 @@ describe('LgContentSrollComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('the contentWidth input', () => {
-    it('should show a value of auto input is not specified', () => {
+  describe('the scrollContentAt input', () => {
+    it('should show the default value if not specified', () => {
       fixture.detectChanges();
-      expect(scrollContent.style.width).toBe('auto');
-    });
-
-    it('should show a value of auto input is not valid', () => {
-      component.contentWidth = '4';
-      fixture.detectChanges();
-      expect(scrollContent.style.width).toBe('auto');
+      expect(scrollArea.classList.contains('lg-content-scroll__scroll-at-sm')).toBeTrue();
     });
 
     it('should show a value based on the input specified', () => {
-      component.contentWidth = '70vw';
+      component.scrollContentAt = ContentScrollBreakpoints.Medium;
       fixture.detectChanges();
-      expect(scrollContent.style.width).toBe('70vw');
+      expect(scrollArea.classList.contains('lg-content-scroll__scroll-at-md')).toBeTrue();
     });
   });
 
-  describe('the contentHeight input', () => {
-    it('should show a value of 40vh input is not specified', () => {
+  describe('the scrollHeight input', () => {
+    it('should show the default value if not specified', () => {
       fixture.detectChanges();
-      expect(scrollContent.style.height).toBe('40vh');
-    });
-
-    it('should show a value of 40vh input is not valid', () => {
-      component.contentHeight = '4';
-      fixture.detectChanges();
-      expect(scrollContent.style.height).toBe('40vh');
+      expect(scrollArea.style.height).toBe('40vh');
     });
 
     it('should show a value based on the input specified', () => {
-      component.contentHeight = '70vh';
+      component.scrollHeight = '70vh';
       fixture.detectChanges();
-      expect(scrollContent.style.height).toBe('70vh');
-    });
-  });
-
-  describe('the mobileFullContent input', () => {
-    it('should add the relevant class if input is not specified', () => {
-      fixture.detectChanges();
-      expect(
-        scrollContent.classList.contains('lg-content-scroll__content-min-width'),
-      ).toBeTrue();
-    });
-    it('should add the relevant class if input is true', () => {
-      component.mobileFullContent = true;
-      fixture.detectChanges();
-      expect(
-        scrollContent.classList.contains('lg-content-scroll__content-min-width'),
-      ).toBeTrue();
-    });
-    it('should not add the relevant class if input is false', () => {
-      component.mobileFullContent = false;
-      fixture.detectChanges();
-      expect(
-        scrollContent.classList.contains('lg-content-scroll__content-min-width'),
-      ).not.toBeTrue();
+      expect(scrollArea.style.height).toBe('70vh');
     });
   });
 

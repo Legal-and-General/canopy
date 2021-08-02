@@ -1,27 +1,31 @@
 @import '../../styles/mixins';
+@import 'content-scroll.breakpoints';
 
-.lg-content-scroll {
-  .lg-content-scroll__content {
-    display: block;
-    position: relative;
-    margin: 0.5em;
-    padding: 0.5em;
-    overflow-x: hidden;
-    overflow-y: auto;
-    border: solid var(--border-width) var(--content-scroll-border-color);
+@mixin lg-content-scroll__breakpoint {
+  display: block;
+  position: relative;
+  margin: var(--component-margin);
+  padding: var(--component-padding);
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: solid var(--border-width) var(--content-scroll-border-color);
 
-    p:first-child {
-      margin-top: 0;
-    }
-    @include lg-breakpoint('md', 'max-width') {
-      &.lg-content-scroll__content-min-width {
-        height: auto;
-        overflow-x: unset;
-        overflow-y: unset;
-        border: none;
-      }
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+@each $columns-breakpoint in $columns-breakpoints {
+  .lg-content-scroll__scroll-at-#{$columns-breakpoint} {
+    @include lg-breakpoint($columns-breakpoint) {
+      @include lg-content-scroll__breakpoint;
     }
   }
+}
+
+.lg-content-scroll {
+  height: auto;
+  width: auto;
 
   .lg-content-scroll__content-flat-list {
     ol {

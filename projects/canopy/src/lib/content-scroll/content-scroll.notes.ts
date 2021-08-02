@@ -2,7 +2,7 @@ export const notes = `
 # Content Scroll Component
 
 ## Purpose
-Content Scroll allows you to place long content in a smaller scrollable region. On mobile devices, the scroll region is removed and the content is displayed in full.
+Content Scroll allows you to place long content in a smaller scrollable region. On small screens, the scroll region is removed and the content is displayed in full.
 
 ## Usage
 
@@ -19,9 +19,8 @@ and in your HTML:
 
 ~~~html
 <lg-content-scroll
-  [contentWidth]="auto"
-  [contentHeight]="40vh"
-  [mobileFullContent]="true"
+  [scrollContentAt]="sm"
+  [scrollHeight]="40vh"
   [listNoIndent]="false">
 
   Content
@@ -33,8 +32,7 @@ and in your HTML:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`contentWidth\`\` | Set width of scroll region (takes auto, em, px, %, px, cm, mm, in, pt, pc, ch, rem, vw, vmin, vmax) | string | auto | No |
-| \`\`contentHeight\`\` | Set height of scroll region (takes auto, em, px, %, px, cm, mm, in, pt, pc, ch, rem, vh, vmin, vmax) | string | 40vh | No |
-| \`\`mobileFullContent\`\` | Remove scroll region on mobile devices | boolean | true | No |
+| \`\`scrollContentAt\`\` | Set minimum width to show scroll region (sm, md, lg) | string | sm | No |
+| \`\`scrollHeight\`\` | Set height of scroll region | string | 40vh | No |
 | \`\`listNoIndent\`\` | Remove indentation from ordered list structure | boolean | false | No |
 `;

@@ -1,4 +1,13 @@
-import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  ViewEncapsulation,
+  ElementRef,
+  Renderer2,
+} from '@angular/core';
+
+import { ContentScrollBreakpoints } from './content-scroll.interface';
 
 @Component({
   selector: 'lg-content-scroll',
@@ -7,31 +16,60 @@ import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core'
   encapsulation: ViewEncapsulation.None,
 })
 export class LgContentSrollComponent {
-  @HostBinding('class.lg-content-scroll') class = true;
-  @Input() contentWidth: string = null;
-  @Input() contentHeight: string = null;
-  @Input() mobileFullContent = true;
+  @HostBinding('class') class = 'lg-content-scroll';
+
+  private _scrollContentAt: ContentScrollBreakpoints;
+  @Input()
+  set scrollContentAt(columnsBreakpoint: ContentScrollBreakpoints) {
+    if (columnsBreakpoint === null) {
+      columnsBreakpoint = this._scrollContentAt;
+    }
+
+    this.addContentScrollBreakpoint(columnsBreakpoint);
+    this._scrollContentAt = columnsBreakpoint;
+  }
+  get scrollContentAt(): ContentScrollBreakpoints {
+    return this._scrollContentAt;
+  }
+
+  private _scrollHeight: string;
+  @Input()
+  set scrollHeight(value: string) {
+    if (value === null || value === '') {
+      value = this._scrollHeight;
+    }
+    this.setHeight(value);
+    this._scrollHeight = value;
+  }
+  get scrollHeight(): string {
+    return this._scrollHeight;
+  }
+
   @Input() listNoIndent = false;
 
-  private defaultWidth = 'auto';
-  private defaultHeight = '40vh';
-  private unitWidthPattern = new RegExp(
-    '(^(auto|([0-9]+(em|px|%|px|cm|mm|in|pt|pc|ch|rem|vw|vmin|vmax)))$)',
-  );
-  private unitHeightPattern = new RegExp(
-    '(^(auto|([0-9]+(em|px|%|px|cm|mm|in|pt|pc|ch|rem|vh|vmin|vmax)))$)',
-  );
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+    this._scrollContentAt = ContentScrollBreakpoints.Small;
+    this._scrollHeight = '40vh';
 
-  getHeight() {
-    if (this.unitHeightPattern.test(this.contentHeight)) {
-      return this.contentHeight;
-    }
-    return this.defaultHeight;
+    this.addContentScrollBreakpoint(this._scrollContentAt);
+    this.setHeight(this._scrollHeight);
   }
-  getWidth() {
-    if (this.unitWidthPattern.test(this.contentWidth)) {
-      return this.contentWidth;
-    }
-    return this.defaultWidth;
+
+  private addContentScrollBreakpoint(columnsBreakpoint: ContentScrollBreakpoints) {
+    this.renderer.removeClass(
+      this.hostElement.nativeElement,
+      `lg-content-scroll__scroll-at-${this._scrollContentAt}`,
+    );
+
+    this.renderer.addClass(
+      this.hostElement.nativeElement,
+      `lg-content-scroll__scroll-at-${columnsBreakpoint}`,
+    );
+  }
+
+  private setHeight(value: string) {
+    this.renderer.removeStyle(this.hostElement.nativeElement, 'height');
+
+    this.renderer.setStyle(this.hostElement.nativeElement, 'height', value);
   }
 }
