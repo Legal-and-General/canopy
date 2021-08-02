@@ -56,7 +56,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
   date: FormControl;
   month: FormControl;
   year: FormControl;
-  valueChanges: Subscription;
+  subscriptions: Array<Subscription> = [];
 
   @Input() value: string;
   @Input() disabled = false;
@@ -144,30 +144,30 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
       this.ngControl.control.updateValueAndValidity();
     }
 
-    this.valueChanges = this.dateFormGroup.valueChanges.subscribe((date: DateField) => {
-      const day = date.date ? ('0' + date.date).slice(-2) : '';
-      const month = date.month ? ('0' + date.month).slice(-2) : '';
-      const year = date.year ? date.year : '';
-      this.onChange(`${year}-${month}-${day}`);
-    });
+    this.subscriptions.push(
+      this.dateFormGroup.valueChanges.subscribe((date: DateField) => {
+        const day = date.date ? ('0' + date.date).slice(-2) : '';
+        const month = date.month ? ('0' + date.month).slice(-2) : '';
+        const year = date.year ? date.year : '';
+        this.onChange(`${year}-${month}-${day}`);
+      }),
 
-    // submit the group when the parent form is submitted
-    this.parentFormGroupDirective.ngSubmit
-      .pipe(filter(({ type }) => type === 'submit'))
-      .subscribe((event) => {
-        this.formGroupDirective.onSubmit(event);
-        this.ngControl.control.updateValueAndValidity();
-      });
+      // submit the group when the parent form is submitted
+      this.parentFormGroupDirective.ngSubmit
+        .pipe(filter(({ type }) => type === 'submit'))
+        .subscribe((event) => {
+          this.formGroupDirective.onSubmit(event);
+          this.ngControl.control.updateValueAndValidity();
+        }),
+    );
   }
 
   isControlInvalid(control: NgControl, form: FormGroupDirective) {
     return this.errorState.isControlInvalid(control, form);
   }
 
-  ngOnDestroy() {
-    if (this.valueChanges) {
-      this.valueChanges.unsubscribe();
-    }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   writeValue(dateString: string): void {
