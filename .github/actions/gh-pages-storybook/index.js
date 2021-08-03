@@ -14,7 +14,8 @@ async function run () {
     core.info('[INFO]: commencing storybook gh-pages deploy')
 
     core.info('[INFO]: running storybook build')
-    await exec.exec('npm', ['run', 'build-storybook']);
+    // gh-pages only works in the root directory, or '/docs'
+    await exec.exec('npm', ['run', 'build-storybook', '--', '-o', './docs']);
 
     core.info('[INFO]: configuring git')
     await exec.exec('git', ['config', '--global', 'user.email', 'github-actions[bot]@users.noreply.github.com']);
