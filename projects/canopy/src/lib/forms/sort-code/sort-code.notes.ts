@@ -17,14 +17,20 @@ Import the Sort Code Module into your application:
 and in your HTML:
 
 ~~~html
-<lg-sort-code formControlName="sortCode">
-  Sort Code
-  <lg-hint id="hintId">Must be 6 digits long</lg-hint>
-  <lg-validation id="errorId" *ngIf="isControlInvalid(sortCode, validationForm)">
-    Your sort code should be a 6 digit number
-  </lg-validation>
-</lg-sort-code>
+<form [formGroup]="form" (ngSubmit)="..." #validationForm="ngForm">
+  <lg-sort-code formControlName="sortCode">
+    Sort Code
+    <lg-hint id="hintId">Must be 6 digits long</lg-hint>
+    <lg-validation id="errorId" *ngIf="isControlInvalid(sortCode, validationForm)">
+      Your sort code should be a 6 digit number
+    </lg-validation>
+  </lg-sort-code>
+
+  <button type="submit">Submit</button>
+</form>
 ~~~
+
+**Note: for the validation to work properly it's very important to include the \`ngForm\` on the form tag and for the submit button to be within the form.**
 
 ## Inputs
 
@@ -42,5 +48,7 @@ and in your HTML:
 All three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.
 
 The form will return \`requiredField\` when all of the inputs are left empty and \`invalidField\` when any of the inputs are invalid.
+
+For the validation to work properly it's very important to include the \`ngForm\` on the form tag and for the submit button to be within the form.
 
 `;
