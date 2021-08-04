@@ -122,9 +122,13 @@ export class LgSortCodeComponent
   }
 
   ngOnInit(): void {
+    const validators = [this.validate.bind(this)];
     // append internal validators to external validators if applicable.
-    if (this.ngControl && this.ngControl.control) {
-      this.ngControl.control.setValidators([this.validate.bind(this)]);
+    if (this.ngControl?.control) {
+      if (this.ngControl.control.validator) {
+        validators.push(this.ngControl.control.validator);
+      }
+      this.ngControl.control.setValidators(validators);
       this.ngControl.control.updateValueAndValidity();
     }
 
@@ -171,7 +175,11 @@ export class LgSortCodeComponent
     );
   }
 
-  validate(): ValidationErrors {
+  validate(control: FormControl | FormGroup): ValidationErrors {
+    this.first.setErrors(this.first.errors);
+    this.second.setErrors(this.second.errors);
+    this.third.setErrors(this.third.errors);
+
     const invalidFields: Array<string> = [];
     Object.keys(this.sortCodeFormGroup.controls).forEach((fieldName) => {
       if (
@@ -188,10 +196,16 @@ export class LgSortCodeComponent
     );
 
     const error: ValidationErrors = {};
-    if (requiredFields.length === 3) {
-      error.requiredField = true;
-    } else if (invalidFields.length) {
+    if (invalidFields.length) {
       error.invalidField = true;
+    }
+
+    if (
+      requiredFields.length === 3 ||
+      (this.formGroupDirective?.submitted && control?.value?.length !== 6)
+    ) {
+      delete error.invalidField;
+      error.requiredField = true;
     }
 
     if (Object.keys(error).length) {
