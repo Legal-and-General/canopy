@@ -27,8 +27,9 @@ describe('LgTabNavBarComponent', () => {
       </lg-tab-nav-content>
     `);
     debugElement = fixture.debugElement;
-    component = debugElement.query(By.directive(LgTabNavContentComponent))
-      .componentInstance;
+    component = debugElement.query(
+      By.directive(LgTabNavContentComponent),
+    ).componentInstance;
     el = debugElement.query(By.directive(LgTabNavContentComponent)).nativeElement;
     fixture.detectChanges();
   });
@@ -39,6 +40,10 @@ describe('LgTabNavBarComponent', () => {
 
   it('should set default class', () => {
     expect(el.classList.contains('lg-tab-nav-content')).toBeTruthy();
+  });
+
+  it('should have the role `tabpanel`', () => {
+    expect(el.getAttribute('role')).toEqual('tabpanel');
   });
 
   it('should set the correct aria labelledby attribute', () => {
