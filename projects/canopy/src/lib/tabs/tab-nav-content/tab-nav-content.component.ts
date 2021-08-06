@@ -10,6 +10,7 @@ export class LgTabNavContentComponent {
   @Input() selectedTabId: string;
 
   @HostBinding('class.lg-tab-nav-content') class = true;
+  @HostBinding('attr.role') ariaRole = 'tabpanel';
   @HostBinding('attr.aria-labelledby')
   get labelledBy() {
     return this.selectedTabId;
