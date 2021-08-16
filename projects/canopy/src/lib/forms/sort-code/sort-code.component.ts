@@ -1,11 +1,14 @@
 import {
   Component,
   ContentChild,
+  Host,
   HostBinding,
   Input,
+  OnDestroy,
   OnInit,
   Optional,
   Self,
+  SkipSelf,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -16,6 +19,7 @@ import {
   FormGroupDirective,
   NgControl,
   ValidationErrors,
+  Validator,
   Validators,
 } from '@angular/forms';
 
@@ -36,7 +40,9 @@ let nextUniqueId = 0;
   styleUrls: ['./sort-code.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
+export class LgSortCodeComponent
+  implements OnInit, ControlValueAccessor, Validator, OnDestroy
+{
   @HostBinding('class.lg-sort-code-field') class = true;
 
   private uniqueId = nextUniqueId++;
@@ -44,8 +50,7 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
   first: FormControl;
   second: FormControl;
   third: FormControl;
-  valueChanges: Subscription;
-  hasError: boolean;
+  subscriptions: Array<Subscription> = [];
 
   @Input() value: string;
   @Input() disabled: false;
@@ -84,6 +89,9 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
     @Self()
     @Optional()
     private ngControl: NgControl,
+    @Optional()
+    @Host()
+    @SkipSelf()
     private parentFormGroupDirective: FormGroupDirective,
   ) {
     if (this.ngControl != null) {
@@ -114,32 +122,40 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
+    const validators = [this.validate.bind(this)];
     // append internal validators to external validators if applicable.
-    if (this.ngControl && this.ngControl.control) {
-      this.ngControl.control.setValidators([this.validate.bind(this)]);
+    if (this.ngControl?.control) {
+      if (this.ngControl.control.validator) {
+        validators.push(this.ngControl.control.validator);
+      }
+      this.ngControl.control.setValidators(validators);
       this.ngControl.control.updateValueAndValidity();
     }
 
-    this.valueChanges = this.sortCodeFormGroup.valueChanges.subscribe(
-      (sortCode: SortCodeField) => {
+    this.subscriptions.push(
+      this.sortCodeFormGroup.valueChanges.subscribe((sortCode: SortCodeField) => {
         const first = sortCode.first || '';
         const second = sortCode.second || '';
         const third = sortCode.third || '';
         this.onChange(`${first}${second}${third}`);
-      },
-    );
+      }),
 
-    // submit the group when the parent form is submitted
-    this.parentFormGroupDirective.ngSubmit
-      .pipe(filter(({ type }) => type === 'submit'))
-      .subscribe((event) => {
-        this.formGroupDirective.onSubmit(event);
-        this.ngControl.control.updateValueAndValidity();
-      });
+      // submit the group when the parent form is submitted
+      this.parentFormGroupDirective.ngSubmit
+        .pipe(filter(({ type }) => type === 'submit'))
+        .subscribe((event) => {
+          this.formGroupDirective.onSubmit(event);
+          this.ngControl.control.updateValueAndValidity();
+        }),
+    );
   }
 
   isControlInvalid(control: NgControl, form: FormGroupDirective): boolean {
     return this.errorState.isControlInvalid(control, form);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   writeValue(sortCode: string): void {
@@ -147,14 +163,23 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
       return;
     }
 
-    this.sortCodeFormGroup.setValue({
-      first: sortCode.substr(0, 2),
-      second: sortCode.substr(2, 2),
-      third: sortCode.substr(4, 2),
-    });
+    this.sortCodeFormGroup.setValue(
+      {
+        first: sortCode.substr(0, 2),
+        second: sortCode.substr(2, 2),
+        third: sortCode.substr(4, 2),
+      },
+      {
+        emitEvent: false,
+      },
+    );
   }
 
-  validate(): ValidationErrors {
+  validate(control: FormControl | FormGroup): ValidationErrors {
+    this.first.setErrors(this.first.errors);
+    this.second.setErrors(this.second.errors);
+    this.third.setErrors(this.third.errors);
+
     const invalidFields: Array<string> = [];
     Object.keys(this.sortCodeFormGroup.controls).forEach((fieldName) => {
       if (
@@ -171,10 +196,16 @@ export class LgSortCodeComponent implements OnInit, ControlValueAccessor {
     );
 
     const error: ValidationErrors = {};
-    if (requiredFields.length === 3) {
-      error.requiredField = true;
-    } else if (invalidFields.length) {
+    if (invalidFields.length) {
       error.invalidField = true;
+    }
+
+    if (
+      requiredFields.length === 3 ||
+      (this.formGroupDirective?.submitted && control?.value?.length !== 6)
+    ) {
+      delete error.invalidField;
+      error.requiredField = true;
     }
 
     if (Object.keys(error).length) {
