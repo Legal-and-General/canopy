@@ -17,36 +17,42 @@ Import the Date Input Module into your application:
 and in your HTML:
 
 ~~~html
-<lg-date-field formControlName="date">
-  Date of birth
-  <lg-hint>For example, 12 06 1983</lg-hint>
-  <lg-validation *ngIf="isControlInvalid(date, validationForm)">
-  <ng-container *ngIf="date.hasError('invalidField')">
-    Enter a valid {{ date.errors.invalidField }}
-  </ng-container>
-  <ng-container *ngIf="date.hasError('invalidFields')">
-    Enter a valid {{ date.errors.invalidFields[0] }} and
-    {{ date.errors.invalidFields[1] }}
-  </ng-container>
-  <ng-container *ngIf="date.hasError('requiredField')">
-    Date of birth must include a {{ date.errors.requiredField }}
-  </ng-container>
-  <ng-container *ngIf="date.hasError('requiredFields')">
-    Date of birth must include a {{ date.errors.requiredFields[0] }} and
-    {{ date.errors.requiredFields[1] }}
-  </ng-container>
-  <ng-container *ngIf="date.hasError('invalidDate')">
-    Enter a valid date of birth
-  </ng-container>
-  <ng-container *ngIf="date.hasError('futureDate')">
-    Date must be in the past
-  </ng-container>
-  <ng-container *ngIf="date.hasError('required')">
-    Enter a date of birth
-  </ng-container>
-</lg-validation>
-</lg-date-field>
+<form [formGroup]="form" (ngSubmit)="..." #validationForm="ngForm">
+  <lg-date-field formControlName="date">
+    Date of birth
+    <lg-hint>For example, 12 06 1983</lg-hint>
+    <lg-validation *ngIf="isControlInvalid(date, validationForm)">
+      <ng-container *ngIf="date.hasError('invalidField')">
+        Enter a valid {{ date.errors.invalidField }}
+      </ng-container>
+      <ng-container *ngIf="date.hasError('invalidFields')">
+        Enter a valid {{ date.errors.invalidFields[0] }} and
+        {{ date.errors.invalidFields[1] }}
+      </ng-container>
+      <ng-container *ngIf="date.hasError('requiredField')">
+        Date of birth must include a {{ date.errors.requiredField }}
+      </ng-container>
+      <ng-container *ngIf="date.hasError('requiredFields')">
+        Date of birth must include a {{ date.errors.requiredFields[0] }} and
+        {{ date.errors.requiredFields[1] }}
+      </ng-container>
+      <ng-container *ngIf="date.hasError('invalidDate')">
+        Enter a valid date of birth
+      </ng-container>
+      <ng-container *ngIf="date.hasError('futureDate')">
+        Date must be in the past
+      </ng-container>
+      <ng-container *ngIf="date.hasError('required')">
+        Enter a date of birth
+      </ng-container>
+    </lg-validation>
+  </lg-date-field>
+
+  <button type="submit">Submit</button>
+</form>
 ~~~
+
+**Note: for the validation to work properly it's very important to include the \`ngForm\` on the form tag and for the submit button to be within the form.**
 
 ## Inputs
 
@@ -63,6 +69,8 @@ and in your HTML:
 Date validation is quite complex with a range of different validation errors, where possible we have encapsulated as much of that complexity into the components as we can.
 
 Internally the date-field can determine if the entered date is a valid date. If additional validation is required such as checking for past or future dates this can be done with external validators.
+
+For the validation to work properly it's very important to include the \`ngForm\` on the form tag and for the submit button to be within the form.
 
 ### Internal validation
 In some scenarios there could be multiple fields that are incorrect, to help guide the users to the correct issue the date field only returns the most significant validation error. Only one error should be shown at a time.
