@@ -8,7 +8,7 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 export class LgPageComponent {
   @HostBinding('class.lg-page') class = true;
 
-  public skipToMain($element) {
+  public skipToMain($element: HTMLElement) {
     $element.focus();
   }
 }

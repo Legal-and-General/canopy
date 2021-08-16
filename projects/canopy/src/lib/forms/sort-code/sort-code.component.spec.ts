@@ -258,6 +258,19 @@ describe('SortCodeComponent', () => {
       });
     });
 
+    it('adds an invalid field validation rule if one of the fields is required and the other two are invalid', () => {
+      sortCodeFieldInstance.first.markAsDirty();
+      sortCodeFieldInstance.second.markAsDirty();
+      sortCodeFieldInstance.third.markAsDirty();
+      sortCodeFieldInstance.first.setValue('xx');
+      sortCodeFieldInstance.second.setValue('');
+      sortCodeFieldInstance.third.setValue('xx');
+      fixture.detectChanges();
+      expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
+        invalidField: true,
+      });
+    });
+
     it('adds a required field validation rule if all the input fields are empty', () => {
       sortCodeFieldInstance.first.markAsDirty();
       sortCodeFieldInstance.second.markAsDirty();
@@ -268,6 +281,19 @@ describe('SortCodeComponent', () => {
       fixture.detectChanges();
       expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
         requiredField: true,
+      });
+    });
+
+    it('adds a invalid field validation rule if one input is entered correctly but the other two are empty', () => {
+      sortCodeFieldInstance.first.markAsDirty();
+      sortCodeFieldInstance.second.markAsDirty();
+      sortCodeFieldInstance.third.markAsDirty();
+      sortCodeFieldInstance.first.setValue('00');
+      sortCodeFieldInstance.second.setValue('');
+      sortCodeFieldInstance.third.setValue('');
+      fixture.detectChanges();
+      expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
+        invalidField: true,
       });
     });
   });
@@ -290,6 +316,21 @@ describe('SortCodeComponent', () => {
       buttonDebugElement.nativeElement.click();
 
       expect(spy).toHaveBeenCalled();
+    });
+
+    it('adds a required field validation rule if all the input fields are empty', () => {
+      sortCodeFieldInstance.first.setValue('');
+      sortCodeFieldInstance.second.setValue('');
+      sortCodeFieldInstance.third.setValue('');
+      fixture.detectChanges();
+      const buttonDebugElement = fixture.debugElement.query(
+        By.directive(LgButtonComponent),
+      );
+      buttonDebugElement.nativeElement.click();
+
+      expect(fixture.componentInstance.form.controls.sortCode.errors).toEqual({
+        requiredField: true,
+      });
     });
   });
 });
