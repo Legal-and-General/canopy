@@ -13,6 +13,10 @@
   display: flex;
   flex-direction: column;
   margin-right: var(--space-sm);
+
+  & .lg-input-field .lg-input-field__inputs {
+    width: 100%;
+  }
 }
 
 .lg-date-field__month,

@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { ButtonVariant, ButtonIconPosition, ButtonSize } from './button.interface';
+import type { ButtonVariant, ButtonIconPosition, ButtonSize } from './button.interface';
 
 @Component({
   selector: '[lg-button]',

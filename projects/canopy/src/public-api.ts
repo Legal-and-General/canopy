@@ -41,3 +41,5 @@ export * from './lib/suffix/index';
 export * from './lib/table/index';
 export * from './lib/tabs/index';
 export * from './lib/variant/index';
+export * from './lib/modal/index';
+export * from './lib/primary-message/index';

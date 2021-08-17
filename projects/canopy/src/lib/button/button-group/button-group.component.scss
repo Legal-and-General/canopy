@@ -1,0 +1,18 @@
+@import '../../../styles/mixins.scss';
+
+.lg-btn-group {
+  display: block;
+
+  .lg-btn {
+    margin-bottom: 0;
+
+    + .lg-btn {
+      margin-top: var(--space-sm);
+
+      @include lg-breakpoint(md) {
+        margin-left: var(--space-sm);
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
+import type { LgFeatureToggleOptions } from './feature-toggle.interface';
 import {
-  LgFeatureToggleOptions,
   LgToggles,
   togglesInjectable,
   togglesOptionsInjectable,

@@ -4,6 +4,8 @@ Hi, glad you are here all contributions are very much welcome!
 
 Before you start Contributing to Canopy it is worth familiarising yourself with the [best practice](./BEST_PRACTICE.md) guidelines.
 
+Please do raise an [issue](https://github.com/Legal-and-General/canopy/issues) or [discussion](https://github.com/Legal-and-General/canopy/discussions) before starting a piece of work. Our contributors can help provide guidance to make sure your effort isn't wasted. It is important that the development and design implementations stay in sync and that the codebase remains consistent. This will help to give the codebase a long life and remain intuitive for those using it.
+
 ## Storybook
 
 Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed.
@@ -120,3 +122,6 @@ The Roboto font is stored in **/projects/canopy/src/assets/fonts/roboto** as nor
 The Lyon font files are stored in **/assets/fonts** and ommitted from the distributed package via the Webpack config. The `css-loader` options prevent it from transforming any URL referencing the Lyon font. This means the path will stay as relative to the base URL of the consuming application (/assets/fonts), therefore looking in the assets directory of consuming app.
 
 For more info, see the fonts section in USAGE.md.
+
+# Angular Material CDK
+The `@angular/cdk` can be used as long as only the necessary functionality is imported. 

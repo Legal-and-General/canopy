@@ -9,9 +9,10 @@
 </span>
 <div
   #content
+  class="lg-table-cell__content"
   [ngClass]="{
     'lg-table-cell__content--align-end': align === alignOptions.End,
-    'lg-table-cell__content': showLabel
+    'lg-table-cell__content--hidden-label': !showLabel
   }"
 >
   <ng-content></ng-content>

@@ -5,6 +5,26 @@
   display: flex;
   align-items: center;
 
+  &--stacked {
+    flex-direction: column;
+    align-items: stretch;
+
+    .lg-table-cell__label {
+      margin-bottom: var(--space-xxs);
+    }
+
+    .lg-table-cell__content {
+      margin-left: 0;
+      margin-bottom: var(--space-md);
+    }
+
+    &:last-child {
+      .lg-table-cell__content {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   &--toggle-cell {
     order: 1;
     padding: 0;
@@ -21,7 +41,10 @@
 
 .lg-table-cell__content {
   margin-left: auto;
-  white-space: nowrap;
+}
+
+.lg-table-cell__content--hidden-label {
+  margin-left: 0;
 }
 
 .lg-table-cell--expandable-content {
@@ -56,6 +79,7 @@
 
       &__content {
         @include lg-breakpoint($columns-breakpoint) {
+          margin-bottom: 0;
           text-align: left;
         }
 

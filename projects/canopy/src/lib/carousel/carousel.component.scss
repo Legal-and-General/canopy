@@ -1,5 +1,38 @@
+@import '../../styles/mixins.scss';
+
 .lg-carousel {
   overflow: hidden;
+  position: relative;
+
+  &__button-timer {
+    position: absolute;
+    width: var(--space-xl);
+    height: var(--space-xl);
+    transform: rotateY(-180deg) rotateZ(-90deg) rotateX(180deg);
+
+    &__circle {
+      stroke-dasharray: calc(7 * var(--space-unit));
+      stroke-dashoffset: 0;
+      stroke-linecap: round;
+      stroke-width: calc(0.125 * var(--space-unit));
+      stroke: var(--carousel-active-bullet-color);
+      fill: none;
+      animation-name: countdown;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+    }
+  }
+
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 7rem;
+    }
+
+    to {
+      stroke-dashoffset: 0rem;
+    }
+  }
 
   &__wrapper {
     position: relative;
@@ -24,17 +57,18 @@
     border: none;
     background-color: transparent;
     margin: 0;
-    width: var(--space-xxl);
-    height: var(--space-xxl);
+    width: var(--space-xl);
+    height: var(--space-xl);
     cursor: pointer;
+    position: relative;
 
     &:focus-visible {
       outline: none;
     }
 
     &__disk {
-      width: var(--space-xxl);
-      height: var(--space-xxl);
+      width: var(--space-xl);
+      height: var(--space-xl);
       border-radius: 100%;
     }
 
@@ -53,7 +87,6 @@
     background-color: var(--carousel-bullet-color);
     display: block;
     border-radius: 100%;
-    transition: all var(--animation-fn) var(--animation-duration);
 
     &--active {
       width: var(--space-xs);

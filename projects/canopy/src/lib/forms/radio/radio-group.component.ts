@@ -21,7 +21,7 @@ import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgRadioButtonComponent } from './radio-button.component';
-import { RadioStackBreakpoint, RadioVariant } from './radio.interface';
+import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
 
 let uniqueId = 0;
 

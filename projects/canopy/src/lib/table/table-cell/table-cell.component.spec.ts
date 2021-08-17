@@ -75,6 +75,32 @@ describe('LgTableCellComponent', () => {
     });
   });
 
+  describe('when stack is set to true', () => {
+    beforeEach(() => {
+      component.stack = true;
+      fixture.detectChanges();
+    });
+
+    it('should set the lg-table-cell--stacked class', () => {
+      expect(fixture.nativeElement.getAttribute('class')).toContain(
+        'lg-table-cell--stacked',
+      );
+    });
+  });
+
+  describe('when stack is set to false', () => {
+    beforeEach(() => {
+      component.stack = false;
+      fixture.detectChanges();
+    });
+
+    it('should not set the lg-table-cell--stacked class', () => {
+      expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table-cell--stacked',
+      );
+    });
+  });
+
   describe('when showLabel is set to true', () => {
     beforeEach(() => {
       component.showLabel = true;
@@ -107,9 +133,11 @@ describe('LgTableCellComponent', () => {
       );
     });
 
-    it('should not set the content class', () => {
-      const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
-      expect(contentElement).toBe(null);
+    it('should set the hidden class on the content', () => {
+      const contentElement = debugElement.query(
+        By.css('.lg-table-cell__content--hidden-label'),
+      );
+      expect(contentElement).toBeDefined();
     });
   });
 

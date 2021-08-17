@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import { SpacingVariant } from '../spacing.interface';
+import type { SpacingVariant } from '../spacing.interface';
 
 @Directive({
   selector: `
