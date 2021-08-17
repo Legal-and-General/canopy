@@ -46,7 +46,24 @@
       ></span>
       <svg
         class="lg-carousel__button-timer"
-        *ngIf="autoPlay && i === selectedItemIndex && !pause.value"
+        *ngIf="
+          autoPlay &&
+          selectedItemIndex === carouselItemCount - 1 &&
+          i === 0 &&
+          !pause.value
+        "
+      >
+        <circle
+          class="lg-carousel__button-timer__circle"
+          [style.animation-duration.s]="autoPlayDelay / 1000"
+          r="18"
+          cx="20"
+          cy="20"
+        ></circle>
+      </svg>
+      <svg
+        class="lg-carousel__button-timer"
+        *ngIf="autoPlay && i === selectedItemIndex + 1 && !pause.value"
       >
         <circle
           class="lg-carousel__button-timer__circle"
