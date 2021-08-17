@@ -6,8 +6,6 @@
 
   &__button-timer {
     position: absolute;
-    top: var(--space-xxxs);
-    right: var(--space-xxxs);
     width: var(--space-xl);
     height: var(--space-xl);
     transform: rotateY(-180deg) rotateZ(-90deg) rotateX(180deg);
@@ -59,8 +57,8 @@
     border: none;
     background-color: transparent;
     margin: 0;
-    width: var(--space-xxl);
-    height: var(--space-xxl);
+    width: var(--space-xl);
+    height: var(--space-xl);
     cursor: pointer;
     position: relative;
 
@@ -69,8 +67,8 @@
     }
 
     &__disk {
-      width: var(--space-xxl);
-      height: var(--space-xxl);
+      width: var(--space-xl);
+      height: var(--space-xl);
       border-radius: 100%;
     }
 
