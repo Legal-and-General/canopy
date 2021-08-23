@@ -1,3 +1,8 @@
 [build]
   command = "npm run build-storybook"
   publish = "storybook-static"
+[[redirects]]
+  from = "https://legal-and-general-canopy.netlify.app/"
+  to = "https://legal-and-general.github.io/canopy/"
+  status = 301
+  force = true
