@@ -9,8 +9,6 @@ async function run () {
       core.endGroup();
     }
 
-    const buildPath = 'storybook-static';
-    
     core.info('[INFO]: commencing storybook gh-pages deploy')
 
     core.info('[INFO]: running storybook build')
@@ -27,7 +25,7 @@ async function run () {
 
     core.info('[INFO]: adding storybook static files')
     // --force: override .gitignore
-    await exec.exec('git', ['add', '--force', buildPath]);
+    await exec.exec('git', ['add', '.']);
 
     core.info('[INFO]: committing changes');
     // TODO: retrieve latest release and put it in the commit msg, token does not have privileges
