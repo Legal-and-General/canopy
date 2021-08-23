@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
-import type { SpacingVariant } from '../spacing.interface';
+import type { SpacingResponsive, SpacingVariant } from '../spacing.interface';
+import { SpacingService } from '../spacing.service';
 
 @Directive({
   selector: `
@@ -14,67 +15,78 @@ import type { SpacingVariant } from '../spacing.interface';
   `,
 })
 export class LgMarginDirective {
-  marginTopClass: string;
+  marginTopClasses: Array<string> = [];
   @Input()
-  set lgMarginTop(margin: SpacingVariant) {
-    this.marginTopClass = this.toggleMarginClass(
-      `lg-margin__top--${margin}`,
-      this.marginTopClass,
+  set lgMarginTop(margin: SpacingVariant | SpacingResponsive) {
+    this.marginTopClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(margin, 'margin-top'),
+      this.marginTopClasses,
     );
   }
 
-  marginRightClass: string;
+  marginRightClasses: Array<string> = [];
   @Input()
-  set lgMarginRight(margin: SpacingVariant) {
-    this.marginRightClass = this.toggleMarginClass(
-      `lg-margin__right--${margin}`,
-      this.marginRightClass,
+  set lgMarginRight(margin: SpacingVariant | SpacingResponsive) {
+    this.marginRightClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(margin, 'margin-right'),
+      this.marginRightClasses,
     );
   }
 
-  marginBottomClass: string;
+  marginBottomClasses: Array<string> = [];
   @Input()
-  set lgMarginBottom(margin: SpacingVariant) {
-    this.marginBottomClass = this.toggleMarginClass(
-      `lg-margin__bottom--${margin}`,
-      this.marginBottomClass,
+  set lgMarginBottom(margin: SpacingVariant | SpacingResponsive) {
+    this.marginBottomClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(margin, 'margin-bottom'),
+      this.marginBottomClasses,
     );
   }
 
-  marginLeftClass: string;
+  marginLeftClasses: Array<string> = [];
   @Input()
-  set lgMarginLeft(margin: SpacingVariant) {
-    this.marginLeftClass = this.toggleMarginClass(
-      `lg-margin__left--${margin}`,
-      this.marginLeftClass,
+  set lgMarginLeft(margin: SpacingVariant | SpacingResponsive) {
+    this.marginLeftClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(margin, 'margin-left'),
+      this.marginLeftClasses,
     );
   }
 
   @Input()
-  set lgMarginHorizontal(margin: SpacingVariant) {
+  set lgMarginHorizontal(margin: SpacingVariant | SpacingResponsive) {
     this.lgMarginLeft = margin;
     this.lgMarginRight = margin;
   }
 
   @Input()
-  set lgMarginVertical(margin: SpacingVariant) {
+  set lgMarginVertical(margin: SpacingVariant | SpacingResponsive) {
     this.lgMarginTop = margin;
     this.lgMarginBottom = margin;
   }
 
-  marginClass: string;
+  marginClasses: Array<string> = [];
   @Input()
-  set lgMargin(margin: SpacingVariant) {
-    this.marginClass = this.toggleMarginClass(`lg-margin--${margin}`, this.marginClass);
+  set lgMargin(margin: SpacingVariant | SpacingResponsive) {
+    this.marginClasses = this.toggleClasses(
+      this.spacingService.createNewClasses(margin, 'margin'),
+      this.marginClasses,
+    );
   }
 
-  toggleMarginClass(newClass: string, oldClass: string): string {
-    if (oldClass) {
-      this.renderer.removeClass(this.hostElement.nativeElement, oldClass);
+  toggleClasses(newClasses: Array<string>, oldClasses: Array<string>) {
+    if (oldClasses.length) {
+      oldClasses.forEach((oldClass) => {
+        this.renderer.removeClass(this.hostElement.nativeElement, oldClass);
+      });
     }
-    this.renderer.addClass(this.hostElement.nativeElement, newClass);
-    return newClass;
+    newClasses.forEach((newClass) => {
+      this.renderer.addClass(this.hostElement.nativeElement, newClass);
+    });
+    return newClasses;
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+    private spacingService: SpacingService,
+  ) {}
 }
