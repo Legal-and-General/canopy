@@ -14,15 +14,11 @@ Running `npm start` will run storybook locally, this will hot reload any changes
 
 ### Netlify Deployments
 
-Pull requests are automatically deployed via [Netlify](https://netlify.com), a status check will be added to any pull request with a link to the deployment which will run the storybook application. [Netlify config](./netlify.toml) is checked into the project
+Pull requests are automatically deployed via [Netlify](https://netlify.com), a status check will be added to any pull request with a link to the deployment which will run the storybook application. [Netlify config](../netlify.toml) is checked into the project
 
-The master branch is also deployed to netlify, this currently provides the most up to date documentation for the latest version.
+The master branch is also deployed to [GitHub Pages](https://pages.github.com/), this currently provides the most up to date documentation for the latest version. This deployment is handled by a custom [GitHub action](../.github/actions/gh-pages-storybook)
 
-https://legal-and-general-canopy.netlify.app/
-
-When seeking QA approval for your work please provide a link on the PR to the specific component in question, e.g.
-
-https://legal-and-general-canopy.netlify.app/?path=/story/components-button--primary-button
+https://legal-and-general.github.io/canopy
 
 ## Build
 
