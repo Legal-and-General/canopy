@@ -25,4 +25,8 @@ describe('LgSideNavContentComponent', () => {
   it('should contain the default class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-side-nav-content');
   });
+
+  it('should contain the tab index', () => {
+    expect(fixture.nativeElement.getAttribute('tabindex')).toEqual('-1');
+  });
 });
