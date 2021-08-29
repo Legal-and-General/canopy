@@ -107,7 +107,7 @@
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "protractor": "^7.0.0",
-    "semantic-release": "^17.4.2",
+    "semantic-release": "^17.4.7",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1",
