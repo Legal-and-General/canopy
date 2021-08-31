@@ -35,8 +35,8 @@ and in your HTML:
 | \`\`logo\`\` | A url link to the logo | string | null | Yes |
 | \`\`logoAlt\`\` | alt text to display alongside the logo | string | '2rem' | Yes |
 | \`\`copyright\`\` | Copyright text to display in footer | string | null | No |
-| \`\`primaryLinks\`\` | The primary footer links | \`[{ text: string, href: string }]\` | null | No |
-| \`\`secondaryLinks\`\` | The secondary footer links | \`[{ text: string, href: string }]\` | null | No |
+| \`\`primaryLinks\`\` | The primary footer links | \`[{ text: string, href: string, id?: string, target?: string }]\` | null | No |
+| \`\`secondaryLinks\`\` | The secondary footer links | \`[{ text: string, href: string, id?: string, target?: string }]\` | null | No |
 
 ## Outputs
 

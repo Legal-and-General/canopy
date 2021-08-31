@@ -9,6 +9,7 @@
       <li *ngFor="let link of primaryLinks" class="lg-footer__primary-nav-item">
         <a
           (click)="handlePrimaryLinkClick($event)"
+          [attr.id]="link.id"
           [attr.href]="link.href"
           [attr.target]="link.target || '_blank'"
           class="lg-footer__nav-link"
@@ -29,6 +30,7 @@
       <li *ngFor="let link of secondaryLinks" class="lg-footer__secondary-nav-item">
         <a
           (click)="handleSecondaryLinkClick($event)"
+          [attr.id]="link.id"
           [attr.href]="link.href"
           [attr.target]="link.target || '_blank'"
           class="lg-footer__nav-link"
