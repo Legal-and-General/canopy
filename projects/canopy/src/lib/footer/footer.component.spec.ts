@@ -11,9 +11,11 @@ describe('FooterComponent', () => {
   const logoAlt = 'logo alt';
   const text1 = 'test1';
   const href1 = 'https://a.b';
+  const id1 = 'test-1';
 
   const text2 = 'test2';
   const href2 = 'https://b.c';
+  const id2 = 'test-2';
 
   beforeEach(
     waitForAsync(() => {
@@ -26,8 +28,8 @@ describe('FooterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LgFooterComponent);
     component = fixture.componentInstance;
-    component.primaryLinks = [{ text: text1, href: href1 }];
-    component.secondaryLinks = [{ text: text2, href: href2 }];
+    component.primaryLinks = [{ text: text1, href: href1, id: id1 }];
+    component.secondaryLinks = [{ text: text2, href: href2, id: id2 }];
     component.logo = logo;
 
     fixture.detectChanges();
@@ -76,6 +78,7 @@ describe('FooterComponent', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href1}"]`));
       expect(link).toBeTruthy();
       expect(link.attributes.href).toBe(href1);
+      expect(link.attributes.id).toBe(id1);
     });
 
     it('does not throw an error when no links are provided', () => {
@@ -101,8 +104,9 @@ describe('FooterComponent', () => {
     it('emits an event when clicked', () => {
       let selectedHref: string;
       component.primaryLinkClicked.subscribe((event: Event) => {
-        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem('href')
-          .value;
+        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
+          'href',
+        ).value;
         event.preventDefault();
       });
 
@@ -117,6 +121,7 @@ describe('FooterComponent', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href2}"]`));
       expect(link).toBeTruthy();
       expect(link.attributes.href).toBe(href2);
+      expect(link.attributes.id).toBe(id2);
     });
 
     it('does not throw an error when no links are provided', () => {
@@ -142,8 +147,9 @@ describe('FooterComponent', () => {
     it('emits an event when clicked', () => {
       let selectedHref: string;
       component.secondaryLinkClicked.subscribe((event: Event) => {
-        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem('href')
-          .value;
+        selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
+          'href',
+        ).value;
         event.preventDefault();
       });
 
