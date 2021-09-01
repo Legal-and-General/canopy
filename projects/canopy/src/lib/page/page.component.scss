@@ -25,7 +25,8 @@
   &:focus,
   &:active {
     left: 0;
-    width: auto;
-    height: auto;
+    clip: auto !important;
+    width: auto !important;
+    height: auto !important;
   }
 }
