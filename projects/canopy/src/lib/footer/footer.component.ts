@@ -7,11 +7,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-interface Link {
-  text: string;
-  href: string;
-  target?: string;
-}
+import { Link } from './footer.model';
+
 @Component({
   selector: '[lg-footer]',
   templateUrl: './footer.component.html',

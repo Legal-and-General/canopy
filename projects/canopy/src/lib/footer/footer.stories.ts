@@ -25,16 +25,28 @@ export default {
 };
 
 export const primaryLinks = [
-  { text: 'My account', href: 'https://app.somecompany.com' },
-  { text: 'My quotes', href: 'https://somecompany.com/quotes' },
-  { text: 'Support centre', href: 'https://somecompany.com/support' },
-  { text: 'Contact', href: 'https://somecompany.com/contact' },
+  { id: 'primary-link-1', text: 'My account', href: 'https://app.somecompany.com' },
+  { id: 'primary-link-2', text: 'My quotes', href: 'https://somecompany.com/quotes' },
+  {
+    id: 'primary-link-3',
+    text: 'Support centre',
+    href: 'https://somecompany.com/support',
+  },
+  { id: 'primary-link-4', text: 'Contact', href: 'https://somecompany.com/contact' },
 ];
 
 export const secondaryLinks = [
-  { text: 'Accessibility', href: 'https://somecompany.com/accessibility' },
-  { text: 'Security', href: 'https://somecompany.com/security' },
-  { text: 'Legal and regulatory', href: 'https://somecompany.com/legal' },
+  {
+    id: 'secondary-link-1',
+    text: 'Accessibility',
+    href: 'https://somecompany.com/accessibility',
+  },
+  { id: 'secondary-link-2', text: 'Security', href: 'https://somecompany.com/security' },
+  {
+    id: 'secondary-link-3',
+    text: 'Legal and regulatory',
+    href: 'https://somecompany.com/legal',
+  },
 ];
 
 const groupId = 'footer';
