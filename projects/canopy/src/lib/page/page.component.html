@@ -1,4 +1,9 @@
-<a (click)="skipToMain($event, target)" class="lg-page__skip-link" href="#main">
+<a
+  (click)="skipToMain($event, target)"
+  class="lg-page__skip-link"
+  href="#main"
+  tabindex="0"
+>
   Skip to main content
 </a>
 <ng-content select="[lg-header]"></ng-content>
