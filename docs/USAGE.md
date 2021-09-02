@@ -163,7 +163,7 @@ import cssVars from 'css-vars-ponyfill';
 
 ## Using the components
 
-Each components is individually documented on Storybook, refer to the latest version which is available at https://legal-and-general-canopy.netlify.app/
+Each components is individually documented on Storybook, refer to the latest version which is available at https://legal-and-general.github.io/canopy/
 
 The `notes` tab explains the usage of each component. The `story` tab displays the code required to render that particular documentation page, and is a useful reference point.
 
