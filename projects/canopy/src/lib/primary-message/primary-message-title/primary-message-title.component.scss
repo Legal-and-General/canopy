@@ -1,11 +1,24 @@
 @import '../../../styles/mixins';
 
-.lg-primary-message-title {
+@mixin primary-message-title() {
   display: block;
   margin-top: var(--space-sm);
   @include lg-font-size('3');
 
   @include lg-breakpoint(md) {
     margin-top: var(--space-md);
+  }
+}
+
+.lg-primary-message-title {
+  @include primary-message-title;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include primary-message-title;
   }
 }
