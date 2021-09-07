@@ -64,7 +64,7 @@ export const standard = () => ({
     </footer>
   `,
   props: {
-    logo: text('logo', 'legal-and-general-logo.png', groupId),
+    logo: text('logo', 'legal-and-general-logo.svg', groupId),
     logoAlt: text('logoAlt', 'Company name', groupId),
     copyright: text('copyright', '© Some Company plc 2018', groupId),
     secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
