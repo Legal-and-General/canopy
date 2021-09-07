@@ -12,7 +12,7 @@ const contentGroupId = 'content';
 const sharedGroupId = 'common';
 
 const createProps = () => ({
-  logo: text('logo', 'legal-and-general-logo.png', sharedGroupId),
+  logo: text('logo', 'legal-and-general-logo.svg', sharedGroupId),
   logoAlt: text('logoAlt', 'Company name', sharedGroupId),
   copyright: text('copyright', '© Some Company plc 2019', footerGroupId),
   card1Content: text(
