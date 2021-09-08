@@ -28,7 +28,7 @@ export const standard = () => ({
     <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></header>
   `,
   props: {
-    logo: text('logo', 'legal-and-general-logo.png', groupId),
+    logo: text('logo', 'legal-and-general-logo.svg', groupId),
     logoAlt: text('logoAlt', 'Company name', groupId),
     logoHref: text('logoHref', 'https://storybook.js.org', groupId),
   },
