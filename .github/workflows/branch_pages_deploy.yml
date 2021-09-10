@@ -1,0 +1,54 @@
+name: Branch Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      pullNumber:
+        description: 'The PR number'
+        required: true
+
+jobs:
+  # Deploys selected branch to GitHub Pages
+  deploy-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3.1.1
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: 'Set BRANCH_NAME variable'
+        run: |
+          echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
+      - name: 'Branch deployment to GitHub Pages'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const deployBranch = require('./.github/workflow-scripts/deploy-branch.js');
+            return await deployBranch({
+              branch: ${{ env.BRANCH_NAME }},
+              pullNumber: ${{ github.event.inputs.pullNumber }},
+              github,
+              context,
+              exec,
+              core
+            });
+
+      - name: 'Update PR with branch url comment'
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const addComment = require('./.github/workflow-scripts/add-pr-comment.js');
+            return await addComment({
+              pullNumber: ${{ github.event.inputs.pullNumber }},
+              github,
+              context,
+              body: `
+                ### :rocket: Branch deployed
+
+                The **branch URL** is:
+                https://legal-and-general.github.io/canopy/${{ env.BRANCH_NAME }}
+              `
+            });
