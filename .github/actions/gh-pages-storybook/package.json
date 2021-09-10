@@ -1,9 +1,0 @@
-{
-  "name": "@legal-and-general/gh-pages-storybook",
-  "private": true,
-  "description": "A github action to deploy storybook to gh-pages",
-  "devDependencies": {
-    "@actions/core": "^1.4.0",
-    "@actions/exec": "^1.1.0"
-  }
-}
