@@ -28,15 +28,4 @@ and in your HTML:
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`variant\`\` | The variant of separator: \`\`solid\`\`, \`\`dotted\`\` | SeparatorVariant | 'solid' | No |
 | \`\`hasRole\`\` | If true, adds a role of \`\`separator\`\` to the component | boolean | false | No |
-
-## Using only the SCSS files
-
-The \`\`lg-separator\`\` class is required to be able to apply the main style to the separator.
-
-###Example:
-~~~html
-<div class="lg-separator"></div>
-
-<div class="lg-separator lg-separator--dotted" role="separator"></div>
-~~~
 `;
