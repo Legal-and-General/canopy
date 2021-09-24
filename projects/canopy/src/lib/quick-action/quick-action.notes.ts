@@ -30,31 +30,4 @@ or:
   Send us a message
 </a>
 ~~~
-
-## Using only the SCSS files
-
-The \`\`lg-quick-action\`\` class is required to be able to apply the main style to the button or link.
-
-Place the SVG icon in a container with the class \`\`lg-quick-action__icon\`\`;
-
-~~~html
-<button class="lg-quick-action">
-  <span class="lg-quick-action__icon">
-    <svg>...</svg>
-  </span>
-  Load more
-</button>
-~~~
-
-or:
-
-~~~html
-<a class="lg-quick-action"
-  href="/mailbox">
-  <span class="lg-quick-action__icon">
-    <svg>...</svg>
-  </span>
-  Send us a message
-</a>
-~~~
 `;

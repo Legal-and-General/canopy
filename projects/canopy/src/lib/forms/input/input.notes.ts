@@ -94,23 +94,4 @@ Prefix and suffix text can be added to input fields using the \`lgSuffix\` and \
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | string | 'lg-input-\${nextUniqueId++}' | No |
 | \`\`block\`\` | Property to make the input full width (for small screens only). | boolean | false | no
 | \`\`showLabel\`\` | Show or visually hide the label | boolean | true | No |
-
-## Using only the SCSS files
-
-Generate the markup as show in the example below, no current modifiers.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-input\`\` | Adds styles to the wrapping element |
-| \`\`lg-input__field\`\` | Adds styles to the input element |
-| \`\`lg-input__field--block\`\` | Makes input field full width for mobile |
-| \`\`lg-input__label\`\` | Adds styles to the input label |
-
-### Examples:
-~~~html
-<div class="lg-input">
-  <label class="lg-input__label" for="name">Name</label>
-  <input class="lg-input__field" name="name" id="name">
-</div>
-~~~
 `;
