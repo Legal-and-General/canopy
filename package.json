@@ -55,7 +55,7 @@
     "@angular/cli": "^11.2.14",
     "@angular/compiler-cli": "^11.1.0",
     "@angular/language-service": "^11.2.14",
-    "@babel/core": "^7.15.0",
+    "@babel/core": "^7.15.5",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-angular": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
