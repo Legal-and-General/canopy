@@ -22,7 +22,7 @@
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
 
-import 'core-js/es7/array';
+// import 'core-js/es7/array';
 
 /**
  * Web Animations `@angular/platform-browser/animations`

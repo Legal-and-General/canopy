@@ -1,6 +1,5 @@
 import { addDecorator, addParameters, configure } from '@storybook/angular';
 import { withA11y } from '@storybook/addon-a11y';
-import cssVars from 'css-vars-ponyfill';
 
 addParameters({
   backgrounds: [
@@ -10,10 +9,6 @@ addParameters({
     { name: 'Super Blue', value: '#0076d6' },
     { name: 'Leafy Green', value: '#028844' },
   ],
-});
-
-cssVars({
-  watch: true,
 });
 
 addParameters({ docs: { page: null } });
