@@ -10,16 +10,7 @@ Import the pipe in your module:
 ~~~
 @NgModule({
   ...
-  declarations: [ ..., LgCamelCasePipe ],
-})
-~~~
-
-or all the pipes:
-
-~~~
-@NgModule({
-  ...
-  imports: [ ..., LgPipesModule ],
+  imports: [ ..., LgCamelCasePipeModule ],
 })
 ~~~
 
