@@ -65,40 +65,4 @@ or
 | \`\`value\`\` | HTML value attribute. Value that is set when the toggle is checked | string | null | No |
 | \`\`checked\`\` | Check status of the toggle | boolean | false | No |
 | \`\`focus\`\` | Set the focus on the input | boolean | null | No |
-
-
-## Using only the SCSS files
-
-Generate the markup as show in the example below.
-
-###${name} group
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-checkbox-group--${name.toLowerCase()}\`\` | Adds styles to the wrapping element |
-| \`\`lg-checkbox-group--inline\`\` | Displays the ${name} buttons inline, rather than stacked. Set by default to true for 'lg-filter-multiple-group' |
-| \`\`lg-checkbox-group--filter--no-icons\`\` | Displays the toggle buttons without icons|
-
-### Toggle button
-| Class | Description |
-|------|-------------|
-| \`\`lg-toggle\`\` | Adds styles to the wrapping element of the toggle |
-| \`\`lg-toggle__label\`\` | Adds styles to the toggle label |
-| \`\`lg-toggle__label--filter\`\` | Adds styles to make the toggle look like a filter button |
-| \`\`lg-toggle__input\`\` | Adds styles to the input element |
-
-### Examples:
-~~~html
-<div class="lg-${modifier ? modifier : name.toLowerCase()}-group">
-  <label class="lg-input__label" for="color">Color</label>
-  <div class="lg-toggle">
-    <input class="lg-toggle__input" type="checkbox" id="lg-toggle-0" name="checkbox" value="yes">
-    <label class="lg-toggle__label" for="lg-toggle-0">Red</label>
-  </div>
-  <div class="lg-toggle">
-    <input class="lg-toggle__input" type="checkbox" id="lg-toggle-1" name="checkbox" value="yes">
-    <label class="lg-toggle__label" for="lg-toggle-1">Yellow</label>
-  </div>
-</div>
-~~~
 `;

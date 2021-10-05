@@ -236,40 +236,4 @@ const control = new FormControl('', {
   Date must be after {{ date.errors.afterDate.required }}
 </ng-container>
 ~~~
-
-
-## Using only the SCSS files
-
-Generate the markup as show in the example below.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-date-field\`\` | Adds styles to the wrapping element |
-
-
-### Examples:
-~~~html
-<div class="lg-date-field">
-  <fieldset aria-describedby="date-hint">
-    <legend class="lg-label">
-      Date of birth
-      <span id="date-hint" class="lg-hint">For example, 12 06 1983</span>
-    </legend>
-    <div class="lg-date-field__fields">
-      <div class="lg-date-field__date">
-        <label class="lg-label" for="date-input-0">Day</label>
-        <input max="31" min="1" placeholder="DD" type="number" class="lg-input" name="date" id="date-input-0">
-      </div>
-      <div class="lg-date-field__month">
-        <label class="lg-label" for="month-input-0">Month</label>
-        <input max="12" min="1" placeholder="MM" type="number" class="lg-input" name="month" id="month-input-0">
-      </div>
-      <div class="lg-date-field__year">
-        <label class="lg-label" for="year-input-0">Year</label>
-        <input max="9999" min="0000" placeholder="YYYY" type="number" class="lg-input" name="year" id="year-input-0">
-      </div>
-    </div>
-  </fieldset>
-</div>
-~~~
 `;

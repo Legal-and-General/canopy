@@ -111,15 +111,4 @@ The current available breakpoints are \`\`sm\`\`, \`\`md\`\`, \`\`lg\`\`, \`\`xl
 | \`\`lgMarginLeft\`\` | The margin variant applied to the left | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
 | \`\`lgMarginHorizontal\`\` | The margin variant applied to the left and the right | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
 | \`\`lgMarginVertical\`\` | The margin variant applied to the top and the bottom | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
-
-
-## Using only the SCSS files
-
-The directive itself cannot be used outside angular however the css utility classes should be useful.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-margin--<size>\`\` | Adds the specified size margin to all sides |
-| \`\`lg-margin__top--<size>\`\` | Adds the specified size margin to the specified side |
-
 `;

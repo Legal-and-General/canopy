@@ -47,25 +47,4 @@ All icons have height and width equal to 1em. This means the icons will be as bi
 > *Understanding the currentColor Keyword in CSS - https://alligator.io/css/currentcolor/*
 
 *Please note that the 'need-help' and 'question-mark' icons currently don't have the ability to change colour.*
-
-## Using only the SCSS files
-
-Generate the markup as show in the example below, no current modifiers.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-icon\`\` | Adds the default styles to the icon |
-
-Make sure you remove the styles on the svg itself.
-
-### Examples:
-~~~html
-<div class="lg-icon">
-  <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <g id="UI-Icon/Icon/Image/email" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <path d="M28,6 L28,26 L4,26 L4,6 L28,6 Z M26,9.142 L16,19.1421356 L6,9.142 L6,24 L26,24 L26,9.142 Z M24.313,8 L7.687,8 L16,16.3137085 L24.313,8 Z" id="Email" fill="#000000"></path>
-      </g>
-  </svg>
-</div>
-~~~
 `;
