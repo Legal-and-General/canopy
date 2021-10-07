@@ -59,22 +59,4 @@ You can do this by using the [ngProjectAs](https://medium.com/ignite-ui/using-ng
   <app-footer ngProjectAs="[lg-footer]"></app-footer>
 </lg-page>
 ~~~
-
-## Using only the SCSS files
-
-Generate the markup as show in the example below, no current modifiers.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-page\`\` | Adds page styles |
-| \`\`lg-page__content\`\` | Adds styles for the central content column |
-
-### Examples:
-~~~html
-<div class="lg-page">
-  <div class="lg-header">Header content</div>
-  <div class="lg-page__content">...</div>
-  <div class="lg-footer">Footer content</div>
-</div>
-~~~
 `;

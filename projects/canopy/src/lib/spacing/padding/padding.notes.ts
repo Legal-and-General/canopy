@@ -111,15 +111,4 @@ The current available breakpoints are \`\`sm\`\`, \`\`md\`\`, \`\`lg\`\`, \`\`xl
 | \`\`lgPaddingLeft\`\` | The padding variant applied to the left | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
 | \`\`lgPaddingHorizontal\`\` | The padding variant applied to the left and the right | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
 | \`\`lgPaddingVertical\`\` | The padding variant applied to the top and the bottom | \`\`SpacingVariant | SpacingResponsive\`\` | null | No |
-
-
-## Using only the SCSS files
-
-The directive itself cannot be used outside angular however the css utility classes should be useful.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-padding--<size>\`\` | Adds the specified size padding to all sides |
-| \`\`lg-padding__top--<size>\`\` | Adds the specified size padding to the specified side |
-
 `;

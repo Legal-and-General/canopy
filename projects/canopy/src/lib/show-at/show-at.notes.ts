@@ -38,17 +38,4 @@ The current available breakpoints are 'sm', md', 'lg', 'xl', and 'xxl'.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`lgShowAt\`\` | The name of the breakpoint applied | string | null | No |
-
-## Using only the SCSS files
-
-The directive itself cannot be used outside Angular however the CSS utility classes should be useful.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-show-at--sm\`\` | Hides the element before the "sm" breakpoint |
-| \`\`lg-show-at--md\`\` | Hides the element before the "md" breakpoint |
-| \`\`lg-show-at--lg\`\` | Hides the element before the "lg" breakpoint |
-| \`\`lg-show-at--xl\`\` | Hides the element before the "xl" breakpoint |
-| \`\`lg-show-at--xxl\`\` | Hides the element before the "xxl" breakpoint |
-
 `;

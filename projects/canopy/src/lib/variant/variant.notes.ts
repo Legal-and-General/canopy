@@ -44,18 +44,4 @@ The current available variants are:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`lgVariant\`\` | The name of variant desired | string | null | No |
-
-
-## Using only the SCSS files
-
-The directive itself cannot be used outside Angular however the CSS utility classes should be useful.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-variant--generic\`\` | Applies the generic variant |
-| \`\`lg-variant--info\`\` | Applies the info variant |
-| \`\`lg-variant--success\`\` | Applies the success variant |
-| \`\`lg-variant--warning\`\` | Applies the warning variant |
-| \`\`lg-variant--error\`\` | Applies the error variant |
-
 `;
