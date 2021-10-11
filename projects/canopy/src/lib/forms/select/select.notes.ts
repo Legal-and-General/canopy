@@ -43,36 +43,4 @@ and in your HTML:
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | string | 'lg-select-\${nextUniqueId++}' | No |
 | \`\`block\`\` | Property to make the select field full width (for small screens only). | boolean | false | no
-
-## Using only the SCSS files
-
-Generate the markup as show in the example below, no current modifiers.
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-select\`\` | Adds styles to the wrapping element |
-| \`\`lg-select__label\`\` | Adds styles to the select label |
-| \`\`lg-select__wrapper\`\` | Wraps the select element to provide custom styling |
-| \`\`lg-select__field\`\` | Adds styles to the select element |
-| \`\`lg-select__field--block\`\` | Makes select field full width for mobile |
-
-| \`\`lg-select__icon\`\` | Styles the chevron icon which activates the select |
-
-
-### Examples:
-~~~html
-<div class="lg-select">
-  <label class="lg-select__label" for="color">Color</label>
-
-  <div class="lg-select__wrapper">
-    <select class="lg-select__field" name="color" id="color">
-      <option value="red">Red</option>
-      <option value="blue">Blue</option>
-      <option value="green">Green</option>
-      <option value="yellow">Yellow</option>
-    </select>
-    <span class="lg-select__icon"></span>
-  </div>
-</div>
-~~~
 `;

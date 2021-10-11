@@ -257,27 +257,4 @@ Conversational ui
 ~~~html
   ${conversationalHeroHTML}
 ~~~
-
-## Using only the SCSS files
-
-| Class | Description |
-|------|-------------|
-| \`\`lg-hero\`\` | Adds the default styles to the hero
-| \`\`lg-hero-card\`\` | Creates a space for the card content
-
-### Examples:
-~~~html
-<div class="lg-hero" style="margin-bottom: -2rem; padding-bottom: 2rem;">
-  <div class="lg-container">
-    <div class="lg-row">
-      <div class="lg-col-xs-12">
-        <div class="lg-hero-card">
-          ...
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-~~~
-
 `;
