@@ -9,6 +9,10 @@ module.exports = {
       './projects/canopy/src/styles/styles.scss',
       './projects/canopy/src/styles/form.scss',
     ],
+    'canopy-classes': [
+      './projects/canopy/src/styles/styles-classes.scss',
+      './projects/canopy/src/styles/form.scss',
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'dist/canopy'),

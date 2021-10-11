@@ -93,6 +93,30 @@ In your `angular.json` file you will need to incorporate the global styles into 
   ],
 ```
 
+### Canopy classes
+
+The default css file, `canopy.css`, includes styling at an element-level. For the majority of cases, this should be used. However, if you need to tighten the scope of the usage of Canopy, for example if your application is embedded within another HTML page, then instead you can just use the Canopy classes.
+
+In your `angular.json` file instead of importing `canopy.css`, use `canopy-classes.css`.
+
+```json
+  "styles": [
+    ...
+    "node_modules/@legal-and-general/canopy/canopy-classes.css"
+  ],
+```
+
+Furthermore, by using the `lg-canopy-element-typography` mixin, it is still possible to use the element styles and then easily scope them to where you like. For example:
+
+```scss
+@import '~@legal-and-general/canopy/styles/mixins';
+        
+app-hello-world {
+  @include lg-canopy-element-typography();
+}
+```
+
+
 ## To import the styles in a scss format
 
 An alternative to importing the global canopy.css file is to import only the desired scss files in your project.

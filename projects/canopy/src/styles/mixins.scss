@@ -234,3 +234,90 @@ $breakpoints: (
   margin-bottom: var(--grid-gutter);
   padding: var(--component-padding);
 }
+
+@mixin lg-typography-default {
+  font-size: var(--text-base-size);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family);
+  line-height: var(--text-base-line-height);
+  color: var(--color-text);
+}
+
+@mixin lg-paragraph {
+  font-size: var(--text-fs-1-size);
+  margin-bottom: var(--text-bottom-margin);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin lg-list-margin {
+  margin-left: var(--space-unit);
+  margin-bottom: var(--text-bottom-margin);
+}
+
+@mixin lg-canopy-element-typography {
+  html,
+  body,
+  input,
+  select {
+    @include lg-typography-default;
+  }
+
+  p {
+    @include lg-paragraph;
+  }
+
+  a {
+    @include lg-link;
+  }
+
+  b,
+  strong {
+    font-weight: var(--font-weight-bold);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: block;
+    margin-bottom: var(--text-bottom-margin);
+  }
+
+  h1 {
+    @include lg-font-size('5');
+  }
+
+  h2 {
+    @include lg-font-size('4');
+  }
+
+  h3 {
+    @include lg-font-size('3');
+  }
+
+  h4 {
+    @include lg-font-size('2');
+  }
+
+  h5 {
+    @include lg-font-size('1');
+  }
+
+  h6 {
+    @include lg-font-size('-8');
+  }
+
+  small {
+    @include lg-font-size('-6');
+  }
+
+  ul,
+  ol {
+    @include lg-list-margin;
+  }
+}
