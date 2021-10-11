@@ -97,6 +97,8 @@
 }
 
 .lg-input {
+  @include lg-typography-default;
+
   flex: 1 0 auto;
   display: block;
   border: none;

@@ -38,6 +38,8 @@ Please ensure you have the correct licensing agreement in place before using the
 ## Usage
 The typography styles will provide styling for all native text elements e.g. \`\`h1\`\`, \`\`h2\`\`, \`\`p\`\`, \`\`em\`\`, \`\`b\`\`, \`\`strong\`\` etc.
 
+* Alternatively, it is possible to just use the typography classes if more control is required over the styling of the native elements by importing canopy-classes.css instead of canopy.css.
+
 By default the font used is Roboto.
 
 In addition to the native styling, the following utility classes are exposed, allowing you to change the font size and weight where required.

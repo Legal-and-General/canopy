@@ -1,6 +1,8 @@
 @import '../../../styles/mixins';
 
 .lg-select {
+  @include lg-typography-default;
+
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
   padding: var(--select-vertical-padding)

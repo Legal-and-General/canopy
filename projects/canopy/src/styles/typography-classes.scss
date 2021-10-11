@@ -1,0 +1,100 @@
+@import '../styles/mixins.scss';
+
+.lg-body {
+  @include lg-typography-default;
+}
+
+.lg-paragraph {
+  @include lg-paragraph;
+}
+
+.lg-anchor {
+  @include lg-link;
+}
+
+.lg-bold,
+.lg-strong {
+  font-weight: var(--font-weight-bold);
+}
+
+.lg-list {
+  @include lg-list-margin;
+}
+
+.lg-font--expressive {
+  font-family: var(--font-family-expressive);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  display: block;
+  margin-bottom: var(--text-bottom-margin);
+}
+
+.lg-font-size-7 {
+  @include lg-font-size('7');
+}
+
+.lg-font-size-7--strong {
+  @include lg-font-size('7', 'strong');
+}
+
+.lg-font-size-6 {
+  @include lg-font-size('6');
+}
+
+.lg-font-size-6--strong {
+  @include lg-font-size('6', 'strong');
+}
+
+.lg-font-size-5 {
+  @include lg-font-size('5');
+}
+
+.lg-font-size-5--strong {
+  @include lg-font-size('5', 'strong');
+}
+
+.lg-font-size-4 {
+  @include lg-font-size('4');
+}
+
+.lg-font-size-4--strong {
+  @include lg-font-size('4', 'strong');
+}
+
+.lg-font-size-3 {
+  @include lg-font-size('3');
+}
+
+.lg-font-size-3--strong {
+  @include lg-font-size('3', 'strong');
+}
+
+.lg-font-size-2 {
+  @include lg-font-size('2');
+}
+
+.lg-font-size-2--strong {
+  @include lg-font-size('2', 'strong');
+}
+
+.lg-font-size-1 {
+  @include lg-font-size('1');
+}
+
+.lg-font-size-1--strong {
+  @include lg-font-size('1', 'strong');
+}
+
+.lg-font-size-0-8 {
+  @include lg-font-size('-8');
+}
+
+.lg-font-size-0-6 {
+  @include lg-font-size('-6');
+}
