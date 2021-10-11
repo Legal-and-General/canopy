@@ -236,12 +236,14 @@ describe('LgToggleComponent', () => {
     );
     fixture.detectChanges();
     expect(inputDebugElement.nativeElement.hasAttribute('aria-describedBy')).toBe(false);
+    expect(inputDebugElement.nativeElement.getAttribute('aria-invalid')).toBe('false');
   });
 
-  it('adds the error class if the form field is invalid', () => {
+  it('adds the error class and the aria-invalid attribute if the form field is invalid', () => {
     when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
     expect(toggleDebugElement.nativeElement.className).toContain('lg-toggle--error');
+    expect(inputDebugElement.nativeElement.getAttribute('aria-invalid')).toBe('true');
   });
 });
 
