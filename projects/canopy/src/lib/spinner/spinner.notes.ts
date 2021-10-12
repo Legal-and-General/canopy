@@ -8,7 +8,7 @@ They are normally used on form submissions or loading cards when the data retrie
 ## Usage
 Import the component in your application:
 
-~~~
+~~~js
 @NgModule({
   ...
   imports: [LgSpinnerModule],
@@ -17,9 +17,16 @@ Import the component in your application:
 
 and in your HTML:
 
+~~~html
+# Display a spinner while loading
+<lg-spinner *ngIf="!loaded"></lg-spinner>
+
+# Tell screen reader to read a message when loading is finished
+<p [lgSrAlertMessage]="loaded">Loading complete</p>
 ~~~
-<lg-spinner></lg-spinner>
-~~~
+
+As per the example above the spinner component should always be used together with the \`\`LgSrAlertMessageDirective\`\` as screen reader users should
+be notified when something has finished loading.
 
 ## Inputs
 
