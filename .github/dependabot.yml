@@ -31,29 +31,7 @@ updates:
         update-types: ["version-update:semver-major"]
       - dependency-name: "@angular-devkit/*"
         update-types: ["version-update:semver-major"]
-      - dependency-name: "@storybook/addon-a11y"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-actions"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-backgrounds"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-docs"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-knobs"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-notes"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-options"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-storysource"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addon-viewport"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/addons"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/angular"
-        versions: ["6.x"]
-      - dependency-name: "@storybook/theming"
-        versions: ["6.x"]
+      - dependency-name: "@storybook/*"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "jasmine-marbles"
       - dependency-name: "@angular-devkit/build-angular"
