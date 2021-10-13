@@ -90,11 +90,22 @@ describe('LgRadioButtonComponent', () => {
     expect().nothing();
   });
 
-  it('adds the error class if the form field is invalid', () => {
+  it('set the aria-invalid attribute to false when the input is valid', () => {
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+      false,
+    );
+    fixture.detectChanges();
+    const radio = fixture.debugElement.query(By.css('input'));
+    expect(radio.nativeElement.getAttribute('aria-invalid')).toBe('false');
+  });
+
+  it('adds the error class and set aria-invalid to true if the form field is invalid', () => {
     when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
     fixture.detectChanges();
     expect(fixture.debugElement.nativeElement.className).toContain(
       'lg-radio-button--error',
     );
+    const radio = fixture.debugElement.query(By.css('input'));
+    expect(radio.nativeElement.getAttribute('aria-invalid')).toBe('true');
   });
 });
