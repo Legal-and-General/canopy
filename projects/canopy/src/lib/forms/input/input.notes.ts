@@ -1,12 +1,18 @@
 export const notes = `
-# Input Component
+# Input Field Component
 
 ## Purpose
-Provides a common input directive and input field component. The input field component deals with linking the label and field.
-The width of the input field is controlled by the HTML size attribute, this allows us to provide the user with an indication of the expected length of the value.
+
+The Input Field component (\`\`<lg-input-field>\`\`) provides a flexible way to render a Canopy input. It contains a \`\`<label>\`\` and an \`\`<input>\`\` element. The \`\`lgInput\`\` directive should be added to the input element.
+
+The Input Field component creates the layout, deals with linking the label and input for screen readers, and also renders the border around the actual input element - this is to allow for the addition of buttons/icons to appear inside the field (e.g. "clear" button).
+
+You can add a hint, validation message or prefix/suffix buttons or icons (see examples below).
+
+The width can be controlled by the HTML size attribute which should be added to \`\`<input>\`\` element itself.
 
 ## Usage
-Import the component in your application:
+Import the input module in your application:
 
 ~~~js
 @NgModule({
@@ -20,9 +26,13 @@ and in your HTML:
 ~~~html
 <lg-input-field>
   Name
-  <input lgInput formControlName="name" />
+  <lg-hint>Please enter your name</lg-hint>
+  <input lgInput size="12" formControlName="name" />
 </lg-input-field>
 ~~~
+
+---
+
 
 ### Adding input buttons
 
