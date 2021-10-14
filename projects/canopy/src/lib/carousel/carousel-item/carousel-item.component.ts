@@ -15,7 +15,7 @@ import {
 })
 export class LgCarouselItemComponent {
   @HostBinding('class.lg-carousel-item') class = true;
-  @HostBinding('attr.role') role = 'tab-panel';
+  @HostBinding('attr.role') role = 'tabpanel';
   @HostBinding('attr.aria-selected') public selected = false;
 
   constructor(public element: ElementRef) {}

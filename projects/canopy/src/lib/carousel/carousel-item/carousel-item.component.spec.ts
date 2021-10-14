@@ -31,9 +31,7 @@ describe('LgCarouselItemComponent', () => {
     expect(component.element.nativeElement.attributes['aria-selected'].nodeValue).toBe(
       'false',
     );
-    expect(component.element.nativeElement.attributes['role'].nodeValue).toBe(
-      'tab-panel',
-    );
+    expect(component.element.nativeElement.attributes['role'].nodeValue).toBe('tabpanel');
   });
 
   it('should update the aria-selected attribute when selected', () => {
