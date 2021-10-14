@@ -11,4 +11,14 @@ const pipes = [LgCamelCasePipe, LgKebabCasePipe];
   declarations: [...pipes],
   exports: [...pipes],
 })
-export class LgPipesModule {}
+/**
+ * @deprecated LgPipesModule module is deprecated.
+ * Please import LgCamelCasePipeModule or LgKebabCasePipeModule module instead.
+ */
+export class LgPipesModule {
+  constructor() {
+    console.warn(
+      'LgPipesModule module is deprecated. Please import LgCamelCasePipeModule or LgKebabCasePipeModule modules instead',
+    );
+  }
+}
