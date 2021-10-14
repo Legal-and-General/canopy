@@ -35,7 +35,7 @@
       class="lg-carousel__button lg-carousel--centered"
       (click)="selectCarouselItem(i)"
       *ngFor="let item of carouselItems; let i = index"
-      [tabindex]="'0' ? i === selectedItemIndex : '-1'"
+      [tabindex]="i === selectedItemIndex ? 0 : -1"
       [attr.aria-selected]="i === selectedItemIndex"
     >
       <span class="lg-visually-hidden">{{ description }} {{ i + 1 }}</span>
