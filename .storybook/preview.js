@@ -14,7 +14,11 @@ cssVars({
 addParameters({
   docs: {
     inlineStories: true,
-  },
+    source: {
+      type: 'code',
+      state: 'open',
+    }
+  }
 });
 
 export const parameters = {
