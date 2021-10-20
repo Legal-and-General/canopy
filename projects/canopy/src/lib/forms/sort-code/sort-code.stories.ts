@@ -1,25 +1,26 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { moduleMetadata } from '@storybook/angular';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
+import { moduleMetadata, Story } from '@storybook/angular';
 
-import { CanopyModule } from '../../canopy.module';
 import { notes } from './sort-code.notes';
 import { LgSortCodeDirective } from './sort-code.directive';
+import { LgSelectModule } from '../select';
+import { LgHintModule } from '../hint';
+import { LgSortCodeModule } from './sort-code.module';
+import { LgInputModule } from '../input';
+
+const template = `
+<lg-input-field>
+  {{ label }}
+  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+  <input lgInput lgSortCode formControlName="sortCode" />
+</lg-input-field>
+`;
 
 @Component({
   selector: 'lg-reactive-form',
-  template: `
-    <form [formGroup]="form">
-      <lg-input-field>
-        {{ label }}
-        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <input lgInput lgSortCode formControlName="sortCode" />
-      </lg-input-field>
-    </form>
-  `,
+  template: ` <form [formGroup]="form">${template}</form> `,
 })
 class ReactiveFormComponent {
   @Input() hint: string;
@@ -50,33 +51,83 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Sort Code',
-  components: [LgSortCodeDirective],
+  title: 'Components/Form/Sort code',
+  component: LgSortCodeDirective,
   decorators: [
-    withKnobs,
     moduleMetadata({
       declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, CanopyModule],
+      imports: [ReactiveFormsModule, LgInputModule, LgSortCodeModule, LgHintModule],
     }),
   ],
   parameters: {
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    inputmode: {
+      table: {
+        disable: true,
+      },
+    },
+    maxlength: {
+      table: {
+        disable: true,
+      },
+    },
+    placeholder: {
+      table: {
+        disable: true,
+      },
+    },
+    required: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    ngOnInit: {
+      table: {
+        disable: true,
+      },
+    },
+    onBlur: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
-export const standard = () => ({
-  template: `<lg-reactive-form
+const sortCodeTemplate: Story<LgSortCodeModule> = (args: LgSelectModule) => ({
+  props: args,
+  template: `
+  <lg-reactive-form
     (inputChange)="inputChange($event)"
     [disabled]="disabled"
     [hint]="hint"
     [label]="label"
-  ></lg-reactive-form>`,
-  props: {
-    inputChange: action('inputChange'),
-    label: text('label', 'Sort code'),
-    hint: text('hint', 'Must be 6 digits long'),
-    disabled: boolean('disabled', false),
-  },
+  ></lg-reactive-form>
+  `,
 });
+
+export const sortCode = sortCodeTemplate.bind({});
+sortCode.storyName = 'Sort code';
+sortCode.args = {
+  label: 'Sort code',
+  hint: 'Must be 6 digits long',
+  disabled: false,
+};
+sortCode.parameters = {
+  docs: {
+    source: {
+      code: template,
+    },
+  },
+};

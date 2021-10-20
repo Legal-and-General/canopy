@@ -20,7 +20,8 @@ export class LgAlertComponent {
 
   @Input() showIcon = true;
 
-  _variant: Variant;
+  private _variant: Variant;
+
   @Input()
   set variant(variant: Variant) {
     if (this._variant) {

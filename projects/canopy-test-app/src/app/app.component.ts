@@ -1,17 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { tableTestData } from 'projects/canopy/src/lib/table/test.data';
-import {
-  lgIconHome,
-  LgIconRegistry,
-  lgIconAdd,
-  lgIconArrowDown,
-  lgIconClose,
-  lgIconSearch,
-  lgIconChevronLeft,
-} from 'projects/canopy/src/lib/icon';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,15 +8,44 @@ import {
 })
 export class AppComponent {
   title = 'canopy-test-app';
-  expandedTableRowData = tableTestData;
-  expandedTableRow: number;
   form: FormGroup;
   selectedTabIndex = 0;
-  tabs: Array<any>;
-
-  toggleTableRow(index: number) {
-    this.expandedTableRow = this.expandedTableRow === index ? null : index;
-  }
+  selectedSideNavIndex = 1;
+  tabs: Array<unknown> = [
+    {
+      path: './tab-1',
+      label: 'Nav tab 1',
+    },
+    {
+      path: './tab-2',
+      label: 'Nav tab 2',
+    },
+    {
+      path: './tab-3',
+      label: 'Nav tab 3',
+    },
+  ];
+  sideNav: Array<unknown> = [
+    {
+      title: 'Overview',
+      path: 'side-nav-1',
+    },
+    {
+      title: 'Contact',
+      description: 'User contact information.',
+      path: 'side-nav-2',
+    },
+    {
+      title: 'Account security',
+      description: 'Account protection tools.',
+      path: 'side-nav-3',
+    },
+    {
+      title: 'Settings',
+      description: 'App-related settings.',
+      path: 'side-nav-4',
+    },
+  ];
 
   onSubmit(event) {
     console.log(event.value);
@@ -38,15 +56,12 @@ export class AppComponent {
     this.selectedTabIndex = index;
   }
 
-  constructor(public fb: FormBuilder, private registry: LgIconRegistry) {
-    this.registry.registerIcons([
-      lgIconHome,
-      lgIconAdd,
-      lgIconArrowDown,
-      lgIconClose,
-      lgIconSearch,
-      lgIconChevronLeft,
-    ]);
+  handleSideNavClick(event: MouseEvent, index: number) {
+    event.preventDefault();
+    this.selectedSideNavIndex = index;
+  }
+
+  constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
       text: [''],
       textSearch: [''],
@@ -63,20 +78,5 @@ export class AppComponent {
       date: [''],
       sortCode: ['']
     });
-
-    this.tabs = [
-      {
-        path: './tab-1',
-        label: 'Nav tab 1',
-      },
-      {
-        path: './tab-2',
-        label: 'Nav tab 2',
-      },
-      {
-        path: './tab-3',
-        label: 'Nav tab 3',
-      },
-    ];
   }
 }

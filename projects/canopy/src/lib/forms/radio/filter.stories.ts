@@ -1,37 +1,40 @@
-import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
+import { moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from './radio.notes';
 import { LgRadioModule } from './radio.module';
+import { LgRadioButtonComponent } from './radio-button.component';
+import { LgRadioGroupComponent } from './radio-group.component';
+
+const formTemplate = `
+<form [formGroup]="form">
+  <lg-filter-group formControlName="color" [focus]=focus>
+    {{ label }}
+    <lg-filter-button value="red" (blur)="filterBlur.emit($event)"
+      >Red</lg-filter-button
+    >
+    <lg-filter-button value="yellow" (blur)="filterBlur.emit($event)"
+      >Yellow</lg-filter-button
+    >
+    <lg-filter-button value="green" (blur)="filterBlur.emit($event)"
+      >Green</lg-filter-button
+    >
+    <lg-filter-button value="blue" (blur)="filterBlur.emit($event)"
+      >Blue</lg-filter-button
+    >
+  </lg-filter-group>
+</form>
+`;
 
 @Component({
   selector: 'lg-reactive-form-filter',
-  template: `
-    <form [formGroup]="form">
-      <lg-filter-group formControlName="color">
-        {{ label }}
-        <lg-filter-button value="red" (blur)="filterBlur.emit($event)"
-          >Red</lg-filter-button
-        >
-        <lg-filter-button value="yellow" (blur)="filterBlur.emit($event)"
-          >Yellow</lg-filter-button
-        >
-        <lg-filter-button value="green" (blur)="filterBlur.emit($event)"
-          >Green</lg-filter-button
-        >
-        <lg-filter-button value="blue" (blur)="filterBlur.emit($event)"
-          >Blue</lg-filter-button
-        >
-      </lg-filter-group>
-    </form>
-  `,
+  template: formTemplate,
 })
 class ReactiveFormFilterComponent {
   @Input() label: string;
+  @Input() focus: boolean;
   @Input()
   set disabled(isDisabled: boolean) {
     if (isDisabled === true) {
@@ -57,33 +60,183 @@ class ReactiveFormFilterComponent {
 
 export default {
   title: 'Components/Filter Buttons',
+  component: LgRadioGroupComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [ReactiveFormFilterComponent],
+      imports: [ReactiveFormsModule, LgRadioModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [ReactiveFormFilterComponent],
-        imports: [ReactiveFormsModule, LgRadioModule],
-      }),
-    ],
-    notes: {
-      markdown: notes('Filter'),
+    docs: {
+      description: {
+        component: notes('Filter'),
+      },
+    },
+  },
+  argTypes: {
+    id: {
+      table: {
+        disable: true,
+      },
+    },
+    name: {
+      table: {
+        disable: true,
+      },
+    },
+    value: {
+      table: {
+        disable: true,
+      },
+    },
+    focus: {
+      description: 'Set the focus on the fieldset.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    ariaDescribedBy: {
+      table: {
+        disable: true,
+      },
+    },
+    disabled: {
+      description: 'Set the inner filters to disabled.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    filterChange: {
+      action: 'Filter change',
+      table: {
+        disable: true,
+      },
+    },
+    inline: {
+      table: {
+        disable: true,
+      },
+    },
+    stack: {
+      table: {
+        disable: true,
+      },
+    },
+    _hintElement: {
+      table: {
+        disable: true,
+      },
+    },
+    _radios: {
+      table: {
+        disable: true,
+      },
+    },
+    _stack: {
+      table: {
+        disable: true,
+      },
+    },
+    _validationElement: {
+      table: {
+        disable: true,
+      },
+    },
+    _value: {
+      table: {
+        disable: true,
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    nextUniqueId: {
+      table: {
+        disable: true,
+      },
+    },
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+    onChange: {
+      table: {
+        disable: true,
+      },
+    },
+    onTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnChange: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    setDisabledState: {
+      table: {
+        disable: true,
+      },
+    },
+    writeValue: {
+      table: {
+        disable: true,
+      },
+    },
+    ngAfterContentInit: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
-export const selectOne = () => ({
+const filterButtonsStory: Story<LgRadioButtonComponent> = (
+  args: LgRadioButtonComponent,
+) => ({
+  props: args,
   template: `
-    <lg-reactive-form-filter
+  <lg-reactive-form-filter
     [disabled]="disabled"
     [label]="label"
+    [focus]="focus"
     (filterChange)="filterChange($event)"
     (filterBlur)="filterBlur($event)">
   </lg-reactive-form-filter>
   `,
-  props: {
-    label: text('label', 'Select a color'),
-    filterChange: action('filterChange'),
-    filterBlur: action('filterBlur'),
-    disabled: boolean('disabled', false),
-  },
 });
+
+export const filterButtons = filterButtonsStory.bind({});
+filterButtons.storyName = 'Filter Buttons';
+filterButtons.args = {
+  label: 'Select a color',
+  disabled: false,
+  focus: false,
+};
+filterButtons.parameters = {
+  docs: {
+    source: {
+      code: formTemplate,
+    },
+  },
+};

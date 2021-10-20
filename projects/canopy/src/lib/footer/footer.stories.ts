@@ -1,28 +1,8 @@
-import { object, text, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { action } from '@storybook/addon-actions';
-
-import { fullScreen } from '../../../../../.storybook/addons/full-screen';
 import { LgFooterComponent } from '../footer/footer.component';
 import { notes } from './footer.notes';
-
-export default {
-  title: 'Components/Footer',
-  excludeStories: ['primaryLinks', 'secondaryLinks'],
-  parameters: {
-    decorators: [
-      fullScreen,
-      withKnobs,
-      moduleMetadata({
-        declarations: [LgFooterComponent],
-      }),
-    ],
-    notes: {
-      markdown: notes,
-    },
-  },
-};
+import { LgFooterModule } from './footer.module';
 
 export const primaryLinks = [
   { id: 'primary-link-1', text: 'My account', href: 'https://app.somecompany.com' },
@@ -55,69 +35,219 @@ export const secondaryLinks = [
   },
 ];
 
-const groupId = 'footer';
-
-export const standard = () => ({
-  template: `
-    <footer lg-footer
-      [copyright]="copyright"
-      [logo]="logo"
-      [logoAlt]="logoAlt"
-      [primaryLinks]="primaryLinks"
-      [secondaryLinks]="secondaryLinks"
-      (primaryLinkClicked)="primaryLinkClicked($event)"
-      (secondaryLinkClicked)="secondaryLinkClicked($event)">
-    </footer>
-  `,
-  props: {
-    logo: text('logo', 'legal-and-general-logo.svg', groupId),
-    logoAlt: text('logoAlt', 'Company name', groupId),
-    copyright: text('copyright', '© Some Company plc 2018', groupId),
-    secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
-    primaryLinks: object('primaryLinks', primaryLinks, groupId),
-    primaryLinkClicked: action('primaryLinkClicked'),
-    secondaryLinkClicked: action('secondaryLinkClicked'),
+export default {
+  title: 'Components/Footer',
+  excludeStories: ['primaryLinks', 'secondaryLinks'],
+  component: LgFooterComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [LgFooterModule],
+    }),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
   },
+  argTypes: {
+    clickedLink: {
+      action: 'Clicked link',
+      table: {
+        disable: true,
+      },
+    },
+    logo: {
+      description: 'A url link to the logo.',
+    },
+    logoAlt: {
+      description: 'alt text to display alongside the logo.',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    copyright: {
+      description: 'Copyright text to display in footer.',
+    },
+    primaryLinks: {
+      description: 'The primary footer links.',
+    },
+    secondaryLinks: {
+      description: 'The secondary footer links.',
+    },
+    primaryLinkClicked: {
+      action: 'Primary link clicked',
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLinkClicked: {
+      action: 'Secondary link clicked',
+      table: {
+        disable: true,
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    role: {
+      table: {
+        disable: true,
+      },
+    },
+    handlePrimaryLinkClick: {
+      table: {
+        disable: true,
+      },
+    },
+    handleSecondaryLinkClick: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+} as Meta;
+
+const template = `
+<footer lg-footer
+  [copyright]="copyright"
+  [logo]="logo"
+  [logoAlt]="logoAlt"
+  [primaryLinks]="primaryLinks"
+  [secondaryLinks]="secondaryLinks"
+  (primaryLinkClicked)="primaryLinkClicked($event)"
+  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+</footer>
+`;
+
+const standardStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
+  props: args,
+  template,
 });
 
-export const compact = () => ({
-  template: `
-    <footer lg-footer
-      [copyright]="copyright"
-      [secondaryLinks]="secondaryLinks"
-      (secondaryLinkClicked)="secondaryLinkClicked($event)">
-    </footer>
-  `,
-  props: {
-    copyright: text('copyright', '© Some Company plc 2018', groupId),
-    secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
-    secondaryLinkClicked: action('secondaryLinkClicked'),
+export const standardFooter = standardStory.bind({});
+standardFooter.storyName = 'Standard';
+standardFooter.args = {
+  logo: 'legal-and-general-logo.svg',
+  logoAlt: 'Company name',
+  copyright: '© Some Company plc 2018',
+  secondaryLinks: secondaryLinks,
+  primaryLinks: primaryLinks,
+};
+standardFooter.parameters = {
+  docs: {
+    source: {
+      code: template,
+    },
   },
+};
+standardFooter.argTypes = {
+  secondaryLogo: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoAlt: {
+    table: {
+      disable: true,
+    },
+  },
+};
+
+const compactTemplate = `
+<footer lg-footer
+  [copyright]="copyright"
+  [secondaryLinks]="secondaryLinks"
+  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+</footer>
+`;
+
+const compactStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
+  props: args,
+  template: compactTemplate,
 });
 
-export const coBranded = () => ({
-  template: `
-    <footer lg-footer
-      [copyright]="copyright"
-      [logo]="logo"
-      [logoAlt]="logoAlt"
-      [secondaryLogo]="secondaryLogo"
-      [secondaryLogoAlt]="secondaryLogoAlt"
-      [primaryLinks]="primaryLinks"
-      [secondaryLinks]="secondaryLinks"
-      (primaryLinkClicked)="primaryLinkClicked($event)"
-      (secondaryLinkClicked)="secondaryLinkClicked($event)">
-    </footer>
-  `,
-  props: {
-    logo: text('logo', 'legal-and-general-logo.svg', groupId),
-    logoAlt: text('logoAlt', 'Company name', groupId),
-    secondaryLogo: text('secondaryLogo', 'dummy-logo.svg', groupId),
-    secondaryLogoAlt: text('secondaryLogoAlt', 'Second company name', groupId),
-    copyright: text('copyright', '© Some Company plc 2018', groupId),
-    secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
-    primaryLinks: object('primaryLinks', primaryLinks, groupId),
-    primaryLinkClicked: action('primaryLinkClicked'),
-    secondaryLinkClicked: action('secondaryLinkClicked'),
+export const compactFooter = compactStory.bind({});
+compactFooter.storyName = 'Compact';
+compactFooter.args = {
+  copyright: '© Some Company plc 2018',
+  secondaryLinks: secondaryLinks,
+};
+compactFooter.parameters = {
+  docs: {
+    source: {
+      code: compactTemplate,
+    },
   },
+};
+compactFooter.argTypes = {
+  primaryLinks: {
+    table: {
+      disable: true,
+    },
+  },
+  logo: {
+    table: {
+      disable: true,
+    },
+  },
+  logoAlt: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogo: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoAlt: {
+    table: {
+      disable: true,
+    },
+  },
+};
+
+const coBrandedTemplate = `
+<footer lg-footer
+  [copyright]="copyright"
+  [logo]="logo"
+  [logoAlt]="logoAlt"
+  [secondaryLogo]="secondaryLogo"
+  [secondaryLogoAlt]="secondaryLogoAlt"
+  [primaryLinks]="primaryLinks"
+  [secondaryLinks]="secondaryLinks"
+  (primaryLinkClicked)="primaryLinkClicked($event)"
+  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+</footer>
+`;
+
+const coBrandedStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
+  props: args,
+  template: coBrandedTemplate,
 });
+
+export const coBrandedFooter = coBrandedStory.bind({});
+coBrandedFooter.storyName = 'Co-branded';
+coBrandedFooter.args = {
+  logo: 'legal-and-general-logo.svg',
+  logoAlt: 'Company name',
+  secondaryLogo: 'dummy-logo.svg',
+  secondaryLogoAlt: 'Secondary company name',
+  copyright: '© Some Company plc 2018',
+  secondaryLinks: secondaryLinks,
+  primaryLinks: primaryLinks,
+};
+coBrandedFooter.parameters = {
+  docs: {
+    source: {
+      code: coBrandedTemplate,
+    },
+  },
+};

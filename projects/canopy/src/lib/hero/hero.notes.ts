@@ -1,8 +1,4 @@
-export const notes = (productHeroHTML: string, conversationalHeroHTML: string) => `
-# Hero Component
-
-
-## Purpose
+export const notes = `
 A flexible component that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.
 
 ## Usage
@@ -13,7 +9,7 @@ A flexible component that is often used to display the most prominent informatio
 })
 ~~~
 
-and in your HTML...
+and in your HTML:
 
 ~~~html
 <lg-hero [overlap]="2">
@@ -48,10 +44,10 @@ Using the \`\`LgHeroCardHeaderComponent\`\` together with \`\`LgBreadcrumbCompon
   <lg-hero-header>
     <div lgContainer>
       <div lgRow>
-        <div [lgCol]="12">
+        <div lgCol="12">
           <lg-breadcrumb lgMarginBottom="none">
             <lg-breadcrumb-item>
-              <a href="#"><lg-icon [name]="'home'"></lg-icon>Home</a>
+              <a href="#"><lg-icon name="home"></lg-icon>Home</a>
             </lg-breadcrumb-item>
             <lg-breadcrumb-item>
               <a href="#" aria-current="page">Product Details</a>
@@ -66,7 +62,7 @@ Using the \`\`LgHeroCardHeaderComponent\`\` together with \`\`LgBreadcrumbCompon
 
 ### Product details
 
-This component can used to display product data, for example on a prodcut details page. Note the extensive use of presentation components to acheive the desired layout.
+This component can used to display product data, for example on a product details page. Note the extensive use of presentation components to acheive the desired layout.
 
 ~~~html
 <lg-hero [overlap]="2">
@@ -134,6 +130,7 @@ This component can used to display product data, for example on a prodcut detail
 </lg-hero>
 ~~~
 
+## Components
 
 ### LgHeroComponent
 This is the branded bar which runs across
@@ -142,7 +139,9 @@ the top of the page. It also controls the functionality to create the 'overlap' 
 #### Configure Overlap
 
 ~~~html
+
 <lg-hero [overlap]="2"></lg-hero>
+
 ~~~
 
 #### Inputs
@@ -235,27 +234,4 @@ This is where the label for the data point should be projected. A data point sho
 
 ### LgHeroCardFooter
 This where any extra text related to the hero card can be displayed, such as a small print.
-
-## Usage
-~~~js
-@NgModule({
-  ...
-  declarations: [ ..., LgHeroModule ],
-})
-~~~
-
-and in your HTML:
-
-Product data
-
-~~~html
-  ${productHeroHTML}
-~~~
-
-Conversational ui
-
-~~~html
-  ${conversationalHeroHTML}
-~~~
-
 `;

@@ -1,7 +1,4 @@
 export const notes = `
-# Date Input Component
-
-## Purpose
 Provides a component for capturing and validating a date. Output is a concatenation of individual string values into a valid ISO 8601 date format 'YYYY-MM-DD'.
 
 ## Usage
@@ -10,7 +7,7 @@ Import the Date Input Module into your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgDateFieldModule],
+  imports: [ ..., LgDateFieldModule ],
 })
 ~~~
 
@@ -85,7 +82,9 @@ One field is invalid, this may be a non numerical character, or a number outside
 \`Enter a valid month\`
 
 ~~~json
+
 { invalidField: 'month'}
+
 ~~~
 
 
@@ -93,14 +92,18 @@ As above but with two fields displaying an error.
 \`Enter a valid month and year\`
 
 ~~~json
+
 { invalidFields: ['day', 'month']}
+
 ~~~
 
 If all three fields are invalid a generic 'invalidDate' message is provided.
 \`Enter a valid date of birth\`
 
 ~~~json
+
 { invalidDate: true }
+
 ~~~
 
 #### 2. Required fields
@@ -109,7 +112,9 @@ If one field is empty either through form submission or inline deletion of the c
 \`Date of birth must include month\`
 
 ~~~json
+
 { requiredField: 'month'}
+
 ~~~
 
 As above but with two fields missing.
@@ -117,14 +122,18 @@ As above but with two fields missing.
 
 
 ~~~json
+
 { invalidFields: ['day', 'month']}
+
 ~~~
 
 If all three fields are missing an 'invalidDate' message is provided.
 \`Enter a valid date of birth\`
 
 ~~~json
+
 { invalidDate: true }
+
 ~~~
 
 #### 2. Invalid date
@@ -132,14 +141,16 @@ If all three fields are missing an 'invalidDate' message is provided.
 If all of the individual fields are correct but they do not concatenate to a valid date. e.g. 30 02 2020
 
 ~~~json
+
 { invalidDate: true }
+
 ~~~
 \`Enter a valid date of birth\`
 
 ### External validation
 
-It is also possible to provide your own custom validation messages using [custom validators](https://angular.io/guide/form-validation#custom-validators)
-and the validation component. This is particularly useful for checking things like wether the date is in the past or the future. Under the hood the date field uses the [date-fns](https://date-fns.org/) library as a peer dependency, to keep build size to a minimum it may be worth considering using the same library in your application.
+It is also possible to provide your own custom validation messages using <a href="https://angular.io/guide/form-validation#custom-validators" target="_blank">custom validators</a>
+and the validation component. This is particularly useful for checking things like wether the date is in the past or the future. Under the hood the date field uses the <a href="https://date-fns.org/" target="_blank">date-fns</a> library as a peer dependency, to keep build size to a minimum it may be worth considering using the same library in your application.
 
 ~~~js
 function notMondayValidator(): ValidatorFn {

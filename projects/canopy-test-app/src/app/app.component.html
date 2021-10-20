@@ -1,5 +1,5 @@
 <lg-page>
-  <header lg-header logo="/assets/legal-and-general-logo.svg"></header>
+  <header lg-header logo="assets/legal-and-general-logo.svg"></header>
 
   <lg-hero [overlap]="3" class="lg-hero--test-page">
     <lg-hero-header>
@@ -88,93 +88,8 @@
   <div lgContainer>
     <div lgRow>
       <div lgCol="12" lgColLg="9" lgColMdOffset="0">
-        <lg-card lgPaddingTop="none">
+        <lg-card>
           <lg-card-content>
-            <lg-tabs label="Annuities">
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 1</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere
-                      nec leo nec hendrerit. Pellentesque eu lacinia tortor. Donec urna
-                      felis, dictum et faucibus et, interdum ut urna. Nam eleifend eleifend
-                      mi vel blandit. Morbi rutrum a odio in pharetra.
-                    </p>
-                  </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 2</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-                    <p>
-                      Maecenas laoreet tristique ligula, mollis ullamcorper est faucibus
-                      eget. Aenean quis placerat arcu. Sed efficitur odio nunc, id facilisis
-                      orci accumsan eget. Nunc feugiat elit eget imperdiet faucibus.
-                      Maecenas faucibus sit amet nisi a ultricies.
-                    </p>
-                  </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 3</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-                    <p>
-                      Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna.
-                      Sed at egestas urna. Donec at nibh eros. Pellentesque at nunc in elit
-                      egestas pellentesque a quis nunc. Praesent commodo risus in metus
-                      tincidunt pretium. Nulla vehicula sem lectus, ac eleifend velit
-                      pellentesque a. Proin et varius ante, nec venenatis nulla.
-                      Pellentesque pharetra risus lorem, et congue ligula interdum volutpat.
-                      Donec ut iaculis metus.
-                    </p>
-                  </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 4</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-                    <p>
-                      Pellentesque finibus ac libero ac rutrum. Morbi faucibus, dui et
-                      efficitur posuere, urna ipsum vehicula dui, in placerat risus felis et
-                      lectus. Vivamus imperdiet nulla nisi, eget varius mi cursus nec.
-                      Suspendisse quis risus eleifend, pretium lectus eget, condimentum leo.
-                      Aliquam faucibus at mi sit amet volutpat.
-                    </p>
-                  </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-            </lg-tabs>
-
-            <lg-heading level="3">Fonts</lg-heading>
-
-            <p class="lg-font-size-2"><strong>Roboto:</strong> The quick brown fox jumps over a lazy dog</p>
-            <p class="lg-font-size-2 lg-font--expressive"><strong>Lyon:</strong> The quick brown fox jumps over a lazy dog</p>
-
-            <lg-separator></lg-separator>
-
-            <lg-heading level="3">Tabs</lg-heading>
-
-            <lg-tab-nav-bar label="Test nav tabs">
-              <a
-                id="nav-tab-{{ i }}"
-                *ngFor="let tab of tabs; index as i"
-                [routerLink]="[tab.path]"
-                [isActive]="selectedTabIndex === i"
-                (click)="handleTabClick($event, i)"
-                lgTabNavBarLink
-                >{{ tab.label }}</a
-              >
-            </lg-tab-nav-bar>
-
-            <lg-tab-nav-content [selectedTabId]="'nav-tab-' + selectedTabIndex">
-              <router-outlet></router-outlet>
-            </lg-tab-nav-content>
-
             <lg-heading level="3">Accordion</lg-heading>
 
             <lg-accordion [headingLevel]="3">
@@ -198,38 +113,7 @@
               </lg-accordion-item>
             </lg-accordion>
 
-            <lg-heading level="3">Details</lg-heading>
-
-            <lg-details>
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
-
-            <lg-details variant="info">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
-
-            <lg-details variant="warning">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
-
-            <lg-details variant="success">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
-
-            <lg-details variant="error">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
-
+            <lg-separator></lg-separator>
             <lg-heading level="3">Alert</lg-heading>
 
             <lg-alert variant="info">
@@ -253,82 +137,7 @@
               </ul>
             </lg-alert>
 
-            <lg-heading level="3">Cards</lg-heading>
-
-            <lg-card>
-              <lg-card-header>
-                <lg-card-title headingLevel="4"> Test card title </lg-card-title>
-              </lg-card-header>
-              <lg-card-content> Test card content </lg-card-content>
-            </lg-card>
-
-            <lg-card>
-              <lg-card-header>
-                <lg-card-title headingLevel="4">
-                  <a href="#">Product card title</a>
-                </lg-card-title>
-                <lg-card-subtitle> Payroll Reference Number P23456 </lg-card-subtitle>
-                <lg-card-principle-data-point>
-                  <lg-card-principle-data-point-label>
-                    Last payment (after tax and deductions)
-                  </lg-card-principle-data-point-label>
-                  <lg-card-principle-data-point-value>
-                    <span><span class="lg-font-size-3">£</span>230.20</span>
-                  </lg-card-principle-data-point-value>
-                  <lg-card-principle-data-point-date>
-                    as of 01 Jan 2020
-                  </lg-card-principle-data-point-date>
-                </lg-card-principle-data-point>
-              </lg-card-header>
-            </lg-card>
-
-            <div lgContainer>
-              <div lgRow>
-                <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
-                  <lg-card lgPadding="none">
-                    <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
-                      <lg-breadcrumb lgMarginBottom="none">
-                        <lg-breadcrumb-item>
-                          <a href="#">
-                            <lg-icon [name]="'chevron-left'"></lg-icon>
-                            Back
-                          </a>
-                        </lg-breadcrumb-item>
-                      </lg-breadcrumb>
-                    </lg-card-header>
-                    <lg-card-content>
-                      <div lgContainer>
-                        <div lgRow>
-                          <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                            <lg-card-title headingLevel="4">
-                              Form Journey Card
-                            </lg-card-title>
-                            <lg-separator></lg-separator>
-                            <p>Form Journey card content</p>
-                            <lg-input-field>
-                              Account number
-                              <lg-hint>Must contain 8 digits</lg-hint>
-                              <input lgInput size="8"/>
-                            </lg-input-field>
-                          </div>
-                        </div>
-                      </div>
-                    </lg-card-content>
-                    <lg-card-footer>
-                      <div lgContainer>
-                        <div lgRow>
-                          <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                            <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>
-                            <button lg-button type="submit" variant="solid-primary">Confirm</button>
-                          </div>
-                        </div>
-                      </div>
-                    </lg-card-footer>
-                  </lg-card>
-                </div>
-              </div>
-            </div>
-
+            <lg-separator></lg-separator>
             <lg-heading level="3">Buttons</lg-heading>
 
             <a href="#" lg-button variant="solid-primary">Solid primary button</a>
@@ -374,7 +183,92 @@
             <br />
 
             <lg-separator></lg-separator>
+            <lg-heading level="3">Button group</lg-heading>
 
+            <lg-button-group>
+              <button
+                lg-button
+                variant="solid-primary"
+              >Button</button>
+              <a
+                lg-button
+                href="#"
+                variant="outline-primary"
+              >Link</a>
+            </lg-button-group>
+
+            <lg-separator></lg-separator>
+            <lg-heading level="3">Carousel</lg-heading>
+
+            <lg-carousel description="Example carousel" [headingLevel]="4" [slideDuration]="600" [loopMode]="true">
+              <lg-carousel-item style="background-color: #028844; color: #FFFFFF">
+                <h3>Carousel item 1</h3>
+                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
+                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
+              </lg-carousel-item>
+
+              <lg-carousel-item style="background-color: #0076D6; color: #FFFFFF">
+                <h3>Carousel item 2</h3>
+                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
+                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
+              </lg-carousel-item>
+
+              <lg-carousel-item style="background-color: #028844; color: #FFFFFF">
+                <h3>Carousel item 3</h3>
+                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
+                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
+              </lg-carousel-item>
+            </lg-carousel>
+
+            <lg-separator></lg-separator>
+            <lg-heading level="3">Data Point</lg-heading>
+
+            <lg-data-point>
+              <lg-data-point-label [headingLevel]="4">
+                Annual increase
+              </lg-data-point-label>
+              <lg-data-point-value>
+                Retail price index (RPI)
+              </lg-data-point-value>
+            </lg-data-point>
+
+            <lg-separator></lg-separator>
+            <lg-heading level="3">Details</lg-heading>
+
+            <lg-details>
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="info">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="warning">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="success">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-details variant="error">
+              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+      payment details
+            </lg-details>
+
+            <lg-separator></lg-separator>
             <lg-heading level="3">Form</lg-heading>
 
             <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
@@ -506,8 +400,103 @@
               <button lg-button type="submit" variant="solid-primary">Submit</button>
             </form>
 
-            <lg-separator></lg-separator>
+<!--            <lg-separator></lg-separator>-->
+<!--            <lg-heading level="3">Modal</lg-heading>-->
 
+<!--            <button lgModalTrigger="modal" lg-button type="button" variant="outline-primary">Open modal</button>-->
+<!--            <lg-modal id="modal">-->
+<!--              <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>-->
+<!--              <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>-->
+<!--              <lg-modal-footer>-->
+<!--                <lg-button-group>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="outline-primary" type="button">Cancel</button>-->
+<!--                </lg-button-group>-->
+<!--              </lg-modal-footer>-->
+<!--            </lg-modal>-->
+
+            <lg-separator></lg-separator>
+            <lg-heading level="3">Primary Message</lg-heading>
+
+            <lg-primary-message>
+              <lg-brand-icon name="calendar"></lg-brand-icon>
+              <lg-primary-message-title
+              >This is a message with brand icon
+              </lg-primary-message-title>
+              <lg-primary-message-description>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
+              </lg-primary-message-description>
+              <lg-primary-message-description>
+                <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">
+                  Call to action
+                </button>
+              </lg-primary-message-description>
+            </lg-primary-message>
+
+            <lg-separator></lg-separator>
+            <lg-heading level="3">Promo Cards</lg-heading>
+
+            <lg-promo-card-list>
+              <lg-separator variant="dotted" lgMargin="none"></lg-separator>
+              <lg-promo-card-list-title [headingLevel]="4">
+                Get more from Legal &amp; General
+              </lg-promo-card-list-title>
+              <lg-promo-card variant="solid-white">
+                <lg-promo-card-image imageUrl="assets/promo-card/care.jpg"></lg-promo-card-image>
+                <lg-promo-card-title [headingLevel]="5">
+                  Need help with Care?
+                </lg-promo-card-title>
+                <lg-promo-card-content>
+                  <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
+                </lg-promo-card-content>
+                <lg-promo-card-footer>
+                  <button
+                    lgMarginBottom="none"
+                    lg-button
+                    type="button"
+                    variant="solid-primary">
+                    Find care options
+                  </button>
+                </lg-promo-card-footer>
+              </lg-promo-card>
+              <lg-promo-card variant="solid-green">
+                <lg-promo-card-image imageUrl="assets/promo-card/pension-consolidation.jpg"></lg-promo-card-image>
+                <lg-promo-card-title [headingLevel]="5">
+                  Consolidate your pension pots
+                </lg-promo-card-title>
+                <lg-promo-card-content>
+                  <p>You may have pension pots from several employers. We can help you trace any lost pensions and combine them into one easy to manage plan.</p>
+                </lg-promo-card-content>
+                <lg-promo-card-footer>
+                  <button
+                    lgMarginBottom="none"
+                    lg-button
+                    type="button"
+                    variant="reverse-secondary">
+                    Start consolidating
+                  </button>
+                </lg-promo-card-footer>
+              </lg-promo-card>
+            </lg-promo-card-list>
+
+            <lg-separator></lg-separator>
+            <lg-heading level="3">Quick Action</lg-heading>
+
+            <lg-heading level="4">Button</lg-heading>
+            <button lg-quick-action lgMarginBottom="md">
+              <lg-icon name="repeat"></lg-icon>
+              Load more
+            </button>
+            <br>
+
+            <lg-heading level="4">Link</lg-heading>
+            <a lg-quick-action href="#">
+              <lg-icon name="secure-messaging"></lg-icon>
+              Send us a message
+            </a>
+
+            <lg-separator></lg-separator>
             <lg-heading level="3">Spinners</lg-heading>
 
             <lg-spinner variant="dark"></lg-spinner>
@@ -524,171 +513,795 @@
               lgMarginTop="xxl"
               size="sm"
             ></lg-spinner>
-
-
-            <lg-heading level="3">Table</lg-heading>
-
-            <table lg-table>
-              <thead lg-table-head>
-                <tr lg-table-row>
-                  <th scope="col" lg-table-head-cell>
-                    <span class="lg-visually-hidden">Toggle</span>
-                  </th>
-                  <th lg-table-head-cell>Author</th>
-                  <th lg-table-head-cell>Book</th>
-                  <th lg-table-head-cell align="end">Published</th>
-                </tr>
-              </thead>
-
-              <tbody lg-table-body>
-                <ng-container *ngFor="let item of expandedTableRowData; index as i">
-                  <tr lg-table-row>
-                    <td lg-table-cell>
-                      <lg-table-row-toggle
-                        (click)="toggleTableRow(i)"
-                        [isActive]="expandedTableRow === i"
-                      >
-                      </lg-table-row-toggle>
-                    </td>
-                    <td lg-table-cell>{{ item.author }}</td>
-                    <td lg-table-cell>{{ item.title }}</td>
-                    <td lg-table-cell>{{ item.published }}</td>
-                  </tr>
-                  <tr lg-table-row [isHidden]="expandedTableRow !== i">
-                    <td lg-table-cell colspan="4">
-                      <lg-table-expanded-detail>
-                        This is the details section for {{ item.title }}
-                      </lg-table-expanded-detail>
-                    </td>
-                  </tr>
-                </ng-container>
-              </tbody>
-            </table>
-
-            <lg-heading level="3">Modal</lg-heading>
-
-            <button lgModalTrigger="modal" lg-button type="button" variant="outline-primary">Open modal</button>
-            <lg-modal id="modal">
-              <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>
-              <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>
-              <lg-modal-footer>
-                <lg-button-group>
-                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>
-                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Cancel</button>
-                </lg-button-group>
-              </lg-modal-footer>
-            </lg-modal>
-
-            <lg-heading level="3">Carousel</lg-heading>
-
-            <lg-carousel [description]="'Example Carousel'" [headingLevel]="4" [slideDuration]="500">
-              <lg-carousel-item>
-                <h3>Carousel item 1</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-
-              <lg-carousel-item>
-                <h3>Carousel item 2</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-
-              <lg-carousel-item>
-                <h3>Carousel item 3</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-
-              <lg-carousel-item>
-                <h3>Carousel item 4</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-            </lg-carousel>
-
-            <lg-heading level="4">Autoplay Carousel</lg-heading>
-
-            <lg-carousel [description]="'Example Carousel'" [headingLevel]="4" [slideDuration]="500" [autoPlay]="true">
-              <lg-carousel-item>
-                <h3>Carousel item 1</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-
-              <lg-carousel-item>
-                <h3>Carousel item 2</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-
-              <lg-carousel-item>
-                <h3>Carousel item 3</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-
-              <lg-carousel-item>
-                <h3>Carousel item 4</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-
-              <lg-carousel-item>
-                <h3>Carousel item 5</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-            </lg-carousel>
-
           </lg-card-content>
         </lg-card>
-      </div>
-      <div lgCol="12" lgColLg="3" lgColMdOffset="0">
+
+        <lg-heading level="3">Tabs</lg-heading>
+
+        <lg-heading level="4">Standard</lg-heading>
+        <lg-card lgPaddingVertical="none">
+          <lg-card-content>
+            <lg-tabs label="Annuities">
+              <lg-tab-item>
+                <lg-tab-item-heading>Tab 1</lg-tab-item-heading>
+                <lg-tab-item-content>
+                  <div class="lg-tabs__content-section">
+
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere
+                      nec leo nec hendrerit. Pellentesque eu lacinia tortor. Donec urna
+                      felis, dictum et faucibus et, interdum ut urna. Nam eleifend eleifend
+                      mi vel blandit. Morbi rutrum a odio in pharetra.
+                    </p>
+                  </div>
+                </lg-tab-item-content>
+              </lg-tab-item>
+              <lg-tab-item>
+                <lg-tab-item-heading>Tab 2</lg-tab-item-heading>
+                <lg-tab-item-content>
+                  <div class="lg-tabs__content-section">
+                    <p>
+                      Maecenas laoreet tristique ligula, mollis ullamcorper est faucibus
+                      eget. Aenean quis placerat arcu. Sed efficitur odio nunc, id facilisis
+                      orci accumsan eget. Nunc feugiat elit eget imperdiet faucibus.
+                      Maecenas faucibus sit amet nisi a ultricies.
+                    </p>
+                  </div>
+                </lg-tab-item-content>
+              </lg-tab-item>
+              <lg-tab-item>
+                <lg-tab-item-heading>Tab 3</lg-tab-item-heading>
+                <lg-tab-item-content>
+                  <div class="lg-tabs__content-section">
+                    <p>
+                      Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna.
+                      Sed at egestas urna. Donec at nibh eros. Pellentesque at nunc in elit
+                      egestas pellentesque a quis nunc. Praesent commodo risus in metus
+                      tincidunt pretium. Nulla vehicula sem lectus, ac eleifend velit
+                      pellentesque a. Proin et varius ante, nec venenatis nulla.
+                      Pellentesque pharetra risus lorem, et congue ligula interdum volutpat.
+                      Donec ut iaculis metus.
+                    </p>
+                  </div>
+                </lg-tab-item-content>
+              </lg-tab-item>
+              <lg-tab-item>
+                <lg-tab-item-heading>Tab 4</lg-tab-item-heading>
+                <lg-tab-item-content>
+                  <div class="lg-tabs__content-section">
+                    <p>
+                      Pellentesque finibus ac libero ac rutrum. Morbi faucibus, dui et
+                      efficitur posuere, urna ipsum vehicula dui, in placerat risus felis et
+                      lectus. Vivamus imperdiet nulla nisi, eget varius mi cursus nec.
+                      Suspendisse quis risus eleifend, pretium lectus eget, condimentum leo.
+                      Aliquam faucibus at mi sit amet volutpat.
+                    </p>
+                  </div>
+                </lg-tab-item-content>
+              </lg-tab-item>
+            </lg-tabs>
+          </lg-card-content>
+        </lg-card>
+
+        <lg-heading level="4">Navigation</lg-heading>
+        <lg-card lgPadding="none">
+          <lg-card-content>
+            <lg-tab-nav-bar label="Test nav tabs">
+              <a
+                id="nav-tab-{{ i }}"
+                *ngFor="let tab of tabs; index as i"
+                [routerLink]="[tab.path]"
+                [isActive]="selectedTabIndex === i"
+                (click)="handleTabClick($event, i)"
+                lgTabNavBarLink
+                >{{ tab.label }}</a
+              >
+            </lg-tab-nav-bar>
+            <lg-tab-nav-content>
+              <router-outlet></router-outlet>
+            </lg-tab-nav-content>
+          </lg-card-content>
+        </lg-card>
+
+        <lg-separator></lg-separator>
+        <lg-heading level="3">Side Nav</lg-heading>
+        <lg-side-nav>
+          <lg-side-nav-bar label="Side Nav Demo">
+            <a
+              *ngFor="let item of sideNav; index as i"
+              id="side-nav-{{ i }}"
+              [routerLink]="['/', { outlets: { 'side-nav': item.path } }]"
+              (click)="handleSideNavClick($event, i)"
+              [isActive]="selectedSideNavIndex === i"
+              lgSideBarNavLink
+            >
+              <lg-side-nav-bar-item>
+                <lg-side-nav-bar-item-heading>{{ item.title }}</lg-side-nav-bar-item-heading>
+                <lg-side-nav-bar-item-content *ngIf="item.description">{{
+                  item.description
+                  }}</lg-side-nav-bar-item-content>
+              </lg-side-nav-bar-item>
+            </a>
+            <lg-side-nav-bar-footer>
+              <a
+                lg-button
+                lgMarginBottom="none"
+                variant="outline-primary"
+                [fullWidth]="false"
+                href="#"
+              >Logout</a
+              >
+            </lg-side-nav-bar-footer>
+          </lg-side-nav-bar>
+          <lg-side-nav-content>
+            <router-outlet name="side-nav"></router-outlet>
+          </lg-side-nav-content>
+        </lg-side-nav>
+
+        <lg-separator></lg-separator>
+        <lg-heading level="3">Cards</lg-heading>
+
+        <lg-card>
+          <lg-card-header>
+            <lg-card-title headingLevel="4"> Test card title </lg-card-title>
+          </lg-card-header>
+          <lg-card-content> Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna. Sed at egestas urna. </lg-card-content>
+        </lg-card>
+
         <lg-card>
           <lg-card-content>
-            <p>
-              This is the Canopy test page which displays all of the current Canopy
-              components on one page.
-            </p>
-            <a
-              href="https://github.com/Legal-and-General/canopy"
-              target="_blank"
-              lg-button
-              variant="solid-primary"
-            >
-              View source
-            </a>
+            <div lgRow>
+              <div lgCol="12" lgColMd="6">
+                <lg-card-title headingLevel="4">
+                  <a href="#">Product card title</a>
+                </lg-card-title>
+                <lg-card-subtitle class="lg-card-subtitle"> Payroll Reference Number P23456 </lg-card-subtitle>
+              </div>
+              <lg-card-principle-data-point lgCol="12" lgColMd="6">
+                <lg-card-principle-data-point-label> Last payment (after tax and deductions) </lg-card-principle-data-point-label>
+                <lg-card-principle-data-point-value>
+                  <span><span class="lg-font-size-3">£</span>230.20</span>
+                </lg-card-principle-data-point-value>
+                <lg-card-principle-data-point-date> as of 01 Jan 2020 </lg-card-principle-data-point-date>
+              </lg-card-principle-data-point>
+            </div>
           </lg-card-content>
         </lg-card>
-      </div>
-      <div lgCol="6" lgColLg="3">
-        <lg-primary-message>
-          <lg-brand-icon name="calendar"></lg-brand-icon>
-          <lg-primary-message-title
-          >This is a message with brand icon</lg-primary-message-title
-          >
-          <lg-primary-message-description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
-          </lg-primary-message-description>
-          <lg-primary-message-description>
-            <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">
-              Call to action
-            </button>
-          </lg-primary-message-description>
-        </lg-primary-message>
+
+        <div lgContainer>
+          <div lgRow>
+            <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+              <lg-card lgPadding="none">
+                <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
+                  <lg-breadcrumb lgMarginBottom="none">
+                    <lg-breadcrumb-item>
+                      <a href="#">
+                        <lg-icon [name]="'chevron-left'"></lg-icon>
+                        Back
+                      </a>
+                    </lg-breadcrumb-item>
+                  </lg-breadcrumb>
+                </lg-card-header>
+                <lg-card-content>
+                  <div lgContainer>
+                    <div lgRow>
+                      <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+                        <lg-card-title headingLevel="4">
+                          Form Journey Card
+                        </lg-card-title>
+                        <lg-separator></lg-separator>
+                        <p>Form Journey card content</p>
+                        <lg-input-field>
+                          Account number
+                          <lg-hint>Must contain 8 digits</lg-hint>
+                          <input lgInput size="8"/>
+                        </lg-input-field>
+                      </div>
+                    </div>
+                  </div>
+                </lg-card-content>
+                <lg-card-footer>
+                  <div lgContainer>
+                    <div lgRow>
+                      <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+                        <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>
+                        <button lg-button type="submit" variant="solid-primary">Confirm</button>
+                      </div>
+                    </div>
+                  </div>
+                </lg-card-footer>
+              </lg-card>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <footer lg-footer></footer>
+            <!--        <lg-card lgPaddingTop="none">-->
+<!--          <lg-card-content>-->
+<!--            <lg-tabs label="Annuities">-->
+<!--              <lg-tab-item>-->
+<!--                <lg-tab-item-heading>Tab 1</lg-tab-item-heading>-->
+<!--                <lg-tab-item-content>-->
+<!--                  <div class="lg-tabs__content-section">-->
+
+<!--                    <p>-->
+<!--                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere-->
+<!--                      nec leo nec hendrerit. Pellentesque eu lacinia tortor. Donec urna-->
+<!--                      felis, dictum et faucibus et, interdum ut urna. Nam eleifend eleifend-->
+<!--                      mi vel blandit. Morbi rutrum a odio in pharetra.-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </lg-tab-item-content>-->
+<!--              </lg-tab-item>-->
+<!--              <lg-tab-item>-->
+<!--                <lg-tab-item-heading>Tab 2</lg-tab-item-heading>-->
+<!--                <lg-tab-item-content>-->
+<!--                  <div class="lg-tabs__content-section">-->
+<!--                    <p>-->
+<!--                      Maecenas laoreet tristique ligula, mollis ullamcorper est faucibus-->
+<!--                      eget. Aenean quis placerat arcu. Sed efficitur odio nunc, id facilisis-->
+<!--                      orci accumsan eget. Nunc feugiat elit eget imperdiet faucibus.-->
+<!--                      Maecenas faucibus sit amet nisi a ultricies.-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </lg-tab-item-content>-->
+<!--              </lg-tab-item>-->
+<!--              <lg-tab-item>-->
+<!--                <lg-tab-item-heading>Tab 3</lg-tab-item-heading>-->
+<!--                <lg-tab-item-content>-->
+<!--                  <div class="lg-tabs__content-section">-->
+<!--                    <p>-->
+<!--                      Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna.-->
+<!--                      Sed at egestas urna. Donec at nibh eros. Pellentesque at nunc in elit-->
+<!--                      egestas pellentesque a quis nunc. Praesent commodo risus in metus-->
+<!--                      tincidunt pretium. Nulla vehicula sem lectus, ac eleifend velit-->
+<!--                      pellentesque a. Proin et varius ante, nec venenatis nulla.-->
+<!--                      Pellentesque pharetra risus lorem, et congue ligula interdum volutpat.-->
+<!--                      Donec ut iaculis metus.-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </lg-tab-item-content>-->
+<!--              </lg-tab-item>-->
+<!--              <lg-tab-item>-->
+<!--                <lg-tab-item-heading>Tab 4</lg-tab-item-heading>-->
+<!--                <lg-tab-item-content>-->
+<!--                  <div class="lg-tabs__content-section">-->
+<!--                    <p>-->
+<!--                      Pellentesque finibus ac libero ac rutrum. Morbi faucibus, dui et-->
+<!--                      efficitur posuere, urna ipsum vehicula dui, in placerat risus felis et-->
+<!--                      lectus. Vivamus imperdiet nulla nisi, eget varius mi cursus nec.-->
+<!--                      Suspendisse quis risus eleifend, pretium lectus eget, condimentum leo.-->
+<!--                      Aliquam faucibus at mi sit amet volutpat.-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                </lg-tab-item-content>-->
+<!--              </lg-tab-item>-->
+<!--            </lg-tabs>-->
+
+
+<!--            <lg-heading level="3">Fonts</lg-heading>-->
+
+<!--            <p class="lg-font-size-2"><strong>Roboto:</strong> The quick brown fox jumps over a lazy dog</p>-->
+<!--            <p class="lg-font-size-2 lg-font&#45;&#45;expressive"><strong>Lyon:</strong> The quick brown fox jumps over a lazy dog</p>-->
+
+<!--            <lg-separator></lg-separator>-->
+
+<!--            <lg-heading level="3">Tabs</lg-heading>-->
+
+<!--            <lg-tab-nav-bar label="Test nav tabs">-->
+<!--              <a-->
+<!--                id="nav-tab-{{ i }}"-->
+<!--                *ngFor="let tab of tabs; index as i"-->
+<!--                [routerLink]="[tab.path]"-->
+<!--                [isActive]="selectedTabIndex === i"-->
+<!--                (click)="handleTabClick($event, i)"-->
+<!--                lgTabNavBarLink-->
+<!--                >{{ tab.label }}</a-->
+<!--              >-->
+<!--            </lg-tab-nav-bar>-->
+
+<!--            <lg-tab-nav-content [selectedTabId]="'nav-tab-' + selectedTabIndex">-->
+<!--              <router-outlet></router-outlet>-->
+<!--            </lg-tab-nav-content>-->
+
+
+<!--          </lg-card-content>-->
+<!--        </lg-card>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--            <lg-heading level="3">Details</lg-heading>-->
+
+<!--            <lg-details>-->
+<!--              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>-->
+<!--              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your-->
+<!--      payment details-->
+<!--            </lg-details>-->
+
+<!--            <lg-details variant="info">-->
+<!--              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>-->
+<!--              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your-->
+<!--      payment details-->
+<!--            </lg-details>-->
+
+<!--            <lg-details variant="warning">-->
+<!--              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>-->
+<!--              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your-->
+<!--      payment details-->
+<!--            </lg-details>-->
+
+<!--            <lg-details variant="success">-->
+<!--              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>-->
+<!--              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your-->
+<!--      payment details-->
+<!--            </lg-details>-->
+
+<!--            <lg-details variant="error">-->
+<!--              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>-->
+<!--              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your-->
+<!--      payment details-->
+<!--            </lg-details>-->
+
+<!--            <lg-heading level="3">Alert</lg-heading>-->
+
+<!--            <lg-alert variant="info">-->
+<!--              <lg-heading level="4">Test heading</lg-heading>-->
+<!--              Information alert with some <a href="#"> link text</a> as an example.-->
+<!--            </lg-alert>-->
+
+<!--            <lg-alert variant="warning"> Warning alert with some <a href="#"> link text</a> as an example.</lg-alert>-->
+
+<!--            <lg-alert variant="success"> Success alert with some <a href="#"> link text</a> as an example.</lg-alert>-->
+
+<!--            <lg-alert variant="error"> Error alert with some <a href="#"> link text</a> as an example.</lg-alert>-->
+
+<!--            <lg-alert variant="generic">-->
+<!--              Generic alert with some <a href="#"> link text</a> as an example.-->
+<!--              <ul>-->
+<!--                <li>Item 1</li>-->
+<!--                <li>Item 2</li>-->
+<!--                <li>Item 3</li>-->
+<!--                <li>Item 4</li>-->
+<!--              </ul>-->
+<!--            </lg-alert>-->
+
+<!--            <lg-heading level="3">Cards</lg-heading>-->
+
+<!--            <lg-card>-->
+<!--              <lg-card-header>-->
+<!--                <lg-card-title headingLevel="4"> Test card title </lg-card-title>-->
+<!--              </lg-card-header>-->
+<!--              <lg-card-content> Test card content </lg-card-content>-->
+<!--            </lg-card>-->
+
+<!--            <lg-card>-->
+<!--              <lg-card-header>-->
+<!--                <lg-card-title headingLevel="4">-->
+<!--                  <a href="#">Product card title</a>-->
+<!--                </lg-card-title>-->
+<!--                <lg-card-subtitle> Payroll Reference Number P23456 </lg-card-subtitle>-->
+<!--                <lg-card-principle-data-point>-->
+<!--                  <lg-card-principle-data-point-label>-->
+<!--                    Last payment (after tax and deductions)-->
+<!--                  </lg-card-principle-data-point-label>-->
+<!--                  <lg-card-principle-data-point-value>-->
+<!--                    <span><span class="lg-font-size-3">£</span>230.20</span>-->
+<!--                  </lg-card-principle-data-point-value>-->
+<!--                  <lg-card-principle-data-point-date>-->
+<!--                    as of 01 Jan 2020-->
+<!--                  </lg-card-principle-data-point-date>-->
+<!--                </lg-card-principle-data-point>-->
+<!--              </lg-card-header>-->
+<!--            </lg-card>-->
+
+<!--            <div lgContainer>-->
+<!--              <div lgRow>-->
+<!--                <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">-->
+<!--                  <lg-card lgPadding="none">-->
+<!--                    <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">-->
+<!--                      <lg-breadcrumb lgMarginBottom="none">-->
+<!--                        <lg-breadcrumb-item>-->
+<!--                          <a href="#">-->
+<!--                            <lg-icon [name]="'chevron-left'"></lg-icon>-->
+<!--                            Back-->
+<!--                          </a>-->
+<!--                        </lg-breadcrumb-item>-->
+<!--                      </lg-breadcrumb>-->
+<!--                    </lg-card-header>-->
+<!--                    <lg-card-content>-->
+<!--                      <div lgContainer>-->
+<!--                        <div lgRow>-->
+<!--                          <div lgCol="12" lgColMd="10" lgColMdOffset="1">-->
+<!--                            <lg-card-title headingLevel="4">-->
+<!--                              Form Journey Card-->
+<!--                            </lg-card-title>-->
+<!--                            <lg-separator></lg-separator>-->
+<!--                            <p>Form Journey card content</p>-->
+<!--                            <lg-input-field>-->
+<!--                              Account number-->
+<!--                              <lg-hint>Must contain 8 digits</lg-hint>-->
+<!--                              <input lgInput size="8"/>-->
+<!--                            </lg-input-field>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </lg-card-content>-->
+<!--                    <lg-card-footer>-->
+<!--                      <div lgContainer>-->
+<!--                        <div lgRow>-->
+<!--                          <div lgCol="12" lgColMd="10" lgColMdOffset="1">-->
+<!--                            <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>-->
+<!--                            <button lg-button type="submit" variant="solid-primary">Confirm</button>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </lg-card-footer>-->
+<!--                  </lg-card>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <lg-heading level="3">Buttons</lg-heading>-->
+
+<!--            <a href="#" lg-button variant="solid-primary">Solid primary button</a>-->
+<!--            <br />-->
+
+<!--            <a href="#" lg-button variant="outline-primary">Outline primary button</a>-->
+<!--            <br />-->
+
+<!--            <a href="#" lg-button variant="outline-secondary">Outline secondary button</a>-->
+<!--            <br />-->
+
+<!--            <button lg-button variant="solid-primary" [loading]="true">-->
+<!--              Loading button-->
+<!--            </button>-->
+<!--            <br />-->
+
+<!--            <button lg-button variant="solid-primary">-->
+<!--              Button with icon-->
+<!--              <lg-icon name="add"></lg-icon>-->
+<!--            </button>-->
+<!--            <br />-->
+
+<!--            <button lg-button variant="outline-primary" iconPosition="left">-->
+<!--              Button with left aligned icon-->
+<!--              <lg-icon name="arrow-down"></lg-icon>-->
+<!--            </button>-->
+<!--            <br />-->
+
+<!--            <button lg-button variant="solid-primary" [iconButton]="true">-->
+<!--              Icon Button-->
+<!--              <lg-icon name="close"></lg-icon>-->
+<!--            </button>-->
+<!--            <br />-->
+
+<!--            <button lg-button variant="solid-primary" size="sm">-->
+<!--              Small button-->
+<!--            </button>-->
+<!--            <br />-->
+
+<!--            <button lg-button variant="solid-primary" size="sm" [loading]="true">-->
+<!--              Small button-->
+<!--            </button>-->
+<!--            <br />-->
+
+<!--            <lg-separator></lg-separator>-->
+
+<!--            <lg-heading level="3">Form</lg-heading>-->
+
+<!--            <form [formGroup]="form" (ngSubmit)="onSubmit(form)">-->
+<!--              <lg-input-field>-->
+<!--                Text input-->
+<!--                <lg-hint>Enter some text</lg-hint>-->
+<!--                <input lgInput formControlName="text" />-->
+<!--              </lg-input-field>-->
+
+
+<!--              <lg-input-field>-->
+<!--                Text input with icon-->
+<!--                <input lgInput formControlName="textSearch" />-->
+<!--                <button-->
+<!--                  lg-button-->
+<!--                  lgSuffix-->
+<!--                  size="sm"-->
+<!--                  [iconButton]="true"-->
+<!--                >-->
+<!--                  Search-->
+<!--                  <lg-icon name="search"></lg-icon>-->
+<!--                </button>-->
+<!--              </lg-input-field>-->
+
+<!--              <lg-input-field>-->
+<!--                Text input with add-on icon-->
+<!--                <input lgInput formControlName="textSearch" />-->
+<!--                <button-->
+<!--                  lg-button-->
+<!--                  lgSuffix-->
+<!--                  size="sm"-->
+<!--                  [iconButton]="true"-->
+<!--                  variant="add-on"-->
+<!--                >-->
+<!--                  Cancel-->
+<!--                  <lg-icon name="close"></lg-icon>-->
+<!--                </button>-->
+<!--                <button-->
+<!--                  lg-button-->
+<!--                  lgSuffix-->
+<!--                  size="sm"-->
+<!--                  [iconButton]="true"-->
+<!--                >-->
+<!--                  Search-->
+<!--                  <lg-icon name="search"></lg-icon>-->
+<!--                </button>-->
+<!--              </lg-input-field>-->
+
+<!--              <lg-input-field>-->
+<!--                Text input with prefix-->
+<!--                <input lgInput formControlName="textPound" />-->
+<!--                <span lgPrefix>£</span>-->
+<!--              </lg-input-field>-->
+
+<!--              <lg-input-field>-->
+<!--                Text input with suffix-->
+<!--                <input lgInput formControlName="textPercent" />-->
+<!--                <span lgSuffix>%</span>-->
+<!--              </lg-input-field>-->
+
+<!--              <lg-select-field>-->
+<!--                Select input-->
+<!--                <lg-hint>Pick an option</lg-hint>-->
+<!--                <select lgSelect formControlName="select">-->
+<!--                  <option value="blue">Blue</option>-->
+<!--                  <option value="yellow">Yellow</option>-->
+<!--                  <option value="green">Green</option>-->
+<!--                  <option value="red">Red</option>-->
+<!--                </select>-->
+<!--              </lg-select-field>-->
+
+<!--              <lg-date-field formControlName="date">-->
+<!--                Date of birth-->
+<!--                <lg-hint>e.g. 05 12 1980</lg-hint>-->
+<!--              </lg-date-field>-->
+
+<!--              <lg-checkbox-group formControlName="colors">-->
+<!--                Test checkbox group-->
+<!--                <lg-hint>This is a standard checkbox group</lg-hint>-->
+<!--                <lg-toggle value="red">Red</lg-toggle>-->
+<!--                <lg-toggle value="yellow">Yellow</lg-toggle>-->
+<!--                <lg-toggle value="green">Green</lg-toggle>-->
+<!--                <lg-toggle value="blue">Blue</lg-toggle>-->
+<!--              </lg-checkbox-group>-->
+
+<!--              <lg-toggle formControlName="checkbox"> Test checkbox </lg-toggle>-->
+
+<!--              <lg-toggle variant="switch" formControlName="switch">Test switch</lg-toggle>-->
+
+<!--              <lg-radio-group formControlName="radio">-->
+<!--                Test radio group-->
+<!--                <lg-hint>Pick an option</lg-hint>-->
+<!--                <lg-radio-button value="red">Red</lg-radio-button>-->
+<!--                <lg-radio-button value="yellow">Yellow</lg-radio-button>-->
+<!--                <lg-radio-button value="green">Green</lg-radio-button>-->
+<!--                <lg-radio-button value="blue">Blue</lg-radio-button>-->
+<!--              </lg-radio-group>-->
+
+
+<!--              <lg-segment-group formControlName="segment" value="top" stack="md">-->
+<!--                Test segment-->
+<!--                <lg-segment-button value="top">Top</lg-segment-button>-->
+<!--                <lg-segment-button value="right">Right</lg-segment-button>-->
+<!--                <lg-segment-button value="bottom">Bottom</lg-segment-button>-->
+<!--              </lg-segment-group>-->
+
+<!--              <lg-filter-group formControlName="filter">-->
+<!--                Test filter group-->
+<!--                <lg-filter-button value="red">Red</lg-filter-button>-->
+<!--                <lg-filter-button value="yellow">Yellow</lg-filter-button>-->
+<!--                <lg-filter-button value="green">Green</lg-filter-button>-->
+<!--                <lg-filter-button value="blue">Blue</lg-filter-button>-->
+<!--              </lg-filter-group>-->
+
+<!--              <lg-filter-multiple-group formControlName="filters">-->
+<!--                Test filter group, multiple selection-->
+<!--                <lg-filter-checkbox value="red">Red</lg-filter-checkbox>-->
+<!--                <lg-filter-checkbox value="yellow">Yellow</lg-filter-checkbox>-->
+<!--                <lg-filter-checkbox value="green">Green</lg-filter-checkbox>-->
+<!--                <lg-filter-checkbox value="blue">Blue</lg-filter-checkbox>-->
+<!--              </lg-filter-multiple-group>-->
+
+<!--              <lg-input-field>-->
+<!--                Sort Code-->
+<!--                <lg-hint>Must be 6 digits long</lg-hint>-->
+<!--                <input lgInput lgSortCode formControlName="sortCode" />-->
+<!--              </lg-input-field>-->
+
+<!--              <button lg-button type="submit" variant="solid-primary">Submit</button>-->
+<!--            </form>-->
+
+<!--            <lg-separator></lg-separator>-->
+
+<!--            <lg-heading level="3">Spinners</lg-heading>-->
+
+<!--            <lg-spinner variant="dark"></lg-spinner>-->
+
+<!--            <lg-spinner-->
+<!--              variant="color"-->
+<!--              text="Medium Spinner"-->
+<!--              lgMarginTop="xxl"-->
+<!--            ></lg-spinner>-->
+
+<!--            <lg-spinner-->
+<!--              variant="color"-->
+<!--              text="Small spinner"-->
+<!--              lgMarginTop="xxl"-->
+<!--              size="sm"-->
+<!--            ></lg-spinner>-->
+
+
+<!--            <lg-heading level="3">Table</lg-heading>-->
+
+<!--            <table lg-table>-->
+<!--              <thead lg-table-head>-->
+<!--                <tr lg-table-row>-->
+<!--                  <th scope="col" lg-table-head-cell>-->
+<!--                    <span class="lg-visually-hidden">Toggle</span>-->
+<!--                  </th>-->
+<!--                  <th lg-table-head-cell>Author</th>-->
+<!--                  <th lg-table-head-cell>Book</th>-->
+<!--                  <th lg-table-head-cell align="end">Published</th>-->
+<!--                </tr>-->
+<!--              </thead>-->
+
+<!--              <tbody lg-table-body>-->
+<!--                <ng-container *ngFor="let item of expandedTableRowData; index as i">-->
+<!--                  <tr lg-table-row>-->
+<!--                    <td lg-table-cell>-->
+<!--                      <lg-table-row-toggle-->
+<!--                        (click)="toggleTableRow(i)"-->
+<!--                        [isActive]="expandedTableRow === i"-->
+<!--                      >-->
+<!--                      </lg-table-row-toggle>-->
+<!--                    </td>-->
+<!--                    <td lg-table-cell>{{ item.author }}</td>-->
+<!--                    <td lg-table-cell>{{ item.title }}</td>-->
+<!--                    <td lg-table-cell>{{ item.published }}</td>-->
+<!--                  </tr>-->
+<!--                  <tr lg-table-row [isHidden]="expandedTableRow !== i">-->
+<!--                    <td lg-table-cell colspan="4">-->
+<!--                      <lg-table-expanded-detail>-->
+<!--                        This is the details section for {{ item.title }}-->
+<!--                      </lg-table-expanded-detail>-->
+<!--                    </td>-->
+<!--                  </tr>-->
+<!--                </ng-container>-->
+<!--              </tbody>-->
+<!--            </table>-->
+
+<!--            <lg-heading level="3">Modal</lg-heading>-->
+
+<!--            <button lgModalTrigger="modal" lg-button type="button" variant="outline-primary">Open modal</button>-->
+<!--            <lg-modal id="modal">-->
+<!--              <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>-->
+<!--              <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>-->
+<!--              <lg-modal-footer>-->
+<!--                <lg-button-group>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Cancel</button>-->
+<!--                </lg-button-group>-->
+<!--              </lg-modal-footer>-->
+<!--            </lg-modal>-->
+
+<!--            <lg-heading level="3">Carousel</lg-heading>-->
+
+<!--            <lg-carousel [description]="'Example Carousel'" [headingLevel]="4" [slideDuration]="500">-->
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 1</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 2</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 3</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 4</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+<!--            </lg-carousel>-->
+
+<!--            <lg-heading level="4">Autoplay Carousel</lg-heading>-->
+
+<!--            <lg-carousel [description]="'Example Carousel'" [headingLevel]="4" [slideDuration]="500" [autoPlay]="true">-->
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 1</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 2</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 3</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 4</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+
+<!--              <lg-carousel-item>-->
+<!--                <h3>Carousel item 5</h3>-->
+<!--                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>-->
+<!--                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>-->
+<!--              </lg-carousel-item>-->
+<!--            </lg-carousel>-->
+
+<!--          </lg-card-content>-->
+<!--        </lg-card>-->
+<!--      </div>-->
+<!--      <div lgCol="12" lgColLg="3" lgColMdOffset="0">-->
+<!--        <lg-card>-->
+<!--          <lg-card-content>-->
+<!--            <p>-->
+<!--              This is the Canopy test page which displays all of the current Canopy-->
+<!--              components on one page.-->
+<!--            </p>-->
+<!--            <a-->
+<!--              href="https://github.com/Legal-and-General/canopy"-->
+<!--              target="_blank"-->
+<!--              lg-button-->
+<!--              variant="solid-primary"-->
+<!--            >-->
+<!--              View source-->
+<!--            </a>-->
+<!--          </lg-card-content>-->
+<!--        </lg-card>-->
+<!--      </div>-->
+<!--      <div lgCol="6" lgColLg="3">-->
+<!--        <lg-primary-message>-->
+<!--          <lg-brand-icon name="calendar"></lg-brand-icon>-->
+<!--          <lg-primary-message-title-->
+<!--          >This is a message with brand icon</lg-primary-message-title-->
+<!--          >-->
+<!--          <lg-primary-message-description>-->
+<!--            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do-->
+<!--            <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.-->
+<!--          </lg-primary-message-description>-->
+<!--          <lg-primary-message-description>-->
+<!--            <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">-->
+<!--              Call to action-->
+<!--            </button>-->
+<!--          </lg-primary-message-description>-->
+<!--        </lg-primary-message>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  <footer lg-footer logo="assets/legal-and-general-logo.svg"></footer>
 </lg-page>

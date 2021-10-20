@@ -1,7 +1,4 @@
 export const notes = (name: string) => `
-# ${name} Directive
-
-## Purpose
 This directive allows for custom ${name.toLowerCase()} to be added without the need to write additional CSS. It's useful for overriding the default ${name.toLowerCase()} on Canopy components, as well as general use within your app. Using this directive ensures that your ${name.toLowerCase()} adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.
 
 ## Usage
@@ -11,7 +8,7 @@ Import the module in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [Lg${name}Module],
+  imports: [ ..., Lg${name}Module ],
 })
 ~~~
 
@@ -60,25 +57,33 @@ In the example above, the ${name.toLowerCase()} at the \`\`md\`\` breakpoint wil
 Apply \`\`xxl\`\` ${name.toLowerCase()} to the bottom
 
 ~~~html
+
 <lg-card lg${name}Bottom="xxl"></lg-card>
+
 ~~~
 
 Apply \`\`sm\`\` ${name.toLowerCase()} to the left and right
 
 ~~~html
+
 <lg-card lg${name}Horizontal="sm"></lg-card>
+
 ~~~
 
 Apply \`\`xl\`\` ${name.toLowerCase()} all round, but \`\`xxxl\`\` ${name.toLowerCase()} to the bottom
 
 ~~~html
+
 <lg-card lg${name}="xl" lg${name}Bottom="xxxl"></lg-card>
+
 ~~~
 
 Apply \`\`lg\`\` ${name.toLowerCase()} to the top and bottom
 
 ~~~html
+
 <lg-card lg${name}Vertical="lg"></lg-card>
+
 ~~~
 
 ### Responsive examples
@@ -87,13 +92,17 @@ Apply \`\`lg\`\` ${name.toLowerCase()} to the top and bottom
 At the \`\`sm\`\` breakpoint apply \`\`xl\`\` ${name.toLowerCase()}, then at the \`\`md\`\` breakpoint apply \`\`xxxl\`\` ${name.toLowerCase()}, all around the component.
 
 ~~~html
+
 <lg-card [lg${name}]="{ sm: 'lg', md: 'xxxl' }"></lg-card>
+
 ~~~
 
 At the \`\`md\`\` breakpoint apply \`\`md\`\` ${name.toLowerCase()}, then at the \`\`lg\`\` breakpoint apply \`\`sm\`\` ${name.toLowerCase()}, at the bottom of the component.
 
 ~~~html
+
 <lg-card [lg${name}Bottom]="{ md: 'md', lg: 'sm' }"></lg-card>
+
 ~~~
 
 ## Inputs

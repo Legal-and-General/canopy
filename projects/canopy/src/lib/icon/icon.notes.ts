@@ -1,7 +1,4 @@
 export const notes = `
-# Icon Component
-
-## Purpose
 Provides a way of adding common svg icons.
 
 ## Usage
@@ -10,14 +7,18 @@ Import the component in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgIconModule],
+  imports: [ ..., LgIconModule ],
 })
 ~~~
 
-Import the \`LgIconRegistry\` and register your icons:
+Import the \`LgIconRegistry\` service and register your icons inside your module:
 
 ~~~js
+// import the desired icon
+import { lgIconEmail } from '@legal-and-general/canopy';
+
 export class AppModule {
+  // register the icon using the \`LgIconRegistry\` service
   constructor(private iconRegistry: LgIconRegistry) {
     this.iconRegistry.registerIcons([
       lgIconEmail
@@ -26,14 +27,15 @@ export class AppModule {
 }
 ~~~
 
-and in your HTML:
+Your HTML:
 
 ~~~html
-<lg-icon name="email"></lg-icon>
+<lg-icon
+  name="email">
+</lg-icon>
 ~~~
 
 ## Inputs
-
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`name\`\` | the name of the icon | string | undefined | yes |

@@ -1,26 +1,52 @@
-import { text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from './camel-case.notes';
 import { LgCamelCasePipe } from './camel-case.pipe';
 
-const stories = storiesOf('Pipes', module);
-stories.addDecorator(withKnobs);
-
-stories.add(
-  'Camel case',
-  () => ({
-    moduleMetadata: {
+// This default export determines where your story goes in the story list
+export default {
+  title: 'Pipes/Camel case',
+  component: LgCamelCasePipe,
+  decorators: [
+    moduleMetadata({
       declarations: [LgCamelCasePipe],
+    }),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        component: notes,
+      },
     },
-    template: `
-      <p>{{text | camelCase}}</p>
-    `,
-    props: {
-      text: text('text', 'camel case me'),
-    },
-  }),
-  {
-    notes: { markdown: notes },
   },
-);
+  argTypes: {
+    text: {
+      description: 'Text to transform into camel case.',
+    },
+    transform: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+} as Meta;
+
+const template = `<p>{{text | camelCase}}</p>`;
+
+const camelCasePipeTemplate: Story<LgCamelCasePipe> = (args: LgCamelCasePipe) => ({
+  props: args,
+  template,
+});
+
+export const camelCasePipeStory = camelCasePipeTemplate.bind({});
+camelCasePipeStory.storyName = 'Camel case';
+camelCasePipeStory.args = {
+  text: 'Camel case me',
+};
+camelCasePipeStory.parameters = {
+  docs: {
+    source: {
+      code: template,
+    },
+  },
+};

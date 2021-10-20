@@ -8,6 +8,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 
+import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import convert from 'color-convert';
 
@@ -124,11 +125,6 @@ class SwatchComponent implements AfterViewInit {
         display: inline-block;
         flex: 1 1 50%;
       }
-      .tint_swatch__name {
-        display: block;
-        font-weight: var(--font-weight-bold);
-        margin-bottom: var(--space-xxxs);
-      }
       .tint-swatch__text {
         display: block;
         margin-bottom: var(--space-xxxs);
@@ -163,82 +159,93 @@ class TintSwatchComponent implements AfterViewInit {
 }
 
 export default {
-  title: 'Colours',
+  title: 'Style/Colours',
+  decorators: [
+    moduleMetadata({
+      declarations: [SwatchComponent, TintSwatchComponent],
+    }),
+  ],
   parameters: {
-    decorators: [
-      moduleMetadata({
-        declarations: [SwatchComponent, TintSwatchComponent],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      source: {
+        state: 'closed',
+      },
+      description: {
+        component: notes,
+      },
     },
   },
-};
+} as Meta;
 
-export const colours = () => ({
-  template: `
-    <h2>Shades</h2>
+const coloursTemplate = `
+<h2>Shades</h2>
 
-    <div>
-      <lg-swatch name="--color-white"></lg-swatch>
-      <lg-swatch name="--color-white-smoke"></lg-swatch>
-      <lg-swatch name="--color-platinum"></lg-swatch>
-      <lg-swatch name="--color-taupe-grey"></lg-swatch>
-      <lg-swatch name="--color-battleship-grey"></lg-swatch>
-      <lg-swatch name="--color-charcoal"></lg-swatch>
-      <lg-swatch name="--color-black"></lg-swatch>
-    </div>
+<div>
+  <lg-swatch name="--color-white"></lg-swatch>
+  <lg-swatch name="--color-white-smoke"></lg-swatch>
+  <lg-swatch name="--color-platinum"></lg-swatch>
+  <lg-swatch name="--color-taupe-grey"></lg-swatch>
+  <lg-swatch name="--color-battleship-grey"></lg-swatch>
+  <lg-swatch name="--color-charcoal"></lg-swatch>
+  <lg-swatch name="--color-black"></lg-swatch>
+</div>
 
-    <h2>Colours</h2>
+<h2>Colours</h2>
 
-    <div>
-      <div>
-        <lg-swatch name="--color-lavender"></lg-swatch>
-        <lg-swatch name="--color-sky-blue"></lg-swatch>
-        <lg-swatch name="--color-super-blue"></lg-swatch>
-        <lg-swatch name="--color-midnight-blue"></lg-swatch>
-      </div>
-      <div>
-        <lg-swatch name="--color-tea-green"></lg-swatch>
-        <lg-swatch name="--color-lily-green"></lg-swatch>
-        <lg-swatch name="--color-leafy-green"></lg-swatch>
-        <lg-swatch name="--color-mexican-green"></lg-swatch>
-      </div>
-      <div>
-        <lg-swatch name="--color-dusky-pink"></lg-swatch>
-        <lg-swatch name="--color-shocking-pink"></lg-swatch>
-        <lg-swatch name="--color-poppy-red"></lg-swatch>
-        <lg-swatch name="--color-terracotta"></lg-swatch>
-      </div>
-      <div>
-        <lg-swatch name="--color-champagne"></lg-swatch>
-        <lg-swatch name="--color-dandelion-yellow"></lg-swatch>
-        <lg-swatch name="--color-harvest-gold"></lg-swatch>
-        <lg-swatch name="--color-earth-brown"></lg-swatch>
-      </div>
-    </div>
+<div>
+  <div>
+    <lg-swatch name="--color-lavender"></lg-swatch>
+    <lg-swatch name="--color-sky-blue"></lg-swatch>
+    <lg-swatch name="--color-super-blue"></lg-swatch>
+    <lg-swatch name="--color-midnight-blue"></lg-swatch>
+  </div>
+  <div>
+    <lg-swatch name="--color-tea-green"></lg-swatch>
+    <lg-swatch name="--color-lily-green"></lg-swatch>
+    <lg-swatch name="--color-leafy-green"></lg-swatch>
+    <lg-swatch name="--color-mexican-green"></lg-swatch>
+  </div>
+  <div>
+    <lg-swatch name="--color-dusky-pink"></lg-swatch>
+    <lg-swatch name="--color-shocking-pink"></lg-swatch>
+    <lg-swatch name="--color-poppy-red"></lg-swatch>
+    <lg-swatch name="--color-terracotta"></lg-swatch>
+  </div>
+  <div>
+    <lg-swatch name="--color-champagne"></lg-swatch>
+    <lg-swatch name="--color-dandelion-yellow"></lg-swatch>
+    <lg-swatch name="--color-harvest-gold"></lg-swatch>
+    <lg-swatch name="--color-earth-brown"></lg-swatch>
+  </div>
+</div>
 
-    <h2>Tints</h2>
+<h2>Tints</h2>
 
-    <div>
-      <div>
-        <lg-tint-swatch
-          names="--color-super-blue-lightest,--color-super-blue-light,--color-super-blue,--color-super-blue-dark,--color-super-blue-darkest">
-        </lg-tint-swatch>
-        <lg-tint-swatch
-          names="--color-leafy-green-lightest,--color-leafy-green-light,--color-leafy-green,--color-leafy-green-dark,--color-leafy-green-darkest">
-        </lg-tint-swatch>
-        <lg-tint-swatch
-          names="--color-poppy-red-lightest,--color-poppy-red-light,--color-poppy-red,--color-poppy-red-dark">
-        </lg-tint-swatch>
-        <lg-tint-swatch
-          names="--color-dandelion-yellow-lightest,--color-dandelion-yellow-light,--color-dandelion-yellow">
-        </lg-tint-swatch>
-        <lg-tint-swatch
-          names="--color-earth-brown,--color-earth-brown-dark,--color-earth-brown-darkest">
-      </lg-tint-swatch>
-      </div>
-    </div>
-  `,
+<div>
+  <div>
+    <lg-tint-swatch
+      names="--color-super-blue-lightest,--color-super-blue-light,--color-super-blue,--color-super-blue-dark,--color-super-blue-darkest">
+    </lg-tint-swatch>
+    <lg-tint-swatch
+      names="--color-leafy-green-lightest,--color-leafy-green-light,--color-leafy-green,--color-leafy-green-dark,--color-leafy-green-darkest">
+    </lg-tint-swatch>
+    <lg-tint-swatch
+      names="--color-poppy-red-lightest,--color-poppy-red-light,--color-poppy-red,--color-poppy-red-dark">
+    </lg-tint-swatch>
+    <lg-tint-swatch
+      names="--color-dandelion-yellow-lightest,--color-dandelion-yellow-light,--color-dandelion-yellow">
+    </lg-tint-swatch>
+    <lg-tint-swatch
+      names="--color-earth-brown,--color-earth-brown-dark,--color-earth-brown-darkest">
+  </lg-tint-swatch>
+  </div>
+</div>
+`;
+
+const coloursStory: Story = (args) => ({
+  props: args,
+  template: coloursTemplate,
 });
+
+export const colours = coloursStory.bind({});
+colours.storyName = 'Colours';

@@ -1,49 +1,132 @@
-import { action } from '@storybook/addon-actions';
-import { object, select, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgMarginModule } from '../spacing';
 import { LgTabsModule } from './tabs.module';
 import { notes } from './tabs.notes';
 
 export default {
-  title: 'Components/Tabs/Tabbed Content',
+  title: 'Components/Tabs/Tabbed content',
+  decorators: [
+    moduleMetadata({
+      imports: [LgTabsModule, LgMarginModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        imports: [LgTabsModule, LgMarginModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    tabEvent: {
+      action: 'Tab click',
+      table: {
+        disable: true,
+      },
+    },
+    label: {
+      table: {
+        disable: true,
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    selectedTabNavIndex: {
+      table: {
+        disable: true,
+      },
+    },
+    id: {
+      table: {
+        disable: true,
+      },
+    },
+    isKeyboardEvent: {
+      table: {
+        disable: true,
+      },
+    },
+    selectedIndex: {
+      table: {
+        disable: true,
+      },
+    },
+    blur: {
+      table: {
+        disable: true,
+      },
+    },
+    keyboardNavigation: {
+      table: {
+        disable: true,
+      },
+    },
+    navigateToTab: {
+      table: {
+        disable: true,
+      },
+    },
+    ngAfterContentInit: {
+      table: {
+        disable: true,
+      },
+    },
+    ngOnDestroy: {
+      table: {
+        disable: true,
+      },
+    },
+    setTabs: {
+      table: {
+        disable: true,
+      },
+    },
+    tabQueryList: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
-export const standard = () => ({
-  template: `
-  <lg-tabs 
-    label="Annuities"
-    (tabEvent)="tabEvent($event)"
-    [lgMarginRight]="'none'"
-    [lgMarginBottom]="'none'"
-    [lgMarginLeft]="'none'"
-  >
-    <lg-tab-item *ngFor="let tab of tabs">
-      <lg-tab-item-heading>{{ tab.header }}</lg-tab-item-heading>
-      <lg-tab-item-content>
-        <div class="lg-tabs__content-section">{{ tab.content }}</div>
-      </lg-tab-item-content>
-    </lg-tab-item>
-  </lg-tabs>
-  `,
-  props: {
-    tabs: object('Tabs', getDefaultTabsContent()),
-    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 2),
-    tabEvent: action('tab selected'),
-  },
+const template = `
+<lg-tabs
+  label="Annuities"
+  (tabEvent)="tabEvent($event)"
+  [lgMarginRight]="'none'"
+  [lgMarginBottom]="'none'"
+  [lgMarginLeft]="'none'"
+>
+  <lg-tab-item *ngFor="let tab of tabs">
+    <lg-tab-item-heading>{{ tab.header }}</lg-tab-item-heading>
+    <lg-tab-item-content>
+      <div class="lg-tabs__content-section">{{ tab.content }}</div>
+    </lg-tab-item-content>
+  </lg-tab-item>
+</lg-tabs>
+`;
+
+const standardTabsStory: Story<LgTabsModule> = (args: LgTabsModule) => ({
+  props: args,
+  template,
 });
+
+export const standardTabs = standardTabsStory.bind({});
+standardTabs.storyName = 'Tabbed content';
+standardTabs.args = {
+  tabs: getDefaultTabsContent(),
+};
+standardTabs.parameters = {
+  docs: {
+    source: {
+      code: template,
+    },
+  },
+};
 
 interface TabStoryItem {
   header: string;

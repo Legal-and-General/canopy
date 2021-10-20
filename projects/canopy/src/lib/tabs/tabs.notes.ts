@@ -1,7 +1,4 @@
 export const notes = `
-# Tabs Component
-
-## Purpose
 The tabs component lets users navigate between related sections of content, displaying one section at a time.
 
 
@@ -67,9 +64,6 @@ and in your HTML:
 `;
 
 export const tabbedNavNotes = `
-# Tab Navigation Bar Component
-
-## Purpose
 The tabbed navigation bar provides a tab-like UI for navigating between routes or urls. The tabbed navigatiom bar is router agnostic, so you will need to place the \`router-outlet\` anywhere in your view. Don't forget to add the \`aria-labelledby\` attribute to the content output by the \`router-outlet\`.
 The \`isActive\` property is used to select the current active tab.
 
@@ -95,13 +89,15 @@ and in your HTML:
 </lg-tab-nav-content>
 ~~~
 
-## \`lg-tab-nav-bar\` Inputs
+## \`lg-tab-nav-bar\` inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`label\`\` | Label for the tab list| string | Tabs | No |
 
-## \`lgTabNavBarLink\` Inputs
+## \`lgTabNavBarLink\`
+
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
@@ -109,13 +105,13 @@ and in your HTML:
 | \`\`isActive\`\` | Sets the active state of the tab | boolean | false | No |
 | \`\`isFocused\`\` | Sets the focus state of the tab | boolean | false | No |
 
-## \`lgTabNavBarLink\` Outputs
+### Outputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`isActive\`\` | Sets the current actve tab | boolean | undefined | No |
+| \`\`isActive\`\` | Sets the current active tab | boolean | undefined | No |
 
-## \`lg-tab-nav-content\` Inputs
+## \`lg-tab-nav-content\` inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`selectedTabId\`\` | Sets the id of the current selected tab | string | undefined | No |

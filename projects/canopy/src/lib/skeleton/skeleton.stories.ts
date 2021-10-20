@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { storiesOf } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { CanopyModule } from '../canopy.module';
+import { LgGridModule } from './../grid/grid.module';
+import { LgSkeletonModule } from './skeleton.module';
+import { LgDataPointModule } from './../data-point/data-point.module';
+import { LgCardModule } from './../card/card.module';
+import { LgSkeletonDirective } from './skeleton.directive';
 import { notes } from './skeleton.notes';
 
 interface Data {
@@ -32,7 +36,7 @@ interface Data {
     </lg-card>
   `,
 })
-export class AsyncSkeletonLoadingCardComponent implements OnInit {
+class AsyncSkeletonLoadingCardComponent implements OnInit {
   data: Data = null;
 
   ngOnInit() {
@@ -93,7 +97,7 @@ export class AsyncSkeletonLoadingCardComponent implements OnInit {
     </lg-card>
   `,
 })
-export class AsyncSkeletonLoadingProductCardComponent implements OnInit {
+class AsyncSkeletonLoadingProductCardComponent implements OnInit {
   data: Data = null;
 
   ngOnInit() {
@@ -131,7 +135,7 @@ export class AsyncSkeletonLoadingProductCardComponent implements OnInit {
     </lg-card>
   `,
 })
-export class AsyncSkeletonLoadingDataPointComponent implements OnInit {
+class AsyncSkeletonLoadingDataPointComponent implements OnInit {
   data: Data = null;
 
   ngOnInit() {
@@ -148,30 +152,47 @@ export class AsyncSkeletonLoadingDataPointComponent implements OnInit {
   }
 }
 
-const stories = storiesOf('Directives', module);
-
-stories.addParameters({
-  backgrounds: [{ name: 'default', value: '#0076d6', default: true }],
-});
-
-stories.add(
-  'Skeleton Loading',
-  () => ({
-    moduleMetadata: {
-      imports: [CanopyModule],
+export default {
+  title: 'Directives/Skeleton Loading',
+  decorators: [
+    moduleMetadata({
       declarations: [
         AsyncSkeletonLoadingProductCardComponent,
         AsyncSkeletonLoadingCardComponent,
         AsyncSkeletonLoadingDataPointComponent,
       ],
+      imports: [LgCardModule, LgDataPointModule, LgGridModule, LgSkeletonModule],
+    }),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        component: notes,
+      },
     },
-    template: `
-    <async-skeleton-loading-card></async-skeleton-loading-card>
-    <async-skeleton-loading-product-card></async-skeleton-loading-product-card>
-    <async-skeleton-loading-data-point></async-skeleton-loading-data-point>
-    `,
-  }),
-  {
-    notes: { markdown: notes },
+    backgrounds: {
+      default: 'Super Blue',
+    },
   },
-);
+} as Meta;
+
+const skeletonTemplate = `
+<async-skeleton-loading-card></async-skeleton-loading-card>
+<async-skeleton-loading-product-card></async-skeleton-loading-product-card>
+<async-skeleton-loading-data-point></async-skeleton-loading-data-point>
+`;
+
+const defaultSkeletonStory: Story<LgSkeletonDirective> = (args: LgSkeletonDirective) => ({
+  props: args,
+  template: skeletonTemplate,
+});
+
+export const defaultSkeleton = defaultSkeletonStory.bind({});
+defaultSkeleton.storyName = 'Skeleton Loading';
+defaultSkeleton.parameters = {
+  docs: {
+    source: {
+      code: skeletonTemplate,
+    },
+  },
+};

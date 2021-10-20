@@ -1,9 +1,6 @@
 export const notes = `
-# Footer Component
-
-## Purpose
 Provides a generic footer for display at the bottom of the page.
-The component uses an attribute selector which allows you to use the html [footer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) element as the host.
+The component uses an attribute selector which allows you to use the html <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer" target="_blank">footer</a> element as the host.
 
 The logo height is set internally with different heights for different screen sizes, it can not currently be modified to ensure consistency.
 
@@ -13,20 +10,11 @@ Import the component in your application:
 ~~~
 @NgModule({
   ...
-  imports: [LgFooterModule],
+  imports: [ ..., LgFooterModule ],
 })
 ~~~
 
-and in your HTML:
-
-~~~
-<footer
-  lg-footer
-  logo="/logo.svg"
-  logoAlt="Company Logo"
-  copyright="© Some Company plc 2018">
-</footer>
-~~~
+and for the HTML structure see the code snippets below.
 
 ## Inputs
 
@@ -37,8 +25,8 @@ and in your HTML:
 | \`\`secondaryLogo\`\` | A url link to the secondary logo | string | null | No |
 | \`\`secondaryLogoAlt\`\` | alt text to display alongside the secondary logo | string | '' | No |
 | \`\`copyright\`\` | Copyright text to display in footer | string | undefined | No |
-| \`\`primaryLinks\`\` | The primary footer links | \`[{ text: string, href: string, id?: string, target?: string }]\` | null | No |
-| \`\`secondaryLinks\`\` | The secondary footer links | \`[{ text: string, href: string, id?: string, class?: string, target?: string, type?: 'button' }]\` | null | No |
+| \`\`primaryLinks\`\` | The primary footer links | \`[{ text: string, href: string, id? : string, target? : string }]\` | null | No |
+| \`\`secondaryLinks\`\` | The secondary footer links | \`[{ text: string, href: string, id? : string, class? : string, target? : string, type? : 'button' }]\` | null | No |
 
 ## Outputs
 

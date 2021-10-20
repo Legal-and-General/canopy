@@ -90,7 +90,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     this.variant = 'generic';
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.panelHeading.isActive = this.isActive;
     this.panelHeading.variant = this.variant;
     this.panelHeading.showIcon = this.showIcon;
@@ -108,7 +108,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }

@@ -1,7 +1,4 @@
 export const notes = `
-# Accordion Component
-
-## Purpose
 Accordions allow users to quickly expand and collapse grouped sections of content.
 
 
@@ -45,12 +42,10 @@ and in your HTML:
 ~~~
 
 ## Accordion Inputs
-
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`multi\`\` | Set false to only allow a single panel to be open at a time | boolean | true | No |
 | \`\`headingLevel\`\` | The level of the accordion headings: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
-
 
 ## Accordion Item Inputs
 
