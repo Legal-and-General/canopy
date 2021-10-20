@@ -1,8 +1,4 @@
 export const notes = `
-# Carousel Component
-
-## Purpose
-
 Carousels allow customers to quickly navigate through grouped sections of content.
 
 ## Usage
@@ -13,25 +9,7 @@ Carousels allow customers to quickly navigate through grouped sections of conten
 })
 ~~~
 
-and in your HTML:
-
-~~~html
-<lg-carousel [description]="description" [headingLevel]="headingLevel" [loopMode]="true">
-  <lg-carousel-item>
-    Carousel item 1 content goes here
-  </lg-carousel-item>
-
-  <lg-carousel-item>
-    Carousel item 2 content goes here
-  </lg-carousel-item>
-
-  <lg-carousel-item>
-    Carousel item 3 content goes here
-  </lg-carousel-item>
-</lg-carousel>
-~~~
-
-## Carousel Inputs
+## Inputs
 
 | Name                  | Description                                                                                              |  Type   |  Default  | Required |
 | --------------------- | -------------------------------------------------------------------------------------------------------- | :-----: | :-------: | :------: |
@@ -42,5 +20,5 @@ and in your HTML:
 | \`\`autoPlay\`\`      | Enables auto play mode when set to true.                                                                 | boolean |   false   |   No     |
 | \`\`autoPlayDelay\`\` | Delay time in milliseconds to switch to next slide when autoPlay mode is set to true.                    | number  |   2000    |   No     |
 
-PlayCarousel and PauseCarousel methods can be exposed by targeting the Carousel with ViewChild decorators.
+\`PlayCarousel\` and \`PauseCarousel\` methods can be exposed by targeting the Carousel with \`ViewChild\` decorators.
 `;

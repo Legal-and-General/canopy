@@ -1,7 +1,4 @@
 export const notes = `
-# Card Component
-
-## Purpose
 Provides a generic card component for displaying content. Consists of various card components that are designed to create modular and flexible card layouts, from a basic card with a title, text and buttons to a single-page Form Journey card.
 
 ## Usage
@@ -11,21 +8,8 @@ For a basic card, import the component in your application:
 ~~~
 @NgModule({
   ...
-  imports: [LgCardModule],
+  imports: [ ..., LgCardModule ],
 })
-~~~
-
-and in your HTML:
-
-~~~html
-<lg-card>
-  <lg-card-header>
-    Your title
-  </lg-card-header>
-  <lg-card-content>
-    Your content
-  </lg-card-content>
-</lg-card>
 ~~~
 
 ---
@@ -36,90 +20,11 @@ You can extend the basic card component and create specific card implementations
 
 #### Product card
 
-This component uses some extra card components, such as \`LgCardPrincipleDataPoint\` and \`LgCardPrincipleDataPointValue\` to display data points.
-
-~~~html
-<lg-card>
-  <lg-card-content>
-    <div lgRow>
-      <div lgCol="12" lgColMd="6">
-        <lg-card-title headingLevel="4">
-          <a href="#">{{title}}</a>.
-        </lg-card-title>
-        <lg-card-subtitle>
-          Payroll Reference Number P23456
-        </lg-card-subtitle>
-      </div>
-      <lg-card-principle-data-point lgCol="12" lgColMd="6">
-        <lg-card-principle-data-point-label>
-          Last payment (after tax and deductions)
-        </lg-card-principle-data-point-label>
-        <lg-card-principle-data-point-value>
-          <span><span class="lg-font-size-3">£</span>230.20</span>
-        </lg-card-principle-data-point-value>
-        <lg-card-principle-data-point-date>
-          as of 01 Jan 2020
-        </lg-card-principle-data-point-date>
-      </lg-card-principle-data-point>
-    </div>
-  </lg-card-content>
-</lg-card>
-~~~
+This component uses some extra card components, such as \`LgCardPrincipleDataPoint\` and \`LgCardPrincipleDataPointValue\` to display data points. <a href="#product">View product card implementation</a>.
 
 #### Form Journey card
 
-Creates the Form Journey template, used to display a single page form. Note that the <form> element is a parent of the <lg-card> component, this is because the form inputs and submit button are spread out between the card content and card footer.
-
-~~~html
-<div lgContainer>
-<div lgRow>
-  <div lgCol="12" lgColLg="6" lgColLgOffset="3" lgColMd="10" lgColMdOffset="1">
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-      <lg-card lgPadding="none">
-        <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
-          <lg-breadcrumb lgMarginBottom="none">
-            <lg-breadcrumb-item>
-              <a href="#">
-                <lg-icon [name]="'chevron-left'"></lg-icon>
-                Back
-              </a>
-            </lg-breadcrumb-item>
-          </lg-breadcrumb>
-        </lg-card-header>
-        <lg-card-content>
-          <div lgContainer>
-            <div lgRow>
-              <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                <lg-card-title headingLevel="3" lgPaddingBottom="md">{{ title }}</lg-card-title>
-                <p>{{cardContent}}</p>
-
-                <lg-input-field [block]="block">
-                  {{ label }}
-                  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-                  <input lgInput formControlName="accountNumber" size="8" />
-                </lg-input-field>
-
-              </div>
-            </div>
-          </div>
-        </lg-card-content>
-        <lg-card-footer>
-          <div lgContainer>
-            <div lgRow>
-              <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>
-                <button lg-button type="submit" variant="solid-primary">Confirm</button>
-                <p *ngIf="policy" lgPaddingBottom="md">{{ policy }}</p>
-              </div>
-            </div>
-          </div>
-        </lg-card-footer>
-      </lg-card>
-    </form>
-  </div>
-</div>
-</div>
-~~~
+Creates the Form Journey template, used to display a single page form. Note that the <form> element is a parent of the <lg-card> component, this is because the form inputs and submit button are spread out between the card content and card footer. <a href="#form-journey">View form journey implementation</a>
 
 ### Inputs
 

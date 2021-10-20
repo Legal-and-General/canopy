@@ -1,8 +1,4 @@
 export const notes = `
-# Promo Card List Component
-
-## Purpose
-
 Promo Cards allow you to arrange content in a card-like manner for promotional purposes. Promo Cards are organised by a
 Promo Card List and will be displayed in columns on desktops and stacked on mobile devices.
 

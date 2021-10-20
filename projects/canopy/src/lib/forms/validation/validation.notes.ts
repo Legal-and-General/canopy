@@ -1,8 +1,4 @@
 export const notes = `
-# Error Component
-
-
-## Purpose
 The validation component is used to provide contextual information for a form input field. The most common use case is to display validation errors however it can also be used to show additional information.
 
 
@@ -12,14 +8,6 @@ The validation component is used to provide contextual information for a form in
   ...
   imports: [ ..., LgValidationModule ],
 })
-~~~
-
-and in your HTML:
-
-~~~html
-<lg-validation>Enter a valid postcode</lg-validation>
-
-<lg-validation variant="success">Username is available</lg-validation>
 ~~~
 
 ## Inputs

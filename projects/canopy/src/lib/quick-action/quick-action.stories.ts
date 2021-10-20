@@ -1,13 +1,12 @@
 import { Component, Input } from '@angular/core';
 
-import { select, text, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { iconsArray } from '../icon/icons.stories';
 import { LgQuickActionModule } from './quick-action.module';
 import { notes } from './quick-action.notes';
+import { LgIconModule } from '../icon';
 
 @Component({
   selector: 'lg-quick-action-link',
@@ -49,22 +48,85 @@ class LgQuickActionButtonComponent {
 
 export default {
   title: 'Components/Quick Action',
+  decorators: [
+    moduleMetadata({
+      declarations: [LgQuickActionButtonComponent, LgQuickActionLinkComponent],
+      imports: [LgQuickActionModule, LgIconModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [LgQuickActionLinkComponent, LgQuickActionButtonComponent],
-        imports: [LgQuickActionModule, LgIconModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    icon: {
+      description: 'Icon to display',
+      options: ['None', ...iconsArray.map((i) => i.name)],
+      control: {
+        type: 'select',
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    icons: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+} as Meta;
+
+const exampleButtonTemplate = `
+<button lg-quick-action>
+  <lg-icon [name]="icon"></lg-icon>
+  Load more
+</button>
+`;
+
+const quickActionButtonTemplate: Story<LgQuickActionButtonComponent> = (
+  args: LgQuickActionButtonComponent,
+) => ({
+  props: args,
+  template: `
+    <lg-quick-action-button
+      [content]="content"
+      [icon]="icon">
+    </lg-quick-action-button>
+  `,
+});
+
+export const quickActionButton = quickActionButtonTemplate.bind({});
+quickActionButton.storyName = 'Button';
+quickActionButton.component = LgQuickActionButtonComponent;
+quickActionButton.args = {
+  icon: 'repeat',
+  content: 'Load more',
+};
+quickActionButton.parameters = {
+  docs: {
+    source: {
+      code: exampleButtonTemplate,
     },
   },
 };
-const groupId = 'lg-quick-action';
 
-export const link = () => ({
+const exampleLinkTemplate = `
+<a lg-quick-action [href]="link" [target]="target">
+  <lg-icon [name]="icon"></lg-icon>
+  Send us a message
+</a>
+`;
+
+const quickActionLinkTemplate: Story<LgQuickActionLinkComponent> = (
+  args: LgQuickActionLinkComponent,
+) => ({
+  props: args,
   template: `
     <lg-quick-action-link
       [target]="target"
@@ -73,33 +135,33 @@ export const link = () => ({
       [icon]="icon">
     </lg-quick-action-link>
   `,
-  props: {
-    content: text('text', 'Send us a message', groupId),
-    link: text('link', 'https://google.com', groupId),
-    target: select('target', ['_blank', '_self'], '_blank', groupId),
-    icon: select(
-      'icon',
-      iconsArray.map((icon) => icon.name),
-      'secure-messaging',
-      groupId,
-    ),
-  },
 });
 
-export const button = () => ({
-  template: `
-    <lg-quick-action-button
-      [content]="content"
-      [icon]="icon">
-    </lg-quick-action-button>
-  `,
-  props: {
-    content: text('text', 'Load more', groupId),
-    icon: select(
-      'icon',
-      iconsArray.map((icon) => icon.name),
-      'repeat',
-      groupId,
-    ),
+export const quickActionLink = quickActionLinkTemplate.bind({});
+quickActionLink.storyName = 'Link';
+quickActionLink.args = {
+  link: 'https://google.com',
+  target: '_blank',
+  icon: 'secure-messaging',
+  content: 'Send us a message',
+};
+quickActionLink.argTypes = {
+  target: {
+    options: ['_self', '_blank'],
+    table: {
+      type: {
+        summary: ['_self', '_blank'],
+      },
+    },
+    control: {
+      type: 'select',
+    },
   },
-});
+};
+quickActionLink.parameters = {
+  docs: {
+    source: {
+      code: exampleLinkTemplate,
+    },
+  },
+};

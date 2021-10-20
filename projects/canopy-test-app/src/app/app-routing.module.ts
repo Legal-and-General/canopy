@@ -1,21 +1,41 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TabStoryContentComponent } from './tab-story-content.component';
+import { StoryContentComponent } from './story-content.component';
 
 // Route Configuration
 export const routes: Routes = [
   {
     path: 'tab-1',
-    component: TabStoryContentComponent,
+    component: StoryContentComponent,
   },
   {
     path: 'tab-2',
-    component: TabStoryContentComponent,
+    component: StoryContentComponent,
   },
   {
     path: 'tab-3',
-    component: TabStoryContentComponent,
+    component: StoryContentComponent,
+  },
+  {
+    path: 'side-nav-1',
+    component: StoryContentComponent,
+    outlet: "side-nav"
+  },
+  {
+    path: 'side-nav-2',
+    component: StoryContentComponent,
+    outlet: "side-nav"
+  },
+  {
+    path: 'side-nav-3',
+    component: StoryContentComponent,
+    outlet: "side-nav"
+  },
+  {
+    path: 'side-nav-4',
+    component: StoryContentComponent,
+    outlet: "side-nav"
   },
   {
     path: '',
@@ -28,7 +48,6 @@ export const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
     useHash: true,
-    scrollPositionRestoration: 'enabled',
     relativeLinkResolution: 'legacy'
 }),
   ],

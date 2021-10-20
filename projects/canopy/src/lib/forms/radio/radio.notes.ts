@@ -1,7 +1,4 @@
 export const notes = (name: string) => `
-# ${name} Group and ${name} Button Components
-
-## Purpose
 Provides a set of components to implement ${name} buttons in a form. The ${name} Group component is a container which displays the label with an optional hint and should contain two or more ${name} Button components. The ${name} Button component represents a single ${name} button. The Hint component may be used to provide extra context to the user.
 
 ## Usage
@@ -10,26 +7,14 @@ Import the Radio Module into your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgRadioModule],
+  imports: [ ..., LgRadioModule ],
 })
 ~~~
 
-and in your HTML:
-
-~~~html
-<lg-${name.toLowerCase()}-group ${
-  name === 'Radio' ? '[inline]="true"' : ''
-} formControlName="color">
-  Colour
-  <lg-hint>Please select a colour</lg-hint>
-  <lg-${name.toLowerCase()}-button value="red">Red</lg-${name.toLowerCase()}-button>
-  <lg-${name.toLowerCase()}-button value="yellow">Yellow</lg-${name.toLowerCase()}-button>
-</lg-${name.toLowerCase()}-group>
-~~~
 \
 ${
-  name === 'Segment' &&
-  `### Displaying the buttons at different breakpoints
+  name === 'Segment'
+    ? `### Displaying the buttons at different breakpoints
 
 Radios are displayed inline, unless given a \`RadioStackBreakpoint\`, which tells them at which breakpoint should they appear stacked on top of each other:
 
@@ -41,11 +26,11 @@ Radios are displayed inline, unless given a \`RadioStackBreakpoint\`, which tell
 </lg-segment-group>
 ~~~
     `
+    : ''
 }
 
-## Inputs
-
-### LgRadioGroupComponent
+## LgRadioGroupComponent
+### Inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-radio-group-id-\${nextUniqueId++}' | No |
@@ -56,21 +41,22 @@ ${
   name === 'Radio'
     ? `| \`\`inline\`\` | If true, displays the radio buttons inline rather than stacked | boolean | false | No |`
     : name === 'Segment'
-    ? `| \`\`stack\`\` | Stack the radio buttons at a given breakpoint | 'sm', 'md', 'lg' | false | No |`
+    ? `| \`\`stack\`\` | Stack the segment buttons at a given breakpoint | 'sm', 'md', 'lg' | false | No |`
     : ''
 }
 
-### LgRadioButtonComponent
+## LgRadioButtonComponent
 
-#### Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-radio-button-\${++nextUniqueId}' | No |
 | \`\`name\`\` | HTML name attribute | string | null | Yes |
 | \`\`value\`\` | HTML value attribute | string | null | Yes |
+| \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | boolean | null | No |
 
-#### Outputs
+### Outputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|

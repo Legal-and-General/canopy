@@ -1,7 +1,4 @@
 export const notes = `
-# Feature Toggle Module
-
-## Purpose
 This module allows you to enable and disable features by using the \`lgFeatureToggle\` directive and passing an observable of the toggle's configuration to the module.
 
 ## Usage
@@ -9,9 +6,15 @@ This module allows you to enable and disable features by using the \`lgFeatureTo
 Import the module in your core component, e.g.:
 
 ~~~
-LgFeatureToggleModule.forRoot({
-  deps: [Store],
-  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+@NgModule({
+  ...
+  imports: [
+    ...,
+    LgFeatureToggleModule.forRoot({
+      deps: [Store],
+      useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+    })
+  ],
 })
 ~~~
 

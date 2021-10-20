@@ -1,9 +1,15 @@
-import { number, text, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { Component, Input } from '@angular/core';
 
-import { fullScreen } from '../../../../../.storybook/addons/full-screen';
-import { CanopyModule } from '../canopy.module';
+import { moduleMetadata, Story } from '@storybook/angular';
+
+import { LgBreadcrumbModule } from '../breadcrumb/breadcrumb.module';
+import { LgGridModule } from '../grid/grid.module';
+import { LgMarginModule } from '../spacing/margin/margin.module';
+import { LgCardModule } from '../card/card.module';
+import { lgIconInformationFill, LgIconModule, LgIconRegistry } from '../icon';
 import { notes } from './hero.notes';
+import { LgHeroModule } from './hero.module';
+import { LgHeroComponent } from './hero.component';
 
 const bodyHTML = `
   <div lgContainer>
@@ -38,7 +44,7 @@ export const productHeroHTML = `
         <lg-breadcrumb variant="light" lgMarginBottom="none">
           <lg-breadcrumb-item>
             <a href="#">
-              <lg-icon [name]="'home'"></lg-icon>
+              <lg-icon name="home"></lg-icon>
               Home
             </a>
           </lg-breadcrumb-item>
@@ -124,7 +130,7 @@ export const conversationalHeroHTML = `
         <div [lgCol]="12">
           <lg-hero-card>
             <lg-hero-card-header>
-              <lg-hero-card-title [headingLevel]="4">
+              <lg-hero-card-title headingLevel="4">
                 Good morning, Gene
               </lg-hero-card-title>
             </lg-hero-card-header>
@@ -136,43 +142,91 @@ export const conversationalHeroHTML = `
 </lg-hero>
 `;
 
+const productHeroTemplate = `<lg-hero [overlap]="overlap" lgMarginTop="none">${productHeroHTML}</lg-hero>${bodyHTML}`;
+
+@Component({
+  selector: 'lg-hero-product-story',
+  template: productHeroTemplate,
+})
+class HeroProductStoryComponent {
+  @Input() overlap: number;
+
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons([lgIconInformationFill]);
+  }
+}
+
 export default {
   title: 'Components/Hero',
-  excludeStories: ['bodyHTML', 'productHeroHTML', 'conversationalHeroHTML'],
+  excludeStories: ['productHeroHTML', 'conversationalHeroHTML'],
+  decorators: [
+    moduleMetadata({
+      declarations: [HeroProductStoryComponent],
+      imports: [
+        LgHeroModule,
+        LgGridModule,
+        LgMarginModule,
+        LgBreadcrumbModule,
+        LgCardModule,
+        LgIconModule,
+      ],
+    }),
+  ],
   parameters: {
-    decorators: [
-      fullScreen,
-      withKnobs,
-      moduleMetadata({
-        imports: [CanopyModule],
-      }),
-    ],
-    notes: {
-      markdown: notes(productHeroHTML, conversationalHeroHTML),
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    overlap: {
+      description: 'The amount that the page content overlaps the hero component (rem).',
+      control: {
+        type: 'number',
+      },
     },
   },
 };
 
-export const productDetails = () => ({
-  template: `
-    <lg-hero [overlap]="overlap" lgMarginTop="none">
-      ${productHeroHTML}
-    </lg-hero>
-    ${bodyHTML}
-  `,
-  props: {
-    overlap: number('Overlap', 2),
-    title: text('Title', 'Pension Annuity'),
-  },
+const productHeroStory: Story<LgHeroComponent> = (args: LgHeroComponent) => ({
+  props: args,
+  template: `<lg-hero-product-story [overlap]="overlap"></lg-hero-product-story>`,
 });
 
-export const conversationalUI = () => ({
-  template: `
-    ${conversationalHeroHTML}
-    ${bodyHTML}
-  `,
-  props: {
-    overlap: number('Overlap', 2),
-    title: text('Title', 'Pension Annuity'),
+export const productHero = productHeroStory.bind({});
+productHero.storyName = 'Product details';
+productHero.args = {
+  overlap: 2,
+};
+productHero.parameters = {
+  docs: {
+    source: {
+      code: productHeroTemplate,
+    },
   },
+};
+
+const conversationalHeroTemplate = `
+${conversationalHeroHTML}
+${bodyHTML}
+`;
+
+const conversationalHeroStory: Story<LgHeroComponent> = (args: LgHeroComponent) => ({
+  props: args,
+  template: conversationalHeroTemplate,
 });
+
+export const conversationalHero = conversationalHeroStory.bind({});
+conversationalHero.storyName = 'Conversational UI';
+conversationalHero.args = {
+  overlap: 2,
+};
+conversationalHero.parameters = {
+  docs: {
+    source: {
+      code: conversationalHeroTemplate,
+    },
+  },
+};

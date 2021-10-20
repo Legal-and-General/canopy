@@ -1,8 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
-import { select, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgIconComponent } from './icon.component';
 import { notes } from './icon.notes';
@@ -275,7 +274,7 @@ export const iconsArray: Array<iconSet.Icon> = [
   selector: 'lg-swatch-icon',
   template: `
     <div class="swatch" *ngFor="let icon of icons">
-      <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar"></lg-icon>
+      <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar"> </lg-icon>
       <span class="swatch__name">{{ icon.name }}</span>
     </div>
   `,
@@ -316,22 +315,6 @@ class SwatchIconComponent implements OnChanges {
   }
 }
 
-export default {
-  title: 'Components/Icon',
-  excludeStories: ['iconsArray'],
-  parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [SwatchIconComponent, LgIconComponent],
-      }),
-    ],
-    notes: {
-      markdown: notes,
-    },
-  },
-};
-
 const colours = [
   '--color-charcoal',
   '--color-super-blue',
@@ -339,11 +322,53 @@ const colours = [
   '--color-poppy-red-dark',
 ];
 
-export const standard = () => ({
-  template: `
-    <lg-swatch-icon [colour]="colour"></lg-swatch-icon>
-  `,
-  props: {
-    colour: select('colour examples', colours, '--color-charcoal'),
+export default {
+  title: 'Components/Icon',
+  excludeStories: ['iconsArray'],
+  decorators: [
+    moduleMetadata({
+      declarations: [SwatchIconComponent, LgIconComponent],
+    }),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
   },
+  argTypes: {
+    colour: {
+      options: colours,
+      description: 'Example of changing the colour of the icon',
+      control: {
+        type: 'select',
+      },
+    },
+  },
+};
+
+const exampleTemplate = `
+<lg-icon name="call"></lg-icon>
+`;
+
+const iconsTemplate: Story<LgIconComponent> = (args: LgIconComponent) => ({
+  props: args,
+  template: '<lg-swatch-icon [colour]="colour"></lg-swatch-icon>',
 });
+
+export const standardIcons = iconsTemplate.bind({});
+standardIcons.storyName = 'Icon';
+standardIcons.args = {
+  colour: '--color-charcoal',
+};
+standardIcons.parameters = {
+  docs: {
+    description: {
+      component: notes,
+    },
+    source: {
+      code: exampleTemplate,
+    },
+  },
+};
