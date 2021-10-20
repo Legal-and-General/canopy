@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import type { Variant } from '../variant/variant.interface';
+import { Variant } from '../variant/variant.interface';
 
 @Component({
   selector: 'lg-alert',
@@ -20,7 +20,8 @@ export class LgAlertComponent {
 
   @Input() showIcon = true;
 
-  _variant: Variant;
+  private _variant: Variant;
+
   @Input()
   set variant(variant: Variant) {
     if (this._variant) {
@@ -37,12 +38,12 @@ export class LgAlertComponent {
   }
 
   @HostBinding('attr.role') get role(): string {
-    if (this.variant !== 'info' && this.variant !== 'generic') {
+    if (this.variant !== Variant.Info && this.variant !== Variant.Generic) {
       return 'alert';
     }
   }
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {
-    this.variant = 'generic';
+    this.variant = Variant.Generic;
   }
 }
