@@ -16,7 +16,7 @@ import {
 
 import { Subscription } from 'rxjs';
 
-import type { Variant } from '../variant';
+import { Variant } from '../variant';
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 
 let nextUniqueId = 0;
@@ -68,7 +68,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   }
 
   @HostBinding('attr.role') get role(): string {
-    if (this.variant !== 'info' && this.variant !== 'generic') {
+    if (this.variant !== Variant.Info && this.variant !== Variant.Generic) {
       return 'alert';
     }
   }
@@ -87,7 +87,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     private hostElement: ElementRef,
     private cdr: ChangeDetectorRef,
   ) {
-    this.variant = 'generic';
+    this.variant = Variant.Generic;
   }
 
   ngAfterContentInit() {

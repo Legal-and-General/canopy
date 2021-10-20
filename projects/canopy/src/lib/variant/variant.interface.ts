@@ -1,1 +1,7 @@
-export type Variant = 'generic' | 'info' | 'success' | 'warning' | 'error';
+export enum Variant {
+  Generic = 'generic',
+  Info = 'info',
+  Success = 'success',
+  Warning = 'warning',
+  Error = 'error',
+}
