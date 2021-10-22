@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   stories: [
     '../projects/canopy/src/lib/alert/alert.stories.ts',
+    '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
   ],
   addons: [
     '@storybook/addon-links',

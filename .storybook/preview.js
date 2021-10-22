@@ -27,8 +27,9 @@ export const parameters = {
     expanded: true
   },
   backgrounds: {
+    default: 'Default',
     values: [
-      { name: 'Default', value: 'transparent', default: true },
+      { name: 'Default', value: 'transparent' },
       { name: 'Midnight Blue', value: '#005380' },
       { name: 'Charcoal', value: '#333' },
       { name: 'Super Blue', value: '#0076d6' },
