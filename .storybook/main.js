@@ -4,6 +4,7 @@ module.exports = {
   stories: [
     '../projects/canopy/src/lib/alert/alert.stories.ts',
     '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
+    '../projects/canopy/src/lib/accordion/accordion.stories.ts',
   ],
   addons: [
     '@storybook/addon-links',
