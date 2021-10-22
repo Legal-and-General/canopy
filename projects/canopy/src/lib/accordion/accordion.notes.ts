@@ -44,14 +44,6 @@ and in your HTML:
   </lg-accordion>
 ~~~
 
-## Accordion Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| \`\`multi\`\` | Set false to only allow a single panel to be open at a time | boolean | true | No |
-| \`\`headingLevel\`\` | The level of the accordion headings: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
-
-
 ## Accordion Item Inputs
 
 | Name | Description | Type | Default | Required |

@@ -40,6 +40,7 @@ export default {
       },
     },
     variant: {
+      options: Object.values(Variant),
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
@@ -51,7 +52,6 @@ export default {
       },
       control: {
         type: 'select',
-        options: Object.values(Variant),
       },
     },
     class: {

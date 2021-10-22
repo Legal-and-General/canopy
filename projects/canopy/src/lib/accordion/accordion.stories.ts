@@ -1,27 +1,61 @@
 import { CommonModule } from '@angular/common';
 
-import { action } from '@storybook/addon-actions';
-import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
+import { Meta, Story } from '@storybook/angular';
 
 import { LgButtonModule } from '../button';
 import { LgAccordionModule } from './accordion.module';
 import { notes } from './accordion.notes';
+import { LgAccordionComponent } from './accordion.component';
 
+// This default export determines where your story goes in the story list
 export default {
   title: 'Components/Accordion',
+  component: LgAccordionComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [CommonModule, LgAccordionModule, LgButtonModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        imports: [CommonModule, LgAccordionModule, LgButtonModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
     },
   },
-};
+  argTypes: {
+    toggle: {
+      action: 'Toggle Item',
+    },
+    multi: {
+      description: 'Set false to only allow a single panel to be open at a time.',
+    },
+    headingLevel: {
+      description: 'The level of the accordion headings',
+    },
+    id: {
+      table: {
+        disable: true,
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    ngAfterContentInit: {
+      table: {
+        disable: true,
+      },
+    },
+    panelHeadings: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+} as Meta;
 
 const accordionItems = `
 <lg-accordion-item [isActive]="itemOneActive"
@@ -54,22 +88,26 @@ const accordionItems = `
 </lg-accordion-item>
 `;
 
-function props() {
-  return {
-    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 2),
-    toggle: action('Toggle item'),
-    itemOneActive: boolean('Item 1 active', false),
-    itemTwoActive: boolean('Item 2 active', true),
-    itemThreeActive: boolean('Item 3 active', false),
-  };
-}
+const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=multi>${accordionItems}</lg-accordion>`;
 
-export const standard = () => ({
-  template: `<lg-accordion [headingLevel]="headingLevel">${accordionItems}</lg-accordion>`,
-  props: props(),
+const accordionTemplate: Story<LgAccordionComponent> = (args: LgAccordionComponent) => ({
+  props: args,
+  template: standardTemplate,
 });
 
-export const singleItemActive = () => ({
-  template: `<lg-accordion [headingLevel]="headingLevel" [multi]="false">${accordionItems}</lg-accordion>`,
-  props: props(),
-});
+export const standardAccordion = accordionTemplate.bind({});
+standardAccordion.storyName = 'Standard';
+standardAccordion.args = {
+  headingLevel: 2,
+  itemOneActive: false,
+  itemTwoActive: true,
+  itemThreeActive: false,
+  multi: false,
+};
+standardAccordion.parameters = {
+  docs: {
+    source: {
+      code: standardTemplate,
+    },
+  },
+};
