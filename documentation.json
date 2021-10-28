@@ -12075,7 +12075,7 @@
         },
         {
             "name": "LgDetailsComponent",
-            "id": "component-LgDetailsComponent-5b485c0ddc858fb7f4125ac7eaff1b89",
+            "id": "component-LgDetailsComponent-1b54a0b6b5852278230d71b122c94b10",
             "file": "projects/canopy/src/lib/details/details.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [
@@ -12263,7 +12263,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  AfterContentInit,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  HostBinding,\n  Input,\n  OnDestroy,\n  Output,\n  Renderer2,\n  ViewEncapsulation,\n} from '@angular/core';\n\nimport { Subscription } from 'rxjs';\n\nimport { Variant } from '../variant';\nimport { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';\n\nlet nextUniqueId = 0;\n\n@Component({\n  selector: 'lg-details',\n  templateUrl: './details.component.html',\n  styleUrls: ['./details.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LgDetailsComponent implements AfterContentInit, OnDestroy {\n  @HostBinding('class.lg-details') class = true;\n\n  @ContentChild(LgDetailsPanelHeadingComponent)\n  panelHeading: LgDetailsPanelHeadingComponent;\n\n  @Input() isActive = false;\n\n  _showIcon = true;\n  @Input()\n  set showIcon(showIcon: boolean) {\n    this._showIcon = showIcon;\n    if (this.panelHeading) {\n      this.panelHeading.showIcon = showIcon;\n    }\n  }\n  get showIcon() {\n    return this._showIcon;\n  }\n\n  _variant: Variant;\n  @Input()\n  set variant(variant: Variant) {\n    if (this._variant) {\n      this.renderer.removeClass(\n        this.hostElement.nativeElement,\n        `lg-variant--${this._variant}`,\n      );\n    }\n    if (this.panelHeading) {\n      this.panelHeading.variant = variant;\n    }\n    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);\n    this._variant = variant;\n  }\n  get variant() {\n    return this._variant;\n  }\n\n  @HostBinding('attr.role') get role(): string {\n    if (this.variant !== Variant.Info && this.variant !== Variant.Generic) {\n      return 'alert';\n    }\n  }\n\n  @Output() opened = new EventEmitter<void>();\n  @Output() closed = new EventEmitter<void>();\n\n  id = nextUniqueId++;\n  toggleId = `lg-details-header-${this.id}`;\n  panelId = `lg-details-content-${this.id}`;\n\n  private subscription: Subscription;\n\n  constructor(\n    private renderer: Renderer2,\n    private hostElement: ElementRef,\n    private cdr: ChangeDetectorRef,\n  ) {\n    this.variant = Variant.Generic;\n  }\n\n  ngAfterContentInit() {\n    this.panelHeading.isActive = this.isActive;\n    this.panelHeading.variant = this.variant;\n    this.panelHeading.showIcon = this.showIcon;\n\n    this.subscription = this.panelHeading.toggleActive.subscribe((isActive) => {\n      this.isActive = isActive;\n\n      if (isActive) {\n        this.opened.emit();\n      } else {\n        this.closed.emit();\n      }\n\n      this.cdr.markForCheck();\n    });\n  }\n\n  ngOnDestroy() {\n    this.subscription.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import {\n  AfterContentInit,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n  Component,\n  ContentChild,\n  ElementRef,\n  EventEmitter,\n  HostBinding,\n  Input,\n  OnDestroy,\n  Output,\n  Renderer2,\n  ViewEncapsulation,\n} from '@angular/core';\n\nimport { Subscription } from 'rxjs';\n\nimport { Variant } from '../variant';\nimport { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';\n\nlet nextUniqueId = 0;\n\n@Component({\n  selector: 'lg-details',\n  templateUrl: './details.component.html',\n  styleUrls: ['./details.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LgDetailsComponent implements AfterContentInit, OnDestroy {\n  @HostBinding('class.lg-details') class = true;\n\n  @ContentChild(LgDetailsPanelHeadingComponent)\n  panelHeading: LgDetailsPanelHeadingComponent;\n\n  @Input() isActive = false;\n\n  _showIcon = true;\n  @Input()\n  set showIcon(showIcon: boolean) {\n    this._showIcon = showIcon;\n    if (this.panelHeading) {\n      this.panelHeading.showIcon = showIcon;\n    }\n  }\n  get showIcon() {\n    return this._showIcon;\n  }\n\n  _variant: Variant;\n  @Input()\n  set variant(variant: Variant) {\n    if (this._variant) {\n      this.renderer.removeClass(\n        this.hostElement.nativeElement,\n        `lg-variant--${this._variant}`,\n      );\n    }\n    if (this.panelHeading) {\n      this.panelHeading.variant = variant;\n    }\n    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);\n    this._variant = variant;\n  }\n  get variant() {\n    return this._variant;\n  }\n\n  @HostBinding('attr.role') get role(): string {\n    if (this.variant !== Variant.Info && this.variant !== Variant.Generic) {\n      return 'alert';\n    }\n  }\n\n  @Output() opened = new EventEmitter<void>();\n  @Output() closed = new EventEmitter<void>();\n\n  id = nextUniqueId++;\n  toggleId = `lg-details-header-${this.id}`;\n  panelId = `lg-details-content-${this.id}`;\n\n  private subscription: Subscription;\n\n  constructor(\n    private renderer: Renderer2,\n    private hostElement: ElementRef,\n    private cdr: ChangeDetectorRef,\n  ) {\n    this.variant = Variant.Generic;\n  }\n\n  ngAfterContentInit(): void {\n    this.panelHeading.isActive = this.isActive;\n    this.panelHeading.variant = this.variant;\n    this.panelHeading.showIcon = this.showIcon;\n\n    this.subscription = this.panelHeading.toggleActive.subscribe((isActive) => {\n      this.isActive = isActive;\n\n      if (isActive) {\n        this.opened.emit();\n      } else {\n        this.closed.emit();\n      }\n\n      this.cdr.markForCheck();\n    });\n  }\n\n  ngOnDestroy(): void {\n    this.subscription.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -24523,165 +24523,7 @@
         },
         {
             "name": "ReactiveFormComponent",
-            "id": "component-ReactiveFormComponent-50d7afa6e8971c1ef656db2a20f0daba-5",
-            "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "lg-reactive-form",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<form [formGroup]=\"form\">\n  <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n    {{ label }}\n    <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n  </lg-sort-code>\n</form>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "disabled",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 29,
-                    "type": "boolean"
-                },
-                {
-                    "name": "focus",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 26,
-                    "type": "boolean"
-                },
-                {
-                    "name": "hint",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 24,
-                    "type": "string"
-                },
-                {
-                    "name": "label",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 25,
-                    "type": "string"
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "inputChange",
-                    "defaultValue": "new EventEmitter<void>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 40,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "fb",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormBuilder",
-                    "optional": false,
-                    "description": "",
-                    "line": 44,
-                    "modifierKind": [
-                        123
-                    ]
-                },
-                {
-                    "name": "form",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "optional": false,
-                    "description": "",
-                    "line": 42
-                }
-            ],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\n\nimport { moduleMetadata } from '@storybook/angular';\nimport { boolean, text, withKnobs } from '@storybook/addon-knobs';\nimport { action } from '@storybook/addon-actions';\n\nimport { LgSortCodeComponent } from './sort-code.component';\nimport { CanopyModule } from '../../canopy.module';\nimport { notes } from './sort-code.notes';\n\n@Component({\n  selector: 'lg-reactive-form',\n  template: `\n    <form [formGroup]=\"form\">\n      <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n        {{ label }}\n        <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n      </lg-sort-code>\n    </form>\n  `,\n})\nclass ReactiveFormComponent {\n  @Input() hint: string;\n  @Input() label: string;\n  @Input() focus: boolean;\n\n  @Input()\n  set disabled(disabled: boolean) {\n    if (disabled) {\n      this.form.controls.sortCode.disable();\n    } else {\n      this.form.controls.sortCode.enable();\n    }\n  }\n  get disabled(): boolean {\n    return this.form.controls.sortCode.disabled;\n  }\n\n  @Output() inputChange = new EventEmitter<void>();\n\n  form: FormGroup;\n\n  constructor(public fb: FormBuilder) {\n    this.form = this.fb.group({\n      sortCode: [''],\n    });\n    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));\n  }\n}\n\nexport default {\n  title: 'Components/Form/Sort Code',\n  component: LgSortCodeComponent,\n  decorators: [\n    withKnobs,\n    moduleMetadata({\n      declarations: [ReactiveFormComponent],\n      imports: [ReactiveFormsModule, CanopyModule],\n    }),\n  ],\n  parameters: {\n    notes: {\n      markdown: notes,\n    },\n  },\n};\n\nexport const standard = () => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n});\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "fb",
-                        "type": "FormBuilder",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 42,
-                "jsdoctags": [
-                    {
-                        "name": "fb",
-                        "type": "FormBuilder",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "accessors": {
-                "disabled": {
-                    "name": "disabled",
-                    "setSignature": {
-                        "name": "disabled",
-                        "type": "void",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "args": [
-                            {
-                                "name": "disabled",
-                                "type": "boolean",
-                                "deprecated": false,
-                                "deprecationMessage": ""
-                            }
-                        ],
-                        "returnType": "void",
-                        "line": 29,
-                        "jsdoctags": [
-                            {
-                                "name": "disabled",
-                                "type": "boolean",
-                                "deprecated": false,
-                                "deprecationMessage": "",
-                                "tagName": {
-                                    "text": "param"
-                                }
-                            }
-                        ]
-                    },
-                    "getSignature": {
-                        "name": "disabled",
-                        "type": "boolean",
-                        "returnType": "boolean",
-                        "line": 36
-                    }
-                }
-            },
-            "isDuplicate": true,
-            "duplicateId": 5,
-            "duplicateName": "ReactiveFormComponent-5"
-        },
-        {
-            "name": "ReactiveFormComponent",
-            "id": "component-ReactiveFormComponent-58c496c2e7f18b071e4677d85e360314-6",
+            "id": "component-ReactiveFormComponent-58c496c2e7f18b071e4677d85e360314-5",
             "file": "projects/canopy/src/lib/forms/validation/form.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -24941,6 +24783,164 @@
                         "type": "",
                         "returnType": "",
                         "line": 246
+                    }
+                }
+            },
+            "isDuplicate": true,
+            "duplicateId": 5,
+            "duplicateName": "ReactiveFormComponent-5"
+        },
+        {
+            "name": "ReactiveFormComponent",
+            "id": "component-ReactiveFormComponent-50d7afa6e8971c1ef656db2a20f0daba-6",
+            "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lg-reactive-form",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<form [formGroup]=\"form\">\n  <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n    {{ label }}\n    <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n  </lg-sort-code>\n</form>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "boolean"
+                },
+                {
+                    "name": "focus",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "boolean"
+                },
+                {
+                    "name": "hint",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "inputChange",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "fb",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormBuilder",
+                    "optional": false,
+                    "description": "",
+                    "line": 44,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "form",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 42
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\n\nimport { moduleMetadata } from '@storybook/angular';\nimport { boolean, text, withKnobs } from '@storybook/addon-knobs';\nimport { action } from '@storybook/addon-actions';\n\nimport { LgSortCodeComponent } from './sort-code.component';\nimport { CanopyModule } from '../../canopy.module';\nimport { notes } from './sort-code.notes';\n\n@Component({\n  selector: 'lg-reactive-form',\n  template: `\n    <form [formGroup]=\"form\">\n      <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n        {{ label }}\n        <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n      </lg-sort-code>\n    </form>\n  `,\n})\nclass ReactiveFormComponent {\n  @Input() hint: string;\n  @Input() label: string;\n  @Input() focus: boolean;\n\n  @Input()\n  set disabled(disabled: boolean) {\n    if (disabled) {\n      this.form.controls.sortCode.disable();\n    } else {\n      this.form.controls.sortCode.enable();\n    }\n  }\n  get disabled(): boolean {\n    return this.form.controls.sortCode.disabled;\n  }\n\n  @Output() inputChange = new EventEmitter<void>();\n\n  form: FormGroup;\n\n  constructor(public fb: FormBuilder) {\n    this.form = this.fb.group({\n      sortCode: [''],\n    });\n    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));\n  }\n}\n\nexport default {\n  title: 'Components/Form/Sort Code',\n  component: LgSortCodeComponent,\n  decorators: [\n    withKnobs,\n    moduleMetadata({\n      declarations: [ReactiveFormComponent],\n      imports: [ReactiveFormsModule, CanopyModule],\n    }),\n  ],\n  parameters: {\n    notes: {\n      markdown: notes,\n    },\n  },\n};\n\nexport const standard = () => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n});\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 42,
+                "jsdoctags": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "accessors": {
+                "disabled": {
+                    "name": "disabled",
+                    "setSignature": {
+                        "name": "disabled",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "disabled",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 29,
+                        "jsdoctags": [
+                            {
+                                "name": "disabled",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "disabled",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 36
                     }
                 }
             },
@@ -29805,16 +29805,6 @@
                 "name": "components",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/carousel/carousel.module.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "[]",
-                "defaultValue": "[LgCarouselItemComponent, LgCarouselComponent, LgAutoplayComponent]"
-            },
-            {
-                "name": "components",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/card/card.module.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -29825,21 +29815,21 @@
                 "name": "components",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/primary-message/primary-message.module.ts",
+                "file": "projects/canopy/src/lib/carousel/carousel.module.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
-                "defaultValue": "[\n  LgPrimaryMessageComponent,\n  LgPrimaryMessageTitleComponent,\n  LgPrimaryMessageDescriptionComponent,\n]"
+                "defaultValue": "[LgCarouselItemComponent, LgCarouselComponent, LgAutoplayComponent]"
             },
             {
                 "name": "components",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/modal/modal.module.ts",
+                "file": "projects/canopy/src/lib/primary-message/primary-message.module.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
-                "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
+                "defaultValue": "[\n  LgPrimaryMessageComponent,\n  LgPrimaryMessageTitleComponent,\n  LgPrimaryMessageDescriptionComponent,\n]"
             },
             {
                 "name": "components",
@@ -29870,6 +29860,16 @@
                 "deprecationMessage": "",
                 "type": "[]",
                 "defaultValue": "[\n  LgTableComponent,\n  LgTableCellComponent,\n  LgTableHeadComponent,\n  LgTableRowComponent,\n  LgTableExpandedDetailComponent,\n  LgTableRowToggleComponent,\n  LgTableBodyComponent,\n  LgTableHeadCellComponent,\n]"
+            },
+            {
+                "name": "components",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/modal/modal.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
             },
             {
                 "name": "contentGroupId",
@@ -29905,7 +29905,7 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy-test-app/src/test.ts",
+                "file": "projects/canopy/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -29915,7 +29915,7 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/test.ts",
+                "file": "projects/canopy-test-app/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -30010,6 +30010,16 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "'dd MMMM yyyy'"
+            },
+            {
+                "name": "detailsTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/details/details.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<LgDetailsComponent>",
+                "defaultValue": "(args: LgDetailsComponent) => ({\n  props: args,\n  template,\n})"
             },
             {
                 "name": "environment",
@@ -33325,6 +33335,16 @@
                 "name": "nextUniqueId",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/canopy/src/lib/forms/label/label.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "number",
+                "defaultValue": "0"
+            },
+            {
+                "name": "nextUniqueId",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/input/input-field.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33336,16 +33356,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/input/input.directive.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "number",
-                "defaultValue": "0"
-            },
-            {
-                "name": "nextUniqueId",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/label/label.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "number",
@@ -33385,16 +33395,6 @@
                 "name": "nextUniqueId",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "number",
-                "defaultValue": "0"
-            },
-            {
-                "name": "nextUniqueId",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33406,6 +33406,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/validation/validation.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "number",
+                "defaultValue": "0"
+            },
+            {
+                "name": "nextUniqueId",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "number",
@@ -33525,16 +33535,6 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/button/button.notes.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "`\n# Button Component\n\n## Purpose\nProvides common styles and behaviours for buttons and links.\n\n## Usage\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgButtonModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n~~~\n\nor:\n\n~~~html\n<a lg-button href=\"#\" variant=\"primary\">Link</a>\n~~~\n\n## Button with icon with text\n\nIcons can be content projected into the button, the button component will then handle the styling of that icon.\nThe \\`ButtonIconPosition\\` property can be used to locate the icon on the left hand side of the text, the default is to the right hand side.\nContent projection is used as Canopy Icons need loading via the \\`iconRegistry\\` which enables tree shaking of icons.\n\n~~~html\n<button lg-button type=\"button\" iconPosition=\"left\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## Button with icon only\n\nButtons can be setup as icon only buttons, this is done in a similar way to a button with icon and text.\nYou will still need to include text content inside the button as this information is vital to screen readers.\nThe \\`iconButton\\` property is used to visually hide that text.\n\n~~~html\n<button lg-button type=\"button\" iconButton=\"true\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## ButtonComponent inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`variant\\`\\` | The variant of button: \\`\\`solid-primary\\`\\`, \\`\\`solid-secondary\\`\\`, \\`\\`outline-primary\\`\\`, \\`\\`outline-secondary\\`\\`, \\`\\`reverse-primary\\`\\`, \\`\\`reverse-secondary\\`\\`, \\`\\`add-on\\`\\`; | string | solid-primary | No |\n| \\`\\`size\\`\\` | The size of the button | ButtonSize [\\`\\`sm\\`\\`, \\`\\`md\\`\\`] | \\`\\`md\\`\\` | No |\n| \\`\\`fullWidth\\`\\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |\n| \\`\\`disabled\\`\\` | Programmatically disable the button via this property | boolean | false | No |\n| \\`\\`loading\\`\\` | If the button shows a loading spinner and is also disabled | boolean | false | No |\n| \\`\\`iconPosition\\`\\` | The position of the icon in the button | string | right | No |\n| \\`\\`iconButton\\`\\` | The button displays an icon only | boolean | false | No |\n\n## Button group\n\nButtons can be grouped together by using the \\`\\`ButtonGroupComponent\\`\\`:\n\n~~~html\n<lg-button-group>\n  <button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n  <a lg-button href=\"#\" variant=\"outline-primary\">Link</a>\n</lg-button-group>\n~~~\n`"
-            },
-            {
-                "name": "notes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/breadcrumb/breadcrumb.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33545,11 +33545,11 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/carousel/carousel.notes.ts",
+                "file": "projects/canopy/src/lib/button/button.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "`\n# Carousel Component\n\n## Purpose\n\nCarousels allow customers to quickly navigate through grouped sections of content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgCarouselModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-carousel [description]=\"description\" [headingLevel]=\"headingLevel\" [loopMode]=\"true\">\n  <lg-carousel-item>\n    Carousel item 1 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 2 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 3 content goes here\n  </lg-carousel-item>\n</lg-carousel>\n~~~\n\n## Carousel Inputs\n\n| Name                  | Description                                                                                              |  Type   |  Default  | Required |\n| --------------------- | -------------------------------------------------------------------------------------------------------- | :-----: | :-------: | :------: |\n| \\`\\`loopMode\\`\\`      | Allows the carousel to navigation to loop when the first or last item is active.                         | boolean |   false   |   No     |\n| \\`\\`slideDuration\\`\\` | Duration in milliseconds of the transition between slides.                                               | number  |   500     |   No     |\n| \\`\\`description\\`\\`   | Text used to describe the carousel content for screen readers. This is visually hidden.                  | string  | undefined |   Yes    |\n| \\`\\`headingLevel\\`\\`  | The heading level of the description: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\`   | number  | undefined |   Yes    |\n| \\`\\`autoPlay\\`\\`      | Enables auto play mode when set to true.                                                                 | boolean |   false   |   No     |\n| \\`\\`autoPlayDelay\\`\\` | Delay time in milliseconds to switch to next slide when autoPlay mode is set to true.                    | number  |   2000    |   No     |\n`"
+                "defaultValue": "`\n# Button Component\n\n## Purpose\nProvides common styles and behaviours for buttons and links.\n\n## Usage\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgButtonModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n~~~\n\nor:\n\n~~~html\n<a lg-button href=\"#\" variant=\"primary\">Link</a>\n~~~\n\n## Button with icon with text\n\nIcons can be content projected into the button, the button component will then handle the styling of that icon.\nThe \\`ButtonIconPosition\\` property can be used to locate the icon on the left hand side of the text, the default is to the right hand side.\nContent projection is used as Canopy Icons need loading via the \\`iconRegistry\\` which enables tree shaking of icons.\n\n~~~html\n<button lg-button type=\"button\" iconPosition=\"left\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## Button with icon only\n\nButtons can be setup as icon only buttons, this is done in a similar way to a button with icon and text.\nYou will still need to include text content inside the button as this information is vital to screen readers.\nThe \\`iconButton\\` property is used to visually hide that text.\n\n~~~html\n<button lg-button type=\"button\" iconButton=\"true\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## ButtonComponent inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`variant\\`\\` | The variant of button: \\`\\`solid-primary\\`\\`, \\`\\`solid-secondary\\`\\`, \\`\\`outline-primary\\`\\`, \\`\\`outline-secondary\\`\\`, \\`\\`reverse-primary\\`\\`, \\`\\`reverse-secondary\\`\\`, \\`\\`add-on\\`\\`; | string | solid-primary | No |\n| \\`\\`size\\`\\` | The size of the button | ButtonSize [\\`\\`sm\\`\\`, \\`\\`md\\`\\`] | \\`\\`md\\`\\` | No |\n| \\`\\`fullWidth\\`\\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |\n| \\`\\`disabled\\`\\` | Programmatically disable the button via this property | boolean | false | No |\n| \\`\\`loading\\`\\` | If the button shows a loading spinner and is also disabled | boolean | false | No |\n| \\`\\`iconPosition\\`\\` | The position of the icon in the button | string | right | No |\n| \\`\\`iconButton\\`\\` | The button displays an icon only | boolean | false | No |\n\n## Button group\n\nButtons can be grouped together by using the \\`\\`ButtonGroupComponent\\`\\`:\n\n~~~html\n<lg-button-group>\n  <button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n  <a lg-button href=\"#\" variant=\"outline-primary\">Link</a>\n</lg-button-group>\n~~~\n`"
             },
             {
                 "name": "notes",
@@ -33565,6 +33565,16 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/canopy/src/lib/carousel/carousel.notes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n# Carousel Component\n\n## Purpose\n\nCarousels allow customers to quickly navigate through grouped sections of content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgCarouselModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-carousel [description]=\"description\" [headingLevel]=\"headingLevel\" [loopMode]=\"true\">\n  <lg-carousel-item>\n    Carousel item 1 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 2 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 3 content goes here\n  </lg-carousel-item>\n</lg-carousel>\n~~~\n\n## Carousel Inputs\n\n| Name                  | Description                                                                                              |  Type   |  Default  | Required |\n| --------------------- | -------------------------------------------------------------------------------------------------------- | :-----: | :-------: | :------: |\n| \\`\\`loopMode\\`\\`      | Allows the carousel to navigation to loop when the first or last item is active.                         | boolean |   false   |   No     |\n| \\`\\`slideDuration\\`\\` | Duration in milliseconds of the transition between slides.                                               | number  |   500     |   No     |\n| \\`\\`description\\`\\`   | Text used to describe the carousel content for screen readers. This is visually hidden.                  | string  | undefined |   Yes    |\n| \\`\\`headingLevel\\`\\`  | The heading level of the description: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\`   | number  | undefined |   Yes    |\n| \\`\\`autoPlay\\`\\`      | Enables auto play mode when set to true.                                                                 | boolean |   false   |   No     |\n| \\`\\`autoPlayDelay\\`\\` | Delay time in milliseconds to switch to next slide when autoPlay mode is set to true.                    | number  |   2000    |   No     |\n`"
+            },
+            {
+                "name": "notes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/canopy/src/lib/data-point/data-point.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33575,21 +33585,21 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/feature-toggle/feature-toggle.notes.ts",
+                "file": "projects/canopy/src/lib/details/details.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "`\nThis module allows you to enable and disable features by using the \\`lgFeatureToggle\\` directive and passing an observable of the toggle's configuration to the module.\n\n## Usage\n\nImport the module in your core component, e.g.:\n\n~~~\nLgFeatureToggleModule.forRoot({\n  deps: [Store],\n  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)\n})\n~~~\n\nand also import \\`LgFeatureToggleModule\\` (without the \\`forRoot\\`) in the modules that will need it.\n\n\\`useFactory\\` returns an observable of a config file structured as below:\n\n~~~\n{\n  \"exampleFeature\": true,\n  \"anotherExampleFeature\": false\n}\n~~~\n\nThe default behaviour is to show a feature if it's undefined, but we can override it by passing an optional object with defaultHide set to true like this:\n\n~~~\nLgFeatureToggleModule.forRoot({\n  deps: [Store],\n  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)\n  },\n  {\n    defaultHide: true\n  }\n)\n~~~\n\nIn your component(s) add the structural directive like in the example below:\n\n~~~\n<div *lgFeatureToggle=\"'exampleFeature'\">\n  <p>The enabled feature</p>\n</div>\n\n<div *lgFeatureToggle=\"'anotherExampleFeature'\">\n  <p>The disabled feature</p>\n</div>\n~~~\n\n## FeatureToggleGuard configuration\n\nTo use the FeatureToggleGuard you need to add it to your routes configuration in the usual canActive, canActivateChild, canLoad, and then add in the data property like\n\n~~~\ndata: {\n  featureToggle: 'myToggle',\n},\n~~~\n\nif you use canActivateChild, child route definitions can add its own featureToggle in their data, and the path is only valid when all the featureToggle flags of each route segment are true\n\nExample with a lazy loading route\n\n~~~\n{\n  path: 'parent',\n  loadChildren: () => import('./parent/parent.module').then(m => m.ParentnModule),\n  canActivate: [ FeatureToggleGuard ],\n  canActivateChild: [ FeatureToggleGuard ],\n  canLoad: [ FeatureToggleGuard ],\n  data: {\n    featureToggle: 'parentToggle',\n  },\n},\n~~~\n\nExample of inner routes (route definition inside ParentModule)\n\n~~~\n{\n  path: 'child',\n  component: ChildContainerComponent,\n  data: {\n    featureToggle: 'childToggle',\n  },\n},\n~~~\n`"
+                "defaultValue": "`\nThe Details component reduces page clutter and cognitive load by letting users reveal more information as and when they need it. It can also be used to communicate important imformation in a collapsed layout, similar to an Alert.\n\nThe \"alert\" ARIA role is automatically added to the component if it's one of these variants: \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.\n\nA decorative icon is also added next to the heading if it's one of the these variants: \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  declarations: [ ..., LgDetailsModule ],\n})\n~~~\n`"
             },
             {
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/details/details.notes.ts",
+                "file": "projects/canopy/src/lib/feature-toggle/feature-toggle.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "`\n# Details Component\n\n\n## Purpose\nThe Details component reduces page clutter and cognitive load by letting users reveal more information as and when they need it. It can also be used to communicate important imformation in a collapsed layout, similar to an Alert.\n\nThe \"alert\" ARIA role is automatically added to the component if it's one of these variants: \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.\n\nA decorative icon is also added next to the heading if it's one of the these variants: \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  declarations: [ ..., LgDetailsModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-details [isActive]=\"expand\">\n  <lg-details-panel-heading [headingLevel]=\"5\">\n    How do I change my payment details?\n  </lg-details-panel-heading>\n  Give us a call on 0800 123 4567 and we'll be happy to help you change\n  your payment details\n</lg-details>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`isActive\\`\\` | Expand the details | boolean | false | no |\n| \\`\\`headingLevel\\`\\` | The level of the details heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | n/a | Yes |\n|\\`\\`variant\\`\\`| Applies colour treatment and ARIA role if applicable: \\`\\`generic\\`\\`, \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\` | string | 'generic' | No |\n| \\`\\`showIcon\\`\\` | Whether the icon should display on the warning, error or success variants | boolean | true | No |\n\n## Outputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`opened\\`\\` | Event emitted when the details are opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the details are closed | EventEmitter<void> | n/a | No |\n`"
+                "defaultValue": "`\nThis module allows you to enable and disable features by using the \\`lgFeatureToggle\\` directive and passing an observable of the toggle's configuration to the module.\n\n## Usage\n\nImport the module in your core component, e.g.:\n\n~~~\nLgFeatureToggleModule.forRoot({\n  deps: [Store],\n  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)\n})\n~~~\n\nand also import \\`LgFeatureToggleModule\\` (without the \\`forRoot\\`) in the modules that will need it.\n\n\\`useFactory\\` returns an observable of a config file structured as below:\n\n~~~\n{\n  \"exampleFeature\": true,\n  \"anotherExampleFeature\": false\n}\n~~~\n\nThe default behaviour is to show a feature if it's undefined, but we can override it by passing an optional object with defaultHide set to true like this:\n\n~~~\nLgFeatureToggleModule.forRoot({\n  deps: [Store],\n  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)\n  },\n  {\n    defaultHide: true\n  }\n)\n~~~\n\nIn your component(s) add the structural directive like in the example below:\n\n~~~\n<div *lgFeatureToggle=\"'exampleFeature'\">\n  <p>The enabled feature</p>\n</div>\n\n<div *lgFeatureToggle=\"'anotherExampleFeature'\">\n  <p>The disabled feature</p>\n</div>\n~~~\n\n## FeatureToggleGuard configuration\n\nTo use the FeatureToggleGuard you need to add it to your routes configuration in the usual canActive, canActivateChild, canLoad, and then add in the data property like\n\n~~~\ndata: {\n  featureToggle: 'myToggle',\n},\n~~~\n\nif you use canActivateChild, child route definitions can add its own featureToggle in their data, and the path is only valid when all the featureToggle flags of each route segment are true\n\nExample with a lazy loading route\n\n~~~\n{\n  path: 'parent',\n  loadChildren: () => import('./parent/parent.module').then(m => m.ParentnModule),\n  canActivate: [ FeatureToggleGuard ],\n  canActivateChild: [ FeatureToggleGuard ],\n  canLoad: [ FeatureToggleGuard ],\n  data: {\n    featureToggle: 'parentToggle',\n  },\n},\n~~~\n\nExample of inner routes (route definition inside ParentModule)\n\n~~~\n{\n  path: 'child',\n  component: ChildContainerComponent,\n  data: {\n    featureToggle: 'childToggle',\n  },\n},\n~~~\n`"
             },
             {
                 "name": "notes",
@@ -33690,16 +33700,6 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\n# Primary Message Component\n\n\n## Purpose\nThe Primary Message is used to communicate key information to the user.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgPrimaryMessageModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n  <lg-primary-message>\n    <lg-brand-icon name=\"calendar\"></lg-brand-icon>\n    <lg-primary-message-title>\n      This is a primary message\n    </lg-primary-message-title>\n    <lg-primary-message-description>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n      <a href=\"#\">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.\n    </lg-primary-message-description>\n    <lg-primary-message-description>\n      <button lg-button variant=\"solid-primary\" lgMarginTop=\"sm\" type=\"button\">Call to action</button>\n    </lg-primary-message-description>\n  </lg-primary-message>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`hasRole\\`\\` | If false, removes the role \\`\\`alert\\`\\` from the component | boolean | true | No |\n\n`"
-            },
-            {
-                "name": "notes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/canopy/src/lib/modal/modal.notes.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
             },
             {
                 "name": "notes",
@@ -33815,6 +33815,16 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/canopy/src/lib/modal/modal.notes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
+            },
+            {
+                "name": "notes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33865,16 +33875,6 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
-            },
-            {
-                "name": "notes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/toggle/toggle.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33905,6 +33905,16 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
+            },
+            {
+                "name": "notes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/canopy/src/lib/pipes/camel-case/camel-case.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33925,21 +33935,21 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/spacing/padding/padding.notes.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "`\n# Padding Directive\n\n## Purpose\nThis directive allows for custom padding to be added without the need to write additional CSS. It's useful for overriding the default padding on Canopy components, as well as general use within your app. Using this directive ensures that your padding adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.\n\n## Usage\n\nImport the module in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgPaddingModule],\n})\n~~~\n\nIn your HTML apply the directive to the relevant component. If the default \\`\\`lgPadding\\`\\` attribute has no value, the default padding will remain. You can also override individual padding such as \\`\\`padding-top\\`\\` by applying the relevant selector/input (.e.g \\`\\`LgPaddingTop\\`\\` - see **Inputs** below).\n\nPass in either a **Standard Spacing Variant** or a **Responsive Spacing object** (see below).\n\n~~~html\nStandard spacing variant\n<lg-card lgPadding=\"sm\"></lg-card>\n\nResponsive spacing object\n<lg-card [lgPadding]=\"{ md: 'lg', lg: 'xxxl' }\"></lg-card>\n~~~\n\n## Standard vs Responsive Spacing\n\n### Standard Spacing Variant\n\nThis is set of predfined variants which will apply the same padding at all breakpoints, as defined by the \\`\\`SpacingVariant\\`\\` type. These are:\n\n~~~bash\n'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'\n~~~\n\n### Repsonsive Spacing Object\n\nYou can apply a responsive spacing object instead, which will apply different padding at the specified breakpoints, as defined by the \\`\\`SpacingResponsive\\`\\ type. Example:\n\n~~~js\n{\n  md: \"lg\",\n  lg: \"xxxl\"\n}\n~~~\n\nEach **key** is a mobile-first breakpoint from the standard list of available breakpoints: \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`.\n\nEach **value** is a standard spacing variant.\n\nIn the example above, the padding at the \\`\\`md\\`\\` breakpoint will be \\`\\`lg\\`\\`, and at the \\`\\`lg\\`\\` will be \\`\\`xxxl\\`\\`.\n\n\n### Standard variant examples\n\nApply \\`\\`xxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPaddingBottom=\"xxl\"></lg-card>\n~~~\n\nApply \\`\\`sm\\`\\` padding to the left and right\n\n~~~html\n<lg-card lgPaddingHorizontal=\"sm\"></lg-card>\n~~~\n\nApply \\`\\`xl\\`\\` padding all round, but \\`\\`xxxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPadding=\"xl\" lgPaddingBottom=\"xxxl\"></lg-card>\n~~~\n\nApply \\`\\`lg\\`\\` padding to the top and bottom\n\n~~~html\n<lg-card lgPaddingVertical=\"lg\"></lg-card>\n~~~\n\n### Responsive examples\n\n\nAt the \\`\\`sm\\`\\` breakpoint apply \\`\\`xl\\`\\` padding, then at the \\`\\`md breakpoint\\`\\` apply \\`\\`xxxl\\`\\` padding, all around the component.\n\n~~~html\n<lg-card [lgPadding]=\"{ sm: 'lg', md: 'xxxl' }\"></lg-card>\n~~~\n\nAt the \\`\\`md\\`\\` breakpoint apply \\`\\`md\\`\\` padding, then at the \\`\\`lg breakpoint\\`\\` apply \\`\\`sm\\`\\` padding, at the bottom of the component.\n\n~~~html\n<lg-card [lgPaddingBottom]=\"{ md: 'md', lg: 'sm' }\"></lg-card>\n~~~\n\n## Inputs\n\nThe current available spacing variants are \\`\\`none\\`\\`, \\`\\`xxxs\\`\\`, \\`\\`xxs\\`\\`, \\`\\`xs\\`\\`, \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`, \\`\\`xxxl\\`\\`, \\`\\`xxxxxl\\`\\`.\n\nThe current available breakpoints are \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgPadding\\`\\` | The padding variant applied to all sides | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingTop\\`\\` | The padding variant applied to the top | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingRight\\`\\` | The padding variant applied to the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingBottom\\`\\` | The padding variant applied to the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingLeft\\`\\` | The padding variant applied to the left | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingHorizontal\\`\\` | The padding variant applied to the left and the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingVertical\\`\\` | The padding variant applied to the top and the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n`"
-            },
-            {
-                "name": "notes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/spacing/margin/margin.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\n# Margin Directive\n\n## Purpose\nThis directive allows for custom margin to be added without the need to write additional CSS. It's useful for overriding the default margin on Canopy components, as well as general use within your app. Using this directive ensures that your margin adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.\n\n## Usage\n\nImport the module in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgMarginModule],\n})\n~~~\n\nIn your HTML apply the directive to the relevant component. If the default \\`\\`lgMargin\\`\\` attribute has no value, the default margin will remain. You can also override individual margin such as \\`\\`margin-top\\`\\` by applying the relevant selector/input (.e.g \\`\\`LgMarginTop\\`\\` - see **Inputs** below).\n\nPass in either a **Standard Spacing Variant** or a **Responsive Spacing object** (see below).\n\n~~~html\nStandard spacing variant\n<lg-card lgMargin=\"sm\"></lg-card>\n\nResponsive spacing object\n<lg-card [lgMargin]=\"{ md: 'lg', lg: 'xxxl' }\"></lg-card>\n~~~\n\n## Standard vs Responsive Spacing\n\n### Standard Spacing Variant\n\nThis is set of predfined variants which will apply the same margin at all breakpoints, as defined by the \\`\\`SpacingVariant\\`\\` type. These are:\n\n~~~bash\n'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'\n~~~\n\n### Repsonsive Spacing Object\n\nYou can apply a responsive spacing object instead, which will apply different margin at the specified breakpoints, as defined by the \\`\\`SpacingResponsive\\`\\ type. Example:\n\n~~~js\n{\n  md: \"lg\",\n  lg: \"xxxl\"\n}\n~~~\n\nEach **key** is a mobile-first breakpoint from the standard list of available breakpoints: \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`.\n\nEach **value** is a standard spacing variant.\n\nIn the example above, the margin at the \\`\\`md\\`\\` breakpoint will be \\`\\`lg\\`\\`, and at the \\`\\`lg\\`\\` will be \\`\\`xxxl\\`\\`.\n\n\n### Standard variant examples\n\nApply \\`\\`xxl\\`\\` margin to the bottom\n\n~~~html\n<lg-card lgMarginBottom=\"xxl\"></lg-card>\n~~~\n\nApply \\`\\`sm\\`\\` margin to the left and right\n\n~~~html\n<lg-card lgMarginHorizontal=\"sm\"></lg-card>\n~~~\n\nApply \\`\\`xl\\`\\` margin all round, but \\`\\`xxxl\\`\\` margin to the bottom\n\n~~~html\n<lg-card lgMargin=\"xl\" lgMarginBottom=\"xxxl\"></lg-card>\n~~~\n\nApply \\`\\`lg\\`\\` margin to the top and bottom\n\n~~~html\n<lg-card lgMarginVertical=\"lg\"></lg-card>\n~~~\n\n### Responsive examples\n\n\nAt the \\`\\`sm\\`\\` breakpoint apply \\`\\`xl\\`\\` margin, then at the \\`\\`md breakpoint\\`\\` apply \\`\\`xxxl\\`\\` margin, all around the component.\n\n~~~html\n<lg-card [lgMargin]=\"{ sm: 'lg', md: 'xxxl' }\"></lg-card>\n~~~\n\nAt the \\`\\`md\\`\\` breakpoint apply \\`\\`md\\`\\` margin, then at the \\`\\`lg breakpoint\\`\\` apply \\`\\`sm\\`\\` margin, at the bottom of the component.\n\n~~~html\n<lg-card [lgMarginBottom]=\"{ md: 'md', lg: 'sm' }\"></lg-card>\n~~~\n\n## Inputs\n\nThe current available spacing variants are \\`\\`none\\`\\`, \\`\\`xxxs\\`\\`, \\`\\`xxs\\`\\`, \\`\\`xs\\`\\`, \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`, \\`\\`xxxl\\`\\`, \\`\\`xxxxxl\\`\\`.\n\nThe current available breakpoints are \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgMargin\\`\\` | The margin variant applied to all sides | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginTop\\`\\` | The margin variant applied to the top | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginRight\\`\\` | The margin variant applied to the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginBottom\\`\\` | The margin variant applied to the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginLeft\\`\\` | The margin variant applied to the left | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginHorizontal\\`\\` | The margin variant applied to the left and the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginVertical\\`\\` | The margin variant applied to the top and the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n`"
+            },
+            {
+                "name": "notes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/spacing/padding/padding.notes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n# Padding Directive\n\n## Purpose\nThis directive allows for custom padding to be added without the need to write additional CSS. It's useful for overriding the default padding on Canopy components, as well as general use within your app. Using this directive ensures that your padding adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.\n\n## Usage\n\nImport the module in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgPaddingModule],\n})\n~~~\n\nIn your HTML apply the directive to the relevant component. If the default \\`\\`lgPadding\\`\\` attribute has no value, the default padding will remain. You can also override individual padding such as \\`\\`padding-top\\`\\` by applying the relevant selector/input (.e.g \\`\\`LgPaddingTop\\`\\` - see **Inputs** below).\n\nPass in either a **Standard Spacing Variant** or a **Responsive Spacing object** (see below).\n\n~~~html\nStandard spacing variant\n<lg-card lgPadding=\"sm\"></lg-card>\n\nResponsive spacing object\n<lg-card [lgPadding]=\"{ md: 'lg', lg: 'xxxl' }\"></lg-card>\n~~~\n\n## Standard vs Responsive Spacing\n\n### Standard Spacing Variant\n\nThis is set of predfined variants which will apply the same padding at all breakpoints, as defined by the \\`\\`SpacingVariant\\`\\` type. These are:\n\n~~~bash\n'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'\n~~~\n\n### Repsonsive Spacing Object\n\nYou can apply a responsive spacing object instead, which will apply different padding at the specified breakpoints, as defined by the \\`\\`SpacingResponsive\\`\\ type. Example:\n\n~~~js\n{\n  md: \"lg\",\n  lg: \"xxxl\"\n}\n~~~\n\nEach **key** is a mobile-first breakpoint from the standard list of available breakpoints: \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`.\n\nEach **value** is a standard spacing variant.\n\nIn the example above, the padding at the \\`\\`md\\`\\` breakpoint will be \\`\\`lg\\`\\`, and at the \\`\\`lg\\`\\` will be \\`\\`xxxl\\`\\`.\n\n\n### Standard variant examples\n\nApply \\`\\`xxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPaddingBottom=\"xxl\"></lg-card>\n~~~\n\nApply \\`\\`sm\\`\\` padding to the left and right\n\n~~~html\n<lg-card lgPaddingHorizontal=\"sm\"></lg-card>\n~~~\n\nApply \\`\\`xl\\`\\` padding all round, but \\`\\`xxxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPadding=\"xl\" lgPaddingBottom=\"xxxl\"></lg-card>\n~~~\n\nApply \\`\\`lg\\`\\` padding to the top and bottom\n\n~~~html\n<lg-card lgPaddingVertical=\"lg\"></lg-card>\n~~~\n\n### Responsive examples\n\n\nAt the \\`\\`sm\\`\\` breakpoint apply \\`\\`xl\\`\\` padding, then at the \\`\\`md breakpoint\\`\\` apply \\`\\`xxxl\\`\\` padding, all around the component.\n\n~~~html\n<lg-card [lgPadding]=\"{ sm: 'lg', md: 'xxxl' }\"></lg-card>\n~~~\n\nAt the \\`\\`md\\`\\` breakpoint apply \\`\\`md\\`\\` padding, then at the \\`\\`lg breakpoint\\`\\` apply \\`\\`sm\\`\\` padding, at the bottom of the component.\n\n~~~html\n<lg-card [lgPaddingBottom]=\"{ md: 'md', lg: 'sm' }\"></lg-card>\n~~~\n\n## Inputs\n\nThe current available spacing variants are \\`\\`none\\`\\`, \\`\\`xxxs\\`\\`, \\`\\`xxs\\`\\`, \\`\\`xs\\`\\`, \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`, \\`\\`xxxl\\`\\`, \\`\\`xxxxxl\\`\\`.\n\nThe current available breakpoints are \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgPadding\\`\\` | The padding variant applied to all sides | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingTop\\`\\` | The padding variant applied to the top | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingRight\\`\\` | The padding variant applied to the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingBottom\\`\\` | The padding variant applied to the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingLeft\\`\\` | The padding variant applied to the left | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingHorizontal\\`\\` | The padding variant applied to the left and the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingVertical\\`\\` | The padding variant applied to the top and the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n`"
             },
             {
                 "name": "offsets",
@@ -34105,7 +34115,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy-test-app/src/test.ts",
+                "file": "projects/canopy/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
@@ -34114,7 +34124,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/test.ts",
+                "file": "projects/canopy-test-app/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
@@ -34243,7 +34253,7 @@
                 "name": "spaces",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
+                "file": "projects/canopy/src/lib/spacing/margin/margin.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
@@ -34253,7 +34263,7 @@
                 "name": "spaces",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/spacing/margin/margin.stories.ts",
+                "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
@@ -34293,16 +34303,6 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/carousel/carousel.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => ({\n  template: `<lg-carousel [description]=\"description\" [headingLevel]=\"headingLevel\" [slideDuration]=\"slideDuration\">${carouselItems}</lg-carousel>`,\n  props: props(),\n})"
-            },
-            {
-                "name": "standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -34313,11 +34313,11 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/details/details.stories.ts",
+                "file": "projects/canopy/src/lib/carousel/carousel.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "() => ({\n  template: `\n    <lg-details\n      [isActive]=\"expand\"\n      [variant]=\"variant\"\n      [showIcon]=\"showIcon\"\n      (opened)=\"toggle('Detail opened')\"\n      (closed)=\"toggle('Detail closed')\">\n      <lg-details-panel-heading [headingLevel]=\"headingLevel\">{{ header }}</lg-details-panel-heading>\n      Give us a call on <a href=\"tel:08001234567\">0800 123 4567</a> and we'll be happy to help you change your\n      payment details\n    </lg-details>\n  `,\n  props: {\n    header: text('Header', 'How do I change my payment details?'),\n    expand: boolean('Default expand', false),\n    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 5),\n    toggle: action('Details active state change'),\n    variant: select(\n      'variant',\n      ['generic', 'info', 'success', 'warning', 'error'],\n      'generic',\n    ),\n    showIcon: boolean('Show icon (warning, success & error variants only)', true),\n  },\n})"
+                "defaultValue": "() => ({\n  template: `<lg-carousel [description]=\"description\" [headingLevel]=\"headingLevel\" [slideDuration]=\"slideDuration\">${carouselItems}</lg-carousel>`,\n  props: props(),\n})"
             },
             {
                 "name": "standard",
@@ -34368,16 +34368,6 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "() => ({\n  template: `\n    <lg-primary-message-story [hasRole]=\"hasRole\"></lg-primary-message-story>\n  `,\n  props: {\n    hasRole: boolean('Set role attribute to alert', true),\n  },\n})"
-            },
-            {
-                "name": "standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/canopy/src/lib/modal/modal.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
             },
             {
                 "name": "standard",
@@ -34443,6 +34433,16 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/canopy/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
+            },
+            {
+                "name": "standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -34503,16 +34503,6 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
-            },
-            {
-                "name": "standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -34550,6 +34540,16 @@
                 "defaultValue": "() => ({\n  template: `\n    <lg-validation\n      [showIcon]=\"showIcon\"\n      [variant]=\"variant\">\n      {{errorContent}}\n    </lg-validation>\n  `,\n  props: {\n    errorContent: text('content', 'Please enter a valid date of birth'),\n    showIcon: boolean('show icon', true),\n    variant: select(\n      'variant',\n      ['generic', 'info', 'success', 'warning', 'error'],\n      'error',\n    ),\n  },\n})"
             },
             {
+                "name": "standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
+            },
+            {
                 "name": "standardAccordion",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -34568,6 +34568,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "alertTemplate.bind({})"
+            },
+            {
+                "name": "standardDetails",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/details/details.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "detailsTemplate.bind({})"
             },
             {
                 "name": "standardTemplate",
@@ -34623,7 +34633,7 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
+                "file": "projects/canopy/src/lib/spacing/margin/margin.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -34633,7 +34643,7 @@
                 "name": "stories",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/spacing/margin/margin.stories.ts",
+                "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -34668,6 +34678,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\n<lg-alert\n  [showIcon]=\"showIcon\"\n  [variant]=\"variant\">\n  {{content}} Here is some <a href=\"#\"> link text</a>.\n</lg-alert>\n`"
+            },
+            {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/details/details.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n  <lg-details\n    [isActive]=\"isActive\"\n    [variant]=\"variant\"\n    [showIcon]=\"showIcon\"\n    (opened)=\"toggle('Detail opened')\"\n    (closed)=\"toggle('Detail closed')\">\n    <lg-details-panel-heading [headingLevel]=\"headingLevel\">How do I change my payment details?</lg-details-panel-heading>\n    Give us a call on <a href=\"tel:08001234567\">0800 123 4567</a> and we'll be happy to help you change your\n    payment details\n  </lg-details>\n`"
             },
             {
                 "name": "template",
@@ -36426,18 +36446,6 @@
                     "defaultValue": "[\n  LgAccordionComponent,\n  LgAccordionItemComponent,\n  LgAccordionPanelHeadingComponent,\n  LgAccordionItemContentDirective,\n]"
                 }
             ],
-            "projects/canopy/src/lib/carousel/carousel.module.ts": [
-                {
-                    "name": "components",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/carousel/carousel.module.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[LgCarouselItemComponent, LgCarouselComponent, LgAutoplayComponent]"
-                }
-            ],
             "projects/canopy/src/lib/card/card.module.ts": [
                 {
                     "name": "components",
@@ -36450,6 +36458,18 @@
                     "defaultValue": "[\n  LgCardComponent,\n  LgCardHeaderComponent,\n  LgCardTitleComponent,\n  LgCardFooterComponent,\n  LgCardSubtitleComponent,\n  LgCardPrincipleDataPointComponent,\n  LgCardPrincipleDataPointLabelComponent,\n  LgCardPrincipleDataPointValueComponent,\n  LgCardPrincipleDataPointDateComponent,\n  LgCardContentComponent,\n]"
                 }
             ],
+            "projects/canopy/src/lib/carousel/carousel.module.ts": [
+                {
+                    "name": "components",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/carousel/carousel.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[LgCarouselItemComponent, LgCarouselComponent, LgAutoplayComponent]"
+                }
+            ],
             "projects/canopy/src/lib/primary-message/primary-message.module.ts": [
                 {
                     "name": "components",
@@ -36460,18 +36480,6 @@
                     "deprecationMessage": "",
                     "type": "[]",
                     "defaultValue": "[\n  LgPrimaryMessageComponent,\n  LgPrimaryMessageTitleComponent,\n  LgPrimaryMessageDescriptionComponent,\n]"
-                }
-            ],
-            "projects/canopy/src/lib/modal/modal.module.ts": [
-                {
-                    "name": "components",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/modal/modal.module.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
                 }
             ],
             "projects/canopy/src/lib/promo-card/promo-card.module.ts": [
@@ -36508,6 +36516,18 @@
                     "deprecationMessage": "",
                     "type": "[]",
                     "defaultValue": "[\n  LgTableComponent,\n  LgTableCellComponent,\n  LgTableHeadComponent,\n  LgTableRowComponent,\n  LgTableExpandedDetailComponent,\n  LgTableRowToggleComponent,\n  LgTableBodyComponent,\n  LgTableHeadCellComponent,\n]"
+                }
+            ],
+            "projects/canopy/src/lib/modal/modal.module.ts": [
+                {
+                    "name": "components",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/modal/modal.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
                 }
             ],
             "projects/canopy/src/lib/page/page.stories.ts": [
@@ -36612,27 +36632,6 @@
                     "defaultValue": "() => ({\n  props: createProps(),\n  template: `\n    <lg-page>\n      ${header}\n      <div lgContainer>\n        <div lgRow>\n          <div lgCol=\"12\" lgColMd=\"8\" lgColLg=\"5\" lgColLgOffset=\"2\">\n            <lg-card lgMarginHorizontal=\"none\">\n              <lg-card-content>\n                {{card1Content}}\n                {{card3Content}}\n              </lg-card-content>\n            </lg-card>\n          </div>\n          <div lgCol=\"12\" lgColMd=\"4\" lgColLg=\"3\">\n            <lg-card lgMarginHorizontal=\"none\"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>\n            <lg-card lgMarginHorizontal=\"none\"><lg-card-content>{{card3Content}}</lg-card-content></lg-card>\n          </div>\n        </div>\n      </div>\n      ${footer}\n    </lg-page>\n  `,\n})"
                 }
             ],
-            "projects/canopy-test-app/src/test.ts": [
-                {
-                    "name": "context",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy-test-app/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy-test-app/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "literal type"
-                }
-            ],
             "projects/canopy/src/test.ts": [
                 {
                     "name": "context",
@@ -36649,6 +36648,27 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/canopy/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "projects/canopy-test-app/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy-test-app/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy-test-app/src/test.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "literal type"
@@ -36698,6 +36718,38 @@
                     "deprecationMessage": "",
                     "type": "string",
                     "defaultValue": "'dd MMMM yyyy'"
+                }
+            ],
+            "projects/canopy/src/lib/details/details.stories.ts": [
+                {
+                    "name": "detailsTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/details/details.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<LgDetailsComponent>",
+                    "defaultValue": "(args: LgDetailsComponent) => ({\n  props: args,\n  template,\n})"
+                },
+                {
+                    "name": "standardDetails",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/details/details.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "detailsTemplate.bind({})"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/details/details.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n  <lg-details\n    [isActive]=\"isActive\"\n    [variant]=\"variant\"\n    [showIcon]=\"showIcon\"\n    (opened)=\"toggle('Detail opened')\"\n    (closed)=\"toggle('Detail closed')\">\n    <lg-details-panel-heading [headingLevel]=\"headingLevel\">How do I change my payment details?</lg-details-panel-heading>\n    Give us a call on <a href=\"tel:08001234567\">0800 123 4567</a> and we'll be happy to help you change your\n    payment details\n  </lg-details>\n`"
                 }
             ],
             "projects/canopy-test-app/src/environments/environment.prod.ts": [
@@ -40050,6 +40102,18 @@
                     "defaultValue": "0"
                 }
             ],
+            "projects/canopy/src/lib/forms/label/label.component.ts": [
+                {
+                    "name": "nextUniqueId",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/forms/label/label.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "defaultValue": "0"
+                }
+            ],
             "projects/canopy/src/lib/forms/input/input-field.component.ts": [
                 {
                     "name": "nextUniqueId",
@@ -40068,18 +40132,6 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/canopy/src/lib/forms/input/input.directive.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number",
-                    "defaultValue": "0"
-                }
-            ],
-            "projects/canopy/src/lib/forms/label/label.component.ts": [
-                {
-                    "name": "nextUniqueId",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/label/label.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "number",
@@ -40122,18 +40174,6 @@
                     "defaultValue": "0"
                 }
             ],
-            "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts": [
-                {
-                    "name": "nextUniqueId",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number",
-                    "defaultValue": "0"
-                }
-            ],
             "projects/canopy/src/lib/forms/toggle/toggle.component.ts": [
                 {
                     "name": "nextUniqueId",
@@ -40152,6 +40192,18 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/canopy/src/lib/forms/validation/validation.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "defaultValue": "0"
+                }
+            ],
+            "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts": [
+                {
+                    "name": "nextUniqueId",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "number",
@@ -40290,18 +40342,6 @@
                     "defaultValue": "`\n# Brand Icon Component\n\n## Purpose\nProvides a way of adding common brand icons.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgBrandIconModule],\n})\n~~~\n\nImport the \\`LgBrandIconRegistry\\` and register your brand icons:\n\n~~~js\nexport class AppModule {\n  constructor(private brandIconRegistry: LgBrandIconRegistry) {\n    this.brandIconRegistry.registerBrandIcon([\n      lgBrandIconSun\n    ]);\n  }\n}\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-brand-icon name=\"sun\"></lg-brand-icon>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`name\\`\\` | the name of the icon | string | undefined | yes |\n| \\`\\`size\\`\\` | the size of the icon | BrandIconSize | 'sm' | no |\n| \\`\\`colour\\`\\` | the specific colour of the icon (for global colours see the \"Branding\" section below) | css variable as a string | undefined | no |\n\n## Branding\nThe yellow fill colour of the brand icons can be changed by overriding the \\`--brand-icon-fill-primary\\` css variable.\n\nNote that changing that variable will update the fill colour of all the icons.\n\nTo change the colour of a specific icon use the \\`colour\\` input (see details in the table above).\n`"
                 }
             ],
-            "projects/canopy/src/lib/button/button.notes.ts": [
-                {
-                    "name": "notes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/button/button.notes.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "`\n# Button Component\n\n## Purpose\nProvides common styles and behaviours for buttons and links.\n\n## Usage\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgButtonModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n~~~\n\nor:\n\n~~~html\n<a lg-button href=\"#\" variant=\"primary\">Link</a>\n~~~\n\n## Button with icon with text\n\nIcons can be content projected into the button, the button component will then handle the styling of that icon.\nThe \\`ButtonIconPosition\\` property can be used to locate the icon on the left hand side of the text, the default is to the right hand side.\nContent projection is used as Canopy Icons need loading via the \\`iconRegistry\\` which enables tree shaking of icons.\n\n~~~html\n<button lg-button type=\"button\" iconPosition=\"left\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## Button with icon only\n\nButtons can be setup as icon only buttons, this is done in a similar way to a button with icon and text.\nYou will still need to include text content inside the button as this information is vital to screen readers.\nThe \\`iconButton\\` property is used to visually hide that text.\n\n~~~html\n<button lg-button type=\"button\" iconButton=\"true\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## ButtonComponent inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`variant\\`\\` | The variant of button: \\`\\`solid-primary\\`\\`, \\`\\`solid-secondary\\`\\`, \\`\\`outline-primary\\`\\`, \\`\\`outline-secondary\\`\\`, \\`\\`reverse-primary\\`\\`, \\`\\`reverse-secondary\\`\\`, \\`\\`add-on\\`\\`; | string | solid-primary | No |\n| \\`\\`size\\`\\` | The size of the button | ButtonSize [\\`\\`sm\\`\\`, \\`\\`md\\`\\`] | \\`\\`md\\`\\` | No |\n| \\`\\`fullWidth\\`\\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |\n| \\`\\`disabled\\`\\` | Programmatically disable the button via this property | boolean | false | No |\n| \\`\\`loading\\`\\` | If the button shows a loading spinner and is also disabled | boolean | false | No |\n| \\`\\`iconPosition\\`\\` | The position of the icon in the button | string | right | No |\n| \\`\\`iconButton\\`\\` | The button displays an icon only | boolean | false | No |\n\n## Button group\n\nButtons can be grouped together by using the \\`\\`ButtonGroupComponent\\`\\`:\n\n~~~html\n<lg-button-group>\n  <button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n  <a lg-button href=\"#\" variant=\"outline-primary\">Link</a>\n</lg-button-group>\n~~~\n`"
-                }
-            ],
             "projects/canopy/src/lib/breadcrumb/breadcrumb.notes.ts": [
                 {
                     "name": "notes",
@@ -40314,16 +40354,16 @@
                     "defaultValue": "`\n# Breadcrumb Component\n\n\n## Purpose\nDisplays the path of the user's journey from top-level through to child. Note that there is different behavior on mobile vs desktop. Crumbs above the current level should be styled as links, and link to the previous level on desktop. It should display the root, current and previous levels of hierarchy.\nOn mobile the crumb should take the user back to the previous level, but should be hidden at the top-level.\n\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  declarations: [ ..., LgBreadcrumbModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-breadcrumb>\n  <lg-breadcrumb-item>\n    <a href=\"#\">\n      <lg-icon [name]=\"'home'\"></lg-icon>\n      Home\n    </a>\n  </lg-breadcrumb-item>\n  <lg-breadcrumb-item>\n    <a href=\"#\">Products</a>\n  </lg-breadcrumb-item>\n  <lg-breadcrumb-item>\n    Pension\n  </lg-breadcrumb-item>\n</lg-breadcrumb>\n~~~\n\n## Configure Text Colour\n\n~~~html\n<lg-breadcrumb-item [variant]=\"'light'\"></lg-breadcrumb-item>\n~~~\n\n## Adding an ellipsis\n\nIf there are more than 3 levels of hierarchy, a collapsed breadcrumb should be used. This is achieved with the breadcrumb elipsis.\n\n~~~html\n<lg-breadcrumb-item-ellipsis></lg-breadcrumb-item-ellipsis>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`variant\\`\\` | The colour variants available: \\`\\`light\\`\\`, \\`\\`dark\\`\\` | string | dark | No |\n`"
                 }
             ],
-            "projects/canopy/src/lib/carousel/carousel.notes.ts": [
+            "projects/canopy/src/lib/button/button.notes.ts": [
                 {
                     "name": "notes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/canopy/src/lib/carousel/carousel.notes.ts",
+                    "file": "projects/canopy/src/lib/button/button.notes.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "`\n# Carousel Component\n\n## Purpose\n\nCarousels allow customers to quickly navigate through grouped sections of content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgCarouselModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-carousel [description]=\"description\" [headingLevel]=\"headingLevel\" [loopMode]=\"true\">\n  <lg-carousel-item>\n    Carousel item 1 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 2 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 3 content goes here\n  </lg-carousel-item>\n</lg-carousel>\n~~~\n\n## Carousel Inputs\n\n| Name                  | Description                                                                                              |  Type   |  Default  | Required |\n| --------------------- | -------------------------------------------------------------------------------------------------------- | :-----: | :-------: | :------: |\n| \\`\\`loopMode\\`\\`      | Allows the carousel to navigation to loop when the first or last item is active.                         | boolean |   false   |   No     |\n| \\`\\`slideDuration\\`\\` | Duration in milliseconds of the transition between slides.                                               | number  |   500     |   No     |\n| \\`\\`description\\`\\`   | Text used to describe the carousel content for screen readers. This is visually hidden.                  | string  | undefined |   Yes    |\n| \\`\\`headingLevel\\`\\`  | The heading level of the description: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\`   | number  | undefined |   Yes    |\n| \\`\\`autoPlay\\`\\`      | Enables auto play mode when set to true.                                                                 | boolean |   false   |   No     |\n| \\`\\`autoPlayDelay\\`\\` | Delay time in milliseconds to switch to next slide when autoPlay mode is set to true.                    | number  |   2000    |   No     |\n`"
+                    "defaultValue": "`\n# Button Component\n\n## Purpose\nProvides common styles and behaviours for buttons and links.\n\n## Usage\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgButtonModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n~~~\n\nor:\n\n~~~html\n<a lg-button href=\"#\" variant=\"primary\">Link</a>\n~~~\n\n## Button with icon with text\n\nIcons can be content projected into the button, the button component will then handle the styling of that icon.\nThe \\`ButtonIconPosition\\` property can be used to locate the icon on the left hand side of the text, the default is to the right hand side.\nContent projection is used as Canopy Icons need loading via the \\`iconRegistry\\` which enables tree shaking of icons.\n\n~~~html\n<button lg-button type=\"button\" iconPosition=\"left\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## Button with icon only\n\nButtons can be setup as icon only buttons, this is done in a similar way to a button with icon and text.\nYou will still need to include text content inside the button as this information is vital to screen readers.\nThe \\`iconButton\\` property is used to visually hide that text.\n\n~~~html\n<button lg-button type=\"button\" iconButton=\"true\" >\n  Add item\n  <lg-icon name=\"add\" />\n</button>\n~~~\n\n## ButtonComponent inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`variant\\`\\` | The variant of button: \\`\\`solid-primary\\`\\`, \\`\\`solid-secondary\\`\\`, \\`\\`outline-primary\\`\\`, \\`\\`outline-secondary\\`\\`, \\`\\`reverse-primary\\`\\`, \\`\\`reverse-secondary\\`\\`, \\`\\`add-on\\`\\`; | string | solid-primary | No |\n| \\`\\`size\\`\\` | The size of the button | ButtonSize [\\`\\`sm\\`\\`, \\`\\`md\\`\\`] | \\`\\`md\\`\\` | No |\n| \\`\\`fullWidth\\`\\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |\n| \\`\\`disabled\\`\\` | Programmatically disable the button via this property | boolean | false | No |\n| \\`\\`loading\\`\\` | If the button shows a loading spinner and is also disabled | boolean | false | No |\n| \\`\\`iconPosition\\`\\` | The position of the icon in the button | string | right | No |\n| \\`\\`iconButton\\`\\` | The button displays an icon only | boolean | false | No |\n\n## Button group\n\nButtons can be grouped together by using the \\`\\`ButtonGroupComponent\\`\\`:\n\n~~~html\n<lg-button-group>\n  <button lg-button type=\"button\" variant=\"solid-primary\">Button</button>\n  <a lg-button href=\"#\" variant=\"outline-primary\">Link</a>\n</lg-button-group>\n~~~\n`"
                 }
             ],
             "projects/canopy/src/lib/card/card.notes.ts": [
@@ -40338,6 +40378,18 @@
                     "defaultValue": "`\n# Card Component\n\n## Purpose\nProvides a generic card component for displaying content. Consists of various card components that are designed to create modular and flexible card layouts, from a basic card with a title, text and buttons to a single-page Form Journey card.\n\n## Usage\n\nFor a basic card, import the component in your application:\n\n~~~\n@NgModule({\n  ...\n  imports: [LgCardModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-card>\n  <lg-card-header>\n    Your title\n  </lg-card-header>\n  <lg-card-content>\n    Your content\n  </lg-card-content>\n</lg-card>\n~~~\n\n---\n\n### Other card types and templates\n\nYou can extend the basic card component and create specific card implementations.\n\n#### Product card\n\nThis component uses some extra card components, such as \\`LgCardPrincipleDataPoint\\` and \\`LgCardPrincipleDataPointValue\\` to display data points.\n\n~~~html\n<lg-card>\n  <lg-card-content>\n    <div lgRow>\n      <div lgCol=\"12\" lgColMd=\"6\">\n        <lg-card-title headingLevel=\"4\">\n          <a href=\"#\">{{title}}</a>.\n        </lg-card-title>\n        <lg-card-subtitle>\n          Payroll Reference Number P23456\n        </lg-card-subtitle>\n      </div>\n      <lg-card-principle-data-point lgCol=\"12\" lgColMd=\"6\">\n        <lg-card-principle-data-point-label>\n          Last payment (after tax and deductions)\n        </lg-card-principle-data-point-label>\n        <lg-card-principle-data-point-value>\n          <span><span class=\"lg-font-size-3\">£</span>230.20</span>\n        </lg-card-principle-data-point-value>\n        <lg-card-principle-data-point-date>\n          as of 01 Jan 2020\n        </lg-card-principle-data-point-date>\n      </lg-card-principle-data-point>\n    </div>\n  </lg-card-content>\n</lg-card>\n~~~\n\n#### Form Journey card\n\nCreates the Form Journey template, used to display a single page form. Note that the <form> element is a parent of the <lg-card> component, this is because the form inputs and submit button are spread out between the card content and card footer.\n\n~~~html\n<div lgContainer>\n<div lgRow>\n  <div lgCol=\"12\" lgColLg=\"6\" lgColLgOffset=\"3\" lgColMd=\"10\" lgColMdOffset=\"1\">\n    <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit(form)\">\n      <lg-card lgPadding=\"none\">\n        <lg-card-header lgPadding=\"sm\" lgPaddingBottom=\"xs\" lgMarginBottom=\"lg\">\n          <lg-breadcrumb lgMarginBottom=\"none\">\n            <lg-breadcrumb-item>\n              <a href=\"#\">\n                <lg-icon [name]=\"'chevron-left'\"></lg-icon>\n                Back\n              </a>\n            </lg-breadcrumb-item>\n          </lg-breadcrumb>\n        </lg-card-header>\n        <lg-card-content>\n          <div lgContainer>\n            <div lgRow>\n              <div lgCol=\"12\" lgColMd=\"10\" lgColMdOffset=\"1\">\n                <lg-card-title headingLevel=\"3\" lgPaddingBottom=\"md\">{{ title }}</lg-card-title>\n                <p>{{cardContent}}</p>\n\n                <lg-input-field [block]=\"block\">\n                  {{ label }}\n                  <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n                  <input lgInput formControlName=\"accountNumber\" size=\"8\" />\n                </lg-input-field>\n\n              </div>\n            </div>\n          </div>\n        </lg-card-content>\n        <lg-card-footer>\n          <div lgContainer>\n            <div lgRow>\n              <div lgCol=\"12\" lgColMd=\"10\" lgColMdOffset=\"1\">\n                <button lg-button type=\"button\" variant=\"outline-primary\" lgMarginRight=\"sm\">Back</button>\n                <button lg-button type=\"submit\" variant=\"solid-primary\">Confirm</button>\n                <p *ngIf=\"policy\" lgPaddingBottom=\"md\">{{ policy }}</p>\n              </div>\n            </div>\n          </div>\n        </lg-card-footer>\n      </lg-card>\n    </form>\n  </div>\n</div>\n</div>\n~~~\n\n### Inputs\n\nContent projection slots\n\n| Name | Description |\n|------|-------------|\n| \\`\\`<default>\\`\\` | The main body content of the card\n\n### LgCardHeaderComponent\nThis is the primary layout section of the card component, it is used to contain breadcrumbs or other similar content.\n\n### LgCardContent\nThis is the secondary layout section of the card component, it is used to contain the cards main content and provides the inner padding of the card.\n\n### LgCardTitleComponent\nThis is where the main title should be provided. It should be located inside the card content.\n\n#### Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the card heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | n/a | Yes |\n\n### LgCardSubtitleComponent\nIf the card has a subtitle it should be located within this component. If a card has a subtitle it is expected to also implicitly have a title. It should be located inside the card content.\n\n### LgCardPrincipleDataPoint\nSometimes the card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the card content which will control it's layout\n\n### LgCardPrincipleDataPointValue\nThis is where the value for the data point should be projected. It should be located inside the card principle data point\n\n### LgCardPrincipleDataPointLabel\nThis is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the card principle data point\n\n### LgCardPrincipleDataPointDate\nThis is where the date for the data point should be projected. It should be located inside the card principle data point\n\n### LgCardFooter\nThis is the footer layout section of the card component, it is used to contain call to action buttons as well as messages or hints.\n`"
                 }
             ],
+            "projects/canopy/src/lib/carousel/carousel.notes.ts": [
+                {
+                    "name": "notes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/carousel/carousel.notes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n# Carousel Component\n\n## Purpose\n\nCarousels allow customers to quickly navigate through grouped sections of content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgCarouselModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-carousel [description]=\"description\" [headingLevel]=\"headingLevel\" [loopMode]=\"true\">\n  <lg-carousel-item>\n    Carousel item 1 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 2 content goes here\n  </lg-carousel-item>\n\n  <lg-carousel-item>\n    Carousel item 3 content goes here\n  </lg-carousel-item>\n</lg-carousel>\n~~~\n\n## Carousel Inputs\n\n| Name                  | Description                                                                                              |  Type   |  Default  | Required |\n| --------------------- | -------------------------------------------------------------------------------------------------------- | :-----: | :-------: | :------: |\n| \\`\\`loopMode\\`\\`      | Allows the carousel to navigation to loop when the first or last item is active.                         | boolean |   false   |   No     |\n| \\`\\`slideDuration\\`\\` | Duration in milliseconds of the transition between slides.                                               | number  |   500     |   No     |\n| \\`\\`description\\`\\`   | Text used to describe the carousel content for screen readers. This is visually hidden.                  | string  | undefined |   Yes    |\n| \\`\\`headingLevel\\`\\`  | The heading level of the description: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\`   | number  | undefined |   Yes    |\n| \\`\\`autoPlay\\`\\`      | Enables auto play mode when set to true.                                                                 | boolean |   false   |   No     |\n| \\`\\`autoPlayDelay\\`\\` | Delay time in milliseconds to switch to next slide when autoPlay mode is set to true.                    | number  |   2000    |   No     |\n`"
+                }
+            ],
             "projects/canopy/src/lib/data-point/data-point.notes.ts": [
                 {
                     "name": "notes",
@@ -40350,6 +40402,18 @@
                     "defaultValue": "`\n# Data Point Component\n\n## Purpose\nTo display data organised by heading and value. A Data Point can be used on it's own, or grouped into a Data Point List where each one will be displayed horizontally and given a list-item role.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgDataPointModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-data-point-list>\n  <lg-data-point>\n    <lg-data-point-label [headingLevel]=\"headingLevel\">\n      Name on account\n    </lg-data-point-label>\n    <lg-data-point-value>\n      Joe Bloggs\n    </lg-data-point-value>\n  </lg-data-point>\n  <lg-data-point>\n    <lg-data-point-label [headingLevel]=\"headingLevel\">\n      Account number\n    </lg-data-point-label>\n    <lg-data-point-value>\n      ***5678\n    </lg-data-point-value>\n  </lg-data-point>\n  <lg-data-point>\n    <lg-data-point-label [headingLevel]=\"headingLevel\">\n      Bank sort code\n    </lg-data-point-label>\n    <lg-data-point-value>\n      00 - 00 - **\n    </lg-data-point-value>\n  </lg-data-point>\n</lg-data-point-list>\n~~~\n\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| headingLevel | Allows the heading level to be set | number | n/a | Yes |\n`"
                 }
             ],
+            "projects/canopy/src/lib/details/details.notes.ts": [
+                {
+                    "name": "notes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/details/details.notes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\nThe Details component reduces page clutter and cognitive load by letting users reveal more information as and when they need it. It can also be used to communicate important imformation in a collapsed layout, similar to an Alert.\n\nThe \"alert\" ARIA role is automatically added to the component if it's one of these variants: \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.\n\nA decorative icon is also added next to the heading if it's one of the these variants: \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  declarations: [ ..., LgDetailsModule ],\n})\n~~~\n`"
+                }
+            ],
             "projects/canopy/src/lib/feature-toggle/feature-toggle.notes.ts": [
                 {
                     "name": "notes",
@@ -40360,18 +40424,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "`\nThis module allows you to enable and disable features by using the \\`lgFeatureToggle\\` directive and passing an observable of the toggle's configuration to the module.\n\n## Usage\n\nImport the module in your core component, e.g.:\n\n~~~\nLgFeatureToggleModule.forRoot({\n  deps: [Store],\n  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)\n})\n~~~\n\nand also import \\`LgFeatureToggleModule\\` (without the \\`forRoot\\`) in the modules that will need it.\n\n\\`useFactory\\` returns an observable of a config file structured as below:\n\n~~~\n{\n  \"exampleFeature\": true,\n  \"anotherExampleFeature\": false\n}\n~~~\n\nThe default behaviour is to show a feature if it's undefined, but we can override it by passing an optional object with defaultHide set to true like this:\n\n~~~\nLgFeatureToggleModule.forRoot({\n  deps: [Store],\n  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)\n  },\n  {\n    defaultHide: true\n  }\n)\n~~~\n\nIn your component(s) add the structural directive like in the example below:\n\n~~~\n<div *lgFeatureToggle=\"'exampleFeature'\">\n  <p>The enabled feature</p>\n</div>\n\n<div *lgFeatureToggle=\"'anotherExampleFeature'\">\n  <p>The disabled feature</p>\n</div>\n~~~\n\n## FeatureToggleGuard configuration\n\nTo use the FeatureToggleGuard you need to add it to your routes configuration in the usual canActive, canActivateChild, canLoad, and then add in the data property like\n\n~~~\ndata: {\n  featureToggle: 'myToggle',\n},\n~~~\n\nif you use canActivateChild, child route definitions can add its own featureToggle in their data, and the path is only valid when all the featureToggle flags of each route segment are true\n\nExample with a lazy loading route\n\n~~~\n{\n  path: 'parent',\n  loadChildren: () => import('./parent/parent.module').then(m => m.ParentnModule),\n  canActivate: [ FeatureToggleGuard ],\n  canActivateChild: [ FeatureToggleGuard ],\n  canLoad: [ FeatureToggleGuard ],\n  data: {\n    featureToggle: 'parentToggle',\n  },\n},\n~~~\n\nExample of inner routes (route definition inside ParentModule)\n\n~~~\n{\n  path: 'child',\n  component: ChildContainerComponent,\n  data: {\n    featureToggle: 'childToggle',\n  },\n},\n~~~\n`"
-                }
-            ],
-            "projects/canopy/src/lib/details/details.notes.ts": [
-                {
-                    "name": "notes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/details/details.notes.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "`\n# Details Component\n\n\n## Purpose\nThe Details component reduces page clutter and cognitive load by letting users reveal more information as and when they need it. It can also be used to communicate important imformation in a collapsed layout, similar to an Alert.\n\nThe \"alert\" ARIA role is automatically added to the component if it's one of these variants: \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.\n\nA decorative icon is also added next to the heading if it's one of the these variants: \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\`.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  declarations: [ ..., LgDetailsModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-details [isActive]=\"expand\">\n  <lg-details-panel-heading [headingLevel]=\"5\">\n    How do I change my payment details?\n  </lg-details-panel-heading>\n  Give us a call on 0800 123 4567 and we'll be happy to help you change\n  your payment details\n</lg-details>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`isActive\\`\\` | Expand the details | boolean | false | no |\n| \\`\\`headingLevel\\`\\` | The level of the details heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | n/a | Yes |\n|\\`\\`variant\\`\\`| Applies colour treatment and ARIA role if applicable: \\`\\`generic\\`\\`, \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\` | string | 'generic' | No |\n| \\`\\`showIcon\\`\\` | Whether the icon should display on the warning, error or success variants | boolean | true | No |\n\n## Outputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`opened\\`\\` | Event emitted when the details are opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the details are closed | EventEmitter<void> | n/a | No |\n`"
                 }
             ],
             "projects/canopy/src/lib/focus/focus.notes.ts": [
@@ -40492,18 +40544,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "`\n# Primary Message Component\n\n\n## Purpose\nThe Primary Message is used to communicate key information to the user.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgPrimaryMessageModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n  <lg-primary-message>\n    <lg-brand-icon name=\"calendar\"></lg-brand-icon>\n    <lg-primary-message-title>\n      This is a primary message\n    </lg-primary-message-title>\n    <lg-primary-message-description>\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n      <a href=\"#\">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.\n    </lg-primary-message-description>\n    <lg-primary-message-description>\n      <button lg-button variant=\"solid-primary\" lgMarginTop=\"sm\" type=\"button\">Call to action</button>\n    </lg-primary-message-description>\n  </lg-primary-message>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`hasRole\\`\\` | If false, removes the role \\`\\`alert\\`\\` from the component | boolean | true | No |\n\n`"
-                }
-            ],
-            "projects/canopy/src/lib/modal/modal.notes.ts": [
-                {
-                    "name": "notes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/modal/modal.notes.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
                 }
             ],
             "projects/canopy/src/lib/promo-card/promo-card.notes.ts": [
@@ -40648,6 +40688,18 @@
                     "defaultValue": "`\n\n# Variant Directive\n\n## Purpose\nThis directive allows you to add one of the five common colour variants to any Canopy component, such as \\`\\`info\\`\\` and \\`\\`success\\`\\`.\n\nThey are already applied to existing Canopy components which use these variants out of the box, such as [Alert](/?path=/story/components-alert--standard), [Detail](?path=/story/components-details--standard) and [Form Validation](?path=/story/components-form-validation--standard), but this directive allows you to use them anywhere where required.\n\nThis can be useful where you need the particular colour treatment (like the \\`\\`success\\`\\` variant for example), but your use-case does not fit one of the existing components.\n\n## Usage\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgVariantModule],\n})\n~~~\n\nAnd in your HTML...\n\n~~~html\n<lg-card lgVariant=\"warning\">\n  <lg-card-content>\n    I have the warning variant colours, yay!\n    <a href=\"#\">Links are included</a>\n    <button lg-button variant=\"outline-primary\">\n      Outline primary buttons too\n    </button>\n  </lg-card-content>\n</lg-card>\n~~~\n\n## Inputs\n\nThe current available variants are:\n* \\`\\`generic\\`\\`\n* \\`\\`info\\`\\`\n* \\`\\`success\\`\\`\n* \\`\\`warning\\`\\`\n* \\`\\`error\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgVariant\\`\\` | The name of variant desired | string | null | No |\n`"
                 }
             ],
+            "projects/canopy/src/lib/modal/modal.notes.ts": [
+                {
+                    "name": "notes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/modal/modal.notes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
+                }
+            ],
             "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.notes.ts": [
                 {
                     "name": "notes",
@@ -40708,18 +40760,6 @@
                     "defaultValue": "`\n# Select Component\n\n## Purpose\nProvides a common select directive and select field component. The select field component controls custom select box styling and linking the label and field.\nThe width of the select field is controlled by the size of the options contained with in it.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgFormsModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-select-field>\n  Color\n  <select lgSelect formControlName=\"color\">\n    <option value=\"red\">Red</option>\n    <option value=\"blue\">Blue</option>\n    <option value=\"green\">Green</option>\n    <option value=\"yellow\">Yellow</option>\n  </select>\n</lg-select-field>\n~~~\n\n## Inputs\n\n### LgSelectDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided | string | 'lg-select-\\${nextUniqueId++}' | No |\n| \\`\\`name\\`\\` | HTML Name attribute, auto generated if not provided | string | 'lg-select-\\${nextUniqueId++}' | No |\n\n### LgSelectFieldComponent\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | string | 'lg-select-\\${nextUniqueId++}' | No |\n| \\`\\`block\\`\\` | Property to make the select field full width (for small screens only). | boolean | false | no\n`"
                 }
             ],
-            "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts": [
-                {
-                    "name": "notes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
-                }
-            ],
             "projects/canopy/src/lib/forms/toggle/toggle.notes.ts": [
                 {
                     "name": "notes",
@@ -40756,6 +40796,18 @@
                     "defaultValue": "`\n# Error Component\n\n\n## Purpose\nThe validation component is used to provide contextual information for a form input field. The most common use case is to display validation errors however it can also be used to show additional information.\n\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgValidationModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-validation>Enter a valid postcode</lg-validation>\n\n<lg-validation variant=\"success\">Username is available</lg-validation>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`variant\\`\\` | The variant of the validation: \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\` | string | 'error' | No |\n| \\`\\`showIcon\\`\\` | Whether the icon should display | boolean | true | No |\n`"
                 }
             ],
+            "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts": [
+                {
+                    "name": "notes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
+                }
+            ],
             "projects/canopy/src/lib/pipes/camel-case/camel-case.notes.ts": [
                 {
                     "name": "notes",
@@ -40780,18 +40832,6 @@
                     "defaultValue": "`\n# Kebab case pipe\n\n## Purpose\nThis pipe allows for a string to be transformed into kebab case.\n\n## Usage\nImport the pipe in your module:\n\n~~~\n@NgModule({\n  ...\n  declarations: [ ..., LgKebabCasePipe ],\n})\n~~~\n\nor all the pipes:\n\n~~~\n@NgModule({\n  ...\n  imports: [ ..., LgPipesModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~\n<p>{{stringToTransform | kebabCase}}</p>\n~~~\n`"
                 }
             ],
-            "projects/canopy/src/lib/spacing/padding/padding.notes.ts": [
-                {
-                    "name": "notes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/spacing/padding/padding.notes.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "`\n# Padding Directive\n\n## Purpose\nThis directive allows for custom padding to be added without the need to write additional CSS. It's useful for overriding the default padding on Canopy components, as well as general use within your app. Using this directive ensures that your padding adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.\n\n## Usage\n\nImport the module in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgPaddingModule],\n})\n~~~\n\nIn your HTML apply the directive to the relevant component. If the default \\`\\`lgPadding\\`\\` attribute has no value, the default padding will remain. You can also override individual padding such as \\`\\`padding-top\\`\\` by applying the relevant selector/input (.e.g \\`\\`LgPaddingTop\\`\\` - see **Inputs** below).\n\nPass in either a **Standard Spacing Variant** or a **Responsive Spacing object** (see below).\n\n~~~html\nStandard spacing variant\n<lg-card lgPadding=\"sm\"></lg-card>\n\nResponsive spacing object\n<lg-card [lgPadding]=\"{ md: 'lg', lg: 'xxxl' }\"></lg-card>\n~~~\n\n## Standard vs Responsive Spacing\n\n### Standard Spacing Variant\n\nThis is set of predfined variants which will apply the same padding at all breakpoints, as defined by the \\`\\`SpacingVariant\\`\\` type. These are:\n\n~~~bash\n'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'\n~~~\n\n### Repsonsive Spacing Object\n\nYou can apply a responsive spacing object instead, which will apply different padding at the specified breakpoints, as defined by the \\`\\`SpacingResponsive\\`\\ type. Example:\n\n~~~js\n{\n  md: \"lg\",\n  lg: \"xxxl\"\n}\n~~~\n\nEach **key** is a mobile-first breakpoint from the standard list of available breakpoints: \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`.\n\nEach **value** is a standard spacing variant.\n\nIn the example above, the padding at the \\`\\`md\\`\\` breakpoint will be \\`\\`lg\\`\\`, and at the \\`\\`lg\\`\\` will be \\`\\`xxxl\\`\\`.\n\n\n### Standard variant examples\n\nApply \\`\\`xxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPaddingBottom=\"xxl\"></lg-card>\n~~~\n\nApply \\`\\`sm\\`\\` padding to the left and right\n\n~~~html\n<lg-card lgPaddingHorizontal=\"sm\"></lg-card>\n~~~\n\nApply \\`\\`xl\\`\\` padding all round, but \\`\\`xxxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPadding=\"xl\" lgPaddingBottom=\"xxxl\"></lg-card>\n~~~\n\nApply \\`\\`lg\\`\\` padding to the top and bottom\n\n~~~html\n<lg-card lgPaddingVertical=\"lg\"></lg-card>\n~~~\n\n### Responsive examples\n\n\nAt the \\`\\`sm\\`\\` breakpoint apply \\`\\`xl\\`\\` padding, then at the \\`\\`md breakpoint\\`\\` apply \\`\\`xxxl\\`\\` padding, all around the component.\n\n~~~html\n<lg-card [lgPadding]=\"{ sm: 'lg', md: 'xxxl' }\"></lg-card>\n~~~\n\nAt the \\`\\`md\\`\\` breakpoint apply \\`\\`md\\`\\` padding, then at the \\`\\`lg breakpoint\\`\\` apply \\`\\`sm\\`\\` padding, at the bottom of the component.\n\n~~~html\n<lg-card [lgPaddingBottom]=\"{ md: 'md', lg: 'sm' }\"></lg-card>\n~~~\n\n## Inputs\n\nThe current available spacing variants are \\`\\`none\\`\\`, \\`\\`xxxs\\`\\`, \\`\\`xxs\\`\\`, \\`\\`xs\\`\\`, \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`, \\`\\`xxxl\\`\\`, \\`\\`xxxxxl\\`\\`.\n\nThe current available breakpoints are \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgPadding\\`\\` | The padding variant applied to all sides | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingTop\\`\\` | The padding variant applied to the top | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingRight\\`\\` | The padding variant applied to the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingBottom\\`\\` | The padding variant applied to the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingLeft\\`\\` | The padding variant applied to the left | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingHorizontal\\`\\` | The padding variant applied to the left and the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingVertical\\`\\` | The padding variant applied to the top and the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n`"
-                }
-            ],
             "projects/canopy/src/lib/spacing/margin/margin.notes.ts": [
                 {
                     "name": "notes",
@@ -40802,6 +40842,18 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "`\n# Margin Directive\n\n## Purpose\nThis directive allows for custom margin to be added without the need to write additional CSS. It's useful for overriding the default margin on Canopy components, as well as general use within your app. Using this directive ensures that your margin adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.\n\n## Usage\n\nImport the module in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgMarginModule],\n})\n~~~\n\nIn your HTML apply the directive to the relevant component. If the default \\`\\`lgMargin\\`\\` attribute has no value, the default margin will remain. You can also override individual margin such as \\`\\`margin-top\\`\\` by applying the relevant selector/input (.e.g \\`\\`LgMarginTop\\`\\` - see **Inputs** below).\n\nPass in either a **Standard Spacing Variant** or a **Responsive Spacing object** (see below).\n\n~~~html\nStandard spacing variant\n<lg-card lgMargin=\"sm\"></lg-card>\n\nResponsive spacing object\n<lg-card [lgMargin]=\"{ md: 'lg', lg: 'xxxl' }\"></lg-card>\n~~~\n\n## Standard vs Responsive Spacing\n\n### Standard Spacing Variant\n\nThis is set of predfined variants which will apply the same margin at all breakpoints, as defined by the \\`\\`SpacingVariant\\`\\` type. These are:\n\n~~~bash\n'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'\n~~~\n\n### Repsonsive Spacing Object\n\nYou can apply a responsive spacing object instead, which will apply different margin at the specified breakpoints, as defined by the \\`\\`SpacingResponsive\\`\\ type. Example:\n\n~~~js\n{\n  md: \"lg\",\n  lg: \"xxxl\"\n}\n~~~\n\nEach **key** is a mobile-first breakpoint from the standard list of available breakpoints: \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`.\n\nEach **value** is a standard spacing variant.\n\nIn the example above, the margin at the \\`\\`md\\`\\` breakpoint will be \\`\\`lg\\`\\`, and at the \\`\\`lg\\`\\` will be \\`\\`xxxl\\`\\`.\n\n\n### Standard variant examples\n\nApply \\`\\`xxl\\`\\` margin to the bottom\n\n~~~html\n<lg-card lgMarginBottom=\"xxl\"></lg-card>\n~~~\n\nApply \\`\\`sm\\`\\` margin to the left and right\n\n~~~html\n<lg-card lgMarginHorizontal=\"sm\"></lg-card>\n~~~\n\nApply \\`\\`xl\\`\\` margin all round, but \\`\\`xxxl\\`\\` margin to the bottom\n\n~~~html\n<lg-card lgMargin=\"xl\" lgMarginBottom=\"xxxl\"></lg-card>\n~~~\n\nApply \\`\\`lg\\`\\` margin to the top and bottom\n\n~~~html\n<lg-card lgMarginVertical=\"lg\"></lg-card>\n~~~\n\n### Responsive examples\n\n\nAt the \\`\\`sm\\`\\` breakpoint apply \\`\\`xl\\`\\` margin, then at the \\`\\`md breakpoint\\`\\` apply \\`\\`xxxl\\`\\` margin, all around the component.\n\n~~~html\n<lg-card [lgMargin]=\"{ sm: 'lg', md: 'xxxl' }\"></lg-card>\n~~~\n\nAt the \\`\\`md\\`\\` breakpoint apply \\`\\`md\\`\\` margin, then at the \\`\\`lg breakpoint\\`\\` apply \\`\\`sm\\`\\` margin, at the bottom of the component.\n\n~~~html\n<lg-card [lgMarginBottom]=\"{ md: 'md', lg: 'sm' }\"></lg-card>\n~~~\n\n## Inputs\n\nThe current available spacing variants are \\`\\`none\\`\\`, \\`\\`xxxs\\`\\`, \\`\\`xxs\\`\\`, \\`\\`xs\\`\\`, \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`, \\`\\`xxxl\\`\\`, \\`\\`xxxxxl\\`\\`.\n\nThe current available breakpoints are \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgMargin\\`\\` | The margin variant applied to all sides | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginTop\\`\\` | The margin variant applied to the top | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginRight\\`\\` | The margin variant applied to the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginBottom\\`\\` | The margin variant applied to the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginLeft\\`\\` | The margin variant applied to the left | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginHorizontal\\`\\` | The margin variant applied to the left and the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgMarginVertical\\`\\` | The margin variant applied to the top and the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n`"
+                }
+            ],
+            "projects/canopy/src/lib/spacing/padding/padding.notes.ts": [
+                {
+                    "name": "notes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/spacing/padding/padding.notes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n# Padding Directive\n\n## Purpose\nThis directive allows for custom padding to be added without the need to write additional CSS. It's useful for overriding the default padding on Canopy components, as well as general use within your app. Using this directive ensures that your padding adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.\n\n## Usage\n\nImport the module in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgPaddingModule],\n})\n~~~\n\nIn your HTML apply the directive to the relevant component. If the default \\`\\`lgPadding\\`\\` attribute has no value, the default padding will remain. You can also override individual padding such as \\`\\`padding-top\\`\\` by applying the relevant selector/input (.e.g \\`\\`LgPaddingTop\\`\\` - see **Inputs** below).\n\nPass in either a **Standard Spacing Variant** or a **Responsive Spacing object** (see below).\n\n~~~html\nStandard spacing variant\n<lg-card lgPadding=\"sm\"></lg-card>\n\nResponsive spacing object\n<lg-card [lgPadding]=\"{ md: 'lg', lg: 'xxxl' }\"></lg-card>\n~~~\n\n## Standard vs Responsive Spacing\n\n### Standard Spacing Variant\n\nThis is set of predfined variants which will apply the same padding at all breakpoints, as defined by the \\`\\`SpacingVariant\\`\\` type. These are:\n\n~~~bash\n'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'\n~~~\n\n### Repsonsive Spacing Object\n\nYou can apply a responsive spacing object instead, which will apply different padding at the specified breakpoints, as defined by the \\`\\`SpacingResponsive\\`\\ type. Example:\n\n~~~js\n{\n  md: \"lg\",\n  lg: \"xxxl\"\n}\n~~~\n\nEach **key** is a mobile-first breakpoint from the standard list of available breakpoints: \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`.\n\nEach **value** is a standard spacing variant.\n\nIn the example above, the padding at the \\`\\`md\\`\\` breakpoint will be \\`\\`lg\\`\\`, and at the \\`\\`lg\\`\\` will be \\`\\`xxxl\\`\\`.\n\n\n### Standard variant examples\n\nApply \\`\\`xxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPaddingBottom=\"xxl\"></lg-card>\n~~~\n\nApply \\`\\`sm\\`\\` padding to the left and right\n\n~~~html\n<lg-card lgPaddingHorizontal=\"sm\"></lg-card>\n~~~\n\nApply \\`\\`xl\\`\\` padding all round, but \\`\\`xxxl\\`\\` padding to the bottom\n\n~~~html\n<lg-card lgPadding=\"xl\" lgPaddingBottom=\"xxxl\"></lg-card>\n~~~\n\nApply \\`\\`lg\\`\\` padding to the top and bottom\n\n~~~html\n<lg-card lgPaddingVertical=\"lg\"></lg-card>\n~~~\n\n### Responsive examples\n\n\nAt the \\`\\`sm\\`\\` breakpoint apply \\`\\`xl\\`\\` padding, then at the \\`\\`md breakpoint\\`\\` apply \\`\\`xxxl\\`\\` padding, all around the component.\n\n~~~html\n<lg-card [lgPadding]=\"{ sm: 'lg', md: 'xxxl' }\"></lg-card>\n~~~\n\nAt the \\`\\`md\\`\\` breakpoint apply \\`\\`md\\`\\` padding, then at the \\`\\`lg breakpoint\\`\\` apply \\`\\`sm\\`\\` padding, at the bottom of the component.\n\n~~~html\n<lg-card [lgPaddingBottom]=\"{ md: 'md', lg: 'sm' }\"></lg-card>\n~~~\n\n## Inputs\n\nThe current available spacing variants are \\`\\`none\\`\\`, \\`\\`xxxs\\`\\`, \\`\\`xxs\\`\\`, \\`\\`xs\\`\\`, \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`, \\`\\`xxxl\\`\\`, \\`\\`xxxxxl\\`\\`.\n\nThe current available breakpoints are \\`\\`sm\\`\\`, \\`\\`md\\`\\`, \\`\\`lg\\`\\`, \\`\\`xl\\`\\`, \\`\\`xxl\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgPadding\\`\\` | The padding variant applied to all sides | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingTop\\`\\` | The padding variant applied to the top | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingRight\\`\\` | The padding variant applied to the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingBottom\\`\\` | The padding variant applied to the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingLeft\\`\\` | The padding variant applied to the left | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingHorizontal\\`\\` | The padding variant applied to the left and the right | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n| \\`\\`lgPaddingVertical\\`\\` | The padding variant applied to the top and the bottom | \\`\\`SpacingVariant | SpacingResponsive\\`\\` | null | No |\n`"
                 }
             ],
             "projects/canopy/src/lib/pipes/pipes.module.ts": [
@@ -40864,28 +40916,6 @@
                     "defaultValue": "() => ({\n  template: `\n    <p><strong>Change viewport width to see the card appear at specified breakpoint</strong></p>\n    <pre>lgShowAt=\"{{breakpoint}}\"</pre>\n    <lg-separator></lg-separator>\n    <lg-card [lgShowAt]=\"breakpoint\">\n      <lg-card-content>\n        Now you see me...\n      </lg-card-content>\n    </lg-card>\n  `,\n  props: {\n    breakpoint: select('breakpoints', ['sm', 'md', 'lg', 'xl', 'xxl'], 'md'),\n  },\n})"
                 }
             ],
-            "projects/canopy/src/lib/spacing/padding/padding.stories.ts": [
-                {
-                    "name": "spaces",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[\n  'undefined',\n  'none',\n  'xxxs',\n  'xxs',\n  'xs',\n  'sm',\n  'md',\n  'lg',\n  'xl',\n  'xxl',\n  'xxxl',\n  'xxxxl',\n]"
-                },
-                {
-                    "name": "stories",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "storiesOf('Directives', module)"
-                }
-            ],
             "projects/canopy/src/lib/spacing/margin/margin.stories.ts": [
                 {
                     "name": "spaces",
@@ -40902,6 +40932,28 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/canopy/src/lib/spacing/margin/margin.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "storiesOf('Directives', module)"
+                }
+            ],
+            "projects/canopy/src/lib/spacing/padding/padding.stories.ts": [
+                {
+                    "name": "spaces",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  'undefined',\n  'none',\n  'xxxs',\n  'xxs',\n  'xs',\n  'sm',\n  'md',\n  'lg',\n  'xl',\n  'xxl',\n  'xxxl',\n  'xxxxl',\n]"
+                },
+                {
+                    "name": "stories",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/spacing/padding/padding.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -40932,18 +40984,6 @@
                     "defaultValue": "() => ({\n  template: `<app-root></app-root>`,\n})"
                 }
             ],
-            "projects/canopy/src/lib/details/details.stories.ts": [
-                {
-                    "name": "standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/details/details.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ({\n  template: `\n    <lg-details\n      [isActive]=\"expand\"\n      [variant]=\"variant\"\n      [showIcon]=\"showIcon\"\n      (opened)=\"toggle('Detail opened')\"\n      (closed)=\"toggle('Detail closed')\">\n      <lg-details-panel-heading [headingLevel]=\"headingLevel\">{{ header }}</lg-details-panel-heading>\n      Give us a call on <a href=\"tel:08001234567\">0800 123 4567</a> and we'll be happy to help you change your\n      payment details\n    </lg-details>\n  `,\n  props: {\n    header: text('Header', 'How do I change my payment details?'),\n    expand: boolean('Default expand', false),\n    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 5),\n    toggle: action('Details active state change'),\n    variant: select(\n      'variant',\n      ['generic', 'info', 'success', 'warning', 'error'],\n      'generic',\n    ),\n    showIcon: boolean('Show icon (warning, success & error variants only)', true),\n  },\n})"
-                }
-            ],
             "projects/canopy/src/lib/primary-message/primary-message.stories.ts": [
                 {
                     "name": "standard",
@@ -40954,18 +40994,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => ({\n  template: `\n    <lg-primary-message-story [hasRole]=\"hasRole\"></lg-primary-message-story>\n  `,\n  props: {\n    hasRole: boolean('Set role attribute to alert', true),\n  },\n})"
-                }
-            ],
-            "projects/canopy/src/lib/modal/modal.stories.ts": [
-                {
-                    "name": "standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/modal/modal.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
                 }
             ],
             "projects/canopy/src/lib/separator/separator.stories.ts": [
@@ -41014,6 +41042,18 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => ({\n  template: `\n  <lg-tabs [headingLevel]=\"headingLevel\"\n    label=\"Annuities\"\n    (tabEvent)=\"tabEvent($event)\"\n    [lgMarginRight]=\"'none'\"\n    [lgMarginBottom]=\"'none'\"\n    [lgMarginLeft]=\"'none'\"\n  >\n    <lg-tab-item *ngFor=\"let tab of tabs\">\n      <lg-tab-item-heading>{{ tab.header }}</lg-tab-item-heading>\n      <lg-tab-item-content>\n        <div class=\"lg-tabs__content-section\">{{ tab.content }}</div>\n      </lg-tab-item-content>\n    </lg-tab-item>\n  </lg-tabs>\n  `,\n  props: {\n    tabs: object('Tabs', getDefaultTabsContent()),\n    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 2),\n    tabEvent: action('tab selected'),\n  },\n})"
+                }
+            ],
+            "projects/canopy/src/lib/modal/modal.stories.ts": [
+                {
+                    "name": "standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
                 }
             ],
             "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.stories.ts": [
@@ -41076,18 +41116,6 @@
                     "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (selectChange)=\"selectChange($event)\"\n    [block]=\"block\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [options]=\"options\"\n  ></lg-reactive-form>`,\n  props: {\n    selectChange: action('selectChange'),\n    label: text('label', 'Color'),\n    hint: text('hint', 'Please select a color'),\n    block: boolean('block', false),\n    options: object('options', ['Red', 'Blue', 'Green', 'Yellow']),\n    disabled: boolean('disabled', false),\n  },\n})"
                 }
             ],
-            "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts": [
-                {
-                    "name": "standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
-                }
-            ],
             "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts": [
                 {
                     "name": "standard",
@@ -41134,6 +41162,18 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => ({\n  template: `\n    <lg-validation\n      [showIcon]=\"showIcon\"\n      [variant]=\"variant\">\n      {{errorContent}}\n    </lg-validation>\n  `,\n  props: {\n    errorContent: text('content', 'Please enter a valid date of birth'),\n    showIcon: boolean('show icon', true),\n    variant: select(\n      'variant',\n      ['generic', 'info', 'success', 'warning', 'error'],\n      'error',\n    ),\n  },\n})"
+                }
+            ],
+            "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts": [
+                {
+                    "name": "standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
                 }
             ],
             "projects/canopy/src/lib/skeleton/skeleton.stories.ts": [
@@ -43414,7 +43454,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "standard",
+                "name": "detailsTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/canopy/src/lib/details/details.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "standardDetails",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/canopy/src/lib/details/details.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
