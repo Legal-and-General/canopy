@@ -1,7 +1,4 @@
 export const notes = `
-# Feature Toggle Module
-
-## Purpose
 This module allows you to enable and disable features by using the \`lgFeatureToggle\` directive and passing an observable of the toggle's configuration to the module.
 
 ## Usage
