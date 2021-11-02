@@ -1,7 +1,4 @@
 export const notes = `
-# Accordion Component
-
-## Purpose
 Accordions allow users to quickly expand and collapse grouped sections of content.
 
 
