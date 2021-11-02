@@ -25,7 +25,7 @@ export default {
   },
   argTypes: {
     content: {
-      description: 'Projected content',
+      description: 'The projected content.',
     },
     showIcon: {
       description:
