@@ -24523,7 +24523,165 @@
         },
         {
             "name": "ReactiveFormComponent",
-            "id": "component-ReactiveFormComponent-58c496c2e7f18b071e4677d85e360314-5",
+            "id": "component-ReactiveFormComponent-50d7afa6e8971c1ef656db2a20f0daba-5",
+            "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lg-reactive-form",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<form [formGroup]=\"form\">\n  <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n    {{ label }}\n    <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n  </lg-sort-code>\n</form>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "boolean"
+                },
+                {
+                    "name": "focus",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "boolean"
+                },
+                {
+                    "name": "hint",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "inputChange",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "fb",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormBuilder",
+                    "optional": false,
+                    "description": "",
+                    "line": 44,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "form",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 42
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\n\nimport { moduleMetadata } from '@storybook/angular';\nimport { boolean, text, withKnobs } from '@storybook/addon-knobs';\nimport { action } from '@storybook/addon-actions';\n\nimport { LgSortCodeComponent } from './sort-code.component';\nimport { CanopyModule } from '../../canopy.module';\nimport { notes } from './sort-code.notes';\n\n@Component({\n  selector: 'lg-reactive-form',\n  template: `\n    <form [formGroup]=\"form\">\n      <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n        {{ label }}\n        <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n      </lg-sort-code>\n    </form>\n  `,\n})\nclass ReactiveFormComponent {\n  @Input() hint: string;\n  @Input() label: string;\n  @Input() focus: boolean;\n\n  @Input()\n  set disabled(disabled: boolean) {\n    if (disabled) {\n      this.form.controls.sortCode.disable();\n    } else {\n      this.form.controls.sortCode.enable();\n    }\n  }\n  get disabled(): boolean {\n    return this.form.controls.sortCode.disabled;\n  }\n\n  @Output() inputChange = new EventEmitter<void>();\n\n  form: FormGroup;\n\n  constructor(public fb: FormBuilder) {\n    this.form = this.fb.group({\n      sortCode: [''],\n    });\n    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));\n  }\n}\n\nexport default {\n  title: 'Components/Form/Sort Code',\n  component: LgSortCodeComponent,\n  decorators: [\n    withKnobs,\n    moduleMetadata({\n      declarations: [ReactiveFormComponent],\n      imports: [ReactiveFormsModule, CanopyModule],\n    }),\n  ],\n  parameters: {\n    notes: {\n      markdown: notes,\n    },\n  },\n};\n\nexport const standard = () => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n});\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 42,
+                "jsdoctags": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "accessors": {
+                "disabled": {
+                    "name": "disabled",
+                    "setSignature": {
+                        "name": "disabled",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "disabled",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 29,
+                        "jsdoctags": [
+                            {
+                                "name": "disabled",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "disabled",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 36
+                    }
+                }
+            },
+            "isDuplicate": true,
+            "duplicateId": 5,
+            "duplicateName": "ReactiveFormComponent-5"
+        },
+        {
+            "name": "ReactiveFormComponent",
+            "id": "component-ReactiveFormComponent-58c496c2e7f18b071e4677d85e360314-6",
             "file": "projects/canopy/src/lib/forms/validation/form.stories.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -24783,164 +24941,6 @@
                         "type": "",
                         "returnType": "",
                         "line": 246
-                    }
-                }
-            },
-            "isDuplicate": true,
-            "duplicateId": 5,
-            "duplicateName": "ReactiveFormComponent-5"
-        },
-        {
-            "name": "ReactiveFormComponent",
-            "id": "component-ReactiveFormComponent-50d7afa6e8971c1ef656db2a20f0daba-6",
-            "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "lg-reactive-form",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<form [formGroup]=\"form\">\n  <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n    {{ label }}\n    <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n  </lg-sort-code>\n</form>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "disabled",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 29,
-                    "type": "boolean"
-                },
-                {
-                    "name": "focus",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 26,
-                    "type": "boolean"
-                },
-                {
-                    "name": "hint",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 24,
-                    "type": "string"
-                },
-                {
-                    "name": "label",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 25,
-                    "type": "string"
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "inputChange",
-                    "defaultValue": "new EventEmitter<void>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 40,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [
-                {
-                    "name": "fb",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormBuilder",
-                    "optional": false,
-                    "description": "",
-                    "line": 44,
-                    "modifierKind": [
-                        123
-                    ]
-                },
-                {
-                    "name": "form",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "FormGroup",
-                    "optional": false,
-                    "description": "",
-                    "line": 42
-                }
-            ],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\n\nimport { moduleMetadata } from '@storybook/angular';\nimport { boolean, text, withKnobs } from '@storybook/addon-knobs';\nimport { action } from '@storybook/addon-actions';\n\nimport { LgSortCodeComponent } from './sort-code.component';\nimport { CanopyModule } from '../../canopy.module';\nimport { notes } from './sort-code.notes';\n\n@Component({\n  selector: 'lg-reactive-form',\n  template: `\n    <form [formGroup]=\"form\">\n      <lg-sort-code formControlName=\"sortCode\" [focus]=\"focus\">\n        {{ label }}\n        <lg-hint *ngIf=\"hint\">{{ hint }}</lg-hint>\n      </lg-sort-code>\n    </form>\n  `,\n})\nclass ReactiveFormComponent {\n  @Input() hint: string;\n  @Input() label: string;\n  @Input() focus: boolean;\n\n  @Input()\n  set disabled(disabled: boolean) {\n    if (disabled) {\n      this.form.controls.sortCode.disable();\n    } else {\n      this.form.controls.sortCode.enable();\n    }\n  }\n  get disabled(): boolean {\n    return this.form.controls.sortCode.disabled;\n  }\n\n  @Output() inputChange = new EventEmitter<void>();\n\n  form: FormGroup;\n\n  constructor(public fb: FormBuilder) {\n    this.form = this.fb.group({\n      sortCode: [''],\n    });\n    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));\n  }\n}\n\nexport default {\n  title: 'Components/Form/Sort Code',\n  component: LgSortCodeComponent,\n  decorators: [\n    withKnobs,\n    moduleMetadata({\n      declarations: [ReactiveFormComponent],\n      imports: [ReactiveFormsModule, CanopyModule],\n    }),\n  ],\n  parameters: {\n    notes: {\n      markdown: notes,\n    },\n  },\n};\n\nexport const standard = () => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n});\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "fb",
-                        "type": "FormBuilder",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 42,
-                "jsdoctags": [
-                    {
-                        "name": "fb",
-                        "type": "FormBuilder",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "accessors": {
-                "disabled": {
-                    "name": "disabled",
-                    "setSignature": {
-                        "name": "disabled",
-                        "type": "void",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "args": [
-                            {
-                                "name": "disabled",
-                                "type": "boolean",
-                                "deprecated": false,
-                                "deprecationMessage": ""
-                            }
-                        ],
-                        "returnType": "void",
-                        "line": 29,
-                        "jsdoctags": [
-                            {
-                                "name": "disabled",
-                                "type": "boolean",
-                                "deprecated": false,
-                                "deprecationMessage": "",
-                                "tagName": {
-                                    "text": "param"
-                                }
-                            }
-                        ]
-                    },
-                    "getSignature": {
-                        "name": "disabled",
-                        "type": "boolean",
-                        "returnType": "boolean",
-                        "line": 36
                     }
                 }
             },
@@ -29825,6 +29825,16 @@
                 "name": "components",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/canopy/src/lib/modal/modal.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
+            },
+            {
+                "name": "components",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/canopy/src/lib/primary-message/primary-message.module.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -29860,16 +29870,6 @@
                 "deprecationMessage": "",
                 "type": "[]",
                 "defaultValue": "[\n  LgTableComponent,\n  LgTableCellComponent,\n  LgTableHeadComponent,\n  LgTableRowComponent,\n  LgTableExpandedDetailComponent,\n  LgTableRowToggleComponent,\n  LgTableBodyComponent,\n  LgTableHeadCellComponent,\n]"
-            },
-            {
-                "name": "components",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/canopy/src/lib/modal/modal.module.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "[]",
-                "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
             },
             {
                 "name": "contentGroupId",
@@ -30020,6 +30020,16 @@
                 "deprecationMessage": "",
                 "type": "Story<LgDetailsComponent>",
                 "defaultValue": "(args: LgDetailsComponent) => ({\n  props: args,\n  template,\n})"
+            },
+            {
+                "name": "detailsTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/heading/heading.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<LgHeadingComponent>",
+                "defaultValue": "(args: LgHeadingComponent) => ({\n  props: args,\n  template,\n})"
             },
             {
                 "name": "environment",
@@ -30200,16 +30210,6 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "'header'"
-            },
-            {
-                "name": "groupId",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/canopy/src/lib/heading/heading.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "string",
-                "defaultValue": "'lg-heading'"
             },
             {
                 "name": "groupId",
@@ -33335,16 +33335,6 @@
                 "name": "nextUniqueId",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/label/label.component.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "number",
-                "defaultValue": "0"
-            },
-            {
-                "name": "nextUniqueId",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/input/input-field.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33356,6 +33346,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/input/input.directive.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "number",
+                "defaultValue": "0"
+            },
+            {
+                "name": "nextUniqueId",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/forms/label/label.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "number",
@@ -33395,7 +33395,7 @@
                 "name": "nextUniqueId",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
+                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "number",
@@ -33415,7 +33415,7 @@
                 "name": "nextUniqueId",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
+                "file": "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "number",
@@ -33649,7 +33649,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "`\n# Heading Component\n\n## Purpose\nThis component allows for headings to be set dynamically.\n\n## Usage\n\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgHeadingModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-heading [level]=\"1\">Heading</lg-heading>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`level\\`\\` | The heading level | number | undefined | Yes |\n`"
+                "defaultValue": "`\nThis component allows for headings to be set dynamically.\n\n## Usage\n\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgHeadingModule ],\n})\n~~~\n`"
             },
             {
                 "name": "notes",
@@ -33680,6 +33680,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\n# Icon Component\n\n## Purpose\nProvides a way of adding common svg icons.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgIconModule],\n})\n~~~\n\nImport the \\`LgIconRegistry\\` and register your icons:\n\n~~~js\nexport class AppModule {\n  constructor(private iconRegistry: LgIconRegistry) {\n    this.iconRegistry.registerIcons([\n      lgIconEmail\n    ]);\n  }\n}\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-icon name=\"email\"></lg-icon>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`name\\`\\` | the name of the icon | string | undefined | yes |\n\nAll icons have height and width equal to 1em. This means the icons will be as big as the font-size specified by the parent.\n\n*By default the icons have the \\`\\`fill\\`\\` css property set to \\`\\`currentColor\\`\\`.*\n\n> \\`\\`currentColor\\`\\` acts like a variable for the current value of the \\`\\`color\\`\\` property on the element. And the Cascading part of CSS is still effective, so if there’s no defined \\`\\`color\\`\\` property on an element, the cascade will determine the value of \\`\\`currentColor\\`\\`.\n>\n> *Understanding the currentColor Keyword in CSS - https://alligator.io/css/currentcolor/*\n\n*Please note that the 'need-help' and 'question-mark' icons currently don't have the ability to change colour.*\n`"
+            },
+            {
+                "name": "notes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/modal/modal.notes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
             },
             {
                 "name": "notes",
@@ -33815,16 +33825,6 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/modal/modal.notes.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
-            },
-            {
-                "name": "notes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -33875,11 +33875,11 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/toggle/toggle.notes.ts",
+                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "(name: string) => `\n# ${name} Component\n\n## Purpose\nProvides a ${name} component for boolean form controls. The ${name} component is a variant of the Toggle component.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgToggleModule ],\n})\n~~~\n\nand in your HTML for a regular *checkbox*:\n\n~~~html\n<lg-toggle formControlName=\"confirm\" value=\"yes\" variant=\"${name.toLowerCase()}\">Do you agree?</lg-toggle>\n~~~\n\nor\n\n~~~html\n<lg-${name.toLowerCase()} formControlName=\"confirm\" value=\"yes\">Do you agree?</lg-${name.toLowerCase()}>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`checked\\`\\` | Check status of the toggle | boolean | false | No |\n| \\`\\`value\\`\\` | Value that is set when the toggle is checked | boolean or string | 'on' | No |\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`name\\`\\` | HTML Name attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`variant\\`\\` | The variant of the toggle | 'checkbox', 'switch' or 'filter' | 'checkbox | No |\n| \\`\\`focus\\`\\` | Set the focus on the input field | boolean | null | No |\n`"
+                "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
             },
             {
                 "name": "notes",
@@ -33905,11 +33905,11 @@
                 "name": "notes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
+                "file": "projects/canopy/src/lib/forms/toggle/toggle.notes.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
+                "defaultValue": "(name: string) => `\n# ${name} Component\n\n## Purpose\nProvides a ${name} component for boolean form controls. The ${name} component is a variant of the Toggle component.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgToggleModule ],\n})\n~~~\n\nand in your HTML for a regular *checkbox*:\n\n~~~html\n<lg-toggle formControlName=\"confirm\" value=\"yes\" variant=\"${name.toLowerCase()}\">Do you agree?</lg-toggle>\n~~~\n\nor\n\n~~~html\n<lg-${name.toLowerCase()} formControlName=\"confirm\" value=\"yes\">Do you agree?</lg-${name.toLowerCase()}>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`checked\\`\\` | Check status of the toggle | boolean | false | No |\n| \\`\\`value\\`\\` | Value that is set when the toggle is checked | boolean or string | 'on' | No |\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`name\\`\\` | HTML Name attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`variant\\`\\` | The variant of the toggle | 'checkbox', 'switch' or 'filter' | 'checkbox | No |\n| \\`\\`focus\\`\\` | Set the focus on the input field | boolean | null | No |\n`"
             },
             {
                 "name": "notes",
@@ -34343,21 +34343,21 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/heading/heading.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => ({\n  template: `\n    <lg-heading\n      [level]=\"level\">\n      {{content}}\n    </lg-heading>\n  `,\n  props: {\n    content: text('text', 'Heading', groupId),\n    level: select('level', [1, 2, 3, 4, 5, 6], 1, groupId),\n  },\n})"
-            },
-            {
-                "name": "standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/icon/icons.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "() => ({\n  template: `\n    <lg-swatch-icon [colour]=\"colour\"></lg-swatch-icon>\n  `,\n  props: {\n    colour: select('colour examples', colours, '--color-charcoal'),\n  },\n})"
+            },
+            {
+                "name": "standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/modal/modal.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
             },
             {
                 "name": "standard",
@@ -34433,16 +34433,6 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/modal/modal.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
-            },
-            {
-                "name": "standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -34503,21 +34493,11 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts",
+                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "() => createToggleStory('checkbox')"
-            },
-            {
-                "name": "standard",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/toggle/switch.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "() => createToggleStory('switch')"
+                "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
             },
             {
                 "name": "standard",
@@ -34543,11 +34523,21 @@
                 "name": "standard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
+                "file": "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
+                "defaultValue": "() => createToggleStory('checkbox')"
+            },
+            {
+                "name": "standard",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/forms/toggle/switch.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => createToggleStory('switch')"
             },
             {
                 "name": "standardAccordion",
@@ -34574,6 +34564,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/canopy/src/lib/details/details.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "detailsTemplate.bind({})"
+            },
+            {
+                "name": "standardHeading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/heading/heading.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -34708,6 +34708,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "`\n  <button lg-button variant=\"solid-primary\" [lgFocus]=\"lgFocus\">Focus directive example</button>\n`"
+            },
+            {
+                "name": "template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/canopy/src/lib/heading/heading.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "`\n  <lg-heading [level]=\"level\">{{content}}</lg-heading>\n`"
             },
             {
                 "name": "textWithIcon",
@@ -36470,6 +36480,18 @@
                     "defaultValue": "[LgCarouselItemComponent, LgCarouselComponent, LgAutoplayComponent]"
                 }
             ],
+            "projects/canopy/src/lib/modal/modal.module.ts": [
+                {
+                    "name": "components",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/modal/modal.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
+                }
+            ],
             "projects/canopy/src/lib/primary-message/primary-message.module.ts": [
                 {
                     "name": "components",
@@ -36516,18 +36538,6 @@
                     "deprecationMessage": "",
                     "type": "[]",
                     "defaultValue": "[\n  LgTableComponent,\n  LgTableCellComponent,\n  LgTableHeadComponent,\n  LgTableRowComponent,\n  LgTableExpandedDetailComponent,\n  LgTableRowToggleComponent,\n  LgTableBodyComponent,\n  LgTableHeadCellComponent,\n]"
-                }
-            ],
-            "projects/canopy/src/lib/modal/modal.module.ts": [
-                {
-                    "name": "components",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/modal/modal.module.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[\n  LgModalComponent,\n  LgModalTriggerDirective,\n  LgModalHeaderComponent,\n  LgModalBodyComponent,\n  LgModalFooterComponent,\n  LgModalBodyTimerComponent,\n]"
                 }
             ],
             "projects/canopy/src/lib/page/page.stories.ts": [
@@ -36750,6 +36760,38 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "`\n  <lg-details\n    [isActive]=\"isActive\"\n    [variant]=\"variant\"\n    [showIcon]=\"showIcon\"\n    (opened)=\"toggle('Detail opened')\"\n    (closed)=\"toggle('Detail closed')\">\n    <lg-details-panel-heading [headingLevel]=\"headingLevel\">How do I change my payment details?</lg-details-panel-heading>\n    Give us a call on <a href=\"tel:08001234567\">0800 123 4567</a> and we'll be happy to help you change your\n    payment details\n  </lg-details>\n`"
+                }
+            ],
+            "projects/canopy/src/lib/heading/heading.stories.ts": [
+                {
+                    "name": "detailsTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/heading/heading.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<LgHeadingComponent>",
+                    "defaultValue": "(args: LgHeadingComponent) => ({\n  props: args,\n  template,\n})"
+                },
+                {
+                    "name": "standardHeading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/heading/heading.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "detailsTemplate.bind({})"
+                },
+                {
+                    "name": "template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/heading/heading.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n  <lg-heading [level]=\"level\">{{content}}</lg-heading>\n`"
                 }
             ],
             "projects/canopy-test-app/src/environments/environment.prod.ts": [
@@ -37000,28 +37042,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => ({\n  template: `\n    <header lg-header [logo]=\"logo\" [logoAlt]=\"logoAlt\" [logoHref]=\"logoHref\"></header>\n  `,\n  props: {\n    logo: text('logo', 'legal-and-general-logo.svg', groupId),\n    logoAlt: text('logoAlt', 'Company name', groupId),\n    logoHref: text('logoHref', 'https://storybook.js.org', groupId),\n  },\n})"
-                }
-            ],
-            "projects/canopy/src/lib/heading/heading.stories.ts": [
-                {
-                    "name": "groupId",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/heading/heading.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "defaultValue": "'lg-heading'"
-                },
-                {
-                    "name": "standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/heading/heading.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ({\n  template: `\n    <lg-heading\n      [level]=\"level\">\n      {{content}}\n    </lg-heading>\n  `,\n  props: {\n    content: text('text', 'Heading', groupId),\n    level: select('level', [1, 2, 3, 4, 5, 6], 1, groupId),\n  },\n})"
                 }
             ],
             "projects/canopy/src/lib/hide-at/hide-at.stories.ts": [
@@ -40102,18 +40122,6 @@
                     "defaultValue": "0"
                 }
             ],
-            "projects/canopy/src/lib/forms/label/label.component.ts": [
-                {
-                    "name": "nextUniqueId",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/label/label.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "number",
-                    "defaultValue": "0"
-                }
-            ],
             "projects/canopy/src/lib/forms/input/input-field.component.ts": [
                 {
                     "name": "nextUniqueId",
@@ -40132,6 +40140,18 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/canopy/src/lib/forms/input/input.directive.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "defaultValue": "0"
+                }
+            ],
+            "projects/canopy/src/lib/forms/label/label.component.ts": [
+                {
+                    "name": "nextUniqueId",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/forms/label/label.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "number",
@@ -40174,12 +40194,12 @@
                     "defaultValue": "0"
                 }
             ],
-            "projects/canopy/src/lib/forms/toggle/toggle.component.ts": [
+            "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts": [
                 {
                     "name": "nextUniqueId",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
+                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "number",
@@ -40198,12 +40218,12 @@
                     "defaultValue": "0"
                 }
             ],
-            "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts": [
+            "projects/canopy/src/lib/forms/toggle/toggle.component.ts": [
                 {
                     "name": "nextUniqueId",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.component.ts",
+                    "file": "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "number",
@@ -40483,7 +40503,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "`\n# Heading Component\n\n## Purpose\nThis component allows for headings to be set dynamically.\n\n## Usage\n\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgHeadingModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-heading [level]=\"1\">Heading</lg-heading>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`level\\`\\` | The heading level | number | undefined | Yes |\n`"
+                    "defaultValue": "`\nThis component allows for headings to be set dynamically.\n\n## Usage\n\nImport the component in your module:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgHeadingModule ],\n})\n~~~\n`"
                 }
             ],
             "projects/canopy/src/lib/hero/hero.notes.ts": [
@@ -40520,6 +40540,18 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "`\n# Icon Component\n\n## Purpose\nProvides a way of adding common svg icons.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgIconModule],\n})\n~~~\n\nImport the \\`LgIconRegistry\\` and register your icons:\n\n~~~js\nexport class AppModule {\n  constructor(private iconRegistry: LgIconRegistry) {\n    this.iconRegistry.registerIcons([\n      lgIconEmail\n    ]);\n  }\n}\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-icon name=\"email\"></lg-icon>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`name\\`\\` | the name of the icon | string | undefined | yes |\n\nAll icons have height and width equal to 1em. This means the icons will be as big as the font-size specified by the parent.\n\n*By default the icons have the \\`\\`fill\\`\\` css property set to \\`\\`currentColor\\`\\`.*\n\n> \\`\\`currentColor\\`\\` acts like a variable for the current value of the \\`\\`color\\`\\` property on the element. And the Cascading part of CSS is still effective, so if there’s no defined \\`\\`color\\`\\` property on an element, the cascade will determine the value of \\`\\`currentColor\\`\\`.\n>\n> *Understanding the currentColor Keyword in CSS - https://alligator.io/css/currentcolor/*\n\n*Please note that the 'need-help' and 'question-mark' icons currently don't have the ability to change colour.*\n`"
+                }
+            ],
+            "projects/canopy/src/lib/modal/modal.notes.ts": [
+                {
+                    "name": "notes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/modal/modal.notes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
                 }
             ],
             "projects/canopy/src/lib/page/page.notes.ts": [
@@ -40688,18 +40720,6 @@
                     "defaultValue": "`\n\n# Variant Directive\n\n## Purpose\nThis directive allows you to add one of the five common colour variants to any Canopy component, such as \\`\\`info\\`\\` and \\`\\`success\\`\\`.\n\nThey are already applied to existing Canopy components which use these variants out of the box, such as [Alert](/?path=/story/components-alert--standard), [Detail](?path=/story/components-details--standard) and [Form Validation](?path=/story/components-form-validation--standard), but this directive allows you to use them anywhere where required.\n\nThis can be useful where you need the particular colour treatment (like the \\`\\`success\\`\\` variant for example), but your use-case does not fit one of the existing components.\n\n## Usage\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgVariantModule],\n})\n~~~\n\nAnd in your HTML...\n\n~~~html\n<lg-card lgVariant=\"warning\">\n  <lg-card-content>\n    I have the warning variant colours, yay!\n    <a href=\"#\">Links are included</a>\n    <button lg-button variant=\"outline-primary\">\n      Outline primary buttons too\n    </button>\n  </lg-card-content>\n</lg-card>\n~~~\n\n## Inputs\n\nThe current available variants are:\n* \\`\\`generic\\`\\`\n* \\`\\`info\\`\\`\n* \\`\\`success\\`\\`\n* \\`\\`warning\\`\\`\n* \\`\\`error\\`\\`\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgVariant\\`\\` | The name of variant desired | string | null | No |\n`"
                 }
             ],
-            "projects/canopy/src/lib/modal/modal.notes.ts": [
-                {
-                    "name": "notes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/modal/modal.notes.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "`\n# Modal Component\n\n\n## Purpose\nProvides a modal component for displaying content.\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgModalModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Lorem ipsum</lg-modal-header>\n  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nfor a timout modal you can use the following structure:\n\n~~~html\n<button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n\n<lg-modal id=\"modal-story\">\n  <lg-modal-header>Logout</lg-modal-header>\n  <lg-modal-body>\n    For your security, we'll log yuo out in:\n    <lg-modal-body-timer timer=\"0:58\"></lg-modal-body-timer>\n  </lg-modal-body>\n  <lg-modal-footer>\n    <lg-button-group>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Primary CTA</button>\n      <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Cancel</button>\n    </lg-button-group>\n  </lg-modal-footer>\n</lg-modal>\n~~~\n\nOpening and closing the modal is also possible by using the \\`\\`ModalService\\`\\`.\nImport the service:\n\n~~~js\n  constructor(\n    private modalService: LgModalService,\n    ...\n  ) {}\n~~~\n\nTo open the modal:\n\n~~~js\n  this.modalService.open(<modal-id>)\n~~~\n\nand to close it:\n\n~~~js\n  this.modalService.close(<modal-id>)\n~~~\n\n## Inputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | The unique id of the modal | string | undefined | Yes |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`headingLevel\\`\\` | The level of the modal heading: \\`\\`1\\`\\`, \\`\\`2\\`\\`, \\`\\`3\\`\\`, \\`\\`4\\`\\`, \\`\\`5\\`\\`, \\`\\`6\\`\\` | number | 2 | No |\n\n### LgModalBodyTimerComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`timer\\`\\` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a | Yes |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`lgModalTrigger\\`\\` | The unique id of the modal to trigger | string | undefined | Yes |\n\n## Outputs\n\n### LgModalComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`open\\`\\` | Event emitted when the modal is opened | EventEmitter<void> | n/a | No |\n| \\`\\`closed\\`\\` | Event emitted when the modal is closed | EventEmitter<void> | n/a | No |\n\n### LgModalHeaderComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`closed\\`\\` | Event emitted when the close button is clicked | EventEmitter<void> | n/a | No |\n\n### LgModalTriggerDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`clicked\\`\\` | Event emitted when the trigger button is clicked | EventEmitter<void> | n/a | No |\n\n`"
-                }
-            ],
             "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.notes.ts": [
                 {
                     "name": "notes",
@@ -40760,16 +40780,16 @@
                     "defaultValue": "`\n# Select Component\n\n## Purpose\nProvides a common select directive and select field component. The select field component controls custom select box styling and linking the label and field.\nThe width of the select field is controlled by the size of the options contained with in it.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgFormsModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-select-field>\n  Color\n  <select lgSelect formControlName=\"color\">\n    <option value=\"red\">Red</option>\n    <option value=\"blue\">Blue</option>\n    <option value=\"green\">Green</option>\n    <option value=\"yellow\">Yellow</option>\n  </select>\n</lg-select-field>\n~~~\n\n## Inputs\n\n### LgSelectDirective\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided | string | 'lg-select-\\${nextUniqueId++}' | No |\n| \\`\\`name\\`\\` | HTML Name attribute, auto generated if not provided | string | 'lg-select-\\${nextUniqueId++}' | No |\n\n### LgSelectFieldComponent\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | string | 'lg-select-\\${nextUniqueId++}' | No |\n| \\`\\`block\\`\\` | Property to make the select field full width (for small screens only). | boolean | false | no\n`"
                 }
             ],
-            "projects/canopy/src/lib/forms/toggle/toggle.notes.ts": [
+            "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts": [
                 {
                     "name": "notes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/toggle/toggle.notes.ts",
+                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "(name: string) => `\n# ${name} Component\n\n## Purpose\nProvides a ${name} component for boolean form controls. The ${name} component is a variant of the Toggle component.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgToggleModule ],\n})\n~~~\n\nand in your HTML for a regular *checkbox*:\n\n~~~html\n<lg-toggle formControlName=\"confirm\" value=\"yes\" variant=\"${name.toLowerCase()}\">Do you agree?</lg-toggle>\n~~~\n\nor\n\n~~~html\n<lg-${name.toLowerCase()} formControlName=\"confirm\" value=\"yes\">Do you agree?</lg-${name.toLowerCase()}>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`checked\\`\\` | Check status of the toggle | boolean | false | No |\n| \\`\\`value\\`\\` | Value that is set when the toggle is checked | boolean or string | 'on' | No |\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`name\\`\\` | HTML Name attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`variant\\`\\` | The variant of the toggle | 'checkbox', 'switch' or 'filter' | 'checkbox | No |\n| \\`\\`focus\\`\\` | Set the focus on the input field | boolean | null | No |\n`"
+                    "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
                 }
             ],
             "projects/canopy/src/lib/forms/validation/form.notes.ts": [
@@ -40796,16 +40816,16 @@
                     "defaultValue": "`\n# Error Component\n\n\n## Purpose\nThe validation component is used to provide contextual information for a form input field. The most common use case is to display validation errors however it can also be used to show additional information.\n\n\n## Usage\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgValidationModule ],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<lg-validation>Enter a valid postcode</lg-validation>\n\n<lg-validation variant=\"success\">Username is available</lg-validation>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`variant\\`\\` | The variant of the validation: \\`\\`info\\`\\`, \\`\\`warning\\`\\`, \\`\\`error\\`\\`, \\`\\`success\\`\\` | string | 'error' | No |\n| \\`\\`showIcon\\`\\` | Whether the icon should display | boolean | true | No |\n`"
                 }
             ],
-            "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts": [
+            "projects/canopy/src/lib/forms/toggle/toggle.notes.ts": [
                 {
                     "name": "notes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.notes.ts",
+                    "file": "projects/canopy/src/lib/forms/toggle/toggle.notes.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "`\n# Sort Code Component\n\n## Purpose\nProvides a form component that can be used to capture a sort code in three individual input fields. The result, when used in a reactive form, is a concatenation of the three values into one string e.g. '204060'. The overall field is only valid if all three input fields are populated with 2 digits.\n\n## Usage\nImport the Sort Code Module into your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [LgSortCodeModule],\n})\n~~~\n\nand in your HTML:\n\n~~~html\n<form [formGroup]=\"form\" (ngSubmit)=\"...\" #validationForm=\"ngForm\">\n  <lg-sort-code formControlName=\"sortCode\">\n    Sort Code\n    <lg-hint id=\"hintId\">Must be 6 digits long</lg-hint>\n    <lg-validation id=\"errorId\" *ngIf=\"isControlInvalid(sortCode, validationForm)\">\n      Your sort code should be a 6 digit number\n    </lg-validation>\n  </lg-sort-code>\n\n  <button type=\"submit\">Submit</button>\n</form>\n~~~\n\n**Note: for the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.**\n\n## Inputs\n\n### LgSortCodeComponent\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`value\\`\\` | Existing 6 digit sort code string that will prepopulate the three input fields appropriately | string | '' | No |\n| \\`\\`disabled\\`\\` | Set the three inner input fields to disabled if \\`\\`true\\`\\` | boolean | \\`\\`false\\`\\` | No |\n| \\`\\`focus\\`\\` | Set the focus on the fieldset | boolean | null | No |\n| \\`\\`labelId\\`\\` | HTML ID attribute for the sort code fieldset label, auto generated if not provided | string | \\`\\`lg-input-sort-code-label-\\${nextUniqueId}\\`\\` | No |\n| \\`\\`ariaDescribedBy\\`\\` | HTML ID for the corresponding element that describes the sort code field, if not provided it will use the ID attribute from the Hint field if present | string | null | No |\n\n## Validation\n\nAll three input fields are required for the overall sort code field to be valid, and all three must be populated with 2 digits only.\n\nThe form will return \\`requiredField\\` when all of the inputs are left empty and \\`invalidField\\` when any of the inputs are invalid.\n\nFor the validation to work properly it's very important to include the \\`ngForm\\` on the form tag and for the submit button to be within the form.\n\n`"
+                    "defaultValue": "(name: string) => `\n# ${name} Component\n\n## Purpose\nProvides a ${name} component for boolean form controls. The ${name} component is a variant of the Toggle component.\n\n## Usage\nImport the component in your application:\n\n~~~js\n@NgModule({\n  ...\n  imports: [ ..., LgToggleModule ],\n})\n~~~\n\nand in your HTML for a regular *checkbox*:\n\n~~~html\n<lg-toggle formControlName=\"confirm\" value=\"yes\" variant=\"${name.toLowerCase()}\">Do you agree?</lg-toggle>\n~~~\n\nor\n\n~~~html\n<lg-${name.toLowerCase()} formControlName=\"confirm\" value=\"yes\">Do you agree?</lg-${name.toLowerCase()}>\n~~~\n\n## Inputs\n\n| Name | Description | Type | Default | Required |\n|------|-------------|:----:|:-----:|:-----:|\n| \\`\\`checked\\`\\` | Check status of the toggle | boolean | false | No |\n| \\`\\`value\\`\\` | Value that is set when the toggle is checked | boolean or string | 'on' | No |\n| \\`\\`id\\`\\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`name\\`\\` | HTML Name attribute, auto generated if not provided | string | 'lg-toggle-\\${nextUniqueId++}' | No |\n| \\`\\`variant\\`\\` | The variant of the toggle | 'checkbox', 'switch' or 'filter' | 'checkbox | No |\n| \\`\\`focus\\`\\` | Set the focus on the input field | boolean | null | No |\n`"
                 }
             ],
             "projects/canopy/src/lib/pipes/camel-case/camel-case.notes.ts": [
@@ -40984,6 +41004,18 @@
                     "defaultValue": "() => ({\n  template: `<app-root></app-root>`,\n})"
                 }
             ],
+            "projects/canopy/src/lib/modal/modal.stories.ts": [
+                {
+                    "name": "standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/modal/modal.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
+                }
+            ],
             "projects/canopy/src/lib/primary-message/primary-message.stories.ts": [
                 {
                     "name": "standard",
@@ -41042,18 +41074,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "() => ({\n  template: `\n  <lg-tabs [headingLevel]=\"headingLevel\"\n    label=\"Annuities\"\n    (tabEvent)=\"tabEvent($event)\"\n    [lgMarginRight]=\"'none'\"\n    [lgMarginBottom]=\"'none'\"\n    [lgMarginLeft]=\"'none'\"\n  >\n    <lg-tab-item *ngFor=\"let tab of tabs\">\n      <lg-tab-item-heading>{{ tab.header }}</lg-tab-item-heading>\n      <lg-tab-item-content>\n        <div class=\"lg-tabs__content-section\">{{ tab.content }}</div>\n      </lg-tab-item-content>\n    </lg-tab-item>\n  </lg-tabs>\n  `,\n  props: {\n    tabs: object('Tabs', getDefaultTabsContent()),\n    headingLevel: select('headingLevel', [1, 2, 3, 4, 5, 6], 2),\n    tabEvent: action('tab selected'),\n  },\n})"
-                }
-            ],
-            "projects/canopy/src/lib/modal/modal.stories.ts": [
-                {
-                    "name": "standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/modal/modal.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ({\n  template: `\n    <button lgModalTrigger=\"modal-story\" lg-button type=\"button\" variant=\"outline-primary\">Open modal</button>\n    <lg-modal id=\"modal-story\">\n      <lg-modal-header [headingLevel]=\"headingLevel\">Lorem ipsum</lg-modal-header>\n      <lg-modal-body>\n        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n        <lg-modal-body-timer timer=\"90\"></lg-modal-body-timer>\n      </lg-modal-body>\n      <lg-modal-footer>\n        <lg-button-group>\n          <button lg-button lgMarginBottom=\"none\" variant=\"solid-primary\" type=\"button\">Button</button>\n          <button lg-button lgMarginBottom=\"none\" variant=\"outline-primary\" type=\"button\">Close</button>\n        </lg-button-group>\n      </lg-modal-footer>\n    </lg-modal>\n  `,\n  props: {\n    headingLevel: select('heading level', [1, 2, 3, 4, 5, 6], 2),\n  },\n})"
                 }
             ],
             "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.stories.ts": [
@@ -41116,28 +41136,16 @@
                     "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (selectChange)=\"selectChange($event)\"\n    [block]=\"block\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [options]=\"options\"\n  ></lg-reactive-form>`,\n  props: {\n    selectChange: action('selectChange'),\n    label: text('label', 'Color'),\n    hint: text('hint', 'Please select a color'),\n    block: boolean('block', false),\n    options: object('options', ['Red', 'Blue', 'Green', 'Yellow']),\n    disabled: boolean('disabled', false),\n  },\n})"
                 }
             ],
-            "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts": [
+            "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts": [
                 {
                     "name": "standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts",
+                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "() => createToggleStory('checkbox')"
-                }
-            ],
-            "projects/canopy/src/lib/forms/toggle/switch.stories.ts": [
-                {
-                    "name": "standard",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/toggle/switch.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => createToggleStory('switch')"
+                    "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
                 }
             ],
             "projects/canopy/src/lib/forms/validation/form.stories.ts": [
@@ -41164,16 +41172,28 @@
                     "defaultValue": "() => ({\n  template: `\n    <lg-validation\n      [showIcon]=\"showIcon\"\n      [variant]=\"variant\">\n      {{errorContent}}\n    </lg-validation>\n  `,\n  props: {\n    errorContent: text('content', 'Please enter a valid date of birth'),\n    showIcon: boolean('show icon', true),\n    variant: select(\n      'variant',\n      ['generic', 'info', 'success', 'warning', 'error'],\n      'error',\n    ),\n  },\n})"
                 }
             ],
-            "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts": [
+            "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts": [
                 {
                     "name": "standard",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts",
+                    "file": "projects/canopy/src/lib/forms/toggle/checkbox.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "() => ({\n  template: `<lg-reactive-form\n    (inputChange)=\"inputChange($event)\"\n    [disabled]=\"disabled\"\n    [hint]=\"hint\"\n    [label]=\"label\"\n    [focus]=\"focus\"\n  ></lg-reactive-form>`,\n  props: {\n    inputChange: action('inputChange'),\n    label: text('label', 'Sort code'),\n    hint: text('hint', 'Must be 6 digits long'),\n    disabled: boolean('disabled', false),\n    focus: boolean('focus', false),\n  },\n})"
+                    "defaultValue": "() => createToggleStory('checkbox')"
+                }
+            ],
+            "projects/canopy/src/lib/forms/toggle/switch.stories.ts": [
+                {
+                    "name": "standard",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/canopy/src/lib/forms/toggle/switch.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => createToggleStory('switch')"
                 }
             ],
             "projects/canopy/src/lib/skeleton/skeleton.stories.ts": [
@@ -44671,7 +44691,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "groupId",
+                "name": "detailsTemplate",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -44681,7 +44701,17 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "standard",
+                "name": "standardHeading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/canopy/src/lib/heading/heading.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

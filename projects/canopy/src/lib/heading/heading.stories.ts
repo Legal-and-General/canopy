@@ -1,35 +1,68 @@
-import { select, text, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgHeadingComponent } from './heading.component';
+
+import { LgHeadingModule } from '../heading';
 import { notes } from './heading.notes';
 
 export default {
   title: 'Components/Heading',
+  component: LgHeadingComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [LgHeadingModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [LgHeadingComponent],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    content: {
+      description: 'The projected content.',
+    },
+    level: {
+      options: ['1', '2', '3', '4', '5', '6'],
+      description: 'The level of the details heading.',
+      table: {
+        type: {
+          summary: ['1', '2', '3', '4', '5', '6'],
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+} as Meta;
+
+const template = `
+  <lg-heading [level]="level">{{content}}</lg-heading>
+`;
+
+const detailsTemplate: Story<LgHeadingComponent> = (args: LgHeadingComponent) => ({
+  props: args,
+  template,
+});
+
+export const standardHeading = detailsTemplate.bind({});
+standardHeading.storyName = 'Standard';
+standardHeading.args = {
+  content: 'Heading',
+  level: 1,
+};
+standardHeading.parameters = {
+  docs: {
+    source: {
+      code: template,
     },
   },
 };
-
-const groupId = 'lg-heading';
-
-export const standard = () => ({
-  template: `
-    <lg-heading
-      [level]="level">
-      {{content}}
-    </lg-heading>
-  `,
-  props: {
-    content: text('text', 'Heading', groupId),
-    level: select('level', [1, 2, 3, 4, 5, 6], 1, groupId),
-  },
-});
