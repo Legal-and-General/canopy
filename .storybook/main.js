@@ -6,6 +6,7 @@ module.exports = {
     '../projects/canopy/src/lib/alert/alert.stories.ts',
     '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
     '../projects/canopy/src/lib/focus/focus.stories.ts',
+    '../projects/canopy/src/lib/footer/footer.stories.ts',
     '../projects/canopy/src/lib/details/details.stories.ts',
     '../projects/canopy/src/lib/heading/heading.stories.ts',
     '../projects/canopy/src/lib/header/header.stories.ts',
