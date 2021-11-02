@@ -8,6 +8,7 @@ module.exports = {
     '../projects/canopy/src/lib/focus/focus.stories.ts',
     '../projects/canopy/src/lib/details/details.stories.ts',
     '../projects/canopy/src/lib/heading/heading.stories.ts',
+    '../projects/canopy/src/lib/header/header.stories.ts',
   ],
   addons: [
     '@storybook/addon-links',
