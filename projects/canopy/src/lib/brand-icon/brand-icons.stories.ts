@@ -1,15 +1,15 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
-import { select, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgBrandIconComponent } from './brand-icon.component';
 import { notes } from './brand-icon.notes';
 import { LgBrandIconRegistry } from './brand-icon.registry';
+
 import * as brandIconSet from './brand-icons.interface';
 
-export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
+const brandIconsArray: Array<brandIconSet.BrandIcon> = [
   brandIconSet.lgBrandIconCalendar,
   brandIconSet.lgBrandIconChangeExistingHoldings,
   brandIconSet.lgBrandIconChangeFutureContributions,
@@ -38,7 +38,6 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
   brandIconSet.lgBrandIconPhoneCall,
   brandIconSet.lgBrandIconWorldWideWeb,
 ];
-
 @Component({
   selector: 'lg-swatch-brand-icon',
   template: `
@@ -47,7 +46,7 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
         class="swatch__svg"
         [name]="icon.name"
         [size]="size"
-        [colour]="i === 0 ? specificColour : null"
+        [colour]="i === 0 ? colour : null"
         [attr.style]="cssVar"
       ></lg-brand-icon>
       <span class="swatch__name">{{ icon.name }}</span>
@@ -81,7 +80,7 @@ export const brandIconsArray: Array<brandIconSet.BrandIcon> = [
 class SwatchBrandIconComponent implements OnChanges {
   @Input() size: string;
   @Input() colour: string;
-  @Input() specificColour: string;
+  @Input() globalColour: string;
 
   icons = brandIconsArray;
   cssVar: SafeStyle;
@@ -90,32 +89,16 @@ class SwatchBrandIconComponent implements OnChanges {
     this.registry.registerBrandIcon(this.icons);
   }
 
-  ngOnChanges({ colour }: SimpleChanges) {
-    if (colour && colour.currentValue) {
+  ngOnChanges({ globalColour }: SimpleChanges) {
+    if (globalColour && globalColour.currentValue) {
       this.cssVar = this.sanitizer.bypassSecurityTrustStyle(
-        `--brand-icon-fill-primary: var(${colour.currentValue})`,
+        `--brand-icon-fill-primary: var(${globalColour.currentValue})`,
       );
     }
   }
 }
 
 const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
-
-export default {
-  title: 'Components/Brand Icon',
-  excludeStories: ['brandIconsArray'],
-  parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [SwatchBrandIconComponent, LgBrandIconComponent],
-      }),
-    ],
-    notes: {
-      markdown: notes,
-    },
-  },
-};
 
 const colours = [
   '--color-dandelion-yellow',
@@ -125,21 +108,93 @@ const colours = [
   '--color-poppy-red-dark',
 ];
 
-export const standard = () => ({
-  template: `
-    <lg-swatch-brand-icon [size]="size" [colour]="colour" [specificColour]="specificColour"></lg-swatch-brand-icon>
-  `,
-  props: {
-    size: select('size', sizes, 'xs'),
-    colour: select(
-      'example of applying colour globally',
-      colours,
-      '--color-dandelion-yellow',
-    ),
-    specificColour: select(
-      'example of applying colour specifically to an icon',
-      colours,
-      '--color-super-blue',
-    ),
+export default {
+  title: 'Components/Brand Icon',
+  decorators: [
+    moduleMetadata({
+      declarations: [SwatchBrandIconComponent, LgBrandIconComponent],
+    }),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
   },
+  argTypes: {
+    size: {
+      options: sizes,
+      description: 'The size of the icon',
+      table: {
+        type: {
+          summary: sizes,
+        },
+        defaultValue: {
+          summary: 'sm',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    globalColour: {
+      options: colours,
+      description:
+        'The primary colour of icons globally. Can be changed by overriding the `--brand-icon-fill-primary` CSS variable.',
+      table: {
+        defaultValue: {
+          summary: '--color-dandelion-yellow',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    colour: {
+      options: colours,
+      description: 'The colour of a specific icon, using the `colour` input',
+      table: {
+        type: {
+          summary: colours,
+        },
+        defaultValue: {
+          summary: '--color-dandelion-yellow',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+  },
+};
+
+const exampleTemplate = `
+<lg-brand-icon
+  [name]="sun"
+  size="sm"
+  colour="--color-dandelion-yellow"
+></lg-brand-icon>
+`;
+
+const brandIconsTemplate: Story<LgBrandIconComponent> = (args: LgBrandIconComponent) => ({
+  props: args,
+  template:
+    '<lg-swatch-brand-icon [size]="size" [colour]="colour" [globalColour]="globalColour"></lg-swatch-brand-icon>',
 });
+
+export const standardBrandIcons = brandIconsTemplate.bind({});
+standardBrandIcons.storyName = 'Standard';
+standardBrandIcons.args = {
+  size: 'sm',
+};
+standardBrandIcons.parameters = {
+  docs: {
+    description: {
+      component: notes,
+    },
+    source: {
+      code: exampleTemplate,
+    },
+  },
+};
