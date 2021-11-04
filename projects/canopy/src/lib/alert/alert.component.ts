@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Variant } from '../variant/variant.interface';
+import type { Variant } from '../variant/variant.interface';
 
 @Component({
   selector: 'lg-alert',
@@ -38,12 +38,12 @@ export class LgAlertComponent {
   }
 
   @HostBinding('attr.role') get role(): string {
-    if (this.variant !== Variant.Info && this.variant !== Variant.Generic) {
+    if (this.variant !== 'info' && this.variant !== 'generic') {
       return 'alert';
     }
   }
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {
-    this.variant = Variant.Generic;
+    this.variant = 'generic';
   }
 }

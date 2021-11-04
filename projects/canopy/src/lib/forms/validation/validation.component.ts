@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { Variant } from '../../variant';
+import type { Variant } from '../../variant';
 
 let nextUniqueId = 0;
 
@@ -44,6 +44,6 @@ export class LgValidationComponent {
   id = `lg-validation-${nextUniqueId++}`;
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {
-    this.variant = Variant.Error;
+    this.variant = 'error';
   }
 }
