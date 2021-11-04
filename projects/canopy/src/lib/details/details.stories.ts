@@ -4,8 +4,9 @@ import { LgHeadingModule } from '../heading';
 import { LgDetailsModule } from './details.module';
 import { notes } from './details.notes';
 import { LgIconModule } from '../icon';
-import { Variant } from '../variant';
 import { LgDetailsComponent } from './details.component';
+
+const variantTypes = ['generic', 'info', 'success', 'warning', 'error'];
 
 export default {
   title: 'Components/Details',
@@ -39,14 +40,14 @@ export default {
       },
     },
     variant: {
-      options: Object.values(Variant),
+      options: variantTypes,
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: Object.values(Variant),
+          summary: variantTypes,
         },
         defaultValue: {
-          summary: Variant.Generic,
+          summary: 'generic',
         },
       },
       control: {
@@ -154,7 +155,7 @@ const detailsTemplate: Story<LgDetailsComponent> = (args: LgDetailsComponent) =>
 export const standardDetails = detailsTemplate.bind({});
 standardDetails.storyName = 'Standard';
 standardDetails.args = {
-  variant: Variant.Generic,
+  variant: 'generic',
   headingLevel: 5,
 };
 standardDetails.parameters = {
