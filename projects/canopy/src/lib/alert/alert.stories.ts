@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
-import { Variant } from '../variant/variant.interface';
-
 import { LgAlertModule } from './alert.module';
 import { LgAlertComponent } from './alert.component';
 import { notes } from './alert.notes';
+
+const variantTypes = ['generic', 'info', 'success', 'warning', 'error'];
 
 // This default export determines where your story goes in the story list
 export default {
@@ -40,14 +40,14 @@ export default {
       },
     },
     variant: {
-      options: Object.values(Variant),
+      options: variantTypes,
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: Object.values(Variant),
+          summary: variantTypes,
         },
         defaultValue: {
-          summary: Variant.Generic,
+          summary: 'generic',
         },
       },
       control: {
@@ -79,7 +79,7 @@ export const standardAlert = alertTemplate.bind({});
 standardAlert.storyName = 'Standard';
 standardAlert.args = {
   content: 'This is an alert.',
-  variant: Variant.Generic,
+  variant: 'generic',
 };
 standardAlert.parameters = {
   docs: {
