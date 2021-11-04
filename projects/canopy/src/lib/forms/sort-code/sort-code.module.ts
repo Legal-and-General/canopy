@@ -8,6 +8,7 @@ import { LgInputModule } from '../input/input.module';
 import { LgSortCodeComponent } from './sort-code.component';
 import { LgMarginModule } from '../../spacing/margin';
 import { LgFocusModule } from '../../focus/focus.module';
+import { LgSortCodeDirective } from './sort-code.directive';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { LgFocusModule } from '../../focus/focus.module';
     LgMarginModule,
     LgFocusModule,
   ],
-  declarations: [LgSortCodeComponent],
-  exports: [LgSortCodeComponent],
+  declarations: [LgSortCodeComponent, LgSortCodeDirective],
+  exports: [LgSortCodeComponent, LgSortCodeDirective],
 })
 export class LgSortCodeModule {}

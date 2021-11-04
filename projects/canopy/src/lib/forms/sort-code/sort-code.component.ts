@@ -40,6 +40,10 @@ let nextUniqueId = 0;
   styleUrls: ['./sort-code.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
+/**
+ * @deprecated LgSortCodeComponent is deprecated.
+ * Please use the LgSortCodeDirective instead.
+ */
 export class LgSortCodeComponent
   implements OnInit, ControlValueAccessor, Validator, OnDestroy
 {
