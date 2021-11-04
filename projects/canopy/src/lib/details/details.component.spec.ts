@@ -5,7 +5,6 @@ import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 import { LgDetailsComponent } from './details.component';
-import { Variant } from '../variant';
 
 describe('LgDetailsComponent', () => {
   let component: LgDetailsComponent;
@@ -65,24 +64,24 @@ describe('LgDetailsComponent', () => {
     });
 
     it('does not add an Aria role for the info variant', () => {
-      component.variant = Variant.Info;
+      component.variant = 'info';
       expect(detailsEl.getAttribute('role')).toBeNull();
     });
 
     it('adds an Aria role "alert" for the warning variant', () => {
-      component.variant = Variant.Warning;
+      component.variant = 'warning';
       fixture.detectChanges();
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
     it('adds an Aria role "alert" for the error variant', () => {
-      component.variant = Variant.Error;
+      component.variant = 'error';
       fixture.detectChanges();
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
     it('adds an Aria role "success" for the error variant', () => {
-      component.variant = Variant.Success;
+      component.variant = 'success';
       fixture.detectChanges();
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });

@@ -3,13 +3,13 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgVariantDirective } from './variant.directive';
-import { Variant } from './variant.interface';
+import type { Variant } from './variant.interface';
 
 @Component({
   template: ` <div [lgVariant]="lgVariant">Test</div> `,
 })
 class TestComponent {
-  @Input() lgVariant: Variant = Variant.Generic;
+  @Input() lgVariant: Variant = 'generic';
 }
 
 describe('LgVariant', () => {
@@ -44,13 +44,13 @@ describe('LgVariant', () => {
   });
 
   it('adds the info variant class', () => {
-    component.lgVariant = Variant.Info;
+    component.lgVariant = 'info';
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain('lg-variant--info');
   });
 
   it('adds the success variant class', () => {
-    component.lgVariant = Variant.Success;
+    component.lgVariant = 'success';
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       'lg-variant--success',
@@ -58,7 +58,7 @@ describe('LgVariant', () => {
   });
 
   it('adds the warning variant class', () => {
-    component.lgVariant = Variant.Warning;
+    component.lgVariant = 'warning';
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       'lg-variant--warning',
@@ -66,7 +66,7 @@ describe('LgVariant', () => {
   });
 
   it('adds the error variant class', () => {
-    component.lgVariant = Variant.Error;
+    component.lgVariant = 'error';
     fixture.detectChanges();
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       'lg-variant--error',

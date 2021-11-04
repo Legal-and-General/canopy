@@ -5,7 +5,7 @@ import { MockComponents } from 'ng-mocks';
 
 import { LgAlertComponent } from './alert.component';
 import { LgIconComponent } from '../icon';
-import { Variant } from '../variant/variant.interface';
+import type { Variant } from '../variant/variant.interface';
 
 describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
@@ -32,19 +32,19 @@ describe('LgAlertComponent', () => {
   });
 
   it('adds the variant class to the alert component', () => {
-    component.variant = Variant.Success;
+    component.variant = 'success';
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('class')).toContain('success');
   });
 
   it('does not add a Aria role for the info variant', () => {
-    component.variant = Variant.Info;
+    component.variant = 'info';
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('role')).toBeNull();
   });
 
   it('adds the Aria role "alert" for all other variants', () => {
-    component.variant = Variant.Warning;
+    component.variant = 'warning';
     fixture.detectChanges();
     expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
   });
@@ -62,13 +62,13 @@ describe('LgAlertComponent', () => {
   });
 
   [
-    { variant: Variant.Error, icon: 'crossmark-spot-fill' },
-    { variant: Variant.Info, icon: 'information-fill' },
-    { variant: Variant.Warning, icon: 'warning-fill' },
-    { variant: Variant.Success, icon: 'checkmark-spot-fill' },
+    { variant: 'error', icon: 'crossmark-spot-fill' },
+    { variant: 'info', icon: 'information-fill' },
+    { variant: 'warning', icon: 'warning-fill' },
+    { variant: 'success', icon: 'checkmark-spot-fill' },
   ].forEach(({ variant, icon }) => {
     it(`renders the correct icon for the ${variant} alert`, () => {
-      component.variant = variant;
+      component.variant = variant as Variant;
       fixture.detectChanges();
       expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();
     });
