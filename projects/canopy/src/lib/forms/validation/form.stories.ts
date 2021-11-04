@@ -189,18 +189,19 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-date-field>
 
-      <lg-sort-code formControlName="sortCode">
+      <lg-input-field>
         Sort Code
         <lg-hint>Must be 6 digits long</lg-hint>
+        <input lgInput lgSortCode formControlName="sortCode" />
         <lg-validation *ngIf="isControlInvalid(sortCode, validationForm)">
-          <ng-container *ngIf="sortCode.hasError('requiredField')">
+          <ng-container *ngIf="sortCode.hasError('required')">
             Enter a sort code
           </ng-container>
-          <ng-container *ngIf="sortCode.hasError('invalidField')">
+          <ng-container *ngIf="sortCode.hasError('pattern')">
             Enter a valid sort code
           </ng-container>
         </lg-validation>
-      </lg-sort-code>
+      </lg-input-field>
 
       <button lg-button type="submit" variant="solid-primary">Submit</button>
     </form>
