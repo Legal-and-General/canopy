@@ -33,7 +33,6 @@ import { LgHideAtModule } from './hide-at/hide-at.module';
 import { LgIconModule } from './icon/icon.module';
 import { LgModalModule } from './modal/modal.module';
 import { LgPageModule } from './page/page.module';
-import { LgPipesModule } from './pipes/pipes.module';
 import { LgPrefixModule } from './prefix/prefix.module';
 import { LgPromoCardModule } from './promo-card/promo-card.module';
 import { LgQuickActionModule } from './quick-action/quick-action.module';
@@ -47,6 +46,8 @@ import { LgSuffixModule } from './suffix/suffix.module';
 import { LgTableModule } from './table/table.module';
 import { LgTabsModule } from './tabs/tabs.module';
 import { LgVariantModule } from './variant/variant.module';
+import { LgCamelCasePipeModule } from './pipes/camel-case/camel-case.module';
+import { LgKebabCasePipeModule } from './pipes/kebab-case/kebab-case.module';
 import { LgPrimaryMessageModule } from './primary-message/primary-message.module';
 import { LgSrAlertMessageModule } from './sr-alert-message';
 
@@ -79,7 +80,6 @@ const modules = [
   LgHideAtModule,
   LgIconModule,
   LgPageModule,
-  LgPipesModule,
   LgPrefixModule,
   LgPromoCardModule,
   LgQuickActionModule,
@@ -96,6 +96,8 @@ const modules = [
   LgVariantModule,
   LgCarouselModule,
   LgModalModule,
+  LgCamelCasePipeModule,
+  LgKebabCasePipeModule,
   LgPrimaryMessageModule,
 ];
 
