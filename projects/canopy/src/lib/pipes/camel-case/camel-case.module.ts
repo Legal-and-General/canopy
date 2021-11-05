@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgCamelCasePipe } from 'canopy/lib/pipes';
+import { LgCamelCasePipe } from './camel-case.pipe';
 
 @NgModule({
   imports: [CommonModule],

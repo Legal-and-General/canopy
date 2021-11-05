@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgKebabCasePipe } from 'canopy/lib/pipes';
+import { LgKebabCasePipe } from './kebab-case.pipe';
 
 @NgModule({
   imports: [CommonModule],
