@@ -35,6 +35,7 @@ export * from './lib/shadow/index';
 export * from './lib/show-at/index';
 export * from './lib/side-nav/index';
 export * from './lib/skeleton/index';
+export * from './lib/sr-alert-message/index';
 export * from './lib/spacing/index';
 export * from './lib/spinner/index';
 export * from './lib/suffix/index';

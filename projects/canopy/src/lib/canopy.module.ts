@@ -48,6 +48,7 @@ import { LgTableModule } from './table/table.module';
 import { LgTabsModule } from './tabs/tabs.module';
 import { LgVariantModule } from './variant/variant.module';
 import { LgPrimaryMessageModule } from './primary-message/primary-message.module';
+import { LgSrAlertMessageModule } from './sr-alert-message';
 
 const modules = [
   LgAccordionModule,
@@ -82,6 +83,7 @@ const modules = [
   LgPrefixModule,
   LgPromoCardModule,
   LgQuickActionModule,
+  LgSrAlertMessageModule,
   LgSeparatorModule,
   LgShowAtModule,
   LgSideNavModule,

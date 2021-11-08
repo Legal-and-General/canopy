@@ -5,7 +5,6 @@
     'lg-spinner__ring--light': variant === 'light',
     'lg-spinner__ring--inherit': variant === 'inherit'
   }"
-  role="alert"
   aria-busy="true"
 ></div>
 
@@ -16,7 +15,8 @@
     'lg-spinner__content--light': variant === 'light'
   }"
 >
-  {{ text }}
+  <span aria-hidden="true">{{ text }}</span>
+  <span class="lg-visually-hidden">{{ text }}</span>
 </p>
 
 <ng-template #defaultText>
