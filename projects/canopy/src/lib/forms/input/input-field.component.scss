@@ -65,7 +65,6 @@
     }
 
     #{$block}--error & {
-      color: var(--form-error-color);
       border-color: var(--form-error-border-color);
     }
 
@@ -116,5 +115,9 @@
 
   &:-webkit-autofill {
     -webkit-background-clip: text;
+  }
+
+  &--error {
+    color: var(--form-error-color);
   }
 }
