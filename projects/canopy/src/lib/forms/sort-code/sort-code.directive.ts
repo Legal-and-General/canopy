@@ -13,7 +13,7 @@ export class LgSortCodeDirective implements OnInit {
   @HostBinding('attr.size') size = '11';
   @HostListener('focusout', ['$event.target.value']) onBlur(value) {
     if (this.ngControl.valid) {
-      this.ngControl.valueAccessor.writeValue(this.format(value));
+      this.ngControl.control.setValue(this.format(value), { emitEvent: false });
     }
   }
 
@@ -22,7 +22,7 @@ export class LgSortCodeDirective implements OnInit {
   ngOnInit(): void {
     const validators = [
       Validators.required,
-      Validators.pattern(/^(?:\d{6}|\d\d-\d\d-\d\d)$/),
+      Validators.pattern(/^(?:\d{6}|\d\d-\d\d-\d\d|\d\d\s\d\d\s\d\d)$/),
     ];
 
     if (this.ngControl.control.validator) {
@@ -33,7 +33,7 @@ export class LgSortCodeDirective implements OnInit {
 
   private format(value: string): string {
     return value
-      .replace(/\-/g, '')
+      .replace(/-|\s/g, '')
       .match(/.{1,2}/g)
       .join('-');
   }

@@ -83,6 +83,8 @@ describe('LgSortCodeDirective', () => {
   describe('#format', () => {
     it('should add dashes between the numbers', () => {
       expect(inputInstance['format']('000000')).toEqual('00-00-00');
+      expect(inputInstance['format']('00 00 00')).toEqual('00-00-00');
+      expect(inputInstance['format']('00-00-00')).toEqual('00-00-00');
     });
 
     it('should be called on a focusout event', () => {
