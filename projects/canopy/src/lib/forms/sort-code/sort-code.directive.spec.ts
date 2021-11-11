@@ -77,7 +77,7 @@ describe('LgSortCodeDirective', () => {
 
   it('adds a size attribute', () => {
     fixture.detectChanges();
-    expect(inputDebugElement.nativeElement.getAttribute('size')).toBe('11');
+    expect(inputDebugElement.nativeElement.getAttribute('size')).toBe('7');
   });
 
   describe('#format', () => {
