@@ -10,7 +10,7 @@ export class LgSortCodeDirective implements OnInit {
   @HostBinding('attr.inputmode') inputmode = 'numeric';
   // 8 because we allow for the two dashes
   @HostBinding('attr.maxlength') maxlength = '8';
-  @HostBinding('attr.size') size = '11';
+  @HostBinding('attr.size') size = '7';
   @HostListener('focusout', ['$event.target.value']) onBlur(value) {
     if (this.ngControl.valid) {
       this.ngControl.control.setValue(this.format(value), { emitEvent: false });
