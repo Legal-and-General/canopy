@@ -500,10 +500,11 @@
                 <lg-filter-checkbox value="blue">Blue</lg-filter-checkbox>
               </lg-filter-multiple-group>
 
-              <lg-sort-code formControlName="sortCode">
+              <lg-input-field>
                 Sort Code
                 <lg-hint>Must be 6 digits long</lg-hint>
-              </lg-sort-code>
+                <input lgInput lgSortCode formControlName="sortCode" />
+              </lg-input-field>
 
               <button lg-button type="submit" variant="solid-primary">Submit</button>
             </form>

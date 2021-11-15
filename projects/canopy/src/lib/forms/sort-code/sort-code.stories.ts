@@ -5,25 +5,25 @@ import { moduleMetadata } from '@storybook/angular';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import { LgSortCodeComponent } from './sort-code.component';
 import { CanopyModule } from '../../canopy.module';
 import { notes } from './sort-code.notes';
+import { LgSortCodeDirective } from './sort-code.directive';
 
 @Component({
   selector: 'lg-reactive-form',
   template: `
     <form [formGroup]="form">
-      <lg-sort-code formControlName="sortCode" [focus]="focus">
+      <lg-input-field>
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-      </lg-sort-code>
+        <input lgInput lgSortCode formControlName="sortCode" />
+      </lg-input-field>
     </form>
   `,
 })
 class ReactiveFormComponent {
   @Input() hint: string;
   @Input() label: string;
-  @Input() focus: boolean;
 
   @Input()
   set disabled(disabled: boolean) {
@@ -51,7 +51,7 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Form/Sort Code',
-  component: LgSortCodeComponent,
+  components: [LgSortCodeDirective],
   decorators: [
     withKnobs,
     moduleMetadata({
@@ -72,13 +72,11 @@ export const standard = () => ({
     [disabled]="disabled"
     [hint]="hint"
     [label]="label"
-    [focus]="focus"
   ></lg-reactive-form>`,
   props: {
     inputChange: action('inputChange'),
     label: text('label', 'Sort code'),
     hint: text('hint', 'Must be 6 digits long'),
     disabled: boolean('disabled', false),
-    focus: boolean('focus', false),
   },
 });

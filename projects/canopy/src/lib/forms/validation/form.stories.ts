@@ -87,44 +87,6 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-select-field>
 
-      <lg-radio-group formControlName="radio">
-        Radio option
-        <lg-hint>This is a standard radio group</lg-hint>
-        <lg-radio-button value="yellow">Yellow</lg-radio-button>
-        <lg-radio-button value="red">Red</lg-radio-button>
-        <lg-radio-button value="blue">Blue</lg-radio-button>
-        <lg-radio-button value="invalid">Invalid</lg-radio-button>
-        <lg-validation
-          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('invalid')"
-        >
-          Please select a valid option
-        </lg-validation>
-        <lg-validation
-          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('required')"
-        >
-          Please select an option
-        </lg-validation>
-      </lg-radio-group>
-
-      <lg-segment-group formControlName="segment">
-        Segment option
-        <lg-hint>This is a standard segment group</lg-hint>
-        <lg-segment-button value="yellow">Yellow</lg-segment-button>
-        <lg-segment-button value="red">Red</lg-segment-button>
-        <lg-segment-button value="blue">Blue</lg-segment-button>
-        <lg-segment-button value="invalid">Invalid</lg-segment-button>
-        <lg-validation
-          *ngIf="isControlInvalid(segment, validationForm) && segment.hasError('invalid')"
-        >
-          Please select a valid option
-        </lg-validation>
-        <lg-validation
-          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('required')"
-        >
-          Please select an option
-        </lg-validation>
-      </lg-segment-group>
-
       <lg-checkbox-group formControlName="colors">
         Checkbox group
         <lg-hint>This is a standard checkbox group</lg-hint>
@@ -189,18 +151,19 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-date-field>
 
-      <lg-sort-code formControlName="sortCode">
+      <lg-input-field>
         Sort Code
         <lg-hint>Must be 6 digits long</lg-hint>
+        <input lgInput lgSortCode formControlName="sortCode" />
         <lg-validation *ngIf="isControlInvalid(sortCode, validationForm)">
-          <ng-container *ngIf="sortCode.hasError('requiredField')">
+          <ng-container *ngIf="sortCode.hasError('required')">
             Enter a sort code
           </ng-container>
-          <ng-container *ngIf="sortCode.hasError('invalidField')">
+          <ng-container *ngIf="sortCode.hasError('pattern')">
             Enter a valid sort code
           </ng-container>
         </lg-validation>
-      </lg-sort-code>
+      </lg-input-field>
 
       <button lg-button type="submit" variant="solid-primary">Submit</button>
     </form>
@@ -227,14 +190,6 @@ class ReactiveFormComponent {
     return this.form.get('select');
   }
 
-  get radio() {
-    return this.form.get('radio');
-  }
-
-  get segment() {
-    return this.form.get('segment');
-  }
-
   get colors() {
     return this.form.get('colors');
   }
@@ -253,8 +208,6 @@ class ReactiveFormComponent {
     this.form = this.fb.group({
       text: ['', [Validators.required, Validators.minLength(4), invalidValidator()]],
       select: ['', [Validators.required, invalidValidator()]],
-      radio: ['', [Validators.required, invalidValidator()]],
-      segment: ['', [Validators.required, invalidValidator()]],
       colors: this.fb.control([], [Validators.required]),
       checkbox: ['', [Validators.requiredTrue]],
       switch: ['', [Validators.requiredTrue]],
