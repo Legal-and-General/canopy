@@ -1,8 +1,4 @@
 export const notes = `
-# Modal Component
-
-
-## Purpose
 Provides a modal component for displaying content.
 
 ## Usage
@@ -13,44 +9,7 @@ Provides a modal component for displaying content.
 })
 ~~~
 
-and in your HTML:
-
-~~~html
-<button lgModalTrigger="modal-story" lg-button type="button" variant="outline-primary">Open modal</button>
-
-<lg-modal id="modal-story">
-  <lg-modal-header>Lorem ipsum</lg-modal-header>
-  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>
-  <lg-modal-footer>
-    <lg-button-group>
-      <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>
-      <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Cancel</button>
-    </lg-button-group>
-  </lg-modal-footer>
-</lg-modal>
-~~~
-
-for a timout modal you can use the following structure:
-
-~~~html
-<button lgModalTrigger="modal-story" lg-button type="button" variant="outline-primary">Open modal</button>
-
-<lg-modal id="modal-story">
-  <lg-modal-header>Logout</lg-modal-header>
-  <lg-modal-body>
-    For your security, we'll log yuo out in:
-    <lg-modal-body-timer timer="0:58"></lg-modal-body-timer>
-  </lg-modal-body>
-  <lg-modal-footer>
-    <lg-button-group>
-      <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>
-      <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Cancel</button>
-    </lg-button-group>
-  </lg-modal-footer>
-</lg-modal>
-~~~
-
-Opening and closing the modal is also possible by using the \`\`ModalService\`\`.
+Opening and closing the modal is possible by using the \`\`ModalService\`\`.
 Import the service:
 
 ~~~js
