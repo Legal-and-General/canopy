@@ -57,7 +57,7 @@ export default {
   },
   argTypes: {
     hasRole: {
-      description: 'If false, removes the role ``alert`` from the component',
+      description: 'If false, removes the role ``alert`` from the component.',
       table: {
         type: {
           summary: 'boolean',
