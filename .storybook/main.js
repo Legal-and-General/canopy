@@ -12,6 +12,7 @@ module.exports = {
     '../projects/canopy/src/lib/heading/heading.stories.ts',
     '../projects/canopy/src/lib/header/header.stories.ts',
     '../projects/canopy/src/lib/icon/icons.stories.ts',
+    '../projects/canopy/src/lib/modal/modal.stories.ts',
     '../projects/canopy/src/lib/primary-message/primary-message.stories.ts',
     '../projects/canopy/src/lib/quick-action/quick-action.stories.ts',
     '../projects/canopy/src/lib/separator/separator.stories.ts',

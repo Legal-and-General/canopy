@@ -38,7 +38,7 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   modalBodyComponent: LgModalBodyComponent;
 
   isOpen: boolean;
-  subscription: Subscription;
+  private subscription: Subscription;
 
   constructor(private cdr: ChangeDetectorRef, private modalService: LgModalService) {}
 
