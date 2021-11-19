@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChildren,
+  HostListener,
   Input,
   OnDestroy,
   QueryList,
@@ -24,6 +25,8 @@ import { LgCarouselItemComponent } from './carousel-item/carousel-item.component
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgCarouselComponent implements AfterContentInit, OnDestroy {
+
+  constructor(private cd: ChangeDetectorRef) {}
   @Input() description: string;
   @Input() headingLevel: HeadingLevel;
   @Input() loopMode = false;
@@ -41,6 +44,19 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   pause = new BehaviorSubject<boolean>(false);
   pausableTimer$: Observable<void>;
 
+  @HostListener('document:keydown.tab', ['$event'])
+  onKeydownHandler(event: KeyboardEvent) {
+    const target = event.target as HTMLElement;
+    const parent = target.parentElement as HTMLElement;
+    const el = parent.className;
+
+    if (el === 'lg-carousel-item') {
+      this.nextCarouselItem();
+      event.preventDefault();
+      this.cd.detectChanges();
+    }
+  }
+
   selectCarouselItem(index: number): void {
     this.selectedItemIndex = index;
     this.selectedItem = this.carouselItems.get(index);
@@ -48,6 +64,12 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
 
     this.carouselItems.forEach((carouselItem: LgCarouselItemComponent) => {
       carouselItem.selected = false;
+      carouselItem.pauseEmit.subscribe((el: string) => {
+        if (el === 'button') {
+          this.pause.next(true);
+          this.cd.detectChanges();
+        }
+      });
     });
     this.selectedItem.selected = true;
     this.cd.detectChanges();
@@ -94,6 +116,4 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
     this.unsubscribe.next();
     this.unsubscribe.complete();
   }
-
-  constructor(private cd: ChangeDetectorRef) {}
 }
