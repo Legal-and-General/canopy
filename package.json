@@ -80,7 +80,7 @@
     "@types/jasminewd2": "^2.0.9",
     "@types/node": "^14.17.32",
     "autoprefixer": "^10.3.4",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.3",
     "codelyzer": "^6.0.2",
     "color-convert": "^2.0.1",
     "commitizen": "^4.2.4",
