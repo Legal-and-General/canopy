@@ -7,4 +7,25 @@
   #full-screen {
     margin: calc(-1 * var(--component-margin));
   }
+
+  /* Custom styling to override Canopy global styles
+     which causes visual issues in Storybook preview */
+  .sbdocs-h1 a, 
+  .sbdocs-h2 a, 
+  .sbdocs-h3 a, 
+  .sbdocs-h5 a, 
+  .sbdocs-h6 a {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .sbdocs-h1 a:hover, 
+  .sbdocs-h2 a:hover, 
+  .sbdocs-h3 a:hover, 
+  .sbdocs-h5 a:hover, 
+  .sbdocs-h6 a:hover {
+    border-bottom: 0;
+    box-shadow: none;
+    background-color: transparent;
+    color: inherit;
+  }
 </style>
