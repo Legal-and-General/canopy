@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+
+import { CommonModule } from '@angular/common';
+
+import { LgIconModule } from '../icon/'
+import { LgBreadcrumbComponent } from './breadcrumb.component.ts'
+import { LgBreadcrumbModule } from './breadcrumb.module.ts'
+
+<Meta title="Components/Breadcrumb" component={LgBreadcrumbComponent} decorators={[
+      moduleMetadata({
+        imports: [CommonModule, LgBreadcrumbModule, LgIconModule],
+      })
+    ]}/>
+
+# Breadcrumb
+
+Displays the path of the user's journey from top-level through to child. Note that there is different behavior on mobile vs desktop. Crumbs above the current level should be styled as links, and link to the previous level on desktop. It should display the root, current and previous levels of hierarchy.
+On mobile the crumb should take the user back to the previous level, but should be hidden at the top-level.
+
+## With two items
+
+Hello
+<Canvas>
+  <Story 
+    name="Two items"
+    component="{LgBreadcrumbComponent}">
+    {{
+      template: `
+      <lg-breadcrumb variant="dark">
+        <lg-breadcrumb-item>
+          <a href="#">
+            <lg-icon [name]="'home'"></lg-icon>
+            Home
+          </a>
+        </lg-breadcrumb-item>
+        <lg-breadcrumb-item>
+          <a href="#" aria-current="page">Your Pension Product</a>
+        </lg-breadcrumb-item>
+      </lg-breadcrumb>
+      `
+    }}
+  </Story>
+</Canvas>
+
+## ArgsTable
+
+<ArgsTable of={LgBreadcrumbComponent} />
