@@ -19,9 +19,9 @@ jobs:
             ${{ runner.os }}-node-
       - uses: actions/checkout@v2
       - name: setup node
-        uses: actions/setup-node@v2.4.1
+        uses: actions/setup-node@v2.5.0
         with:
-          node-version: 14
+          node-version-file: '.nvmrc'
       - name: install dependencies
         run: npm ci
       - name: install action dependencies
