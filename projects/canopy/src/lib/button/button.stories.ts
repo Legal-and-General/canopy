@@ -1,30 +1,15 @@
 import { Component, Input } from '@angular/core';
 
-import { boolean, text, withKnobs, select } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgButtonModule } from './button.module';
 import { notes } from './button.notes';
-import { iconsArray } from '../icon/icons.stories';
 import { LgIconModule, LgIconRegistry } from '../icon';
-import type { ButtonIconPosition } from '.';
-import type { ButtonVariant, ButtonSize } from './button.interface';
-
-const buttonVariants = [
-  'add-on',
-  'solid-primary',
-  'solid-secondary',
-  'outline-primary',
-  'outline-secondary',
-  'reverse-primary',
-  'reverse-secondary',
-];
-
-const propsGroupId = 'properties';
-const contentGroupId = 'content';
+import { ButtonIconPosition, ButtonSize, LgButtonComponent } from '.';
+import { iconsArray } from '../icon/icons.stories';
 
 @Component({
-  selector: 'lg-button-story',
+  selector: 'lg-button-component-example',
   template: `
     <p>Used on a <strong>button</strong> element</p>
     <button
@@ -38,7 +23,7 @@ const contentGroupId = 'content';
       [variant]="variant"
     >
       {{ content }}
-      <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
+      <lg-icon *ngIf="icon !== 'None'" [name]="icon"></lg-icon>
     </button>
     <p>Used on a <strong>link</strong> element</p>
     <a
@@ -53,18 +38,17 @@ const contentGroupId = 'content';
       [variant]="variant"
     >
       {{ content }}
-      <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
+      <lg-icon *ngIf="icon !== 'None'" [name]="icon"></lg-icon>
     </a>
   `,
 })
-class ButtonStoryComponent {
+class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
   @Input() fullWidth: boolean;
   @Input() icon: string;
   @Input() iconButton: boolean;
   @Input() iconPosition: ButtonIconPosition;
   @Input() loading: boolean;
-  @Input() showIcon: boolean;
   @Input() size: ButtonSize;
   @Input() variant: string;
   @Input() content: string;
@@ -74,110 +58,306 @@ class ButtonStoryComponent {
   }
 }
 
+const buttonVariants = [
+  'add-on',
+  'solid-primary',
+  'solid-secondary',
+  'outline-primary',
+  'outline-secondary',
+  'reverse-primary',
+  'reverse-secondary',
+];
+
 export default {
   title: 'Components/Button',
+  component: LgButtonComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [ButtonComponentExampleComponent],
+      imports: [LgButtonModule, LgIconModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [ButtonStoryComponent],
-        imports: [LgButtonModule, LgIconModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      options: [...buttonVariants],
+      defaultValue: 'solid-primary',
+      table: {
+        type: {
+          summary: 'ButtonVariant',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    content: {
+      description: 'Text content within the button',
+    },
+    icon: {
+      description: 'Icon to display',
+      options: ['None', ...iconsArray.map((i) => i.name)],
+      table: {
+        type: {
+          type: { summary: 'string' },
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    _variant: {
+      table: { disable: true },
+    },
+    class: {
+      table: { disable: true },
+    },
+    hostElement: {
+      table: { disable: true },
     },
   },
 };
 
-interface KnobsConfig {
-  disabled?: boolean;
-  fullWidth?: boolean;
-  iconButton?: boolean;
-  loading?: boolean;
-  showIcon?: boolean;
-  size?: ButtonSize;
-  variant: ButtonVariant;
-}
-
-const createBtnStory = (config: KnobsConfig) => ({
-  template: `
-    <lg-button-story
-      [disabled]="disabled"
-      [fullWidth]="fullWidth ? true : null"
-      [icon]="icon"
-      [iconButton]="iconButton"
-      [iconPosition]="iconPosition"
-      [loading]="loading ? true : null"
-      [showIcon]="showIcon"
-      [size]="size"
-      [variant]="variant"
-      [content]="content"
-      >
-  </lg-button-story>
-  `,
-  props: {
-    disabled: boolean('disabled', false, propsGroupId),
-    content: text('content', 'Button', contentGroupId),
-    fullWidth: boolean('fullWidth', config.fullWidth, propsGroupId),
-    icon: select(
-      'icon',
-      iconsArray.map((icon) => icon.name),
-      'add',
-      contentGroupId,
-    ),
-    iconButton: boolean('iconButton', config.iconButton, propsGroupId),
-    iconPosition: select('iconPosition', ['left', 'right'], 'right', propsGroupId),
-    loading: boolean('loading', config.loading, propsGroupId),
-    showIcon: boolean('show icon', config.showIcon, contentGroupId),
-    size: select('size', ['sm', 'md'], 'md', propsGroupId),
-    variant: select('variant', buttonVariants, config.variant, propsGroupId),
+const iconArgType = {
+  description: 'Icon to display',
+  options: iconsArray.map((i) => i.name),
+  defaultValue: iconsArray[0].name,
+  table: {
+    type: {
+      type: { summary: 'string' },
+    },
   },
+  control: {
+    type: 'select',
+  },
+};
+
+const defaultArgValues = {
+  content: 'Click me',
+  disabled: false,
+  fullWidth: false,
+  iconButton: false,
+  loading: false,
+  icon: 'None',
+  size: 'md',
+};
+
+const buttonTemplate = `
+  <lg-button-component-example
+    [disabled]="disabled"
+    [fullWidth]="fullWidth"
+    [iconButton]="iconButton"
+    [iconPosition]="iconPosition"
+    [loading]="loading"
+    [size]="size"
+    [variant]="variant"
+    [content]="content"
+    [icon]="icon">
+  </lg-button-component-example>
+`;
+
+const solidPrimaryExample = `
+<button lg-button variant="solid-primary">
+  Click me
+</button>
+`;
+const solidPrimaryStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
 });
+export const solidPrimary = solidPrimaryStory.bind({});
+solidPrimary.storyName = 'Solid Primary';
+solidPrimary.args = {
+  ...defaultArgValues,
+  variant: 'solid-primary',
+};
+solidPrimary.parameters = {
+  docs: {
+    source: {
+      code: solidPrimaryExample,
+    },
+  },
+};
 
-export const primaryButton = () =>
-  createBtnStory({
-    variant: 'solid-primary',
-  });
+const solidSecondaryExample = `
+<button lg-button variant="solid-secondary">
+  Click me
+</button>
+`;
+const solidSecondaryStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
+});
+export const solidSecondary = solidSecondaryStory.bind({});
+solidSecondary.storyName = 'Solid Secondary';
+solidSecondary.args = {
+  ...defaultArgValues,
+  variant: 'solid-secondary',
+};
+solidSecondary.parameters = {
+  docs: {
+    source: {
+      code: solidSecondaryExample,
+    },
+  },
+};
 
-export const secondaryButton = () =>
-  createBtnStory({
-    variant: 'solid-secondary',
-  });
+const outlinePrimaryExample = `
+<button lg-button variant="outline-primary">
+  Click me
+</button>
+`;
+const outlinePrimaryStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
+});
+export const outlinePrimary = outlinePrimaryStory.bind({});
+outlinePrimary.storyName = 'Outline primary';
+outlinePrimary.args = {
+  ...defaultArgValues,
+  variant: 'outline-primary',
+};
+outlinePrimary.parameters = {
+  docs: {
+    source: {
+      code: outlinePrimaryExample,
+    },
+  },
+};
 
-export const outlinePrimary = () =>
-  createBtnStory({
-    variant: 'outline-primary',
-  });
+const outlineSecondaryExample = `
+<button lg-button variant="outline-secondary">
+  Click me
+</button>
+`;
+const outlineSecondaryStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
+});
+export const outlineSecondary = outlineSecondaryStory.bind({});
+outlineSecondary.storyName = 'Outline secondary';
+outlineSecondary.args = {
+  ...defaultArgValues,
+  variant: 'outline-secondary',
+};
+outlineSecondary.parameters = {
+  docs: {
+    source: {
+      code: outlineSecondaryExample,
+    },
+  },
+};
 
-export const outlineSecondary = () =>
-  createBtnStory({
-    variant: 'outline-secondary',
-  });
+const reversePrimaryExample = `
+  <button lg-button variant="reverse-primary">
+    Click me
+  </button>
+`;
+const reversePrimaryStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
+});
+export const reversePrimary = reversePrimaryStory.bind({});
+reversePrimary.storyName = 'Reverse primary';
+reversePrimary.args = {
+  ...defaultArgValues,
+  variant: 'reverse-primary',
+};
+reversePrimary.parameters = {
+  docs: {
+    source: {
+      code: reversePrimaryExample,
+    },
+  },
+};
 
-export const reversePrimary = () =>
-  createBtnStory({
-    variant: 'reverse-primary',
-  });
+const reverseSecondaryExample = `
+  <button lg-button variant="reverse-secondary">
+    Click me
+  </button>
+`;
+const reverseSecondaryStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
+});
+export const reverseSecondary = reverseSecondaryStory.bind({});
+reverseSecondary.storyName = 'Reverse secondary';
+reverseSecondary.args = {
+  ...defaultArgValues,
+  variant: 'reverse-secondary',
+};
+reverseSecondary.parameters = {
+  docs: {
+    source: {
+      code: reverseSecondaryExample,
+    },
+  },
+};
 
-export const reverseSecondary = () =>
-  createBtnStory({
-    variant: 'reverse-secondary',
-  });
+const textWithIconExample = `
+<button lg-button variant="solid-primary">
+  {{ content }}
+  <lg-icon name="secure-messaging"></lg-icon>
+</button> 
+`;
+const textWithIconStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
+});
+export const textWithIcon = textWithIconStory.bind({});
+textWithIcon.storyName = 'Icon with text';
+textWithIcon.argTypes = {
+  icon: iconArgType,
+};
+textWithIcon.args = {
+  ...defaultArgValues,
+  variant: 'solid-primary',
+  icon: iconsArray[0].name,
+};
+textWithIcon.parameters = {
+  docs: {
+    source: {
+      code: textWithIconExample,
+    },
+  },
+};
 
-export const textWithIcon = () =>
-  createBtnStory({
-    variant: 'solid-primary',
-    showIcon: true,
-  });
+const iconOnlyExample = `
+<button lg-button variant="solid-primary" [iconButton]="true">
+  {{ content }}
+  <lg-icon name="secure-messaging"></lg-icon>
+</button> 
+`;
+const iconOnlyStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+  props: args,
+  template: buttonTemplate,
+});
+export const iconOnly = iconOnlyStory.bind({});
+iconOnly.storyName = 'Icon only';
+iconOnly.argTypes = {
+  icon: iconArgType,
+};
+iconOnly.args = {
+  ...defaultArgValues,
+  variant: 'solid-primary',
+  iconButton: true,
+  icon: iconsArray[0].name,
+};
+iconOnly.parameters = {
+  docs: {
+    source: {
+      code: iconOnlyExample,
+    },
+  },
+};
 
-export const iconOnly = () =>
-  createBtnStory({
-    variant: 'solid-primary',
-    showIcon: true,
-    iconButton: true,
-  });
-
+/* Old button stories
 export const buttonGroup = () => ({
   template: `
     <lg-button-group>
@@ -193,3 +373,4 @@ export const buttonGroup = () => ({
     </lg-button-group>
   `,
 });
+*/
