@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -19,7 +20,7 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgAccordionPanelHeadingComponent {
+export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   @Input() headingLevel: HeadingLevel;
   @Input()
   get isActive() {
@@ -37,6 +38,10 @@ export class LgAccordionPanelHeadingComponent {
   _isActive = false;
 
   constructor(private cdr: ChangeDetectorRef) {}
+
+  ngAfterViewChecked() {
+    this.cdr.detectChanges();
+  }
 
   toggle() {
     this.isActive = !this.isActive;
