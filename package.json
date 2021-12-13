@@ -51,7 +51,7 @@
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1002.0",
+    "@angular-devkit/build-angular": "^0.1102.15",
     "@angular/cli": "^11.2.15",
     "@angular/compiler-cli": "^11.1.0",
     "@angular/language-service": "^11.2.14",
@@ -104,7 +104,7 @@
     "ng-mocks": "^12.5.0",
     "ng-packagr": "^11.2.4",
     "node-sass": "^4.14.1",
-    "postcss": "^8.3.6",
+    "postcss": "^8.4.5",
     "prettier": "^2.4.1",
     "protractor": "^7.0.0",
     "semantic-release": "^18.0.0",
