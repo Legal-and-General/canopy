@@ -8,6 +8,7 @@ module.exports = {
     '../projects/canopy/src/lib/breadcrumb/breadcrumb.stories.ts',
     '../projects/canopy/src/lib/button/button.stories.ts',
     '../projects/canopy/src/lib/button/button-group/button-group.stories.ts',
+    '../projects/canopy/src/lib/carousel/carousel.stories.ts',
     '../projects/canopy/src/lib/data-point/data-point.stories.ts',
     '../projects/canopy/src/lib/details/details.stories.ts',
     '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
