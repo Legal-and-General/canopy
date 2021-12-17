@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 
-import { select, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
+import { LgVariantDirective } from '.';
 import { LgButtonModule } from '../button';
 import { LgCardModule } from '../card';
 import { LgGridModule } from '../grid';
 import { LgIconModule, LgIconRegistry } from '../icon';
 import { iconsArray } from '../icon/icons.stories';
+import { LgShadowModule } from '../shadow';
 import { LgSpacingModule } from '../spacing';
 import type { Variant } from './variant.interface';
 import { LgVariantModule } from './variant.module';
@@ -18,7 +19,7 @@ const variants = ['generic', 'info', 'success', 'warning', 'error'];
 @Component({
   selector: 'lg-variant-story',
   template: `
-    <lg-card [lgVariant]="variant" lgPaddingLeft="lg" lgPaddingRight="lg">
+    <lg-card lgShadow [lgVariant]="variant" lgPaddingLeft="lg" lgPaddingRight="lg">
       <lg-card-content>
         <p><strong>The variant directive</strong></p>
         <p>
@@ -32,7 +33,7 @@ const variants = ['generic', 'info', 'success', 'warning', 'error'];
         </a>
       </lg-card-content>
     </lg-card>
-    <lg-card>
+    <lg-card lgShadow>
       <lg-card-content>
         This card doesn't use the varaint directive. Here is some
         <a href="#">link text</a>.
@@ -48,33 +49,73 @@ class LgVariantStoryComponent {
 }
 
 export default {
-  title: 'Directives',
+  title: 'Directives/Variant',
+  decorators: [
+    moduleMetadata({
+      declarations: [LgVariantStoryComponent],
+      imports: [
+        LgVariantModule,
+        LgCardModule,
+        LgButtonModule,
+        LgSpacingModule,
+        LgGridModule,
+        LgIconModule,
+        LgShadowModule,
+      ],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [LgVariantStoryComponent],
-        imports: [
-          LgVariantModule,
-          LgCardModule,
-          LgButtonModule,
-          LgSpacingModule,
-          LgGridModule,
-          LgIconModule,
-        ],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      options: variants,
+      description: 'The variant to apply to the component.',
+      table: {
+        type: {
+          summary: variants,
+        },
+      },
+      control: {
+        type: 'select',
+      },
     },
   },
 };
 
-export const variant = () => ({
-  template: `
-    <lg-variant-story [variant]="variant"></lg-variant-story>
-  `,
-  props: {
-    variant: select('variant', variants, 'success'),
-  },
+const template = `
+<lg-variant-story [variant]="variant"></lg-variant-story>
+`;
+const exampleTemplate = `
+<lg-card lgVariant="success">
+  <lg-card-content>
+    <p>
+      This card has the <strong>success</strong> variant applied. Here is some
+      <a href="#">link text</a>.
+    </p>
+    <button lg-button variant="outline-primary" lgMarginBottom="none">Outline primary button</button>
+  </lg-card-content>
+</lg-card>
+`;
+
+const variantStory: Story<LgVariantDirective> = (args: LgVariantDirective) => ({
+  props: args,
+  template,
 });
+
+export const standardVariant = variantStory.bind({});
+standardVariant.storyName = 'Variant';
+standardVariant.args = {
+  variant: 'success',
+};
+standardVariant.parameters = {
+  docs: {
+    source: {
+      code: exampleTemplate,
+    },
+  },
+};
