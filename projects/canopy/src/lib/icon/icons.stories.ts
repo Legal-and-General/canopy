@@ -118,6 +118,7 @@ export const iconsArray: Array<iconSet.Icon> = [
   iconSet.lgIconFolder,
   iconSet.lgIconFollow,
   iconSet.lgIconForum,
+  iconSet.lgIconArrowRightCircle,
   iconSet.lgIconFunds,
   iconSet.lgIconFurntiure,
   iconSet.lgIconGenderFemale,
