@@ -3,19 +3,46 @@
 .lg-header {
   background-color: var(--header-bg-color);
   box-shadow: var(--bottom-shadow);
+}
+
+.lg-header__wrapper {
   display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+
+  @include lg-breakpoint('lg') {
+    height: var(--header-height-lg);
+  }
+}
+
+.lg-header__logos-wrapper {
+  display: flex;
+  align-items: center;
+  padding: var(--space-xxs) 0;
+}
+
+.lg-header__logo,
+.lg-header__second-logo {
+  height: auto;
+  max-height: 100%;
 }
 
 .lg-header__logo {
-  margin: var(--space-xs);
-  margin-left: var(--space-sm);
+  margin-left: 0;
   display: block;
-  height: var(--header-logo-height);
+  width: var(--header-logo-width);
 
-  @include lg-breakpoint('md') {
-    margin: var(--space-xxs);
-    margin-left: var(--space-lg);
-    height: var(--header-logo-height-lg);
+  @include lg-breakpoint('lg') {
+    width: var(--header-logo-width-lg);
+  }
+}
+
+.lg-header__second-logo {
+  margin-left: var(--space-xs);
+  width: var(--header-second-logo-width);
+
+  @include lg-breakpoint('lg') {
+    width: var(--header-second-logo-width-lg);
   }
 }
 

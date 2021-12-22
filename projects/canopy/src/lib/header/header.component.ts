@@ -12,4 +12,8 @@ export class LgHeaderComponent {
   @Input() logo: string;
   @Input() logoAlt = '';
   @Input() logoHref: string;
+
+  @Input() secondLogo: string;
+  @Input() secondLogoAlt = '';
+  @Input() secondLogoHref: string;
 }

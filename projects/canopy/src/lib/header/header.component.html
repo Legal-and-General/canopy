@@ -1,7 +1,52 @@
-<a *ngIf="logoHref; else imgTpl" [attr.href]="logoHref" class="lg-header__link">
-  <ng-container *ngTemplateOutlet="imgTpl"></ng-container>
-</a>
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="12">
+      <div class="lg-header__wrapper">
+        <div class="lg-header__logos-wrapper">
+          <ng-container
+            *ngTemplateOutlet="
+              logoHref ? linkTpl : imgTpl;
+              context: { img: { logoAlt: logo, logoHref: logoHref, logo: logo } }
+            "
+          ></ng-container>
 
-<ng-template #imgTpl>
-  <img [attr.alt]="logoAlt" [attr.src]="logo" class="lg-header__logo" />
+          <ng-container *ngIf="secondLogo">
+            <ng-container
+              *ngTemplateOutlet="
+                secondLogoHref ? linkTpl : imgTpl;
+                context: {
+                  img: {
+                    logoAlt: secondLogoAlt,
+                    logoHref: secondLogoHref,
+                    logo: secondLogo,
+                    isSecondLogo: true
+                  }
+                }
+              "
+            ></ng-container>
+          </ng-container>
+        </div>
+
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #linkTpl let-img="img">
+  <a [attr.href]="img?.logoHref" class="lg-header__link">
+    <ng-container *ngTemplateOutlet="imgTpl; context: { img: img }"></ng-container>
+  </a>
+</ng-template>
+
+<ng-template #imgTpl let-img="img">
+  <img
+    [attr.alt]="img?.logoAlt"
+    [attr.src]="img?.logo"
+    class="lg-header__logo"
+    [ngClass]="{
+      'lg-header__logo': !img?.isSecondLogo,
+      'lg-header__second-logo': img?.isSecondLogo
+    }"
+  />
 </ng-template>

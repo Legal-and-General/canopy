@@ -34,7 +34,20 @@ and in your HTML:
 ### LgHeaderComponent
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`logo\`\` | A url link to the logo | string | null | Yes |
-| \`\`logoAlt\`\` | alt text to display alongside the logo | string | '2rem' | Yes |
-| \`\`logoHref\`\` | Url link if the logo is clickable | string | null | No |
+| \`\`logo\`\` | A url link to the logo | string | undefined | Yes |
+| \`\`logoAlt\`\` | alt text to display alongside the logo | string | '' | Yes |
+| \`\`logoHref\`\` | Url link if the logo is clickable | string | undefined | No |
+| \`\`secondLogo\`\` | A url link to the second logo | string | undefined | Yes |
+| \`\`secondLogoAlt\`\` | alt text to display alongside the second logo | string | '' | Yes |
+| \`\`secondLogoHref\`\` | Url link if the second logo is clickable | string | undefined | No |
+
+## Changing the width of the logos
+The width of the logos can be changed by overriding the values of the below css variables:
+
+~~~css
+--header-logo-width
+--header-logo-width-lg
+--header-second-logo-width
+--header-second-logo-width-lg
+~~~
 `;
