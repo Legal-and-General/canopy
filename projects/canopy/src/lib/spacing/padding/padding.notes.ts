@@ -48,7 +48,7 @@ You can apply a responsive spacing object instead, which will apply different pa
 }
 ~~~
 
-Each **key** is a mobile-first breakpoint from the standard list of available breakpoints: \`\`sm\`\`, \`\`md\`\`, \`\`lg\`\`, \`\`xl\`\`, \`\`xxl\`\`.
+Each **key** is a mobile-first breakpoint from the standard list of available breakpoints: \`\`xs\`\`, \`\`sm\`\`, \`\`md\`\`, \`\`lg\`\`, \`\`xl\`\`, \`\`xxl\`\`.
 
 Each **value** is a standard spacing variant.
 

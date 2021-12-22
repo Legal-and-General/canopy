@@ -12,6 +12,7 @@ export type SpacingVariant =
   | 'xxxxl';
 
 export interface SpacingResponsive {
+  xs?: SpacingVariant;
   sm?: SpacingVariant;
   md?: SpacingVariant;
   lg?: SpacingVariant;
