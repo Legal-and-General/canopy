@@ -67,7 +67,11 @@ stories
         paddingBottom: select('paddingBottom', spaces, 'undefined', 'Standard'),
         paddingLeft: select('paddingLeft', spaces, 'undefined', 'Standard'),
 
-        paddingResponsive: object('padding', { sm: 'sm', md: 'xxl' }, 'Responsive'),
+        paddingResponsive: object(
+          'padding',
+          { xs: 'sm', sm: 'md', md: 'xxl' },
+          'Responsive',
+        ),
         paddingTopResponsive: object('paddingTop', null, 'Responsive'),
         paddingRightResponsive: object('paddingRight', null, 'Responsive'),
         paddingBottomResponsive: object('paddingBottom', null, 'Responsive'),

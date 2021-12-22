@@ -72,7 +72,11 @@ stories
         marginBottom: select('marginBottom', spaces, 'undefined', 'Standard'),
         marginLeft: select('marginLeft', spaces, 'undefined', 'Standard'),
 
-        marginResponsive: object('margin', { sm: 'sm', md: 'xxl' }, 'Responsive'),
+        marginResponsive: object(
+          'margin',
+          { xs: 'sm', sm: 'md', md: 'xxl' },
+          'Responsive',
+        ),
         marginTopResponsive: object('marginTop', null, 'Responsive'),
         marginRightResponsive: object('marginRight', null, 'Responsive'),
         marginBottomResponsive: object('marginBottom', null, 'Responsive'),
