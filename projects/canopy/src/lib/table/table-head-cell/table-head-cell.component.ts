@@ -19,7 +19,7 @@ import { AlignmentOptions } from '../table.interface';
 export class LgTableHeadCellComponent {
   @HostBinding('class') class = 'lg-table-head-cell';
 
-  @HostBinding('attr.align')
+  @HostBinding('style.text-align')
   get alignment() {
     return this.align === AlignmentOptions.End ? 'right' : 'left';
   }
