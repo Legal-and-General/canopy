@@ -34,6 +34,7 @@ export const parameters = {
       { name: 'Charcoal', value: '#333' },
       { name: 'Super Blue', value: '#0076d6' },
       { name: 'Leafy Green', value: '#028844' },
+      { name: 'White Smoke', value: '#f6f6f6' },
     ],
   }
 };
