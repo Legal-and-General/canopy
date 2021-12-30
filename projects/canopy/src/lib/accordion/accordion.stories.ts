@@ -32,7 +32,16 @@ export default {
       description: 'Set false to only allow a single panel to be open at a time.',
     },
     headingLevel: {
-      description: 'The level of the accordion headings',
+      options: ['1', '2', '3', '4', '5', '6'],
+      description: 'The heading level of the accordion panel heading.',
+      table: {
+        type: {
+          summary: ['1', '2', '3', '4', '5', '6'],
+        },
+      },
+      control: {
+        type: 'select',
+      },
     },
     id: {
       table: {
