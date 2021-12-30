@@ -1,5 +1,4 @@
 export const notes = `
-## Purpose
 Provides a generic card component for displaying content. Consists of various card components that are designed to create modular and flexible card layouts, from a basic card with a title, text and buttons to a single-page Form Journey card.
 
 ## Usage
