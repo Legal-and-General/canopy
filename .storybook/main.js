@@ -13,6 +13,7 @@ module.exports = {
     '../projects/canopy/src/lib/data-point/data-point.stories.ts',
     '../projects/canopy/src/lib/details/details.stories.ts',
     '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
+    '../projects/canopy/src/lib/forms/radio/filter.stories.ts',
     '../projects/canopy/src/lib/focus/focus.stories.ts',
     '../projects/canopy/src/lib/footer/footer.stories.ts',
     '../projects/canopy/src/lib/heading/heading.stories.ts',
