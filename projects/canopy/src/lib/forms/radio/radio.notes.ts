@@ -1,7 +1,4 @@
 export const notes = (name: string) => `
-# ${name} Group and ${name} Button Components
-
-## Purpose
 Provides a set of components to implement ${name} buttons in a form. The ${name} Group component is a container which displays the label with an optional hint and should contain two or more ${name} Button components. The ${name} Button component represents a single ${name} button. The Hint component may be used to provide extra context to the user.
 
 ## Usage
@@ -14,22 +11,10 @@ Import the Radio Module into your application:
 })
 ~~~
 
-and in your HTML:
-
-~~~html
-<lg-${name.toLowerCase()}-group ${
-  name === 'Radio' ? '[inline]="true"' : ''
-} formControlName="color">
-  Colour
-  <lg-hint>Please select a colour</lg-hint>
-  <lg-${name.toLowerCase()}-button value="red">Red</lg-${name.toLowerCase()}-button>
-  <lg-${name.toLowerCase()}-button value="yellow">Yellow</lg-${name.toLowerCase()}-button>
-</lg-${name.toLowerCase()}-group>
-~~~
 \
 ${
-  name === 'Segment' &&
-  `### Displaying the buttons at different breakpoints
+  name === 'Segment'
+    ? `### Displaying the buttons at different breakpoints
 
 Radios are displayed inline, unless given a \`RadioStackBreakpoint\`, which tells them at which breakpoint should they appear stacked on top of each other:
 
@@ -41,6 +26,7 @@ Radios are displayed inline, unless given a \`RadioStackBreakpoint\`, which tell
 </lg-segment-group>
 ~~~
     `
+    : ''
 }
 
 ## Inputs
