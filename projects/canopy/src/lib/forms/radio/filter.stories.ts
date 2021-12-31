@@ -1,15 +1,16 @@
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from './radio.notes';
 import { LgRadioModule } from './radio.module';
 import { LgRadioButtonComponent } from './radio-button.component';
+import { LgRadioGroupComponent } from './radio-group.component';
 
 const formTemplate = `
 <form [formGroup]="form">
-  <lg-filter-group formControlName="color">
+  <lg-filter-group formControlName="color" [focus]="focus">
     Select a colour
     <lg-filter-button value="red">Red</lg-filter-button>
     <lg-filter-button value="yellow">Yellow</lg-filter-button>
@@ -24,6 +25,19 @@ const formTemplate = `
   template: formTemplate,
 })
 class ReactiveFormFilterComponent {
+  @Input() focus: boolean;
+  @Input()
+  set disabled(isDisabled: boolean) {
+    if (isDisabled === true) {
+      this.form.controls.color.disable();
+    } else {
+      this.form.controls.color.enable();
+    }
+  }
+  get disabled(): boolean {
+    return this.form.controls.color.disabled;
+  }
+
   @Output() filterChange: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup;
@@ -36,7 +50,7 @@ class ReactiveFormFilterComponent {
 
 export default {
   title: 'Components/Filter buttons',
-  component: LgRadioButtonComponent,
+  component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
       declarations: [ReactiveFormFilterComponent],
@@ -81,23 +95,75 @@ export default {
         },
       },
     },
+    focus: {
+      description: 'Set the focus on the fieldset.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    ariaDescribedBy: {
+      description:
+        'HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate.',
+      control: false,
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    disabled: {
+      description: 'Set the inner filters to disabled.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
     filterChange: {
       action: 'Filter change',
       table: {
         disable: true,
       },
     },
-    ngOnInit: {
+    inline: {
       table: {
         disable: true,
       },
     },
-    onCheck: {
+    stack: {
       table: {
         disable: true,
       },
     },
-    control: {
+    _hintElement: {
+      table: {
+        disable: true,
+      },
+    },
+    _radios: {
+      table: {
+        disable: true,
+      },
+    },
+    _stack: {
+      table: {
+        disable: true,
+      },
+    },
+    _validationElement: {
+      table: {
+        disable: true,
+      },
+    },
+    _value: {
       table: {
         disable: true,
       },
@@ -107,22 +173,42 @@ export default {
         disable: true,
       },
     },
-    checked: {
+    nextUniqueId: {
       table: {
         disable: true,
       },
     },
-    _disabled: {
+    variant: {
       table: {
         disable: true,
       },
     },
-    _variant: {
+    onChange: {
       table: {
         disable: true,
       },
     },
-    _stacked: {
+    onTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnChange: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    setDisabledState: {
+      table: {
+        disable: true,
+      },
+    },
+    writeValue: {
       table: {
         disable: true,
       },
@@ -135,12 +221,16 @@ const filterButtonsStory: Story<LgRadioButtonComponent> = (
 ) => ({
   props: args,
   template: `
-    <lg-reactive-form-filter (filterChange)="filterChange($event)"></lg-reactive-form-filter>
+    <lg-reactive-form-filter (filterChange)="filterChange($event)" [disabled]="disabled" [focus]="focus"></lg-reactive-form-filter>
   `,
 });
 
 export const filterButtons = filterButtonsStory.bind({});
 filterButtons.storyName = 'Standard';
+filterButtons.args = {
+  disabled: false,
+  focus: false,
+};
 filterButtons.parameters = {
   docs: {
     source: {
