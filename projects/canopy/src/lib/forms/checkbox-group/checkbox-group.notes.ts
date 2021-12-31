@@ -1,7 +1,4 @@
-export const notes = (name: string, modifier?) => `
-# ${name} Group Components
-
-## Purpose
+export const notes = (name: string) => `
 Provides a set of components to implement ${name} groups in a form. The ${name} Group component is a container which displays the label with an optional hint and should contain two or more Toggle components. The Toggle component represents a single ${name.toLowerCase()}. The Hint component may be used to provide extra context to the user.
 
 ## Usage
@@ -14,36 +11,6 @@ Import the CheckboxGroup Module into your application:
 })
 ~~~
 
-and in your HTML:
-
-~~~html
-<lg-${
-  modifier ? modifier : name.toLowerCase()
-}-group [inline]="true" formControlName="colors">
-  Colour
-  <lg-hint>Please select all colours that apply</lg-hint>
-  <lg-toggle value="red">Red</lg-toggle>
-  <lg-toggle value="yellow">Yellow</lg-toggle>
-</lg-${modifier ? modifier : name.toLowerCase()}-group>
-~~~
-
-or
-
-~~~html
-<lg-${
-  modifier ? modifier : name.toLowerCase()
-}-group [inline]="true" formControlName="colors">
-  Colour
-  <lg-hint>Please select all colours that apply</lg-hint>
-  <lg${modifier ? '-filter' : ''}-checkbox value="red">Red</lg${
-  modifier ? '-filter' : ''
-}-checkbox>
-  <lg${modifier ? '-filter' : ''}-checkbox value="yellow">Yellow</lg${
-  modifier ? '-filter' : ''
-}-checkbox>
-</lg-${modifier ? modifier : name.toLowerCase()}-group>
-~~~
-
 ## Inputs
 
 ### LgCheckboxGroupComponent
@@ -53,9 +20,13 @@ or
 | \`\`name\`\` | Set the name value for all inputs in the group, auto-generated if not provided | string | 'lg-checkbox-group-\${this.nextUniqueId}' | No |
 | \`\`value\`\` | HTML value attribute. Sets the default checked ${name.toLowerCase()} buttons, must match the values of the ${name.toLowerCase()} buttons | array of strings | null | No |
 | \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
-| \`\`inline\`\` | If true, displays the ${
-  name.toLowerCase
-}s inline rather than stacked | boolean | false | No |
+| \`\`disabled\`\` | Set the inner ${name.toLowerCase()}s to disabled | boolean | false | No |
+| \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the ${name.toLowerCase()}s, if not provided it will use the hint field where appropriate | boolean | null | No |
+${
+  name !== 'Filter'
+    ? `| \`\`inline\`\` | If true, displays the buttons inline rather than stacked | boolean | false | No |`
+    : ''
+}
 
 ### LgToggleComponent
 | Name | Description | Type | Default | Required |
