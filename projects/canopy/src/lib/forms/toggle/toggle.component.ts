@@ -2,23 +2,25 @@ import {
   Component,
   ContentChild,
   ElementRef,
+  forwardRef,
   Host,
   HostBinding,
+  Inject,
   Input,
+  OnInit,
   Optional,
   Self,
   SkipSelf,
   ViewChild,
   ViewEncapsulation,
-  OnInit,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
-import { LgCheckboxGroupComponent } from '../checkbox-group';
 import type { ToggleVariant } from './toggle.interface';
+import { LgCheckboxGroupComponent } from '../checkbox-group';
 
 let nextUniqueId = 0;
 
@@ -114,7 +116,9 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
 
   constructor(
     @Self() @Optional() public control: NgControl,
-    @Optional() private checkboxGroup: LgCheckboxGroupComponent,
+    @Optional()
+    @Inject(forwardRef(() => LgCheckboxGroupComponent))
+    private checkboxGroup: LgCheckboxGroupComponent,
     private domService: LgDomService,
     private errorState: LgErrorStateMatcher,
     @Optional()
@@ -134,7 +138,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.checkboxGroup) {
       this.variant = this.checkboxGroup.variant;
       if (this.checkboxGroup.value.includes(this.value.toString())) {
