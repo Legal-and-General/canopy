@@ -2,17 +2,17 @@ import {
   Component,
   ContentChild,
   ContentChildren,
+  ElementRef,
   forwardRef,
   Host,
   HostBinding,
   Input,
   Optional,
   QueryList,
+  Renderer2,
   Self,
   SkipSelf,
   ViewEncapsulation,
-  ElementRef,
-  Renderer2,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -20,7 +20,7 @@ import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
-import { LgToggleComponent } from '../toggle';
+import { LgToggleComponent } from '../toggle/toggle.component';
 import { CheckboxGroupVariant } from './checkbox-group.interface';
 
 let uniqueId = 0;

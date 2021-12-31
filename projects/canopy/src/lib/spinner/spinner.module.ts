@@ -7,6 +7,6 @@ import { LgSpinnerComponent } from './spinner.component';
 @NgModule({
   imports: [CommonModule, LgSrAlertMessageModule],
   declarations: [LgSpinnerComponent],
-  exports: [LgSpinnerComponent],
+  exports: [LgSpinnerComponent, LgSrAlertMessageModule],
 })
 export class LgSpinnerModule {}
