@@ -57,7 +57,7 @@
     "@angular/language-service": "^11.2.14",
     "@babel/core": "^7.16.5",
     "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-angular": "^15.0.0",
+    "@commitlint/config-angular": "^16.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@commitlint/prompt": "^15.0.0",
     "@semantic-release/github": "^8.0.2",
