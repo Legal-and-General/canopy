@@ -1,8 +1,10 @@
 import {
   Component,
   ElementRef,
+  forwardRef,
   Host,
   HostBinding,
+  Inject,
   Input,
   OnInit,
   Optional,
@@ -82,6 +84,7 @@ export class LgRadioButtonComponent implements OnInit {
 
   constructor(
     @Self() @Optional() public control: NgControl,
+    @Inject(forwardRef(() => LgRadioGroupComponent))
     private radioGroup: LgRadioGroupComponent,
     private errorState: LgErrorStateMatcher,
     @Optional()
