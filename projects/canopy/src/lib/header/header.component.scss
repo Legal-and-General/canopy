@@ -38,10 +38,11 @@
 }
 
 .lg-header__second-logo {
-  margin-left: var(--space-xs);
+  margin-left: var(--space-sm);
   width: var(--header-second-logo-width);
 
   @include lg-breakpoint('lg') {
+    margin-left: var(--space-lg);
     width: var(--header-second-logo-width-lg);
   }
 }
