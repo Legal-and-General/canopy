@@ -11,11 +11,12 @@ import {
 
 import { LgToggleComponent } from './toggle.component';
 import { LgFocusModule } from '../../focus/focus.module';
+import { LgCheckboxGroupModule } from '../checkbox-group/checkbox-group.module';
 
 @NgModule({
+  imports: [CommonModule, LgIconModule, LgFocusModule, LgCheckboxGroupModule],
   declarations: [LgToggleComponent],
   exports: [LgToggleComponent],
-  imports: [CommonModule, LgIconModule, LgFocusModule],
   entryComponents: [LgToggleComponent],
 })
 export class LgToggleModule {

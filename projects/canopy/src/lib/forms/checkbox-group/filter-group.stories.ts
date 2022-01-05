@@ -5,8 +5,9 @@ import { action } from '@storybook/addon-actions';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
-import { CanopyModule } from '../../canopy.module';
 import { notes } from './checkbox-group.notes';
+import { LgCheckboxGroupModule } from './checkbox-group.module';
+import { LgToggleModule } from '../toggle/toggle.module';
 
 @Component({
   selector: 'lg-reactive-form',
@@ -53,7 +54,7 @@ export default {
       withKnobs,
       moduleMetadata({
         declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule],
+        imports: [ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule],
       }),
     ],
     notes: {
