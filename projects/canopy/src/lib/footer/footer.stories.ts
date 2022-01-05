@@ -47,6 +47,12 @@ export const secondaryLinks = [
     text: 'Legal and regulatory',
     href: 'https://somecompany.com/legal',
   },
+  {
+    id: 'secondary-button-4',
+    text: 'Cookie settings',
+    type: 'button',
+    class: 'secondary-button-class',
+  },
 ];
 
 const groupId = 'footer';
@@ -85,6 +91,33 @@ export const compact = () => ({
   props: {
     copyright: text('copyright', '© Some Company plc 2018', groupId),
     secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
+    secondaryLinkClicked: action('secondaryLinkClicked'),
+  },
+});
+
+export const coBranded = () => ({
+  template: `
+    <footer lg-footer
+      [copyright]="copyright"
+      [logo]="logo"
+      [logoAlt]="logoAlt"
+      [secondLogo]="secondLogo"
+      [secondLogoAlt]="secondLogoAlt"
+      [primaryLinks]="primaryLinks"
+      [secondaryLinks]="secondaryLinks"
+      (primaryLinkClicked)="primaryLinkClicked($event)"
+      (secondaryLinkClicked)="secondaryLinkClicked($event)">
+    </footer>
+  `,
+  props: {
+    logo: text('logo', 'legal-and-general-logo.svg', groupId),
+    logoAlt: text('logoAlt', 'Company name', groupId),
+    secondLogo: text('secondLogo', 'dummy-logo.svg', groupId),
+    secondLogoAlt: text('secondLogoAlt', 'Second company name', groupId),
+    copyright: text('copyright', '© Some Company plc 2018', groupId),
+    secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
+    primaryLinks: object('primaryLinks', primaryLinks, groupId),
+    primaryLinkClicked: action('primaryLinkClicked'),
     secondaryLinkClicked: action('secondaryLinkClicked'),
   },
 });
