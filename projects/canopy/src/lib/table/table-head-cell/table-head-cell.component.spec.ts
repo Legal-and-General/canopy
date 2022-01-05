@@ -38,9 +38,9 @@ describe('LgTableHeadCellComponent', () => {
     expect(fixture.debugElement.children[0].nativeElement.innerText).toEqual('Hello');
   });
 
-  it('should have the align attribute set to right', () => {
-    expect(fixture.debugElement.children[0].nativeElement.getAttribute('align')).toBe(
-      'right',
+  it('should have the text-align style set to right', () => {
+    expect(fixture.debugElement.children[0].nativeElement.getAttribute('style')).toBe(
+      'text-align: right;',
     );
   });
 });
