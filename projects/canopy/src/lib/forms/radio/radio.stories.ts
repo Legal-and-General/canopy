@@ -17,7 +17,10 @@ import { LgHintModule } from '../hint/hint.module';
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
         <lg-radio-button value="red">Red</lg-radio-button>
-        <lg-radio-button value="yellow">Yellow</lg-radio-button>
+        <lg-radio-button value="yellow"
+          >Yellow
+          <lg-hint>Internal custom text</lg-hint>
+        </lg-radio-button>
       </lg-radio-group>
     </form>
   `,
