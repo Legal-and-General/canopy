@@ -1,17 +1,60 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { Component, DebugElement } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 import { anything, instance, mock, verify, when } from 'ts-mockito';
+import { MockComponents } from 'ng-mocks';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgRadioButtonComponent } from './radio-button.component';
 import { LgRadioGroupComponent } from './radio-group.component';
+import { LgHintComponent } from '../hint';
+
+const hintTestId = 'test-hint-id';
+
+@Component({
+  template: `
+    <form [formGroup]="form" #testForm="ngForm">
+      <lg-radio-group formControlName="color">
+        Color
+        <lg-radio-button value="red">Red</lg-radio-button>
+        <lg-radio-button value="yellow"
+          >Yellow
+          <div class="lg-radio-button__content">
+            <lg-hint id="${hintTestId}">Custom text</lg-hint>
+          </div>
+        </lg-radio-button>
+        <lg-radio-button value="blue">Blue</lg-radio-button>
+      </lg-radio-group>
+    </form>
+  `,
+})
+class TestRadioButtonComponent {
+  form: FormGroup;
+
+  constructor(public fb: FormBuilder) {
+    this.form = this.fb.group({
+      color: [{ value: '', disabled: false }, [Validators.required]],
+    });
+  }
+}
 
 describe('LgRadioButtonComponent', () => {
   let component: LgRadioButtonComponent;
+  let testComponent: TestRadioButtonComponent;
   let fixture: ComponentFixture<LgRadioButtonComponent>;
+  let testFixture: ComponentFixture<TestRadioButtonComponent>;
   let errorStateMatcherMock: LgErrorStateMatcher;
   let radioGroupMock: LgRadioGroupComponent;
+  let hintDebugElement: DebugElement;
+  let inputDebugElement: DebugElement;
 
   beforeEach(
     waitForAsync(() => {
@@ -21,7 +64,13 @@ describe('LgRadioButtonComponent', () => {
       when(radioGroupMock.variant).thenReturn('segment');
 
       TestBed.configureTestingModule({
-        declarations: [LgRadioButtonComponent],
+        imports: [FormsModule, ReactiveFormsModule],
+        declarations: [
+          LgRadioButtonComponent,
+          LgRadioGroupComponent,
+          TestRadioButtonComponent,
+          MockComponents(LgHintComponent),
+        ],
         providers: [
           {
             provide: LgRadioGroupComponent,
@@ -38,6 +87,14 @@ describe('LgRadioButtonComponent', () => {
       component = fixture.componentInstance;
 
       fixture.detectChanges();
+
+      testFixture = TestBed.createComponent(TestRadioButtonComponent);
+      testComponent = testFixture.componentInstance;
+
+      testFixture.detectChanges();
+
+      inputDebugElement = testFixture.debugElement.queryAll(By.css('input'))[1];
+      hintDebugElement = testFixture.debugElement.query(By.directive(LgHintComponent));
     }),
   );
 
@@ -90,7 +147,7 @@ describe('LgRadioButtonComponent', () => {
     expect().nothing();
   });
 
-  it('set the aria-invalid attribute to false when the input is valid', () => {
+  it('sets the aria-invalid attribute to false when the input is valid', () => {
     when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
       false,
     );
@@ -107,5 +164,13 @@ describe('LgRadioButtonComponent', () => {
     );
     const radio = fixture.debugElement.query(By.css('input'));
     expect(radio.nativeElement.getAttribute('aria-invalid')).toBe('true');
+  });
+
+  it('links the hint to the input with the correct aria attributes', () => {
+    expect(testComponent).not.toBe(null);
+    expect(hintDebugElement.nativeElement.getAttribute('id').length).not.toEqual(0);
+    expect(inputDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
+      hintDebugElement.nativeElement.getAttribute('id'),
+    );
   });
 });

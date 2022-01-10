@@ -1,5 +1,10 @@
 @import '../../../styles/mixins';
 
+.lg-radio-button__hint {
+  margin-top: var(--space-xs);
+  padding-left: calc(var(--space-lg) + var(--space-xxxs));
+}
+
 .lg-radio-button--radio {
   display: block;
   margin-bottom: var(--space-sm);
