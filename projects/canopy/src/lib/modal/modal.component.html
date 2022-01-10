@@ -9,7 +9,7 @@
     [attr.aria-describedby]="'lg-modal-body-' + id"
     aria-modal="true"
     tabindex="-1"
-    (click)="onModalClick($event)"
+    (mousedown)="onModalClick($event)"
     [lgFocus]="isOpen"
   >
     <lg-card-content>
