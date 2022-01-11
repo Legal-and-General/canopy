@@ -80,7 +80,10 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   // onOverlayClick and onModalClick add the following functionality:
   // clicking outside the modal closes the modal unless specified
   // otherwise using closeOnOverlayClick.
-  @HostListener('click') onOverlayClick(): void {
+  // We specifically listen to the `mousedown` event because with
+  // the `click` event a user could click inside the modal and
+  // drag the mouse on the overlay causing the modal to close.
+  @HostListener('mousedown') onOverlayClick(): void {
     this.modalService.close(this.id);
   }
 
