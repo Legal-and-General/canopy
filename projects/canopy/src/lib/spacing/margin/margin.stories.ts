@@ -2,7 +2,7 @@ import { object, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
-import { notes } from './margin.notes';
+import { notes } from '../spacing.notes';
 
 const stories = storiesOf('Directives', module);
 const spaces = [
@@ -85,7 +85,7 @@ stories
     }),
     {
       notes: {
-        markdown: notes,
+        markdown: notes('Margin'),
       },
     },
   );
