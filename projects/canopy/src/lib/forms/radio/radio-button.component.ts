@@ -1,5 +1,6 @@
 import {
   Component,
+  ContentChild,
   ElementRef,
   forwardRef,
   Host,
@@ -18,6 +19,8 @@ import { FormGroupDirective, NgControl } from '@angular/forms';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgRadioGroupComponent } from './radio-group.component';
 import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
+import { LgHintComponent } from '../hint';
+import { LgDomService } from '../../utils/dom.service';
 
 let nextUniqueId = 0;
 
@@ -33,6 +36,7 @@ let nextUniqueId = 0;
 })
 export class LgRadioButtonComponent implements OnInit {
   checked = false;
+  hintPresent = false;
   _variant: RadioVariant;
   set variant(variant: RadioVariant) {
     if (this._variant) {
@@ -51,6 +55,7 @@ export class LgRadioButtonComponent implements OnInit {
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
   @Input() name: string;
   @Input() value: boolean | string;
+  @Input() ariaDescribedBy: string;
 
   _stacked: RadioStackBreakpoint;
   set stacked(stacked: RadioStackBreakpoint) {
@@ -82,6 +87,18 @@ export class LgRadioButtonComponent implements OnInit {
     return this.errorState.isControlInvalid(this.control, this.controlContainer);
   }
 
+  _hintElement: LgHintComponent;
+  @ContentChild(LgHintComponent)
+  set hintElement(element: LgHintComponent) {
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._hintElement,
+      element,
+    );
+    this._hintElement = element;
+    this.hintPresent = !!element;
+  }
+
   constructor(
     @Self() @Optional() public control: NgControl,
     @Inject(forwardRef(() => LgRadioGroupComponent))
@@ -93,6 +110,7 @@ export class LgRadioButtonComponent implements OnInit {
     private controlContainer: FormGroupDirective,
     private renderer: Renderer2,
     private hostElement: ElementRef,
+    private domService: LgDomService,
   ) {}
 
   ngOnInit() {

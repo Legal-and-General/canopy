@@ -16,6 +16,8 @@ describe('FooterComponent', () => {
   const text2 = 'test2';
   const href2 = 'https://b.c';
   const id2 = 'test-2';
+  const class2 = 'test-2-class';
+  const type = 'button';
 
   beforeEach(
     waitForAsync(() => {
@@ -43,7 +45,9 @@ describe('FooterComponent', () => {
     it('renders the logo when the property is set', () => {
       component.logo = logo;
       fixture.detectChanges();
-      const image = fixture.debugElement.query(By.css('img'));
+      const image = fixture.debugElement.query(
+        By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
+      );
       expect(image).toBeTruthy();
       expect(image.attributes.src).toBe(logo);
     });
@@ -51,14 +55,18 @@ describe('FooterComponent', () => {
     it('does not render a logo when the property is not set', () => {
       component.logo = null;
       fixture.detectChanges();
-      const image = fixture.debugElement.query(By.css('img'));
+      const image = fixture.debugElement.query(
+        By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
+      );
       expect(image).toBeFalsy();
     });
 
     it('adds a silent alt when there is a logo', () => {
       component.logo = logo;
       fixture.detectChanges();
-      const image = fixture.debugElement.query(By.css('img'));
+      const image = fixture.debugElement.query(
+        By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
+      );
       expect(image).toBeTruthy();
       expect(image.attributes.alt).toBe('');
     });
@@ -67,7 +75,43 @@ describe('FooterComponent', () => {
       component.logo = logo;
       component.logoAlt = logoAlt;
       fixture.detectChanges();
-      const image = fixture.debugElement.query(By.css('img'));
+      const image = fixture.debugElement.query(
+        By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
+      );
+      expect(image).toBeTruthy();
+      expect(image.attributes.alt).toBe(logoAlt);
+    });
+  });
+
+  describe('second logo', () => {
+    it('renders the logo when the property is set', () => {
+      component.secondLogo = logo;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
+      expect(image).toBeTruthy();
+      expect(image.attributes.src).toBe(logo);
+    });
+
+    it('does not render a logo when the property is not set', () => {
+      component.secondLogo = null;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
+      expect(image).toBeFalsy();
+    });
+
+    it('adds a silent alt when there is a logo', () => {
+      component.secondLogo = logo;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
+      expect(image).toBeTruthy();
+      expect(image.attributes.alt).toBe('');
+    });
+
+    it('adds a standard alt when alt and logo are set', () => {
+      component.secondLogo = logo;
+      component.secondLogoAlt = logoAlt;
+      fixture.detectChanges();
+      const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
       expect(image).toBeTruthy();
       expect(image.attributes.alt).toBe(logoAlt);
     });
@@ -117,11 +161,22 @@ describe('FooterComponent', () => {
   });
 
   describe('for secondary links', () => {
-    it('renders', () => {
+    it('renders a link when no type is specified', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href2}"]`));
       expect(link).toBeTruthy();
       expect(link.attributes.href).toBe(href2);
       expect(link.attributes.id).toBe(id2);
+      expect(link.attributes.class).toBe('lg-footer__nav-link');
+    });
+
+    it('renders a button when the type is specified', () => {
+      component.secondaryLinks[0].type = type;
+      component.secondaryLinks[0].class = class2;
+      fixture.detectChanges();
+      const button = fixture.debugElement.query(By.css('button'));
+      expect(button).toBeTruthy();
+      expect(button.attributes.id).toBe(id2);
+      expect(button.properties.className).toBe(`lg-footer__nav-button ${class2}`);
     });
 
     it('does not throw an error when no links are provided', () => {

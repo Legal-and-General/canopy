@@ -4,3 +4,8 @@ export interface Link {
   id?: string;
   target?: string;
 }
+
+export interface SecondaryLink extends Link {
+  class?: string;
+  type?: 'button';
+}

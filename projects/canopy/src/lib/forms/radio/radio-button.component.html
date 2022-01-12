@@ -6,6 +6,7 @@
   [attr.name]="name"
   [attr.value]="value"
   [attr.aria-invalid]="errorClass"
+  [attr.aria-describedby]="ariaDescribedBy || null"
   class="lg-radio-button__input"
   type="radio"
 />
@@ -13,3 +14,7 @@
 <label [attr.for]="id" class="lg-radio-button__label">
   <ng-content></ng-content>
 </label>
+
+<div *ngIf="hintPresent" class="lg-radio-button__hint">
+  <ng-content select="lg-hint"></ng-content>
+</div>
