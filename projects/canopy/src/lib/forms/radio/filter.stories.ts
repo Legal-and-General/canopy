@@ -14,10 +14,18 @@ import { LgRadioModule } from './radio.module';
     <form [formGroup]="form">
       <lg-filter-group formControlName="color">
         {{ label }}
-        <lg-filter-button value="red">Red</lg-filter-button>
-        <lg-filter-button value="yellow">Yellow</lg-filter-button>
-        <lg-filter-button value="green">Green</lg-filter-button>
-        <lg-filter-button value="blue">Blue</lg-filter-button>
+        <lg-filter-button value="red" (blur)="filterBlur.emit($event)"
+          >Red</lg-filter-button
+        >
+        <lg-filter-button value="yellow" (blur)="filterBlur.emit($event)"
+          >Yellow</lg-filter-button
+        >
+        <lg-filter-button value="green" (blur)="filterBlur.emit($event)"
+          >Green</lg-filter-button
+        >
+        <lg-filter-button value="blue" (blur)="filterBlur.emit($event)"
+          >Blue</lg-filter-button
+        >
       </lg-filter-group>
     </form>
   `,
@@ -37,6 +45,7 @@ class ReactiveFormFilterComponent {
   }
 
   @Output() filterChange: EventEmitter<void> = new EventEmitter();
+  @Output() filterBlur: EventEmitter<Event> = new EventEmitter();
 
   form: FormGroup;
 
@@ -67,12 +76,14 @@ export const selectOne = () => ({
     <lg-reactive-form-filter
     [disabled]="disabled"
     [label]="label"
-    (filterChange)="filterChange($event)">
+    (filterChange)="filterChange($event)"
+    (filterBlur)="filterBlur($event)">
   </lg-reactive-form-filter>
   `,
   props: {
     label: text('label', 'Select a color'),
     filterChange: action('filterChange'),
+    filterBlur: action('filterBlur'),
     disabled: boolean('disabled', false),
   },
 });

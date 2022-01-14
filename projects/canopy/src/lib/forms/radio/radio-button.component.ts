@@ -2,6 +2,7 @@ import {
   Component,
   ContentChild,
   ElementRef,
+  EventEmitter,
   forwardRef,
   Host,
   HostBinding,
@@ -9,6 +10,7 @@ import {
   Input,
   OnInit,
   Optional,
+  Output,
   Renderer2,
   Self,
   SkipSelf,
@@ -81,6 +83,8 @@ export class LgRadioButtonComponent implements OnInit {
     this._disabled = isDisabled;
   }
 
+  @Output() blur: EventEmitter<Event> = new EventEmitter<Event>();
+
   @HostBinding('class.lg-radio-button') class = true;
   @HostBinding('class.lg-radio-button--error')
   public get errorClass() {
@@ -113,7 +117,7 @@ export class LgRadioButtonComponent implements OnInit {
     private domService: LgDomService,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.variant = this.radioGroup.variant;
     if (this.radioGroup.value === this.value) {
       this.checked = true;
@@ -121,10 +125,14 @@ export class LgRadioButtonComponent implements OnInit {
     this.name = this.radioGroup.name;
   }
 
-  onCheck() {
+  onCheck(): void {
     this.radioGroup.onTouched();
     if (this.radioGroup.value !== this.value) {
       this.radioGroup.value = this.value;
     }
+  }
+
+  onBlur(event: Event): void {
+    this.blur.emit(event);
   }
 }

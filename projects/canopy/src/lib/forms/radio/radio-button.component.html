@@ -1,5 +1,6 @@
 <input
   (click)="onCheck()"
+  (blur)="onBlur($event)"
   [checked]="checked || null"
   [disabled]="disabled || null"
   [attr.id]="id"
