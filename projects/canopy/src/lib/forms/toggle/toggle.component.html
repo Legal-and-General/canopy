@@ -1,5 +1,6 @@
 <input
   (click)="onCheck()"
+  (blur)="onBlur($event)"
   [attr.aria-describedby]="ariaDescribedBy || null"
   [checked]="checked || null"
   [disabled]="disabled || null"

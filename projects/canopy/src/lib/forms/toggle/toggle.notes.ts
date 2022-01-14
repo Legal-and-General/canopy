@@ -26,14 +26,9 @@ or
 <lg-${name.toLowerCase()} formControlName="confirm" value="yes">Do you agree?</lg-${name.toLowerCase()}>
 ~~~
 
-## Inputs
+## Outputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`checked\`\` | Check status of the toggle | boolean | false | No |
-| \`\`value\`\` | Value that is set when the toggle is checked | boolean or string | 'on' | No |
-| \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\${nextUniqueId++}' | No |
-| \`\`name\`\` | HTML Name attribute, auto generated if not provided | string | 'lg-toggle-\${nextUniqueId++}' | No |
-| \`\`variant\`\` | The variant of the toggle | 'checkbox', 'switch' or 'filter' | 'checkbox | No |
-| \`\`focus\`\` | Set the focus on the input field | boolean | null | No |
+| \`\`blur\`\` | Event emitted on blur of a toggle | EventEmitter<Event> | n/a | No |
 `;

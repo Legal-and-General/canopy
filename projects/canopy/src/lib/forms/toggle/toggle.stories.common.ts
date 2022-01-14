@@ -23,6 +23,7 @@ import type { ToggleVariant } from './toggle.interface';
         [variant]="variant"
         [checked]="umbrella.value"
         [focus]="focus"
+        (blur)="toggleBlur.emit($event)"
       >
         {{ label }}
       </lg-toggle>
@@ -52,6 +53,7 @@ export class ReactiveToggleFormComponent implements OnChanges {
   }
 
   @Output() toggleChange: EventEmitter<void> = new EventEmitter();
+  @Output() toggleBlur: EventEmitter<Event> = new EventEmitter();
 
   form: FormGroup;
 
@@ -77,10 +79,12 @@ export const createToggleStory = (variant: string) => ({
     variant="${variant}"
     [checked]="checked"
     [focus]="focus"
+    (toggleBlur)="toggleBlur($event)"
     (toggleChange)="toggleChange($event)">
   </lg-reactive-form>`,
   props: {
     toggleChange: action('toggleChange'),
+    toggleBlur: action('toggleBlur'),
     label: text('label', 'I will bring my Umbrella if it is raining'),
     disabled: boolean('disabled', false),
     checked: boolean('reactively checked', false),
