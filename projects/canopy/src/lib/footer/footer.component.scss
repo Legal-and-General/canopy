@@ -140,6 +140,11 @@
 
   &:hover {
     text-decoration: underline;
+
+    &:focus:hover {
+      text-decoration: none;
+      @include lg-outer-focus-outline;
+    }
   }
 }
 
