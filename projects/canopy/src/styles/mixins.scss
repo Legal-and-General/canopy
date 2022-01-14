@@ -57,6 +57,10 @@
     color: $focus-color;
     outline: 0.063rem solid $focus-bg-color;
     outline-offset: 0;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 }
 
