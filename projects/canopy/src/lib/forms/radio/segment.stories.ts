@@ -15,10 +15,18 @@ import type { RadioStackBreakpoint } from './radio.interface';
     <form [formGroup]="form">
       <lg-segment-group formControlName="color" [stack]="stack" [focus]="focus">
         {{ label }} {{ itemsInSegment }}
-        <lg-segment-button value="red">Red</lg-segment-button>
-        <lg-segment-button value="yellow">{{ secondButtonLabel }}</lg-segment-button>
-        <lg-segment-button value="green">Green</lg-segment-button>
-        <lg-segment-button value="blue">Blue</lg-segment-button>
+        <lg-segment-button value="red" (blur)="segmentBlur.emit($event)"
+          >Red</lg-segment-button
+        >
+        <lg-segment-button value="yellow" (blur)="segmentBlur.emit($event)">{{
+          secondButtonLabel
+        }}</lg-segment-button>
+        <lg-segment-button value="green" (blur)="segmentBlur.emit($event)"
+          >Green</lg-segment-button
+        >
+        <lg-segment-button value="blue" (blur)="segmentBlur.emit($event)"
+          >Blue</lg-segment-button
+        >
       </lg-segment-group>
     </form>
   `,
@@ -41,6 +49,7 @@ class ReactiveFormSegmentComponent {
   }
 
   @Output() segmentChange: EventEmitter<void> = new EventEmitter();
+  @Output() segmentBlur: EventEmitter<Event> = new EventEmitter();
 
   form: FormGroup;
 
@@ -74,13 +83,15 @@ export const standard = () => ({
     [focus]="focus"
     [label]="label"
     [secondButtonLabel]="secondButtonLabel"
-    (segmentChange)="segmentChange($event)">
+    (segmentChange)="segmentChange($event)"
+    (segmentBlur)="segmentBlur($event)">
   </lg-reactive-form-segment>
   `,
   props: {
     label: text('label', 'Select a color'),
     secondButtonLabel: text('secondButtonLabel', 'Yellow'),
     segmentChange: action('segmentChange'),
+    segmentBlur: action('segmentBlur'),
     disabled: boolean('disabled', false),
     focus: boolean('focus', false),
     stack: select('stack', ['false', 'sm', 'md', 'lg'], undefined),

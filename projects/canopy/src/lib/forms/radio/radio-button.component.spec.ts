@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { anything, instance, mock, verify, when } from 'ts-mockito';
+import { anything, instance, mock, spy, verify, when } from 'ts-mockito';
 import { MockComponents } from 'ng-mocks';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
@@ -172,5 +172,11 @@ describe('LgRadioButtonComponent', () => {
     expect(inputDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
       hintDebugElement.nativeElement.getAttribute('id'),
     );
+  });
+
+  it('should emit an event when #onBlur is called', () => {
+    const blurEmitterSpy = spy(component.blur);
+    component.onBlur(new Event(''));
+    verify(blurEmitterSpy.emit(anything())).once();
   });
 });

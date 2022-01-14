@@ -16,8 +16,8 @@ import { LgHintModule } from '../hint/hint.module';
       <lg-radio-group [inline]="inline" formControlName="color">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <lg-radio-button value="red">Red</lg-radio-button>
-        <lg-radio-button value="yellow"
+        <lg-radio-button value="red" (blur)="radioBlur.emit($event)">Red</lg-radio-button>
+        <lg-radio-button value="yellow" (blur)="radioBlur.emit($event)"
           >Yellow
           <lg-hint>Internal custom text</lg-hint>
         </lg-radio-button>
@@ -42,6 +42,7 @@ class ReactiveFormRadioComponent {
   }
 
   @Output() radioChange: EventEmitter<void> = new EventEmitter();
+  @Output() radioBlur: EventEmitter<Event> = new EventEmitter();
 
   form: FormGroup;
 
@@ -74,7 +75,8 @@ export const standard = () => ({
     [hint]="hint"
     [inline]="inline"
     [label]="label"
-    (radioChange)="radioChange($event)">
+    (radioChange)="radioChange($event)"
+    (radioBlur)="radioBlur($event)">
   </lg-reactive-form-radio>
   `,
   props: {
@@ -82,6 +84,7 @@ export const standard = () => ({
     label: text('label', 'Color'),
     hint: text('hint', 'Please select a color'),
     radioChange: action('radioChange'),
+    radioBlur: action('radioBlur'),
     disabled: boolean('disabled', false),
   },
 });

@@ -61,9 +61,18 @@ ${
 }
 
 ### LgRadioButtonComponent
+
+#### Inputs
+
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-radio-button-\${++nextUniqueId}' | No |
 | \`\`name\`\` | HTML name attribute | string | null | Yes |
 | \`\`value\`\` | HTML value attribute | string | null | Yes |
+
+#### Outputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`blur\`\` | Event emitted on blur of a radio button | EventEmitter<Event> | n/a | No |
 `;
