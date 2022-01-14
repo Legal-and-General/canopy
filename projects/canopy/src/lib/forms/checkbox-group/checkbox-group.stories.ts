@@ -15,8 +15,8 @@ import { notes } from './checkbox-group.notes';
       <lg-checkbox-group [inline]="inline" [focus]="focus" formControlName="colors">
         {{ label }}
         <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <lg-toggle value="red">Red</lg-toggle>
-        <lg-toggle value="yellow">Yellow</lg-toggle>
+        <lg-toggle value="red" (blur)="checkboxBlur.emit($event)">Red</lg-toggle>
+        <lg-toggle value="yellow" (blur)="checkboxBlur.emit($event)">Yellow</lg-toggle>
       </lg-checkbox-group>
     </form>
   `,
@@ -39,6 +39,7 @@ class ReactiveFormComponent {
   }
 
   @Output() checkboxChange: EventEmitter<void> = new EventEmitter();
+  @Output() checkboxBlur: EventEmitter<Event> = new EventEmitter();
 
   form: FormGroup;
 
@@ -71,7 +72,8 @@ export const standard = () => ({
     [inline]="inline"
     [focus]="focus"
     [label]="label"
-    (checkboxChange)="checkboxChange($event)">
+    (checkboxChange)="checkboxChange($event)"
+    (checkboxBlur)="checkboxBlur($event)">
   </lg-reactive-form>
   `,
   props: {
@@ -79,6 +81,7 @@ export const standard = () => ({
     label: text('label', 'Color'),
     hint: text('hint', 'Please select all colors that apply'),
     checkboxChange: action('checkboxChange'),
+    checkboxBlur: action('checkboxBlur'),
     disabled: boolean('disabled', false),
     focus: boolean('focus', false),
   },

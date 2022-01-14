@@ -2,6 +2,7 @@ import {
   Component,
   ContentChild,
   ElementRef,
+  EventEmitter,
   forwardRef,
   Host,
   HostBinding,
@@ -9,6 +10,7 @@ import {
   Input,
   OnInit,
   Optional,
+  Output,
   Self,
   SkipSelf,
   ViewChild,
@@ -54,6 +56,8 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     this._disabled = isDisabled;
   }
 
+  @Output() blur: EventEmitter<Event> = new EventEmitter<Event>();
+
   @HostBinding('class.lg-toggle') class = true;
   @HostBinding('class.lg-toggle--error') get errorClass() {
     return this.errorState.isControlInvalid(this.control, this.controlContainer);
@@ -72,7 +76,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     this._validationElement = element;
   }
 
-  onCheck() {
+  onCheck(): void {
     if (this.checkboxGroup) {
       this.checkboxGroup.onTouched();
       if (this.checkboxGroup.value.includes(this.value.toString())) {
@@ -90,13 +94,17 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     this.onChange(this.checked ? this.value : null);
   }
 
-  public onChange(value: boolean | string) {
+  onBlur(event: Event): void {
+    this.blur.emit(event);
+  }
+
+  public onChange(value: boolean | string): void {
     this.value = value;
   }
 
-  public onTouched(_?: any) {}
+  public onTouched(_?: any): void {}
 
-  public writeValue(value: any) {
+  public writeValue(value: any): void {
     if (value === this.value) {
       this.checked = true;
     }
@@ -110,7 +118,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     this.onTouched = fn;
   }
 
-  public setDisabledState(isDisabled: boolean) {
+  public setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
 

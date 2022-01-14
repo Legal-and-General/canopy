@@ -29,6 +29,7 @@ const validationTestId = 'test-validation-id';
         formControlName="umbrella"
         [value]="true"
         (change)="onChange()"
+        (blur)="onBlur($event)"
         [variant]="variant"
       >
         I will bring my Umbrella if it is raining
@@ -68,7 +69,12 @@ class TestToggleComponent {
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form" #testForm="ngForm">
-      <lg-switch formControlName="umbrella" [value]="true" (change)="onChange()">
+      <lg-switch
+        formControlName="umbrella"
+        [value]="true"
+        (change)="onChange()"
+        (blur)="onBlur($event)"
+      >
         I will bring my Umbrella if it is raining
         <lg-validation
           id="${validationTestId}"
@@ -207,6 +213,12 @@ describe('LgToggleComponent', () => {
     const onChangeSpy = spyOn(toggleInstance, 'onChange');
     inputDebugElement.triggerEventHandler('click', null);
     expect(onChangeSpy).toHaveBeenCalled();
+  });
+
+  it('triggers the onBlur action when the toggle is blurred', () => {
+    const onBlurSpy = spyOn(toggleInstance, 'onBlur');
+    inputDebugElement.triggerEventHandler('blur', null);
+    expect(onBlurSpy).toHaveBeenCalledTimes(1);
   });
 
   it('disables the input field when the property is set', () => {

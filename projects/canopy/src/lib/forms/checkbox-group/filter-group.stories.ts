@@ -15,10 +15,10 @@ import { LgToggleModule } from '../toggle/toggle.module';
     <form [formGroup]="form">
       <lg-filter-multiple-group formControlName="colors">
         {{ label }}
-        <lg-toggle value="red">Red</lg-toggle>
-        <lg-toggle value="yellow">Yellow</lg-toggle>
-        <lg-toggle value="green">Green</lg-toggle>
-        <lg-toggle value="blue">Blue</lg-toggle>
+        <lg-toggle value="red" (blur)="checkboxBlur.emit($event)">Red</lg-toggle>
+        <lg-toggle value="yellow" (blur)="checkboxBlur.emit($event)">Yellow</lg-toggle>
+        <lg-toggle value="green" (blur)="checkboxBlur.emit($event)">Green</lg-toggle>
+        <lg-toggle value="blue" (blur)="checkboxBlur.emit($event)">Blue</lg-toggle>
       </lg-filter-multiple-group>
     </form>
   `,
@@ -38,6 +38,7 @@ class ReactiveFormComponent {
   }
 
   @Output() checkboxChange: EventEmitter<void> = new EventEmitter();
+  @Output() checkboxBlur: EventEmitter<Event> = new EventEmitter();
 
   form: FormGroup;
 
@@ -67,12 +68,14 @@ export const selectMultiple = () => ({
     <lg-reactive-form
     [disabled]="disabled"
     [label]="label"
-    (checkboxChange)="checkboxChange($event)">
+    (checkboxChange)="checkboxChange($event)"
+    (checkboxBlur)="checkboxBlur($event)">
   </lg-reactive-form>
   `,
   props: {
     label: text('label', 'Select colors'),
     checkboxChange: action('checkboxChange'),
+    checkboxBlur: action('checkboxBlur'),
     disabled: boolean('disabled', false),
   },
 });
