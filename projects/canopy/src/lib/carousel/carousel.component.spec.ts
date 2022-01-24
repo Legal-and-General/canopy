@@ -92,6 +92,26 @@ describe('LgCarouselComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should set the pause to true when pauseCarousel is invoked', fakeAsync(() => {
+    component.pauseCarousel();
+    fixture.detectChanges();
+
+    component.pause.subscribe((pause) => {
+      expect(pause).toBeDefined();
+      expect(pause).toBeTruthy();
+    });
+  }));
+
+  it('should set the pause to false when playCarousel is invoked', fakeAsync(() => {
+    component.playCarousel();
+    fixture.detectChanges();
+
+    component.pause.subscribe((pause) => {
+      expect(pause).toBeDefined();
+      expect(pause).toBeFalsy();
+    });
+  }));
+
   it('should detect the amount of carousel item components are nested in order to build the navigation and apply styles to the carousel wrapper', () => {
     const wrapperElement = fixture.debugElement.query(By.css('.lg-carousel__wrapper'));
     expect(component.carouselItemCount).toBe(3);

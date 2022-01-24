@@ -41,6 +41,14 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   pause = new BehaviorSubject<boolean>(false);
   pausableTimer$: Observable<void>;
 
+  pauseCarousel(): void {
+    this.pause.next(true);
+  }
+
+  playCarousel(): void {
+    this.pause.next(false);
+  }
+
   selectCarouselItem(index: number): void {
     this.selectedItemIndex = index;
     this.selectedItem = this.carouselItems.get(index);
