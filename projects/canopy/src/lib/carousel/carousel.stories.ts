@@ -28,7 +28,6 @@ const carouselItems = `
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-  <button> Button1 </button>
   </lg-carousel-item>
 
 <lg-carousel-item style="background-color: #0076D6; color: #FFFFFF">
@@ -36,7 +35,6 @@ const carouselItems = `
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-  <button> Button2 </button>
   </lg-carousel-item>
 
 <lg-carousel-item style="background-color: #028844; color: #FFFFFF">
@@ -44,7 +42,6 @@ const carouselItems = `
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-  <button> Button3 </button>
 </lg-carousel-item>
 
 <lg-carousel-item style="background-color: #0076D6; color: #FFFFFF">
@@ -59,7 +56,6 @@ const carouselItems = `
   <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
   <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-  <button> Button4 </button>
   </lg-carousel-item>
 `;
 
