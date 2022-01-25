@@ -42,5 +42,5 @@ and in your HTML:
 | \`\`autoPlay\`\`      | Enables auto play mode when set to true.                                                                 | boolean |   false   |   No     |
 | \`\`autoPlayDelay\`\` | Delay time in milliseconds to switch to next slide when autoPlay mode is set to true.                    | number  |   2000    |   No     |
 
-## PlayCarousel and PauseCarousel methods can be exposed by targeting the Carousel with ViewChild decorators to fix the accessibility issues.
+## PlayCarousel and PauseCarousel methods can be exposed by targeting the Carousel with ViewChild decorators.
 `;
