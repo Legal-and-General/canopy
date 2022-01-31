@@ -23,7 +23,7 @@ export default {
 
 export const standard = () => ({
   template: `
-  <lg-tabs [headingLevel]="headingLevel"
+  <lg-tabs 
     label="Annuities"
     (tabEvent)="tabEvent($event)"
     [lgMarginRight]="'none'"
