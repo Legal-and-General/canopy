@@ -35,6 +35,7 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   carouselItems = new QueryList<LgCarouselItemComponent>();
   selectedItem: LgCarouselItemComponent;
   carouselItemCount: number;
+  selectedItemIndexSet$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   selectedItemIndex: number;
   selectedItemContent: string;
   private unsubscribe: Subject<void> = new Subject<void>();
@@ -50,7 +51,7 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   }
 
   selectCarouselItem(index: number): void {
-    this.selectedItemIndex = index;
+    this.selectedItemIndexSet$.next(index);
     this.selectedItem = this.carouselItems.get(index);
     this.selectedItemContent = this.selectedItem.itemContent;
 
@@ -91,6 +92,11 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   }
 
   ngAfterContentInit(): void {
+    this.selectedItemIndexSet$
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe((itemIndex) => {
+        this.selectedItemIndex = itemIndex;
+      });
     this.carouselItemCount = this.carouselItems.length;
     this.selectCarouselItem(0);
     if (this.autoPlay) {

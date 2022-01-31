@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.scss';
+
 .lg-carousel-autoplay {
   position: absolute;
   right: var(--space-sm);
@@ -12,5 +14,9 @@
     height: var(--space-xxl);
     font-size: var(--text-fs-3-size);
     cursor: pointer;
+
+    &:focus {
+      @include lg-outer-focus-outline(var(--default-focus-color));
+    }
   }
 }

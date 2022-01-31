@@ -9,6 +9,7 @@ import {
 import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
+import { Subscription } from 'rxjs';
 
 import { HeadingLevel, LgHeadingComponent } from '../heading';
 import { LgIconComponent } from '../icon';
@@ -56,6 +57,7 @@ class TestWrapperComponent {}
 describe('LgCarouselComponent', () => {
   let component: LgCarouselComponent;
   let fixture: ComponentFixture<TestWrapperComponent>;
+  let subscription: Subscription;
 
   const timerSelectionCheck = () => {
     component.ngAfterContentInit();
@@ -86,6 +88,10 @@ describe('LgCarouselComponent', () => {
     fixture = TestBed.createComponent(TestWrapperComponent);
     component = fixture.debugElement.children[0].children[0].componentInstance;
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    subscription?.unsubscribe();
   });
 
   it('should create', () => {
@@ -144,9 +150,11 @@ describe('LgCarouselComponent', () => {
     });
 
     it('should select the chosen carousel item as expected', () => {
-      expect(component.selectedItemIndex).toBe(0);
-      bullet2.nativeElement.click();
-      expect(component.selectedItemIndex).toBe(1);
+      subscription = component.selectedItemIndexSet$.subscribe((selectedItem) => {
+        expect(component.selectedItemIndex).toBe(selectedItem);
+        bullet2.nativeElement.click();
+        expect(component.selectedItemIndex).toBe(1);
+      });
 
       fixture.detectChanges();
       expect(
@@ -155,6 +163,9 @@ describe('LgCarouselComponent', () => {
     });
 
     it('should navigate to the previous slide as expected', () => {
+      subscription = component.selectedItemIndexSet$.subscribe((selectedItem) => {
+        expect(component.selectedItemIndex).toBe(selectedItem);
+      });
       expect(component.selectedItemIndex).toBe(0);
       bullet2.nativeElement.click();
       fixture.detectChanges();
@@ -169,6 +180,9 @@ describe('LgCarouselComponent', () => {
     });
 
     it('should navigate to the next slide as expected', () => {
+      subscription = component.selectedItemIndexSet$.subscribe((selectedItem) => {
+        expect(component.selectedItemIndex).toBe(selectedItem);
+      });
       expect(component.selectedItemIndex).toBe(0);
       nextButton.nativeElement.click();
       expect(component.selectedItemIndex).toBe(1);
