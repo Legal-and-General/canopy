@@ -16,7 +16,7 @@ The tabs component lets users navigate between related sections of content, disp
 and in your HTML:
 
 ~~~html
-<lg-tabs [headingLevel]="1" label="Title" (tabEvent)="tabEvent($event)">
+<lg-tabs label="Title" (tabEvent)="tabEvent($event)">
   <lg-tab-item>
     <lg-tab-item-heading>Tab 1</lg-tab-item-heading>
     <lg-tab-item-content>
@@ -58,7 +58,6 @@ and in your HTML:
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`label\`\` | The value to apply to the aria label | string | tabs | Yes |
-| \`\`headingLevel\`\` | The level of the tab headings: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
 
 ## Outputs
 

@@ -43,7 +43,7 @@ describe('LgTabsComponent', () => {
 
   beforeEach(() => {
     fixture = MockRender(`
-      <lg-tabs [headingLevel]="1">
+      <lg-tabs>
         <lg-tab-item>
           <lg-tab-item-heading>Heading 1</lg-tab-item-heading>
             <lg-tab-item-content>
@@ -113,7 +113,7 @@ describe('LgTabsComponent', () => {
   describe('when label is investments', () => {
     beforeEach(() => {
       fixture = MockRender(`
-        <lg-tabs [headingLevel]="1" label="investments">
+        <lg-tabs label="investments">
           <lg-tab-item></lg-tab-item>
         </lg-tabs>
       `);
@@ -135,7 +135,7 @@ describe('LgTabsComponent', () => {
   describe('when are 3 tab items', () => {
     beforeEach(() => {
       fixture = MockRender(`
-        <lg-tabs [headingLevel]="1">
+        <lg-tabs>
           <lg-tab-item>
             <lg-tab-item-heading>Heading 1</lg-tab-item-heading>
             <lg-tab-item-content>Content 1</lg-tab-item-content>

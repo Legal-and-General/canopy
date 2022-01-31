@@ -16,7 +16,6 @@ import {
 
 import { Subscription } from 'rxjs';
 
-import type { HeadingLevel } from '../heading/heading.interface';
 import { isKeyDown, isKeyLeft, isKeyRight, isKeyUp } from '../utils/keyboard-keys';
 import { LgTabItemComponent } from './tab-item/tab-item.component';
 
@@ -38,8 +37,6 @@ export class LgTabsComponent implements AfterContentInit, OnDestroy {
   tabQueryList: QueryList<LgTabItemComponent>;
 
   @Input() label = 'tabs';
-
-  @Input() headingLevel: HeadingLevel;
 
   @Output() tabEvent: EventEmitter<{ index: number }> = new EventEmitter();
 
