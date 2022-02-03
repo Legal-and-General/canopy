@@ -34,20 +34,20 @@ export class LgFooterComponent {
     }
   }
 
-  private _secondLogo: string;
+  private _secondaryLogo: string;
   @Input()
-  get secondLogo(): string | null {
-    return this._secondLogo;
+  get secondaryLogo(): string | null {
+    return this._secondaryLogo;
   }
-  set secondLogo(secondLogo) {
-    this._secondLogo = secondLogo;
-    if (!this.secondLogoAlt) {
-      this.secondLogoAlt = '';
+  set secondaryLogo(secondaryLogo) {
+    this._secondaryLogo = secondaryLogo;
+    if (!this.secondaryLogoAlt) {
+      this.secondaryLogoAlt = '';
     }
   }
 
   @Input() logoAlt: string | null;
-  @Input() secondLogoAlt: string | null;
+  @Input() secondaryLogoAlt: string | null;
   @Input() copyright: string;
   @Input() primaryLinks: Array<Link> | null;
   @Input() secondaryLinks: Array<SecondaryLink> | null;
