@@ -36,7 +36,7 @@ export const standard = () => ({
 
 export const coBranded = () => ({
   template: `
-    <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref" [secondLogo]="secondLogo" [secondLogoAlt]="secondLogoAlt" [secondLogoHref]="secondLogoHref"></header>
+    <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref" [secondaryLogo]="secondaryLogo" [secondaryLogoAlt]="secondaryLogoAlt" [secondaryLogoHref]="secondaryLogoHref"></header>
   `,
   styles: [
     `
@@ -50,8 +50,8 @@ export const coBranded = () => ({
     logo: text('logo', 'legal-and-general-logo.svg', groupId),
     logoAlt: text('logoAlt', 'Company name', groupId),
     logoHref: text('logoHref', 'https://storybook.js.org', groupId),
-    secondLogo: text('second logo', 'dummy-logo.svg', groupId),
-    secondLogoAlt: text('second logoAlt', 'Second company name', groupId),
-    secondLogoHref: text('second logoHref', 'https://storybook.js.org', groupId),
+    secondaryLogo: text('secondary logo', 'dummy-logo.svg', groupId),
+    secondaryLogoAlt: text('secondary logoAlt', 'Second company name', groupId),
+    secondaryLogoHref: text('secondary logoHref', 'https://storybook.js.org', groupId),
   },
 });

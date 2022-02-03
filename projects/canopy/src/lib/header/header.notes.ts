@@ -37,9 +37,9 @@ and in your HTML:
 | \`\`logo\`\` | A url link to the logo | string | undefined | Yes |
 | \`\`logoAlt\`\` | alt text to display alongside the logo | string | '' | Yes |
 | \`\`logoHref\`\` | Url link if the logo is clickable | string | undefined | No |
-| \`\`secondLogo\`\` | A url link to the second logo | string | undefined | Yes |
-| \`\`secondLogoAlt\`\` | alt text to display alongside the second logo | string | '' | Yes |
-| \`\`secondLogoHref\`\` | Url link if the second logo is clickable | string | undefined | No |
+| \`\`secondaryLogo\`\` | A url link to the secondary logo | string | undefined | Yes |
+| \`\`secondaryLogoAlt\`\` | alt text to display alongside the secondary logo | string | '' | Yes |
+| \`\`secondaryLogoHref\`\` | Url link if the secondary logo is clickable | string | undefined | No |
 
 ## Changing the width of the logos
 The width of the logos can be changed by overriding the values of the below css variables:
