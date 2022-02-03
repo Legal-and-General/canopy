@@ -101,8 +101,8 @@ export const coBranded = () => ({
       [copyright]="copyright"
       [logo]="logo"
       [logoAlt]="logoAlt"
-      [secondLogo]="secondLogo"
-      [secondLogoAlt]="secondLogoAlt"
+      [secondaryLogo]="secondaryLogo"
+      [secondaryLogoAlt]="secondaryLogoAlt"
       [primaryLinks]="primaryLinks"
       [secondaryLinks]="secondaryLinks"
       (primaryLinkClicked)="primaryLinkClicked($event)"
@@ -112,8 +112,8 @@ export const coBranded = () => ({
   props: {
     logo: text('logo', 'legal-and-general-logo.svg', groupId),
     logoAlt: text('logoAlt', 'Company name', groupId),
-    secondLogo: text('secondLogo', 'dummy-logo.svg', groupId),
-    secondLogoAlt: text('secondLogoAlt', 'Second company name', groupId),
+    secondaryLogo: text('secondaryLogo', 'dummy-logo.svg', groupId),
+    secondaryLogoAlt: text('secondaryLogoAlt', 'Second company name', groupId),
     copyright: text('copyright', '© Some Company plc 2018', groupId),
     secondaryLinks: object('secondaryLinks', secondaryLinks, groupId),
     primaryLinks: object('primaryLinks', primaryLinks, groupId),
