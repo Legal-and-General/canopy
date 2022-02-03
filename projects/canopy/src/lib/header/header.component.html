@@ -10,15 +10,15 @@
             "
           ></ng-container>
 
-          <ng-container *ngIf="secondLogo">
+          <ng-container *ngIf="secondaryLogo">
             <ng-container
               *ngTemplateOutlet="
-                secondLogoHref ? linkTpl : imgTpl;
+                secondaryLogoHref ? linkTpl : imgTpl;
                 context: {
                   img: {
-                    logoAlt: secondLogoAlt,
-                    logoHref: secondLogoHref,
-                    logo: secondLogo,
+                    logoAlt: secondaryLogoAlt,
+                    logoHref: secondaryLogoHref,
+                    logo: secondaryLogo,
                     isSecondLogo: true
                   }
                 }

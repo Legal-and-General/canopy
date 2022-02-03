@@ -9,8 +9,8 @@ describe('HeaderComponent', () => {
 
   const logo = 'http://a.b/logo.png';
   const href = 'http://a.b';
-  const secondLogo = 'http://second/logo.png';
-  const secondLogoHref = 'http://a.b.c';
+  const secondaryLogo = 'http://second/logo.png';
+  const secondaryLogoHref = 'http://a.b.c';
 
   beforeEach(
     waitForAsync(() => {
@@ -43,31 +43,31 @@ describe('HeaderComponent', () => {
   });
 
   describe('co-branding', () => {
-    it('renders a second logo when the secondLogo is specified', () => {
-      component.secondLogo = secondLogo;
+    it('renders a secondary logo when the secondaryLogo is specified', () => {
+      component.secondaryLogo = secondaryLogo;
       fixture.detectChanges();
 
       expect(fixture.debugElement.query(By.css('.lg-header__second-logo'))).toBeTruthy();
     });
 
-    it('does not render a second logo when the secondLogo is not specified', () => {
+    it('does not render a secondary logo when the secondaryLogo is not specified', () => {
       expect(fixture.debugElement.query(By.css('.lg-header__second-logo'))).toBeNull();
     });
 
     it('does not render a link if an href is not provided', () => {
-      component.secondLogo = secondLogo;
+      component.secondaryLogo = secondaryLogo;
       fixture.detectChanges();
 
-      expect(fixture.debugElement.query(By.css(`a[href="${secondLogo}"]`))).toBeNull();
+      expect(fixture.debugElement.query(By.css(`a[href="${secondaryLogo}"]`))).toBeNull();
     });
 
     it('renders a link if an href is provided', () => {
-      component.secondLogo = secondLogo;
-      component.secondLogoHref = secondLogoHref;
+      component.secondaryLogo = secondaryLogo;
+      component.secondaryLogoHref = secondaryLogoHref;
       fixture.detectChanges();
 
       expect(
-        fixture.debugElement.query(By.css(`a[href="${secondLogoHref}"]`)),
+        fixture.debugElement.query(By.css(`a[href="${secondaryLogoHref}"]`)),
       ).toBeTruthy();
     });
   });
