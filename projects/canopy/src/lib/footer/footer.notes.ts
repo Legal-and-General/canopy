@@ -34,8 +34,8 @@ and in your HTML:
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`logo\`\` | A url link to the logo | string | null | Yes |
 | \`\`logoAlt\`\` | alt text to display alongside the logo | string | '' | Yes |
-| \`\`secondLogo\`\` | A url link to the second logo | string | null | No |
-| \`\`secondLogoAlt\`\` | alt text to display alongside the second logo | string | '' | No |
+| \`\`secondaryLogo\`\` | A url link to the secondary logo | string | null | No |
+| \`\`secondaryLogoAlt\`\` | alt text to display alongside the secondary logo | string | '' | No |
 | \`\`copyright\`\` | Copyright text to display in footer | string | undefined | No |
 | \`\`primaryLinks\`\` | The primary footer links | \`[{ text: string, href: string, id?: string, target?: string }]\` | null | No |
 | \`\`secondaryLinks\`\` | The secondary footer links | \`[{ text: string, href: string, id?: string, class?: string, target?: string, type?: 'button' }]\` | null | No |

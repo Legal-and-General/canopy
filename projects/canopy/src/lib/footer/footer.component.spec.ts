@@ -83,9 +83,9 @@ describe('FooterComponent', () => {
     });
   });
 
-  describe('second logo', () => {
+  describe('secondary logo', () => {
     it('renders the logo when the property is set', () => {
-      component.secondLogo = logo;
+      component.secondaryLogo = logo;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
       expect(image).toBeTruthy();
@@ -93,14 +93,14 @@ describe('FooterComponent', () => {
     });
 
     it('does not render a logo when the property is not set', () => {
-      component.secondLogo = null;
+      component.secondaryLogo = null;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
       expect(image).toBeFalsy();
     });
 
     it('adds a silent alt when there is a logo', () => {
-      component.secondLogo = logo;
+      component.secondaryLogo = logo;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
       expect(image).toBeTruthy();
@@ -108,8 +108,8 @@ describe('FooterComponent', () => {
     });
 
     it('adds a standard alt when alt and logo are set', () => {
-      component.secondLogo = logo;
-      component.secondLogoAlt = logoAlt;
+      component.secondaryLogo = logo;
+      component.secondaryLogoAlt = logoAlt;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
       expect(image).toBeTruthy();
