@@ -19,6 +19,7 @@ module.exports = {
     '../projects/canopy/src/lib/footer/footer.stories.ts',
     '../projects/canopy/src/lib/heading/heading.stories.ts',
     '../projects/canopy/src/lib/header/header.stories.ts',
+    '../projects/canopy/src/lib/hero/hero.stories.ts',
     '../projects/canopy/src/lib/icon/icons.stories.ts',
     '../projects/canopy/src/lib/modal/modal.stories.ts',
     '../projects/canopy/src/lib/primary-message/primary-message.stories.ts',
