@@ -116,7 +116,7 @@ $columns: 12;
 }
 
 @for $i from 1 through $columns {
-  $width: percentage($i / $columns);
+  $width: percentage(calc($i / $columns));
 
   .lg-col-xs-#{$i} {
     flex-basis: $width;
@@ -151,7 +151,7 @@ $columns: 12;
   }
 
   @for $i from 1 through 12 {
-    $width: percentage($i / 12);
+    $width: percentage(calc($i / 12));
 
     .lg-col-sm-#{$i} {
       flex-basis: $width;
@@ -187,7 +187,7 @@ $columns: 12;
   }
 
   @for $i from 1 through 12 {
-    $width: percentage($i / 12);
+    $width: percentage(calc($i / 12));
 
     .lg-col-md-#{$i} {
       flex-basis: $width;
@@ -223,7 +223,7 @@ $columns: 12;
   }
 
   @for $i from 1 through 12 {
-    $width: percentage($i / 12);
+    $width: percentage(calc($i / 12));
 
     .lg-col-lg-#{$i} {
       flex-basis: $width;
