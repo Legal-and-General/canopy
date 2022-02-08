@@ -19,7 +19,5 @@ export class LgAutoplayComponent {
 
   @HostBinding('class.lg-carousel-autoplay') class = true;
 
-  @HostBinding('attr.aria-live') role = 'polite';
-
   constructor(public element: ElementRef) {}
 }
