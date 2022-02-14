@@ -1,38 +1,81 @@
-import { select, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgCardModule } from '../card';
 import { LgSeparatorModule } from '../separator';
-import { LgHideAtModule } from './hide-at.module';
 import { notes } from './hide-at.notes';
+import { LgHideAtDirective, LgHideAtModule } from '../hide-at';
 
+// This default export determines where your story goes in the story list
 export default {
-  title: 'Directives',
+  title: 'Directives/Hide at',
+  component: LgHideAtDirective,
+  decorators: [
+    moduleMetadata({
+      imports: [LgHideAtModule, LgCardModule, LgSeparatorModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        imports: [LgHideAtModule, LgCardModule, LgSeparatorModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    lgHideAt: {
+      options: ['sm', 'md', 'lg', 'xl', 'xxl'],
+      description: 'The name of the breakpoint applied.',
+      table: {
+        type: {
+          summary: ['sm', 'md', 'lg', 'xl', 'xxl'],
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    responsiveUtilClass: {
+      table: {
+        disable: true,
+      },
+    },
+    toggleClass: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+} as Meta;
+
+const directiveTemplate = `
+<lg-card [lgHideAt]="lgHideAt">
+  <lg-card-content>
+    Now you see me...
+  </lg-card-content>
+</lg-card>
+`;
+
+const template = `
+<p><strong>Change viewport width to see the card appear at specified breakpoint</strong></p>
+<pre>lgHideAt="{{lgHideAt}}"</pre>
+<lg-separator></lg-separator>
+${directiveTemplate}
+`;
+
+const hideAtTemplate: Story<LgHideAtDirective> = (args: LgHideAtDirective) => ({
+  props: args,
+  template,
+});
+
+export const hideAtStory = hideAtTemplate.bind({});
+hideAtStory.storyName = 'Hide at';
+hideAtStory.args = {
+  lgHideAt: 'md',
+};
+hideAtStory.parameters = {
+  docs: {
+    source: {
+      code: directiveTemplate,
     },
   },
 };
-
-export const hideAt = () => ({
-  template: `
-    <p><strong>Change viewport width to see the card appear at specified breakpoint</strong></p>
-    <pre>lgHideAt="{{breakpoint}}"</pre>
-    <lg-separator></lg-separator>
-    <lg-card [lgHideAt]="breakpoint">
-      <lg-card-content>
-        Now you see me...
-      </lg-card-content>
-    </lg-card>
-  `,
-  props: {
-    breakpoint: select('breakpoints', ['sm', 'md', 'lg', 'xl', 'xxl'], 'md'),
-  },
-});
