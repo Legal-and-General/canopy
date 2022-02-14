@@ -15,7 +15,7 @@ const options: LgFeatureToggleOptions = {
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Directives/FeatureToggle',
+  title: 'Directives/Feature toggle',
   component: LgFeatureToggleDirective,
   decorators: [
     moduleMetadata({
@@ -79,7 +79,7 @@ const featureToggleTemplate: Story<LgFeatureToggleDirective> = (
 });
 
 export const featureToggle = featureToggleTemplate.bind({});
-featureToggle.storyName = 'Feature Toggle';
+featureToggle.storyName = 'Feature toggle';
 featureToggle.parameters = {
   docs: {
     source: {
