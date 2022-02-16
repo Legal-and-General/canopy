@@ -35,6 +35,7 @@ module.exports = {
     '../projects/canopy/src/styles/grid.stories.ts',
     '../projects/canopy/src/styles/links.stories.ts',
     '../projects/canopy/src/styles/mixins.stories.ts',
+    '../projects/canopy/src/styles/spacing.stories.ts',
   ],
   addons: [
     '@storybook/addon-links',
