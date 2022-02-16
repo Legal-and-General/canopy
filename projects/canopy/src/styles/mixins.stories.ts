@@ -9,9 +9,6 @@ export default {
       description: {
         component: notes,
       },
-      source: {
-        hide: true,
-      },
     },
   },
 } as Meta;
@@ -23,6 +20,10 @@ const mixinsTemplate: Story = () => ({
 export const mixins = mixinsTemplate.bind({});
 mixins.storyName = 'Mixins';
 mixins.parameters = {
-  viewMode: 'docs',
   docsOnly: true,
+  previewTabs: {
+    canvas: {
+      hidden: true,
+    },
+  },
 };
