@@ -1,6 +1,4 @@
 export const notes = `
-# Grid
-
 ## Purpose
 Provides responsive grid system.
 
@@ -29,6 +27,6 @@ This can be done via [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-
 A set of [Angular directives](/?path=/story/directives--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements.
 
 There are also two utility directives available which allow you to show/hide components at different breakpoints:
-- [LgShowAt](/?path=/story/directives--show-at)
-- [LgHideAt](/?path=/story/directives--hide-at)
+- [LgShowAt](/?path=/docs/directives-show-at--show-at-story)
+- [LgHideAt](/?path=/docs/directives-hide-at--hide-at-story)
 `;
