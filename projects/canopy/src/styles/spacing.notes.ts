@@ -1,6 +1,4 @@
 export const notes = `
-# Spacing
-
 ## Purpose
 Provides available spacing via CSS variables
 
