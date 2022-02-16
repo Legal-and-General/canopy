@@ -1,6 +1,4 @@
 export const notes = `
-# Mixins
-
 ## Purpose
 Provides available mixins
 

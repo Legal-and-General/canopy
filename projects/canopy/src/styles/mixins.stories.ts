@@ -1,14 +1,28 @@
+import { Meta, Story } from '@storybook/angular';
+
 import { notes } from './mixins.notes';
 
 export default {
-  title: 'Mixins',
+  title: 'Style/Mixins',
   parameters: {
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+      source: {
+        hide: true,
+      },
     },
   },
-};
+} as Meta;
 
-export const mixins = () => ({
+const mixinsTemplate: Story = () => ({
   template: ``,
 });
+
+export const mixins = mixinsTemplate.bind({});
+mixins.storyName = 'Mixins';
+mixins.parameters = {
+  viewMode: 'docs',
+  docsOnly: true,
+};
