@@ -49,7 +49,7 @@ class ReactiveFormFilterComponent {
 }
 
 export default {
-  title: 'Components/Filter buttons',
+  title: 'Components/Filter Buttons',
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
@@ -226,7 +226,7 @@ const filterButtonsStory: Story<LgRadioButtonComponent> = (
 });
 
 export const filterButtons = filterButtonsStory.bind({});
-filterButtons.storyName = 'Standard';
+filterButtons.storyName = 'Filter Buttons';
 filterButtons.args = {
   disabled: false,
   focus: false,

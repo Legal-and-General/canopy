@@ -54,7 +54,7 @@ const detailsTemplate: Story<LgHeadingComponent> = (args: LgHeadingComponent) =>
 });
 
 export const standardHeading = detailsTemplate.bind({});
-standardHeading.storyName = 'Standard';
+standardHeading.storyName = 'Heading';
 standardHeading.args = {
   content: 'Heading',
   level: 1,
