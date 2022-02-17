@@ -122,7 +122,7 @@ const standardStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
 });
 
 export const standardFooter = standardStory.bind({});
-standardFooter.storyName = 'Standard';
+standardFooter.storyName = 'Footer';
 standardFooter.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',

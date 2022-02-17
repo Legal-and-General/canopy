@@ -358,7 +358,7 @@ const iconsTemplate: Story<LgIconComponent> = (args: LgIconComponent) => ({
 });
 
 export const standardIcons = iconsTemplate.bind({});
-standardIcons.storyName = 'Standard';
+standardIcons.storyName = 'Icon';
 standardIcons.parameters = {
   docs: {
     description: {

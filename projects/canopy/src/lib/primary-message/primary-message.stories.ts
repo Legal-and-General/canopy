@@ -41,7 +41,7 @@ class LgPrimaryMessageStoryComponent {
 }
 
 export default {
-  title: 'Components/Primary message',
+  title: 'Components/Primary Message',
   component: LgPrimaryMessageStoryComponent,
   decorators: [
     moduleMetadata({
@@ -105,7 +105,7 @@ const detailsTemplate: Story<LgPrimaryMessageComponent> = (
 });
 
 export const standardPrimaryMessage = detailsTemplate.bind({});
-standardPrimaryMessage.storyName = 'Standard';
+standardPrimaryMessage.storyName = 'Primary Message';
 standardPrimaryMessage.args = {
   hasRole: true,
 };
