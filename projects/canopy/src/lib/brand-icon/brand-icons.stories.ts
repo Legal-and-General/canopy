@@ -184,7 +184,7 @@ const brandIconsTemplate: Story<LgBrandIconComponent> = (args: LgBrandIconCompon
 });
 
 export const standardBrandIcons = brandIconsTemplate.bind({});
-standardBrandIcons.storyName = 'Standard';
+standardBrandIcons.storyName = 'Brand Icon';
 standardBrandIcons.args = {
   size: 'sm',
 };

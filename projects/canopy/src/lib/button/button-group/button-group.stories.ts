@@ -46,7 +46,7 @@ const buttonGroupStory: Story<LgButtonGroupComponent> = (
 });
 
 export const standardButtonGroup = buttonGroupStory.bind({});
-standardButtonGroup.storyName = 'Standard';
+standardButtonGroup.storyName = 'Button Group';
 standardButtonGroup.parameters = {
   controls: { hideNoControlsWarning: true },
   docs: {

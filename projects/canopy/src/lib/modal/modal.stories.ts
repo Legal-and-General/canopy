@@ -119,7 +119,7 @@ const detailsTemplate: Story<LgSeparatorComponent> = (args: LgSeparatorComponent
 });
 
 export const standardSeparator = detailsTemplate.bind({});
-standardSeparator.storyName = 'Standard';
+standardSeparator.storyName = 'Modal';
 standardSeparator.args = {
   headingLevel: 2,
 };

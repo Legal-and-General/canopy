@@ -76,7 +76,7 @@ const alertTemplate: Story<LgAlertComponent> = (args: LgAlertComponent) => ({
 });
 
 export const standardAlert = alertTemplate.bind({});
-standardAlert.storyName = 'Standard';
+standardAlert.storyName = 'Alert';
 standardAlert.args = {
   content: 'This is an alert.',
   variant: 'generic',
