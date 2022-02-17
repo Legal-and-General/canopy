@@ -105,7 +105,7 @@ const accordionTemplate: Story<LgAccordionComponent> = (args: LgAccordionCompone
 });
 
 export const standardAccordion = accordionTemplate.bind({});
-standardAccordion.storyName = 'Standard';
+standardAccordion.storyName = 'Accordion';
 standardAccordion.args = {
   headingLevel: 2,
   itemOneActive: false,

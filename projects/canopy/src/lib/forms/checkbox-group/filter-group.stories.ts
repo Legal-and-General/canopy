@@ -50,7 +50,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Filter multiple buttons',
+  title: 'Components/Filter Multiple Buttons',
   component: LgCheckboxGroupComponent,
   decorators: [
     moduleMetadata({
@@ -212,7 +212,7 @@ const filterMultiple: Story<LgCheckboxGroupComponent> = (
 });
 
 export const filterMultipleButtons = filterMultiple.bind({});
-filterMultipleButtons.storyName = 'Standard';
+filterMultipleButtons.storyName = 'Filter Multiple Buttons';
 filterMultipleButtons.args = {
   disabled: false,
   focus: false,

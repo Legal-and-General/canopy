@@ -153,7 +153,7 @@ const detailsTemplate: Story<LgDetailsComponent> = (args: LgDetailsComponent) =>
 });
 
 export const standardDetails = detailsTemplate.bind({});
-standardDetails.storyName = 'Standard';
+standardDetails.storyName = 'Details';
 standardDetails.args = {
   variant: 'generic',
   headingLevel: 5,

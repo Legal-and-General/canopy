@@ -52,7 +52,7 @@ const detailsTemplate: Story<LgHeaderComponent> = (args: LgHeaderComponent) => (
 });
 
 export const standardHeader = detailsTemplate.bind({});
-standardHeader.storyName = 'Standard';
+standardHeader.storyName = 'Header';
 standardHeader.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',

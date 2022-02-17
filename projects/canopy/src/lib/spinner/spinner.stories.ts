@@ -91,7 +91,7 @@ const alertTemplate: Story<LgSpinnerComponent> = (args: LgSpinnerComponent) => (
 });
 
 export const standardAlert = alertTemplate.bind({});
-standardAlert.storyName = 'Standard';
+standardAlert.storyName = 'Spinner';
 standardAlert.args = {
   text: 'Please wait while we load your data.',
   variant: 'generic',
