@@ -2,9 +2,9 @@
   --hero-padding: var(--space-sm);
   --hero-color: var(--color-white);
   --hero-bg-color: var(--color-super-blue-dark);
-  --hero-overlay-bg-color: var(--color-black);
   --hero-rule-color: rgba(255, 255, 255, 0.2);
   --hero-bg-alpha: 0.1;
+  --hero-overlay-bg-color: rgba(0, 0, 0, var(--hero-bg-alpha));
 
   --hero-link-color: var(--hero-color);
   --hero-link-hover-color: var(--hero-color);
