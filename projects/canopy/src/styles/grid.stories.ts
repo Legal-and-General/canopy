@@ -6,6 +6,7 @@ const styles = [
   `
     .box {
       background-color: var(--color-super-blue);
+      color: var(--color-white);
       margin-bottom: var(--space-md);
       height: var(--space-lg);
     }

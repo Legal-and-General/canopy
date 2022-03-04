@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../lib/canopy.module';
@@ -77,74 +77,93 @@ class LgFontPanelComponent {
 }
 
 export default {
-  title: 'Typography',
+  title: 'Style/Typography',
   decorators: [
-    withKnobs,
     moduleMetadata({
       declarations: [LgDisplayFontSizeComponent, LgFontPanelComponent],
       imports: [CanopyModule],
     }),
   ],
   parameters: {
-    notes: {
-      markdown: notes,
+    docs: {
+      source: {
+        state: 'closed',
+      },
+      description: {
+        component: notes,
+      },
     },
   },
+} as Meta;
+
+const headingsTemplate = `
+<lg-font-sizes-panel [textString]="textString"></lg-font-sizes-panel>
+`;
+
+const headingsStory: Story = (args) => ({
+  props: args,
+  template: headingsTemplate,
+});
+
+export const headings = headingsStory.bind({});
+headings.storyName = 'Headings';
+headings.args = {
+  textString: pangram,
 };
 
-export const headings = () => ({
-  template: `
-    <lg-font-sizes-panel [textString]="textString"></lg-font-sizes-panel>
-  `,
-  props: {
-    textString: text('Text string', pangram),
-  },
+const pageTemplate = `
+<h1 class="h1">Accusantium doloremque laudantium</h1>
+<p>
+  Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+  illo. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+  suscipit laboriosam. Accusantium doloremque laudantium, totam rem aperiam,
+  eaque ipsa quae ab illo.
+</p>
+<ul>
+  <li>Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</li>
+  <li>Do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+  <li>Laboris nisi ut aliquip ex ea commodo consequat.</li>
+</ul>
+
+<h2>Qui officia deserunt mollit anim id est laborum.</h2>
+<p>
+  Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+  adipisci velit. Et harum quidem rerum facilis est et expedita distinctio.
+  Animi, id est laborum et dolorum fuga. Itaque earum rerum hic tenetur a
+  sapiente delectus.
+</p>
+
+<p>
+  Laboris nisi ut aliquip ex ea commodo consequat. Architecto beatae vitae
+  dicta sunt explicabo. Fugiat quo voluptas nulla pariatur? Cupiditate non
+  provident, similique sunt in culpa qui officia deserunt mollitia.
+</p>
+
+<h3>Inventore veritatis</h3>
+<p>
+  Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+  <a href="https://en.wikipedia.org/wiki/Oran">Oran hitherto.</a> Excepteur
+  sint occaecat cupidatat non proident, sunt in culpa. Fugiat quo voluptas
+  nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit.
+</p>
+
+<h4>Inventore veritatis</h4>
+<p class="lg-font-size-0-8">
+  Totam rem aperiam. Inventore veritatis et quasi architecto beatae
+  vitae dicta sunt explicabo.
+</p>
+<p class="lg-font-size-0-6">
+  Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+</p>
+`;
+
+const pageStory: Story = (args) => ({
+  props: args,
+  template: pageTemplate,
 });
 
-export const page = () => ({
-  template: `
-    <h1 class="h1">Accusantium doloremque laudantium</h1>
-    <p>
-      Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-      illo. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-      suscipit laboriosam. Accusantium doloremque laudantium, totam rem aperiam,
-      eaque ipsa quae ab illo.
-    </p>
-    <ul>
-      <li>Ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis.</li>
-      <li>Do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-      <li>Laboris nisi ut aliquip ex ea commodo consequat.</li>
-    </ul>
-
-    <h2>Qui officia deserunt mollit anim id est laborum.</h2>
-    <p>
-      Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-      adipisci velit. Et harum quidem rerum facilis est et expedita distinctio.
-      Animi, id est laborum et dolorum fuga. Itaque earum rerum hic tenetur a
-      sapiente delectus.
-    </p>
-
-    <p>
-      Laboris nisi ut aliquip ex ea commodo consequat. Architecto beatae vitae
-      dicta sunt explicabo. Fugiat quo voluptas nulla pariatur? Cupiditate non
-      provident, similique sunt in culpa qui officia deserunt mollitia.
-    </p>
-
-    <h3>Inventore veritatis</h3>
-    <p>
-      Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-      <a href="https://en.wikipedia.org/wiki/Oran">Oran hitherto.</a> Excepteur
-      sint occaecat cupidatat non proident, sunt in culpa. Fugiat quo voluptas
-      nulla pariatur? Duis aute irure dolor in reprehenderit in voluptate velit.
-    </p>
-
-    <h4>Inventore veritatis</h4>
-    <p class="lg-font-size-0-8">
-      Totam rem aperiam. Inventore veritatis et quasi architecto beatae
-      vitae dicta sunt explicabo.
-    </p>
-    <p class="lg-font-size-0-6">
-      Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-    </p>
-  `,
-});
+export const page = pageStory.bind({});
+pageStory.storyName = 'Page';
+pageStory.args = {
+  textString: pangram,
+};
