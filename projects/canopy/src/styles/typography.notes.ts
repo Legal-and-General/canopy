@@ -1,6 +1,4 @@
 export const notes = `
-# Typography
-
 ## Purpose
 Provides common typographic styles for native elements with additional utility classes.
 

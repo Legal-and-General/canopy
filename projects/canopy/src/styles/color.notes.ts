@@ -1,6 +1,4 @@
 export const notes = `
-# Colours
-
 ## Purpose
 Provides available brand colours and tints via CSS variables
 
