@@ -1,0 +1,19 @@
+@import '../../../styles/mixins';
+
+.lg-hero-img-card {
+  background-color: var(--hero-img-bg-color);
+  display: block;
+  margin-top: 20rem;
+  padding: var(--space-md) var(--space-md) var(--space-xxs);
+
+  @include lg-breakpoint('md') {
+    margin-top: var(--space-xxl);
+    margin-bottom: var(--space-xxl);
+    opacity: 0.9;
+    width: 50%;
+  }
+
+  @include lg-breakpoint('lg') {
+    width: 100%;
+  }
+}
