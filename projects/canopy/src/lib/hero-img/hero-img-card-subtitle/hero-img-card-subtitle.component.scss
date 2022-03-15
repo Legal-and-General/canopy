@@ -1,0 +1,15 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-img-card-subtitle__heading {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    @include lg-font-size('3');
+
+    color: var(--hero-img-color);
+    margin-bottom: var(--space-lg);
+  }
+}
