@@ -1,0 +1,16 @@
+@import '../../../styles/mixins.scss';
+
+.lg-hero-img-card-title__heading {
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    @include lg-font-size('7', 'strong');
+
+    color: var(--hero-img-color);
+    font-family: var(--font-family-expressive);
+    margin-bottom: var(--space-xxs);
+  }
+}
