@@ -28,6 +28,7 @@ import { LgFooterModule } from './footer/footer.module';
 import { LgGridModule } from './grid/grid.module';
 import { LgHeaderModule } from './header/header.module';
 import { LgHeadingModule } from './heading/heading.module';
+import { LgHeroImgModule } from './hero-img/hero-img.module';
 import { LgHeroModule } from './hero/hero.module';
 import { LgHideAtModule } from './hide-at/hide-at.module';
 import { LgIconModule } from './icon/icon.module';
@@ -76,6 +77,7 @@ const modules = [
   LgGridModule,
   LgHeaderModule,
   LgHeadingModule,
+  LgHeroImgModule,
   LgHeroModule,
   LgHideAtModule,
   LgIconModule,
