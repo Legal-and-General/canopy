@@ -3,6 +3,7 @@
   "plugins": [
     "stylelint-selector-bem-pattern"
   ],
+  "customSyntax": "postcss-scss",
   "rules": {
     "at-rule-no-unknown": null,
     "no-descending-specificity": null,
@@ -19,6 +20,12 @@
       "always",
       {
         "ignore": ["after-comment", "first-nested"],
+      }
+    ],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["space", "map-get", "percentage"],
       }
     ]
   }
