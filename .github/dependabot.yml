@@ -6,16 +6,17 @@ updates:
     # default location of `.github/workflows`
     directory: '/'
     schedule:
+      day: 'sunday'
       interval: 'weekly'
       time: '00:00'
       timezone: 'Europe/London'
-    rebase-strategy: 'disabled'
 
   # Maintain dependencies for npm
   - package-ecosystem: 'npm'
     # Files stored in repository root
     directory: '/'
     schedule:
+      day: 'sunday'
       interval: 'weekly'
       time: '00:00'
       timezone: 'Europe/London'
