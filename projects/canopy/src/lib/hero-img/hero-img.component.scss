@@ -2,11 +2,16 @@
 
 .lg-hero-img {
   background-repeat: no-repeat;
-  background-position: 100% 0;
-  background-size: 215%;
+  background-position: 75% 0;
+  background-size: 255%;
   display: block;
   height: auto;
   width: 100%;
+
+  @media (min-width: 28rem) {
+    background-position: 100% 0;
+    background-size: 180%;
+  }
 
   @include lg-breakpoint('md') {
     background-position: 70% center;
