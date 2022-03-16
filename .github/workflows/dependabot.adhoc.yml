@@ -1,0 +1,26 @@
+name: Dependabot Batcher Ad-hoc
+on: workflow_dispatch
+
+jobs:
+  # Batches Dependabot PRs into one by merging them into a combined branch, then raising a new PR
+  dependabot-batcher:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: 'Combine Dependabot PRs'
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const combineDependabotPrs = require('./.github/workflow-scripts/combine-dependabot-prs.js');
+            return await combineDependabotPrs({
+              github,
+              context,
+            });
