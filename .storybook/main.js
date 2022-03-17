@@ -25,6 +25,7 @@ module.exports = {
     '../projects/canopy/src/lib/modal/modal.stories.ts',
     '../projects/canopy/src/lib/primary-message/primary-message.stories.ts',
     '../projects/canopy/src/lib/promo-card/promo-card.stories.ts',
+    '../projects/canopy/src/lib/forms/radio/radio.stories.ts',
     '../projects/canopy/src/lib/quick-action/quick-action.stories.ts',
     '../projects/canopy/src/lib/separator/separator.stories.ts',
     '../projects/canopy/src/lib/shadow/shadow.stories.ts',

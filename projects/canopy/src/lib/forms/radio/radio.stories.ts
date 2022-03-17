@@ -1,32 +1,34 @@
-import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
+import { moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from './radio.notes';
 import { LgRadioModule } from './radio.module';
 import { LgHintModule } from '../hint/hint.module';
+import { LgRadioGroupComponent } from './radio-group.component';
+
+const formTemplate = `
+<form [formGroup]="form">
+  <lg-radio-group [inline]="inline" [focus]="focus" formControlName="color">
+    {{ label }}
+    <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+    <lg-radio-button value="red" (blur)="radioBlur.emit($event)">Red</lg-radio-button>
+    <lg-radio-button value="yellow" (blur)="radioBlur.emit($event)"
+      >Yellow
+      <lg-hint>Internal custom text</lg-hint>
+    </lg-radio-button>
+  </lg-radio-group>
+</form>
+`;
 
 @Component({
   selector: 'lg-reactive-form-radio',
-  template: `
-    <form [formGroup]="form">
-      <lg-radio-group [inline]="inline" formControlName="color">
-        {{ label }}
-        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <lg-radio-button value="red" (blur)="radioBlur.emit($event)">Red</lg-radio-button>
-        <lg-radio-button value="yellow" (blur)="radioBlur.emit($event)"
-          >Yellow
-          <lg-hint>Internal custom text</lg-hint>
-        </lg-radio-button>
-      </lg-radio-group>
-    </form>
-  `,
+  template: formTemplate,
 })
 class ReactiveFormRadioComponent {
   @Input() inline = false;
+  @Input() focus = false;
   @Input() label: string;
   @Input() hint: string;
   @Input()
@@ -54,37 +56,211 @@ class ReactiveFormRadioComponent {
 
 export default {
   title: 'Components/Form/Radio',
+  component: LgRadioGroupComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [ReactiveFormRadioComponent],
+      imports: [ReactiveFormsModule, LgRadioModule, LgHintModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [ReactiveFormRadioComponent],
-        imports: [ReactiveFormsModule, LgHintModule, LgRadioModule],
-      }),
-    ],
-    notes: {
-      markdown: notes('Radio'),
+    docs: {
+      description: {
+        component: notes('Radio'),
+      },
+    },
+  },
+  argTypes: {
+    id: {
+      description: 'HTML ID attribute, auto generated if not provided.',
+      control: false,
+      table: {
+        defaultValue: {
+          summary: 'lg-radio-group-id-${nextUniqueId++}',
+        },
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    name: {
+      description:
+        'Set the name value for all inputs in the group, auto-generated if not provided.',
+      control: false,
+      table: {
+        defaultValue: {
+          summary: 'lg-radio-group-${nextUniqueId++}',
+        },
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    value: {
+      description:
+        'Set the default checked radio button, must match the value of the radio button.',
+      control: false,
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    focus: {
+      description: 'Set the focus on the fieldset.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    inline: {
+      description: 'Position the radio buttons inline.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    disabled: {
+      description: 'Set the inner filters to disabled.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    ariaDescribedBy: {
+      description:
+        'HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate.',
+      control: false,
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    radioChange: {
+      action: 'Radio change',
+      table: {
+        disable: true,
+      },
+    },
+    stack: {
+      table: {
+        disable: true,
+      },
+    },
+    _hintElement: {
+      table: {
+        disable: true,
+      },
+    },
+    _radios: {
+      table: {
+        disable: true,
+      },
+    },
+    _stack: {
+      table: {
+        disable: true,
+      },
+    },
+    _validationElement: {
+      table: {
+        disable: true,
+      },
+    },
+    _value: {
+      table: {
+        disable: true,
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    nextUniqueId: {
+      table: {
+        disable: true,
+      },
+    },
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+    onChange: {
+      table: {
+        disable: true,
+      },
+    },
+    onTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnChange: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    setDisabledState: {
+      table: {
+        disable: true,
+      },
+    },
+    writeValue: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
-export const standard = () => ({
+const radioStory: Story<LgRadioModule> = (args: LgRadioModule) => ({
+  props: args,
   template: `
-    <lg-reactive-form-radio
+  <lg-reactive-form-radio
     [disabled]="disabled"
     [hint]="hint"
     [inline]="inline"
     [label]="label"
+    [focus]="focus"
     (radioChange)="radioChange($event)"
     (radioBlur)="radioBlur($event)">
   </lg-reactive-form-radio>
   `,
-  props: {
-    inline: boolean('inline', false),
-    label: text('label', 'Color'),
-    hint: text('hint', 'Please select a color'),
-    radioChange: action('radioChange'),
-    radioBlur: action('radioBlur'),
-    disabled: boolean('disabled', false),
-  },
 });
+
+export const radioButtons = radioStory.bind({});
+radioButtons.storyName = 'Radio';
+radioButtons.args = {
+  disabled: false,
+  inline: false,
+  focus: false,
+  label: 'Color',
+  hint: 'Please select a color',
+};
+radioButtons.parameters = {
+  docs: {
+    source: {
+      code: formTemplate,
+    },
+  },
+};
