@@ -14,6 +14,7 @@ module.exports = {
     '../projects/canopy/src/lib/details/details.stories.ts',
     '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
     '../projects/canopy/src/lib/forms/radio/filter.stories.ts',
+    '../projects/canopy/src/lib/forms/checkbox-group/checkbox-group.stories.ts',
     '../projects/canopy/src/lib/forms/checkbox-group/filter-group.stories.ts',
     '../projects/canopy/src/lib/focus/focus.stories.ts',
     '../projects/canopy/src/lib/footer/footer.stories.ts',
