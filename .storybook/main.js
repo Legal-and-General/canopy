@@ -27,6 +27,7 @@ module.exports = {
     '../projects/canopy/src/lib/promo-card/promo-card.stories.ts',
     '../projects/canopy/src/lib/quick-action/quick-action.stories.ts',
     '../projects/canopy/src/lib/separator/separator.stories.ts',
+    '../projects/canopy/src/lib/shadow/shadow.stories.ts',
     '../projects/canopy/src/lib/show-at/show-at.stories.ts',
     '../projects/canopy/src/lib/skeleton/skeleton.stories.ts',
     '../projects/canopy/src/lib/spinner/spinner.stories.ts',
