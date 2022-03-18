@@ -1,7 +1,7 @@
 @import '../../../styles/mixins';
 
 .lg-hero-img-card {
-  background-color: var(--hero-img-bg-color-rgb);
+  background-color: rgba(var(--hero-img-bg-color-rgb), 1);
   display: block;
   margin-top: 20rem;
   min-height: 15rem;
