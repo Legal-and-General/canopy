@@ -34,6 +34,20 @@ export default {
     logoHref: {
       description: 'Url link if the logo is clickable.',
     },
+    secondaryLogo: {
+      description: 'A url link to the secondary logo.',
+    },
+    secondaryLogoAlt: {
+      description: 'alt text to display alongside the secondary logo.',
+      table: {
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    secondaryLogoHref: {
+      description: 'Url link if the secondary logo is clickable.',
+    },
     class: {
       table: {
         disable: true,
@@ -72,7 +86,7 @@ const coBrandedTemplate = `
 
 const coBrandedStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
   props: args,
-  template,
+  template: coBrandedTemplate,
   styles: [
     `
       :host {
@@ -89,9 +103,9 @@ coBrandedHeader.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
   logoHref: 'https://storybook.js.org',
-  secondLogo: 'dummy-logo.svg',
-  secondLogoAlt: 'Second company name',
-  secondLogoHref: 'https://storybook.js.org',
+  secondaryLogo: 'dummy-logo.svg',
+  secondaryLogoAlt: 'Second company name',
+  secondaryLogoHref: 'https://storybook.js.org',
 };
 coBrandedHeader.parameters = {
   docs: {

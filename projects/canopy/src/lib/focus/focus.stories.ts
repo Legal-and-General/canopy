@@ -52,6 +52,9 @@ const focusTemplate: Story<LgFocusDirective> = (args: LgFocusDirective) => ({
 
 export const focus = focusTemplate.bind({});
 focus.storyName = 'Focus';
+focus.args = {
+  lgFocus: false,
+};
 focus.parameters = {
   docs: {
     source: {

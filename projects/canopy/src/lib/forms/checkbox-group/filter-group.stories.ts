@@ -13,7 +13,7 @@ const formTemplate = `
 <form [formGroup]="form">
   <lg-filter-multiple-group formControlName="colors" [focus]="focus">
     {{ label }}
-    <lg-hint>Please select all colours that apply</lg-hint>
+    <lg-hint>{{ hint }}</lg-hint>
     <lg-filter-checkbox value="red" (blur)="checkboxBlur.emit($event)">Red</lg-filter-checkbox>
     <lg-filter-checkbox value="yellow" (blur)="checkboxBlur.emit($event)">Yellow</lg-filter-checkbox>
     <lg-filter-checkbox value="green" (blur)="checkboxBlur.emit($event)">Green</lg-filter-checkbox>
@@ -27,6 +27,8 @@ const formTemplate = `
   template: formTemplate,
 })
 class ReactiveFormComponent {
+  @Input() label: string;
+  @Input() hint: string;
   @Input() focus: boolean;
   @Input()
   set disabled(isDisabled: boolean) {
@@ -213,6 +215,7 @@ const filterMultiple: Story<LgCheckboxGroupComponent> = (
     [disabled]="disabled"
     [focus]="focus"
     [label]="label"
+    [hint]="hint"
     (checkboxChange)="checkboxChange($event)"
     (checkboxBlur)="checkboxBlur($event)">
   </lg-reactive-form>
@@ -223,6 +226,7 @@ export const filterMultipleButtons = filterMultiple.bind({});
 filterMultipleButtons.storyName = 'Filter Multiple Buttons';
 filterMultipleButtons.args = {
   label: 'Select colors',
+  hint: 'Please select all colours that apply',
   disabled: false,
   focus: false,
 };

@@ -80,21 +80,21 @@ const template = `
 `;
 
 const exampleTemplate = `
-  <lg-primary-message [hasRole]="hasRole">
-    <lg-brand-icon name="calendar"></lg-brand-icon>
-    <lg-primary-message-title
-      >This is a message with brand icon
-    </lg-primary-message-title>
-    <lg-primary-message-description>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
-    </lg-primary-message-description>
-    <lg-primary-message-description>
-      <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">
-        Call to action
-      </button>
-    </lg-primary-message-description>
-  </lg-primary-message>
+<lg-primary-message [hasRole]="hasRole">
+  <lg-brand-icon name="calendar"></lg-brand-icon>
+  <lg-primary-message-title
+    >This is a message with brand icon
+  </lg-primary-message-title>
+  <lg-primary-message-description>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
+  </lg-primary-message-description>
+  <lg-primary-message-description>
+    <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">
+      Call to action
+    </button>
+  </lg-primary-message-description>
+</lg-primary-message>
 `;
 
 const detailsTemplate: Story<LgPrimaryMessageComponent> = (

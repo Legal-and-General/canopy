@@ -1,7 +1,4 @@
 export const notes = `
-# Skeleton Loading Directive
-
-## Purpose
 The skeleton directive adds a skeleton loading state to a component or element.
 
 ## Usage

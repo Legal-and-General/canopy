@@ -1,5 +1,4 @@
 export const notes = `
-## Purpose
 Provides common typographic styles for native elements with additional utility classes.
 
 Canopy consists of two fonts:
