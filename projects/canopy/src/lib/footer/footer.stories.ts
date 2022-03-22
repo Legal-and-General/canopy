@@ -105,15 +105,15 @@ export default {
 } as Meta;
 
 const template = `
- <footer lg-footer
-   [copyright]="copyright"
-   [logo]="logo"
-   [logoAlt]="logoAlt"
-   [primaryLinks]="primaryLinks"
-   [secondaryLinks]="secondaryLinks"
-   (primaryLinkClicked)="primaryLinkClicked($event)"
-   (secondaryLinkClicked)="secondaryLinkClicked($event)">
- </footer>
+<footer lg-footer
+  [copyright]="copyright"
+  [logo]="logo"
+  [logoAlt]="logoAlt"
+  [primaryLinks]="primaryLinks"
+  [secondaryLinks]="secondaryLinks"
+  (primaryLinkClicked)="primaryLinkClicked($event)"
+  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+</footer>
 `;
 
 const standardStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({

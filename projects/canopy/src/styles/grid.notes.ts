@@ -1,5 +1,4 @@
 export const notes = `
-## Purpose
 Provides responsive grid system.
 
 The grid system is useful for responsive page layouts, we recommend that it is used sparingly, for the majority of cases you may be better off just using using flexbox.

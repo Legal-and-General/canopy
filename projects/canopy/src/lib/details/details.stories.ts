@@ -135,16 +135,16 @@ export default {
 } as Meta;
 
 const template = `
-  <lg-details
-    [isActive]="isActive"
-    [variant]="variant"
-    [showIcon]="showIcon"
-    (opened)="toggle('Detail opened')"
-    (closed)="toggle('Detail closed')">
-    <lg-details-panel-heading [headingLevel]="headingLevel">How do I change my payment details?</lg-details-panel-heading>
-    Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-    payment details
-  </lg-details>
+<lg-details
+  [isActive]="isActive"
+  [variant]="variant"
+  [showIcon]="showIcon"
+  (opened)="toggle('Detail opened')"
+  (closed)="toggle('Detail closed')">
+  <lg-details-panel-heading [headingLevel]="headingLevel">How do I change my payment details?</lg-details-panel-heading>
+  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+  payment details
+</lg-details>
 `;
 
 const detailsTemplate: Story<LgDetailsComponent> = (args: LgDetailsComponent) => ({
