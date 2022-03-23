@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgButtonGroupComponent, LgButtonModule } from 'projects/canopy/src/public-api';
+import { LgButtonModule } from '../button.module';
+import { LgButtonGroupComponent } from './button-group.component';
 import { notes } from './button-group.notes';
 
 export default {
