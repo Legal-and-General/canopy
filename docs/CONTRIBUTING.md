@@ -121,3 +121,7 @@ For more info, see the fonts section in USAGE.md.
 
 ## Angular Material CDK
 The `@angular/cdk` can be used as long as only the necessary functionality is imported. 
+
+## Dependabot
+The dependency updates are currently handled by [Dependabot](./DEPENDABOT.md).
+
