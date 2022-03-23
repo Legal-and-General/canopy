@@ -56,3 +56,4 @@ updates:
       - dependency-name: "@storybook/theming"
         versions: ["6.x"]
       - dependency-name: "jasmine-marbles"
+      - dependency-name: "@angular-devkit/build-angular"
