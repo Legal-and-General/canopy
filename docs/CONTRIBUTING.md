@@ -12,11 +12,11 @@ Canopy uses [Storybook](https://storybook.js.org/) to enable components to be de
 
 Running `npm start` will run storybook locally, this will hot reload any changes and is the most seamless way to modify or create existing components.
 
-### Netlify Deployments
+### Deployments
 
-Pull requests are automatically deployed via [Netlify](https://netlify.com), a status check will be added to any pull request with a link to the deployment which will run the storybook application. [Netlify config](../netlify.toml) is checked into the project
+At the moment pull requests are not deployed to any environment.
 
-The master branch is also deployed to [GitHub Pages](https://pages.github.com/), this currently provides the most up to date documentation for the latest version. This deployment is handled by a custom [GitHub action](../.github/actions/gh-pages-storybook)
+The `master` branch is deployed to [GitHub Pages](https://pages.github.com/), this currently provides the most up to date documentation for the latest version. This deployment is handled by a custom [GitHub action](../.github/actions/gh-pages-storybook)
 
 https://legal-and-general.github.io/canopy
 
@@ -119,5 +119,5 @@ The Lyon font files are stored in **/assets/fonts** and ommitted from the distri
 
 For more info, see the fonts section in USAGE.md.
 
-# Angular Material CDK
+## Angular Material CDK
 The `@angular/cdk` can be used as long as only the necessary functionality is imported. 
