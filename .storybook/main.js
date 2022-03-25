@@ -19,6 +19,7 @@ module.exports = {
     '../projects/canopy/src/lib/forms/radio/radio.stories.ts',
     '../projects/canopy/src/lib/forms/radio/segment.stories.ts',
     '../projects/canopy/src/lib/forms/select/select.stories.ts',
+    '../projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts',
     '../projects/canopy/src/lib/forms/toggle/checkbox.stories.ts',
     '../projects/canopy/src/lib/forms/toggle/switch.stories.ts',
     '../projects/canopy/src/lib/focus/focus.stories.ts',
