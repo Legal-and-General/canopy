@@ -11,7 +11,7 @@ Import the component in your application:
 })
 ~~~
 
-and in your HTML for a regular *checkbox*:
+and in your HTML for a regular *${name.toLowerCase()}*:
 
 ~~~html
 <lg-toggle formControlName="confirm" value="yes" variant="${name.toLowerCase()}">Do you agree?</lg-toggle>
