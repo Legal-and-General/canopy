@@ -7,6 +7,7 @@ import { notes } from './checkbox-group.notes';
 import { LgCheckboxGroupComponent } from './checkbox-group.component';
 import { LgCheckboxGroupModule } from './checkbox-group.module';
 import { LgHintModule } from '../hint';
+import { LgToggleModule } from '../toggle';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -57,7 +58,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, LgCheckboxGroupModule, LgHintModule],
+      imports: [ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule],
     }),
   ],
   parameters: {
