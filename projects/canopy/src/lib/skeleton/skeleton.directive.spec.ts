@@ -5,9 +5,7 @@ import { By } from '@angular/platform-browser';
 import { LgSkeletonDirective } from './skeleton.directive';
 
 @Component({
-  template: `
-    <div lgSkeleton>{{data?.label}}</div>
-  `,
+  template: ` <div lgSkeleton>{{ data?.label }}</div> `,
 })
 class TestComponent {
   @Input() data = null;
@@ -26,31 +24,24 @@ describe('LgSkeletonDirective', () => {
     oldValue: null,
     type: 'characterData',
     target: elem,
-    removedNodes: null
+    removedNodes: null,
   } as MutationRecord;
   let fixture: ComponentFixture<TestComponent>;
   let testElement: DebugElement;
   let directive: LgSkeletonDirective;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [TestComponent, LgSkeletonDirective],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [TestComponent, LgSkeletonDirective],
+    }).compileComponents();
 
-  beforeEach(
-    waitForAsync(() => {
-      fixture = TestBed.createComponent(TestComponent);
-      testElement = fixture.debugElement.query(By.directive(LgSkeletonDirective));
-      directive = testElement.injector.get(LgSkeletonDirective);
-
-      fixture.detectChanges();
-    }),
-  );
+    fixture = TestBed.createComponent(TestComponent);
+    testElement = fixture.debugElement.query(By.directive(LgSkeletonDirective));
+    directive = testElement.injector.get(LgSkeletonDirective);
+  }));
 
   it('adds default skeleton class if data is null', () => {
+    fixture.detectChanges();
     expect(testElement.nativeElement.classList.contains('lg-skeleton')).toBeTruthy();
   });
 
@@ -147,7 +138,9 @@ describe('LgSkeletonDirective', () => {
       directive.observeChanges([mutationRecord]);
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.classList.contains('lg-skeleton--right')).toBeTruthy();
+      expect(
+        testElement.nativeElement.classList.contains('lg-skeleton--right'),
+      ).toBeTruthy();
     });
 
     it('does not set the alignment class if is host is not empty', () => {
@@ -159,7 +152,9 @@ describe('LgSkeletonDirective', () => {
       directive.observeChanges([mutationRecord]);
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.classList.contains('lg-skeleton--right')).not.toBeTruthy();
+      expect(
+        testElement.nativeElement.classList.contains('lg-skeleton--right'),
+      ).not.toBeTruthy();
     });
 
     it('does not set the alignment class if not specified', () => {
@@ -171,7 +166,9 @@ describe('LgSkeletonDirective', () => {
       directive.observeChanges([mutationRecord]);
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.classList.contains('lg-skeleton--right')).not.toBeTruthy();
+      expect(
+        testElement.nativeElement.classList.contains('lg-skeleton--right'),
+      ).not.toBeTruthy();
     });
   });
 });
