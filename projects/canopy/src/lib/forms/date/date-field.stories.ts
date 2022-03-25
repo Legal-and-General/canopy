@@ -1,27 +1,28 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { action } from '@storybook/addon-actions';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
-import { CanopyModule } from '../../canopy.module';
 import { notes } from './date-field.notes';
+import { LgHintModule } from '../hint';
+import { LgDateFieldComponent } from './date-field.component';
+import { LgDateFieldModule } from './date-field.module';
+
+const template = `
+<lg-date-field [focus]="focus" formControlName="date">
+  {{ label }}
+  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+</lg-date-field>
+`;
 
 @Component({
   selector: 'lg-reactive-form',
-  template: `
-    <form [formGroup]="form">
-      <lg-date-field formControlName="date">
-        {{ label }}
-        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-      </lg-date-field>
-    </form>
-  `,
+  template: ` <form [formGroup]="form">${template}</form> `,
 })
 class ReactiveFormComponent {
   @Input() hint: string;
   @Input() label: string;
+  @Input() focus: boolean;
 
   @Input()
   set disabled(disabled: boolean) {
@@ -32,7 +33,7 @@ class ReactiveFormComponent {
     }
   }
   get disabled(): boolean {
-    return this.form.controls.name.disabled;
+    return this.form.controls.date.disabled;
   }
 
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
@@ -48,32 +49,229 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Date Input',
+  title: 'Components/Form/Date input',
+  component: LgDateFieldComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [ReactiveFormComponent],
+      imports: [ReactiveFormsModule, LgDateFieldModule, LgHintModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [ReactiveFormComponent],
-        imports: [ReactiveFormsModule, CanopyModule],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    inputChange: {
+      action: 'Input change',
+      table: {
+        disable: true,
+      },
+    },
+    dateId: {
+      description:
+        'HTML ID attribute for the date input, auto generated if not provided.',
+      table: {
+        defaultValue: {
+          summary: 'lg-input-date-${this.uniqueId++}',
+        },
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    monthId: {
+      description:
+        'HTML ID attribute for the month input, auto generated if not provided.',
+      table: {
+        defaultValue: {
+          summary: 'lg-input-month-${this.uniqueId++}',
+        },
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    yearId: {
+      description:
+        'HTML ID attribute for the year input, auto generated if not provided.',
+      table: {
+        defaultValue: {
+          summary: 'lg-input-year-${this.uniqueId++}',
+        },
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    focus: {
+      description: 'Set the focus on the fieldset.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    disabled: {
+      description: 'Set the inputs to disabled.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    ariaDescribedBy: {
+      description:
+        'HTML ID for the corresponding element that describes the date field, if not provided it will use the hint field where appropriate.',
+      control: false,
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    value: {
+      table: {
+        disable: true,
+      },
+    },
+    _hintElement: {
+      table: {
+        disable: true,
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    date: {
+      table: {
+        disable: true,
+      },
+    },
+    _validationElement: {
+      table: {
+        disable: true,
+      },
+    },
+    isControlInvalid: {
+      table: {
+        disable: true,
+      },
+    },
+    onChange: {
+      table: {
+        disable: true,
+      },
+    },
+    ngOnDestroy: {
+      table: {
+        disable: true,
+      },
+    },
+    ngOnInit: {
+      table: {
+        disable: true,
+      },
+    },
+    onBlur: {
+      table: {
+        disable: true,
+      },
+    },
+    onTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnChange: {
+      table: {
+        disable: true,
+      },
+    },
+    registerOnTouched: {
+      table: {
+        disable: true,
+      },
+    },
+    setDisabledState: {
+      table: {
+        disable: true,
+      },
+    },
+    writeValue: {
+      table: {
+        disable: true,
+      },
+    },
+    formGroupDirective: {
+      table: {
+        disable: true,
+      },
+    },
+    validate: {
+      table: {
+        disable: true,
+      },
+    },
+    dateFormGroup: {
+      table: {
+        disable: true,
+      },
+    },
+    month: {
+      table: {
+        disable: true,
+      },
+    },
+    subscriptions: {
+      table: {
+        disable: true,
+      },
+    },
+    year: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
-export const standard = () => ({
-  template: `<lg-reactive-form
+const dateInputStory: Story<LgDateFieldModule> = (args: LgDateFieldModule) => ({
+  props: args,
+  template: `
+  <lg-reactive-form
     (inputChange)="inputChange($event)"
     [disabled]="disabled"
     [hint]="hint"
     [label]="label"
-  ></lg-reactive-form>`,
-  props: {
-    inputChange: action('inputChange'),
-    label: text('label', 'Date of birth'),
-    hint: text('hint', 'For example, 12 06 1983'),
-    disabled: boolean('disabled', false),
-  },
+    [focus]="focus"
+  ></lg-reactive-form>
+  `,
 });
+
+export const dateInput = dateInputStory.bind({});
+dateInput.storyName = 'Date input';
+dateInput.args = {
+  disabled: false,
+  label: 'Date of birth',
+  hint: 'For example, 12 06 1983',
+  focus: false,
+};
+dateInput.parameters = {
+  docs: {
+    source: {
+      code: template,
+    },
+  },
+};
