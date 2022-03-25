@@ -1,7 +1,6 @@
 const svgoBrandIconsConfig = require('./svgo-brand-icons.config');
 
 const svgToTsConfig = {
-  conversionType: "constants",
   srcFiles: ["**/src/assets/brand-icons/*.svg"],
   outputDirectory: "projects/canopy/src/lib/brand-icon",
   fileName: "brand-icons.interface",
