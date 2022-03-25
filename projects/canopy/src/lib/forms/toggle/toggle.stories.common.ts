@@ -8,10 +8,8 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { action } from '@storybook/addon-actions';
-import { boolean, text } from '@storybook/addon-knobs';
-
 import type { ToggleVariant } from './toggle.interface';
+import { LgToggleModule } from './toggle.module';
 
 @Component({
   selector: 'lg-reactive-form',
@@ -71,23 +69,36 @@ export class ReactiveToggleFormComponent implements OnChanges {
   }
 }
 
-export const createToggleStory = (variant: string) => ({
-  template: `
-  <lg-reactive-form
-    [disabled]="disabled"
-    [label]="label"
-    variant="${variant}"
-    [checked]="checked"
-    [focus]="focus"
-    (toggleBlur)="toggleBlur($event)"
-    (toggleChange)="toggleChange($event)">
-  </lg-reactive-form>`,
-  props: {
-    toggleChange: action('toggleChange'),
-    toggleBlur: action('toggleBlur'),
-    label: text('label', 'I will bring my Umbrella if it is raining'),
-    disabled: boolean('disabled', false),
-    checked: boolean('reactively checked', false),
-    focus: boolean('focus', false),
-  },
-});
+export function createToggleStory(args: LgToggleModule, variant: string) {
+  return {
+    props: args,
+    template: `
+      <lg-reactive-form
+        [disabled]="disabled"
+        [label]="label"
+        variant="${variant}"
+        [checked]="checked"
+        [focus]="focus"
+        (toggleChange)="toggleChange($event)"
+        (toggleBlur)="toggleBlur($event)">
+      </lg-reactive-form>
+    `,
+  };
+}
+
+export function setupToggleStoryValues(obj, code) {
+  obj.args = {
+    disabled: false,
+    inline: false,
+    focus: false,
+    label: 'Color',
+    hint: 'Please select a color',
+  };
+  obj.parameters = {
+    docs: {
+      source: {
+        code,
+      },
+    },
+  };
+}
