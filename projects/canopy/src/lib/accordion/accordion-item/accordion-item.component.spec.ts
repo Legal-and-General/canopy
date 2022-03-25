@@ -41,21 +41,19 @@ describe('LgAccordionItemComponent', () => {
   let selectionDispatcher: UniqueSelectionDispatcher;
   let accordionMock: any;
 
-  beforeEach(
-    waitForAsync(() => {
-      accordionMock = { id: 'lgAccordion123' };
-      TestBed.configureTestingModule({
-        declarations: [
-          TestAccordionWrapperItemComponent,
-          LgAccordionItemComponent,
-          LgAccordionPanelHeadingComponent,
-          LgAccordionItemContentDirective,
-          MockComponents(LgHeadingComponent, LgIconComponent),
-        ],
-        providers: [{ provide: LG_ACCORDION, useFactory: () => accordionMock }],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    accordionMock = { id: 'lgAccordion123' };
+    TestBed.configureTestingModule({
+      declarations: [
+        TestAccordionWrapperItemComponent,
+        LgAccordionItemComponent,
+        LgAccordionPanelHeadingComponent,
+        LgAccordionItemContentDirective,
+        MockComponents(LgHeadingComponent, LgIconComponent),
+      ],
+      providers: [{ provide: LG_ACCORDION, useFactory: () => accordionMock }],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     selectionDispatcher = TestBed.inject(UniqueSelectionDispatcher);
@@ -112,18 +110,15 @@ describe('LgAccordionItemComponent', () => {
       expect(component.isActive).toBe(false);
     });
 
-    it(
-      'should emit events',
-      waitForAsync(() => {
-        triggerElement.nativeElement.click();
-        expect(openedSpy).toHaveBeenCalled();
-        expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
+    it('should emit events', () => {
+      triggerElement.nativeElement.click();
+      expect(openedSpy).toHaveBeenCalled();
+      expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
 
-        triggerElement.nativeElement.click();
-        expect(closedSpy).toHaveBeenCalled();
-        expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
-      }),
-    );
+      triggerElement.nativeElement.click();
+      expect(closedSpy).toHaveBeenCalled();
+      expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
+    });
   });
 
   it('should toggle the `active` class on the panel', () => {
@@ -149,23 +144,17 @@ describe('LgAccordionItemComponent', () => {
       expect(component.accordionPanelHeading.isActive).toBeTruthy();
     });
 
-    it(
-      'should emit opened event',
-      waitForAsync(() => {
-        component.opened.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
-        fixture.debugElement.componentInstance.isActive = true;
-        fixture.detectChanges();
-      }),
-    );
+    it('should emit opened event', () => {
+      component.opened.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
+      fixture.debugElement.componentInstance.isActive = true;
+      fixture.detectChanges();
+    });
 
-    it(
-      'should emit closed event',
-      waitForAsync(() => {
-        component.closed.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
-        fixture.debugElement.componentInstance.isActive = false;
-        fixture.detectChanges();
-      }),
-    );
+    it('should emit closed event', () => {
+      component.closed.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
+      fixture.debugElement.componentInstance.isActive = false;
+      fixture.detectChanges();
+    });
   });
 
   describe('when notified of sibling accordion item activated', () => {

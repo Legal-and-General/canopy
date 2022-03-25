@@ -13,16 +13,14 @@ describe('LgDetailsPanelHeadingComponent', () => {
   let fixture: ComponentFixture<LgDetailsPanelHeadingComponent>;
   let triggerElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgDetailsPanelHeadingComponent,
-          MockComponents(LgIconComponent, LgHeadingComponent),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        LgDetailsPanelHeadingComponent,
+        MockComponents(LgIconComponent, LgHeadingComponent),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgDetailsPanelHeadingComponent);
@@ -45,16 +43,13 @@ describe('LgDetailsPanelHeadingComponent', () => {
       expect(component.isActive).toBe(false);
     });
 
-    it(
-      'should emit toggleActive event',
-      waitForAsync(() => {
-        component.toggleActive
-          .pipe(take(1))
-          .subscribe((isActive) => expect(isActive).toBeFalsy());
-        component.isActive = true;
-        component.toggle();
-      }),
-    );
+    it('should emit toggleActive event', () => {
+      component.toggleActive
+        .pipe(take(1))
+        .subscribe((isActive) => expect(isActive).toBeFalsy());
+      component.isActive = true;
+      component.toggle();
+    });
 
     it(`should set the 'active' class`, () => {
       expect(
@@ -89,16 +84,13 @@ describe('LgDetailsPanelHeadingComponent', () => {
       expect(component.isActive).toBe(true);
     });
 
-    it(
-      'should emit toggleActive event',
-      waitForAsync(() => {
-        component.toggleActive
-          .pipe(take(1))
-          .subscribe((isActive) => expect(isActive).toBeTruthy());
-        component.isActive = false;
-        component.toggle();
-      }),
-    );
+    it('should emit toggleActive event', () => {
+      component.toggleActive
+        .pipe(take(1))
+        .subscribe((isActive) => expect(isActive).toBeTruthy());
+      component.isActive = false;
+      component.toggle();
+    });
 
     it('should remove the `active` class', () => {
       triggerElement.nativeElement.click();
