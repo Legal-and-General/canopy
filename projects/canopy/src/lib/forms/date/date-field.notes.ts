@@ -1,7 +1,4 @@
 export const notes = `
-# Date Input Component
-
-## Purpose
 Provides a component for capturing and validating a date. Output is a concatenation of individual string values into a valid ISO 8601 date format 'YYYY-MM-DD'.
 
 ## Usage
