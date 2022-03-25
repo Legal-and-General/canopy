@@ -1,7 +1,4 @@
 export const notes = `
-# Select Component
-
-## Purpose
 Provides a common select directive and select field component. The select field component controls custom select box styling and linking the label and field.
 The width of the select field is controlled by the size of the options contained with in it.
 
@@ -11,22 +8,8 @@ Import the component in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgFormsModule],
+  imports: [LgSelectModule],
 })
-~~~
-
-and in your HTML:
-
-~~~html
-<lg-select-field>
-  Color
-  <select lgSelect formControlName="color">
-    <option value="red">Red</option>
-    <option value="blue">Blue</option>
-    <option value="green">Green</option>
-    <option value="yellow">Yellow</option>
-  </select>
-</lg-select-field>
 ~~~
 
 ## Inputs
