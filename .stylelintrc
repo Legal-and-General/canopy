@@ -25,7 +25,7 @@
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["space", "map-get", "percentage"],
+        "ignoreFunctions": ["space", "map-get", "percentage", "/math.*/"],
       }
     ]
   }
