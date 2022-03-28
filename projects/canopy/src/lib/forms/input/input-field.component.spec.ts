@@ -3,7 +3,13 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { MockComponents, MockedComponentFixture, MockRender } from 'ng-mocks';
+import {
+  MockComponents,
+  MockDirectives,
+  MockedComponentFixture,
+  MockRender,
+  ngMocks,
+} from 'ng-mocks';
 import { instance, mock, spy, when } from 'ts-mockito';
 
 import { LgHintComponent } from '../hint';
@@ -11,17 +17,17 @@ import { LgInputFieldComponent } from '../input/input-field.component';
 import { LgLabelComponent } from '../label';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgInputDirective } from './input.directive';
-import { LgSuffixDirective } from '../../suffix/suffix.directive';
-import { LgPrefixDirective } from '../../prefix/prefix.directive';
 import { LgButtonComponent } from '../../button';
 import { LgErrorStateMatcher } from '../validation';
+import { LgFocusDirective } from '../../focus';
+import { LgPrefixDirective } from '../../prefix';
+import { LgSuffixDirective } from '../../suffix';
 
 describe('LgInputFieldComponent', () => {
   let fixture: MockedComponentFixture<LgInputFieldComponent>;
   let component: LgInputFieldComponent;
   let labelInstance: LgLabelComponent;
   let inputDirectiveInstance: LgInputDirective;
-  let inputDirectiveDebugElement: DebugElement;
   let inputFieldDebugElement: DebugElement;
   let inputWrapperDebugElement: DebugElement;
   let errorStateMatcherMock: LgErrorStateMatcher;
@@ -35,33 +41,34 @@ describe('LgInputFieldComponent', () => {
   const suffixText = 'suffix';
   const prefixText = 'prefix';
 
-  beforeEach(
-    waitForAsync(() => {
-      errorStateMatcherMock = mock(LgErrorStateMatcher);
+  beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-      TestBed.configureTestingModule({
-        imports: [FormsModule, ReactiveFormsModule],
-        declarations: [
-          LgInputFieldComponent,
-          MockComponents(
-            LgInputDirective,
-            LgValidationComponent,
-            LgLabelComponent,
-            LgHintComponent,
-            LgButtonComponent,
-            LgSuffixDirective,
-            LgPrefixDirective,
-          ),
-        ],
-        providers: [
-          {
-            provide: LgErrorStateMatcher,
-            useFactory: () => instance(errorStateMatcherMock),
-          },
-        ],
-      }).compileComponents();
-    }),
-  );
+    TestBed.configureTestingModule({
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [
+        LgInputFieldComponent,
+        MockComponents(
+          LgValidationComponent,
+          LgLabelComponent,
+          LgHintComponent,
+          LgButtonComponent,
+        ),
+        MockDirectives(
+          LgFocusDirective,
+          LgInputDirective,
+          LgSuffixDirective,
+          LgPrefixDirective,
+        ),
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
+    }).compileComponents();
+  }));
 
   function renderComponent({
     block = false,
@@ -77,7 +84,7 @@ describe('LgInputFieldComponent', () => {
         <lg-validation id="${errorId}">Error</lg-validation>
         ${hasPrefix && `<span lgPrefix id="${prefixId}">${prefixText}</span>`}
         ${hasSuffix && `<span lgSuffix id="${suffixId}">${suffixText}</span>`}
-        </lg-input-field>
+      </lg-input-field>
     `);
     component = fixture.point.componentInstance;
     fixture.detectChanges();
@@ -85,15 +92,13 @@ describe('LgInputFieldComponent', () => {
     inputFieldDebugElement = fixture.debugElement.query(
       By.directive(LgInputFieldComponent),
     );
-    labelInstance = fixture.debugElement.query(By.directive(LgLabelComponent))
-      .componentInstance;
-    inputDirectiveDebugElement = fixture.debugElement.query(
-      By.directive(LgInputDirective),
-    );
+    labelInstance = fixture.debugElement.query(
+      By.directive(LgLabelComponent),
+    ).componentInstance;
+    inputDirectiveInstance = ngMocks.get(ngMocks.find('input'), LgInputDirective);
     inputWrapperDebugElement = fixture.debugElement.query(
       By.css('.lg-input-field__inputs'),
     );
-    inputDirectiveInstance = inputDirectiveDebugElement.componentInstance;
     labelDebugElement = fixture.debugElement.query(By.directive(LgLabelComponent));
   }
 
