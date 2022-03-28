@@ -3,7 +3,13 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
-import { MockComponents, MockRender, MockedComponentFixture } from 'ng-mocks';
+import {
+  MockComponents,
+  MockDirectives,
+  MockedComponentFixture,
+  MockRender,
+  ngMocks,
+} from 'ng-mocks';
 import { anything, instance, mock, when } from 'ts-mockito';
 
 import { LgIconComponent } from '../../icon/icon.component';
@@ -25,29 +31,27 @@ describe('LgSelectFieldComponent', () => {
 
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [FormsModule, ReactiveFormsModule],
-        declarations: [
-          LgSelectFieldComponent,
-          MockComponents(
-            LgSelectDirective,
-            LgValidationComponent,
-            LgLabelComponent,
-            LgIconComponent,
-            LgHintComponent,
-          ),
-        ],
-        providers: [
-          {
-            provide: LgErrorStateMatcher,
-            useFactory: () => instance(errorStateMatcherMock),
-          },
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [
+        LgSelectFieldComponent,
+        MockComponents(
+          LgValidationComponent,
+          LgLabelComponent,
+          LgIconComponent,
+          LgHintComponent,
+        ),
+        MockDirectives(LgSelectDirective),
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
+    }).compileComponents();
+  }));
 
   function renderComponent({ block } = { block: false }) {
     fixture = MockRender(`
@@ -66,11 +70,11 @@ describe('LgSelectFieldComponent', () => {
       By.directive(LgSelectFieldComponent),
     );
 
-    labelInstance = fixture.debugElement.query(By.directive(LgLabelComponent))
-      .componentInstance;
+    labelInstance = fixture.debugElement.query(
+      By.directive(LgLabelComponent),
+    ).componentInstance;
 
-    selectDirectiveInstance = fixture.debugElement.query(By.directive(LgSelectDirective))
-      .componentInstance;
+    selectDirectiveInstance = ngMocks.get(ngMocks.find('select'), LgSelectDirective);
   }
 
   it('adds the for attribute to the label', () => {
