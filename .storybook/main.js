@@ -31,6 +31,7 @@ module.exports = {
     '../projects/canopy/src/lib/hide-at/hide-at.stories.ts',
     '../projects/canopy/src/lib/icon/icons.stories.ts',
     '../projects/canopy/src/lib/modal/modal.stories.ts',
+    '../projects/canopy/src/lib/page/page.stories.ts',
     '../projects/canopy/src/lib/primary-message/primary-message.stories.ts',
     '../projects/canopy/src/lib/promo-card/promo-card.stories.ts',
     '../projects/canopy/src/lib/quick-action/quick-action.stories.ts',
