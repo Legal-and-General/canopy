@@ -1,7 +1,4 @@
 export const notes = `
-# Page Component
-
-## Purpose
 Provides a page layout with content projection slots for standard header and footer.
 
 ## Usage
@@ -10,31 +7,8 @@ The page component works best when combined with the [grid module](/?path=/story
 ~~~js
 @NgModule({
   ...
-  imports: [LgGridModule, LgPageModule],
+  imports: [..., LgGridModule, LgPageModule],
 })
-~~~
-
-and in your HTML:
-
-~~~html
-<lg-page>
-  <header lg-header></header>
-  <div lgContainer>
-    <div lgRow>
-      <div
-          lgCol="12"
-          lgColMd="8"
-          lgColMdOffset="2"
-          lgColLg="6"
-          lgColLgOffset="3"
-        >
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1Content}}</lg-card-content></lg-card>
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>
-      </div>
-    </div>
-  </div>
-  <footer lg-footer></footer>
-</lg-page>
 ~~~
 
 ## Inputs
