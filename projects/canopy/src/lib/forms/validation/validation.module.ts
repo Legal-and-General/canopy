@@ -11,9 +11,10 @@ import {
 } from '../../icon/icons.interface';
 import { LgErrorStateMatcher } from './error-state-matcher';
 import { LgValidationComponent } from './validation.component';
+import { LgVariantModule } from '../../variant/variant.module';
 
 @NgModule({
-  imports: [CommonModule, LgIconModule],
+  imports: [CommonModule, LgIconModule, LgVariantModule],
   declarations: [LgValidationComponent],
   exports: [LgValidationComponent],
   providers: [LgErrorStateMatcher],
