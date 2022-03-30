@@ -1,8 +1,4 @@
 export const notes = `
-# Input Field Component
-
-## Purpose
-
 The Input Field component (\`\`<lg-input-field>\`\`) provides a flexible way to render a Canopy input. It contains a \`\`<label>\`\` and an \`\`<input>\`\` element. The \`\`lgInput\`\` directive should be added to the input element.
 
 The Input Field component creates the layout, deals with linking the label and input for screen readers, and also renders the border around the actual input element - this is to allow for the addition of buttons/icons to appear inside the field (e.g. "clear" button).
@@ -17,7 +13,7 @@ Import the input module in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgInputModule],
+  imports: [..., LgInputModule],
 })
 ~~~
 

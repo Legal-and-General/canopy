@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { action } from '@storybook/addon-actions';
-import { boolean, number, text, withKnobs, select } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from './input.notes';
 import { LgIconModule, LgIconRegistry } from '../../icon';
@@ -11,16 +9,13 @@ import { LgInputModule } from './input.module';
 import { LgLabelModule } from '../label/label.module';
 import { LgButtonModule } from '../../button/button.module';
 import { LgHintModule } from '../hint';
-import { iconsArray } from '../../icon/icons.stories';
 import type { ButtonVariant } from '../../button';
 import { LgSuffixModule } from '../../suffix';
 import { LgPrefixModule } from '../../prefix';
+import { LgInputFieldComponent } from './input-field.component';
+import { iconsArray } from '../../icon/icons.stories';
 
-const propsGroupId = 'properties';
-const buttonPropsGroupId = 'button properties';
-const contentGroupId = 'content';
-
-interface KnobsConfig {
+interface Config {
   block?: boolean;
   buttonText?: boolean;
   disabled?: boolean;
@@ -29,103 +24,106 @@ interface KnobsConfig {
   iconButton?: boolean;
   label?: string;
   showLabel?: boolean;
-  showButton?: boolean;
+  showButtonFirstSuffix?: boolean;
+  showButtonSecondSuffix?: boolean;
   showTextPrefix?: boolean;
   showTextSuffix?: boolean;
   size?: number;
   suffix?: string;
 }
 
-const createInputStory = (config: KnobsConfig) => ({
-  template: `
-    <lg-reactive-form
-      (formSubmit)="formSubmit($event)"
-      (inputChange)="inputChange($event)"
-      [block]="block"
-      [buttonText]="buttonText"
-      [buttonVariant]="buttonVariant"
-      [disabled]="disabled"
-      [hint]="hint"
-      [icon]="icon"
-      [iconButton]="iconButton"
-      [label]="label"
-      [showLabel]="showLabel"
-      [prefix]="prefix"
-      [size]="size"
-      [suffix]="suffix"
-      [showButton]="showButton"
-      [showTextPrefix]="showTextPrefix"
-      [showTextSuffix]="showTextSuffix"
-    ></lg-reactive-form>
-  `,
-  props: {
-    block: boolean('block', false, propsGroupId),
-    buttonText: text('button text', 'search', contentGroupId),
-    buttonVariant: select(
-      'button variant',
-      ['solid-primary', 'add-on'],
-      'solid-primary',
-      buttonPropsGroupId,
-    ),
-    disabled: boolean('disabled', false, propsGroupId),
-    formSubmit: action('formSubmit'),
-    hint: text(
-      'hint',
-      config.hint === null ? '' : 'Please enter your name',
-      contentGroupId,
-    ),
-    icon: select(
-      'icon',
-      iconsArray.map((icon) => icon.name),
-      'search',
-      contentGroupId,
-    ),
-    inputChange: action('inputChange'),
-    label: text('label', config.label || 'Name', contentGroupId),
-    showLabel: boolean('show label', true, propsGroupId),
-    prefix: text('prefix', '£', contentGroupId),
-    showButton: boolean('show button', config.showButton, contentGroupId),
-    iconButton: boolean('icon button', true, contentGroupId),
-    showTextPrefix: boolean('show text prefix', config.showTextPrefix, contentGroupId),
-    showTextSuffix: boolean('show text suffix', config.showTextSuffix, contentGroupId),
-    suffix: text('suffix', '%', contentGroupId),
-    size: number('input size', 12, undefined, propsGroupId),
-  },
-});
+function createInputStory(args: LgInputModule) {
+  return {
+    props: args,
+    template: `
+      <lg-reactive-form
+        (formSubmit)="formSubmit($event)"
+        (inputChange)="inputChange($event)"
+        [block]="block"
+        [buttonText]="buttonText"
+        [buttonVariant]="buttonVariant"
+        [disabled]="disabled"
+        [hint]="hint"
+        [icon]="icon"
+        [iconButton]="iconButton"
+        [label]="label"
+        [showLabel]="showLabel"
+        [prefix]="prefix"
+        [size]="size"
+        [suffix]="suffix"
+        [showButtonFirstSuffix]="showButtonFirstSuffix"
+        [showButtonSecondSuffix]="showButtonSecondSuffix"
+        [showTextPrefix]="showTextPrefix"
+        [showTextSuffix]="showTextSuffix"
+      ></lg-reactive-form>
+    `,
+  };
+}
+
+function setupInputStoryValues(obj, code, config?: Config) {
+  obj.args = {
+    block: false,
+    buttonText: 'search',
+    buttonVariant: 'solid-primary',
+    disabled: false,
+    hint: config?.hint === null ? '' : 'Please enter your name',
+    icon: 'search',
+    label: config?.label || 'Name',
+    showLabel: true,
+    prefix: '£',
+    showButtonFirstSuffix: config?.showButtonFirstSuffix,
+    showButtonSecondSuffix: config?.showButtonSecondSuffix,
+    iconButton: true,
+    showTextPrefix: config?.showTextPrefix,
+    showTextSuffix: config?.showTextSuffix,
+    suffix: '%',
+    size: 12,
+  };
+  obj.parameters = {
+    docs: {
+      source: {
+        code,
+      },
+    },
+  };
+}
+
+const inputTemplate = `
+<lg-input-field [block]="block" [showLabel]="showLabel">
+  {{ label }}
+  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+  <span lgPrefix *ngIf="showTextPrefix">{{ prefix }}</span>
+  <input lgInput formControlName="name" [size]="size" />
+  <button
+    lg-button
+    lgSuffix
+    size="sm"
+    [iconButton]="true"
+    variant="add-on"
+    *ngIf="showButtonFirstSuffix"
+  >
+    Close
+    <lg-icon name="close"></lg-icon>
+  </button>
+  <button
+    lg-button
+    lgSuffix
+    size="sm"
+    [iconButton]="iconButton"
+    [variant]="buttonVariant"
+    *ngIf="showButtonSecondSuffix"
+  >
+    {{ buttonText }}
+    <lg-icon [name]="icon" *ngIf="iconButton"></lg-icon>
+  </button>
+  <span lgSuffix *ngIf="showTextSuffix">{{ suffix }}</span>
+</lg-input-field>
+`;
 
 @Component({
   selector: 'lg-reactive-form',
   template: `
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-      <lg-input-field [block]="block" [showLabel]="showLabel">
-        {{ label }}
-        <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-        <span lgPrefix *ngIf="showTextPrefix">{{ prefix }}</span>
-        <input lgInput formControlName="name" [size]="size" />
-        <button
-          lg-button
-          lgSuffix
-          size="sm"
-          [iconButton]="true"
-          variant="add-on"
-        >
-          Close
-          <lg-icon name="close"></lg-icon>
-        </button>
-        <button
-          lg-button
-          lgSuffix
-          size="sm"
-          [iconButton]="iconButton"
-          [variant]="buttonVariant"
-          *ngIf="showButton"
-        >
-          {{ buttonText }}
-          <lg-icon [name]="icon" *ngIf="iconButton"></lg-icon>
-        </button>
-        <span lgSuffix *ngIf="showTextSuffix">{{ suffix }}</span>
-      </lg-input-field>
-    </form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">${inputTemplate}</form>
   `,
 })
 class ReactiveFormComponent {
@@ -150,7 +148,8 @@ class ReactiveFormComponent {
   @Input() label: string;
   @Input() showLabel: boolean;
   @Input() prefix: string;
-  @Input() showButton: boolean;
+  @Input() showButtonFirstSuffix: boolean;
+  @Input() showButtonSecondSuffix: boolean;
   @Input() showTextPrefix: boolean;
   @Input() showTextSuffix: boolean;
   @Input() size: number;
@@ -159,11 +158,10 @@ class ReactiveFormComponent {
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
 
-  icons = iconsArray;
   form: FormGroup;
 
   constructor(public fb: FormBuilder, private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons(this.icons);
+    this.iconRegistry.registerIcons(iconsArray);
     this.form = this.fb.group({ name: { value: '', disabled: false } });
     this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
   }
@@ -175,51 +173,184 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Form/Input',
+  component: LgInputFieldComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [ReactiveFormComponent],
+      imports: [
+        ReactiveFormsModule,
+        LgButtonModule,
+        LgHintModule,
+        LgIconModule,
+        LgInputModule,
+        LgLabelModule,
+        LgPrefixModule,
+        LgSuffixModule,
+      ],
+    }),
+  ],
   parameters: {
-    decorators: [
-      withKnobs,
-      moduleMetadata({
-        declarations: [ReactiveFormComponent],
-        imports: [
-          ReactiveFormsModule,
-          LgButtonModule,
-          LgHintModule,
-          LgIconModule,
-          LgInputModule,
-          LgLabelModule,
-          LgPrefixModule,
-          LgSuffixModule,
-        ],
-      }),
-    ],
-    notes: {
-      markdown: notes,
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+  },
+  argTypes: {
+    formSubmit: {
+      action: 'submit',
+      table: {
+        disable: true,
+      },
+    },
+    inputChange: {
+      action: 'change',
+      table: {
+        disable: true,
+      },
+    },
+    id: {
+      description:
+        'HTML ID attribute, auto generated if not provided. This will also propagate to the input `id` and form `for` attribute.',
+      control: false,
+      table: {
+        defaultValue: {
+          summary: 'lg-input-${nextUniqueId++}',
+        },
+      },
+    },
+    showLabel: {
+      description: 'Show or visually hide the label.',
+      table: {
+        defaultValue: {
+          summary: true,
+        },
+      },
+    },
+    block: {
+      description: 'Property to make the input full width (for small screens only).',
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
+    class: {
+      table: {
+        disable: true,
+      },
+    },
+    buttonText: {
+      table: {
+        disable: true,
+      },
+    },
+    buttonVariant: {
+      table: {
+        disable: true,
+      },
+    },
+    icon: {
+      table: {
+        disable: true,
+      },
+    },
+    prefix: {
+      table: {
+        disable: true,
+      },
+    },
+    showButtonFirstSuffix: {
+      table: {
+        disable: true,
+      },
+    },
+    showButtonSecondSuffix: {
+      table: {
+        disable: true,
+      },
+    },
+    iconButton: {
+      table: {
+        disable: true,
+      },
+    },
+    showTextPrefix: {
+      table: {
+        disable: true,
+      },
+    },
+    showTextSuffix: {
+      table: {
+        disable: true,
+      },
+    },
+    suffix: {
+      table: {
+        disable: true,
+      },
+    },
+    ngAfterContentInit: {
+      table: {
+        disable: true,
+      },
+    },
+    ngOnDestroy: {
+      table: {
+        disable: true,
+      },
+    },
+    onFocusIn: {
+      table: {
+        disable: true,
+      },
+    },
+    onFocusOut: {
+      table: {
+        disable: true,
+      },
+    },
+    onMouseOut: {
+      table: {
+        disable: true,
+      },
+    },
+    onMouseOver: {
+      table: {
+        disable: true,
+      },
+    },
+    buttonElement: {
+      table: {
+        disable: true,
+      },
     },
   },
 };
 
-export const standard = () => createInputStory({});
+const inputStory: Story<LgInputModule> = (args: LgInputModule) => createInputStory(args);
 
-export const withButtonSuffix = () =>
-  createInputStory({
-    showButton: true,
-  });
+export const standard = inputStory.bind({});
+standard.storyName = 'Standard';
+setupInputStoryValues(standard, inputTemplate);
 
-export const withTextSuffix = () =>
-  createInputStory({
-    showTextSuffix: true,
-    label: 'Amount',
-    hint: null,
-  });
+export const withButtonSuffix = inputStory.bind({});
+withButtonSuffix.storyName = 'With button suffix';
+setupInputStoryValues(withButtonSuffix, inputTemplate, {
+  showButtonFirstSuffix: true,
+});
 
-export const withTextPrefix = () =>
-  createInputStory({
-    showTextPrefix: true,
-    label: 'Amount',
-    hint: null,
-  });
+export const withTextSuffix = inputStory.bind({});
+withTextSuffix.storyName = 'With text suffix';
+setupInputStoryValues(withTextSuffix, inputTemplate, {
+  showTextSuffix: true,
+  label: 'Amount',
+  hint: null,
+});
 
-export const withMultipleButtonSuffixes = () =>
-  createInputStory({
-    showButton: true,
-  });
+export const withMultipleButtonSuffixes = inputStory.bind({});
+withMultipleButtonSuffixes.storyName = 'With multiple buttons suffixes';
+setupInputStoryValues(withMultipleButtonSuffixes, inputTemplate, {
+  showButtonFirstSuffix: true,
+  showButtonSecondSuffix: true,
+});

@@ -16,6 +16,7 @@ module.exports = {
     '../projects/canopy/src/lib/forms/checkbox-group/checkbox-group.stories.ts',
     '../projects/canopy/src/lib/forms/checkbox-group/filter-group.stories.ts',
     '../projects/canopy/src/lib/forms/date/date-field.stories.ts',
+    '../projects/canopy/src/lib/forms/input/input.stories.ts',
     '../projects/canopy/src/lib/forms/radio/filter.stories.ts',
     '../projects/canopy/src/lib/forms/radio/radio.stories.ts',
     '../projects/canopy/src/lib/forms/radio/segment.stories.ts',
