@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   Component,
   ContentChild,
   ContentChildren,
@@ -31,7 +32,7 @@ let uniqueId = 0;
   styleUrls: ['./radio-group.component.scss', './radio-group--segment.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class LgRadioGroupComponent implements ControlValueAccessor {
+export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {
   nextUniqueId = ++uniqueId;
   private _name = `lg-radio-group-${this.nextUniqueId}`;
 
@@ -58,12 +59,6 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
       );
     }
     this._stack = stack;
-
-    if (this.radios) {
-      this.radios.toArray().forEach((radio) => {
-        radio.stacked = this.stack;
-      });
-    }
   }
   get stack(): RadioStackBreakpoint {
     return this._stack;
@@ -154,6 +149,14 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
       .toLowerCase() as RadioVariant;
     if (this.control != null) {
       this.control.valueAccessor = this;
+    }
+  }
+
+  ngAfterContentInit(): void {
+    if (this.radios && this.stack) {
+      this.radios.toArray().forEach((radio) => {
+        radio.stacked = this.stack;
+      });
     }
   }
 
