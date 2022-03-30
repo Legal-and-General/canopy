@@ -18,12 +18,12 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
 })
 export class LgValidationComponent {
-  @HostBinding('class.lg-validation')
-  class = true;
+  @HostBinding('class.lg-validation') class = true;
 
   @Input() showIcon = true;
 
-  _variant: Variant = null;
+  private _variant: Variant;
+
   @Input()
   set variant(variant: Variant) {
     if (this._variant) {
