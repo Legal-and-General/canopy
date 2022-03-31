@@ -100,8 +100,8 @@
   }
 }
 
-$variants: 'solid-primary', 'reverse-primary', 'reverse-secondary',
-  'outline-primary', 'outline-secondary', 'add-on' !default;
+$variants: 'solid-primary', 'reverse-primary', 'reverse-secondary', 'outline-primary',
+  'outline-secondary', 'add-on' !default;
 
 @each $variant in $variants {
   .lg-btn--#{$variant},
@@ -128,6 +128,13 @@ $variants: 'solid-primary', 'reverse-primary', 'reverse-secondary',
         border: var(--btn-#{$variant}-hover-border-color) solid var(--border-width);
         color: var(--btn-#{$variant}-hover-color);
       }
+    }
+  }
+  @if ($variant == 'reverse-primary') {
+    .lg-btn.lg-btn--#{$variant}:disabled {
+      background-color: var(--btn-#{$variant}-disabled-bg-color);
+      color: var(--btn-#{$variant}-disabled-color);
+      opacity: 0.5;
     }
   }
 }

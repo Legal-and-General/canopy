@@ -1,13 +1,15 @@
 :root {
-  --btn-reverse-primary-bg-color: var(--color-white);
+  --btn-reverse-primary-bg-color: transparent;
   --btn-reverse-primary-border-color: var(--color-white);
-  --btn-reverse-primary-color: var(--color-super-blue);
+  --btn-reverse-primary-color: var(--color-white);
   --btn-reverse-primary-active-bg-color: var(--color-super-blue-darkest);
   --btn-reverse-primary-active-border-color: var(--color-super-blue-darkest);
   --btn-reverse-primary-active-color: var(--color-white);
-  --btn-reverse-primary-hover-bg-color: var(--color-super-blue-dark);
-  --btn-reverse-primary-hover-border-color: var(--color-super-blue-dark);
-  --btn-reverse-primary-hover-color: var(--color-white);
+  --btn-reverse-primary-hover-bg-color: var(--color-white);
+  --btn-reverse-primary-hover-border-color: var(--color-white);
+  --btn-reverse-primary-hover-color: var(--color-super-blue-dark);
+  --btn-reverse-primary-disabled-bg-color: transparent;
+  --btn-reverse-primary-disabled-color: var(--color-platinum);
 
   --btn-reverse-secondary-bg-color: var(--color-white);
   --btn-reverse-secondary-border-color: var(--color-white);

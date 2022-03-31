@@ -24,36 +24,51 @@ const contentGroupId = 'content';
 
 @Component({
   selector: 'lg-button-story',
+  styles: [
+    `
+      .button-container {
+        display: flex;
+        align-items: center;
+        padding: var(--space-lg);
+        background-color: var(--color-super-blue-dark);
+        margin-bottom: var(--space-lg);
+      }
+    `,
+  ],
   template: `
     <p>Used on a <strong>button</strong> element</p>
-    <button
-      lg-button
-      [disabled]="disabled"
-      [fullWidth]="fullWidth"
-      [iconButton]="iconButton"
-      [iconPosition]="iconPosition"
-      [loading]="loading"
-      [size]="size"
-      [variant]="variant"
-    >
-      {{ content }}
-      <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
-    </button>
+    <div [ngClass]="{ 'button-container': variant === 'reverse-primary' }">
+      <button
+        lg-button
+        [disabled]="disabled"
+        [fullWidth]="fullWidth"
+        [iconButton]="iconButton"
+        [iconPosition]="iconPosition"
+        [loading]="loading"
+        [size]="size"
+        [variant]="variant"
+      >
+        {{ content }}
+        <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
+      </button>
+    </div>
     <p>Used on a <strong>link</strong> element</p>
-    <a
-      lg-button
-      href="#"
-      [disabled]="disabled"
-      [fullWidth]="fullWidth"
-      [iconButton]="iconButton"
-      [iconPosition]="iconPosition"
-      [loading]="loading"
-      [size]="size"
-      [variant]="variant"
-    >
-      {{ content }}
-      <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
-    </a>
+    <div [ngClass]="{ 'button-container': variant === 'reverse-primary' }">
+      <a
+        lg-button
+        href="#"
+        [disabled]="disabled"
+        [fullWidth]="fullWidth"
+        [iconButton]="iconButton"
+        [iconPosition]="iconPosition"
+        [loading]="loading"
+        [size]="size"
+        [variant]="variant"
+      >
+        {{ content }}
+        <lg-icon *ngIf="showIcon || iconButton" [name]="icon"></lg-icon>
+      </a>
+    </div>
   `,
 })
 class ButtonStoryComponent {
