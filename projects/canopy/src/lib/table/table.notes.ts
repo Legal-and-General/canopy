@@ -1,7 +1,4 @@
 export const notes = `
-# Table Component
-
-## Purpose
 The table component provides a way to present tabular data in a responsive format. On small screens, the layout of the table changes to display the table headers alongside each value, providing an easier way for users to read the data as they scroll down the list of rows.
 
 There are several options that allow you to customise the table behaviour at for different uses cases and screen sizes.
