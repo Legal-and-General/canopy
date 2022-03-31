@@ -41,6 +41,7 @@ module.exports = {
     '../projects/canopy/src/lib/separator/separator.stories.ts',
     '../projects/canopy/src/lib/shadow/shadow.stories.ts',
     '../projects/canopy/src/lib/show-at/show-at.stories.ts',
+    '../projects/canopy/src/lib/side-nav/side-nav.stories.ts',
     '../projects/canopy/src/lib/skeleton/skeleton.stories.ts',
     '../projects/canopy/src/lib/spinner/spinner.stories.ts',
     '../projects/canopy/src/lib/sr-alert-message/sr-alert-message.stories.ts',
