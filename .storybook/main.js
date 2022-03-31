@@ -48,6 +48,7 @@ module.exports = {
     '../projects/canopy/src/lib/variant/variant.stories.ts',
     '../projects/canopy/src/lib/pipes/camel-case/camel-case.stories.ts',
     '../projects/canopy/src/lib/pipes/kebab-case/kebab-case.stories.ts',
+    '../projects/canopy/src/lib/table/table.stories.ts',
     '../projects/canopy/src/lib/tabs/tab-nav-bar.stories.ts',
     '../projects/canopy/src/lib/tabs/tabs.stories.ts',
     '../projects/canopy/src/styles/color.stories.ts',
