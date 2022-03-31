@@ -28,6 +28,7 @@ module.exports = {
     '../projects/canopy/src/lib/forms/validation/validation.stories.ts',
     '../projects/canopy/src/lib/focus/focus.stories.ts',
     '../projects/canopy/src/lib/footer/footer.stories.ts',
+    '../projects/canopy/src/lib/grid/grid.stories.ts',
     '../projects/canopy/src/lib/heading/heading.stories.ts',
     '../projects/canopy/src/lib/header/header.stories.ts',
     '../projects/canopy/src/lib/hero/hero.stories.ts',
