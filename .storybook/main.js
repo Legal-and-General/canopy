@@ -32,6 +32,7 @@ module.exports = {
     '../projects/canopy/src/lib/heading/heading.stories.ts',
     '../projects/canopy/src/lib/header/header.stories.ts',
     '../projects/canopy/src/lib/hero/hero.stories.ts',
+    '../projects/canopy/src/lib/hero-img/hero-img.stories.ts',
     '../projects/canopy/src/lib/hide-at/hide-at.stories.ts',
     '../projects/canopy/src/lib/icon/icons.stories.ts',
     '../projects/canopy/src/lib/modal/modal.stories.ts',

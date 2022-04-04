@@ -1,9 +1,10 @@
-import { number, text, withKnobs } from '@storybook/addon-knobs';
-import { moduleMetadata } from '@storybook/angular';
+import { moduleMetadata, Story } from '@storybook/angular';
 
-import { fullScreen } from '../../../../../.storybook/addons/full-screen';
-import { CanopyModule } from '../canopy.module';
 import { notes } from './hero-img.notes';
+import { LgGridModule } from '../grid';
+import { LgCardModule } from '../card';
+import { LgHeroImgComponent } from './hero-img.component';
+import { LgHeroImgModule } from './hero-img.module';
 
 const bodyHTML = `
   <div lgContainer>
@@ -51,30 +52,52 @@ export const imageBackgroundHeroHTML = `
 
 export default {
   title: 'Components/Hero Image',
-  excludeStories: ['bodyHTML', 'imageBackgroundHeroHTML'],
+  excludeStories: ['imageBackgroundHeroHTML'],
+  decorators: [
+    moduleMetadata({
+      imports: [LgHeroImgModule, LgGridModule, LgCardModule],
+    }),
+  ],
   parameters: {
-    decorators: [
-      fullScreen,
-      withKnobs,
-      moduleMetadata({
-        imports: [CanopyModule],
-      }),
-    ],
-    notes: {
-      markdown: notes(imageBackgroundHeroHTML),
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: notes(imageBackgroundHeroHTML),
+      },
+    },
+  },
+  argTypes: {
+    overlap: {
+      description: 'The amount that the page content overlaps the hero component (rem).',
+      control: {
+        type: 'number',
+      },
     },
   },
 };
 
-export const imageBackground = () => ({
-  template: `
-  ${imageBackgroundHeroHTML}
-  ${bodyHTML}
-  `,
-  props: {
-    overlap: number('Overlap', 2),
-    title: text('Title', 'Title'),
-    subTitle: text('Subtitle', 'Subtitle'),
-    imageUrl: 'hero-img/map-illustration.png',
-  },
+const template = `
+${imageBackgroundHeroHTML}
+${bodyHTML}
+`;
+
+const heroImgStory: Story<LgHeroImgComponent> = (args: LgHeroImgComponent) => ({
+  props: args,
+  template,
 });
+
+export const heroImg = heroImgStory.bind({});
+heroImg.storyName = 'Hero Image';
+heroImg.args = {
+  overlap: 2,
+  title: 'Title',
+  subTitle: 'Subtitle',
+  imageUrl: 'hero-img/map-illustration.png',
+};
+heroImg.parameters = {
+  docs: {
+    source: {
+      code: template,
+    },
+  },
+};
