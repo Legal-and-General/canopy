@@ -1,7 +1,4 @@
 export const notes = (name: string) => `
-# ${name} Directive
-
-## Purpose
 This directive allows for custom ${name.toLowerCase()} to be added without the need to write additional CSS. It's useful for overriding the default ${name.toLowerCase()} on Canopy components, as well as general use within your app. Using this directive ensures that your ${name.toLowerCase()} adheres to the prededfined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.
 
 ## Usage
@@ -11,7 +8,7 @@ Import the module in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [Lg${name}Module],
+  imports: [ ..., Lg${name}Module ],
 })
 ~~~
 
