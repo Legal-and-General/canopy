@@ -7,7 +7,7 @@ Import the Date Input Module into your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgDateFieldModule],
+  imports: [ ..., LgDateFieldModule ],
 })
 ~~~
 

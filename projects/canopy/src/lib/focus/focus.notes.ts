@@ -7,7 +7,7 @@ Import the directive in your module:
 ~~~
 @NgModule({
   ...
-  declarations: [ ..., LgFocusDirective ],
+  imports: [ ..., LgFocusModule ],
 })
 ~~~
 `;

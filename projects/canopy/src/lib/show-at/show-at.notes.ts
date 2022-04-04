@@ -14,7 +14,7 @@ Import the module in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgShowAtModule],
+  imports: [ ..., LgShowAtModule ],
 })
 ~~~
 `;

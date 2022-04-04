@@ -7,7 +7,7 @@ Import the module in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgSkeletonModule],
+  imports: [ ..., LgSkeletonModule ],
 })
 ~~~
 

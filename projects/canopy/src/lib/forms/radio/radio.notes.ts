@@ -7,7 +7,7 @@ Import the Radio Module into your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgRadioModule],
+  imports: [ ..., LgRadioModule ],
 })
 ~~~
 

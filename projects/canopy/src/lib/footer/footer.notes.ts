@@ -10,7 +10,7 @@ Import the component in your application:
 ~~~
 @NgModule({
   ...
-  imports: [LgFooterModule],
+  imports: [ ..., LgFooterModule ],
 })
 ~~~
 

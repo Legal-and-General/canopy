@@ -7,7 +7,7 @@ Import the component in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgIconModule],
+  imports: [ ..., LgIconModule ],
 })
 ~~~
 
@@ -30,7 +30,7 @@ export class AppModule {
 Your HTML:
 
 ~~~html
-<lg-icon 
+<lg-icon
   name="email">
 </lg-icon>
 ~~~

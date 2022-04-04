@@ -8,7 +8,7 @@ Import the module in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgSrAlertMessageModule],
+  imports: [ ..., LgSrAlertMessageModule ],
 })
 ~~~
 

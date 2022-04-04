@@ -6,9 +6,15 @@ This module allows you to enable and disable features by using the \`lgFeatureTo
 Import the module in your core component, e.g.:
 
 ~~~
-LgFeatureToggleModule.forRoot({
-  deps: [Store],
-  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+@NgModule({
+  ...
+  imports: [
+    ...,
+    LgFeatureToggleModule.forRoot({
+      deps: [Store],
+      useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+    })
+  ],
 })
 ~~~
 
