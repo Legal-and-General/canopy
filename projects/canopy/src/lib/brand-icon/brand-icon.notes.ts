@@ -7,7 +7,7 @@ Import the component in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgBrandIconModule],
+  imports: [ ..., LgBrandIconModule ],
 })
 ~~~
 

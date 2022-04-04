@@ -7,7 +7,7 @@ Import the Sort Code Module into your application:
 ~~~js
 @NgModule({
   ...
-  imports: [..., LgSortCodeModule],
+  imports: [ ..., LgSortCodeModule ],
 })
 ~~~
 

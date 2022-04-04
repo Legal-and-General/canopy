@@ -15,7 +15,7 @@ Import the module in your core component, e.g.:
 ~~~js
 @NgModule({
   ...
-  imports: [..., LgValidationModule]
+  imports: [ ..., LgValidationModule ]
 })
 ~~~
 

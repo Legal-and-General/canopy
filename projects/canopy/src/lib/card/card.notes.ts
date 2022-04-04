@@ -8,7 +8,7 @@ For a basic card, import the component in your application:
 ~~~
 @NgModule({
   ...
-  imports: [LgCardModule],
+  imports: [ ..., LgCardModule ],
 })
 ~~~
 

@@ -7,7 +7,7 @@ Import the CheckboxGroup and Toggle modules into your application:
 ~~~js
 @NgModule({
   ...
-  imports: [LgCheckboxGroupModule, LgToggleModule],
+  imports: [ ..., LgCheckboxGroupModule, LgToggleModule ],
 })
 ~~~
 

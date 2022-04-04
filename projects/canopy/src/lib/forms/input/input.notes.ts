@@ -13,7 +13,7 @@ Import the input module in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [..., LgInputModule],
+  imports: [ ..., LgInputModule ],
 })
 ~~~
 

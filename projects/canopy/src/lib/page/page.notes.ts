@@ -7,7 +7,7 @@ The page component works best when combined with the [grid module](/?path=/story
 ~~~js
 @NgModule({
   ...
-  imports: [..., LgGridModule, LgPageModule],
+  imports: [ ..., LgGridModule, LgPageModule ],
 })
 ~~~
 

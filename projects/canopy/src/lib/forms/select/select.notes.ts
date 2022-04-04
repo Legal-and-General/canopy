@@ -7,8 +7,8 @@ Import the component in your application:
 
 ~~~js
 @NgModule({
-  ...
-  imports: [LgSelectModule],
+  ...,
+  imports: [ ..., LgSelectModule ],
 })
 ~~~
 
