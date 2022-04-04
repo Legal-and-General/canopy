@@ -96,11 +96,22 @@ export default {
     },
     value: {
       description:
-        'HTML value attribute. Sets the default checked filter buttons, must match the values of the filter buttons.',
+        'HTML value attribute. Sets the default checked input, must match the values of the inputs.',
       control: false,
       table: {
         type: {
           summary: 'string',
+        },
+      },
+    },
+    inline: {
+      description: 'If true, displays the buttons inline rather than stacked.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: false,
         },
       },
     },
@@ -116,7 +127,7 @@ export default {
       },
     },
     disabled: {
-      description: 'Set the inner filters to disabled.',
+      description: 'Set the inner inputs to disabled.',
       table: {
         type: {
           summary: 'boolean',
@@ -128,7 +139,7 @@ export default {
     },
     ariaDescribedBy: {
       description:
-        'HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate.',
+        'HTML ID for the corresponding element that describes the inputs, if not provided it will use the hint field where appropriate.',
       control: false,
       table: {
         type: {
@@ -138,11 +149,6 @@ export default {
     },
     checkboxChange: {
       action: 'Checkbox change',
-      table: {
-        disable: true,
-      },
-    },
-    inline: {
       table: {
         disable: true,
       },
