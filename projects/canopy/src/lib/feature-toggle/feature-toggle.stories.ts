@@ -1,12 +1,11 @@
-import { Meta, Story } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { of } from 'rxjs';
 
 import { LgFeatureToggleOptions } from './feature-toggle.interface';
-import { CanopyModule } from './../canopy.module';
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
 import { LgFeatureToggleModule } from './feature-toggle.module';
 import { notes } from './feature-toggle.notes';
+import { LgCardModule } from '../card';
 
 const options: LgFeatureToggleOptions = {
   // disable undefined feature e.g. Feature 4 in the following story
@@ -15,12 +14,12 @@ const options: LgFeatureToggleOptions = {
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Directives/Feature toggle',
+  title: 'Directives/Feature Toggle',
   component: LgFeatureToggleDirective,
   decorators: [
     moduleMetadata({
       imports: [
-        CanopyModule,
+        LgCardModule,
         LgFeatureToggleModule.forRoot(
           {
             useFactory: () =>
@@ -79,7 +78,7 @@ const featureToggleTemplate: Story<LgFeatureToggleDirective> = (
 });
 
 export const featureToggle = featureToggleTemplate.bind({});
-featureToggle.storyName = 'Feature toggle';
+featureToggle.storyName = 'Feature Toggle';
 featureToggle.parameters = {
   docs: {
     source: {
