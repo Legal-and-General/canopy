@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { moduleMetadata, Story } from '@storybook/angular';
@@ -42,12 +42,12 @@ const formJourneyTemplate = `
             <div lgContainer>
               <div lgRow>
                 <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                  <lg-card-title headingLevel="3" lgPaddingBottom="md">New bank details</lg-card-title>
-                  <p>${content}</p>
+                  <lg-card-title headingLevel="3" lgPaddingBottom="md">{{title}}</lg-card-title>
+                  <p>{{cardContent}}</p>
 
                   <lg-input-field [block]="block">
-                    Account Number
-                    <lg-hint>Must be 8 digits long</lg-hint>
+                    {{label}}
+                    <lg-hint *ngIf="hint">{{hint}}</lg-hint>
                     <input lgInput formControlName="accountNumber" size="8" />
                   </lg-input-field>
                 </div>
@@ -69,7 +69,7 @@ const formJourneyTemplate = `
                   <button lg-button type="submit" variant="solid-primary">
                     Confirm
                   </button>
-                  <p lgPaddingBottom="md">By completing this form you are confirming you have consent to share these details with us. See our privacy policy.</p>
+                  <p lgPaddingBottom="md">{{policy}}</p>
                 </div>
               </div>
             </div>
@@ -86,6 +86,12 @@ const formJourneyTemplate = `
   template: formJourneyTemplate,
 })
 class FormJourneyComponent {
+  @Input() title: string;
+  @Input() cardContent: string;
+  @Input() hint: string;
+  @Input() policy: string;
+  @Input() label: string;
+
   form: FormGroup;
   icons = iconsArray;
 
@@ -150,11 +156,11 @@ const defaultCardTemplate = `
 <lg-card>
   <lg-card-header>
     <lg-card-title [headingLevel]="headingLevel">
-      The title
+      {{title}}
     </lg-card-title>
   </lg-card-header>
   <lg-card-content>
-    ${content} <a href="#">Test link</a>.
+    {{cardContent}} <a href="#">Test link</a>.
   </lg-card-content>
 </lg-card>
 `;
@@ -168,6 +174,8 @@ export const defaultCard = defaultCardStory.bind({});
 defaultCard.storyName = 'Standard';
 defaultCard.args = {
   headingLevel: 2,
+  title: 'The title',
+  cardContent: content,
 };
 defaultCard.parameters = {
   docs: {
@@ -183,7 +191,7 @@ const nestedGridCardTemplate = `
     <div lgContainer>
       <div lgRow>
         <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-          ${content}
+          {{cardContent}}
         </div>
       </div>
     </div>
@@ -198,6 +206,9 @@ const nestedGridCardStory: Story<LgCardComponent> = (args: LgCardComponent) => (
 
 export const nestedGridCard = nestedGridCardStory.bind({});
 nestedGridCard.storyName = 'Nested grid';
+nestedGridCard.args = {
+  cardContent: content,
+};
 nestedGridCard.parameters = {
   docs: {
     source: {
@@ -212,7 +223,7 @@ const productCardTemplate = `
     <div lgRow>
       <div lgCol="12" lgColMd="6">
         <lg-card-title headingLevel="4">
-          <a href="#">Standard Lifetime Annuity Joint Life Full</a>
+          <a href="#">{{title}}</a>
         </lg-card-title>
         <lg-card-subtitle>
           Payroll Reference Number P23456
@@ -241,6 +252,9 @@ const productCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
 
 export const productCard = productCardStory.bind({});
 productCard.storyName = 'Product';
+productCard.args = {
+  title: 'Standard Lifetime Annuity Joint Life Full',
+};
 productCard.parameters = {
   docs: {
     source: {
@@ -252,12 +266,21 @@ productCard.parameters = {
 const formJourneyCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: `
-    <lg-form-journey></lg-form-journey>
+    <lg-form-journey [title]="title" [cardContent]="cardContent" [hint]="hint" [policy]="policy" [label]="label"></lg-form-journey>
   `,
 });
 
 export const formJourneyCard = formJourneyCardStory.bind({});
 formJourneyCard.storyName = 'Form journey';
+formJourneyCard.args = {
+  title: 'New bank details',
+  cardContent:
+    'Any changes today are unlikely to be processed in time for your next payment, due no later January.',
+  hint: 'Must be 8 digits long',
+  policy:
+    'By completing this form you are confirming you have consent to share these details with us. See our privacy policy.',
+  label: 'Account Number',
+};
 formJourneyCard.parameters = {
   docs: {
     source: {
