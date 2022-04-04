@@ -26,6 +26,7 @@ const segmentTemplate = `
 })
 class ReactiveFormSegmentComponent {
   @Input() label: string;
+  @Input() hint: string;
   @Input() secondButtonLabel: string;
   @Input() stack: RadioStackBreakpoint;
   @Input() focus: boolean;
@@ -240,6 +241,7 @@ const segmentStory: Story<LgRadioModule> = (args: LgRadioModule) => ({
     [disabled]="disabled"
     [focus]="focus"
     [label]="label"
+    [hint]="hint"
     [secondButtonLabel]="secondButtonLabel"
     (segmentChange)="segmentChange($event)"
     (segmentBlur)="segmentBlur($event)">
