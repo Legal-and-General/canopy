@@ -4,6 +4,7 @@
   [id]="_panelId"
   [class.lg-accordion__panel--active]="isActive"
   [attr.aria-labelledby]="_toggleId"
+  [attr.role]="'region'"
 >
   <ng-container [ngTemplateOutlet]="_contentTemplate" *ngIf="_showContent"></ng-container>
 </div>
