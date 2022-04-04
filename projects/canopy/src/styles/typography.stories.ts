@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 
-import { Meta, Story } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { CanopyModule } from '../lib/canopy.module';
 import { notes } from './typography.notes';
+import { LgMarginModule } from '../lib/spacing';
 
 const pangram = 'The five boxing wizards jump quickly';
 
@@ -81,7 +80,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [LgDisplayFontSizeComponent, LgFontPanelComponent],
-      imports: [CanopyModule],
+      imports: [LgMarginModule],
     }),
   ],
   parameters: {
