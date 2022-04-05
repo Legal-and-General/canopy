@@ -29,37 +29,18 @@ export default {
   },
   argTypes: {
     id: {
-      description: 'HTML ID attribute, auto generated if not provided.',
-      control: false,
       table: {
-        defaultValue: {
-          summary: 'lg-toggle-${nextUniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     name: {
-      description: 'Set the name value for the input, auto-generated if not provided.',
-      control: false,
       table: {
-        defaultValue: {
-          summary: 'lg-toggle-${nextUniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     value: {
-      description:
-        'Set the default value of the input, must match the value of the switch.',
-      control: false,
       table: {
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     focus: {
@@ -85,13 +66,8 @@ export default {
       },
     },
     ariaDescribedBy: {
-      description:
-        'HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate.',
-      control: false,
       table: {
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     variant: {
@@ -204,8 +180,7 @@ export default {
       },
     },
     blur: {
-      description: 'Event emitted on blur of a switch.',
-      control: {
+      table: {
         disable: true,
       },
     },

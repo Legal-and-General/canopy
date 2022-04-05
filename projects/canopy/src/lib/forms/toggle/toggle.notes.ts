@@ -27,6 +27,16 @@ or
 
 ~~~
 
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-toggle-\${++nextUniqueId}' | No |
+| \`\`name\`\` | HTML name attribute | string | null | Yes |
+| \`\`value\`\` | HTML value attribute | string | null | Yes |
+| \`\`focus\`\` | Set the focus on the ${name.toLowerCase()} | boolean | null | No |
+| \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the ${name.toLowerCase()}, if not provided it will use the hint field where appropriate | boolean | null | No |
+
 ## Outputs
 
 | Name | Description | Type | Default | Required |
