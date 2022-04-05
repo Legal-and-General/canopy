@@ -29,9 +29,8 @@ Radios are displayed inline, unless given a \`RadioStackBreakpoint\`, which tell
     : ''
 }
 
-## Inputs
-
-### LgRadioGroupComponent
+## LgRadioGroupComponent
+### Inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-radio-group-id-\${nextUniqueId++}' | No |
@@ -46,9 +45,9 @@ ${
     : ''
 }
 
-### LgRadioButtonComponent
+## LgRadioButtonComponent
 
-#### Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
@@ -57,7 +56,7 @@ ${
 | \`\`value\`\` | HTML value attribute | string | null | Yes |
 | \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | boolean | null | No |
 
-#### Outputs
+### Outputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
