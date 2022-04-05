@@ -70,16 +70,8 @@ export default {
   },
   argTypes: {
     id: {
-      description:
-        "HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute.",
-      control: false,
       table: {
-        defaultValue: {
-          summary: 'lg-select-${nextUniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     block: {
