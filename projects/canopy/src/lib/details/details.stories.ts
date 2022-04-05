@@ -26,10 +26,14 @@ export default {
   argTypes: {
     toggle: {
       action: 'Toggle Item',
+      table: {
+        disable: true,
+      },
     },
     showIcon: {
       description:
         'Whether the icon should display on the warning, error or success variants.',
+      name: 'showIcon (warning, success & error variants only)',
       table: {
         type: {
           summary: 'boolean',
@@ -61,9 +65,6 @@ export default {
         type: {
           summary: ['1', '2', '3', '4', '5', '6'],
         },
-        defaultValue: {
-          summary: '5',
-        },
       },
       control: {
         type: 'select',
@@ -86,10 +87,14 @@ export default {
       },
     },
     closed: {
-      description: 'Event emitted when the details are closed',
+      table: {
+        disable: true,
+      },
     },
     opened: {
-      description: 'Event emitted when the details are opened',
+      table: {
+        disable: true,
+      },
     },
     _showIcon: {
       table: {
@@ -141,7 +146,7 @@ const template = `
   [showIcon]="showIcon"
   (opened)="toggle('Detail opened')"
   (closed)="toggle('Detail closed')">
-  <lg-details-panel-heading [headingLevel]="headingLevel">How do I change my payment details?</lg-details-panel-heading>
+  <lg-details-panel-heading [headingLevel]="headingLevel">{{ headingText }}</lg-details-panel-heading>
   Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
   payment details
 </lg-details>
@@ -157,6 +162,7 @@ standardDetails.storyName = 'Details';
 standardDetails.args = {
   variant: 'generic',
   headingLevel: 5,
+  headingText: 'How do I change my payment details?',
 };
 standardDetails.parameters = {
   docs: {

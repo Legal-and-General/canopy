@@ -9,7 +9,21 @@ A decorative icon is also added next to the heading if it's one of the these var
 ~~~js
 @NgModule({
   ...
-  declarations: [ ..., LgDetailsModule ],
+  imports: [ ..., LgDetailsModule ],
 })
 ~~~
+
+
+## Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`isActive\`\` | Expand the details | boolean | false | no |
+| \`\`headingLevel\`\` | The level of the details heading: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
+|\`\`variant\`\`| Applies colour treatment and ARIA role if applicable: \`\`generic\`\`, \`\`info\`\`, \`\`warning\`\`, \`\`error\`\`, \`\`success\`\` | string | 'generic' | No |
+| \`\`showIcon\`\` | Whether the icon should display on the warning, error or success variants | boolean | true | No |
+## Outputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`opened\`\` | Event emitted when the details are opened | EventEmitter<void> | n/a | No |
+| \`\`closed\`\` | Event emitted when the details are closed | EventEmitter<void> | n/a | No |
 `;
