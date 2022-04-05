@@ -14,12 +14,22 @@ Import the component in your application:
 and in your HTML for a regular *${name.toLowerCase()}*:
 
 ~~~html
+
 <lg-toggle formControlName="confirm" value="yes" variant="${name.toLowerCase()}">Do you agree?</lg-toggle>
+
 ~~~
 
 or
 
 ~~~html
+
 <lg-${name.toLowerCase()} formControlName="confirm" value="yes">Do you agree?</lg-${name.toLowerCase()}>
+
 ~~~
+
+## Outputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`blur\`\` | Event emitted on blur of a toggle | EventEmitter<Event> | n/a | No |
 `;

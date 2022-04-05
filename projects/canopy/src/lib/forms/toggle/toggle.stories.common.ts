@@ -63,7 +63,7 @@ export class ReactiveToggleFormComponent implements OnChanges {
   }
 
   ngOnChanges({ checked }: SimpleChanges): void {
-    if (checked?.currentValue) {
+    if (checked) {
       this.umbrella.setValue(checked.currentValue);
     }
   }
@@ -91,8 +91,7 @@ export function setupToggleStoryValues(obj, code) {
     disabled: false,
     inline: false,
     focus: false,
-    label: 'Color',
-    hint: 'Please select a color',
+    label: 'I will bring my Umbrella if it is raining',
   };
   obj.parameters = {
     docs: {
