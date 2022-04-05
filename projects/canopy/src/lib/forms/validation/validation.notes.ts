@@ -9,4 +9,11 @@ The validation component is used to provide contextual information for a form in
   imports: [ ..., LgValidationModule ],
 })
 ~~~
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`variant\`\` | The variant of the validation: \`\`info\`\`, \`\`warning\`\`, \`\`error\`\`, \`\`success\`\` | string | 'error' | No |
+| \`\`showIcon\`\` | Whether the icon should display | boolean | true | No |
 `;
