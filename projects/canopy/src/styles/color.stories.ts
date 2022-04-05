@@ -125,11 +125,6 @@ class SwatchComponent implements AfterViewInit {
         display: inline-block;
         flex: 1 1 50%;
       }
-      .tint_swatch__name {
-        display: block;
-        font-weight: var(--font-weight-bold);
-        margin-bottom: var(--space-xxxs);
-      }
       .tint-swatch__text {
         display: block;
         margin-bottom: var(--space-xxxs);
