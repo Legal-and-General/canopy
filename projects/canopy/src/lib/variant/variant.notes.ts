@@ -11,4 +11,17 @@ This can be useful where you need the particular colour treatment (like the \`\`
   imports: [ ..., LgVariantModule ],
 })
 ~~~
+
+## Inputs
+
+The current available variants are:
+* \`\`generic\`\`
+* \`\`info\`\`
+* \`\`success\`\`s
+* \`\`warning\`\`
+* \`\`error\`\`
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`lgVariant\`\` | The name of variant desired | string | null | No |
 `;
