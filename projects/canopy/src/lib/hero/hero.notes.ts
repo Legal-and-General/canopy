@@ -139,7 +139,9 @@ the top of the page. It also controls the functionality to create the 'overlap' 
 #### Configure Overlap
 
 ~~~html
+
 <lg-hero [overlap]="2"></lg-hero>
+
 ~~~
 
 #### Inputs
