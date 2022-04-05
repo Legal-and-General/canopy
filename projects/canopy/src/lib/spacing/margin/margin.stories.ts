@@ -86,28 +86,32 @@ export default {
         type: 'select',
       },
     },
-
     marginResponsive: {
+      name: 'margin',
       table: {
         category: responsiveCategory,
       },
     },
     marginTopResponsive: {
+      name: 'marginTop',
       table: {
         category: responsiveCategory,
       },
     },
     marginRightResponsive: {
+      name: 'marginRight',
       table: {
         category: responsiveCategory,
       },
     },
     marginBottomResponsive: {
+      name: 'marginBottom',
       table: {
         category: responsiveCategory,
       },
     },
     marginLeftResponsive: {
+      name: 'marginLeft',
       table: {
         category: responsiveCategory,
       },
