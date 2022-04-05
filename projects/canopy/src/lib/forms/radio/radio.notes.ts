@@ -55,6 +55,7 @@ ${
 | \`\`id\`\` | HTML ID attribute, auto generated if not provided | string | 'lg-radio-button-\${++nextUniqueId}' | No |
 | \`\`name\`\` | HTML name attribute | string | null | Yes |
 | \`\`value\`\` | HTML value attribute | string | null | Yes |
+| \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | boolean | null | No |
 
 #### Outputs
 
