@@ -182,6 +182,9 @@ solidPrimary.parameters = {
       code: solidPrimaryExample,
     },
   },
+  backgrounds: {
+    default: setBackground(solidPrimary.args.variant),
+  },
 };
 
 const outlinePrimaryExample = `
@@ -200,6 +203,9 @@ outlinePrimary.parameters = {
     source: {
       code: outlinePrimaryExample,
     },
+  },
+  backgrounds: {
+    default: setBackground(outlinePrimary.args.variant),
   },
 };
 
@@ -220,12 +226,15 @@ outlineSecondary.parameters = {
       code: outlineSecondaryExample,
     },
   },
+  backgrounds: {
+    default: setBackground(outlineSecondary.args.variant),
+  },
 };
 
 const reversePrimaryExample = `
-  <button lg-button variant="reverse-primary">
-    Click me
-  </button>
+<button lg-button variant="reverse-primary">
+  Click me
+</button>
 `;
 export const reversePrimary = buttonStory.bind({});
 reversePrimary.storyName = 'Reverse primary';
@@ -239,12 +248,15 @@ reversePrimary.parameters = {
       code: reversePrimaryExample,
     },
   },
+  backgrounds: {
+    default: setBackground(reversePrimary.args.variant),
+  },
 };
 
 const reverseSecondaryExample = `
-  <button lg-button variant="reverse-secondary">
-    Click me
-  </button>
+<button lg-button variant="reverse-secondary">
+  Click me
+</button>
 `;
 export const reverseSecondary = buttonStory.bind({});
 reverseSecondary.storyName = 'Reverse secondary';
@@ -258,12 +270,15 @@ reverseSecondary.parameters = {
       code: reverseSecondaryExample,
     },
   },
+  backgrounds: {
+    default: setBackground(reverseSecondary.args.variant),
+  },
 };
 
 const textWithIconExample = `
 <button lg-button variant="solid-primary">
   {{ content }}
-  <lg-icon name="secure-messaging"></lg-icon>
+  <lg-icon name="add"></lg-icon>
 </button>
 `;
 export const textWithIcon = buttonStory.bind({});
@@ -282,12 +297,15 @@ textWithIcon.parameters = {
       code: textWithIconExample,
     },
   },
+  backgrounds: {
+    default: setBackground(textWithIcon.args.variant),
+  },
 };
 
 const iconOnlyExample = `
 <button lg-button variant="solid-primary" [iconButton]="true">
   {{ content }}
-  <lg-icon name="secure-messaging"></lg-icon>
+  <lg-icon name="add"></lg-icon>
 </button>
 `;
 export const iconOnly = buttonStory.bind({});
@@ -307,4 +325,19 @@ iconOnly.parameters = {
       code: iconOnlyExample,
     },
   },
+  backgrounds: {
+    default: setBackground(iconOnly.args.variant),
+  },
 };
+
+function setBackground(variant: string) {
+  const bgs = {
+    'solid-primary': 'Default',
+    'outline-primary': 'Default',
+    'outline-secondary': 'Default',
+    'reverse-primary': 'Super Blue',
+    'reverse-secondary': 'Leafy Green',
+    'add-on': 'Default',
+  };
+  return bgs[variant];
+}

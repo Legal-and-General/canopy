@@ -10,6 +10,22 @@ Import the button module in your module:
 })
 ~~~
 
+and in your HTML:
+
+~~~html
+
+<button lg-button type="button" variant="solid-primary">Button</button>
+
+~~~
+
+or:
+
+~~~html
+
+<a lg-button href="#" variant="primary">Link</a>
+
+~~~
+
 ### Icons in buttons
 
 An **Icon Component** can be projected into the button. Use the \`iconPosition\` input to position the icon on the left or right (default) of the text.
@@ -29,6 +45,18 @@ You can create an **icon only** button by setting \`iconButton\` to \`true\`. Yo
   <lg-icon name="add" />
 </button>
 ~~~
+
+## Button inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`variant\`\` | The variant of button: \`\`solid-primary\`\`, \`\`outline-primary\`\`, \`\`outline-secondary\`\`, \`\`reverse-primary\`\`, \`\`reverse-secondary\`\`, \`\`add-on\`\`; | string | solid-primary | No |
+| \`\`size\`\` | The size of the button | ButtonSize [\`\`sm\`\`, \`\`md\`\`] | \`\`md\`\` | No |
+| \`\`fullWidth\`\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |
+| \`\`disabled\`\` | Programmatically disable the button via this property | boolean | false | No |
+| \`\`loading\`\` | If the button shows a loading spinner and is also disabled | boolean | false | No |
+| \`\`iconPosition\`\` | The position of the icon in the button | string | right | No |
+| \`\`iconButton\`\` | The button displays an icon only | boolean | false | No |
 
 ### Button group
 
