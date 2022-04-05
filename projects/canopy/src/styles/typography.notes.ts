@@ -76,7 +76,9 @@ and \`.lg-font-size-0-6\`. The utility classes are particularly useful for when 
 for example making an h1 look like an h3:
 
 ~~~html
+
 <h1 class="lg-font-size-3">H1 that looks like a H3</h1>
+
 ~~~
 <br />
 
@@ -85,12 +87,16 @@ for example making an h1 look like an h3:
 Lyon can be applied using the modifier class: \`\`lg-font--expressive\`\`. For example:
 
 ~~~html
+
 <h1 class="lg-font--expressive">Heading in Lyon</h1>
+
 ~~~
 
 It can also be used in addition to the above utility classes:
 
 ~~~html
+
 <p class="lg-font-size-5 lg-font--expressive">Paragraph in Lyon and font size 5</p>
+
 ~~~
 `;
