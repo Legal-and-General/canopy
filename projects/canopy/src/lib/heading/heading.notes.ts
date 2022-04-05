@@ -11,4 +11,10 @@ Import the component in your module:
   imports: [ ..., LgHeadingModule ],
 })
 ~~~
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`level\`\` | The heading level | number | undefined | Yes |
 `;
