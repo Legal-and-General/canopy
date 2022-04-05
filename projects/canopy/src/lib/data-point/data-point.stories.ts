@@ -53,7 +53,7 @@ const singleStory: Story<LgDataPointComponent> = (args: LgDataPointComponent) =>
 export const singleDataPoint = singleStory.bind({});
 singleDataPoint.storyName = 'Single Data Point';
 singleDataPoint.args = {
-  headingLevel: 1,
+  headingLevel: 3,
 };
 singleDataPoint.parameters = {
   docs: {
@@ -100,7 +100,7 @@ const listStory: Story<LgDataPointListComponent> = (args: LgDataPointListCompone
 export const dataPointsListStory = listStory.bind({});
 dataPointsListStory.storyName = 'Data point list';
 dataPointsListStory.args = {
-  headingLevel: 1,
+  headingLevel: 3,
 };
 dataPointsListStory.parameters = {
   docs: {

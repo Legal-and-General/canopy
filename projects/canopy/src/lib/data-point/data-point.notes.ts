@@ -8,4 +8,11 @@ Import the Data Point module in your module:
   ...
   imports: [ ..., LgDataPointModule ],
 })
-~~~`;
+~~~
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| headingLevel | Allows the heading level to be set | number | n/a | Yes |
+`;
