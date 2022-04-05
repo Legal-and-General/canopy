@@ -54,6 +54,9 @@ export default {
   argTypes: {
     clickedLink: {
       action: 'Clicked link',
+      table: {
+        disable: true,
+      },
     },
     logo: {
       description: 'A url link to the logo.',
@@ -76,10 +79,16 @@ export default {
       description: 'The secondary footer links.',
     },
     primaryLinkClicked: {
-      description: 'Event emitted when a primary link is clicked.',
+      action: 'Primary link clicked',
+      table: {
+        disable: true,
+      },
     },
     secondaryLinkClicked: {
-      description: 'Event emitted when a secondary link is clicked.',
+      action: 'Secondary link clicked',
+      table: {
+        disable: true,
+      },
     },
     class: {
       table: {
@@ -122,7 +131,7 @@ const standardStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
 });
 
 export const standardFooter = standardStory.bind({});
-standardFooter.storyName = 'Footer';
+standardFooter.storyName = 'Standard';
 standardFooter.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
@@ -134,6 +143,18 @@ standardFooter.parameters = {
   docs: {
     source: {
       code: template,
+    },
+  },
+};
+standardFooter.argTypes = {
+  secondaryLogo: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoAlt: {
+    table: {
+      disable: true,
     },
   },
 };
