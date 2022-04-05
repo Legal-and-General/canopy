@@ -17,4 +17,12 @@ Import the module in your application:
   imports: [ ..., LgHideAtModule ],
 })
 ~~~
+
+## Inputs
+
+The current available breakpoints are \`sm\`, \`md\`, \`lg\`, \`xl\`, and \`xxl\`.
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`lgHideAt\`\` | The name of the breakpoint applied | string | null | No |
 `;
