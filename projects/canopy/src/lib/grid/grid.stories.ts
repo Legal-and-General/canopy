@@ -6,7 +6,6 @@ import { LgGridModule } from './grid.module';
 import { LgMarginModule } from '../spacing';
 import { LgCardModule } from '../card';
 
-const directivesCategory = 'Available directives';
 const firstColCategory = 'Column 1';
 const secondColCategory = 'Column 2';
 const thirdColCategory = 'Column 3';
@@ -223,76 +222,6 @@ export default {
       },
       control: {
         type: 'select',
-      },
-    },
-    lgContainer: {
-      description: 'Adds the grid container class to the element.',
-      table: {
-        category: directivesCategory,
-      },
-    },
-    lgRow: {
-      description: 'Adds the row class to the element.',
-      table: {
-        category: directivesCategory,
-      },
-    },
-    lgCol: {
-      description: 'Specifies the number of columns to fill in a 12 column layout.',
-      table: {
-        category: directivesCategory,
-        type: {
-          summary: 'number (1-12)',
-        },
-      },
-    },
-    lgColMd: {
-      description:
-        'Specifies the number of columns to fill in a 12 column layout on a medium sized screen.',
-      table: {
-        category: directivesCategory,
-        type: {
-          summary: 'number (1-12)',
-        },
-      },
-    },
-    lgColLg: {
-      description:
-        'Specifies the number of columns to fill in a 12 column layout on a large sized screen.',
-      table: {
-        category: directivesCategory,
-        type: {
-          summary: 'number (1-12)',
-        },
-      },
-    },
-    lgColOffset: {
-      description: 'Specifies the number of columns to offset in a 12 column layout.',
-      table: {
-        category: directivesCategory,
-        type: {
-          summary: 'number (0-11)',
-        },
-      },
-    },
-    lgColMdOffset: {
-      description:
-        'Specifies the number of columns to offset fill in a 12 column layout on a medium sized screen.',
-      table: {
-        category: directivesCategory,
-        type: {
-          summary: 'number (0-11)',
-        },
-      },
-    },
-    lgColLgOffset: {
-      description:
-        'Specifies the number of columns to offset fill in a 12 column layout on a large sized screen.',
-      table: {
-        category: directivesCategory,
-        type: {
-          summary: 'number (0-11)',
-        },
       },
     },
   },
