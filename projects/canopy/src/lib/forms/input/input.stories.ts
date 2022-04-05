@@ -210,13 +210,8 @@ export default {
       },
     },
     id: {
-      description:
-        'HTML ID attribute, auto generated if not provided. This will also propagate to the input `id` and form `for` attribute.',
-      control: false,
       table: {
-        defaultValue: {
-          summary: 'lg-input-${nextUniqueId++}',
-        },
+        disable: true,
       },
     },
     showLabel: {
