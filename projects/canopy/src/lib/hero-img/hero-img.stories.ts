@@ -73,6 +73,11 @@ export default {
         type: 'number',
       },
     },
+    imageUrl: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 

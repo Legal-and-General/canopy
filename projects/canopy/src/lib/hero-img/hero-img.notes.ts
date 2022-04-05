@@ -15,29 +15,15 @@ and in your HTML...
 ${imageBackgroundHeroHTML}
 ~~~
 
-
-#### Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| \`\`imageUrl\`\` | Background image url | string | n/a | Yes |
-
-
 ### LgHeroImgComponent
-This is the hero banner with a background image that runs across
-the top of the page. It also controls the functionality to create the 'overlap' between the page content.
-
-#### Configure Overlap
-
-~~~html
-<lg-hero-img [overlap]="2"></lg-hero-img>
-~~~
+This is the hero banner with a background image that runs across the top of the page. It also controls the functionality to create the \`overlap\` between the page content.
 
 #### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`overlap\`\` | The amount that the page content overlaps the hero component (rem) | number | 2 | No |
+| \`\`imageUrl\`\` | Background image url | string | n/a | Yes |
 
 
 #### Configure Grid
