@@ -13,6 +13,7 @@ export default {
     }),
   ],
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         component: notes,
@@ -76,6 +77,23 @@ standardHeader.parameters = {
   docs: {
     source: {
       code: template,
+    },
+  },
+};
+standardHeader.argTypes = {
+  secondaryLogo: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoAlt: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoHref: {
+    table: {
+      disable: true,
     },
   },
 };
