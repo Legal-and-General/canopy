@@ -72,39 +72,18 @@ export default {
       },
     },
     dateId: {
-      description:
-        'HTML ID attribute for the date input, auto generated if not provided.',
       table: {
-        defaultValue: {
-          summary: 'lg-input-date-${this.uniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     monthId: {
-      description:
-        'HTML ID attribute for the month input, auto generated if not provided.',
       table: {
-        defaultValue: {
-          summary: 'lg-input-month-${this.uniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     yearId: {
-      description:
-        'HTML ID attribute for the year input, auto generated if not provided.',
       table: {
-        defaultValue: {
-          summary: 'lg-input-year-${this.uniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     focus: {
@@ -130,13 +109,8 @@ export default {
       },
     },
     ariaDescribedBy: {
-      description:
-        'HTML ID for the corresponding element that describes the date field, if not provided it will use the hint field where appropriate.',
-      control: false,
       table: {
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     value: {

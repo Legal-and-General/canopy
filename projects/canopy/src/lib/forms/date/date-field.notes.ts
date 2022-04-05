@@ -82,7 +82,9 @@ One field is invalid, this may be a non numerical character, or a number outside
 \`Enter a valid month\`
 
 ~~~json
+
 { invalidField: 'month'}
+
 ~~~
 
 
@@ -90,14 +92,18 @@ As above but with two fields displaying an error.
 \`Enter a valid month and year\`
 
 ~~~json
+
 { invalidFields: ['day', 'month']}
+
 ~~~
 
 If all three fields are invalid a generic 'invalidDate' message is provided.
 \`Enter a valid date of birth\`
 
 ~~~json
+
 { invalidDate: true }
+
 ~~~
 
 #### 2. Required fields
@@ -106,7 +112,9 @@ If one field is empty either through form submission or inline deletion of the c
 \`Date of birth must include month\`
 
 ~~~json
+
 { requiredField: 'month'}
+
 ~~~
 
 As above but with two fields missing.
@@ -114,14 +122,18 @@ As above but with two fields missing.
 
 
 ~~~json
+
 { invalidFields: ['day', 'month']}
+
 ~~~
 
 If all three fields are missing an 'invalidDate' message is provided.
 \`Enter a valid date of birth\`
 
 ~~~json
+
 { invalidDate: true }
+
 ~~~
 
 #### 2. Invalid date
@@ -129,7 +141,9 @@ If all three fields are missing an 'invalidDate' message is provided.
 If all of the individual fields are correct but they do not concatenate to a valid date. e.g. 30 02 2020
 
 ~~~json
+
 { invalidDate: true }
+
 ~~~
 \`Enter a valid date of birth\`
 
