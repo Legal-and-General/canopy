@@ -17,4 +17,12 @@ Import the module in your application:
   imports: [ ..., LgShowAtModule ],
 })
 ~~~
+
+## Inputs
+
+The current available breakpoints are \`sm\`, \`md\`, \`lg\`, \`xl\`, and \`xxl\`.
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`lgShowAt\`\` | The name of the breakpoint applied | string | null | No |
 `;
