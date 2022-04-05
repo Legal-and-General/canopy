@@ -40,6 +40,14 @@ Your HTML:
 <lg-brand-icon name="sun" colour="--color-lily-green"></lg-brand-icon>
 ~~~
 
+## Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`name\`\` | the name of the icon | string | undefined | yes |
+| \`\`size\`\` | the size of the icon | BrandIconSize | 'sm' | no |
+| \`\`colour\`\` | the specific colour of the icon (for global colours see the "Branding" section below) | css variable as a string | undefined | no |
+
+
 ## Branding / Colours
 The yellow fill colour of the brand icons can be changed globally  by overriding the \`--brand-icon-fill-primary\` css variable. Note that changing this variable will update the fill colour of all the icons.
 

@@ -38,6 +38,7 @@ const brandIconsArray: Array<brandIconSet.BrandIcon> = [
   brandIconSet.lgBrandIconPhoneCall,
   brandIconSet.lgBrandIconWorldWideWeb,
 ];
+
 @Component({
   selector: 'lg-swatch-brand-icon',
   template: `
@@ -142,6 +143,7 @@ export default {
       options: colours,
       description:
         'The primary colour of icons globally. Can be changed by overriding the `--brand-icon-fill-primary` CSS variable.',
+      name: 'Example of applying colour globally',
       table: {
         defaultValue: {
           summary: '--color-dandelion-yellow',
@@ -154,12 +156,13 @@ export default {
     colour: {
       options: colours,
       description: 'The colour of a specific icon, using the `colour` input',
+      name: 'Example of applying colour specifically to an icon',
       table: {
         type: {
           summary: colours,
         },
         defaultValue: {
-          summary: '--color-dandelion-yellow',
+          summary: '--color-super-blue',
         },
       },
       control: {
@@ -171,9 +174,9 @@ export default {
 
 const exampleTemplate = `
 <lg-brand-icon
-  [name]="sun"
-  size="sm"
-  colour="--color-dandelion-yellow"
+  [name]="name"
+  [size]="size"
+  [colour]="colour"
 ></lg-brand-icon>
 `;
 
@@ -187,6 +190,7 @@ export const standardBrandIcons = brandIconsTemplate.bind({});
 standardBrandIcons.storyName = 'Brand Icon';
 standardBrandIcons.args = {
   size: 'sm',
+  colour: '--color-super-blue',
 };
 standardBrandIcons.parameters = {
   docs: {
