@@ -136,20 +136,6 @@ export default {
       default: 'White Smoke',
     },
   },
-  argTypes: {
-    headingLevel: {
-      options: ['1', '2', '3', '4', '5', '6'],
-      description: 'The heading level of the card title.',
-      table: {
-        type: {
-          summary: ['1', '2', '3', '4', '5', '6'],
-        },
-      },
-      control: {
-        type: 'select',
-      },
-    },
-  },
 };
 
 const defaultCardTemplate = `
