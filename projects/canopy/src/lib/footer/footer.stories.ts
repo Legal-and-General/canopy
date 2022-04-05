@@ -45,6 +45,7 @@ export default {
     }),
   ],
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         component: notes,
