@@ -86,6 +86,11 @@ export default {
         disable: true,
       },
     },
+    ngAfterContentInit: {
+      table: {
+        disable: true,
+      },
+    },
     focus: {
       description: 'Set the focus on the fieldset.',
       table: {
