@@ -41,9 +41,6 @@ export default {
         component: notes,
       },
     },
-    controls: {
-      disable: true,
-    },
     backgrounds: {
       default: 'Super Blue',
     },
@@ -55,6 +52,21 @@ export default {
       },
     },
     ngOnInit: {
+      table: {
+        disable: true,
+      },
+    },
+    ngOnDestroy: {
+      table: {
+        disable: true,
+      },
+    },
+    setOptions: {
+      table: {
+        disable: true,
+      },
+    },
+    subscription: {
       table: {
         disable: true,
       },
