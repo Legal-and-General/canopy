@@ -27,6 +27,9 @@ export default {
   argTypes: {
     toggle: {
       action: 'Toggle Item',
+      table: {
+        disable: true,
+      },
     },
     multi: {
       description: 'Set false to only allow a single panel to be open at a time.',
