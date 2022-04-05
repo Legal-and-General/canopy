@@ -25,4 +25,11 @@ This directive can be used together with the \`\`LgSpinnerComponent\`\` to show 
 # Tell screen reader to read a message when loading is finished
 <p [lgSrAlertMessage]="loaded">Loading complete</p>
 ~~~
+
+## Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`lgSrAlertMessage\`\` | Whether the message should be read or not | \`\`boolean\`\` | null | Yes |
+| \`\`timer\`\` | The time (in ms) that needs to pass before the message become hidden to screen readers | \`\`number\`\` | 8000 | No |
+
 `;
