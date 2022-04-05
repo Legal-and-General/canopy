@@ -86,28 +86,32 @@ export default {
         type: 'select',
       },
     },
-
     paddingResponsive: {
+      name: 'padding',
       table: {
         category: responsiveCategory,
       },
     },
     paddingTopResponsive: {
+      name: 'padding',
       table: {
         category: responsiveCategory,
       },
     },
     paddingRightResponsive: {
+      name: 'paddingRight',
       table: {
         category: responsiveCategory,
       },
     },
     paddingBottomResponsive: {
+      name: 'paddingBottom',
       table: {
         category: responsiveCategory,
       },
     },
     paddingLeftResponsive: {
+      name: 'paddingLeft',
       table: {
         category: responsiveCategory,
       },
