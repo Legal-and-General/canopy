@@ -72,38 +72,18 @@ export default {
   },
   argTypes: {
     id: {
-      description: 'HTML ID attribute, auto generated if not provided.',
-      control: false,
       table: {
-        defaultValue: {
-          summary: 'lg-radio-group-id-${nextUniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     name: {
-      description:
-        'Set the name value for all inputs in the group, auto-generated if not provided.',
-      control: false,
       table: {
-        defaultValue: {
-          summary: 'lg-radio-group-${nextUniqueId++}',
-        },
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     value: {
-      description:
-        'Set the default checked radio button, must match the value of the radio button.',
-      control: false,
       table: {
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     focus: {
@@ -140,13 +120,8 @@ export default {
       },
     },
     ariaDescribedBy: {
-      description:
-        'HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate.',
-      control: false,
       table: {
-        type: {
-          summary: 'string',
-        },
+        disable: true,
       },
     },
     radioChange: {
