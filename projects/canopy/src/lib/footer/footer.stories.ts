@@ -159,6 +159,60 @@ standardFooter.argTypes = {
   },
 };
 
+const compactTemplate = `
+<footer lg-footer
+  [copyright]="copyright"
+  [secondaryLinks]="secondaryLinks"
+  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+</footer>
+`;
+
+const compactStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
+  props: args,
+  template: compactTemplate,
+});
+
+export const compactFooter = compactStory.bind({});
+compactFooter.storyName = 'Compact';
+compactFooter.args = {
+  copyright: '© Some Company plc 2018',
+  secondaryLinks: secondaryLinks,
+};
+compactFooter.parameters = {
+  docs: {
+    source: {
+      code: compactTemplate,
+    },
+  },
+};
+compactFooter.argTypes = {
+  primaryLinks: {
+    table: {
+      disable: true,
+    },
+  },
+  logo: {
+    table: {
+      disable: true,
+    },
+  },
+  logoAlt: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogo: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoAlt: {
+    table: {
+      disable: true,
+    },
+  },
+};
+
 const coBrandedTemplate = `
 <footer lg-footer
   [copyright]="copyright"
