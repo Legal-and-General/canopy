@@ -58,4 +58,10 @@ and in your HTML:
   </lg-side-nav-content>
 </lg-side-nav>
 ~~~
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-------:|:--------:|
+| isActive | specifies whether or not the navigation link is in an active state | boolean | false | No
 `;

@@ -80,17 +80,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    isActive: {
-      description:
-        'Whether or not the navigation link (`lgSideNavBarLink`) is in an active state.',
-      table: {
-        type: {
-          summary: 'boolean',
-        },
-      },
-    },
-  },
 };
 
 const getDefaultNavItems = (): Array<SideNavBarItem> => [
