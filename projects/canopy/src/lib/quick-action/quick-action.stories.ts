@@ -62,35 +62,19 @@ export default {
     },
   },
   argTypes: {
-    name: {
-      description: 'The name of the icon to use.',
+    icon: {
+      description: 'Icon to display',
+      options: ['None', ...iconsArray.map((i) => i.name)],
+      control: {
+        type: 'select',
+      },
     },
     class: {
       table: {
         disable: true,
       },
     },
-    content: {
-      table: {
-        disable: true,
-      },
-    },
-    icon: {
-      table: {
-        disable: true,
-      },
-    },
     icons: {
-      table: {
-        disable: true,
-      },
-    },
-    target: {
-      table: {
-        disable: true,
-      },
-    },
-    link: {
       table: {
         disable: true,
       },
@@ -160,6 +144,19 @@ quickActionLink.args = {
   target: '_blank',
   icon: 'secure-messaging',
   content: 'Send us a message',
+};
+quickActionLink.argTypes = {
+  target: {
+    options: ['_self', '_blank'],
+    table: {
+      type: {
+        summary: ['_self', '_blank'],
+      },
+    },
+    control: {
+      type: 'select',
+    },
+  },
 };
 quickActionLink.parameters = {
   docs: {
