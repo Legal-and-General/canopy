@@ -84,6 +84,11 @@ export default {
     }),
   ],
   parameters: {
+    a11y: {
+      // Remove a11y checks for typography as unnecessary
+      // and flagging false positives
+      disable: true,
+    },
     docs: {
       source: {
         state: 'closed',
