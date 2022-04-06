@@ -2,7 +2,7 @@ export const notes = `
 Provides a page layout with content projection slots for standard header and footer.
 
 ## Usage
-The page component works best when combined with the [grid module](/?path=/story/directives--grid) which can be used to provide a responsive layout for the main content.
+The page component works best when combined with the <a href="./?path=/docs/directives-grid--grid">grid module</a> which can be used to provide a responsive layout for the main content.
 
 ~~~js
 @NgModule({
@@ -47,7 +47,7 @@ Content projection slots
 | \`\`<default>\`\` | Any other components are projected into the central column
 
 It is possible to wrap the lg-header and lg-footer components and still use the page component.
-You can do this by using the [ngProjectAs](https://medium.com/ignite-ui/using-ng-content-ngprojectas-1664d7c1d3b) attribute.
+You can do this by using the <a href="https://medium.com/ignite-ui/using-ng-content-ngprojectas-1664d7c1d3b" target="_blank">ngProjectAs</a> attribute.
 
 ~~~html
 <lg-page>

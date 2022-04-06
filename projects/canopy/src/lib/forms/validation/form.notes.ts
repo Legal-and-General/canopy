@@ -3,11 +3,11 @@ To provide a consistent approach to form validation.
 
 ## Usage
 The rules to display the error states are incorporated into the individual Canopy
-form components. When used in conjunction with standard [Angular form validation](https://angular.io/guide/form-validation)
+form components. When used in conjunction with standard <a href="https://angular.io/guide/form-validation" target="_blank">Angular form validation</a>
 the error styles will be displayed automatically.
 
 Error messages need to be handled by the individual applications by utilising the
-[Validation](/?path=/story/components-form-validation--component) component and
+<a href="./?path=/docs/components-form-validation--validation">Validation</a> component and
 the LgErrorStateMatcher.
 
 Import the module in your core component, e.g.:

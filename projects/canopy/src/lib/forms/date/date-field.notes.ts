@@ -149,8 +149,8 @@ If all of the individual fields are correct but they do not concatenate to a val
 
 ### External validation
 
-It is also possible to provide your own custom validation messages using [custom validators](https://angular.io/guide/form-validation#custom-validators)
-and the validation component. This is particularly useful for checking things like wether the date is in the past or the future. Under the hood the date field uses the [date-fns](https://date-fns.org/) library as a peer dependency, to keep build size to a minimum it may be worth considering using the same library in your application.
+It is also possible to provide your own custom validation messages using <a href="https://angular.io/guide/form-validation#custom-validators" target="_blank">custom validators</a>
+and the validation component. This is particularly useful for checking things like wether the date is in the past or the future. Under the hood the date field uses the <a href="https://date-fns.org/" target="_blank">date-fns</a> library as a peer dependency, to keep build size to a minimum it may be worth considering using the same library in your application.
 
 ~~~js
 function notMondayValidator(): ValidatorFn {
