@@ -149,6 +149,7 @@ const oneColumnTemplate = `
           lgColLgOffset="3">
         <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1}}</lg-card-content></lg-card>
         <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2}}</lg-card-content></lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3}}</lg-card-content></lg-card>
       </div>
     </div>
   </div>
@@ -181,7 +182,6 @@ const twoColumnsTemplate = `
         <lg-card lgMarginHorizontal="none">
           <lg-card-content>
             {{card1}}
-            {{card3}}
           </lg-card-content>
         </lg-card>
       </div>
