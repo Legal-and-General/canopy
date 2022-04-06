@@ -17,16 +17,16 @@ const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
   copyright: '© Some Company plc 2019',
-  card1Content: `Leverage agile frameworks to provide a robust synopsis for high level
+  card1: `Leverage agile frameworks to provide a robust synopsis for high level
     overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall
     value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity
     and empowerment.
     `,
-  card2Content: `Bring to the table win-win survival strategies to ensure proactive domination.
+  card2: `Bring to the table win-win survival strategies to ensure proactive domination.
     At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading
     towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for
     offshoring.`,
-  card3Content: `Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one
+  card3: `Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one
     customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art
     customer service.`,
   primaryLinks: primaryLinks,
@@ -50,6 +50,10 @@ const footer = `
     [secondaryLinks]="secondaryLinks">
   </footer>
 `;
+
+const headerCategory = 'header';
+const footerCategory = 'footer';
+const contentCategory = 'content';
 
 export default {
   title: 'Components/Page',
@@ -77,14 +81,55 @@ export default {
     },
   },
   argTypes: {
+    logo: {
+      table: {
+        category: headerCategory,
+      },
+    },
+    logoAlt: {
+      table: {
+        category: headerCategory,
+      },
+    },
+    copyright: {
+      table: {
+        category: footerCategory,
+      },
+    },
+    primaryLinks: {
+      table: {
+        category: footerCategory,
+      },
+    },
+    secondaryLinks: {
+      table: {
+        category: footerCategory,
+      },
+    },
+    card1: {
+      table: {
+        category: contentCategory,
+      },
+    },
+    card2: {
+      table: {
+        category: contentCategory,
+      },
+    },
+    card3: {
+      table: {
+        category: contentCategory,
+      },
+    },
     class: {
       table: {
         disable: true,
       },
     },
     skipToMain: {
-      description: 'Public function that sets the focus on the main content',
-      control: false,
+      table: {
+        disable: true,
+      },
     },
   },
 } as Meta;
@@ -102,8 +147,8 @@ const oneColumnTemplate = `
           lgColMdOffset="2"
           lgColLg="6"
           lgColLgOffset="3">
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1Content}}</lg-card-content></lg-card>
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1}}</lg-card-content></lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2}}</lg-card-content></lg-card>
       </div>
     </div>
   </div>
@@ -135,14 +180,14 @@ const twoColumnsTemplate = `
       <div lgCol="12" lgColMd="8" lgColLg="5" lgColLgOffset="2">
         <lg-card lgMarginHorizontal="none">
           <lg-card-content>
-            {{card1Content}}
-            {{card3Content}}
+            {{card1}}
+            {{card3}}
           </lg-card-content>
         </lg-card>
       </div>
       <div lgCol="12" lgColMd="4" lgColLg="3">
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3Content}}</lg-card-content></lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2}}</lg-card-content></lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3}}</lg-card-content></lg-card>
       </div>
     </div>
   </div>
@@ -174,9 +219,9 @@ const fullWidthTemplate = `
       <div lgCol="12">
         <lg-card lgMarginHorizontal="none">
           <lg-card-content>
-            {{card1Content}} <br /><br />
-            {{card2Content}} <br /><br />
-            {{card3Content}}
+            {{card1}} <br /><br />
+            {{card2}} <br /><br />
+            {{card3}}
           </lg-card-content>
         </lg-card>
       </div>
@@ -213,9 +258,9 @@ const fullWidthWithHeroTemplate = `
       <div lgCol="12">
         <lg-card lgMarginHorizontal="none">
           <lg-card-content>
-            {{card1Content}} <br /><br />
-            {{card2Content}} <br /><br />
-            {{card3Content}}
+            {{card1}} <br /><br />
+            {{card2}} <br /><br />
+            {{card3}}
           </lg-card-content>
         </lg-card>
       </div>
@@ -234,8 +279,15 @@ export const fullWidthWithHero = fullWidthWithHeroStory.bind({});
 fullWidthWithHero.storyName = 'Full width with Hero';
 fullWidthWithHero.args = {
   ...createArgs(),
-  title: 'Pension Annuity',
   overlap: 2,
+};
+fullWidthWithHero.argTypes = {
+  overlap: {
+    description: 'The amount that the page content overlaps the hero component (rem)',
+    table: {
+      category: 'other',
+    },
+  },
 };
 fullWidthWithHero.parameters = {
   docs: {

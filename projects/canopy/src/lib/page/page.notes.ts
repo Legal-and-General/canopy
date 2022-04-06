@@ -11,6 +11,29 @@ The page component works best when combined with the [grid module](/?path=/story
 })
 ~~~
 
+and in your HTML:
+
+~~~html
+<lg-page>
+  <header lg-header></header>
+  <div lgContainer>
+    <div lgRow>
+      <div
+          lgCol="12"
+          lgColMd="8"
+          lgColMdOffset="2"
+          lgColLg="6"
+          lgColLgOffset="3"
+        >
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1Content}}</lg-card-content></lg-card>
+        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2Content}}</lg-card-content></lg-card>
+      </div>
+    </div>
+  </div>
+  <footer lg-footer></footer>
+</lg-page>
+~~~
+
 ## Inputs
 
 ### LgPageComponent
@@ -33,4 +56,8 @@ You can do this by using the [ngProjectAs](https://medium.com/ignite-ui/using-ng
   <app-footer ngProjectAs="[lg-footer]"></app-footer>
 </lg-page>
 ~~~
+
+## Skip to main content
+
+\`skipToMain\` is a public function that sets the focus on the main content. This should be called by a visually hidden link positioned at the top of the page which appear when it receives keyboard focus.
 `;
