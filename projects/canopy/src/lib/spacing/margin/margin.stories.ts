@@ -31,6 +31,11 @@ export default {
     }),
   ],
   parameters: {
+    a11y: {
+      // Remove a11y checks for margin directive as unnecessary
+      // and flagging false positives
+      disable: true,
+    },
     docs: {
       description: {
         component: notes('Margin'),
