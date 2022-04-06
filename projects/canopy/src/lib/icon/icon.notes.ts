@@ -35,6 +35,11 @@ Your HTML:
 </lg-icon>
 ~~~
 
+## Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`name\`\` | the name of the icon | string | undefined | yes |
+
 All icons have height and width equal to 1em. This means the icons will be as big as the font-size specified by the parent.
 
 *By default the icons have the \`\`fill\`\` css property set to \`\`currentColor\`\`.*
