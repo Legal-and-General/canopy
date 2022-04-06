@@ -29,8 +29,7 @@ export default {
     },
     variant: {
       options: variantTypes,
-      description:
-        "Applies colour treatment and ARIA role if applicable. If the ``variant`` is set to  ``'inherit'``, then it will inherit the font colour of its parent element. This is used on the loading button, where the spinner inherits the font colour of the button.",
+      description: 'The colour variant of the spinner.',
       table: {
         type: {
           summary: variantTypes,
