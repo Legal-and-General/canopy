@@ -20,15 +20,9 @@ export default {
   },
   argTypes: {
     tabEvent: {
-      description: 'Event emitted when the selected tab changes.',
       action: 'Tab click',
       table: {
-        defaultValue: {
-          summary: 'new EventEmitter()',
-        },
-        type: {
-          summary: 'EventEmitter<{ index: number }>',
-        },
+        disable: true,
       },
     },
     label: {

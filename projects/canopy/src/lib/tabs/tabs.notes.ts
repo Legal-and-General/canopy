@@ -89,13 +89,15 @@ and in your HTML:
 </lg-tab-nav-content>
 ~~~
 
-## \`lg-tab-nav-bar\` Inputs
+## \`lg-tab-nav-bar\` inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`label\`\` | Label for the tab list| string | Tabs | No |
 
-## \`lgTabNavBarLink\` Inputs
+## \`lgTabNavBarLink\`
+
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
@@ -103,13 +105,13 @@ and in your HTML:
 | \`\`isActive\`\` | Sets the active state of the tab | boolean | false | No |
 | \`\`isFocused\`\` | Sets the focus state of the tab | boolean | false | No |
 
-## \`lgTabNavBarLink\` Outputs
+### Outputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`isActive\`\` | Sets the current actve tab | boolean | undefined | No |
+| \`\`isActive\`\` | Sets the current active tab | boolean | undefined | No |
 
-## \`lg-tab-nav-content\` Inputs
+## \`lg-tab-nav-content\` inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`selectedTabId\`\` | Sets the id of the current selected tab | string | undefined | No |
