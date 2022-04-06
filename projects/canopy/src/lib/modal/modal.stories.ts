@@ -38,6 +38,21 @@ export default {
         type: 'select',
       },
     },
+    id: {
+      table: {
+        disable: true,
+      },
+    },
+    closed: {
+      table: {
+        disable: true,
+      },
+    },
+    open: {
+      table: {
+        disable: true,
+      },
+    },
     class: {
       table: {
         disable: true,

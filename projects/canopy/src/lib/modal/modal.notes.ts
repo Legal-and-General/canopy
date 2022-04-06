@@ -22,13 +22,17 @@ Import the service:
 To open the modal:
 
 ~~~js
+
   this.modalService.open(<modal-id>)
+
 ~~~
 
 and to close it:
 
 ~~~js
+
   this.modalService.close(<modal-id>)
+
 ~~~
 
 ## Inputs
