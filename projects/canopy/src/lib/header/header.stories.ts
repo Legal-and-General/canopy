@@ -67,7 +67,7 @@ const standardStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
 });
 
 export const standardHeader = standardStory.bind({});
-standardHeader.storyName = 'Header';
+standardHeader.storyName = 'Standard';
 standardHeader.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
