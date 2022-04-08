@@ -36,7 +36,11 @@ export class LgBrandIconComponent {
     const el = this.hostElement.nativeElement.querySelector(
       '[data-colour="lg-icon-fill-primary"]',
     );
-    el.style.fill = `var(${colour})`;
+
+    // Some icons don't have colour so don't need the fill to be set
+    if (el) {
+      el.style.fill = `var(${colour})`;
+    }
   }
 
   _size: BrandIconSize = 'sm';
