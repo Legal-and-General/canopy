@@ -6,38 +6,7 @@ import { moduleMetadata, Story } from '@storybook/angular';
 import { LgBrandIconComponent } from './brand-icon.component';
 import { notes } from './brand-icon.notes';
 import { LgBrandIconRegistry } from './brand-icon.registry';
-
-import * as brandIconSet from './brand-icons.interface';
-
-const brandIconsArray: Array<brandIconSet.BrandIcon> = [
-  brandIconSet.lgBrandIconCalendar,
-  brandIconSet.lgBrandIconChangeExistingHoldings,
-  brandIconSet.lgBrandIconChangeFutureContributions,
-  brandIconSet.lgBrandIconCookiesAndArrows,
-  brandIconSet.lgBrandIconErrorInBrowser,
-  brandIconSet.lgBrandIconGuaranteedIncome,
-  brandIconSet.lgBrandIconHelpAdvice,
-  brandIconSet.lgBrandIconNoInformation,
-  brandIconSet.lgBrandIconNoTransactionsMatch,
-  brandIconSet.lgBrandIconPaymentSuccess,
-  brandIconSet.lgBrandIconPensionPot,
-  brandIconSet.lgBrandIconPeople,
-  brandIconSet.lgBrandIconPerformance,
-  brandIconSet.lgBrandIconPiggyBank,
-  brandIconSet.lgBrandIconRainOrShine,
-  brandIconSet.lgBrandIconSun,
-  brandIconSet.lgBrandIconSurvey,
-  brandIconSet.lgBrandIconThumbsUp,
-  brandIconSet.lgBrandIconVideoGuides,
-  brandIconSet.lgBrandIconWarning,
-  brandIconSet.lgBrandIconMinutes,
-  brandIconSet.lgBrandIconQuickAndEasy,
-  brandIconSet.lgBrandIconHandFlower,
-  brandIconSet.lgBrandIconCurrencyPounds,
-  brandIconSet.lgBrandIconWindTurbine,
-  brandIconSet.lgBrandIconPhoneCall,
-  brandIconSet.lgBrandIconWorldWideWeb,
-];
+import { lgBrandIconsArray } from './brand-icons.interface';
 
 @Component({
   selector: 'lg-swatch-brand-icon',
@@ -83,7 +52,7 @@ class SwatchBrandIconComponent implements OnChanges {
   @Input() colour: string;
   @Input() globalColour: string;
 
-  icons = brandIconsArray;
+  icons = lgBrandIconsArray;
   cssVar: SafeStyle;
 
   constructor(private registry: LgBrandIconRegistry, private sanitizer: DomSanitizer) {

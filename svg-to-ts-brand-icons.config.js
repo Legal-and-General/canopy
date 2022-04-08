@@ -8,6 +8,8 @@ const svgToTsConfig = {
   typeName: "BrandIconName",
   interfaceName: "BrandIcon",
   delimiter: "KEBAB",
+  generateTypeObject: true,
+  completeIconSetName: 'lgBrandIconsArray',
 
   svgoConfig: svgoBrandIconsConfig
 };
