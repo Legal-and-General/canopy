@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from './input.notes';
-import { LgIconModule, LgIconRegistry } from '../../icon';
+import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../icon';
 import { LgInputModule } from './input.module';
 import { LgLabelModule } from '../label/label.module';
 import { LgButtonModule } from '../../button/button.module';
@@ -13,7 +13,6 @@ import type { ButtonVariant } from '../../button';
 import { LgSuffixModule } from '../../suffix';
 import { LgPrefixModule } from '../../prefix';
 import { LgInputFieldComponent } from './input-field.component';
-import { iconsArray } from '../../icon/icons.stories';
 
 interface Config {
   block?: boolean;
@@ -161,7 +160,7 @@ class ReactiveFormComponent {
   form: FormGroup;
 
   constructor(public fb: FormBuilder, private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons(iconsArray);
+    this.iconRegistry.registerIcons([lgIconSearch, lgIconClose]);
     this.form = this.fb.group({ name: { value: '', disabled: false } });
     this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
   }
