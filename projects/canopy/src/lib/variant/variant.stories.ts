@@ -6,8 +6,7 @@ import { LgVariantDirective } from '.';
 import { LgButtonModule } from '../button';
 import { LgCardModule } from '../card';
 import { LgGridModule } from '../grid';
-import { LgIconModule, LgIconRegistry } from '../icon';
-import { iconsArray } from '../icon/icons.stories';
+import { LgIconModule, LgIconRegistry, lgIconsArray } from '../icon';
 import { LgShadowModule } from '../shadow';
 import { LgSpacingModule } from '../spacing';
 import type { Variant } from './variant.interface';
@@ -44,7 +43,7 @@ const variants = ['generic', 'info', 'success', 'warning', 'error'];
 class LgVariantStoryComponent {
   @Input() variant: Variant;
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(iconsArray);
+    this.registry.registerIcons(lgIconsArray);
   }
 }
 

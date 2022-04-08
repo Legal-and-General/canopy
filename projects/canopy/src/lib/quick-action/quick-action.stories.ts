@@ -3,10 +3,9 @@ import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgIconRegistry } from '../icon/icon.registry';
-import { iconsArray } from '../icon/icons.stories';
 import { LgQuickActionModule } from './quick-action.module';
 import { notes } from './quick-action.notes';
-import { LgIconModule } from '../icon';
+import { LgIconModule, lgIconsArray } from '../icon';
 
 @Component({
   selector: 'lg-quick-action-link',
@@ -22,9 +21,9 @@ class LgQuickActionLinkComponent {
   @Input() link: string;
   @Input() target: string;
   @Input() icon: string;
-  icons = iconsArray;
+
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(this.icons);
+    this.registry.registerIcons(lgIconsArray);
   }
 }
 
@@ -40,9 +39,9 @@ class LgQuickActionLinkComponent {
 class LgQuickActionButtonComponent {
   @Input() content: string;
   @Input() icon: string;
-  icons = iconsArray;
+
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(this.icons);
+    this.registry.registerIcons(lgIconsArray);
   }
 }
 
@@ -64,7 +63,7 @@ export default {
   argTypes: {
     icon: {
       description: 'Icon to display',
-      options: ['None', ...iconsArray.map((i) => i.name)],
+      options: ['None', ...lgIconsArray.map((i) => i.name)],
       control: {
         type: 'select',
       },

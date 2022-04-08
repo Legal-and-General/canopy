@@ -14,10 +14,9 @@ import { LgInputModule } from '../forms/input/input.module';
 import { LgLabelModule } from '../forms/label/label.module';
 import { LgHintModule } from '../forms/hint/hint.module';
 import { LgSeparatorModule } from '../separator/separator.module';
-import { iconsArray } from '../icon/icons.stories';
-import { LgIconRegistry } from '../icon/icon.registry';
 import { LgCardComponent } from './card.component';
 import { LgCardModule } from './card.module';
+import { lgIconChevronLeft, LgIconRegistry } from '../icon';
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -93,10 +92,9 @@ class FormJourneyComponent {
   @Input() label: string;
 
   form: FormGroup;
-  icons = iconsArray;
 
   constructor(private registry: LgIconRegistry, public fb: FormBuilder) {
-    this.registry.registerIcons(this.icons);
+    this.registry.registerIcons([lgIconChevronLeft]);
     this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
   }
 
