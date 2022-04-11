@@ -49,14 +49,14 @@
     "rxjs": "^6.6.7",
     "tslib": "^2.3.1",
     "webpack": "^4.46.0",
-    "zone.js": "^0.10.3"
+    "zone.js": "^0.11.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.4",
     "@angular/cli": "^11.2.19",
     "@angular/compiler-cli": "^11.2.14",
     "@angular/language-service": "^11.2.14",
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@commitlint/cli": "^16.2.3",
@@ -93,7 +93,7 @@
     "karma": "^6.3.17",
     "karma-chrome-launcher": "^3.1.1",
     "karma-coverage-istanbul-reporter": "^3.0.3",
-    "karma-jasmine": "^4.0.1",
+    "karma-jasmine": "^4.0.2",
     "karma-jasmine-html-reporter": "^1.6.0",
     "license-checker": "^25.0.1",
     "lint-staged": "^12.3.7",
