@@ -73,7 +73,7 @@
     "@storybook/theming": "^6.4.20",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@stylelint/postcss-markdown": "^0.36.1",
-    "@types/jasmine": "^4.0.0",
+    "@types/jasmine": "^4.0.3",
     "@types/jasminewd2": "^2.0.9",
     "@types/node": "^14.18.12",
     "autoprefixer": "^10.4.4",
