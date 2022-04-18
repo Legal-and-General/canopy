@@ -4,9 +4,8 @@ import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgButtonModule } from './button.module';
 import { notes } from './button.notes';
-import { LgIconModule, LgIconRegistry } from '../icon';
+import { LgIconModule, LgIconRegistry, lgIconsArray } from '../icon';
 import { ButtonIconPosition, ButtonSize, LgButtonComponent } from '.';
-import { iconsArray } from '../icon/icons.stories';
 
 @Component({
   selector: 'lg-button-component-example',
@@ -52,9 +51,8 @@ class ButtonComponentExampleComponent {
   @Input() size: ButtonSize;
   @Input() variant: string;
   @Input() content: string;
-  icons = iconsArray;
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(this.icons);
+    this.registry.registerIcons(lgIconsArray);
   }
 }
 
@@ -101,7 +99,7 @@ export default {
     },
     icon: {
       description: 'Icon to display',
-      options: ['None', ...iconsArray.map((i) => i.name)],
+      options: ['None', ...lgIconsArray.map((i) => i.name)],
       table: {
         type: {
           type: { summary: 'string' },
@@ -125,8 +123,8 @@ export default {
 
 const iconArgType = {
   description: 'Icon to display',
-  options: iconsArray.map((i) => i.name),
-  defaultValue: iconsArray[0].name,
+  options: lgIconsArray.map((i) => i.name),
+  defaultValue: lgIconsArray[0].name,
   table: {
     type: {
       type: { summary: 'string' },
@@ -289,7 +287,7 @@ textWithIcon.argTypes = {
 textWithIcon.args = {
   ...defaultArgValues,
   variant: 'solid-primary',
-  icon: iconsArray[0].name,
+  icon: lgIconsArray[0].name,
 };
 textWithIcon.parameters = {
   docs: {
@@ -317,7 +315,7 @@ iconOnly.args = {
   ...defaultArgValues,
   variant: 'solid-primary',
   iconButton: true,
-  icon: iconsArray[0].name,
+  icon: lgIconsArray[0].name,
 };
 iconOnly.parameters = {
   docs: {

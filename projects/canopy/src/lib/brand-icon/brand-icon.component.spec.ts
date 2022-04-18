@@ -10,21 +10,19 @@ describe('LgBrandIconComponent', () => {
   let fixture: ComponentFixture<LgBrandIconComponent>;
   let brandIconRegistryMock: LgBrandIconRegistry;
 
-  beforeEach(
-    waitForAsync(() => {
-      brandIconRegistryMock = mock(LgBrandIconRegistry);
+  beforeEach(waitForAsync(() => {
+    brandIconRegistryMock = mock(LgBrandIconRegistry);
 
-      TestBed.configureTestingModule({
-        declarations: [LgBrandIconComponent],
-        providers: [
-          {
-            provide: LgBrandIconRegistry,
-            useFactory: () => instance(brandIconRegistryMock),
-          },
-        ],
-      }).compileComponents();
-    }),
-  );
+    TestBed.configureTestingModule({
+      declarations: [LgBrandIconComponent],
+      providers: [
+        {
+          provide: LgBrandIconRegistry,
+          useFactory: () => instance(brandIconRegistryMock),
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBrandIconComponent);
@@ -99,6 +97,19 @@ describe('LgBrandIconComponent', () => {
         expect(el.style.fill).toEqual('var(--colour-css-variable)');
       });
     });
+  });
+
+  it("when the icon isn't coloured it should not set the fill style", () => {
+    when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+      '<svg id="test">test-svg<path id="no-color"></path></svg>',
+    );
+    component.name = 'sun';
+
+    fixture.detectChanges();
+    const el = fixture.nativeElement.querySelector('path[id^="lg-brand-icon-"]');
+
+    expect(el.getAttribute('data-colour')).toBeNull();
+    expect(el.style.fill).toEqual('');
   });
 
   describe('the size input', () => {
