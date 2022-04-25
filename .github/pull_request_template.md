@@ -8,7 +8,6 @@ Fixes # (issue)
 
 Please briefly outline any requirements for the work which may aid the testing and review process.
 
-Storybook link: (once netlify has deployed link provide a link to the component)
 Design link: (link to design or delete if not required)
 Screenshot: (if appropriate provide a quick screen grab of the changes)
 
