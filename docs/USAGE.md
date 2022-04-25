@@ -14,7 +14,7 @@ Add the following to the `.npmrc` file within your project. This tells npm to lo
 
 ## Authenticating against the GitHub registry
 
-Currently the project is hosted on a private GitHub repository, to be able to [authenticate against the GitHub registry](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#authenticating-to-github-package-registry) you will need to create a [personal access token](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages) with `read:packages` repository permissions.
+To be able to [authenticate against the GitHub registry](https://help.github.com/en/articles/configuring-npm-for-use-with-github-package-registry#authenticating-to-github-package-registry) you will need to create a [personal access token](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages) with `read:packages` repository permissions.
 
 You will need to add the following to your [users `.npmrc` file](https://docs.npmjs.com/configuring-npm/npmrc.html). (This is different from your projects npmrc file, do not check in your token).
 
@@ -38,10 +38,10 @@ In your angular `app.module.ts' file you can choose to import all of the compone
 
 ### Importing specific component modules (recommended)
 
-Importing specific modules is considered best practice as it only includes the code that you need and keeps build size to a minimum. Refer to the [storybook](https://legal-and-general-canopy.netlify.app/) notes tabs for documentation specific to each module.
+Importing specific modules is considered best practice as it only includes the code that you need and keeps build size to a minimum. Refer to the [storybook](https://legal-and-general.github.io/canopy/) docs tabs for documentation specific to each module.
 
 ```js
-import { LgButtonModule, LgCardModule, LgFormModule } from '@legal-and-general/canopy';
+import { LgButtonModule, LgCardModule } from '@legal-and-general/canopy';
 ```
 
 and add it to the imports section of your module.
@@ -53,28 +53,6 @@ and add it to the imports section of your module.
     ...
     LgButtonModule,
     LgCardModule,
-    LgFormModule
-  ],
-  ...
-})
-```
-
-### Importing all of the component modules
-
-Importing all of the modules is useful for rapid prototyping where build size may be less of a consideration.
-
-```js
-import { CanopyModule } from '@legal-and-general/canopy';
-```
-
-and add it to the imports section of your module.
-
-```js
-@NgModule({
-  ...
-  imports: [
-    ...
-    CanopyModule
   ],
   ...
 })
