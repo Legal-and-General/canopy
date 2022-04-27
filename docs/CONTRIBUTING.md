@@ -90,6 +90,11 @@ To ensure that changes come from an entrusted source all commits must be [signed
 2. [Adding a new GPG key to your GitHub account](https://help.github.com/en/articles/adding-a-new-gpg-key-to-your-github-account)
 3. [Signing commits](https://help.github.com/en/articles/signing-commits)
 
+## Branch naming convention
+
+Branches should be in `kebab-case` format. 
+The repository is set up with a `pre-push` hook that will prevent the user to push if the name doesn't match the correct format.
+
 ## Review Process
 
 Pull requests require two successful approvals before they can be merged. One review must be from a [CODEOWNER](./.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
