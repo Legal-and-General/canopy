@@ -7,3 +7,14 @@
     padding-bottom: var(--tabs-list-item-lg-line-height) !important;
   }
 }
+
+.light-buttons-container {
+  background-color: var(--color-super-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:last-child {
+    background-color: var(--color-leafy-green);
+  }
+}

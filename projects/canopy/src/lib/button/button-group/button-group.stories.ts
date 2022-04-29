@@ -30,12 +30,12 @@ const template = `
 <lg-button-group>
   <button
     lg-button
-    variant="solid-primary"
+    variant="primary-dark"
   >Button</button>
   <a
     lg-button
     href="#"
-    variant="outline-primary"
+    variant="secondary-dark"
   >Link</a>
 </lg-button-group>
 `;
