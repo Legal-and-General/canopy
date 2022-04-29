@@ -107,8 +107,8 @@
                   aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                   voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 </p>
-                <button lg-button lgMarginTop="sm" variant="solid-primary">
-                  Test primary button
+                <button lg-button lgMarginTop="sm" variant="primary-dark">
+                  Test primary dark button
                 </button>
               </lg-accordion-item>
             </lg-accordion>
@@ -140,47 +140,63 @@
             <lg-separator></lg-separator>
             <lg-heading level="3">Buttons</lg-heading>
 
-            <a href="#" lg-button variant="solid-primary">Solid primary button</a>
+            <a href="#" lg-button variant="primary-dark">Primary dark button</a>
             <br />
 
-            <a href="#" lg-button variant="outline-primary">Outline primary button</a>
+            <a href="#" lg-button variant="secondary-dark">Secondary dark button</a>
             <br />
 
-            <a href="#" lg-button variant="outline-secondary">Outline secondary button</a>
-            <br />
-
-            <button lg-button variant="solid-primary" [loading]="true">
+            <button lg-button variant="primary-dark" [loading]="true">
               Loading button
             </button>
             <br />
 
-            <button lg-button variant="solid-primary">
+            <button lg-button variant="primary-dark">
               Button with icon
               <lg-icon name="add"></lg-icon>
             </button>
             <br />
 
-            <button lg-button variant="outline-primary" iconPosition="left">
+            <button lg-button variant="secondary-dark" iconPosition="left">
               Button with left aligned icon
               <lg-icon name="arrow-down"></lg-icon>
             </button>
             <br />
 
-            <button lg-button variant="solid-primary" [iconButton]="true">
+            <button lg-button variant="primary-dark" [iconButton]="true">
               Icon Button
               <lg-icon name="close"></lg-icon>
             </button>
             <br />
 
-            <button lg-button variant="solid-primary" size="sm">
+            <button lg-button variant="primary-dark" size="sm">
               Small button
             </button>
             <br />
 
-            <button lg-button variant="solid-primary" size="sm" [loading]="true">
+            <button lg-button variant="primary-dark" size="sm" [loading]="true">
               Small button
             </button>
             <br />
+
+            <div>
+              <div class="light-buttons-container" lgPadding="md" lgMarginBottom="lg">
+                <button lg-button variant="primary-light" lgMarginRight="sm">
+                  Primary Light
+                </button>
+                <button lg-button variant="secondary-light">
+                  Secondary Light
+                </button>
+              </div>
+              <div class="light-buttons-container" lgPadding="sm">
+                <button lg-button variant="primary-light" lgMarginRight="sm">
+                  Primary Light
+                </button>
+                <button lg-button variant="secondary-light">
+                  Secondary Light
+                </button>
+              </div>
+            </div>
 
             <lg-separator></lg-separator>
             <lg-heading level="3">Button group</lg-heading>
@@ -188,12 +204,12 @@
             <lg-button-group>
               <button
                 lg-button
-                variant="solid-primary"
+                variant="primary-dark"
               >Button</button>
               <a
                 lg-button
                 href="#"
-                variant="outline-primary"
+                variant="secondary-dark"
               >Link</a>
             </lg-button-group>
 
@@ -397,20 +413,20 @@
                 <input lgInput lgSortCode formControlName="sortCode" />
               </lg-input-field>
 
-              <button lg-button type="submit" variant="solid-primary">Submit</button>
+              <button lg-button type="submit" variant="primary-dark">Submit</button>
             </form>
 
 <!--            <lg-separator></lg-separator>-->
 <!--            <lg-heading level="3">Modal</lg-heading>-->
 
-<!--            <button lgModalTrigger="modal" lg-button type="button" variant="outline-primary">Open modal</button>-->
+<!--            <button lgModalTrigger="modal" lg-button type="button" variant="secondary-dark">Open modal</button>-->
 <!--            <lg-modal id="modal">-->
 <!--              <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>-->
 <!--              <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>-->
 <!--              <lg-modal-footer>-->
 <!--                <lg-button-group>-->
-<!--                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>-->
-<!--                  <button lg-button lgMarginBottom="none" variant="outline-primary" type="button">Cancel</button>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Primary CTA</button>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="secondary-dark" type="button">Cancel</button>-->
 <!--                </lg-button-group>-->
 <!--              </lg-modal-footer>-->
 <!--            </lg-modal>-->
@@ -428,7 +444,7 @@
                 <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
               </lg-primary-message-description>
               <lg-primary-message-description>
-                <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">
+                <button lg-button variant="primary-dark" lgMarginTop="sm" type="button">
                   Call to action
                 </button>
               </lg-primary-message-description>
@@ -455,7 +471,7 @@
                     lgMarginBottom="none"
                     lg-button
                     type="button"
-                    variant="solid-primary">
+                    variant="primary-dark">
                     Find care options
                   </button>
                 </lg-promo-card-footer>
@@ -473,7 +489,7 @@
                     lgMarginBottom="none"
                     lg-button
                     type="button"
-                    variant="reverse-secondary">
+                    variant="secondary-light">
                     Start consolidating
                   </button>
                 </lg-promo-card-footer>
@@ -626,7 +642,7 @@
               <a
                 lg-button
                 lgMarginBottom="none"
-                variant="outline-primary"
+                variant="secondary-dark"
                 [fullWidth]="false"
                 href="#"
               >Logout</a
@@ -704,8 +720,8 @@
                   <div lgContainer>
                     <div lgRow>
                       <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                        <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>
-                        <button lg-button type="submit" variant="solid-primary">Confirm</button>
+                        <button lg-button type="button" variant="secondary-dark" lgMarginRight="sm">Back</button>
+                        <button lg-button type="submit" variant="primary-dark">Confirm</button>
                       </div>
                     </div>
                   </div>
@@ -931,8 +947,8 @@
 <!--                      <div lgContainer>-->
 <!--                        <div lgRow>-->
 <!--                          <div lgCol="12" lgColMd="10" lgColMdOffset="1">-->
-<!--                            <button lg-button type="button" variant="outline-primary" lgMarginRight="sm">Back</button>-->
-<!--                            <button lg-button type="submit" variant="solid-primary">Confirm</button>-->
+<!--                            <button lg-button type="button" variant="secondary-dark" lgMarginRight="sm">Back</button>-->
+<!--                            <button lg-button type="submit" variant="primary-dark">Confirm</button>-->
 <!--                          </div>-->
 <!--                        </div>-->
 <!--                      </div>-->
@@ -944,44 +960,44 @@
 
 <!--            <lg-heading level="3">Buttons</lg-heading>-->
 
-<!--            <a href="#" lg-button variant="solid-primary">Solid primary button</a>-->
+<!--            <a href="#" lg-button variant="primary-dark">Solid primary button</a>-->
 <!--            <br />-->
 
-<!--            <a href="#" lg-button variant="outline-primary">Outline primary button</a>-->
+<!--            <a href="#" lg-button variant="secondary-dark">Outline primary button</a>-->
 <!--            <br />-->
 
 <!--            <a href="#" lg-button variant="outline-secondary">Outline secondary button</a>-->
 <!--            <br />-->
 
-<!--            <button lg-button variant="solid-primary" [loading]="true">-->
+<!--            <button lg-button variant="primary-dark" [loading]="true">-->
 <!--              Loading button-->
 <!--            </button>-->
 <!--            <br />-->
 
-<!--            <button lg-button variant="solid-primary">-->
+<!--            <button lg-button variant="primary-dark">-->
 <!--              Button with icon-->
 <!--              <lg-icon name="add"></lg-icon>-->
 <!--            </button>-->
 <!--            <br />-->
 
-<!--            <button lg-button variant="outline-primary" iconPosition="left">-->
+<!--            <button lg-button variant="secondary-dark" iconPosition="left">-->
 <!--              Button with left aligned icon-->
 <!--              <lg-icon name="arrow-down"></lg-icon>-->
 <!--            </button>-->
 <!--            <br />-->
 
-<!--            <button lg-button variant="solid-primary" [iconButton]="true">-->
+<!--            <button lg-button variant="primary-dark" [iconButton]="true">-->
 <!--              Icon Button-->
 <!--              <lg-icon name="close"></lg-icon>-->
 <!--            </button>-->
 <!--            <br />-->
 
-<!--            <button lg-button variant="solid-primary" size="sm">-->
+<!--            <button lg-button variant="primary-dark" size="sm">-->
 <!--              Small button-->
 <!--            </button>-->
 <!--            <br />-->
 
-<!--            <button lg-button variant="solid-primary" size="sm" [loading]="true">-->
+<!--            <button lg-button variant="primary-dark" size="sm" [loading]="true">-->
 <!--              Small button-->
 <!--            </button>-->
 <!--            <br />-->
@@ -1116,7 +1132,7 @@
 <!--                <input lgInput lgSortCode formControlName="sortCode" />-->
 <!--              </lg-input-field>-->
 
-<!--              <button lg-button type="submit" variant="solid-primary">Submit</button>-->
+<!--              <button lg-button type="submit" variant="primary-dark">Submit</button>-->
 <!--            </form>-->
 
 <!--            <lg-separator></lg-separator>-->
@@ -1180,14 +1196,14 @@
 
 <!--            <lg-heading level="3">Modal</lg-heading>-->
 
-<!--            <button lgModalTrigger="modal" lg-button type="button" variant="outline-primary">Open modal</button>-->
+<!--            <button lgModalTrigger="modal" lg-button type="button" variant="secondary-dark">Open modal</button>-->
 <!--            <lg-modal id="modal">-->
 <!--              <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>-->
 <!--              <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>-->
 <!--              <lg-modal-footer>-->
 <!--                <lg-button-group>-->
-<!--                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Primary CTA</button>-->
-<!--                  <button lg-button lgMarginBottom="none" variant="solid-primary" type="button">Cancel</button>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Primary CTA</button>-->
+<!--                  <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Cancel</button>-->
 <!--                </lg-button-group>-->
 <!--              </lg-modal-footer>-->
 <!--            </lg-modal>-->
@@ -1277,7 +1293,7 @@
 <!--              href="https://github.com/Legal-and-General/canopy"-->
 <!--              target="_blank"-->
 <!--              lg-button-->
-<!--              variant="solid-primary"-->
+<!--              variant="primary-dark"-->
 <!--            >-->
 <!--              View source-->
 <!--            </a>-->
@@ -1295,7 +1311,7 @@
 <!--            <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.-->
 <!--          </lg-primary-message-description>-->
 <!--          <lg-primary-message-description>-->
-<!--            <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">-->
+<!--            <button lg-button variant="primary-dark" lgMarginTop="sm" type="button">-->
 <!--              Call to action-->
 <!--            </button>-->
 <!--          </lg-primary-message-description>-->

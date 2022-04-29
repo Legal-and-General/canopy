@@ -60,9 +60,7 @@ const cardListConfig = {
             lgMarginBottom="none"
             lg-button
             type="button"
-            [variant]="
-              variants[i] === 'solid-white' ? 'solid-primary' : 'reverse-secondary'
-            "
+            [variant]="variants[i] === 'solid-white' ? 'primary-dark' : 'secondary-light'"
           >
             {{ card.ctaText }}
           </button>

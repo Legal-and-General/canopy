@@ -1,0 +1,21 @@
+:root {
+  --btn-secondary-dark-bg-color: inherit;
+  --btn-secondary-dark-border-color: var(--color-charcoal);
+  --btn-secondary-dark-color: var(--color-charcoal);
+  --btn-secondary-dark-hover-bg-color: var(--color-platinum);
+  --btn-secondary-dark-hover-border-color: var(--color-charcoal);
+  --btn-secondary-dark-hover-color: var(--color-charcoal);
+  --btn-secondary-dark-active-bg-color: var(--color-charcoal);
+  --btn-secondary-dark-active-border-color: var(--color-charcoal);
+  --btn-secondary-dark-active-color: var(--color-white);
+
+  --btn-secondary-light-bg-color: inherit;
+  --btn-secondary-light-border-color: var(--color-white);
+  --btn-secondary-light-color: var(--color-white);
+  --btn-secondary-light-hover-bg-color: rgba(0, 0, 0, 0.33);
+  --btn-secondary-light-hover-border-color: var(--color-white);
+  --btn-secondary-light-hover-color: var(--color-white);
+  --btn-secondary-light-active-bg-color: rgba(0, 0, 0, 0.66);
+  --btn-secondary-light-active-border-color: var(--color-white);
+  --btn-secondary-light-active-color: var(--color-white);
+}

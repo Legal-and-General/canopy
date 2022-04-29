@@ -1,0 +1,21 @@
+:root {
+  --btn-primary-dark-bg-color: var(--color-super-blue);
+  --btn-primary-dark-border-color: var(--color-super-blue);
+  --btn-primary-dark-color: var(--color-white);
+  --btn-primary-dark-hover-bg-color: var(--color-super-blue-dark);
+  --btn-primary-dark-hover-border-color: var(--color-super-blue-dark);
+  --btn-primary-dark-hover-color: var(--color-white);
+  --btn-primary-dark-active-bg-color: var(--color-super-blue-darkest);
+  --btn-primary-dark-active-border-color: var(--color-super-blue-darkest);
+  --btn-primary-dark-active-color: var(--color-white);
+
+  --btn-primary-light-bg-color: var(--color-white);
+  --btn-primary-light-border-color: var(--color-white);
+  --btn-primary-light-color: var(--color-charcoal);
+  --btn-primary-light-hover-bg-color: rgba(0, 0, 0, 0.33);
+  --btn-primary-light-hover-border-color: var(--color-white);
+  --btn-primary-light-hover-color: var(--color-white);
+  --btn-primary-light-active-bg-color: rgba(0, 0, 0, 0.66);
+  --btn-primary-light-active-border-color: var(--color-white);
+  --btn-primary-light-active-color: var(--color-white);
+}

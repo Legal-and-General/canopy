@@ -23,8 +23,12 @@
   text-decoration: none;
 
   &:focus,
-  &:hover:focus {
-    @include lg-outer-focus-outline(var(--default-focus-color));
+  &:hover:focus,
+  &:hover:focus:hover {
+    @include lg-focus-outline(
+      var(--default-focus-color),
+      var(--default-inner-focus-color)
+    );
   }
 
   &:not(&--loading):disabled {
@@ -100,8 +104,9 @@
   }
 }
 
-$variants: 'solid-primary', 'reverse-primary', 'reverse-secondary',
-  'outline-primary', 'outline-secondary', 'add-on' !default;
+$variants: 'solid-primary', 'reverse-primary', 'reverse-secondary', 'outline-primary',
+  'outline-secondary', 'add-on', 'primary-dark', 'primary-light', 'secondary-dark',
+  'secondary-light' !default;
 
 @each $variant in $variants {
   .lg-btn--#{$variant},
@@ -127,6 +132,18 @@ $variants: 'solid-primary', 'reverse-primary', 'reverse-secondary',
         background-color: var(--btn-#{$variant}-hover-bg-color);
         border: var(--btn-#{$variant}-hover-border-color) solid var(--border-width);
         color: var(--btn-#{$variant}-hover-color);
+      }
+    }
+  }
+
+  .lg-btn--#{$variant}:focus {
+    border-color: transparent;
+
+    &:not(:disabled) {
+      &:active,
+      &:active:hover,
+      &:hover {
+        border-color: transparent;
       }
     }
   }
