@@ -14,9 +14,10 @@ Running `npm start` will run storybook locally, this will hot reload any changes
 
 ### Deployments
 
-At the moment pull requests are not deployed to any environment.
+Pull requests are deployed manually to [GitHub Pages](https://pages.github.com/) by the Core or Regular Contributors.
+Once the deployment has completed successfully a comment with the url of the environment is added to the pull request.
 
-The `master` branch is deployed to [GitHub Pages](https://pages.github.com/), this currently provides the most up to date documentation for the latest version. This deployment is handled by a custom [GitHub action](../.github/actions/gh-pages-storybook)
+The `master` branch is also deployed to GitHub Pages, this currently provides the most up to date documentation for the latest version.
 
 https://legal-and-general.github.io/canopy
 
@@ -92,8 +93,8 @@ To ensure that changes come from an entrusted source all commits must be [signed
 
 ## Branch naming convention
 
-Branches should be in `kebab-case` format. 
-The repository is set up with a `pre-push` hook that will prevent the user to push if the name doesn't match the correct format.
+Branches should be in `kebab-case` format.
+The repository is set up with a `pre-push` hook that will prevent the user from pushing if the branch name doesn't match the correct format.
 
 ## Review Process
 
