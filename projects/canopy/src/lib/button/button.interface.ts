@@ -1,4 +1,8 @@
 export type ButtonVariant =
+  | 'primary-dark'
+  | 'primary-light'
+  | 'secondary-dark'
+  | 'secondary-light'
   | 'solid-primary'
   | 'outline-primary'
   | 'outline-secondary'

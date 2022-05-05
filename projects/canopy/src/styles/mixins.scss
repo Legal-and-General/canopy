@@ -13,6 +13,15 @@
   box-shadow: 0 0 0 0.25rem $bg-color;
 }
 
+// this mixin will replace lg-outer-focus-outline in the future when all the components will have to use this focus styling
+@mixin lg-focus-outline(
+  $bg-color: var(--default-focus-color),
+  $inner-bg-color: var(--default-inner-focus-color)
+) {
+  outline: 0;
+  box-shadow: 0 0 0 0.125rem $inner-bg-color, 0 0 0 0.375rem $bg-color;
+}
+
 @mixin lg-link(
   $default-color: var(--link-color),
   $hover-color: var(--link-hover-color),

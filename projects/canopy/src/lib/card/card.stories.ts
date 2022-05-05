@@ -60,12 +60,12 @@ const formJourneyTemplate = `
                   <button
                     lg-button
                     type="button"
-                    variant="outline-primary"
+                    variant="secondary-dark"
                     lgMarginRight="sm"
                   >
                     Back
                   </button>
-                  <button lg-button type="submit" variant="solid-primary">
+                  <button lg-button type="submit" variant="primary-dark">
                     Confirm
                   </button>
                   <p lgPaddingBottom="md">{{policy}}</p>
