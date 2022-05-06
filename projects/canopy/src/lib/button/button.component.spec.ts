@@ -33,20 +33,20 @@ describe('LgButtonComponent', () => {
 
   describe('the variant input', () => {
     describe('when not specified', () => {
-      it('should set the solid primary class modifier', () => {
+      it('should set the primary dark class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--solid-primary',
+          'lg-btn--primary-dark',
         );
       });
     });
 
     describe('when specified', () => {
       it('should set the correct class modifier', () => {
-        component.variant = 'outline-secondary';
+        component.variant = 'secondary-dark';
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--outline-secondary',
+          'lg-btn--secondary-dark',
         );
       });
     });

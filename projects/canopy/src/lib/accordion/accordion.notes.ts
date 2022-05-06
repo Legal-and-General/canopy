@@ -25,7 +25,7 @@ and in your HTML:
         ut aliquip ex ea commodo consequat. Duis aute irure dolor in
         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur.</p>
-      <button lg-button lgMarginTop="sm" variant="solid-primary">
+      <button lg-button lgMarginTop="sm" variant="primary-dark">
         Test primary button
       </button>
     </lg-accordion-item>

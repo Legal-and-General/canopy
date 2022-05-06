@@ -50,7 +50,7 @@ and in your HTML:
       </lg-side-nav-bar-item>
     </a>
     <lg-side-nav-bar-footer>
-      <a lg-button lgMarginTop="xxl" variant="outline-primary" [fullWidth]="false" href="#">Logout</a>
+      <a lg-button lgMarginTop="xxl" variant="secondary-dark" [fullWidth]="false" href="#">Logout</a>
     </lg-side-nav-bar-footer>
   </lg-side-nav-bar>
   <lg-side-nav-content tabindex="0">

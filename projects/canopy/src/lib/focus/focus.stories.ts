@@ -42,7 +42,7 @@ export default {
 } as Meta;
 
 const template = `
-  <button lg-button variant="solid-primary" [lgFocus]="lgFocus">Focus directive example</button>
+  <button lg-button variant="primary-dark" [lgFocus]="lgFocus">Focus directive example</button>
 `;
 
 const focusTemplate: Story<LgFocusDirective> = (args: LgFocusDirective) => ({
