@@ -2,9 +2,6 @@
  * Public API Surface of canopy
  */
 
-export * from './lib/canopy.service';
-export * from './lib/canopy.module';
-
 export * from './lib/accordion/index';
 export * from './lib/alert/index';
 export * from './lib/breadcrumb/index';

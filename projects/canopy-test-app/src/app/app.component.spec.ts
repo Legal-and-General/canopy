@@ -1,12 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 
-import { MockModule } from 'ng-mocks';
-
 import { instance, mock } from 'ts-mockito';
 
 import { AppComponent } from './app.component';
-import { CanopyModule } from 'projects/canopy/src/lib/canopy.module';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -17,11 +14,13 @@ describe('AppComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [MockModule(CanopyModule)],
       providers: [{ provide: FormBuilder, useFactory: () => instance(formBuilderMock) }],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.overrideComponent(AppComponent, {
+      set: { template: '' },
+    }).createComponent(AppComponent);
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
