@@ -60,7 +60,7 @@ const cardListConfig = {
             lgMarginBottom="none"
             lg-button
             type="button"
-            [variant]="variants[i] === 'solid-white' ? 'primary-dark' : 'secondary-light'"
+            [variant]="variants[i] === 'solid-white' ? 'primary-dark' : 'primary-light'"
           >
             {{ card.ctaText }}
           </button>
@@ -172,7 +172,7 @@ const examplePromoCardTemplate = `
           lgMarginBottom="none"
           lg-button
           type="button"
-          [variant]="variant[i] === 'solid-white' ? 'solid-primary' : 'reverse-secondary'">
+          [variant]="variant[i] === 'solid-white' ? 'primary-dark' : 'primary-light'">
           {{ card.ctaText }}
         </button>
       </lg-promo-card-footer>

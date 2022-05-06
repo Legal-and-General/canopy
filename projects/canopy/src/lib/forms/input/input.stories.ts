@@ -63,7 +63,7 @@ function setupInputStoryValues(obj, code, config?: Config) {
   obj.args = {
     block: false,
     buttonText: 'search',
-    buttonVariant: 'solid-primary',
+    buttonVariant: 'primary-dark',
     disabled: false,
     hint: config?.hint === null ? '' : 'Please enter your name',
     icon: 'search',

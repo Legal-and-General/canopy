@@ -90,7 +90,7 @@ const exampleTemplate = `
     <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
   </lg-primary-message-description>
   <lg-primary-message-description>
-    <button lg-button variant="solid-primary" lgMarginTop="sm" type="button">
+    <button lg-button variant="primary-dark" lgMarginTop="sm" type="button">
       Call to action
     </button>
   </lg-primary-message-description>
