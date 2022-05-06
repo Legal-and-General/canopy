@@ -14,7 +14,7 @@ and in your HTML:
 
 ~~~html
 
-<button lg-button type="button" variant="solid-primary">Button</button>
+<button lg-button type="button" variant="primary-dark">Button</button>
 
 ~~~
 
@@ -22,7 +22,7 @@ or:
 
 ~~~html
 
-<a lg-button href="#" variant="primary">Link</a>
+<a lg-button href="#" variant="primary-dark">Link</a>
 
 ~~~
 
@@ -50,7 +50,7 @@ You can create an **icon only** button by setting \`iconButton\` to \`true\`. Yo
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`variant\`\` | The variant of button: \`\`solid-primary\`\`, \`\`outline-primary\`\`, \`\`outline-secondary\`\`, \`\`reverse-primary\`\`, \`\`reverse-secondary\`\`, \`\`add-on\`\`, \`\`primary-dark\`\`, \`\`primary-light\`\`,\`\`secondary-dark\`\`, \`\`secondary-light\`\`. The following variants are deprecated and will be removed in a future update: \`\`solid-primary\`\`, \`\`outline-primary\`\`, \`\`outline-secondary\`\`, \`\`reverse-primary\`\`, \`\`reverse-secondary\`\`; | string | solid-primary. | No |
+| \`\`variant\`\` | The variant of button: \`\`primary-dark\`\`, \`\`primary-light\`\`,\`\`secondary-dark\`\`, \`\`secondary-light\`\`, \`\`add-on\`\`. | string | primary-dark | No |
 | \`\`size\`\` | The size of the button | ButtonSize [\`\`sm\`\`, \`\`md\`\`] | \`\`md\`\` | No |
 | \`\`fullWidth\`\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |
 | \`\`disabled\`\` | Programmatically disable the button via this property | boolean | false | No |
@@ -64,8 +64,8 @@ Buttons can be grouped together by using the \`\`ButtonGroupComponent\`\`:
 
 ~~~html
 <lg-button-group>
-  <button lg-button type="button" variant="solid-primary">Button</button>
-  <a lg-button href="#" variant="outline-primary">Link</a>
+  <button lg-button type="button" variant="primary-dark">Button</button>
+  <a lg-button href="#" variant="secondary-dark">Link</a>
 </lg-button-group>
 ~~~
 `;

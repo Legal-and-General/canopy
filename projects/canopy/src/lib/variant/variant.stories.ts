@@ -26,9 +26,9 @@ const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
           This card has the <strong>{{ variant }}</strong> variant applied. Here is some
           <a href="#">link text</a>.
         </p>
-        <button lg-button variant="outline-primary">Outline primary button</button>
+        <button lg-button variant="secondary-dark">Outline primary button</button>
         <br />
-        <a href="#" lg-button variant="outline-primary" lgMarginBottom="none">
+        <a href="#" lg-button variant="secondary-dark" lgMarginBottom="none">
           Outline primary link styled as button
         </a>
       </lg-card-content>
@@ -97,7 +97,7 @@ const exampleTemplate = `
       This card has the <strong>success</strong> variant applied. Here is some
       <a href="#">link text</a>.
     </p>
-    <button lg-button variant="outline-primary" lgMarginBottom="none">Outline primary button</button>
+    <button lg-button variant="secondary-dark" lgMarginBottom="none">Outline primary button</button>
   </lg-card-content>
 </lg-card>
 `;

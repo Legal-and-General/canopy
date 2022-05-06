@@ -8,30 +8,17 @@ import { notes } from './button.notes';
 
 import { ButtonIconPosition, ButtonSize, LgButtonComponent } from '.';
 
-const deprecatedButtonVariants = [
-  'solid-primary',
-  'outline-primary',
-  'outline-secondary',
-  'reverse-primary',
-  'reverse-secondary',
-];
-
 const buttonVariants = [
-  ...deprecatedButtonVariants,
-  'add-on',
   'primary-dark',
   'primary-light',
   'secondary-dark',
   'secondary-light',
+  'add-on',
 ];
 
 @Component({
   selector: 'lg-button-component-example',
   template: `
-    <p *ngIf="isDeprecated()">
-      This button is <strong>deprecated</strong> and it will be removed in a future
-      update.
-    </p>
     <p>Used on a <strong>button</strong> element</p>
     <button
       lg-button
@@ -76,10 +63,6 @@ class ButtonComponentExampleComponent {
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(lgIconsArray);
   }
-
-  isDeprecated(): boolean {
-    return Boolean(deprecatedButtonVariants.find(variant => variant === this.variant));
-  }
 }
 
 export default {
@@ -101,7 +84,7 @@ export default {
   argTypes: {
     variant: {
       options: [ ...buttonVariants ],
-      defaultValue: 'solid-primary',
+      defaultValue: 'primary-dark',
       table: {
         type: {
           summary: 'ButtonVariant',
@@ -187,7 +170,7 @@ const primaryDarkExample = `
 `;
 
 export const primaryDark = buttonStory.bind({});
-primaryDark.storyName = 'Primary Dark';
+primaryDark.storyName = 'Primary dark';
 
 primaryDark.args = {
   ...defaultArgValues,
@@ -212,7 +195,7 @@ const primaryLightExample = `
 `;
 
 export const primaryLight = buttonStory.bind({});
-primaryLight.storyName = 'Primary Light';
+primaryLight.storyName = 'Primary light';
 
 primaryLight.args = {
   ...defaultArgValues,
@@ -237,7 +220,7 @@ const secondaryDarkExample = `
 `;
 
 export const secondaryDark = buttonStory.bind({});
-secondaryDark.storyName = 'Secondary Dark';
+secondaryDark.storyName = 'Secondary dark';
 
 secondaryDark.args = {
   ...defaultArgValues,
@@ -262,7 +245,7 @@ const secondaryLightExample = `
 `;
 
 export const secondaryLight = buttonStory.bind({});
-secondaryLight.storyName = 'Secondary Light';
+secondaryLight.storyName = 'Secondary light';
 
 secondaryLight.args = {
   ...defaultArgValues,
@@ -280,133 +263,8 @@ secondaryLight.parameters = {
   },
 };
 
-const solidPrimaryExample = `
-<button lg-button variant="solid-primary">
-  Click me
-</button>
-`;
-
-export const solidPrimary = buttonStory.bind({});
-solidPrimary.storyName = 'Solid Primary (deprecated)';
-
-solidPrimary.args = {
-  ...defaultArgValues,
-  variant: 'solid-primary',
-};
-
-solidPrimary.parameters = {
-  docs: {
-    source: {
-      code: solidPrimaryExample,
-    },
-  },
-  backgrounds: {
-    default: setBackground(solidPrimary.args.variant),
-  },
-};
-
-const outlinePrimaryExample = `
-<button lg-button variant="outline-primary">
-  Click me
-</button>
-`;
-
-export const outlinePrimary = buttonStory.bind({});
-outlinePrimary.storyName = 'Outline primary (deprecated)';
-
-outlinePrimary.args = {
-  ...defaultArgValues,
-  variant: 'outline-primary',
-};
-
-outlinePrimary.parameters = {
-  docs: {
-    source: {
-      code: outlinePrimaryExample,
-    },
-  },
-  backgrounds: {
-    default: setBackground(outlinePrimary.args.variant),
-  },
-};
-
-const outlineSecondaryExample = `
-<button lg-button variant="outline-secondary">
-  Click me
-</button>
-`;
-
-export const outlineSecondary = buttonStory.bind({});
-outlineSecondary.storyName = 'Outline secondary (deprecated)';
-
-outlineSecondary.args = {
-  ...defaultArgValues,
-  variant: 'outline-secondary',
-};
-
-outlineSecondary.parameters = {
-  docs: {
-    source: {
-      code: outlineSecondaryExample,
-    },
-  },
-  backgrounds: {
-    default: setBackground(outlineSecondary.args.variant),
-  },
-};
-
-const reversePrimaryExample = `
-<button lg-button variant="reverse-primary">
-  Click me
-</button>
-`;
-
-export const reversePrimary = buttonStory.bind({});
-reversePrimary.storyName = 'Reverse primary (deprecated)';
-
-reversePrimary.args = {
-  ...defaultArgValues,
-  variant: 'reverse-primary',
-};
-
-reversePrimary.parameters = {
-  docs: {
-    source: {
-      code: reversePrimaryExample,
-    },
-  },
-  backgrounds: {
-    default: setBackground(reversePrimary.args.variant),
-  },
-};
-
-const reverseSecondaryExample = `
-<button lg-button variant="reverse-secondary">
-  Click me
-</button>
-`;
-
-export const reverseSecondary = buttonStory.bind({});
-reverseSecondary.storyName = 'Reverse secondary (deprecated)';
-
-reverseSecondary.args = {
-  ...defaultArgValues,
-  variant: 'reverse-secondary',
-};
-
-reverseSecondary.parameters = {
-  docs: {
-    source: {
-      code: reverseSecondaryExample,
-    },
-  },
-  backgrounds: {
-    default: setBackground(reverseSecondary.args.variant),
-  },
-};
-
 const textWithIconExample = `
-<button lg-button variant="solid-primary">
+<button lg-button variant="primary-dark">
   {{ content }}
   <lg-icon name="add"></lg-icon>
 </button>
@@ -421,7 +279,7 @@ textWithIcon.argTypes = {
 
 textWithIcon.args = {
   ...defaultArgValues,
-  variant: 'solid-primary',
+  variant: 'primary-dark',
   icon: lgIconsArray[0].name,
 };
 
@@ -437,7 +295,7 @@ textWithIcon.parameters = {
 };
 
 const iconOnlyExample = `
-<button lg-button variant="solid-primary" [iconButton]="true">
+<button lg-button variant="primary-dark" [iconButton]="true">
   {{ content }}
   <lg-icon name="add"></lg-icon>
 </button>
@@ -452,7 +310,7 @@ iconOnly.argTypes = {
 
 iconOnly.args = {
   ...defaultArgValues,
-  variant: 'solid-primary',
+  variant: 'primary-dark',
   iconButton: true,
   icon: lgIconsArray[0].name,
 };
@@ -474,11 +332,6 @@ function setBackground(variant: string) {
     'primary-light': 'Super Blue',
     'secondary-dark': 'Default',
     'secondary-light': 'Super Blue',
-    'solid-primary': 'Default',
-    'outline-primary': 'Default',
-    'outline-secondary': 'Default',
-    'reverse-primary': 'Super Blue',
-    'reverse-secondary': 'Leafy Green',
     'add-on': 'Default',
   };
 
