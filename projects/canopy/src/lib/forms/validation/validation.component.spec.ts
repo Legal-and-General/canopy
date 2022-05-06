@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { CanopyModule } from '../../canopy.module';
 import { LgIconComponent } from '../../icon';
 import type { Variant } from '../../variant';
-
 import { LgValidationComponent } from './validation.component';
+import { LgValidationModule } from './validation.module';
 
 describe('LgValidationComponent', () => {
   let component: LgValidationComponent;
@@ -14,7 +13,7 @@ describe('LgValidationComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [ CanopyModule ],
+        imports: [LgValidationModule],
       }).compileComponents();
 
       fixture = TestBed.createComponent(LgValidationComponent);
