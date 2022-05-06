@@ -209,7 +209,7 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-input-field>
 
-      <button lg-button type="submit" variant="solid-primary">Submit</button>
+      <button lg-button type="submit" variant="primary-dark">Submit</button>
     </form>
   `,
 })

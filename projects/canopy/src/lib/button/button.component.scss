@@ -104,9 +104,7 @@
   }
 }
 
-$variants: 'solid-primary', 'reverse-primary', 'reverse-secondary', 'outline-primary',
-  'outline-secondary', 'add-on', 'primary-dark', 'primary-light', 'secondary-dark',
-  'secondary-light' !default;
+$variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light', 'add-on' !default;
 
 @each $variant in $variants {
   .lg-btn--#{$variant},

@@ -70,7 +70,7 @@ export class LgButtonComponent {
   }
 
   constructor(private renderer: Renderer2, public hostElement: ElementRef) {
-    this.variant = 'solid-primary';
+    this.variant = 'primary-dark';
     this.iconPosition = 'right';
     this.size = 'md';
   }
