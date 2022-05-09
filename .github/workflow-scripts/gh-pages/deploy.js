@@ -32,7 +32,7 @@ module.exports = async ({
       console.info('ℹ️ The PR checks passed successfully');
       await deploy(branch, docsPath, exec);
     } else {
-      throw `⚠ Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
+      throw `🚫 Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
     }
   }
 }
@@ -40,13 +40,13 @@ module.exports = async ({
 async function evaluatePullChecks(sha, github, repo, owner) {
   console.info('ℹ️ Evaluating the PR checks');
 
-  const { data: { check_runs: listCheckRuns } } = await github.rest.checks.get({
+  const { data: { check_runs: listCheckRuns } } = await github.rest.checks.listForRef({
     owner,
     repo,
-    check_run_id: sha
+    ref: sha
   });
 
-  return listCheckRuns.every(checkRun => checkRun.conclusion === 'success');
+  return listCheckRuns.every(({ conclusion }) => conclusion === 'success');
 }
 
 async function deploy(branch, docsPath, exec) {
@@ -69,24 +69,27 @@ async function deploy(branch, docsPath, exec) {
     await exec.exec('git', ['checkout', 'gh-pages']);
 
     console.info('ℹ️ Applying the stash with the storybook changes');
-    await exec.exec('git', ['stash', 'pop']);
+    // force the stash to be applied
+    await exec.exec('git', ['checkout', 'stash', '--', '.']);
 
     console.info('ℹ️ Adding storybook static files');
     await exec.exec('git', ['add', docsPath]);
 
     console.info('ℹ️ Committing changes');
-    const commitMessage = await createCommitMessage(branch);
-    await exec.exec('git', ['commit', '-m', commitMessage]);
+    try {
+      await exec.exec('git', [
+        'commit',
+        '-m',
+        `docs(gh-pages): latest storybook build from ${branch}`,
+        '--no-verify'
+      ]);
+    } catch (e) {
+      console.log(e);
+    }
 
     console.info('ℹ️ Pushing to gh-pages');
     await exec.exec('git', ['push', '-f', '--set-upstream', 'origin', 'gh-pages']);
   } catch (e) {
-    throw `⚠ Error: something went wrong during the deployment of branch ${branch}`;
+    throw `🚫 Error: something went wrong during the deployment of branch ${branch}`;
   }
-}
-
-async function createCommitMessage(branch) {
-  return `docs(gh-pages): latest storybook build from ${branch}
-
-  Commit ${await (exec.exec('git', ['log', '--pretty=format:%h', '-n', '1']))}`
 }
