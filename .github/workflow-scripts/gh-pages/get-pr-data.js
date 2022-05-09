@@ -3,7 +3,7 @@ module.exports = async ({
   github,
   context: { repo: { repo, owner } },
 }) => {
-  pullNumber = parseInt(pullNumber.replace('#', ''));
+  pullNumber = parseInt(pullNumber.replace('#', '').trim());
 
   const { data: { head: { sha, ref: branch } } } = await github.rest.pulls.get({
     owner,

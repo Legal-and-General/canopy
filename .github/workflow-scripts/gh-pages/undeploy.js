@@ -54,6 +54,6 @@ module.exports = async ({
 
     console.info('✅ Un-deployment successful');
   } catch (error) {
-    throw `⚠ Error: something went wrong during the un-deployment`;
+    throw `🚫 Error: something went wrong during the un-deployment`;
   }
 }

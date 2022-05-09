@@ -1,10 +1,8 @@
-const addComment = require('../add-pr-comment.js');
-
 module.exports = async ({
   branch,
   pullNumber,
   github,
-  context,
+  context: { repo: { repo, owner } },
 }) => {
   const { data: labels } = await github.rest.issues.listLabelsOnIssue({
     owner,
@@ -14,16 +12,11 @@ module.exports = async ({
 
   // add the comment only if the branch hasn't been deployed yet
   if (!labels.includes('deployed')) {
-    await addComment({
-      pullNumber,
-      github,
-      context,
-      body: `
-        ### :rocket: Branch deployed
-
-        The **branch URL** is:
-        https://legal-and-general.github.io/canopy/sb-${branch}
-      `
+    await github.rest.issues.createComment({
+      owner,
+      repo,
+      issue_number: pullNumber,
+      body: `### :rocket: Branch deployed\nThe **branch URL** is:\nhttps://legal-and-general.github.io/canopy/sb-${branch}`
     });
   }
 }

@@ -1,4 +1,4 @@
-name: Branch Deploy
+name: Deploy branch to gh-pages
 on:
   workflow_dispatch:
     inputs:
@@ -27,7 +27,7 @@ jobs:
           script: |
             const getData = require('./.github/workflow-scripts/gh-pages/get-pr-data.js');
             return await getData({
-              pullNumber: ${{ github.event.inputs.pullNumber }},
+              pullNumber: '${{ github.event.inputs.pullNumber }}',
               github,
               context
             });
@@ -36,15 +36,17 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const downloadArtefact = require('./.github/workflow-scripts/gh-pages/download-branch-deploy-artefact.js');
-            const download = await downloadArtefact({
-              sha: ${{ fromJSON(steps.prData.outputs.sha }},
+            const downloadArtifact = require('./.github/workflow-scripts/gh-pages/download-branch-deploy-artifact.js');
+            await downloadArtifact({
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
               github,
               context
             });
-            const fs = require('fs-extra');
-            fs.writeFileSync('${{ github.workspace }}/sb-build.zip', Buffer.from(download.data));
-      - run: unzip sb-build.zip -d ./docs/sb-${{ fromJSON(steps.prData.outputs.branch }}
+
+      - run: |
+          unzip sb-build.zip -d ./docs/sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
+          rm sb-build.zip
 
       - name: 'Branch deployment to GitHub Pages'
         uses: actions/github-script@v6
@@ -52,9 +54,9 @@ jobs:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
             return await deployBranch({
-              branch: ${{ fromJSON(steps.prData.outputs.branch }},
-              sha: ${{ fromJSON(steps.prData.outputs.sha }},
-              pullNumber: ${{ fromJSON(steps.prData.outputs.pullNumber }},
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
+              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               github,
               context,
               exec,
@@ -67,8 +69,8 @@ jobs:
           script: |
             const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
             return await addComment({
-              branch: ${{ fromJSON(steps.prData.outputs.branch }},
-              pullNumber: ${{ fromJSON(steps.prData.outputs.pullNumber }},
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               github,
               context,
             });
@@ -80,7 +82,7 @@ jobs:
           script: |
             const addLabels = require('./.github/workflow-scripts/add-labels.js');
             return await addLabels({
-              issueNumber: ${{ fromJSON(steps.prData.outputs.pullNumber }},
+              issueNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               labels: [ 'deployed' ],
               github,
               context
