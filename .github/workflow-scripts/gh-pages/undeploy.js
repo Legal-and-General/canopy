@@ -6,7 +6,7 @@ module.exports = async ({
   exec,
 }) => {
   // get the existing deployed branches from the docs folder (removing the prefix)
-  const branches = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => item.isDirectory() && item.startsWith('sb-')).map(dir => dir.name.replace(/^sb-/, ''));
+  const branches = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => item.isDirectory() && item.name.startsWith('sb-')).map(dir => dir.name.replace(/^sb-/, ''));
 
   const { data: pullsList } = await github.rest.pulls.list({
     owner,
