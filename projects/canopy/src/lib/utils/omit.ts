@@ -14,13 +14,19 @@
  *     omit({ one: '1', two: '2' }, 'one')
  *     // returns `{ two: '2' }`
  */
-export default function omit(obj: { [key: string]: any }, key: string) {
+export default function omit(
+  obj: { [key: string]: unknown },
+  key: string,
+): { [key: string]: unknown } {
   if (!obj) {
     return obj;
   }
+
   const { [key]: _, ...newObj } = obj;
+
   if (Object.keys(newObj).length === 0) {
     return null;
   }
+
   return newObj;
 }

@@ -3,7 +3,7 @@ import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core'
 @Component({
   selector: '[lg-header]',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: [ './header.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgHeaderComponent {

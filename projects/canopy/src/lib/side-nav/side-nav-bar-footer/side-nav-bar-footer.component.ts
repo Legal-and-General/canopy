@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-side-nav-bar-footer',
   templateUrl: './side-nav-bar-footer.component.html',
-  styleUrls: ['./side-nav-bar-footer.component.scss'],
+  styleUrls: [ './side-nav-bar-footer.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

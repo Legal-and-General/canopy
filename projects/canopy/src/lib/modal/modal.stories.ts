@@ -3,8 +3,8 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { LgModalModule } from '../modal/modal.module';
 import { LgButtonModule } from '../button';
 import { LgMarginModule } from '../spacing';
-
 import { LgSeparatorComponent } from '../separator/separator.component';
+
 import { notes } from './modal.notes';
 import { LgModalComponent } from './modal.component';
 
@@ -15,7 +15,7 @@ export default {
   // subcomponents: { LgModalHeaderComponent,LgModalBodyComponent, LgModalBodyTimerComponent },
   decorators: [
     moduleMetadata({
-      imports: [LgModalModule, LgButtonModule, LgMarginModule],
+      imports: [ LgModalModule, LgButtonModule, LgMarginModule ],
     }),
   ],
   parameters: {
@@ -27,11 +27,11 @@ export default {
   },
   argTypes: {
     headingLevel: {
-      options: ['1', '2', '3', '4', '5', '6'],
+      options: [ '1', '2', '3', '4', '5', '6' ],
       description: 'The level of the modal heading.',
       table: {
         type: {
-          summary: ['1', '2', '3', '4', '5', '6'],
+          summary: [ '1', '2', '3', '4', '5', '6' ],
         },
       },
       control: {
@@ -135,9 +135,11 @@ const detailsTemplate: Story<LgSeparatorComponent> = (args: LgSeparatorComponent
 
 export const standardSeparator = detailsTemplate.bind({});
 standardSeparator.storyName = 'Modal';
+
 standardSeparator.args = {
   headingLevel: 2,
 };
+
 standardSeparator.parameters = {
   docs: {
     source: {

@@ -14,7 +14,7 @@ import { LgDataPointComponent } from '../data-point/data-point.component';
 @Component({
   selector: 'lg-data-point-list',
   templateUrl: './data-point-list.component.html',
-  styleUrls: ['./data-point-list.component.scss'],
+  styleUrls: [ './data-point-list.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -28,7 +28,7 @@ export class LgDataPointListComponent implements AfterContentInit {
   dataPoints: QueryList<LgDataPointComponent>;
 
   ngAfterContentInit() {
-    this.dataPoints.forEach((dataPoint) => {
+    this.dataPoints.forEach(dataPoint => {
       dataPoint.isListItem = true;
     });
   }

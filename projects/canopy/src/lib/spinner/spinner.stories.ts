@@ -4,8 +4,8 @@ import { LgSpinnerComponent } from './spinner.component';
 import { notes } from './spinner.notes';
 import { LgSpinnerModule } from './spinner.module';
 
-const variantTypes = ['dark', 'light', 'color', 'inherit'];
-const sizes = ['sm', 'md'];
+const variantTypes = [ 'dark', 'light', 'color', 'inherit' ];
+const sizes = [ 'sm', 'md' ];
 
 // This default export determines where your story goes in the story list
 export default {
@@ -13,7 +13,7 @@ export default {
   component: LgSpinnerComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgSpinnerModule],
+      imports: [ LgSpinnerModule ],
     }),
   ],
   parameters: {
@@ -91,11 +91,13 @@ const alertTemplate: Story<LgSpinnerComponent> = (args: LgSpinnerComponent) => (
 
 export const standardAlert = alertTemplate.bind({});
 standardAlert.storyName = 'Spinner';
+
 standardAlert.args = {
   text: 'Please wait while we load your data.',
   variant: 'generic',
   size: 'md',
 };
+
 standardAlert.parameters = {
   docs: {
     source: {

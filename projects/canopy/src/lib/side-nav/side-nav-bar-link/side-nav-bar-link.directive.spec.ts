@@ -1,7 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
 import { MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { LgSideNavBarLinkDirective } from './side-nav-bar-link.directive';
@@ -16,7 +15,7 @@ describe('LgSideNavLinkDirective', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgSideNavBarLinkDirective],
+        declarations: [ LgSideNavBarLinkDirective ],
       }).compileComponents();
     }),
   );
@@ -27,6 +26,7 @@ describe('LgSideNavLinkDirective', () => {
         <a lgSideBarNavLink href="/">Test link</a>
       </div>
     `);
+
     debugElement = fixture.debugElement.children[0].query(By.css('a'));
     directive = debugElement.injector.get(LgSideNavBarLinkDirective);
     el = debugElement.nativeElement;
@@ -42,6 +42,7 @@ describe('LgSideNavLinkDirective', () => {
   it('should have selected class if isActive is true', () => {
     directive.isActive = true;
     fixture.detectChanges();
+
     expect(el.classList.contains('lg-side-nav-bar-link--selected')).toBeTruthy();
   });
 
@@ -51,6 +52,7 @@ describe('LgSideNavLinkDirective', () => {
 
   it('emits event containing selected tab index when activated', () => {
     directive.isActive = true;
+
     expect(eventSpy).toHaveBeenCalled();
   });
 });

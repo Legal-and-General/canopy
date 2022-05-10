@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { LgHeadingModule } from '../heading/heading.module';
+
 import { LgHeroCardContentComponent } from './hero-card-content/hero-card-content.component';
 import { LgHeroCardDataPointLabelComponent } from './hero-card-data-point-label/hero-card-data-point-label.component';
 import { LgHeroCardDataPointListComponent } from './hero-card-data-point-list/hero-card-data-point-list.component';
@@ -21,7 +22,7 @@ import { LgHeroCardFooterComponent } from './hero-card-footer/hero-card-footer.c
 import { LgHeroCardNotificationComponent } from './hero-card-notification/hero-card-notification.component';
 
 @NgModule({
-  imports: [CommonModule, LgHeadingModule],
+  imports: [ CommonModule, LgHeadingModule ],
   declarations: [
     LgHeroComponent,
     LgHeroCardComponent,

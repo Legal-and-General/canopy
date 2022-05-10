@@ -1,19 +1,20 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgHeadingModule } from '../heading';
+import { LgIconModule } from '../icon';
+
 import { LgDetailsModule } from './details.module';
 import { notes } from './details.notes';
-import { LgIconModule } from '../icon';
 import { LgDetailsComponent } from './details.component';
 
-const variantTypes = ['generic', 'info', 'success', 'warning', 'error'];
+const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 export default {
   title: 'Components/Details',
   component: LgDetailsComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgDetailsModule, LgHeadingModule, LgIconModule],
+      imports: [ LgDetailsModule, LgHeadingModule, LgIconModule ],
     }),
   ],
   parameters: {
@@ -59,11 +60,11 @@ export default {
       },
     },
     headingLevel: {
-      options: ['1', '2', '3', '4', '5', '6'],
+      options: [ '1', '2', '3', '4', '5', '6' ],
       description: 'The level of the details heading.',
       table: {
         type: {
-          summary: ['1', '2', '3', '4', '5', '6'],
+          summary: [ '1', '2', '3', '4', '5', '6' ],
         },
       },
       control: {
@@ -159,11 +160,13 @@ const detailsTemplate: Story<LgDetailsComponent> = (args: LgDetailsComponent) =>
 
 export const standardDetails = detailsTemplate.bind({});
 standardDetails.storyName = 'Details';
+
 standardDetails.args = {
   variant: 'generic',
   headingLevel: 5,
   headingText: 'How do I change my payment details?',
 };
+
 standardDetails.parameters = {
   docs: {
     source: {

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { instance, mock, when } from 'ts-mockito';
 
 import { LgIconComponent } from './icon.component';
@@ -15,7 +14,7 @@ describe('LgIconComponent', () => {
       iconRegistryMock = mock(LgIconRegistry);
 
       TestBed.configureTestingModule({
-        declarations: [LgIconComponent],
+        declarations: [ LgIconComponent ],
         providers: [
           {
             provide: LgIconRegistry,

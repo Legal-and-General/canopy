@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgFooterComponent } from '../footer/footer.component';
+
 import { notes } from './footer.notes';
 import { LgFooterModule } from './footer.module';
 
@@ -37,11 +38,11 @@ export const secondaryLinks = [
 
 export default {
   title: 'Components/Footer',
-  excludeStories: ['primaryLinks', 'secondaryLinks'],
+  excludeStories: [ 'primaryLinks', 'secondaryLinks' ],
   component: LgFooterComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgFooterModule],
+      imports: [ LgFooterModule ],
     }),
   ],
   parameters: {
@@ -133,6 +134,7 @@ const standardStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
 
 export const standardFooter = standardStory.bind({});
 standardFooter.storyName = 'Standard';
+
 standardFooter.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
@@ -140,6 +142,7 @@ standardFooter.args = {
   secondaryLinks: secondaryLinks,
   primaryLinks: primaryLinks,
 };
+
 standardFooter.parameters = {
   docs: {
     source: {
@@ -147,6 +150,7 @@ standardFooter.parameters = {
     },
   },
 };
+
 standardFooter.argTypes = {
   secondaryLogo: {
     table: {
@@ -175,10 +179,12 @@ const compactStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
 
 export const compactFooter = compactStory.bind({});
 compactFooter.storyName = 'Compact';
+
 compactFooter.args = {
   copyright: '© Some Company plc 2018',
   secondaryLinks: secondaryLinks,
 };
+
 compactFooter.parameters = {
   docs: {
     source: {
@@ -186,6 +192,7 @@ compactFooter.parameters = {
     },
   },
 };
+
 compactFooter.argTypes = {
   primaryLinks: {
     table: {
@@ -235,6 +242,7 @@ const coBrandedStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
 
 export const coBrandedFooter = coBrandedStory.bind({});
 coBrandedFooter.storyName = 'Co-branded';
+
 coBrandedFooter.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
@@ -244,6 +252,7 @@ coBrandedFooter.args = {
   secondaryLinks: secondaryLinks,
   primaryLinks: primaryLinks,
 };
+
 coBrandedFooter.parameters = {
   docs: {
     source: {

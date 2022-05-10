@@ -1,4 +1,5 @@
 import { BreakpointValues } from '../shared/breakpoints.interface';
+
 import { DynamicStyleService } from './dynamic-style.service';
 
 describe('DynamicStyleService', () => {
@@ -13,14 +14,17 @@ describe('DynamicStyleService', () => {
   describe('addRules function', () => {
     describe('basic logic', () => {
       it('should add the rules to the style tag in the correct format', () => {
-        service.addRules([{ selector: 'lg-padding', declaration: 'padding:1rem' }]);
+        service.addRules([ { selector: 'lg-padding', declaration: 'padding:1rem' } ]);
+
         expect(service.styleTag.innerHTML).toBe('.lg-padding{padding:1rem}');
       });
+
       it('should add multiple rules if provided', () => {
         service.addRules([
           { selector: 'lg-padding', declaration: 'padding:1rem' },
           { selector: 'lg-margin', declaration: 'margin:none' },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '.lg-padding{padding:1rem}.lg-margin{margin:none}',
         );
@@ -29,20 +33,25 @@ describe('DynamicStyleService', () => {
 
     describe('multiple calls in same browser session', () => {
       it('should not add a rule again if the selector already exists', () => {
-        service.addRules([{ selector: 'lg-padding', declaration: 'padding:1rem' }]);
-        service.addRules([{ selector: 'lg-padding', declaration: 'padding:none' }]);
+        service.addRules([ { selector: 'lg-padding', declaration: 'padding:1rem' } ]);
+        service.addRules([ { selector: 'lg-padding', declaration: 'padding:none' } ]);
+
         expect(service.styleTag.innerHTML).toBe('.lg-padding{padding:1rem}');
       });
+
       it('should add the rules correctly when the function is called multiple times', () => {
-        service.addRules([{ selector: 'lg-padding', declaration: 'padding:1rem' }]);
-        service.addRules([{ selector: 'lg-margin', declaration: 'margin:1rem' }]);
+        service.addRules([ { selector: 'lg-padding', declaration: 'padding:1rem' } ]);
+        service.addRules([ { selector: 'lg-margin', declaration: 'margin:1rem' } ]);
+
         service.addRules([
           { selector: 'lg-padding-left', declaration: 'padding-left: 1rem' },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '.lg-padding{padding:1rem}.lg-margin{margin:1rem}.lg-padding-left{padding-left: 1rem}',
         );
       });
+
       it('should only add rules if the selectors do not already exist', () => {
         service.addRules([
           { selector: 'lg-padding', declaration: 'padding:1rem' },
@@ -56,7 +65,7 @@ describe('DynamicStyleService', () => {
         ]);
 
         // existing rule
-        service.addRules([{ selector: 'lg-padding', declaration: 'padding:1rem' }]);
+        service.addRules([ { selector: 'lg-padding', declaration: 'padding:1rem' } ]);
 
         // new rule
         service.addRules([
@@ -82,9 +91,10 @@ describe('DynamicStyleService', () => {
         service.styleTag.innerHTML = '';
       });
 
-      it(`should add a rule to all available breakpoints`, () => {
-        Object.keys(BreakpointValues).forEach((key) => {
+      it('should add a rule to all available breakpoints', () => {
+        Object.keys(BreakpointValues).forEach(key => {
           service.styleTag.innerHTML = '';
+
           service.addRulesToMediaQuery([
             {
               selector: 'lg-padding',
@@ -92,6 +102,7 @@ describe('DynamicStyleService', () => {
               breakpoint: BreakpointValues[key],
             },
           ]);
+
           expect(service.styleTag.innerHTML).toBe(
             `@media(min-width:${BreakpointValues[key]}){.lg-padding{padding:1rem}}`,
           );
@@ -116,6 +127,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.lg,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:20rem){.lg-padding{padding:1rem}}@media(min-width:48rem){.lg-padding{padding:2rem}}@media(min-width:64rem){.lg-padding{padding:3rem}}',
         );
@@ -134,6 +146,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.md,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:48rem){.lg-padding{padding:1rem}.lg-margin{margin:1rem}}',
         );
@@ -159,6 +172,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.md,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:48rem){.test1{top:0}.test2{top:0}.test3{top:0}}',
         );
@@ -185,6 +199,7 @@ describe('DynamicStyleService', () => {
             addAtStart: true,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:48rem){.lg-margin{margin:1rem}.lg-padding{padding:1rem}}',
         );
@@ -209,6 +224,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.md,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:48rem){.test2{top:0}.test1{top:0}.test3{top:0}}',
         );
@@ -239,17 +255,19 @@ describe('DynamicStyleService', () => {
             addAtStart: true,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:48rem){.test2{top:0}.test1{top:0}}@media(min-width:64rem){.test2{top:0}.test1{top:0}}',
         );
       });
 
       it('should the rule after the opening `{` if specified - stress test on many rules', () => {
-        const createObj = (selector) => ({
+        const createObj = selector => ({
           selector: selector,
           declaration: 'top:0',
           breakpoint: BreakpointValues.md,
         });
+
         service.addRulesToMediaQuery([
           createObj('test1'),
           createObj('test2'),
@@ -262,6 +280,7 @@ describe('DynamicStyleService', () => {
           createObj('test9'),
           { ...createObj('start'), addAtStart: true },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:48rem){.start{top:0}.test1{top:0}.test2{top:0}.test3{top:0}.test4{top:0}.test5{top:0}.test6{top:0}.test7{top:0}.test8{top:0}.test9{top:0}}',
         );
@@ -277,6 +296,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.md,
           },
         ]);
+
         service.addRulesToMediaQuery([
           {
             selector: 'lg-padding',
@@ -284,10 +304,12 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.md,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:48rem){.lg-padding{padding:1rem}}',
         );
       });
+
       it('should only add a new media query if it does not exist', () => {
         service.addRulesToMediaQuery([
           {
@@ -296,6 +318,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.sm,
           },
         ]);
+
         service.addRulesToMediaQuery([
           {
             selector: 'lg-padding',
@@ -303,6 +326,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.md,
           },
         ]);
+
         service.addRulesToMediaQuery([
           {
             selector: 'lg-margin',
@@ -310,6 +334,7 @@ describe('DynamicStyleService', () => {
             breakpoint: BreakpointValues.md,
           },
         ]);
+
         expect(service.styleTag.innerHTML).toBe(
           '@media(min-width:20rem){.lg-padding{padding:1rem}}@media(min-width:48rem){.lg-padding{padding:1rem}.lg-margin{margin:1rem}}',
         );
@@ -323,7 +348,8 @@ describe('DynamicStyleService', () => {
     });
 
     it('should add the rules and media quieries correctly - test one', () => {
-      service.addRules([{ selector: 'lg-padding', declaration: 'padding:1rem' }]);
+      service.addRules([ { selector: 'lg-padding', declaration: 'padding:1rem' } ]);
+
       service.addRulesToMediaQuery([
         {
           selector: 'lg-padding',
@@ -331,6 +357,7 @@ describe('DynamicStyleService', () => {
           breakpoint: BreakpointValues.md,
         },
       ]);
+
       expect(service.styleTag.innerHTML).toBe(
         '.lg-padding{padding:1rem}@media(min-width:48rem){.lg-padding{padding:2rem}}',
       );
@@ -341,6 +368,7 @@ describe('DynamicStyleService', () => {
         { selector: 'lg-padding', declaration: 'padding:1rem' },
         { selector: 'lg-margin', declaration: 'margin:1rem' },
       ]);
+
       service.addRulesToMediaQuery([
         {
           selector: 'lg-padding',
@@ -358,6 +386,7 @@ describe('DynamicStyleService', () => {
           breakpoint: BreakpointValues.lg,
         },
       ]);
+
       expect(service.styleTag.innerHTML).toBe(
         '.lg-padding{padding:1rem}.lg-margin{margin:1rem}@media(min-width:20rem){.lg-padding{padding:1rem}}@media(min-width:48rem){.lg-padding{padding:2rem}}@media(min-width:64rem){.lg-padding{padding:3rem}}',
       );
@@ -368,6 +397,7 @@ describe('DynamicStyleService', () => {
     describe('inserting at the start after the opening `{` bracket', () => {
       it('should return the correct string - simple example', () => {
         const cssString = `@media(min-width:${BreakpointValues.md}){.test1{top:0}}`;
+
         expect(
           service.insertRuleInsideMediaQuery(
             cssString,
@@ -377,8 +407,10 @@ describe('DynamicStyleService', () => {
           ),
         ).toBe('@media(min-width:48rem){.test2{top:0}.test1{top:0}}');
       });
+
       it('should add the rule after the opening `{` bracket - complex example', () => {
         const cssString = `@media(min-width:20rem){.test1{top:0}}@media(min-width:${BreakpointValues.md}){.test1{top:0}.test2{top:0}}@media(min-width:64rem){.test1{top:0}}`;
+
         expect(
           service.insertRuleInsideMediaQuery(
             cssString,
@@ -390,8 +422,10 @@ describe('DynamicStyleService', () => {
           '@media(min-width:20rem){.test1{top:0}}@media(min-width:48rem){.test3{top:0}.test1{top:0}.test2{top:0}}@media(min-width:64rem){.test1{top:0}}',
         );
       });
+
       it('should add the rule before the closing `}` bracket - stress test', () => {
         const cssString = `@media(min-width:${BreakpointValues.md}){.test1{top:0}.test3{top:0}.test3{top:0}.test4{top:0}.test5{top:0}.test6{top:0}.test7{top:0}.test8{top:0}.test9{top:0}}`;
+
         expect(
           service.insertRuleInsideMediaQuery(
             cssString,
@@ -400,7 +434,7 @@ describe('DynamicStyleService', () => {
             true,
           ),
         ).toBe(
-          `@media(min-width:48rem){.test10{top:0}.test1{top:0}.test3{top:0}.test3{top:0}.test4{top:0}.test5{top:0}.test6{top:0}.test7{top:0}.test8{top:0}.test9{top:0}}`,
+          '@media(min-width:48rem){.test10{top:0}.test1{top:0}.test3{top:0}.test3{top:0}.test4{top:0}.test5{top:0}.test6{top:0}.test7{top:0}.test8{top:0}.test9{top:0}}',
         );
       });
     });
@@ -408,6 +442,7 @@ describe('DynamicStyleService', () => {
     describe('inserting at the end before the closing `}` bracket', () => {
       it('should return the correct string - simple example', () => {
         const cssString = `@media(min-width:${BreakpointValues.md}){.test1{top:0}}`;
+
         expect(
           service.insertRuleInsideMediaQuery(
             cssString,
@@ -416,8 +451,10 @@ describe('DynamicStyleService', () => {
           ),
         ).toBe('@media(min-width:48rem){.test1{top:0}.test2{top:0}}');
       });
+
       it('should return the correct string - complex example', () => {
         const cssString = `@media(min-width:20rem){.test1{top:0}}@media(min-width:${BreakpointValues.md}){.test1{top:0}.test2{top:0}}@media(min-width:64rem){.test1{top:0}}`;
+
         expect(
           service.insertRuleInsideMediaQuery(
             cssString,
@@ -428,8 +465,10 @@ describe('DynamicStyleService', () => {
           '@media(min-width:20rem){.test1{top:0}}@media(min-width:48rem){.test1{top:0}.test2{top:0}.test3{top:0}}@media(min-width:64rem){.test1{top:0}}',
         );
       });
+
       it('should return the correct string - stress test', () => {
         const cssString = `@media(min-width:${BreakpointValues.md}){.test1{top:0}.test3{top:0}.test3{top:0}.test4{top:0}.test5{top:0}.test6{top:0}.test7{top:0}.test8{top:0}.test9{top:0}}`;
+
         expect(
           service.insertRuleInsideMediaQuery(
             cssString,
@@ -437,7 +476,7 @@ describe('DynamicStyleService', () => {
             '.test10{top:0}',
           ),
         ).toBe(
-          `@media(min-width:48rem){.test1{top:0}.test3{top:0}.test3{top:0}.test4{top:0}.test5{top:0}.test6{top:0}.test7{top:0}.test8{top:0}.test9{top:0}.test10{top:0}}`,
+          '@media(min-width:48rem){.test1{top:0}.test3{top:0}.test3{top:0}.test4{top:0}.test5{top:0}.test6{top:0}.test7{top:0}.test8{top:0}.test9{top:0}.test10{top:0}}',
         );
       });
     });

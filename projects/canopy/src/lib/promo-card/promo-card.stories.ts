@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './promo-card.notes';
-import { LgPromoCardModule } from './promo-card.module';
 import { LgGridModule } from '../grid';
 import { LgHeadingModule } from '../heading';
 import { LgButtonModule } from '../button';
 import { LgSeparatorModule } from '../separator';
 import { LgSpacingModule } from '../spacing';
+
+import { LgPromoCardModule } from './promo-card.module';
+import { notes } from './promo-card.notes';
 import { LgPromoCardComponent } from './promo-card/promo-card.component';
 import { PromoCardVariant } from './promo-card.interface';
 
@@ -40,7 +40,7 @@ const cardListConfig = {
 };
 
 @Component({
-  selector: 'promo-card-list-story',
+  selector: 'lg-promo-card-list-story',
   template: `
     <lg-promo-card-list>
       <lg-separator [variant]="'dotted'" lgMargin="none"></lg-separator>
@@ -75,13 +75,13 @@ class PromoCardListStoryComponent {
   cards = cardListConfig.cards;
 }
 
-const variants = ['solid-white', 'solid-green'];
+const variants = [ 'solid-white', 'solid-green' ];
 
 export default {
   title: 'Components/Promo Card',
   decorators: [
     moduleMetadata({
-      declarations: [PromoCardListStoryComponent],
+      declarations: [ PromoCardListStoryComponent ],
       imports: [
         LgPromoCardModule,
         LgGridModule,
@@ -184,17 +184,20 @@ const promoCardListTemplate: Story<LgPromoCardComponent> = (
   args: LgPromoCardComponent,
 ) => ({
   props: args,
-  template: `<promo-card-list-story [variants]="[variant1, variant2, variant3]"></promo-card-list-story>`,
+  template:
+    '<lg-promo-card-list-story [variants]="[variant1, variant2, variant3]"></lg-promo-card-list-story>',
 });
 
 export const promoCardList = promoCardListTemplate.bind({});
 promoCardList.storyName = 'Promo Card List';
 promoCardList.component = promoCardListTemplate;
+
 promoCardList.args = {
   variant1: variants[0],
   variant2: variants[0],
   variant3: variants[1],
 };
+
 promoCardList.parameters = {
   docs: {
     source: {

@@ -9,7 +9,7 @@ describe('LgHeroCardMessageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeroCardNotificationComponent],
+        declarations: [ LgHeroCardNotificationComponent ],
       }).compileComponents();
     }),
   );

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockComponents } from 'ng-mocks';
 import { spy, verify } from 'ts-mockito';
 
@@ -44,14 +43,14 @@ describe('LgAccordionPanelHeadingComponent', () => {
     });
 
     describe('when the accordion item is toggled open', () => {
-      it(`should set 'isActive' to false`, () => {
+      it('should set \'isActive\' to false', () => {
         component.isActive = true;
         component.toggle();
 
         expect(component.isActive).toBe(false);
       });
 
-      it(`should set the 'active' class`, () => {
+      it('should set the \'active\' class', () => {
         expect(
           triggerElement.nativeElement.classList.contains(
             'lg-accordion__heading-toggle--active',
@@ -60,6 +59,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
 
         triggerElement.nativeElement.click();
         fixture.detectChanges();
+
         expect(
           triggerElement.nativeElement.classList.contains(
             'lg-accordion__heading-toggle--active',
@@ -72,12 +72,13 @@ describe('LgAccordionPanelHeadingComponent', () => {
 
         triggerElement.nativeElement.click();
         fixture.detectChanges();
+
         expect(triggerElement.attributes['aria-expanded']).toBe('true');
       });
     });
 
     describe('when the accordion item is toggled close', () => {
-      it(`should set 'isActive' to true`, () => {
+      it('should set \'isActive\' to true', () => {
         component.isActive = false;
         component.toggle();
 
@@ -87,6 +88,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
       it('should remove the `active` class', () => {
         triggerElement.nativeElement.click();
         fixture.detectChanges();
+
         expect(
           triggerElement.nativeElement.classList.contains(
             'lg-accordion__heading-toggle--active',
@@ -95,6 +97,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
 
         triggerElement.nativeElement.click();
         fixture.detectChanges();
+
         expect(
           triggerElement.nativeElement.classList.contains(
             'lg-accordion__heading-toggle--active',
@@ -105,19 +108,23 @@ describe('LgAccordionPanelHeadingComponent', () => {
       it('should set the `aria-expanded` attribute to false', () => {
         triggerElement.nativeElement.click();
         fixture.detectChanges();
+
         expect(triggerElement.attributes['aria-expanded']).toBe('true');
 
         triggerElement.nativeElement.click();
         fixture.detectChanges();
+
         expect(triggerElement.attributes['aria-expanded']).toBe('false');
       });
     });
 
-    it(`should emit an event with the value of 'isActive'`, () => {
+    it('should emit an event with the value of \'isActive\'', () => {
       const componentEventSpy = spy(component.toggleActive);
+
       component.toggle();
 
       verify(componentEventSpy.emit(true)).once();
+
       expect().nothing();
     });
   });

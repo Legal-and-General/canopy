@@ -11,13 +11,14 @@ import {
   lgIconInformationFill,
   lgIconWarningFill,
 } from '../icon/icons.interface';
+
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 import { LgDetailsComponent } from './details.component';
 
 @NgModule({
-  declarations: [LgDetailsComponent, LgDetailsPanelHeadingComponent],
-  exports: [LgDetailsComponent, LgDetailsPanelHeadingComponent],
-  imports: [CommonModule, LgIconModule, LgHeadingModule],
+  declarations: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+  exports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+  imports: [ CommonModule, LgIconModule, LgHeadingModule ],
 })
 export class LgDetailsModule {
   constructor(private registry: LgIconRegistry) {

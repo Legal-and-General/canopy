@@ -12,11 +12,13 @@ import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface'
 @Component({
   selector: 'lg-breadcrumb-item-ellipsis',
   templateUrl: './breadcrumb-item-ellipsis.component.html',
-  styleUrls: ['./breadcrumb-item-ellipsis.component.scss'],
+  styleUrls: [ './breadcrumb-item-ellipsis.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgBreadcrumbItemEllipsisComponent {
+  private _variant: BreadcrumbVariant;
+
   @HostBinding('class.lg-breadcrumb-item-ellipsis') class = true;
 
   set variant(variant: BreadcrumbVariant) {
@@ -26,18 +28,17 @@ export class LgBreadcrumbItemEllipsisComponent {
         `lg-breadcrumb-item-ellipsis--${this.variant}`,
       );
     }
+
     this.renderer.addClass(
       this.hostElement.nativeElement,
       `lg-breadcrumb-item-ellipsis--${variant}`,
     );
+
     this._variant = variant;
   }
-
   get variant() {
     return this._variant;
   }
-
-  private _variant: BreadcrumbVariant;
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
 }

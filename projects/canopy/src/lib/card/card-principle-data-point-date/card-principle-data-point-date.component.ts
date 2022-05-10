@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-card-principle-data-point-date',
   templateUrl: './card-principle-data-point-date.component.html',
-  styleUrls: ['./card-principle-data-point-date.component.scss'],
+  styleUrls: [ './card-principle-data-point-date.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

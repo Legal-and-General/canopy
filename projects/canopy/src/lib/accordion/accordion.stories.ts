@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-
 import { moduleMetadata } from '@storybook/angular';
 import { Meta, Story } from '@storybook/angular';
 
 import { LgButtonModule } from '../button';
+
 import { LgAccordionModule } from './accordion.module';
 import { notes } from './accordion.notes';
 import { LgAccordionComponent } from './accordion.component';
@@ -14,7 +14,7 @@ export default {
   component: LgAccordionComponent,
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, LgAccordionModule, LgButtonModule],
+      imports: [ CommonModule, LgAccordionModule, LgButtonModule ],
     }),
   ],
   parameters: {
@@ -35,11 +35,11 @@ export default {
       description: 'Set false to only allow a single panel to be open at a time.',
     },
     headingLevel: {
-      options: ['1', '2', '3', '4', '5', '6'],
+      options: [ '1', '2', '3', '4', '5', '6' ],
       description: 'The heading level of the accordion panel heading.',
       table: {
         type: {
-          summary: ['1', '2', '3', '4', '5', '6'],
+          summary: [ '1', '2', '3', '4', '5', '6' ],
         },
       },
       control: {
@@ -109,6 +109,7 @@ const accordionTemplate: Story<LgAccordionComponent> = (args: LgAccordionCompone
 
 export const standardAccordion = accordionTemplate.bind({});
 standardAccordion.storyName = 'Accordion';
+
 standardAccordion.args = {
   headingLevel: 2,
   itemOneActive: false,
@@ -116,6 +117,7 @@ standardAccordion.args = {
   itemThreeActive: false,
   multi: false,
 };
+
 standardAccordion.parameters = {
   docs: {
     source: {

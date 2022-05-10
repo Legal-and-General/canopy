@@ -34,19 +34,23 @@ describe('SingleItemDispatcherService', () => {
     const removeListener = dispatcher.listen(spy);
 
     dispatcher.notify(id, context);
+
     expect(spy).toHaveBeenCalledTimes(1);
 
     removeListener();
     dispatcher.notify(id, context);
+
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('should clear listeners when destroyed', () => {
     const spy = jasmine.createSpy('listener', () => {});
+
     dispatcher.listen(spy);
     dispatcher.ngOnDestroy();
 
     dispatcher.notify(id, context);
+
     expect(spy).not.toHaveBeenCalled();
   });
 });

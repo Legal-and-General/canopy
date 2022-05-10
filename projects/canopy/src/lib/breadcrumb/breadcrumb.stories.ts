@@ -1,16 +1,18 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { BreadcrumbVariant, LgBreadcrumbComponent } from '.';
 import { LgIconModule } from '../icon/icon.module';
+
 import { LgBreadcrumbModule } from './breadcrumb.module';
 import { notes } from './breadcrumb.notes';
+
+import { BreadcrumbVariant, LgBreadcrumbComponent } from '.';
 
 export default {
   title: 'Components/Breadcrumb',
   component: LgBreadcrumbComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgIconModule, LgBreadcrumbModule],
+      imports: [ LgIconModule, LgBreadcrumbModule ],
     }),
   ],
   parameters: {
@@ -22,11 +24,11 @@ export default {
   },
   argTypes: {
     variant: {
-      options: [BreadcrumbVariant.light, BreadcrumbVariant.dark],
+      options: [ BreadcrumbVariant.light, BreadcrumbVariant.dark ],
       description: 'The colour variant for use on light or dark backgrounds',
       table: {
         type: {
-          summary: [BreadcrumbVariant.light, BreadcrumbVariant.dark],
+          summary: [ BreadcrumbVariant.light, BreadcrumbVariant.dark ],
         },
         defaultValue: {
           summary: BreadcrumbVariant.dark,
@@ -95,9 +97,11 @@ const breadcrumbTemplate: Story<LgBreadcrumbComponent> = (
 
 export const threeItems = breadcrumbTemplate.bind({});
 threeItems.storyName = 'Three items';
+
 threeItems.args = {
   variant: BreadcrumbVariant.dark,
 };
+
 threeItems.parameters = {
   docs: {
     source: {
@@ -136,9 +140,11 @@ const breadcrumbEllipsisTemplate: Story<LgBreadcrumbComponent> = (
 
 export const ellipsis = breadcrumbEllipsisTemplate.bind({});
 ellipsis.storyName = 'More than three items';
+
 ellipsis.args = {
   variant: BreadcrumbVariant.dark,
 };
+
 ellipsis.parameters = {
   docs: {
     source: {

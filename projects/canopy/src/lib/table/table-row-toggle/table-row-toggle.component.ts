@@ -10,14 +10,20 @@ import {
 @Component({
   selector: 'lg-table-row-toggle',
   templateUrl: './table-row-toggle.component.html',
-  styleUrls: ['./table-row-toggle.component.scss'],
+  styleUrls: [ './table-row-toggle.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableRowToggleComponent {
-  @HostBinding('class') class = 'lg-table-row-toggle';
+  private _tableId: number;
+  private _rowId: number;
+  context = '';
 
   @Input() isActive = false;
+
+  @HostBinding('class') class = 'lg-table-row-toggle';
+
+  constructor(private cd: ChangeDetectorRef) {}
 
   set tableId(tableId: number) {
     this._tableId = tableId;
@@ -48,14 +54,8 @@ export class LgTableRowToggleComponent {
   }
 
   get labelText() {
-    return this.isActive ? 'Collapse' : 'Expand';
+    return this.isActive
+      ? 'Collapse'
+      : 'Expand';
   }
-
-  context = '';
-
-  private _tableId: number;
-
-  private _rowId: number;
-
-  constructor(private cd: ChangeDetectorRef) {}
 }

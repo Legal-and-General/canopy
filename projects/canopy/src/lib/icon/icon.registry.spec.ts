@@ -22,7 +22,7 @@ describe('LgIconRegistry', () => {
 
     expect(registry.getIcon(icon.name)).toBeUndefined();
 
-    registry.registerIcons([icon]);
+    registry.registerIcons([ icon ]);
 
     expect(registry.getIcon(icon.name)).toBe(icon.data);
   });
@@ -32,6 +32,7 @@ describe('LgIconRegistry', () => {
     const spy = spyOn(console, 'warn');
 
     expect(registry.getIcon(unexpectedIcon)).toBeUndefined();
+
     expect(spy).toHaveBeenCalledWith(
       `${unexpectedIcon}: Icon not found, ensure it is added to the icon registry`,
     );

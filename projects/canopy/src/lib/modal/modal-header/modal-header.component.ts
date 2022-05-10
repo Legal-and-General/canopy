@@ -14,7 +14,7 @@ import { LgModalService } from '../modal.service';
 @Component({
   selector: 'lg-modal-header',
   templateUrl: './modal-header.component.html',
-  styleUrls: ['./modal-header.component.scss'],
+  styleUrls: [ './modal-header.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

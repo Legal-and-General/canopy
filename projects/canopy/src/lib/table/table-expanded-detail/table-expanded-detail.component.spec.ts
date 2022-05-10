@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { MockComponents } from 'ng-mocks';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
+
 import { LgTableExpandedDetailComponent } from './table-expanded-detail.component';
 
 describe('LgTableExpandedDetailComponent', () => {

@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, Route, Router } from '@angular/router';
-
 import { cold } from 'jasmine-marbles';
 import { of } from 'rxjs';
 import { deepEqual, instance, mock, reset, verify, when } from 'ts-mockito';
@@ -37,31 +36,40 @@ describe('FeatureToggleGuard', () => {
     marbleValue: boolean,
     onceVerify: boolean = false,
   ) => {
+    /* eslint-disable @typescript-eslint/no-unused-expressions, no-unused-expressions */
     onceVerify
       ? when(configServiceMock.toggles$).thenReturn(config)
       : when(configServiceMock.toggles$).thenReturn(of(config));
+    /* eslint-enable */
 
     switch (guardType) {
       case GuardTypes.CAN_ACTIVATE:
+
         expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
           cold('(a|)', { a: marbleValue }),
         );
+
         break;
 
       case GuardTypes.CAN_ACTIVATE_CHILD:
+
         expect(
           guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
         ).toBeObservable(cold('(a|)', { a: marbleValue }));
+
         break;
 
       case GuardTypes.CAN_LOAD:
+
         expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
           cold('(a|)', { a: marbleValue }),
         );
+
         break;
     }
+
     return verify(
-      routerMock.navigate(deepEqual(['/']), deepEqual({ queryParamsHandling: 'merge' })),
+      routerMock.navigate(deepEqual([ '/' ]), deepEqual({ queryParamsHandling: 'merge' })),
     );
   };
 
@@ -78,6 +86,7 @@ describe('FeatureToggleGuard', () => {
         { provide: Router, useFactory: () => instance(routerMock) },
       ],
     });
+
     guard = TestBed.inject(FeatureToggleGuard);
   });
 
@@ -121,6 +130,7 @@ describe('FeatureToggleGuard', () => {
         false,
         true,
       ).once();
+
       reset(routerMock);
     });
 
@@ -131,6 +141,7 @@ describe('FeatureToggleGuard', () => {
         false,
         true,
       ).once();
+
       reset(routerMock);
     });
   });

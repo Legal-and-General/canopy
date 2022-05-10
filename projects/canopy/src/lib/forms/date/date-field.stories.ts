@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './date-field.notes';
 import { LgHintModule } from '../hint';
+
+import { notes } from './date-field.notes';
 import { LgDateFieldComponent } from './date-field.component';
 import { LgDateFieldModule } from './date-field.module';
 
@@ -44,7 +44,8 @@ class ReactiveFormComponent {
     this.form = this.fb.group({
       date: { value: '1970-01-01', disabled: false },
     });
-    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
+
+    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
 }
 
@@ -53,8 +54,8 @@ export default {
   component: LgDateFieldComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, LgDateFieldModule, LgHintModule],
+      declarations: [ ReactiveFormComponent ],
+      imports: [ ReactiveFormsModule, LgDateFieldModule, LgHintModule ],
     }),
   ],
   parameters: {
@@ -236,12 +237,14 @@ const dateInputStory: Story<LgDateFieldModule> = (args: LgDateFieldModule) => ({
 
 export const dateInput = dateInputStory.bind({});
 dateInput.storyName = 'Date input';
+
 dateInput.args = {
   disabled: false,
   label: 'Date of birth',
   hint: 'For example, 12 06 1983',
   focus: false,
 };
+
 dateInput.parameters = {
   docs: {
     source: {

@@ -11,7 +11,7 @@ import type { HeadingLevel } from '../../heading';
 @Component({
   selector: 'lg-hero-card-principle-data-point-label',
   templateUrl: './hero-card-principle-data-point-label.component.html',
-  styleUrls: ['./hero-card-principle-data-point-label.component.scss'],
+  styleUrls: [ './hero-card-principle-data-point-label.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

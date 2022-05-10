@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { LgGridContainerDirective } from './grid-container.directive';
 
 @Component({
-  template: ` <div lgContainer>Test feature</div> `,
+  template: ' <div lgContainer>Test feature</div> ',
 })
 class TestComponent {}
 
@@ -15,8 +15,9 @@ describe('GridContainerDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgGridContainerDirective],
+      declarations: [ TestComponent, LgGridContainerDirective ],
     }).compileComponents();
+
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
 

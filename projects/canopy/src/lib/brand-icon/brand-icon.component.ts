@@ -21,7 +21,7 @@ export type BrandIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 @Component({
   selector: 'lg-brand-icon',
   templateUrl: './brand-icon.component.html',
-  styleUrls: ['./brand-icon.component.scss'],
+  styleUrls: [ './brand-icon.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgBrandIconComponent {
@@ -52,6 +52,7 @@ export class LgBrandIconComponent {
         `lg-brand-icon--${this.size}`,
       );
     }
+
     this.renderer.addClass(this.hostElement.nativeElement, `lg-brand-icon--${size}`);
     this._size = size;
   }
@@ -64,7 +65,9 @@ export class LgBrandIconComponent {
     if (this.svgElement) {
       this.hostElement.nativeElement.removeChild(this.svgElement);
     }
+
     const svgData = this.setSVGAttributes(this.iconRegistry.getBrandIcon(name));
+
     this.svgElement = this.svgElementFromString(svgData);
     this.hostElement.nativeElement.appendChild(this.svgElement);
   }
@@ -105,6 +108,7 @@ export class LgBrandIconComponent {
 
   private svgElementFromString(svgContent: string): SVGElement {
     const div = this.document.createElement('div');
+
     div.innerHTML = svgContent;
 
     return div.querySelector('svg');

@@ -43,8 +43,9 @@ Run `npm run lint` to execute the library unit tests, this step is also run as p
 
 Current linting includes
 
-- `tslint` for typescript files
-- `stylelint` for scss file
+- `eslint` and `prettier` for typescript, javascript and html files
+- `stylelint` and `prettier` for scss files
+- `prettier` for json files
 
 ## Conventional commits
 

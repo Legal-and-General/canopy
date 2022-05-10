@@ -1,10 +1,11 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './grid.notes';
 import { LgAlertComponent } from '../alert';
-import { LgGridModule } from './grid.module';
 import { LgMarginModule } from '../spacing';
 import { LgCardModule } from '../card';
+
+import { LgGridModule } from './grid.module';
+import { notes } from './grid.notes';
 
 const firstColCategory = 'Column 1';
 const secondColCategory = 'Column 2';
@@ -14,14 +15,14 @@ const mdBreakpointSubCategory = 'Breakpoint: md+';
 const lgBreakpointSubCategory = 'Breakpoint: lg+';
 const name = 'columns';
 const offsetName = 'offset columns';
-const columns = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const offsets = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const columns = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+const offsets = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
 
 export default {
   title: 'Directives/Grid',
   decorators: [
     moduleMetadata({
-      imports: [LgGridModule, LgMarginModule, LgCardModule],
+      imports: [ LgGridModule, LgMarginModule, LgCardModule ],
     }),
   ],
   parameters: {
@@ -283,6 +284,7 @@ const gridStory: Story<LgAlertComponent> = (args: LgAlertComponent) => ({
 
 export const grid = gridStory.bind({});
 grid.storyName = 'Grid';
+
 grid.args = {
   firstCol: 12,
   firstColMd: 4,
@@ -305,6 +307,7 @@ grid.args = {
   thirdColMdOffset: 0,
   thirdColLgOffset: 1,
 };
+
 grid.parameters = {
   docs: {
     source: {

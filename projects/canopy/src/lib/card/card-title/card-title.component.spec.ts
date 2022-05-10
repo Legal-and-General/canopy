@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { MockComponents } from 'ng-mocks';
 
 import { LgHeadingComponent } from '../../heading/heading.component';
+
 import { LgCardTitleComponent } from './card-title.component';
 
 describe('LgCardTitleComponent', () => {
@@ -12,7 +12,7 @@ describe('LgCardTitleComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgCardTitleComponent, MockComponents(LgHeadingComponent)],
+        declarations: [ LgCardTitleComponent, MockComponents(LgHeadingComponent) ],
       }).compileComponents();
     }),
   );

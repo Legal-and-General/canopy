@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { LgSkeletonDirective } from './skeleton.directive';
 
 @Component({
-  template: ` <div lgSkeleton>{{ data?.label }}</div> `,
+  template: ' <div lgSkeleton>{{ data?.label }}</div> ',
 })
 class TestComponent {
   @Input() data = null;
@@ -32,7 +32,7 @@ describe('LgSkeletonDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgSkeletonDirective],
+      declarations: [ TestComponent, LgSkeletonDirective ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);
@@ -42,11 +42,12 @@ describe('LgSkeletonDirective', () => {
 
   it('adds default skeleton class if data is null', () => {
     fixture.detectChanges();
+
     expect(testElement.nativeElement.classList.contains('lg-skeleton')).toBeTruthy();
   });
 
   it('does not add default skeleton class if data is not null', () => {
-    directive.observeChanges([mockMutationRecord]);
+    directive.observeChanges([ mockMutationRecord ]);
     fixture.detectChanges();
 
     expect(testElement.nativeElement.classList.contains('lg-skeleton')).not.toBeTruthy();
@@ -58,8 +59,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode(''),
       };
+
       directive.lgSkeletonWidth = '1';
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.style.getPropertyValue('width')).toBe('1em');
@@ -70,8 +72,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode(''),
       };
+
       directive.lgSkeletonWidth = null;
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.style.getPropertyValue('width')).toBe('100%');
@@ -82,8 +85,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode('Some text content'),
       };
+
       directive.lgSkeletonWidth = '5';
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.style.getPropertyValue('width')).toBe('');
@@ -96,8 +100,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode(''),
       };
+
       directive.lgSkeletonHeight = '2';
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.style.getPropertyValue('height')).toBe('2em');
@@ -108,8 +113,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode(''),
       };
+
       directive.lgSkeletonHeight = null;
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.style.getPropertyValue('height')).toBe('auto');
@@ -120,8 +126,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode('Some text content'),
       };
+
       directive.lgSkeletonHeight = '4';
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.style.getPropertyValue('height')).toBe('');
@@ -134,8 +141,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode(''),
       };
+
       directive.lgSkeletonRightAlign = true;
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(
@@ -148,8 +156,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode('I am not empty'),
       };
+
       directive.lgSkeletonRightAlign = true;
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(
@@ -162,8 +171,9 @@ describe('LgSkeletonDirective', () => {
         ...mockMutationRecord,
         target: document.createTextNode(''),
       };
+
       directive.lgSkeletonRightAlign = false;
-      directive.observeChanges([mutationRecord]);
+      directive.observeChanges([ mutationRecord ]);
       fixture.detectChanges();
 
       expect(

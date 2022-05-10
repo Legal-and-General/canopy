@@ -1,17 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './input.notes';
 import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../icon';
-import { LgInputModule } from './input.module';
 import { LgLabelModule } from '../label/label.module';
 import { LgButtonModule } from '../../button/button.module';
 import { LgHintModule } from '../hint';
 import type { ButtonVariant } from '../../button';
 import { LgSuffixModule } from '../../suffix';
 import { LgPrefixModule } from '../../prefix';
+
+import { LgInputModule } from './input.module';
+import { notes } from './input.notes';
 import { LgInputFieldComponent } from './input-field.component';
 
 interface Config {
@@ -65,7 +65,9 @@ function setupInputStoryValues(obj, code, config?: Config) {
     buttonText: 'search',
     buttonVariant: 'solid-primary',
     disabled: false,
-    hint: config?.hint === null ? '' : 'Please enter your name',
+    hint: config?.hint === null
+      ? ''
+      : 'Please enter your name',
     icon: 'search',
     label: config?.label || 'Name',
     showLabel: true,
@@ -78,6 +80,7 @@ function setupInputStoryValues(obj, code, config?: Config) {
     suffix: '%',
     size: 12,
   };
+
   obj.parameters = {
     docs: {
       source: {
@@ -160,9 +163,9 @@ class ReactiveFormComponent {
   form: FormGroup;
 
   constructor(public fb: FormBuilder, private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([lgIconSearch, lgIconClose]);
+    this.iconRegistry.registerIcons([ lgIconSearch, lgIconClose ]);
     this.form = this.fb.group({ name: { value: '', disabled: false } });
-    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
 
   onSubmit(event) {
@@ -175,7 +178,7 @@ export default {
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormComponent],
+      declarations: [ ReactiveFormComponent ],
       imports: [
         ReactiveFormsModule,
         LgButtonModule,
@@ -330,12 +333,14 @@ setupInputStoryValues(standard, inputTemplate);
 
 export const withButtonSuffix = inputStory.bind({});
 withButtonSuffix.storyName = 'With button suffix';
+
 setupInputStoryValues(withButtonSuffix, inputTemplate, {
   showButtonFirstSuffix: true,
 });
 
 export const withTextSuffix = inputStory.bind({});
 withTextSuffix.storyName = 'With text suffix';
+
 setupInputStoryValues(withTextSuffix, inputTemplate, {
   showTextSuffix: true,
   label: 'Amount',
@@ -344,6 +349,7 @@ setupInputStoryValues(withTextSuffix, inputTemplate, {
 
 export const withMultipleButtonSuffixes = inputStory.bind({});
 withMultipleButtonSuffixes.storyName = 'With multiple buttons suffixes';
+
 setupInputStoryValues(withMultipleButtonSuffixes, inputTemplate, {
   showButtonFirstSuffix: true,
   showButtonSecondSuffix: true,

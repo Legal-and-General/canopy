@@ -9,21 +9,30 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-
 import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 
 import type { HeadingLevel } from '../heading';
+
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 
 @Component({
   selector: 'lg-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss'],
+  styleUrls: [ './carousel.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgCarouselComponent implements AfterContentInit, OnDestroy {
+  private unsubscribe: Subject<void> = new Subject<void>();
+  selectedItem: LgCarouselItemComponent;
+  carouselItemCount: number;
+  selectedItemIndexSet$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  selectedItemIndex: number;
+  selectedItemContent: string;
+  pause = new BehaviorSubject<boolean>(false);
+  pausableTimer$: Observable<void>;
+
   @Input() description: string;
   @Input() headingLevel: HeadingLevel;
   @Input() loopMode = false;
@@ -33,14 +42,8 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
 
   @ContentChildren(LgCarouselItemComponent, { read: LgCarouselItemComponent })
   carouselItems = new QueryList<LgCarouselItemComponent>();
-  selectedItem: LgCarouselItemComponent;
-  carouselItemCount: number;
-  selectedItemIndexSet$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  selectedItemIndex: number;
-  selectedItemContent: string;
-  private unsubscribe: Subject<void> = new Subject<void>();
-  pause = new BehaviorSubject<boolean>(false);
-  pausableTimer$: Observable<void>;
+
+  constructor(private cd: ChangeDetectorRef) {}
 
   pauseCarousel(): void {
     this.pause.next(true);
@@ -58,6 +61,7 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
     this.carouselItems.forEach((carouselItem: LgCarouselItemComponent) => {
       carouselItem.selected = false;
     });
+
     this.selectedItem.selected = true;
     this.cd.detectChanges();
   }
@@ -83,10 +87,11 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
       return interval(this.autoPlayDelay).pipe(
         takeUntil(this.unsubscribe),
         withLatestFrom(this.pause),
-        filter(([, paused]) => !paused),
+        filter(([ , paused ]) => !paused),
         map(() => this.nextCarouselItem()),
       );
     });
+
     this.pausableTimer$.subscribe();
     this.cd.detectChanges();
   }
@@ -94,11 +99,13 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   ngAfterContentInit(): void {
     this.selectedItemIndexSet$
       .pipe(takeUntil(this.unsubscribe))
-      .subscribe((itemIndex) => {
+      .subscribe(itemIndex => {
         this.selectedItemIndex = itemIndex;
       });
+
     this.carouselItemCount = this.carouselItems.length;
     this.selectCarouselItem(0);
+
     if (this.autoPlay) {
       this.setAutoPlayInterval();
     }
@@ -108,6 +115,4 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
     this.unsubscribe.next();
     this.unsubscribe.complete();
   }
-
-  constructor(private cd: ChangeDetectorRef) {}
 }

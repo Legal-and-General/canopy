@@ -22,7 +22,7 @@ describe('LgBrandIconRegistry', () => {
 
     expect(registry.getBrandIcon(icon.name)).toBeUndefined();
 
-    registry.registerBrandIcon([icon]);
+    registry.registerBrandIcon([ icon ]);
 
     expect(registry.getBrandIcon(icon.name)).toBe(icon.data);
   });
@@ -32,6 +32,7 @@ describe('LgBrandIconRegistry', () => {
     const spy = spyOn(console, 'warn');
 
     expect(registry.getBrandIcon(unexpectedBrandIcon)).toBeUndefined();
+
     expect(spy).toHaveBeenCalledWith(
       `${unexpectedBrandIcon}: Brand icon not found, ensure it is added to the brand icon registry`,
     );

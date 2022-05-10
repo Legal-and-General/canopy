@@ -89,6 +89,7 @@ describe('LgHeroImgComponent', () => {
   it('should set correct background', () => {
     component.imageUrl = 'test';
     fixture.detectChanges();
-    expect(componentElement.style.backgroundImage).toContain(`url("test")`);
+
+    expect(componentElement.style.backgroundImage).toContain('url("test")');
   });
 });

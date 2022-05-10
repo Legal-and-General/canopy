@@ -1,6 +1,7 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgMarginModule } from '../spacing';
+
 import { LgTabsModule } from './tabs.module';
 import { notes } from './tabs.notes';
 
@@ -8,7 +9,7 @@ export default {
   title: 'Components/Tabs/Tabbed content',
   decorators: [
     moduleMetadata({
-      imports: [LgTabsModule, LgMarginModule],
+      imports: [ LgTabsModule, LgMarginModule ],
     }),
   ],
   parameters: {
@@ -117,9 +118,11 @@ const standardTabsStory: Story<LgTabsModule> = (args: LgTabsModule) => ({
 
 export const standardTabs = standardTabsStory.bind({});
 standardTabs.storyName = 'Tabbed content';
+
 standardTabs.args = {
   tabs: getDefaultTabsContent(),
 };
+
 standardTabs.parameters = {
   docs: {
     source: {

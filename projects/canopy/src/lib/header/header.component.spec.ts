@@ -15,7 +15,7 @@ describe('HeaderComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeaderComponent],
+        declarations: [ LgHeaderComponent ],
       }).compileComponents();
     }),
   );
@@ -39,6 +39,7 @@ describe('HeaderComponent', () => {
   it('renders a link if an href is provided', () => {
     component.logoHref = href;
     fixture.detectChanges();
+
     expect(fixture.debugElement.query(By.css(`a[href="${href}"]`))).toBeTruthy();
   });
 

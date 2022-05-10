@@ -1,7 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
@@ -44,6 +43,7 @@ describe('LgTableCellComponent', () => {
 
   it('should have the aria hidden attribute', () => {
     const label = debugElement.query(By.css('.lg-table-cell__label'));
+
     expect(label.nativeElement.getAttribute('aria-hidden')).toBe('true');
   });
 
@@ -55,6 +55,7 @@ describe('LgTableCellComponent', () => {
 
     it('should set the alignment class', () => {
       const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
+
       expect(contentElement.nativeElement.getAttribute('class')).toContain(
         'lg-table-cell__content--align-end',
       );
@@ -69,6 +70,7 @@ describe('LgTableCellComponent', () => {
 
     it('should set the alignment class', () => {
       const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
+
       expect(contentElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-table-cell__content--align-end',
       );
@@ -109,6 +111,7 @@ describe('LgTableCellComponent', () => {
 
     it('should not set the lg-visually-hidden class', () => {
       const labelElement = debugElement.query(By.css('.lg-table-cell__label'));
+
       expect(labelElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-visually-hidden',
       );
@@ -116,6 +119,7 @@ describe('LgTableCellComponent', () => {
 
     it('should set the content class', () => {
       const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
+
       expect(contentElement.nativeElement).toBeDefined();
     });
   });
@@ -128,6 +132,7 @@ describe('LgTableCellComponent', () => {
 
     it('should set the lg-visually-hidden class', () => {
       const labelElement = debugElement.query(By.css('.lg-table-cell__label'));
+
       expect(labelElement.nativeElement.getAttribute('class')).toContain(
         'lg-visually-hidden',
       );
@@ -137,6 +142,7 @@ describe('LgTableCellComponent', () => {
       const contentElement = debugElement.query(
         By.css('.lg-table-cell__content--hidden-label'),
       );
+
       expect(contentElement).toBeDefined();
     });
   });

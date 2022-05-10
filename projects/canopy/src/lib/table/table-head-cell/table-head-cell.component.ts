@@ -12,7 +12,7 @@ import { AlignmentOptions } from '../table.interface';
 @Component({
   selector: '[lg-table-head-cell]',
   templateUrl: './table-head-cell.component.html',
-  styleUrls: ['./table-head-cell.component.scss'],
+  styleUrls: [ './table-head-cell.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -21,7 +21,9 @@ export class LgTableHeadCellComponent {
 
   @HostBinding('style.text-align')
   get alignment() {
-    return this.align === AlignmentOptions.End ? 'right' : 'left';
+    return this.align === AlignmentOptions.End
+      ? 'right'
+      : 'left';
   }
 
   @Input() align: AlignmentOptions = AlignmentOptions.Start;

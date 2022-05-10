@@ -102,11 +102,12 @@ const modules = [
   LgKebabCasePipeModule,
   LgPrimaryMessageModule,
 ];
+
 /**
  * @deprecated This module should not be used. Import each module separately instead.
  */
 @NgModule({
-  imports: [CommonModule, ...modules],
-  exports: [...modules],
+  imports: [ CommonModule, ...modules ],
+  exports: [ ...modules ],
 })
 export class CanopyModule {}

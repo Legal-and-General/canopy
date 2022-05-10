@@ -9,7 +9,7 @@ export default {
   component: LgCamelCasePipe,
   decorators: [
     moduleMetadata({
-      declarations: [LgCamelCasePipe],
+      declarations: [ LgCamelCasePipe ],
     }),
   ],
   parameters: {
@@ -31,7 +31,7 @@ export default {
   },
 } as Meta;
 
-const template = `<p>{{text | camelCase}}</p>`;
+const template = '<p>{{text | camelCase}}</p>';
 
 const camelCasePipeTemplate: Story<LgCamelCasePipe> = (args: LgCamelCasePipe) => ({
   props: args,
@@ -40,9 +40,11 @@ const camelCasePipeTemplate: Story<LgCamelCasePipe> = (args: LgCamelCasePipe) =>
 
 export const camelCasePipeStory = camelCasePipeTemplate.bind({});
 camelCasePipeStory.storyName = 'Camel case';
+
 camelCasePipeStory.args = {
   text: 'Camel case me',
 };
+
 camelCasePipeStory.parameters = {
   docs: {
     source: {

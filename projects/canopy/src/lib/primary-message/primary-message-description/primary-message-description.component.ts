@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-primary-message-description',
   templateUrl: './primary-message-description.component.html',
-  styleUrls: ['./primary-message-description.component.scss'],
+  styleUrls: [ './primary-message-description.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

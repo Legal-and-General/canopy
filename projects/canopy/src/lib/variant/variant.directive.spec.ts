@@ -6,7 +6,7 @@ import { LgVariantDirective } from './variant.directive';
 import type { Variant } from './variant.interface';
 
 @Component({
-  template: ` <div [lgVariant]="lgVariant">Test</div> `,
+  template: ' <div [lgVariant]="lgVariant">Test</div> ',
 })
 class TestComponent {
   @Input() lgVariant: Variant = 'generic';
@@ -20,7 +20,7 @@ describe('LgVariant', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [TestComponent, LgVariantDirective],
+        declarations: [ TestComponent, LgVariantDirective ],
       }).compileComponents();
     }),
   );
@@ -46,12 +46,14 @@ describe('LgVariant', () => {
   it('adds the info variant class', () => {
     component.lgVariant = 'info';
     fixture.detectChanges();
+
     expect(testElement.nativeElement.getAttribute('class')).toContain('lg-variant--info');
   });
 
   it('adds the success variant class', () => {
     component.lgVariant = 'success';
     fixture.detectChanges();
+
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       'lg-variant--success',
     );
@@ -60,6 +62,7 @@ describe('LgVariant', () => {
   it('adds the warning variant class', () => {
     component.lgVariant = 'warning';
     fixture.detectChanges();
+
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       'lg-variant--warning',
     );
@@ -68,6 +71,7 @@ describe('LgVariant', () => {
   it('adds the error variant class', () => {
     component.lgVariant = 'error';
     fixture.detectChanges();
+
     expect(testElement.nativeElement.getAttribute('class')).toContain(
       'lg-variant--error',
     );

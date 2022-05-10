@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockComponents } from 'ng-mocks';
 import { take } from 'rxjs/operators';
 
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
+
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading.component';
 
 describe('LgDetailsPanelHeadingComponent', () => {
@@ -25,9 +25,11 @@ describe('LgDetailsPanelHeadingComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LgDetailsPanelHeadingComponent);
     component = fixture.componentInstance;
+
     triggerElement = fixture.debugElement.query(
       By.css('.lg-details-panel-heading__toggle'),
     );
+
     fixture.detectChanges();
   });
 
@@ -36,7 +38,7 @@ describe('LgDetailsPanelHeadingComponent', () => {
   });
 
   describe('when the details container is toggled open', () => {
-    it(`should set 'isActive' to false`, () => {
+    it('should set \'isActive\' to false', () => {
       component.isActive = true;
       component.toggle();
 
@@ -44,14 +46,15 @@ describe('LgDetailsPanelHeadingComponent', () => {
     });
 
     it('should emit toggleActive event', () => {
-      component.toggleActive
-        .pipe(take(1))
-        .subscribe((isActive) => expect(isActive).toBeFalsy());
+      component.toggleActive.pipe(take(1)).subscribe(isActive => {
+        expect(isActive).toBeFalsy();
+      });
+
       component.isActive = true;
       component.toggle();
     });
 
-    it(`should set the 'active' class`, () => {
+    it('should set the \'active\' class', () => {
       expect(
         triggerElement.nativeElement.classList.contains(
           'lg-details-panel-heading__toggle--active',
@@ -60,6 +63,7 @@ describe('LgDetailsPanelHeadingComponent', () => {
 
       triggerElement.nativeElement.click();
       fixture.detectChanges();
+
       expect(
         triggerElement.nativeElement.classList.contains(
           'lg-details-panel-heading__toggle--active',
@@ -72,12 +76,13 @@ describe('LgDetailsPanelHeadingComponent', () => {
 
       triggerElement.nativeElement.click();
       fixture.detectChanges();
+
       expect(triggerElement.attributes['aria-expanded']).toBe('true');
     });
   });
 
   describe('when the details item is toggled close', () => {
-    it(`should set 'isActive' to true`, () => {
+    it('should set \'isActive\' to true', () => {
       component.isActive = false;
       component.toggle();
 
@@ -85,9 +90,10 @@ describe('LgDetailsPanelHeadingComponent', () => {
     });
 
     it('should emit toggleActive event', () => {
-      component.toggleActive
-        .pipe(take(1))
-        .subscribe((isActive) => expect(isActive).toBeTruthy());
+      component.toggleActive.pipe(take(1)).subscribe(isActive => {
+        expect(isActive).toBeTruthy();
+      });
+
       component.isActive = false;
       component.toggle();
     });
@@ -95,6 +101,7 @@ describe('LgDetailsPanelHeadingComponent', () => {
     it('should remove the `active` class', () => {
       triggerElement.nativeElement.click();
       fixture.detectChanges();
+
       expect(
         triggerElement.nativeElement.classList.contains(
           'lg-details-panel-heading__toggle--active',
@@ -103,6 +110,7 @@ describe('LgDetailsPanelHeadingComponent', () => {
 
       triggerElement.nativeElement.click();
       fixture.detectChanges();
+
       expect(
         triggerElement.nativeElement.classList.contains(
           'lg-details-panel-heading__toggle--active',
@@ -113,10 +121,12 @@ describe('LgDetailsPanelHeadingComponent', () => {
     it('should set the `aria-expanded` attribute to false', () => {
       triggerElement.nativeElement.click();
       fixture.detectChanges();
+
       expect(triggerElement.attributes['aria-expanded']).toBe('true');
 
       triggerElement.nativeElement.click();
       fixture.detectChanges();
+
       expect(triggerElement.attributes['aria-expanded']).toBe('false');
     });
   });

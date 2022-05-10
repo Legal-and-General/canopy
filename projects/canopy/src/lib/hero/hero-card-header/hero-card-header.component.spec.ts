@@ -9,7 +9,7 @@ describe('HeroCardHeaderComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeroCardHeaderComponent],
+        declarations: [ LgHeroCardHeaderComponent ],
       }).compileComponents();
     }),
   );

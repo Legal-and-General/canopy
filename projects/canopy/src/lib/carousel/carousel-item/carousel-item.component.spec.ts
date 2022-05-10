@@ -9,7 +9,7 @@ describe('LgCarouselItemComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgCarouselItemComponent],
+        declarations: [ LgCarouselItemComponent ],
       }).compileComponents();
     }),
   );
@@ -28,15 +28,18 @@ describe('LgCarouselItemComponent', () => {
     expect(component.element.nativeElement.classList.contains('lg-carousel-item')).toBe(
       true,
     );
+
     expect(component.element.nativeElement.attributes['aria-selected'].nodeValue).toBe(
       'false',
     );
+
     expect(component.element.nativeElement.attributes['role'].nodeValue).toBe('tabpanel');
   });
 
   it('should update the aria-selected attribute when selected', () => {
     component.selected = true;
     fixture.detectChanges();
+
     expect(component.element.nativeElement.attributes['aria-selected'].nodeValue).toBe(
       'true',
     );

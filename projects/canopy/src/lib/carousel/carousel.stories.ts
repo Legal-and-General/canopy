@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgButtonModule } from '../button';
+
 import { LgCarouselModule } from './carousel.module';
+import { notes } from './carousel.notes';
 
 import { LgCarouselComponent } from '.';
-import { notes } from './carousel.notes';
 
 export default {
   title: 'Components/Carousel',
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, LgCarouselModule, LgButtonModule],
+      imports: [ CommonModule, LgCarouselModule, LgButtonModule ],
     }),
   ],
   parameters: {
@@ -24,11 +24,11 @@ export default {
   },
   argTypes: {
     headingLevel: {
-      options: ['1', '2', '3', '4', '5', '6'],
+      options: [ '1', '2', '3', '4', '5', '6' ],
       description: 'The visually hidden heading level for the carousel.',
       table: {
         type: {
-          summary: ['1', '2', '3', '4', '5', '6'],
+          summary: [ '1', '2', '3', '4', '5', '6' ],
         },
       },
       control: {
@@ -160,6 +160,7 @@ const defaultStory: Story<LgCarouselComponent> = (args: LgCarouselComponent) => 
 
 export const defaultCarousel = defaultStory.bind({});
 defaultCarousel.storyName = 'Standard';
+
 defaultCarousel.args = {
   headingLevel: 2,
   description: 'Example carousel',
@@ -168,6 +169,7 @@ defaultCarousel.args = {
   autoPlayDelay: null,
   autoPlay: null,
 };
+
 defaultCarousel.parameters = {
   docs: {
     source: {
@@ -182,6 +184,7 @@ const loopEnabledTemplate = `
 
 export const loopModeEnabledCarousel = defaultStory.bind({});
 loopModeEnabledCarousel.storyName = 'Loop enabled';
+
 loopModeEnabledCarousel.args = {
   headingLevel: 2,
   description: 'Example carousel',
@@ -190,6 +193,7 @@ loopModeEnabledCarousel.args = {
   autoPlayDelay: null,
   autoPlay: null,
 };
+
 loopModeEnabledCarousel.parameters = {
   docs: {
     source: {
@@ -204,6 +208,7 @@ const autoPlayEnabledTemplate = `
 
 export const autoPlayEnabledCarousel = defaultStory.bind({});
 autoPlayEnabledCarousel.storyName = 'Auto play enabled';
+
 autoPlayEnabledCarousel.args = {
   headingLevel: 2,
   description: 'Example carousel',
@@ -212,6 +217,7 @@ autoPlayEnabledCarousel.args = {
   autoPlayDelay: 5000,
   autoPlay: true,
 };
+
 autoPlayEnabledCarousel.parameters = {
   docs: {
     source: {

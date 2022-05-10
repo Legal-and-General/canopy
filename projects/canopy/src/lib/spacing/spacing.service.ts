@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BreakpointValues } from '../shared/breakpoints.interface';
 import { DynamicStyleService } from '../utils/dynamic-style.service';
+
 import { SpacingResponsive, SpacingValues, SpacingVariant } from './spacing.interface';
 
 @Injectable({ providedIn: 'root' })
@@ -25,33 +26,40 @@ export class SpacingService {
   ): Array<string> {
     const newClasses = [];
     const responsiveSpacingRules = [];
+
     if (!spacing) {
       return [];
     }
 
     if (typeof spacing === 'object') {
       // Responsive e.g. spacing = {sm: "md", md: "xxl"}
-      Object.keys(spacing).forEach((key) => {
+      Object.keys(spacing).forEach(key => {
         const selector = `lg-${cssProperty.replace('-', '__')}--${key}--${spacing[key]}`;
+
         responsiveSpacingRules.push({
           selector,
           declaration: `${cssProperty}:${SpacingValues[spacing[key]]}!important`,
           breakpoint: BreakpointValues[key],
         });
+
         newClasses.push(selector);
       });
+
       this.dynamicStyleService.addRulesToMediaQuery(responsiveSpacingRules);
     } else {
       // Non-resposive e.g. spacing = "sm"
       const selector = `lg-${cssProperty.replace('-', '__')}--${spacing}`;
+
       this.dynamicStyleService.addRules([
         {
           selector,
           declaration: `${cssProperty}:${SpacingValues[spacing]}!important`,
         },
       ]);
+
       newClasses.push(selector);
     }
+
     return newClasses;
   }
 }

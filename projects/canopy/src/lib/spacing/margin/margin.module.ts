@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { LgMarginDirective } from './margin.directive';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [LgMarginDirective],
-  exports: [LgMarginDirective],
+  imports: [ CommonModule ],
+  declarations: [ LgMarginDirective ],
+  exports: [ LgMarginDirective ],
 })
 export class LgMarginModule {}

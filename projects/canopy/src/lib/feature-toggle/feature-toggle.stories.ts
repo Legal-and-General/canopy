@@ -1,11 +1,12 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { of } from 'rxjs';
 
+import { LgCardModule } from '../card';
+
 import { LgFeatureToggleOptions } from './feature-toggle.interface';
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
 import { LgFeatureToggleModule } from './feature-toggle.module';
 import { notes } from './feature-toggle.notes';
-import { LgCardModule } from '../card';
 
 const options: LgFeatureToggleOptions = {
   // disable undefined feature e.g. Feature 4 in the following story
@@ -91,6 +92,7 @@ const featureToggleTemplate: Story<LgFeatureToggleDirective> = (
 
 export const featureToggle = featureToggleTemplate.bind({});
 featureToggle.storyName = 'Feature Toggle';
+
 featureToggle.parameters = {
   docs: {
     source: {

@@ -1,5 +1,4 @@
 import { InjectionToken } from '@angular/core';
-
 import { Observable } from 'rxjs';
 
 // Defines the shape of the optional configuration data passed to the forRoot() method.

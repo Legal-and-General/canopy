@@ -1,11 +1,11 @@
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
 import { moduleMetadata, Story } from '@storybook/angular';
+
+import { LgHintModule } from '../hint/hint.module';
 
 import { notes } from './radio.notes';
 import { LgRadioModule } from './radio.module';
-import { LgHintModule } from '../hint/hint.module';
 import { LgRadioGroupComponent } from './radio-group.component';
 
 const formTemplate = `
@@ -50,7 +50,7 @@ class ReactiveFormRadioComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: 'red' });
-    this.form.valueChanges.subscribe((val) => this.radioChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.radioChange.emit(val));
   }
 }
 
@@ -59,8 +59,8 @@ export default {
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormRadioComponent],
-      imports: [ReactiveFormsModule, LgRadioModule, LgHintModule],
+      declarations: [ ReactiveFormRadioComponent ],
+      imports: [ ReactiveFormsModule, LgRadioModule, LgHintModule ],
     }),
   ],
   parameters: {
@@ -230,6 +230,7 @@ const radioStory: Story<LgRadioModule> = (args: LgRadioModule) => ({
 
 export const radioButtons = radioStory.bind({});
 radioButtons.storyName = 'Radio';
+
 radioButtons.args = {
   disabled: false,
   inline: false,
@@ -237,6 +238,7 @@ radioButtons.args = {
   label: 'Color',
   hint: 'Please select a color',
 };
+
 radioButtons.parameters = {
   docs: {
     source: {

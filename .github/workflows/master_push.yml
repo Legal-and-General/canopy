@@ -20,8 +20,8 @@ jobs:
           cache: 'npm'
       - name: install dependencies
         run: npm ci
-      - name: tslint
-        run: npm run tslint
+      - name: eslint
+        run: npm run eslint
       - name: stylelint
         run: npm run stylelint
       - name: test

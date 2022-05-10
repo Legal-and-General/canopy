@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgSeparatorComponent } from '../separator/separator.component';
+
 import { notes } from './separator.notes';
 import { LgSeparatorModule } from './separator.module';
 
@@ -9,7 +10,7 @@ export default {
   component: LgSeparatorComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgSeparatorModule],
+      imports: [ LgSeparatorModule ],
     }),
   ],
   parameters: {
@@ -21,11 +22,11 @@ export default {
   },
   argTypes: {
     variant: {
-      options: ['solid', 'dotted'],
+      options: [ 'solid', 'dotted' ],
       description: 'The variant of separator.',
       table: {
         type: {
-          summary: ['solid', 'dotted'],
+          summary: [ 'solid', 'dotted' ],
         },
         defaultValue: {
           summary: 'solid',
@@ -70,10 +71,12 @@ const detailsTemplate: Story<LgSeparatorComponent> = (args: LgSeparatorComponent
 
 export const standardSeparator = detailsTemplate.bind({});
 standardSeparator.storyName = 'Separator';
+
 standardSeparator.args = {
   variant: 'solid',
   hasRole: false,
 };
+
 standardSeparator.parameters = {
   docs: {
     source: {

@@ -28,27 +28,13 @@ export class DynamicStyleService {
     this.addStyleTag();
   }
 
-  private addStyleTag(): void {
-    this.styleTag = document.createElement('style');
-    this.styleTag.type = 'text/css';
-    document.getElementsByTagName('head')[0].appendChild(this.styleTag);
-  }
-
-  private createMediaQuery(breakpoint: BreakpointValues): string {
-    if (this.mediaQueries[breakpoint]) {
-      return;
-    }
-    this.mediaQueries[breakpoint] = [];
-    return `@media(min-width:${breakpoint}){}`;
-  }
-
   addRules(rules: Array<Rule>): void {
     // cache current styles to avoid multiple edits to the innerHTML
     let styleTagCache = this.styleTag.innerHTML.slice();
 
     rules
-      .filter((r) => !this.selectors.includes(r.selector))
-      .map((r) => {
+      .filter(r => !this.selectors.includes(r.selector))
+      .map(r => {
         this.selectors.push(r.selector);
 
         styleTagCache += `.${r.selector}{${r.declaration}}`;
@@ -61,7 +47,7 @@ export class DynamicStyleService {
     // cache current styles to avoid multiple edits to the innerHTML
     let styleTagCache = this.styleTag.innerHTML.slice();
 
-    rules.map((r) => {
+    rules.map(r => {
       if (!this.mediaQueries[r.breakpoint]) {
         styleTagCache += this.createMediaQuery(r.breakpoint);
       }
@@ -110,6 +96,7 @@ export class DynamicStyleService {
 
     if (index === -1) {
       console.warn('Media query not found in string, cannot add rule.');
+
       return cssString;
     }
 
@@ -128,6 +115,7 @@ export class DynamicStyleService {
 
     for (let i = index; i < cssString.length; i++) {
       const char = cssString[i];
+
       if (char === '{') {
         balance++;
       } else if (char === '}') {
@@ -142,9 +130,26 @@ export class DynamicStyleService {
 
     if (pos === null) {
       console.warn('Cannot add rule to media query in CSS string, invalid CSS string');
+
       return cssString;
     }
 
     return cssString.substring(0, pos) + `${rule}` + cssString.substring(pos);
+  }
+
+  private addStyleTag(): void {
+    this.styleTag = document.createElement('style');
+    this.styleTag.type = 'text/css';
+    document.getElementsByTagName('head')[0].appendChild(this.styleTag);
+  }
+
+  private createMediaQuery(breakpoint: BreakpointValues): string {
+    if (this.mediaQueries[breakpoint]) {
+      return;
+    }
+
+    this.mediaQueries[breakpoint] = [];
+
+    return `@media(min-width:${breakpoint}){}`;
   }
 }

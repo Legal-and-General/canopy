@@ -14,16 +14,13 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-validation',
   templateUrl: './validation.component.html',
-  styleUrls: ['./validation.component.scss'],
+  styleUrls: [ './validation.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgValidationComponent {
-  @HostBinding('class.lg-validation') class = true;
-
-  @Input() showIcon = true;
-
   private _variant: Variant;
 
+  @Input() showIcon = true;
   @Input()
   set variant(variant: Variant) {
     if (this._variant) {
@@ -32,6 +29,7 @@ export class LgValidationComponent {
         `lg-variant--${this._variant}`,
       );
     }
+
     this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
   }
@@ -42,6 +40,8 @@ export class LgValidationComponent {
   @HostBinding('id')
   @Input()
   id = `lg-validation-${nextUniqueId++}`;
+
+  @HostBinding('class.lg-validation') class = true;
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {
     this.variant = 'error';

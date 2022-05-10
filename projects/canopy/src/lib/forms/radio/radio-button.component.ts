@@ -19,10 +19,11 @@ import {
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgRadioGroupComponent } from './radio-group.component';
-import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
 import { LgHintComponent } from '../hint';
 import { LgDomService } from '../../utils/dom.service';
+
+import { LgRadioGroupComponent } from './radio-group.component';
+import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
 
 let nextUniqueId = 0;
 
@@ -47,6 +48,7 @@ export class LgRadioButtonComponent implements OnInit {
         `lg-radio-button--${this.variant}`,
       );
     }
+
     this.renderer.addClass(this.hostElement.nativeElement, `lg-radio-button--${variant}`);
     this._variant = variant;
   }
@@ -65,12 +67,14 @@ export class LgRadioButtonComponent implements OnInit {
       this.hostElement.nativeElement,
       `lg-radio-button--stacked-${this._stacked}`,
     );
+
     if (stacked) {
       this.renderer.addClass(
         this.hostElement.nativeElement,
         `lg-radio-button--stacked-${stacked}`,
       );
     }
+
     this._stacked = stacked;
   }
 
@@ -99,6 +103,7 @@ export class LgRadioButtonComponent implements OnInit {
       this._hintElement,
       element,
     );
+
     this._hintElement = element;
     this.hintPresent = !!element;
   }
@@ -119,14 +124,17 @@ export class LgRadioButtonComponent implements OnInit {
 
   ngOnInit(): void {
     this.variant = this.radioGroup.variant;
+
     if (this.radioGroup.value === this.value) {
       this.checked = true;
     }
+
     this.name = this.radioGroup.name;
   }
 
   onCheck(): void {
     this.radioGroup.onTouched();
+
     if (this.radioGroup.value !== this.value) {
       this.radioGroup.value = this.value;
     }

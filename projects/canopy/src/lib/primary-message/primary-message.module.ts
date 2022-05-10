@@ -12,8 +12,8 @@ const components = [
 ];
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [...components],
-  exports: [...components],
+  imports: [ CommonModule ],
+  declarations: [ ...components ],
+  exports: [ ...components ],
 })
 export class LgPrimaryMessageModule {}

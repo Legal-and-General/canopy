@@ -5,7 +5,7 @@ let nextUniqueId = 0;
 @Component({
   selector: '[lg-label]',
   templateUrl: './label.component.html',
-  styleUrls: ['./label.component.scss'],
+  styleUrls: [ './label.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgLabelComponent {

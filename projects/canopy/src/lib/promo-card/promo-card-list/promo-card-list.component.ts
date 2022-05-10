@@ -3,7 +3,7 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'lg-promo-card-list',
   templateUrl: './promo-card-list.component.html',
-  styleUrls: ['./promo-card-list.component.scss'],
+  styleUrls: [ './promo-card-list.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgPromoCardListComponent {

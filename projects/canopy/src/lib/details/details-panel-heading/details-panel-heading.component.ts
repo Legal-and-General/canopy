@@ -12,10 +12,11 @@ import { lgIconChevronDown } from '../../icon';
 import type { Variant } from '../../variant';
 
 let nextUniqueId = 0;
+
 @Component({
   selector: 'lg-details-panel-heading',
   templateUrl: './details-panel-heading.component.html',
-  styleUrls: ['./details-panel-heading.component.scss'],
+  styleUrls: [ './details-panel-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

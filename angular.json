@@ -25,14 +25,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/canopy/tsconfig.lib.json",
-              "projects/canopy/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/canopy/**/*.ts",
+              "projects/canopy/**/*.html"
             ]
           }
         }
@@ -125,15 +122,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/canopy-test-app/tsconfig.app.json",
-              "projects/canopy-test-app/tsconfig.spec.json",
-              "projects/canopy-test-app/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/canopy/**/*.ts",
+              "projects/canopy/**/*.html"
             ]
           }
         },

@@ -22,8 +22,8 @@ jobs:
       - name: set BRANCH_NAME variable
         run: |
           echo "BRANCH_NAME=${GITHUB_HEAD_REF##*/}" >> $GITHUB_ENV
-      - name: tslint
-        run: npm run tslint
+      - name: eslint
+        run: npm run eslint
       - name: stylelint
         run: npm run stylelint
       - name: test

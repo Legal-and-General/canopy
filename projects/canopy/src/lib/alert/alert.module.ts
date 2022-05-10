@@ -10,12 +10,13 @@ import {
   lgIconWarningFill,
 } from '../icon/icons.interface';
 import { LgVariantModule } from '../variant/variant.module';
+
 import { LgAlertComponent } from './alert.component';
 
 @NgModule({
-  imports: [CommonModule, LgIconModule, LgVariantModule],
-  declarations: [LgAlertComponent],
-  exports: [LgAlertComponent],
+  imports: [ CommonModule, LgIconModule, LgVariantModule ],
+  declarations: [ LgAlertComponent ],
+  exports: [ LgAlertComponent ],
 })
 export class LgAlertModule {
   constructor(private iconRegistry: LgIconRegistry) {

@@ -11,6 +11,7 @@ export class LgFocusDirective implements OnChanges {
   ngOnChanges({ lgFocus }: SimpleChanges) {
     if (lgFocus.currentValue) {
       const el = this.el.nativeElement as HTMLElement;
+
       el.focus();
     }
   }
