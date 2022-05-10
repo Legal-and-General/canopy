@@ -8,7 +8,7 @@ describe('LgPrimaryMessageDescriptionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LgPrimaryMessageDescriptionComponent],
+      declarations: [ LgPrimaryMessageDescriptionComponent ],
     }).compileComponents();
   });
 

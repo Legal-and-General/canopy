@@ -16,7 +16,7 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-accordion-panel-heading',
   templateUrl: './accordion-panel-heading.component.html',
-  styleUrls: ['./accordion-panel-heading.component.scss'],
+  styleUrls: [ './accordion-panel-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

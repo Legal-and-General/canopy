@@ -2,8 +2,9 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgCardModule } from '../card';
 import { LgSeparatorModule } from '../separator';
-import { notes } from './hide-at.notes';
 import { LgHideAtDirective, LgHideAtModule } from '../hide-at';
+
+import { notes } from './hide-at.notes';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -11,7 +12,7 @@ export default {
   component: LgHideAtDirective,
   decorators: [
     moduleMetadata({
-      imports: [LgHideAtModule, LgCardModule, LgSeparatorModule],
+      imports: [ LgHideAtModule, LgCardModule, LgSeparatorModule ],
     }),
   ],
   parameters: {
@@ -23,11 +24,11 @@ export default {
   },
   argTypes: {
     lgHideAt: {
-      options: ['sm', 'md', 'lg', 'xl', 'xxl'],
+      options: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
       description: 'The name of the breakpoint applied.',
       table: {
         type: {
-          summary: ['sm', 'md', 'lg', 'xl', 'xxl'],
+          summary: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
         },
       },
       control: {
@@ -69,9 +70,11 @@ const hideAtTemplate: Story<LgHideAtDirective> = (args: LgHideAtDirective) => ({
 
 export const hideAtStory = hideAtTemplate.bind({});
 hideAtStory.storyName = 'Hide at';
+
 hideAtStory.args = {
   lgHideAt: 'md',
 };
+
 hideAtStory.parameters = {
   docs: {
     source: {

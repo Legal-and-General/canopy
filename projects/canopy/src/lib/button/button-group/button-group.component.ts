@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-button-group',
   templateUrl: './button-group.component.html',
-  styleUrls: ['./button-group.component.scss'],
+  styleUrls: [ './button-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

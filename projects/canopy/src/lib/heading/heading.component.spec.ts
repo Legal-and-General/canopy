@@ -10,7 +10,7 @@ describe('LgHeadingComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeadingComponent],
+        declarations: [ LgHeadingComponent ],
       }).compileComponents();
     }),
   );

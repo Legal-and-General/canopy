@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-modal-body',
   templateUrl: './modal-body.component.html',
-  styleUrls: ['./modal-body.component.scss'],
+  styleUrls: [ './modal-body.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

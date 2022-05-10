@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { DynamicStyleService } from '../utils/dynamic-style.service';
 import { BreakpointValues } from '../shared/breakpoints.interface';
+
 import { SpacingService } from './spacing.service';
 
 describe('SpacingService', () => {
@@ -15,8 +16,9 @@ describe('SpacingService', () => {
     ]);
 
     TestBed.configureTestingModule({
-      providers: [SpacingService, { provide: DynamicStyleService, useValue: spy }],
+      providers: [ SpacingService, { provide: DynamicStyleService, useValue: spy } ],
     });
+
     spacingService = TestBed.inject(SpacingService);
     dynamicStyleService = TestBed.inject(DynamicStyleService);
   });
@@ -44,10 +46,10 @@ describe('SpacingService', () => {
       });
 
       it('should return the correct classes and add styles for margin on specific sides', () => {
-        ['margin-top', 'margin-right', 'margin-bottom', 'margin-left'].forEach((side) => {
+        [ 'margin-top', 'margin-right', 'margin-bottom', 'margin-left' ].forEach(side => {
           const className = `lg-${side.replace('-', '__')}--md`;
 
-          expect(spacingService.createNewClasses('md', side)).toEqual([className]);
+          expect(spacingService.createNewClasses('md', side)).toEqual([ className ]);
 
           expect(dynamicStyleService.addRules).toHaveBeenCalledWith([
             {
@@ -59,11 +61,11 @@ describe('SpacingService', () => {
       });
 
       it('should return the correct class and add styles for padding on specific sides', () => {
-        ['padding-top', 'padding-right', 'padding-bottom', 'padding-left'].forEach(
-          (side) => {
+        [ 'padding-top', 'padding-right', 'padding-bottom', 'padding-left' ].forEach(
+          side => {
             const className = `lg-${side.replace('-', '__')}--md`;
 
-            expect(spacingService.createNewClasses('md', side)).toEqual([className]);
+            expect(spacingService.createNewClasses('md', side)).toEqual([ className ]);
 
             expect(dynamicStyleService.addRules).toHaveBeenCalledWith([
               {
@@ -116,7 +118,7 @@ describe('SpacingService', () => {
             'padding-right',
             'padding-bottom',
             'padding-left',
-          ].forEach((side) => {
+          ].forEach(side => {
             const className = `lg-${side.replace('-', '__')}--sm--md`;
 
             expect(spacingService.createNewClasses({ sm: 'md' }, side)).toEqual([
@@ -141,7 +143,7 @@ describe('SpacingService', () => {
               { sm: 'md', md: 'xl', lg: 'xxxl' },
               'padding',
             ),
-          ).toEqual(['lg-padding--sm--md', 'lg-padding--md--xl', 'lg-padding--lg--xxxl']);
+          ).toEqual([ 'lg-padding--sm--md', 'lg-padding--md--xl', 'lg-padding--lg--xxxl' ]);
 
           expect(dynamicStyleService.addRulesToMediaQuery).toHaveBeenCalledWith([
             {

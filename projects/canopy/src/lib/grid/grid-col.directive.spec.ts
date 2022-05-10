@@ -38,7 +38,7 @@ describe('LgColDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgGridColDirective],
+      declarations: [ TestComponent, LgGridColDirective ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);
@@ -53,13 +53,15 @@ describe('LgColDirective', () => {
   it('adds column class for the default screen size', () => {
     component.lgCol = '12';
     fixture.detectChanges();
+
     expect(testElement.nativeElement.getAttribute('class')).toContain('lg-col-xs-12');
   });
 
   it('adds column class for the specified screen sizes', () => {
-    ['sm', 'md', 'lg'].forEach((size) => {
+    [ 'sm', 'md', 'lg' ].forEach(size => {
       component[`lgCol${size[0].toUpperCase()}${size.slice(1)}`] = '4';
       fixture.detectChanges();
+
       expect(testElement.nativeElement.getAttribute('class')).toContain(
         `lg-col-${size}-4`,
       );
@@ -69,15 +71,17 @@ describe('LgColDirective', () => {
   it('adds column offset class for the default screen size', () => {
     component.lgColOffset = 2;
     fixture.detectChanges();
+
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      `lg-col-xs-offset-2`,
+      'lg-col-xs-offset-2',
     );
   });
 
   it('adds column offset class for the specified screen sizes', () => {
-    ['sm', 'md', 'lg'].forEach((size) => {
+    [ 'sm', 'md', 'lg' ].forEach(size => {
       component[`lgCol${size[0].toUpperCase()}${size.slice(1)}Offset`] = '2';
       fixture.detectChanges();
+
       expect(testElement.nativeElement.getAttribute('class')).toContain(
         `lg-col-${size}-offset-2`,
       );

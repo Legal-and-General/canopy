@@ -7,13 +7,12 @@ import {
   waitForAsync,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { instance, mock } from 'ts-mockito';
 
 import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
 
 @Component({
-  template: ` <p [lgSrAlertMessage]="lgSrAlertMessage">Test feature</p> `,
+  template: ' <p [lgSrAlertMessage]="lgSrAlertMessage">Test feature</p> ',
 })
 class TestComponent {
   @Input() lgSrAlertMessage;
@@ -31,8 +30,8 @@ describe('lgSrAlertMessage', () => {
       cdrMock = mock(ChangeDetectorRef);
 
       TestBed.configureTestingModule({
-        declarations: [TestComponent, LgSrAlertMessageDirective],
-        providers: [{ provide: ChangeDetectorRef, useValue: instance(cdrMock) }],
+        declarations: [ TestComponent, LgSrAlertMessageDirective ],
+        providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
       }).compileComponents();
     }),
   );
@@ -65,7 +64,7 @@ describe('lgSrAlertMessage', () => {
       expect(testElement.nativeElement.getAttribute('aria-hidden')).toBe('true');
     });
 
-    it("shouldn't have a role or aria-live attribute", () => {
+    it('shouldn\'t have a role or aria-live attribute', () => {
       expect(testElement.nativeElement.getAttribute('role')).toBeNull();
       expect(testElement.nativeElement.getAttribute('aria-live')).toBeNull();
     });

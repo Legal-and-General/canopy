@@ -4,14 +4,14 @@ import { LgValidationModule } from './validation.module';
 import { notes } from './validation.notes';
 import { LgValidationComponent } from './validation.component';
 
-const variantTypes = ['generic', 'info', 'success', 'warning', 'error'];
+const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 export default {
   title: 'Components/Form/Validation',
   component: LgValidationComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgValidationModule],
+      imports: [ LgValidationModule ],
     }),
   ],
   parameters: {
@@ -85,10 +85,12 @@ const validationStory: Story<LgValidationModule> = (args: LgValidationModule) =>
 
 export const validation = validationStory.bind({});
 validation.storyName = 'Validation';
+
 validation.args = {
   content: 'Please enter a valid date of birth',
   variant: 'error',
 };
+
 validation.parameters = {
   docs: {
     source: {

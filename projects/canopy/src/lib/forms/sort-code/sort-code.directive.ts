@@ -11,13 +11,14 @@ export class LgSortCodeDirective implements OnInit {
   // 8 because we allow for the two dashes
   @HostBinding('attr.maxlength') maxlength = '8';
   @HostBinding('attr.size') size = '7';
-  @HostListener('focusout', ['$event.target.value']) onBlur(value) {
+
+  constructor(private ngControl: NgControl) {}
+
+  @HostListener('focusout', [ '$event.target.value' ]) onBlur(value) {
     if (this.ngControl.valid) {
       this.ngControl.control.setValue(this.format(value), { emitEvent: false });
     }
   }
-
-  constructor(private ngControl: NgControl) {}
 
   ngOnInit(): void {
     const validators = [
@@ -28,6 +29,7 @@ export class LgSortCodeDirective implements OnInit {
     if (this.ngControl.control.validator) {
       validators.push(this.ngControl.control.validator);
     }
+
     this.ngControl.control.setValidators(validators);
   }
 

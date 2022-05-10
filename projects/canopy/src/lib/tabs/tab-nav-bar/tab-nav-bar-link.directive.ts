@@ -12,10 +12,10 @@ import {
   selector: '[lgTabNavBarLink]',
 })
 export class LgTabNavBarLinkDirective {
-  isKeyboardEvent = false;
   private _isActive = false;
   private _isFocused = false;
   private _index = 0;
+  isKeyboardEvent = false;
 
   @Output() selectedTabIndexChange: EventEmitter<number> = new EventEmitter();
 
@@ -51,18 +51,27 @@ export class LgTabNavBarLinkDirective {
   }
   @HostBinding('attr.aria-selected')
   get ariaSelected(): boolean | null {
-    return this._isActive ? true : null;
+    return this._isActive
+      ? true
+      : null;
   }
   @HostBinding('attr.keyboard-focus')
   get keyboardFocus(): boolean | null {
-    return this._isFocused && this.isKeyboardEvent ? true : null;
+    return this._isFocused && this.isKeyboardEvent
+      ? true
+      : null;
   }
   @HostBinding('attr.role') ariaRole = 'tab';
   @HostBinding('class.lg-tab-nav-bar-link') class = true;
   @HostBinding('attr.tabIndex')
   get tabIndex(): string | null {
-    return this._isActive ? null : '-1';
+    return this._isActive
+      ? null
+      : '-1';
   }
+
+  constructor(private ref: ElementRef) {}
+
   @HostListener('click') onClick(): void {
     this.isActive = true;
     this.selectedTabIndexChange.emit(this.index);
@@ -77,8 +86,6 @@ export class LgTabNavBarLinkDirective {
   @HostListener('focus') onFocus(): void {
     this.isFocused = true;
   }
-
-  constructor(private ref: ElementRef) {}
 
   selectByKeyboard(): void {
     this.ref.nativeElement.focus();

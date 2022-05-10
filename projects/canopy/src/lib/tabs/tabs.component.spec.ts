@@ -1,7 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import {
   MockComponents,
   MockDirective,
@@ -13,6 +12,7 @@ import { instance, mock, when } from 'ts-mockito';
 import { LgFocusDirective } from '../focus';
 import { LgHeadingComponent } from '../heading/heading.component';
 import { keyName } from '../utils/keyboard-keys';
+
 import { LgTabItemContentComponent } from './tab-item-content/tab-item-content.component';
 import { LgTabItemHeadingComponent } from './tab-item-heading/tab-item-heading.component';
 import { LgTabItemComponent } from './tab-item/tab-item.component';
@@ -52,6 +52,7 @@ describe('LgTabsComponent', () => {
         </lg-tab-item>
       </lg-tabs>
     `);
+
     debugElement = fixture.debugElement;
     component = debugElement.children[0].componentInstance;
     el = debugElement.children[0].nativeElement;
@@ -68,6 +69,7 @@ describe('LgTabsComponent', () => {
 
   it('should have the role tab', () => {
     const listDebugElement = debugElement.query(By.css('.lg-tabs__list'));
+
     expect(listDebugElement.nativeElement.getAttribute('role')).toContain('tab');
   });
 
@@ -75,6 +77,7 @@ describe('LgTabsComponent', () => {
     const secondContentTab = debugElement.query(
       By.css(`#tab-item-content-${component.id}-0`),
     );
+
     expect(secondContentTab.nativeElement.getAttribute('tabindex')).toEqual('0');
   });
 
@@ -82,6 +85,7 @@ describe('LgTabsComponent', () => {
     const secondContentTab = debugElement.query(
       By.css(`#tab-item-heading-${component.id}-0`),
     );
+
     expect(secondContentTab.nativeElement.getAttribute('aria-controls')).toEqual(
       `tab-item-content-${component.id}-0`,
     );
@@ -91,6 +95,7 @@ describe('LgTabsComponent', () => {
     const secondContentTab = debugElement.query(
       By.css(`#tab-item-content-${component.id}-0`),
     );
+
     expect(secondContentTab.nativeElement.getAttribute('aria-labelledby')).toEqual(
       `tab-item-heading-${component.id}-0`,
     );
@@ -100,6 +105,7 @@ describe('LgTabsComponent', () => {
     const secondContentTab = debugElement.query(
       By.css(`#tab-item-content-${component.id}-0`),
     );
+
     expect(secondContentTab.nativeElement.getAttribute('role')).toEqual('tabpanel');
   });
 
@@ -107,6 +113,7 @@ describe('LgTabsComponent', () => {
     component.selectedIndex = 0;
     component.isKeyboardEvent = true;
     component.blur(0);
+
     expect(component.isKeyboardEvent).toEqual(false);
   });
 
@@ -117,6 +124,7 @@ describe('LgTabsComponent', () => {
           <lg-tab-item></lg-tab-item>
         </lg-tabs>
       `);
+
       debugElement = fixture.debugElement;
       component = debugElement.children[0].componentInstance;
       el = debugElement.children[0].nativeElement;
@@ -150,6 +158,7 @@ describe('LgTabsComponent', () => {
           </lg-tab-item>
         </lg-tabs>
       `);
+
       debugElement = fixture.debugElement;
       component = debugElement.children[0].componentInstance;
       el = debugElement.children[0].nativeElement;
@@ -164,21 +173,25 @@ describe('LgTabsComponent', () => {
       const secondContentTab = debugElement.query(
         By.css(`#tab-item-content-${component.id}-1`),
       );
+
       expect(secondContentTab.nativeElement.getAttribute('hidden')).toBeDefined();
     });
 
     it('the second tab should be selected and attributes applied when clicked', () => {
       const button = debugElement.query(By.css(`#tab-item-heading-${component.id}-1`));
       const content = debugElement.query(By.css(`#tab-item-content-${component.id}-1`));
+
       button.triggerEventHandler('click', {});
       fixture.detectChanges();
 
       expect(component.selectedIndex).toEqual(1);
       expect(button.nativeElement.getAttribute('tabIndex')).not.toEqual(-1);
       expect(button.nativeElement.getAttribute('aria-selected')).toEqual('true');
+
       expect(button.nativeElement.getAttribute('class')).toContain(
         'lg-tabs__list-item-toggle--selected',
       );
+
       expect(button.nativeElement.getAttribute('keyboard-focus')).not.toEqual('true');
       expect(content.nativeElement.getAttribute('hidden')).toEqual(null);
     });
@@ -186,6 +199,7 @@ describe('LgTabsComponent', () => {
     it('the selected index should be 2 when the key press is left', () => {
       component.selectedIndex = 0;
       const mockClickLeftEvent = mock(KeyboardEvent);
+
       when(mockClickLeftEvent.key).thenReturn(keyName.KEY_LEFT);
       component.keyboardNavigation(instance(mockClickLeftEvent));
 
@@ -196,6 +210,7 @@ describe('LgTabsComponent', () => {
     it('the selected index should be 2 when the key press is up', () => {
       component.selectedIndex = 0;
       const mockClickLeftEvent = mock(KeyboardEvent);
+
       when(mockClickLeftEvent.key).thenReturn(keyName.KEY_UP);
       component.keyboardNavigation(instance(mockClickLeftEvent));
 
@@ -206,6 +221,7 @@ describe('LgTabsComponent', () => {
     it('the selected index should be 1 when the key press is right', () => {
       component.selectedIndex = 0;
       const mockClickLeftEvent = mock(KeyboardEvent);
+
       when(mockClickLeftEvent.key).thenReturn(keyName.KEY_RIGHT);
       component.keyboardNavigation(instance(mockClickLeftEvent));
 
@@ -216,6 +232,7 @@ describe('LgTabsComponent', () => {
     it('the selected index should be 1 when the key press is down', () => {
       component.selectedIndex = 0;
       const mockClickLeftEvent = mock(KeyboardEvent);
+
       when(mockClickLeftEvent.key).thenReturn(keyName.KEY_DOWN);
       component.keyboardNavigation(instance(mockClickLeftEvent));
 
@@ -226,6 +243,7 @@ describe('LgTabsComponent', () => {
     it('the selected index should change from 2 to 0 when the key press is right', () => {
       component.selectedIndex = 2;
       const mockClickLeftEvent = mock(KeyboardEvent);
+
       when(mockClickLeftEvent.key).thenReturn(keyName.KEY_RIGHT);
       component.keyboardNavigation(instance(mockClickLeftEvent));
 

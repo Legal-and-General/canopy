@@ -18,8 +18,8 @@
     "test": "ng test",
     "test:test-app": "ng test canopy-test-app",
     "test:ci": "ng test canopy --watch=false --browsers=ChromeHeadless && ng test canopy-test-app --watch=false --browsers=ChromeHeadless",
-    "lint": "npm run tslint && npm run stylelint",
-    "tslint": "ng lint",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "ng lint",
     "e2e": "ng e2e",
     "docs:json": "compodoc -p ./tsconfig.json --disablePrivate -e json -d .",
     "storybook": "npm run docs:json && start-storybook -s ./assets",
@@ -53,6 +53,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.4",
+    "@angular-eslint/builder": "12.7.0",
+    "@angular-eslint/eslint-plugin": "12.7.0",
+    "@angular-eslint/eslint-plugin-template": "12.7.0",
+    "@angular-eslint/schematics": "12.7.0",
+    "@angular-eslint/template-parser": "12.7.0",
     "@angular/cli": "^11.2.19",
     "@angular/compiler-cli": "^11.2.14",
     "@angular/language-service": "^11.2.14",
@@ -76,6 +81,8 @@
     "@types/jasmine": "^4.0.3",
     "@types/jasminewd2": "^2.0.9",
     "@types/node": "^14.18.15",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
     "autoprefixer": "^10.4.5",
     "babel-loader": "^8.2.5",
     "codelyzer": "^6.0.2",
@@ -84,6 +91,11 @@
     "copy-webpack-plugin": "^6.4.1",
     "css-vars-ponyfill": "^2.4.7",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.26.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jasmine": "^4.1.3",
+    "eslint-plugin-unused-imports": "^1.1.5",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.1.0",
     "husky": "^8.0.1",
@@ -115,10 +127,6 @@
     "ts-mockito": "^2.6.1",
     "ts-node": "^10.7.0",
     "tsickle": "^0.46.0",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-import-group-ordering": "^2.1.2",
     "typescript": "4.1.6",
     "webpack-cli": "^4.9.2",
     "webpack-fix-style-only-entries": "^0.6.1"
@@ -128,7 +136,7 @@
       "npm run build:icons",
       "git add"
     ],
-    "projects/canopy/src/**/*.{html, json, js}": [
+    "projects/canopy/src/**/*.json": [
       "prettier --write",
       "git add"
     ],
@@ -137,9 +145,9 @@
       "stylelint --fix",
       "git add"
     ],
-    "projects/canopy/src/**/*.ts": [
+    "projects/canopy/src/**/*.{ts, js, component.html}": [
       "prettier --write",
-      "tslint -p tsconfig.json -c tslint.json --fix",
+      "eslint --fix",
       "git add"
     ]
   },

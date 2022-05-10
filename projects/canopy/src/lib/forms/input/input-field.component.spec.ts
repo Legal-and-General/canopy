@@ -2,7 +2,6 @@ import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-
 import {
   MockComponents,
   MockDirectives,
@@ -16,12 +15,13 @@ import { LgHintComponent } from '../hint';
 import { LgInputFieldComponent } from '../input/input-field.component';
 import { LgLabelComponent } from '../label';
 import { LgValidationComponent } from '../validation/validation.component';
-import { LgInputDirective } from './input.directive';
 import { LgButtonComponent } from '../../button';
 import { LgErrorStateMatcher } from '../validation';
 import { LgFocusDirective } from '../../focus';
 import { LgPrefixDirective } from '../../prefix';
 import { LgSuffixDirective } from '../../suffix';
+
+import { LgInputDirective } from './input.directive';
 
 describe('LgInputFieldComponent', () => {
   let fixture: MockedComponentFixture<LgInputFieldComponent>;
@@ -45,7 +45,7 @@ describe('LgInputFieldComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
 
     TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule],
+      imports: [ FormsModule, ReactiveFormsModule ],
       declarations: [
         LgInputFieldComponent,
         MockComponents(
@@ -86,19 +86,24 @@ describe('LgInputFieldComponent', () => {
         ${hasSuffix && `<span lgSuffix id="${suffixId}">${suffixText}</span>`}
       </lg-input-field>
     `);
+
     component = fixture.point.componentInstance;
     fixture.detectChanges();
 
     inputFieldDebugElement = fixture.debugElement.query(
       By.directive(LgInputFieldComponent),
     );
+
     labelInstance = fixture.debugElement.query(
       By.directive(LgLabelComponent),
     ).componentInstance;
+
     inputDirectiveInstance = ngMocks.get(ngMocks.find('input'), LgInputDirective);
+
     inputWrapperDebugElement = fixture.debugElement.query(
       By.css('.lg-input-field__inputs'),
     );
+
     labelDebugElement = fixture.debugElement.query(By.directive(LgLabelComponent));
   }
 
@@ -125,8 +130,9 @@ describe('LgInputFieldComponent', () => {
   });
 
   describe('showLabel', () => {
-    it("doesn't add the visually hidden class if the showLabel property is true", () => {
+    it('doesn\'t add the visually hidden class if the showLabel property is true', () => {
       renderComponent({ showLabel: true });
+
       expect(labelDebugElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-visually-hidden',
       );
@@ -166,7 +172,9 @@ describe('LgInputFieldComponent', () => {
       inputWrapperDebugElement.triggerEventHandler('focusin', {
         target: { nodeName: 'INPUT' },
       });
+
       fixture.detectChanges();
+
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).toContain(
         'lg-input-field--focus',
       );
@@ -176,7 +184,9 @@ describe('LgInputFieldComponent', () => {
       inputWrapperDebugElement.triggerEventHandler('focusin', {
         target: { nodeName: 'BUTTON' },
       });
+
       fixture.detectChanges();
+
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-input-field--focus',
       );
@@ -186,12 +196,16 @@ describe('LgInputFieldComponent', () => {
       inputWrapperDebugElement.triggerEventHandler('focusin', {
         target: { nodeName: 'INPUT' },
       });
+
       fixture.detectChanges();
+
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).toContain(
         'lg-input-field--focus',
       );
+
       inputWrapperDebugElement.triggerEventHandler('focusout', {});
       fixture.detectChanges();
+
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-input-field--focus',
       );
@@ -215,8 +229,10 @@ describe('LgInputFieldComponent', () => {
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).toContain(
         'lg-input-field--hover',
       );
+
       inputWrapperDebugElement.triggerEventHandler('mouseleave', {});
       fixture.detectChanges();
+
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-input-field--hover',
       );

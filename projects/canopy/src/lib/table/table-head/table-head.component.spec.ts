@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { MockRender, MockComponent } from 'ng-mocks';
 
-import { LgTableHeadComponent } from './table-head.component';
 import { LgTableRowComponent } from '../table-row/table-row.component';
+
+import { LgTableHeadComponent } from './table-head.component';
 
 describe('LgTableHeadComponent', () => {
   let component: LgTableHeadComponent;
@@ -12,7 +12,7 @@ describe('LgTableHeadComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTableHeadComponent, MockComponent(LgTableRowComponent)],
+        declarations: [ LgTableHeadComponent, MockComponent(LgTableRowComponent) ],
       }).compileComponents();
     }),
   );
@@ -21,6 +21,7 @@ describe('LgTableHeadComponent', () => {
     fixture = MockRender(`
       <thead lg-table-head><tr lg-table-row></tr></thead>
     `);
+
     component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();
   });
@@ -37,6 +38,7 @@ describe('LgTableHeadComponent', () => {
 
   it('should set the head row flag on the child rows', () => {
     component = fixture.debugElement.children[0].componentInstance;
+
     expect(component.headRow.isHeadRow).toEqual(true);
   });
 });

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { instance, mock, when } from 'ts-mockito';
 
 import { LgBrandIconComponent } from './brand-icon.component';
@@ -14,7 +13,7 @@ describe('LgBrandIconComponent', () => {
     brandIconRegistryMock = mock(LgBrandIconRegistry);
 
     TestBed.configureTestingModule({
-      declarations: [LgBrandIconComponent],
+      declarations: [ LgBrandIconComponent ],
       providers: [
         {
           provide: LgBrandIconRegistry,
@@ -55,6 +54,7 @@ describe('LgBrandIconComponent', () => {
       fixture.detectChanges();
 
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
+
       expect(
         /lg-brand-icon-\d-\d/.test(
           fixture.nativeElement.querySelector('svg').getAttribute('id'),
@@ -62,6 +62,7 @@ describe('LgBrandIconComponent', () => {
       ).toBeTrue();
 
       const pathEl = fixture.nativeElement.querySelector('path');
+
       expect(pathEl.getAttribute('id')).not.toContain('lg-icon-fill-primary');
       expect(pathEl.getAttribute('data-colour')).toContain('lg-icon-fill-primary');
     });
@@ -72,11 +73,12 @@ describe('LgBrandIconComponent', () => {
       when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
+
       component.name = 'sun';
     });
 
     describe('when not specified', () => {
-      it("shouldn't set the fill colour", () => {
+      it('shouldn\'t set the fill colour', () => {
         fixture.detectChanges();
         const el = fixture.nativeElement.querySelector(
           '[data-colour="lg-icon-fill-primary"]',
@@ -99,10 +101,11 @@ describe('LgBrandIconComponent', () => {
     });
   });
 
-  it("when the icon isn't coloured it should not set the fill style", () => {
+  it('when the icon isn\'t coloured it should not set the fill style', () => {
     when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
       '<svg id="test">test-svg<path id="no-color"></path></svg>',
     );
+
     component.name = 'sun';
 
     fixture.detectChanges();
@@ -129,6 +132,7 @@ describe('LgBrandIconComponent', () => {
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
           'lg-brand-icon--sm',
         );
+
         expect(fixture.nativeElement.getAttribute('class')).toContain(
           'lg-brand-icon--md',
         );

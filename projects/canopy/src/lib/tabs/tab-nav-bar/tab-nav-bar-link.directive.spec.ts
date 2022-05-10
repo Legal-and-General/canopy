@@ -1,7 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
 import { MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { LgTabNavBarLinkDirective } from './tab-nav-bar-link.directive';
@@ -16,7 +15,7 @@ describe('LgTabNavLinkDirective', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTabNavBarLinkDirective],
+        declarations: [ LgTabNavBarLinkDirective ],
       }).compileComponents();
     }),
   );
@@ -27,6 +26,7 @@ describe('LgTabNavLinkDirective', () => {
         <a lgTabNavBarLink href="/">Test tab</a>
       </div>
     `);
+
     debugElement = fixture.debugElement.children[0].query(By.css('a'));
     directive = debugElement.injector.get(LgTabNavBarLinkDirective);
     el = debugElement.nativeElement;
@@ -46,6 +46,7 @@ describe('LgTabNavLinkDirective', () => {
   it('should have selected class if isActive is true', () => {
     directive.isActive = true;
     fixture.detectChanges();
+
     expect(el.classList.contains('lg-tab-nav-bar-link--selected')).toBeTruthy();
   });
 
@@ -56,6 +57,7 @@ describe('LgTabNavLinkDirective', () => {
   it('should set aria selected attribute if is Active is true', () => {
     directive.isActive = true;
     fixture.detectChanges();
+
     expect(el.getAttribute('aria-selected')).toBeTruthy();
   });
 
@@ -66,6 +68,7 @@ describe('LgTabNavLinkDirective', () => {
   it('should set tabindex to -1 if isActive is true', () => {
     directive.isActive = true;
     fixture.detectChanges();
+
     expect(el.getAttribute('tabindex')).toBeNull();
   });
 
@@ -75,6 +78,7 @@ describe('LgTabNavLinkDirective', () => {
 
   it('should set keyboard-focus attribute to null if isFocused is false', () => {
     directive.isFocused = false;
+
     expect(el.getAttribute('keyboard-focus')).toBeNull();
   });
 
@@ -82,18 +86,21 @@ describe('LgTabNavLinkDirective', () => {
     directive.isFocused = true;
     directive.isKeyboardEvent = true;
     fixture.detectChanges();
+
     expect(el.getAttribute('keyboard-focus')).toBeTruthy();
   });
 
   it('sets isKeyboardEvent to true on keyup', () => {
     directive.onKeyUp();
     fixture.detectChanges();
+
     expect(directive.isKeyboardEvent).toBeTruthy();
   });
 
   it('sets isActive to true when clicked', () => {
     directive.isActive = false;
     directive.onClick();
+
     expect(directive.isActive).toBeTruthy();
   });
 
@@ -101,6 +108,7 @@ describe('LgTabNavLinkDirective', () => {
     directive.index = 2;
     directive.isActive = false;
     directive.onClick();
+
     expect(eventSpy).toHaveBeenCalledWith(2);
   });
 
@@ -115,16 +123,19 @@ describe('LgTabNavLinkDirective', () => {
 
     it('sets isKeyboardEvent to true', () => {
       directive.selectByKeyboard();
+
       expect(directive.isKeyboardEvent).toBeTruthy();
     });
 
     it('focuses the element', () => {
       directive.selectByKeyboard();
+
       expect(focusSpy).toHaveBeenCalled();
     });
 
     it('clicks the element', () => {
       directive.selectByKeyboard();
+
       expect(clickSpy).toHaveBeenCalled();
     });
   });

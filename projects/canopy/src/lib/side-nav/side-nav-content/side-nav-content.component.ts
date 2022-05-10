@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-side-nav-content',
   templateUrl: './side-nav-content.component.html',
-  styleUrls: ['./side-nav-content.component.scss'],
+  styleUrls: [ './side-nav-content.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -2,5 +2,14 @@
   "printWidth": 90,
   "singleQuote": true,
   "semi": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "attributeGroups": [
+    "$ANGULAR_STRUCTURAL_DIRECTIVE",
+    "$ANGULAR_ELEMENT_REF",
+    "$ANGULAR_INPUT",
+    "$ANGULAR_OUTPUT",
+    "$ANGULAR_TWO_WAY_BINDING",
+    "$ANGULAR_ANIMATION",
+    "$ANGULAR_ANIMATION_INPUT"
+  ]
 }

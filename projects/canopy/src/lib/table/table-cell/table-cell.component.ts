@@ -17,16 +17,27 @@ import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.
 @Component({
   selector: '[lg-table-cell]',
   templateUrl: './table-cell.component.html',
-  styleUrls: ['./table-cell.component.scss'],
+  styleUrls: [ './table-cell.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableCellComponent {
+  private _align: AlignmentOptions = AlignmentOptions.Start;
+  private _showLabel = true;
+  private _columnLabel = '';
+  private _rowIndex: number;
+  private _tableId: number;
+  alignOptions = AlignmentOptions;
+
+  @Input() colspan: number;
+
   @HostBinding('class') class = 'lg-table-cell';
 
   @HostBinding('attr.colspan')
   get colspanAttr() {
-    return typeof this.colspan !== undefined ? this.colspan : null;
+    return typeof this.colspan !== undefined
+      ? this.colspan
+      : null;
   }
 
   @HostBinding('class.lg-table-cell--expandable-content')
@@ -38,6 +49,10 @@ export class LgTableCellComponent {
   get toggleClass() {
     return this.toggle;
   }
+
+  @HostBinding('class.lg-table-cell--stacked')
+  @Input()
+  stack = false;
 
   @ViewChild('label', { static: true })
   label: ElementRef;
@@ -51,9 +66,7 @@ export class LgTableCellComponent {
   @ContentChild(LgTableRowToggleComponent, { static: false })
   toggle: LgTableRowToggleComponent;
 
-  @Input() colspan: number;
-
-  alignOptions = AlignmentOptions;
+  constructor(private cd: ChangeDetectorRef) {}
 
   set rowIndex(rowIndex: number) {
     this._rowIndex = rowIndex;
@@ -100,20 +113,4 @@ export class LgTableCellComponent {
   get showLabel() {
     return this._showLabel;
   }
-
-  @HostBinding('class.lg-table-cell--stacked')
-  @Input()
-  stack = false;
-
-  private _align: AlignmentOptions = AlignmentOptions.Start;
-
-  private _showLabel = true;
-
-  private _columnLabel = '';
-
-  private _rowIndex: number;
-
-  private _tableId: number;
-
-  constructor(private cd: ChangeDetectorRef) {}
 }

@@ -9,15 +9,16 @@ import {
   lgIconInformationFill,
   lgIconWarningFill,
 } from '../../icon/icons.interface';
-import { LgErrorStateMatcher } from './error-state-matcher';
-import { LgValidationComponent } from './validation.component';
 import { LgVariantModule } from '../../variant/variant.module';
 
+import { LgErrorStateMatcher } from './error-state-matcher';
+import { LgValidationComponent } from './validation.component';
+
 @NgModule({
-  imports: [CommonModule, LgIconModule, LgVariantModule],
-  declarations: [LgValidationComponent],
-  exports: [LgValidationComponent],
-  providers: [LgErrorStateMatcher],
+  imports: [ CommonModule, LgIconModule, LgVariantModule ],
+  declarations: [ LgValidationComponent ],
+  exports: [ LgValidationComponent ],
+  providers: [ LgErrorStateMatcher ],
 })
 export class LgValidationModule {
   constructor(private iconRegistry: LgIconRegistry) {

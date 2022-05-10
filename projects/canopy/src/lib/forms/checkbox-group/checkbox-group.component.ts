@@ -21,6 +21,7 @@ import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgToggleComponent } from '../toggle/toggle.component';
+
 import { CheckboxGroupVariant } from './checkbox-group.interface';
 
 let uniqueId = 0;
@@ -28,82 +29,24 @@ let uniqueId = 0;
 @Component({
   selector: 'lg-checkbox-group, lg-filter-multiple-group',
   templateUrl: './checkbox-group.component.html',
-  styleUrls: ['./checkbox-group.component.scss'],
+  styleUrls: [ './checkbox-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {
-  nextUniqueId = ++uniqueId;
+  private nextUniqueId = ++uniqueId;
   private _name = `lg-checkbox-group-${this.nextUniqueId}`;
+  private _value: Array<string> = [];
+  _variant: CheckboxGroupVariant;
+  _checkboxes: QueryList<LgToggleComponent>;
+  _hintElement: LgHintComponent;
+  _validationElement: LgValidationComponent;
 
   @Input() id = `lg-checkbox-group-id-${this.nextUniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
   @Input() focus: boolean;
   @Input() ariaDescribedBy: string;
-  _variant: CheckboxGroupVariant;
 
-  set variant(variant: CheckboxGroupVariant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-checkbox-group--${this.variant}`,
-      );
-    }
-    this.renderer.addClass(
-      this.hostElement.nativeElement,
-      `lg-checkbox-group--${variant}`,
-    );
-    this._variant = variant;
-  }
-  get variant() {
-    return this._variant;
-  }
-
-  @HostBinding('class.lg-checkbox-group--inline') get inlineClass() {
-    return this.inline;
-  }
-
-  @HostBinding('class.lg-checkbox-group--error') get errorClass() {
-    return this.errorState.isControlInvalid(this.control, this.controlContainer);
-  }
-
-  _checkboxes: QueryList<LgToggleComponent>;
-  @ContentChildren(forwardRef(() => LgToggleComponent), {
-    descendants: true,
-  })
-  set checkboxes(checkboxes: QueryList<LgToggleComponent>) {
-    checkboxes.toArray().forEach((checkbox: LgToggleComponent) => {
-      checkbox.control = this.control;
-    });
-    this._checkboxes = checkboxes;
-  }
-  get checkboxes(): QueryList<LgToggleComponent> {
-    return this._checkboxes;
-  }
-
-  _hintElement: LgHintComponent;
-  @ContentChild(LgHintComponent)
-  set hintElement(element: LgHintComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-    this._hintElement = element;
-  }
-
-  _validationElement: LgValidationComponent;
-  @ContentChild(LgValidationComponent)
-  set errorElement(element: LgValidationComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-    this._validationElement = element;
-  }
-
-  private _value: Array<string> = [];
   @Input()
   get value() {
     return this._value;
@@ -117,7 +60,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     }
 
     this.checkboxes.forEach(
-      (checkbox) => (checkbox.checked = value.includes(checkbox.value.toString())),
+      checkbox => (checkbox.checked = value.includes(checkbox.value.toString())),
     );
   }
 
@@ -128,6 +71,69 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   set name(value: string) {
     this._name = value;
     this._updateRadioButtonNames();
+  }
+
+  @HostBinding('class.lg-checkbox-group--inline') get inlineClass() {
+    return this.inline;
+  }
+
+  @HostBinding('class.lg-checkbox-group--error') get errorClass() {
+    return this.errorState.isControlInvalid(this.control, this.controlContainer);
+  }
+
+  @ContentChildren(forwardRef(() => LgToggleComponent), {
+    descendants: true,
+  })
+  set checkboxes(checkboxes: QueryList<LgToggleComponent>) {
+    checkboxes.toArray().forEach((checkbox: LgToggleComponent) => {
+      checkbox.control = this.control;
+    });
+
+    this._checkboxes = checkboxes;
+  }
+  get checkboxes(): QueryList<LgToggleComponent> {
+    return this._checkboxes;
+  }
+
+  set variant(variant: CheckboxGroupVariant) {
+    if (this._variant) {
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-checkbox-group--${this.variant}`,
+      );
+    }
+
+    this.renderer.addClass(
+      this.hostElement.nativeElement,
+      `lg-checkbox-group--${variant}`,
+    );
+
+    this._variant = variant;
+  }
+  get variant() {
+    return this._variant;
+  }
+
+  @ContentChild(LgHintComponent)
+  set hintElement(element: LgHintComponent) {
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._validationElement,
+      element,
+    );
+
+    this._hintElement = element;
+  }
+
+  @ContentChild(LgValidationComponent)
+  set errorElement(element: LgValidationComponent) {
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._validationElement,
+      element,
+    );
+
+    this._validationElement = element;
   }
 
   constructor(
@@ -144,16 +150,17 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     this.variant = this.hostElement.nativeElement.tagName
       .split('-')[1]
       .toLowerCase() as CheckboxGroupVariant;
+
     if (this.control != null) {
       this.control.valueAccessor = this;
     }
   }
 
-  public onChange(value: Array<string>) {
+  public onChange(value: Array<string>): void {
     this._value = value;
   }
 
-  public onTouched(_?: any) {}
+  public onTouched(_?: any): void {}
 
   public writeValue(obj: Array<string>): void {
     this.value = obj;
@@ -167,15 +174,15 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
   private _updateRadioButtonNames(): void {
     if (this.checkboxes) {
-      this.checkboxes.forEach((checkbox) => {
+      this.checkboxes.forEach(checkbox => {
         checkbox.name = this.name;
       });
     }
-  }
-
-  public setDisabledState(isDisabled: boolean) {
-    this.disabled = isDisabled;
   }
 }

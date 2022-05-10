@@ -1,9 +1,6 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { primaryLinks, secondaryLinks } from '../footer/footer.stories';
-import { notes } from './page.notes';
-import { LgPageComponent } from './page.component';
-import { LgPageModule } from './page.module';
 import { LgGridModule } from '../grid';
 import { LgMarginModule } from '../spacing';
 import { LgHeaderModule } from '../header';
@@ -12,6 +9,10 @@ import { LgCardModule } from '../card';
 import { productHeroHTML } from '../hero/hero.stories';
 import { LgHeroModule } from '../hero';
 import { LgBreadcrumbModule } from '../breadcrumb';
+
+import { LgPageModule } from './page.module';
+import { LgPageComponent } from './page.component';
+import { notes } from './page.notes';
 
 const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
@@ -165,6 +166,7 @@ const oneColumnStory: Story<LgPageComponent> = (args: LgPageComponent) => ({
 export const oneColumn = oneColumnStory.bind({});
 oneColumn.storyName = 'One column';
 oneColumn.args = createArgs();
+
 oneColumn.parameters = {
   docs: {
     source: {
@@ -203,6 +205,7 @@ const twoColumnsStory: Story<LgPageComponent> = (args: LgPageComponent) => ({
 export const twoColumns = twoColumnsStory.bind({});
 twoColumns.storyName = 'Two columns';
 twoColumns.args = createArgs();
+
 twoColumns.parameters = {
   docs: {
     source: {
@@ -239,6 +242,7 @@ const fullWidthStory: Story<LgPageComponent> = (args: LgPageComponent) => ({
 export const fullWidth = fullWidthStory.bind({});
 fullWidth.storyName = 'Full width';
 fullWidth.args = createArgs();
+
 fullWidth.parameters = {
   docs: {
     source: {
@@ -277,10 +281,12 @@ const fullWidthWithHeroStory: Story<LgPageComponent> = (args: LgPageComponent) =
 
 export const fullWidthWithHero = fullWidthWithHeroStory.bind({});
 fullWidthWithHero.storyName = 'Full width with Hero';
+
 fullWidthWithHero.args = {
   ...createArgs(),
   overlap: 2,
 };
+
 fullWidthWithHero.argTypes = {
   overlap: {
     description: 'The amount that the page content overlaps the hero component (rem)',
@@ -289,6 +295,7 @@ fullWidthWithHero.argTypes = {
     },
   },
 };
+
 fullWidthWithHero.parameters = {
   docs: {
     source: {

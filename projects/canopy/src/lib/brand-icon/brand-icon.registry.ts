@@ -9,7 +9,7 @@ export class LgBrandIconRegistry {
   private registry = new Map<BrandIconName, string>();
 
   registerBrandIcon(icons: Array<BrandIcon>): void {
-    icons.forEach((icon) => {
+    icons.forEach(icon => {
       this.registry.set(icon.name, icon.data);
     });
   }

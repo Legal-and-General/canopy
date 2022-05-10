@@ -1,7 +1,6 @@
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockComponents } from 'ng-mocks';
 import { take } from 'rxjs/operators';
 
@@ -10,6 +9,7 @@ import { LgIconComponent } from '../../icon';
 import { UniqueSelectionDispatcher } from '../../utils/unique-selection-dispatcher';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
 import { LG_ACCORDION } from '../accordion.component';
+
 import { LgAccordionItemContentDirective } from './accordion-item-content.directive';
 import { LgAccordionItemComponent } from './accordion-item.component';
 
@@ -43,6 +43,7 @@ describe('LgAccordionItemComponent', () => {
 
   beforeEach(waitForAsync(() => {
     accordionMock = { id: 'lgAccordion123' };
+
     TestBed.configureTestingModule({
       declarations: [
         TestAccordionWrapperItemComponent,
@@ -51,7 +52,7 @@ describe('LgAccordionItemComponent', () => {
         LgAccordionItemContentDirective,
         MockComponents(LgHeadingComponent, LgIconComponent),
       ],
-      providers: [{ provide: LG_ACCORDION, useFactory: () => accordionMock }],
+      providers: [ { provide: LG_ACCORDION, useFactory: () => accordionMock } ],
     }).compileComponents();
   }));
 
@@ -102,20 +103,24 @@ describe('LgAccordionItemComponent', () => {
       selectionDispatcherSpy = spyOn(selectionDispatcher, 'notify');
     });
 
-    it(`should update 'isActive'`, () => {
+    it('should update \'isActive\'', () => {
       triggerElement.nativeElement.click();
+
       expect(component.isActive).toBe(true);
 
       triggerElement.nativeElement.click();
+
       expect(component.isActive).toBe(false);
     });
 
     it('should emit events', () => {
       triggerElement.nativeElement.click();
+
       expect(openedSpy).toHaveBeenCalled();
       expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
 
       triggerElement.nativeElement.click();
+
       expect(closedSpy).toHaveBeenCalled();
       expect(selectionDispatcherSpy).toHaveBeenCalledTimes(1);
     });
@@ -130,6 +135,7 @@ describe('LgAccordionItemComponent', () => {
 
     triggerElement.nativeElement.click();
     fixture.detectChanges();
+
     expect(
       panelElement.nativeElement.classList.contains('lg-accordion__panel--active'),
     ).toBe(true);
@@ -145,13 +151,19 @@ describe('LgAccordionItemComponent', () => {
     });
 
     it('should emit opened event', () => {
-      component.opened.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
+      component.opened.pipe(take(1)).subscribe(ev => {
+        expect(ev).toBeUndefined();
+      });
+
       fixture.debugElement.componentInstance.isActive = true;
       fixture.detectChanges();
     });
 
     it('should emit closed event', () => {
-      component.closed.pipe(take(1)).subscribe((ev) => expect(ev).toBeUndefined());
+      component.closed.pipe(take(1)).subscribe(ev => {
+        expect(ev).toBeUndefined();
+      });
+
       fixture.debugElement.componentInstance.isActive = false;
       fixture.detectChanges();
     });
@@ -174,6 +186,7 @@ describe('LgAccordionItemComponent', () => {
 
       it('does nothing', () => {
         selectionDispatcher.notify(someOtherId, accordionMock.id);
+
         expect(closedSpy).not.toHaveBeenCalled();
       });
     });
@@ -185,6 +198,7 @@ describe('LgAccordionItemComponent', () => {
 
       it('deactivates active panel', () => {
         selectionDispatcher.notify(someOtherId, accordionMock.id);
+
         expect(closedSpy).toHaveBeenCalled();
         expect(component.isActive).toBeFalsy();
         expect(component.accordionPanelHeading.isActive).toBeFalsy();

@@ -9,7 +9,7 @@ import {
 @Component({
   selector: 'lg-promo-card-title',
   templateUrl: './promo-card-title.component.html',
-  styleUrls: ['./promo-card-title.component.scss'],
+  styleUrls: [ './promo-card-title.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

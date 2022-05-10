@@ -9,7 +9,7 @@ export default {
   component: LgKebabCasePipe,
   decorators: [
     moduleMetadata({
-      declarations: [LgKebabCasePipe],
+      declarations: [ LgKebabCasePipe ],
     }),
   ],
   parameters: {
@@ -31,7 +31,7 @@ export default {
   },
 } as Meta;
 
-const template = `<p>{{text | kebabCase}}</p>`;
+const template = '<p>{{text | kebabCase}}</p>';
 
 const kebabCasePipeTemplate: Story<LgKebabCasePipe> = (args: LgKebabCasePipe) => ({
   props: args,
@@ -40,9 +40,11 @@ const kebabCasePipeTemplate: Story<LgKebabCasePipe> = (args: LgKebabCasePipe) =>
 
 export const kebabCasePipeStory = kebabCasePipeTemplate.bind({});
 kebabCasePipeStory.storyName = 'Kebab case';
+
 kebabCasePipeStory.args = {
   text: 'Kebab case me',
 };
+
 kebabCasePipeStory.parameters = {
   docs: {
     source: {

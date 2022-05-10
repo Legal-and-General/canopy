@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { instance, mock, verify } from 'ts-mockito';
 
-import { LgModalHeaderComponent } from './modal-header.component';
 import { LgModalService } from '../modal.service';
+
+import { LgModalHeaderComponent } from './modal-header.component';
 
 describe('LgModalHeaderComponent', () => {
   let component: LgModalHeaderComponent;
@@ -14,8 +14,8 @@ describe('LgModalHeaderComponent', () => {
     modalServiceMock = mock(LgModalService);
 
     await TestBed.configureTestingModule({
-      declarations: [LgModalHeaderComponent],
-      providers: [{ provide: LgModalService, useValue: instance(modalServiceMock) }],
+      declarations: [ LgModalHeaderComponent ],
+      providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
     }).compileComponents();
   });
 
@@ -45,6 +45,7 @@ describe('LgModalHeaderComponent', () => {
     component.close();
 
     verify(modalServiceMock.close('test')).once();
+
     expect().nothing();
   });
 });

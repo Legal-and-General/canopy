@@ -1,10 +1,10 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon/icon.component';
+
 import { LgTableRowToggleComponent } from './table-row-toggle.component';
 
 describe('LgTableRowToggleComponent', () => {
@@ -15,13 +15,13 @@ describe('LgTableRowToggleComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTableRowToggleComponent, MockComponent(LgIconComponent)],
+        declarations: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
       }).compileComponents();
     }),
   );
 
   beforeEach(() => {
-    fixture = MockRender(`<lg-table-row-toggle></lg-table-row-toggle>`);
+    fixture = MockRender('<lg-table-row-toggle></lg-table-row-toggle>');
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -36,6 +36,7 @@ describe('LgTableRowToggleComponent', () => {
         `<lg-table-row-toggle>
         </lg-table-row-toggle>`,
       );
+
       fixture.debugElement.children[0].componentInstance.tableId = 0;
       fixture.debugElement.children[0].componentInstance.rowId = 0;
       fixture.detectChanges();
@@ -60,13 +61,14 @@ describe('LgTableRowToggleComponent', () => {
 
     beforeEach(() => {
       fixture = MockRender(
-        `<lg-table-row-toggle [isActive]="isActive"></lg-table-row-toggle>`,
+        '<lg-table-row-toggle [isActive]="isActive"></lg-table-row-toggle>',
         {
           isActive: true,
         },
       );
 
       debugElement = fixture.debugElement.query(By.css('.lg-table-row-toggle__label'));
+
       toggleDebugElement = fixture.debugElement.query(
         By.css('.lg-table-row-toggle__btn'),
       );
@@ -90,13 +92,15 @@ describe('LgTableRowToggleComponent', () => {
 
     beforeEach(() => {
       fixture = MockRender(
-        `<lg-table-row-toggle [isActive]="isActive"></lg-table-row-toggle>`,
+        '<lg-table-row-toggle [isActive]="isActive"></lg-table-row-toggle>',
         {
           isActive: false,
         },
       );
+
       fixture.detectChanges();
       debugElement = fixture.debugElement.query(By.css('.lg-table-row-toggle__label'));
+
       toggleDebugElement = fixture.debugElement.query(
         By.css('.lg-table-row-toggle__btn'),
       );

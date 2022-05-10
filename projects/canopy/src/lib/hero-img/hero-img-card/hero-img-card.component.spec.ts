@@ -11,7 +11,7 @@ describe('HeroImgCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LgHeroImgCardComponent],
+      declarations: [ LgHeroImgCardComponent ],
     }).compileComponents();
   });
 

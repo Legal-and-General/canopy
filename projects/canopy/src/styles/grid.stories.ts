@@ -288,6 +288,7 @@ const gridTemplate: Story = () => ({
 
 export const grid = gridTemplate.bind({});
 grid.storyName = 'Grid';
+
 grid.parameters = {
   docs: {
     source: {

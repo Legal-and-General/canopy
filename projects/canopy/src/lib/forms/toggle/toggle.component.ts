@@ -21,8 +21,9 @@ import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/fo
 import { LgDomService } from '../../utils/dom.service';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
-import type { ToggleVariant } from './toggle.interface';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
+
+import type { ToggleVariant } from './toggle.interface';
 
 let nextUniqueId = 0;
 
@@ -38,7 +39,7 @@ let nextUniqueId = 0;
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {
   uniqueId = nextUniqueId++;
-  selectorVariant: String;
+  selectorVariant: string;
 
   @Input() checked = false;
   @Input() id = `lg-toggle-${this.uniqueId}`;
@@ -73,25 +74,57 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
       this._validationElement,
       element,
     );
+
     this._validationElement = element;
+  }
+
+  constructor(
+    @Self() @Optional() public control: NgControl,
+    @Optional()
+    @Inject(forwardRef(() => LgCheckboxGroupComponent))
+    private checkboxGroup: LgCheckboxGroupComponent,
+    private domService: LgDomService,
+    private errorState: LgErrorStateMatcher,
+    @Optional()
+    @Host()
+    @SkipSelf()
+    private controlContainer: FormGroupDirective,
+    private hostElement: ElementRef,
+  ) {
+    this.selectorVariant = this.hostElement.nativeElement.tagName
+      .split('-')[1]
+      .toLowerCase();
+
+    if (this.checkboxGroup) {
+      return;
+    }
+
+    if (this.control != null) {
+      this.control.valueAccessor = this;
+    }
   }
 
   onCheck(): void {
     if (this.checkboxGroup) {
       this.checkboxGroup.onTouched();
+
       if (this.checkboxGroup.value.includes(this.value.toString())) {
         this.checkboxGroup.value = this.checkboxGroup.value.filter(
           (value: string) => value !== this.value,
         );
       } else {
-        this.checkboxGroup.value = [this.value.toString(), ...this.checkboxGroup.value];
+        this.checkboxGroup.value = [ this.value.toString(), ...this.checkboxGroup.value ];
       }
+
       return;
     }
 
     this.onTouched();
     this.checked = !this.checked;
-    this.onChange(this.checked ? this.value : null);
+
+    this.onChange(this.checked
+      ? this.value
+      : null);
   }
 
   onBlur(event: Event): void {
@@ -122,36 +155,14 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     this.disabled = isDisabled;
   }
 
-  constructor(
-    @Self() @Optional() public control: NgControl,
-    @Optional()
-    @Inject(forwardRef(() => LgCheckboxGroupComponent))
-    private checkboxGroup: LgCheckboxGroupComponent,
-    private domService: LgDomService,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    @Host()
-    @SkipSelf()
-    private controlContainer: FormGroupDirective,
-    private hostElement: ElementRef,
-  ) {
-    this.selectorVariant = this.hostElement.nativeElement.tagName
-      .split('-')[1]
-      .toLowerCase();
-    if (this.checkboxGroup) {
-      return;
-    }
-    if (this.control != null) {
-      this.control.valueAccessor = this;
-    }
-  }
-
   ngOnInit(): void {
     if (this.checkboxGroup) {
       this.variant = this.checkboxGroup.variant;
+
       if (this.checkboxGroup.value.includes(this.value.toString())) {
         this.checked = true;
       }
+
       this.name = this.checkboxGroup.name;
     }
 

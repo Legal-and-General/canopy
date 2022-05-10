@@ -1,8 +1,8 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgHeadingComponent } from './heading.component';
-
 import { LgHeadingModule } from '../heading';
+
+import { LgHeadingComponent } from './heading.component';
 import { notes } from './heading.notes';
 
 export default {
@@ -10,7 +10,7 @@ export default {
   component: LgHeadingComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgHeadingModule],
+      imports: [ LgHeadingModule ],
     }),
   ],
   parameters: {
@@ -25,11 +25,11 @@ export default {
       description: 'The projected content.',
     },
     level: {
-      options: ['1', '2', '3', '4', '5', '6'],
+      options: [ '1', '2', '3', '4', '5', '6' ],
       description: 'The level of the details heading.',
       table: {
         type: {
-          summary: ['1', '2', '3', '4', '5', '6'],
+          summary: [ '1', '2', '3', '4', '5', '6' ],
         },
       },
       control: {
@@ -55,10 +55,12 @@ const detailsTemplate: Story<LgHeadingComponent> = (args: LgHeadingComponent) =>
 
 export const standardHeading = detailsTemplate.bind({});
 standardHeading.storyName = 'Heading';
+
 standardHeading.args = {
   content: 'Heading',
   level: 1,
 };
+
 standardHeading.parameters = {
   docs: {
     source: {

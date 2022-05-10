@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-table-expanded-detail',
   templateUrl: './table-expanded-detail.component.html',
-  styleUrls: ['./table-expanded-detail.component.scss'],
+  styleUrls: [ './table-expanded-detail.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

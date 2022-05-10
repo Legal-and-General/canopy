@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgHeaderComponent } from '../header/header.component';
+
 import { notes } from './header.notes';
 import { LgHeaderModule } from './header.module';
 
@@ -9,7 +10,7 @@ export default {
   component: LgHeaderComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgHeaderModule],
+      imports: [ LgHeaderModule ],
     }),
   ],
   parameters: {
@@ -68,11 +69,13 @@ const standardStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
 
 export const standardHeader = standardStory.bind({});
 standardHeader.storyName = 'Standard';
+
 standardHeader.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
   logoHref: 'https://storybook.js.org',
 };
+
 standardHeader.parameters = {
   docs: {
     source: {
@@ -80,6 +83,7 @@ standardHeader.parameters = {
     },
   },
 };
+
 standardHeader.argTypes = {
   secondaryLogo: {
     table: {
@@ -117,6 +121,7 @@ const coBrandedStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
 
 export const coBrandedHeader = coBrandedStory.bind({});
 coBrandedHeader.storyName = 'Co-branded';
+
 coBrandedHeader.args = {
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
@@ -125,6 +130,7 @@ coBrandedHeader.args = {
   secondaryLogoAlt: 'Second company name',
   secondaryLogoHref: 'https://storybook.js.org',
 };
+
 coBrandedHeader.parameters = {
   docs: {
     source: {

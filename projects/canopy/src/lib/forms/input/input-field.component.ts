@@ -10,29 +10,44 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-
 import { Subscription } from 'rxjs';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgLabelComponent } from '../label/label.component';
 import { LgValidationComponent } from '../validation/validation.component';
-import { LgInputDirective } from './input.directive';
 import { LgButtonComponent } from '../../button';
 import { LgSuffixDirective } from '../../suffix/suffix.directive';
 import { LgPrefixDirective } from '../../prefix/prefix.directive';
+
+import { LgInputDirective } from './input.directive';
 
 let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-input-field',
   templateUrl: './input-field.component.html',
-  styleUrls: ['./input-field.component.scss'],
+  styleUrls: [ './input-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _id = nextUniqueId++;
+  private _labelElement: LgLabelComponent;
+  private _inputElement: LgInputDirective;
+  private _hintElement: LgHintComponent;
+  private _validationElement: LgValidationComponent;
+  private _suffixChildren: QueryList<LgSuffixDirective>;
+  private _prefixChildren: QueryList<LgSuffixDirective>;
+  /*
+  The input field control element mimics the border of the input field.
+  This allows us to add buttons and icons inside the input field.
+  Lack of IE11 support for :focus-within necessitates us doing this in JS
+*/
+  private hasFocus = false;
+  private hasHover = false;
+  private disabledStateChanges: Subscription;
 
+  @Input() id = `lg-input-${this._id++}`;
   @Input() showLabel = true;
   @Input() public set block(block: boolean) {
     if (this._inputElement) {
@@ -67,19 +82,18 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
     return this._inputElement.control && this._inputElement.control.status === 'DISABLED';
   }
 
-  private _labelElement: LgLabelComponent;
   @ViewChild(LgLabelComponent, { static: true })
   set labelElement(element: LgLabelComponent) {
     this._labelElement = element;
     this._labelElement.for = this.id;
   }
 
-  private _inputElement: LgInputDirective;
   @ContentChild(LgInputDirective, { static: true })
   set inputElement(element: LgInputDirective) {
     if (!element) {
       return;
     }
+
     this._inputElement = element;
     this._inputElement.id = this.id;
   }
@@ -87,7 +101,6 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
     return this._inputElement;
   }
 
-  private _hintElement: LgHintComponent;
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
     this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
@@ -95,10 +108,10 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
       this._hintElement,
       element,
     );
+
     this._hintElement = element;
   }
 
-  private _validationElement: LgValidationComponent;
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
     this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
@@ -106,59 +119,49 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
       this._validationElement,
       element,
     );
+
     this._validationElement = element;
   }
 
   @ContentChild(LgButtonComponent) buttonElement: LgButtonComponent;
 
-  private _suffixChildren: QueryList<LgSuffixDirective>;
   @ContentChildren(LgSuffixDirective)
   set suffixChildren(elements: QueryList<LgSuffixDirective>) {
-    elements.forEach((element) => {
+    elements.forEach(element => {
       this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
         this.inputElement.ariaDescribedBy,
         this._validationElement,
         element,
       );
     });
+
     this._suffixChildren = elements;
   }
   get suffixChildren() {
     return this._suffixChildren;
   }
 
-  private _prefixChildren: QueryList<LgSuffixDirective>;
   @ContentChildren(LgPrefixDirective)
   set prefixChildren(elements: QueryList<LgSuffixDirective>) {
-    elements.forEach((element) => {
+    elements.forEach(element => {
       this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
         this.inputElement.ariaDescribedBy,
         this._validationElement,
         element,
       );
     });
+
     this._prefixChildren = elements;
   }
   get prefixChildren() {
     return this._prefixChildren;
   }
 
-  @Input() id = `lg-input-${this._id++}`;
-
   constructor(private domService: LgDomService) {}
-
-  /*
-    The input field control element mimics the border of the input field.
-    This allows us to add buttons and icons inside the input field.
-    Lack of IE11 support for :focus-within necessitates us doing this in JS
-  */
-  private hasFocus = false;
-  private hasHover = false;
-  private disabledStateChanges: Subscription;
 
   ngAfterContentInit(): void {
     if (this.inputElement && this.buttonElement) {
-      this.inputElement.control.statusChanges.subscribe((status) => {
+      this.inputElement.control.statusChanges.subscribe(status => {
         this.buttonElement.disabled = status === 'DISABLED';
       });
     }

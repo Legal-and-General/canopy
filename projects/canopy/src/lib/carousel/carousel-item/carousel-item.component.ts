@@ -9,7 +9,7 @@ import {
 @Component({
   selector: 'lg-carousel-item',
   templateUrl: './carousel-item.component.html',
-  styleUrls: ['./carousel-item.component.scss'],
+  styleUrls: [ './carousel-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

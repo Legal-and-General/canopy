@@ -9,7 +9,7 @@ describe('LgTabItemHeadingComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTabItemHeadingComponent],
+        declarations: [ LgTabItemHeadingComponent ],
       }).compileComponents();
     }),
   );

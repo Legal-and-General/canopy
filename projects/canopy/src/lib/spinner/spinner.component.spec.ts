@@ -8,7 +8,6 @@ import {
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ChangeDetectorRef } from '@angular/core';
-
 import { instance, mock } from 'ts-mockito';
 
 import { LgSpinnerComponent } from './spinner.component';
@@ -23,8 +22,8 @@ describe('LgSpinnerComponent', () => {
       cdrMock = mock(ChangeDetectorRef);
 
       TestBed.configureTestingModule({
-        declarations: [LgSpinnerComponent],
-        providers: [{ provide: ChangeDetectorRef, useValue: instance(cdrMock) }],
+        declarations: [ LgSpinnerComponent ],
+        providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
       }).compileComponents();
     }),
   );
@@ -40,20 +39,25 @@ describe('LgSpinnerComponent', () => {
 
   it('adds the variant class to the spinner ring', () => {
     let link = fixture.debugElement.query(By.css('.lg-spinner__ring--color'));
+
     expect(link).toBeFalsy();
     component.variant = 'color';
     fixture.detectChanges();
     link = fixture.debugElement.query(By.css('.lg-spinner__ring--color'));
+
     expect(link).toBeTruthy();
   });
 
   it('adds the small size variant to the component', () => {
     fixture.detectChanges();
+
     expect(fixture.debugElement.nativeElement.getAttribute('class')).not.toContain(
       'lg-spinner--sm',
     );
+
     component.size = 'sm';
     fixture.detectChanges();
+
     expect(fixture.debugElement.nativeElement.getAttribute('class')).toContain(
       'lg-spinner--sm',
     );
@@ -97,11 +101,14 @@ describe('LgSpinnerComponent', () => {
 
     it('should be toggled every few seconds', fakeAsync(() => {
       component.ngOnInit();
+
       expect(component.readScreenReaderAlert).toBe(true);
 
       tick(1000);
+
       expect(component.readScreenReaderAlert).toBe(true);
       tick(1500);
+
       expect(component.readScreenReaderAlert).toBe(false);
       discardPeriodicTasks();
     }));

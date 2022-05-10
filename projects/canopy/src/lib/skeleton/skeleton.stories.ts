@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgGridModule } from './../grid/grid.module';
@@ -22,7 +21,7 @@ interface Data {
 }
 
 @Component({
-  selector: 'async-skeleton-loading-card',
+  selector: 'lg-async-skeleton-loading-card',
   template: `
     <lg-card>
       <lg-card-header>
@@ -53,7 +52,7 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
 }
 
 @Component({
-  selector: 'async-skeleton-loading-product-card',
+  selector: 'lg-async-skeleton-loading-product-card',
   template: `
     <lg-card>
       <lg-card-content>
@@ -119,7 +118,7 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
 }
 
 @Component({
-  selector: 'async-skeleton-loading-data-point',
+  selector: 'lg-async-skeleton-loading-data-point',
   template: `
     <lg-card>
       <lg-card-content>
@@ -161,7 +160,7 @@ export default {
         AsyncSkeletonLoadingCardComponent,
         AsyncSkeletonLoadingDataPointComponent,
       ],
-      imports: [LgCardModule, LgDataPointModule, LgGridModule, LgSkeletonModule],
+      imports: [ LgCardModule, LgDataPointModule, LgGridModule, LgSkeletonModule ],
     }),
   ],
   parameters: {
@@ -177,9 +176,9 @@ export default {
 } as Meta;
 
 const skeletonTemplate = `
-<async-skeleton-loading-card></async-skeleton-loading-card>
-<async-skeleton-loading-product-card></async-skeleton-loading-product-card>
-<async-skeleton-loading-data-point></async-skeleton-loading-data-point>
+<lg-async-skeleton-loading-card></lg-async-skeleton-loading-card>
+<lg-async-skeleton-loading-product-card></lg-async-skeleton-loading-product-card>
+<lg-async-skeleton-loading-data-point></lg-async-skeleton-loading-data-point>
 `;
 
 const defaultSkeletonStory: Story<LgSkeletonDirective> = (args: LgSkeletonDirective) => ({
@@ -189,6 +188,7 @@ const defaultSkeletonStory: Story<LgSkeletonDirective> = (args: LgSkeletonDirect
 
 export const defaultSkeleton = defaultSkeletonStory.bind({});
 defaultSkeleton.storyName = 'Skeleton Loading';
+
 defaultSkeleton.parameters = {
   docs: {
     source: {

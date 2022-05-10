@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-hero-card-data-point',
   templateUrl: './hero-card-data-point.component.html',
-  styleUrls: ['./hero-card-data-point.component.scss'],
+  styleUrls: [ './hero-card-data-point.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

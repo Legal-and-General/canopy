@@ -1,10 +1,8 @@
 import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockRender, MockComponents } from 'ng-mocks';
 
-import { LgTableComponent } from './table.component';
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
 import { LgTableRowComponent } from '../table-row/table-row.component';
@@ -14,6 +12,8 @@ import { AlignmentOptions } from '../table.interface';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
 import { LgIconComponent } from '../../icon/icon.component';
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
+
+import { LgTableComponent } from './table.component';
 
 const books = [
   {
@@ -90,6 +90,7 @@ describe('TableComponent', () => {
     expect(tableDebugElement.nativeElement.getAttribute('class')).toBe(
       'lg-table--striped lg-table--columns-md lg-table',
     );
+
     expect(tableDebugElement.nativeElement.getAttribute('class')).not.toContain(
       'lg-table--bordered',
     );
@@ -103,6 +104,7 @@ describe('TableComponent', () => {
       expect(tableDebugElement.nativeElement.getAttribute('class')).toContain(
         'lg-table--bordered',
       );
+
       expect(tableDebugElement.nativeElement.getAttribute('class')).not.toContain(
         'lg-table--striped',
       );
@@ -110,16 +112,18 @@ describe('TableComponent', () => {
   });
 
   it('passes the head content to the respective label template', () => {
-    const [authorCell, titleCell, publishedCell] = tableDebugElement.queryAll(
+    const [ authorCell, titleCell, publishedCell ] = tableDebugElement.queryAll(
       By.directive(LgTableCellComponent),
     );
 
     expect(
       authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Author');
+
     expect(titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML).toBe(
       'Title',
     );
+
     expect(
       publishedCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Published');
@@ -134,16 +138,18 @@ describe('TableComponent', () => {
 
     fixture.detectChanges();
 
-    const [authorCell, titleCell, publishedCell] = tableDebugElement.queryAll(
+    const [ authorCell, titleCell, publishedCell ] = tableDebugElement.queryAll(
       By.directive(LgTableCellComponent),
     );
 
     expect(
       authorCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Author');
+
     expect(titleCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML).toBe(
       'Title',
     );
+
     expect(
       publishedCell.query(By.css('.lg-table-cell__label')).nativeElement.innerHTML,
     ).toBe('Published');
@@ -154,13 +160,14 @@ describe('TableComponent', () => {
       fixture = MockRender(getAlignmentMockRender(), {
         alignPublishColumn: AlignmentOptions.End,
       });
+
       debugElement = fixture.debugElement;
       tableDebugElement = debugElement.query(By.directive(LgTableComponent));
       fixture.detectChanges();
     });
 
     it('should set the align end class on the cell', () => {
-      const [titleCell] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
+      const [ titleCell ] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
 
       expect(
         titleCell
@@ -175,13 +182,14 @@ describe('TableComponent', () => {
       fixture = MockRender(getAlignmentMockRender(), {
         alignPublishColumn: AlignmentOptions.Start,
       });
+
       debugElement = fixture.debugElement;
       tableDebugElement = debugElement.query(By.directive(LgTableComponent));
       fixture.detectChanges();
     });
 
     it('should not set the align end class on the cell ', () => {
-      const [titleCell] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
+      const [ titleCell ] = tableDebugElement.queryAll(By.directive(LgTableCellComponent));
 
       expect(
         titleCell
@@ -197,13 +205,14 @@ describe('TableComponent', () => {
         fixture = MockRender(getShowLabelMockRender(), {
           showLabel: true,
         });
+
         debugElement = fixture.debugElement;
         tableDebugElement = debugElement.query(By.directive(LgTableComponent));
         fixture.detectChanges();
       });
 
       it('should not add the lg-table-cell__content--hidden-label class to the table cell', () => {
-        const [titleCell] = tableDebugElement.queryAll(
+        const [ titleCell ] = tableDebugElement.queryAll(
           By.directive(LgTableCellComponent),
         );
 
@@ -213,7 +222,7 @@ describe('TableComponent', () => {
       });
 
       it('should not add the lg-visually-hidden class to the label', () => {
-        const [titleCell] = tableDebugElement.queryAll(
+        const [ titleCell ] = tableDebugElement.queryAll(
           By.directive(LgTableCellComponent),
         );
 
@@ -230,13 +239,14 @@ describe('TableComponent', () => {
         fixture = MockRender(getShowLabelMockRender(), {
           showLabel: false,
         });
+
         debugElement = fixture.debugElement;
         tableDebugElement = debugElement.query(By.directive(LgTableComponent));
         fixture.detectChanges();
       });
 
       it('should add the lg-table-cell__content--hidden-label class to the table cell', () => {
-        const [titleCell] = tableDebugElement.queryAll(
+        const [ titleCell ] = tableDebugElement.queryAll(
           By.directive(LgTableCellComponent),
         );
 
@@ -246,7 +256,7 @@ describe('TableComponent', () => {
       });
 
       it('should add the lg-visually-hidden class to the label', () => {
-        const [titleCell] = tableDebugElement.queryAll(
+        const [ titleCell ] = tableDebugElement.queryAll(
           By.directive(LgTableCellComponent),
         );
 
@@ -270,14 +280,16 @@ describe('TableComponent', () => {
         colspan: 4,
         isActive: true,
       });
+
       debugElement = fixture.debugElement;
       tableDebugElement = debugElement.query(By.directive(LgTableComponent));
       fixture.componentInstance.id = 0;
       fixture.detectChanges();
 
-      [headerRow, bodyRow, detailBodyRow] = tableDebugElement.queryAll(
+      [ headerRow, bodyRow, detailBodyRow ] = tableDebugElement.queryAll(
         By.directive(LgTableRowComponent),
       );
+
       rowToggle = tableDebugElement.query(By.css('.lg-table-row-toggle__btn'));
     });
 
@@ -319,12 +331,6 @@ describe('TableComponent', () => {
       expect(rowToggle.nativeElement.getAttribute('aria-expanded')).toBe('true');
     });
 
-    it('should set the id on the toggle', () => {
-      expect(rowToggle.nativeElement.getAttribute('id')).toMatch(
-        'lg-table-[0-9]+-toggle-row-0',
-      );
-    });
-
     it('should set the toggle label context to the first non toggle column content', () => {
       expect(rowToggle.query(By.css('.lg-visually-hidden')).nativeElement.innerHTML).toBe(
         'Gene Kim, Jez Humble, and Nicole Forsgren',
@@ -341,10 +347,12 @@ describe('TableComponent', () => {
         isActive: true,
         toggleRow: clickSpy,
       });
+
       debugElement = fixture.debugElement;
       tableDebugElement = debugElement.query(By.directive(LgTableComponent));
       fixture.componentInstance.id = 0;
       const toggle = fixture.debugElement.query(By.directive(LgTableRowToggleComponent));
+
       toggle.nativeElement.click();
       fixture.detectChanges();
     });
@@ -360,6 +368,7 @@ describe('TableComponent', () => {
         fixture = MockRender(getShowColumnsAtMockRender(), {
           showColumnsAt: 'sm',
         });
+
         debugElement = fixture.debugElement;
         tableDebugElement = debugElement.query(By.directive(LgTableComponent));
         fixture.detectChanges();

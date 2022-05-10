@@ -11,7 +11,7 @@ describe('LgPageComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgPageComponent],
+        declarations: [ LgPageComponent ],
       }).compileComponents();
     }),
   );
@@ -32,9 +32,11 @@ describe('LgPageComponent', () => {
     const event = {
       preventDefault: jasmine.createSpy(),
     };
+
     fixture.debugElement
       .query(By.css('.lg-page__skip-link'))
       .triggerEventHandler('click', event);
+
     expect(focusSpy).toHaveBeenCalled();
   });
 });

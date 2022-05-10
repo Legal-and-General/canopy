@@ -12,22 +12,13 @@ import type { SeparatorVariant } from './separator.interface';
 @Component({
   selector: 'lg-separator',
   template: '',
-  styleUrls: ['./separator.component.scss'],
+  styleUrls: [ './separator.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgSeparatorComponent {
-  @HostBinding('class.lg-separator') class = true;
-
-  @Input() hasRole: boolean;
-  @HostBinding('attr.role') get roleAttr() {
-    return this.hasRole ? 'separator' : null;
-  }
-  @HostBinding('attr.aria-hidden') get ariaHidden() {
-    return !this.hasRole || null;
-  }
-
   private _variant: SeparatorVariant;
 
+  @Input() hasRole: boolean;
   @Input()
   set variant(variant: SeparatorVariant) {
     if (this._variant) {
@@ -36,11 +27,24 @@ export class LgSeparatorComponent {
         `lg-separator--${this.variant}`,
       );
     }
+
     this.renderer.addClass(this.hostElement.nativeElement, `lg-separator--${variant}`);
     this._variant = variant;
   }
   get variant() {
     return this._variant;
+  }
+
+  @HostBinding('class.lg-separator') class = true;
+
+  @HostBinding('attr.role') get roleAttr() {
+    return this.hasRole
+      ? 'separator'
+      : null;
+  }
+
+  @HostBinding('attr.aria-hidden') get ariaHidden() {
+    return !this.hasRole || null;
   }
 
   constructor(private renderer: Renderer2, public hostElement: ElementRef) {

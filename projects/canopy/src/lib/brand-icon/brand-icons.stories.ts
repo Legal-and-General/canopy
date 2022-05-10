@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgBrandIconComponent } from './brand-icon.component';
@@ -68,7 +67,7 @@ class SwatchBrandIconComponent implements OnChanges {
   }
 }
 
-const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+const sizes = [ 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' ];
 
 const colours = [
   '--color-dandelion-yellow',
@@ -82,7 +81,7 @@ export default {
   title: 'Components/Brand Icon',
   decorators: [
     moduleMetadata({
-      declarations: [SwatchBrandIconComponent, LgBrandIconComponent],
+      declarations: [ SwatchBrandIconComponent, LgBrandIconComponent ],
     }),
   ],
   parameters: {
@@ -157,10 +156,12 @@ const brandIconsTemplate: Story<LgBrandIconComponent> = (args: LgBrandIconCompon
 
 export const standardBrandIcons = brandIconsTemplate.bind({});
 standardBrandIcons.storyName = 'Brand Icon';
+
 standardBrandIcons.args = {
   size: 'sm',
   colour: '--color-super-blue',
 };
+
 standardBrandIcons.parameters = {
   docs: {
     description: {

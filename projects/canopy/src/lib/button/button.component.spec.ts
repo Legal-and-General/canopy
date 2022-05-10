@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgSpinnerComponent } from '../spinner/spinner.component';
+
 import { LgButtonComponent } from './button.component';
 
 describe('LgButtonComponent', () => {
@@ -11,7 +12,7 @@ describe('LgButtonComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgButtonComponent, LgSpinnerComponent],
+        declarations: [ LgButtonComponent, LgSpinnerComponent ],
       }).compileComponents();
     }),
   );
@@ -94,6 +95,7 @@ describe('LgButtonComponent', () => {
       it('should set the disabled attribute', () => {
         component.disabled = true;
         fixture.detectChanges();
+
         expect(fixture.nativeElement.hasAttribute('disabled')).toBe(true);
       });
     });
@@ -136,7 +138,7 @@ describe('LgButtonComponent', () => {
         );
       });
 
-      it(`shouldn't display the spinner`, () => {
+      it('shouldn\'t display the spinner', () => {
         const spinnerComponent = fixture.debugElement.query(
           By.directive(LgSpinnerComponent),
         );
@@ -157,6 +159,7 @@ describe('LgButtonComponent', () => {
       it('should set the small size modifier', () => {
         component.size = 'sm';
         fixture.detectChanges();
+
         expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--sm');
       });
     });

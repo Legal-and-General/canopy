@@ -1,11 +1,11 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import { instance, mock, when } from 'ts-mockito';
 import { MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { keyName } from '../../utils/keyboard-keys';
+
 import { LgTabNavBarComponent } from './tab-nav-bar.component';
 import { LgTabNavBarLinkDirective } from './tab-nav-bar-link.directive';
 
@@ -18,7 +18,7 @@ describe('LgTabNavBarComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTabNavBarComponent, LgTabNavBarLinkDirective],
+        declarations: [ LgTabNavBarComponent, LgTabNavBarLinkDirective ],
       }).compileComponents();
     }),
   );
@@ -32,6 +32,7 @@ describe('LgTabNavBarComponent', () => {
         <a lgTabNavBarLink href="/">Tab 4</a>
       </lg-tab-nav-bar>
     `);
+
     debugElement = fixture.debugElement;
     component = debugElement.query(By.directive(LgTabNavBarComponent)).componentInstance;
     el = debugElement.query(By.directive(LgTabNavBarComponent)).nativeElement;
@@ -68,9 +69,11 @@ describe('LgTabNavBarComponent', () => {
     it('selected tab should have correct attributes applied', () => {
       expect(tabs[0].nativeElement.getAttribute('tabIndex')).not.toEqual(-1);
       expect(tabs[0].nativeElement.getAttribute('aria-selected')).toEqual('true');
+
       expect(tabs[0].nativeElement.getAttribute('class')).toContain(
         'lg-tab-nav-bar-link--selected',
       );
+
       expect(tabs[0].nativeElement.getAttribute('keyboard-focus')).not.toEqual('true');
     });
   });
@@ -98,9 +101,11 @@ describe('LgTabNavBarComponent', () => {
       expect(tabs[0].nativeElement.getAttribute('class')).not.toContain(
         'lg-tab-nav-bar-link--selected',
       );
+
       expect(tabs[2].nativeElement.getAttribute('class')).not.toContain(
         'lg-tab-nav-bar-link--selected',
       );
+
       expect(tabs[3].nativeElement.getAttribute('class')).not.toContain(
         'lg-tab-nav-bar-link--selected',
       );
@@ -118,6 +123,7 @@ describe('LgTabNavBarComponent', () => {
     it('should select the next tab when using right key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_RIGHT);
       const selectSpy = spyOn(component.tabs[1], 'selectByKeyboard');
+
       component.onKeyUp(instance(mockKeyEvent));
 
       expect(component.selectedIndex).toEqual(1);
@@ -127,6 +133,7 @@ describe('LgTabNavBarComponent', () => {
     it('should select the next tab when using down key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_DOWN);
       const selectSpy = spyOn(component.tabs[1], 'selectByKeyboard');
+
       component.onKeyUp(instance(mockKeyEvent));
 
       expect(component.selectedIndex).toEqual(1);
@@ -136,6 +143,7 @@ describe('LgTabNavBarComponent', () => {
     it('should select the previous tab when using left key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_LEFT);
       const selectSpy = spyOn(component.tabs[3], 'selectByKeyboard');
+
       component.onKeyUp(instance(mockKeyEvent));
 
       expect(component.selectedIndex).toEqual(3);
@@ -145,6 +153,7 @@ describe('LgTabNavBarComponent', () => {
     it('should select the previous tab when using up key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_UP);
       const selectSpy = spyOn(component.tabs[3], 'selectByKeyboard');
+
       component.onKeyUp(instance(mockKeyEvent));
 
       expect(component.selectedIndex).toEqual(3);

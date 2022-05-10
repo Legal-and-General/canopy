@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './typography.notes';
 import { LgMarginModule } from '../lib/spacing';
+
+import { notes } from './typography.notes';
 
 const pangram = 'The five boxing wizards jump quickly';
 
-const availableFontSizesRoboto = ['7', '6', '5', '4', '3', '2', '1', '0-6', '0-8'];
-const availableFontSizesLyon = ['7', '6', '5', '4'];
+const availableFontSizesRoboto = [ '7', '6', '5', '4', '3', '2', '1', '0-6', '0-8' ];
+const availableFontSizesLyon = [ '7', '6', '5', '4' ];
 
 @Component({
   selector: 'lg-display-font-size',
@@ -79,8 +79,8 @@ export default {
   title: 'Style/Typography',
   decorators: [
     moduleMetadata({
-      declarations: [LgDisplayFontSizeComponent, LgFontPanelComponent],
-      imports: [LgMarginModule],
+      declarations: [ LgDisplayFontSizeComponent, LgFontPanelComponent ],
+      imports: [ LgMarginModule ],
     }),
   ],
   parameters: {
@@ -109,8 +109,9 @@ const headingsStory: Story = (args) => ({
   template: headingsTemplate,
 });
 
-export const headings = headingsStory.bind({});
+export const headings: Story = headingsStory.bind({});
 headings.storyName = 'Headings';
+
 headings.args = {
   textString: pangram,
 };
@@ -168,6 +169,7 @@ const pageStory: Story = (args) => ({
 
 export const page = pageStory.bind({});
 pageStory.storyName = 'Page';
+
 pageStory.args = {
   textString: pangram,
 };

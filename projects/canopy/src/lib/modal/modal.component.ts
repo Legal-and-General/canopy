@@ -12,7 +12,6 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -25,28 +24,44 @@ import { LgModalBodyComponent } from './modal-body/modal-body.component';
 @Component({
   selector: 'lg-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss'],
+  styleUrls: [ './modal.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
+  private subscription: Subscription;
+  isOpen: boolean;
   @Input() id: string;
   @Output() open: EventEmitter<void> = new EventEmitter();
   @Output() closed: EventEmitter<void> = new EventEmitter();
+
   @ContentChild(forwardRef(() => LgModalHeaderComponent))
   modalHeaderComponent: LgModalHeaderComponent;
   @ContentChild(forwardRef(() => LgModalBodyComponent))
   modalBodyComponent: LgModalBodyComponent;
 
-  isOpen: boolean;
-  private subscription: Subscription;
-
   constructor(private cdr: ChangeDetectorRef, private modalService: LgModalService) {}
+
+  @HostListener('keydown', [ '$event' ]) onKeydown(event: KeyboardEvent): void {
+    if (event.key === keyName.KEY_ESCAPE && this.isOpen) {
+      this.modalService.close(this.id);
+    }
+  }
+
+  // onOverlayClick and onModalClick add the following functionality:
+  // clicking outside the modal closes the modal unless specified
+  // otherwise using closeOnOverlayClick.
+  // We specifically listen to the `mousedown` event because with
+  // the `click` event a user could click inside the modal and
+  // drag the mouse on the overlay causing the modal to close.
+  @HostListener('mousedown') onOverlayClick(): void {
+    this.modalService.close(this.id);
+  }
 
   ngOnInit(): void {
     this.subscription = this.modalService
       .isOpen$(this.id)
       .pipe(
-        map((isOpen) => {
+        map(isOpen => {
           this.isOpen = isOpen;
 
           const bodyEl: HTMLBodyElement = document.querySelector('body');
@@ -69,22 +84,6 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
     this.modalHeaderComponent.id = `lg-modal-header-${this.id}`;
     this.modalHeaderComponent.modalId = this.id;
     this.modalBodyComponent.id = `lg-modal-body-${this.id}`;
-  }
-
-  @HostListener('keydown', ['$event']) onKeydown(event: KeyboardEvent): void {
-    if (event.key === keyName.KEY_ESCAPE && this.isOpen) {
-      this.modalService.close(this.id);
-    }
-  }
-
-  // onOverlayClick and onModalClick add the following functionality:
-  // clicking outside the modal closes the modal unless specified
-  // otherwise using closeOnOverlayClick.
-  // We specifically listen to the `mousedown` event because with
-  // the `click` event a user could click inside the modal and
-  // drag the mouse on the overlay causing the modal to close.
-  @HostListener('mousedown') onOverlayClick(): void {
-    this.modalService.close(this.id);
   }
 
   onModalClick(event: Event): void {

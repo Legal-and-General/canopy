@@ -1,14 +1,14 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockComponents, MockedComponentFixture, MockModule, MockRender } from 'ng-mocks';
+
+import { LgBrandIconModule } from '../brand-icon';
 
 import {
   LgPrimaryMessageComponent,
   LgPrimaryMessageDescriptionComponent,
   LgPrimaryMessageTitleComponent,
 } from './';
-import { LgBrandIconModule } from '../brand-icon';
 
 describe('LgPrimaryMessageComponent', () => {
   let component: LgPrimaryMessageComponent;
@@ -24,7 +24,7 @@ describe('LgPrimaryMessageComponent', () => {
             LgPrimaryMessageDescriptionComponent,
           ),
         ],
-        imports: [MockModule(LgBrandIconModule)],
+        imports: [ MockModule(LgBrandIconModule) ],
       }).compileComponents();
     }),
   );
@@ -41,6 +41,7 @@ describe('LgPrimaryMessageComponent', () => {
         </lg-primary-message-description>
       </lg-primary-message>
     `);
+
     component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();
   });

@@ -9,7 +9,7 @@ describe('CardPrincipleDataPointDateComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgCardPrincipleDataPointDateComponent],
+        declarations: [ LgCardPrincipleDataPointDateComponent ],
       }).compileComponents();
     }),
   );

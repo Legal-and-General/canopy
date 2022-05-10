@@ -8,10 +8,12 @@ export class LgCamelCasePipe implements PipeTransform {
     return !str
       ? str
       : str
-          .replace(/(['"])/g, '')
-          .replace(/(?:^\w|[A-Z]|\b\w)/g, (ltr, idx) =>
-            idx === 0 ? ltr.toLowerCase() : ltr.toUpperCase(),
-          )
-          .replace(/(\s|-|\/|')/g, '');
+        .replace(/(['"])/g, '')
+        .replace(/(?:^\w|[A-Z]|\b\w)/g, (ltr, idx) =>
+          idx === 0
+            ? ltr.toLowerCase()
+            : ltr.toUpperCase(),
+        )
+        .replace(/(\s|-|\/|')/g, '');
   }
 }

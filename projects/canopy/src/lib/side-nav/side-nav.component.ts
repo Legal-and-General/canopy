@@ -11,7 +11,6 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -21,11 +20,13 @@ import { LgSideNavBarLinkDirective } from './side-nav-bar-link/side-nav-bar-link
 @Component({
   selector: 'lg-side-nav',
   templateUrl: './side-nav.component.html',
-  styleUrls: ['./side-nav.component.scss'],
+  styleUrls: [ './side-nav.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgSideNavComponent implements AfterViewInit, OnDestroy {
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
+
   @HostBinding('class.lg-side-nav') class = true;
 
   @ContentChildren(forwardRef(() => LgSideNavBarLinkDirective), {
@@ -36,9 +37,7 @@ export class LgSideNavComponent implements AfterViewInit, OnDestroy {
   @ContentChild(LgSideNavContentComponent, { read: ElementRef })
   sideNavContent: ElementRef;
 
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
-
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.navQueryList.forEach((navItem: LgSideNavBarLinkDirective) => {
       navItem.activated
         .pipe(takeUntil(this.ngUnsubscribe))
@@ -46,11 +45,11 @@ export class LgSideNavComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  focusContent() {
+  focusContent(): void {
     this.sideNavContent.nativeElement.focus();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

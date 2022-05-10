@@ -11,7 +11,7 @@ import type { HeadingLevel } from '../../../heading';
 @Component({
   selector: 'lg-promo-card-list-title',
   templateUrl: './promo-card-list-title.component.html',
-  styleUrls: ['./promo-card-list-title.component.scss'],
+  styleUrls: [ './promo-card-list-title.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

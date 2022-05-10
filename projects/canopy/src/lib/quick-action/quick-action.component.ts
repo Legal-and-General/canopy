@@ -8,7 +8,7 @@ import {
 @Component({
   selector: '[lg-quick-action]',
   templateUrl: './quick-action.component.html',
-  styleUrls: ['./quick-action.component.scss'],
+  styleUrls: [ './quick-action.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

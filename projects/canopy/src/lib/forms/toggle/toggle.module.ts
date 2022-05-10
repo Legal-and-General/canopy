@@ -8,19 +8,19 @@ import {
   lgIconCheckboxMark,
   lgIconCheckmark,
 } from '../../icon/icons.interface';
-
-import { LgToggleComponent } from './toggle.component';
 import { LgFocusModule } from '../../focus/focus.module';
 import { LgCheckboxGroupModule } from '../checkbox-group/checkbox-group.module';
 
+import { LgToggleComponent } from './toggle.component';
+
 @NgModule({
-  imports: [CommonModule, LgIconModule, LgFocusModule, LgCheckboxGroupModule],
-  declarations: [LgToggleComponent],
-  exports: [LgToggleComponent],
-  entryComponents: [LgToggleComponent],
+  imports: [ CommonModule, LgIconModule, LgFocusModule, LgCheckboxGroupModule ],
+  declarations: [ LgToggleComponent ],
+  exports: [ LgToggleComponent ],
+  entryComponents: [ LgToggleComponent ],
 })
 export class LgToggleModule {
   constructor(private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([lgIconCheckboxMark, lgIconAdd, lgIconCheckmark]);
+    this.iconRegistry.registerIcons([ lgIconCheckboxMark, lgIconAdd, lgIconCheckmark ]);
   }
 }

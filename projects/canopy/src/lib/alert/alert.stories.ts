@@ -5,7 +5,7 @@ import { LgAlertModule } from './alert.module';
 import { LgAlertComponent } from './alert.component';
 import { notes } from './alert.notes';
 
-const variantTypes = ['generic', 'info', 'success', 'warning', 'error'];
+const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 // This default export determines where your story goes in the story list
 export default {
@@ -13,7 +13,7 @@ export default {
   component: LgAlertComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgAlertModule],
+      imports: [ LgAlertModule ],
     }),
   ],
   parameters: {
@@ -77,10 +77,12 @@ const alertTemplate: Story<LgAlertComponent> = (args: LgAlertComponent) => ({
 
 export const standardAlert = alertTemplate.bind({});
 standardAlert.storyName = 'Alert';
+
 standardAlert.args = {
   content: 'This is an alert.',
   variant: 'generic',
 };
+
 standardAlert.parameters = {
   docs: {
     source: {

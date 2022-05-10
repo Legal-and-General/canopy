@@ -1,6 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-
 import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
@@ -15,7 +14,7 @@ describe('LgDetailsComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgDetailsComponent, MockComponent(LgDetailsPanelHeadingComponent)],
+        declarations: [ LgDetailsComponent, MockComponent(LgDetailsPanelHeadingComponent) ],
       }).compileComponents();
     }),
   );
@@ -27,6 +26,7 @@ describe('LgDetailsComponent', () => {
           <lg-details-panel-heading></lg-details-panel-heading>
         </lg-details>
       `);
+
       detailsDebugElement = fixture.debugElement;
       component = detailsDebugElement.children[0].componentInstance;
       detailsEl = detailsDebugElement.children[0].nativeElement;
@@ -53,6 +53,7 @@ describe('LgDetailsComponent', () => {
           <lg-details-panel-heading></lg-details-panel-heading>
         </lg-details>
       `);
+
       detailsDebugElement = fixture.debugElement;
       detailsEl = detailsDebugElement.children[0].nativeElement;
       component = fixture.point.componentInstance;
@@ -65,24 +66,28 @@ describe('LgDetailsComponent', () => {
 
     it('does not add an Aria role for the info variant', () => {
       component.variant = 'info';
+
       expect(detailsEl.getAttribute('role')).toBeNull();
     });
 
     it('adds an Aria role "alert" for the warning variant', () => {
       component.variant = 'warning';
       fixture.detectChanges();
+
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
     it('adds an Aria role "alert" for the error variant', () => {
       component.variant = 'error';
       fixture.detectChanges();
+
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
     it('adds an Aria role "success" for the error variant', () => {
       component.variant = 'success';
       fixture.detectChanges();
+
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
   });
@@ -94,6 +99,7 @@ describe('LgDetailsComponent', () => {
           <lg-details-panel-heading></lg-details-panel-heading>
         </lg-details>
       `);
+
       detailsDebugElement = fixture.debugElement;
       component = detailsDebugElement.children[0].componentInstance;
       fixture.detectChanges();
@@ -111,6 +117,7 @@ describe('LgDetailsComponent', () => {
           <lg-details-panel-heading></lg-details-panel-heading>
         </lg-details>
       `);
+
       detailsDebugElement = fixture.debugElement;
       component = detailsDebugElement.children[0].componentInstance;
       fixture.detectChanges();
@@ -120,15 +127,19 @@ describe('LgDetailsComponent', () => {
       expect(component.panelHeading.isActive).toEqual(false);
     });
 
-    it(`should emit the isActive status of true`, () => {
+    it('should emit the isActive status of true', () => {
       const componentEventSpy = spyOn(component.opened, 'emit');
+
       component.panelHeading.toggleActive.emit(true);
+
       expect(componentEventSpy).toHaveBeenCalled();
     });
 
-    it(`should emit the isActive status of false`, () => {
+    it('should emit the isActive status of false', () => {
       const componentEventSpy = spyOn(component.closed, 'emit');
+
       component.panelHeading.toggleActive.emit(false);
+
       expect(componentEventSpy).toHaveBeenCalled();
     });
   });

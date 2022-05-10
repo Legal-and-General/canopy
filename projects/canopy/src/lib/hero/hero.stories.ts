@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgBreadcrumbModule } from '../breadcrumb/breadcrumb.module';
@@ -7,6 +6,7 @@ import { LgGridModule } from '../grid/grid.module';
 import { LgMarginModule } from '../spacing/margin/margin.module';
 import { LgCardModule } from '../card/card.module';
 import { lgIconInformationFill, LgIconModule, LgIconRegistry } from '../icon';
+
 import { notes } from './hero.notes';
 import { LgHeroModule } from './hero.module';
 import { LgHeroComponent } from './hero.component';
@@ -152,16 +152,16 @@ class HeroProductStoryComponent {
   @Input() overlap: number;
 
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([lgIconInformationFill]);
+    this.registry.registerIcons([ lgIconInformationFill ]);
   }
 }
 
 export default {
   title: 'Components/Hero',
-  excludeStories: ['productHeroHTML', 'conversationalHeroHTML'],
+  excludeStories: [ 'productHeroHTML', 'conversationalHeroHTML' ],
   decorators: [
     moduleMetadata({
-      declarations: [HeroProductStoryComponent],
+      declarations: [ HeroProductStoryComponent ],
       imports: [
         LgHeroModule,
         LgGridModule,
@@ -192,14 +192,16 @@ export default {
 
 const productHeroStory: Story<LgHeroComponent> = (args: LgHeroComponent) => ({
   props: args,
-  template: `<lg-hero-product-story [overlap]="overlap"></lg-hero-product-story>`,
+  template: '<lg-hero-product-story [overlap]="overlap"></lg-hero-product-story>',
 });
 
 export const productHero = productHeroStory.bind({});
 productHero.storyName = 'Product details';
+
 productHero.args = {
   overlap: 2,
 };
+
 productHero.parameters = {
   docs: {
     source: {
@@ -220,9 +222,11 @@ const conversationalHeroStory: Story<LgHeroComponent> = (args: LgHeroComponent) 
 
 export const conversationalHero = conversationalHeroStory.bind({});
 conversationalHero.storyName = 'Conversational UI';
+
 conversationalHero.args = {
   overlap: 2,
 };
+
 conversationalHero.parameters = {
   docs: {
     source: {

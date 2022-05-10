@@ -1,9 +1,10 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from '../spacing.notes';
+import { LgCardModule } from '../../card';
+
 import { LgMarginModule } from './margin.module';
 import { LgMarginDirective } from './margin.directive';
-import { LgCardModule } from '../../card';
 
 const spaces = [
   'undefined',
@@ -27,7 +28,7 @@ export default {
   title: 'Directives/Margin',
   decorators: [
     moduleMetadata({
-      imports: [LgMarginModule, LgCardModule],
+      imports: [ LgMarginModule, LgCardModule ],
     }),
   ],
   parameters: {
@@ -163,6 +164,7 @@ const marginStory: Story<LgMarginDirective> = (args: LgMarginDirective) => ({
 
 export const margin = marginStory.bind({});
 margin.storyName = 'Margin';
+
 margin.args = {
   margin: 'md',
   marginTop: 'undefined',
@@ -176,6 +178,7 @@ margin.args = {
   marginBottomResponsive: null,
   marginLeftResponsive: null,
 };
+
 margin.parameters = {
   docs: {
     source: {

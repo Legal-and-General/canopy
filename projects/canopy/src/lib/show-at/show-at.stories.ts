@@ -2,6 +2,7 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgCardModule } from '../card/card.module';
 import { LgSeparatorModule } from '../separator/separator.module';
+
 import { LgShowAtModule } from './show-at.module';
 import { notes } from './show-at.notes';
 import { LgShowAtDirective } from './show-at.directive';
@@ -12,7 +13,7 @@ export default {
   component: LgShowAtDirective,
   decorators: [
     moduleMetadata({
-      imports: [LgShowAtModule, LgCardModule, LgSeparatorModule],
+      imports: [ LgShowAtModule, LgCardModule, LgSeparatorModule ],
     }),
   ],
   parameters: {
@@ -24,11 +25,11 @@ export default {
   },
   argTypes: {
     lgShowAt: {
-      options: ['sm', 'md', 'lg', 'xl', 'xxl'],
+      options: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
       description: 'The name of the breakpoint applied.',
       table: {
         type: {
-          summary: ['sm', 'md', 'lg', 'xl', 'xxl'],
+          summary: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
         },
       },
       control: {
@@ -70,9 +71,11 @@ const showAtTemplate: Story<LgShowAtDirective> = (args: LgShowAtDirective) => ({
 
 export const showAtStory = showAtTemplate.bind({});
 showAtStory.storyName = 'Show at';
+
 showAtStory.args = {
   lgShowAt: 'md',
 };
+
 showAtStory.parameters = {
   docs: {
     source: {

@@ -12,7 +12,7 @@ describe('LgHeroCardFooterComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeroCardFooterComponent],
+        declarations: [ LgHeroCardFooterComponent ],
       }).compileComponents();
     }),
   );

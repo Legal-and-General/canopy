@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-data-point-value',
   templateUrl: './data-point-value.component.html',
-  styleUrls: ['./data-point-value.component.scss'],
+  styleUrls: [ './data-point-value.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

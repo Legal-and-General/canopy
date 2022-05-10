@@ -5,7 +5,7 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-hint',
   templateUrl: './hint.component.html',
-  styleUrls: ['./hint.component.scss'],
+  styleUrls: [ './hint.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgHintComponent {
