@@ -1,3 +1,5 @@
+# Note that changing the name of this workflow will affect the
+# code in gh-pages/download-branch-deploy-artefact.js
 name: Pull request
 
 on:
@@ -17,6 +19,9 @@ jobs:
           cache: 'npm'
       - name: install dependencies
         run: npm ci
+      - name: set BRANCH_NAME variable
+        run: |
+          echo "BRANCH_NAME=${GITHUB_HEAD_REF##*/}" >> $GITHUB_ENV
       - name: tslint
         run: npm run tslint
       - name: stylelint
@@ -31,3 +36,9 @@ jobs:
         run: npm run license-check:build
       - name: build:test-app
         run: npm run build:test-app
+      - name: build storybook
+        run: npm run build-storybook -- -o ./sb-build -- -c ./docs/sb-${{ env.BRANCH_NAME }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: sb-build
+          path: ./sb-build

@@ -8,18 +8,38 @@ on:
       - '*'
 
 jobs:
-  verify:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: setup node
-        uses: actions/setup-node@v3.1.1
+
+      - uses: actions/setup-node@v3.1.1
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
-      - name: install dependencies
+
+      - name: 'Install dependencies'
         run: npm ci
-      - name: install action dependencies
-        run: cd .github/actions/gh-pages-storybook && npm ci
-      - name: deploy to pages
-        uses: ./.github/actions/gh-pages-storybook
+
+      - name: 'Un-deploy unused environments'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const undeploy = require('./.github/workflow-scripts/gh-pages/undeploy.js');
+            return await undeploy({
+              github,
+              context,
+              exec
+            });
+
+      - name: 'Deployment to GitHub Pages'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
+            return await deployBranch({
+              branch: 'master',
+              github,
+              context,
+              exec,
+              core
+            });
