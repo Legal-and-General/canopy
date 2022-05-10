@@ -1,4 +1,4 @@
-name: Branch Deploy
+name: Deploy branch to gh-pages
 on:
   workflow_dispatch:
     inputs:
@@ -17,22 +17,49 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: 'Set BRANCH_NAME variable'
-        run: |
-          echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - name: 'Install dependencies'
+        run: npm ci
+
+      - name: 'Save PR data'
+        uses: actions/github-script@v6
+        id: prData
+        with:
+          script: |
+            const getData = require('./.github/workflow-scripts/gh-pages/get-pr-data.js');
+            return await getData({
+              pullNumber: '${{ github.event.inputs.pullNumber }}',
+              github,
+              context
+            });
+
+      - name: 'Download artifacts from PR'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const downloadArtifact = require('./.github/workflow-scripts/gh-pages/download-branch-deploy-artifact.js');
+            await downloadArtifact({
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
+              github,
+              context
+            });
+
+      - run: |
+          unzip sb-build.zip -d ./docs/sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
+          rm sb-build.zip
 
       - name: 'Branch deployment to GitHub Pages'
         uses: actions/github-script@v6
         with:
           script: |
-            const deployBranch = require('./.github/workflow-scripts/deploy-branch.js');
+            const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
             return await deployBranch({
-              branch: ${{ env.BRANCH_NAME }},
-              pullNumber: ${{ github.event.inputs.pullNumber }},
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
+              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               github,
               context,
               exec,
-              core
             });
 
       - name: 'Update PR with branch url comment'
@@ -40,15 +67,23 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const addComment = require('./.github/workflow-scripts/add-pr-comment.js');
+            const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
             return await addComment({
-              pullNumber: ${{ github.event.inputs.pullNumber }},
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               github,
               context,
-              body: `
-                ### :rocket: Branch deployed
+            });
 
-                The **branch URL** is:
-                https://legal-and-general.github.io/canopy/${{ env.BRANCH_NAME }}
-              `
+      - name: 'Add label to PR'
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const addLabels = require('./.github/workflow-scripts/add-labels.js');
+            return await addLabels({
+              issueNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
+              labels: [ 'deployed' ],
+              github,
+              context
             });
