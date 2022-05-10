@@ -20,17 +20,6 @@ jobs:
       - name: 'Install dependencies'
         run: npm ci
 
-      - name: 'Un-deploy unused environments'
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const undeploy = require('./.github/workflow-scripts/gh-pages/undeploy.js');
-            return await undeploy({
-              github,
-              context,
-              exec
-            });
-
       - name: 'Deployment to GitHub Pages'
         uses: actions/github-script@v6
         with:
