@@ -46,7 +46,7 @@ async function evaluatePullChecks(sha, github, repo, owner) {
     ref: sha
   });
 
-  return listCheckRuns.every(checkRun => checkRun.conclusion === 'success');
+  return listCheckRuns.every(({ conclusion }) => conclusion === 'success');
 }
 
 async function deploy(branch, docsPath, exec) {

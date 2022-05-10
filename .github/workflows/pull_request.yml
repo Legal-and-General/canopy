@@ -1,5 +1,5 @@
 # Note that changing the name of this workflow will affect the
-# code in gh-pages/download-branch-deploy-artefact.js
+# code in gh-pages/download-branch-deploy-artifact.js
 name: Pull request
 
 on:

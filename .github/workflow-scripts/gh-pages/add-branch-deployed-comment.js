@@ -16,7 +16,7 @@ module.exports = async ({
       owner,
       repo,
       issue_number: pullNumber,
-      body: `### :rocket: Branch deployed\nThe **branch URL** is:\n<a href="https://legal-and-general.github.io/canopy/sb-${branch}" target="_blank">https://legal-and-general.github.io/canopy/sb-${branch}</a>`
+      body: `### :rocket: Branch deployed\nThe **branch URL** is:\nhttps://legal-and-general.github.io/canopy/sb-${branch}`
     });
   }
 }
