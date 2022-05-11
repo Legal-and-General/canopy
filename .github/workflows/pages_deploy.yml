@@ -27,6 +27,7 @@ jobs:
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
             return await deployBranch({
               branch: 'master',
+              sha: '${{ env.GITHUB_SHA }}'
               github,
               context,
               exec,
