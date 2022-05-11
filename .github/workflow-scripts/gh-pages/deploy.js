@@ -91,13 +91,20 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     console.info('ℹ️ Adding storybook static files');
     await exec.exec('git', ['add', docsPath]);
 
-    console.info('ℹ️ Committing changes');
-    await exec.exec('git', [
-      'commit',
-      '-m',
-      `docs(gh-pages): latest storybook build from ${branch}\nCommit: ${sha.substring(0,7)}`,
-      '--no-verify'
-    ]);
+    try {
+      console.info('ℹ️ Committing changes');
+      await exec.exec('git', [
+        'commit',
+        '-m',
+        `docs(gh-pages): latest storybook build from ${branch}\nCommit: ${sha.substring(0,7)}`,
+        '--no-verify'
+      ]);
+    } catch(e) {
+      console.info('error', e);
+    }
+
+    console.info('ℹ️ Logging status');
+    await exec.exec('git', ['status']);
 
     console.info('ℹ️ Un-deploy unused environments');
     await undeploy({ branch, repo, owner, github, exec });
