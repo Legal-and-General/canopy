@@ -68,12 +68,13 @@ jobs:
         with:
           script: |
             const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
-            return await addComment({
+            const l = await addComment({
               branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
               pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               github,
               context,
             });
+            console.log('labels', l);
 
       - name: 'Add label to PR'
         if: success()
