@@ -72,7 +72,7 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     console.info('ℹ️ Checking out gh-pages branch');
     await exec.exec('git', ['checkout', 'gh-pages']);
 
-    if (branch !== 'master' && fs.existsSync(docsPath)) {
+    if (fs.existsSync(docsPath)) {
       // this is to avoid any merge conflict when an environment is redeployed
       console.info(`ℹ️ Cleaning existing ${docsPath}`);
       await exec.exec('rm', ['-rf', docsPath]);
