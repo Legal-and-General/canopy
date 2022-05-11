@@ -53,7 +53,7 @@ jobs:
 #        with:
 #          script: |
 #            const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
-#            return await deployBranch({
+#            await deployBranch({
 #              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
 #              sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
 #              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
@@ -68,13 +68,12 @@ jobs:
         with:
           script: |
             const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
-            const l = await addComment({
+            await addComment({
               branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
               pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               github,
               context,
             });
-            console.log('labels', l);
 
       - name: 'Add label to PR'
         if: success()
@@ -82,7 +81,7 @@ jobs:
         with:
           script: |
             const addLabels = require('./.github/workflow-scripts/add-labels.js');
-            return await addLabels({
+            await addLabels({
               issueNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               labels: [ 'deployed' ],
               github,
