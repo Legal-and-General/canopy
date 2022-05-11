@@ -76,16 +76,17 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       // this is to avoid any merge conflict when an environment is redeployed
       console.info(`ℹ️ Cleaning existing ${docsPath}`);
       if (branch === 'master') {
-        const filesOrDirToClean = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => !item.name.startsWith('sb-'));
-        for (const item of filesOrDirToClean) {
-          await exec.exec('rm', ['-rf', item]);
+        // in master we want to clean everything from `./docs` with the exception of the directories of the deployed branches
+        const filesToRemove = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => !item.name.startsWith('sb-')).map(({ name }) => name);
+        for (const file of filesToRemove) {
+          await exec.exec('rm', ['-rf', `./docs/${file}`]);
         }
       } else {
+        // in a branch we want to clean everything the specific folder e.g. `./docs/sb-<branch-name>`
         await exec.exec('rm', ['-rf', docsPath]);
       }
+
       await exec.exec('git', ['add', docsPath]);
-      console.info('ℹ️ Logging status');
-      await exec.exec('git', ['status']);
       await exec.exec('git', [
         'commit',
         '-m',
@@ -98,8 +99,14 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     await exec.exec('git', ['stash', 'pop']);
 
     if (branch === 'master') {
-      await exec.exec('mv', ['-v', './sb-build/*', './docs']);
+      // moving one file at the time because using `*` in the mv command breaks the code
+      const sbFiles = fs.readdirSync('./sb-build', { withFileTypes: true }).map(({ name }) => name);
+      for (const file of sbFiles) {
+        await exec.exec('mv', [`./sb-build/${file}`, './docs/']);
+      }
+
       await exec.exec('rm', ['-rf', './sb-build']);
+      await exec.exec('git', ['add', './sb-build']);
     }
 
     console.info('ℹ️ Adding storybook static files');
