@@ -5,7 +5,7 @@ module.exports = async ({
   context: { repo: { repo, owner } },
 }) => {
   try {
-    const labels = await github.rest.issues.listLabelsOnIssue({
+    const { data: labels } = await github.rest.issues.listLabelsOnIssue({
       owner,
       repo,
       issue_number: pullNumber,
