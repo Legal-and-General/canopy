@@ -17,7 +17,7 @@ module.exports = async ({
     // gh-pages only works in the root directory, or '/docs'
     await exec.exec('npm', ['run', 'build-storybook', '--', '-o', 'sb-build']);
 
-    await deploy({ branch, sha, repo, owner, docsPath, github, exec });
+    await deploy({ branch, sha, pullNumber, repo, owner, docsPath, github, exec });
   } else {
     console.info(`ℹ️ Branch to deploy: ${branch}`);
 
@@ -32,7 +32,7 @@ module.exports = async ({
 
     if (checksPassed) {
       console.info('ℹ️ The PR checks passed successfully');
-      await deploy({ branch, sha, repo, owner, docsPath, github, exec });
+      await deploy({ branch, pullNumber, sha, repo, owner, docsPath, github, exec });
     } else {
       throw `🚫 Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
     }
@@ -51,7 +51,7 @@ async function evaluatePullChecks({ sha, github, repo, owner }) {
   return listCheckRuns.every(({ conclusion }) => conclusion === 'success');
 }
 
-async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
+async function deploy({ branch, sha, pullNumber, repo, owner, docsPath, github, exec }) {
   try {
     console.info('ℹ️ Configuring git');
     await exec.exec('git', ['config', '--global', 'user.email', 'github-actions[bot]@users.noreply.github.com']);
@@ -125,6 +125,29 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
 
     console.info('ℹ️ Pushing to gh-pages');
     // await exec.exec('git', ['push', '-f', '--set-upstream', 'origin', 'gh-pages']);
+
+    const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+      owner,
+      repo,
+      issue_number: pullNumber,
+    });
+
+    const labelsRes = await github.request(`GET /repos/${owner}/${repo}/issues/${pullNumber}/labels`);
+
+    if (!labels.length || !labels.find(({ name }) => name === 'deployed')) {
+      await github.rest.issues.createComment({
+        owner,
+        repo,
+        issue_number: pullNumber,
+        body: `### :rocket: Branch deployed\n*Note that the deployment might take ~1 minute before being available.*\n\nThe **branch URL** is:\nhttps://legal-and-general.github.io/canopy/sb-${branch}`
+      });
+    }
+
+    console.info(labels,{
+      labels,
+      labelsRes
+    })
+
   } catch (e) {
     throw `🚫 Error: something went wrong during the deployment of branch ${branch}`;
   }
