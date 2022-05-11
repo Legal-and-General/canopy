@@ -124,9 +124,6 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       console.info('error', e);
     }
 
-    console.info('ℹ️ Logging status');
-    await exec.exec('git', ['status']);
-
     console.info('ℹ️ Un-deploy unused environments');
     await undeploy({ branch, repo, owner, github, exec });
 
