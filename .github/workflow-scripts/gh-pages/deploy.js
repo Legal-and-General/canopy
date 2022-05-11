@@ -99,6 +99,7 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
 
     if (branch === 'master') {
       await exec.exec('mv', ['-v', './sb-build/*', './docs']);
+      await exec.exec('rm', ['-rf', './sb-build']);
     }
 
     console.info('ℹ️ Adding storybook static files');
