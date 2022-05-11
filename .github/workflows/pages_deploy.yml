@@ -3,7 +3,7 @@ name: Deploy to gh-pages
 on:
   push:
     branches:
-      - master
+      - workflow-test
     tags-ignore:
       - '*'
 
@@ -26,7 +26,7 @@ jobs:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
             return await deployBranch({
-              branch: 'master',
+              branch: 'workflow-test',
               github,
               context,
               exec,
