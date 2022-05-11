@@ -10,6 +10,8 @@ module.exports = async ({
     issue_number: pullNumber,
   });
 
+  console.info('labels',labels)
+
   // add the comment only if the branch hasn't been deployed yet
   if (!labels.includes('deployed')) {
     await github.rest.issues.createComment({
