@@ -61,7 +61,7 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     await exec.exec('git', ['status']);
 
     console.info('ℹ️ Starting to track the storybook changes before stashing');
-    await exec.exec('git', ['add', docsPath]);
+    await exec.exec('git', ['add', '.']);
 
     console.info('ℹ️ Stashing the storybook changes');
     await exec.exec('git', ['stash']);
