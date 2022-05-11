@@ -126,28 +126,9 @@ async function deploy({ branch, sha, pullNumber, repo, owner, docsPath, github, 
     console.info('ℹ️ Pushing to gh-pages');
     // await exec.exec('git', ['push', '-f', '--set-upstream', 'origin', 'gh-pages']);
 
-    const { data: labels } = await github.rest.issues.listLabelsOnIssue({
-      owner,
-      repo,
-      issue_number: pullNumber,
-    });
-
-    const labelsRes = await github.request(`GET /repos/${owner}/${repo}/issues/${pullNumber}/labels`);
-
-    if (!labels.length || !labels.find(({ name }) => name === 'deployed')) {
-      await github.rest.issues.createComment({
-        owner,
-        repo,
-        issue_number: pullNumber,
-        body: `### :rocket: Branch deployed\n*Note that the deployment might take ~1 minute before being available.*\n\nThe **branch URL** is:\nhttps://legal-and-general.github.io/canopy/sb-${branch}`
-      });
-    }
-
-    console.info(labels,{
-      labels,
-      labelsRes
-    })
-
+    // await handlePrComment({ branch, pullNumber, owner, repo, github });
+    console.info(`ℹ️ Checking out ${branch}`);
+    await exec.exec('git', ['checkout', '-']);
   } catch (e) {
     throw `🚫 Error: something went wrong during the deployment of branch ${branch}`;
   }
@@ -198,4 +179,29 @@ async function undeploy({ branch, repo, owner, github, exec }) {
   } catch (error) {
     throw `🚫 Error: something went wrong during the un-deployment`;
   }
+}
+
+async function handlePrComment({ branch, pullNumber, owner, repo, github }) {
+  const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+    owner,
+    repo,
+    issue_number: pullNumber,
+  });
+
+  const labelsRes = await github.request(`GET /repos/${owner}/${repo}/issues/${pullNumber}/labels`);
+
+  if (!labels.length || !labels.find(({ name }) => name === 'deployed')) {
+    console.info('ℹ️ Adding PR comment');
+    await github.rest.issues.createComment({
+      owner,
+      repo,
+      issue_number: pullNumber,
+      body: `### :rocket: Branch deployed\n*Note that the deployment might take ~1 minute before being available.*\n\nThe **branch URL** is:\nhttps://legal-and-general.github.io/canopy/sb-${branch}`
+    });
+  }
+
+  console.info(labels,{
+    labels,
+    labelsRes
+  })
 }

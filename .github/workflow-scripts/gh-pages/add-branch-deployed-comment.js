@@ -24,7 +24,6 @@ module.exports = async ({
 
     return {
       labels,
-      labelsRes
     }
   } catch (e) {
     console.info(e);

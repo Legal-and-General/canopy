@@ -61,20 +61,20 @@ jobs:
               context,
               exec,
             });
-#
-#      - name: 'Update PR with branch url comment'
-#        if: success()
-#        uses: actions/github-script@v6
-#        with:
-#          script: |
-#            const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
-#            const labels = await addComment({
-#              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
-#              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
-#              github,
-#              context,
-#            });
-#            console.log('labels', labels);
+
+      - name: 'Update PR with branch url comment'
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
+            const labels = await addComment({
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
+              github,
+              context,
+            });
+            console.log('labels');
 
       - name: 'Add label to PR'
         if: success()
