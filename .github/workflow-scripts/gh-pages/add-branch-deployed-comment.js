@@ -19,8 +19,6 @@ module.exports = async ({
         body: `### :rocket: Branch deployed\n*Note that the deployment might take ~1 minute before being available.*\n\nThe **branch URL** is:\nhttps://legal-and-general.github.io/canopy/sb-${branch}`
       });
     }
-
-    return labels;
   } catch (e) {
     console.info(e);
   }
