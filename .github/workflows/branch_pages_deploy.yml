@@ -70,7 +70,7 @@ jobs:
             const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
             const a = await addComment({
               branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
-              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
+              pullNumber: '${{ fromJSON(steps.prData.outputs.result).pullNumber }}',
               github,
               context,
             });
