@@ -15,7 +15,7 @@ module.exports = async ({
     console.info('ℹ️ Branch to deploy: master');
     console.info('ℹ️ Running storybook build');
     // gh-pages only works in the root directory, or '/docs'
-    await exec.exec('npm', ['run', 'build-storybook', '--', '-o', docsPath]);
+    await exec.exec('npm', ['run', 'build-storybook', '--', '-o', 'sb-build']);
 
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   } else {
@@ -61,7 +61,7 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     await exec.exec('git', ['status']);
 
     console.info('ℹ️ Starting to track the storybook changes before stashing');
-    await exec.exec('git', ['add', docsPath]);
+    await exec.exec('git', ['add', '.']);
 
     console.info('ℹ️ Stashing the storybook changes');
     await exec.exec('git', ['stash']);
@@ -75,7 +75,17 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     if (fs.existsSync(docsPath)) {
       // this is to avoid any merge conflict when an environment is redeployed
       console.info(`ℹ️ Cleaning existing ${docsPath}`);
-      await exec.exec('rm', ['-rf', docsPath]);
+      if (branch === 'master') {
+        // for master we want to clean everything from `./docs` with the exception of the directories of the deployed branches
+        const filesToRemove = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => !item.name.startsWith('sb-')).map(({ name }) => name);
+        for (const file of filesToRemove) {
+          await exec.exec('rm', ['-rf', `./docs/${file}`]);
+        }
+      } else {
+        // for a branch we want to clean the specific branch folder e.g. `./docs/sb-<branch-name>`
+        await exec.exec('rm', ['-rf', docsPath]);
+      }
+
       await exec.exec('git', ['add', docsPath]);
       await exec.exec('git', [
         'commit',
@@ -87,6 +97,17 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
 
     console.info('ℹ️ Applying the stash with the storybook changes');
     await exec.exec('git', ['stash', 'pop']);
+
+    if (branch === 'master') {
+      // moving one file at the time because using `*` in the mv command breaks the code
+      const sbFiles = fs.readdirSync('./sb-build', { withFileTypes: true }).map(({ name }) => name);
+      for (const file of sbFiles) {
+        await exec.exec('mv', [`./sb-build/${file}`, './docs/']);
+      }
+
+      await exec.exec('rm', ['-rf', './sb-build']);
+      await exec.exec('git', ['add', './sb-build']);
+    }
 
     console.info('ℹ️ Adding storybook static files');
     await exec.exec('git', ['add', docsPath]);
