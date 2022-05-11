@@ -11,6 +11,8 @@ module.exports = async ({
       issue_number: pullNumber,
     });
 
+    const labelsRes = await github.request(`GET /repos/${owner}/${repo}/issues/${pullNumber}/labels`);
+
     if (!labels.length || !labels.find(({ name }) => name === 'deployed')) {
       await github.rest.issues.createComment({
         owner,
@@ -18,6 +20,11 @@ module.exports = async ({
         issue_number: pullNumber,
         body: `### :rocket: Branch deployed\n*Note that the deployment might take ~1 minute before being available.*\n\nThe **branch URL** is:\nhttps://legal-and-general.github.io/canopy/sb-${branch}`
       });
+    }
+
+    return {
+      labels,
+      labelsRes
     }
   } catch (e) {
     console.info(e);
