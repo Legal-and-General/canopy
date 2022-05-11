@@ -1,13 +1,13 @@
 const fs = require('fs-extra');
 
 module.exports = async ({
-  branch,
-  sha,
-  pullNumber,
-  github,
-  context: { repo: { repo, owner } },
-  exec,
-}) => {
+                          branch,
+                          sha,
+                          pullNumber,
+                          github,
+                          context: { repo: { repo, owner } },
+                          exec,
+                        }) => {
   console.info('ℹ️ Commencing storybook gh-pages deploy');
   let docsPath = './docs';
 
@@ -15,7 +15,7 @@ module.exports = async ({
     console.info('ℹ️ Branch to deploy: master');
     console.info('ℹ️ Running storybook build');
     // gh-pages only works in the root directory, or '/docs'
-    await exec.exec('npm', ['run', 'build-storybook', '--', '-o', docsPath]);
+    await exec.exec('npm', ['run', 'build-storybook', '--', '-o', 'sb-build']);
 
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   } else {
@@ -84,6 +84,8 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
         await exec.exec('rm', ['-rf', docsPath]);
       }
       await exec.exec('git', ['add', docsPath]);
+      console.info('ℹ️ Logging status');
+      await exec.exec('git', ['status']);
       await exec.exec('git', [
         'commit',
         '-m',
@@ -94,6 +96,10 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
 
     console.info('ℹ️ Applying the stash with the storybook changes');
     await exec.exec('git', ['stash', 'pop']);
+
+    if (branch === 'master') {
+      await exec.exec('mv', ['-v', './sb-build/*', './docs']);
+    }
 
     console.info('ℹ️ Adding storybook static files');
     await exec.exec('git', ['add', docsPath]);
