@@ -75,7 +75,12 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     if (fs.existsSync(docsPath)) {
       // this is to avoid any merge conflict when an environment is redeployed
       console.info(`ℹ️ Cleaning existing ${docsPath}`);
-      await exec.exec('rm', ['-rf', docsPath]);
+      if (branch === 'master') {
+        await exec.exec('shopt', ['-s', 'extglob']);
+        await exec.exec('rm', ['-rf', `${docsPath}!(sb-*)`]);
+      } else {
+        await exec.exec('rm', ['-rf', docsPath]);
+      }
       await exec.exec('git', ['add', docsPath]);
       await exec.exec('git', [
         'commit',
