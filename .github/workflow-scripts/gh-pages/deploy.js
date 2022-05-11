@@ -76,8 +76,10 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       // this is to avoid any merge conflict when an environment is redeployed
       console.info(`ℹ️ Cleaning existing ${docsPath}`);
       if (branch === 'master') {
-        await exec.exec('shopt', ['-s', 'extglob']);
-        await exec.exec('rm', ['-rf', `${docsPath}!(sb-*)`]);
+        const filesOrDirToClean = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => !item.name.startsWith('sb-'));
+        for (const item of filesOrDirToClean) {
+          await exec.exec('rm', ['-rf', item]);
+        }
       } else {
         await exec.exec('rm', ['-rf', docsPath]);
       }
