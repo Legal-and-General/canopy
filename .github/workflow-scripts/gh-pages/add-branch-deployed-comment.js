@@ -11,7 +11,7 @@ module.exports = async ({
       issue_number: pullNumber,
     });
 
-    if (!labels.find(({ name }) => name === 'deployed')) {
+    if (!labels?.find(({ name }) => name === 'deployed')) {
       await github.rest.issues.createComment({
         owner,
         repo,

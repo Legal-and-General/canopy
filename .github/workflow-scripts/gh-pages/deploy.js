@@ -103,7 +103,7 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     await undeploy({ branch, repo, owner, github, exec });
 
     console.info('ℹ️ Pushing to gh-pages');
-    await exec.exec('git', ['push', '-f', '--set-upstream', 'origin', 'gh-pages']);
+    // await exec.exec('git', ['push', '-f', '--set-upstream', 'origin', 'gh-pages']);
   } catch (e) {
     throw `🚫 Error: something went wrong during the deployment of branch ${branch}`;
   }
