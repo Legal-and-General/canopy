@@ -178,7 +178,7 @@ async function undeploy({ branch, repo, owner, github, exec }) {
       }
     }
 
-    const { data: { environments } } = github.rest.repos.getAllEnvironments({
+    const { data: { environments } } = await github.rest.repos.getAllEnvironments({
       owner,
       repo,
     });
