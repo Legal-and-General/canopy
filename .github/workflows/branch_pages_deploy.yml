@@ -48,6 +48,32 @@ jobs:
           unzip sb-build.zip -d ./docs/sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
           rm sb-build.zip
 
+      - name: 'Notify GitHub of branch deployment'
+        uses: actions/github-script@v6
+        id: deploymentId
+        with:
+          script: |
+            const createDeployment = require('./.github/workflow-scripts/gh-pages/create-gh-deployment.js');
+            return await createDeployment({
+              sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
+              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
+              github,
+              context,
+            });
+
+      - name: 'Notify GitHub of deployment in progress'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
+            await createDeploymentStatus({
+              deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
+              state: 'in_progress',
+              environmentUrl: '${{ fromJSON(steps.prData.outputs.result).environmentUrl }}',
+              github,
+              context,
+            });
+
       - name: 'Branch deployment to GitHub Pages'
         uses: actions/github-script@v6
         with:
@@ -62,15 +88,30 @@ jobs:
               exec,
             });
 
-      - name: 'Update PR with branch url comment'
+      - name: 'Notify GitHub of deployment failure'
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
+            await createDeploymentStatus({
+              deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
+              state: 'failure',
+              environmentUrl: '${{ fromJSON(steps.prData.outputs.result).environmentUrl }}',
+              github,
+              context,
+            });
+
+      - name: 'Notify GitHub of deployment success'
         if: success()
         uses: actions/github-script@v6
         with:
           script: |
-            const addComment = require('./.github/workflow-scripts/gh-pages/add-branch-deployed-comment.js');
-            await addComment({
-              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
-              pullNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
+            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
+            await createDeploymentStatus({
+              deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
+              state: 'success',
+              environmentUrl: '${{ fromJSON(steps.prData.outputs.result).environmentUrl }}',
               github,
               context,
             });
