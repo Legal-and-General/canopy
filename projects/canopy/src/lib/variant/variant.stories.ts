@@ -1,19 +1,20 @@
 import { Component, Input } from '@angular/core';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgVariantDirective } from '.';
 import { LgButtonModule } from '../button';
 import { LgCardModule } from '../card';
 import { LgGridModule } from '../grid';
 import { LgIconModule, LgIconRegistry, lgIconsArray } from '../icon';
 import { LgShadowModule } from '../shadow';
 import { LgSpacingModule } from '../spacing';
+
 import type { Variant } from './variant.interface';
 import { LgVariantModule } from './variant.module';
 import { notes } from './variant.notes';
 
-const variants = ['generic', 'info', 'success', 'warning', 'error'];
+import { LgVariantDirective } from '.';
+
+const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 @Component({
   selector: 'lg-variant-story',
@@ -51,7 +52,7 @@ export default {
   title: 'Directives/Variant',
   decorators: [
     moduleMetadata({
-      declarations: [LgVariantStoryComponent],
+      declarations: [ LgVariantStoryComponent ],
       imports: [
         LgVariantModule,
         LgCardModule,
@@ -108,9 +109,11 @@ const variantStory: Story<LgVariantDirective> = (args: LgVariantDirective) => ({
 
 export const standardVariant = variantStory.bind({});
 standardVariant.storyName = 'Variant';
+
 standardVariant.args = {
   variant: 'success',
 };
+
 standardVariant.parameters = {
   docs: {
     source: {

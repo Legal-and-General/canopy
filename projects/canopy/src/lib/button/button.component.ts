@@ -12,7 +12,7 @@ import type { ButtonVariant, ButtonIconPosition, ButtonSize } from './button.int
 @Component({
   selector: '[lg-button]',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+  styleUrls: [ './button.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgButtonComponent {
@@ -27,6 +27,7 @@ export class LgButtonComponent {
         `lg-btn--${this.variant}`,
       );
     }
+
     this.renderer.addClass(this.hostElement.nativeElement, `lg-btn--${variant}`);
     this._variant = variant;
   }
@@ -37,7 +38,9 @@ export class LgButtonComponent {
   @Input() loading = false;
 
   @HostBinding('attr.disabled') get disabledAttr() {
-    return this.loading || this.disabled ? '' : null;
+    return this.loading || this.disabled
+      ? ''
+      : null;
   }
 
   @Input() disabled = false;

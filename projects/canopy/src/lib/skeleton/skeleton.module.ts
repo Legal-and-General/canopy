@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { LgSkeletonDirective } from './skeleton.directive';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [LgSkeletonDirective],
-  exports: [LgSkeletonDirective],
+  imports: [ CommonModule ],
+  declarations: [ LgSkeletonDirective ],
+  exports: [ LgSkeletonDirective ],
 })
 export class LgSkeletonModule {}

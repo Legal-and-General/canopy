@@ -12,7 +12,7 @@ import type { PromoCardVariant } from '../promo-card.interface';
 @Component({
   selector: 'lg-promo-card',
   templateUrl: './promo-card.component.html',
-  styleUrls: ['./promo-card.component.scss'],
+  styleUrls: [ './promo-card.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgPromoCardComponent {
@@ -28,6 +28,7 @@ export class LgPromoCardComponent {
         `lg-promo-card--${this.variant}`,
       );
     }
+
     this.renderer.addClass(this.hostElement.nativeElement, `lg-promo-card--${variant}`);
     this._variant = variant;
   }

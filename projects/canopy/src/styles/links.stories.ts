@@ -1,9 +1,10 @@
 import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
-import { notes } from './links.notes';
 import { LgAlertModule } from '../lib/alert';
 import { LgMarginModule } from '../lib/spacing';
+
+import { notes } from './links.notes';
 
 const template = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit <a href="#">Inline link example</a> and <a href="#" style="display: inline-block">inline block link example</a>
@@ -19,7 +20,7 @@ export default {
   title: 'Style/Links',
   decorators: [
     moduleMetadata({
-      imports: [LgAlertModule, LgMarginModule],
+      imports: [ LgAlertModule, LgMarginModule ],
     }),
   ],
   parameters: {
@@ -37,6 +38,7 @@ const linksTemplate: Story = () => ({
 
 export const links = linksTemplate.bind({});
 links.storyName = 'Links';
+
 links.parameters = {
   docs: {
     source: {

@@ -15,9 +15,11 @@ Running `npm start` will run storybook locally, this will hot reload any changes
 ### Deployments
 
 Pull requests are deployed manually to [GitHub Pages](https://pages.github.com/) by the Core or Regular Contributors.
-Once the deployment has completed successfully a comment with the url of the environment is added to the pull request.
+Once the deployment has completed successfully the pull request will be updated with the environment details.
 
-The `master` branch is also deployed to GitHub Pages, this currently provides the most up to date documentation for the latest version.
+<img alt="" src="./assets/deployment-gh-pages.png">
+
+The `master` branch is also deployed to GitHub Pages, this currently provides the most up-to-date documentation for the latest version.
 
 https://legal-and-general.github.io/canopy
 
@@ -43,8 +45,9 @@ Run `npm run lint` to execute the library unit tests, this step is also run as p
 
 Current linting includes
 
-- `tslint` for typescript files
-- `stylelint` for scss file
+- `eslint` and `prettier` for typescript, javascript and html files
+- `stylelint` and `prettier` for scss files
+- `prettier` for json files
 
 ## Conventional commits
 

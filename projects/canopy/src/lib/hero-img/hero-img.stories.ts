@@ -1,8 +1,9 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './hero-img.notes';
 import { LgGridModule } from '../grid';
 import { LgCardModule } from '../card';
+
+import { notes } from './hero-img.notes';
 import { LgHeroImgComponent } from './hero-img.component';
 import { LgHeroImgModule } from './hero-img.module';
 
@@ -52,10 +53,10 @@ export const imageBackgroundHeroHTML = `
 
 export default {
   title: 'Components/Hero Image',
-  excludeStories: ['imageBackgroundHeroHTML'],
+  excludeStories: [ 'imageBackgroundHeroHTML' ],
   decorators: [
     moduleMetadata({
-      imports: [LgHeroImgModule, LgGridModule, LgCardModule],
+      imports: [ LgHeroImgModule, LgGridModule, LgCardModule ],
     }),
   ],
   parameters: {
@@ -93,12 +94,14 @@ const heroImgStory: Story<LgHeroImgComponent> = (args: LgHeroImgComponent) => ({
 
 export const heroImg = heroImgStory.bind({});
 heroImg.storyName = 'Hero Image';
+
 heroImg.args = {
   overlap: 2,
   title: 'Title',
   subTitle: 'Subtitle',
   imageUrl: 'hero-img/map-illustration.png',
 };
+
 heroImg.parameters = {
   docs: {
     source: {

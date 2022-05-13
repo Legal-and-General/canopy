@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import { MockRender } from 'ng-mocks';
 
 import { LgTabNavContentComponent } from './tab-nav-content.component';
@@ -15,7 +14,7 @@ describe('LgTabNavBarComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTabNavContentComponent],
+        declarations: [ LgTabNavContentComponent ],
       }).compileComponents();
     }),
   );
@@ -26,10 +25,13 @@ describe('LgTabNavBarComponent', () => {
         <p>Test content<p>
       </lg-tab-nav-content>
     `);
+
     debugElement = fixture.debugElement;
+
     component = debugElement.query(
       By.directive(LgTabNavContentComponent),
     ).componentInstance;
+
     el = debugElement.query(By.directive(LgTabNavContentComponent)).nativeElement;
     fixture.detectChanges();
   });

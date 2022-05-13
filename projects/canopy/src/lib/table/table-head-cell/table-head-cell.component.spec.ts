@@ -1,5 +1,4 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-
 import { MockRender, MockedComponentFixture } from 'ng-mocks';
 
 import { LgTableHeadCellComponent } from './table-head-cell.component';
@@ -11,7 +10,7 @@ describe('LgTableHeadCellComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTableHeadCellComponent],
+        declarations: [ LgTableHeadCellComponent ],
       }).compileComponents();
     }),
   );
@@ -20,6 +19,7 @@ describe('LgTableHeadCellComponent', () => {
     fixture = MockRender(`
       <th lg-table-head-cell align="end">Hello</th>
     `);
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

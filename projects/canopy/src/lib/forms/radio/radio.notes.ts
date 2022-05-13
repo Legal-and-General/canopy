@@ -39,10 +39,10 @@ Radios are displayed inline, unless given a \`RadioStackBreakpoint\`, which tell
 | \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
 ${
   name === 'Radio'
-    ? `| \`\`inline\`\` | If true, displays the radio buttons inline rather than stacked | boolean | false | No |`
+    ? '| ``inline`` | If true, displays the radio buttons inline rather than stacked | boolean | false | No |'
     : name === 'Segment'
-    ? `| \`\`stack\`\` | Stack the segment buttons at a given breakpoint | 'sm', 'md', 'lg' | false | No |`
-    : ''
+      ? '| ``stack`` | Stack the segment buttons at a given breakpoint | \'sm\', \'md\', \'lg\' | false | No |'
+      : ''
 }
 
 ## LgRadioButtonComponent

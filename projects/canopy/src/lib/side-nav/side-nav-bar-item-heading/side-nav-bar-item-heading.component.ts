@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-side-nav-bar-item-heading',
   templateUrl: './side-nav-bar-item-heading.component.html',
-  styleUrls: ['./side-nav-bar-item-heading.component.scss'],
+  styleUrls: [ './side-nav-bar-item-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

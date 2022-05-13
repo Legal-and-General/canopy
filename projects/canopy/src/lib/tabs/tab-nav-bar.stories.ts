@@ -1,6 +1,7 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgMarginModule } from '../spacing';
+
 import { LgTabsModule } from './tabs.module';
 import { tabbedNavNotes } from './tabs.notes';
 import { LgTabsComponent } from './tabs.component';
@@ -10,7 +11,7 @@ export default {
   component: LgTabsComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgTabsModule, LgMarginModule],
+      imports: [ LgTabsModule, LgMarginModule ],
     }),
   ],
   parameters: {
@@ -104,8 +105,10 @@ function getTemplate(preventDefault?: boolean) {
   return `
 <lg-tab-nav-bar label="Tabbed navigation demo">
   <a *ngFor="let tab of tabs; index as i" lgTabNavBarLink href="" (click)="${
-    preventDefault ? '$event.preventDefault();' : ''
-  }onClick($event)" id="tabbed-nav-{{i}}" [isActive]="i === selectedTabNavIndex">{{tab}}</a>
+  preventDefault
+    ? '$event.preventDefault();'
+    : ''
+}onClick($event)" id="tabbed-nav-{{i}}" [isActive]="i === selectedTabNavIndex">{{tab}}</a>
 </lg-tab-nav-bar>
 
 <lg-tab-nav-content [selectedTabId]="'tabbed-nav-' + selectedTabNavIndex">
@@ -121,10 +124,12 @@ const tabNavBarStory: Story<LgTabsModule> = (args: LgTabsModule) => ({
 
 export const tabNavBar = tabNavBarStory.bind({});
 tabNavBar.storyName = 'Tabbed navigation';
+
 tabNavBar.args = {
-  tabs: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
+  tabs: [ 'Tab 1', 'Tab 2', 'Tab 3', 'Tab 4' ],
   selectedTabNavIndex: 1,
 };
+
 tabNavBar.parameters = {
   docs: {
     source: {

@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { LgCamelCasePipe } from './camel-case.pipe';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [LgCamelCasePipe],
-  exports: [LgCamelCasePipe],
+  imports: [ CommonModule ],
+  declarations: [ LgCamelCasePipe ],
+  exports: [ LgCamelCasePipe ],
 })
 export class LgCamelCasePipeModule {}

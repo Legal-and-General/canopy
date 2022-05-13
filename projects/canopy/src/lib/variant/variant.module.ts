@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { LgVariantDirective } from './variant.directive';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [LgVariantDirective],
-  exports: [LgVariantDirective],
+  imports: [ CommonModule ],
+  declarations: [ LgVariantDirective ],
+  exports: [ LgVariantDirective ],
 })
 export class LgVariantModule {}

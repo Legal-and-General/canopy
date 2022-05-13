@@ -1,6 +1,5 @@
 module.exports = async ({
   sha,
-  branch,
   github,
   context: { repo: { repo, owner } },
 }) => {
@@ -8,7 +7,7 @@ module.exports = async ({
     owner,
     repo,
     ref: sha,
-    environment: branch,
+    environment: 'github-pages',
     transient_environment: true,
     auto_merge: false,
   });

@@ -6,16 +6,16 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-
 import { Subscription, timer } from 'rxjs';
 
 @Directive({
-  selector: `[lgSrAlertMessage]`,
+  selector: '[lgSrAlertMessage]',
 })
 export class LgSrAlertMessageDirective implements OnInit, OnDestroy {
+  private subscription: Subscription;
+
   @Input() lgSrAlertMessage: boolean;
   @Input() timer = 8000;
-  private subscription: Subscription;
 
   @HostBinding('class.lg-visually-hidden') class = true;
 
@@ -27,6 +27,7 @@ export class LgSrAlertMessageDirective implements OnInit, OnDestroy {
     if (this.lgSrAlertMessage) {
       return 'alert';
     }
+
     return null;
   }
 
@@ -34,6 +35,7 @@ export class LgSrAlertMessageDirective implements OnInit, OnDestroy {
     if (this.lgSrAlertMessage) {
       return 'assertive';
     }
+
     return null;
   }
 

@@ -1,14 +1,16 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgDataPointComponent, LgDataPointListComponent, LgDataPointModule } from '.';
 import { LgHeaderModule } from '../header';
+
 import { notes } from './data-point.notes';
+
+import { LgDataPointComponent, LgDataPointListComponent, LgDataPointModule } from '.';
 
 export default {
   title: 'Components/Data Point',
   decorators: [
     moduleMetadata({
-      imports: [LgDataPointModule, LgHeaderModule],
+      imports: [ LgDataPointModule, LgHeaderModule ],
     }),
   ],
   parameters: {
@@ -20,11 +22,11 @@ export default {
   },
   argTypes: {
     headingLevel: {
-      options: ['1', '2', '3', '4', '5', '6'],
+      options: [ '1', '2', '3', '4', '5', '6' ],
       description: 'The heading level set on the `<lg-data-point-label>` component',
       table: {
         type: {
-          summary: ['1', '2', '3', '4', '5', '6'],
+          summary: [ '1', '2', '3', '4', '5', '6' ],
         },
       },
       control: {
@@ -52,9 +54,11 @@ const singleStory: Story<LgDataPointComponent> = (args: LgDataPointComponent) =>
 
 export const singleDataPoint = singleStory.bind({});
 singleDataPoint.storyName = 'Single Data Point';
+
 singleDataPoint.args = {
   headingLevel: 3,
 };
+
 singleDataPoint.parameters = {
   docs: {
     source: {
@@ -99,9 +103,11 @@ const listStory: Story<LgDataPointListComponent> = (args: LgDataPointListCompone
 
 export const dataPointsListStory = listStory.bind({});
 dataPointsListStory.storyName = 'Data point list';
+
 dataPointsListStory.args = {
   headingLevel: 3,
 };
+
 dataPointsListStory.parameters = {
   docs: {
     source: {

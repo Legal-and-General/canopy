@@ -13,10 +13,10 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-
 import { Subscription } from 'rxjs';
 
 import { isKeyDown, isKeyLeft, isKeyRight, isKeyUp } from '../utils/keyboard-keys';
+
 import { LgTabItemComponent } from './tab-item/tab-item.component';
 
 let nextUniqueId = 0;
@@ -24,11 +24,17 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss'],
+  styleUrls: [ './tabs.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTabsComponent implements AfterContentInit, OnDestroy {
+  private subscription: Subscription;
+  selectedIndex = 0;
+  isKeyboardEvent = false;
+  tabs: Array<LgTabItemComponent>;
+  id = nextUniqueId++;
+
   @HostBinding('class.lg-tabs') class = true;
 
   @ContentChildren(forwardRef(() => LgTabItemComponent), {
@@ -39,16 +45,6 @@ export class LgTabsComponent implements AfterContentInit, OnDestroy {
   @Input() label = 'tabs';
 
   @Output() tabEvent: EventEmitter<{ index: number }> = new EventEmitter();
-
-  selectedIndex = 0;
-
-  isKeyboardEvent = false;
-
-  tabs: Array<LgTabItemComponent>;
-
-  id = nextUniqueId++;
-
-  private subscription: Subscription;
 
   constructor(private cd: ChangeDetectorRef) {}
 
@@ -89,12 +85,16 @@ export class LgTabsComponent implements AfterContentInit, OnDestroy {
 
     if (isPreviousKey) {
       newSelectedIndex =
-        this.selectedIndex === 0 ? this.tabs.length - 1 : this.selectedIndex - 1;
+        this.selectedIndex === 0
+          ? this.tabs.length - 1
+          : this.selectedIndex - 1;
     }
 
     if (isNextKey) {
       newSelectedIndex =
-        this.selectedIndex === this.tabs.length - 1 ? 0 : this.selectedIndex + 1;
+        this.selectedIndex === this.tabs.length - 1
+          ? 0
+          : this.selectedIndex + 1;
     }
 
     this.navigateToTab(newSelectedIndex);

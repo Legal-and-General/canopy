@@ -9,28 +9,38 @@ import {
 } from '@angular/core';
 
 import * as iconSet from '../../icon/icons.interface';
+
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
 @Component({
   selector: 'lg-breadcrumb-item',
   templateUrl: './breadcrumb-item.component.html',
-  styleUrls: ['./breadcrumb-item.component.scss'],
+  styleUrls: [ './breadcrumb-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgBreadcrumbItemComponent {
+  private _variant: BreadcrumbVariant;
+  private _showBackChevron = false;
+  private _showForwardChevron = false;
+  private _isSmScreenFeaturedItem = false;
+  private _hideIcons = false;
+  icons = iconSet;
+  index: number;
+
   @HostBinding('class.lg-breadcrumb-item') class = true;
 
-  icons = iconSet;
-
-  index: number;
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+    private cd: ChangeDetectorRef,
+  ) {}
 
   set hideIcons(hideIcons: boolean) {
     this._hideIcons = hideIcons;
 
     this.cd.detectChanges();
   }
-
   get hideIcons() {
     return this._hideIcons;
   }
@@ -40,7 +50,6 @@ export class LgBreadcrumbItemComponent {
 
     this.cd.detectChanges();
   }
-
   get isSmScreenFeaturedItem() {
     return this._isSmScreenFeaturedItem;
   }
@@ -52,13 +61,14 @@ export class LgBreadcrumbItemComponent {
         `lg-breadcrumb-item--${this.variant}`,
       );
     }
+
     this.renderer.addClass(
       this.hostElement.nativeElement,
       `lg-breadcrumb-item--${variant}`,
     );
+
     this._variant = variant;
   }
-
   get variant() {
     return this._variant;
   }
@@ -68,7 +78,6 @@ export class LgBreadcrumbItemComponent {
 
     this.cd.detectChanges();
   }
-
   get showBackChevron() {
     return this._showBackChevron;
   }
@@ -78,24 +87,7 @@ export class LgBreadcrumbItemComponent {
 
     this.cd.detectChanges();
   }
-
   get showForwardChevron() {
     return this._showForwardChevron;
   }
-
-  private _variant: BreadcrumbVariant;
-
-  private _showBackChevron = false;
-
-  private _showForwardChevron = false;
-
-  private _isSmScreenFeaturedItem = false;
-
-  private _hideIcons = false;
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-    private cd: ChangeDetectorRef,
-  ) {}
 }

@@ -7,12 +7,12 @@ import {
   tick,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockComponents } from 'ng-mocks';
 import { Subscription } from 'rxjs';
 
 import { HeadingLevel, LgHeadingComponent } from '../heading';
 import { LgIconComponent } from '../icon';
+
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgCarouselComponent } from './carousel.component';
 
@@ -49,7 +49,7 @@ class TestCarouselComponent {
 }
 
 @Component({
-  selector: 'test-wrapper-component',
+  selector: 'lg-test-wrapper-component',
   template: '<lg-test-carousel></lg-test-carousel>',
 })
 class TestWrapperComponent {}
@@ -61,13 +61,16 @@ describe('LgCarouselComponent', () => {
 
   const timerSelectionCheck = () => {
     component.ngAfterContentInit();
+
     expect(component.selectedItemIndex).toBe(0);
     component['pause'].next(true);
     tick(100);
     fixture.detectChanges();
+
     expect(component.selectedItemIndex).toBe(0);
     tick(100);
     fixture.detectChanges();
+
     expect(component.selectedItemIndex).toBe(0);
   };
 
@@ -102,7 +105,7 @@ describe('LgCarouselComponent', () => {
     component.pauseCarousel();
     fixture.detectChanges();
 
-    component.pause.subscribe((pause) => {
+    component.pause.subscribe(pause => {
       expect(pause).toBeDefined();
       expect(pause).toBeTruthy();
     });
@@ -112,7 +115,7 @@ describe('LgCarouselComponent', () => {
     component.playCarousel();
     fixture.detectChanges();
 
-    component.pause.subscribe((pause) => {
+    component.pause.subscribe(pause => {
       expect(pause).toBeDefined();
       expect(pause).toBeFalsy();
     });
@@ -120,7 +123,9 @@ describe('LgCarouselComponent', () => {
 
   it('should detect the amount of carousel item components are nested in order to build the navigation and apply styles to the carousel wrapper', () => {
     const wrapperElement = fixture.debugElement.query(By.css('.lg-carousel__wrapper'));
+
     expect(component.carouselItemCount).toBe(3);
+
     expect(wrapperElement.attributes['style']).toBe(
       'width: 300%; left: 0%; transition: left 0.5s ease 0s;',
     );
@@ -138,6 +143,7 @@ describe('LgCarouselComponent', () => {
 
     beforeEach(() => {
       const buttons = fixture.debugElement.queryAll(By.css('.lg-carousel__button'));
+
       prevButton = buttons[0];
       bullet1 = buttons[1];
       bullet2 = buttons[2];
@@ -150,48 +156,58 @@ describe('LgCarouselComponent', () => {
     });
 
     it('should select the chosen carousel item as expected', () => {
-      subscription = component.selectedItemIndexSet$.subscribe((selectedItem) => {
+      subscription = component.selectedItemIndexSet$.subscribe(selectedItem => {
         expect(component.selectedItemIndex).toBe(selectedItem);
         bullet2.nativeElement.click();
+
         expect(component.selectedItemIndex).toBe(1);
       });
 
       fixture.detectChanges();
+
       expect(
         bullet2Icon.nativeElement.classList.contains('lg-carousel__bullet--active'),
       ).toBe(true);
     });
 
     it('should navigate to the previous slide as expected', () => {
-      subscription = component.selectedItemIndexSet$.subscribe((selectedItem) => {
+      subscription = component.selectedItemIndexSet$.subscribe(selectedItem => {
         expect(component.selectedItemIndex).toBe(selectedItem);
       });
+
       expect(component.selectedItemIndex).toBe(0);
       bullet2.nativeElement.click();
       fixture.detectChanges();
+
       expect(component.selectedItemIndex).toBe(1);
       prevButton.nativeElement.click();
+
       expect(component.selectedItemIndex).toBe(0);
 
       fixture.detectChanges();
+
       expect(
         bullet1Icon.nativeElement.classList.contains('lg-carousel__bullet--active'),
       ).toBe(true);
     });
 
     it('should navigate to the next slide as expected', () => {
-      subscription = component.selectedItemIndexSet$.subscribe((selectedItem) => {
+      subscription = component.selectedItemIndexSet$.subscribe(selectedItem => {
         expect(component.selectedItemIndex).toBe(selectedItem);
       });
+
       expect(component.selectedItemIndex).toBe(0);
       nextButton.nativeElement.click();
+
       expect(component.selectedItemIndex).toBe(1);
       fixture.detectChanges();
 
       nextButton.nativeElement.click();
+
       expect(component.selectedItemIndex).toBe(2);
 
       fixture.detectChanges();
+
       expect(
         bullet3Icon.nativeElement.classList.contains('lg-carousel__bullet--active'),
       ).toBe(true);
@@ -201,6 +217,7 @@ describe('LgCarouselComponent', () => {
       expect(prevButton.attributes['disabled']).toBe('');
       bullet3.nativeElement.click();
       fixture.detectChanges();
+
       expect(prevButton.attributes['disabled']).toBeUndefined();
     });
 
@@ -208,6 +225,7 @@ describe('LgCarouselComponent', () => {
       expect(nextButton.attributes['disabled']).toBeUndefined();
       bullet3.nativeElement.click();
       fixture.detectChanges();
+
       expect(nextButton.attributes['disabled']).toBe('');
     });
 
@@ -246,14 +264,17 @@ describe('LgCarouselComponent', () => {
       it('should navigate to the last slide when previousCarouselItem is invoked and the first slide is active', () => {
         expect(component.selectedItemIndex).toBe(0);
         component.previousCarouselItem();
+
         expect(component.selectedItemIndex).toBe(2);
       });
 
       it('should navigate to the first slide when nextCarouselItem is invoked and the last slide is active', () => {
         expect(component.selectedItemIndex).toBe(0);
         bullet3.nativeElement.click();
+
         expect(component.selectedItemIndex).toBe(2);
         nextButton.nativeElement.click();
+
         expect(component.selectedItemIndex).toBe(0);
       });
     });
@@ -270,9 +291,11 @@ describe('LgCarouselComponent', () => {
           expect(component.selectedItemIndex).toBe(0);
           tick(100);
           fixture.detectChanges();
+
           expect(component.selectedItemIndex).toBe(1);
           tick(100);
           fixture.detectChanges();
+
           expect(component.selectedItemIndex).toBe(2);
         };
 
@@ -295,9 +318,11 @@ describe('LgCarouselComponent', () => {
         component['pause'].next(false);
         tick(100);
         fixture.detectChanges();
+
         expect(component.selectedItemIndex).toBe(1);
         tick(100);
         fixture.detectChanges();
+
         expect(component.selectedItemIndex).toBe(2);
         discardPeriodicTasks();
       }));

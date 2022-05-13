@@ -12,16 +12,13 @@ import type { Variant } from '../variant/variant.interface';
 @Component({
   selector: 'lg-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss'],
+  styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgAlertComponent {
-  @HostBinding('class.lg-alert') class = true;
-
-  @Input() showIcon = true;
-
   private _variant: Variant;
 
+  @Input() showIcon = true;
   @Input()
   set variant(variant: Variant) {
     if (this._variant) {
@@ -30,12 +27,15 @@ export class LgAlertComponent {
         `lg-variant--${this._variant}`,
       );
     }
+
     this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
   }
   get variant() {
     return this._variant;
   }
+
+  @HostBinding('class.lg-alert') class = true;
 
   @HostBinding('attr.role') get role(): string {
     if (this.variant !== 'info' && this.variant !== 'generic') {

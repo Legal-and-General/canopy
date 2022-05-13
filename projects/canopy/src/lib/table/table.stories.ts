@@ -1,14 +1,9 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import type { TableVariant } from './table.interface';
-import { AlignmentOptions, TableColumnLayoutBreakpoints } from './table.interface';
 import { LgInputModule } from '../forms';
 import { LgMarginModule } from '../spacing';
 import { LgSuffixModule } from '../suffix';
-import { LgTableModule } from './table.module';
-import { notes } from './table.notes';
 import { LgGridModule } from '../grid';
 import { LgQuickActionModule } from '../quick-action';
 import {
@@ -17,6 +12,11 @@ import {
   LgIconModule,
   LgIconRegistry,
 } from '../icon';
+
+import { notes } from './table.notes';
+import { LgTableModule } from './table.module';
+import { AlignmentOptions, TableColumnLayoutBreakpoints } from './table.interface';
+import type { TableVariant } from './table.interface';
 import { LgTableComponent } from './table/table.component';
 
 interface TableStoryItem {
@@ -121,7 +121,7 @@ const expandableTableTemplate = `
 `;
 
 @Component({
-  selector: 'story-table-detail',
+  selector: 'lg-story-table-detail',
   template: expandableTableTemplate,
 })
 export class StoryTableDetailComponent {
@@ -250,14 +250,14 @@ const withLongCopyTableTemplate = `
 `;
 
 @Component({
-  selector: 'story-table-long-copy',
+  selector: 'lg-story-table-long-copy',
   template: withLongCopyTableTemplate,
 })
 class StoryTableLongCopyComponent {
   @Input() variant: TableVariant;
   @Input() stack: boolean;
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([lgIconChevronRightCircle, lgIconInformationFill]);
+    this.registry.registerIcons([ lgIconChevronRightCircle, lgIconInformationFill ]);
   }
 }
 
@@ -266,12 +266,12 @@ const alignmentCategory = 'Alignment';
 
 const argTypes = {
   variant: {
-    options: ['striped', 'bordered'],
+    options: [ 'striped', 'bordered' ],
     description: 'The variant of table. Accepts `striped` or `bordered`.',
     table: {
       category: 'Variant',
       type: {
-        summary: ['striped', 'bordered'],
+        summary: [ 'striped', 'bordered' ],
       },
       defaultValue: {
         summary: 'striped',
@@ -282,13 +282,13 @@ const argTypes = {
     },
   },
   showColumnsAt: {
-    options: ['sm', 'md', 'lg'],
+    options: [ 'sm', 'md', 'lg' ],
     description:
       'Sets the minimum screen width from which the column layout is displayed..',
     table: {
       category: responsiveCategory,
       type: {
-        summary: ['sm', 'md', 'lg'],
+        summary: [ 'sm', 'md', 'lg' ],
       },
       defaultValue: {
         summary: 'md',
@@ -299,12 +299,12 @@ const argTypes = {
     },
   },
   alignTitleColumn: {
-    options: [AlignmentOptions.End, AlignmentOptions.Start],
+    options: [ AlignmentOptions.End, AlignmentOptions.Start ],
     description: 'Align Title column.',
     table: {
       category: alignmentCategory,
       type: {
-        summary: [AlignmentOptions.End, AlignmentOptions.Start],
+        summary: [ AlignmentOptions.End, AlignmentOptions.Start ],
       },
     },
     control: {
@@ -312,12 +312,12 @@ const argTypes = {
     },
   },
   alignPublishColumn: {
-    options: [AlignmentOptions.End, AlignmentOptions.Start],
+    options: [ AlignmentOptions.End, AlignmentOptions.Start ],
     description: 'Align Publish column.',
     table: {
       category: alignmentCategory,
       type: {
-        summary: [AlignmentOptions.End, AlignmentOptions.Start],
+        summary: [ AlignmentOptions.End, AlignmentOptions.Start ],
       },
     },
     control: {
@@ -334,7 +334,7 @@ const argTypes = {
     table: {
       category: responsiveCategory,
       type: {
-        summary: [AlignmentOptions.End, AlignmentOptions.Start],
+        summary: [ AlignmentOptions.End, AlignmentOptions.Start ],
       },
     },
     control: {
@@ -404,7 +404,7 @@ const argTypes = {
 export default {
   title: 'Components/Table',
   component: LgTableComponent,
-  excludeStories: ['StoryTableDetailComponent'],
+  excludeStories: [ 'StoryTableDetailComponent' ],
   decorators: [
     moduleMetadata({
       imports: [
@@ -416,7 +416,7 @@ export default {
         LgQuickActionModule,
         LgIconModule,
       ],
-      declarations: [StoryTableDetailComponent, StoryTableLongCopyComponent],
+      declarations: [ StoryTableDetailComponent, StoryTableLongCopyComponent ],
     }),
   ],
   parameters: {
@@ -456,6 +456,7 @@ const standardTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
 
 export const standardTable = standardTableStory.bind({});
 standardTable.storyName = 'Standard';
+
 standardTable.args = {
   books: getDefaultTableContent(),
   variant: 'striped',
@@ -465,6 +466,7 @@ standardTable.args = {
   showAuthorLabel: false,
   stack: false,
 };
+
 standardTable.parameters = {
   docs: {
     source: {
@@ -476,13 +478,14 @@ standardTable.parameters = {
 const expandableTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
   props: args,
   template: `
-    <story-table-detail [books]="books" [variant]="variant" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></story-table-detail>
+    <lg-story-table-detail [books]="books" [variant]="variant" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></lg-story-table-detail>
   `,
 });
 
 export const expandableTable = expandableTableStory.bind({});
 expandableTable.storyName = 'Expandable details';
-(expandableTable.argTypes = {
+
+expandableTable.argTypes = {
   ...argTypes,
   showColumnsAt: {
     table: {
@@ -494,16 +497,18 @@ expandableTable.storyName = 'Expandable details';
       disable: true,
     },
   },
-}),
-  (expandableTable.args = {
-    books: getDefaultTableContent(),
-    variant: 'striped',
-    alignTitleColumn: AlignmentOptions.Start,
-    alignPublishColumn: AlignmentOptions.End,
-    columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
-    showAuthorLabel: false,
-    stack: false,
-  });
+};
+
+expandableTable.args = {
+  books: getDefaultTableContent(),
+  variant: 'striped',
+  alignTitleColumn: AlignmentOptions.Start,
+  alignPublishColumn: AlignmentOptions.End,
+  columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
+  showAuthorLabel: false,
+  stack: false,
+};
+
 expandableTable.parameters = {
   docs: {
     source: {
@@ -542,7 +547,8 @@ const withInputTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
 
 export const withInputTable = withInputTableStory.bind({});
 withInputTable.storyName = 'With input';
-(withInputTable.argTypes = {
+
+withInputTable.argTypes = {
   ...argTypes,
   showColumnsAt: {
     table: {
@@ -574,11 +580,13 @@ withInputTable.storyName = 'With input';
       disable: true,
     },
   },
-}),
-  (withInputTable.args = {
-    books: getDefaultTableContent(),
-    variant: 'striped',
-  });
+};
+
+withInputTable.args = {
+  books: getDefaultTableContent(),
+  variant: 'striped',
+};
+
 withInputTable.parameters = {
   docs: {
     source: {
@@ -590,16 +598,17 @@ withInputTable.parameters = {
 const withLongCopyTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
   props: args,
   template: `
-    <story-table-long-copy
+    <lg-story-table-long-copy
       [variant]="variant"
       [stack]="stack">
-    </story-table-long-copy>
+    </lg-story-table-long-copy>
   `,
 });
 
 export const withLongCopyTable = withLongCopyTableStory.bind({});
 withLongCopyTable.storyName = 'With long copy';
-(withLongCopyTable.argTypes = {
+
+withLongCopyTable.argTypes = {
   ...argTypes,
   showColumnsAt: {
     table: {
@@ -626,11 +635,13 @@ withLongCopyTable.storyName = 'With long copy';
       disable: true,
     },
   },
-}),
-  (withLongCopyTable.args = {
-    variant: 'striped',
-    stack: true,
-  });
+};
+
+withLongCopyTable.args = {
+  variant: 'striped',
+  stack: true,
+};
+
 withLongCopyTable.parameters = {
   docs: {
     source: {

@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-card-footer',
   templateUrl: './card-footer.component.html',
-  styleUrls: ['./card-footer.component.scss'],
+  styleUrls: [ './card-footer.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

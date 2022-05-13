@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import { MockComponents, MockRender } from 'ng-mocks';
 
 import { LgTabItemContentComponent } from '../tab-item-content/tab-item-content.component';
 import { LgTabItemHeadingComponent } from '../tab-item-heading/tab-item-heading.component';
+
 import { LgTabItemComponent } from './tab-item.component';
 
 describe('LgTabItemComponent', () => {
@@ -35,6 +35,7 @@ describe('LgTabItemComponent', () => {
         </lg-tab-item-content>
       </lg-tab-item-content>
     `);
+
     debugElement = fixture.debugElement;
     component = debugElement.children[0].componentInstance;
     fixture.detectChanges();
@@ -46,11 +47,13 @@ describe('LgTabItemComponent', () => {
 
   it('should render heading', () => {
     const heading = debugElement.query(By.css('.mock-heading'));
+
     expect(heading.nativeElement.innerHTML).toContain('Heading');
   });
 
   it('should render content', () => {
     const content = debugElement.query(By.css('.mock-content'));
+
     expect(content.nativeElement.innerHTML).toContain('Content');
   });
 });

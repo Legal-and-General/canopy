@@ -1,14 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
+
+import { LgSelectModule } from '../select';
+import { LgHintModule } from '../hint';
+import { LgInputModule } from '../input';
 
 import { notes } from './sort-code.notes';
 import { LgSortCodeDirective } from './sort-code.directive';
-import { LgSelectModule } from '../select';
-import { LgHintModule } from '../hint';
 import { LgSortCodeModule } from './sort-code.module';
-import { LgInputModule } from '../input';
+
 
 const template = `
 <lg-input-field>
@@ -44,9 +45,10 @@ class ReactiveFormComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      sortCode: [''],
+      sortCode: [ '' ],
     });
-    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
+
+    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
 }
 
@@ -55,8 +57,8 @@ export default {
   component: LgSortCodeDirective,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, LgInputModule, LgSortCodeModule, LgHintModule],
+      declarations: [ ReactiveFormComponent ],
+      imports: [ ReactiveFormsModule, LgInputModule, LgSortCodeModule, LgHintModule ],
     }),
   ],
   parameters: {
@@ -119,11 +121,13 @@ const sortCodeTemplate: Story<LgSortCodeModule> = (args: LgSelectModule) => ({
 
 export const sortCode = sortCodeTemplate.bind({});
 sortCode.storyName = 'Sort code';
+
 sortCode.args = {
   label: 'Sort code',
   hint: 'Must be 6 digits long',
   disabled: false,
 };
+
 sortCode.parameters = {
   docs: {
     source: {

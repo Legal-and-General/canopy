@@ -18,7 +18,7 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-icon',
   templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.scss'],
+  styleUrls: [ './icon.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgIconComponent {
@@ -35,6 +35,7 @@ export class LgIconComponent {
     }
 
     const svgData = this.setSVGAttributes(this.iconRegistry.getIcon(name));
+
     this.svgIcon = this.svgElementFromString(svgData);
     this.hostElement.nativeElement.appendChild(this.svgIcon);
   }
@@ -59,6 +60,7 @@ export class LgIconComponent {
 
   private svgElementFromString(svgContent: string): SVGElement {
     const div = this.document.createElement('div');
+
     div.innerHTML = svgContent;
 
     return div.querySelector('svg');

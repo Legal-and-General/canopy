@@ -57,9 +57,10 @@ export class ReactiveToggleFormComponent implements OnChanges {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
-      umbrella: [{ value: '', disabled: false }],
+      umbrella: [ { value: '', disabled: false } ],
     });
-    this.form.valueChanges.subscribe((val) => this.toggleChange.emit(val));
+
+    this.form.valueChanges.subscribe(val => this.toggleChange.emit(val));
   }
 
   ngOnChanges({ checked }: SimpleChanges): void {
@@ -93,6 +94,7 @@ export function setupToggleStoryValues(obj, code) {
     focus: false,
     label: 'I will bring my Umbrella if it is raining',
   };
+
   obj.parameters = {
     docs: {
       source: {

@@ -9,7 +9,7 @@ describe('HeroCardDataPointValueComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeroCardDataPointValueComponent],
+        declarations: [ LgHeroCardDataPointValueComponent ],
       }).compileComponents();
     }),
   );

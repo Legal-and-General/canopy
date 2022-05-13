@@ -1,5 +1,4 @@
 import { FormGroupDirective, NgControl } from '@angular/forms';
-
 import { instance, mock, when } from 'ts-mockito';
 
 import { LgErrorStateMatcher } from './error-state-matcher';
@@ -21,6 +20,7 @@ describe('LgErrorStateMatcher', () => {
         when(control.invalid).thenReturn(true);
         when(control.touched).thenReturn(true);
         when(control.dirty).thenReturn(true);
+
         expect(service.isControlInvalid(instance(control))).toBe(true);
       });
 
@@ -28,6 +28,7 @@ describe('LgErrorStateMatcher', () => {
         when(control.invalid).thenReturn(true);
         when(control.touched).thenReturn(false);
         when(controlContainer.submitted).thenReturn(true);
+
         expect(
           service.isControlInvalid(instance(control), instance(controlContainer)),
         ).toBe(true);
@@ -39,6 +40,7 @@ describe('LgErrorStateMatcher', () => {
         when(control.invalid).thenReturn(true);
         when(control.touched).thenReturn(false);
         when(control.dirty).thenReturn(false);
+
         expect(service.isControlInvalid(instance(control))).toBe(false);
       });
 
@@ -46,6 +48,7 @@ describe('LgErrorStateMatcher', () => {
         when(control.invalid).thenReturn(false);
         when(control.touched).thenReturn(false);
         when(control.dirty).thenReturn(false);
+
         expect(service.isControlInvalid(instance(control))).toBe(false);
       });
 
@@ -53,6 +56,7 @@ describe('LgErrorStateMatcher', () => {
         when(control.invalid).thenReturn(false);
         when(control.touched).thenReturn(true);
         when(control.dirty).thenReturn(true);
+
         expect(service.isControlInvalid(instance(control))).toBe(false);
       });
 
@@ -61,6 +65,7 @@ describe('LgErrorStateMatcher', () => {
         when(control.touched).thenReturn(false);
         when(control.dirty).thenReturn(false);
         when(controlContainer.submitted).thenReturn(true);
+
         expect(
           service.isControlInvalid(instance(control), instance(controlContainer)),
         ).toBe(false);

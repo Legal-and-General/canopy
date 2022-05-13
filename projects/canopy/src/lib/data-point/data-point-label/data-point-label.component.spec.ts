@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import { MockComponent, MockRender } from 'ng-mocks';
 
 import { LgHeadingComponent } from '../../heading';
+
 import { LgDataPointLabelComponent } from './data-point-label.component';
 
 describe('LgDataPointLabelComponent', () => {
@@ -16,7 +16,7 @@ describe('LgDataPointLabelComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgDataPointLabelComponent, MockComponent(LgHeadingComponent)],
+        declarations: [ LgDataPointLabelComponent, MockComponent(LgHeadingComponent) ],
       }).compileComponents();
     }),
   );
@@ -27,6 +27,7 @@ describe('LgDataPointLabelComponent', () => {
         Name on account
       </lg-data-point-label>
     `);
+
     debugElement = fixture.debugElement;
     component = fixture.componentInstance;
     el = debugElement.children[0].nativeElement;
@@ -41,12 +42,13 @@ describe('LgDataPointLabelComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-data-point-label');
   });
 
-  it(`should wrap the content with the lg heading`, () => {
+  it('should wrap the content with the lg heading', () => {
     const headingElement = fixture.debugElement.query(By.css('lg-heading'));
+
     expect(headingElement.nativeElement.tagName.toLowerCase()).toEqual('lg-heading');
   });
 
-  it(`should render the heading`, () => {
+  it('should render the heading', () => {
     expect(el.innerHTML).toContain('Name on account');
   });
 });

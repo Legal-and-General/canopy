@@ -20,11 +20,42 @@ let nextUniqueId = 0;
 @Component({
   selector: '[lg-table]',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
+  styleUrls: [ './table.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTableComponent implements AfterContentChecked {
+  private _showColumnsAt: TableColumnLayoutBreakpoints;
+  isExpandable = false;
+  id = nextUniqueId++;
+  columns = new Map<number, TableColumn>();
+  _variant: TableVariant;
+
+  @Input()
+  set showColumnsAt(columnsBreakpoint: TableColumnLayoutBreakpoints) {
+    this.addColumnsBreakpoint(columnsBreakpoint);
+    this._showColumnsAt = columnsBreakpoint;
+  }
+  get showColumnsAt(): TableColumnLayoutBreakpoints {
+    return this._showColumnsAt;
+  }
+
+  @Input()
+  set variant(variant: TableVariant) {
+    if (this._variant) {
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-table--${this.variant}`,
+      );
+    }
+
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-table--${variant}`);
+    this._variant = variant;
+  }
+  get variant() {
+    return this._variant;
+  }
+
   @HostBinding('class') class = 'lg-table';
 
   @ContentChild(LgTableHeadComponent, { static: false }) tableHead: LgTableHeadComponent;
@@ -35,38 +66,6 @@ export class LgTableComponent implements AfterContentChecked {
     return this.isExpandable;
   }
 
-  private _showColumnsAt: TableColumnLayoutBreakpoints;
-  @Input()
-  set showColumnsAt(columnsBreakpoint: TableColumnLayoutBreakpoints) {
-    this.addColumnsBreakpoint(columnsBreakpoint);
-    this._showColumnsAt = columnsBreakpoint;
-  }
-  get showColumnsAt(): TableColumnLayoutBreakpoints {
-    return this._showColumnsAt;
-  }
-
-  _variant: TableVariant;
-  @Input()
-  set variant(variant: TableVariant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-table--${this.variant}`,
-      );
-    }
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-table--${variant}`);
-    this._variant = variant;
-  }
-  get variant() {
-    return this._variant;
-  }
-
-  isExpandable = false;
-
-  id = nextUniqueId++;
-
-  columns = new Map<number, TableColumn>();
-
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {
     this.variant = 'striped';
     this.showColumnsAt = TableColumnLayoutBreakpoints.Medium;
@@ -74,14 +73,15 @@ export class LgTableComponent implements AfterContentChecked {
 
   ngAfterContentChecked() {
     if (this.tableHead && this.tableBody) {
-      this.tableBody.rows.forEach((row) =>
-        row.bodyCells.forEach((cell) => {
+      this.tableBody.rows.forEach(row =>
+        row.bodyCells.forEach(cell => {
           if (cell.expandableDetail) {
             row.isDetailRow = true;
           }
         }),
       );
-      this.isExpandable = this.tableBody.rows.some((row) => row.isDetailRow);
+
+      this.isExpandable = this.tableBody.rows.some(row => row.isDetailRow);
 
       this.handleHeadCells();
 
@@ -105,6 +105,7 @@ export class LgTableComponent implements AfterContentChecked {
 
   private handleHeadCells() {
     const headCells = this.tableHead.headRow.headCells;
+
     headCells.forEach((cell, cellIndex) => {
       this.columns.set(cellIndex, {
         align: cell.align,
@@ -116,7 +117,7 @@ export class LgTableComponent implements AfterContentChecked {
 
   private handleDetailRows() {
     this.tableBody.rows
-      .filter((row) => row.isDetailRow)
+      .filter(row => row.isDetailRow)
       .forEach((detailRow, index) => {
         detailRow.ariaId = `lg-table-${this.id}-detail-row-${index}`;
         detailRow.ariaLabelledBy = `lg-table-${this.id}-toggle-row-${index}`;
@@ -125,10 +126,10 @@ export class LgTableComponent implements AfterContentChecked {
 
   private handleBodyRows() {
     this.tableBody.rows
-      .filter((row) => !row.isDetailRow)
+      .filter(row => !row.isDetailRow)
       .forEach((row, index) => {
         row.bodyCells
-          .filter((cell) => !cell.expandableDetail)
+          .filter(cell => !cell.expandableDetail)
           .forEach((cell, cellIndex) => {
             const { align, showLabel, label } = this.columns.get(cellIndex);
 
@@ -148,8 +149,8 @@ export class LgTableComponent implements AfterContentChecked {
         });
 
         row.bodyCells
-          .filter((cell) => !!cell.toggle)
-          .forEach((cell) => {
+          .filter(cell => !!cell.toggle)
+          .forEach(cell => {
             cell.toggle.tableId = this.id;
             cell.toggle.rowId = index;
             cell.toggle.context = toggleContext;

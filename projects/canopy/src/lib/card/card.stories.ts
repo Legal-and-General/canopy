@@ -1,11 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgGridModule } from '../grid/grid.module';
 import { LgPaddingModule } from '../spacing/padding/padding.module';
-import { notes } from './card.notes';
 import { LgMarginModule } from '../spacing/margin/margin.module';
 import { LgBreadcrumbModule } from '../breadcrumb/breadcrumb.module';
 import { LgIconModule } from '../icon/icon.module';
@@ -14,9 +12,11 @@ import { LgInputModule } from '../forms/input/input.module';
 import { LgLabelModule } from '../forms/label/label.module';
 import { LgHintModule } from '../forms/hint/hint.module';
 import { LgSeparatorModule } from '../separator/separator.module';
+import { lgIconChevronLeft, LgIconRegistry } from '../icon';
+
 import { LgCardComponent } from './card.component';
 import { LgCardModule } from './card.module';
-import { lgIconChevronLeft, LgIconRegistry } from '../icon';
+import { notes } from './card.notes';
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -94,11 +94,12 @@ class FormJourneyComponent {
   form: FormGroup;
 
   constructor(private registry: LgIconRegistry, public fb: FormBuilder) {
-    this.registry.registerIcons([lgIconChevronLeft]);
+    this.registry.registerIcons([ lgIconChevronLeft ]);
     this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
   }
 
   onSubmit(event): void {
+    /* eslint-disable-next-line no-console */
     console.log('submit', event);
   }
 }
@@ -107,7 +108,7 @@ export default {
   title: 'Components/Card',
   decorators: [
     moduleMetadata({
-      declarations: [FormJourneyComponent],
+      declarations: [ FormJourneyComponent ],
       imports: [
         ReactiveFormsModule,
         LgInputModule,
@@ -156,11 +157,13 @@ const defaultCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
 
 export const defaultCard = defaultCardStory.bind({});
 defaultCard.storyName = 'Standard';
+
 defaultCard.args = {
   headingLevel: 2,
   title: 'The title',
   cardContent: content,
 };
+
 defaultCard.parameters = {
   docs: {
     source: {
@@ -190,9 +193,11 @@ const nestedGridCardStory: Story<LgCardComponent> = (args: LgCardComponent) => (
 
 export const nestedGridCard = nestedGridCardStory.bind({});
 nestedGridCard.storyName = 'Nested grid';
+
 nestedGridCard.args = {
   cardContent: content,
 };
+
 nestedGridCard.parameters = {
   docs: {
     source: {
@@ -236,9 +241,11 @@ const productCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
 
 export const productCard = productCardStory.bind({});
 productCard.storyName = 'Product';
+
 productCard.args = {
   title: 'Standard Lifetime Annuity Joint Life Full',
 };
+
 productCard.parameters = {
   docs: {
     source: {
@@ -256,6 +263,7 @@ const formJourneyCardStory: Story<LgCardComponent> = (args: LgCardComponent) => 
 
 export const formJourneyCard = formJourneyCardStory.bind({});
 formJourneyCard.storyName = 'Form journey';
+
 formJourneyCard.args = {
   title: 'New bank details',
   cardContent:
@@ -265,6 +273,7 @@ formJourneyCard.args = {
     'By completing this form you are confirming you have consent to share these details with us. See our privacy policy.',
   label: 'Account Number',
 };
+
 formJourneyCard.parameters = {
   docs: {
     source: {

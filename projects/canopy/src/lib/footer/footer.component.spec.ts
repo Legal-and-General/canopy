@@ -22,7 +22,7 @@ describe('FooterComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgFooterComponent],
+        declarations: [ LgFooterComponent ],
       }).compileComponents();
     }),
   );
@@ -30,8 +30,8 @@ describe('FooterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LgFooterComponent);
     component = fixture.componentInstance;
-    component.primaryLinks = [{ text: text1, href: href1, id: id1 }];
-    component.secondaryLinks = [{ text: text2, href: href2, id: id2 }];
+    component.primaryLinks = [ { text: text1, href: href1, id: id1 } ];
+    component.secondaryLinks = [ { text: text2, href: href2, id: id2 } ];
     component.logo = logo;
 
     fixture.detectChanges();
@@ -48,6 +48,7 @@ describe('FooterComponent', () => {
       const image = fixture.debugElement.query(
         By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
       );
+
       expect(image).toBeTruthy();
       expect(image.attributes.src).toBe(logo);
     });
@@ -58,6 +59,7 @@ describe('FooterComponent', () => {
       const image = fixture.debugElement.query(
         By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
       );
+
       expect(image).toBeFalsy();
     });
 
@@ -67,6 +69,7 @@ describe('FooterComponent', () => {
       const image = fixture.debugElement.query(
         By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
       );
+
       expect(image).toBeTruthy();
       expect(image.attributes.alt).toBe('');
     });
@@ -78,6 +81,7 @@ describe('FooterComponent', () => {
       const image = fixture.debugElement.query(
         By.css('.lg-footer__logo:not(.lg-footer__second-logo)'),
       );
+
       expect(image).toBeTruthy();
       expect(image.attributes.alt).toBe(logoAlt);
     });
@@ -88,6 +92,7 @@ describe('FooterComponent', () => {
       component.secondaryLogo = logo;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
+
       expect(image).toBeTruthy();
       expect(image.attributes.src).toBe(logo);
     });
@@ -96,6 +101,7 @@ describe('FooterComponent', () => {
       component.secondaryLogo = null;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
+
       expect(image).toBeFalsy();
     });
 
@@ -103,6 +109,7 @@ describe('FooterComponent', () => {
       component.secondaryLogo = logo;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
+
       expect(image).toBeTruthy();
       expect(image.attributes.alt).toBe('');
     });
@@ -112,6 +119,7 @@ describe('FooterComponent', () => {
       component.secondaryLogoAlt = logoAlt;
       fixture.detectChanges();
       const image = fixture.debugElement.query(By.css('.lg-footer__second-logo'));
+
       expect(image).toBeTruthy();
       expect(image.attributes.alt).toBe(logoAlt);
     });
@@ -120,6 +128,7 @@ describe('FooterComponent', () => {
   describe('for primary links', () => {
     it('renders', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href1}"]`));
+
       expect(link).toBeTruthy();
       expect(link.attributes.href).toBe(href1);
       expect(link.attributes.id).toBe(id1);
@@ -134,28 +143,35 @@ describe('FooterComponent', () => {
 
     it('it defaults the target to _blank', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href1}"]`));
+
       expect(link.nativeElement.attributes.target.value).toBe('_blank');
     });
 
     it('the target can be overridden', () => {
       const target = '_self';
-      component.primaryLinks = [{ text: text1, href: href1, target }];
+
+      component.primaryLinks = [ { text: text1, href: href1, target } ];
       fixture.detectChanges();
       const link = fixture.debugElement.query(By.css(`[href="${href1}"]`));
+
       expect(link.nativeElement.attributes.target.value).toBe(target);
     });
 
     it('emits an event when clicked', () => {
       let selectedHref: string;
+
       component.primaryLinkClicked.subscribe((event: Event) => {
         selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
           'href',
         ).value;
+
         event.preventDefault();
       });
 
       const link = fixture.debugElement.query(By.css(`[href="${href1}"]`));
+
       link.nativeElement.click();
+
       expect(selectedHref).toBe(href1);
     });
   });
@@ -163,6 +179,7 @@ describe('FooterComponent', () => {
   describe('for secondary links', () => {
     it('renders a link when no type is specified', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href2}"]`));
+
       expect(link).toBeTruthy();
       expect(link.attributes.href).toBe(href2);
       expect(link.attributes.id).toBe(id2);
@@ -174,6 +191,7 @@ describe('FooterComponent', () => {
       component.secondaryLinks[0].class = class2;
       fixture.detectChanges();
       const button = fixture.debugElement.query(By.css('button'));
+
       expect(button).toBeTruthy();
       expect(button.attributes.id).toBe(id2);
       expect(button.properties.className).toBe(`lg-footer__nav-button ${class2}`);
@@ -188,28 +206,35 @@ describe('FooterComponent', () => {
 
     it('it defaults the target to _blank', () => {
       const link = fixture.debugElement.query(By.css(`[href="${href2}"]`));
+
       expect(link.nativeElement.attributes.target.value).toBe('_blank');
     });
 
     it('the target can be overridden', () => {
       const target = '_self';
-      component.secondaryLinks = [{ text: text2, href: href2, target }];
+
+      component.secondaryLinks = [ { text: text2, href: href2, target } ];
       fixture.detectChanges();
       const link = fixture.debugElement.query(By.css(`[href="${href2}"]`));
+
       expect(link.nativeElement.attributes.target.value).toBe(target);
     });
 
     it('emits an event when clicked', () => {
       let selectedHref: string;
+
       component.secondaryLinkClicked.subscribe((event: Event) => {
         selectedHref = (event.target as HTMLLinkElement).attributes.getNamedItem(
           'href',
         ).value;
+
         event.preventDefault();
       });
 
       const link = fixture.debugElement.query(By.css(`[href="${href2}"]`));
+
       link.nativeElement.click();
+
       expect(selectedHref).toBe(href2);
     });
   });

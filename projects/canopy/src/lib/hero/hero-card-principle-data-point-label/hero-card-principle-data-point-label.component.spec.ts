@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LgHeadingComponent } from '../../heading/heading.component';
+
 import { LgHeroCardPrincipleDataPointLabelComponent } from './hero-card-principle-data-point-label.component';
 
 describe('LgHeroCardPrincipleDataPointLabelComponent', () => {
@@ -10,7 +11,7 @@ describe('LgHeroCardPrincipleDataPointLabelComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeroCardPrincipleDataPointLabelComponent, LgHeadingComponent],
+        declarations: [ LgHeroCardPrincipleDataPointLabelComponent, LgHeadingComponent ],
       }).compileComponents();
     }),
   );

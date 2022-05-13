@@ -9,7 +9,7 @@ describe('LgSeparatorComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgSeparatorComponent],
+        declarations: [ LgSeparatorComponent ],
       }).compileComponents();
     }),
   );
@@ -52,7 +52,7 @@ describe('LgSeparatorComponent', () => {
       expect(fixture.nativeElement.getAttribute('role')).toEqual('separator');
     });
 
-    it("shouldn't set the aria hidden attribute", () => {
+    it('shouldn\'t set the aria hidden attribute', () => {
       expect(fixture.nativeElement.getAttribute('aria-hidden')).toBeNull();
     });
   });

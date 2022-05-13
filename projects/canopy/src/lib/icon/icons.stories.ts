@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgIconComponent } from './icon.component';
@@ -64,7 +63,7 @@ export default {
   title: 'Components/Icon',
   decorators: [
     moduleMetadata({
-      declarations: [SwatchIconComponent, LgIconComponent],
+      declarations: [ SwatchIconComponent, LgIconComponent ],
     }),
   ],
   parameters: {
@@ -96,9 +95,11 @@ const iconsTemplate: Story<LgIconComponent> = (args: LgIconComponent) => ({
 
 export const standardIcons = iconsTemplate.bind({});
 standardIcons.storyName = 'Icon';
+
 standardIcons.args = {
   colour: '--color-charcoal',
 };
+
 standardIcons.parameters = {
   docs: {
     description: {

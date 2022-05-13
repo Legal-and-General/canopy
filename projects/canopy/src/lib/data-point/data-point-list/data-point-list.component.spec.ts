@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
 import { MockComponent, MockRender } from 'ng-mocks';
 
 import { LgDataPointComponent } from '../data-point/data-point.component';
+
 import { LgDataPointListComponent } from './data-point-list.component';
 
 describe('LgDataPointListComponent', () => {
@@ -18,7 +18,7 @@ describe('LgDataPointListComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgDataPointListComponent, MockComponent(LgDataPointComponent)],
+        declarations: [ LgDataPointListComponent, MockComponent(LgDataPointComponent) ],
       }).compileComponents();
     }),
   );
@@ -28,6 +28,7 @@ describe('LgDataPointListComponent', () => {
       <lg-data-point-list>
       </lg-data-point-list>
     `);
+
     debugElement = fixture.debugElement;
     component = fixture.componentInstance;
     el = debugElement.children[0].nativeElement;
@@ -55,6 +56,7 @@ describe('LgDataPointListComponent', () => {
           <lg-data-point></lg-data-point>
         </lg-data-point-list>
       `);
+
       debugElement = fixture.debugElement;
       component = fixture.componentInstance;
       el = debugElement.children[0].nativeElement;
@@ -63,7 +65,7 @@ describe('LgDataPointListComponent', () => {
       dataPointDebugElements = fixture.debugElement.queryAll(By.css('lg-data-point'));
 
       dataPointInstances = dataPointDebugElements.map(
-        (debugEl) => debugEl.componentInstance,
+        debugEl => debugEl.componentInstance,
       );
     });
 
@@ -72,7 +74,7 @@ describe('LgDataPointListComponent', () => {
     });
 
     it('should set isListItem to true on all data points', () => {
-      dataPointInstances.forEach((dataPoint) => {
+      dataPointInstances.forEach(dataPoint => {
         expect(dataPoint.isListItem).toBe(true);
       });
     });

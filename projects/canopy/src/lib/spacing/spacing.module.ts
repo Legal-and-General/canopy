@@ -5,7 +5,7 @@ import { LgMarginModule } from './margin/margin.module';
 import { LgPaddingModule } from './padding/padding.module';
 
 @NgModule({
-  imports: [CommonModule, LgMarginModule, LgPaddingModule],
-  exports: [LgMarginModule, LgPaddingModule],
+  imports: [ CommonModule, LgMarginModule, LgPaddingModule ],
+  exports: [ LgMarginModule, LgPaddingModule ],
 })
 export class LgSpacingModule {}

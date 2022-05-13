@@ -15,7 +15,7 @@ declare const require: {
     deep?: boolean,
     filter?: RegExp,
   ): {
-    keys(): string[];
+    keys(): Array<string>;
     <T>(id: string): T;
   };
 };
@@ -25,7 +25,9 @@ getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting(),
 );
+
 // Then we find all the tests.
 const context = require.context('./', true, /\.spec\.ts$/);
+
 // And load the modules.
 context.keys().map(context);

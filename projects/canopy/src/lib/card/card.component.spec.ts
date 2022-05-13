@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-
 import { MockComponent, MockRender } from 'ng-mocks';
 
 import { LgCardContentComponent } from './card-content/card-content.component';

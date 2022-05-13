@@ -1,5 +1,4 @@
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgToggleModule } from './toggle.module';
@@ -16,8 +15,8 @@ export default {
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveToggleFormComponent],
-      imports: [ReactiveFormsModule, LgToggleModule],
+      declarations: [ ReactiveToggleFormComponent ],
+      imports: [ ReactiveFormsModule, LgToggleModule ],
     }),
   ],
   parameters: {
@@ -205,6 +204,7 @@ const code = `
 export const switchObj = switchStory.bind({});
 switchObj.storyName = 'Switch';
 setupToggleStoryValues(switchObj, code);
+
 switchObj.args = {
   ...switchObj.args,
   variant: 'switch',

@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'lg-card-subtitle',
   templateUrl: './card-subtitle.component.html',
-  styleUrls: ['./card-subtitle.component.scss'],
+  styleUrls: [ './card-subtitle.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

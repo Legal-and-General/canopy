@@ -12,7 +12,7 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
 @Component({
   selector: '[lg-table-head]',
   templateUrl: './table-head.component.html',
-  styleUrls: ['./table-head.component.scss'],
+  styleUrls: [ './table-head.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

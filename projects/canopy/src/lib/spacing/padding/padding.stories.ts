@@ -2,6 +2,7 @@ import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from '../spacing.notes';
 import { LgCardModule } from '../../card';
+
 import { LgPaddingModule } from './padding.module';
 import { LgPaddingDirective } from './padding.directive';
 
@@ -27,7 +28,7 @@ export default {
   title: 'Directives/Padding',
   decorators: [
     moduleMetadata({
-      imports: [LgPaddingModule, LgCardModule],
+      imports: [ LgPaddingModule, LgCardModule ],
     }),
   ],
   parameters: {
@@ -158,6 +159,7 @@ const paddingStory: Story<LgPaddingDirective> = (args: LgPaddingDirective) => ({
 
 export const padding = paddingStory.bind({});
 padding.storyName = 'Padding';
+
 padding.args = {
   padding: 'md',
   paddingTop: 'undefined',
@@ -171,6 +173,7 @@ padding.args = {
   paddingBottomResponsive: null,
   paddingLeftResponsive: null,
 };
+
 padding.parameters = {
   docs: {
     source: {

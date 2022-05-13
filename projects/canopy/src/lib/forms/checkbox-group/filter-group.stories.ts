@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
+
+import { LgToggleModule } from '../toggle/toggle.module';
+import { LgHintModule } from '../hint';
 
 import { notes } from './checkbox-group.notes';
 import { LgCheckboxGroupComponent } from './checkbox-group.component';
 import { LgCheckboxGroupModule } from './checkbox-group.module';
-import { LgToggleModule } from '../toggle/toggle.module';
-import { LgHintModule } from '../hint';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -48,8 +48,8 @@ class ReactiveFormComponent {
   form: FormGroup;
 
   constructor(public fb: FormBuilder) {
-    this.form = this.fb.group({ colors: this.fb.control(['red']) });
-    this.form.valueChanges.subscribe((val) => this.checkboxChange.emit(val));
+    this.form = this.fb.group({ colors: this.fb.control([ 'red' ]) });
+    this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
   }
 }
 
@@ -58,8 +58,8 @@ export default {
   component: LgCheckboxGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule],
+      declarations: [ ReactiveFormComponent ],
+      imports: [ ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule ],
     }),
   ],
   parameters: {
@@ -199,12 +199,14 @@ const filterMultiple: Story<LgCheckboxGroupComponent> = (
 
 export const filterMultipleButtons = filterMultiple.bind({});
 filterMultipleButtons.storyName = 'Filter Multiple Buttons';
+
 filterMultipleButtons.args = {
   label: 'Select colors',
   hint: 'Please select all colours that apply',
   disabled: false,
   focus: false,
 };
+
 filterMultipleButtons.parameters = {
   docs: {
     source: {

@@ -8,7 +8,7 @@ describe('LgModalBodyTimerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LgModalBodyTimerComponent],
+      declarations: [ LgModalBodyTimerComponent ],
     }).compileComponents();
   });
 
@@ -67,6 +67,7 @@ describe('LgModalBodyTimerComponent', () => {
       '10:01',
       '99:59',
     ];
+
     time.forEach((value, index) => {
       component.timer = time[index];
 

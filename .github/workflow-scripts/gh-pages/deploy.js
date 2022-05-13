@@ -77,7 +77,9 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       console.info(`ℹ️ Cleaning existing ${docsPath}`);
       if (branch === 'master') {
         // for master we want to clean everything from `./docs` with the exception of the directories of the deployed branches
-        const filesToRemove = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => !item.name.startsWith('sb-')).map(({ name }) => name);
+        const filesToRemove = fs.readdirSync('./docs', { withFileTypes: true })
+          .filter(item => !item.name.startsWith('sb-'))
+          .map(({ name }) => name);
 
         for (const file of filesToRemove) {
           await exec.exec('rm', ['-rf', `./docs/${file}`]);
@@ -127,18 +129,17 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
 
     console.info('ℹ️ Pushing to gh-pages');
     await exec.exec('git', ['push', '-f', '--set-upstream', 'origin', 'gh-pages']);
-
-    console.info(`ℹ️ Checking out ${branch}`);
-    await exec.exec('git', ['checkout', '-']);
   } catch (e) {
-    throw `🚫 Error: something went wrong during the deployment of branch ${branch}`;
+    throw `🚫 Error: something went wrong during the deployment of branch ${branch}\n${e}`;
   }
 }
 
 async function undeploy({ branch, repo, owner, github, exec }) {
   try {
     // get the existing deployed branches from the docs folder (removing the prefix)
-    const branches = fs.readdirSync('./docs', { withFileTypes: true }).filter(item => item.isDirectory() && item.name.startsWith('sb-') && item.name !== `sb-${branch}`).map(({ name }) => name.replace(/^sb-/, ''));
+    const branches = fs.readdirSync('./docs', { withFileTypes: true })
+      .filter(item => item.isDirectory() && item.name.startsWith('sb-') && item.name !== `sb-${branch}`)
+      .map(({ name }) => name.replace(/^sb-/, ''));
 
     if (!branches.length) {
       console.info(`✅️ Skipping: no environments to un-deploy`);
@@ -177,34 +178,6 @@ async function undeploy({ branch, repo, owner, github, exec }) {
         console.log(e);
       }
     }
-
-    const { data: { environments } } = await github.rest.repos.getAllEnvironments({
-      owner,
-      repo,
-    });
-
-    if (!environments.length) {
-      console.info(`✅️ Skipping: no environments to delete from GitHub`);
-      return;
-    }
-
-    const environmentsToDelete = environments.find(({ name }) => name !== 'github-pages' && branchesToUndeploy.includes(name));
-
-    console.info(`ℹ️ Deleting unused environment(s): ${environmentsToDelete.join(', ')}`);
-
-    for (const { id, name } of environmentsToDelete) {
-      try {
-        await github.rest.repos.deleteAnEnvironment({
-          owner,
-          repo,
-          environment_name: id,
-        });
-      } catch (e) {
-        console.info(`🚫 Error: something while deleting ${name} environment from GitHub\n${e}`);
-        return
-      }
-    }
-
   } catch (error) {
     throw `🚫 Error: something went wrong during the un-deployment`;
   }

@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgCardModule } from '../card';
+
 import { LgShadowModule } from './shadow.module';
 import { notes } from './shadow.notes';
 import { LgShadowDirective } from './shadow.directive';
@@ -11,7 +12,7 @@ export default {
   component: LgShadowDirective,
   decorators: [
     moduleMetadata({
-      imports: [LgShadowModule, LgCardModule],
+      imports: [ LgShadowModule, LgCardModule ],
     }),
   ],
   parameters: {
@@ -48,6 +49,7 @@ const shadowTemplate: Story<LgShadowDirective> = (args: LgShadowDirective) => ({
 
 export const shadowStory = shadowTemplate.bind({});
 shadowStory.storyName = 'Shadow';
+
 shadowStory.parameters = {
   docs: {
     source: {

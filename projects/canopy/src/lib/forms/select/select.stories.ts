@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
+
+import { LgHintModule } from '../hint';
 
 import { notes } from './select.notes';
 import { LgSelectModule } from './select.module';
 import { LgSelectFieldComponent } from './select-field.component';
-import { LgHintModule } from '../hint';
 
 const template = `
 <lg-select-field [block]="block">
@@ -48,7 +48,8 @@ class ReactiveFormComponent {
     this.form = this.fb.group({
       color: { value: '', disabled: false },
     });
-    this.form.valueChanges.subscribe((val) => this.selectChange.emit(val));
+
+    this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
   }
 }
 
@@ -57,8 +58,8 @@ export default {
   component: LgSelectFieldComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, LgSelectModule, LgHintModule],
+      declarations: [ ReactiveFormComponent ],
+      imports: [ ReactiveFormsModule, LgSelectModule, LgHintModule ],
     }),
   ],
   parameters: {
@@ -133,13 +134,15 @@ const selectTemplate: Story<LgSelectModule> = (args: LgSelectModule) => ({
 
 export const select = selectTemplate.bind({});
 select.storyName = 'Select';
+
 select.args = {
   label: 'Color',
   hint: 'Please select a color',
   block: false,
-  options: ['Red', 'Blue', 'Green', 'Yellow'],
+  options: [ 'Red', 'Blue', 'Green', 'Yellow' ],
   disabled: false,
 };
+
 select.parameters = {
   docs: {
     source: {

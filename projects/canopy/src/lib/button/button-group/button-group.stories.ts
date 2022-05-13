@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgButtonModule } from '../button.module';
+
 import { LgButtonGroupComponent } from './button-group.component';
 import { notes } from './button-group.notes';
 
@@ -9,7 +10,7 @@ export default {
   component: LgButtonGroupComponent,
   decorators: [
     moduleMetadata({
-      imports: [LgButtonModule],
+      imports: [ LgButtonModule ],
     }),
   ],
   parameters: {
@@ -43,11 +44,13 @@ const template = `
 const buttonGroupStory: Story<LgButtonGroupComponent> = (
   args: LgButtonGroupComponent,
 ) => ({
+  props: args,
   template,
 });
 
 export const standardButtonGroup = buttonGroupStory.bind({});
 standardButtonGroup.storyName = 'Button Group';
+
 standardButtonGroup.parameters = {
   controls: { hideNoControlsWarning: true },
   docs: {

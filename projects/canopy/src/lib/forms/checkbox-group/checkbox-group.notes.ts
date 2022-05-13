@@ -24,7 +24,7 @@ Import the CheckboxGroup and Toggle modules into your application:
 | \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the ${name.toLowerCase()}s, if not provided it will use the hint field where appropriate | boolean | null | No |
 ${
   name !== 'Filter'
-    ? `| \`\`inline\`\` | If true, displays the buttons inline rather than stacked | boolean | false | No |`
+    ? '| ``inline`` | If true, displays the buttons inline rather than stacked | boolean | false | No |'
     : ''
 }
 

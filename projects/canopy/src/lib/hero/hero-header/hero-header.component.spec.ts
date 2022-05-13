@@ -9,7 +9,7 @@ describe('LgHeroHeaderComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeroHeaderComponent],
+        declarations: [ LgHeroHeaderComponent ],
       }).compileComponents();
     }),
   );

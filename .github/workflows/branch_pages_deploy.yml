@@ -56,7 +56,6 @@ jobs:
             const createDeployment = require('./.github/workflow-scripts/gh-pages/create-gh-deployment.js');
             return await createDeployment({
               sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
-              branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
               github,
               context,
             });
@@ -88,29 +87,19 @@ jobs:
               exec,
             });
 
-      - name: 'Notify GitHub of deployment failure'
-        if: failure()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
-            await createDeploymentStatus({
-              deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
-              state: 'failure',
-              environmentUrl: '${{ fromJSON(steps.prData.outputs.result).environmentUrl }}',
-              github,
-              context,
-            });
+      - name: 'Checking out current branch'
+        if: always()
+        run: git checkout ${{ github.sha }}
 
-      - name: 'Notify GitHub of deployment success'
-        if: success()
+      - name: 'Notify GitHub of deployment status'
+        if: always()
         uses: actions/github-script@v6
         with:
           script: |
             const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
             await createDeploymentStatus({
               deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
-              state: 'success',
+              state: '${{ job.status }}' === 'success' ? 'success' : 'failure',
               environmentUrl: '${{ fromJSON(steps.prData.outputs.result).environmentUrl }}',
               github,
               context,

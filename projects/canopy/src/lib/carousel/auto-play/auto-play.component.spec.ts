@@ -1,9 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
 import { MockComponents } from 'ng-mocks';
-
 import { BehaviorSubject } from 'rxjs';
 
 import { LgIconComponent } from '../../icon';
@@ -19,7 +17,7 @@ describe('LgButtonComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgAutoplayComponent, MockComponents(LgIconComponent)],
+        declarations: [ LgAutoplayComponent, MockComponents(LgIconComponent) ],
       }).compileComponents();
     }),
   );
@@ -45,9 +43,11 @@ describe('LgButtonComponent', () => {
     pause = fixture.debugElement.query(
       By.css('.lg-carousel-autoplay__btn.lg-carousel-autoplay__btn--pause'),
     );
+
     const spy = spyOn(component.pause, 'next');
 
     pause.nativeElement.click();
+
     expect(spy).toHaveBeenCalledWith(true);
   });
 
@@ -58,7 +58,9 @@ describe('LgButtonComponent', () => {
     play = fixture.debugElement.query(
       By.css('.lg-carousel-autoplay__btn.lg-carousel-autoplay__btn--play'),
     );
+
     const spy = spyOn(component.pause, 'next');
+
     play.nativeElement.click();
 
     expect(spy).toHaveBeenCalledWith(false);

@@ -2,10 +2,10 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { CanopyModule } from '../../canopy.module';
-import { LgValidationComponent } from './validation.component';
-
 import { LgIconComponent } from '../../icon';
 import type { Variant } from '../../variant';
+
+import { LgValidationComponent } from './validation.component';
 
 describe('LgValidationComponent', () => {
   let component: LgValidationComponent;
@@ -14,7 +14,7 @@ describe('LgValidationComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        imports: [CanopyModule],
+        imports: [ CanopyModule ],
       }).compileComponents();
 
       fixture = TestBed.createComponent(LgValidationComponent);
@@ -33,6 +33,7 @@ describe('LgValidationComponent', () => {
 
   it('renders an icon by default', () => {
     const icon = fixture.debugElement.query(By.directive(LgIconComponent));
+
     expect(icon).not.toBeNull();
   });
 
@@ -40,6 +41,7 @@ describe('LgValidationComponent', () => {
     component.showIcon = false;
     fixture.detectChanges();
     const icon = fixture.debugElement.query(By.directive(LgIconComponent));
+
     expect(icon).toBeNull();
   });
 
@@ -52,6 +54,7 @@ describe('LgValidationComponent', () => {
     ].forEach(({ variant, icon }) => {
       component.variant = variant as Variant;
       fixture.detectChanges();
+
       expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();
     });
   });

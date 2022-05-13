@@ -10,7 +10,7 @@ export default {
   component: LgSrAlertMessageDirective,
   decorators: [
     moduleMetadata({
-      imports: [LgSrAlertMessageModule],
+      imports: [ LgSrAlertMessageModule ],
     }),
   ],
   parameters: {
@@ -68,10 +68,12 @@ const srAlertMessageTemplate: Story<LgSrAlertMessageDirective> = (
 
 export const srAlertMessageStory = srAlertMessageTemplate.bind({});
 srAlertMessageStory.storyName = 'Screen reader alert message';
+
 srAlertMessageStory.args = {
   lgSrAlertMessage: false,
   timer: 8000,
 };
+
 srAlertMessageStory.parameters = {
   docs: {
     source: {

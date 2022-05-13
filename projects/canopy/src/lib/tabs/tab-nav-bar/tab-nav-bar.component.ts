@@ -12,26 +12,26 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-
 import { merge, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { isKeyDown, isKeyLeft, isKeyRight, isKeyUp } from '../../utils/keyboard-keys';
+
 import { LgTabNavBarLinkDirective } from './tab-nav-bar-link.directive';
 
 @Component({
   selector: 'lg-tab-nav-bar',
   templateUrl: './tab-nav-bar.component.html',
-  styleUrls: ['./tab-nav-bar.component.scss'],
+  styleUrls: [ './tab-nav-bar.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
   selectedIndex = 0;
   tabs: Array<LgTabNavBarLinkDirective>;
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
-
   @Input() label = 'Tabs';
+
   @ContentChildren(forwardRef(() => LgTabNavBarLinkDirective), {
     descendants: true,
   })
@@ -41,10 +41,14 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
   @HostBinding('attr.role') ariaRole = 'tablist';
   @HostBinding('attr.aria-label')
   get ariaLabel() {
-    return this.label ? this.label : 'Tabs';
+    return this.label
+      ? this.label
+      : 'Tabs';
   }
 
-  @HostListener('keyup', ['$event']) onKeyUp(event: KeyboardEvent): void {
+  constructor(private cd: ChangeDetectorRef) {}
+
+  @HostListener('keyup', [ '$event' ]) onKeyUp(event: KeyboardEvent): void {
     const isPreviousKey = isKeyLeft(event) || isKeyUp(event);
     const isNextKey = isKeyRight(event) || isKeyDown(event);
 
@@ -54,7 +58,7 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
 
     event.preventDefault();
 
-    const currentSelectedTabIndex = this.tabs.findIndex((tab) => tab.isActive);
+    const currentSelectedTabIndex = this.tabs.findIndex(tab => tab.isActive);
 
     if (isPreviousKey) {
       this.selectedIndex =
@@ -72,8 +76,6 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
 
     this.tabs[this.selectedIndex].selectByKeyboard();
   }
-
-  constructor(private cd: ChangeDetectorRef) {}
 
   ngOnDestroy() {
     this.ngUnsubscribe.next();
@@ -98,7 +100,7 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
     });
 
     // Update tab link active states when active tab changes
-    const tabOutputs = this.tabs.map((tab) => tab.selectedTabIndexChange);
+    const tabOutputs = this.tabs.map(tab => tab.selectedTabIndexChange);
 
     merge(...tabOutputs)
       .pipe(takeUntil(this.ngUnsubscribe))
@@ -109,8 +111,9 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
 
   updateSelectedTab(index: number) {
     this.tabs.forEach((tab, i: number) => {
-      tab.isActive = i === index ? true : false;
+      tab.isActive = i === index;
     });
+
     this.selectedIndex = index;
   }
 }

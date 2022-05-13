@@ -9,7 +9,7 @@ describe('LgTableBodyComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgTableBodyComponent],
+        declarations: [ LgTableBodyComponent ],
       }).compileComponents();
     }),
   );

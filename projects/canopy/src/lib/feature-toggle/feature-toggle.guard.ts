@@ -6,7 +6,6 @@ import {
   Route,
   Router,
 } from '@angular/router';
-
 import { first, map } from 'rxjs/operators';
 
 import { LgFeatureToggleService } from './feature-toggle.service';
@@ -35,16 +34,19 @@ export class FeatureToggleGuard implements CanActivate, CanLoad {
   isActive(route: Route | ActivatedRouteSnapshot) {
     return this.featureToggleService.toggles$.pipe(
       first(),
-      map((configToggles) => {
+      map(configToggles => {
         const active = getDataPropertyValues(route, 'featureToggle')
-          .map((t) => {
+          .map(t => {
             const value = configToggles[t];
+
             return value === undefined || value;
           })
           .reduce((acc, current) => acc && current, true);
+
         if (!active) {
-          this.router.navigate(['/'], { queryParamsHandling: 'merge' });
+          this.router.navigate([ '/' ], { queryParamsHandling: 'merge' });
         }
+
         return active;
       }),
     );
@@ -62,8 +64,10 @@ export function getDataPropertyValues(
   if (snapshot.data && snapshot.data.hasOwnProperty(propertyName)) {
     values.push(snapshot.data[propertyName]);
   }
+
   if (snapshot.children && snapshot.children.length) {
     getDataPropertyValues(snapshot.children[0], propertyName, values);
   }
+
   return values;
 }

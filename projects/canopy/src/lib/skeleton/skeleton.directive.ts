@@ -27,7 +27,9 @@ export class LgSkeletonDirective implements OnDestroy {
       return null;
     }
 
-    return this.lgSkeletonWidth ? `${this.lgSkeletonWidth}em` : '100%';
+    return this.lgSkeletonWidth
+      ? `${this.lgSkeletonWidth}em`
+      : '100%';
   }
 
   @HostBinding('style.height')

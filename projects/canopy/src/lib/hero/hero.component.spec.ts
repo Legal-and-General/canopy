@@ -12,7 +12,7 @@ describe('LgHeroComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [LgHeroComponent],
+        declarations: [ LgHeroComponent ],
       }).compileComponents();
     }),
   );

@@ -21,6 +21,7 @@ import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
+
 import { LgRadioButtonComponent } from './radio-button.component';
 import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
 
@@ -29,21 +30,24 @@ let uniqueId = 0;
 @Component({
   selector: 'lg-radio-group, lg-filter-group, lg-segment-group',
   templateUrl: './radio-group.component.html',
-  styleUrls: ['./radio-group.component.scss', './radio-group--segment.component.scss'],
+  styleUrls: [ './radio-group.component.scss', './radio-group--segment.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {
-  nextUniqueId = ++uniqueId;
+  private nextUniqueId = ++uniqueId;
   private _name = `lg-radio-group-${this.nextUniqueId}`;
+  variant: RadioVariant;
+  _stack: RadioStackBreakpoint;
+  _radios: QueryList<LgRadioButtonComponent>;
+  _hintElement: LgHintComponent;
+  _validationElement: LgValidationComponent;
+  _value: boolean | string = null;
 
   @Input() id = `lg-radio-group-id-${this.nextUniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
   @Input() focus = false;
   @Input() ariaDescribedBy: string;
-  variant: RadioVariant;
-
-  _stack: RadioStackBreakpoint;
   @Input()
   set stack(stack: RadioStackBreakpoint) {
     if (this._stack) {
@@ -52,12 +56,14 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
         `lg-radio-group--stack-${this.stack}`,
       );
     }
+
     if (stack) {
       this.renderer.addClass(
         this.hostElement.nativeElement,
         `lg-radio-group--stack-${stack}`,
       );
     }
+
     this._stack = stack;
   }
   get stack(): RadioStackBreakpoint {
@@ -72,7 +78,6 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     return this.errorState.isControlInvalid(this.control, this.controlContainer);
   }
 
-  _radios: QueryList<LgRadioButtonComponent>;
   @ContentChildren(forwardRef(() => LgRadioButtonComponent), {
     descendants: true,
   })
@@ -80,13 +85,13 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     radios.toArray().forEach((radio: LgRadioButtonComponent) => {
       radio.control = this.control;
     });
+
     this._radios = radios;
   }
   get radios(): QueryList<LgRadioButtonComponent> {
     return this._radios;
   }
 
-  _hintElement: LgHintComponent;
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
@@ -94,10 +99,10 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
       this._validationElement,
       element,
     );
+
     this._hintElement = element;
   }
 
-  _validationElement: LgValidationComponent;
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
     this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
@@ -105,10 +110,10 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
       this._validationElement,
       element,
     );
+
     this._validationElement = element;
   }
 
-  _value: boolean | string = null;
   @Input()
   get value() {
     return this._value;
@@ -116,8 +121,10 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
   set value(value) {
     this._value = value;
     this.onChange(value);
+
     if (this.radios) {
-      const selectedRadio = this.radios.find((option) => option.value === value);
+      const selectedRadio = this.radios.find(option => option.value === value);
+
       if (selectedRadio && !selectedRadio.checked) {
         selectedRadio.checked = true;
       }
@@ -147,6 +154,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     this.variant = this.hostElement.nativeElement.tagName
       .split('-')[1]
       .toLowerCase() as RadioVariant;
+
     if (this.control != null) {
       this.control.valueAccessor = this;
     }
@@ -154,7 +162,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
 
   ngAfterContentInit(): void {
     if (this.radios && this.stack) {
-      this.radios.toArray().forEach((radio) => {
+      this.radios.toArray().forEach(radio => {
         radio.stacked = this.stack;
       });
     }
@@ -178,15 +186,15 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     this.onTouched = fn;
   }
 
+  public setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+  }
+
   private _updateRadioButtonNames(): void {
     if (this.radios) {
-      this.radios.forEach((radio) => {
+      this.radios.forEach(radio => {
         radio.name = this.name;
       });
     }
-  }
-
-  public setDisabledState(isDisabled: boolean) {
-    this.disabled = isDisabled;
   }
 }

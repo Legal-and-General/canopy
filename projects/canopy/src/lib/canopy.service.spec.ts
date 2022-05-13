@@ -7,6 +7,7 @@ describe('CanopyService', () => {
 
   it('should be created', () => {
     const service: CanopyService = TestBed.inject(CanopyService);
+
     expect(service).toBeTruthy();
   });
 });

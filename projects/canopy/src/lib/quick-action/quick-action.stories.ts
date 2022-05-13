@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgIconRegistry } from '../icon/icon.registry';
+import { LgIconModule, lgIconsArray } from '../icon';
+
 import { LgQuickActionModule } from './quick-action.module';
 import { notes } from './quick-action.notes';
-import { LgIconModule, lgIconsArray } from '../icon';
 
 @Component({
   selector: 'lg-quick-action-link',
@@ -49,8 +49,8 @@ export default {
   title: 'Components/Quick Action',
   decorators: [
     moduleMetadata({
-      declarations: [LgQuickActionButtonComponent, LgQuickActionLinkComponent],
-      imports: [LgQuickActionModule, LgIconModule],
+      declarations: [ LgQuickActionButtonComponent, LgQuickActionLinkComponent ],
+      imports: [ LgQuickActionModule, LgIconModule ],
     }),
   ],
   parameters: {
@@ -63,7 +63,7 @@ export default {
   argTypes: {
     icon: {
       description: 'Icon to display',
-      options: ['None', ...lgIconsArray.map((i) => i.name)],
+      options: [ 'None', ...lgIconsArray.map(i => i.name) ],
       control: {
         type: 'select',
       },
@@ -103,10 +103,12 @@ const quickActionButtonTemplate: Story<LgQuickActionButtonComponent> = (
 export const quickActionButton = quickActionButtonTemplate.bind({});
 quickActionButton.storyName = 'Button';
 quickActionButton.component = LgQuickActionButtonComponent;
+
 quickActionButton.args = {
   icon: 'repeat',
   content: 'Load more',
 };
+
 quickActionButton.parameters = {
   docs: {
     source: {
@@ -138,18 +140,20 @@ const quickActionLinkTemplate: Story<LgQuickActionLinkComponent> = (
 
 export const quickActionLink = quickActionLinkTemplate.bind({});
 quickActionLink.storyName = 'Link';
+
 quickActionLink.args = {
   link: 'https://google.com',
   target: '_blank',
   icon: 'secure-messaging',
   content: 'Send us a message',
 };
+
 quickActionLink.argTypes = {
   target: {
-    options: ['_self', '_blank'],
+    options: [ '_self', '_blank' ],
     table: {
       type: {
-        summary: ['_self', '_blank'],
+        summary: [ '_self', '_blank' ],
       },
     },
     control: {
@@ -157,6 +161,7 @@ quickActionLink.argTypes = {
     },
   },
 };
+
 quickActionLink.parameters = {
   docs: {
     source: {

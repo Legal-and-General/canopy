@@ -6,8 +6,8 @@ import { LgGridContainerDirective } from './grid-container.directive';
 import { LgGridRowDirective } from './grid-row.directive';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [LgGridContainerDirective, LgGridColDirective, LgGridRowDirective],
-  exports: [LgGridContainerDirective, LgGridColDirective, LgGridRowDirective],
+  imports: [ CommonModule ],
+  declarations: [ LgGridContainerDirective, LgGridColDirective, LgGridRowDirective ],
+  exports: [ LgGridContainerDirective, LgGridColDirective, LgGridRowDirective ],
 })
 export class LgGridModule {}

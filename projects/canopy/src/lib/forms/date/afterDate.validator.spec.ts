@@ -1,5 +1,4 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
-
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import subDays from 'date-fns/subDays';
@@ -55,17 +54,20 @@ describe('afterDate', () => {
 
   it('returns null if the date is null', () => {
     when(control.value).thenReturn(null);
+
     expect(validator(instance(control))).toBe(null);
   });
 
   it('returns null if the date is not a valid date', () => {
     when(control.value).thenReturn(new Date('not a date'));
+
     expect(validator(instance(control))).toBe(null);
   });
 
   it('returns null if date is after the specified date', () => {
     date = addDays(dateToCompare, 10);
     when(control.value).thenReturn(format(date, 'yyyy-MM-dd'));
+
     expect(validator(instance(control))).toEqual(null);
   });
 });

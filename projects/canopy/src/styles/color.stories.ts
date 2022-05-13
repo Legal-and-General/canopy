@@ -7,7 +7,6 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-
 import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import convert from 'color-convert';
@@ -82,6 +81,7 @@ class SwatchComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const styles = window.getComputedStyle(this.swatch.nativeElement);
+
     this.color.rgb = styles.backgroundColor;
     this.color.hex = convert.rgb.hex(styles.backgroundColor.match(/\d+/g));
   }
@@ -142,6 +142,7 @@ class TintSwatchComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.swatches.forEach((swatch, i) => {
       const styles = window.getComputedStyle(swatch.nativeElement);
+
       this.colors[i].rgb = styles.backgroundColor;
       this.colors[i].hex = convert.rgb.hex(styles.backgroundColor.match(/\d+/g));
     });
@@ -149,7 +150,7 @@ class TintSwatchComponent implements AfterViewInit {
 
   @Input()
   set names(names: string) {
-    this.colors = names.split(',').map((name) => ({
+    this.colors = names.split(',').map(name => ({
       name,
       rgb: null,
       hex: null,
@@ -162,7 +163,7 @@ export default {
   title: 'Style/Colours',
   decorators: [
     moduleMetadata({
-      declarations: [SwatchComponent, TintSwatchComponent],
+      declarations: [ SwatchComponent, TintSwatchComponent ],
     }),
   ],
   parameters: {
@@ -242,7 +243,7 @@ const coloursTemplate = `
 </div>
 `;
 
-const coloursStory: Story = (args) => ({
+const coloursStory: Story = args => ({
   props: args,
   template: coloursTemplate,
 });

@@ -1,6 +1,5 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
 import { MockComponent, MockRender } from 'ng-mocks';
 
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
@@ -57,6 +56,7 @@ describe('LgBreadcrumbComponent', () => {
           <lg-breadcrumb-item>Home</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
+
       component = localFixture.debugElement.children[0].componentInstance;
       localFixture.detectChanges();
     });
@@ -80,6 +80,7 @@ describe('LgBreadcrumbComponent', () => {
     it('the breadcrumb item variant should be dark', () => {
       component.variant = BreadcrumbVariant.dark;
       fixture.detectChanges();
+
       expect(component.crumbs.first.variant).toEqual(BreadcrumbVariant.dark);
     });
   });
@@ -92,6 +93,7 @@ describe('LgBreadcrumbComponent', () => {
           <lg-breadcrumb-item>Retirement</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
+
       component = localFixture.debugElement.children[0].componentInstance;
       localFixture.detectChanges();
     });
@@ -123,6 +125,7 @@ describe('LgBreadcrumbComponent', () => {
           <lg-breadcrumb-item>Pensions</lg-breadcrumb-item>
         </lg-breadcrumb>
       `);
+
       component = localFixture.debugElement.children[0].componentInstance;
       localFixture.detectChanges();
     });
@@ -170,6 +173,7 @@ describe('LgBreadcrumbComponent', () => {
     it('the breadcrumb item ellipsis variant should be dark', () => {
       component.variant = BreadcrumbVariant.dark;
       fixture.detectChanges();
+
       expect(component.ellipsis.first.variant).toEqual(BreadcrumbVariant.dark);
     });
   });

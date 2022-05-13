@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-
 import { MockComponents } from 'ng-mocks';
 import { spy, when } from 'ts-mockito';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
+
 import { LgTableRowComponent } from './table-row.component';
 
 describe('LgTableRowComponent', () => {
@@ -48,7 +48,7 @@ describe('LgTableRowComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-table-row__toggle');
   });
 
-  it("shouldn't have the table row toggle class if the row is not expandable", () => {
+  it('shouldn\'t have the table row toggle class if the row is not expandable', () => {
     when(componentSpy.hasToggle).thenReturn(false);
     fixture.detectChanges();
 
@@ -66,7 +66,7 @@ describe('LgTableRowComponent', () => {
     );
   });
 
-  it("shouldn't have the active class if the row is not toggled active", () => {
+  it('shouldn\'t have the active class if the row is not toggled active', () => {
     when(componentSpy.isToggledActive).thenReturn(false);
     fixture.detectChanges();
 

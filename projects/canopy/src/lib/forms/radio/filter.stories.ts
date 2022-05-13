@@ -1,6 +1,5 @@
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { notes } from './radio.notes';
@@ -54,7 +53,7 @@ class ReactiveFormFilterComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: '' });
-    this.form.valueChanges.subscribe((val) => this.filterChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.filterChange.emit(val));
   }
 }
 
@@ -63,8 +62,8 @@ export default {
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormFilterComponent],
-      imports: [ReactiveFormsModule, LgRadioModule],
+      declarations: [ ReactiveFormFilterComponent ],
+      imports: [ ReactiveFormsModule, LgRadioModule ],
     }),
   ],
   parameters: {
@@ -228,11 +227,13 @@ const filterButtonsStory: Story<LgRadioButtonComponent> = (
 
 export const filterButtons = filterButtonsStory.bind({});
 filterButtons.storyName = 'Filter Buttons';
+
 filterButtons.args = {
   label: 'Select a color',
   disabled: false,
   focus: false,
 };
+
 filterButtons.parameters = {
   docs: {
     source: {

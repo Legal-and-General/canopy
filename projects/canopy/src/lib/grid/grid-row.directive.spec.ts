@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { LgGridRowDirective } from './grid-row.directive';
 
 @Component({
-  template: ` <div lgRow>Test feature</div> `,
+  template: ' <div lgRow>Test feature</div> ',
 })
 class TestComponent {}
 
@@ -15,7 +15,7 @@ describe('GridRowDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, LgGridRowDirective],
+      declarations: [ TestComponent, LgGridRowDirective ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);

@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
+
+import { LgHintModule } from '../hint';
+import { LgToggleModule } from '../toggle';
 
 import { notes } from './checkbox-group.notes';
 import { LgCheckboxGroupComponent } from './checkbox-group.component';
 import { LgCheckboxGroupModule } from './checkbox-group.module';
-import { LgHintModule } from '../hint';
-import { LgToggleModule } from '../toggle';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -47,8 +47,8 @@ class ReactiveFormComponent {
   form: FormGroup;
 
   constructor(public fb: FormBuilder) {
-    this.form = this.fb.group({ colors: this.fb.control(['red']) });
-    this.form.valueChanges.subscribe((val) => this.checkboxChange.emit(val));
+    this.form = this.fb.group({ colors: this.fb.control([ 'red' ]) });
+    this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
   }
 }
 
@@ -57,8 +57,8 @@ export default {
   component: LgCheckboxGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormComponent],
-      imports: [ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule],
+      declarations: [ ReactiveFormComponent ],
+      imports: [ ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule ],
     }),
   ],
   parameters: {
@@ -205,6 +205,7 @@ const checkboxGroupStory: Story<LgCheckboxGroupComponent> = (
 
 export const checkboxGroup = checkboxGroupStory.bind({});
 checkboxGroup.storyName = 'Checkbox group';
+
 checkboxGroup.args = {
   inline: false,
   disabled: false,
@@ -212,6 +213,7 @@ checkboxGroup.args = {
   label: 'Color',
   hint: 'Please select all colors that apply',
 };
+
 checkboxGroup.parameters = {
   docs: {
     source: {

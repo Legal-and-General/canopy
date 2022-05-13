@@ -11,7 +11,7 @@ import type { HeadingLevel } from '../../heading';
 @Component({
   selector: 'lg-hero-img-card-title',
   templateUrl: './hero-img-card-title.component.html',
-  styleUrls: ['./hero-img-card-title.component.scss'],
+  styleUrls: [ './hero-img-card-title.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

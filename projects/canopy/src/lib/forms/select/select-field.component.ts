@@ -12,6 +12,7 @@ import { LgHintComponent } from '../hint/hint.component';
 import { LgLabelComponent } from '../label/label.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
+
 import { LgSelectDirective } from './select.directive';
 
 let nextUniqueId = 0;
@@ -19,7 +20,7 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-select-field',
   templateUrl: './select-field.component.html',
-  styleUrls: ['./select-field.component.scss'],
+  styleUrls: [ './select-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgSelectFieldComponent {
@@ -38,6 +39,7 @@ export class LgSelectFieldComponent {
     if (this._selectElement) {
       this._selectElement.block = block;
     }
+
     this._block = block;
   }
   public get block() {
@@ -66,6 +68,7 @@ export class LgSelectFieldComponent {
       this._hintElement,
       element,
     );
+
     this._hintElement = element;
   }
 
@@ -77,6 +80,7 @@ export class LgSelectFieldComponent {
       this._validationElement,
       element,
     );
+
     this._validationElement = element;
   }
 

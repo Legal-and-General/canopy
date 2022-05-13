@@ -10,15 +10,11 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { pastDateValidator } from '../date/pastDate.validator';
-import { LgErrorStateMatcher } from './error-state-matcher';
-import { notes } from './form.notes';
 import { LgInputModule } from '../input';
 import { LgHintModule } from '../hint';
-import { LgValidationModule } from './validation.module';
 import { LgSelectModule } from '../select';
 import { LgRadioModule } from '../radio';
 import { LgButtonModule } from '../../button';
@@ -26,6 +22,10 @@ import { LgToggleModule } from '../toggle';
 import { LgCheckboxGroupModule } from '../checkbox-group';
 import { LgDateFieldModule } from '../date';
 import { LgSortCodeModule } from '../sort-code';
+
+import { LgValidationModule } from './validation.module';
+import { notes } from './form.notes';
+import { LgErrorStateMatcher } from './error-state-matcher';
 
 function invalidValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -258,15 +258,15 @@ class ReactiveFormComponent {
 
   constructor(public fb: FormBuilder, private errorState: LgErrorStateMatcher) {
     this.form = this.fb.group({
-      text: ['', [Validators.required, Validators.minLength(4), invalidValidator()]],
-      select: ['', [Validators.required, invalidValidator()]],
-      radio: ['', [Validators.required, invalidValidator()]],
-      segment: ['', [Validators.required, invalidValidator()]],
-      colors: this.fb.control([], [Validators.required]),
-      checkbox: ['', [Validators.requiredTrue]],
-      switch: ['', [Validators.requiredTrue]],
-      date: ['', [Validators.required, pastDateValidator()]],
-      sortCode: ['', [Validators.required]],
+      text: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
+      select: [ '', [ Validators.required, invalidValidator() ] ],
+      radio: [ '', [ Validators.required, invalidValidator() ] ],
+      segment: [ '', [ Validators.required, invalidValidator() ] ],
+      colors: this.fb.control([], [ Validators.required ]),
+      checkbox: [ '', [ Validators.requiredTrue ] ],
+      switch: [ '', [ Validators.requiredTrue ] ],
+      date: [ '', [ Validators.required, pastDateValidator() ] ],
+      sortCode: [ '', [ Validators.required ] ],
     });
   }
 
@@ -283,7 +283,7 @@ export default {
   title: 'Components/Form/Form validation',
   decorators: [
     moduleMetadata({
-      declarations: [ReactiveFormComponent],
+      declarations: [ ReactiveFormComponent ],
       imports: [
         ReactiveFormsModule,
         LgInputModule,
@@ -329,6 +329,7 @@ const formValidationStory: Story<unknown> = (args: unknown) => ({
 
 export const formValidation = formValidationStory.bind({});
 formValidation.storyName = 'Form validation';
+
 formValidation.parameters = {
   docs: {
     source: {

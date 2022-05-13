@@ -9,7 +9,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-
 import { instance, mock } from 'ts-mockito';
 
 import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
@@ -24,7 +23,7 @@ import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
 })
 class TestInputComponent {
   form = new FormGroup({
-    sortCode: new FormControl('', [Validators.required]),
+    sortCode: new FormControl('', [ Validators.required ]),
   });
 }
 
@@ -40,9 +39,9 @@ describe('LgSortCodeDirective', () => {
       control = mock(NgControl);
 
       TestBed.configureTestingModule({
-        imports: [FormsModule, ReactiveFormsModule],
-        declarations: [LgSortCodeDirective, TestInputComponent],
-        providers: [{ provide: NgControl, useValue: instance(control) }],
+        imports: [ FormsModule, ReactiveFormsModule ],
+        declarations: [ LgSortCodeDirective, TestInputComponent ],
+        providers: [ { provide: NgControl, useValue: instance(control) } ],
       }).compileComponents();
 
       fixture = TestBed.createComponent(TestInputComponent);
@@ -57,26 +56,31 @@ describe('LgSortCodeDirective', () => {
 
   it('adds a placeholder', () => {
     fixture.detectChanges();
+
     expect(inputDebugElement.nativeElement.placeholder).toContain('00-00-00');
   });
 
   it('adds a required attribute', () => {
     fixture.detectChanges();
+
     expect(inputDebugElement.nativeElement.required).toBe(true);
   });
 
   it('adds a numeric inputmode attribute', () => {
     fixture.detectChanges();
+
     expect(inputDebugElement.nativeElement.getAttribute('inputmode')).toBe('numeric');
   });
 
   it('adds a maxlength attribute', () => {
     fixture.detectChanges();
+
     expect(inputDebugElement.nativeElement.getAttribute('maxlength')).toBe('8');
   });
 
   it('adds a size attribute', () => {
     fixture.detectChanges();
+
     expect(inputDebugElement.nativeElement.getAttribute('size')).toBe('7');
   });
 

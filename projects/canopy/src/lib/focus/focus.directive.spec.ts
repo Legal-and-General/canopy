@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { LgFocusDirective } from './focus.directive';
 
 @Component({
-  template: ` <button type="button" [lgFocus]="testVar">Test button</button> `,
+  template: ' <button type="button" [lgFocus]="testVar">Test button</button> ',
 })
 class TestFocusComponent {
   testVar = false;
@@ -19,12 +19,13 @@ describe('LgFocusDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestFocusComponent, LgFocusDirective],
+      declarations: [ TestFocusComponent, LgFocusDirective ],
     });
 
     fixture = TestBed.createComponent(TestFocusComponent);
     component = fixture.componentInstance;
     const de = fixture.debugElement.query(By.css('button'));
+
     el = de.nativeElement;
     focusSpy = spyOn(el, 'focus');
   });

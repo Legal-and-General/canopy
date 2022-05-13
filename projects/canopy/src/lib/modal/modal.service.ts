@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -31,6 +30,7 @@ export class LgModalService {
     if (!this.states.has(id)) {
       this.add(id);
     }
+
     return this.states.get(id);
   }
 }
