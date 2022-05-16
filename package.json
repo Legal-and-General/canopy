@@ -110,7 +110,7 @@
     "stylelint": "^14.8.1",
     "stylelint-config-recommended": "^7.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1",
-    "svg-to-ts": "^8.5.0",
+    "svg-to-ts": "^8.6.1",
     "svgo": "^2.7.0",
     "ts-mockito": "^2.6.1",
     "ts-node": "^10.7.0",
