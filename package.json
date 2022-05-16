@@ -86,7 +86,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.1.0",
-    "husky": "^7.0.2",
+    "husky": "^8.0.1",
     "jasmine-core": "^4.1.0",
     "jasmine-marbles": "^0.6.0",
     "jasmine-spec-reporter": "^7.0.0",
