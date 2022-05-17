@@ -25,7 +25,7 @@ created.
 
 The PR will look something like this:
 
-<img src="./assets/combined-dependencies.png">
+<img alt="" src="./assets/combined-dependencies.png">
 
 This PR will run the full pipeline checks and should be reviewed and merged as normal.
 
