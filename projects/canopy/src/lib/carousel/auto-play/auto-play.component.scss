@@ -3,20 +3,31 @@
 .lg-carousel-autoplay {
   position: absolute;
   right: var(--space-sm);
-  z-index: var(--z-index-carousel-autoplay);
   top: var(--space-sm);
+  z-index: var(--z-index-carousel-autoplay);
 
   &__btn {
-    background-color: var(--color-white);
+    background-color: transparent;
     border-radius: 50%;
     border: none;
-    width: var(--space-xxl);
-    height: var(--space-xxl);
-    font-size: var(--text-fs-3-size);
     cursor: pointer;
+    font-size: var(--text-fs-3-size);
+    height: var(--space-xxl);
+    padding: 0;
+    width: var(--space-xxl);
 
     &:focus {
       @include lg-outer-focus-outline(var(--default-focus-color));
+    }
+
+    .lg-icon {
+      width: 100%;
+      height: 100%;
+      display: block;
+
+      svg {
+        fill: var(--color-white);
+      }
     }
   }
 }
