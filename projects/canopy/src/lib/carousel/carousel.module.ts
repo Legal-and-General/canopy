@@ -7,8 +7,8 @@ import {
   LgIconRegistry,
   lgIconChevronLeft,
   lgIconChevronRight,
-  lgIconPlay,
-  lgIconPause,
+  lgIconPauseSpot,
+  lgIconPlaySpot,
 } from '../icon';
 
 import { LgCarouselComponent } from './carousel.component';
@@ -27,8 +27,8 @@ export class LgCarouselModule {
     this.iconRegistry.registerIcons([
       lgIconChevronLeft,
       lgIconChevronRight,
-      lgIconPlay,
-      lgIconPause,
+      lgIconPlaySpot,
+      lgIconPauseSpot,
     ]);
   }
 }
