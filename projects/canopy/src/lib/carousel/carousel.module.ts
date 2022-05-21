@@ -10,8 +10,8 @@ import {
   LgIconRegistry,
   lgIconChevronLeft,
   lgIconChevronRight,
-  lgIconPlay,
-  lgIconPause,
+  lgIconPauseSpot,
+  lgIconPlaySpot,
 } from '../icon';
 
 const components = [LgCarouselItemComponent, LgCarouselComponent, LgAutoplayComponent];
@@ -26,8 +26,8 @@ export class LgCarouselModule {
     this.iconRegistry.registerIcons([
       lgIconChevronLeft,
       lgIconChevronRight,
-      lgIconPlay,
-      lgIconPause,
+      lgIconPlaySpot,
+      lgIconPauseSpot,
     ]);
   }
 }

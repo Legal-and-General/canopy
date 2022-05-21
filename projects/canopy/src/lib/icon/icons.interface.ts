@@ -1294,6 +1294,13 @@ export const lgIconPassword: {
   name: 'password',
   data: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M1 6h30v20H1V6zm2 2v16h26V8H3zm24 2v12h-2V10h2zm-7 2v2.267l1.964-1.133 1 1.732-1.963 1.133 1.963 1.135-1 1.732L20 17.732V20h-2v-2.268l-1.964 1.134-1-1.732L16.999 16l-1.963-1.134 1-1.732L18 14.267V12h2zm-10 0v2.267l1.964-1.133 1 1.732-1.963 1.133 1.963 1.135-1 1.732L10 17.732V20H8v-2.268l-1.964 1.134-1-1.732L6.999 16l-1.963-1.134 1-1.732L8 14.267V12h2z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>`
 };
+export const lgIconPauseSpot: {
+  name: 'pause-spot';
+  data: string;
+} = {
+  name: 'pause-spot',
+  data: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M16,0C7.16,0,0,7.16,0,16s7.16,16,16,16s16-7.16,16-16S24.84,0,16,0z M14.83,22.68H9.83V9.32h4.99V22.68z M22.17,22.68h-4.99V9.32h4.99V22.68z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>',
+};
 export const lgIconPause: {
   name: 'pause';
   data: string;
@@ -1348,7 +1355,7 @@ export const lgIconPlaySpot: {
   data: string;
 } = {
   name: 'play-spot',
-  data: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M15 28c6.627 0 12-5.373 12-12S21.627 4 15 4 3 9.373 3 16s5.373 12 12 12zm-3-17 8 5-8 5V11z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>`
+  data: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M15.5,0.01C6.94,0.01,0,6.95,0,15.51S6.94,31,15.5,31S31,24.06,31,15.51S24.06,0.01,15.5,0.01z M11.77,21.95 L11.71,9.06l11.07,6.49L11.77,21.95z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>`
 };
 export const lgIconPlay: {
   name: 'play';
@@ -2005,6 +2012,7 @@ export type IconName =
   | 'pages'
   | 'partnership'
   | 'password'
+  | 'pause-spot'
   | 'pause'
   | 'pdf'
   | 'pension-pot'
@@ -2266,6 +2274,7 @@ export const IconName = {
   pages: 'pages' as IconName,
   partnership: 'partnership' as IconName,
   password: 'password' as IconName,
+  'pause-spot': 'pause-spot' as IconName,
   pause: 'pause' as IconName,
   pdf: 'pdf' as IconName,
   'pension-pot': 'pension-pot' as IconName,
@@ -2533,6 +2542,7 @@ export const lgIconsArray = [
   lgIconPages,
   lgIconPartnership,
   lgIconPassword,
+  lgIconPauseSpot,
   lgIconPause,
   lgIconPdf,
   lgIconPensionPot,
