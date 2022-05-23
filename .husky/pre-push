@@ -3,4 +3,4 @@
 
 # Branch names must be kebab-case
 
-npx enforce-branch-name '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
+npx enforce-branch-name@v1.0.1 '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$'
