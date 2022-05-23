@@ -1355,7 +1355,7 @@ export const lgIconPlaySpot: {
   data: string;
 } = {
   name: 'play-spot',
-  data: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M15.5,0.01C6.94,0.01,0,6.95,0,15.51S6.94,31,15.5,31S31,24.06,31,15.51S24.06,0.01,15.5,0.01z M11.77,21.95 L11.71,9.06l11.07,6.49L11.77,21.95z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>`
+  data: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M15.5,0.01C6.94,0.01,0,6.95,0,15.51S6.94,31,15.5,31S31,24.06,31,15.51S24.06,0.01,15.5,0.01z M11.77,21.95 L11.71,9.06l11.07,6.49L11.77,21.95z"/></defs><use fill-rule="evenodd" xlink:href="#a"/></svg>'
 };
 export const lgIconPlay: {
   name: 'play';
