@@ -1,0 +1,33 @@
+@import '../../../styles/mixins';
+
+.lg-link-menu-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lg-link-menu-item__container {
+  display: flex;
+  flex-direction: column;
+
+  @include lg-breakpoint('md') {
+    padding-right: var(--space-sm);
+  }
+}
+
+.lg-link-menu-item__icon-container {
+  position: relative;
+  padding-right: var(--space-sm);
+
+  @include lg-breakpoint('md') {
+    padding-right: var(--space-sm);
+  }
+
+  @include lg-breakpoint('lg') {
+    padding-right: var(--space-xs);
+  }
+
+  .lg-icon {
+    position: absolute;
+    right: 0;
+  }
+}
