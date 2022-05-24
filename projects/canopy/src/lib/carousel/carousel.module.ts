@@ -15,10 +15,10 @@ import { LgCarouselComponent } from './carousel.component';
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgAutoplayComponent } from './auto-play/auto-play.component';
 
-const components = [ LgCarouselItemComponent, LgCarouselComponent, LgAutoplayComponent ];
+const components = [ LgCarouselItemComponent, LgCarouselComponent ];
 
 @NgModule({
-  declarations: [ ...components ],
+  declarations: [ ...components, LgAutoplayComponent ],
   imports: [ CommonModule, LgHeadingModule, LgIconModule ],
   exports: [ ...components ],
 })

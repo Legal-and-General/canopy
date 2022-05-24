@@ -32,6 +32,29 @@
               "projects/canopy/**/*.html"
             ]
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "styles": [
+              "dist/canopy/canopy.css"
+            ],
+            "compodocArgs": [
+              "-p", "./tsconfig.json", "--disablePrivate", "-e", "json", "-d", "."
+            ]
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "styles": [
+              "dist/canopy/canopy.css"
+            ],
+            "quiet": true,
+            "compodocArgs": [
+              "-p", "./tsconfig.json", "--disablePrivate", "-e", "json", "-d", "."
+            ]
+          }
         }
       }
     },
@@ -62,7 +85,13 @@
             "styles": [
               "dist/canopy/canopy.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -93,7 +122,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
