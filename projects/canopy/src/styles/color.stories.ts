@@ -9,7 +9,8 @@ import {
 } from '@angular/core';
 import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
-import convert from 'color-convert';
+import * as convert from 'color-convert';
+import { RGB } from 'color-convert/conversions';
 
 import { notes } from './color.notes';
 
@@ -83,7 +84,10 @@ class SwatchComponent implements AfterViewInit {
     const styles = window.getComputedStyle(this.swatch.nativeElement);
 
     this.color.rgb = styles.backgroundColor;
-    this.color.hex = convert.rgb.hex(styles.backgroundColor.match(/\d+/g));
+
+    this.color.hex = convert.rgb.hex(
+      styles.backgroundColor.match(/\d+/g).map((e) => +e) as RGB,
+    );
   }
 }
 
@@ -144,13 +148,16 @@ class TintSwatchComponent implements AfterViewInit {
       const styles = window.getComputedStyle(swatch.nativeElement);
 
       this.colors[i].rgb = styles.backgroundColor;
-      this.colors[i].hex = convert.rgb.hex(styles.backgroundColor.match(/\d+/g));
+
+      this.colors[i].hex = convert.rgb.hex(
+        styles.backgroundColor.match(/\d+/g).map((e) => +e) as RGB,
+      );
     });
   }
 
   @Input()
   set names(names: string) {
-    this.colors = names.split(',').map(name => ({
+    this.colors = names.split(',').map((name) => ({
       name,
       rgb: null,
       hex: null,
@@ -243,7 +250,7 @@ const coloursTemplate = `
 </div>
 `;
 
-const coloursStory: Story = args => ({
+const coloursStory: Story = (args) => ({
   props: args,
   template: coloursTemplate,
 });

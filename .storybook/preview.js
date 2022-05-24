@@ -5,8 +5,6 @@ import { addParameters } from '@storybook/angular';
 
 setCompodocJson(docJson);
 
-require('!style-loader!css-loader!sass-loader!../projects/canopy/src/styles/styles.scss');
-
 cssVars({
   watch: true,
 });
