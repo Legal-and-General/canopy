@@ -6,5 +6,6 @@ export * from './card-principle-data-point-value/card-principle-data-point-value
 export * from './card-principle-data-point/card-principle-data-point.component';
 export * from './card-subtitle/card-subtitle.component';
 export * from './card-title/card-title.component';
+export * from './card-footer/card-footer.component';
 export * from './card.component';
 export * from './card.module';

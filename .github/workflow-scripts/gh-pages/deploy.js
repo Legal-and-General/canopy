@@ -15,7 +15,7 @@ module.exports = async ({
     console.info('ℹ️ Branch to deploy: master');
     console.info('ℹ️ Running storybook build');
     // gh-pages only works in the root directory, or '/docs'
-    await exec.exec('npm', ['run', 'build-storybook', '--', '-o', 'sb-build']);
+    await exec.exec('npm', ['run', 'build:storybook', '--', '--output-dir', 'sb-build']);
 
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   } else {

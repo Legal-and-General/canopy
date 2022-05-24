@@ -1,4 +1,13 @@
-### Supported Browsers
-> 1%
-last 3 versions
-IE 11
+# This file is used by the build system to adjust CSS and JS output to support the specified browsers below.
+# For additional information regarding the format and rule options, please see:
+# https://github.com/browserslist/browserslist#queries
+
+last 4 chrome major versions
+last 2 ChromeAndroid major versions
+last 3 edge major versions
+last 3 firefox major versions
+last 1 FirefoxAndroid major version
+last 2 iOS major versions
+last 1 safari major versions
+last 2 Samsung major versions
+last 2 Opera major versions
