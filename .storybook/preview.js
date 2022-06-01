@@ -1,13 +1,8 @@
 import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from '../documentation.json';
-import cssVars from 'css-vars-ponyfill';
 import { addParameters } from '@storybook/angular';
 
 setCompodocJson(docJson);
-
-cssVars({
-  watch: true,
-});
 
 addParameters({
   docs: {

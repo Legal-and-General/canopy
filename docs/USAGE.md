@@ -148,21 +148,6 @@ $fonts-path-lyon: 'path/to/lyon/fonts';
 
 Please ensure you have the correct licensing agreement in place before using the Lyon font in your application.
 
-### Supporting IE11
-
-Canopy uses css variables which are not supported by IE11. One way of adding support is to use [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill) in the following way.
-
-```js
-//app.component.ts
-import cssVars from 'css-vars-ponyfill';
-```
-
-```js
-  ngOnInit() {
-    cssVars({ watch: true });
-  }
-```
-
 ## Using the components
 
 Each components is individually documented on Storybook, refer to the latest version which is available at https://legal-and-general.github.io/canopy/
@@ -176,6 +161,10 @@ Canopy uses [semantic versioning](https://semver.org/) and a new version is depl
 The [releases section](https://github.com/Legal-and-General/canopy/releases) on GitHub documents the changes between releases. Keep an eye out for anything labelled as a `BREAKING CHANGE` as this may require some code changes in your application.
 
 We have provided a [guide which outlines our definition of a breaking change](./BREAKING_CHANGES.md). We avoid making too many breaking changes, and we tend to group them together into a larger release where possible. We keep an issued pinned to the top of the [issues list](https://github.com/Legal-and-General/canopy/issues) which contains upcoming breaking changes. If you notice an unintentional breaking change please do make us aware by raising an issue. 
+
+## Browser support
+
+Supported browsers can be viewed in the [.browserslistrc](../projects/canopy/.browserslistrc) file.
 
 ## Logging issues
 
