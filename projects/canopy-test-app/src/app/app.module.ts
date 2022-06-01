@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import cssVars from 'css-vars-ponyfill';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StoryContentComponent } from './story-content.component';
@@ -102,8 +100,6 @@ export class AppModule {
     private iconRegistry: LgIconRegistry,
     private brandIconRegistry: LgBrandIconRegistry,
   ) {
-    cssVars({ watch: true });
-
     this.iconRegistry.registerIcons([
       lgIconAdd,
       lgIconArrowDown,

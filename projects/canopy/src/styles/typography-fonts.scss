@@ -10,9 +10,7 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 100;
   font-display: swap;
   src: local('Lyon'), local('Lyon-Regular'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -21,9 +19,7 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 300;
   font-display: swap;
   src: local('Lyon'), local('Lyon-Regular'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -32,9 +28,7 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 400;
   font-display: swap;
   src: local('Lyon Bold'), local('Lyon-Bold'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -43,9 +37,7 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 500;
   font-display: swap;
   src: local('Lyon Bold'), local('Lyon-Bold'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff2') format('woff2');
 }
 
 /*
@@ -58,9 +50,7 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 100;
   font-display: swap;
   src: local('Roboto Thin'), local('Roboto-Thin'),
-    url('#{$fonts-path}/roboto/roboto-latin-thin.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path}/roboto/roboto-latin-thin.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path}/roboto/roboto-latin-thin.woff2') format('woff2');
 }
 
 @font-face {
@@ -69,9 +59,7 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 300;
   font-display: swap;
   src: local('Roboto Light'), local('Roboto-Light'),
-    url('#{$fonts-path}/roboto/roboto-latin-light.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path}/roboto/roboto-latin-light.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path}/roboto/roboto-latin-light.woff2') format('woff2');
 }
 
 @font-face {
@@ -80,9 +68,7 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 400;
   font-display: swap;
   src: local('Roboto'), local('Roboto-Regular'),
-    url('#{$fonts-path}/roboto/roboto-latin-regular.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path}/roboto/roboto-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path}/roboto/roboto-latin-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -91,7 +77,5 @@ $fonts-path-lyon: '/assets/fonts' !default;
   font-weight: 500;
   font-display: swap;
   src: local('Roboto Medium'), local('Roboto-Medium'),
-    url('#{$fonts-path}/roboto/roboto-latin-medium.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('#{$fonts-path}/roboto/roboto-latin-medium.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('#{$fonts-path}/roboto/roboto-latin-medium.woff2') format('woff2');
 }
