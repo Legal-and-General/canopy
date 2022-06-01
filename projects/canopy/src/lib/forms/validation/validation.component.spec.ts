@@ -3,6 +3,7 @@ import { By } from '@angular/platform-browser';
 
 import { LgIconComponent } from '../../icon';
 import type { Variant } from '../../variant';
+
 import { LgValidationComponent } from './validation.component';
 import { LgValidationModule } from './validation.module';
 
@@ -10,17 +11,15 @@ describe('LgValidationComponent', () => {
   let component: LgValidationComponent;
   let fixture: ComponentFixture<LgValidationComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [LgValidationModule],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgValidationModule ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(LgValidationComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    }),
-  );
+    fixture = TestBed.createComponent(LgValidationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
