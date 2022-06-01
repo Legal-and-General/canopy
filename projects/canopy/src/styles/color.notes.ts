@@ -9,8 +9,4 @@ Import the css into the angular.json file of your application, the variables sho
     "node_modules/@legal-and-general/canopy/canopy.css"
   ],
 ~~~
-
-If IE11 support is required you will need to polyfill CSS variable functionality.
-This can be done via [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill) or similar.
-
 `;
