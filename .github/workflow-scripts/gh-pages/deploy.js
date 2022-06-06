@@ -14,7 +14,6 @@ module.exports = async ({
   if (branch === 'master') {
     console.info('ℹ️ Branch to deploy: master');
     console.info('ℹ️ Running storybook build');
-    // gh-pages only works in the root directory, or '/docs'
     await exec.exec('npm', ['run', 'build:storybook', '--', '--output-dir', 'sb-build']);
 
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
@@ -60,6 +59,14 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     console.info('ℹ️ Logging status');
     await exec.exec('git', ['status']);
 
+    if (branch === 'master') {
+      // On master the documentation.json gets updated when we run the build.
+      // This causes merge conflicts so we restore its previous state since it's
+      // not needed for deployment.
+      console.info('ℹ️ Restore the documentation.json');
+      await exec.exec('git', ['restore', 'documentation.json']);
+    }
+
     console.info('ℹ️ Starting to track the storybook changes before stashing');
     await exec.exec('git', ['add', '.']);
 
@@ -102,6 +109,7 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     await exec.exec('git', ['stash', 'pop']);
 
     if (branch === 'master') {
+      // gh-pages only works in the root directory, or '/docs'
       // moving one file at the time because using `*` in the mv command breaks the code
       const sbFiles = fs.readdirSync('./sb-build', { withFileTypes: true }).map(({ name }) => name);
 
