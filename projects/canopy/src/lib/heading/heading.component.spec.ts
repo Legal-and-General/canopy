@@ -7,13 +7,11 @@ describe('LgHeadingComponent', () => {
   let component: LgHeadingComponent;
   let fixture: ComponentFixture<LgHeadingComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgHeadingComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LgHeadingComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeadingComponent);
@@ -23,6 +21,10 @@ describe('LgHeadingComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should add the generic heading class', () => {
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-heading');
   });
 
   describe('the level input', () => {
