@@ -63,7 +63,7 @@
     "@angular/language-service": "^11.2.14",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.12",
-    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-react": "^7.17.12",
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-angular": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
