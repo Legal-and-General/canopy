@@ -61,7 +61,7 @@
     "@angular/cli": "^11.2.19",
     "@angular/compiler-cli": "^11.2.14",
     "@angular/language-service": "^11.2.14",
-    "@babel/core": "^7.17.10",
+    "@babel/core": "^7.18.2",
     "@babel/preset-env": "^7.17.12",
     "@babel/preset-react": "^7.16.7",
     "@commitlint/cli": "^17.0.1",
