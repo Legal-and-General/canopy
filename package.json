@@ -75,7 +75,7 @@
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addons": "^6.5.4",
     "@storybook/angular": "^6.4.22",
-    "@storybook/theming": "^6.4.22",
+    "@storybook/theming": "^6.5.7",
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "@stylelint/postcss-markdown": "^0.36.1",
     "@types/jasmine": "^4.0.3",
