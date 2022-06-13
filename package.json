@@ -80,7 +80,7 @@
     "@stylelint/postcss-markdown": "^0.36.1",
     "@types/jasmine": "^4.0.3",
     "@types/jasminewd2": "^2.0.9",
-    "@types/node": "^14.18.20",
+    "@types/node": "^14.18.21",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
     "autoprefixer": "^10.4.7",
