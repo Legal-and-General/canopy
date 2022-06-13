@@ -120,7 +120,7 @@
     "sass": "^1.52.3",
     "semantic-release": "^19.0.2",
     "stylelint": "^14.8.3",
-    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-recommended": "^8.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1",
     "svg-to-ts": "^8.6.1",
     "svgo": "^2.7.0",
