@@ -7,6 +7,7 @@
   background-color: transparent;
   border-bottom: solid var(--table-header-border-width) var(--table-header-border-color);
   padding: var(--space-xs) 0;
+  vertical-align: bottom;
 
   &--align-end {
     text-align: right;
