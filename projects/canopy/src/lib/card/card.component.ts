@@ -3,8 +3,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChild,
+  ElementRef,
   forwardRef,
   OnDestroy,
+  Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -13,6 +15,7 @@ import { LgButtonToggleDirective } from '../button';
 
 import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from './card.interface';
 import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
+import { LgCardNavigationTitleComponent } from './card-navigation-title/card-navigation-title.component';
 
 let nextUniqueId = 0;
 
@@ -34,8 +37,16 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
   buttonToggle: LgButtonToggleDirective;
   @ContentChild(forwardRef(() => LgCardToggableContentComponent))
   cardToggableContent: LgCardToggableContentComponent;
+  @ContentChild(forwardRef(() => LgCardNavigationTitleComponent))
+  cardNavigationTitle: LgCardNavigationTitleComponent;
+
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
 
   ngAfterContentInit(): void {
+    if (this.cardNavigationTitle) {
+      this.renderer.addClass(this.hostElement.nativeElement, 'lg-card--navigation');
+    }
+
     if (this.buttonToggle && this.cardToggableContent) {
       this.buttonToggle.id = `${lgCardToggleIdPrefix}${this.uniqueId}`;
 

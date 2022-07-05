@@ -80,6 +80,12 @@ It's possible to nest the Canopy layout grid within a card, as follows:
 
 <Source id="components-card-examples--nested-grid-card"></Source>
 
+### Card Navigation
+
+This component uses some extra card components, such as `LgCardNavigationTitleComponent` to display in navigational format.
+
+<Source id="components-card-examples--navigation-card"></Source>
+
 ## Additional development details
 
 ### LgCardComponent
@@ -107,6 +113,24 @@ This is where the main title should be provided. It should be located inside the
 | Name             | Description                                                  | Type   | Default | Required |
 | ---------------- | ------------------------------------------------------------ | ------ | ------- | -------- |
 | ``headingLevel`` | The level of the card heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a     | Yes      |
+
+### LgCardNavigationTitleComponent
+
+This is where the main title and link should be provided. It should be located inside the card content.
+
+#### Inputs
+
+| Name             | Description                                                  | Type   | Default | Required |
+| ---------------- | ------------------------------------------------------------ | ------ | ------- | -------- |
+| ``headingLevel`` | The level of the card navigation heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a     | Yes      |
+| ``title`` | The title of the card navigation heading:  | string | ''     | Yes      |
+| ``link`` | The link for the card navigation heading:  | string | ''     | Yes      |
+
+#### Outputs
+
+| Name       | Description                               | Type               | Default | Required |
+| ---------- | ----------------------------------------- | ------------------ | ------- | -------- |
+| ``linkClickedEvent`` | Event emitted when the link is clicked | EventEmitter`<void>` | n/a     | No       |
 
 ### LgCardSubtitleComponent
 

@@ -1,0 +1,6 @@
+<lg-heading [level]="headingLevel" *ngIf="link && title && headingLevel">
+  <a href="{{link}}" (click)="linkClicked()">
+    {{title}}
+    <lg-icon name="arrow-right"></lg-icon>
+  </a>
+</lg-heading>
