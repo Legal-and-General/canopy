@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   border-bottom: solid var(--border-width) var(--card-title-border-color);
   padding-bottom: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--card-header-margin-bottom);
 
   @include lg-breakpoint('md') {
     flex-direction: row;

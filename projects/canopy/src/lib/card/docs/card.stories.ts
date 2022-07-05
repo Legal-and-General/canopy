@@ -211,6 +211,39 @@ defaultCard.parameters = {
   },
 };
 
+const navigationCardTemplate = `
+<lg-card>
+  <lg-card-header>
+    <lg-card-navigation-title [title]="title" link="https://www.landg.com" [headingLevel]="headingLevel"></lg-card-navigation-title>
+  </lg-card-header>
+  <lg-card-content>
+    {{cardContent}} <a href="#">Test link</a>.
+  </lg-card-content>
+</lg-card>
+`;
+
+const navigationCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+  props: args,
+  template: navigationCardTemplate,
+});
+
+export const navigationCard = navigationCardStory.bind({});
+navigationCard.storyName = 'Card Navigation';
+
+navigationCard.args = {
+  headingLevel: 2,
+  title: 'The title',
+  cardContent: content,
+};
+
+navigationCard.parameters = {
+  docs: {
+    source: {
+      code: navigationCardTemplate,
+    },
+  },
+};
+
 const nestedGridCardTemplate = `
 <lg-card lgPaddingHorizontal="none">
   <lg-card-content>

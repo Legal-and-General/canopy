@@ -1,0 +1,96 @@
+@import '../../../styles/mixins.scss';
+
+.lg-card-navigation-title {
+  --card-active-focus-border-bottom-width: var(--space-xxxs);
+
+  width: 100%;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: calc(-1 * var(--card-header-margin-bottom));
+    font-size: var(--text-fs-3-size);
+  }
+
+  .lg-icon {
+    margin-left: auto;
+    background: var(--link-color);
+    border-radius: var(--text-fs-3-size);
+    color: var(--color-white);
+  }
+
+  a {
+    &:active .lg-icon {
+      background: var(--link-active-color);
+    }
+
+    @include lg-link($default-color: var(--link-color), $hover-color: var(--link-color));
+
+    border-bottom: solid var(--border-width) var(--card-title-border-color);
+    padding: var(--card-navigation-link-padding-top) 0
+      var(--card-navigation-link-padding-bottom);
+    align-items: center;
+    display: flex;
+    margin-top: 0;
+    font-weight: var(--font-weight-bold);
+
+    @include lg-breakpoint('md') {
+      padding-top: var(--card-navigation-link-padding-top-md);
+    }
+
+    &:visited {
+      border-color: var(--card-title-border-color);
+      color: var(--link-color);
+    }
+
+    &:active {
+      background: transparent;
+      color: var(--link-active-color);
+      border-bottom: var(--card-active-focus-border-bottom-width) solid
+        var(--link-active-color);
+
+      &:hover {
+        border-bottom: 0;
+      }
+    }
+
+    &:hover {
+      color: var(--link-color);
+      padding-bottom: calc(
+        var(--card-navigation-link-padding-bottom) + var(--border-width)
+      );
+    }
+
+    &:focus,
+    &:focus:hover,
+    &:focus:hover:hover {
+      background: transparent;
+      border-bottom: var(--card-active-focus-border-bottom-width) solid
+        var(--link-active-color);
+      color: var(--link-active-color);
+      margin-left: calc(-1 * var(--component-padding));
+      margin-right: calc(-1 * var(--component-padding));
+      padding-left: var(--component-padding);
+      padding-right: var(--component-padding);
+      padding-bottom: calc(
+        var(--card-navigation-link-padding-bottom) + var(--border-width) -
+          var(--card-active-focus-border-bottom-width)
+      );
+
+      @include lg-focus-outline(
+        var(--default-focus-color),
+        var(--default-inner-focus-color)
+      );
+    }
+
+    &:focus,
+    &:active {
+      .lg-icon {
+        background: var(--link-active-color);
+      }
+    }
+  }
+}

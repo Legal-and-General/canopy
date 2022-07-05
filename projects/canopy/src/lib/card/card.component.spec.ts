@@ -11,6 +11,7 @@ import { LgCardComponent } from './card.component';
 import { LgCardFooterComponent } from './card-footer/card-footer.component';
 import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from './card.interface';
 import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
+import { LgCardNavigationTitleComponent } from './card-navigation-title/card-navigation-title.component';
 
 describe('LgCardComponent', () => {
   let component: LgCardComponent;
@@ -27,6 +28,7 @@ describe('LgCardComponent', () => {
           LgCardContentComponent,
           LgCardToggableContentComponent,
           LgCardFooterComponent,
+          LgCardNavigationTitleComponent,
         ),
         MockDirective(LgButtonToggleDirective),
       ],
@@ -47,6 +49,10 @@ describe('LgCardComponent', () => {
 
   it('should have the default class', () => {
     expect(el.getAttribute('class')).toContain('lg-card');
+  });
+
+  it('should not set the class lg-card--navigation on the lg-card', () => {
+    expect(el.className).not.toContain('lg-card--navigation');
   });
 
   describe('when there is only lg-card-content', () => {
@@ -198,6 +204,30 @@ describe('LgCardComponent', () => {
       component.buttonToggle.toggleActive.emit(false);
 
       expect(component.cardToggableContent.isActive).toBe(false);
+    });
+  });
+
+  describe('when there is the lg-card-navigation-title', () => {
+    beforeEach(() => {
+      const localFixture = MockRender(`
+        <lg-card>
+         <lg-card-header>
+            <lg-card-navigation-title title="Greetings" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+         </lg-card-header>
+         <lg-card-content>
+            Hello
+         </lg-card-content>
+        </lg-card>
+      `);
+
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
+      localFixture.detectChanges();
+    });
+
+    it('should set the class lg-card--navigation on the lg-card', () => {
+      expect(el.className).toContain('lg-card--navigation');
     });
   });
 });
