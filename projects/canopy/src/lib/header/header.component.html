@@ -3,28 +3,7 @@
     <div lgCol="12">
       <div class="lg-header__wrapper">
         <div class="lg-header__logos-wrapper">
-          <ng-container
-            *ngTemplateOutlet="
-              logoHref ? linkTpl : imgTpl;
-              context: { img: { logoAlt: logo, logoHref: logoHref, logo: logo } }
-            "
-          ></ng-container>
-
-          <ng-container *ngIf="secondaryLogo">
-            <ng-container
-              *ngTemplateOutlet="
-                secondaryLogoHref ? linkTpl : imgTpl;
-                context: {
-                  img: {
-                    logoAlt: secondaryLogoAlt,
-                    logoHref: secondaryLogoHref,
-                    logo: secondaryLogo,
-                    isSecondLogo: true
-                  }
-                }
-              "
-            ></ng-container>
-          </ng-container>
+          <ng-content select="lg-header-logo"></ng-content>
         </div>
 
         <ng-content></ng-content>
@@ -32,20 +11,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #linkTpl let-img="img">
-  <a [attr.href]="img?.logoHref" class="lg-header__link">
-    <ng-container *ngTemplateOutlet="imgTpl; context: { img: img }"></ng-container>
-  </a>
-</ng-template>
-
-<ng-template #imgTpl let-img="img">
-  <img
-    [attr.alt]="img?.logoAlt"
-    [attr.src]="img?.logo"
-    [ngClass]="{
-      'lg-header__logo': !img?.isSecondLogo,
-      'lg-header__second-logo': img?.isSecondLogo
-    }"
-  />
-</ng-template>
