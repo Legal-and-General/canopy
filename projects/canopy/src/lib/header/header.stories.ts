@@ -59,7 +59,11 @@ export default {
 } as Meta;
 
 const template = `
-  <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></header>
+<header lg-header>
+  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
+
+  <!--  Additional code can be inserted here  -->
+</header>
 `;
 
 const standardStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
@@ -103,7 +107,12 @@ standardHeader.argTypes = {
 };
 
 const coBrandedTemplate = `
-  <header lg-header [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref" [secondaryLogo]="secondaryLogo" [secondaryLogoAlt]="secondaryLogoAlt" [secondaryLogoHref]="secondaryLogoHref"></header>
+<header lg-header>
+  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
+  <lg-header-logo [src]="secondaryLogo" [alt]="secondaryLogoAlt" [href]="secondaryLogoHref"></lg-header-logo>
+
+  <!--  Additional code can be inserted here  -->
+</header>
 `;
 
 const coBrandedStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({

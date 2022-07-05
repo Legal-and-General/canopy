@@ -1,30 +1,31 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { MockRender } from 'ng-mocks';
 
 import { LgHeaderComponent } from './header.component';
+import { LgHeaderLogoComponent } from './header-logo/header-logo.component';
 
 describe('HeaderComponent', () => {
   let component: LgHeaderComponent;
   let fixture: ComponentFixture<LgHeaderComponent>;
+  let logoDebugElements: Array<DebugElement>;
 
-  const logo = 'http://a.b/logo.png';
-  const href = 'http://a.b';
-  const secondaryLogo = 'http://second/logo.png';
-  const secondaryLogoHref = 'http://a.b.c';
-
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgHeaderComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LgHeaderComponent, LgHeaderLogoComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LgHeaderComponent);
-    component = fixture.componentInstance;
-    component.logo = logo;
+    fixture = MockRender(`
+      <header lg-header>
+        <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
+      </header>
+    `);
 
+    component = fixture.componentInstance;
+    logoDebugElements = fixture.debugElement.queryAll(By.css('.lg-header-logo img'));
     fixture.detectChanges();
   });
 
@@ -32,44 +33,32 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('does not render a link if an href is not provided', () => {
-    expect(fixture.debugElement.query(By.css(`a[href="${logo}"]`))).toBeNull();
-  });
-
-  it('renders a link if an href is provided', () => {
-    component.logoHref = href;
-    fixture.detectChanges();
-
-    expect(fixture.debugElement.query(By.css(`a[href="${href}"]`))).toBeTruthy();
+  it('adds a class to the logo', () => {
+    expect(logoDebugElements[0].nativeElement.getAttribute('class')).toContain(
+      'lg-header-logo__img',
+    );
   });
 
   describe('co-branding', () => {
-    it('renders a secondary logo when the secondaryLogo is specified', () => {
-      component.secondaryLogo = secondaryLogo;
+    it('adds a class to each of the logos', () => {
+      fixture = MockRender(`
+      <header lg-header>
+        <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
+        <lg-header-logo src="http://second/logo.png" href="http://a.b.c"></lg-header-logo>
+      </header>
+    `);
+
+      component = fixture.componentInstance;
+      logoDebugElements = fixture.debugElement.queryAll(By.css('.lg-header-logo img'));
       fixture.detectChanges();
 
-      expect(fixture.debugElement.query(By.css('.lg-header__second-logo'))).toBeTruthy();
-    });
-
-    it('does not render a secondary logo when the secondaryLogo is not specified', () => {
-      expect(fixture.debugElement.query(By.css('.lg-header__second-logo'))).toBeNull();
-    });
-
-    it('does not render a link if an href is not provided', () => {
-      component.secondaryLogo = secondaryLogo;
-      fixture.detectChanges();
-
-      expect(fixture.debugElement.query(By.css(`a[href="${secondaryLogo}"]`))).toBeNull();
-    });
-
-    it('renders a link if an href is provided', () => {
-      component.secondaryLogo = secondaryLogo;
-      component.secondaryLogoHref = secondaryLogoHref;
-      fixture.detectChanges();
-
-      expect(
-        fixture.debugElement.query(By.css(`a[href="${secondaryLogoHref}"]`)),
-      ).toBeTruthy();
+      logoDebugElements.forEach((el, i) => {
+        expect(el.nativeElement.getAttribute('class')).toContain(
+          i === 0
+            ? 'lg-header-logo__img'
+            : 'lg-header-logo__second-img',
+        );
+      });
     });
   });
 });
