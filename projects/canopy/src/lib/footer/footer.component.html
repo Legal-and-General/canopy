@@ -1,72 +1,11 @@
 <div class="lg-footer__links">
-  <nav
-    *ngIf="primaryLinks && primaryLinks?.length"
-    class="lg-footer__primary-nav"
-    aria-labelledby="primary-links"
-  >
-    <h2 class="lg-visually-hidden" id="primary-links">Primary links</h2>
-    <ul class="lg-footer__primary-nav-list">
-      <li *ngFor="let link of primaryLinks" class="lg-footer__primary-nav-item">
-        <a
-          (click)="handlePrimaryLinkClick($event)"
-          [attr.id]="link.id"
-          [attr.href]="link.href"
-          [attr.target]="link.target || '_blank'"
-          class="lg-footer__nav-link"
-          rel="noopener"
-          [innerHTML]="link.text"
-        >
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <nav
-    *ngIf="secondaryLinks && secondaryLinks?.length"
-    class="lg-footer__secondary-nav"
-    aria-labelledby="secondary-links"
-  >
-    <h2 class="lg-visually-hidden" id="secondary-links">Secondary links</h2>
-    <ul class="lg-footer__secondary-nav-list">
-      <li *ngFor="let link of secondaryLinks" class="lg-footer__secondary-nav-item">
-        <button
-          *ngIf="link.type === 'button'; else linkItem"
-          (click)="handleSecondaryLinkClick($event)"
-          [attr.id]="link.id"
-          type="button"
-          class="lg-footer__nav-button"
-          [ngClass]="link.class"
-          [innerHTML]="link.text"
-        ></button>
-
-        <ng-template #linkItem>
-          <a
-            (click)="handleSecondaryLinkClick($event)"
-            [attr.id]="link.id"
-            [attr.href]="link.href"
-            [attr.target]="link.target || '_blank'"
-            class="lg-footer__nav-link"
-            [ngClass]="link.class"
-            rel="noopener"
-            [innerHTML]="link.text"
-          >
-          </a>
-        </ng-template>
-      </li>
-    </ul>
-  </nav>
+  <ng-content select="lg-footer-nav"></ng-content>
 </div>
 
 <div class="lg-footer__org">
   <div class="lg-footer__logos-wrapper">
-    <img [attr.alt]="logoAlt" [attr.src]="logo" class="lg-footer__logo" *ngIf="logo" />
-    <img
-      [attr.alt]="secondaryLogoAlt"
-      [attr.src]="secondaryLogo"
-      class="lg-footer__logo lg-footer__second-logo"
-      *ngIf="secondaryLogo"
-    />
+    <ng-content select="lg-footer-logo"></ng-content>
   </div>
-  <span class="lg-footer__copyright">
-    {{ copyright }}
-  </span>
+
+  <ng-content select="lg-footer-copyright"></ng-content>
 </div>

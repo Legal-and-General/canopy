@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+
+.lg-footer-logo {
+  &__img,
+  &__second-img {
+    height: auto;
+    max-height: 100%;
+  }
+
+  &__img {
+    width: var(--footer-logo-width);
+
+    @include lg-breakpoint('lg') {
+      width: var(--footer-logo-width-lg);
+    }
+  }
+
+  &__second-img {
+    margin-left: var(--space-sm);
+    width: var(--footer-second-logo-width);
+
+    @include lg-breakpoint('lg') {
+      margin-left: var(--space-lg);
+      width: var(--footer-second-logo-width-lg);
+    }
+  }
+}

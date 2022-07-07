@@ -1,0 +1,33 @@
+@import '../../../styles/mixins';
+
+.lg-footer-nav {
+  display: block;
+
+  &--primary {
+    margin-bottom: var(--component-margin);
+
+    @include lg-breakpoint('lg') {
+      margin-right: var(--space-xl);
+    }
+  }
+
+  &__list--primary {
+    margin-bottom: var(--space-lg);
+    margin-left: 0;
+
+    @include lg-breakpoint('lg') {
+      margin-top: var(--space-md);
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__list--secondary {
+    margin-bottom: var(--space-xxl);
+    margin-left: 0;
+
+    @include lg-breakpoint('lg') {
+      margin-bottom: 0;
+    }
+  }
+}
