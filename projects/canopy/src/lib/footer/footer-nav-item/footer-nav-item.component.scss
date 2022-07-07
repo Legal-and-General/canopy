@@ -1,0 +1,68 @@
+@import '../../../styles/mixins';
+
+.lg-footer-nav-item {
+  display: block;
+
+  &--primary {
+    margin-bottom: var(--space-xs);
+    list-style-type: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include lg-breakpoint('lg') {
+      margin-top: var(--space-sm);
+      margin-bottom: 0;
+      flex: 0 0 50%;
+    }
+  }
+
+  &--secondary {
+    margin-bottom: var(--space-sm);
+    list-style-type: none;
+
+    @include lg-font-size('-6');
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include lg-breakpoint('lg') {
+      display: inline-block;
+      margin-right: var(--space-xs);
+      margin-bottom: 0;
+
+      &:not(:first-child):before {
+        content: '';
+        display: inline-block;
+        width: var(--border-width);
+        height: var(--space-xxs);
+        background-color: var(--footer-text-color);
+        margin-right: var(--space-xs);
+      }
+    }
+  }
+}
+
+.lg-footer-action {
+  @include lg-unstyled-link;
+
+  text-decoration: none;
+  color: var(--footer-text-color);
+
+  &:hover {
+    text-decoration: underline;
+
+    &:focus:hover {
+      text-decoration: none;
+      @include lg-outer-focus-outline;
+    }
+  }
+
+  &--button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+}

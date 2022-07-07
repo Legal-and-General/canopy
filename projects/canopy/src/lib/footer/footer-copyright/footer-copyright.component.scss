@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+
+.lg-footer-copyright {
+  display: block;
+
+  @include lg-font-size('-6');
+
+  @include lg-breakpoint('lg') {
+    text-align: right;
+  }
+}

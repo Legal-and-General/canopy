@@ -31,7 +31,7 @@ export const secondaryLinks = [
   {
     id: 'secondary-button-4',
     text: 'Cookie settings',
-    type: 'button',
+    isButton: true,
     class: 'secondary-button-class',
   },
 ];
@@ -54,12 +54,6 @@ export default {
     },
   },
   argTypes: {
-    clickedLink: {
-      action: 'Clicked link',
-      table: {
-        disable: true,
-      },
-    },
     logo: {
       description: 'A url link to the logo.',
     },
@@ -80,34 +74,12 @@ export default {
     secondaryLinks: {
       description: 'The secondary footer links.',
     },
-    primaryLinkClicked: {
-      action: 'Primary link clicked',
+    ngAfterContentInit: {
       table: {
         disable: true,
       },
     },
-    secondaryLinkClicked: {
-      action: 'Secondary link clicked',
-      table: {
-        disable: true,
-      },
-    },
-    class: {
-      table: {
-        disable: true,
-      },
-    },
-    role: {
-      table: {
-        disable: true,
-      },
-    },
-    handlePrimaryLinkClick: {
-      table: {
-        disable: true,
-      },
-    },
-    handleSecondaryLinkClick: {
+    footerLogos: {
       table: {
         disable: true,
       },
@@ -116,14 +88,26 @@ export default {
 } as Meta;
 
 const template = `
-<footer lg-footer
-  [copyright]="copyright"
-  [logo]="logo"
-  [logoAlt]="logoAlt"
-  [primaryLinks]="primaryLinks"
-  [secondaryLinks]="secondaryLinks"
-  (primaryLinkClicked)="primaryLinkClicked($event)"
-  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+<footer lg-footer>
+  <lg-footer-nav variant="primary">
+    <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
+      <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-nav variant="secondary">
+    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
+      <a *ngIf="!secondaryLink.isButton; else button" [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+
+      <ng-template #button>
+        <button [class]="secondaryLink.class" [id]="secondaryLink.id">{{ secondaryLink.text }}</button>
+      </ng-template>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
+
+  <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
 </footer>
 `;
 
@@ -165,10 +149,14 @@ standardFooter.argTypes = {
 };
 
 const compactTemplate = `
-<footer lg-footer
-  [copyright]="copyright"
-  [secondaryLinks]="secondaryLinks"
-  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+<footer lg-footer>
+  <lg-footer-nav variant="secondary">
+    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
+      <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
 </footer>
 `;
 
@@ -222,16 +210,23 @@ compactFooter.argTypes = {
 };
 
 const coBrandedTemplate = `
-<footer lg-footer
-  [copyright]="copyright"
-  [logo]="logo"
-  [logoAlt]="logoAlt"
-  [secondaryLogo]="secondaryLogo"
-  [secondaryLogoAlt]="secondaryLogoAlt"
-  [primaryLinks]="primaryLinks"
-  [secondaryLinks]="secondaryLinks"
-  (primaryLinkClicked)="primaryLinkClicked($event)"
-  (secondaryLinkClicked)="secondaryLinkClicked($event)">
+<footer lg-footer>
+  <lg-footer-nav variant="primary">
+    <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
+      <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-nav variant="secondary">
+    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
+      <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
+  <lg-footer-logo [src]="secondaryLogo" [alt]="secondaryLogoAlt"></lg-footer-logo>
+
+  <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
 </footer>
 `;
 
