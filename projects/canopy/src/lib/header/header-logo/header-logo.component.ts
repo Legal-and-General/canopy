@@ -19,5 +19,6 @@ export class LgHeaderLogoComponent {
   @Input() alt = '';
   @Input() src: string;
   @Input() href: string;
-  @Input() class: string;
+
+  class: string;
 }
