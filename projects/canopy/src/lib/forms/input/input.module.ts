@@ -11,7 +11,7 @@ import { LgInputDirective } from './input.directive';
 @NgModule({
   imports: [ LgLabelModule, CommonModule, LgPrefixModule, LgSuffixModule ],
   declarations: [ LgInputDirective, LgInputFieldComponent ],
-  exports: [ LgInputDirective, LgInputFieldComponent ],
+  exports: [ LgInputDirective, LgInputFieldComponent, LgPrefixModule, LgSuffixModule ],
   entryComponents: [ LgInputFieldComponent ],
 })
 export class LgInputModule {}

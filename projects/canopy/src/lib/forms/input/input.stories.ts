@@ -7,8 +7,6 @@ import { LgLabelModule } from '../label/label.module';
 import { LgButtonModule } from '../../button/button.module';
 import { LgHintModule } from '../hint';
 import type { ButtonVariant } from '../../button';
-import { LgSuffixModule } from '../../suffix';
-import { LgPrefixModule } from '../../prefix';
 
 import { LgInputModule } from './input.module';
 import { notes } from './input.notes';
@@ -186,8 +184,6 @@ export default {
         LgIconModule,
         LgInputModule,
         LgLabelModule,
-        LgPrefixModule,
-        LgSuffixModule,
       ],
     }),
   ],
