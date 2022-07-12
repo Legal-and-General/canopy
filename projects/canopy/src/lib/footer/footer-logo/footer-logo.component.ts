@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentChecked,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  ViewEncapsulation,
+} from '@angular/core';
+
+type FooterLogoClass = 'lg-footer-logo__img' | 'lg-footer-logo__second-img';
 
 @Component({
   selector: 'lg-footer-logo',
@@ -10,9 +19,19 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     class: 'lg-footer-logo',
   },
 })
-export class LgFooterLogoComponent {
+export class LgFooterLogoComponent implements AfterContentChecked {
+  private currentClass: FooterLogoClass;
+  class: FooterLogoClass;
+
   @Input() alt = '';
   @Input() src: string;
 
-  class: 'lg-footer-logo__img' | 'lg-footer-logo__second-img';
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngAfterContentChecked(): void {
+    if (this.class && this.class !== this.currentClass) {
+      this.currentClass = this.class;
+      this.cdr.detectChanges();
+    }
+  }
 }
