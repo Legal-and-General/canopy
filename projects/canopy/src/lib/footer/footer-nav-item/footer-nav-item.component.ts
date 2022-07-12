@@ -21,28 +21,30 @@ import { FooterNavVariant } from '../footer.interface';
   },
 })
 export class LgFooterNavItemComponent implements AfterContentChecked {
+  private currentVariant: FooterNavVariant;
   variant: FooterNavVariant;
 
   constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
 
   ngAfterContentChecked(): void {
-    const hostEl = this.hostElement.nativeElement as HTMLElement;
+    if (this.variant && this.variant !== this.currentVariant) {
+      const hostEl = this.hostElement.nativeElement as HTMLElement;
 
-    if (this.variant) {
+      this.currentVariant = this.variant;
       this.renderer.addClass(hostEl, `lg-footer-nav-item--${this.variant}`);
-    }
 
-    const childEl = hostEl.firstChild as HTMLAnchorElement | HTMLButtonElement;
+      const childEl = hostEl.firstChild as HTMLAnchorElement | HTMLButtonElement;
 
-    this.renderer.addClass(childEl, 'lg-footer-action');
+      this.renderer.addClass(childEl, 'lg-footer-action');
 
-    if (childEl.tagName === 'BUTTON') {
-      this.renderer.addClass(childEl, 'lg-footer-action--button');
-      this.renderer.setAttribute(childEl, 'type', 'button');
-    } else if (childEl.tagName !== 'A' && childEl.tagName !== 'BUTTON') {
-      console.error(
-        `Unsupported tag: ${childEl.tagName}. lg-footer-nav-item only supports A and BUTTON.`,
-      );
+      if (childEl.tagName === 'BUTTON') {
+        this.renderer.addClass(childEl, 'lg-footer-action--button');
+        this.renderer.setAttribute(childEl, 'type', 'button');
+      } else if (childEl.tagName !== 'A' && childEl.tagName !== 'BUTTON') {
+        console.error(
+          `Unsupported tag: ${childEl.tagName}. lg-footer-nav-item only supports A and BUTTON.`,
+        );
+      }
     }
   }
 }

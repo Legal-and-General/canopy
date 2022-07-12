@@ -59,6 +59,8 @@ describe('LgFooterNavComponent', () => {
         </lg-footer-nav-item>
       `);
 
+      component = fixture.point.componentInstance;
+      component.variant = 'secondary';
       footerNavItemNativeEl = fixture.nativeElement.firstChild;
       fixture.detectChanges();
     });
@@ -78,12 +80,13 @@ describe('LgFooterNavComponent', () => {
     spyOn(console, 'error');
 
     fixture = MockRender(`
-        <lg-footer-nav-item>
-          <p>Test</p>
-        </lg-footer-nav-item>
-      `);
+      <lg-footer-nav-item>
+        <p>Test</p>
+      </lg-footer-nav-item>
+    `);
 
-    footerNavItemNativeEl = fixture.nativeElement.firstChild;
+    component = fixture.point.componentInstance;
+    component.variant = 'secondary';
     fixture.detectChanges();
 
     expect(console.error).toHaveBeenCalledWith(

@@ -1,5 +1,5 @@
 import {
-  AfterContentInit,
+  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
@@ -26,7 +26,9 @@ import { FooterNavVariant } from '../footer.interface';
     role: 'navigation',
   },
 })
-export class LgFooterNavComponent implements OnInit, AfterContentInit {
+export class LgFooterNavComponent implements OnInit, AfterViewChecked {
+  private currentFooterNavItemLength: number;
+
   @Input() variant: FooterNavVariant;
 
   @ContentChildren(forwardRef(() => LgFooterNavItemComponent), {
@@ -43,7 +45,12 @@ export class LgFooterNavComponent implements OnInit, AfterContentInit {
     this.renderer.setAttribute(el, 'aria-labelledby', `lg-footer-links-${this.variant}`);
   }
 
-  ngAfterContentInit(): void {
-    this.footerNavItemComponents.forEach(item => (item.variant = this.variant));
+  ngAfterViewChecked(): void {
+    const footerNavItemLength = this.footerNavItemComponents?.toArray().length;
+
+    if (footerNavItemLength && footerNavItemLength !== this.currentFooterNavItemLength) {
+      this.currentFooterNavItemLength = footerNavItemLength;
+      this.footerNavItemComponents.forEach(item => (item.variant = this.variant));
+    }
   }
 }
