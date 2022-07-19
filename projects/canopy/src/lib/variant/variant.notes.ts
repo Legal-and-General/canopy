@@ -17,7 +17,7 @@ This can be useful where you need the particular colour treatment (like the \`\`
 The current available variants are:
 * \`\`generic\`\`
 * \`\`info\`\`
-* \`\`success\`\`s
+* \`\`success\`\`
 * \`\`warning\`\`
 * \`\`error\`\`
 
