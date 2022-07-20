@@ -1,6 +1,8 @@
 @import '../../../styles/mixins';
 
 .lg-footer-logo {
+  display: contents;
+
   &__img,
   &__second-img {
     height: auto;
