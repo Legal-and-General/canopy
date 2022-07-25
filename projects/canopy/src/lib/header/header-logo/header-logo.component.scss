@@ -1,37 +1,41 @@
 @import '../../../styles/mixins';
 
-.lg-header-logo__img,
-.lg-header-logo__second-img {
-  height: auto;
-  max-height: 100%;
-}
+.lg-header-logo {
+  display: contents;
 
-.lg-header-logo__img {
-  margin-left: 0;
-  display: block;
-  width: var(--header-logo-width);
-
-  @include lg-breakpoint('lg') {
-    width: var(--header-logo-width-lg);
+  &__img,
+  &__second-img {
+    height: auto;
+    max-height: 100%;
   }
-}
 
-.lg-header-logo__second-img {
-  margin-left: var(--space-sm);
-  width: var(--header-second-logo-width);
+  &__img {
+    margin-left: 0;
+    display: block;
+    width: var(--header-logo-width);
 
-  @include lg-breakpoint('lg') {
-    margin-left: var(--space-lg);
-    width: var(--header-second-logo-width-lg);
+    @include lg-breakpoint('lg') {
+      width: var(--header-logo-width-lg);
+    }
   }
-}
 
-.lg-header-logo__link {
-  display: inline-block;
-  @include lg-unstyled-link;
+  &__second-img {
+    margin-left: var(--space-sm);
+    width: var(--header-second-logo-width);
 
-  &:focus {
-    background-color: transparent;
-    @include lg-inner-focus-outline(var(--default-focus-color));
+    @include lg-breakpoint('lg') {
+      margin-left: var(--space-lg);
+      width: var(--header-second-logo-width-lg);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    @include lg-unstyled-link;
+
+    &:focus {
+      background-color: transparent;
+      @include lg-inner-focus-outline(var(--default-focus-color));
+    }
   }
 }
