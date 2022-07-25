@@ -37,11 +37,11 @@ module.exports = {
         },
         {
           from: path.resolve(__dirname, 'projects/canopy/src/assets/icons/*.svg'),
-          to: path.resolve(__dirname, 'dist/canopy/icons', '[name].[ext]'),
+          to: path.resolve(__dirname, 'dist/canopy/icons', '[name][ext]'),
         },
         {
           from: path.resolve(__dirname, 'projects/canopy/src/assets/brand-icons/*.svg'),
-          to: path.resolve(__dirname, 'dist/canopy/brand-icons', '[name].[ext]'),
+          to: path.resolve(__dirname, 'dist/canopy/brand-icons', '[name][ext]'),
         },
       ],
     }),
