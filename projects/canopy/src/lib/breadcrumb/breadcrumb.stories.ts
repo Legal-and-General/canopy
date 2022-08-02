@@ -83,7 +83,7 @@ const template = `
     <a href="#">Products</a>
   </lg-breadcrumb-item>
   <lg-breadcrumb-item>
-    <a href="#">Pension Anniuty</a>
+    <a href="#">Pension Annuity</a>
   </lg-breadcrumb-item>
 </lg-breadcrumb>
 `;
@@ -126,7 +126,7 @@ const ellipisTemplate = `
     <a href="#">Products</a>
   </lg-breadcrumb-item>
   <lg-breadcrumb-item>
-    <a href="#">Pension Anniuty</a>
+    <a href="#">Pension Annuity</a>
   </lg-breadcrumb-item>
 </lg-breadcrumb>
 `;
