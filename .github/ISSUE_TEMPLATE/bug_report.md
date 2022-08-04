@@ -6,8 +6,8 @@ about: Create a report to alert us of bugs
 
 ## Prerequisites
 
-* [ ] I have checked the [open Issues](https://github.com/Legal-General-Group-Digital/frontend-platform/issues) to see if this has already been raised
-* [ ] I have searched the [closed Issues](https://github.com/Legal-General-Group-Digital/frontend-platform/issues?q=is%3Aissue+is%3Aclosed) to see if a similar bug has been fixed in the past
+* [ ] I have checked the [open Issues](https://github.com/Legal-and-General/canopy/issues) to see if this has already been raised
+* [ ] I have searched the [closed Issues](https://github.com/Legal-and-General/canopy/issues?q=is%3Aissue+is%3Aclosed) to see if a similar bug has been fixed in the past
 
 ## Description
 
