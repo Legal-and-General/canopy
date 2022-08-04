@@ -12,28 +12,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: setup node
+        with:
+          fetch-depth: 0
+
+      - name: 'Setup node'
         uses: actions/setup-node@v3.4.1
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
-      - name: install dependencies
+
+      - name: 'Install dependencies'
         run: npm ci
-      - name: eslint
+
+      - name: 'Lint commit'
+        run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
+
+      - name: 'Eslint'
         run: npm run eslint
-      - name: stylelint
+
+      - name: 'Stylelint'
         run: npm run stylelint
-      - name: test
+
+      - name: 'Unit test'
         run: npm run test:ci
-      - name: build
+
+      - name: 'Build'
         run: npm run build
-      - name: install build dependencies
+
+      - name: 'Install build dependencies'
         run: npm --prefix ./dist/canopy install
-      - name: license check build dependencies
+
+      - name: 'License check build dependencies'
         run: npm run license-check:build
-      - name: build:test-app
+
+      - name: 'Build test app'
         run: npm run build:test-app
-      - name: build storybook
+
+      - name: 'Build storybook'
         run: npm run build:storybook -- --output-dir ./sb-build
       - uses: actions/upload-artifact@v3.1.0
         with:
