@@ -25,6 +25,7 @@ jobs:
         run: npm ci
 
       - name: 'Lint commit'
+        if: ${{ !contains(github.head_ref, 'dependabot-updates') }}
         run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
 
       - name: 'Eslint'
