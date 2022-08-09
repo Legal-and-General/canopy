@@ -13,8 +13,8 @@ const formTemplate = `
   <lg-radio-group [inline]="inline" [focus]="focus" formControlName="color">
     {{ label }}
     <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-    <lg-radio-button value="red" (blur)="radioBlur.emit($event)">Red</lg-radio-button>
-    <lg-radio-button value="yellow" (blur)="radioBlur.emit($event)"
+    <lg-radio-button value="red" [size]="size" (blur)="radioBlur.emit($event)">Red</lg-radio-button>
+    <lg-radio-button value="yellow" [size]="size" (blur)="radioBlur.emit($event)"
       >Yellow
       <lg-hint>Internal custom text</lg-hint>
     </lg-radio-button>
@@ -28,6 +28,7 @@ const formTemplate = `
 })
 class ReactiveFormRadioComponent {
   @Input() inline = false;
+  @Input() size = 'sm';
   @Input() focus = false;
   @Input() label: string;
   @Input() hint: string;
@@ -50,7 +51,7 @@ class ReactiveFormRadioComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: 'red' });
-    this.form.valueChanges.subscribe(val => this.radioChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.radioChange.emit(val));
   }
 }
 
@@ -113,6 +114,21 @@ export default {
         },
       },
     },
+    size: {
+      options: [ 'sm', 'lg' ],
+      description: 'The size of the radio button.',
+      table: {
+        type: {
+          summary: [ 'sm', 'lg' ],
+        },
+        defaultValue: {
+          summary: 'sm',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
     disabled: {
       description: 'Set the inner filters to disabled.',
       table: {
@@ -131,6 +147,12 @@ export default {
     },
     radioChange: {
       action: 'Radio change',
+      table: {
+        disable: true,
+      },
+    },
+    radioBlur: {
+      action: 'Radio blur',
       table: {
         disable: true,
       },
@@ -220,6 +242,7 @@ const radioStory: Story<LgRadioModule> = (args: LgRadioModule) => ({
     [disabled]="disabled"
     [hint]="hint"
     [inline]="inline"
+    [size]="size"
     [label]="label"
     [focus]="focus"
     (radioChange)="radioChange($event)"
@@ -228,18 +251,19 @@ const radioStory: Story<LgRadioModule> = (args: LgRadioModule) => ({
   `,
 });
 
-export const radioButtons = radioStory.bind({});
-radioButtons.storyName = 'Radio';
+export const radio = radioStory.bind({});
+radio.storyName = 'Radio';
 
-radioButtons.args = {
+radio.args = {
   disabled: false,
   inline: false,
+  size: 'sm',
   focus: false,
   label: 'Color',
   hint: 'Please select a color',
 };
 
-radioButtons.parameters = {
+radio.parameters = {
   docs: {
     source: {
       code: formTemplate,

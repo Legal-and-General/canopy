@@ -23,7 +23,7 @@ import { LgHintComponent } from '../hint';
 import { LgDomService } from '../../utils/dom.service';
 
 import { LgRadioGroupComponent } from './radio-group.component';
-import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
+import type { RadioSize, RadioStackBreakpoint, RadioVariant } from './radio.interface';
 
 let nextUniqueId = 0;
 
@@ -59,6 +59,7 @@ export class LgRadioButtonComponent implements OnInit {
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
   @Input() name: string;
   @Input() value: boolean | string;
+  @Input() size: RadioSize = 'sm';
   @Input() ariaDescribedBy: string;
 
   _stacked: RadioStackBreakpoint;

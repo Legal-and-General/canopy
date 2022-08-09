@@ -4,10 +4,14 @@
   --radio-border-color: var(--border-color);
   --radio-disabled-color: var(--color-taupe-grey);
 
-  --radio-inner-height: 0.5rem;
-  --radio-inner-width: var(--radio-inner-height);
   --radio-outer-height: 1rem;
   --radio-outer-width: var(--radio-outer-height);
+  --radio-inner-height: calc(var(--radio-outer-height) / 2);
+  --radio-inner-width: var(--radio-inner-height);
+  --radio-outer-lg-height: 1.5rem;
+  --radio-outer-lg-width: var(--radio-outer-lg-height);
+  --radio-inner-lg-height: calc(var(--radio-outer-lg-height) / 2);
+  --radio-inner-lg-width: var(--radio-inner-lg-height);
 
   --radio-segment-separator-border-width: var(--border-width);
   --radio-segment-separator-border-color: var(--color-platinum);
