@@ -12,7 +12,13 @@
   type="radio"
 />
 
-<label [attr.for]="id" class="lg-radio-button__label">
+<label
+  [attr.for]="id"
+  class="lg-radio-button__label"
+  [ngClass]="{
+    'lg-radio-button__label--sm': variant === 'radio' && size === 'sm',
+    'lg-radio-button__label--lg': variant === 'radio' && size === 'lg'
+  }">
   <ng-content></ng-content>
 </label>
 

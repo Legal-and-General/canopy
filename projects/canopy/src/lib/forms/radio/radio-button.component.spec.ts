@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, Input } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -16,6 +16,7 @@ import { LgHintComponent } from '../hint';
 
 import { LgRadioButtonComponent } from './radio-button.component';
 import { LgRadioGroupComponent } from './radio-group.component';
+import { RadioSize } from './radio.interface';
 
 const hintTestId = 'test-hint-id';
 
@@ -24,7 +25,7 @@ const hintTestId = 'test-hint-id';
     <form [formGroup]="form" #testForm="ngForm">
       <lg-radio-group formControlName="color">
         Color
-        <lg-radio-button value="red">Red</lg-radio-button>
+        <lg-radio-button value="red" [size]="size">Red</lg-radio-button>
         <lg-radio-button value="yellow"
           >Yellow
           <div class="lg-radio-button__content">
@@ -38,6 +39,7 @@ const hintTestId = 'test-hint-id';
 })
 class TestRadioButtonComponent {
   form: FormGroup;
+  @Input() size: RadioSize = 'sm';
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({
@@ -56,47 +58,45 @@ describe('LgRadioButtonComponent', () => {
   let hintDebugElement: DebugElement;
   let inputDebugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      errorStateMatcherMock = mock(LgErrorStateMatcher);
-      radioGroupMock = mock(LgRadioGroupComponent);
-      when(radioGroupMock.name).thenReturn('color');
-      when(radioGroupMock.variant).thenReturn('segment');
+  beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = mock(LgErrorStateMatcher);
+    radioGroupMock = mock(LgRadioGroupComponent);
+    when(radioGroupMock.name).thenReturn('color');
+    when(radioGroupMock.variant).thenReturn('segment');
 
-      TestBed.configureTestingModule({
-        imports: [ FormsModule, ReactiveFormsModule ],
-        declarations: [
-          LgRadioButtonComponent,
-          LgRadioGroupComponent,
-          TestRadioButtonComponent,
-          MockComponents(LgHintComponent),
-        ],
-        providers: [
-          {
-            provide: LgRadioGroupComponent,
-            useFactory: () => instance(radioGroupMock),
-          },
-          {
-            provide: LgErrorStateMatcher,
-            useFactory: () => instance(errorStateMatcherMock),
-          },
-        ],
-      }).compileComponents();
+    TestBed.configureTestingModule({
+      imports: [ FormsModule, ReactiveFormsModule ],
+      declarations: [
+        LgRadioButtonComponent,
+        LgRadioGroupComponent,
+        TestRadioButtonComponent,
+        MockComponents(LgHintComponent),
+      ],
+      providers: [
+        {
+          provide: LgRadioGroupComponent,
+          useFactory: () => instance(radioGroupMock),
+        },
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(LgRadioButtonComponent);
-      component = fixture.componentInstance;
+    fixture = TestBed.createComponent(LgRadioButtonComponent);
+    component = fixture.componentInstance;
 
-      fixture.detectChanges();
+    fixture.detectChanges();
 
-      testFixture = TestBed.createComponent(TestRadioButtonComponent);
-      testComponent = testFixture.componentInstance;
+    testFixture = TestBed.createComponent(TestRadioButtonComponent);
+    testComponent = testFixture.componentInstance;
 
-      testFixture.detectChanges();
+    testFixture.detectChanges();
 
-      inputDebugElement = testFixture.debugElement.queryAll(By.css('input'))[1];
-      hintDebugElement = testFixture.debugElement.query(By.directive(LgHintComponent));
-    }),
-  );
+    inputDebugElement = testFixture.debugElement.queryAll(By.css('input'))[1];
+    hintDebugElement = testFixture.debugElement.query(By.directive(LgHintComponent));
+  }));
 
   it('sets its name from the radio group name', () => {
     expect(component.name).toBe('color');
@@ -120,6 +120,31 @@ describe('LgRadioButtonComponent', () => {
         'lg-radio-button--segment',
       );
     });
+  });
+
+  it('adds the radio button size based on the variant', () => {
+    expect(fixture.debugElement.query(By.css('.lg-radio-button__label--sm'))).toBeNull();
+
+    when(radioGroupMock.variant).thenReturn('radio');
+    fixture = TestBed.createComponent(LgRadioButtonComponent);
+    component = fixture.componentInstance;
+    component.size = 'sm';
+    fixture.detectChanges();
+
+    expect(
+      fixture.debugElement.query(By.css('.lg-radio-button__label--sm')).nativeElement,
+    ).toBeDefined();
+
+    expect(fixture.debugElement.query(By.css('.lg-radio-button__label--lg'))).toBeNull();
+
+    component.size = 'lg';
+    fixture.detectChanges();
+
+    expect(
+      fixture.debugElement.query(By.css('.lg-radio-button__label--lg')).nativeElement,
+    ).toBeDefined();
+
+    expect(fixture.debugElement.query(By.css('.lg-radio-button__label--sm'))).toBeNull();
   });
 
   // https://github.com/NagRock/ts-mockito/issues/120
