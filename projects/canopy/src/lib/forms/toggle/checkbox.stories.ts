@@ -193,6 +193,7 @@ const code = `
 <lg-checkbox
   formControlName="umbrella"
   [value]="true"
+  [size]="sm"
   [checked]="umbrella.value"
   [focus]="focus"
   (blur)="toggleBlur.emit($event)"

@@ -28,8 +28,18 @@
   background-color: var(--color-white);
   border: var(--border-width) solid var(--toggle-border-color);
   color: transparent;
-  font-size: 0.8rem;
-  margin: var(--space-xxxs) var(--space-sm) auto 0;
+  font-size: var(--_toggle-icon-font-size);
+  margin: var(--_toggle-icon-margin-top) var(--space-sm) auto 0;
+
+  &--sm {
+    --_toggle-icon-font-size: 0.8rem;
+    --_toggle-icon-margin-top: var(--space-xxxs);
+  }
+
+  &--lg {
+    --_toggle-icon-font-size: 1.334rem;
+    --_toggle-icon-margin-top: -0.063rem;
+  }
 
   &.lg-icon > svg {
     display: inline-block;

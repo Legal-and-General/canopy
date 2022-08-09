@@ -42,6 +42,11 @@ export default {
         disable: true,
       },
     },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
     focus: {
       description: 'Set the focus on the switch.',
       table: {

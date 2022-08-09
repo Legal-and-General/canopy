@@ -10,15 +10,16 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { MockComponents } from 'ng-mocks';
+import { MockComponents, MockDirective } from 'ng-mocks';
 import { anything, instance, mock, when } from 'ts-mockito';
 
 import { LgIconComponent } from '../../icon';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
+import { LgFocusDirective } from '../../focus';
 
 import { LgToggleComponent } from './toggle.component';
-import type { ToggleVariant } from './toggle.interface';
+import type { CheckboxSize, ToggleVariant } from './toggle.interface';
 
 const validationTestId = 'test-validation-id';
 
@@ -31,6 +32,7 @@ const validationTestId = 'test-validation-id';
         (change)="onChange()"
         (blur)="onBlur($event)"
         [variant]="variant"
+        [size]="size"
       >
         I will bring my Umbrella if it is raining
         <lg-validation
@@ -45,6 +47,7 @@ const validationTestId = 'test-validation-id';
 })
 class TestToggleComponent {
   @Input() variant: ToggleVariant;
+  @Input() size: CheckboxSize;
 
   form: FormGroup;
 
@@ -117,37 +120,36 @@ describe('LgToggleComponent', () => {
 
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ FormsModule, ReactiveFormsModule ],
-        declarations: [
-          TestToggleComponent,
-          LgToggleComponent,
-          MockComponents(LgValidationComponent, LgIconComponent),
-        ],
-        providers: [
-          {
-            provide: LgErrorStateMatcher,
-            useFactory: () => instance(errorStateMatcherMock),
-          },
-        ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ FormsModule, ReactiveFormsModule ],
+      declarations: [
+        TestToggleComponent,
+        LgToggleComponent,
+        MockComponents(LgValidationComponent, LgIconComponent),
+        MockDirective(LgFocusDirective),
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(TestToggleComponent);
-      fixture.detectChanges();
-      component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TestToggleComponent);
+    fixture.detectChanges();
+    component = fixture.componentInstance;
 
-      toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
+    toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
 
-      toggleInstance =
-        toggleDebugElement.injector.get<LgToggleComponent>(LgToggleComponent);
+    toggleInstance =
+      toggleDebugElement.injector.get<LgToggleComponent>(LgToggleComponent);
 
-      inputDebugElement = fixture.debugElement.query(By.css('.lg-toggle__input'));
-      inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
-      fixture.detectChanges();
-    }),
-  );
+    inputDebugElement = fixture.debugElement.query(By.css('.lg-toggle__input'));
+    inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
+    fixture.detectChanges();
+  }));
 
   it('sets a unique name for the toggle button', () => {
     expect(
@@ -187,6 +189,31 @@ describe('LgToggleComponent', () => {
     expect(
       fixture.debugElement.query(By.css('.lg-toggle__checkbox')).nativeElement,
     ).toBeDefined();
+  });
+
+  it('adds the checkbox size based on the variant', () => {
+    component.variant = 'switch';
+
+    expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox--sm'))).toBeNull();
+
+    component.variant = 'checkbox';
+    component.size = 'sm';
+    fixture.detectChanges();
+
+    expect(
+      fixture.debugElement.query(By.css('.lg-toggle__checkbox--sm')).nativeElement,
+    ).toBeDefined();
+
+    expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox--lg'))).toBeNull();
+
+    component.size = 'lg';
+    fixture.detectChanges();
+
+    expect(
+      fixture.debugElement.query(By.css('.lg-toggle__checkbox--lg')).nativeElement,
+    ).toBeDefined();
+
+    expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox--sm'))).toBeNull();
   });
 
   it('links the label to the input field with the correct attributes', () => {
@@ -281,35 +308,33 @@ describe('LgToggleComponent selector variant', () => {
 
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ FormsModule, ReactiveFormsModule ],
-        declarations: [
-          TestToggleVariantSelectorComponent,
-          LgToggleComponent,
-          MockComponents(LgValidationComponent, LgIconComponent),
-        ],
-        providers: [
-          {
-            provide: LgErrorStateMatcher,
-            useFactory: () => instance(errorStateMatcherMock),
-          },
-        ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ FormsModule, ReactiveFormsModule ],
+      declarations: [
+        TestToggleVariantSelectorComponent,
+        LgToggleComponent,
+        MockComponents(LgValidationComponent, LgIconComponent),
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(TestToggleVariantSelectorComponent);
-      fixture.detectChanges();
+    fixture = TestBed.createComponent(TestToggleVariantSelectorComponent);
+    fixture.detectChanges();
 
-      toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
+    toggleDebugElement = fixture.debugElement.query(By.directive(LgToggleComponent));
 
-      toggleInstance =
-        toggleDebugElement.injector.get<LgToggleComponent>(LgToggleComponent);
+    toggleInstance =
+      toggleDebugElement.injector.get<LgToggleComponent>(LgToggleComponent);
 
-      inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
-      fixture.detectChanges();
-    }),
-  );
+    inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
+    fixture.detectChanges();
+  }));
 
   it('sets the correct variant based on the selector', () => {
     expect(toggleInstance.variant).toBe('switch');

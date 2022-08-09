@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import type { ToggleVariant } from './toggle.interface';
 import { LgToggleModule } from './toggle.module';
+import { CheckboxSize } from './toggle.interface';
 
 @Component({
   selector: 'lg-reactive-form',
@@ -21,6 +22,7 @@ import { LgToggleModule } from './toggle.module';
         [variant]="variant"
         [checked]="umbrella.value"
         [focus]="focus"
+        [size]="size"
         (blur)="toggleBlur.emit($event)"
       >
         {{ label }}
@@ -33,6 +35,7 @@ export class ReactiveToggleFormComponent implements OnChanges {
   @Input() variant: ToggleVariant;
   @Input() checked: boolean;
   @Input() focus: boolean;
+  @Input() size: CheckboxSize;
 
   @Input()
   set disabled(disabled: boolean) {
@@ -78,6 +81,7 @@ export function createToggleStory(args: LgToggleModule, variant: string) {
         [disabled]="disabled"
         [label]="label"
         variant="${variant}"
+        [size]="size"
         [checked]="checked"
         [focus]="focus"
         (toggleChange)="toggleChange($event)"
@@ -92,6 +96,7 @@ export function setupToggleStoryValues(obj, code) {
     disabled: false,
     inline: false,
     focus: false,
+    size: 'sm',
     label: 'I will bring my Umbrella if it is raining',
   };
 

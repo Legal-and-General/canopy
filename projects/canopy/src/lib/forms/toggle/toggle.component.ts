@@ -24,6 +24,7 @@ import { LgValidationComponent } from '../validation/validation.component';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
 
 import type { ToggleVariant } from './toggle.interface';
+import { CheckboxSize } from './toggle.interface';
 
 let nextUniqueId = 0;
 
@@ -48,6 +49,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   @Input() focus: boolean;
   @Input() ariaDescribedBy: string;
   @Input() variant: ToggleVariant = 'checkbox';
+  @Input() size: CheckboxSize = 'sm';
   @Input()
   _disabled = false;
   get disabled(): boolean {

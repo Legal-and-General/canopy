@@ -27,6 +27,10 @@
   <lg-icon
     *ngIf="variant === 'checkbox'"
     class="lg-toggle__checkbox"
+    [ngClass]="{
+      'lg-toggle__checkbox--sm': size === 'sm',
+      'lg-toggle__checkbox--lg': size === 'lg'
+    }"
     name="checkbox-mark"
   ></lg-icon>
   <ng-content></ng-content>
