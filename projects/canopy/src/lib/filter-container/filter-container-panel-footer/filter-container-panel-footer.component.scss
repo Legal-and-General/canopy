@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+
+.lg-filter-container-panel-footer {
+  border-top: solid var(--border-width) var(--color-platinum);
+  display: block;
+  padding: var(--space-lg) var(--space-sm);
+
+  @include lg-breakpoint('md') {
+    padding: var(--space-lg);
+  }
+}

@@ -11,6 +11,7 @@ export * from './lib/carousel/index';
 export * from './lib/data-point/index';
 export * from './lib/details/index';
 export * from './lib/feature-toggle/index';
+export * from './lib/filter-container/index';
 export * from './lib/focus/index';
 export * from './lib/footer/index';
 export * from './lib/forms/index';
