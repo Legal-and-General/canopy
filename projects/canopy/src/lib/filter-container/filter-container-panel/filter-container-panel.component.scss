@@ -1,0 +1,10 @@
+.lg-filter-container-panel {
+  border: solid var(--border-width) var(--border-color);
+  border-radius: var(--border-radius-sm);
+  clear: both;
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
