@@ -30,8 +30,10 @@ const buttonVariants = [
       [size]="size"
       [variant]="variant"
     >
+      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" name="filter" first></lg-icon>
       {{ content }}
-      <lg-icon *ngIf="icon !== 'None'" [name]="icon"></lg-icon>
+      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" [name]="icon" second></lg-icon>
+      <lg-icon *ngIf="icon !== 'None' && !doubleIconButton" [name]="icon"></lg-icon>
     </button>
     <p>Used on a <strong>link</strong> element</p>
     <a
@@ -45,8 +47,10 @@ const buttonVariants = [
       [size]="size"
       [variant]="variant"
     >
+      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" name="filter" first></lg-icon>
       {{ content }}
-      <lg-icon *ngIf="icon !== 'None'" [name]="icon"></lg-icon>
+      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" [name]="icon" second></lg-icon>
+      <lg-icon *ngIf="icon !== 'None' && !doubleIconButton" [name]="icon"></lg-icon>
     </a>
   `,
 })
@@ -55,6 +59,7 @@ class ButtonComponentExampleComponent {
   @Input() fullWidth: boolean;
   @Input() icon: string;
   @Input() iconButton: boolean;
+  @Input() doubleIconButton: boolean;
   @Input() iconPosition: ButtonIconPosition;
   @Input() loading: boolean;
   @Input() size: ButtonSize;
@@ -140,6 +145,7 @@ const defaultArgValues = {
   disabled: false,
   fullWidth: false,
   iconButton: false,
+  doubleIconButton: false,
   loading: false,
   icon: 'None',
   size: 'md',
@@ -150,6 +156,7 @@ const buttonTemplate = `
     [disabled]="disabled"
     [fullWidth]="fullWidth"
     [iconButton]="iconButton"
+    [doubleIconButton]="doubleIconButton"
     [iconPosition]="iconPosition"
     [loading]="loading"
     [size]="size"
@@ -271,7 +278,7 @@ const textWithIconExample = `
 `;
 
 export const textWithIcon = buttonStory.bind({});
-textWithIcon.storyName = 'Icon with text';
+textWithIcon.storyName = 'Single icon with text';
 
 textWithIcon.argTypes = {
   icon: iconArgType,
@@ -291,6 +298,39 @@ textWithIcon.parameters = {
   },
   backgrounds: {
     default: setBackground(textWithIcon.args.variant),
+  },
+};
+
+const textWithDoubleIconExample = `
+<button lg-button variant="primary-dark">
+  <lg-icon name="filter" first></lg-icon>
+  {{ content }}
+  <lg-icon name="add" second></lg-icon>
+</button>
+`;
+
+export const textWithDoubleIcon = buttonStory.bind({});
+textWithDoubleIcon.storyName = 'Double icon with text';
+
+textWithDoubleIcon.argTypes = {
+  icon: iconArgType,
+};
+
+textWithDoubleIcon.args = {
+  ...defaultArgValues,
+  variant: 'primary-dark',
+  icon: lgIconsArray[0].name,
+  doubleIconButton: true,
+};
+
+textWithDoubleIcon.parameters = {
+  docs: {
+    source: {
+      code: textWithDoubleIconExample,
+    },
+  },
+  backgrounds: {
+    default: setBackground(textWithDoubleIcon.args.variant),
   },
 };
 
