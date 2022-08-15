@@ -1,9 +1,14 @@
 <ng-template #standard>
+  <ng-content *ngIf="icons.length === 2" select="lg-icon[first]"></ng-content>
+
   <span class="lg-btn__text">
     <ng-content></ng-content>
   </span>
 
-  <ng-content select="lg-icon"></ng-content>
+  <ng-container *ngFor="let icon of icons; let i = index">
+    <ng-content *ngIf="icons.length === 2" select="lg-icon[second]"></ng-content>
+    <ng-content *ngIf="icons.length === 1" select="lg-icon"></ng-content>
+  </ng-container>
 </ng-template>
 
 <ng-container *ngIf="loading; else standard">

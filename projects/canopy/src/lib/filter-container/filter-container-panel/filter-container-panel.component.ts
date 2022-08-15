@@ -21,15 +21,18 @@ import {
   },
 })
 export class LgFilterContainerPanelComponent {
-  private uniqueId = 0;
   isActive: boolean;
+  uniqueId: number;
 
   @HostBinding('class.lg-filter-container-panel--active') get activeClass(): boolean {
     return this.isActive;
   }
-
-  @HostBinding('id') id = `${lgFilterContainerPanelIdPrefix}${this.uniqueId}`;
+  @HostBinding('id') get id(): string {
+    return `${lgFilterContainerPanelIdPrefix}${this.uniqueId}`;
+  }
   @HostBinding('attr.role') role = 'region';
   @HostBinding('attr.aria-labelledby')
-  ariaLabelledBy = `${lgFilterContainerToggleIdPrefix}${this.uniqueId}`;
+  get ariaLabelledBy(): string {
+    return `${lgFilterContainerToggleIdPrefix}${this.uniqueId}`;
+  }
 }

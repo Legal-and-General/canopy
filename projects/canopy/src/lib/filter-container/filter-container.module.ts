@@ -9,21 +9,18 @@ import {
   LgFilterContainerPanelBodyComponent,
   LgFilterContainerPanelComponent,
   LgFilterContainerPanelFooterComponent,
-  lgFilterContainerToggleDirective,
 } from './';
 
 @NgModule({
   imports: [ CommonModule, LgButtonModule, LgIconModule ],
   declarations: [
     LgFilterContainerComponent,
-    lgFilterContainerToggleDirective,
     LgFilterContainerPanelComponent,
     LgFilterContainerPanelBodyComponent,
     LgFilterContainerPanelFooterComponent,
   ],
   exports: [
     LgFilterContainerComponent,
-    lgFilterContainerToggleDirective,
     LgFilterContainerPanelComponent,
     LgFilterContainerPanelBodyComponent,
     LgFilterContainerPanelFooterComponent,

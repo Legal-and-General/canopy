@@ -1,21 +1,35 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ElementRef, QueryList } from '@angular/core';
+import { anything, instance, mock, spy, when } from 'ts-mockito';
 import { By } from '@angular/platform-browser';
+import { MockComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { LgSpinnerComponent } from '../spinner/spinner.component';
+import { LgIconComponent } from '../icon';
 
 import { LgButtonComponent } from './button.component';
 
 describe('LgButtonComponent', () => {
   let component: LgButtonComponent;
-  let fixture: ComponentFixture<LgButtonComponent>;
+  let fixture:
+    | ComponentFixture<LgButtonComponent>
+    | MockedComponentFixture<LgButtonComponent>;
+  let queryListMock: QueryList<unknown>;
+  let queryListInstance: QueryList<LgIconComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgButtonComponent, LgSpinnerComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    queryListMock = mock(QueryList);
+
+    queryListInstance = instance(queryListMock) as QueryList<LgIconComponent>;
+
+    TestBed.configureTestingModule({
+      declarations: [
+        LgButtonComponent,
+        LgSpinnerComponent,
+        MockComponent(LgIconComponent),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgButtonComponent);
@@ -217,6 +231,63 @@ describe('LgButtonComponent', () => {
           'lg-btn--icon-only',
         );
       });
+    });
+  });
+
+  xdescribe('with two icons', () => {
+    beforeEach(() => {
+      fixture = MockRender(`
+        <button lg-button variant="primary-dark">
+          <lg-icon name="filter" first></lg-icon>
+          Test
+          <lg-icon name="add" second></lg-icon>
+        </button>
+      `);
+
+      const spyComponent = spy(component);
+
+      when(spyComponent.icons).thenReturn(queryListInstance);
+      when(spyComponent.icons.length).thenReturn(2);
+
+      const deFirst = fixture.debugElement.query(By.css('lg-icon[first]'));
+
+      when(spyComponent.icons.get(anything())['hostElement']).thenReturn({
+        nativeElement: deFirst.nativeElement,
+      } as unknown as ElementRef);
+    });
+
+    it('should add the correct margin to the first icon', () => {
+      component.ngAfterViewInit();
+
+      const deFirst = fixture.debugElement.query(By.css('lg-icon[first]'));
+      const deSecond = fixture.debugElement.query(By.css('lg-icon[second]'));
+
+      expect(deFirst.nativeElement.getAttribute('class')).toContain(
+        'lg-margin__left--none',
+      );
+
+      expect(deFirst.nativeElement.getAttribute('class')).toContain(
+        'lg-margin__right--xxs',
+      );
+
+      expect(deSecond.nativeElement.getAttribute('class')).not.toContain(
+        'lg-margin__left--none',
+      );
+
+      expect(deSecond.nativeElement.getAttribute('class')).not.toContain(
+        'lg-margin__right--xxs',
+      );
+    });
+
+    it('should set the iconPosition to its initial state and log a warning message when set to `left`', () => {
+      component.iconPosition = 'left';
+      const consoleSpy = spyOn(console, 'warn');
+
+      component.ngAfterViewInit();
+
+      expect(consoleSpy).toHaveBeenCalledWith(
+        '`iconPosition` cannot be set to `left` when two icons are present. The property is ignored',
+      );
     });
   });
 });

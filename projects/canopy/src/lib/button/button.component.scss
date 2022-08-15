@@ -108,7 +108,7 @@ $variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light',
 
 @each $variant in $variants {
   .lg-btn--#{$variant},
-  .lg-btn--#{$variant}:focus,
+  .lg-btn--#{$variant}:focus:not(.lg-btn-toggle),
   .lg-btn--#{$variant}:visited {
     background-color: var(--btn-#{$variant}-bg-color);
     border: var(--btn-#{$variant}-border-color) solid var(--border-width);
@@ -119,8 +119,9 @@ $variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light',
     }
 
     &:not(:disabled) {
-      &:active,
-      &:active:hover {
+      &:active:not(.lg-btn-toggle--active),
+      &:active:hover:not(.lg-btn-toggle--active),
+      &.lg-btn-toggle--active {
         background-color: var(--btn-#{$variant}-active-bg-color);
         border: var(--btn-#{$variant}-active-border-color) solid var(--border-width);
         color: var(--btn-#{$variant}-active-color);
@@ -144,5 +145,9 @@ $variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light',
         border-color: transparent;
       }
     }
+  }
+
+  .lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
+    transform: rotateX(180deg);
   }
 }
