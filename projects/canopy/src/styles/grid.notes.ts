@@ -26,6 +26,6 @@ This can be done via [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-
 A set of [Angular directives](/?path=/story/directives--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements.
 
 There are also two utility directives available which allow you to show/hide components at different breakpoints:
-- [LgShowAt](/?path=/docs/directives-show-at--show-at-story)
-- [LgHideAt](/?path=/docs/directives-hide-at--hide-at-story)
+- <a href="./?path=/docs/directives-show-at--show-at-story">LgShowAt</a>
+- <a href="./?path=/docs/directives-hide-at--hide-at-story">LgHideAt</a>
 `;
