@@ -19,6 +19,7 @@ import {
   LgDataPointModule,
   LgDateFieldModule,
   LgDetailsModule,
+  LgFilterContainerModule,
   LgFooterModule,
   LgGridModule,
   LgHeaderModule,
@@ -28,6 +29,7 @@ import {
   lgIconAdd,
   lgIconArrowDown,
   lgIconClose,
+  lgIconFilter,
   LgIconModule,
   LgIconRegistry,
   lgIconRepeat,
@@ -67,6 +69,7 @@ import {
     LgDataPointModule,
     LgDateFieldModule,
     LgDetailsModule,
+    LgFilterContainerModule,
     LgFooterModule,
     LgGridModule,
     LgHeaderModule,
@@ -103,7 +106,8 @@ export class AppModule {
       lgIconClose,
       lgIconSearch,
       lgIconRepeat,
-      lgIconSecureMessaging
+      lgIconSecureMessaging,
+      lgIconFilter
     ]);
     this.brandIconRegistry.registerBrandIcon([
       lgBrandIconCalendar,
