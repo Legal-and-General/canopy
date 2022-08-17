@@ -67,15 +67,19 @@ describe('LgFilterContainerComponent', () => {
     );
   });
 
-  it('should set the unique id of the panel and its state', () => {
-    expect(component.filterContainerPanel['uniqueId']).toBe(component['uniqueId']);
+  it('should set the unique id of the panel, its state and call #toggleActiveClass', () => {
+    const toggleActiveClassSpy = spyOn<any>(component, 'toggleActiveClass');
+
+    expect(component.filterContainerPanel.uniqueId).toBe(component['uniqueId']);
     component.filterContainerToggle.toggleActive.emit(true);
 
-    expect(component.filterContainerPanel['isActive']).toBe(true);
+    expect(component.filterContainerPanel.isActive).toBe(true);
+    expect(toggleActiveClassSpy).toHaveBeenCalledWith(true);
 
     component.filterContainerToggle.toggleActive.emit(false);
 
-    expect(component.filterContainerPanel['isActive']).toBe(false);
+    expect(component.filterContainerPanel.isActive).toBe(false);
+    expect(toggleActiveClassSpy).toHaveBeenCalledWith(false);
   });
 
   it('should close the panel when the escape key is pressed and the panel is active', () => {
@@ -86,12 +90,33 @@ describe('LgFilterContainerComponent', () => {
 
     component.onKeydown(escEvent);
 
-    expect(component.filterContainerToggle['isActive']).toBe(false);
+    expect(component.filterContainerToggle.isActive).toBe(false);
     expect(toggleSpy).toHaveBeenCalledTimes(0);
 
     component.filterContainerToggle['_isActive'] = true;
     component.onKeydown(escEvent);
 
     expect(toggleSpy).toHaveBeenCalledTimes(1);
+  });
+
+  describe('#toggleActiveClass', () => {
+    it('should toggle the active class', () => {
+      component['toggleActiveClass'](true);
+      fixture.detectChanges();
+
+      expect(el.getAttribute('class')).toContain('lg-filter-container--active');
+
+      component['toggleActiveClass'](false);
+      fixture.detectChanges();
+
+      expect(el.getAttribute('class')).not.toContain('lg-filter-container--active');
+    });
+
+    it('should remove the active class', () => {
+      component['toggleActiveClass'](false);
+      fixture.detectChanges();
+
+      expect(el.getAttribute('class')).not.toContain('lg-filter-container--active');
+    });
   });
 });

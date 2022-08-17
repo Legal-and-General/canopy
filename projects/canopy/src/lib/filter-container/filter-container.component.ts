@@ -3,10 +3,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChild,
+  ElementRef,
   forwardRef,
   HostBinding,
   HostListener,
   OnDestroy,
+  Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -44,6 +46,8 @@ export class LgFilterContainerComponent implements AfterContentInit, OnDestroy {
   @ContentChild(forwardRef(() => LgFilterContainerPanelComponent))
   filterContainerPanel: LgFilterContainerPanelComponent;
 
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+
   @HostListener('keydown', [ '$event' ]) onKeydown(event: KeyboardEvent): void {
     if (event.key === keyName.KEY_ESCAPE && this.filterContainerToggle?.isActive) {
       this.filterContainerToggle.toggle();
@@ -57,10 +61,21 @@ export class LgFilterContainerComponent implements AfterContentInit, OnDestroy {
 
     this.subscription = this.filterContainerToggle.toggleActive.subscribe(isActive => {
       this.filterContainerPanel.isActive = isActive;
+      this.toggleActiveClass(isActive);
     });
   }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+  }
+
+  private toggleActiveClass(isActive: boolean): void {
+    const activeClass = 'lg-filter-container--active';
+
+    if (isActive) {
+      this.renderer.addClass(this.hostElement.nativeElement, activeClass);
+    } else {
+      this.renderer.removeClass(this.hostElement.nativeElement, activeClass);
+    }
   }
 }
