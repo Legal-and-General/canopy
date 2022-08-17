@@ -88,20 +88,12 @@ export class LgButtonComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.icons.length === 2) {
-      // console.log(this.icons.get(0));
-      // console.log(this.icons.get(0)['hostElement']);
-      const firstIcon = this.icons.get(0)['hostElement'].nativeElement as HTMLElement;
+      const icons = this.hostElement.nativeElement.getElementsByTagName(
+        'lg-icon',
+      ) as Array<HTMLElement>;
 
-      this.renderer.addClass(firstIcon, 'lg-margin__left--none');
-      this.renderer.addClass(firstIcon, 'lg-margin__right--xxs');
-
-      if (this.iconPosition === 'left') {
-        console.warn(
-          '`iconPosition` cannot be set to `left` when two icons are present. The property is ignored',
-        );
-
-        this.iconPosition = 'right';
-      }
+      this.renderer.addClass(icons[0], 'lg-margin__left--none');
+      this.renderer.addClass(icons[0], 'lg-margin__right--xxs');
     }
   }
 }
