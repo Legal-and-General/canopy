@@ -48,7 +48,7 @@ You can create an **icon only** button by setting \`iconButton\` to \`true\`. Yo
 ~~~
 
 #### Double icon
-A button can also have two **Icon Components** in it. In this case the \`iconPosition\` is **not required** and will be ignored if set. The icons will be positioned automatically on each side of the text.
+A button can also have two **Icon Components** in it. In this case the \`iconPosition\` is **not required**. The icons will be positioned automatically on each side of the text.
 
 An important requirement is the need to add \`first\` and \`second\` attributes to the icons as per the example below:
 
@@ -70,7 +70,7 @@ An important requirement is the need to add \`first\` and \`second\` attributes 
 | \`\`fullWidth\`\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |
 | \`\`disabled\`\` | Programmatically disable the button via this property | boolean | false | No |
 | \`\`loading\`\` | If the button shows a loading spinner and is also disabled | boolean | false | No |
-| \`\`iconPosition\`\` | The position of the icon in the button | string | right | No |
+| \`\`iconPosition\`\` | The position of a single icon in the button | string | right | No |
 | \`\`iconButton\`\` | The button displays an icon only | boolean | false | No |
 
 ### Button toggle directive
@@ -104,7 +104,7 @@ then in the wrapper component set the \`id\` and \`ariaControls\` of the toggle 
   }
 ~~~
 
-[See the Filter Container to view it in action](/?path=/docs/components-filter-container--standard-filter-container).
+<a href="./?path=/docs/components-filter-container--standard-filter-container">See the Filter Container to view it in action</a>.
 
 ### Button group
 
