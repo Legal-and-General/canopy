@@ -1,3 +1,12 @@
+.lg-filter-container {
+  display: flex;
+  justify-content: flex-end;
+
+  &--active {
+    display: block;
+  }
+}
+
 .lg-btn-toggle {
   display: block;
   float: right;
