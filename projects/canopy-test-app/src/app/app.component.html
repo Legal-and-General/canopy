@@ -287,6 +287,48 @@
             </lg-details>
 
             <lg-separator></lg-separator>
+            <lg-heading level="3">Filter container</lg-heading>
+
+            <lg-filter-container>
+              <button lg-button variant="secondary-dark" lgButtonToggle>
+                <lg-icon name="filter" first></lg-icon>
+                Filters
+                <lg-icon name="chevron-down" second></lg-icon>
+              </button>
+
+              <lg-filter-container-panel>
+                <lg-filter-container-panel-body>
+                  <lg-date-field>
+                    Date of birth
+                    <lg-hint>e.g. 05 12 1980</lg-hint>
+                  </lg-date-field>
+
+                  <lg-checkbox-group>
+                    Test checkbox group
+                    <lg-hint>This is a standard checkbox group</lg-hint>
+                    <lg-toggle value="red">Red</lg-toggle>
+                    <lg-toggle value="yellow">Yellow</lg-toggle>
+                    <lg-toggle value="green">Green</lg-toggle>
+                    <lg-toggle value="blue">Blue</lg-toggle>
+                  </lg-checkbox-group>
+                </lg-filter-container-panel-body>
+
+                <lg-filter-container-panel-footer>
+                  <lg-button-group>
+                    <button
+                      lg-button
+                      variant="primary-dark"
+                    >Apply</button>
+                    <button
+                      lg-button
+                      variant="secondary-dark"
+                    >Cancel</button>
+                  </lg-button-group>
+                </lg-filter-container-panel-footer>
+              </lg-filter-container-panel>
+            </lg-filter-container>
+
+            <lg-separator></lg-separator>
             <lg-heading level="3">Form</lg-heading>
 
             <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
@@ -363,7 +405,7 @@
                 <lg-hint>e.g. 05 12 1980</lg-hint>
               </lg-date-field>
 
-              <lg-checkbox-group formControlName="colors">
+              <lg-checkbox-group formControlName="colors" lgMarginBottom="none">
                 Test checkbox group
                 <lg-hint>This is a standard checkbox group</lg-hint>
                 <lg-toggle value="red">Red</lg-toggle>
