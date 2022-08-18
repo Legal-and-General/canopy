@@ -23,7 +23,7 @@ export class LgButtonToggleDirective {
   constructor(private hostElement: ElementRef) {
     if (this.hostElement.nativeElement.tagName !== 'BUTTON') {
       throw Error(
-        'The `lgButtonToggle` should always be a button. Please change the HTML tag accordingly',
+        'The `lgButtonToggle` directive should always be added to a button element. Please change the HTML tag accordingly',
       );
     }
   }
