@@ -1,6 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 import { LgDetailsComponent } from './details.component';
@@ -11,13 +11,11 @@ describe('LgDetailsComponent', () => {
   let detailsDebugElement: DebugElement;
   let detailsEl: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgDetailsComponent, MockComponent(LgDetailsPanelHeadingComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+    }).compileComponents();
+  }));
 
   describe('component', () => {
     beforeEach(() => {
@@ -30,7 +28,10 @@ describe('LgDetailsComponent', () => {
       detailsDebugElement = fixture.debugElement;
       component = detailsDebugElement.children[0].componentInstance;
       detailsEl = detailsDebugElement.children[0].nativeElement;
-      fixture.detectChanges();
+    });
+
+    afterEach(() => {
+      ngMocks.flushTestBed();
     });
 
     it('should create', () => {
@@ -43,6 +44,19 @@ describe('LgDetailsComponent', () => {
 
     it('adds generic as the default variant', () => {
       expect(detailsEl.getAttribute('class')).toContain('generic');
+    });
+
+    it('should add an id and aria-labelledby attribute to the panel that matches the values of the attributes of the toggle', () => {
+      const panelEl = detailsEl.getElementsByClassName('lg-details__panel')[0];
+      const toggleEl = detailsEl.getElementsByClassName(
+        'lg-details-panel-heading__toggle',
+      )[0];
+
+      const toggleElId = toggleEl.getAttribute('id');
+      const toggleElAriaControls = toggleEl.getAttribute('aria-controls');
+
+      expect(panelEl.getAttribute('id')).toBe(toggleElAriaControls);
+      expect(panelEl.getAttribute('aria-labelledby')).toBe(toggleElId);
     });
   });
 

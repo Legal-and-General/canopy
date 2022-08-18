@@ -1,10 +1,10 @@
 <ng-content select="lg-details-panel-heading"></ng-content>
 <div
   class="lg-details__panel"
-  [id]="panelId"
+  [id]="'lg-details-content-' + uniqueId"
   [class.lg-details__panel--active]="isActive"
-  [attr.aria-labelledby]="toggleId"
-  [attr.role]="'region'"
+  [attr.aria-labelledby]="'lg-details-header-' + uniqueId"
+  role="region"
 >
   <ng-content></ng-content>
 </div>

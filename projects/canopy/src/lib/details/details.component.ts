@@ -30,9 +30,7 @@ let nextUniqueId = 0;
 })
 export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   private subscription: Subscription;
-  id = nextUniqueId++;
-  toggleId = `lg-details-header-${this.id}`;
-  panelId = `lg-details-content-${this.id}`;
+  uniqueId = nextUniqueId++;
   _showIcon = true;
   _variant: Variant;
 
@@ -45,7 +43,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
       this.panelHeading.showIcon = showIcon;
     }
   }
-  get showIcon() {
+  get showIcon(): boolean {
     return this._showIcon;
   }
 
@@ -65,7 +63,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
   }
-  get variant() {
+  get variant(): Variant {
     return this._variant;
   }
 
@@ -91,6 +89,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   }
 
   ngAfterContentInit(): void {
+    this.panelHeading.uniqueId = this.uniqueId;
     this.panelHeading.isActive = this.isActive;
     this.panelHeading.variant = this.variant;
     this.panelHeading.showIcon = this.showIcon;
