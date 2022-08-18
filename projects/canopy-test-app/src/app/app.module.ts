@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { StoryContentComponent } from './story-content.component';
 import {
   LgAccordionModule,
   LgAlertModule,
@@ -52,8 +48,12 @@ import {
   LgToggleModule,
 } from 'canopy';
 
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { StoryContentComponent } from './story-content.component';
+
 @NgModule({
-  declarations: [AppComponent, StoryContentComponent],
+  declarations: [ AppComponent, StoryContentComponent ],
   imports: [
     AppRoutingModule,
     ReactiveFormsModule,
@@ -93,7 +93,7 @@ import {
     LgTabsModule,
     LgToggleModule,
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [ AppComponent ],
 })
 export class AppModule {
   constructor(
@@ -107,10 +107,9 @@ export class AppModule {
       lgIconSearch,
       lgIconRepeat,
       lgIconSecureMessaging,
-      lgIconFilter
+      lgIconFilter,
     ]);
-    this.brandIconRegistry.registerBrandIcon([
-      lgBrandIconCalendar,
-    ]);
+
+    this.brandIconRegistry.registerBrandIcon([ lgBrandIconCalendar ]);
   }
 }
