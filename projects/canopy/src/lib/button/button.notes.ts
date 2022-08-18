@@ -48,9 +48,9 @@ You can create an **icon only** button by setting \`iconButton\` to \`true\`. Yo
 ~~~
 
 #### Double icon
-A button can also have two **Icon Components** in it. In this case the \`iconPosition\` is **not required**. The icons will be positioned automatically on each side of the text.
+A button can also have two **Icon Components** in it. In this case the \`iconPosition\` input is **not applicable**, because the icons will be positioned automatically on each side of the text.
 
-An important requirement is the need to add \`first\` and \`second\` attributes to the icons as per the example below:
+An important requirement is the need to add \`first\` and \`second\` attributes to the icons as per the example below. This determines the position of the icon, either as the first icon before the text, or the second icon after the text.
 
 ~~~html
 <button lg-button type="button">
@@ -70,14 +70,14 @@ An important requirement is the need to add \`first\` and \`second\` attributes 
 | \`\`fullWidth\`\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |
 | \`\`disabled\`\` | Programmatically disable the button via this property | boolean | false | No |
 | \`\`loading\`\` | If the button shows a loading spinner and is also disabled | boolean | false | No |
-| \`\`iconPosition\`\` | The position of a single icon in the button | string | right | No |
+| \`\`iconPosition\`\` | The position of a single icon in the button, not used when including two icons | string | right | No |
 | \`\`iconButton\`\` | The button displays an icon only | boolean | false | No |
 
 ### Button toggle directive
 
-A button can be used specifically as a toggle. In this case the applied styles are slightly different than a regular button and you **must** use a \`button\` tag.
+A button can be used specifically as a toggle, for example when opening and closing a filter panel. In this case the applied styles are slightly different than a regular button and you **must** use a \`button\` tag for accessibility reasons - if you add it to a link or any other element, it will throw an error.
 
-*This feature should only be used as part of a pattern.*
+*This feature should only be used as part of a pattern. E.g. toggling the visibility of a filter panel.*
 
 ~~~html
 
@@ -104,7 +104,7 @@ then in the wrapper component set the \`id\` and \`ariaControls\` of the toggle 
   }
 ~~~
 
-<a href="./?path=/docs/components-filter-container--standard-filter-container">See the Filter Container to view it in action</a>.
+To see a real example of the toggle button set up correctly inside a container, and toggling the visibility of a panel, see the <a href="./?path=/docs/components-filter-container--standard-filter-container">Filter Container story</a>.
 
 ### Button group
 

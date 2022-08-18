@@ -107,7 +107,7 @@ describe('LgButtonToggleDirective', () => {
 
   it('should throw an error if the element is not a button', () => {
     expect(() => TestBed.createComponent(LinkTestComponent)).toThrowError(
-      'The `lgButtonToggle` should always be a button. Please change the HTML tag accordingly',
+      'The `lgButtonToggle` directive should always be added to a button element. Please change the HTML tag accordingly',
     );
   });
 });
