@@ -1,0 +1,63 @@
+@import '../../styles/mixins';
+
+.lg-more-less-box {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--more-less-box-gap);
+  border: solid var(--border-width) var(--more-less-box-border-color);
+  border-radius: var(--border-radius-lg);
+  color: var(--more-less-box-color);
+  background-color: var(--more-less-box-bg-color);
+  padding: var(--component-padding);
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  &__panel {
+    margin-bottom: var(--space-xs);
+  }
+
+  &__more-read {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__toggle {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline;
+
+    @include lg-link($focus-color: var(--link-color), $focus-bg-color: transparent);
+
+    &:focus,
+    &:hover:focus,
+    &:hover:focus:hover {
+      @include lg-outer-focus-outline();
+    }
+  }
+
+  %readIndicator {
+    text-align: right;
+  }
+
+  &__read-indicator {
+    @extend %readIndicator;
+
+    &--unread {
+      color: var(--more-less-box-unread-indicator-color);
+    }
+
+    &--read {
+      color: var(--more-less-box-read-indicator-color);
+    }
+  }
+
+  &__more {
+    margin: var(--space-sm) 0;
+  }
+}

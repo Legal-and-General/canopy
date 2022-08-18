@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent {
   title = 'canopy-test-app';
@@ -47,7 +48,27 @@ export class AppComponent {
     },
   ];
 
+  constructor(public fb: FormBuilder) {
+    this.form = this.fb.group({
+      text: [ '' ],
+      textSearch: [ '' ],
+      textPound: [ '' ],
+      textPercent: [ '' ],
+      select: [ '' ],
+      radio: [ '' ],
+      filter: [ '' ],
+      colors: this.fb.control([]),
+      filters: this.fb.control([]),
+      checkbox: [ '' ],
+      switch: [ '' ],
+      segment: [ '' ],
+      date: [ '' ],
+      sortCode: [ '' ],
+    });
+  }
+
   onSubmit(event) {
+    // eslint-disable-next-line no-console
     console.log(event.value);
   }
 
@@ -61,22 +82,13 @@ export class AppComponent {
     this.selectedSideNavIndex = index;
   }
 
-  constructor(public fb: FormBuilder) {
-    this.form = this.fb.group({
-      text: [''],
-      textSearch: [''],
-      textPound: [''],
-      textPercent: [''],
-      select: [''],
-      radio: [''],
-      filter: [''],
-      colors: this.fb.control([]),
-      filters: this.fb.control([]),
-      checkbox: [''],
-      switch: [''],
-      segment: [''],
-      date: [''],
-      sortCode: ['']
-    });
+  onBoxOpen($event): void {
+    // eslint-disable-next-line no-console
+    console.log('opened', $event);
+  }
+
+  onBoxClose($event): void {
+    // eslint-disable-next-line no-console
+    console.log('closed', $event);
   }
 }

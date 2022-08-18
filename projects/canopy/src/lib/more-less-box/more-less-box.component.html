@@ -1,0 +1,46 @@
+<div
+  class="lg-more-less-box__panel"
+  [id]="id"
+>
+  <ng-content></ng-content>
+</div>
+
+<div
+  *ngIf="open"
+  class="lg-more-less-box__more"
+  [id]="moreInfoId"
+  [attr.aria-labelledby]="id"
+>
+  <ng-content select="lg-more-less-box-more-info"></ng-content>
+</div>
+
+<div class="lg-more-less-box__more-read">
+<span>
+  <button
+    class="lg-more-less-box__toggle"
+    (click)="onToggleMoreLess()"
+    [attr.aria-expanded]="open"
+    [attr.aria-controls]="moreInfoId"
+  >
+    {{ open ? 'Less info' : 'More info' }}
+  </button>
+</span>
+
+  <ng-container *ngIf="showReadIndicator">
+    <ng-template #unread>
+      <div class="lg-more-less-box__read-indicator--unread">
+        TO READ
+      </div>
+    </ng-template>
+    <div
+      *ngIf="read; else unread"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <div class="lg-more-less-box__read-indicator--read">
+        <lg-icon name="like"></lg-icon>
+        READ
+      </div>
+    </div>
+  </ng-container>
+</div>
