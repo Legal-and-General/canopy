@@ -22,6 +22,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     &::before,
     &::after {
@@ -51,7 +52,18 @@
       cursor: not-allowed;
     }
 
+    &:hover + .lg-radio-button__label {
+      background-color: var(--radio-segment-hover-bg-color);
+      color: var(--radio-color);
+      transition: all var(--animation-duration) var(--animation-fn);
+    }
+
     &:focus + .lg-radio-button__label {
+      @include lg-inner-focus-outline(var(--default-focus-color));
+    }
+
+    &:focus:hover + .lg-radio-button__label {
+      background-color: var(--radio-bg-color);
       @include lg-inner-focus-outline(var(--default-focus-color));
     }
   }
