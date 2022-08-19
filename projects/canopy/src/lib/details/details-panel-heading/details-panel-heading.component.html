@@ -1,11 +1,11 @@
 <lg-heading [level]="headingLevel" class="lg-details-panel-heading">
   <button
     type="button"
-    [id]="toggleId"
+    [id]="'lg-details-header-' + uniqueId"
     class="lg-details-panel-heading__toggle"
     [class.lg-details-panel-heading__toggle--active]="isActive"
     [attr.aria-expanded]="isActive"
-    [attr.aria-controls]="panelId"
+    [attr.aria-controls]="'lg-details-content-' + uniqueId"
     (click)="toggle()"
   >
     <div

@@ -11,8 +11,6 @@ import {
 import { lgIconChevronDown } from '../../icon';
 import type { Variant } from '../../variant';
 
-let nextUniqueId = 0;
-
 @Component({
   selector: 'lg-details-panel-heading',
   templateUrl: './details-panel-heading.component.html',
@@ -47,13 +45,11 @@ export class LgDetailsPanelHeadingComponent {
   @Output() toggleActive = new EventEmitter<boolean>();
 
   chevronDown = lgIconChevronDown.name;
-  id = nextUniqueId++;
-  toggleId = `lg-details-header-${this.id}`;
-  panelId = `lg-details-content-${this.id}`;
+  uniqueId: number;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
-  toggle() {
+  toggle(): void {
     this.isActive = !this.isActive;
     this.toggleActive.emit(this.isActive);
   }
