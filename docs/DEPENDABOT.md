@@ -19,7 +19,7 @@ So, how do we merge them?
 ### Dependabot Auto-batcher
 
 We have a workflow that runs every Monday and Wednesday morning that will combine all open Dependabot PRs into one. The
-PR title will be `Combined dependency updates` and it will link to the PRs it combined, as well as close them off. If
+PR title will be `Batched Dependabot updates` and it will link to the PRs it combined, as well as close them off. If
 the PR is still open when it runs, the newly combined dependencies will be appended to the list, otherwise it will be
 created.
 

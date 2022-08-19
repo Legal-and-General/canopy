@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: 'Lint commit'
-        if: ${{ !contains(github.head_ref, 'dependabot-updates') }}
+        if: ${{ !contains(github.head_ref, 'batched-dependabot-updates') }}
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
       - name: 'Eslint'
