@@ -4,6 +4,7 @@
     "outDir": "../../out-tsc/lib",
     "inlineSources": true,
     "types": [],
+    "jsx": "react"
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

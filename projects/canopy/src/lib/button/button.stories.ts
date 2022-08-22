@@ -4,7 +4,10 @@ import { moduleMetadata, Story } from '@storybook/angular';
 import { LgIconModule, LgIconRegistry, lgIconsArray } from '../icon';
 
 import { LgButtonModule } from './button.module';
-import { notes } from './button.notes';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+import mdxNotes from './button.notes.mdx';
+/* eslint-enable */
 
 import { ButtonIconPosition, ButtonSize, LgButtonComponent } from '.';
 
@@ -81,9 +84,7 @@ export default {
   ],
   parameters: {
     docs: {
-      description: {
-        component: notes,
-      },
+      page: mdxNotes,
     },
   },
   argTypes: {
