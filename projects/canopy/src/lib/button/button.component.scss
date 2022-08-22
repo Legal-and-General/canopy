@@ -104,6 +104,33 @@
   }
 }
 
+.lg-btn--link {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  min-width: initial;
+  border-radius: 0;
+  width: initial;
+
+  @include lg-link();
+
+  &:focus,
+  &:hover:focus {
+    box-shadow: none;
+  }
+
+  &:hover,
+  &:hover:visited,
+  &:focus,
+  &:focus:hover {
+    padding-bottom: 0.125rem;
+  }
+}
+
+.lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
+  transform: rotateX(180deg);
+}
+
 $variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light', 'add-on' !default;
 
 @each $variant in $variants {
@@ -145,9 +172,5 @@ $variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light',
         border-color: transparent;
       }
     }
-  }
-
-  .lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
-    transform: rotateX(180deg);
   }
 }

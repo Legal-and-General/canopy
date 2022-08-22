@@ -64,7 +64,7 @@
     background-color: $focus-bg-color;
     border-bottom: 0;
     color: $focus-color;
-    outline: 0.063rem solid $focus-bg-color;
+    outline: 0.063rem solid $focus-bg-color !important;
     outline-offset: 0;
 
     &:hover {

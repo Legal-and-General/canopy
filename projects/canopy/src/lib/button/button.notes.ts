@@ -65,7 +65,7 @@ An important requirement is the need to add \`first\` and \`second\` attributes 
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`variant\`\` | The variant of button: \`\`primary-dark\`\`, \`\`primary-light\`\`,\`\`secondary-dark\`\`, \`\`secondary-light\`\`, \`\`add-on\`\`. | string | primary-dark | No |
+| \`\`variant\`\` | The variant of button: \`\`primary-dark\`\`, \`\`primary-light\`\`,\`\`secondary-dark\`\`, \`\`secondary-light\`\`, \`\`link\`\`, \`\`add-on\`\`. | string | primary-dark | No |
 | \`\`size\`\` | The size of the button | ButtonSize [\`\`sm\`\`, \`\`md\`\`] | \`\`md\`\` | No |
 | \`\`fullWidth\`\` | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean | false | No |
 | \`\`disabled\`\` | Programmatically disable the button via this property | boolean | false | No |
