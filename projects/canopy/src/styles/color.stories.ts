@@ -12,7 +12,10 @@ import { moduleMetadata } from '@storybook/angular';
 import * as convert from 'color-convert';
 import { RGB } from 'color-convert/conversions';
 
-import { notes } from './color.notes';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+import mdxNotes from './colours.notes.mdx';
+/* eslint-enable */
 
 interface Color {
   name: string;
@@ -175,11 +178,9 @@ export default {
   ],
   parameters: {
     docs: {
+      page: mdxNotes,
       source: {
         state: 'closed',
-      },
-      description: {
-        component: notes,
       },
     },
   },
