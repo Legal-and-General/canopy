@@ -7,5 +7,7 @@ export * from './card-principle-data-point/card-principle-data-point.component';
 export * from './card-subtitle/card-subtitle.component';
 export * from './card-title/card-title.component';
 export * from './card-footer/card-footer.component';
+export * from './card-toggable-content/card-toggable-content.component';
+export * from './card.interface';
 export * from './card.component';
 export * from './card.module';
