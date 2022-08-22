@@ -52,6 +52,21 @@ This is where the main title should be provided. It should be located inside the
 ### LgCardSubtitleComponent
 If the card has a subtitle it should be located within this component. If a card has a subtitle it is expected to also implicitly have a title. It should be located inside the card content.
 
+### LgCardToggableContent
+This is where additional content that can be shown/hidden should be located. This component is part of a pattern and will only work if used together with the \`lgButtonToggle\` directive.
+
+<a href="#show-more">View the show more card implementation</a> for more information.
+
+The \`\`isToggleActive\`\` property and  \`\`toggleActive\`\` function will be defined in your component as follows:
+
+~~~javascript
+isToggleActive: boolean;
+
+toggleActive(state: boolean): void {
+  this.isToggleActive = state;
+}
+~~~
+
 ### LgCardPrincipleDataPoint
 Sometimes the card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the card content which will control it's layout
 

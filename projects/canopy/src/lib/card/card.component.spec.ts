@@ -1,12 +1,16 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MockComponent, MockRender } from 'ng-mocks';
+import { MockComponents, MockDirective, MockRender } from 'ng-mocks';
+
+import { LgButtonToggleDirective } from '../button';
 
 import { LgCardContentComponent } from './card-content/card-content.component';
 import { LgCardHeaderComponent } from './card-header/card-header.component';
 import { LgCardComponent } from './card.component';
 import { LgCardFooterComponent } from './card-footer/card-footer.component';
+import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from './card.interface';
+import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
 
 describe('LgCardComponent', () => {
   let component: LgCardComponent;
@@ -14,18 +18,20 @@ describe('LgCardComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgCardComponent,
-          MockComponent(LgCardHeaderComponent),
-          MockComponent(LgCardContentComponent),
-          MockComponent(LgCardFooterComponent),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        LgCardComponent,
+        MockComponents(
+          LgCardHeaderComponent,
+          LgCardContentComponent,
+          LgCardToggableContentComponent,
+          LgCardFooterComponent,
+        ),
+        MockDirective(LgButtonToggleDirective),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardComponent);
@@ -152,6 +158,46 @@ describe('LgCardComponent', () => {
       expect(
         fixture.debugElement.query(By.directive(LgCardFooterComponent)),
       ).toBeDefined();
+    });
+  });
+
+  describe('when there is a button toggle and the lg-card-toggable-content', () => {
+    beforeEach(() => {
+      const localFixture = MockRender(`
+        <lg-card>
+         <lg-card-header>Top</lg-card-header>
+         <lg-card-content>
+            <lg-card-toggable-content></lg-card-toggable-content>
+            <button lgButtonToggle></button>
+         </lg-card-content>
+        </lg-card>
+      `);
+
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
+      localFixture.detectChanges();
+    });
+
+    it('should set the id and aria-controls of the toggle', () => {
+      expect(component.buttonToggle.id).toBe(
+        `${lgCardToggleIdPrefix}${component['uniqueId']}`,
+      );
+
+      expect(component.buttonToggle.ariaControls).toBe(
+        `${lgCardPanelIdPrefix}${component['uniqueId']}`,
+      );
+    });
+
+    it('should set the unique id of the panel and its state', () => {
+      expect(component.cardToggableContent.uniqueId).toBe(component['uniqueId']);
+      component.buttonToggle.toggleActive.emit(true);
+
+      expect(component.cardToggableContent.isActive).toBe(true);
+
+      component.buttonToggle.toggleActive.emit(false);
+
+      expect(component.cardToggableContent.isActive).toBe(false);
     });
   });
 });

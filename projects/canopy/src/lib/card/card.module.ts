@@ -13,6 +13,7 @@ import { LgCardSubtitleComponent } from './card-subtitle/card-subtitle.component
 import { LgCardTitleComponent } from './card-title/card-title.component';
 import { LgCardComponent } from './card.component';
 import { LgCardFooterComponent } from './card-footer/card-footer.component';
+import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
 
 const components = [
   LgCardComponent,
@@ -25,6 +26,7 @@ const components = [
   LgCardPrincipleDataPointValueComponent,
   LgCardPrincipleDataPointDateComponent,
   LgCardContentComponent,
+  LgCardToggableContentComponent,
 ];
 
 @NgModule({
