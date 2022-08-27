@@ -109,7 +109,7 @@
     "license-checker": "^25.0.1",
     "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.6.1",
-    "ng-mocks": "^14.1.3",
+    "ng-mocks": "^14.2.0",
     "ng-packagr": "^12.2.7",
     "postcss": "^8.4.14",
     "postcss-scss": "^4.0.4",
