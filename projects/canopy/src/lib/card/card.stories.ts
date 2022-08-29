@@ -104,11 +104,51 @@ class FormJourneyComponent {
   }
 }
 
+const showMoreCardTemplate = `
+<lg-card>
+  <lg-card-header>
+    <lg-card-title headingLevel="2">
+      Example of showing/hiding more content
+    </lg-card-title>
+  </lg-card-header>
+  <lg-card-content>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    <lg-card-toggable-content>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+    </lg-card-toggable-content>
+
+    <div lgMarginTop="md">
+      <button lg-button type="button" variant="link" lgButtonToggle (toggleActive)="toggleActive($event)" lgMarginBottom="none">
+        <ng-container *ngIf="isToggleActive">
+          Show less
+        </ng-container>
+        <ng-container *ngIf="!isToggleActive">
+          Show more
+        </ng-container>
+      </button>
+    </div>
+  </lg-card-content>
+</lg-card>
+`;
+
+@Component({
+  selector: 'lg-card-show-more',
+  template: showMoreCardTemplate,
+})
+class ShowMoreCardComponent {
+  isToggleActive: boolean;
+
+  toggleActive(state: boolean): void {
+    this.isToggleActive = state;
+  }
+}
+
 export default {
   title: 'Components/Card',
   decorators: [
     moduleMetadata({
-      declarations: [ FormJourneyComponent ],
+      declarations: [ FormJourneyComponent, ShowMoreCardComponent ],
       imports: [
         ReactiveFormsModule,
         LgInputModule,
@@ -278,6 +318,24 @@ formJourneyCard.parameters = {
   docs: {
     source: {
       code: formJourneyTemplate,
+    },
+  },
+};
+
+const showMoreCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+  props: args,
+  template: `
+    <lg-card-show-more></lg-card-show-more>
+  `,
+});
+
+export const showMoreCard = showMoreCardStory.bind({});
+showMoreCard.storyName = 'Show more';
+
+showMoreCard.parameters = {
+  docs: {
+    source: {
+      code: showMoreCardTemplate,
     },
   },
 };

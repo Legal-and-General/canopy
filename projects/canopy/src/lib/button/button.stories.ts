@@ -13,6 +13,7 @@ const buttonVariants = [
   'primary-light',
   'secondary-dark',
   'secondary-light',
+  'link',
   'add-on',
 ];
 
@@ -35,23 +36,33 @@ const buttonVariants = [
       <lg-icon *ngIf="icon !== 'None' && doubleIconButton" [name]="icon" second></lg-icon>
       <lg-icon *ngIf="icon !== 'None' && !doubleIconButton" [name]="icon"></lg-icon>
     </button>
-    <p>Used on a <strong>link</strong> element</p>
-    <a
-      lg-button
-      href="#"
-      [disabled]="disabled"
-      [fullWidth]="fullWidth"
-      [iconButton]="iconButton"
-      [iconPosition]="iconPosition"
-      [loading]="loading"
-      [size]="size"
-      [variant]="variant"
-    >
-      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" name="filter" first></lg-icon>
-      {{ content }}
-      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" [name]="icon" second></lg-icon>
-      <lg-icon *ngIf="icon !== 'None' && !doubleIconButton" [name]="icon"></lg-icon>
-    </a>
+    <ng-container *ngIf="variant !== 'link'">
+      <p>Used on a <strong>link</strong> element</p>
+      <a
+        lg-button
+        href="#"
+        [disabled]="disabled"
+        [fullWidth]="fullWidth"
+        [iconButton]="iconButton"
+        [iconPosition]="iconPosition"
+        [loading]="loading"
+        [size]="size"
+        [variant]="variant"
+      >
+        <lg-icon
+          *ngIf="icon !== 'None' && doubleIconButton"
+          name="filter"
+          first
+        ></lg-icon>
+        {{ content }}
+        <lg-icon
+          *ngIf="icon !== 'None' && doubleIconButton"
+          [name]="icon"
+          second
+        ></lg-icon>
+        <lg-icon *ngIf="icon !== 'None' && !doubleIconButton" [name]="icon"></lg-icon>
+      </a>
+    </ng-container>
   `,
 })
 class ButtonComponentExampleComponent {
@@ -121,6 +132,12 @@ export default {
       table: { disable: true },
     },
     hostElement: {
+      table: { disable: true },
+    },
+    ngAfterViewInit: {
+      table: { disable: true },
+    },
+    icons: {
       table: { disable: true },
     },
   },
@@ -372,8 +389,34 @@ function setBackground(variant: string) {
     'primary-light': 'Super Blue',
     'secondary-dark': 'Default',
     'secondary-light': 'Super Blue',
+    link: 'Default',
     'add-on': 'Default',
   };
 
   return bgs[variant];
 }
+
+const linkExample = `
+<button lg-button variant="link">
+  Click me
+</button>
+`;
+
+export const link = buttonStory.bind({});
+link.storyName = 'Link';
+
+link.args = {
+  ...defaultArgValues,
+  variant: 'link',
+};
+
+link.parameters = {
+  docs: {
+    source: {
+      code: linkExample,
+    },
+  },
+  backgrounds: {
+    default: setBackground(link.args.variant),
+  },
+};
