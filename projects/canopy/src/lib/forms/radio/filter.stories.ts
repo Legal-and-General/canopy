@@ -53,7 +53,7 @@ class ReactiveFormFilterComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: '' });
-    this.form.valueChanges.subscribe(val => this.filterChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.filterChange.emit(val));
   }
 }
 
@@ -118,6 +118,12 @@ export default {
     },
     filterChange: {
       action: 'Filter change',
+      table: {
+        disable: true,
+      },
+    },
+    filterBlur: {
+      action: 'Filter blur',
       table: {
         disable: true,
       },
