@@ -1,0 +1,54 @@
+import {Canvas, Source, Story} from '@storybook/addon-docs';
+
+# Primary button
+
+## Dark variant
+
+<Canvas withSource="open">
+  <Story id="components-button-previews--primary-dark"/>
+</Canvas>
+
+## Light variant
+
+<Source id="components-button-previews--primary-light"></Source>
+
+This button variant can be used on the below backgrounds:
+
+<Canvas columns={2}>
+  <div style={{
+    backgroundColor: '#0076d6',
+    color: 'white',
+    padding: '20px',
+    borderRadius: '4px',
+  }}>
+    <Story id="components-button-previews--primary-light"/>
+  </div>
+  <div style={{
+    backgroundColor: '#333',
+    color: 'white',
+    padding: '20px',
+    borderRadius: '4px',
+  }}>
+    <Story id="components-button-previews--primary-light"/>
+  </div>
+  <div style={{
+    backgroundColor: '#028844',
+    color: 'white',
+    padding: '20px',
+    borderRadius: '4px',
+  }}>
+    <Story id="components-button-previews--primary-light"/>
+  </div>
+  <div style={{
+    backgroundColor: '#005380',
+    color: 'white',
+    padding: '20px',
+    borderRadius: '4px',
+  }}>
+    <Story id="components-button-previews--primary-light"/>
+  </div>
+</Canvas>
+
+## With icon
+
+<Story id="components-button-previews--internal-icon-only"/>
