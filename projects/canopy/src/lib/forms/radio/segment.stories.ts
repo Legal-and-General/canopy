@@ -49,7 +49,7 @@ class ReactiveFormSegmentComponent {
 
   constructor(public fb: FormBuilder) {
     this.form = this.fb.group({ color: null });
-    this.form.valueChanges.subscribe(val => this.segmentChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.segmentChange.emit(val));
   }
 }
 
@@ -136,6 +136,12 @@ export default {
     },
     segmentChange: {
       action: 'Segment change',
+      table: {
+        disable: true,
+      },
+    },
+    segmentBlur: {
+      action: 'Segment blur',
       table: {
         disable: true,
       },
