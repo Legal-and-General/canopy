@@ -1,0 +1,258 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title="Components/Button/Guide" parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# Button
+
+<p class="standfirst">Buttons are interactive components that let a user initiate an action.</p>
+
+![Button component example](docs/button/example.png)
+
+## Usage
+
+Use a button when you want to give the user a clear signpost as to what to do next. Examples of this are initiating a journey, submitting a form, or getting help.
+
+Import the button module in your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgButtonModule ],
+})
+```
+
+
+
+and in your HTML:
+
+```html
+<button lg-button type="button" variant="primary-dark">Button</button>
+```
+
+
+
+or
+
+```html
+<a lg-button href="#" variant="primary-dark">Link</a>
+```
+
+## Variants
+
+![Button component - button styles](docs/button/styles.png)
+
+### Primary
+
+Primary buttons should only be used once per page. Use them to clearly signpost the action the customer should take next.
+
+
+
+#### Light backgrounds
+
+A blue primary button can be used on a light background.
+
+```html
+<button lg-button variant="primary-dark">
+  Click me
+</button>
+```
+
+
+
+#### Dark backgrounds
+
+A white primary button can be used on dark colour backgrounds (e.g. Super Blue, Leafy Green or Charcoal) shown above.
+
+```html
+<button lg-button variant="primary-light">
+  Click me
+</button>
+```
+
+
+
+### Secondary
+
+Secondary buttons can be used many times per page. Use them for secondary actions where you wouldn't use a Quick Action or Link.
+
+
+
+#### Light backgrounds
+
+A charcoal secondary button can be used on light backgrounds.
+
+```html
+<button lg-button variant="secondary-dark">
+  Click me
+</button>
+```
+
+
+
+#### Dark backgrounds
+
+A white secondary button can be used on vibrant colour backgrounds shown below.
+
+```html
+<button lg-button variant="secondary-light">
+  Click me
+</button>
+```
+
+
+
+### Button content
+
+Buttons can contain the following content types:
+
+![Button component - types of button](docs/button/types.png)
+
+1. Label only
+2. Icon + label
+3. Label + icon
+4. Icon-only
+5. Loading
+
+
+
+#### Buttons with labels and icons
+
+An **Icon Component** can be projected into the button. Use the iconPosition input to position the icon on the left or right (default) of the text.
+
+```html
+<button lg-button type="button" iconPosition="left" >
+  Add item
+  <lg-icon name="add" />
+</button>
+```
+
+
+
+#### Icon-only buttons
+
+You can create an **icon only** button by setting iconButton to true. You must still include text content, which will be visually hidden, but detectable by screen readers.
+
+```html
+<button lg-button type="button" iconButton="true" >
+  Add item
+  <lg-icon name="add" />
+</button>
+```
+
+
+
+#### Left and right icons
+
+A button can also have two **Icon Components** in it. In this case the iconPosition input is **not applicable**, because the icons will be positioned automatically on each side of the text.
+
+An important requirement is the need to add first and second attributes to the icons as per the example below. This determines the position of the icon, either as the first icon before the text, or the second icon after the text.
+
+```html
+<button lg-button type="button">
+  <lg-icon name="filter" first />
+  Filter
+  <lg-icon name="chevron-down" second />
+</button>
+```
+
+## Dos and Don'ts
+
+### Do
+
+![Button component - what you should do](docs/button/do.png)
+
+1. **Do** make sure you choose a button that has sufficient contrast with the background
+2. **Do** use concise labels that are descriptive and help set the user's expectations
+3. **Do** distinguish between functional purposes
+4. **Do** use full-width buttons on mobile breakpoints
+
+### Don't
+
+![Button component - what you shouldn't do](docs/button/dont.png)
+
+1. **Don't** use a button variant that contrasts poorly with the background
+2. **Don't** use more than one primary button per page and don't use too many buttons in close proximity
+3. **Don't** wrap text labels
+4. **Don't** confuse priorities by using multiple primary CTA's at the same time
+5. **Don't** use overly wordy labels
+6. **Don't** centre align buttons
+7. **Don't** right align buttons
+8. **Don't** use uninformative labels
+
+
+
+## Additional development details
+
+### LgButtonComponent inputs
+
+|                  | Description                                                  | Type                        | Default      | Required |
+| ---------------- | ------------------------------------------------------------ | --------------------------- | ------------ | -------- |
+| ``variant``      | The variant of button: ``primary-dark``, ``primary-light``,``secondary-dark``, ``secondary-light``, ``link``, ``add-on``. | string                      | primary-dark | No       |
+| ``size``         | The size of the button                                       | ButtonSize [``sm``, ``md``] | ``md``       | No       |
+| ``fullWidth``    | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean                     | false        | No       |
+| ``disabled``     | Programmatically disable the button via this property        | boolean                     | false        | No       |
+| ``loading``      | If the button shows a loading spinner and is also disabled   | boolean                     | false        | No       |
+| ``iconPosition`` | The position of a single icon in the button, not used when including two icons                      | string                      | right        | No       |
+| ``iconButton``   | The button displays an icon only                             | boolean                     | false        | No       |
+
+### Button group
+
+Buttons can be grouped together by using the ButtonGroupComponent – a container to group together two or more buttons and place them along a single line.
+
+Useful for forms where a 'Submit' and 'Cancel' button are placed side by side, for example.
+
+<Source id="components-button-examples--standard-button-group"></Source>
+
+### Button toggle directive
+
+A button can be used specifically as a toggle, for example when opening and closing a filter panel. In this case the applied styles are slightly different than a regular button and you **must** use a button tag for accessibility reasons - if you add it to a link or any other element, it will throw an error.
+
+*This feature should only be used as part of a pattern. E.g. toggling the visibility of a filter panel.*
+
+```html
+<button lg-button lgButtonToggle type="button" variant="primary-dark">Button</button>
+```
+
+
+
+then in the wrapper component set the id and ariaControls of the toggle and use the toggleActive output of the directive to set the panel state:
+
+```js
+@ContentChild(forwardRef(() => LgButtonToggleDirective)) buttonToggle: LgButtonToggleDirective;
+
+...
+
+ngAfterContentInit(): void {
+  this.buttonToggle.id = '<the-unique-id-of-the-toggle>';
+
+  this.buttonToggle.ariaControls = '<the-unique-id-of-the-panel-to-toggle>';
+
+  this.subscription = this.buttonToggle.toggleActive.subscribe(isActive => {
+    // set the active state of the panel e.g.:
+    // this.myPanelComponent.isActive = isActive;
+  });
+}
+```
+
+
+
+To see an example of the toggle button set up correctly inside a container, and toggling the visibility of a panel, see the [Filter Container story](./?path=/docs/components-filter-container--standard-filter-container).
+
+------
+
+## Research on this pattern
+
+This component is based on best practice.
+
+States have been updated to be more accessible based on external accessibility testing.
+
+## Related
+
+- [Quick Action](./?path=/docs/components-quick-action--quick-action-button)
+- [Link](./?path=/docs/style-links--links)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
