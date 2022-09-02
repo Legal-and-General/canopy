@@ -1,6 +1,7 @@
 import { setCompodocJson } from "@storybook/addon-docs/angular";
 import docJson from '../documentation.json';
 import { addParameters } from '@storybook/angular';
+import canopyTheme from "./canopy-theme";
 
 setCompodocJson(docJson);
 
@@ -10,7 +11,8 @@ addParameters({
     source: {
       type: 'code',
       state: 'open',
-    }
+    },
+    theme: canopyTheme,
   }
 });
 
