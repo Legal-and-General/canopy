@@ -5,4 +5,5 @@ export default create({
   brandTitle: 'Canopy',
   brandUrl: 'https://github.com/Legal-and-General/canopy',
   brandImage: 'legal-and-general-logo.svg',
+  fontBase: '"Roboto", arial, sans-serif',
 });
