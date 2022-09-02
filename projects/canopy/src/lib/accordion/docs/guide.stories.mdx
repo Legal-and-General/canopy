@@ -1,0 +1,125 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Accordion/Guide" parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# Accordion
+
+<p class="standfirst">The accordion component reduces page clutter and cognitive load by letting users reveal sections of information as and when they need it.</p>
+
+![Accordion component example](docs/accordion/example.png)
+
+## Usage
+
+Use the accordion component to hide sections of content to make pages easier to scan.
+
+Information that is important or relevant to most users should not be hidden within this component and should be displayed on the page instead.
+
+Accordions work best for simple content and links but can support rich content (sound, video, imagery, etc), if required.
+
+Import the accordion module into your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgAccordionModule ],
+})
+```
+
+
+
+and in your HTML:
+
+```html
+<lg-accordion [headingLevel]="2">
+  <lg-accordion-item [isActive]="isActive" (opened)="handleItemOpened()" (closed)="handleItemClosed()">
+    <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.</p>
+  </lg-accordion-item>
+  <lg-accordion-item>
+    <lg-accordion-panel-heading>Item 2</lg-accordion-panel-heading>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+      ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur.</p>
+    <button lg-button lgMarginTop="sm" variant="primary-dark">
+      Test primary button
+    </button>
+  </lg-accordion-item>
+  <lg-accordion-item (opened)="loadDynamicContent()">
+    <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+
+    <ng-template lgAccordionItemContent>
+      <app-dynamic-component [content]="dynamicContentItems$ | async">
+          An example component that loads data from the network when this panel is opened.
+      </app-dynamic-component>
+    </ng-template>
+  </lg-accordion-item>
+</lg-accordion>
+```
+
+## How it works
+
+Accordions have a chevron to indicate that they are interactive, but clicking anywhere on the bar will expand or collapse the content within. By default, several accordion sections can be expanded at once. If you need to, you can limit the number of open accordion sections to one. The first accordion is usually expanded by default.
+
+## Dos and Don'ts
+
+### Do
+
+![Accordion component - what you should do](docs/accordion/do.png)
+
+1. **Do** use to hide secondary information from view
+2. **Do** make the label as short and descriptive as possible
+
+### Don't
+
+![Accordion component - what you shouldn't do](docs/accordion/dont.png)
+
+1. **Don't** use to hide key information
+
+## Additional development details
+
+### LgAccordionComponent inputs
+
+| Name             | Description                                                  | Type    | Default | Required |
+| ---------------- | ------------------------------------------------------------ | ------- | ------- | -------- |
+| ``multi``        | Set false to only allow a single panel to be open at a time  | boolean | ``true``    | No       |
+| ``headingLevel`` | The level of the accordion headings: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number  | n/a     | Yes      |
+
+### LgAccordionItemComponent inputs
+
+| Name         | Description                            | Type    | Default | Required |
+| ------------ | -------------------------------------- | ------- | ------- | -------- |
+| ``isActive`` | The active state of the accordion item | boolean | ``false``   | No       |
+
+### LgAccordionItemComponent outputs
+
+| Name       | Description                                     | Type               | Default | Required |
+| ---------- | ----------------------------------------------- | ------------------ | ------- | -------- |
+| ``opened`` | Event emitted when the accordion item is opened | EventEmitter`<void>` | n/a     | No       |
+| ``closed`` | Event emitted when the accordion item is closed | EventEmitter`<void>` | n/a     | No       |
+
+### Lazy content initialisation
+
+Wrap the panel content in a ng-template with the `lgAccordionContent` directive to only initialise and render the panel when it is first opened.
+
+------
+
+## Research on this pattern
+
+This component is based on best practice and has not had specific usability testing.
+
+## Related
+
+Consider using an accordion instead of the **details component** if there are multiple related sections of content. **Tabs** would be an alternative way to display if there's a large amount of content.
+
+- [Card](./?path=/docs/components-card--default-card)
+- [Details](./?path=/docs/components-details--standard-details)
+- [Tabs](./?path=/docs/components-tabs-tabbed-content--standard-tabs)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
+
