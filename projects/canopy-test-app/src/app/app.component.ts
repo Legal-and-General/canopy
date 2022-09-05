@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
+  selector: 'lg-app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent {
   title = 'canopy-test-app';
-  form: FormGroup;
+  form: UntypedFormGroup;
   selectedTabIndex = 0;
   selectedSideNavIndex = 1;
   tabs: Array<unknown> = [
@@ -47,36 +47,37 @@ export class AppComponent {
     },
   ];
 
-  onSubmit(event) {
+  constructor(public fb: UntypedFormBuilder) {
+    this.form = this.fb.group({
+      text: [ '' ],
+      textSearch: [ '' ],
+      textPound: [ '' ],
+      textPercent: [ '' ],
+      select: [ '' ],
+      radio: [ '' ],
+      filter: [ '' ],
+      colors: this.fb.control([]),
+      filters: this.fb.control([]),
+      checkbox: [ '' ],
+      switch: [ '' ],
+      segment: [ '' ],
+      date: [ '' ],
+      sortCode: [ '' ],
+    });
+  }
+
+  onSubmit(event): void {
+    // eslint-disable-next-line no-console
     console.log(event.value);
   }
 
-  handleTabClick(event: MouseEvent, index: number) {
+  handleTabClick(event: MouseEvent, index: number): void {
     event.preventDefault();
     this.selectedTabIndex = index;
   }
 
-  handleSideNavClick(event: MouseEvent, index: number) {
+  handleSideNavClick(event: MouseEvent, index: number): void {
     event.preventDefault();
     this.selectedSideNavIndex = index;
-  }
-
-  constructor(public fb: FormBuilder) {
-    this.form = this.fb.group({
-      text: [''],
-      textSearch: [''],
-      textPound: [''],
-      textPercent: [''],
-      select: [''],
-      radio: [''],
-      filter: [''],
-      colors: this.fb.control([]),
-      filters: this.fb.control([]),
-      checkbox: [''],
-      switch: [''],
-      segment: [''],
-      date: [''],
-      sortCode: ['']
-    });
   }
 }

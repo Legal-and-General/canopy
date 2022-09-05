@@ -1,8 +1,8 @@
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   FormGroupDirective,
   FormsModule,
   NgControl,
@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
-import { anything, instance, mock, when } from 'ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
@@ -43,9 +43,9 @@ class TestRadioGroupComponent {
   get color() {
     return this.form.get('color');
   }
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
     this.form = this.fb.group({
       color: [ { value: '', disabled: false }, [ Validators.required ] ],
     });

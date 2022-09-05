@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { anything, instance, mock, when } from 'ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgSelectDirective } from '../select/select.directive';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
@@ -25,8 +25,8 @@ import { LgErrorStateMatcher } from '../validation/error-state-matcher';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class TestSelectComponent {
-  form = new FormGroup({
-    name: new FormControl('', [ Validators.required ]),
+  form = new UntypedFormGroup({
+    name: new UntypedFormControl('', [ Validators.required ]),
   });
 }
 
@@ -36,25 +36,23 @@ describe('LgSelectDirective', () => {
   let selectDebugElement: DebugElement;
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ FormsModule, ReactiveFormsModule ],
-        declarations: [ LgSelectDirective, TestSelectComponent ],
-        providers: [
-          {
-            provide: LgErrorStateMatcher,
-            useFactory: () => instance(errorStateMatcherMock),
-          },
-        ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ FormsModule, ReactiveFormsModule ],
+      declarations: [ LgSelectDirective, TestSelectComponent ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(TestSelectComponent);
-      component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TestSelectComponent);
+    component = fixture.componentInstance;
 
-      selectDebugElement = fixture.debugElement.query(By.directive(LgSelectDirective));
-    }),
-  );
+    selectDebugElement = fixture.debugElement.query(By.directive(LgSelectDirective));
+  }));
 
   it('adds a unique name', () => {
     fixture.detectChanges();

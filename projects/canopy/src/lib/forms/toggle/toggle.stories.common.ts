@@ -6,7 +6,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
 import type { ToggleVariant } from './toggle.interface';
 import { LgToggleModule } from './toggle.module';
@@ -56,9 +56,9 @@ export class ReactiveToggleFormComponent implements OnChanges {
   @Output() toggleChange: EventEmitter<void> = new EventEmitter();
   @Output() toggleBlur: EventEmitter<Event> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       umbrella: [ { value: '', disabled: false } ],
     });

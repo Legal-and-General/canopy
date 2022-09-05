@@ -22,6 +22,5 @@ import { LgDateFieldComponent } from './date-field.component';
   ],
   declarations: [ LgDateFieldComponent ],
   exports: [ LgDateFieldComponent ],
-  entryComponents: [ LgDateFieldComponent ],
 })
 export class LgDateFieldModule {}

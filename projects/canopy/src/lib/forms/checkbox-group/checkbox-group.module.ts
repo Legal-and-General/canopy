@@ -10,6 +10,5 @@ import { LgCheckboxGroupComponent } from './checkbox-group.component';
   imports: [ LgLabelModule, LgMarginModule, LgFocusModule ],
   declarations: [ LgCheckboxGroupComponent ],
   exports: [ LgCheckboxGroupComponent ],
-  entryComponents: [ LgCheckboxGroupComponent ],
 })
 export class LgCheckboxGroupModule {}

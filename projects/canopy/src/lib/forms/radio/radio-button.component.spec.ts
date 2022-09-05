@@ -2,13 +2,20 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, Input } from '@angular/core';
 import {
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { anything, instance, mock, spy, verify, when } from 'ts-mockito';
+import {
+  anything,
+  instance,
+  mock,
+  spy,
+  verify,
+  when,
+} from '@typestrong/ts-mockito/ts-mockito';
 import { MockComponents } from 'ng-mocks';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
@@ -38,10 +45,10 @@ const hintTestId = 'test-hint-id';
   `,
 })
 class TestRadioButtonComponent {
-  form: FormGroup;
+  form: UntypedFormGroup;
   @Input() size: RadioSize = 'sm';
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       color: [ { value: '', disabled: false }, [ Validators.required ] ],
     });

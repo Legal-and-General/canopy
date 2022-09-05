@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponent } from 'ng-mocks';
-import { mock, when } from 'ts-mockito';
+import { mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgIconComponent, LgIconRegistry } from '../../icon';
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
@@ -15,15 +15,13 @@ describe('LgBreadcrumbItemEllipsisComponent', () => {
   let breadcrumbEllipsisDebugElement: DebugElement;
   let breadcrumbEllipsisEl: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      iconRegistryMock = mock(LgIconRegistry);
+  beforeEach(waitForAsync(() => {
+    iconRegistryMock = mock(LgIconRegistry);
 
-      TestBed.configureTestingModule({
-        declarations: [ LgBreadcrumbItemEllipsisComponent, MockComponent(LgIconComponent) ],
-      }).compileComponents();
-    }),
-  );
+    TestBed.configureTestingModule({
+      declarations: [ LgBreadcrumbItemEllipsisComponent, MockComponent(LgIconComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBreadcrumbItemEllipsisComponent);

@@ -7,7 +7,7 @@ import {
   MockRender,
   MockedComponentFixture,
 } from 'ng-mocks';
-import { instance, mock, when } from 'ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgFocusDirective } from '../focus';
 import { LgHeadingComponent } from '../heading/heading.component';
@@ -24,22 +24,20 @@ describe('LgTabsComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTabsComponent,
-          MockDirective(LgFocusDirective),
-          MockComponents(
-            LgTabItemComponent,
-            LgTabItemHeadingComponent,
-            LgTabItemContentComponent,
-            LgHeadingComponent,
-          ),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        LgTabsComponent,
+        MockDirective(LgFocusDirective),
+        MockComponents(
+          LgTabItemComponent,
+          LgTabItemHeadingComponent,
+          LgTabItemContentComponent,
+          LgHeadingComponent,
+        ),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponents } from 'ng-mocks';
-import { spy, when } from 'ts-mockito';
+import { spy, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
@@ -14,16 +14,14 @@ describe('LgTableRowComponent', () => {
   let fixture: ComponentFixture<LgTableRowComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTableRowComponent,
-          MockComponents(LgTableCellComponent, LgTableRowToggleComponent),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        LgTableRowComponent,
+        MockComponents(LgTableCellComponent, LgTableRowToggleComponent),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableRowComponent);

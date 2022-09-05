@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { instance, mock, when } from 'ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgIconComponent } from './icon.component';
 import { LgIconRegistry } from './icon.registry';
@@ -9,21 +9,19 @@ describe('LgIconComponent', () => {
   let fixture: ComponentFixture<LgIconComponent>;
   let iconRegistryMock: LgIconRegistry;
 
-  beforeEach(
-    waitForAsync(() => {
-      iconRegistryMock = mock(LgIconRegistry);
+  beforeEach(waitForAsync(() => {
+    iconRegistryMock = mock(LgIconRegistry);
 
-      TestBed.configureTestingModule({
-        declarations: [ LgIconComponent ],
-        providers: [
-          {
-            provide: LgIconRegistry,
-            useFactory: () => instance(iconRegistryMock),
-          },
-        ],
-      }).compileComponents();
-    }),
-  );
+    TestBed.configureTestingModule({
+      declarations: [ LgIconComponent ],
+      providers: [
+        {
+          provide: LgIconRegistry,
+          useFactory: () => instance(iconRegistryMock),
+        },
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgIconComponent);

@@ -9,7 +9,6 @@ import { LgHeaderComponent } from './header.component';
 @NgModule({
   declarations: [ LgHeaderComponent, LgHeaderLogoComponent ],
   exports: [ LgHeaderComponent, LgHeaderLogoComponent ],
-  entryComponents: [ LgHeaderComponent ],
   imports: [ CommonModule, LgGridModule ],
 })
 export class LgHeaderModule {}

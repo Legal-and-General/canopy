@@ -12,6 +12,5 @@ import { LgInputDirective } from './input.directive';
   imports: [ LgLabelModule, CommonModule, LgPrefixModule, LgSuffixModule ],
   declarations: [ LgInputDirective, LgInputFieldComponent ],
   exports: [ LgInputDirective, LgInputFieldComponent, LgPrefixModule, LgSuffixModule ],
-  entryComponents: [ LgInputFieldComponent ],
 })
 export class LgInputModule {}

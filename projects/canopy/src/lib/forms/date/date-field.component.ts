@@ -14,8 +14,8 @@ import {
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   FormGroupDirective,
   NgControl,
   ValidationErrors,
@@ -50,10 +50,10 @@ const labelFieldMap = {
 })
 export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDestroy {
   private uniqueId = nextUniqueId++;
-  dateFormGroup: FormGroup;
-  date: FormControl;
-  month: FormControl;
-  year: FormControl;
+  dateFormGroup: UntypedFormGroup;
+  date: UntypedFormControl;
+  month: UntypedFormControl;
+  year: UntypedFormControl;
   subscriptions: Array<Subscription> = [];
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
@@ -108,26 +108,26 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
       this.ngControl.valueAccessor = this;
     }
 
-    this.date = new FormControl(null, [
+    this.date = new UntypedFormControl(null, [
       Validators.required,
       Validators.pattern(/^\d{1,2}$/),
       Validators.min(1),
       Validators.max(31),
     ]);
 
-    this.month = new FormControl(null, [
+    this.month = new UntypedFormControl(null, [
       Validators.required,
       Validators.pattern(/^\d{1,2}$/),
       Validators.min(1),
       Validators.max(12),
     ]);
 
-    this.year = new FormControl(null, [
+    this.year = new UntypedFormControl(null, [
       Validators.required,
       Validators.pattern(/^\d\d\d\d$/),
     ]);
 
-    this.dateFormGroup = new FormGroup(
+    this.dateFormGroup = new UntypedFormGroup(
       {
         date: this.date,
         month: this.month,
@@ -204,7 +204,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     );
   }
 
-  validate(control: FormControl | FormGroup): ValidationErrors {
+  validate(control: UntypedFormControl | UntypedFormGroup): ValidationErrors {
     this.date.setErrors(omit(this.date.errors, 'invalidDate'));
     this.month.setErrors(omit(this.month.errors, 'invalidDate'));
     this.year.setErrors(omit(this.year.errors, 'invalidDate'));

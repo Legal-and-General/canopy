@@ -8,9 +8,20 @@ import { LgFooterNavComponent } from './footer-nav/footer-nav.component';
 import { LgFooterNavItemComponent } from './footer-nav-item/footer-nav-item.component';
 
 @NgModule({
-  declarations: [ LgFooterComponent, LgFooterCopyrightComponent, LgFooterLogoComponent, LgFooterNavComponent, LgFooterNavItemComponent ],
-  exports: [ LgFooterComponent, LgFooterCopyrightComponent, LgFooterLogoComponent, LgFooterNavComponent, LgFooterNavItemComponent ],
-  entryComponents: [ LgFooterComponent ],
+  declarations: [
+    LgFooterComponent,
+    LgFooterCopyrightComponent,
+    LgFooterLogoComponent,
+    LgFooterNavComponent,
+    LgFooterNavItemComponent,
+  ],
+  exports: [
+    LgFooterComponent,
+    LgFooterCopyrightComponent,
+    LgFooterLogoComponent,
+    LgFooterNavComponent,
+    LgFooterNavItemComponent,
+  ],
   imports: [ CommonModule ],
 })
 export class LgFooterModule {}

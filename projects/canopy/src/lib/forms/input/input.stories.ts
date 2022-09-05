@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../icon';
@@ -158,12 +162,12 @@ class ReactiveFormComponent {
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder, private iconRegistry: LgIconRegistry) {
+  constructor(public fb: UntypedFormBuilder, private iconRegistry: LgIconRegistry) {
     this.iconRegistry.registerIcons([ lgIconSearch, lgIconClose ]);
     this.form = this.fb.group({ name: { value: '', disabled: false } });
-    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
   }
 
   onSubmit(event) {

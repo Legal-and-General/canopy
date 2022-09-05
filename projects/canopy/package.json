@@ -5,12 +5,12 @@
   "repository": "https://github.com/Legal-and-General/canopy",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/common": "^12.2.16",
-    "@angular/core": "^12.2.16",
-    "date-fns": "^2.28.0"
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "date-fns": "^2.29.2"
   },
   "devDependencies": {
-    "jasmine-marbles": "^0.6.0"
+    "jasmine-marbles": "^0.9.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

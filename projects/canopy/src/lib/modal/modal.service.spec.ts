@@ -1,5 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { spy, verify } from 'ts-mockito';
+import { spy, verify } from '@typestrong/ts-mockito/ts-mockito';
 import { Subscription } from 'rxjs';
 
 import { LgModalService } from './';
@@ -10,11 +10,9 @@ describe('LgModalService', () => {
   let serviceSpy: LgModalService;
   let subscription: Subscription;
 
-  beforeEach(
-    waitForAsync(() => {
-      service = TestBed.inject(LgModalService);
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    service = TestBed.inject(LgModalService);
+  }));
 
   beforeEach(() => {
     serviceSpy = spy(service);

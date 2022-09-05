@@ -1,7 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { instance, mock, when } from 'ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 import { MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { keyName } from '../../utils/keyboard-keys';
@@ -15,13 +15,11 @@ describe('LgTabNavBarComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTabNavBarComponent, LgTabNavBarLinkDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LgTabNavBarComponent, LgTabNavBarLinkDirective ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

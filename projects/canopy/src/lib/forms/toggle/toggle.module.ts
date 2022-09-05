@@ -17,7 +17,6 @@ import { LgToggleComponent } from './toggle.component';
   imports: [ CommonModule, LgIconModule, LgFocusModule, LgCheckboxGroupModule ],
   declarations: [ LgToggleComponent ],
   exports: [ LgToggleComponent ],
-  entryComponents: [ LgToggleComponent ],
 })
 export class LgToggleModule {
   constructor(private iconRegistry: LgIconRegistry) {
