@@ -216,7 +216,7 @@ The beforeDate error contains the date that it was compared against.
 
 ~~~js
 import { beforeDateValidator } from '@legal-and-general/canopy';
-import parseISO from 'date-fns/parseISO';
+import { parseISO } from 'date-fns';
 
 const control = new FormControl('', {
   validators: [beforeDateValidator(parseISO('2010-01-15'))]
@@ -235,7 +235,7 @@ The afterDate error contains the date that it was compared against.
 
 ~~~js
 import { afterDateValidator } from '@legal-and-general/canopy';
-import parseISO from 'date-fns/parseISO';
+import { parseISO } from 'date-fns';
 
 const control = new FormControl('', {
   validators: [afterDateValidator(parseISO('2010-01-15'))]

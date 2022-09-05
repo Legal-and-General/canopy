@@ -23,8 +23,7 @@ import {
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import isValid from 'date-fns/isValid';
-import parseISO from 'date-fns/parseISO';
+import { isValid, parseISO } from 'date-fns';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';

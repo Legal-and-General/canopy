@@ -1,8 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import format from 'date-fns/format';
-import isAfter from 'date-fns/isAfter';
-import isValid from 'date-fns/isValid';
-import parseISO from 'date-fns/parseISO';
+import { format, isAfter, isValid, parseISO } from 'date-fns';
 
 import { dateFormat } from './date-field.interface';
 
