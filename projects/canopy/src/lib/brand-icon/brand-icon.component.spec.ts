@@ -99,20 +99,54 @@ describe('LgBrandIconComponent', () => {
         expect(el.style.fill).toEqual('var(--colour-css-variable)');
       });
     });
+
+    it('when the icon isn\'t coloured it should not set the fill style', () => {
+      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+        '<svg id="test">test-svg<path id="no-color"></path></svg>',
+      );
+
+      component.name = 'sun';
+
+      fixture.detectChanges();
+      const el = fixture.nativeElement.querySelector('path[id^="lg-brand-icon-"]');
+
+      expect(el.getAttribute('data-colour')).toBeNull();
+      expect(el.style.fill).toEqual('');
+    });
   });
 
-  it('when the icon isn\'t coloured it should not set the fill style', () => {
-    when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
-      '<svg id="test">test-svg<path id="no-color"></path></svg>',
-    );
+  describe('the half tone colour input', () => {
+    it('should apply the specific colour', () => {
+      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+        '<svg id="test">test-svg<path id="Half-tone"></path></svg>',
+      );
 
-    component.name = 'sun';
+      component.name = 'sun';
+      component.halfToneColour = '--colour-css-variable';
+      fixture.detectChanges();
+      const el = fixture.nativeElement.querySelector(
+        '[data-colour="lg-icon-half-tone-fill"]',
+      );
 
-    fixture.detectChanges();
-    const el = fixture.nativeElement.querySelector('path[id^="lg-brand-icon-"]');
+      expect(el.style.fill).toEqual('var(--colour-css-variable)');
+    });
+  });
 
-    expect(el.getAttribute('data-colour')).toBeNull();
-    expect(el.style.fill).toEqual('');
+  describe('the outlines colour input', () => {
+    it('should apply the specific colour', () => {
+      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+        '<svg id="test">test-svg<path id="Outlines"></path></svg>',
+      );
+
+      component.name = 'sun';
+      component.outlinesColour = 'rgb(102, 102, 102)';
+      fixture.detectChanges();
+      const el = fixture.nativeElement.querySelector(
+        '[data-colour="lg-icon-outlines-fill"]',
+      );
+
+      expect(el.style.fill).toEqual('rgb(102, 102, 102)');
+    });
   });
 
   describe('the size input', () => {

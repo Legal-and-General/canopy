@@ -38,6 +38,12 @@ Your HTML:
 
 <!-- with a colour set -->
 <lg-brand-icon name="sun" colour="--color-lily-green"></lg-brand-icon>
+
+<!-- with the half tone colour set -->
+<lg-brand-icon name="sun" halfToneColour="--color-lily-green"></lg-brand-icon>
+
+<!-- with the outlines colour set -->
+<lg-brand-icon name="sun" outlinesColour="--color-lily-green"></lg-brand-icon>
 ~~~
 
 ## Inputs
@@ -46,10 +52,15 @@ Your HTML:
 | \`\`name\`\` | the name of the icon | string | undefined | yes |
 | \`\`size\`\` | the size of the icon | BrandIconSize | 'sm' | no |
 | \`\`colour\`\` | the specific colour of the icon (for global colours see the "Branding" section below) | css variable as a string | undefined | no |
+| \`\`halfToneColour\`\` | the specific half tone (dots) colour of the icon | string * | undefined | no |
+| \`\`outlinesColour\`\` | the specific outlines colour of the icon | string * | undefined | no |
 
+\\* if using a css variable only specify \`--the-variable\`
 
 ## Branding / Colours
 The yellow fill colour of the brand icons can be changed globally  by overriding the \`--brand-icon-fill-primary\` css variable. Note that changing this variable will update the fill colour of all the icons.
 
 To change the colour of a specific icon use the \`colour\` input on the component.
+
+The half tone and outlines colours can only be applied to a specific icon using the inputs on the component.
 `;

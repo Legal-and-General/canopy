@@ -16,6 +16,8 @@ import { lgBrandIconsArray } from './brand-icons.interface';
         [name]="icon.name"
         [size]="size"
         [colour]="i === 0 ? colour : null"
+        [halfToneColour]="i === 2 ? halfToneColour : null"
+        [outlinesColour]="i === 2 ? outlinesColour : null"
         [attr.style]="cssVar"
       ></lg-brand-icon>
       <span class="swatch__name">{{ icon.name }}</span>
@@ -49,6 +51,8 @@ import { lgBrandIconsArray } from './brand-icons.interface';
 class SwatchBrandIconComponent implements OnChanges {
   @Input() size: string;
   @Input() colour: string;
+  @Input() halfToneColour: string;
+  @Input() outlinesColour: string;
   @Input() globalColour: string;
 
   icons = lgBrandIconsArray;
@@ -124,13 +128,41 @@ export default {
     colour: {
       options: colours,
       description: 'The colour of a specific icon, using the `colour` input',
-      name: 'Example of applying colour specifically to an icon',
+      name: 'Example of applying colour specifically to an icon (first)',
       table: {
         type: {
           summary: colours,
         },
         defaultValue: {
           summary: '--color-super-blue',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    halfToneColour: {
+      options: [ '#333', '--color-poppy-red-dark', 'rgb(0, 83, 128)' ],
+      description:
+        'The half tone (dots) colour of a specific icon, using the halfToneColour input',
+      name: 'Example of applying half tone colour specifically to an icon (third one)',
+      table: {
+        type: {
+          summary: 'string (if using a css variable only specify `--the-variable`)',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    outlinesColour: {
+      options: [ '#333', '--color-super-blue-darkest', 'rgb(0, 83, 128)' ],
+      description:
+        'The colour of the outlines of a specific icon, using the `outlinesColour` input',
+      name: 'Example of applying outlines colour specifically to an icon (third one)',
+      table: {
+        type: {
+          summary: 'string (if using a css variable only specify `--the-variable`)',
         },
       },
       control: {
@@ -145,13 +177,15 @@ const exampleTemplate = `
   [name]="name"
   [size]="size"
   [colour]="colour"
+  [halfToneColour]="halfToneColour"
+  [outlinesColour]="outlinesColour"
 ></lg-brand-icon>
 `;
 
 const brandIconsTemplate: Story<LgBrandIconComponent> = (args: LgBrandIconComponent) => ({
   props: args,
   template:
-    '<lg-swatch-brand-icon [size]="size" [colour]="colour" [globalColour]="globalColour"></lg-swatch-brand-icon>',
+    '<lg-swatch-brand-icon [size]="size" [colour]="colour" [halfToneColour]="halfToneColour" [outlinesColour]="outlinesColour" [globalColour]="globalColour"></lg-swatch-brand-icon>',
 });
 
 export const standardBrandIcons = brandIconsTemplate.bind({});
@@ -160,6 +194,8 @@ standardBrandIcons.storyName = 'Brand Icon';
 standardBrandIcons.args = {
   size: 'sm',
   colour: '--color-super-blue',
+  halfToneColour: '--color-poppy-red-dark',
+  outlinesColour: '--color-super-blue-darkest',
 };
 
 standardBrandIcons.parameters = {
