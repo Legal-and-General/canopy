@@ -1,7 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import isPast from 'date-fns/isPast';
-import isValid from 'date-fns/isValid';
-import parseISO from 'date-fns/parseISO';
+import { isPast, isValid, parseISO } from 'date-fns';
 
 export function pastDateValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

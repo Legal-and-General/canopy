@@ -1,7 +1,5 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
-import addDays from 'date-fns/addDays';
-import format from 'date-fns/format';
-import subDays from 'date-fns/subDays';
+import { addDays, format, subDays } from 'date-fns';
 import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { futureDateValidator } from './futureDate.validator';
