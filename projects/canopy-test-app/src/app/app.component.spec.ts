@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
-
-import { instance, mock } from 'ts-mockito';
+import { UntypedFormBuilder } from '@angular/forms';
+import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
 
 import { AppComponent } from './app.component';
 
@@ -10,11 +9,13 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(waitForAsync(() => {
-    const formBuilderMock = mock(FormBuilder);
+    const formBuilderMock = mock(UntypedFormBuilder);
 
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      providers: [{ provide: FormBuilder, useFactory: () => instance(formBuilderMock) }],
+      declarations: [ AppComponent ],
+      providers: [
+        { provide: UntypedFormBuilder, useFactory: () => instance(formBuilderMock) },
+      ],
     }).compileComponents();
 
     fixture = TestBed.overrideComponent(AppComponent, {
@@ -29,7 +30,7 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'canopy-test-app'`, () => {
+  it('should have as title \'canopy-test-app\'', () => {
     expect(component.title).toEqual('canopy-test-app');
   });
 });

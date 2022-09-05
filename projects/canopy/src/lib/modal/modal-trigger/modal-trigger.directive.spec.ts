@@ -1,7 +1,13 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { anything, instance, mock, verify, when } from 'ts-mockito';
+import {
+  anything,
+  instance,
+  mock,
+  verify,
+  when,
+} from '@typestrong/ts-mockito/ts-mockito';
 import { BehaviorSubject } from 'rxjs';
 
 import { LgModalService } from '../modal.service';
@@ -22,32 +28,30 @@ describe('LgModalTriggerComponent', () => {
   let focusSpy: jasmine.Spy;
   const isOpen$ = new BehaviorSubject(true);
 
-  beforeEach(
-    waitForAsync(() => {
-      modalServiceMock = mock(LgModalService);
+  beforeEach(waitForAsync(() => {
+    modalServiceMock = mock(LgModalService);
 
-      TestBed.configureTestingModule({
-        declarations: [ LgModalTriggerDirective, TestTriggerComponent ],
-        providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
-      }).compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [ LgModalTriggerDirective, TestTriggerComponent ],
+      providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
+    }).compileComponents();
 
-      when(modalServiceMock.isOpen$(anything())).thenReturn(isOpen$);
+    when(modalServiceMock.isOpen$(anything())).thenReturn(isOpen$);
 
-      fixture = TestBed.createComponent(TestTriggerComponent);
+    fixture = TestBed.createComponent(TestTriggerComponent);
 
-      triggerDebugElement = fixture.debugElement.query(
-        By.directive(LgModalTriggerDirective),
-      );
+    triggerDebugElement = fixture.debugElement.query(
+      By.directive(LgModalTriggerDirective),
+    );
 
-      triggerInstance = triggerDebugElement.injector.get<LgModalTriggerDirective>(
-        LgModalTriggerDirective,
-      );
+    triggerInstance = triggerDebugElement.injector.get<LgModalTriggerDirective>(
+      LgModalTriggerDirective,
+    );
 
-      focusSpy = spyOn(triggerDebugElement.nativeElement, 'focus');
+    focusSpy = spyOn(triggerDebugElement.nativeElement, 'focus');
 
-      fixture.detectChanges();
-    }),
-  );
+    fixture.detectChanges();
+  }));
 
   it('should open the modal on click of the trigger element', () => {
     const clickedSpy = spyOn(triggerInstance.clicked, 'emit');

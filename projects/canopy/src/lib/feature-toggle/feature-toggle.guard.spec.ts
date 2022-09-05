@@ -2,7 +2,14 @@ import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, Route, Router } from '@angular/router';
 import { cold } from 'jasmine-marbles';
 import { of } from 'rxjs';
-import { deepEqual, instance, mock, reset, verify, when } from 'ts-mockito';
+import {
+  deepEqual,
+  instance,
+  mock,
+  reset,
+  verify,
+  when,
+} from '@typestrong/ts-mockito/ts-mockito';
 
 import { FeatureToggleGuard } from './feature-toggle.guard';
 import { LgFeatureToggleService } from './feature-toggle.service';

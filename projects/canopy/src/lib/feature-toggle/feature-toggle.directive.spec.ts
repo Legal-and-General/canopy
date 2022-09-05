@@ -2,14 +2,15 @@ import { Component, TemplateRef, ViewContainerRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { instance, mock, when } from 'ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
 import type { LgFeatureToggleOptions } from './feature-toggle.interface';
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Component({
-  template: ' <section *lgFeatureToggle="\'feature\'" id="feature">Test feature</section> ',
+  template:
+    ' <section *lgFeatureToggle="\'feature\'" id="feature">Test feature</section> ',
 })
 class TestComponent {}
 

@@ -13,7 +13,6 @@ import { LgSelectDirective } from './select.directive';
   imports: [ CommonModule, LgLabelModule, LgIconModule ],
   declarations: [ LgSelectDirective, LgSelectFieldComponent ],
   exports: [ LgSelectDirective, LgSelectFieldComponent ],
-  entryComponents: [ LgSelectFieldComponent ],
 })
 export class LgSelectModule {
   constructor(private iconRegistry: LgIconRegistry) {

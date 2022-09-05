@@ -7,7 +7,7 @@ import {
   waitForAsync,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { instance, mock } from 'ts-mockito';
+import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
 
@@ -25,25 +25,21 @@ describe('lgSrAlertMessage', () => {
   let component: TestComponent;
   let cdrMock: ChangeDetectorRef;
 
-  beforeEach(
-    waitForAsync(() => {
-      cdrMock = mock(ChangeDetectorRef);
+  beforeEach(waitForAsync(() => {
+    cdrMock = mock(ChangeDetectorRef);
 
-      TestBed.configureTestingModule({
-        declarations: [ TestComponent, LgSrAlertMessageDirective ],
-        providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
-      }).compileComponents();
-    }),
-  );
+    TestBed.configureTestingModule({
+      declarations: [ TestComponent, LgSrAlertMessageDirective ],
+      providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
+    }).compileComponents();
+  }));
 
-  beforeEach(
-    waitForAsync(() => {
-      fixture = TestBed.createComponent(TestComponent);
-      component = fixture.componentInstance;
-      testElement = fixture.debugElement.query(By.directive(LgSrAlertMessageDirective));
-      directive = testElement.injector.get(LgSrAlertMessageDirective);
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    component = fixture.componentInstance;
+    testElement = fixture.debugElement.query(By.directive(LgSrAlertMessageDirective));
+    directive = testElement.injector.get(LgSrAlertMessageDirective);
+  }));
 
   it('should have the class to visually hide the element', () => {
     component.lgSrAlertMessage = true;

@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgHintModule } from '../hint';
@@ -42,14 +46,14 @@ class ReactiveFormComponent {
 
   @Output() selectChange: EventEmitter<void> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       color: { value: '', disabled: false },
     });
 
-    this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.selectChange.emit(val));
   }
 }
 

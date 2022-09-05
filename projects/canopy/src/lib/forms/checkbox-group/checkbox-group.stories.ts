@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgHintModule } from '../hint';
@@ -44,9 +48,9 @@ class ReactiveFormComponent {
   @Output() checkboxChange: EventEmitter<void> = new EventEmitter();
   @Output() checkboxBlur: EventEmitter<Event> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ colors: this.fb.control([ 'red' ]) });
     this.form.valueChanges.subscribe((val) => this.checkboxChange.emit(val));
   }

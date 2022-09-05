@@ -1,4 +1,8 @@
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
@@ -45,9 +49,9 @@ class ReactiveFormSegmentComponent {
   @Output() segmentChange: EventEmitter<void> = new EventEmitter();
   @Output() segmentBlur: EventEmitter<Event> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ color: null });
     this.form.valueChanges.subscribe((val) => this.segmentChange.emit(val));
   }

@@ -2,15 +2,6 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/canopy",
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdModuleIds": {
-      "date-fns/format": "format",
-      "date-fns/isAfter": "isAfter",
-      "date-fns/isBefore": "isBefore",
-      "date-fns/isFuture": "isFuture",
-      "date-fns/isPast": "isPast",
-      "date-fns/isValid": "isValid",
-      "date-fns/parseISO": "parseISO"
-    }
+    "entryFile": "src/public-api.ts"
   }
 }

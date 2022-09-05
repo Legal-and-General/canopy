@@ -1,4 +1,8 @@
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
@@ -47,9 +51,9 @@ class ReactiveFormRadioComponent {
   @Output() radioChange: EventEmitter<void> = new EventEmitter();
   @Output() radioBlur: EventEmitter<Event> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ color: 'red' });
     this.form.valueChanges.subscribe((val) => this.radioChange.emit(val));
   }

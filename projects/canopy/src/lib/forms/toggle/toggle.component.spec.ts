@@ -1,8 +1,8 @@
 import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   FormGroupDirective,
   FormsModule,
   NgControl,
@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
-import { anything, instance, mock, when } from 'ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgIconComponent } from '../../icon';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
@@ -49,13 +49,13 @@ class TestToggleComponent {
   @Input() variant: ToggleVariant;
   @Input() size: CheckboxSize;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   get umbrella() {
     return this.form.get('umbrella');
   }
 
-  constructor(public fb: FormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },
@@ -90,13 +90,13 @@ class TestToggleComponent {
   `,
 })
 class TestToggleVariantSelectorComponent {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   get umbrella() {
     return this.form.get('umbrella');
   }
 
-  constructor(public fb: FormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },

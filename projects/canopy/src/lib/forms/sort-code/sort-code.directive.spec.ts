@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   FormsModule,
   NgControl,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { instance, mock } from 'ts-mockito';
+import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
 
@@ -22,8 +22,8 @@ import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class TestInputComponent {
-  form = new FormGroup({
-    sortCode: new FormControl('', [ Validators.required ]),
+  form = new UntypedFormGroup({
+    sortCode: new UntypedFormControl('', [ Validators.required ]),
   });
 }
 
@@ -34,25 +34,23 @@ describe('LgSortCodeDirective', () => {
   let inputInstance: LgSortCodeDirective;
   let control: NgControl;
 
-  beforeEach(
-    waitForAsync(() => {
-      control = mock(NgControl);
+  beforeEach(waitForAsync(() => {
+    control = mock(NgControl);
 
-      TestBed.configureTestingModule({
-        imports: [ FormsModule, ReactiveFormsModule ],
-        declarations: [ LgSortCodeDirective, TestInputComponent ],
-        providers: [ { provide: NgControl, useValue: instance(control) } ],
-      }).compileComponents();
+    TestBed.configureTestingModule({
+      imports: [ FormsModule, ReactiveFormsModule ],
+      declarations: [ LgSortCodeDirective, TestInputComponent ],
+      providers: [ { provide: NgControl, useValue: instance(control) } ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(TestInputComponent);
-      component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TestInputComponent);
+    component = fixture.componentInstance;
 
-      inputDebugElement = fixture.debugElement.query(By.directive(LgSortCodeDirective));
+    inputDebugElement = fixture.debugElement.query(By.directive(LgSortCodeDirective));
 
-      inputInstance =
-        inputDebugElement.injector.get<LgSortCodeDirective>(LgSortCodeDirective);
-    }),
-  );
+    inputInstance =
+      inputDebugElement.injector.get<LgSortCodeDirective>(LgSortCodeDirective);
+  }));
 
   it('adds a placeholder', () => {
     fixture.detectChanges();

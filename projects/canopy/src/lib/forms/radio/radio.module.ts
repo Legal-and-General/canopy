@@ -12,6 +12,5 @@ import { LgRadioGroupComponent } from './radio-group.component';
   imports: [ LgLabelModule, LgMarginModule, CommonModule, LgFocusModule ],
   declarations: [ LgRadioGroupComponent, LgRadioButtonComponent ],
   exports: [ LgRadioGroupComponent, LgRadioButtonComponent ],
-  entryComponents: [ LgRadioGroupComponent, LgRadioButtonComponent ],
 })
 export class LgRadioModule {}

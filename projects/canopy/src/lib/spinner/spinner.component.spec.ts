@@ -8,7 +8,7 @@ import {
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ChangeDetectorRef } from '@angular/core';
-import { instance, mock } from 'ts-mockito';
+import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgSpinnerComponent } from './spinner.component';
 
@@ -17,16 +17,14 @@ describe('LgSpinnerComponent', () => {
   let fixture: ComponentFixture<LgSpinnerComponent>;
   let cdrMock: ChangeDetectorRef;
 
-  beforeEach(
-    waitForAsync(() => {
-      cdrMock = mock(ChangeDetectorRef);
+  beforeEach(waitForAsync(() => {
+    cdrMock = mock(ChangeDetectorRef);
 
-      TestBed.configureTestingModule({
-        declarations: [ LgSpinnerComponent ],
-        providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
-      }).compileComponents();
-    }),
-  );
+    TestBed.configureTestingModule({
+      declarations: [ LgSpinnerComponent ],
+      providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgSpinnerComponent);

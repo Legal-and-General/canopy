@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {
   AbstractControl,
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   FormGroupDirective,
   NgControl,
   ReactiveFormsModule,
@@ -216,7 +216,7 @@ function invalidValidator(): ValidatorFn {
 class ReactiveFormComponent {
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   get sortCode() {
     return this.form.get('sortCode');
@@ -256,7 +256,7 @@ class ReactiveFormComponent {
 
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
 
-  constructor(public fb: FormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
     this.form = this.fb.group({
       text: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
       select: [ '', [ Validators.required, invalidValidator() ] ],

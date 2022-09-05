@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgSelectModule } from '../select';
@@ -9,7 +13,6 @@ import { LgInputModule } from '../input';
 import { notes } from './sort-code.notes';
 import { LgSortCodeDirective } from './sort-code.directive';
 import { LgSortCodeModule } from './sort-code.module';
-
 
 const template = `
 <lg-input-field>
@@ -41,14 +44,14 @@ class ReactiveFormComponent {
 
   @Output() inputChange = new EventEmitter<void>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       sortCode: [ '' ],
     });
 
-    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
+    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
   }
 }
 

@@ -1,6 +1,13 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { anything, instance, mock, spy, verify, when } from 'ts-mockito';
+import {
+  anything,
+  instance,
+  mock,
+  spy,
+  verify,
+  when,
+} from '@typestrong/ts-mockito/ts-mockito';
 import { BehaviorSubject } from 'rxjs';
 import { MockComponents, MockedComponentFixture, MockModule, MockRender } from 'ng-mocks';
 
@@ -23,26 +30,24 @@ describe('LgModalComponent', () => {
   const id = 'test-1';
   const isModalOpen$ = new BehaviorSubject<boolean>(false);
 
-  beforeEach(
-    waitForAsync(() => {
-      cdrMock = mock(ChangeDetectorRef);
-      modalServiceMock = mock(LgModalService);
+  beforeEach(waitForAsync(() => {
+    cdrMock = mock(ChangeDetectorRef);
+    modalServiceMock = mock(LgModalService);
 
-      TestBed.configureTestingModule({
-        declarations: [
-          LgModalComponent,
-          MockComponents(LgModalHeaderComponent, LgModalBodyComponent),
-        ],
-        imports: [ MockModule(LgCardModule), MockModule(LgFocusModule) ],
-        providers: [
-          { provide: LgModalService, useValue: instance(modalServiceMock) },
-          { provide: ChangeDetectorRef, useValue: instance(cdrMock) },
-        ],
-      }).compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [
+        LgModalComponent,
+        MockComponents(LgModalHeaderComponent, LgModalBodyComponent),
+      ],
+      imports: [ MockModule(LgCardModule), MockModule(LgFocusModule) ],
+      providers: [
+        { provide: LgModalService, useValue: instance(modalServiceMock) },
+        { provide: ChangeDetectorRef, useValue: instance(cdrMock) },
+      ],
+    }).compileComponents();
 
-      when(modalServiceMock.isOpen$(anything())).thenReturn(isModalOpen$);
-    }),
-  );
+    when(modalServiceMock.isOpen$(anything())).thenReturn(isModalOpen$);
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

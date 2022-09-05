@@ -9,7 +9,7 @@ import {
   MockRender,
   ngMocks,
 } from 'ng-mocks';
-import { anything, instance, mock, when } from 'ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgIconComponent } from '../../icon/icon.component';
 import { LgHintComponent } from '../hint';

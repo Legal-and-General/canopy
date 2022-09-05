@@ -1,4 +1,8 @@
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
@@ -49,9 +53,9 @@ class ReactiveFormFilterComponent {
   @Output() filterChange: EventEmitter<void> = new EventEmitter();
   @Output() filterBlur: EventEmitter<Event> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ color: '' });
     this.form.valueChanges.subscribe((val) => this.filterChange.emit(val));
   }

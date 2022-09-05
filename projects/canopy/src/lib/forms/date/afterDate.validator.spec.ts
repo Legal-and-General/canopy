@@ -2,7 +2,7 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import subDays from 'date-fns/subDays';
-import { instance, mock, when } from 'ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { afterDateValidator } from './afterDate.validator';
 import { dateFormat } from './date-field.interface';

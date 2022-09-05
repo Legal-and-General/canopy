@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   FormGroupDirective,
   FormsModule,
   ReactiveFormsModule,
@@ -17,7 +17,7 @@ import {
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { skip } from 'rxjs/operators';
-import { anything, instance, mock, when } from 'ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
 
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
@@ -59,12 +59,12 @@ class TestDateInputComponent {
     dateOfBirth: string;
   }> = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @ViewChild('testForm')
   testFormDirective: FormGroupDirective;
 
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       dateOfBirth: [ '' ],
     });
@@ -85,42 +85,40 @@ describe('LgDateFieldComponent', () => {
   let yearInput: DebugElement;
   let component: TestDateInputComponent;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ FormsModule, ReactiveFormsModule, LgInputModule ],
-        declarations: [
-          TestDateInputComponent,
-          LgDateFieldComponent,
-          MockComponents(LgHintComponent, LgValidationComponent),
-        ],
-        providers: [
-          {
-            provide: LgErrorStateMatcher,
-            useFactory: () => instance(errorStateMatcherMock),
-          },
-        ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ FormsModule, ReactiveFormsModule, LgInputModule ],
+      declarations: [
+        TestDateInputComponent,
+        LgDateFieldComponent,
+        MockComponents(LgHintComponent, LgValidationComponent),
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useFactory: () => instance(errorStateMatcherMock),
+        },
+      ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(TestDateInputComponent);
-      component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TestDateInputComponent);
+    component = fixture.componentInstance;
 
-      dateFieldDebugElement = fixture.debugElement.query(
-        By.directive(LgDateFieldComponent),
-      );
+    dateFieldDebugElement = fixture.debugElement.query(
+      By.directive(LgDateFieldComponent),
+    );
 
-      dateFieldInstance = dateFieldDebugElement.componentInstance;
+    dateFieldInstance = dateFieldDebugElement.componentInstance;
 
-      fieldsetElement = fixture.debugElement.query(By.css('fieldset'));
-      dateInput = fixture.debugElement.query(By.css('[formcontrolname="date"]'));
-      monthInput = fixture.debugElement.query(By.css('[formcontrolname="month"]'));
-      yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
+    fieldsetElement = fixture.debugElement.query(By.css('fieldset'));
+    dateInput = fixture.debugElement.query(By.css('[formcontrolname="date"]'));
+    monthInput = fixture.debugElement.query(By.css('[formcontrolname="month"]'));
+    yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
 
-      when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-        false,
-      );
-    }),
-  );
+    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
+      false,
+    );
+  }));
 
   describe('markup', () => {
     beforeEach(() => {

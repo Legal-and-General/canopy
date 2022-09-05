@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgGridModule } from '../grid/grid.module';
@@ -91,9 +95,9 @@ class FormJourneyComponent {
   @Input() policy: string;
   @Input() label: string;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(private registry: LgIconRegistry, public fb: FormBuilder) {
+  constructor(private registry: LgIconRegistry, public fb: UntypedFormBuilder) {
     this.registry.registerIcons([ lgIconChevronLeft ]);
     this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
   }
