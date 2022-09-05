@@ -43,6 +43,24 @@ export class LgBrandIconComponent {
     }
   }
 
+  @Input()
+  set halfToneColour(colour: string) {
+    const el = this.hostElement.nativeElement.querySelector(
+      '[data-colour="lg-icon-half-tone-fill"]',
+    );
+
+    this.setFillColour(el, colour);
+  }
+
+  @Input()
+  set outlinesColour(colour: string) {
+    const el = this.hostElement.nativeElement.querySelector(
+      '[data-colour="lg-icon-outlines-fill"]',
+    );
+
+    this.setFillColour(el, colour);
+  }
+
   _size: BrandIconSize = 'sm';
   @Input()
   set size(size: BrandIconSize) {
@@ -98,6 +116,8 @@ export class LgBrandIconComponent {
       svgData
         // Changes the lg-icon-fill-primary id to be a data attribute to avoid issues with duplicated ids.
         .replace(/id="lg-icon-fill-primary"/g, () => 'data-colour="lg-icon-fill-primary"')
+        .replace(/id="Half-tone"/g, () => 'data-colour="lg-icon-half-tone-fill"')
+        .replace(/id="Outlines"/g, () => 'data-colour="lg-icon-outlines-fill"')
         .replace(/id="([^"]+)"/g, () => `id="lg-brand-icon-${this.id}-${idCount++}"`)
         .replace(
           /xlink:href="#\w+"/g,
@@ -112,5 +132,15 @@ export class LgBrandIconComponent {
     div.innerHTML = svgContent;
 
     return div.querySelector('svg');
+  }
+
+  private setFillColour(el: HTMLElement, colour: string): void {
+    if (el) {
+      const isCssVar = colour?.startsWith('--');
+
+      el.style.fill = isCssVar
+        ? `var(${colour})`
+        : colour;
+    }
   }
 }
