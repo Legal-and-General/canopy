@@ -5,6 +5,12 @@
   ],
   "customSyntax": "postcss-scss",
   "rules": {
+    "annotation-no-unknown": [
+      true,
+      {
+        "ignoreAnnotations": ["default"],
+      }
+    ],
     "at-rule-no-unknown": null,
     "no-descending-specificity": null,
     "unit-allowed-list": ["rem", "em", "%", "ms", "s", "deg", "vh", "vw"],
