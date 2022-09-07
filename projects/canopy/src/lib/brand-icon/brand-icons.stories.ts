@@ -79,6 +79,7 @@ const colours = [
   '--color-lily-green',
   '--color-shocking-pink',
   '--color-poppy-red-dark',
+  '--color-transparent',
 ];
 
 export default {
@@ -142,7 +143,12 @@ export default {
       },
     },
     halfToneColour: {
-      options: [ '#333', '--color-poppy-red-dark', 'rgb(0, 83, 128)' ],
+      options: [
+        '#333',
+        '--color-poppy-red-dark',
+        'rgb(0, 83, 128)',
+        '--color-transparent',
+      ],
       description:
         'The half tone (dots) colour of a specific icon, using the halfToneColour input',
       name: 'Example of applying half tone colour specifically to an icon (third one)',

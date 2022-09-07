@@ -57,6 +57,8 @@ Your HTML:
 
 \\* if using a css variable only specify \`--the-variable\`
 
+_Note that all the colour inputs can be made invisible by passing \`--color-transparent\`._
+
 ## Branding / Colours
 The yellow fill colour of the brand icons can be changed globally  by overriding the \`--brand-icon-fill-primary\` css variable. Note that changing this variable will update the fill colour of all the icons.
 
