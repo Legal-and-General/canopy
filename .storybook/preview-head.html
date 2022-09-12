@@ -8,8 +8,45 @@
     margin: calc(-1 * var(--component-margin));
   }
 
-  /* Custom styling to override Canopy global styles
-     which causes visual issues in Storybook preview */
+  /* Custom styling to override Storybook docs global styles */
+  .sbdocs-h1 {
+    font-size: var(--text-fs-6-size) !important;
+    font-weight: var(--font-weight-light) !important;
+    line-height: var(--text-fs-6-line-height) !important;
+    margin: 0 !important;
+  }
+
+  .sbdocs-h2 {
+    font-size: var(--text-fs-4-size) !important;
+    font-weight: var(--font-weight-light) !important;
+    line-height: var(--text-fs-4-line-height) !important;
+    padding: 0 !important;
+    border: none !important;
+    margin: var(--space-xxl) 0 var(--space-sm) !important;
+  }
+
+  .sbdocs-h3 {
+    font-size: var(--text-fs-3-size) !important;
+    font-weight: var(--font-weight-regular) !important;
+    line-height: var(--text-fs-3-line-height) !important;
+    margin: var(--space-lg) 0 var(--space-sm) !important;
+  }
+
+  .sbdocs-h4 {
+    font-size: var(--text-fs-2-size) !important;
+    font-weight: var(--font-weight-bold) !important;
+    line-height: var(--text-fs-2-line-height) !important;
+    margin: var(--space-lg) 0 var(--space-sm) !important;
+  }
+
+  .sbdocs.standfirst,
+  .sbdocs.standfirst .sbdocs.sbdocs-a {
+    font-size: var(--text-fs-3-size) !important;
+    font-weight: var(--font-weight-light) !important;
+    line-height: var(--text-fs-3-line-height) !important;
+    margin-bottom: var(--space-lg) !important;
+  }
+
   .sbdocs-h1 a,
   .sbdocs-h2 a,
   .sbdocs-h3 a,
@@ -31,7 +68,12 @@
   .sbdocs.sbdocs-a {
     color: var(--color-super-blue);
   }
+
+  .sbdocs.sbdocs-a:focus {
+    color: var(--color-white);
+  }
+
   .sbdocs.sbdocs-a, .sbdocs.sbdocs-p {
-    font-size: 14px;
+    font-size: var(--text-base-size);
   }
 </style>

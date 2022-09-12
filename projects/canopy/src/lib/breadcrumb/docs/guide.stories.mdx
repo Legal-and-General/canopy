@@ -1,0 +1,122 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title="Components/Breadcrumb/Guide" parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# Breadcrumb
+
+<p class="standfirst">Breadcrumbs help users to understand a site's hierarchical structure and allow them to move between levels.</p>
+
+![Breadcrumb component example](docs/breadcrumb/example.png)
+
+## Usage
+
+Use breadcrumbs to help users to understand where they are within the site's structure and allow them to navigate between levels quickly. They are location-based and NOT used to show a user's actual journey.
+
+You won't need breadcrumbs if your site has a shallow or flat structure, and they should never duplicate main menu or secondary navigation options.
+
+Import the component in your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgBreadcrumbModule ],
+})
+```
+
+
+
+and in your HTML:
+
+```html
+<lg-breadcrumb>
+  <lg-breadcrumb-item>
+    <a href="#">
+      <lg-icon [name]="'home'"></lg-icon>
+      Home
+    </a>
+  </lg-breadcrumb-item>
+  <lg-breadcrumb-item>
+    <a href="#">Products</a>
+  </lg-breadcrumb-item>
+  <lg-breadcrumb-item>
+    Pension
+  </lg-breadcrumb-item>
+</lg-breadcrumb>
+```
+
+## How it works
+
+The breadcrumbs component should display the user's current page as text, not a clickable link.
+
+There are two themes (light and dark) that can be applied depending on the background colour of the page.
+
+![Breadcrumb component - desktop examples](docs/breadcrumb/desktop.png)
+
+
+
+On mobile breakpoints the current page will not be shown, only the next level up in the hierarchy.
+
+![Breadcrumb component - mobile examples](docs/breadcrumb/mobile.png)
+
+### Showing more than 3 breadcrumbs on desktop
+
+For desktop breakpoints – if there are too many levels of the structure to display, the breadcrumb collapses to show the top layer, current page and the page above. The levels in between will be represented by '...' and won't be interactive.
+
+This is achieved by using `LgBreadcrumbItemEllipsisComponent`:
+
+```html
+<lg-breadcrumb-item-ellipsis></lg-breadcrumb-item-ellipsis>
+```
+
+Note: *This is not automatically added and should be implemented in your app as per example below.*
+
+**A sensible website structure and page naming convention should mean this treatment is rarely used.**
+
+#### Example
+
+<Source id="components-breadcrumb-examples--ellipsis"></Source>
+
+## Dos and Don'ts
+
+### Do
+
+![Breadcrumb component - what you should do](docs/breadcrumb/do.png)
+
+1. **Do** make the first breadcrumb a link to the homepage
+2. **Do** reflect the user’s position in the hierarchical structure
+3. **Do** include the current page in the breadcrumb trail
+
+### Don't
+
+![Breadcrumb component - what you shouldn't do](docs/breadcrumb/dont.png)
+
+1. **Don’t** reflect the user’s session history
+2. **Don’t** make the current page’s breadcrumb a link
+3. **Don't** use for websites with a shallow or flat structure
+4. **Don't** duplicate main menu or secondary navigation options
+
+## Additional development details
+
+### LgBreadcrumbComponent inputs
+
+| Name        | Description                                        | Type   | Default | Required |
+| ----------- | -------------------------------------------------- | ------ | ------- | -------- |
+| ``variant`` | The colour variants available: ``light``, ``dark`` | string | ``dark``    | No       |
+
+
+
+------
+
+## Research on this pattern
+
+This component is based on best practice and has not had specific usability testing.
+
+## Further reading
+
+https://www.nngroup.com/articles/breadcrumbs/
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
