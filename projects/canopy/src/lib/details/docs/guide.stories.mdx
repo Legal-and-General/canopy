@@ -1,0 +1,103 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title="Components/Details/Guide" parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# Details
+
+<p class="standfirst">The Details component reduces page clutter and cognitive load by letting users reveal more information as and when they need it.</p>
+
+![Details component example](docs/details/example.png)
+
+## Usage
+
+Use the details component to hide secondary information like FAQs and supporting details to make pages easier to scan.
+
+Import the details module into your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgDetailsModule ],
+})
+```
+
+and in your HTML:
+
+<Source id="components-details-examples--standard-details"></Source>
+
+Information that is important or relevant to most users should not be included within this component and should be displayed on the page instead.
+
+The component has NOT been designed for large amounts of information or rich content (sound, video, etc). It should only be used for small amounts of content. It can be used to contain Link components or simple imagery, if required.
+
+![Details component usage examples](docs/details/usage.png)
+
+
+
+The Details component can also be styled to match the [Inline Message component](./?path=/docs/components-inline-message-alert-guide--page) with `warning`, `info`, `success` and `error` colouring. This lets you highlight information in different ways depending on severity. In the above example, we've used the Info variation to highlight a message telling the user they triggered a Money Purchase Annual Allowance.
+
+**These colours should be used sparingly; the generic variation should suitable for most situations.**
+
+![Details components - types](docs/details/types.png)
+
+
+## How it works
+
+The details component combines an icon, label and chevron within a container. Clicking anywhere within the container will expand or collapse the content within. Content should be collapsed by default.
+
+The "alert" ARIA role is automatically added to the component if it's one of these variants: `warning`, `error`, `success`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
+
+A decorative icon is also added next to the heading if it's one of the these variants: `info`, `warning`, `error`, `success`.
+
+## Dos and Don'ts
+
+### Do
+
+![How you should use the details component](docs/details/do.png)
+
+1. **Do** use to hide secondary information from view
+2. **Do** make the label as short and descriptive as possible
+3. **Do** match the width to the width of the content it sits with
+
+###  Don't
+
+![How you shouldn't use the details component](docs/details/dont.png)
+
+1. **Don't** use for large amounts of content
+2. **Don't** use to hide key information
+3. **Don't** overuse colour variations
+
+## Additional developer details
+
+### Inputs
+
+| Name             | Description                                                  | Type    | Default   | Required |
+| ---------------- | ------------------------------------------------------------ | ------- | --------- | -------- |
+| ``isActive``     | Expand the details                                           | boolean | false     | no       |
+| ``headingLevel`` | The level of the details heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number  | n/a       | Yes      |
+| ``variant``      | Applies colour treatment and ARIA role if applicable: ``generic``, ``info``, ``warning``, ``error``, ``success`` | string  | 'generic' | No       |
+| ``showIcon``     | Whether the icon should display on the warning, error or success variants | boolean | true      | No       |
+
+### Outputs
+
+| Name       | Description                               | Type               | Default | Required |
+| ---------- | ----------------------------------------- | ------------------ | ------- | -------- |
+| ``opened`` | Event emitted when the details are opened | EventEmitter`<void>` | n/a     | No       |
+| ``closed`` | Event emitted when the details are closed | EventEmitter`<void>` | n/a     | No       |
+
+------
+
+## Research on this pattern
+
+This component is based on best practice and has not had specific usability testing.
+
+More research to be conducted into whether the error state should be deprecated, as the details component may not be a suitable for errors.
+
+## Related
+
+If you need to hide large amounts of content, the [Accordion component](./?path=/docs/components-accordion-guide--page) may be more suitable.
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
