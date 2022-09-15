@@ -1,6 +1,7 @@
 module.exports = {
   stories: [
     '../projects/canopy/src/lib/docs/welcome.stories.mdx',
+    '../projects/canopy/src/lib/docs/principles/writing.stories.mdx',
     '../projects/canopy/src/lib/accordion/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/accordion/docs/accordion.stories.ts',
     '../projects/canopy/src/lib/alert/alert.stories.ts',
