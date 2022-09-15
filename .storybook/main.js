@@ -2,6 +2,8 @@ module.exports = {
   stories: [
     '../projects/canopy/src/lib/docs/welcome.stories.mdx',
     '../projects/canopy/src/lib/docs/principles/writing.stories.mdx',
+    '../projects/canopy/src/lib/docs/foundation/colours/colours.stories.mdx',
+    '../projects/canopy/src/lib/docs/foundation/colours/colours.stories.ts',
     '../projects/canopy/src/lib/accordion/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/accordion/docs/accordion.stories.ts',
     '../projects/canopy/src/lib/alert/docs/guide.stories.mdx',
@@ -64,7 +66,6 @@ module.exports = {
     '../projects/canopy/src/lib/table/table.stories.ts',
     '../projects/canopy/src/lib/tabs/tab-nav-bar.stories.ts',
     '../projects/canopy/src/lib/tabs/tabs.stories.ts',
-    '../projects/canopy/src/styles/color.stories.ts',
     '../projects/canopy/src/styles/grid.stories.ts',
     '../projects/canopy/src/styles/links.stories.ts',
     '../projects/canopy/src/styles/typography.stories.ts',
