@@ -1,0 +1,61 @@
+import { Meta, Story } from '@storybook/addon-docs';
+
+<Meta title="Foundation/Typography" parameters={{ previewTabs: { canvas: { hidden: true } } }} />
+
+# Typography
+
+<p class="standfirst">Effective use of typography is one of the most important ways we can convey the hierarchy of a page and help the customer understand the nature of the content within. We have two flavours of our type system; Productive and Expressive.</p>
+
+Productive type is our default system and should be used in the majority of cases. The Expressive system should be used in cases where it's necessary to imbue the design with a greater degree of brand personality, such as on the home page or other marketing pages. Adding more brand personality can make designs feel richer, but should be used judiciously and never at the expense of usability or accessibility.
+
+## Productive text
+
+The basis for the productive text scale is Roboto, chosen for its legibility and suitability for communicating key information to the user. It should be used for all instances of paragraph text, tabular text and interactive elements such as buttons. Roboto is available from <a href="https://fonts.google.com/specimen/Roboto" target="_blank">Google Fonts</a>.
+
+We have created a flexible scale (based on our 4px grid) that allows you to apply any size to any text element while maintaining semantic hierarchy:
+
+<Story id="internal-typography--productive"></Story>
+
+### Available weights
+
+We use Roboto Light for headings, and Roboto Medium for emphasis.
+
+300 - Light
+
+400 - Regular
+
+500 - Medium
+
+700 - Bold
+
+## Expressive text
+
+The basis for the expressive scale is Lyon Display, which is our brand typeface. It should only be used in display settings at larger sizes where a greater degree of brand identity needs to be applied. You can find out more about Lyon Display, and where to get it on the <a href="https://www.legalandgeneralbrandhub.com/b/www/c/en-GB/BrandKnowledge/Guideline/2?Page=6" target="_blank">L&G Brand Hub</a>.
+
+<Story id="internal-typography--expressive"></Story>
+
+## Dos and Don'ts
+
+### Do
+
+- **Do** use consistent headings to indicate hierarchy
+- **Do** use a minimum of 16px text (`.lg-font-size-1`) for paragraph text or data points. Smaller type may be used for non-essential supporting information
+- **Do** use bold text to emphasise information
+- **Do** check colour contrast of text on backgrounds (see [Colours](./?path=/docs/foundation-colours--page))
+- **Do** centre align text for empty or loading states
+
+### Don't
+
+- **Don't** use any sizes other than those specified
+- **Don't** use any weights other than those specified
+- **Don't** use italic text to emphasise information
+- **Don't** use expressive text for paragraphs, or anything below `.lg-font-size-4` (32px) in size
+- **Don't** use centre alignment for large passages of copy
+
+## Accessibility
+
+It's important that we use typography in a way that provides an accessible experience to every user. Ensure typography is legible with enough contrast to ensure accessibility. If you're not sure, use <a href="https://webaim.org/resources/contrastchecker/" target="_blank">Colour Contrast Checker</a> or similar.
+
+## Further information
+
+For further guidance on the use of Type please visit our <a href="https://www.legalandgeneralbrandhub.com/b/www/c/en-GB/BrandKnowledge/Guideline/2?Page=6" target="_blank">L&G Brand Hub</a>.
