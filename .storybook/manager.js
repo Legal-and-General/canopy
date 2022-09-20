@@ -6,21 +6,6 @@ addons.setConfig({
 });
 
 /*
-* The code below fixes a bug with Storybook where clicking on the 'Guide' and then on one of the 'Examples'
-* would show the Docs tab even though it's disabled.
-* This bug might be fixed when the following issue is resolved: https://github.com/storybookjs/storybook/issues/18225
-*/
-document.addEventListener('click', ({ target }) => {
-  if (target.classList.contains('sidebar-item')) {
-    for (const canvasButton of document.querySelectorAll('button[type="button"]')) {
-      if (canvasButton.textContent.includes('Canvas')) {
-        canvasButton.click();
-      }
-    }
-  }
-});
-
-/*
 * The code below allows us to hide stories form the sidebar. This is needed for documentation
 * such as `colours` where we use the `.mdx` file to import stories snippets. Having story snippets
 * requires us to have a `.stories.ts` file added to the `main.js` which automatically gets added to the sidebar.
