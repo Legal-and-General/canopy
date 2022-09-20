@@ -12,6 +12,7 @@ export default {
     }),
   ],
   parameters: {
+    viewMode: 'story',
     previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {

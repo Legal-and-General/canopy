@@ -168,6 +168,7 @@ export default {
     }),
   ],
   parameters: {
+    viewMode: 'story',
     previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'White Smoke',
