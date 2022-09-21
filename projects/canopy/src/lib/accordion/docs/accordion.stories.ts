@@ -30,7 +30,8 @@ export default {
     },
     headingLevel: {
       options: [ '1', '2', '3', '4', '5', '6' ],
-      description: 'The heading level of the accordion panel heading.',
+      description:
+        'The heading level of the accordion panel heading. This will change the tag but not the style.',
       table: {
         type: {
           summary: [ '1', '2', '3', '4', '5', '6' ],
