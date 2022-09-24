@@ -18,7 +18,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: 'Dependabot Batcher'
-        uses: Legal-and-General/dependabot-batcher@v1.0.0
+        uses: Legal-and-General/dependabot-batcher@v1.0.1
         with:
           token: ${{ secrets.DEPENDABOT_BATCH_TOKEN }} #required
           baseBranchName: 'master'
