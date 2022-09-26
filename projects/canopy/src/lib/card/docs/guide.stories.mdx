@@ -1,0 +1,171 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title="Components/Card/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Card
+
+<p class="standfirst">Cards are containers for content and actions on a specific topic.</p>
+
+![example](docs/card/example.png)
+
+## Usage
+
+Cards are a useful way to chunk information into a more easily readable and actionable format. They are used to group content within a page but should not be used as a page substitute.
+
+For a basic card, import the component in your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgCardModule ],
+})
+```
+
+and in your HTML:
+
+```html
+<lg-card>
+  <lg-card-content>
+    {{cardContent}} <a href="#">Test link</a>.
+  </lg-card-content>
+</lg-card>
+```
+
+## How it works
+
+In their most basic form, cards are an empty container for any content. Canopy provides a number of preset card templates and patterns for a range of common scenarios, and we recommend you use those before creating something from scratch.
+
+![layouts](docs/card/layouts.png)
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/card/do.png)
+
+1. **Do** ensure that content relates to a single idea or concept
+2. **Do** summarise content and provide links to expanded content on child pages
+3. **Do** use when each card will contain different types of content
+4. **Do** place directly on the page background
+5. **Do** create layouts that make the hierarchy of the page clearly understood
+
+### Don't
+
+![dont](docs/card/dont.png)
+
+1. **Don't** overfill, or cover more than one subject within a card
+2. **Don't** use cards as a replacement for standard pages
+3. **Don't** place cards on top of cards
+4. **Don't** use to build complex, cluttered layouts that make the structure difficult to understand
+
+## Card content and templates
+
+As the card component is just a container for content, you can add whatever content you like. However, you can extend the basic card component and create specific card implementations.
+
+### Product card
+
+This component uses some extra card components, such as `LgCardPrincipleDataPoint`, `LgCardPrincipleDataPointLabel` and `LgCardPrincipleDataPointValue` to display data points.
+
+<Source id="components-card-examples--product-card"></Source>
+
+### Form Journey card
+
+Creates the Form Journey template, used to display a single page form. Note that the `<form>` element is a parent of the `<lg-card>` component, this is because the form inputs and submit button are spread out between the card content and card footer.
+
+<Source id="components-card-examples--form-journey-card"></Source>
+
+### Nested grid
+
+It's possible to nest the Canopy layout grid within a card, as follows:
+
+<Source id="components-card-examples--nested-grid-card"></Source>
+
+## Additional development details
+
+### LgCardComponent
+
+The main body of the card. It accepts the projection of the following components:
+
+- `LgCardHeaderComponent`
+- `LgCardContent`
+- `LgCardFooter`
+
+### LgCardHeaderComponent
+
+This is the primary layout section of the card component, it is used to contain breadcrumbs or other similar content.
+
+### LgCardContent
+
+This is the secondary layout section of the card component, it is used to contain the cards main content and provides the inner padding of the card.
+
+### LgCardTitleComponent
+
+This is where the main title should be provided. It should be located inside the card content.
+
+#### Inputs
+
+| Name             | Description                                                  | Type   | Default | Required |
+| ---------------- | ------------------------------------------------------------ | ------ | ------- | -------- |
+| ``headingLevel`` | The level of the card heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a     | Yes      |
+
+### LgCardSubtitleComponent
+
+If the card has a subtitle it should be located within this component. If a card has a subtitle it is expected to also implicitly have a title. It should be located inside the card content.
+
+### LgCardToggableContent
+This is where additional content that can be shown/hidden should be located. This component is part of a pattern and will only work if used together with the `lgButtonToggle` directive.
+
+<Source id="components-card-examples--show-more-card"></Source>
+
+The ``isToggleActive`` property and  ``toggleActive`` function will be defined in your component as follows:
+
+~~~javascript
+isToggleActive: boolean;
+
+toggleActive(state: boolean): void {
+  this.isToggleActive = state;
+}
+~~~
+
+### LgCardPrincipleDataPoint
+
+Sometimes the card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the card content which will control its layout
+
+### LgCardPrincipleDataPointValue
+
+This is where the value for the data point should be projected. It should be located inside the card principle data point
+
+### LgCardPrincipleDataPointLabel
+
+This is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the card principle data point
+
+### LgCardPrincipleDataPointDate
+
+This is where the date for the data point should be projected. It should be located inside the card principle data point
+
+### LgCardFooter
+
+This is the footer layout section of the card component, it is used to contain call to action buttons as well as messages or hints.
+
+------
+
+## Research on this component
+
+This component hasn't been subject to any testing, but is based on best practice:
+
+- <a href="https://uxplanet.org/best-practices-for-cards-fa45e3ad94dd" target="_blank">Best Practices for Cards</a>
+- <a href="https://medium.com/nextux/design-better-cards-c0d12ab581c4" target="_blank">Design Better Cards</a>
+- <a href="https://www.nngroup.com/articles/cards-component" target="_blank">Cards: UI-Component Definition</a>
+
+## Related
+
+Patterns which may perform a similar task, or which should be considered instead
+
+- [Accordions](./?path=/docs/components-accordion-guide--page)
+- [Details](./?path=/docs/components-details-guide--page)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.

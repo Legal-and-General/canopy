@@ -37,7 +37,8 @@
           "builder": "@storybook/angular:start-storybook",
           "options": {
             "styles": [
-              "dist/canopy/canopy.css"
+              "dist/canopy/canopy.css",
+              ".storybook/lyon-override.css"
             ],
             "compodocArgs": [
               "-p", "./tsconfig.json", "--disablePrivate", "-e", "json", "-d", "."
@@ -48,7 +49,8 @@
           "builder": "@storybook/angular:build-storybook",
           "options": {
             "styles": [
-              "dist/canopy/canopy.css"
+              "dist/canopy/canopy.css",
+              ".storybook/lyon-override.css"
             ],
             "quiet": true,
             "compodocArgs": [

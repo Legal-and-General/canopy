@@ -1,0 +1,122 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title="Components/Inline message (Alert)/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Inline message
+
+<p class="standfirst">An inline message provides an eye-catching way to notify the user in-page of an important alert or message, such as a success or error message.</p>
+
+![example](docs/inline-message/example.png)
+
+## Usage
+
+Use an inline message to provide information or feedback that directly relates to an element on the page, or a specific part of the user journey. For instance:
+
+- Provide a user with feedback when an interaction has been successful or triggered an error
+- Call out useful information or warnings in context, or in the path of a journey
+
+
+
+Import the inline message into your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgAlertModule ],
+})
+```
+
+
+
+and in your HTML:
+
+<Source id="components-inline-message-alert-examples--standard-alert"></Source>
+
+### Variants
+
+There are 5 different variants to choose from:
+
+![variants](docs/inline-message/variants.png)
+
+#### Information
+
+Use to calmly highlight information.
+
+e.g. This product comes with a free umbrella
+
+#### Success
+
+Use a success message to tell the user that an action was successful. They require no further action from the user.
+
+e.g. Your umbrella has been dispatched successfully
+
+#### Warning
+
+These messages provide a more elevated level of alert than an information message, and should be used when highlighting interrupted service or something that could affect the user's product holding. They don't necessarily require further action from the user.
+
+e.g. We can't get details of your umbrella right now
+
+#### Error
+
+These messages are used to provide feedback that there has been an error that will stop a user from completing their journey. In most cases, this will be when a user enters information on a form which doesn't validate, triggering an error. The content of the message should give concise steps on how to resolve the problem.
+
+e.g. You must confirm the terms & conditions before we can send your umbrella
+
+#### Generic
+
+A basic inline message that should only be used if the others are unsuitable. The icon in this instance is editable and should be tailored to align with the message.
+
+## How it works
+
+The inline message works best when placed in close proximity to another element, so that the user can clearly understand the context of the message.
+
+The "alert" ARIA role is automatically added to the component if it's one of these variants: warning, error, success. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
+
+A decorative icon is also added next to the heading if it's one of the these variants: info, warning, error, success.
+
+
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/inline-message/do.png)
+
+1. **Do** display Inline messages in a timely manner so that users can resolve the issue immediately when required.
+2. **Do** keep the message succinct.
+3. **Do** include a link to take an action or get more detailed information, when appropriate.
+
+## Don't
+
+![dont](docs/inline-message/dont.png)
+
+1. **Don’t** use Inline messages when space is not an issue. Consider using Message with Brand Icon instead.
+2. **Don’t** overload with the messages.
+
+## Additional development details
+
+### Inputs
+
+| Name         | Description                                                  | Type    | Default     | Required |
+| ------------ | ------------------------------------------------------------ | ------- | ----------- | -------- |
+| ``variant``  | Applies colour treatment and ARIA role if applicable: ``generic``, ``info``, ``warning``, ``error``, ``success`` | string  | ``generic`` | No       |
+| ``showIcon`` | Whether the icon should display on the warning, error or success variants | boolean | ``true``      | No       |
+
+
+
+---
+
+## Research on this component
+
+This is based on best practice.
+
+## Related
+
+- [Details](./?path=/docs/components-details-guide--page)
+- [Message with Brand Icon](./?path=/docs/components-primary-message--standard-primary-message)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.

@@ -16,7 +16,7 @@
   --font-weight-bold: 500;
 
   /* font size variables */
-  --text-fs-7-size: calc(var(--text-base-size) + (9 * var(--text-scale-ratio))); // 52px
+  --text-fs-7-size: calc(var(--text-base-size) + (8 * var(--text-scale-ratio))); // 52px
   --text-fs-6-size: calc(var(--text-base-size) + (7 * var(--text-scale-ratio))); // 44px
   --text-fs-5-size: calc(var(--text-base-size) + (5 * var(--text-scale-ratio))); // 36px
   --text-fs-4-size: calc(var(--text-base-size) + (3 * var(--text-scale-ratio))); // 28px
@@ -66,9 +66,11 @@
   --text-fs--6-weight--strong: var(--font-weight-bold);
 
   @include lg-breakpoint('md') {
-    --text-fs-7-size: calc(var(--text-base-size) + (10 * var(--text-scale-ratio)));
-    --text-fs-6-size: calc(var(--text-base-size) + (8 * var(--text-scale-ratio)));
-    --text-fs-5-size: calc(var(--text-base-size) + (6 * var(--text-scale-ratio)));
-    --text-fs-4-size: calc(var(--text-base-size) + (4 * var(--text-scale-ratio)));
+    --text-fs-7-size: calc(
+      var(--text-base-size) + (10 * var(--text-scale-ratio))
+    ); // 56px
+    --text-fs-6-size: calc(var(--text-base-size) + (8 * var(--text-scale-ratio))); // 48px
+    --text-fs-5-size: calc(var(--text-base-size) + (6 * var(--text-scale-ratio))); // 40px
+    --text-fs-4-size: calc(var(--text-base-size) + (4 * var(--text-scale-ratio))); // 32px
   }
 }

@@ -65,9 +65,8 @@ export default {
     }),
   ],
   parameters: {
-    parameters: {
-      previewTabs: { 'storybook/docs/panel': { hidden: true } },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     id: {
