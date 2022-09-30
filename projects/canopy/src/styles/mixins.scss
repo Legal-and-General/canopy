@@ -330,3 +330,86 @@ $breakpoints: (
     @include lg-list-margin;
   }
 }
+
+@mixin lg-nav-item() {
+  appearance: none;
+  box-shadow: none;
+  border: 0;
+  background: var(--nav-item-bg-color);
+  color: var(--nav-item-color);
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 0;
+  line-height: 1.5;
+  border-radius: var(--nav-item-border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 0.125rem;
+    border-radius: var(--nav-item-border-radius);
+    background-color: transparent;
+    bottom: 0;
+    left: var(--space-xs);
+    right: var(--space-xs);
+  }
+
+  > .lg-icon {
+    height: var(--nav-item-icon-height);
+    width: auto;
+  }
+
+  &:focus,
+  &:hover:focus {
+    background-color: var(--nav-item-bg-color-hover);
+
+    &::after {
+      background-color: var(--nav-item-border-color-hover);
+    }
+
+    @include lg-focus-outline(
+      var(--default-focus-color),
+      var(--default-inner-focus-color)
+    );
+  }
+
+  &:hover,
+  &:hover:visited {
+    border: 0;
+    background-color: var(--nav-item-bg-color-hover);
+
+    &::after {
+      background-color: var(--nav-item-border-color-hover);
+    }
+  }
+
+  &--active {
+    border: 0;
+    background-color: var(--nav-item-bg-color-active);
+
+    &:visited::after,
+    &:visited:hover::after,
+    &:hover::after,
+    &::after {
+      background-color: var(--nav-item-border-color-active);
+      height: 0.25rem;
+      color: var(--nav-item-color-active);
+    }
+
+    &[type='button'],
+    &[type='button']:hover,
+    &[type='button']:hover:focus {
+      background-color: var(--nav-item-bg-color-expanded);
+      color: var(--nav-item-color-expanded);
+
+      &::after {
+        background-color: var(--nav-item-border-color-hover);
+        height: 0.25rem;
+      }
+    }
+  }
+}

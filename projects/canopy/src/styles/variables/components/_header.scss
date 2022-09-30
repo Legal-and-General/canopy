@@ -4,4 +4,42 @@
   --header-height-lg: 6.25rem;
   --header-logo-width: 4rem;
   --header-logo-width-lg: 4.5rem;
+
+  --nav-item-border-radius: 0.25rem;
+  --nav-item-icon-height: 1.5rem;
+
+  --nav-item-color: var(--color-text);
+  --nav-item-color-hover: var(--color-text);
+  --nav-item-color-active: var(--color-super-blue);
+  --nav-item-color-expanded: var(--color-white);
+
+  --nav-item-bg-color: var(--color-white);
+  --nav-item-bg-color-hover: var(--color-white);
+  --nav-item-bg-color-active: var(--color-white);
+  --nav-item-bg-color-expanded: var(--color-super-blue);
+
+  --nav-item-border-color: var(--color-white);
+  --nav-item-border-color-hover: var(--color-super-blue);
+  --nav-item-border-color-active: var(--color-super-blue);
+  --nav-item-border-color-expanded: var(--color-super-blue);
+
+  --nav-item-border-width: 0;
+  --nav-item-border-width-hover: 0.125rem;
+  --nav-item-border-width-active: 0.25rem;
+  --nav-item-border-width-expanded: 0.25rem;
+
+  --notification-badge-color: var(--color-white);
+  --notification-badge-bg-color: var(--color-poppy-red);
+  --notification-badge-width: 1.5rem;
+  --notification-badge-height: 1.5rem;
+
+  --primary-nav-item-color: var(--color-text);
+  --primary-nav-item-color-hover: var(--color-super-blue);
+  --primary-nav-item-color-hover-lg: var(--color-text);
+  --primary-nav-item-color-active: var(--color-super-blue-darkest);
+  --primary-nav-item-color-active-lg: var(--color-super-blue);
+
+  --primary-nav-item-border-color: var(--color-white);
+  --primary-nav-item-border-color-hover: var(--color-super-blue);
+  --primary-nav-item-border-color-active: var(--color-super-blue-darkest);
 }
