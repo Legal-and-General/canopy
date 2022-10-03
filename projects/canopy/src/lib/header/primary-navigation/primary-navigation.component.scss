@@ -1,0 +1,162 @@
+@import '../../../styles/mixins';
+
+$primary-nav-border-bottom-height: 0.25rem;
+
+.lg-primary-nav-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: visible;
+}
+
+.lg-primary-nav {
+  bottom: 0;
+  left: 0;
+  padding: var(--space-sm);
+  position: fixed;
+  right: 0;
+  top: calc(var(--header-height) + var(--space-xxxs));
+  display: none;
+  overflow: visible;
+  background: var(--color-white);
+  flex-grow: 1;
+
+  &--active {
+    display: block;
+  }
+
+  @include lg-breakpoint(md) {
+    bottom: auto;
+  }
+
+  @include lg-breakpoint(lg) {
+    display: flex;
+    justify-content: flex-end;
+    position: static;
+    top: 0;
+    padding: 0;
+  }
+}
+
+.lg-primary-nav-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding: var(--space-xxxs) 0 0 0;
+  width: 100%;
+
+  @include lg-breakpoint('lg') {
+    margin-left: var(--space-lg);
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0;
+  }
+}
+
+.lg-primary-nav-item {
+  @include lg-unstyled-link();
+
+  appearance: none;
+  background: var(--color-white);
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm);
+  text-decoration: none;
+  margin-bottom: 0;
+  line-height: 1.5;
+  width: 100%;
+  border: 0;
+  border-bottom: $primary-nav-border-bottom-height solid transparent;
+  text-align: left;
+
+  &:focus {
+    border-bottom: $primary-nav-border-bottom-height solid
+      var(--primary-nav-item-border-color-hover);
+
+    @include lg-focus-outline(
+      var(--default-focus-color),
+      var(--default-inner-focus-color)
+    );
+  }
+
+  &:hover:focus {
+    border-bottom: $primary-nav-border-bottom-height solid
+      var(--primary-nav-item-color-hover);
+  }
+
+  &:visited {
+    background: var(--color-white);
+    color: var(--primary-nav-item-color);
+    border-color: transparent;
+  }
+
+  &:hover,
+  &:hover:visited {
+    color: var(--primary-nav-item-color-hover);
+    border-bottom: $primary-nav-border-bottom-height solid
+      var(--primary-nav-item-border-color-hover);
+    box-shadow: none;
+  }
+
+  &--active,
+  &--active:visited,
+  &--active:hover,
+  &--active:visited:hover {
+    color: var(--primary-nav-item-color-active);
+    border-color: var(--primary-nav-item-border-color-active);
+  }
+
+  &--active:focus,
+  &--active:hover:focus {
+    color: var(--primary-nav-item-color-active);
+    border-color: var(--primary-nav-item-border-color-active);
+  }
+
+  @include lg-breakpoint('lg') {
+    @include lg-nav-item();
+
+    border: 0;
+
+    &:hover,
+    &:hover:visited {
+      color: var(--primary-nav-item-color-hover-lg);
+    }
+
+    &--active,
+    &--active:visited,
+    &--active:hover,
+    &--active:visited:hover {
+      color: var(--primary-nav-item-color-active-lg);
+    }
+
+    &--active:focus,
+    &--active:hover:focus {
+      color: var(--primary-nav-item-color-active-lg);
+    }
+
+    &:focus,
+    &:focus:hover {
+      border: 0;
+    }
+  }
+}
+
+.lg-account-menu-item {
+  @include lg-nav-item();
+}
+
+.lg-primary-nav-menu-toggle {
+  transition: background-color var(--animation-duration) var(--animation-fn);
+  margin-left: auto;
+  @include lg-nav-item();
+
+  & * {
+    pointer-events: none;
+  }
+}
