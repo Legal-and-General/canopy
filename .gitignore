@@ -12,6 +12,7 @@ storybook-static
 /bazel-out
 
 # dependencies
+/.angular
 node_modules/
 
 # profiling files
@@ -45,6 +46,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/.angular/cache
 
 # System Files
 .DS_Store

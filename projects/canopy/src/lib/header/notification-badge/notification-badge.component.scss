@@ -1,0 +1,14 @@
+.lg-notification-badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--notification-badge-color);
+  background: var(--notification-badge-bg-color);
+  border-radius: 50%;
+  flex-grow: 0;
+  margin-left: var(--space-xxs);
+  min-width: var(--space-sm);
+  white-space: nowrap;
+  width: var(--notification-badge-width);
+  height: var(--notification-badge-height);
+}
