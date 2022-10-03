@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgHeaderComponent } from '../header/header.component';
+import { LgIconModule } from '../icon';
 
 import { notes } from './header.notes';
 import { LgHeaderModule } from './header.module';
@@ -10,7 +11,7 @@ export default {
   component: LgHeaderComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgHeaderModule ],
+      imports: [ LgHeaderModule, LgIconModule ],
     }),
   ],
   parameters: {
@@ -141,6 +142,49 @@ coBrandedHeader.args = {
 };
 
 coBrandedHeader.parameters = {
+  docs: {
+    source: {
+      code: coBrandedTemplate,
+    },
+  },
+};
+
+const navTemplate = `
+<header lg-header>
+  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
+
+  <lg-primary-nav>
+    <lg-primary-nav-list-item>
+      <a href="/" [isActive]="true" lgPrimaryNavItem>Link 1</a>
+    </lg-primary-nav-list-item>
+    <lg-primary-nav-list-item>
+      <a href="/" lgPrimaryNavItem>
+        Link 2
+        <lg-notification-badge count="3" accessText="You mave 3 unread messages"></lg-notification-badge>
+      </a>
+    </lg-primary-nav-list-item>
+    <lg-primary-nav-list-item [alignRight]="true">
+      <button type="button" lgPrimaryNavItem>Button</button>
+    </lg-primary-nav-list-item>
+  </lg-primary-nav>
+</header>
+`;
+
+const navStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
+  props: args,
+  template: navTemplate,
+});
+
+export const navHeader = navStory.bind({});
+navHeader.storyName = 'Global nav';
+
+navHeader.args = {
+  logo: 'legal-and-general-logo.svg',
+  logoAlt: 'Company name',
+  logoHref: 'https://storybook.js.org',
+};
+
+navHeader.parameters = {
   docs: {
     source: {
       code: coBrandedTemplate,

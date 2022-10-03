@@ -3,11 +3,23 @@
 .lg-header {
   background-color: var(--header-bg-color);
   box-shadow: var(--bottom-shadow);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: var(--header-height);
+  z-index: var(--z-index-header);
+
+  @include lg-breakpoint('lg') {
+    height: var(--header-height-lg);
+    position: static;
+  }
 }
 
 .lg-header__wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   height: var(--header-height);
 
   @include lg-breakpoint('lg') {
