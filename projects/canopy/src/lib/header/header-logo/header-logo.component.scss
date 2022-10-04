@@ -14,7 +14,7 @@
     display: block;
     width: var(--header-logo-width);
 
-    @include lg-breakpoint('lg') {
+    @include lg-breakpoint(lg) {
       width: var(--header-logo-width-lg);
     }
   }
@@ -23,7 +23,7 @@
     margin-left: var(--space-sm);
     width: var(--header-second-logo-width);
 
-    @include lg-breakpoint('lg') {
+    @include lg-breakpoint(lg) {
       margin-left: var(--space-lg);
       width: var(--header-second-logo-width-lg);
     }

@@ -49,7 +49,7 @@ $primary-nav-border-bottom-height: 0.25rem;
   padding: var(--space-xxxs) 0 0 0;
   width: 100%;
 
-  @include lg-breakpoint('lg') {
+  @include lg-breakpoint(lg) {
     margin-left: var(--space-lg);
     flex-direction: row;
     align-items: center;
@@ -118,7 +118,7 @@ $primary-nav-border-bottom-height: 0.25rem;
     border-color: var(--primary-nav-item-border-color-active);
   }
 
-  @include lg-breakpoint('lg') {
+  @include lg-breakpoint(lg) {
     @include lg-nav-item();
 
     border: 0;
