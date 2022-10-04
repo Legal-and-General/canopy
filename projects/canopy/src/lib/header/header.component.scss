@@ -10,7 +10,7 @@
   height: var(--header-height);
   z-index: var(--z-index-header);
 
-  @include lg-breakpoint('lg') {
+  @include lg-breakpoint(lg) {
     height: var(--header-height-lg);
     position: static;
   }
@@ -22,7 +22,7 @@
   align-items: center;
   height: var(--header-height);
 
-  @include lg-breakpoint('lg') {
+  @include lg-breakpoint(lg) {
     height: var(--header-height-lg);
   }
 }
