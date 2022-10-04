@@ -149,12 +149,13 @@ $primary-nav-border-bottom-height: 0.25rem;
 
 .lg-account-menu-item {
   @include lg-nav-item();
+
+  padding: var(--space-xxs);
 }
 
 .lg-primary-nav-menu-toggle {
   transition: background-color var(--animation-duration) var(--animation-fn);
   margin-left: auto;
-  @include lg-nav-item();
 
   & * {
     pointer-events: none;
