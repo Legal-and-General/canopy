@@ -56,6 +56,16 @@ export default {
         disable: true,
       },
     },
+    ngAfterContentInit: {
+      table: {
+        disable: true,
+      },
+    },
+    headerLogos: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as Meta;
 
@@ -188,6 +198,24 @@ navHeader.parameters = {
   docs: {
     source: {
       code: navTemplate,
+    },
+  },
+};
+
+navHeader.argTypes = {
+  secondaryLogo: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoAlt: {
+    table: {
+      disable: true,
+    },
+  },
+  secondaryLogoHref: {
+    table: {
+      disable: true,
     },
   },
 };
