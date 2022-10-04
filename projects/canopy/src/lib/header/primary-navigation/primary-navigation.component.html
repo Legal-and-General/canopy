@@ -2,7 +2,7 @@
   type="button"
   class="lg-primary-nav-menu-toggle"
   lgHideAt="lg"
-  [ngClass]="{ 'lg-primary-nav-menu-toggle--active': showResponsiveMenu }"
+  [isActive]="showResponsiveMenu"
   [attr.aria-expanded]="showResponsiveMenu"
   (click)="toggleResponsiveMenu()"
   aria-controls="primary-nav"

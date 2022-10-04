@@ -34,4 +34,67 @@ The width of the logos can be changed by overriding the values of the below css 
 --header-second-logo-width
 --header-second-logo-width-lg
 ~~~
+
+## Primary navigation
+To add primary navigation to you header, use the following markup, which makes use of some components and directives to achieve the desired behaviour. A summary of these is outlined below.
+
+~~~js
+<header lg-header>
+  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
+
+  <lg-primary-nav>
+    <lg-primary-nav-list-item>
+      <a href="/" [isActive]="true" lgPrimaryNavItem>Link 1</a>
+    </lg-primary-nav-list-item>
+    <lg-primary-nav-list-item>
+      <a href="/" lgPrimaryNavItem>
+        Link 2
+        <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
+      </a>
+    </lg-primary-nav-list-item>
+    <lg-primary-nav-list-item [alignRight]="true">
+      <button type="button" lgPrimaryNavItem>Button</button>
+    </lg-primary-nav-list-item>
+  </lg-primary-nav>
+</header>
+~~~
+
+### Primary navigation component (\`\`LgPrimaryNavComponent\`\`)
+Provides the responsive menu with which can be popluated with navigation items.
+
+#### Outputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`toggleMenu\`\` | An event emitted with a boolean value when the menu toggle button is clicked | EventEmitter<boolean> | n/a | Yes |
+
+### Primary navigation list item component (\`\`LgPrimaryNavListItemComponent\`\`)
+Used to ensure navigation items are wrapped in an element marked up as a list item. This is where a navigation items should be projected.
+
+#### Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`alignRight\`\` | Aligns an item to the right-hand side on \`\`lg\`\` breakpoints | Boolean | true | No |
+
+#### Outputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`tabbedOut\`\` | An event emitted when the tab key bubbles up to the list item | EventEmitter<KeyboardEvent> | n/a | Yes |
+| \`\`clicked\`\` | An event emitted when a click event bubbles up to the list item | EventEmitter<Event> | n/a | Yes |
+
+### Primary navigation item directive (\`\`LgPrimaryNavItemDirective\`\`)
+Adds styles and common behaviour to navigation items.
+
+#### Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`isActive\`\` | sets active state of navigation item | Boolean | false | No |
+
+### Notification badge component (\`\`LgNotificationBadgeComponent\`\`)
+Provides a notification badge for a navigation item.
+
+#### Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`count\`\` | The value to appear in the notification badge | string | undefined | Yes |
+| \`\`accessText\`\` | Accessible text used by assistive technologies to give context to the count value that is displayed | string | undefined | Yes |
 `;

@@ -63,7 +63,7 @@ export class LgPrimaryNavComponent implements AfterContentInit, OnDestroy {
     this.cdr.markForCheck();
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     this.tabOutSubscription = this.navItems.last.tabbedOut.subscribe(
       (event: KeyboardEvent) => {
         const isToggleVisible = !!this.menuToggleButton.nativeElement.offsetParent;
@@ -86,7 +86,7 @@ export class LgPrimaryNavComponent implements AfterContentInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.tabOutSubscription?.unsubscribe();
     this.clickedSubscription?.unsubscribe();
   }

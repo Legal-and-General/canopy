@@ -17,6 +17,10 @@ import { keyName } from '../../../utils/keyboard-keys';
   styleUrls: [ './primary-navigation-list-item.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'lg-primary-nav-list-item',
+    role: 'listitem',
+  },
 })
 export class LgPrimaryNavListItemComponent {
   @Input() alignRight = false;
@@ -24,8 +28,6 @@ export class LgPrimaryNavListItemComponent {
   @Output() tabbedOut: EventEmitter<KeyboardEvent> = new EventEmitter();
   @Output() clicked: EventEmitter<Event> = new EventEmitter();
 
-  @HostBinding('attr.role') role = 'listitem';
-  @HostBinding('class.lg-primary-nav-list-item') defaultClass = true;
   @HostBinding('class.lg-primary-nav-list-item--right') get alignRightClass(): boolean {
     return this.alignRight;
   }

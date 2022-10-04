@@ -2,11 +2,13 @@ import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[lgPrimaryNavItem]',
+  host: {
+    class: 'lg-primary-nav-item',
+  },
 })
 export class LgPrimaryNavItemDirective {
   private _isActive = false;
 
-  @HostBinding('class.lg-primary-nav-item') class = true;
   @HostBinding('class.lg-primary-nav-item--active') get activeClass() {
     return this._isActive;
   }
