@@ -10,6 +10,7 @@ import {
 
 import { LgIconComponent } from '../../icon';
 import { LgFocusDirective } from '../../focus';
+import { LgAccountMenuItemDirective } from '../account-menu/account-menu-item.directive';
 
 import { LgPrimaryNavComponent } from './primary-navigation.component';
 import { LgPrimaryNavListItemComponent } from './primary-navigation-list-item/primary-navigation-list-item.component';
@@ -27,6 +28,7 @@ describe('PrimaryNavigationComponent', () => {
         LgPrimaryNavComponent,
         LgFocusDirective,
         LgPrimaryNavListItemComponent,
+        LgAccountMenuItemDirective,
         MockComponents(LgIconComponent),
       ],
     }).compileComponents();
@@ -93,12 +95,6 @@ describe('PrimaryNavigationComponent', () => {
 
       it('nav menu should have correct aria attributes', () => {
         expect(navEl.getAttribute('aria-hidden')).toBe('false');
-      });
-
-      it('toggle button should have active class', () => {
-        expect(toggleEl.getAttribute('class')).toContain(
-          'lg-primary-nav-menu-toggle--active',
-        );
       });
 
       it('toggle button should have correct aria attributes', () => {
