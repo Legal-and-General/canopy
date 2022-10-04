@@ -16,6 +16,7 @@ import { LgPrimaryNavComponent } from './primary-navigation/primary-navigation.c
 import { LgPrimaryNavItemDirective } from './primary-navigation/primary-navigation-item.directive';
 import { LgPrimaryNavListItemComponent } from './primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component';
 import { LgNotificationBadgeComponent } from './notification-badge/notification-badge.component';
+import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.directive';
 
 const components = [
   LgHeaderComponent,
@@ -24,6 +25,7 @@ const components = [
   LgPrimaryNavItemDirective,
   LgPrimaryNavListItemComponent,
   LgNotificationBadgeComponent,
+  LgAccountMenuItemDirective,
 ];
 
 @NgModule({
