@@ -160,7 +160,7 @@ const navTemplate = `
     <lg-primary-nav-list-item>
       <a href="/" lgPrimaryNavItem>
         Link 2
-        <lg-notification-badge count="3" accessText="You mave 3 unread messages"></lg-notification-badge>
+        <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item [alignRight]="true">
@@ -176,7 +176,7 @@ const navStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
 });
 
 export const navHeader = navStory.bind({});
-navHeader.storyName = 'Global nav';
+navHeader.storyName = 'Primary navigation';
 
 navHeader.args = {
   logo: 'legal-and-general-logo.svg',
@@ -187,7 +187,7 @@ navHeader.args = {
 navHeader.parameters = {
   docs: {
     source: {
-      code: coBrandedTemplate,
+      code: navTemplate,
     },
   },
 };
