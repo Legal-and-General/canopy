@@ -8,7 +8,7 @@
 
   @include lg-breakpoint(lg) {
     padding-top: 0;
-    margin-right: var(--space-xxs);
+    margin: 0 var(--space-xxs) 0;
     border: 0;
     width: auto;
   }
