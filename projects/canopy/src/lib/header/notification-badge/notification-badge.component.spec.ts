@@ -16,7 +16,7 @@ describe('LgNotificationBadgeComponent', () => {
     }).compileComponents();
 
     fixture = MockRender(`
-      <lg-notification-badge count="3" accessText="You mave 3 unread messages"></lg-notification-badge>
+      <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
     `);
 
     debugElement = fixture.debugElement;
@@ -44,7 +44,7 @@ describe('LgNotificationBadgeComponent', () => {
   it('provides alternative contectual text for screen readers', () => {
     const textEl = debugElement.queryAll(By.css('span'))[1];
 
-    expect(textEl.nativeElement.textContent).toBe('You mave 3 unread messages');
+    expect(textEl.nativeElement.textContent).toBe('You have 3 unread messages');
     expect(textEl.nativeElement.classList).toContain('lg-visually-hidden');
   });
 });
