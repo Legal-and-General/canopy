@@ -36,7 +36,7 @@ The width of the logos can be changed by overriding the values of the below css 
 ~~~
 
 ## Primary navigation
-To add primary navigation to you header, use the following markup, which makes use of some components and directives to achieve the desired behaviour. A summary of these is outlined below.
+To add primary navigation to your header, use the following markup, which makes use of some components and directives to achieve the desired behaviour. A summary of these is outlined below.
 
 ~~~js
 <header lg-header>
@@ -60,7 +60,7 @@ To add primary navigation to you header, use the following markup, which makes u
 ~~~
 
 ### Primary navigation component (\`\`LgPrimaryNavComponent\`\`)
-Provides the responsive menu with which can be popluated with navigation items.
+Provides the responsive menu which can be populated with navigation items.
 
 #### Outputs
 | Name | Description | Type | Default | Required |
@@ -68,7 +68,7 @@ Provides the responsive menu with which can be popluated with navigation items.
 | \`\`toggleMenu\`\` | An event emitted with a boolean value when the menu toggle button is clicked | EventEmitter<boolean> | n/a | Yes |
 
 ### Primary navigation list item component (\`\`LgPrimaryNavListItemComponent\`\`)
-Used to ensure navigation items are wrapped in an element marked up as a list item. This is where a navigation items should be projected.
+Used to ensure navigation items are wrapped in an element marked up as a list item. This is where navigation items should be projected.
 
 #### Inputs
 | Name | Description | Type | Default | Required |
@@ -87,7 +87,7 @@ Adds styles and common behaviour to navigation items.
 #### Inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`isActive\`\` | sets active state of navigation item | Boolean | false | No |
+| \`\`isActive\`\` | Sets active state of navigation item | Boolean | false | No |
 
 ### Notification badge component (\`\`LgNotificationBadgeComponent\`\`)
 Provides a notification badge for a navigation item.
