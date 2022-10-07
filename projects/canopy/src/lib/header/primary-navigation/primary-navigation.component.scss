@@ -3,24 +3,24 @@
 $primary-nav-border-bottom-height: 0.25rem;
 
 .lg-primary-nav-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
   overflow: visible;
 }
 
 .lg-primary-nav {
+  background: var(--color-white);
   bottom: 0;
+  display: none;
+  flex-grow: 1;
   left: 0;
+  overflow: visible;
   padding: var(--space-sm);
   position: fixed;
   right: 0;
   top: calc(var(--header-height) + var(--space-xxxs));
-  display: none;
-  overflow: visible;
-  background: var(--color-white);
-  flex-grow: 1;
 
   &--active {
     display: block;
@@ -33,26 +33,26 @@ $primary-nav-border-bottom-height: 0.25rem;
   @include lg-breakpoint(lg) {
     display: flex;
     justify-content: flex-end;
+    padding: 0;
     position: static;
     top: 0;
-    padding: 0;
   }
 }
 
 .lg-primary-nav-list {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
   align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   list-style-type: none;
   margin: 0;
   padding: var(--space-xxxs) 0 0 0;
   width: 100%;
 
   @include lg-breakpoint(lg) {
-    margin-left: var(--space-lg);
-    flex-direction: row;
     align-items: center;
+    flex-direction: row;
+    margin-left: var(--space-lg);
     padding-top: 0;
   }
 }
@@ -60,20 +60,20 @@ $primary-nav-border-bottom-height: 0.25rem;
 .lg-primary-nav-item {
   @include lg-unstyled-link();
 
+  align-items: center;
   appearance: none;
   background: var(--color-white);
+  border-bottom: $primary-nav-border-bottom-height solid transparent;
+  border: 0;
   color: var(--text-color);
   cursor: pointer;
   display: flex;
-  align-items: center;
-  padding: var(--space-xs) var(--space-sm);
-  text-decoration: none;
-  margin-bottom: 0;
   line-height: 1.5;
-  width: 100%;
-  border: 0;
-  border-bottom: $primary-nav-border-bottom-height solid transparent;
+  margin-bottom: 0;
+  padding: var(--space-xs) var(--space-sm);
   text-align: left;
+  text-decoration: none;
+  width: 100%;
 
   &:focus {
     border-bottom: $primary-nav-border-bottom-height solid
@@ -92,30 +92,30 @@ $primary-nav-border-bottom-height: 0.25rem;
 
   &:visited {
     background: var(--color-white);
-    color: var(--primary-nav-item-color);
     border-color: transparent;
+    color: var(--primary-nav-item-color);
   }
 
   &:hover,
   &:hover:visited {
-    color: var(--primary-nav-item-color-hover);
     border-bottom: $primary-nav-border-bottom-height solid
       var(--primary-nav-item-border-color-hover);
     box-shadow: none;
+    color: var(--primary-nav-item-color-hover);
   }
 
   &--active,
   &--active:visited,
   &--active:hover,
   &--active:visited:hover {
-    color: var(--primary-nav-item-color-active);
     border-color: var(--primary-nav-item-border-color-active);
+    color: var(--primary-nav-item-color-active);
   }
 
   &--active:focus,
   &--active:hover:focus {
-    color: var(--primary-nav-item-color-active);
     border-color: var(--primary-nav-item-border-color-active);
+    color: var(--primary-nav-item-color-active);
   }
 
   @include lg-breakpoint(lg) {
@@ -154,10 +154,10 @@ $primary-nav-border-bottom-height: 0.25rem;
 }
 
 .lg-primary-nav-menu-toggle {
-  transition: background-color var(--animation-duration) var(--animation-fn);
   margin-left: auto;
+  transition: background-color var(--animation-duration) var(--animation-fn);
 
-  & * {
+  * {
     pointer-events: none;
   }
 }
