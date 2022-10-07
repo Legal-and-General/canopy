@@ -3,11 +3,11 @@
 .lg-header {
   background-color: var(--header-bg-color);
   box-shadow: var(--header-shadow);
+  height: var(--header-height);
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
-  height: var(--header-height);
   z-index: var(--z-index-header);
 
   @include lg-breakpoint(lg) {
@@ -17,9 +17,9 @@
 }
 
 .lg-header__wrapper {
+  align-items: center;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   height: var(--header-height);
 
   @include lg-breakpoint(lg) {
@@ -28,7 +28,7 @@
 }
 
 .lg-header__logos-wrapper {
-  display: flex;
   align-items: center;
+  display: flex;
   padding: var(--space-xxs) 0;
 }
