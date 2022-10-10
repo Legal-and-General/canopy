@@ -1,0 +1,69 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Separator/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Separator
+
+<p class="standfirst">Separators are used to visually divide sections of content.</p>
+
+![example](docs/separator/example.png)
+
+## Usage
+
+Use this component when you want to split your content into clear sections or groupings.
+
+Import the separator module into your module:
+
+```js
+@NgModule({
+    ...
+    imports: [ ..., LgSeparatorModule ],
+})
+```
+
+
+
+And in your HTML:
+
+```html
+<lg-separator [variant]="variant" [hasRole]="hasRole"></lg-separator>
+```
+
+## How it works
+
+The separator component can be positioned at either full or partial width to help define distinct sections or groups within the page, a container or body content.
+
+## Do
+
+![do](docs/separator/do.png)
+
+1. **Do** use a separator to group items, such as within a list
+2. **Do** use a separator to help chunk content into manageable sections
+
+## Additional development details
+
+### Inputs
+
+| Name      | Description                                          |       Type       | Default | Required |
+| --------- | ---------------------------------------------------- | :--------------: | :-----: | :------: |
+| `variant` | The variant of separator: `solid`, `dotted`          | SeparatorVariant | 'solid' |    No    |
+| `hasRole` | If true, adds a role of `separator` to the component |     boolean      |  false  |    No    |
+
+
+------
+
+## Research on this component
+
+Include any user testing here. If not, indicate that this is based on best practice.
+
+## Related
+
+Patterns which may perform a similar task, or which should be considered instead
+
+- [Card](./?path=/docs/components-card-guide--page)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
