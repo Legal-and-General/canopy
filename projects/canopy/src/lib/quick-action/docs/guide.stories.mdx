@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Components/Quick Action/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Quick action
+
+<p class="standfirst">Quick Actions are small buttons that can be used to provide functionality in context, such as editing a form or actions on a card.</p>
+
+![example](docs/quick-action/example.png)
+
+## Usage
+
+Quick Actions should be used to increase the affordance of a specific function when a primary CTA would be too prominent. They are typically used to give access to functionality in the context of a piece of content or data. An example would be when allowing the user to change their bank details in the context of showing them bank details:
+
+![usage](docs/quick-action/usage.png)
+
+Quick actions shouldn’t be used to complete form journeys or to invite the user to read more. In these scenarios, a button or link should be used.
+
+Import the quick action module into your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgQuickActionModule ],
+})
+```
+
+Use in your HTML as a button:
+
+```html
+<button lg-quick-action>
+  <lg-icon [name]="icon"></lg-icon>
+  Load more
+</button>
+```
+
+or alternatively as a link:
+
+```html
+<a lg-quick-action [href]="link" [target]="target">
+  <lg-icon [name]="icon"></lg-icon>
+  Send us a message
+</a>
+```
+
+## How it works
+
+Comprising an icon and accompanying text label, the Quick Action describes a specific task available.
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/quick-action/do.png)
+
+1. **Do** use to indicate / highlight / spotlight functionality available
+2. **Do** use concise labels that are descriptive and help set the user’s expectations
+
+### Don't
+
+![dont](docs/quick-action/dont.png)
+
+1. **Don’t** use in place of buttons or links
+2. **Don’t** use too many quick actions, we suggest a maximum of three
+3. **Don’t** use overly wordy labels. Like buttons, quick action labels do not wrap and therefore microcopy needs to be less than the width of the container.
+
+------
+
+## Research on this component
+
+This component is based on best practice and has not been subject to usability testing.
+
+## Related
+
+- [Card](./?path=/docs/components-card-guide--page)
+- [Buttons](./?path=/docs/components-button-guide--page)
+- [Link](./?path=/docs/style-links--links)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
