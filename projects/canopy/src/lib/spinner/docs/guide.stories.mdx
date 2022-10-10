@@ -1,0 +1,75 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title="Components/Spinner/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Spinner
+
+<p class="standfirst">A spinner lets the user know that something is happening. They are normally used on form submissions or loading pages when the data retrieval is typically slow.</p>
+
+![example](docs/spinner/example.png)
+
+## Usage
+
+This component should be used in instances where the duration of a process can't be determined.
+
+Import the component in your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgSpinnerModule ],
+})
+```
+
+and in your HTML:
+
+<Source id="components-spinner-examples--standard-alert"></Source>
+
+The spinner component should always be used together with the `LgSrAlertMessageDirective` as screen reader users should be notified when something has finished loading.
+
+## How it works
+
+The spinner animates until the process is completed, when it is replaced by content or the user is navigated to the next part of the journey.
+
+When a spinner is used by itself on a page or card, it must always be accompanied by a supporting message. This message should briefly explain the reason for the wait.
+
+A spinner used inside a component such as a button or input doesn’t need an accompanying message.
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/spinner/do.png)
+
+1. **Do** use spinners to help manage user expectations against technical limitations.
+
+### Don’t
+
+![dont](docs/spinner/dont.png)
+
+1. **Don't** use a spinner if the duration of the process can be pre-determined.
+2. **Don’t** use multiple spinners in a single view
+
+## Additional development details
+
+### Inputs
+
+| Name      | Description                        |                         Type                         |  Default  | Required |
+| --------- | ---------------------------------- | :--------------------------------------------------: | :-------: | :------: |
+| `variant` | The spinner variant                | SpinnerVariant ['dark', 'light', 'color', 'inherit'] |  'dark'   |    No    |
+| `size`    | The size of the spinner            |               SpinnerSize ['sm', 'md']               |   'md'    |    No    |
+| `text`    | The text to show under the spinner |                        string                        | undefined |    No    |
+
+If the `variant` is set to `'inherit'`, then it will inherit the font colour of it's parent element. This is used on the loading button, where the spinner inherits the font colour of the button.
+
+---
+
+## Research on this component
+
+The spinner is based on best practice but has not had research or testing.
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
