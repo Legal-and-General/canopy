@@ -31,7 +31,7 @@ const cardListConfig = {
     },
     {
       content:
-        'If you have pension pots that you haven’t accessed yet, we can help you understand the different ways you can use your pension.',
+        'If you have pension pots that you haven\'t accessed yet, we can help you understand the different ways you can use your pension.',
       ctaText: 'Learn more',
       imageUrl: 'promo-card/other-income-options.jpg',
       title: 'Our other income options',
