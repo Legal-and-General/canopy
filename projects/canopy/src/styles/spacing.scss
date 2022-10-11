@@ -48,7 +48,7 @@ $spacing-list: (
   }
 }
 
-// Default margin / padding
+// Default margin / padding / row-gap
 @each $val in $spacing-list {
   .lg-margin--#{$val} {
     margin: space($val) !important;
@@ -56,6 +56,10 @@ $spacing-list: (
 
   .lg-padding--#{$val} {
     padding: space($val) !important;
+  }
+
+  .lg-row-gap--#{$val} {
+    row-gap: space($val) !important;
   }
 }
 

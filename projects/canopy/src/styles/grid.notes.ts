@@ -23,9 +23,11 @@ Import the css into the angular.json file of your application, the grid classes 
 If IE11 support is required you will need to polyfill CSS variable functionality.
 This can be done via [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill) or similar.
 
-A set of [Angular directives](/?path=/story/directives--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements.
+## Additional Directives
 
-There are also two utility directives available which allow you to show/hide components at different breakpoints:
-- <a href="./?path=/docs/directives-show-at--show-at-story">LgShowAt</a>
-- <a href="./?path=/docs/directives-hide-at--hide-at-story">LgHideAt</a>
+- A set of [Angular directives](./?path=/story/directives--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements.
+- There is also a [row-gap spacing directive](./?path=/story/directives-row-gap--row-gap) to enable the use of the CSS row-gap property.
+- There are also two utility directives available which allow you to show/hide components at different breakpoints:
+    - <a href="./?path=/docs/directives-show-at--show-at-story">LgShowAt</a>
+    - <a href="./?path=/docs/directives-hide-at--hide-at-story">LgHideAt</a>
 `;

@@ -61,6 +61,7 @@ module.exports = {
     '../projects/canopy/src/lib/skeleton/skeleton.stories.ts',
     '../projects/canopy/src/lib/spacing/margin/margin.stories.ts',
     '../projects/canopy/src/lib/spacing/padding/padding.stories.ts',
+    '../projects/canopy/src/lib/spacing/row-gap/row-gap.stories.ts',
     '../projects/canopy/src/lib/spinner/spinner.stories.ts',
     '../projects/canopy/src/lib/sr-alert-message/sr-alert-message.stories.ts',
     '../projects/canopy/src/lib/variant/variant.stories.ts',

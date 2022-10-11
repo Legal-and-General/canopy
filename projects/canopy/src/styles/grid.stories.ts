@@ -11,6 +11,10 @@ const styles = [
       height: var(--space-lg);
     }
 
+    .margin-bottom--none {
+      margin-bottom: 0;
+    }
+
     .nested .box {
       background-color: var(--color-super-blue-lightest);
       height: auto;
@@ -203,6 +207,30 @@ const template = `
         </div>
         <div class="lg-col-xs">
           <div class="box"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg-container">
+      <div class="lg-row">
+        <div class="lg-col-xs-12">
+          <h2>Row Gap</h2>
+          <p>
+            Add a row-gap to the flex elements using the row-gap
+            <a href="./?path=/docs/style-spacing--page">Canopy classes</a>
+            or <a href="./?path=/story/directives-row-gap--row-gap--row-gap">Canopy directive</a>.
+            </p>
+        </div>
+      </div>
+      <div class="lg-row lg-row-gap--sm">
+        <div class="lg-col-lg-4 lg-col-xs-12">
+          <div class="box margin-bottom--none"></div>
+        </div>
+        <div class="lg-col-lg-4 lg-col-xs-12">
+          <div class="box margin-bottom--none"></div>
+        </div>
+        <div class="lg-col-lg-4 lg-col-xs-12">
+          <div class="box margin-bottom--none"></div>
         </div>
       </div>
     </div>

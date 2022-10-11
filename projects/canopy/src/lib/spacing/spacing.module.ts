@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgMarginModule } from './margin/margin.module';
-import { LgPaddingModule } from './padding/padding.module';
+import { LgMarginModule } from './margin';
+import { LgPaddingModule } from './padding';
+import { LgRowGapModule } from './row-gap';
 
 @NgModule({
-  imports: [ CommonModule, LgMarginModule, LgPaddingModule ],
-  exports: [ LgMarginModule, LgPaddingModule ],
+  imports: [ CommonModule, LgMarginModule, LgPaddingModule, LgRowGapModule ],
+  exports: [ LgMarginModule, LgPaddingModule, LgRowGapModule ],
 })
 export class LgSpacingModule {}
