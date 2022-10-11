@@ -1,0 +1,133 @@
+import { Component, Input } from '@angular/core';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
+
+import { SpacingVariant } from '../spacing.interface';
+import { LgCardModule } from '../../card';
+import { LgSpacingModule } from '../spacing.module';
+import { LgGridModule } from '../../grid';
+
+import { notes } from './row-gap.notes';
+import { LgRowGapModule } from './row-gap.module';
+import { LgRowGapDirective } from './row-gap.directive';
+
+const spaces = [
+  'undefined',
+  'none',
+  'xxxs',
+  'xxs',
+  'xs',
+  'sm',
+  'md',
+  'lg',
+  'xl',
+  'xxl',
+  'xxxl',
+  'xxxxl',
+];
+
+@Component({
+  selector: 'lg-row-gap-story',
+  template: `
+    <div lgContainer>
+      <div lgRow [lgRowGap]="rowGap">
+        <div lgColLg="4" lgCol="12">
+          <lg-card lgMarginBottom="none">
+            <lg-card-content>
+              <p><strong>The row-gap directive</strong></p>
+              <p>Resize the viewport to see it in action</p>
+              <p>
+                <code>row-gap: {{ rowGap | json }}</code>
+              </p>
+            </lg-card-content>
+          </lg-card>
+        </div>
+        <div lgColLg="4" lgCol="12">
+          <lg-card lgMarginBottom="none">
+            <lg-card-content>
+              <p><strong>The row-gap directive</strong></p>
+              <p>Resize the viewport to see it in action</p>
+              <p>
+                <code>row-gap: {{ rowGap | json }}</code>
+              </p>
+            </lg-card-content>
+          </lg-card>
+        </div>
+        <div lgColLg="4" lgCol="12">
+          <lg-card lgMarginBottom="none">
+            <lg-card-content>
+              <p><strong>The row-gap directive</strong></p>
+              <p>Resize the viewport to see it in action</p>
+              <p>
+                <code>row-gap: {{ rowGap | json }}</code>
+              </p>
+            </lg-card-content>
+          </lg-card>
+        </div>
+      </div>
+    </div>
+  `,
+})
+class LgRowGapStoryComponent {
+  @Input() rowGap: SpacingVariant;
+}
+
+export default {
+  title: 'Directives/Row Gap',
+  decorators: [
+    moduleMetadata({
+      declarations: [ LgRowGapStoryComponent ],
+      imports: [ LgRowGapModule, LgCardModule, LgSpacingModule, LgGridModule ],
+    }),
+  ],
+  parameters: {
+    docs: {
+      description: {
+        component: notes,
+      },
+    },
+    a11y: {
+      disable: true,
+    },
+    backgrounds: {
+      default: 'Super Blue',
+    },
+  },
+  argTypes: {
+    rowGap: {
+      control: {
+        type: 'select',
+      },
+      description: 'The row-gap to apply to the element.',
+      options: spaces,
+      table: {
+        type: {
+          summary: spaces,
+        },
+      },
+    },
+  },
+} as Meta;
+
+const template = `
+<lg-row-gap-story [rowGap]="rowGap"></lg-row-gap-story>
+`;
+
+const rowGapStory: Story<LgRowGapDirective> = (args: LgRowGapDirective) => ({
+  props: args,
+  template,
+});
+
+export const rowGap = rowGapStory.bind({});
+rowGap.storyName = 'Row Gap';
+
+rowGap.args = {
+  rowGap: 'sm',
+};
+
+rowGap.parameters = {
+  docs: {
+    source: {
+      code: null,
+    },
+  },
+};
