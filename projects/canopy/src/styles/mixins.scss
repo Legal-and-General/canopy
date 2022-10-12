@@ -18,7 +18,7 @@
   $bg-color: var(--default-focus-color),
   $inner-bg-color: var(--default-inner-focus-color)
 ) {
-  outline: 0;
+  outline: 0 !important;
   box-shadow: 0 0 0 0.125rem $inner-bg-color, 0 0 0 0.375rem $bg-color;
 }
 
@@ -354,8 +354,8 @@ $breakpoints: (
     border-radius: var(--nav-item-border-radius);
     background-color: transparent;
     bottom: 0;
-    left: var(--space-xs);
-    right: var(--space-xs);
+    left: 0.188rem;
+    right: 0.188rem;
   }
 
   > .lg-icon {
@@ -364,8 +364,10 @@ $breakpoints: (
   }
 
   &:focus,
-  &:hover:focus {
+  &:hover:focus,
+  &:focus-visible {
     background-color: var(--nav-item-bg-color-hover);
+    color: var(--nav-item-color-hover);
 
     &::after {
       background-color: var(--nav-item-border-color-hover);
@@ -381,6 +383,8 @@ $breakpoints: (
   &:hover:visited {
     border: 0;
     background-color: var(--nav-item-bg-color-hover);
+    color: var(--nav-item-color-hover);
+    box-shadow: none;
 
     &::after {
       background-color: var(--nav-item-border-color-hover);
@@ -405,6 +409,11 @@ $breakpoints: (
     &[type='button']:hover:focus {
       background-color: var(--nav-item-bg-color-expanded);
       color: var(--nav-item-color-expanded);
+
+      .lg-notification-badge {
+        color: var(--color-text);
+        background-color: var(--nav-item-bg-color);
+      }
 
       &::after {
         background-color: var(--nav-item-border-color-hover);

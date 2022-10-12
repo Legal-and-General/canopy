@@ -7,6 +7,25 @@
         </div>
 
         <ng-content></ng-content>
+
+        <button
+          *ngIf="navItems.length"
+          type="button"
+          class="primary-nav-toggle"
+          lgHideAt="lg"
+          [isActive]="showResponsiveMenu"
+          [attr.aria-expanded]="showResponsiveMenu"
+          (click)="toggleResponsiveMenu()"
+          (keydown)="handleToggleKeydown($event)"
+          aria-controls="primary-nav"
+          aria-haspopup="true"
+          lgAccountMenuItem
+          #menuToggleButton
+        >
+          <span class="lg-visually-hidden">Menu</span>
+          <lg-icon *ngIf="!showResponsiveMenu" name="hamburger-menu"></lg-icon>
+          <lg-icon *ngIf="showResponsiveMenu" name="close"></lg-icon>
+        </button>
       </div>
     </div>
   </div>

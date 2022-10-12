@@ -1,0 +1,12 @@
+@import '../../../../styles/mixins';
+
+.lg-account-menu-list-item {
+  display: flex;
+  flex-direction: column;
+  margin-right: var(--space-sm);
+
+  @include lg-breakpoint(lg) {
+    margin-left: var(--space-sm);
+    margin-right: 0;
+  }
+}

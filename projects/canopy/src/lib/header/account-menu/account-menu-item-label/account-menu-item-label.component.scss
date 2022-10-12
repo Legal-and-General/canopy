@@ -1,0 +1,7 @@
+@import '../../../../styles/mixins';
+
+.lg-account-menu-item-label {
+  @include lg-breakpoint(lg, 'max-width') {
+    @include lg-visually-hidden;
+  }
+}

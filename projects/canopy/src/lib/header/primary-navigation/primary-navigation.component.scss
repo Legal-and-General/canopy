@@ -2,14 +2,6 @@
 
 $primary-nav-border-bottom-height: 0.25rem;
 
-.lg-primary-nav-wrapper {
-  align-items: center;
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-  overflow: visible;
-}
-
 .lg-primary-nav {
   background: var(--color-white);
   bottom: 0;
@@ -57,15 +49,16 @@ $primary-nav-border-bottom-height: 0.25rem;
   }
 }
 
-.lg-primary-nav-item {
+a.lg-primary-nav-item,
+button.lg-primary-nav-item {
   @include lg-unstyled-link();
 
   align-items: center;
   appearance: none;
   background: var(--color-white);
-  border-bottom: $primary-nav-border-bottom-height solid transparent;
   border: 0;
-  color: var(--text-color);
+  border-bottom: $primary-nav-border-bottom-height solid transparent;
+  color: var(--color-text);
   cursor: pointer;
   display: flex;
   line-height: 1.5;
@@ -75,7 +68,9 @@ $primary-nav-border-bottom-height: 0.25rem;
   text-decoration: none;
   width: 100%;
 
-  &:focus {
+  &:focus,
+  &:focus:hover,
+  &:focus-visible {
     border-bottom: $primary-nav-border-bottom-height solid
       var(--primary-nav-item-border-color-hover);
 
@@ -83,11 +78,6 @@ $primary-nav-border-bottom-height: 0.25rem;
       var(--default-focus-color),
       var(--default-inner-focus-color)
     );
-  }
-
-  &:hover:focus {
-    border-bottom: $primary-nav-border-bottom-height solid
-      var(--primary-nav-item-color-hover);
   }
 
   &:visited {
@@ -144,20 +134,5 @@ $primary-nav-border-bottom-height: 0.25rem;
     &:focus:hover {
       border: 0;
     }
-  }
-}
-
-.lg-account-menu-item {
-  @include lg-nav-item();
-
-  padding: var(--space-xxs);
-}
-
-.lg-primary-nav-menu-toggle {
-  margin-left: auto;
-  transition: background-color var(--animation-duration) var(--animation-fn);
-
-  * {
-    pointer-events: none;
   }
 }

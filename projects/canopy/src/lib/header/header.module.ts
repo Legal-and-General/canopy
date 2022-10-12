@@ -17,15 +17,21 @@ import { LgPrimaryNavItemDirective } from './primary-navigation/primary-navigati
 import { LgPrimaryNavListItemComponent } from './primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component';
 import { LgNotificationBadgeComponent } from './notification-badge/notification-badge.component';
 import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.directive';
+import { LgAccountMenuComponent } from './account-menu/account-menu.component';
+import { LgAccountMenuListItemComponent } from './account-menu/account-menu-list-item/account-menu-list-item.component';
+import { LgAccountMenuItemLabelComponent } from './account-menu/account-menu-item-label/account-menu-item-label.component';
 
 const components = [
+  LgAccountMenuComponent,
+  LgAccountMenuItemDirective,
+  LgAccountMenuItemLabelComponent,
+  LgAccountMenuListItemComponent,
   LgHeaderComponent,
   LgHeaderLogoComponent,
+  LgNotificationBadgeComponent,
   LgPrimaryNavComponent,
   LgPrimaryNavItemDirective,
   LgPrimaryNavListItemComponent,
-  LgNotificationBadgeComponent,
-  LgAccountMenuItemDirective,
 ];
 
 @NgModule({
