@@ -19,7 +19,7 @@
 .lg-header__wrapper {
   align-items: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   height: var(--header-height);
 
   @include lg-breakpoint(lg) {
@@ -31,4 +31,13 @@
   align-items: center;
   display: flex;
   padding: var(--space-xxs) 0;
+  margin-right: auto;
+}
+
+.primary-nav-toggle {
+  transition: background-color var(--animation-duration) var(--animation-fn);
+
+  * {
+    pointer-events: none;
+  }
 }

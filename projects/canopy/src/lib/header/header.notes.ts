@@ -17,6 +17,12 @@ Import the component in your application:
 
 and for the HTML structure see the code snippets below.
 
+## Ouputs
+### LgHeaderComponent
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`toggleMenu\`\` | An event emitted with a boolean value when the menu toggle button is clicked | EventEmitter<boolean> | n/a | Yes |
+
 ## Inputs
 ### LgHeaderLogoComponent
 | Name | Description | Type | Default | Required |
@@ -35,8 +41,8 @@ The width of the logos can be changed by overriding the values of the below css 
 --header-second-logo-width-lg
 ~~~
 
-## Primary navigation
-To add primary navigation to your header, use the following markup, which makes use of some components and directives to achieve the desired behaviour. A summary of these is outlined below.
+## Navigation
+To add the primary navigation and account menu to your header, use the following markup, which makes use of some components and directives to achieve the desired behaviour. A summary of these is outlined below.
 
 ~~~js
 <header lg-header>
@@ -56,16 +62,38 @@ To add primary navigation to your header, use the following markup, which makes 
       <button type="button" lgPrimaryNavItem>Button</button>
     </lg-primary-nav-list-item>
   </lg-primary-nav>
+
+  <lg-account-menu>
+    <lg-account-menu-list-item>
+      <button type="button" lgAccountMenuItem>
+        <lg-account-menu-item-label>Button</lg-account-menu-item-label>
+        <lg-icon name="notification-on"></lg-icon>
+        <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
+      </button>
+    </lg-account-menu-list-item>
+    <lg-account-menu-list-item>
+      <a href="" lgAccountMenuItem>
+        <lg-account-menu-item-label>Link</lg-account-menu-item-label>
+        <lg-icon name="profile"></lg-icon>
+      </a>
+    </lg-account-menu-list-item>
+    <lg-account-menu-list-item>
+      <button type="button" lgAccountMenuItem>
+        <lg-account-menu-item-label>Signout</lg-account-menu-item-label>
+        <lg-icon name="sign-in"></lg-icon>
+      </button>
+    </lg-account-menu-list-item>
+  </lg-account-menu>
 </header>
 ~~~
 
 ### Primary navigation component (\`\`LgPrimaryNavComponent\`\`)
 Provides the responsive menu which can be populated with navigation items.
 
-#### Outputs
+#### Inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`toggleMenu\`\` | An event emitted with a boolean value when the menu toggle button is clicked | EventEmitter<boolean> | n/a | Yes |
+| \`\`showResponsiveMenu\`\` | Determines whether to show or hide the responsive menu | EventEmitter<boolean> | n/a | Yes |
 
 ### Primary navigation list item component (\`\`LgPrimaryNavListItemComponent\`\`)
 Used to ensure navigation items are wrapped in an element marked up as a list item. This is where navigation items should be projected.
@@ -97,4 +125,26 @@ Provides a notification badge for a navigation item.
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`count\`\` | The value to appear in the notification badge | string | undefined | Yes |
 | \`\`accessText\`\` | Accessible text used by assistive technologies to give context to the count value that is displayed | string | undefined | Yes |
+
+### Account menu component (\`\`LgAccountMenuComponent\`\`)
+Provides an account menu which can be popluated with account menu items.
+
+### Account menu item directive (\`\`LgAccountMenuItemDirective\`\`)
+Adds styles and common behaviour to account menu items.
+
+#### Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`isActive\`\` | Sets active state of menu item | Boolean | false | No |
+
+### Account menu list item component (\`\`LgAccountMenuListItemComponent\`\`)
+Used to ensure account menu items are wrapped in an element marked up as a list item. This is where account menu items should be projected.
+
+#### Outputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| \`\`clicked\`\` | An event emitted when a click event bubbles up to the list item | EventEmitter<Event> | n/a | Yes |
+
+### Account menu item label component (\`\`LgAccountMenuItemLabelComponent\`\`)
+Used to ensure correct styling is applied to the menu item label at different breakpoints.
 `;
