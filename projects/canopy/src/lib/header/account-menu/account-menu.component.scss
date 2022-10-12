@@ -1,0 +1,45 @@
+@import '../../../styles/mixins';
+
+.lg-account-menu {
+  display: flex;
+
+  @include lg-breakpoint(lg) {
+    align-items: center;
+    border-left: 0.063rem solid var(--color-platinum);
+    height: 100%;
+    margin-left: var(--space-sm);
+    padding-left: var(--space-sm);
+  }
+}
+
+a.lg-account-menu-item,
+button.lg-account-menu-item {
+  @include lg-nav-item();
+
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xxs);
+  position: relative;
+
+  .lg-icon {
+    order: -1;
+
+    @include lg-breakpoint(lg) {
+      margin-bottom: var(--space-xxxs);
+    }
+  }
+
+  .lg-notification-badge {
+    font-size: var(--text-fs--8-size);
+    height: 1.25rem;
+    margin-left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.25rem;
+
+    @include lg-breakpoint(lg) {
+      left: 50%;
+    }
+  }
+}
