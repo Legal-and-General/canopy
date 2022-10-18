@@ -64,7 +64,11 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       // This causes merge conflicts so we restore its previous state since it's
       // not needed for deployment.
       console.info('ℹ️ Restore the documentation.json');
-      await exec.exec('git', ['restore', 'documentation.json']);
+      try {
+        await exec.exec('git', ['restore', 'documentation.json']);
+      } catch (e) {
+        console.info(`ℹ️ Unable to restore the documentation.json: \n${e}`);
+      }
     }
 
     console.info('ℹ️ Starting to track the storybook changes before stashing');
