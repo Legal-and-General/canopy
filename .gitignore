@@ -1,7 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# storybook static build
+# storybook
 storybook-static
+documentation.json
 
 # compiled output
 /dist
