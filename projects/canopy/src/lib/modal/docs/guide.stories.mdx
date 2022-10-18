@@ -1,0 +1,180 @@
+import { Meta, Source } from '@storybook/addon-docs';
+
+<Meta title="Components/Modal/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Modal
+
+<p class="standfirst">A Modal is a type of window that appears on top of the page content to provide critical information and ask for a decision. This component disables the page content until the customer explicitly interacts with the dialogue.</p>
+
+![example](docs/modal/example.png)
+
+**Because they're designed to interrupt the flow, modals should be used sparingly to limit disruption to users.**
+
+## Usage
+
+A modal can be used to alert users to an error or to some other system state that blocks normal operation and it requires full and immediate attention.
+
+It is used for critical information that requires a specific user task, decision, or acknowledgement to continue the current process.
+
+
+
+Import the modal module in your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgModalModule ],
+})
+```
+
+
+
+Opening and closing the modal is possible by using the ``ModalService``. Import the service:
+
+```js
+  constructor(
+    private modalService: LgModalService,
+    ...
+  ) {}
+```
+
+
+
+To open the modal:
+
+```js
+  this.modalService.open(<modal-id>);
+```
+
+
+
+and to close it:
+
+```js
+  this.modalService.close(<modal-id>);
+```
+
+
+
+Then in your HTML: 
+
+<Source id="components-modal-examples--standard-separator"></Source>
+
+
+
+## How it works
+
+A modal should only appear as a result of an action a user has taken, and shouldn't appear by itself. When a modal appears, the page beneath is dimmed by an overlay which increases the prominence of the modal.
+
+### Positioning
+
+The modal will always position itself in horizontal and vertical centre of the screen.
+
+### Content
+
+Choose a title that clearly states the purpose of the modal. It's a good idea to match the modal title to the title of the button that initiated the modal. This lets the customer know where the modal came from and what task they're doing.
+
+Body content should be short and concise. Long forms, terms and conditions or other long content which overflows and requires scrolling is unsuitable for a modal; use a page or form journey instead.
+
+### Buttons
+
+A primary button confirms or submits the main function of the modal. A secondary button usually allows the user to Cancel the modal without the action taking place. Both buttons dismiss the modal.
+
+Use an explicit button label that states exactly what will happen when the customer clicks it. Use descriptive verbs such as Accept, Create, Delete, Save or Update. Don't use vague terms such as Yes, No or OK.
+
+The modal comes with a "X" button in the upper right corner to dismiss the dialogue, performing the same action as Cancel. To ensure accessibility, the modal can also be dismissed when the user presses the ESC key. Neither of these features should be removed or disabled.
+
+Closing a modal dialogue on mobile can vary between each OS but in general tapping "Back" button should close the dialogue in addition to tapping a primary button, secondary button (if present) and a close "X" icon.
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/modal/do.png)
+
+1. **Do** use when you require the customer's full and immediate attention
+2. **Do** keep content brief and concise
+3. **Do** use for important warnings, as a way to prevent or correct critical errors
+4. **Do** use descriptive buttons
+
+### Don't
+
+![dont](docs/modal/dont.png)
+
+1. **Don't** use Modal Dialogues as an Interaction Confirmation. Consider using Alert message or Pop-up message instead
+2. **Don't** fill with too much content or allow content to overflow and scroll
+3. **Don't** use for high-stake processes such as application journey
+
+**Don't** use if the content can be presented within a regular page. Use Modal Dialogues as a last resort.
+
+## Additional development details
+
+### LgModalComponent
+
+#### Inputs
+
+| Name   | Description                | Type   | Default   | Required |
+| ------ | -------------------------- | ------ | --------- | -------- |
+| ``id`` | The unique id of the modal | string | undefined | Yes      |
+
+#### Outputs
+
+| Name       | Description                            | Type               | Default | Required |
+| ---------- | -------------------------------------- | ------------------ | ------- | -------- |
+| ``open``   | Event emitted when the modal is opened | EventEmitter`<void>` | n/a     | No       |
+| ``closed`` | Event emitted when the modal is closed | EventEmitter`<void>` | n/a     | No       |
+
+### LgModalHeaderComponent
+
+#### Inputs
+
+| Name             | Description                                                  | Type   | Default | Required |
+| ---------------- | ------------------------------------------------------------ | ------ | ------- | -------- |
+| ``headingLevel`` | The level of the modal heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | 2       | No       |
+
+#### Outputs
+
+| Name       | Description                                    | Type               | Default | Required |
+| ---------- | ---------------------------------------------- | ------------------ | ------- | -------- |
+| ``closed`` | Event emitted when the close button is clicked | EventEmitter`<void>` | n/a     | No       |
+
+### LgModalBodyTimerComponent
+
+#### Inputs
+
+| Name      | Description                                                  | Type   | Default | Required |
+| --------- | ------------------------------------------------------------ | ------ | ------- | -------- |
+| ``timer`` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a     | Yes      |
+
+### LgModalTriggerDirective
+
+
+#### Inputs
+| Name               | Description                           | Type   | Default   | Required |
+| ------------------ | ------------------------------------- | ------ | --------- | -------- |
+| ``lgModalTrigger`` | The unique id of the modal to trigger | string | undefined | Yes      |
+
+#### Outputs
+
+| Name        | Description                                      | Type               | Default | Required |
+| ----------- | ------------------------------------------------ | ------------------ | ------- | -------- |
+| ``clicked`` | Event emitted when the trigger button is clicked | EventEmitter`<void>` | n/a     | No       |
+
+------
+
+## Research on this component
+
+This is based on best practice research.
+
+## Related
+
+Patterns which may perform a similar task, or which should be considered instead
+
+- [Inline Message](./?path=/docs/components-inline-message-alert-guide--page)
+- [Message with illustration](./?path=/docs/components-primary-message--standard-primary-message)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can <a href="https://forms.office.com/r/6UMyXFeupH" target="_blank">suggest an improvement</a>.
+
+Please take a moment to <a href="https://forms.office.com/r/ryiKP7ygUK" target="_blank">rate your experience of using Canopy</a>.
