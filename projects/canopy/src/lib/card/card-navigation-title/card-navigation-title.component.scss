@@ -18,15 +18,11 @@
   .lg-icon {
     margin-left: auto;
     background: var(--link-color);
-    border-radius: var(--text-fs-3-size);
+    border-radius: 50%;
     color: var(--color-white);
   }
 
   a {
-    &:active .lg-icon {
-      background: var(--link-active-color);
-    }
-
     @include lg-link($default-color: var(--link-color), $hover-color: var(--link-color));
 
     border-bottom: solid var(--border-width) var(--card-title-border-color);
@@ -34,8 +30,13 @@
       var(--card-navigation-link-padding-bottom);
     align-items: center;
     display: flex;
-    margin-top: 0;
     font-weight: var(--font-weight-bold);
+    margin-left: calc(-1 * var(--component-padding));
+    margin-right: calc(-1 * var(--component-padding));
+    margin-top: var(--outer-focus-width);
+    padding-left: var(--component-padding);
+    padding-right: var(--component-padding);
+    padding-top: var(--card-navigation-link-padding-bottom);
 
     @include lg-breakpoint('md') {
       padding-top: var(--card-navigation-link-padding-top-md);
@@ -55,6 +56,10 @@
       &:hover {
         border-bottom: 0;
       }
+
+      .lg-icon {
+        background: var(--link-active-color);
+      }
     }
 
     &:hover {
@@ -70,11 +75,13 @@
       background: transparent;
       border-bottom: var(--card-active-focus-border-bottom-width) solid
         var(--link-active-color);
+      border-radius: calc(var(--border-radius-sm) / 2);
       color: var(--link-active-color);
-      margin-left: calc(-1 * var(--component-padding));
-      margin-right: calc(-1 * var(--component-padding));
-      padding-left: var(--component-padding);
-      padding-right: var(--component-padding);
+      margin-left: calc(-1 * var(--component-padding) + var(--outer-focus-width));
+      margin-right: calc(-1 * var(--component-padding) + var(--outer-focus-width));
+      margin-top: var(--outer-focus-width);
+      padding-right: calc(var(--component-padding) - var(--outer-focus-width));
+      padding-left: calc(var(--component-padding) - var(--outer-focus-width));
       padding-bottom: calc(
         var(--card-navigation-link-padding-bottom) + var(--border-width) -
           var(--card-active-focus-border-bottom-width)
