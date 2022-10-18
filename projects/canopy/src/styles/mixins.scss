@@ -19,7 +19,8 @@
   $inner-bg-color: var(--default-inner-focus-color)
 ) {
   outline: 0;
-  box-shadow: 0 0 0 0.125rem $inner-bg-color, 0 0 0 0.375rem $bg-color;
+  box-shadow: 0 0 0 var(--inner-focus-width) $inner-bg-color,
+    0 0 0 var(--outer-focus-width) $bg-color;
 }
 
 @mixin lg-link(
