@@ -1,15 +1,13 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgModalModule } from '../modal/modal.module';
-import { LgButtonModule } from '../button';
-import { LgMarginModule } from '../spacing';
-import { LgSeparatorComponent } from '../separator/separator.component';
-
-import { notes } from './modal.notes';
-import { LgModalComponent } from './modal.component';
+import { LgModalModule } from '../modal.module';
+import { LgButtonModule } from '../../button';
+import { LgMarginModule } from '../../spacing';
+import { LgSeparatorComponent } from '../../separator/separator.component';
+import { LgModalComponent } from '../modal.component';
 
 export default {
-  title: 'Components/Modal',
+  title: 'Components/Modal/Examples',
   component: LgModalComponent,
   // TODO use subcomponents and define argTypes once this issue is resolved: https://github.com/storybookjs/storybook/issues/14710
   // subcomponents: { LgModalHeaderComponent,LgModalBodyComponent, LgModalBodyTimerComponent },
@@ -19,11 +17,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     headingLevel: {
