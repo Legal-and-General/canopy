@@ -1,0 +1,127 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Foundation/Brand icon/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Brand icon
+
+<p class="standfirst">A brand icon allow you to add supporting illustration to messages or journeys.</p>
+
+![example](docs/brand-icon/example.png)
+
+Adding a brand icon can provide extra affordance and help users to making decisions or understand the outcome of a journey.
+
+More illustrative and colourful than UI icons, brand icons draw attention, create narratives and help to visualise data.
+
+## Usage
+
+Consider using the message with illustration pattern for the end of journeys and for empty states.
+
+Import the brand icon module in your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgBrandIconModule ],
+});
+```
+
+
+
+Import the `LgBrandIconRegistry` service and register your brand icons inside your module:
+
+```js
+// import the desired icon
+import { lgBrandIconSun } from '@legal-and-general/canopy';
+
+
+export class AppModule {
+  constructor(private brandIconRegistry: LgBrandIconRegistry) {
+    // register the icon using the `brandIconRegistry` service
+    this.brandIconRegistry.registerBrandIcon([
+      lgBrandIconSun
+    ]);
+  }
+}
+```
+
+
+
+In your HTML:
+
+```html
+<!-- with default size and colour -->
+<lg-brand-icon name="sun"></lg-brand-icon>
+
+<!-- with a size set -->
+<lg-brand-icon name="sun" size="sm"></lg-brand-icon>
+
+<!-- with a colour set -->
+<lg-brand-icon name="sun" colour="--color-lily-green"></lg-brand-icon>
+
+<!-- with the half tone colour set -->
+<lg-brand-icon name="sun" halfToneColour="--color-lily-green"></lg-brand-icon>
+
+<!-- with the outlines colour set -->
+<lg-brand-icon name="sun" outlinesColour="--color-lily-green"></lg-brand-icon>
+```
+
+
+
+### Sizes
+
+Brand icons should be scaled according to the following sizes, to ensure outlines and halftones look clean and crisp.
+
+|                    | **rem** | **px** |
+| ------------------ | ------- | ------ |
+| `--brand-icon-xxs` | 5       | 80     |
+| `--brand-icon-xs`  | 7.5     | 120    |
+| `--brand-icon-sm`  | 10      | 160    |
+| `--brand-icon-md`  | 12.5    | 200    |
+| `--brand-icon-lg`  | 15      | 240    |
+| `--brand-icon-xl`  | 17.5    | 280    |
+| `--brand-icon-xxl` | 20      | 320    |
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/brand-icon/do.png)
+
+- **Do** scale brand icons according to the sizing chart above
+
+### Don’t
+
+![dont](docs/brand-icon/dont.png)
+
+- **Don't** use a brand icon in place of a UI icon, or at a size less than 80px
+
+## Additional development details
+
+### Inputs
+
+| **Name**           | **Description**                                              | **Type**                 | **Default**   | **Required** |
+| ------------------ | ------------------------------------------------------------ | ------------------------ | ------------- | ------------ |
+| ``name``           | the name of the icon                                         | string                   | ``undefined`` | yes          |
+| ``size``           | the size of the icon                                         | BrandIconSize            | 'sm'          | no           |
+| ``colour``         | the specific colour of the icon (for global colours see the "Branding" section below) | css variable as a string | ``undefined`` | no           |
+| ``halfToneColour`` | the specific halftone (dots) colour of the icon             | string *                 | ``undefined`` | no           |
+| ``outlinesColour`` | the specific outlines colour of the icon                     | string *                 | ``undefined`` | no           |
+
+\* if using a css variable only specify `--the-variable`
+
+Note that all the colour inputs can be made invisible by passing `--color-transparent.`
+
+### Branding / Colours
+
+The yellow fill colour of the brand icons can be changed globally by overriding the `--brand-icon-fill-primary` css variable. Note that changing this variable will update the fill colour of all the icons.
+
+To change the colour of a specific icon use the `colour` input on the component.
+
+The halftone and outlines colours can only be applied to a specific icon using the inputs on the component.
+
+## Related
+
+- [UI Icon](./?path=/docs/foundation-ui-icon-guide--page)
+
+<Description markdown={feedback} />
