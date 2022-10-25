@@ -2,10 +2,9 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgBrandIconComponent } from './brand-icon.component';
-import { notes } from './brand-icon.notes';
-import { LgBrandIconRegistry } from './brand-icon.registry';
-import { lgBrandIconsArray } from './brand-icons.interface';
+import { LgBrandIconComponent } from '../brand-icon.component';
+import { LgBrandIconRegistry } from '../brand-icon.registry';
+import { lgBrandIconsArray } from '../brand-icons.interface';
 
 @Component({
   selector: 'lg-swatch-brand-icon',
@@ -83,18 +82,15 @@ const colours = [
 ];
 
 export default {
-  title: 'Components/Brand Icon',
+  title: 'Foundation/Brand icon/Catalog',
   decorators: [
     moduleMetadata({
       declarations: [ SwatchBrandIconComponent, LgBrandIconComponent ],
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     size: {
@@ -195,7 +191,7 @@ const brandIconsTemplate: Story<LgBrandIconComponent> = (args: LgBrandIconCompon
 });
 
 export const standardBrandIcons = brandIconsTemplate.bind({});
-standardBrandIcons.storyName = 'Brand Icon';
+standardBrandIcons.storyName = 'Catalog';
 
 standardBrandIcons.args = {
   size: 'sm',
@@ -206,9 +202,6 @@ standardBrandIcons.args = {
 
 standardBrandIcons.parameters = {
   docs: {
-    description: {
-      component: notes,
-    },
     source: {
       code: exampleTemplate,
     },

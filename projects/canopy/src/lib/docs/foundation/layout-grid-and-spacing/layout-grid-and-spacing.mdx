@@ -1,0 +1,99 @@
+# Layout, grid and spacing
+
+<p class="standfirst">Our responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts. Our common approach across design and development enables us to remain in sync during the development process.</p>
+
+The grid system is useful for responsive page layouts, we recommend that it is used sparingly, for the majority of cases you may be better off just using using flexbox.
+
+## How it works
+
+The grid system is based on a subset of the excellent [Flexbox Grid](http://flexboxgrid.com/) by [kristoferjoseph](http://github.com/kristoferjoseph). The code is a direct port with some additional modifications to:
+
+- Add `lg-` prefixes to reduce risk of clash with existing libraries
+- Modify spacing variables to match our own spacing system
+- Force all containers to be fluid width
+- Remove parts of the grid which we may not need
+
+## Usage
+
+Import the css (or scss) into your application by following the instructions [outlined in our documentation](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#import-the-global-css).
+
+## Designing against breakpoints
+
+We design against SM, MD and LG breakpoints.
+
+![breakpoint-examples](breakpoint-examples.png)
+
+|      | **Breakpoint** | **Min content area** | **Margin** | **Number of columns** | **Gutter** | **Min column width** |
+| ---- | -------------- | -------------------- | ---------- | --------------------- | ---------- | -------------------- |
+| SM   | 320 - 767      | 288                  | 16         | 12                    | 16         | 9                    |
+| MD   | 768 - 1023     | 704                  | 32         | 12                    | 16         | 44                   |
+| LG   | 1024 - 1279    | 960                  | 32         | 12                    | 20         | 62                   |
+| XL   | 1280 - 1440    | 1216                 | 32         | 12                    | 32         | 72                   |
+
+Our flexible grid is made up of three elements; percentage-based columns, fixed margins and gutters. The columns are used to adjust the layout, making the best use of the space available.
+
+Additionally, the grid can be nested, to allow layout rules to be applied within smaller elements.
+
+## Baseline grid and spacing
+
+We use a 4px baseline grid to achieve visual accuracy, cohesion and consistency.
+
+![grid](grid.png)
+
+### Benefits
+
+- It takes the guess work out of how to space things vertically. 
+- It helps to unify scale. 
+- It’s a quick way to consistently line things up across screens. 
+- It makes it easer for everyone to determine spacing.
+
+### Example spacings
+
+- 8px (--space-xs) between labels input and data points
+- 16px (--space-sm) between certain grouped components, such as buttons, and card margins on mobile
+- 32px (--space-lg) between elements in page and card margins on desktop
+
+Don’t be afraid to use liberal vertical spacing – white space is an asset the helps break up content, aid user comprehension and provide pace and vertical rhythm. 
+
+### Variables
+
+| Name            | Value                          | Equivalent in px (based on 16px font-size) |
+| --------------- | ------------------------------ | ------------------------------------------ |
+| `--space-unit`  | 1rem                           | 16px                                       |
+| `--space-xxxs`  | calc(0.25 * var(--space-unit)) | 4px                                        |
+| `--space-xxs`   | calc(0.5 * var(--space-unit))  | 8px                                        |
+| `--space-xs`    | calc(0.75 * var(--space-unit)) | 12px                                       |
+| `--space-sm`    | var(--space-unit)              | 16px                                       |
+| `--space-md`    | calc(1.5 * var(--space-unit))  | 24px                                       |
+| `--space-lg`    | calc(2 * var(--space-unit))    | 32px                                       |
+| `--space-xl`    | calc(2.5 * var(--space-unit))  | 40px                                       |
+| `--space-xxl`   | calc(3 * var(--space-unit))    | 48px                                       |
+| `--space-xxxl`  | calc(4.5 * var(--space-unit))  | 72px                                       |
+| `--space-xxxxl` | calc(9 * var(--space-unit))    | 144px                                      |
+
+### Components padding
+
+| Name                  | Value from 0 to md breakpoint | Value from md breakpoint |
+| --------------------- | ----------------------------- | ------------------------ |
+| `--component-padding` | var(--space-sm)               | var(--space-lg)          |
+
+### Components margin
+
+| Name                 | Value from 0 to lg breakpoint | Value from lg breakpoint |
+| -------------------- | ----------------------------- | ------------------------ |
+| `--component-margin` | var(--space-md)               | var(--space-lg)          |
+
+## Additional directives
+
+- A set of [Angular directives](https://legal-and-general.github.io/canopy/?path=/docs/directives-grid--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements.
+- There is also a [row-gap spacing directive](https://legal-and-general.github.io/canopy/?path=/story/directives-row-gap--row-gap) to enable the use of the CSS row-gap property.
+- There are also two utility directives available which allow you to show/hide components at different breakpoints:
+  - [LgShowAt](https://legal-and-general.github.io/canopy/?path=/docs/directives-show-at--show-at-story)
+  - [LgHideAt](https://legal-and-general.github.io/canopy/?path=/docs/directives-hide-at--hide-at-story)
+
+## Help improve this page
+
+To help make sure this page is useful, relevant and up to date, you can [suggest an improvement](https://forms.office.com/r/6UMyXFeupH).
+
+Please take a moment to [rate your experience of using Canopy](https://forms.office.com/r/ryiKP7ygUK).
+
