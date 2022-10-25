@@ -74,6 +74,8 @@ module.exports = {
     '../projects/canopy/src/styles/mixins.stories.mdx',
     '../projects/canopy/src/styles/spacing.stories.mdx',
     '../projects/canopy/src/styles/utils.stories.mdx',
+    '../projects/canopy/src/styles/blockquote.stories.mdx',
+    '../projects/canopy/src/styles/blockquote.stories.ts',
   ],
   addons: [
     '@storybook/addon-a11y',

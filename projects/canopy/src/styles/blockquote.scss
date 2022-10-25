@@ -1,0 +1,14 @@
+@import 'mixins';
+
+blockquote {
+  border-left: var(--border-radius-lg) solid var(--blockquote-border-left-colour);
+  padding-left: var(--space-sm);
+  @include lg-font-size('2');
+
+  cite {
+    display: block;
+    margin-top: var(--space-sm);
+    font-style: normal;
+    @include lg-font-size('1', 'strong');
+  }
+}
