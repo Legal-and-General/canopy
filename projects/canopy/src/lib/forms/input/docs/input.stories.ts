@@ -6,15 +6,13 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../icon';
-import { LgLabelModule } from '../label/label.module';
-import { LgButtonModule } from '../../button/button.module';
-import { LgHintModule } from '../hint';
-import type { ButtonVariant } from '../../button';
-
-import { LgInputModule } from './input.module';
-import { notes } from './input.notes';
-import { LgInputFieldComponent } from './input-field.component';
+import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../../icon';
+import { LgLabelModule } from '../../label/label.module';
+import { LgButtonModule } from '../../../button/button.module';
+import { LgHintModule } from '../../hint';
+import type { ButtonVariant } from '../../../button';
+import { LgInputModule } from '../input.module';
+import { LgInputFieldComponent } from '../input-field.component';
 
 interface Config {
   block?: boolean;
@@ -176,7 +174,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Input',
+  title: 'Components/Form/Text input/Examples',
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({
@@ -192,11 +190,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     formSubmit: {
