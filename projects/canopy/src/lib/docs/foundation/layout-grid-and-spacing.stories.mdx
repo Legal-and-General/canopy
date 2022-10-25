@@ -1,27 +1,32 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../common/feedback.md';
+
+<Meta title="Foundation/Layout, grid and spacing" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
 # Layout, grid and spacing
 
 <p class="standfirst">Our responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts. Our common approach across design and development enables us to remain in sync during the development process.</p>
 
-The grid system is useful for responsive page layouts, we recommend that it is used sparingly, for the majority of cases you may be better off just using using flexbox.
+The grid system is useful for responsive page layouts, we recommend that it is used sparingly, for the majority of cases you may be better off just using flexbox.
 
 ## How it works
 
-The grid system is based on a subset of the excellent [Flexbox Grid](http://flexboxgrid.com/) by [kristoferjoseph](http://github.com/kristoferjoseph). The code is a direct port with some additional modifications to:
+The grid system is based on a subset of the excellent <a href="http://flexboxgrid.com/" target="_blank">Flexbox Grid</a> by <a href="http://github.com/kristoferjoseph" target="_blank">kristoferjoseph</a>. The code is a direct port with some additional modifications to:
 
 - Add `lg-` prefixes to reduce risk of clash with existing libraries
 - Modify spacing variables to match our own spacing system
 - Force all containers to be fluid width
-- Remove parts of the grid which we may not need
+- Remove parts of the grid which we may not need.
 
 ## Usage
 
-Import the css (or scss) into your application by following the instructions [outlined in our documentation](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#import-the-global-css).
+Import the css (or scss) into your application by following the instructions <a href="https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#import-the-global-css" target="_blank">outlined in our documentation</a>.
 
 ## Designing against breakpoints
 
 We design against SM, MD and LG breakpoints.
 
-![breakpoint-examples](breakpoint-examples.png)
+![breakpoint-examples](docs/layout-grid-and-spacing/breakpoint-examples.png)
 
 |      | **Breakpoint** | **Min content area** | **Margin** | **Number of columns** | **Gutter** | **Min column width** |
 | ---- | -------------- | -------------------- | ---------- | --------------------- | ---------- | -------------------- |
@@ -38,22 +43,22 @@ Additionally, the grid can be nested, to allow layout rules to be applied within
 
 We use a 4px baseline grid to achieve visual accuracy, cohesion and consistency.
 
-![grid](grid.png)
+![grid](docs/layout-grid-and-spacing/grid.png)
 
 ### Benefits
 
-- It takes the guess work out of how to space things vertically. 
-- It helps to unify scale. 
-- It’s a quick way to consistently line things up across screens. 
-- It makes it easer for everyone to determine spacing.
+- It takes the guess work out of how to space things vertically
+- It helps to unify scale
+- It's a quick way to consistently line things up across screens
+- It makes it easier for everyone to determine spacing.
 
 ### Example spacings
 
 - 8px (--space-xs) between labels input and data points
 - 16px (--space-sm) between certain grouped components, such as buttons, and card margins on mobile
-- 32px (--space-lg) between elements in page and card margins on desktop
+- 32px (--space-lg) between elements in page and card margins on desktop.
 
-Don’t be afraid to use liberal vertical spacing – white space is an asset the helps break up content, aid user comprehension and provide pace and vertical rhythm. 
+Don't be afraid to use liberal vertical spacing – white space is an asset the helps break up content, aid user comprehension and provide pace and vertical rhythm.
 
 ### Variables
 
@@ -85,15 +90,11 @@ Don’t be afraid to use liberal vertical spacing – white space is an asset th
 
 ## Additional directives
 
-- A set of [Angular directives](https://legal-and-general.github.io/canopy/?path=/docs/directives-grid--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements.
-- There is also a [row-gap spacing directive](https://legal-and-general.github.io/canopy/?path=/story/directives-row-gap--row-gap) to enable the use of the CSS row-gap property.
+- A set of [Angular directives](./?path=/docs/directives-grid--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements
+- There is also a [row-gap spacing directive](./?path=/story/directives-row-gap--row-gap) to enable the use of the CSS row-gap property
 - There are also two utility directives available which allow you to show/hide components at different breakpoints:
-  - [LgShowAt](https://legal-and-general.github.io/canopy/?path=/docs/directives-show-at--show-at-story)
-  - [LgHideAt](https://legal-and-general.github.io/canopy/?path=/docs/directives-hide-at--hide-at-story)
+  - [LgShowAt](./?path=/docs/directives-show-at--show-at-story)
+  - [LgHideAt](./?path=/docs/directives-hide-at--hide-at-story)
 
-## Help improve this page
-
-To help make sure this page is useful, relevant and up to date, you can [suggest an improvement](https://forms.office.com/r/6UMyXFeupH).
-
-Please take a moment to [rate your experience of using Canopy](https://forms.office.com/r/ryiKP7ygUK).
+<Description markdown={feedback} />
 
