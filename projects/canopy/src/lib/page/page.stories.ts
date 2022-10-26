@@ -1,6 +1,6 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { primaryLinks, secondaryLinks } from '../footer/footer.stories';
+import { primaryLinks, secondaryLinks } from '../footer/docs/footer.stories';
 import { LgGridModule } from '../grid';
 import { LgMarginModule } from '../spacing';
 import { LgHeaderModule } from '../header';
