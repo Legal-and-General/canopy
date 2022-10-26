@@ -1,0 +1,117 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../../../docs/common/feedback.md';
+
+<Meta title="Components/Form/Segment/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Segment
+
+<p class="standfirst">The segment control can be used on forms where the user is required to make a conscious decision between several choices (min 2, max 5) and vertical space on desktop is limited.</p>
+
+![example](docs/segment/example.png)
+
+## Usage
+
+Use a segment control when users need to make one selection from multiple options and where vertical space is limited. 
+
+It's also intended as an alternative to radio buttons when the user needs to make a conscious choice i.e. unlike a radio button which always has one option selected by default.
+
+The segment component is a variant of the radio component.
+
+Import the radio module into your module:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgRadioModule ],
+});
+```
+
+and in your HTML:
+
+```html
+<lg-segment-group formControlName="color">
+  Colour
+  <lg-segment-button value="red">Red</lg-segment-button>
+  <lg-segment-button value="yellow">Yellow</lg-segment-button>
+</lg-segment-group>
+```
+
+## How it works
+
+The segment control is made up of a segment group and segment buttons. A segment group is a container which displays a label, optional hint and two or more segment buttons. Under the hood, segment buttons are restyled radio buttons. 
+
+- In the default state, nothing is selected
+- Only one option can be selected and active at any one time. Selecting one option deselects any other
+- There must be a clear colour contrast between the selected and the unselected options
+- If there's not enough space to display the segment in a horizontal layout, a vertical layout may be used up to tablet breakpoint. A choice on which breakpoint the segment changes from vertical to horizontal should be made at design time (vertical stacking up to SM, MD or LG breakpoints)
+- Use a hint to provide extra context to the user
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/segment/do.png)
+
+1. **Do** use when only one option can be selected from multiple options and where vertical space is limited
+2. **Do** use the vertical variant on mobile, when space may not permit use of the horizontal variant
+
+### Don't
+
+![dont](docs/segment/dont.png)
+
+1. **Don't** use when multiple items from a list can be selected, instead use checkboxes
+2. **Don't** use when the preset options is a long list (more than five), use the select component instead
+
+## Additional development details
+
+**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
+
+### Displaying the buttons at different breakpoints
+
+Segment buttons are displayed inline, unless given a `RadioStackBreakpoint`, which tells them at which breakpoint should they appear stacked on top of each other. The `RadioStackBreakpoint` can be added using the `stack` input (see table below).
+
+### LgRadioGroupComponent
+
+#### Inputs
+
+| Name  | Description                                                  | Type              | Default                               | Required |
+| ----- | ------------------------------------------------------------ | ----------------- | ------------------------------------- | -------- |
+| ``id``    | HTML ID attribute, auto generated if not provided            | string            | ``lg-radio-group-id-${nextUniqueId++}`` | No       |
+| ``name``  | Set the name value for all inputs in the group, auto-generated if not provided | string            | ``lg-radio-group-${nextUniqueId++}``    | No       |
+| ``value`` | Set the default checked radio button, must match the value of the radio button | boolean or string | ``null``                                  | No       |
+| ``focus`` | Set the focus on the fieldset                                | boolean           | ``null``                                  | No       |
+| ``stack`` | Stack the segment buttons at a given breakpoint              | sm, md, lg        | ``false``                                 | No       |
+
+### LgRadioButtonComponent
+
+#### Inputs
+
+| Name            | Description                                                  | Type    | Default                             | Required |
+| --------------- | ------------------------------------------------------------ | ------- | ----------------------------------- | -------- |
+| ``id``              | HTML ID attribute, auto generated if not provided            | string  | ``lg-radio-button-${++nextUniqueId}`` | No       |
+| ``name``            | HTML name attribute                                          | string  | ``null``                                | Yes      |
+| ``value``           | HTML value attribute                                         | string  | ``null``                                | Yes      |
+| ``ariaDescribedBy`` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | boolean | ``null``                                | No       |
+
+#### Outputs
+
+| Name | Description                             | Type         | Default | Required |
+| ---- | --------------------------------------- | ------------ | ------- | -------- |
+| ``blur`` | Event emitted on blur of a radio button | EventEmitter | ``n/a``     | No       |
+
+------
+
+## Research on this component
+
+This is based on best practice.
+
+## Related
+
+Patterns which may perform a similar task, or which should be considered instead
+
+- [Radio buttons](./?path=/docs/components-form-radio--radio)
+- [Select](./?path=/docs/components-form-select--select)
+- [Toggle switch](./?path=/docs/components-form-switch--switch-obj)
+- [Checkbox](./?path=/docs/components-form-checkbox--checkbox)
+
+<Description markdown={feedback} />
