@@ -1,0 +1,29 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Helpers/Directives/Focus/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Focus
+
+This directive allows for focus to be set dynamically on a focusable element.
+
+## Usage
+Import the directive in your module:
+
+~~~
+@NgModule({
+  ...
+  imports: [ ..., LgFocusModule ],
+});
+~~~
+
+and in your HTML:
+
+<Source id="helpers-directives-focus-examples--focus"></Source>
+
+### Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| `lgFocus` | Wether the element should be focused or not | boolean | `null` | Yes |
+
+<Description markdown={feedback} />
