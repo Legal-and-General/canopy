@@ -1,16 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgGridModule } from '../grid';
-import { LgHeadingModule } from '../heading';
-import { LgButtonModule } from '../button';
-import { LgSeparatorModule } from '../separator';
-import { LgSpacingModule } from '../spacing';
-
-import { LgPromoCardModule } from './promo-card.module';
-import { notes } from './promo-card.notes';
-import { LgPromoCardComponent } from './promo-card/promo-card.component';
-import { PromoCardVariant } from './promo-card.interface';
+import { LgGridModule } from '../../grid';
+import { LgHeadingModule } from '../../heading';
+import { LgButtonModule } from '../../button';
+import { LgSeparatorModule } from '../../separator';
+import { LgSpacingModule } from '../../spacing';
+import { LgPromoCardModule } from '../promo-card.module';
+import { LgPromoCardComponent } from '../promo-card/promo-card.component';
+import { PromoCardVariant } from '../promo-card.interface';
 
 const cardListConfig = {
   title: 'Get more from Legal & General',
@@ -78,7 +76,7 @@ class PromoCardListStoryComponent {
 const variants = [ 'solid-white', 'solid-green' ];
 
 export default {
-  title: 'Components/Promo Card',
+  title: 'Components/Promo card/Examples',
   decorators: [
     moduleMetadata({
       declarations: [ PromoCardListStoryComponent ],
@@ -93,11 +91,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     variant1: {
@@ -152,32 +147,32 @@ export default {
 } as Meta;
 
 const examplePromoCardTemplate = `
-  <lg-promo-card-list>
-    <lg-separator [variant]="'dotted'" lgMargin="none"></lg-separator>
-    <lg-promo-card-list-title headingLevel="1">
-      {{ title }}
-    </lg-promo-card-list-title>
-    <lg-promo-card
-      *ngFor="let card of cards; let i = index;"
-      variant="variant[i]">
-      <lg-promo-card-image [imageUrl]="card.imageUrl"></lg-promo-card-image>
-      <lg-promo-card-title headingLevel="2">
-        {{ card.title }}
-      </lg-promo-card-title>
-      <lg-promo-card-content>
-        <p>{{ card.content }}</p>
-      </lg-promo-card-content>
-      <lg-promo-card-footer>
-        <button
-          lgMarginBottom="none"
-          lg-button
-          type="button"
-          [variant]="variant[i] === 'solid-white' ? 'primary-dark' : 'primary-light'">
-          {{ card.ctaText }}
-        </button>
-      </lg-promo-card-footer>
-    </lg-promo-card>
-  </lg-promo-card-list>
+<lg-promo-card-list>
+  <lg-separator [variant]="'dotted'" lgMargin="none"></lg-separator>
+  <lg-promo-card-list-title headingLevel="1">
+    {{ title }}
+  </lg-promo-card-list-title>
+  <lg-promo-card
+    *ngFor="let card of cards; let i = index;"
+    variant="variant[i]">
+    <lg-promo-card-image [imageUrl]="card.imageUrl"></lg-promo-card-image>
+    <lg-promo-card-title headingLevel="2">
+      {{ card.title }}
+    </lg-promo-card-title>
+    <lg-promo-card-content>
+      <p>{{ card.content }}</p>
+    </lg-promo-card-content>
+    <lg-promo-card-footer>
+      <button
+        lgMarginBottom="none"
+        lg-button
+        type="button"
+        [variant]="variant[i] === 'solid-white' ? 'primary-dark' : 'primary-light'">
+        {{ card.ctaText }}
+      </button>
+    </lg-promo-card-footer>
+  </lg-promo-card>
+</lg-promo-card-list>
 `;
 
 const promoCardListTemplate: Story<LgPromoCardComponent> = (
@@ -189,7 +184,7 @@ const promoCardListTemplate: Story<LgPromoCardComponent> = (
 });
 
 export const promoCardList = promoCardListTemplate.bind({});
-promoCardList.storyName = 'Promo Card List';
+promoCardList.storyName = 'Promo card list';
 promoCardList.component = promoCardListTemplate;
 
 promoCardList.args = {

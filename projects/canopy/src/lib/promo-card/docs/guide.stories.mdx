@@ -1,10 +1,17 @@
-export const notes = `
-Promo Cards allow you to arrange content in a card-like manner for promotional purposes. Promo Cards are organised by a
-Promo Card List and will be displayed in columns on desktops and stacked on mobile devices.
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
 
-### Content guidelines
+<Meta title="Components/Promo card/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
 
-Each Promo Card should respect the following conventions:
+# Promo cards
+
+<p class="standfirst">Promo cards allow you to arrange content in a card-like manner for promotional purposes.</p>
+
+Promo cards are organised by a promo card list component and will be displayed in columns on desktops and stacked on mobile devices.
+
+## Content guidelines
+
+Each promo card should respect the following conventions:
 
 - Title - max 33 characters (with spaces)
 - Content - max 140 characters (with spaces)
@@ -15,16 +22,16 @@ This is not enforced in the code, but it should be followed as close as possible
 
 ## Usage
 
-Import the component in your module:
+Import the promo cards module in your module:
 
 ~~~js
 @NgModule({
   ...
   imports: [ ..., LgPromoCardModule ],
-})
+});
 ~~~
 
-and in your HTML, place your Promo Cards in your Promo Card List:
+and in your HTML, place the promo cards in the promo card list:
 
 ~~~html
 <lg-promo-card-list>
@@ -54,11 +61,16 @@ and in your HTML, place your Promo Cards in your Promo Card List:
 </lg-promo-card-list>
 ~~~
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`headingLevel\`\` | Allows the card (list) heading level to be set | number | n/a | Yes |
-| \`\`variant\`\` | The variant of promo card: \`\`solid-white\`\`, \`\`solid-green\`\` | PromoCardVariant | 'solid-white' | No |
-| \`\`imageUrl\`\` | Identifies the card image | string | n/a | Yes |
-`;
+| ``headingLevel`` | Allows the card (list) heading level to be set | number | n/a | Yes |
+| ``variant`` | The variant of promo card: ``solid-white``, ``solid-green`` | PromoCardVariant | ``solid-white`` | No |
+| ``imageUrl`` | Identifies the card image | string | n/a | Yes |
+
+## Related
+
+- [Card](./?path=/docs/components-card-guide--page)
+
+<Description markdown={feedback} />
