@@ -1,16 +1,14 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
-import { LgHeaderComponent } from '../header/header.component';
+import { LgHeaderComponent } from '../../header/header.component';
+import { LgHeaderModule } from '../../header/header.module';
 import {
   LgIconModule,
   LgIconRegistry,
   lgIconProfile,
   lgIconRadioButtonUnselected,
-} from '../icon';
-
-import { notes } from './header.notes';
-import { LgHeaderModule } from './header.module';
+} from '../../icon';
 
 const navigationTemplate = `
 <header lg-header>
@@ -64,7 +62,7 @@ class PrimaryNavigationComponent {
 }
 
 export default {
-  title: 'Components/Header',
+  title: 'Components/Header/Examples',
   component: LgHeaderComponent,
   decorators: [
     moduleMetadata({
@@ -74,11 +72,8 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     logo: {
