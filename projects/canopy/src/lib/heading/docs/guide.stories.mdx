@@ -1,0 +1,29 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Helpers/Components/Heading/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Heading
+
+This component allows for headings to be set dynamically.
+
+**It should only be used within other components (see the [accordion component](https://github.com/Legal-and-General/canopy/blob/master/projects/canopy/src/lib/accordion/accordion-panel-heading/accordion-panel-heading.component.html) as an example).**
+
+## Usage
+
+Import the heading module in your module:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgHeadingModule ],
+});
+~~~
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| `level` | The heading level | number | `undefined` | Yes |
+
+<Description markdown={feedback} />
