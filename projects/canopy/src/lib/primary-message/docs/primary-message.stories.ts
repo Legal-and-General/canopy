@@ -1,16 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgButtonModule } from '../button';
+import { LgButtonModule } from '../../button';
 import {
   lgBrandIconCalendar,
   LgBrandIconModule,
   LgBrandIconRegistry,
-} from '../brand-icon';
-
-import { notes } from './primary-message.notes';
-import { LgPrimaryMessageModule } from './primary-message.module';
-import { LgPrimaryMessageComponent } from './primary-message.component';
+} from '../../brand-icon';
+import { LgPrimaryMessageModule } from '../primary-message.module';
+import { LgPrimaryMessageComponent } from '../primary-message.component';
 
 @Component({
   selector: 'lg-primary-message-story',
@@ -41,7 +39,7 @@ class LgPrimaryMessageStoryComponent {
 }
 
 export default {
-  title: 'Components/Primary Message',
+  title: 'Components/Primary message/Examples',
   component: LgPrimaryMessageStoryComponent,
   decorators: [
     moduleMetadata({
@@ -49,11 +47,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     hasRole: {
@@ -105,7 +100,7 @@ const detailsTemplate: Story<LgPrimaryMessageComponent> = (
 });
 
 export const standardPrimaryMessage = detailsTemplate.bind({});
-standardPrimaryMessage.storyName = 'Primary Message';
+standardPrimaryMessage.storyName = 'Primary message';
 
 standardPrimaryMessage.args = {
   hasRole: true,

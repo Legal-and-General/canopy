@@ -1,0 +1,101 @@
+import { Meta, Source } from '@storybook/addon-docs';
+import Feedback from '../../docs/common/feedback.md';
+
+<Meta title="Components/Primary message/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Primary message
+
+<p class="standfirst">A message that sits in the page and provides a simple and engaging message to the user.</p>
+
+![example](docs/primary-message/example.png)
+
+## Usage
+
+A primary message should contain key information, while not requiring full and immediate attention. It can be used in the following contexts:
+
+| State       | Use when                            | Example                                     |
+|-------------|-------------------------------------|---------------------------------------------|
+| Empty       | No items to show                    | You have no transactions                    |
+| Error       | Something is erroneous              | Cannot find the page you are looking for    |
+| Information | Additional information is available | New feature intro guide                     |
+| Success     | An action was completed             | All done! Completion of application journey |
+
+
+
+Import the primary message module into your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgPrimaryMessageModule ],
+});
+```
+
+
+
+and in your HTML:
+
+<Source id="components-primary-message-examples--standard-primary-message"></Source>
+
+
+
+## How it works
+
+A primary message should be the only content that displays in a container.
+
+- It contains a brand icon that can be tinted. Choose an appropriate brand icon from the [brand icon catalogue](./?path=/story/foundation-brand-icon-catalog--standard-brand-icons), and choose an appropriate tint according to the scenario. For instance, a success state brand icon might be tinted with `--color-lily-green`. Read the [brand icon guide](./?path=/docs/foundation-brand-icon-guide--page) for more details.
+- It contains a title and description. [Read our writing page](./?path=/docs/principles-writing--page) for how to write appropriate copy.
+- (Optional) It can contain a button. When using a primary message at the end of a journey, adding a button is a great way to guide the user to the next step so they don't get stuck in a dead-end.
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/primary-message/do.png)
+
+1. **Do** use when there is no other functionality or content.
+2. **Do** use when space is not limited.
+3. **Do** use an appropriate brand icon to capture the message you want to convey.
+4. **Do** recolour the tint according to status.
+
+### Don't
+
+![dont](docs/primary-message/dont.png)
+
+1. **Don't** use on a page where it's not the only content, e.g. a form.
+2. **Don't** use for validation. Use form validation instead.
+
+## Additional developer details
+
+### LgPrimaryMessageComponent
+
+This is where the `LgBrandIcon`, `LgPrimaryMessageTitleComponent` and `LgPrimaryMessageDescriptionComponent` are projected.
+
+#### Inputs
+
+| Name      | Description                                           | Type      | Default | Required |
+|-----------|-------------------------------------------------------|-----------|---------|----------|
+| `hasRole` | If false, removes the role `alert` from the component | `boolean` | `true`  | No       |
+
+### LgPrimaryMessageTitleComponent
+
+This is where the title (main message) is projected.
+
+### LgPrimaryMessageDescriptionComponent
+
+This is where the description (main message) is projected.
+
+A primary message can have more than one `LgPrimaryMessageDescriptionComponent`.
+
+------
+
+## Research on this component
+
+This component is based on best practice and has not had specific usability testing.
+
+## Related
+
+- [Inline message](./?path=/docs/components-inline-message-alert-guide--page)
+- [Modal](./?path=/docs/components-modal-guide--page)
+
+<Feedback />
