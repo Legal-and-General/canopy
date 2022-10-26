@@ -1,14 +1,12 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgCardModule } from '../card';
-import { LgSeparatorModule } from '../separator';
-import { LgHideAtDirective, LgHideAtModule } from '../hide-at';
-
-import { notes } from './hide-at.notes';
+import { LgCardModule } from '../../card';
+import { LgSeparatorModule } from '../../separator';
+import { LgHideAtDirective, LgHideAtModule } from '../../hide-at';
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Directives/Hide at',
+  title: 'Helpers/Directives/Hide at/Examples',
   component: LgHideAtDirective,
   decorators: [
     moduleMetadata({
@@ -16,11 +14,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     lgHideAt: {
