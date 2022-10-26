@@ -6,11 +6,9 @@ import {
 } from '@angular/forms';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgHintModule } from '../hint';
-
-import { notes } from './select.notes';
-import { LgSelectModule } from './select.module';
-import { LgSelectFieldComponent } from './select-field.component';
+import { LgHintModule } from '../../hint';
+import { LgSelectModule } from '../select.module';
+import { LgSelectFieldComponent } from '../select-field.component';
 
 const template = `
 <lg-select-field [block]="block">
@@ -58,7 +56,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Select',
+  title: 'Components/Form/Select/Examples',
   component: LgSelectFieldComponent,
   decorators: [
     moduleMetadata({
@@ -67,11 +65,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     id: {
