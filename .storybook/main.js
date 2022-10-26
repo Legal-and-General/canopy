@@ -70,7 +70,8 @@ module.exports = {
     // Patterns
     '../projects/canopy/src/lib/filter-container/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/filter-container/docs/filter-container.stories.ts',
-    '../projects/canopy/src/lib/forms/date/date-field.stories.ts',
+    '../projects/canopy/src/lib/forms/date/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/forms/date/docs/date-field.stories.ts',
     '../projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts',
     '../projects/canopy/src/lib/hero/hero.stories.ts',
     '../projects/canopy/src/lib/hero-img/hero-img.stories.ts',

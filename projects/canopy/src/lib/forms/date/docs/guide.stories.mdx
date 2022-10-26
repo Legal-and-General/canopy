@@ -1,14 +1,21 @@
-export const notes = `
-Provides a component for capturing and validating a date. Output is a concatenation of individual string values into a valid ISO 8601 date format 'YYYY-MM-DD'.
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../../docs/common/feedback.md';
+
+<Meta title="Patterns/Date input/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Date input
+
+<p class="standfirst">Provides a component for capturing and validating a date.</p>
+The output is a concatenation of individual string values into a valid ISO 8601 date format 'YYYY-MM-DD'.
 
 ## Usage
-Import the Date Input Module into your application:
+Import the date input module into your module:
 
 ~~~js
 @NgModule({
   ...
   imports: [ ..., LgDateFieldModule ],
-})
+});
 ~~~
 
 and in your HTML:
@@ -49,25 +56,23 @@ and in your HTML:
 </form>
 ~~~
 
-**Note: for the validation to work properly it's very important to include the \`ngForm\` on the form tag and for the submit button to be within the form.**
+**Note: for the validation to work properly it's very important to include the `ngForm` on the form tag and for the submit button to be within the form.**
 
-## Inputs
-
-### LgDateFieldComponent
+### LgDateFieldComponent inputs
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`dateId\`\` | HTML ID attribute for the date input, auto generated if not provided | string | 'lg-input-date-\${nextUniqueId++}' | No |
-| \`\`monthId\`\` | HTML ID attribute for the month input, auto generated if not provided | string | 'lg-input-month-\${nextUniqueId++}' | No |
-| \`\`yearId\`\` | HTML ID attribute for the year input, auto generated if not provided | string | 'lg-input-year-\${nextUniqueId++}' | No |
-| \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the date field, if not provided it will use the hint field where appropriate | string | null | No |
-| \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
+| ``dateId`` | HTML ID attribute for the date input, auto generated if not provided | string | 'lg-input-date-\${nextUniqueId++}' | No |
+| ``monthId`` | HTML ID attribute for the month input, auto generated if not provided | string | 'lg-input-month-\${nextUniqueId++}' | No |
+| ``yearId`` | HTML ID attribute for the year input, auto generated if not provided | string | 'lg-input-year-\${nextUniqueId++}' | No |
+| ``ariaDescribedBy`` | HTML ID for the corresponding element that describes the date field, if not provided it will use the hint field where appropriate | string | null | No |
+| ``focus`` | Set the focus on the fieldset | boolean | null | No |
 
 ## Validation
 Date validation is quite complex with a range of different validation errors, where possible we have encapsulated as much of that complexity into the components as we can.
 
 Internally the date-field can determine if the entered date is a valid date. If additional validation is required such as checking for past or future dates this can be done with external validators.
 
-For the validation to work properly it's very important to include the \`ngForm\` on the form tag and for the submit button to be within the form.
+For the validation to work properly it's very important to include the `ngForm` on the form tag and for the submit button to be within the form.
 
 ### Internal validation
 In some scenarios there could be multiple fields that are incorrect, to help guide the users to the correct issue the date field only returns the most significant validation error. Only one error should be shown at a time.
@@ -79,7 +84,7 @@ The current significance of errors with their recommended messages is as follows
 #### 1. Invalid fields
 
 One field is invalid, this may be a non numerical character, or a number outside the valid range .e.g 13 for a month.
-\`Enter a valid month\`
+`Enter a valid month`
 
 ~~~json
 
@@ -89,7 +94,7 @@ One field is invalid, this may be a non numerical character, or a number outside
 
 
 As above but with two fields displaying an error.
-\`Enter a valid month and year\`
+`Enter a valid month and year`
 
 ~~~json
 
@@ -98,7 +103,7 @@ As above but with two fields displaying an error.
 ~~~
 
 If all three fields are invalid a generic 'invalidDate' message is provided.
-\`Enter a valid date of birth\`
+`Enter a valid date of birth`
 
 ~~~json
 
@@ -109,7 +114,7 @@ If all three fields are invalid a generic 'invalidDate' message is provided.
 #### 2. Required fields
 
 If one field is empty either through form submission or inline deletion of the content.
-\`Date of birth must include month\`
+`Date of birth must include month`
 
 ~~~json
 
@@ -118,7 +123,7 @@ If one field is empty either through form submission or inline deletion of the c
 ~~~
 
 As above but with two fields missing.
-\`Date of birth must include a month and year\`
+`Date of birth must include a month and year`
 
 
 ~~~json
@@ -128,7 +133,7 @@ As above but with two fields missing.
 ~~~
 
 If all three fields are missing an 'invalidDate' message is provided.
-\`Enter a valid date of birth\`
+`Enter a valid date of birth`
 
 ~~~json
 
@@ -138,14 +143,13 @@ If all three fields are missing an 'invalidDate' message is provided.
 
 #### 2. Invalid date
 
-If all of the individual fields are correct but they do not concatenate to a valid date. e.g. 30 02 2020
+If all the individual fields are correct, but they do not concatenate to a valid date. e.g. 30 02 2020. `Enter a valid date of birth`
 
 ~~~json
 
 { invalidDate: true }
 
 ~~~
-\`Enter a valid date of birth\`
 
 ### External validation
 
@@ -247,4 +251,5 @@ const control = new FormControl('', {
   Date must be after {{ date.errors.afterDate.required }}
 </ng-container>
 ~~~
-`;
+
+<Description markdown={feedback} />

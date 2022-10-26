@@ -6,11 +6,9 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgHintModule } from '../hint';
-
-import { notes } from './date-field.notes';
-import { LgDateFieldComponent } from './date-field.component';
-import { LgDateFieldModule } from './date-field.module';
+import { LgHintModule } from '../../hint';
+import { LgDateFieldComponent } from '../date-field.component';
+import { LgDateFieldModule } from '../date-field.module';
 
 const template = `
 <lg-date-field [focus]="focus" formControlName="date">
@@ -54,7 +52,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Date input',
+  title: 'Patterns/Date input/Examples',
   component: LgDateFieldComponent,
   decorators: [
     moduleMetadata({
@@ -63,11 +61,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     inputChange: {
