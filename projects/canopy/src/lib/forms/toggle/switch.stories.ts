@@ -7,7 +7,7 @@ import {
   createToggleStory,
   ReactiveToggleFormComponent,
   setupToggleStoryValues,
-} from './toggle.stories.common';
+} from './docs/toggle.stories.common';
 import { LgToggleComponent } from './toggle.component';
 
 export default {

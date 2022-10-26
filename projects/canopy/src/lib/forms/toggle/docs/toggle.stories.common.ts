@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
-import type { ToggleVariant } from './toggle.interface';
-import { LgToggleModule } from './toggle.module';
-import { CheckboxSize } from './toggle.interface';
+import type { ToggleVariant } from '../toggle.interface';
+import { LgToggleModule } from '../toggle.module';
+import { CheckboxSize } from '../toggle.interface';
 
 @Component({
   selector: 'lg-reactive-form',
