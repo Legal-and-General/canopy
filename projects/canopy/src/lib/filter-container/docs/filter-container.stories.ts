@@ -1,11 +1,9 @@
 import { Directive, Input } from '@angular/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { lgIconChevronDown, lgIconFilter, LgIconRegistry } from '../icon';
-import { ButtonVariant } from '../button';
-
-import { notes } from './filter-container.notes';
-import { LgFilterContainerModule } from './filter-container.module';
+import { lgIconChevronDown, lgIconFilter, LgIconRegistry } from '../../icon';
+import { ButtonVariant } from '../../button';
+import { LgFilterContainerModule } from '../filter-container.module';
 
 @Directive({
   selector: '[lgStoryToggle]',
@@ -22,7 +20,7 @@ const buttonVariants = [ 'primary-dark', 'secondary-dark' ];
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Components/Filter Container',
+  title: 'Patterns/Filter container/Examples',
   decorators: [
     moduleMetadata({
       declarations: [ StoryToggleDirective ],
@@ -30,11 +28,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     variant: {
@@ -93,7 +88,7 @@ const filterContainerTemplate: Story<LgFilterContainerModule> = (
 });
 
 export const standardFilterContainer = filterContainerTemplate.bind({});
-standardFilterContainer.storyName = 'Filter Container';
+standardFilterContainer.storyName = 'Filter container';
 
 standardFilterContainer.args = {
   variant: 'secondary-dark',
