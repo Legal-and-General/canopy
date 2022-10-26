@@ -1,11 +1,9 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgGridModule } from '../grid';
-import { LgCardModule } from '../card';
-
-import { notes } from './hero-img.notes';
-import { LgHeroImgComponent } from './hero-img.component';
-import { LgHeroImgModule } from './hero-img.module';
+import { LgGridModule } from '../../grid';
+import { LgCardModule } from '../../card';
+import { LgHeroImgComponent } from '../hero-img.component';
+import { LgHeroImgModule } from '../hero-img.module';
 
 const bodyHTML = `
   <div lgContainer>
@@ -52,7 +50,7 @@ export const imageBackgroundHeroHTML = `
 `;
 
 export default {
-  title: 'Components/Hero Image',
+  title: 'Patterns/Hero image/Examples',
   excludeStories: [ 'imageBackgroundHeroHTML' ],
   decorators: [
     moduleMetadata({
@@ -61,11 +59,8 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component: notes(imageBackgroundHeroHTML),
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     overlap: {
@@ -93,7 +88,7 @@ const heroImgStory: Story<LgHeroImgComponent> = (args: LgHeroImgComponent) => ({
 });
 
 export const heroImg = heroImgStory.bind({});
-heroImg.storyName = 'Hero Image';
+heroImg.storyName = 'Hero image';
 
 heroImg.args = {
   overlap: 2,
@@ -105,7 +100,7 @@ heroImg.args = {
 heroImg.parameters = {
   docs: {
     source: {
-      code: template,
+      code: imageBackgroundHeroHTML,
     },
   },
 };

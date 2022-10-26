@@ -76,7 +76,8 @@ module.exports = {
     '../projects/canopy/src/lib/forms/sort-code/sort-code.stories.ts',
     '../projects/canopy/src/lib/hero/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/hero/docs/hero.stories.ts',
-    '../projects/canopy/src/lib/hero-img/hero-img.stories.ts',
+    '../projects/canopy/src/lib/hero-img/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/hero-img/docs/hero-img.stories.ts',
     '../projects/canopy/src/lib/side-nav/side-nav.stories.ts',
     // Templates
     '../projects/canopy/src/lib/page/page.stories.ts',
