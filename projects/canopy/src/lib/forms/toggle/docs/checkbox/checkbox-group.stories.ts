@@ -6,12 +6,10 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgHintModule } from '../hint';
-import { LgToggleModule } from '../toggle';
-
-import { notes } from './checkbox-group.notes';
-import { LgCheckboxGroupComponent } from './checkbox-group.component';
-import { LgCheckboxGroupModule } from './checkbox-group.module';
+import { LgHintModule } from '../../../hint';
+import { LgToggleModule } from '../../../toggle';
+import { LgCheckboxGroupComponent } from '../../../checkbox-group/checkbox-group.component';
+import { LgCheckboxGroupModule } from '../../../checkbox-group/checkbox-group.module';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -57,7 +55,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Checkbox group',
+  title: 'Components/Form/Checkbox/Examples',
   component: LgCheckboxGroupComponent,
   decorators: [
     moduleMetadata({
@@ -66,11 +64,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes('Checkbox'),
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     id: {
