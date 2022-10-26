@@ -26,6 +26,7 @@ module.exports = {
     '../projects/canopy/src/lib/details/docs/details.stories.ts',
     '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
     '../projects/canopy/src/lib/filter-container/filter-container.stories.ts',
+    '../projects/canopy/src/lib/forms/docs/forms-design.stories.mdx',
     '../projects/canopy/src/lib/forms/checkbox-group/checkbox-group.stories.ts',
     '../projects/canopy/src/lib/forms/checkbox-group/filter-group.stories.ts',
     '../projects/canopy/src/lib/forms/date/date-field.stories.ts',

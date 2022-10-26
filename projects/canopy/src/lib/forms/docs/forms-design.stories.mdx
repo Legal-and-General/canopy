@@ -1,0 +1,90 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Components/Form/Introduction to form design" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Introduction to form design
+
+<p class="standfirst">This page gives an overview of how we should design and build our forms, taking usability and accessibility into account. It is intended to give a clear set of guidelines, based on industry research and best practice.</p>
+
+Many of the behaviours and guidelines described here are encapsulated in the [form journey card](https://legal-and-general.github.io/canopy/?path=/story/components-card-examples--form-journey-card), which should be used any time a form journey is needed.
+
+## Layout
+
+![layout](docs/forms/forms-design/layout.png)
+
+### 1. Arrange in a single column
+
+To make it easy for the user to understand the flow of the form, and steps to complete it, all fields should be arranged in a single column.
+
+### 2. Group related information
+
+By grouping items together and spacing the groups apart, it becomes easier for the user to understand the purpose of the form. Examples of groups are personal information (name, gender, date of birth) or contact information (phone number, email).
+
+### 3. Chunking
+
+For long forms, split the journey into several steps across multiple pages. This avoids overwhelming the user and allows them to focus on the task at hand.
+
+### 4. Logical sequencing
+
+Arrange form fields in an order that makes sense. For instance, don't ask for contact information before personal information.
+
+## Fields
+
+![fields](docs/forms/forms-design/fields.png)
+
+### Buttons
+
+#### Alignment
+
+Buttons should be aligned to the left edge of the form. As Adam Silver puts it:
+
+> Illuminate a clear path to completion. Aligning inputs and actions with a strong vertical axis clearly communicates how to go about completing a form.
+
+Left-aligned buttons are also more accessible for users who use a screen magnifier. This is because the button appears in the position they expect, without having to pan the page to find it.
+
+[The form journey card](./?path=/story/components-card-examples--form-journey-card) provides form submit and cancel buttons for you.
+
+#### Back buttons
+
+If your form requires some way to navigate back through the journey, add a back button at the top of the form. [Use the form journey card](./?path=/story/components-card-examples--form-journey-card), as it provides the back button for you.
+
+#### Disabled buttons
+
+Buttons perform a key role in providing users with positive and negative feedback, **and therefore should not be disabled**. Doing so prevents feedback and prevents the user from understand how to fix problems on the form.
+
+### Labels
+
+Labels should be top aligned, not inline with form elements. Hints should be placed below the label and above the input. All Canopy form components come with a label and optional hint, with no additional styling required.
+
+### Inputs
+
+- Format fields with input masks
+- Don't slice fields if possible (e.g. first name / last name)
+- Mark optional fields instead of mandatory ones. The best way is to use "(optional)" alongside the label. For instance, `Mobile number (optional)`
+- Stack radio buttons and checkboxes vertically with one option per line, not horizontally
+- Use Select inputs as a last resort – use radio buttons, or a segment control instead.
+
+#### Field width
+
+Make sure your field widths are appropriate to the length of the expected information.
+
+- **For fields with known lengths** (such as phone numbers or postcodes), the field width should not exceed the length of the information
+- **For fields with variable length input** (such as username or email), find a suitable width based on the average length of possible inputs, or align to a suitable column width.
+
+## Validation
+
+![validation](docs/forms/forms-design/validation.png)
+
+For more information about form validation, [read the validation guide](./?path=/docs/components-form-validation--validation).
+
+## References
+
+- <a href="https://medium.com/@carolinalina/the-ultimate-guide-for-form-design-the-perfect-form-acea20367ed1" target="_blank">The ultimate guide for form design: the perfect form</a>
+- <a href="https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/" target="_blank">Best practices for mobile form design</a>
+- <a href="https://www.nngroup.com/articles/web-form-design/" target="_blank">Website forms usability: top 10 recommendations</a>
+- <a href="https://adamsilver.io/articles/where-to-put-buttons-in-forms/" target="_blank">Where to put buttons on forms</a>
+- <a href="https://adamsilver.io/articles/forms-design-from-zero-to-hero-all-in-one-blog-post/" target="_blank">Form design: from zero to hero all in one blog post</a>
+- <a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/" target="_blank">Checkboxes vs. radio buttons</a>
+
+<Description markdown={feedback} />
