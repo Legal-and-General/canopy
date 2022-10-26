@@ -1,43 +1,34 @@
-export const notes = `
-A flexible component that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Patterns/Hero/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Hero
+
+<p class="standfirst">A flexible pattern that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.</p>
 
 ## Usage
+
+Import the hero module in your module:
+
 ~~~js
 @NgModule({
   ...
   imports: [ ..., LgHeroModule ],
-})
+});
 ~~~
 
 and in your HTML:
 
-~~~html
-<lg-hero [overlap]="2">
-  <lg-hero-content>
-    <div lgContainer>
-      <div lgRow>
-        <div [lgCol]="12">
-          <lg-hero-card>
-            <lg-hero-card-header>
-              <lg-hero-card-title [headingLevel]="2">
-                Good morning, Gene
-              </lg-hero-card-title>
-            </lg-hero-card-header>
-          </lg-hero-card>
-        </div>
-      </div>
-    </div>
-  </lg-hero-content>
-</lg-hero>
-~~~
+<Source id="patterns-hero-examples--conversational-hero"></Source>
 
-## Other hero types and templates
+### Other hero types and templates
 
 You can extend the basic Hero component and create specific Hero layouts and implementations.
 
-### Hero with breadcrumbs
+#### Hero with breadcrumbs
 
-Using the \`\`LgHeroCardHeaderComponent\`\` together with \`\`LgBreadcrumbComponent\`\`, some breadcrumbs can be easily added to the hero. Note that you should use the "light" variant of the Breadcrumbs, as it's rendering against a dark blue background.
+Using the ``LgHeroCardHeaderComponent`` together with ``LgBreadcrumbComponent``, some breadcrumbs can be easily added to the hero. Note that you should use the "light" variant of the Breadcrumbs, as it's rendering against a dark blue background.
 
 ~~~html
 <lg-hero [overlap]="overlap">
@@ -60,7 +51,7 @@ Using the \`\`LgHeroCardHeaderComponent\`\` together with \`\`LgBreadcrumbCompon
 </lg-hero>
 ~~~
 
-### Product details
+#### Product details
 
 This component can used to display product data, for example on a product details page. Note the extensive use of presentation components to acheive the desired layout.
 
@@ -130,28 +121,20 @@ This component can used to display product data, for example on a product detail
 </lg-hero>
 ~~~
 
-## Components
+## Additional development details
 
 ### LgHeroComponent
 This is the branded bar which runs across
 the top of the page. It also controls the functionality to create the 'overlap' between the page content.
 
-#### Configure Overlap
-
-~~~html
-
-<lg-hero [overlap]="2"></lg-hero>
-
-~~~
-
 #### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`overlap\`\` | The amount that the page content overlaps the hero component (rem) | number | 2 | No |
+| ``overlap`` | The amount that the page content overlaps the hero component (rem) | number | 2 | No |
 
 
-### LgHeroContent
+### LgHeroContentComponent
 This is the main section of the hero bar, it stretches the full width and is agnostic of grid system. You will need to configure the grid in the contents of this component to match your page layout.
 
 #### Configure Grid
@@ -172,10 +155,10 @@ This is the main section of the hero bar, it stretches the full width and is agn
 </lg-hero>
 ~~~
 
-### LgHeroContent
-This is the top section of the hero bar, it stretches the full width and is agnostic of grid system. It is generally used to home the breadcrumb component if there is one. Similar to LgHeroContent you will need to configure the grid in the contents of this component to match your page layout.
+### LgHeroHeaderComponent
+This is the top section of the hero bar, it stretches the full width and is agnostic of grid system. It is generally used to home the breadcrumb component if there is one. Similar to `LgHeroContentComponent` you will need to configure the grid in the contents of this component to match your page layout.
 
-### LgHeroCard
+### LgHeroCardComponent
 A container component for displaying content within the hero area. The hero and hero card components are agnostic of the grid layout of the page. You will need to wrap the hero card component with the specific grid that is required.
 
 ### LgHeroCardHeaderComponent
@@ -188,7 +171,7 @@ This is where the main hero title should be provided. It should be located insid
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`headingLevel\`\` | The level of the hero card heading: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
+| ``headingLevel`` | The level of the hero card heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a | Yes |
 
 ### LgHeroCardSubtitleComponent
 If the hero has a subtitle it should be located within this component. If a hero has a subtitle it is expected to also implicitly have a title. It should be located inside the hero header.
@@ -196,42 +179,43 @@ If the hero has a subtitle it should be located within this component. If a hero
 ### LgHeroCardNotificationComponent
 Displays a notification associated with a product, for example if the product's payments are in 'suspended' state.
 
-### LgHeroCardPrincipleDataPoint
+### LgHeroCardPrincipleDataPointComponent
 Sometimes the hero card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the hero header which will controls it's layout
 
-### LgHeroCardPrincipleDataPointValue
+### LgHeroCardPrincipleDataPointValueComponent
 This is where the value for the data point should be projected. It should be located inside the hero principle data point
 
-### LgHeroCardPrincipleDataPointLabel
+### LgHeroCardPrincipleDataPointLabelComponent
 This is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the hero principle data point
 
 #### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`headingLevel\`\` | The level of the heading in the label: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
+| ``headingLevel`` | The level of the heading in the label: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a | Yes |
 
-### LgHeroCardContent
+### LgHeroCardContentComponent
 This is the secondary layout section of the hero component, it is used to contain secondary information.
 
-### LgHeroCardDataPointList
+### LgHeroCardDataPointListComponent
 When the hero card is being used to display secondary data points, those data points should be wrapped in a list. This element provides the list semantics, it should be contained inside the hero content.
 
-### LgHeroCardDataPoint
+### LgHeroCardDataPointComponent
 Sometimes the hero card will be displaying one or more secondary data points. In that case this layout component should be used. It should be located inside the hero content which will controls it's layout. One or more data points can be supported.
 
-### LgHeroCardDataPointValue
+### LgHeroCardDataPointValueComponent
 This is where the value for the data point should be projected. It should be located inside the hero data point
 
-### LgHeroCardDataPointLabel
+### LgHeroCardDataPointLabelComponent
 This is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the hero data point
 
 #### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| \`\`headingLevel\`\` | The level of the heading in the label: \`\`1\`\`, \`\`2\`\`, \`\`3\`\`, \`\`4\`\`, \`\`5\`\`, \`\`6\`\` | number | n/a | Yes |
+| ``headingLevel`` | The level of the heading in the label: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a | Yes |
 
-### LgHeroCardFooter
+### LgHeroCardFooterComponent
 This where any extra text related to the hero card can be displayed, such as a small print.
-`;
+
+<Description markdown={feedback} />

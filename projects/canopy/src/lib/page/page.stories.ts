@@ -6,7 +6,7 @@ import { LgMarginModule } from '../spacing';
 import { LgHeaderModule } from '../header';
 import { LgFooterModule } from '../footer';
 import { LgCardModule } from '../card';
-import { productHeroHTML } from '../hero/hero.stories';
+import { productHeroHTML } from '../hero/docs/hero.stories';
 import { LgHeroModule } from '../hero';
 import { LgBreadcrumbModule } from '../breadcrumb';
 
