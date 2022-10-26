@@ -1,15 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgBreadcrumbModule } from '../breadcrumb/breadcrumb.module';
-import { LgGridModule } from '../grid/grid.module';
-import { LgMarginModule } from '../spacing/margin/margin.module';
-import { LgCardModule } from '../card/card.module';
-import { lgIconInformationFill, LgIconModule, LgIconRegistry } from '../icon';
-
-import { notes } from './hero.notes';
-import { LgHeroModule } from './hero.module';
-import { LgHeroComponent } from './hero.component';
+import { LgBreadcrumbModule } from '../../breadcrumb/breadcrumb.module';
+import { LgGridModule } from '../../grid/grid.module';
+import { LgMarginModule } from '../../spacing/margin/margin.module';
+import { LgCardModule } from '../../card/card.module';
+import { lgIconInformationFill, LgIconModule, LgIconRegistry } from '../../icon';
+import { LgHeroModule } from '../hero.module';
+import { LgHeroComponent } from '../hero.component';
 
 const bodyHTML = `
   <div lgContainer>
@@ -157,7 +155,7 @@ class HeroProductStoryComponent {
 }
 
 export default {
-  title: 'Components/Hero',
+  title: 'Patterns/Hero/Examples',
   excludeStories: [ 'productHeroHTML', 'conversationalHeroHTML' ],
   decorators: [
     moduleMetadata({
@@ -174,11 +172,8 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     overlap: {
@@ -230,7 +225,7 @@ conversationalHero.args = {
 conversationalHero.parameters = {
   docs: {
     source: {
-      code: conversationalHeroTemplate,
+      code: conversationalHeroHTML,
     },
   },
 };
