@@ -99,7 +99,8 @@ module.exports = {
     '../projects/canopy/src/lib/pipes/camel-case/camel-case.stories.ts',
     '../projects/canopy/src/lib/pipes/kebab-case/kebab-case.stories.ts',
     //  Components
-    '../projects/canopy/src/lib/heading/heading.stories.ts',
+    '../projects/canopy/src/lib/heading/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/heading/docs/heading.stories.ts',
     //  Style
     '../projects/canopy/src/styles/mixins.stories.mdx',
     '../projects/canopy/src/styles/utils.stories.mdx',

@@ -1,12 +1,10 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgHeadingModule } from '../heading';
-
-import { LgHeadingComponent } from './heading.component';
-import { notes } from './heading.notes';
+import { LgHeadingModule } from '../../heading';
+import { LgHeadingComponent } from '../heading.component';
 
 export default {
-  title: 'Components/Heading',
+  title: 'Helpers/Components/Heading/Examples',
   component: LgHeadingComponent,
   decorators: [
     moduleMetadata({
@@ -14,11 +12,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     content: {
