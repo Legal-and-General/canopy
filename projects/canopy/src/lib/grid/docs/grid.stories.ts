@@ -1,11 +1,9 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgAlertComponent } from '../alert';
-import { LgMarginModule } from '../spacing';
-import { LgCardModule } from '../card';
-
-import { LgGridModule } from './grid.module';
-import { notes } from './grid.notes';
+import { LgAlertComponent } from '../../alert';
+import { LgMarginModule } from '../../spacing';
+import { LgCardModule } from '../../card';
+import { LgGridModule } from '../grid.module';
 
 const firstColCategory = 'Column 1';
 const secondColCategory = 'Column 2';
@@ -19,17 +17,16 @@ const columns = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
 const offsets = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
 
 export default {
-  title: 'Directives/Grid',
+  title: 'Helpers/Directives/Grid/Examples',
   decorators: [
     moduleMetadata({
       imports: [ LgGridModule, LgMarginModule, LgCardModule ],
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
+    parameters: {
+      viewMode: 'story',
+      previewTabs: { 'storybook/docs/panel': { hidden: true } },
     },
     backgrounds: {
       default: 'Super Blue',
