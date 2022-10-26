@@ -1,9 +1,7 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgFooterComponent } from '../footer/footer.component';
-
-import { notes } from './footer.notes';
-import { LgFooterModule } from './footer.module';
+import { LgFooterComponent } from '../../footer/footer.component';
+import { LgFooterModule } from '../footer.module';
 
 export const primaryLinks = [
   { id: 'primary-link-1', text: 'My account', href: 'https://app.somecompany.com' },
@@ -37,7 +35,7 @@ export const secondaryLinks = [
 ];
 
 export default {
-  title: 'Components/Footer',
+  title: 'Components/Footer/Examples',
   excludeStories: [ 'primaryLinks', 'secondaryLinks' ],
   component: LgFooterComponent,
   decorators: [
@@ -47,11 +45,8 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     logo: {
