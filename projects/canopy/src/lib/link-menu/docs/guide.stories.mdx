@@ -1,0 +1,25 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Components/Link menu/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Link menu
+
+<p class="standfirst">Link menu is used to list an array of links.</p>
+
+## Usage
+
+Import the link menu module in your module:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgLinkMenuModule ],
+});
+~~~
+
+and in your HTML:
+
+<Source id="components-link-menu-examples--standard-link-menu"></Source>
+
+<Description markdown={feedback} />

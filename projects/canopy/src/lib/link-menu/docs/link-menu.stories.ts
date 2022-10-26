@@ -1,9 +1,8 @@
 import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
-import { LgLinkMenuModule } from './link-menu.module';
-import { LgLinkMenuComponent } from './link-menu.component';
-import { notes } from './link-menu.notes';
+import { LgLinkMenuModule } from '../link-menu.module';
+import { LgLinkMenuComponent } from '../link-menu.component';
 
 const template = `
 <lg-link-menu>
@@ -19,7 +18,7 @@ const template = `
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Components/Link Menu',
+  title: 'Components/Link menu/Examples',
   component: LgLinkMenuComponent,
   decorators: [
     moduleMetadata({
@@ -27,11 +26,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     class: {
@@ -70,7 +66,7 @@ function getDefaultMenuItems(): Array<MenuItems> {
 }
 
 export const standardLinkMenu = linkMenuTemplate.bind({});
-standardLinkMenu.storyName = 'Link Menu';
+standardLinkMenu.storyName = 'Link menu';
 
 standardLinkMenu.args = {
   menuItems: getDefaultMenuItems(),
