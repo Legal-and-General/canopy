@@ -1,14 +1,12 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgCardModule } from '../card';
-
-import { LgShadowModule } from './shadow.module';
-import { notes } from './shadow.notes';
-import { LgShadowDirective } from './shadow.directive';
+import { LgCardModule } from '../../card';
+import { LgShadowModule } from '../shadow.module';
+import { LgShadowDirective } from '../shadow.directive';
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Directives/Shadow',
+  title: 'Helpers/Directives/Shadow/Examples',
   component: LgShadowDirective,
   decorators: [
     moduleMetadata({
@@ -19,11 +17,8 @@ export default {
     backgrounds: {
       default: 'White Smoke',
     },
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     class: {

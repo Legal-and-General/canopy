@@ -1,0 +1,25 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Helpers/Directives/Shadow/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Shadow
+
+This directive adds a box shadow to a component.
+
+## Usage
+
+Import the shadow module in your module:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgShadowModule ],
+});
+~~~
+
+and in your HTML:
+
+<Source id="helpers-directives-shadow-examples--shadow-story"></Source>
+
+<Description markdown={feedback} />
