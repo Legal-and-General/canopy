@@ -51,7 +51,6 @@ function setComponentCode(toggleCode: string) {
   return `
 <lg-filter-container>
   ${toggleCode}
-
   <lg-filter-container-panel>
     <lg-filter-container-panel-body>
       Form inputs should go in here
