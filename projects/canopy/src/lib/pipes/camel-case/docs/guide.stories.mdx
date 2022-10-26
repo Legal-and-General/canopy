@@ -1,0 +1,24 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../../docs/common/feedback.md';
+
+<Meta title="Helpers/Pipes/Camel case/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Camel case
+
+This pipe allows for a string to be transformed into camel case.
+
+## Usage
+Import the pipe in your module:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgCamelCasePipeModule ],
+});
+~~~
+
+and in your HTML:
+
+<Source id="helpers-pipes-camel-case-examples--camel-case-pipe-story"></Source>
+
+<Description markdown={feedback} />

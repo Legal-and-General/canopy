@@ -101,8 +101,10 @@ module.exports = {
     '../projects/canopy/src/lib/sr-alert-message/sr-alert-message.stories.ts',
     '../projects/canopy/src/lib/variant/variant.stories.ts',
     //  Pipes
-    '../projects/canopy/src/lib/pipes/camel-case/camel-case.stories.ts',
-    '../projects/canopy/src/lib/pipes/kebab-case/kebab-case.stories.ts',
+    '../projects/canopy/src/lib/pipes/camel-case/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/pipes/camel-case/docs/camel-case.stories.ts',
+    '../projects/canopy/src/lib/pipes/kebab-case/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/pipes/kebab-case/docs/kebab-case.stories.ts',
     //  Components
     '../projects/canopy/src/lib/heading/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/heading/docs/heading.stories.ts',

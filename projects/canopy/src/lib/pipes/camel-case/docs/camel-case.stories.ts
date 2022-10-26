@@ -1,11 +1,10 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './camel-case.notes';
-import { LgCamelCasePipe } from './camel-case.pipe';
+import { LgCamelCasePipe } from '../camel-case.pipe';
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Pipes/Camel case',
+  title: 'Helpers/Pipes/Camel case/Examples',
   component: LgCamelCasePipe,
   decorators: [
     moduleMetadata({
@@ -13,11 +12,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     text: {

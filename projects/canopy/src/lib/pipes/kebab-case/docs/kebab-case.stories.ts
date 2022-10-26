@@ -1,11 +1,10 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './kebab-case.notes';
-import { LgKebabCasePipe } from './kebab-case.pipe';
+import { LgKebabCasePipe } from '../kebab-case.pipe';
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Pipes/Kebab case',
+  title: 'Helpers/Pipes/Kebab case/Examples',
   component: LgKebabCasePipe,
   decorators: [
     moduleMetadata({
@@ -13,11 +12,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     text: {
