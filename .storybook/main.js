@@ -20,7 +20,6 @@ module.exports = {
     '../projects/canopy/src/lib/button/docs/button-group.stories.ts',
     '../projects/canopy/src/lib/card/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/card/docs/card.stories.ts',
-    '../projects/canopy/src/lib/carousel/carousel.stories.ts',
     '../projects/canopy/src/lib/data-point/data-point.stories.ts',
     '../projects/canopy/src/lib/details/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/details/docs/details.stories.ts',
