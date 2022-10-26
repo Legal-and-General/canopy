@@ -1,24 +1,18 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgHeaderModule } from '../header';
-
-import { notes } from './data-point.notes';
-
-import { LgDataPointComponent, LgDataPointListComponent, LgDataPointModule } from '.';
+import { LgHeaderModule } from '../../header';
+import { LgDataPointComponent, LgDataPointListComponent, LgDataPointModule } from '..';
 
 export default {
-  title: 'Components/Data Point',
+  title: 'Components/Data point/Examples',
   decorators: [
     moduleMetadata({
       imports: [ LgDataPointModule, LgHeaderModule ],
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     headingLevel: {
@@ -53,7 +47,7 @@ const singleStory: Story<LgDataPointComponent> = (args: LgDataPointComponent) =>
 });
 
 export const singleDataPoint = singleStory.bind({});
-singleDataPoint.storyName = 'Single Data Point';
+singleDataPoint.storyName = 'Single data point';
 
 singleDataPoint.args = {
   headingLevel: 3,

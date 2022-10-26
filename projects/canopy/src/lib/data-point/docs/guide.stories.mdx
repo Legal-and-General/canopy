@@ -1,0 +1,36 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Components/Data point/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Data point
+
+Display data organised by heading and value. A Data Point can be used on its own, or grouped into a Data Point List where each one will be displayed horizontally and given a list-item role.
+
+## Usage
+
+Import the Data Point module in your module:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgDataPointModule ],
+});
+~~~
+
+In your HTML for a single data point:
+
+<Source id="components-data-point-examples--single-data-point"></Source>
+
+and for a data point list:
+
+<Source id="components-data-point-examples--data-points-list-story"></Source>
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| `headingLevel` | Allows the heading level to be set | number | n/a | Yes |
+
+<Description markdown={feedback} />
+
