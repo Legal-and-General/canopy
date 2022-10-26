@@ -1,0 +1,24 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../../docs/common/feedback.md';
+
+<Meta title="Helpers/Pipes/Kebab case/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Kebab case
+
+This pipe allows for a string to be transformed into kebab case.
+
+## Usage
+Import the pipe in your module:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgKebabCasePipeModule ],
+});
+~~~
+
+and in your HTML:
+
+<Source id="helpers-pipes-kebab-case-examples--kebab-case-pipe-story"></Source>
+
+<Description markdown={feedback} />
