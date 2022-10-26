@@ -1,18 +1,16 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { primaryLinks, secondaryLinks } from '../footer/docs/footer.stories';
-import { LgGridModule } from '../grid';
-import { LgMarginModule } from '../spacing';
-import { LgHeaderModule } from '../header';
-import { LgFooterModule } from '../footer';
-import { LgCardModule } from '../card';
-import { productHeroHTML } from '../hero/docs/hero.stories';
-import { LgHeroModule } from '../hero';
-import { LgBreadcrumbModule } from '../breadcrumb';
-
-import { LgPageModule } from './page.module';
-import { LgPageComponent } from './page.component';
-import { notes } from './page.notes';
+import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
+import { LgGridModule } from '../../grid';
+import { LgMarginModule } from '../../spacing';
+import { LgHeaderModule } from '../../header';
+import { LgFooterModule } from '../../footer';
+import { LgCardModule } from '../../card';
+import { productHeroHTML } from '../../hero/docs/hero.stories';
+import { LgHeroModule } from '../../hero';
+import { LgBreadcrumbModule } from '../../breadcrumb';
+import { LgPageModule } from '../page.module';
+import { LgPageComponent } from '../page.component';
 
 const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
@@ -57,7 +55,7 @@ const footerCategory = 'footer';
 const contentCategory = 'content';
 
 export default {
-  title: 'Components/Page',
+  title: 'Templates/Page/Examples',
   component: LgPageComponent,
   decorators: [
     moduleMetadata({
@@ -75,11 +73,8 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     logo: {
