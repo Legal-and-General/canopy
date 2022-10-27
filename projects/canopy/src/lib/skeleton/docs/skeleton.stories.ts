@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgGridModule } from './../grid/grid.module';
-import { LgSkeletonModule } from './skeleton.module';
-import { LgDataPointModule } from './../data-point/data-point.module';
-import { LgCardModule } from './../card/card.module';
-import { LgSkeletonDirective } from './skeleton.directive';
-import { notes } from './skeleton.notes';
+import { LgGridModule } from '../../grid/grid.module';
+import { LgSkeletonModule } from '../skeleton.module';
+import { LgDataPointModule } from '../../data-point/data-point.module';
+import { LgCardModule } from '../../card/card.module';
+import { LgSkeletonDirective } from '../skeleton.directive';
 
 interface Data {
   title?: string;
@@ -152,7 +151,7 @@ class AsyncSkeletonLoadingDataPointComponent implements OnInit {
 }
 
 export default {
-  title: 'Directives/Skeleton Loading',
+  title: 'Helpers/Directives/Skeleton loading/Examples',
   decorators: [
     moduleMetadata({
       declarations: [
@@ -164,11 +163,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'Super Blue',
     },
