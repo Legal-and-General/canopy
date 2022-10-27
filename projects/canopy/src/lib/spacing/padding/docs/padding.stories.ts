@@ -1,10 +1,8 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from '../spacing.notes';
-import { LgCardModule } from '../../card';
-
-import { LgPaddingModule } from './padding.module';
-import { LgPaddingDirective } from './padding.directive';
+import { LgCardModule } from '../../../card';
+import { LgPaddingModule } from '../padding.module';
+import { LgPaddingDirective } from '../padding.directive';
 
 const spaces = [
   'undefined',
@@ -25,7 +23,7 @@ const standardCategory = 'Standard';
 const responsiveCategory = 'Responsive';
 
 export default {
-  title: 'Directives/Padding',
+  title: 'Helpers/Directives/Padding/Examples',
   decorators: [
     moduleMetadata({
       imports: [ LgPaddingModule, LgCardModule ],
@@ -36,11 +34,6 @@ export default {
       // Remove a11y checks for padding directive as unnecessary
       // and flagging false positives
       disable: true,
-    },
-    docs: {
-      description: {
-        component: notes('Padding'),
-      },
     },
     backgrounds: {
       default: 'Super Blue',
@@ -135,7 +128,7 @@ const paddingStory: Story<LgPaddingDirective> = (args: LgPaddingDirective) => ({
   [lgPaddingBottom]="paddingBottom !== 'undefined' ? paddingBottom : null"
   [lgPaddingLeft]="paddingLeft !== 'undefined' ? paddingLeft : null">
     <lg-card-content>
-      <strong>Standard Spacing Variant</strong> applied using directive
+      <strong>Standard spacing variant</strong> applied using directive
     </lg-card-content>
 </lg-card>
 <lg-card

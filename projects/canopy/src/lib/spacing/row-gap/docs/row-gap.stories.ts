@@ -1,14 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { SpacingVariant } from '../spacing.interface';
-import { LgCardModule } from '../../card';
-import { LgSpacingModule } from '../spacing.module';
-import { LgGridModule } from '../../grid';
-
-import { notes } from './row-gap.notes';
-import { LgRowGapModule } from './row-gap.module';
-import { LgRowGapDirective } from './row-gap.directive';
+import { SpacingVariant } from '../../spacing.interface';
+import { LgCardModule } from '../../../card';
+import { LgSpacingModule } from '../../spacing.module';
+import { LgGridModule } from '../../../grid';
+import { LgRowGapModule } from '../row-gap.module';
+import { LgRowGapDirective } from '../row-gap.directive';
 
 const spaces = [
   'undefined',
@@ -72,7 +70,7 @@ class LgRowGapStoryComponent {
 }
 
 export default {
-  title: 'Directives/Row Gap',
+  title: 'Helpers/Directives/Row gap/Examples',
   decorators: [
     moduleMetadata({
       declarations: [ LgRowGapStoryComponent ],
@@ -80,11 +78,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     a11y: {
       disable: true,
     },
@@ -118,7 +113,7 @@ const rowGapStory: Story<LgRowGapDirective> = (args: LgRowGapDirective) => ({
 });
 
 export const rowGap = rowGapStory.bind({});
-rowGap.storyName = 'Row Gap';
+rowGap.storyName = 'Row gap';
 
 rowGap.args = {
   rowGap: 'sm',
