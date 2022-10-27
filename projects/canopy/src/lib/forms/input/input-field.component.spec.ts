@@ -75,6 +75,7 @@ describe('LgInputFieldComponent', () => {
     hasPrefix = false,
     hasSuffix = false,
     showLabel = true,
+    ariaDescribeInput = true,
   }) {
     fixture = MockRender(`
       <lg-input-field [block]="${block}" [showLabel]="${showLabel}">
@@ -82,8 +83,14 @@ describe('LgInputFieldComponent', () => {
         <input lgInput />
         <lg-hint id="${hintId}">Hint</lg-hint>
         <lg-validation id="${errorId}">Error</lg-validation>
-        ${hasPrefix && `<span lgPrefix id="${prefixId}">${prefixText}</span>`}
-        ${hasSuffix && `<span lgSuffix id="${suffixId}">${suffixText}</span>`}
+        ${
+  hasPrefix &&
+          `<span lgPrefix id="${prefixId}" [ariaDescribeInput]="${ariaDescribeInput}">${prefixText}</span>`
+}
+        ${
+  hasSuffix &&
+          `<span lgSuffix id="${suffixId}" [ariaDescribeInput]="${ariaDescribeInput}">${suffixText}</span>`
+}
       </lg-input-field>
     `);
 
@@ -279,6 +286,12 @@ describe('LgInputFieldComponent', () => {
     it('links the hint to the input field with the correct aria attributes', () => {
       expect(inputDirectiveInstance.ariaDescribedBy).toContain(suffixId);
     });
+
+    it('should not link the suffix to the input field', () => {
+      renderComponent({ hasSuffix: true, ariaDescribeInput: false });
+
+      expect(inputDirectiveInstance.ariaDescribedBy).not.toContain(suffixId);
+    });
   });
 
   describe('prefixes', () => {
@@ -292,6 +305,12 @@ describe('LgInputFieldComponent', () => {
 
     it('links the hint to the input field with the correct aria attributes', () => {
       expect(inputDirectiveInstance.ariaDescribedBy).toContain(prefixId);
+    });
+
+    it('should not link the prefix to the input field', () => {
+      renderComponent({ hasPrefix: true, ariaDescribeInput: false });
+
+      expect(inputDirectiveInstance.ariaDescribedBy).not.toContain(prefixId);
     });
   });
 });

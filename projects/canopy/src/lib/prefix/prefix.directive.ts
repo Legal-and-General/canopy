@@ -9,4 +9,7 @@ export class LgPrefixDirective {
   @Input()
   @HostBinding('attr.id')
   id = `lg-prefix-${nextUniqueId++}`;
+
+  @Input()
+  ariaDescribeInput = false;
 }

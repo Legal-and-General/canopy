@@ -128,11 +128,13 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(LgSuffixDirective)
   set suffixChildren(elements: QueryList<LgSuffixDirective>) {
     elements.forEach(element => {
-      this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-        this.inputElement.ariaDescribedBy,
-        this._validationElement,
-        element,
-      );
+      if (element.ariaDescribeInput) {
+        this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+          this.inputElement.ariaDescribedBy,
+          this._validationElement,
+          element,
+        );
+      }
     });
 
     this._suffixChildren = elements;
@@ -144,11 +146,13 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(LgPrefixDirective)
   set prefixChildren(elements: QueryList<LgSuffixDirective>) {
     elements.forEach(element => {
-      this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-        this.inputElement.ariaDescribedBy,
-        this._validationElement,
-        element,
-      );
+      if (element.ariaDescribeInput) {
+        this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+          this.inputElement.ariaDescribedBy,
+          this._validationElement,
+          element,
+        );
+      }
     });
 
     this._prefixChildren = elements;

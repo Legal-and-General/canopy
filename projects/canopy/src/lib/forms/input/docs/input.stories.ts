@@ -18,7 +18,8 @@ interface Config {
   block?: boolean;
   buttonText?: boolean;
   disabled?: boolean;
-  hint?: string | null;
+  hint?: boolean;
+  hintText?: string;
   icon?: string;
   iconButton?: boolean;
   label?: string;
@@ -29,6 +30,7 @@ interface Config {
   showTextSuffix?: boolean;
   size?: number;
   suffix?: string;
+  ariaDescribeInput?: boolean;
 }
 
 function createInputStory(args: LgInputModule) {
@@ -43,6 +45,7 @@ function createInputStory(args: LgInputModule) {
         [buttonVariant]="buttonVariant"
         [disabled]="disabled"
         [hint]="hint"
+        [hintText]="hintText"
         [icon]="icon"
         [iconButton]="iconButton"
         [label]="label"
@@ -54,6 +57,7 @@ function createInputStory(args: LgInputModule) {
         [showButtonSecondSuffix]="showButtonSecondSuffix"
         [showTextPrefix]="showTextPrefix"
         [showTextSuffix]="showTextSuffix"
+        [ariaDescribeInput]="ariaDescribeInput"
       ></lg-reactive-form>
     `,
   };
@@ -65,9 +69,8 @@ function setupInputStoryValues(obj, code, config?: Config) {
     buttonText: 'search',
     buttonVariant: 'primary-dark',
     disabled: false,
-    hint: config?.hint === null
-      ? ''
-      : 'Please enter your name',
+    hint: config?.hint,
+    hintText: config?.hintText || 'Please enter your name',
     icon: 'search',
     label: config?.label || 'Name',
     showLabel: true,
@@ -79,6 +82,7 @@ function setupInputStoryValues(obj, code, config?: Config) {
     showTextSuffix: config?.showTextSuffix,
     suffix: '%',
     size: 12,
+    ariaDescribeInput: config?.ariaDescribeInput,
   };
 
   obj.parameters = {
@@ -93,8 +97,8 @@ function setupInputStoryValues(obj, code, config?: Config) {
 const inputTemplate = `
 <lg-input-field [block]="block" [showLabel]="showLabel">
   {{ label }}
-  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-  <span lgPrefix *ngIf="showTextPrefix">{{ prefix }}</span>
+  <lg-hint *ngIf="hint">{{ hintText }}</lg-hint>
+  <span lgPrefix *ngIf="showTextPrefix" [ariaDescribeInput]="ariaDescribeInput">{{ prefix }}</span>
   <input lgInput formControlName="name" [size]="size" />
   <button
     lg-button
@@ -118,7 +122,7 @@ const inputTemplate = `
     {{ buttonText }}
     <lg-icon [name]="icon" *ngIf="iconButton"></lg-icon>
   </button>
-  <span lgSuffix *ngIf="showTextSuffix">{{ suffix }}</span>
+  <span lgSuffix *ngIf="showTextSuffix" [ariaDescribeInput]="ariaDescribeInput">{{ suffix }}</span>
 </lg-input-field>
 `;
 
@@ -144,7 +148,8 @@ class ReactiveFormComponent {
   @Input() block: boolean;
   @Input() buttonText: ButtonVariant;
   @Input() buttonVariant: ButtonVariant;
-  @Input() hint: string;
+  @Input() hint: boolean;
+  @Input() hintText: string;
   @Input() icon: string;
   @Input() iconButton: boolean;
   @Input() label: string;
@@ -156,6 +161,7 @@ class ReactiveFormComponent {
   @Input() showTextSuffix: boolean;
   @Input() size: number;
   @Input() suffix: string;
+  @Input() ariaDescribeInput: boolean;
 
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
@@ -317,6 +323,13 @@ export default {
         disable: true,
       },
     },
+    ariaDescribeInput: {
+      table: {
+        defaultValue: {
+          summary: false,
+        },
+      },
+    },
   },
 };
 
@@ -331,6 +344,8 @@ withButtonSuffix.storyName = 'With button suffix';
 
 setupInputStoryValues(withButtonSuffix, inputTemplate, {
   showButtonFirstSuffix: true,
+  hint: true,
+  ariaDescribeInput: true,
 });
 
 export const withTextSuffix = inputStory.bind({});
@@ -339,7 +354,7 @@ withTextSuffix.storyName = 'With text suffix';
 setupInputStoryValues(withTextSuffix, inputTemplate, {
   showTextSuffix: true,
   label: 'Amount',
-  hint: null,
+  hint: false,
 });
 
 export const withMultipleButtonSuffixes = inputStory.bind({});
@@ -348,4 +363,26 @@ withMultipleButtonSuffixes.storyName = 'With multiple buttons suffixes';
 setupInputStoryValues(withMultipleButtonSuffixes, inputTemplate, {
   showButtonFirstSuffix: true,
   showButtonSecondSuffix: true,
+  hint: true,
+  ariaDescribeInput: true,
+});
+
+export const withHintAndTextSuffix = inputStory.bind({});
+withHintAndTextSuffix.storyName = 'With hint and text suffix';
+
+setupInputStoryValues(withHintAndTextSuffix, inputTemplate, {
+  showTextSuffix: true,
+  label: 'Amount percentage',
+  hint: true,
+  hintText: 'Please enter a value between 1% and 20%',
+});
+
+export const withTextPrefix = inputStory.bind({});
+withTextPrefix.storyName = 'With text prefix';
+
+setupInputStoryValues(withTextPrefix, inputTemplate, {
+  showTextPrefix: true,
+  label: 'Amount in pounds',
+  hint: true,
+  hintText: 'Please enter a value between 2000 and 10000',
 });
