@@ -1,0 +1,49 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../../docs/common/feedback.md';
+
+<Meta title="Helpers/Directives/Row gap/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Row gap
+
+This directive allows you to add the `row-gap` CSS property using Canopy spacing.
+The spacing variables are also available as CSS custom properties (CSS variables)
+which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.
+
+This directive and accompanying CSS classes, work great with our
+[Canopy grid](./?path=/docs/directives-grid--grid) but will
+also work with all other HTML elements that support <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap" target="_blank" rel='noopener noreferrer'>CSS row-gap</a>.
+
+## Usage
+
+Import the module in your application:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgRowGapModule ],
+})
+~~~
+
+### Examples
+
+Apply ``xxl`` row-gap.
+
+~~~html
+<div lgRowGap="xxl"></div>
+~~~
+
+Use the default (``sm``) row-gap.
+
+~~~html
+<div lgRowGap></div>
+~~~
+
+### Inputs
+
+The current available spacing variants are ``none``, ``xxxs``, ``xxs``, ``xs``, ``sm``, ``md``, ``lg``, ``xl``, ``xxl``, ``xxxl``, ``xxxxxl``.
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| `lgRowGap` | The row gap variant applied to the element | SpacingVariant | `sm` | Yes |
+
+<Description markdown={feedback} />

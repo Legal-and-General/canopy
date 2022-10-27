@@ -1,10 +1,8 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from '../spacing.notes';
-import { LgCardModule } from '../../card';
-
-import { LgMarginModule } from './margin.module';
-import { LgMarginDirective } from './margin.directive';
+import { LgCardModule } from '../../../card';
+import { LgMarginModule } from '../margin.module';
+import { LgMarginDirective } from '../margin.directive';
 
 const spaces = [
   'undefined',
@@ -25,7 +23,7 @@ const standardCategory = 'Standard';
 const responsiveCategory = 'Responsive';
 
 export default {
-  title: 'Directives/Margin',
+  title: 'Helpers/Directives/Margin/Examples',
   decorators: [
     moduleMetadata({
       imports: [ LgMarginModule, LgCardModule ],
@@ -37,11 +35,8 @@ export default {
       // and flagging false positives
       disable: true,
     },
-    docs: {
-      description: {
-        component: notes('Margin'),
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'Super Blue',
     },
@@ -135,7 +130,7 @@ const marginStory: Story<LgMarginDirective> = (args: LgMarginDirective) => ({
   [lgMarginBottom]="marginBottom !== 'undefined' ? marginBottom : null"
   [lgMarginLeft]="marginLeft !== 'undefined' ? marginLeft : null">
     <lg-card-content>
-      <strong>Standard Spacing Variant</strong>
+      <strong>Standard spacing variant</strong>
       <div *ngIf="margin"><code>margin: {{margin | json}}</code></div>
       <div *ngIf="marginTop !== 'undefined'"><code>marginTop: {{marginTop | json}}</code></div>
       <div *ngIf="marginRight !== 'undefined'"><code>marginRight: {{marginRight | json}}</code></div>
