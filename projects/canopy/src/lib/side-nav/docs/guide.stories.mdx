@@ -1,0 +1,84 @@
+import { Meta, Description, Source } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Patterns/Side nav/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Side nav
+<p class="standfirst">The side nav allows the user to define a series of navigation items that display content in a predefined area.</p>
+
+## Usage
+
+Import the side nav module in your module:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgSideNavModule ],
+});
+~~~
+
+and in your HTML:
+
+~~~html
+<lg-side-nav>
+  <lg-side-nav-bar label="Side Nav Demo">
+    <a id="side-nav-0"
+     [routerLink]="'firstPage'"
+     [isActive]="true"
+     lgSideNavBarLink
+      <lg-side-nav-bar-item>
+        <lg-side-nav-bar-item-heading>Overview</lg-side-nav-bar-item-heading>
+      </lg-side-nav-bar-item>
+    </a>
+    <a id="side-nav-1"
+     [routerLink]="'secondPage'"
+     lgSideNavBarLink
+    >
+      <lg-side-nav-bar-item>
+        <lg-side-nav-bar-item-heading>Personal details</lg-side-nav-bar-item-heading>
+        <lg-side-nav-bar-item-content>Your name, date of birth, marital status and National Insurance Number.</lg-side-nav-bar-item-content>
+      </lg-side-nav-bar-item>
+    </a>
+    <lg-side-nav-bar-footer>
+      <a lg-button lgMarginTop="xxl" variant="secondary-dark" [fullWidth]="false" href="#">Logout</a>
+    </lg-side-nav-bar-footer>
+  </lg-side-nav-bar>
+  <lg-side-nav-content tabindex="0">
+    <router-outlet></router-outlet>
+  </lg-side-nav-content>
+</lg-side-nav>
+~~~
+
+## Additional development details
+
+### LgSideNavBarComponent
+Here is where the navigation menu items are projected.
+On mobile devices, the menu is below the content area, instead of to the left.
+
+### LgSideNavBarLinkDirective
+This `lgSideNavBarLink` directive applies the appropriate styling to the links. It also emits an event when the link is activated.
+The links, once clicked on, will display their routes' content in the side nav content component.
+
+#### Inputs
+
+| Name       | Description                                             |  Type   | Default | Required |
+|------------|---------------------------------------------------------|:-------:|:-------:|:--------:|
+| `isActive` | specifies whether or not the link is in an active state | boolean | `false` |    No    |
+
+### LgSideNavBarItemComponent
+This is where the `LgSideNavBarItemHeadingComponent` and `LgSideNavBarItemContentComponent` of the link are projected and positioned.
+
+### LgSideNavBarItemHeadingComponent
+This is the main label of the link.
+
+### LgSideNavBarItemContentComponent
+This is used to add a description for the link.
+
+### LgSideNavBarFooterComponent
+The footer is below the navigation items and can hold different kinds of content (e.g. a button).
+
+### LgSideNavContentComponent
+This is the predefined area where content is shown. It should always contain a router outlet to be able to display
+the different nav item routes.
+
+<Description markdown={feedback} />
