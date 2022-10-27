@@ -1,13 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgButtonModule } from '../button';
-import { LgMarginModule } from '../spacing';
-import { LgValidationModule } from '../forms';
-
-import { LgSideNavModule } from './side-nav.module';
-import { notes } from './side-nav.notes';
-import { SideNavBarItem } from './side-nav.interface';
+import { LgButtonModule } from '../../button';
+import { LgMarginModule } from '../../spacing';
+import { LgValidationModule } from '../../forms';
+import { LgSideNavModule } from '../side-nav.module';
+import { SideNavBarItem } from '../side-nav.interface';
 
 const template = `
 <lg-side-nav>
@@ -61,7 +59,7 @@ export class StorySideNavComponent {
 }
 
 export default {
-  title: 'Components/Side Nav',
+  title: 'Patterns/Side nav/Examples',
   excludeStories: [ 'StorySideNavComponent' ],
   component: LgSideNavModule,
   decorators: [
@@ -74,11 +72,8 @@ export default {
     backgrounds: {
       default: 'White Smoke',
     },
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
 };
 
@@ -106,7 +101,7 @@ const sideNavStory: Story<LgValidationModule> = (args: LgValidationModule) => ({
 });
 
 export const sideNav = sideNavStory.bind({});
-sideNav.storyName = 'Side Nav';
+sideNav.storyName = 'Side nav';
 
 sideNav.args = {
   navItems: getDefaultNavItems(),

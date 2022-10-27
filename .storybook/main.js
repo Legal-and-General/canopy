@@ -81,7 +81,8 @@ module.exports = {
     '../projects/canopy/src/lib/hero/docs/hero.stories.ts',
     '../projects/canopy/src/lib/hero-img/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/hero-img/docs/hero-img.stories.ts',
-    '../projects/canopy/src/lib/side-nav/side-nav.stories.ts',
+    '../projects/canopy/src/lib/side-nav/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/side-nav/docs/side-nav.stories.ts',
     // Templates
     '../projects/canopy/src/lib/page/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/page/docs/page.stories.ts',
