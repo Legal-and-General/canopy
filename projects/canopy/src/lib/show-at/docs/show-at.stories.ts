@@ -1,15 +1,13 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgCardModule } from '../card/card.module';
-import { LgSeparatorModule } from '../separator/separator.module';
-
-import { LgShowAtModule } from './show-at.module';
-import { notes } from './show-at.notes';
-import { LgShowAtDirective } from './show-at.directive';
+import { LgCardModule } from '../../card/card.module';
+import { LgSeparatorModule } from '../../separator/separator.module';
+import { LgShowAtModule } from '../show-at.module';
+import { LgShowAtDirective } from '../show-at.directive';
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Directives/Show at',
+  title: 'Helpers/Directives/Show at/Examples',
   component: LgShowAtDirective,
   decorators: [
     moduleMetadata({
@@ -17,11 +15,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     lgShowAt: {
