@@ -68,8 +68,9 @@ module.exports = {
     '../projects/canopy/src/lib/spinner/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/spinner/docs/spinner.stories.ts',
     '../projects/canopy/src/lib/table/table.stories.ts',
-    '../projects/canopy/src/lib/tabs/tab-nav-bar.stories.ts',
-    '../projects/canopy/src/lib/tabs/tabs.stories.ts',
+    '../projects/canopy/src/lib/tabs/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/tabs/docs/tab-nav-bar.stories.ts',
+    '../projects/canopy/src/lib/tabs/docs/tabs.stories.ts',
     '../projects/canopy/src/styles/links.stories.ts',
     // Patterns
     '../projects/canopy/src/lib/filter-container/docs/guide.stories.mdx',

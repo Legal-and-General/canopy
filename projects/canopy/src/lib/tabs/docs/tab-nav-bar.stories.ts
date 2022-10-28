@@ -1,13 +1,11 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgMarginModule } from '../spacing';
-
-import { LgTabsModule } from './tabs.module';
-import { tabbedNavNotes } from './tabs.notes';
-import { LgTabsComponent } from './tabs.component';
+import { LgMarginModule } from '../../spacing';
+import { LgTabsModule } from '../tabs.module';
+import { LgTabsComponent } from '../tabs.component';
 
 export default {
-  title: 'Components/Tabs/Tabbed navigation',
+  title: 'Components/Tabs/Examples',
   component: LgTabsComponent,
   decorators: [
     moduleMetadata({
@@ -15,11 +13,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: tabbedNavNotes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     onClick: {
