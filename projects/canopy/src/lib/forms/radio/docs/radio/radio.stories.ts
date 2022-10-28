@@ -6,11 +6,9 @@ import {
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgHintModule } from '../hint/hint.module';
-
-import { notes } from './radio.notes';
-import { LgRadioModule } from './radio.module';
-import { LgRadioGroupComponent } from './radio-group.component';
+import { LgHintModule } from '../../../hint/hint.module';
+import { LgRadioModule } from '../../radio.module';
+import { LgRadioGroupComponent } from '../../radio-group.component';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -60,7 +58,7 @@ class ReactiveFormRadioComponent {
 }
 
 export default {
-  title: 'Components/Forms/Radio',
+  title: 'Components/Forms/Radio/Examples',
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
@@ -69,11 +67,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes('Radio'),
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     id: {
