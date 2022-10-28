@@ -6,13 +6,11 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgSelectModule } from '../select';
-import { LgHintModule } from '../hint';
-import { LgInputModule } from '../input';
-
-import { notes } from './sort-code.notes';
-import { LgSortCodeDirective } from './sort-code.directive';
-import { LgSortCodeModule } from './sort-code.module';
+import { LgSelectModule } from '../../select';
+import { LgHintModule } from '../../hint';
+import { LgInputModule } from '../../input';
+import { LgSortCodeDirective } from '../sort-code.directive';
+import { LgSortCodeModule } from '../sort-code.module';
 
 const template = `
 <lg-input-field>
@@ -56,7 +54,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Forms/Sort code',
+  title: 'Patterns/Sort code/Examples',
   component: LgSortCodeDirective,
   decorators: [
     moduleMetadata({
@@ -65,11 +63,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     inputmode: {
