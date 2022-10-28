@@ -13,9 +13,9 @@ import Feedback from '../../../../docs/common/feedback.md';
 
 Use a radio group when you want the user to make a single selection from 2 or more options.
 
-- For a question and answer journey, for instance in an application form, consider using a segment instead
-- If you want to allow the user to select multiple options, use a checkbox instead
-- Use a select as a last resort if a radio group is unsuitable
+- For a question and answer journey, for instance in an application form, consider using a segment instead.
+- If you want to allow the user to select multiple options, use a checkbox instead.
+- Use a select as a last resort if a radio group is unsuitable.
 
 Import the radio module into your application:
 
@@ -34,9 +34,9 @@ and in your HTML:
 
 A radio button contains a circular toggle and a label, and will always appear in a radio group with a minimum of 2 buttons.
 
-- When one radio button is selected, all other buttons in the group will be deselected
-- Only one radio button can be selected at any one time
-- Try to limit radio buttons to a maximum of 5 in a group
+- When one radio button is selected, all other buttons in the group will be deselected.
+- Only one radio button can be selected at any one time.
+- Try to limit radio buttons to a maximum of 5 in a group.
 
 ## Dos and Don'ts
 
@@ -44,27 +44,27 @@ A radio button contains a circular toggle and a label, and will always appear in
 
 ![do](docs/forms/radio/do.png)
 
-1. **Do** use when only one item can be selected from a list
-2. **Do** lay out the options vertically, with one choice per line
+1. **Do** use when only one item can be selected from a list.
+2. **Do** lay out the options vertically, with one choice per line.
 
 ### Don’t
 
 ![dont](docs/forms/radio/dont.png)
 
-1. **Don't** use when multiple items from a list can be selected, instead use checkboxes
-2. **Don't** use radio buttons when the preset options is a long list (more than 5) and space is limited, use the select component instead
+1. **Don't** use when multiple items from a list can be selected, instead use checkboxes.
+2. **Don't** use radio buttons when the preset options is a long list (more than 5) and space is limited, use the select component instead.
 
 ## Additional developer details
 
 ### LgRadioGroupComponent inputs
 
-| Name   | Description                                                                    | Type              | Default                               | Required |
-|--------|--------------------------------------------------------------------------------|-------------------|---------------------------------------|----------|
-| id     | HTML ID attribute, auto generated if not provided                              | string            | 'lg-radio-group-id-${nextUniqueId++}' | No       |
-| name   | Set the name value for all inputs in the group, auto-generated if not provided | string            | 'lg-radio-group-${nextUniqueId++}'    | No       |
-| value  | Set the default checked radio button, must match the value of the radio button | boolean or string | null                                  | No       |
-| focus  | Set the focus on the fieldset                                                  | boolean           | null                                  | No       |
-| inline | If true, displays the radio buttons inline rather than stacked                 | boolean           | false                                 | No       |
+| Name     | Description                                                                    | Type        | Default                               | Required |
+|----------|--------------------------------------------------------------------------------|-------------|---------------------------------------|----------|
+| `id`     | HTML ID attribute, auto generated if not provided                              | `string`    | `lg-radio-group-id-${nextUniqueId++}` | No       |
+| `name`   | Set the name value for all inputs in the group, auto-generated if not provided | `string`    | `lg-radio-group-${nextUniqueId++}`    | No       |
+| `value`  | Set the default checked radio button, must match the value of the radio button | `boolean` \ | `string`                              | `null`   | No       |
+| `focus`  | Set the focus on the fieldset                                                  | `boolean`   | `null`                                | No       |
+| `inline` | If true, displays the radio buttons inline rather than stacked                 | `boolean`   | `false`                               | No       |
 
 ### LgRadioButtonComponent
 
@@ -72,17 +72,17 @@ A radio button contains a circular toggle and a label, and will always appear in
 
 | Name              | Description                                                                                                                   | Type        | Default                             | Required |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------|-------------|-------------------------------------|----------|
-| `id`              | HTML ID attribute, auto generated if not provided                                                                             | string      | `lg-radio-button-${++nextUniqueId}` | No       |
-| `name`            | HTML name attribute                                                                                                           | string      | null                                | Yes      |
-| `value`           | HTML value attribute                                                                                                          | string      | null                                | Yes      |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | boolean     | null                                | No       |
+| `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`    | `lg-radio-button-${++nextUniqueId}` | No       |
+| `name`            | HTML name attribute                                                                                                           | `string`    | `null`                              | Yes      |
+| `value`           | HTML value attribute                                                                                                          | `string`    | `null`                              | Yes      |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | `boolean`   | `null`                              | No       |
 | `size`            | The size of the radio button                                                                                                  | `RadioSize` | `sm`                                | No       |
 
 #### Outputs
 
-| Name   | Description                             | Type         | Default | Required |
-|--------|-----------------------------------------|--------------|---------|----------|
-| `blur` | Event emitted on blur of a radio button | EventEmitter | n/a     | No       |
+| Name   | Description                             | Type                  | Default | Required |
+|--------|-----------------------------------------|-----------------------|---------|----------|
+| `blur` | Event emitted on blur of a radio button | `EventEmitter<Event>` | n/a     | No       |
 
 
 
@@ -92,8 +92,8 @@ A radio button contains a circular toggle and a label, and will always appear in
 
 This component is based on best practice and reference from the following articles:
 
-- <a href="https://uxplanet.org/radio-buttons-ux-design-588e5c0a50dc" target="_blank">UX Planet: radio buttons</a>
-- <a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/" target="_blank">Nielsen Norman Group: checkboxes vs radio buttons</a>
+- UX Planet: <a href="https://uxplanet.org/radio-buttons-ux-design-588e5c0a50dc" target="_blank">Radio Buttons UX Design</a>
+- Nielsen Norman Group: <a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/" target="_blank">Checkboxes vs. Radio Buttons</a>
 
 ## Related
 

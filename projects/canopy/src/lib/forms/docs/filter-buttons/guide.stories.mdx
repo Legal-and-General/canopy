@@ -5,22 +5,22 @@ import Feedback from '../../../docs/common/feedback.md';
 
 # Filter buttons
 
-<p class="standfirst">Filter buttons help users to narrow down large data sets, like their documents or payments, by giving them a clear and friendly option for filtering the data. Filter buttons should usually be contained in a filter container - see the design pattern, <a href="./?path=/docs/components-filter-container--standard-filter-container">help user to filter results</a>.</p>
+<p class="standfirst">Filter buttons help users to narrow down large data sets, like their documents or payments, by giving them a clear and friendly option for filtering the data. Filter buttons should usually be contained in a filter container - see the design pattern, <a href="./?path=/docs/patterns-filter-container-guide--page">help user to filter results</a>.</p>
 
 ![Filter button component example](docs/forms/filter-button/example.png)
 
 ## Usage
 
-Use a filter button when you have 10 or fewer filter options. If the user can only choose one option, use the 'Select One' state. If the user can choose multiple options, use the 'Select Multiple' state.
+Use a filter button when you have 10 or fewer filter options. If the user can only choose one option, use the 'Select one' state. If the user can choose multiple options, use the 'Select multiple' state.
 
 If there are more than 10 filter options, use radio buttons or check boxes instead to avoid cluttering a filter panel.
 
-Filter buttons are best used in conjunction with the pattern - [help user to filter results](./?path=/docs/components-filter-container--standard-filter-container). This pattern provides a container into which filter buttons can be grouped:
+Filter buttons are best used in conjunction with the pattern - [help user to filter results](./?path=/docs/patterns-filter-container-guide--page). This pattern provides a container into which filter buttons can be grouped:
 
 ![Filter container example](docs/forms/filter-button/filter-container.png)
 
 
-### Select One
+### Select one
 
 Import the Radio Module into your application:
 
@@ -28,10 +28,10 @@ Import the Radio Module into your application:
 @NgModule({
   ...
   imports: [ ..., LgRadioModule ],
-})
+});
 ```
 
-### Select Multiple
+### Select multiple
 
 Import the CheckboxGroup and Toggle modules into your application:
 
@@ -39,7 +39,7 @@ Import the CheckboxGroup and Toggle modules into your application:
 @NgModule({
   ...
   imports: [ ..., LgCheckboxGroupModule, LgToggleModule ],
-})
+});
 ```
 
 
@@ -48,7 +48,7 @@ Import the CheckboxGroup and Toggle modules into your application:
 
 When a user selects a filter button within a filter panel for a list of content, the filter button shows a selected state. The choice needs to be saved in the filter panel before the user will see their filters reflected in the content.
 
-### Select One
+### Select one
 
 When a user selects a Select One filter button, clicking another will deselect the original and highlight the new selection.
 
@@ -56,7 +56,7 @@ When a user selects a Select One filter button, clicking another will deselect t
 
 
 
-### Select Multiple
+### Select multiple
 
 When a user selects a Select Multiple filter button, they can click to deselect it. They can click other filters in the same group to add multiple options, and remove them individually.
 
@@ -70,88 +70,90 @@ When a user selects a Select Multiple filter button, they can click to deselect 
 
 ![Do](docs/forms/filter-button/do.png)
 
-1. **Do** use the deselected state as the default
-2. **Do** keep filter labels succinct
-3. **Do** choose an appropriate button type (Select One/Select Multiple) for each filter
-4. **Do** keep 12px horizontal space between buttons
+1. **Do** use the deselected state as the default.
+2. **Do** keep filter labels succinct.
+3. **Do** choose an appropriate button type (Select one/Select multiple) for each filter.
+4. **Do** keep 12px horizontal space between buttons.
 
 ### Don't
 
 ![Don't](docs/forms/filter-button/dont.png)
 
-1. **Don't** use this component for more than 10 filter options
-2. **Don't** centre or right-align the filter buttons
-3. **Don't** mix Select One and Select Multiple filters in the same group
+1. **Don't** use this component for more than 10 filter options.
+2. **Don't** centre or right-align the filter buttons.
+3. **Don't** mix 'Select one' and 'Select multiple' filters in the same group.
 
 
 
 ## Additional development details
 
-### Select One
+### Select one
 
 <Source id="components-filter-buttons-examples--filter-buttons"></Source>
 
 #### LgRadioGroupComponent inputs
 
-| Name  | Description                                                  | Type              | Default                             | Required |
-| ----- | ------------------------------------------------------------ | ----------------- | ----------------------------------- | -------- |
-| ``id``    | HTML ID attribute, auto generated if not provided            | string            | ``lg-radio-group-id-${nextUniqueId++}`` | No       |
-| ``name``  | Set the name value for all inputs in the group, auto-generated if not provided | string            | ``lg-radio-group-${nextUniqueId++}``    | No       |
-| ``value`` | Set the default checked radio button, must match the value of the radio button | boolean or string | ``null``                                | No       |
-| ``focus`` | Set the focus on the fieldset                                | boolean           | ``null``                                | No       |
+| Name    | Description                                                                    | Type                  | Default                               | Required |
+|---------|--------------------------------------------------------------------------------|-----------------------|---------------------------------------|----------|
+| `id`    | HTML ID attribute, auto generated if not provided                              | `string`              | `lg-radio-group-id-${nextUniqueId++}` | No       |
+| `name`  | Set the name value for all inputs in the group, auto-generated if not provided | `string`              | `lg-radio-group-${nextUniqueId++}`    | No       |
+| `value` | Set the default checked radio button, must match the value of the radio button | `boolean` \| `string` | `null`                                | No       |
+| `focus` | Set the focus on the fieldset                                                  | `boolean`             | `null`                                | No       |
 
-#### LgRadioButtonComponent inputs
+#### LgRadioButtonComponent
 
-| Name            | Description                                                  | Type    | Default                           | Required |
-| --------------- | ------------------------------------------------------------ | ------- | --------------------------------- | -------- |
-| ``id``              | HTML ID attribute, auto generated if not provided            | string  | ``lg-radio-button-${++nextUniqueId}`` | No       |
-| ``name``            | HTML name attribute                                          | string  | ``null``                              | Yes      |
-| ``value``           | HTML value attribute                                         | string  | ``null``                              | Yes      |
-| ``ariaDescribedBy`` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | boolean | ``null``                              | No       |
+##### Inputs
 
-#### LgRadioButtonComponent outputs
+| Name              | Description                                                                                                                   | Type      | Default                             | Required |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------------|----------|
+| `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`  | `lg-radio-button-${++nextUniqueId}` | No       |
+| `name`            | HTML name attribute                                                                                                           | `string`  | `null`                              | Yes      |
+| `value`           | HTML value attribute                                                                                                          | `string`  | `null`                              | Yes      |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | `boolean` | `null`                              | No       |
 
-| Name | Description                             | Type         | Default | Required         |
-| ---- | --------------------------------------- | ------------ | ------- | ---------------- |
-| blur | Event emitted on blur of a radio button | EventEmitter | n/a     | No |
+##### Outputs
+
+| Name   | Description                             | Type                  | Default | Required |
+|--------|-----------------------------------------|-----------------------|---------|----------|
+| `blur` | Event emitted on blur of a radio button | `EventEmitter<Event>` | n/a     | No       |
 
 
 -----
 
-### Select Multiple
+### Select multiple
 
 <Source id="components-filter-buttons-examples--filter-multiple-buttons"></Source>
 
 #### LgCheckboxGroupComponent inputs
-| Name            | Description                                                  | Type    | Default                           | Required |
-| --------------- | ------------------------------------------------------------ | ------- | --------------------------------- | -------- |
-| ``id``              | HTML ID attribute, auto generated if not provided | string | ``lg-checkbox-group-id-${this.nextUniqueId}`` | No |
-| ``name``            | Set the name value for all inputs in the group, auto-generated if not provided | string | `lg-checkbox-group-${this.nextUniqueId}` | No |
-| ``value``           | HTML value attribute. Sets the default checked filter buttons, must match the values of the filter buttons | array of strings | ``null`` | No |
-| ``focus``           | Set the focus on the fieldset | boolean | ``null`` | No |
-| ``disabled``        | Set the inner filters to disabled | boolean | ``false`` | No |
-| ``ariaDescribedBy`` | HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate | boolean | ``null`` | No |
+| Name              | Description                                                                                                                    | Type            | Default                                     | Required |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------------------------------------|----------|
+| `id`              | HTML ID attribute, auto generated if not provided                                                                              | `string`        | `lg-checkbox-group-id-${this.nextUniqueId}` | No       |
+| `name`            | Set the name value for all inputs in the group, auto-generated if not provided                                                 | `string`        | `lg-checkbox-group-${this.nextUniqueId}`    | No       |
+| `value`           | HTML value attribute. Sets the default checked filter buttons, must match the values of the filter buttons                     | `Array<string>` | `null`                                      | No       |
+| `focus`           | Set the focus on the fieldset                                                                                                  | `boolean`       | `null`                                      | No       |
+| `disabled`        | Set the inner filters to disabled                                                                                              | `boolean`       | `false`                                     | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate | `boolean`       | `null`                                      | No       |
 
 #### LgToggleComponent inputs
-| Name            | Description                                                  | Type    | Default                           | Required |
-| --------------- | ------------------------------------------------------------ | ------- | --------------------------------- | -------- |
-| ``id``          | HTML ID attribute, auto generated if not provided | string | ``lg-toggle-${++nextUniqueId}`` | No |
-| ``name``        | HTML Name attribute, auto generated if not provided | string | ``lg-toggle-${++nextUniqueId}`` | No |
-| ``value``       | HTML value attribute. Value that is set when the toggle is checked | string | ``null`` | No |
-| ``checked``     | Check status of the toggle | boolean | ``false`` | No |
-| ``focus``       | Set the focus on the input | boolean | ``null`` | No |
+| Name      | Description                                                        | Type      | Default                       | Required |
+|-----------|--------------------------------------------------------------------|-----------|-------------------------------|----------|
+| `id`      | HTML ID attribute, auto generated if not provided                  | `string`  | `lg-toggle-${++nextUniqueId}` | No       |
+| `name`    | HTML Name attribute, auto generated if not provided                | `string`  | `lg-toggle-${++nextUniqueId}` | No       |
+| `value`   | HTML value attribute. Value that is set when the toggle is checked | `string`  | `null`                        | No       |
+| `checked` | Check status of the toggle                                         | `boolean` | `false`                       | No       |
+| `focus`   | Set the focus on the input                                         | `boolean` | `null`                        | No       |
 
 ## Research on this component
 
 A usability study was carried out by the Legal & General Digital Ops team in Sept 2020.
 
-More research is needed to understand if users sufficiently understand the difference between the Select One and Select Multiple buttons.
+More research is needed to understand if users sufficiently understand the difference between the 'Select one' and 'Select multiple' buttons.
 
 ## Related
 
-- [Radio buttons for Select One](./?path=/docs/components-forms-radio--radio)
-- [Checkboxes for Select Multiple](./?path=/docs/components-forms-checkbox-group--checkbox-group)
-- [Segment](./?path=/docs/components-forms-segment--segment-buttons)
+- [Radio buttons for 'Select one'](./?path=/docs/components-forms-radio-guide--page)
+- [Checkboxes for 'Select multiple'](./?path=/docs/components-forms-checkbox-guide--page)
+- [Segment](./?path=/docs/components-forms-segment-guide--page)
 
 <Feedback />
 

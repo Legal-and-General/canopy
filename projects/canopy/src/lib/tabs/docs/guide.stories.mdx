@@ -10,26 +10,26 @@ import Feedback from '../../docs/common/feedback.md';
 
 ## Usage
 
-Import the tabs module in your module:
+Import the tabs module in your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgTabsModule ],
 });
-~~~
+```
 
 There are two types of usage for the tab system:
 
-- **tabbed content**: allows for related content to be displayed, one section at the time;
-- **tabbed navigation**: allows users to navigate between routes or urls in a tabs-like UI.
+- **Tabbed content**: allows for related content to be displayed, one section at the time.
+- **Tabbed navigation**: allows users to navigate between routes or urls in a tabs-like UI.
 
 
 ### Tabbed content
 
 In your HTML:
 
-~~~html
+```html
 <lg-tabs label="Title" (tabEvent)="tabEvent($event)">
   <lg-tab-item>
     <lg-tab-item-heading>Tab 1</lg-tab-item-heading>
@@ -64,14 +64,14 @@ In your HTML:
     </lg-tab-item-content>
   </lg-tab-item>
 </lg-tabs>
-~~~
+```
 
 
 ### Tabbed navigation
 
 In your HTML:
 
-~~~html
+```html
 <lg-tab-nav-bar label="Tabbed navigtion label">
   <a lgTabNavBarLink id="tabbed-nav-1" [isActive]="true" [routerLink]="">Tab 1</a>
   <a lgTabNavBarLink id="tabbed-nav-2" [routerLink]="">Tab 2</a>
@@ -80,7 +80,7 @@ In your HTML:
 <lg-tab-nav-content [selectedTabId]="tabbed-nav-1">
   <p>Insert router-outlet here.</p>
 </lg-tab-nav-content>
-~~~
+```
 
 ## Additional developer details
 
@@ -91,15 +91,15 @@ Here is where the tabs are projected.
 
 ##### Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``label`` | The value to apply to the aria label | string | tabs | Yes |
+| Name    | Description                          |   Type   | Default | Required |
+|---------|--------------------------------------|:--------:|:-------:|:--------:|
+| `label` | The value to apply to the aria label | `string` | `tabs`  |   Yes    |
 
 ##### Outputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``tabEvent`` | Event emitted when the selected tab changes | EventEmitter<{ index: number }> | n/a | No |
+| Name       | Description                                 |               Type                | Default | Required |
+|------------|---------------------------------------------|:---------------------------------:|:-------:|:--------:|
+| `tabEvent` | Event emitted when the selected tab changes | `EventEmitter<{ index: number }>` |   n/a   |    No    |
 
 #### LgTabItemComponent
 This is where the `LgTabItemHeadingComponent` and `LgTabItemContentComponent` of the tab are projected and positioned.
@@ -119,33 +119,35 @@ Here is where the link items using the `LgTabNavBarLinkDirective` are projected.
 
 ##### Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``label`` | Label for the tab list| string | Tabs | No |
+| Name    | Description            |   Type   | Default | Required |
+|---------|------------------------|:--------:|:-------:|:--------:|
+| `label` | Label for the tab list | `string` | `Tabs`  |    No    |
 
 #### LgTabNavBarLinkDirective
 
 ##### Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``index`` | Sets the tab index position in tab list | number | 0 | No |
-| ``isActive`` | Sets the active state of the tab | boolean | false | No |
-| ``isFocused`` | Sets the focus state of the tab | boolean | false | No |
+| Name        | Description                             |   Type    | Default | Required |
+|-------------|-----------------------------------------|:---------:|:-------:|:--------:|
+| `index`     | Sets the tab index position in tab list | `number`  |   `0`   |    No    |
+| `isActive`  | Sets the active state of the tab        | `boolean` | `false` |    No    |
+| `isFocused` | Sets the focus state of the tab         | `boolean` | `false` |    No    |
 
 ##### Outputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``isActive`` | Sets the current active tab | boolean | undefined | No |
+| Name       | Description                 |  Type   |   Default   | Required |
+|------------|-----------------------------|:-------:|:-----------:|:--------:|
+| `isActive` | Sets the current active tab | boolean | `undefined` |    No    |
 
 ### LgTabNavContentComponent
 This is where you should place the `router-outlet`. Don't forget to add the `aria-labelledby` attribute to the content output by the `router-outlet`.
 
 #### Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``selectedTabId`` | Sets the id of the current selected tab | string | undefined | No |
+| Name            | Description                             |   Type   |   Default   | Required |
+|-----------------|-----------------------------------------|:--------:|:-----------:|:--------:|
+| `selectedTabId` | Sets the id of the current selected tab | `string` | `undefined` |    No    |
+
+---
 
 <Feedback />

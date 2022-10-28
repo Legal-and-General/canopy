@@ -8,22 +8,24 @@ import Feedback from '../../docs/common/feedback.md';
 This directive allows for focus to be set dynamically on a focusable element.
 
 ## Usage
-Import the directive in your module:
+Import the focus module in your application:
 
-~~~
+```
 @NgModule({
   ...
   imports: [ ..., LgFocusModule ],
 });
-~~~
+```
 
 and in your HTML:
 
 <Source id="helpers-directives-focus-examples--focus"></Source>
 
 ### Inputs
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| `lgFocus` | whether the element should be focused or not | boolean | `null` | Yes |
+| Name      | Description                                  |   Type    | Default | Required |
+|-----------|----------------------------------------------|:---------:|:-------:|:--------:|
+| `lgFocus` | Whether the element should be focused or not | `boolean` | `null`  |   Yes    |
+
+---
 
 <Feedback />

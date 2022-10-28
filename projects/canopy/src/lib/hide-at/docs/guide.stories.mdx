@@ -11,18 +11,18 @@ For example, you may need to hide a component on wider viewports, such as deskto
 
 It uses global CSS responsive utility classes to add the relevant classes.
 
-It has a sibling directive: ``LgShowAt``.
+It has a sibling directive: `LgShowAt`.
 
 ## Usage
 
-Import the module in your application:
+Import the hide-at module in your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgHideAtModule ],
 });
-~~~
+```
 
 and in your HTML:
 
@@ -32,8 +32,14 @@ and in your HTML:
 
 The current available breakpoints are `sm`, `md`, `lg`, `xl`, and `xxl`.
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``lgHideAt`` | The name of the breakpoint applied | string | ``null`` | No |
+| Name       | Description                        |   Type   | Default | Required |
+|------------|------------------------------------|:--------:|:-------:|:--------:|
+| `lgHideAt` | The name of the breakpoint applied | `string` | `null`  |    No    |
+
+---
+
+## Related
+
+- [Show at directive](./?path=/docs/helpers-directives-show-at-guide--page)
 
 <Feedback />

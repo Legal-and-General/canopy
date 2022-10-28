@@ -5,25 +5,27 @@ import Feedback from '../../docs/common/feedback.md';
 
 # Heading
 
-This component allows for headings to be set dynamically.
-
-**It should only be used within other components (see the [accordion component](https://github.com/Legal-and-General/canopy/blob/master/projects/canopy/src/lib/accordion/accordion-panel-heading/accordion-panel-heading.component.html) as an example).**
+<p class="standfirst">Allows for headings to be set dynamically.</p>
 
 ## Usage
 
-Import the heading module in your module:
+**This component should only be used within other components (see the [accordion component](https://github.com/Legal-and-General/canopy/blob/master/projects/canopy/src/lib/accordion/accordion-panel-heading/accordion-panel-heading.component.html) as an example).**
 
-~~~js
+Import the heading module in your application:
+
+```js
 @NgModule({
   ...
   imports: [ ..., LgHeadingModule ],
 });
-~~~
+```
 
 ### Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| `level` | The heading level | number | `undefined` | Yes |
+| Name    | Description       |   Type   |   Default   | Required |
+|---------|-------------------|:--------:|:-----------:|:--------:|
+| `level` | The heading level | `number` | `undefined` |   Yes    |
+
+---
 
 <Feedback />

@@ -34,8 +34,8 @@ and in your HTML:
 
 ## How it works
 
-- In the default state, one option must be pre-selected
-- Changing the state of the switch has an immediate effect
+- In the default state, one option must be pre-selected.
+- Changing the state of the switch has an immediate effect.
 
 ## Dos and Don'ts
 
@@ -43,17 +43,17 @@ and in your HTML:
 
 ![do](docs/forms/switch/do.png)
 
-1. **Do** use when users need to turn a setting on or off
-2. **Do** use when changing a setting immediately effects a change in the UI
+1. **Do** use when users need to turn a setting on or off.
+2. **Do** use when changing a setting immediately effects a change in the UI.
 
 ### Don'ts
 
 ![dont](docs/forms/switch/dont.png)
 
-1. **Don't** use multiple switches where only a single option can be selected. Use either radio buttons or the select component instead
-2. **Don't** use if the selection isn't intended to trigger an immediate effect. Use the checkbox component instead
-3. **Don't** use in conjunction with a save or submit action, changes should happen immediately
-4. **Don't** change the label when the switch changes value
+1. **Don't** use multiple switches where only a single option can be selected. Use either radio buttons or the select component instead.
+2. **Don't** use if the selection isn't intended to trigger an immediate effect. Use the checkbox component instead.
+3. **Don't** use in conjunction with a save or submit action, changes should happen immediately.
+4. **Don't** change the label when the switch changes value.
 
 ## Additional development details
 
@@ -61,19 +61,19 @@ and in your HTML:
 
 ### Inputs
 
-| Name              | Description                                                                                                                   | Type    | Default                         | Required |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|---------------------------------|----------|
-| `id`              | HTML ID attribute, auto generated if not provided                                                                             | string  | ``lg-toggle-${++nextUniqueId}`` | No       |
-| `name`            | HTML name attribute                                                                                                           | string  | null                            | Yes      |
-| `value`           | HTML value attribute                                                                                                          | string  | null                            | Yes      |
-| `focus`           | Set the focus on the switch                                                                                                   | boolean | null                            | No       |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the switch, if not provided it will use the hint field where appropriate | boolean | null                            | No       |
+| Name              | Description                                                                                                                   | Type      | Default                       | Required |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------|----------|
+| `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`  | `lg-toggle-${++nextUniqueId}` | No       |
+| `name`            | HTML name attribute                                                                                                           | `string`  | `null`                        | Yes      |
+| `value`           | HTML value attribute                                                                                                          | `string`  | `null`                        | Yes      |
+| `focus`           | Set the focus on the switch                                                                                                   | `boolean` | `null`                        | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the switch, if not provided it will use the hint field where appropriate | `boolean` | `null`                        | No       |
 
 ### Outputs
 
-| Name   | Description                       | Type         | Default | Required |
-|--------|-----------------------------------|--------------|---------|----------|
-| `blur` | Event emitted on blur of a toggle | EventEmitter | n/a     | No       |
+| Name   | Description                       | Type                  | Default | Required |
+|--------|-----------------------------------|-----------------------|---------|----------|
+| `blur` | Event emitted on blur of a toggle | `EventEmitter<Event>` | n/a     | No       |
 
 
 
@@ -83,13 +83,13 @@ and in your HTML:
 
 We've based our guidance on best practice and research from these sources:
 
-Nielsen Norman Group - <a href="https://www.nngroup.com/articles/toggle-switch-guidelines/" target="_blank">Toggle-switch guidelines</a>
+- Nielsen Norman Group: <a href="https://www.nngroup.com/articles/toggle-switch-guidelines/" target="_blank">Toggle-Switch Guidelines</a>
 
 ## Related
 
-Patterns which may perform a similar task, or which should be considered instead
+Patterns which may perform a similar task, or which should be considered instead:
 
-- [Radio buttons](./?path=/docs/components-forms-radio--radio)
+- [Radio buttons](./?path=/docs/components-forms-radio-guide--page)
 - [Segment](./?path=/docs/components-forms-segment-guide--page)
 - [Select](./?path=/docs/components-forms-select-guide--page)
 - [Checkbox](./?path=/docs/components-forms-checkbox-guide--page)

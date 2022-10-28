@@ -13,13 +13,15 @@ import Feedback from '../../../../docs/common/feedback.md';
 
 Checkboxes should be used when allowing the user to select multiple options, when asking users for confirmation of agreement, or that an action has been performed. For instance:
 
-- When asking the user to select all options that apply to them
-- When asking the user to confirm they've read terms & conditions
+- When asking the user to select all options that apply to them.
+- When asking the user to confirm they've read terms & conditions.
 - In the form of a checklist.
 
 ### Checkbox
 
-The checkbox component is a variant of the toggle component. Import the toggle module in your module:
+The checkbox component is a variant of the toggle component.
+
+Import the toggle module in your application:
 
 ```js
 @NgModule({
@@ -36,7 +38,9 @@ and in your HTML:
 
 ### Checkbox group
 
-The checkbox group component is a container which displays the label with an optional hint and should contain two or more toggle components. The hint component may be used to provide extra context to the user. Import the toggle and checkbox group modules in your module:
+The checkbox group component is a container which displays the label with an optional hint and should contain two or more toggle components. The hint component may be used to provide extra context to the user.
+
+Import the toggle and checkbox group modules in your application:
 
 ```js
 @NgModule({
@@ -66,16 +70,16 @@ On click, the checkbox is filled with a 'tick' to indicate a state of confirmati
 
 ![do](docs/forms/checkbox/do.png)
 
-1. **Do** use to confirm a response
-2. **Do** use to help highlight that an action or task is required
+1. **Do** use to confirm a response.
+2. **Do** use to help highlight that an action or task is required.
 3. **Do** use to allow the user to choose from multiple options.
 
 ###  Don’t
 
 ![dont](docs/forms/checkbox/dont.png)
 
-1. **Don't** use negative labels
-2. **Don't** use as part of a dark pattern
+1. **Don't** use negative labels.
+2. **Don't** use as part of a dark pattern.
 3. **Don't** use when a single response is required.
 
 ## Additional developer details
@@ -86,34 +90,34 @@ On click, the checkbox is filled with a 'tick' to indicate a state of confirmati
 
 #### Inputs
 
-| Name                | Description                                                  | Type         | Default                         | Required |
-| ------------------- | ------------------------------------------------------------ | ------------ | ------------------------------- | -------- |
-| ``id``              | HTML ID attribute, auto generated if not provided            | string       | ``lg-toggle-${++nextUniqueId}`` | No       |
-| ``name``            | HTML name attribute                                          | string       | ``null``                        | Yes      |
-| ``value``           | HTML value attribute                                         | string       | ``null``                        | Yes      |
-| ``focus``           | Set the focus on the checkbox                                | boolean      | ``null``                        | No       |
-| ``ariaDescribedBy`` | HTML ID for the corresponding element that describes the checkbox, if not provided it will use the hint field where appropriate | boolean      | ``null``                        | No       |
-| ``size``            | The size of the checkbox                                     | CheckboxSize | ``sm``                          | No       |
+| Name              | Description                                                                                                                     | Type                          | Default                       | Required |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------|-------------------------------|-------------------------------|----------|
+| `id`              | HTML ID attribute, auto generated if not provided                                                                               | `string`                      | `lg-toggle-${++nextUniqueId}` | No       |
+| `name`            | HTML name attribute                                                                                                             | `string`                      | `null`                        | Yes      |
+| `value`           | HTML value attribute                                                                                                            | `string`                      | `null`                        | Yes      |
+| `focus`           | Set the focus on the checkbox                                                                                                   | `boolean`                     | `null`                        | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the checkbox, if not provided it will use the hint field where appropriate | `boolean`                     | `null`                        | No       |
+| `size`            | The size of the checkbox                                                                                                        | `CheckboxSize` (`sm` \| `lg`) | `sm`                          | No       |
 
 #### Outputs
 
-| Name     | Description                         | Type                  | Default                         | Required |
-| -------- | ----------------------------------- | --------------------- | ------------------------------- | -------- |
-| ``blur`` | Event emitted on blur of a checkbox | EventEmitter`<Event>` | ``lg-toggle-${++nextUniqueId}`` | No       |
+| Name   | Description                         | Type                  | Default                       | Required |
+|--------|-------------------------------------|-----------------------|-------------------------------|----------|
+| `blur` | Event emitted on blur of a checkbox | `EventEmitter<Event>` | `lg-toggle-${++nextUniqueId}` | No       |
 
 ### LgCheckboxGroupComponent
 
 #### Inputs
 
-| Name                | Description                                                  | Type            | Default                                       | Required |
-| ------------------- | ------------------------------------------------------------ | --------------- | --------------------------------------------- | -------- |
-| ``id``              | HTML ID attribute, auto generated if not provided            | string          | ``lg-checkbox-group-id-${this.nextUniqueId}`` | No       |
-| ``name``            | Set the name value for all checkboxes in the group, auto-generated if not provided | string          | ``lg-checkbox-group-${this.nextUniqueId}``    | No       |
-| ``value``           | HTML value attribute. Sets the default checked checkbox buttons, must match the values of the checkbox buttons | Array`<string>` | ``null``                                      | No       |
-| ``focus``           | Set the focus on the fieldset                                | boolean         | ``null``                                      | No       |
-| ``disabled``        | Set the inner checkboxes to disabled                         | boolean         | ``false``                                     | No       |
-| ``ariaDescribedBy`` | HTML ID for the corresponding element that describes the checkboxes, if not provided it will use the hint field where appropriate | boolean         | ``null``                                      | No       |
-| ``inline``          | If true, displays the checkboxes inline rather than stacked  | boolean         | ``false``                                     | No       |
+| Name              | Description                                                                                                                       | Type            | Default                                     | Required |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------------------------------------|----------|
+| `id`              | HTML ID attribute, auto generated if not provided                                                                                 | `string`        | `lg-checkbox-group-id-${this.nextUniqueId}` | No       |
+| `name`            | Set the name value for all checkboxes in the group, auto-generated if not provided                                                | `string`        | `lg-checkbox-group-${this.nextUniqueId}`    | No       |
+| `value`           | HTML value attribute. Sets the default checked checkbox buttons, must match the values of the checkbox buttons                    | `Array<string>` | `null`                                      | No       |
+| `focus`           | Set the focus on the fieldset                                                                                                     | `boolean`       | `null`                                      | No       |
+| `disabled`        | Set the inner checkboxes to disabled                                                                                              | `boolean`       | `false`                                     | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the checkboxes, if not provided it will use the hint field where appropriate | `boolean`       | `null`                                      | No       |
+| `inline`          | If true, displays the checkboxes inline rather than stacked                                                                       | `boolean`       | `false`                                     | No       |
 
 ## Research on this component
 
@@ -121,8 +125,6 @@ This is based on best practice.
 
 ## Related
 
-Where a definitive positive or negative response is required from the user then maybe the Radio button component would be more suitable.
-
-- [Radio buttons](./?path=/docs/components-forms-radio--radio)
+Where a definitive positive or negative response is required from the user then maybe the [radio button component](./?path=/docs/components-forms-radio-guide--page) would be more suitable.
 
 <Feedback />

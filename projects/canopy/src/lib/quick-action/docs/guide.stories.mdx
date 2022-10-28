@@ -1,29 +1,29 @@
 import { Meta } from '@storybook/addon-docs';
 import Feedback from '../../docs/common/feedback.md';
 
-<Meta title="Components/Quick Action/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Quick action/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
 
 # Quick action
 
-<p class="standfirst">Quick Actions are small buttons that can be used to provide functionality in context, such as editing a form or actions on a card.</p>
+<p class="standfirst">Quick actions are small buttons that can be used to provide functionality in context, such as editing a form or actions on a card.</p>
 
 ![example](docs/quick-action/example.png)
 
 ## Usage
 
-Quick Actions should be used to increase the affordance of a specific function when a primary CTA would be too prominent. They are typically used to give access to functionality in the context of a piece of content or data. An example would be when allowing the user to change their bank details in the context of showing them bank details:
+Quick actions should be used to increase the affordance of a specific function when a primary CTA would be too prominent. They are typically used to give access to functionality in the context of a piece of content or data. An example would be when allowing the user to change their bank details in the context of showing them bank details:
 
 ![usage](docs/quick-action/usage.png)
 
 Quick actions shouldn't be used to complete form journeys or to invite the user to read more. In these scenarios, a button or link should be used.
 
-Import the quick action module into your module:
+Import the quick action module into your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgQuickActionModule ],
-})
+});
 ```
 
 Use in your HTML as a button:
@@ -54,15 +54,15 @@ Comprising an icon and accompanying text label, the Quick Action describes a spe
 
 ![do](docs/quick-action/do.png)
 
-1. **Do** use to indicate / highlight / spotlight functionality available
-2. **Do** use concise labels that are descriptive and help set the user's expectations
+1. **Do** use to indicate / highlight / spotlight functionality available.
+2. **Do** use concise labels that are descriptive and help set the user's expectations.
 
 ### Don't
 
 ![dont](docs/quick-action/dont.png)
 
-1. **Don't** use in place of buttons or links
-2. **Don't** use too many quick actions, we suggest a maximum of three
+1. **Don't** use in place of buttons or links.
+2. **Don't** use too many quick actions, we suggest a maximum of three.
 3. **Don't** use overly wordy labels. Like buttons, quick action labels do not wrap and therefore microcopy needs to be less than the width of the container.
 
 ------
@@ -73,8 +73,7 @@ This component is based on best practice and has not been subject to usability t
 
 ## Related
 
-- [Card](./?path=/docs/components-card-guide--page)
-- [Buttons](./?path=/docs/components-button-guide--page)
-- [Link](./?path=/docs/style-links--links)
+- [Button](./?path=/docs/components-button-guide--page)
+- [Link](./?path=/docs/components-link-guide--page)
 
 <Feedback />

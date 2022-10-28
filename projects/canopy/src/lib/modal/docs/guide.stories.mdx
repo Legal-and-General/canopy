@@ -19,18 +19,18 @@ It is used for critical information that requires a specific user task, decision
 
 
 
-Import the modal module in your module:
+Import the modal module in your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgModalModule ],
-})
+});
 ```
 
 
 
-Opening and closing the modal is possible by using the ``ModalService``. Import the service:
+Opening and closing the modal is possible by using the `ModalService`. Import the service:
 
 ```js
   constructor(
@@ -93,18 +93,18 @@ Closing a modal dialogue on mobile can vary between each OS but in general tappi
 
 ![do](docs/modal/do.png)
 
-1. **Do** use when you require the customer's full and immediate attention
-2. **Do** keep content brief and concise
-3. **Do** use for important warnings, as a way to prevent or correct critical errors
-4. **Do** use descriptive buttons
+1. **Do** use when you require the customer's full and immediate attention.
+2. **Do** keep content brief and concise.
+3. **Do** use for important warnings, as a way to prevent or correct critical errors.
+4. **Do** use descriptive buttons.
 
 ### Don't
 
 ![dont](docs/modal/dont.png)
 
-1. **Don't** use Modal Dialogues as an Interaction Confirmation. Consider using Alert message or Pop-up message instead
-2. **Don't** fill with too much content or allow content to overflow and scroll
-3. **Don't** use for high-stake processes such as application journey
+1. **Don't** use Modal Dialogues as an Interaction Confirmation. Consider using Alert message or Pop-up message instead.
+2. **Don't** fill with too much content or allow content to overflow and scroll.
+3. **Don't** use for high-stake processes such as application journey.
 
 **Don't** use if the content can be presented within a regular page. Use Modal Dialogues as a last resort.
 
@@ -114,52 +114,52 @@ Closing a modal dialogue on mobile can vary between each OS but in general tappi
 
 #### Inputs
 
-| Name   | Description                | Type   | Default   | Required |
-| ------ | -------------------------- | ------ | --------- | -------- |
-| ``id`` | The unique id of the modal | string | undefined | Yes      |
+| Name | Description                | Type     | Default     | Required |
+|------|----------------------------|----------|-------------|----------|
+| `id` | The unique id of the modal | `string` | `undefined` | Yes      |
 
 #### Outputs
 
-| Name       | Description                            | Type               | Default | Required |
-| ---------- | -------------------------------------- | ------------------ | ------- | -------- |
-| ``open``   | Event emitted when the modal is opened | EventEmitter`<void>` | n/a     | No       |
-| ``closed`` | Event emitted when the modal is closed | EventEmitter`<void>` | n/a     | No       |
+| Name     | Description                            | Type                 | Default | Required |
+|----------|----------------------------------------|----------------------|---------|----------|
+| `open`   | Event emitted when the modal is opened | `EventEmitter<void>` | n/a     | No       |
+| `closed` | Event emitted when the modal is closed | `EventEmitter<void>` | n/a     | No       |
 
 ### LgModalHeaderComponent
 
 #### Inputs
 
-| Name             | Description                                                  | Type   | Default | Required |
-| ---------------- | ------------------------------------------------------------ | ------ | ------- | -------- |
-| ``headingLevel`` | The level of the modal heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | 2       | No       |
+| Name           | Description                                                  | Type     | Default | Required |
+|----------------|--------------------------------------------------------------|----------|---------|----------|
+| `headingLevel` | The level of the modal heading: `1`, `2`, `3`, `4`, `5`, `6` | `number` | `2`     | No       |
 
 #### Outputs
 
-| Name       | Description                                    | Type               | Default | Required |
-| ---------- | ---------------------------------------------- | ------------------ | ------- | -------- |
-| ``closed`` | Event emitted when the close button is clicked | EventEmitter`<void>` | n/a     | No       |
+| Name     | Description                                    | Type                 | Default | Required |
+|----------|------------------------------------------------|----------------------|---------|----------|
+| `closed` | Event emitted when the close button is clicked | `EventEmitter<void>` | n/a     | No       |
 
 ### LgModalBodyTimerComponent
 
 #### Inputs
 
-| Name      | Description                                                  | Type   | Default | Required |
-| --------- | ------------------------------------------------------------ | ------ | ------- | -------- |
-| ``timer`` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | number | n/a     | Yes      |
+| Name    | Description                                                                                              | Type     | Default | Required |
+|---------|----------------------------------------------------------------------------------------------------------|----------|---------|----------|
+| `timer` | The timer value (in seconds) to apply the styles and formatting to e.g. '90' will be formatted as '1:30' | `number` | n/a     | Yes      |
 
 ### LgModalTriggerDirective
 
 
 #### Inputs
-| Name               | Description                           | Type   | Default   | Required |
-| ------------------ | ------------------------------------- | ------ | --------- | -------- |
-| ``lgModalTrigger`` | The unique id of the modal to trigger | string | undefined | Yes      |
+| Name             | Description                           | Type     | Default     | Required |
+|------------------|---------------------------------------|----------|-------------|----------|
+| `lgModalTrigger` | The unique id of the modal to trigger | `string` | `undefined` | Yes      |
 
 #### Outputs
 
-| Name        | Description                                      | Type               | Default | Required |
-| ----------- | ------------------------------------------------ | ------------------ | ------- | -------- |
-| ``clicked`` | Event emitted when the trigger button is clicked | EventEmitter`<void>` | n/a     | No       |
+| Name      | Description                                      | Type                 | Default | Required |
+|-----------|--------------------------------------------------|----------------------|---------|----------|
+| `clicked` | Event emitted when the trigger button is clicked | `EventEmitter<void>` | n/a     | No       |
 
 ------
 
@@ -169,9 +169,9 @@ This is based on best practice research.
 
 ## Related
 
-Patterns which may perform a similar task, or which should be considered instead
+Patterns which may perform a similar task, or which should be considered instead:
 
-- [Inline Message](./?path=/docs/components-inline-message-alert-guide--page)
-- [Message with illustration](./?path=/docs/components-primary-message--standard-primary-message)
+- [Inline message](./?path=/docs/components-inline-message-alert-guide--page)
+- [Primary message](./?path=/docs/components-primary-message-guide--page)
 
 <Feedback />

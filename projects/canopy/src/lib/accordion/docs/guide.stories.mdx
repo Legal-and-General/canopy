@@ -17,13 +17,13 @@ Information that is important or relevant to most users should not be hidden wit
 
 Accordions work best for simple content and links but can support rich content (sound, video, imagery, etc), if required.
 
-Import the accordion module into your module:
+Import the accordion module into your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgAccordionModule ],
-})
+});
 ```
 
 
@@ -69,36 +69,38 @@ Accordions have a chevron to indicate that they are interactive, but clicking an
 
 ![Accordion component - what you should do](docs/accordion/do.png)
 
-1. **Do** use to hide secondary information from view
-2. **Do** make the label as short and descriptive as possible
+1. **Do** use to hide secondary information from view.
+2. **Do** make the label as short and descriptive as possible.
 
 ### Don't
 
 ![Accordion component - what you shouldn't do](docs/accordion/dont.png)
 
-1. **Don't** use to hide key information
+1. **Don't** use to hide key information.
 
 ## Additional development details
 
 ### LgAccordionComponent inputs
 
-| Name             | Description                                                  | Type    | Default | Required |
-| ---------------- | ------------------------------------------------------------ | ------- | ------- | -------- |
-| ``multi``        | Set false to only allow a single panel to be open at a time  | boolean | ``true``    | No       |
-| ``headingLevel`` | The level of the accordion headings: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number  | n/a     | Yes      |
+| Name           | Description                                                       | Type      | Default | Required |
+|----------------|-------------------------------------------------------------------|-----------|---------|----------|
+| `multi`        | Set false to only allow a single panel to be open at a time       | `boolean` | `true`  | No       |
+| `headingLevel` | The level of the accordion headings: `1`, `2`, `3`, `4`, `5`, `6` | `number`  | n/a     | Yes      |
 
-### LgAccordionItemComponent inputs
+### LgAccordionItemComponent
 
-| Name         | Description                            | Type    | Default | Required |
-| ------------ | -------------------------------------- | ------- | ------- | -------- |
-| ``isActive`` | The active state of the accordion item | boolean | ``false``   | No       |
+#### Inputs
 
-### LgAccordionItemComponent outputs
+| Name       | Description                            | Type      | Default | Required |
+|------------|----------------------------------------|-----------|---------|----------|
+| `isActive` | The active state of the accordion item | `boolean` | `false` | No       |
 
-| Name       | Description                                     | Type               | Default | Required |
-| ---------- | ----------------------------------------------- | ------------------ | ------- | -------- |
-| ``opened`` | Event emitted when the accordion item is opened | EventEmitter`<void>` | n/a     | No       |
-| ``closed`` | Event emitted when the accordion item is closed | EventEmitter`<void>` | n/a     | No       |
+#### Outputs
+
+| Name     | Description                                     | Type                 | Default | Required |
+|----------|-------------------------------------------------|----------------------|---------|----------|
+| `opened` | Event emitted when the accordion item is opened | `EventEmitter<void>` | n/a     | No       |
+| `closed` | Event emitted when the accordion item is closed | `EventEmitter<void>` | n/a     | No       |
 
 ### Lazy content initialisation
 
@@ -116,7 +118,7 @@ Consider using an accordion instead of the **details component** if there are mu
 
 - [Card](./?path=/docs/components-card-guide--page)
 - [Details](./?path=/docs/components-details-guide--page)
-- [Tabs](./?path=/docs/components-tabs-tabbed-content--standard-tabs)
+- [Tabs](./?path=/docs/components-tabs-guide--page)
 
 <Feedback />
 

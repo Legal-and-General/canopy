@@ -13,13 +13,13 @@ import Feedback from '../../docs/common/feedback.md';
 
 Use a button when you want to give the user a clear signpost as to what to do next. Examples of this are initiating a journey, submitting a form, or getting help.
 
-Import the button module in your module:
+Import the button module in your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgButtonModule ],
-})
+});
 ```
 
 
@@ -118,7 +118,7 @@ Buttons can contain the following content types:
 
 #### Buttons with labels and icons
 
-An **Icon Component** can be projected into the button. Use the iconPosition input to position the icon on the left or right (default) of the text.
+An **icon component** can be projected into the button. Use the iconPosition input to position the icon on the left or right (default) of the text.
 
 ```html
 <button lg-button type="button" iconPosition="left" >
@@ -144,7 +144,7 @@ You can create an **icon only** button by setting iconButton to true. You must s
 
 #### Left and right icons
 
-A button can also have two **Icon Components** in it. In this case the iconPosition input is **not applicable**, because the icons will be positioned automatically on each side of the text.
+A button can also have two **icon components** in it. In this case the `iconPosition` input is **not applicable**, because the icons will be positioned automatically on each side of the text.
 
 An important requirement is the need to add first and second attributes to the icons as per the example below. This determines the position of the icon, either as the first icon before the text, or the second icon after the text.
 
@@ -162,23 +162,23 @@ An important requirement is the need to add first and second attributes to the i
 
 ![Button component - what you should do](docs/button/do.png)
 
-1. **Do** make sure you choose a button that has sufficient contrast with the background
-2. **Do** use concise labels that are descriptive and help set the user's expectations
-3. **Do** distinguish between functional purposes
-4. **Do** use full-width buttons on mobile breakpoints
+1. **Do** make sure you choose a button that has sufficient contrast with the background.
+2. **Do** use concise labels that are descriptive and help set the user's expectations.
+3. **Do** distinguish between functional purposes.
+4. **Do** use full-width buttons on mobile breakpoints.
 
 ### Don't
 
 ![Button component - what you shouldn't do](docs/button/dont.png)
 
-1. **Don't** use a button variant that contrasts poorly with the background
-2. **Don't** use more than one primary button per page and don't use too many buttons in close proximity
-3. **Don't** wrap text labels
-4. **Don't** confuse priorities by using multiple primary CTA's at the same time
-5. **Don't** use overly wordy labels
-6. **Don't** centre align buttons
-7. **Don't** right align buttons
-8. **Don't** use uninformative labels
+1. **Don't** use a button variant that contrasts poorly with the background.
+2. **Don't** use more than one primary button per page and don't use too many buttons in close proximity.
+3. **Don't** wrap text labels.
+4. **Don't** confuse priorities by using multiple primary CTA's at the same time.
+5. **Don't** use overly wordy labels.
+6. **Don't** centre align buttons.
+7. **Don't** right align buttons.
+8. **Don't** use uninformative labels.
 
 
 
@@ -186,19 +186,19 @@ An important requirement is the need to add first and second attributes to the i
 
 ### LgButtonComponent inputs
 
-|                  | Description                                                  | Type                        | Default      | Required |
-| ---------------- | ------------------------------------------------------------ | --------------------------- | ------------ | -------- |
-| ``variant``      | The variant of button: ``primary-dark``, ``primary-light``,``secondary-dark``, ``secondary-light``, ``link``, ``add-on``. | string                      | primary-dark | No       |
-| ``size``         | The size of the button                                       | ButtonSize [``sm``, ``md``] | ``md``       | No       |
-| ``fullWidth``    | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | boolean                     | false        | No       |
-| ``disabled``     | Programmatically disable the button via this property        | boolean                     | false        | No       |
-| ``loading``      | If the button shows a loading spinner and is also disabled   | boolean                     | false        | No       |
-| ``iconPosition`` | The position of a single icon in the button, not used when including two icons                      | string                      | right        | No       |
-| ``iconButton``   | The button displays an icon only                             | boolean                     | false        | No       |
+|                | Description                                                                                                                                     | Type                      | Default        | Required |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|----------------|----------|
+| `variant`      | The variant of button: `primary-dark`, `primary-light`,`secondary-dark`, `secondary-light`, `link`, `add-on`.                                   | `string`                  | `primary-dark` | No       |
+| `size`         | The size of the button                                                                                                                          | `ButtonSize` (`sm`, `md`) | `md`           | No       |
+| `fullWidth`    | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | `boolean`                 | `false`        | No       |
+| `disabled`     | Programmatically disable the button via this property                                                                                           | `boolean`                 | `false`        | No       |
+| `loading`      | If the button shows a loading spinner and is also disabled                                                                                      | `boolean`                 | `false`        | No       |
+| `iconPosition` | The position of a single icon in the button, not used when including two icons                                                                  | `string`                  | `right`        | No       |
+| `iconButton`   | The button displays an icon only                                                                                                                | `boolean`                 | `false`        | No       |
 
 ### Button group
 
-Buttons can be grouped together by using the ButtonGroupComponent – a container to group together two or more buttons and place them along a single line.
+Buttons can be grouped together by using the `LgButtonGroupComponent` – a container to group together two or more buttons and place them along a single line.
 
 Useful for forms where a 'Submit' and 'Cancel' button are placed side by side, for example.
 
@@ -206,7 +206,7 @@ Useful for forms where a 'Submit' and 'Cancel' button are placed side by side, f
 
 ### Button toggle directive
 
-A button can be used specifically as a toggle, for example when opening and closing a filter panel. In this case the applied styles are slightly different than a regular button and you **must** use a button tag for accessibility reasons - if you add it to a link or any other element, it will throw an error.
+A button can be used specifically as a toggle, for example when opening and closing a filter panel. In this case the applied styles are slightly different from a regular button and you **must** use a button tag for accessibility reasons - if you add it to a link or any other element, it will throw an error.
 
 *This feature should only be used as part of a pattern. E.g. toggling the visibility of a filter panel.*
 
@@ -216,7 +216,7 @@ A button can be used specifically as a toggle, for example when opening and clos
 
 
 
-then in the wrapper component set the id and ariaControls of the toggle and use the toggleActive output of the directive to set the panel state:
+then in the wrapper component set the `id` and `ariaControls` of the toggle and use the `toggleActive` output of the directive to set the panel state:
 
 ```js
 @ContentChild(forwardRef(() => LgButtonToggleDirective)) buttonToggle: LgButtonToggleDirective;
@@ -237,7 +237,7 @@ ngAfterContentInit(): void {
 
 
 
-To see an example of the toggle button set up correctly inside a container, and toggling the visibility of a panel, see the [Filter Container story](./?path=/docs/components-filter-container--standard-filter-container).
+To see an example of the toggle button set up correctly inside a container, and toggling the visibility of a panel, see the [filter container story](./?path=/docs/patterns-filter-container-guide--page).
 
 ------
 
@@ -249,7 +249,7 @@ States have been updated to be more accessible based on external accessibility t
 
 ## Related
 
-- [Quick Action](./?path=/docs/components-quick-action--quick-action-button)
-- [Link](./?path=/docs/style-links--links)
+- [Quick action](./?path=/docs/components-quick-action-guide--page)
+- [Link](./?path=/docs/components-quick-action-guide--page)
 
 <Feedback />

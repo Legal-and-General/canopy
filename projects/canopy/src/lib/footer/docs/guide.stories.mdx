@@ -8,14 +8,14 @@ import Feedback from '../../docs/common/feedback.md';
 <p class="standfirst">Provides a generic footer to display at the bottom of the page.</p>
 
 ## Usage
-Import the footer module in your module:
+Import the footer module in your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgFooterModule ],
 });
-~~~
+```
 
 and in your HTML:
 
@@ -34,18 +34,18 @@ When an **anchor** tag is projected the`rel="noopener"` attribute will be automa
 When a **button** tag is projected the`type="button"` attribute will be automatically added.
 
 #### Inputs
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-|`variant` | The navigation variant | `primary` \| `secondary` | `null` | Yes |
+| Name      | Description            |           Type           | Default | Required |
+|-----------|------------------------|:------------------------:|:-------:|:--------:|
+| `variant` | The navigation variant | `primary` \| `secondary` | `null`  |   Yes    |
 
 ### LgFooterNavItemComponent
 This is where a navigation item should be projected.
 
 ### LgFooterLogoComponent inputs
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-|`src` | A url src for the logo | string | `undefined` | Yes |
-|`alt` | alt text to display alongside the logo | string | `''` | Yes |
+| Name  | Description                            |   Type   |   Default   | Required |
+|-------|----------------------------------------|:--------:|:-----------:|:--------:|
+| `src` | A url src for the logo                 | `string` | `undefined` |   Yes    |
+| `alt` | alt text to display alongside the logo | `string` |    `''`     |   Yes    |
 
 ---
 
@@ -64,11 +64,11 @@ The logo height is set internally with different heights for different screen si
 
 The width of the logos can be changed by overriding the values of the below css variables:
 
-~~~css
+```css
 --footer-logo-width
 --footer-logo-width-lg
 --footer-second-logo-width
 --footer-second-logo-width-lg
-~~~
+```
 
 <Feedback />

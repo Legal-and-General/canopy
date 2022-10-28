@@ -17,7 +17,7 @@ It's also intended as an alternative to radio buttons when the user needs to mak
 
 The segment component is a variant of the radio component.
 
-Import the radio module into your module:
+Import the radio module into your application:
 
 ```js
 @NgModule({
@@ -40,11 +40,11 @@ and in your HTML:
 
 The segment control is made up of a segment group and segment buttons. A segment group is a container which displays a label, optional hint and two or more segment buttons. Under the hood, segment buttons are restyled radio buttons.
 
-- In the default state, nothing is selected
-- Only one option can be selected and active at any one time. Selecting one option deselects any other
-- There must be a clear colour contrast between the selected and the unselected options
-- If there's not enough space to display the segment in a horizontal layout, a vertical layout may be used up to tablet breakpoint. A choice on which breakpoint the segment changes from vertical to horizontal should be made at design time (vertical stacking up to SM, MD or LG breakpoints)
-- Use a hint to provide extra context to the user
+- In the default state, nothing is selected.
+- Only one option can be selected and active at any one time. Selecting one option deselects any other.
+- There must be a clear colour contrast between the selected and the unselected options.
+- If there's not enough space to display the segment in a horizontal layout, a vertical layout may be used up to tablet breakpoint. A choice on which breakpoint the segment changes from vertical to horizontal should be made at design time (vertical stacking up to SM, MD or LG breakpoints).
+- Use a hint to provide extra context to the user.
 
 ## Dos and Don'ts
 
@@ -52,15 +52,15 @@ The segment control is made up of a segment group and segment buttons. A segment
 
 ![do](docs/segment/do.png)
 
-1. **Do** use when only one option can be selected from multiple options and where vertical space is limited
-2. **Do** use the vertical variant on mobile, when space may not permit use of the horizontal variant
+1. **Do** use when only one option can be selected from multiple options and where vertical space is limited.
+2. **Do** use the vertical variant on mobile, when space may not permit use of the horizontal variant.
 
 ### Don't
 
 ![dont](docs/segment/dont.png)
 
-1. **Don't** use when multiple items from a list can be selected, instead use checkboxes
-2. **Don't** use when the preset options is a long list (more than five), use the select component instead
+1. **Don't** use when multiple items from a list can be selected, instead use checkboxes.
+2. **Don't** use when the preset options is a long list (more than five), use the select component instead.
 
 ## Additional development details
 
@@ -74,30 +74,31 @@ Segment buttons are displayed inline, unless given a `RadioStackBreakpoint`, whi
 
 #### Inputs
 
-| Name  | Description                                                  | Type              | Default                               | Required |
-| ----- | ------------------------------------------------------------ | ----------------- | ------------------------------------- | -------- |
-| ``id``    | HTML ID attribute, auto generated if not provided            | string            | ``lg-radio-group-id-${nextUniqueId++}`` | No       |
-| ``name``  | Set the name value for all inputs in the group, auto-generated if not provided | string            | ``lg-radio-group-${nextUniqueId++}``    | No       |
-| ``value`` | Set the default checked radio button, must match the value of the radio button | boolean or string | ``null``                                  | No       |
-| ``focus`` | Set the focus on the fieldset                                | boolean           | ``null``                                  | No       |
-| ``stack`` | Stack the segment buttons at a given breakpoint              | sm, md, lg        | ``false``                                 | No       |
+| Name    | Description                                                                    | Type                  | Default                               | Required |
+|---------|--------------------------------------------------------------------------------|-----------------------|---------------------------------------|----------|
+| `id`    | HTML ID attribute, auto generated if not provided                              | `string`              | `lg-radio-group-id-${nextUniqueId++}` | No       |
+| `name`  | Set the name value for all inputs in the group, auto-generated if not provided | `string`              | `lg-radio-group-${nextUniqueId++}`    | No       |
+| `value` | Set the default checked radio button, must match the value of the radio button | `boolean` \| `string` | `null`                                | No       |
+| `focus` | Set the focus on the fieldset                                                  | `boolean`             | `null`                                | No       |
+| `stack` | Stack the segment buttons at a given breakpoint                                | `sm` \| `md` \| `lg`  | `false`                               | No       |
+
 
 ### LgRadioButtonComponent
 
 #### Inputs
 
-| Name            | Description                                                  | Type    | Default                             | Required |
-| --------------- | ------------------------------------------------------------ | ------- | ----------------------------------- | -------- |
-| ``id``              | HTML ID attribute, auto generated if not provided            | string  | ``lg-radio-button-${++nextUniqueId}`` | No       |
-| ``name``            | HTML name attribute                                          | string  | ``null``                                | Yes      |
-| ``value``           | HTML value attribute                                         | string  | ``null``                                | Yes      |
-| ``ariaDescribedBy`` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | boolean | ``null``                                | No       |
+| Name              | Description                                                                                                                   | Type      | Default                             | Required |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------------|----------|
+| `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`  | `lg-radio-button-${++nextUniqueId}` | No       |
+| `name`            | HTML name attribute                                                                                                           | `string`  | `null`                              | Yes      |
+| `value`           | HTML value attribute                                                                                                          | `string`  | `null`                              | Yes      |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | `boolean` | `null`                              | No       |
 
 #### Outputs
 
-| Name | Description                             | Type         | Default | Required |
-| ---- | --------------------------------------- | ------------ | ------- | -------- |
-| ``blur`` | Event emitted on blur of a radio button | EventEmitter | ``n/a``     | No       |
+| Name   | Description                             | Type                  | Default | Required |
+|--------|-----------------------------------------|-----------------------|---------|----------|
+| `blur` | Event emitted on blur of a radio button | `EventEmitter<Event>` | n/a     | No       |
 
 ------
 
@@ -107,11 +108,11 @@ This is based on best practice.
 
 ## Related
 
-Patterns which may perform a similar task, or which should be considered instead
+Patterns which may perform a similar task, or which should be considered instead:
 
-- [Radio buttons](./?path=/docs/components-forms-radio--radio)
+- [Radio buttons](./?path=/docs/components-forms-radio-guide--page)
 - [Select](./?path=/docs/components-forms-select-guide--page)
-- [Toggle switch](./?path=/docs/components-forms-switch--switch-obj)
+- [Switch](./?path=/docs/components-forms-switch-guide--page)
 - [Checkbox](./?path=/docs/components-forms-checkbox--checkbox)
 
 <Feedback />

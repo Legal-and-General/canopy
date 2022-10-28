@@ -13,7 +13,7 @@ import Feedback from '../../docs/common/feedback.md';
 
 UI icons should be used to highlight or support key information or give affordance to links and buttons.
 
-Import the icon module into your module:
+Import the icon module into your application:
 
 ```js
 @NgModule({
@@ -30,7 +30,7 @@ Import the `LgIconRegistry` service and register your icons inside your module:
 // import the desired icon
 import { lgIconEmail } from '@legal-and-general/canopy';
 
-export class AppModule {
+export class SomeModule {
   // register the icon using the `LgIconRegistry` service
   constructor(private iconRegistry: LgIconRegistry) {
     this.iconRegistry.registerIcons([
@@ -56,32 +56,32 @@ and in your HTML:
 
 ![do](docs/ui-icon/do.png)
 
-1. **Do** scale icons along the 4px scale to ensure crisp outlines
-2. **Do** use charcoal or high contrast colour icons on white background
-3. **Do** use tinted colours on light colour backgrounds, ensuring a minimum of 4.51:1 contrast
-4. **Do** use white icons on a high contrast background
+1. **Do** scale icons along the 4px scale to ensure crisp outlines.
+2. **Do** use charcoal or high contrast colour icons on white background.
+3. **Do** use tinted colours on light colour backgrounds, ensuring a minimum of 4.51:1 contrast.
+4. **Do** use white icons on a high contrast background.
 
 ### Don't
 
 ![dont](docs/ui-icon/dont.png)
 
-1. **Don't** scale icons below 16px
-2. **Don't** scale icons above 64px. Use brand icons or illustration for more prominent graphics
-3. **Don't** overlay icons on photographic backgrounds
-4. **Don't** colour the icon differently to the background e.g. yellow on blue
-5. **Don't** use low-contrast colour combinations
+1. **Don't** scale icons below 16px.
+2. **Don't** scale icons above 64px. Use brand icons or illustration for more prominent graphics.
+3. **Don't** overlay icons on photographic backgrounds.
+4. **Don't** colour the icon differently to the background e.g. yellow on blue.
+5. **Don't** use low-contrast colour combinations.
 
 ## Additional developer details
 
 ### Inputs
 
-| Name   | Description          |  Type  |  Default  | Required |
-| ------ | -------------------- | :----: | :-------: | :------: |
-| ``name`` | the name of the icon | string | undefined |   yes    |
+| Name   | Description          |   Type   |   Default   | Required |
+|--------|----------------------|:--------:|:-----------:|:--------:|
+| `name` | The name of the icon | `string` | `undefined` |   yes    |
 
 All icons have height and width equal to 1em. This means the icons will be as big as the font-size specified by the parent.
 
-By default the icons have the `fill` css property set to `currentColor`.
+By default, the icons have the `fill` css property set to `currentColor`.
 
 > `currentColor` acts like a variable for the current value of the `color` property on the element. And the Cascading part of CSS is still effective, so if there’s no defined `color` property on an element, the cascade will determine the value of `currentColor`.
 >
@@ -93,7 +93,7 @@ Please note that the `need-help` and `question-mark` icons currently don't have 
 
 ## Related
 
-- [Brand icons](./?path=/docs/foundation-brand-icon-guide--page)
+- [Brand icon](./?path=/docs/foundation-brand-icon-guide--page)
 
 
 <Feedback />

@@ -7,23 +7,23 @@ import Feedback from '../../../docs/common/feedback.md';
 
 <p class="standfirst">Provides a directive to apply formatting and specific validators to the input component for entering a sort code.</p>
 
-**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
-
 ## Usage
 Import the sort code and the [text input module](./?path=/docs/components-forms-text-input-guide--page) into your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgSortCodeModule, LgInputModule ],
 });
-~~~
+```
 
 and in your HTML:
 
 <Source id="patterns-sort-code-examples--sort-code"></Source>
 
-**Note: both the `lgInput` and `lgSortCode` directives have to be present on the input element.**
+Both the `lgInput` and `lgSortCode` directives have to be present on the input element.
+
+**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
 
 ### Validators
 The sort code directive automatically adds the `required` and `pattern` validators by default.
@@ -33,5 +33,7 @@ See the [form validation guide](./?path=/docs/components-forms-form-validation-g
 
 ### Format of the control value
 On blur of the input we auto-format the value of the control to `00-00-00`.
+
+---
 
 <Feedback />

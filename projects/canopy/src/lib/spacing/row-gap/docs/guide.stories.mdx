@@ -10,40 +10,47 @@ The spacing variables are also available as CSS custom properties (CSS variables
 which can be viewed in _**canopy/projects/canopy/src/styles/spacing.scss**_.
 
 This directive and accompanying CSS classes, work great with our
-[Canopy grid](./?path=/docs/directives-grid--grid) but will
+[Canopy grid](./?path=/docs/helpers-directives-grid-guide--page) but will
 also work with all other HTML elements that support <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap" target="_blank" rel='noopener noreferrer'>CSS row-gap</a>.
 
 ## Usage
 
-Import the module in your application:
+Import the row-gap module in your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgRowGapModule ],
-})
-~~~
+});
+```
 
 ### Examples
 
-Apply ``xxl`` row-gap.
+Apply `xxl` row-gap.
 
-~~~html
+```html
 <div lgRowGap="xxl"></div>
-~~~
+```
 
-Use the default (``sm``) row-gap.
+Use the default (`sm`) row-gap.
 
-~~~html
+```html
 <div lgRowGap></div>
-~~~
+```
 
 ### Inputs
 
-The current available spacing variants are ``none``, ``xxxs``, ``xxs``, ``xs``, ``sm``, ``md``, ``lg``, ``xl``, ``xxl``, ``xxxl``, ``xxxxxl``.
+The current available spacing variants are `none`, `xxxs`, `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`, `xxxxxl`.
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| `lgRowGap` | The row gap variant applied to the element | SpacingVariant | `sm` | Yes |
+| Name       | Description                                |       Type       | Default | Required |
+|------------|--------------------------------------------|:----------------:|:-------:|:--------:|
+| `lgRowGap` | The row gap variant applied to the element | `SpacingVariant` |  `sm`   |   Yes    |
+
+---
+
+## Related
+
+- [Margin directive](./?path=/docs/helpers-directives-margin-guide--page)
+- [Padding directive](./?path=/docs/helpers-directives-padding-guide--page)
 
 <Feedback />

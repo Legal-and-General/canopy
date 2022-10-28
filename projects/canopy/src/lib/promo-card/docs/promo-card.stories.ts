@@ -76,7 +76,7 @@ class PromoCardListStoryComponent {
 const variants = [ 'solid-white', 'solid-green' ];
 
 export default {
-  title: 'Components/Promo card/Examples',
+  title: 'Components/Promo cards/Examples',
   decorators: [
     moduleMetadata({
       declarations: [ PromoCardListStoryComponent ],

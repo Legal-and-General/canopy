@@ -28,12 +28,12 @@ We design against SM, MD and LG breakpoints.
 
 ![breakpoint-examples](docs/layout-grid-and-spacing/breakpoint-examples.png)
 
-|      | **Breakpoint** | **Min content area** | **Margin** | **Number of columns** | **Gutter** | **Min column width** |
-| ---- | -------------- | -------------------- | ---------- | --------------------- | ---------- | -------------------- |
-| SM   | 320 - 767      | 288                  | 16         | 12                    | 16         | 9                    |
-| MD   | 768 - 1023     | 704                  | 32         | 12                    | 16         | 44                   |
-| LG   | 1024 - 1279    | 960                  | 32         | 12                    | 20         | 62                   |
-| XL   | 1280 - 1440    | 1216                 | 32         | 12                    | 32         | 72                   |
+|     | Breakpoint  | Min content area | Margin | Number of columns | Gutter | Min column width |
+|-----|-------------|------------------|--------|-------------------|--------|------------------|
+| SM  | 320 - 767   | 288              | 16     | 12                | 16     | 9                |
+| MD  | 768 - 1023  | 704              | 32     | 12                | 16     | 44               |
+| LG  | 1024 - 1279 | 960              | 32     | 12                | 20     | 62               |
+| XL  | 1280 - 1440 | 1216             | 32     | 12                | 32     | 72               |
 
 Our flexible grid is made up of three elements; percentage-based columns, fixed margins and gutters. The columns are used to adjust the layout, making the best use of the space available.
 
@@ -63,7 +63,7 @@ Don't be afraid to use liberal vertical spacing – white space is an asset the 
 ### Variables
 
 | Name            | Value                          | Equivalent in px (based on 16px font-size) |
-| --------------- | ------------------------------ | ------------------------------------------ |
+|-----------------|--------------------------------|--------------------------------------------|
 | `--space-unit`  | 1rem                           | 16px                                       |
 | `--space-xxxs`  | calc(0.25 * var(--space-unit)) | 4px                                        |
 | `--space-xxs`   | calc(0.5 * var(--space-unit))  | 8px                                        |
@@ -79,22 +79,22 @@ Don't be afraid to use liberal vertical spacing – white space is an asset the 
 ### Components padding
 
 | Name                  | Value from 0 to md breakpoint | Value from md breakpoint |
-| --------------------- | ----------------------------- | ------------------------ |
+|-----------------------|-------------------------------|--------------------------|
 | `--component-padding` | var(--space-sm)               | var(--space-lg)          |
 
 ### Components margin
 
 | Name                 | Value from 0 to lg breakpoint | Value from lg breakpoint |
-| -------------------- | ----------------------------- | ------------------------ |
+|----------------------|-------------------------------|--------------------------|
 | `--component-margin` | var(--space-md)               | var(--space-lg)          |
 
 ## Additional directives
 
-- A set of [Angular directives](./?path=/docs/directives-grid--grid) are also supplied which can be used to add grid classes to native HTML and Canopy elements
-- There is also a [row-gap spacing directive](./?path=/story/directives-row-gap--row-gap) to enable the use of the CSS row-gap property
+- A set of [Angular directives](./?path=/docs/helpers-directives-grid-guide--page) are also supplied which can be used to add grid classes to native HTML and Canopy elements
+- There is also a [row-gap spacing directive](./?path=/docs/helpers-directives-row-gap-guide--page) to enable the use of the CSS row-gap property
 - There are also two utility directives available which allow you to show/hide components at different breakpoints:
-  - [LgShowAt](./?path=/docs/directives-show-at--show-at-story)
-  - [LgHideAt](./?path=/docs/directives-hide-at--hide-at-story)
+  - [LgShowAt](./?path=/docs/helpers-directives-show-at-guide--page)
+  - [LgHideAt](./?path=/docs/helpers-directives-hide-at-guide--page)
 
 <Feedback />
 
