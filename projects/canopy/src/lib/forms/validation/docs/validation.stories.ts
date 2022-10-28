@@ -1,13 +1,12 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgValidationModule } from './validation.module';
-import { notes } from './validation.notes';
-import { LgValidationComponent } from './validation.component';
+import { LgValidationModule } from '../validation.module';
+import { LgValidationComponent } from '../validation.component';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 export default {
-  title: 'Components/Form/Validation',
+  title: 'Components/Form/Form validation/Examples',
   component: LgValidationComponent,
   decorators: [
     moduleMetadata({
@@ -15,11 +14,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     content: {

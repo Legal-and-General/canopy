@@ -1,31 +1,28 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {
   AbstractControl,
+  FormGroupDirective,
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
-  FormGroupDirective,
-  NgControl,
-  ReactiveFormsModule,
   ValidationErrors,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { pastDateValidator } from '../date/pastDate.validator';
-import { LgInputModule } from '../input';
-import { LgHintModule } from '../hint';
-import { LgSelectModule } from '../select';
-import { LgRadioModule } from '../radio';
-import { LgButtonModule } from '../../button';
-import { LgToggleModule } from '../toggle';
-import { LgCheckboxGroupModule } from '../checkbox-group';
-import { LgDateFieldModule } from '../date';
-import { LgSortCodeModule } from '../sort-code';
-
-import { LgValidationModule } from './validation.module';
-import { notes } from './form.notes';
-import { LgErrorStateMatcher } from './error-state-matcher';
+import { pastDateValidator } from '../../date/pastDate.validator';
+import { LgInputModule } from '../../input';
+import { LgHintModule } from '../../hint';
+import { LgSelectModule } from '../../select';
+import { LgRadioModule } from '../../radio';
+import { LgButtonModule } from '../../../button';
+import { LgToggleModule } from '../../toggle';
+import { LgCheckboxGroupModule } from '../../checkbox-group';
+import { LgDateFieldModule } from '../../date';
+import { LgSortCodeModule } from '../../sort-code';
+import { LgValidationModule } from '../validation.module';
+import { LgErrorStateMatcher } from '../error-state-matcher';
 
 function invalidValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -274,13 +271,13 @@ class ReactiveFormComponent {
     this.formSubmit.emit(event);
   }
 
-  isControlInvalid(control: NgControl, form: FormGroupDirective) {
+  isControlInvalid(control: AbstractControl, form: FormGroupDirective) {
     return this.errorState.isControlInvalid(control, form);
   }
 }
 
 export default {
-  title: 'Components/Form/Form validation',
+  title: 'Components/Form/Form validation/Examples',
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],
@@ -300,11 +297,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     formSubmit: {

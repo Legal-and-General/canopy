@@ -1,0 +1,104 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../../docs/common/feedback.md';
+
+<Meta title="Components/Form/Form validation/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Form validation
+
+<p class="standfirst">Form validation is the process of checking the inputs of a form against expected results, allowing those inputs to be submitted or otherwise returning an error. This page describes our recommended methods of implementing form validation in your application.</p>
+
+![validation](docs/forms/validation/validation.png)
+
+## How errors should display
+
+When the user submits a form and it is validated as having errors, the following things should happen:
+
+1. All fields with errors are highlighted as having errors
+2. Inline messages display beneath each field telling the user how to fix the problem. [Read the writing guide](./?path=/docs/principles-writing--page) to find out how to write good error messages
+3. The first field with an error automatically gets focus so the user knows where to begin.
+
+## Usage
+
+The rules to display the error states are incorporated into the individual Canopy form components. When used in conjunction with standard Angular form validation the error styles will be displayed automatically.
+
+**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_black">Angular's reactive forms</a>.**
+
+Error messages need to be handled by the individual applications by utilising the Validation component and the `LgErrorStateMatcher`.
+
+Import the validation module in your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgValidationModule ],
+});
+```
+
+
+
+In your component file set up the relevant validators:
+
+```js
+constructor(public
+fb: FormBuilder, private
+errorState: LgErrorStateMatcher
+)
+{
+  this.form = this.fb.group({
+    text: ['', [Validators.required, Validators.minLength(4)]]
+  });
+}
+
+isControlInvalid(control: AbstractControl, form: FormGroupDirective) {
+  return this.errorState.isControlInvalid(control, form);
+}
+```
+
+In your HTML, add the validation components with the appropriate structural directives to determine if they should be visible. The error state matcher will determine whether the form field is in an error state.
+
+```html
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit(form)"
+  #userForm="ngForm">
+    <lg-input-field>
+      Text
+      <input lgInput formControlName="username" />
+      <lg-hint>This is a standard input field</lg-hint>
+    <lg-validation *ngIf="isControlInvalid(text, userForm) && text.hasError('required')">
+      Username is a required field
+    </lg-validation>
+    <lg-validation *ngIf="isControlInvalid(text, validationForm) && text.hasError('minlength')">
+      Username needs to be at least 4 characters
+    </lg-validation>
+  </lg-input-field>
+</form>
+```
+
+## Dynamic validation
+
+Dynamic validation is validation that happens while the user is inputting into a field. It's fine to use dynamic validation for certain uses such as in a password field but:
+
+- **Don't show inline validation on focus.** Don't make the user feel like they've made a mistake before they've even entered their information
+- **Don't validate immediately after each character is entered.** Wait 500 to 1000 milliseconds after the user has stopped typing.
+
+## Additional development details
+
+### LgValidationComponent inputs
+
+| Name       | Description                                                          | Type    | Default | Required |
+|------------|----------------------------------------------------------------------|---------|---------|----------|
+| `variant`  | The variant of the validation: `info`, `warning`, `error`, `success` | string  | `error` | No       |
+| `showIcon` | Whether the icon should display                                      | boolean | `true`  | No       |
+
+## Accessibility – other considerations
+
+Style error messages in red and use a warning icon to provide a <a href="https://developer.paciellogroup.com/blog/2018/01/inclusive-design-principle-provide-a-comparable-experience/" target="_blank">comparable experience for colour blind users</a>.
+
+## Tone of voice and copy
+
+[Read our writing guide](./?path=/docs/principles-writing--page).
+
+------
+
+<Description markdown={feedback} />
