@@ -122,8 +122,8 @@ module.exports = {
     '../projects/canopy/src/lib/heading/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/heading/docs/heading.stories.ts',
     //  Style
-    '../projects/canopy/src/styles/mixins.stories.mdx',
-    '../projects/canopy/src/styles/utils.stories.mdx',
+    '../projects/canopy/src/styles/docs/mixins.stories.mdx',
+    '../projects/canopy/src/styles/docs/utils.stories.mdx',
   ],
   addons: [
     '@storybook/addon-a11y',
