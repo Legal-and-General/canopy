@@ -1,23 +1,21 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgInputModule } from '../forms';
-import { LgMarginModule } from '../spacing';
-import { LgSuffixModule } from '../suffix';
-import { LgGridModule } from '../grid';
-import { LgQuickActionModule } from '../quick-action';
+import { LgInputModule } from '../../forms';
+import { LgMarginModule } from '../../spacing';
+import { LgSuffixModule } from '../../suffix';
+import { LgGridModule } from '../../grid';
+import { LgQuickActionModule } from '../../quick-action';
 import {
   lgIconChevronRightCircle,
   lgIconInformationFill,
   LgIconModule,
   LgIconRegistry,
-} from '../icon';
-
-import { notes } from './table.notes';
-import { LgTableModule } from './table.module';
-import { AlignmentOptions, TableColumnLayoutBreakpoints } from './table.interface';
-import type { TableVariant } from './table.interface';
-import { LgTableComponent } from './table/table.component';
+} from '../../icon';
+import { LgTableModule } from '../table.module';
+import { AlignmentOptions, TableColumnLayoutBreakpoints } from '../table.interface';
+import type { TableVariant } from '../table.interface';
+import { LgTableComponent } from '../table/table.component';
 
 interface TableStoryItem {
   author: string;
@@ -402,7 +400,7 @@ const argTypes = {
 };
 
 export default {
-  title: 'Components/Table',
+  title: 'Components/Table/Examples',
   component: LgTableComponent,
   excludeStories: [ 'StoryTableDetailComponent' ],
   decorators: [
@@ -420,11 +418,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes,
 };
