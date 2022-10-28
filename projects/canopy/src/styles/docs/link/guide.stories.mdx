@@ -1,0 +1,93 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../../lib/docs/common/feedback.md';
+
+<Meta title="Components/Link/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Link
+
+<p class="standfirst">Links are used in content to navigate to other resources, pages or views.</p>
+
+![example](docs/link/example.png)
+
+## Usage
+
+Links should be used within text content only.
+
+The links styles are applied automatically when adding the global Canopy css.
+
+## How it works
+
+The user taps or clicks a link to navigate to a new page.
+
+- If the page it links to is internal (i.e. hosted by the same organisation on the same domain), it should open in the same tab;
+
+- If the page it links to is external (hosted by a different organisation on a different domain), it should open in a new tab.
+
+For accessibility, links that open in a new tab must be accompanied by an external link icon and text so that the user understands that a new tab will open when they interact with it:
+
+![external](docs/link/external.png)
+
+```html
+<a href="#" target="_blank">
+  Read more about accessibility
+  <lg-icon name="link-external"></lg-icon>
+  <span class="lg-visually-hidden">opens in a new tab</span>
+</a>
+```
+
+
+
+Links are blue in most cases, except when they're used in inline messages where they conform to the colour of the paragraph text in the message. For instance, a success message will have dark green paragraph text and links will also be dark green.
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/link/do.png)
+
+1. **Do** write links as meaningful phrases
+2. **Do** use accompanying icons as appropriate, such as for files
+3. **Do** consider grouping links at the end of content
+4. **Do** use an icon to indicate links to external websites
+
+### Don't
+
+![dont](docs/link/dont.png)
+
+1. **Don't** use a link for a specific primary action; Use a quick action or button instead
+2. **Don't** use single words or unclear phrases, such as "click here"
+3. **Don't** split links across several lines where possible
+4. **Don't** use more than 4-5 words
+
+## Additional development details
+
+For accessibility reasons, the link's context should always be clear.
+
+
+For example a link with text "Read more" doesn't give enough information to a screen reader user about what the link's context is. Hidden text can be added like so:
+
+```html
+<a href="#">Read more<span class="lg-visually-hidden"> about accessibility</span></a>
+```
+
+
+
+For custom components it's possible to override the style of a link by using the `lg-unstyled-link` [scss mixin](.?path=/docs/helpers-style-mixins--page).
+
+------
+
+## Research on this component
+
+This is based on best practice, and from the sources listed below.
+
+## Further reading
+
+- <a href="https://www.smashingmagazine.com/2021/12/designing-better-links-websites-emails-guideline" target="_blank">Designing better links for the web</a>
+- <a href="https://usability.yale.edu/web-accessibility/articles/links" target="_blank">Usability & web accessibility</a>
+
+## Related
+
+- [Button](.?path=/docs/components-button-guide--page)
+- [Quick action](.?path=/docs/components-button-guide--page)
+
+<Description markdown={feedback} />
