@@ -1,18 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgButtonModule } from '../button';
-import { LgCardModule } from '../card';
-import { LgGridModule } from '../grid';
-import { LgIconModule, LgIconRegistry, lgIconsArray } from '../icon';
-import { LgShadowModule } from '../shadow';
-import { LgSpacingModule } from '../spacing';
-
-import type { Variant } from './variant.interface';
-import { LgVariantModule } from './variant.module';
-import { notes } from './variant.notes';
-
-import { LgVariantDirective } from '.';
+import { LgButtonModule } from '../../button';
+import { LgCardModule } from '../../card';
+import { LgGridModule } from '../../grid';
+import { LgIconModule, LgIconRegistry, lgIconsArray } from '../../icon';
+import { LgShadowModule } from '../../shadow';
+import { LgSpacingModule } from '../../spacing';
+import type { Variant } from '../variant.interface';
+import { LgVariantModule } from '../variant.module';
+import { LgVariantDirective } from '..';
 
 const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
@@ -49,7 +46,7 @@ class LgVariantStoryComponent {
 }
 
 export default {
-  title: 'Directives/Variant',
+  title: 'Helpers/Directives/Variant/Examples',
   decorators: [
     moduleMetadata({
       declarations: [ LgVariantStoryComponent ],
@@ -65,11 +62,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     variant: {
