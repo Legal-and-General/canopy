@@ -6,7 +6,7 @@ import { LgValidationComponent } from '../validation.component';
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 export default {
-  title: 'Components/Form/Form validation/Examples',
+  title: 'Components/Forms/Form validation/Examples',
   component: LgValidationComponent,
   decorators: [
     moduleMetadata({

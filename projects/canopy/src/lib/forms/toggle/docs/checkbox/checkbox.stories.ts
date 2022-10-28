@@ -10,7 +10,7 @@ import {
 } from '../toggle.stories.common';
 
 export default {
-  title: 'Components/Form/Checkbox/Examples',
+  title: 'Components/Forms/Checkbox/Examples',
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({

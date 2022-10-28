@@ -55,7 +55,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Checkbox/Examples',
+  title: 'Components/Forms/Checkbox/Examples',
   component: LgCheckboxGroupComponent,
   decorators: [
     moduleMetadata({

@@ -277,7 +277,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Form validation/Examples',
+  title: 'Components/Forms/Form validation/Examples',
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],

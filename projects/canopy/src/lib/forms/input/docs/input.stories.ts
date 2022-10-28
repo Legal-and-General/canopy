@@ -174,7 +174,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Text input/Examples',
+  title: 'Components/Forms/Text input/Examples',
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({

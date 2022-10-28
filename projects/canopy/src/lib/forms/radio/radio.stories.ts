@@ -60,7 +60,7 @@ class ReactiveFormRadioComponent {
 }
 
 export default {
-  title: 'Components/Form/Radio',
+  title: 'Components/Forms/Radio',
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
