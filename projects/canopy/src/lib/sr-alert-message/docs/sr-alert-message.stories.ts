@@ -1,12 +1,11 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { notes } from './sr-alert-message.notes';
-import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
-import { LgSrAlertMessageModule } from './sr-alert-message.module';
+import { LgSrAlertMessageDirective } from '../sr-alert-message.directive';
+import { LgSrAlertMessageModule } from '../sr-alert-message.module';
 
 // This default export determines where your story goes in the story list
 export default {
-  title: 'Directives/Screen reader alert message',
+  title: 'Helpers/Directives/Screen reader alert message/Examples',
   component: LgSrAlertMessageDirective,
   decorators: [
     moduleMetadata({
@@ -14,11 +13,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     lgSrAlertMessage: {
