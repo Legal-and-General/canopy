@@ -1,17 +1,16 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgToggleModule } from './toggle.module';
-import { notes } from './toggle.notes';
+import { LgToggleModule } from '../../toggle.module';
+import { LgToggleComponent } from '../../toggle.component';
 import {
   createToggleStory,
   ReactiveToggleFormComponent,
   setupToggleStoryValues,
-} from './docs/toggle.stories.common';
-import { LgToggleComponent } from './toggle.component';
+} from '../toggle.stories.common';
 
 export default {
-  title: 'Components/Forms/Switch',
+  title: 'Components/Forms/Switch/Examples',
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({
@@ -20,11 +19,8 @@ export default {
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes('Switch'),
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     id: {
