@@ -8,7 +8,7 @@ import Feedback from '../../docs/common/feedback.md';
 <p class="standfirst">Provides a generic header for display at the top of the page.</p>
 
 ## Usage
-Import the header module in your module:
+Import the header module in your application:
 
 ```js
 @NgModule({
@@ -32,11 +32,11 @@ The component uses an attribute selector which allows you to use the html <a hre
 | `toggleMenu` | An event emitted with a boolean value when the menu toggle button is clicked | `EventEmitter<boolean>` |   n/a   |   Yes    |
 
 ### LgHeaderLogoComponent inputs
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| `src` | A url src for the logo | string | `undefined` | Yes |
-| `alt` | alt text to display alongside the logo | string | `''` | Yes |
-| `href` | Url link if the logo is clickable | string | `undefined` | No |
+| Name   | Description                            |   Type   |   Default   | Required |
+|--------|----------------------------------------|:--------:|:-----------:|:--------:|
+| `src`  | A url src for the logo                 | `string` | `undefined` |   Yes    |
+| `alt`  | alt text to display alongside the logo | `string` |    `''`     |   Yes    |
+| `href` | Url link if the logo is clickable      | `string` | `undefined` |    No    |
 
 ---
 
@@ -164,5 +164,7 @@ Used to ensure account menu items are wrapped in an element marked up as a list 
 
 ### LgAccountMenuItemLabelComponent
 Used to ensure correct styling is applied to the menu item label at different breakpoints.
+
+---
 
 <Feedback />

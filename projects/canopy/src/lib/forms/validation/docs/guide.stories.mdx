@@ -13,8 +13,8 @@ import Feedback from '../../../docs/common/feedback.md';
 
 When the user submits a form and it is validated as having errors, the following things should happen:
 
-1. All fields with errors are highlighted as having errors
-2. Inline messages display beneath each field telling the user how to fix the problem. [Read the writing guide](./?path=/docs/principles-writing--page) to find out how to write good error messages
+1. All fields with errors are highlighted as having errors.
+2. Inline messages display beneath each field telling the user how to fix the problem. [Read the writing guide](./?path=/docs/principles-writing--page) to find out how to write good error messages.
 3. The first field with an error automatically gets focus so the user knows where to begin.
 
 ## Usage
@@ -79,17 +79,17 @@ In your HTML, add the validation components with the appropriate structural dire
 
 Dynamic validation is validation that happens while the user is inputting into a field. It's fine to use dynamic validation for certain uses such as in a password field but:
 
-- **Don't show inline validation on focus.** Don't make the user feel like they've made a mistake before they've even entered their information
+- **Don't show inline validation on focus.** Don't make the user feel like they've made a mistake before they've even entered their information.
 - **Don't validate immediately after each character is entered.** Wait 500 to 1000 milliseconds after the user has stopped typing.
 
 ## Additional development details
 
 ### LgValidationComponent inputs
 
-| Name       | Description                                                          | Type    | Default | Required |
-|------------|----------------------------------------------------------------------|---------|---------|----------|
-| `variant`  | The variant of the validation: `info`, `warning`, `error`, `success` | string  | `error` | No       |
-| `showIcon` | Whether the icon should display                                      | boolean | `true`  | No       |
+| Name       | Description                                                          | Type      | Default | Required |
+|------------|----------------------------------------------------------------------|-----------|---------|----------|
+| `variant`  | The variant of the validation: `info`, `warning`, `error`, `success` | `string`  | `error` | No       |
+| `showIcon` | Whether the icon should display                                      | `boolean` | `true`  | No       |
 
 ## Accessibility – other considerations
 

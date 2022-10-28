@@ -145,18 +145,18 @@ Also note the use of the [margin directive](./?path=/docs/helpers-directives-mar
 
 ![do](docs/table/do.png)
 
-1. **Do** alternate row colours to aid table scanning
-2. **Do** use table headers to establish an information hierarchy and communicate what the rows and columns represent
-3. **Do** align numbers right in table cells when comparing columns of numbers and use the 1,000 separator for easy recognition
+1. **Do** alternate row colours to aid table scanning.
+2. **Do** use table headers to establish an information hierarchy and communicate what the rows and columns represent.
+3. **Do** align numbers right in table cells when comparing columns of numbers and use the 1,000 separator for easy recognition.
 4. **Do** consider the responsive mobile view when you're designing your table layout.
 
 ### Don't
 
 ![dont](docs/table/dont.png)
 
-1. **Don't** increase visual noise by using both horizontal and vertical lines to separate cells, use adequate padding instead
-2. **Don't** centre align content vertically
-3. **Don't** centre align content horizontally
+1. **Don't** increase visual noise by using both horizontal and vertical lines to separate cells, use adequate padding instead.
+2. **Don't** centre align content vertically.
+3. **Don't** centre align content horizontally.
 4. **Don't** left align numbers.
 
 ## Additional development details
@@ -167,10 +167,10 @@ A component that acts as a standard table.
 
 #### Inputs
 
-| Name            | Description                                                                                   | Type   | Default   | Required |
-|-----------------|-----------------------------------------------------------------------------------------------|--------|-----------|----------|
-| `showColumnsAt` | Sets the minimum screen width from which the column layout is displayed. Accepts sm, md or lg | string | 'md'      | No       |
-| `variant`       | The variant of table. Accepts striped or bordered                                             | string | 'striped' | No       |
+| Name            | Description                                                                                         | Type     | Default   | Required |
+|-----------------|-----------------------------------------------------------------------------------------------------|----------|-----------|----------|
+| `showColumnsAt` | Sets the minimum screen width from which the column layout is displayed. Accepts `sm`, `md` or `lg` | `string` | `md`      | No       |
+| `variant`       | The variant of table. Accepts `striped` or `bordered`                                               | `string` | `striped` | No       |
 
 ### LgTableBodyComponent
 
@@ -182,10 +182,10 @@ A component that acts as a standard table cell.
 
 #### Inputs
 
-| Name      | Description                                                                                     | Type    | Default   | Required |
-|-----------|-------------------------------------------------------------------------------------------------|---------|-----------|----------|
-| `stack`   | On small screens, stack the label and the content on top of each other, instead of side by side | boolean | false     | No       |
-| `colspan` | Sets the colspan attribute on the column when specified                                         | number  | undefined | No       |
+| Name      | Description                                                                                     | Type      | Default     | Required |
+|-----------|-------------------------------------------------------------------------------------------------|-----------|-------------|----------|
+| `stack`   | On small screens, stack the label and the content on top of each other, instead of side by side | `boolean` | `false`     | No       |
+| `colspan` | Sets the colspan attribute on the column when specified                                         | `number`  | `undefined` | No       |
 
 #### LgTableExpandedDetailComponent
 
@@ -201,10 +201,10 @@ A component that acts as a standard table header cell.
 
 #### Inputs
 
-| Name        | Description                                                            | Type       | Default | Required |
-|-------------|------------------------------------------------------------------------|------------|---------|----------|
-| `align`     | Alignment option for the header and its respective column              | start, end | n/a     | No       |
-| `showLabel` | Whether to show label for this header in each row in non-column layout | boolean    | true    | No       |
+| Name        | Description                                                            | Type             | Default | Required |
+|-------------|------------------------------------------------------------------------|------------------|---------|----------|
+| `align`     | Alignment option for the header and its respective column              | `start` \| `end` | n/a     | No       |
+| `showLabel` | Whether to show label for this header in each row in non-column layout | `boolean`        | `true`  | No       |
 
 #### LgTableRowComponent
 
@@ -212,17 +212,17 @@ A component that acts as a standard table row.
 
 #### Inputs
 
-| Name       | Description                     | Type    | Default | Required |
-|------------|---------------------------------|---------|---------|----------|
-| `isHidden` | Determines if the row is hidden | boolean | false   | No       |
+| Name       | Description                     | Type      | Default | Required |
+|------------|---------------------------------|-----------|---------|----------|
+| `isHidden` | Determines if the row is hidden | `boolean` | `false` | No       |
 
 #### LgTableRowToggleComponent
 
 A component that creates an icon for toggling the expanded state.
 
-| Name       | Description                                           | Type    | Default | Required |
-|------------|-------------------------------------------------------|---------|---------|----------|
-| `isActive` | Determines if the toggle displays in the active state | boolean | false   | No       |
+| Name       | Description                                           | Type      | Default | Required |
+|------------|-------------------------------------------------------|-----------|---------|----------|
+| `isActive` | Determines if the toggle displays in the active state | `boolean` | `false` | No       |
 
 ------
 
@@ -232,7 +232,7 @@ This is based on research and best practice.
 
 ## Related
 
-- [Accordion](.?path=/docs/components-accordion-guide--page)
+- [Accordion](./?path=/docs/components-accordion-guide--page)
 - [Card](./?path=/docs/components-card-guide--page)
 
 <Feedback />

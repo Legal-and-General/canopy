@@ -14,17 +14,17 @@ import Feedback from '../../docs/common/feedback.md';
 Use an inline message to provide information or feedback that directly relates to an element on the page, or a specific part of the user journey. For instance:
 
 - Provide a user with feedback when an interaction has been successful or triggered an error
-- Call out useful information or warnings in context, or in the path of a journey
+- Call out useful information or warnings in context, or in the path of a journey.
 
 
 
-Import the inline message into your module:
+Import the inline message (alert) module into your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgAlertModule ],
-})
+});
 ```
 
 
@@ -98,10 +98,10 @@ A decorative icon is also added next to the heading if it's one of the these var
 
 ### Inputs
 
-| Name         | Description                                                  | Type    | Default     | Required |
-| ------------ | ------------------------------------------------------------ | ------- | ----------- | -------- |
-| ``variant``  | Applies colour treatment and ARIA role if applicable: ``generic``, ``info``, ``warning``, ``error``, ``success`` | string  | ``generic`` | No       |
-| ``showIcon`` | Whether the icon should display on the warning, error or success variants | boolean | ``true``      | No       |
+| Name       | Description                                                                                            | Type      | Default   | Required |
+|------------|--------------------------------------------------------------------------------------------------------|-----------|-----------|----------|
+| `variant`  | Applies colour treatment and ARIA role if applicable: `generic`, `info`, `warning`, `error`, `success` | `string`  | `generic` | No       |
+| `showIcon` | Whether the icon should display on the warning, error or success variants                              | `boolean` | `true`    | No       |
 
 
 
@@ -114,6 +114,6 @@ This is based on best practice.
 ## Related
 
 - [Details](./?path=/docs/components-details-guide--page)
-- [Message with Brand Icon](./?path=/docs/components-primary-message--standard-primary-message)
+- [Primary message](./?path=/docs/components-primary-message-guide--page)
 
 <Feedback />

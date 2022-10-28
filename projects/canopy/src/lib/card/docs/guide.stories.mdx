@@ -13,16 +13,16 @@ import Feedback from '../../docs/common/feedback.md';
 
 Cards are a useful way to chunk information into a more easily readable and actionable format. They are used to group content within a page but should not be used as a page substitute.
 
-For a basic card, import the component in your application:
+Import the card module in your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgCardModule ],
-})
+});
 ```
 
-and in your HTML:
+and in your HTML, for a basic card:
 
 ```html
 <lg-card>
@@ -44,20 +44,20 @@ In their most basic form, cards are an empty container for any content. Canopy p
 
 ![do](docs/card/do.png)
 
-1. **Do** ensure that content relates to a single idea or concept
-2. **Do** summarise content and provide links to expanded content on child pages
-3. **Do** use when each card will contain different types of content
-4. **Do** place directly on the page background
-5. **Do** create layouts that make the hierarchy of the page clearly understood
+1. **Do** ensure that content relates to a single idea or concept.
+2. **Do** summarise content and provide links to expanded content on child pages.
+3. **Do** use when each card will contain different types of content.
+4. **Do** place directly on the page background.
+5. **Do** create layouts that make the hierarchy of the page clearly understood.
 
 ### Don't
 
 ![dont](docs/card/dont.png)
 
-1. **Don't** overfill, or cover more than one subject within a card
-2. **Don't** use cards as a replacement for standard pages
-3. **Don't** place cards on top of cards
-4. **Don't** use to build complex, cluttered layouts that make the structure difficult to understand
+1. **Don't** overfill, or cover more than one subject within a card.
+2. **Don't** use cards as a replacement for standard pages.
+3. **Don't** place cards on top of cards.
+4. **Don't** use to build complex, cluttered layouts that make the structure difficult to understand.
 
 ## Card content and templates
 
@@ -111,9 +111,9 @@ This is where the main title should be provided. It should be located inside the
 
 #### Inputs
 
-| Name             | Description                                                  | Type   | Default | Required |
-| ---------------- | ------------------------------------------------------------ | ------ | ------- | -------- |
-| ``headingLevel`` | The level of the card heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a     | Yes      |
+| Name           | Description                                                 | Type     | Default | Required |
+|----------------|-------------------------------------------------------------|----------|---------|----------|
+| `headingLevel` | The level of the card heading: `1`, `2`, `3`, `4`, `5`, `6` | `number` | n/a     | Yes      |
 
 ### LgCardNavigationTitleComponent
 
@@ -121,17 +121,17 @@ This is where the main title and link should be provided. It should be located i
 
 #### Inputs
 
-| Name             | Description                                                  | Type   | Default | Required |
-| ---------------- | ------------------------------------------------------------ | ------ | ------- | -------- |
-| ``headingLevel`` | The level of the card navigation heading: ``1``, ``2``, ``3``, ``4``, ``5``, ``6`` | number | n/a     | Yes      |
-| ``title`` | The title of the card navigation heading:  | string | ''     | Yes      |
-| ``link`` | The link for the card navigation heading:  | string | ''     | Yes      |
+| Name           | Description                                                            | Type     | Default | Required |
+|----------------|------------------------------------------------------------------------|----------|---------|----------|
+| `headingLevel` | The level of the card navigation heading: `1`, `2`, `3`, `4`, `5`, `6` | `number` | n/a     | Yes      |
+| `title`        | The title of the card navigation heading:                              | `string` | `''`    | Yes      |
+| `link`         | The link for the card navigation heading:                              | `string` | `''`    | Yes      |
 
 #### Outputs
 
-| Name       | Description                               | Type               | Default | Required |
-| ---------- | ----------------------------------------- | ------------------ | ------- | -------- |
-| ``linkClickedEvent`` | Event emitted when the link is clicked | EventEmitter`<void>` | n/a     | No       |
+| Name               | Description                            | Type                 | Default | Required |
+|--------------------|----------------------------------------|----------------------|---------|----------|
+| `linkClickedEvent` | Event emitted when the link is clicked | `EventEmitter<void>` | n/a     | No       |
 
 ### LgCardSubtitleComponent
 
@@ -142,31 +142,31 @@ This is where additional content that can be shown/hidden should be located. Thi
 
 <Source id="components-card-examples--show-more-card"></Source>
 
-The ``isToggleActive`` property and  ``toggleActive`` function will be defined in your component as follows:
+The `isToggleActive` property and  `toggleActive` function will be defined in your component as follows:
 
-~~~javascript
+```js
 isToggleActive: boolean;
 
 toggleActive(state: boolean): void {
   this.isToggleActive = state;
 }
-~~~
+```
 
 ### LgCardPrincipleDataPoint
 
-Sometimes the card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the card content which will control its layout
+Sometimes the card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the card content which will control its layout.
 
 ### LgCardPrincipleDataPointValue
 
-This is where the value for the data point should be projected. It should be located inside the card principle data point
+This is where the value for the data point should be projected. It should be located inside the card principle data point.
 
 ### LgCardPrincipleDataPointLabel
 
-This is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the card principle data point
+This is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the card principle data point.
 
 ### LgCardPrincipleDataPointDate
 
-This is where the date for the data point should be projected. It should be located inside the card principle data point
+This is where the date for the data point should be projected. It should be located inside the card principle data point.
 
 ### LgCardFooter
 
@@ -184,9 +184,9 @@ This component hasn't been subject to any testing, but is based on best practice
 
 ## Related
 
-Patterns which may perform a similar task, or which should be considered instead
+Patterns which may perform a similar task, or which should be considered instead:
 
-- [Accordions](./?path=/docs/components-accordion-guide--page)
+- [Accordion](./?path=/docs/components-accordion-guide--page)
 - [Details](./?path=/docs/components-details-guide--page)
 
 <Feedback />

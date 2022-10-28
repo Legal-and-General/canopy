@@ -8,18 +8,18 @@ import Feedback from '../../docs/common/feedback.md';
 
 ## Usage
 
-Import the side nav module in your module:
+Import the side nav module in your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgSideNavModule ],
 });
-~~~
+```
 
 and in your HTML:
 
-~~~html
+```html
 <lg-side-nav>
   <lg-side-nav-bar label="Side Nav Demo">
     <a id="side-nav-0"
@@ -47,7 +47,7 @@ and in your HTML:
     <router-outlet></router-outlet>
   </lg-side-nav-content>
 </lg-side-nav>
-~~~
+```
 
 ## Additional development details
 
@@ -61,9 +61,9 @@ The links, once clicked on, will display their routes' content in the side nav c
 
 #### Inputs
 
-| Name       | Description                                             |  Type   | Default | Required |
-|------------|---------------------------------------------------------|:-------:|:-------:|:--------:|
-| `isActive` | specifies whether or not the link is in an active state | boolean | `false` |    No    |
+| Name       | Description                                             |   Type    | Default | Required |
+|------------|---------------------------------------------------------|:---------:|:-------:|:--------:|
+| `isActive` | specifies whether or not the link is in an active state | `boolean` | `false` |    No    |
 
 ### LgSideNavBarItemComponent
 This is where the `LgSideNavBarItemHeadingComponent` and `LgSideNavBarItemContentComponent` of the link are projected and positioned.
@@ -80,5 +80,7 @@ The footer is below the navigation items and can hold different kinds of content
 ### LgSideNavContentComponent
 This is the predefined area where content is shown. It should always contain a router outlet to be able to display
 the different nav item routes.
+
+---
 
 <Feedback />

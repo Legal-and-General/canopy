@@ -15,13 +15,13 @@ Use breadcrumbs to help users to understand where they are within the site's str
 
 You won't need breadcrumbs if your site has a shallow or flat structure, and they should never duplicate main menu or secondary navigation options.
 
-Import the component in your module:
+Import the breadcrumb module in your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgBreadcrumbModule ],
-})
+});
 ```
 
 
@@ -83,26 +83,26 @@ Note: *This is not automatically added and should be implemented in your app as 
 
 ![Breadcrumb component - what you should do](docs/breadcrumb/do.png)
 
-1. **Do** make the first breadcrumb a link to the homepage
-2. **Do** reflect the user's position in the hierarchical structure
-3. **Do** include the current page in the breadcrumb trail
+1. **Do** make the first breadcrumb a link to the homepage.
+2. **Do** reflect the user's position in the hierarchical structure.
+3. **Do** include the current page in the breadcrumb trail.
 
 ### Don't
 
 ![Breadcrumb component - what you shouldn't do](docs/breadcrumb/dont.png)
 
-1. **Don't** reflect the user's session history
-2. **Don't** make the current page's breadcrumb a link
-3. **Don't** use for websites with a shallow or flat structure
-4. **Don't** duplicate main menu or secondary navigation options
+1. **Don't** reflect the user's session history.
+2. **Don't** make the current page's breadcrumb a link.
+3. **Don't** use for websites with a shallow or flat structure.
+4. **Don't** duplicate main menu or secondary navigation options.
 
 ## Additional development details
 
 ### LgBreadcrumbComponent inputs
 
-| Name        | Description                                        | Type   | Default | Required |
-| ----------- | -------------------------------------------------- | ------ | ------- | -------- |
-| ``variant`` | The colour variants available: ``light``, ``dark`` | string | ``dark``    | No       |
+| Name      | Description                                    | Type     | Default | Required |
+|-----------|------------------------------------------------|----------|---------|----------|
+| `variant` | The colour variants available: `light`, `dark` | `string` | `dark`  | No       |
 
 
 
@@ -114,6 +114,6 @@ This component is based on best practice and has not had specific usability test
 
 ## Further reading
 
-https://www.nngroup.com/articles/breadcrumbs/
+<a href="https://www.nngroup.com/articles/breadcrumbs/" target="_blank">Breadcrumbs: 11 Design Guidelines for Desktop and Mobile</a>
 
 <Feedback />

@@ -13,7 +13,7 @@ import Feedback from '../../../docs/common/feedback.md';
 
 Use this component when users need to make a single selection from a list of options within a limited space.
 
-Import the module in your application:
+Import the select module in your application:
 
 ```js
 @NgModule({
@@ -46,17 +46,17 @@ While the select box is styled by Canopy, the select menu styling is handled by 
 
 ![do](docs/select/do.png)
 
-1. **Do** use a select component when the preset options is a long list (more than five) and space is limited
-2. **Do** list options in a predictable format, such as alphabetical, chronological, or most frequently used
+1. **Do** use a select component when the preset options is a long list (more than five) and space is limited.
+2. **Do** list options in a predictable format, such as alphabetical, chronological, or most frequently used.
 
 ### Don't
 
 ![dont](docs/select/dont.png)
 
-1. **Don't** use a select component when typing may be faster, such as date of birth or postcode; use text input instead
-2. **Don't** use a select component as a way of presenting a single selection; use a checkbox instead
-3. **Don't** use a select component when there are a large number of options; use autocomplete instead
-4. **Don't** use capitalised text, it's better to keep entries in sentence case for easy reading
+1. **Don't** use a select component when typing may be faster, such as date of birth or postcode; use text input instead.
+2. **Don't** use a select component as a way of presenting a single selection; use a checkbox instead.
+3. **Don't** use a select component when there are a large number of options; use autocomplete instead.
+4. **Don't** use capitalised text, it's better to keep entries in sentence case for easy reading.
 
 ## Additional development details
 
@@ -64,17 +64,17 @@ While the select box is styled by Canopy, the select menu styling is handled by 
 
 ### LgSelectDirective inputs
 
-| Name | Description                                         | Type   | Default                       | Required |
-| ---- | --------------------------------------------------- | ------ | ----------------------------- | -------- |
-| ``id``   | HTML ID attribute, auto generated if not provided   | string | ``lg-select-${nextUniqueId++}`` | No       |
-| ``name`` | HTML Name attribute, auto generated if not provided | string | ``lg-select-${nextUniqueId++}`` | No       |
+| Name   | Description                                         | Type     | Default                       | Required |
+|--------|-----------------------------------------------------|----------|-------------------------------|----------|
+| `id`   | HTML ID attribute, auto generated if not provided   | `string` | `lg-select-${nextUniqueId++}` | No       |
+| `name` | HTML Name attribute, auto generated if not provided | `string` | `lg-select-${nextUniqueId++}` | No       |
 
 ### LgSelectFieldComponent inputs
 
-| Name  | Description                                                  | Type    | Default                       | Required |
-| ----- | ------------------------------------------------------------ | ------- | ----------------------------- | -------- |
-| ``id``    | HTML ID attribute, auto generated if not provided. This will also propagate to the input ``id`` and form ``for`` attribute | string  | ``lg-select-${nextUniqueId++}`` | No       |
-| ``block`` | Property to make the select field full width (for small screens only). | boolean | ``false``                         | No       |
+| Name    | Description                                                                                                            | Type      | Default                       | Required |
+|---------|------------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------|----------|
+| `id`    | HTML ID attribute, auto generated if not provided. This will also propagate to the input `id` and form `for` attribute | `string`  | `lg-select-${nextUniqueId++}` | No       |
+| `block` | Property to make the select field full width (for small screens only)                                                  | `boolean` | `false`                       | No       |
 
 ------
 
@@ -90,9 +90,9 @@ Nielsen Norman Group : <a href="https://www.nngroup.com/articles/drop-down-menus
 
 ## Related
 
-Patterns which may perform a similar task, or which should be considered instead
+Patterns which may perform a similar task, or which should be considered instead:
 
 - [Checkbox](./?path=/docs/components-forms-checkbox--checkbox)
-- [Radio button](./?path=/docs/components-forms-radio--radio)
+- [Radio buttons](./?path=/docs/components-forms-radio-guide--page)
 
 <Feedback />

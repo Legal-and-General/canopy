@@ -9,16 +9,16 @@ import Feedback from '../../docs/common/feedback.md';
 
 ## Usage
 
-Import the data point module in your module:
+Import the data point module in your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgDataPointModule ],
 });
-~~~
+```
 
-In your HTML for a single data point:
+In your HTML, for a single data point:
 
 <Source id="components-data-point-examples--single-data-point"></Source>
 
@@ -28,9 +28,11 @@ and for a data point list:
 
 ### Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| `headingLevel` | Allows the heading level to be set | number | n/a | Yes |
+| Name           | Description                        |   Type   | Default | Required |
+|----------------|------------------------------------|:--------:|:-------:|:--------:|
+| `headingLevel` | Allows the heading level to be set | `number` |   n/a   |   Yes    |
+
+---
 
 <Feedback />
 

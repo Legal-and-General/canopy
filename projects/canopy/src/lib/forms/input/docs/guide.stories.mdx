@@ -112,20 +112,20 @@ There is an additional add-on button variant for adding a button to the input fi
 
 ![do](docs/text-input/do.png)
 
-1. **Do** use labels and supporting text to help provide context
-2. **Do** keep labels clear, concise and relevant
-3. **Do** use a textarea for multi-line content (Angular component to be built)
-4. **Do** use prefix, suffix or action variants to aid the user as to the input type or information required
-5. **Do** keep input widths relative to the information requested
+1. **Do** use labels and supporting text to help provide context.
+2. **Do** keep labels clear, concise and relevant.
+3. **Do** use a textarea for multi-line content (Angular component to be built).
+4. **Do** use prefix, suffix or action variants to aid the user as to the input type or information required.
+5. **Do** keep input widths relative to the information requested.
 
 ### Don't
 
 ![dont](docs/text-input/dont.png)
 
-1. **Don't** truncate label text
-2. **Don't** use text inputs when a pre-defined response is required, use the select component instead
-3. **Don't** use text inputs for simple responses (such as yes/no), use checkboxes or radio buttons instead
-4. **Don't** use placeholder text instead of a label
+1. **Don't** truncate label text.
+2. **Don't** use text inputs when a pre-defined response is required, use the select component instead.
+3. **Don't** use text inputs for simple responses (such as yes/no), use checkboxes or radio buttons instead.
+4. **Don't** use placeholder text instead of a label.
 
 ## Additional development information
 
@@ -133,18 +133,18 @@ There is an additional add-on button variant for adding a button to the input fi
 
 ### LgInputDirective inputs
 
-| Name | Description                                         | Type   | Default                      | Required |
-| ---- | --------------------------------------------------- | ------ | ---------------------------- | -------- |
-| ``id``   | HTML ID attribute, auto generated if not provided   | string | ``lg-input-${nextUniqueId++}`` | No       |
-| ``name`` | HTML Name attribute, auto generated if not provided | string | ``lg-input-${nextUniqueId++}`` | No       |
+| Name   | Description                                         | Type     | Default                      | Required |
+|--------|-----------------------------------------------------|----------|------------------------------|----------|
+| `id`   | HTML ID attribute, auto generated if not provided   | `string` | `lg-input-${nextUniqueId++}` | No       |
+| `name` | HTML Name attribute, auto generated if not provided | `string` | `lg-input-${nextUniqueId++}` | No       |
 
 ### LgInputFieldComponent inputs
 
-| Name      | Description                                                  | Type    | Default                      | Required |
-| --------- | ------------------------------------------------------------ | ------- | ---------------------------- | -------- |
-| ``id``        | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | string  | ``lg-input-${nextUniqueId++}`` | No       |
-| ``block``     | Property to make the input full width (for small screens only) | boolean | ``false``                        | No       |
-| ``showLabel`` | Show or visually hide the label | boolean | ``true`` | No       |
+| Name        | Description                                                                                                            | Type      | Default                      | Required |
+|-------------|------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------|----------|
+| `id`        | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | `string`  | `lg-input-${nextUniqueId++}` | No       |
+| `block`     | Property to make the input full width (for small screens only)                                                         | `boolean` | `false`                      | No       |
+| `showLabel` | Show or visually hide the label                                                                                        | `boolean` | `true`                       | No       |
 
 ------
 

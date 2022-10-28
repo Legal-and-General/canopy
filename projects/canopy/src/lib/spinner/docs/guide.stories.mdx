@@ -12,13 +12,13 @@ import { Meta, Source } from '@storybook/addon-docs';
 
 This component should be used in instances where the duration of a process can't be determined.
 
-Import the component in your application:
+Import the spinner module in your application:
 
 ```js
 @NgModule({
   ...
   imports: [ ..., LgSpinnerModule ],
-})
+});
 ```
 
 and in your HTML:
@@ -41,26 +41,26 @@ A spinner used inside a component such as a button or input doesn't need an acco
 
 ![do](docs/spinner/do.png)
 
-1. **Do** use spinners to help manage user expectations against technical limitations.
+1. **Do** use spinners to help manage user expectations against technical limitations..
 
 ### Don't
 
 ![dont](docs/spinner/dont.png)
 
-1. **Don't** use a spinner if the duration of the process can be pre-determined.
-2. **Don't** use multiple spinners in a single view
+1. **Don't** use a spinner if the duration of the process can be pre-determined..
+2. **Don't** use multiple spinners in a single view.
 
 ## Additional development details
 
 ### Inputs
 
-| Name      | Description                        |                         Type                         |  Default  | Required |
-| --------- | ---------------------------------- | :--------------------------------------------------: | :-------: | :------: |
-| `variant` | The spinner variant                | SpinnerVariant ['dark', 'light', 'color', 'inherit'] |  'dark'   |    No    |
-| `size`    | The size of the spinner            |               SpinnerSize ['sm', 'md']               |   'md'    |    No    |
-| `text`    | The text to show under the spinner |                        string                        | undefined |    No    |
+| Name      | Description                        |                          Type                          |   Default   | Required |
+|-----------|------------------------------------|:------------------------------------------------------:|:-----------:|:--------:|
+| `variant` | The spinner variant                | `SpinnerVariant` (`dark`, `light`, `color`, `inherit`) |   `dark`    |    No    |
+| `size`    | The size of the spinner            |               `SpinnerSize` (`sm`, `md`)               |    `md`     |    No    |
+| `text`    | The text to show under the spinner |                        `string`                        | `undefined` |    No    |
 
-If the `variant` is set to `'inherit'`, then it will inherit the font colour of it's parent element. This is used on the loading button, where the spinner inherits the font colour of the button.
+If the `variant` is set to `inherit`, then it will inherit the font colour of its parent element. This is used on the loading button, where the spinner inherits the font colour of the button.
 
 ---
 

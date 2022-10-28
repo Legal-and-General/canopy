@@ -35,7 +35,7 @@ Import the `LgBrandIconRegistry` service and register your brand icons inside yo
 import { lgBrandIconSun } from '@legal-and-general/canopy';
 
 
-export class AppModule {
+export class SomeModule {
   constructor(private brandIconRegistry: LgBrandIconRegistry) {
     // register the icon using the `brandIconRegistry` service
     this.brandIconRegistry.registerBrandIcon([
@@ -73,7 +73,7 @@ In your HTML:
 Brand icons should be scaled according to the following sizes, to ensure outlines and halftones look clean and crisp.
 
 |                    | **rem** | **px** |
-| ------------------ | ------- | ------ |
+|--------------------|---------|--------|
 | `--brand-icon-xxs` | 5       | 80     |
 | `--brand-icon-xs`  | 7.5     | 120    |
 | `--brand-icon-sm`  | 10      | 160    |
@@ -88,25 +88,25 @@ Brand icons should be scaled according to the following sizes, to ensure outline
 
 ![do](docs/brand-icon/do.png)
 
-- **Do** scale brand icons according to the sizing chart above
+- **Do** scale brand icons according to the sizing chart above.
 
 ### Don’t
 
 ![dont](docs/brand-icon/dont.png)
 
-- **Don't** use a brand icon in place of a UI icon, or at a size less than 80px
+- **Don't** use a brand icon in place of a UI icon, or at a size less than 80px.
 
 ## Additional development details
 
 ### Inputs
 
-| **Name**           | **Description**                                              | **Type**                 | **Default**   | **Required** |
-| ------------------ | ------------------------------------------------------------ | ------------------------ | ------------- | ------------ |
-| ``name``           | the name of the icon                                         | string                   | ``undefined`` | yes          |
-| ``size``           | the size of the icon                                         | BrandIconSize            | 'sm'          | no           |
-| ``colour``         | the specific colour of the icon (for global colours see the "Branding" section below) | css variable as a string | ``undefined`` | no           |
-| ``halfToneColour`` | the specific halftone (dots) colour of the icon             | string *                 | ``undefined`` | no           |
-| ``outlinesColour`` | the specific outlines colour of the icon                     | string *                 | ``undefined`` | no           |
+| Name             | Description                                                                           | Type                       | Default     | Required |
+|------------------|---------------------------------------------------------------------------------------|----------------------------|-------------|----------|
+| `name`           | The name of the icon                                                                  | `string`                   | `undefined` | yes      |
+| `size`           | The size of the icon                                                                  | `BrandIconSize`            | 'sm'        | no       |
+| `colour`         | The specific colour of the icon (for global colours see the "Branding" section below) | css variable as a `string` | `undefined` | no       |
+| `halfToneColour` | The specific halftone (dots) colour of the icon                                       | `string` *                 | `undefined` | no       |
+| `outlinesColour` | The specific outlines colour of the icon                                              | `string` *                 | `undefined` | no       |
 
 \* if using a css variable only specify `--the-variable`
 
@@ -122,6 +122,6 @@ The halftone and outlines colours can only be applied to a specific icon using t
 
 ## Related
 
-- [UI Icon](./?path=/docs/foundation-ui-icon-guide--page)
+- [UI icon](./?path=/docs/foundation-ui-icon-guide--page)
 
 <Feedback />

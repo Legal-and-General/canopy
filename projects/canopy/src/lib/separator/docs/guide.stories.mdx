@@ -13,18 +13,18 @@ import Feedback from '../../docs/common/feedback.md';
 
 Use this component when you want to split your content into clear sections or groupings.
 
-Import the separator module into your module:
+Import the separator module into your application:
 
 ```js
 @NgModule({
     ...
     imports: [ ..., LgSeparatorModule ],
-})
+});
 ```
 
 
 
-And in your HTML:
+and in your HTML:
 
 ```html
 <lg-separator [variant]="variant" [hasRole]="hasRole"></lg-separator>
@@ -38,17 +38,17 @@ The separator component can be positioned at either full or partial width to hel
 
 ![do](docs/separator/do.png)
 
-1. **Do** use a separator to group items, such as within a list
-2. **Do** use a separator to help chunk content into manageable sections
+1. **Do** use a separator to group items, such as within a list.
+2. **Do** use a separator to help chunk content into manageable sections.
 
 ## Additional development details
 
 ### Inputs
 
-| Name      | Description                                          |       Type       | Default | Required |
-| --------- | ---------------------------------------------------- | :--------------: | :-----: | :------: |
-| `variant` | The variant of separator: `solid`, `dotted`          | SeparatorVariant | 'solid' |    No    |
-| `hasRole` | If true, adds a role of `separator` to the component |     boolean      |  false  |    No    |
+| Name      | Description                                          |        Type        | Default | Required |
+|-----------|------------------------------------------------------|:------------------:|:-------:|:--------:|
+| `variant` | The variant of separator: `solid`, `dotted`          | `SeparatorVariant` | `solid` |    No    |
+| `hasRole` | If true, adds a role of `separator` to the component |     `boolean`      | `false` |    No    |
 
 
 ------

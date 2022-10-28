@@ -5,22 +5,22 @@ import Feedback from '../../docs/common/feedback.md';
 
 # Variant
 
-This directive allows you to add one of the five common colour variants to any Canopy component, such as ``info`` and ``success``.
+This directive allows you to add one of the five common colour variants to any Canopy component, such as `info` and `success`.
 
-They are already applied to existing Canopy components which use these variants out of the box, such as [alert](./?path=/story/components-alert--standard), [detail](./?path=/story/components-details--standard) and [form validation](./?path=/story/components-form-form-validation--form-validation), but this directive allows you to use them anywhere where required.
+They are already applied to existing Canopy components which use these variants out of the box, such as [alert](./?path=/docs/components-inline-message-alert-guide--page), [details](./?path=/docs/components-details-guide--page) and [form validation](./?path=/docs/components-forms-form-validation-guide--page), but this directive allows you to use them anywhere where required.
 
-This can be useful where you need the particular colour treatment (like the ``success`` variant for example), but your use-case does not fit one of the existing components.
+This can be useful where you need the particular colour treatment (like the `success` variant for example), but your use-case does not fit one of the existing components.
 
 ## Usage
 
 Import the variant module in your application:
 
-~~~js
+```js
 @NgModule({
   ...
   imports: [ ..., LgVariantModule ],
 });
-~~~
+```
 
 and your HTML:
 
@@ -35,14 +35,16 @@ and your HTML:
 ### Inputs
 
 The current available variants are:
-- ``generic``
-- ``info``
-- ``success``
-- ``warning``
-- ``error``
+- `generic`
+- `info`
+- `success`
+- `warning`
+- `error`
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| ``lgVariant`` | The name of variant desired | Variant | null | No |
+| Name        | Description                 |   Type    | Default | Required |
+|-------------|-----------------------------|:---------:|:-------:|:--------:|
+| `lgVariant` | The name of variant desired | `Variant` | `null`  |    No    |
+
+---
 
 <Feedback />
