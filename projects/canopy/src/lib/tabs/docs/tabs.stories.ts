@@ -1,23 +1,18 @@
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgMarginModule } from '../spacing';
-
-import { LgTabsModule } from './tabs.module';
-import { notes } from './tabs.notes';
+import { LgMarginModule } from '../../spacing';
+import { LgTabsModule } from '../tabs.module';
 
 export default {
-  title: 'Components/Tabs/Tabbed content',
+  title: 'Components/Tabs/Examples',
   decorators: [
     moduleMetadata({
       imports: [ LgTabsModule, LgMarginModule ],
     }),
   ],
   parameters: {
-    docs: {
-      description: {
-        component: notes,
-      },
-    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     tabEvent: {
