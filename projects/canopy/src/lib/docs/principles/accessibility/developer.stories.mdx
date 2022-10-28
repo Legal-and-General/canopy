@@ -1,0 +1,222 @@
+import { Meta } from '@storybook/addon-docs';
+import Feedback from '../../common/feedback.md';
+
+<Meta title="Principles/Accessibility/Developer" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# For developers
+
+<p class="standfirst">Here we provide information on developing content to be accessible.</p>
+
+## Developing with accessibility in mind
+
+A great deal of web content can be made accessible just by making sure the correct HTML elements are used for the correct purpose at all times.
+
+To make web content and web applications more accessible to people with disabilities you can use WAI-ARIA, the Accessible Rich Internet Applications Suite. It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies.
+
+**Components from the Canopy Angular library have been built to be accessible.**
+
+### Defining the language of the document
+
+Telling the browser which language you are using in your document has many benefits. It's good for SEO and it helps third-party translation tools and browsers to identify the right language and dictionary. Defining the correct language in an HTML page helps assistive technology to choose the correct voice profile or character set.
+
+```html
+<html lang="en">
+  ...
+</html>
+```
+
+If you switch language within a document you can use the lang attribute on specific tags:
+
+```html
+<p>You could have <i lang="it">una frase in italiano<i></p>
+```
+
+### Provide a "skip to main content" link
+
+When keyboard-only users interact with your site they use the tab key to jump from link to link. If you have a lot of links in your header or in a menu, they must tab through those every time they come to a new page just to get to the main content. Providing a skip to main content link allows them to easily bypass this.
+
+You can do that by using the class `skip-content`:
+
+```css
+.skip-content {
+  background: var(--color-white);
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: auto !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 0.0625em !important;
+  white-space: nowrap !important;
+
+  &:focus,
+  &:active {
+    left: 0;
+    clip: auto !important;
+    width: auto !important;
+    height: auto !important;
+    z-index: var(--z-index-skip-link);
+  }
+}
+```
+
+and in your HTML:
+
+```html
+<a href="#id" class="skip-content">Skip to main content</a>
+  ...
+<main id="id">
+  ...
+```
+
+
+
+This is automatically added in Canopy by using the [page component](./?path=/docs/components-primary-message-guide--page).
+
+### Images and alt attributes
+
+If an image is used as content it will need the `alt` attribute to describe the images content. If the image is purely decorative or doesn't add any valuable information you can either embed it as a background-image through CSS or setting the `alt` attribute to an empty string:
+
+```html
+<img src="some/image.jpg" alt="" />
+```
+
+It's very important that you **don't omit the `alt` attribute**.
+
+### Video and multimedia
+
+To make videos and audio accessible you have to provide a transcript.
+
+The transcript can be added with Canopy by using the [details component](./?path=/docs/components-details-guide--page).
+
+For videos the recommendation is to add captions which are essentially the transcript synchronised with the video or audio.
+
+### Tables
+
+Accessible tables need HTML markup that indicates header cells and data cells and defines their relationship.
+
+Header cells must be marked up with `<th>`, and data cells with `<td>` to make tables accessible.
+
+For tables with unclear header directions, define the direction of each header by setting the scope attribute to col or row.
+
+A caption identifies the overall topic of a table and is useful in most situations.
+
+
+
+A [table component](./?path=/docs/components-table-guide--page) which follows the above standards is available in Canopy.
+
+### Forms
+
+Forms should be logical and easy to use; instructions, cues, required form fields, and field formatting requirements must be clearly identified to users. [Error messages must be intuitive and descriptive](./?path=/docs/principles-writing--page).
+
+Ensure that forms can be understood and operated with keyboard alone.
+
+#### Form controls
+
+A form control should always be bound by a `<label>` which describes its function. This can be done in two different ways:
+
+
+
+1. By linking the label using the `for` attribute to the `id` of the form control:
+
+```html
+<label for="<form-control-id>">First name</label>
+<input type="text" id="<form-control-id>" ... />
+```
+
+
+
+2. By wrapping the form control into a label:
+
+```html
+<label>
+  First name
+  <input type="text" ... />
+</label>
+```
+
+Required form controls should make use of the required attribute.
+
+####  Form groups
+
+Groups of form controls, such as checkboxes and radio buttons, should be grouped together with a `<fieldset>`. A `<legend>` is also necessary to describe the higher level context, e.g.:
+
+```html
+<fieldset>
+  <legend>Pick a colour</legend>
+
+  <label for="blue-colour">Blue</label>
+  <input type="radio" id="blue-colour" ... />
+
+  <label for="red-colour">Red</label>
+  <input type="radio" id="red-colour" ... />
+</fieldset>
+```
+
+### Hiding content from a screen reader
+
+`visibility: hidden` and/or `display: none` will hide text from all users. The text is removed from the visual flow of the page and is ignored by screen readers.
+
+If you want to hide the content just from a screen reader (for example an icon) but still show it on the page you can use the aria attribute `aria-hidden="true"`:
+
+```html
+<i class="my-icon" aria-hidden="true"></i>
+```
+
+### Adding content only for a screen reader
+
+If you want to add content only to be read by a screen reader you can use the `lg-visually-hidden` class. This will hide the text for sighted user but it will be read by screen readers.
+
+```html
+<p class="lg-visually-hidden">Text available only to screen readers</p>
+```
+
+### Using landmarks to help people navigate the site
+
+It is possible and advised to mark up thematic sections with HTML5 (`header`, `article`, `aside`, `nav`, `section`, `footer`). You can also use WAI-ARIA `role` attributes for older browsers or sections that don't have an explicit tag.
+
+One of the main benefits of using landmarks is that screen reader users will be able to navigate pages by jumping from section to section.
+
+Try not to overuse landmarks. Use div for CSS/JS only purposes and sections for semantics.
+
+```html
+...
+  <header role="banner">
+    ...
+    <nav role="navigation">
+      ...
+    </nav>
+    ...
+  </header>
+  ...
+  <main role="main">
+    ...
+  </main>
+  ...
+  <footer role="contentinfo">
+    ...
+  </footer>
+...
+```
+
+All the components available in the Canopy library already handle the landmarks and role attributes.
+
+### How to improve keyboard accessibility
+
+Some things to look at to make a page keyboard accessible:
+
+- Make sure the content order is correct. If you remove your styles from the page, does the content still make sense?
+- By default, users can only navigate to links, buttons, and form controls with a keyboard. These natively accessible elements should be used whenever possible. If this is not possible, you may need to use `tabindex="0"` to ensure an element can receive keyboard focus.
+- Check <a href="https://webaim.org/techniques/keyboard#testing" target="_blank">WebAIM</a> for the most common online interactions.
+- <a href="https://material.angular.io/components/categories" target="_blank">Angular Material</a> is good at accessibility, so you can check their source code if you are uncertain on how to make a component accessible. Otherwise, just google it. There are plenty of resources around the internet to help you with accessibility.
+
+## Useful links
+
+For more in depth knowledge on how to make your code accessible we recommend reading the articles on <a href="https://webaim.org/articles/" target="_blank">WebAIM</a>.
+
+## Related
+
+- [Accessibility - Overview](./?path=/docs/principles-accessibility-overview--page)
+
+<Feedback />
