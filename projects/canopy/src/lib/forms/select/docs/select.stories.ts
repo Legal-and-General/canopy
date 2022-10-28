@@ -56,7 +56,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Select/Examples',
+  title: 'Components/Forms/Select/Examples',
   component: LgSelectFieldComponent,
   decorators: [
     moduleMetadata({

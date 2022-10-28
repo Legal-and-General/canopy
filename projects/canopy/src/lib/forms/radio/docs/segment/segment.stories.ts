@@ -56,7 +56,7 @@ class ReactiveFormSegmentComponent {
 }
 
 export default {
-  title: 'Components/Form/Segment/Examples',
+  title: 'Components/Forms/Segment/Examples',
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({

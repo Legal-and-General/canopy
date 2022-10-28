@@ -11,7 +11,7 @@ import {
 import { LgToggleComponent } from './toggle.component';
 
 export default {
-  title: 'Components/Form/Switch',
+  title: 'Components/Forms/Switch',
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({

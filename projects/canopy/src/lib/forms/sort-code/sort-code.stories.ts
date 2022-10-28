@@ -56,7 +56,7 @@ class ReactiveFormComponent {
 }
 
 export default {
-  title: 'Components/Form/Sort code',
+  title: 'Components/Forms/Sort code',
   component: LgSortCodeDirective,
   decorators: [
     moduleMetadata({
