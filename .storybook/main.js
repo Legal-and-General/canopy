@@ -53,6 +53,8 @@ module.exports = {
     '../projects/canopy/src/lib/footer/docs/footer.stories.ts',
     '../projects/canopy/src/lib/header/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/header/docs/header.stories.ts',
+    '../projects/canopy/src/styles/docs/link/guide.stories.mdx',
+    '../projects/canopy/src/styles/docs/link/link.stories.ts',
     '../projects/canopy/src/lib/link-menu/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/link-menu/docs/link-menu.stories.ts',
     '../projects/canopy/src/lib/modal/docs/guide.stories.mdx',
@@ -71,7 +73,6 @@ module.exports = {
     '../projects/canopy/src/lib/tabs/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/tabs/docs/tab-nav-bar.stories.ts',
     '../projects/canopy/src/lib/tabs/docs/tabs.stories.ts',
-    '../projects/canopy/src/styles/links.stories.ts',
     // Patterns
     '../projects/canopy/src/lib/filter-container/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/filter-container/docs/filter-container.stories.ts',
