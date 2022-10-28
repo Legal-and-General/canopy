@@ -89,7 +89,8 @@ module.exports = {
     '../projects/canopy/src/lib/page/docs/page.stories.ts',
     // Helpers
     //  Directives
-    '../projects/canopy/src/lib/feature-toggle/feature-toggle.stories.ts',
+    '../projects/canopy/src/lib/feature-toggle/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/feature-toggle/docs/feature-toggle.stories.ts',
     '../projects/canopy/src/lib/focus/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/focus/docs/focus.stories.ts',
     '../projects/canopy/src/lib/grid/docs/guide.stories.mdx',

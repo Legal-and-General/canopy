@@ -1,0 +1,109 @@
+import { Meta, Description } from '@storybook/addon-docs';
+import feedback from '../../docs/common/feedback.md';
+
+<Meta title="Helpers/Directives/Feature toggle/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Feature toggle
+
+This module allows you to enable and disable features by using the `lgFeatureToggle` directive and passing an observable of the toggle's configuration to the module.
+
+## Usage
+
+Import the feature toggle module in your application:
+
+~~~js
+@NgModule({
+  ...
+  imports: [
+    ...,
+    LgFeatureToggleModule.forRoot({
+      deps: [Store],
+      useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+    }),
+  ],
+});
+~~~
+
+`useFactory` returns an observable of a config file structured as below:
+
+~~~json
+{
+  "exampleFeature": true,
+  "anotherExampleFeature": false
+}
+~~~
+
+The default behaviour is to show a feature if it's undefined, but we can override it by passing an optional object with defaultHide set to true like this:
+
+~~~js
+LgFeatureToggleModule.forRoot({
+  deps: [Store],
+  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+  },
+  {
+    defaultHide: true
+  }
+)
+~~~
+
+Import `LgFeatureToggleModule` (without the `forRoot`) in the modules that need it:
+
+~~~js
+@NgModule({
+  ...
+  imports: [ ..., LgFeatureToggleModule ],
+});
+~~~
+
+and in your component(s) add the structural directive:
+
+~~~html
+<div *lgFeatureToggle="'exampleFeature'">
+  <p>The enabled feature</p>
+</div>
+
+<div *lgFeatureToggle="'anotherExampleFeature'">
+  <p>The disabled feature</p>
+</div>
+~~~
+
+### FeatureToggleGuard
+
+To use the `FeatureToggleGuard` you need to add it to your routes' configuration in the usual `canActive`, `canActivateChild`, `canLoad`, and then add in the data property like
+
+~~~js
+data: {
+  featureToggle: 'myToggle',
+},
+~~~
+
+If you use `canActivateChild`, child route definitions can add their own `featureToggle` in their data, and the path is only valid when all the `featureToggle` flags of each route segment are true.
+
+Example with a lazy loading route:
+
+~~~js
+{
+  path: 'parent',
+  loadChildren: () => import('./parent/parent.module').then(m => m.ParentnModule),
+  canActivate: [ FeatureToggleGuard ],
+  canActivateChild: [ FeatureToggleGuard ],
+  canLoad: [ FeatureToggleGuard ],
+  data: {
+    featureToggle: 'parentToggle',
+  },
+},
+~~~
+
+Example of inner routes (route definition inside the parent module):
+
+~~~js
+{
+  path: 'child',
+  component: ChildContainerComponent,
+  data: {
+    featureToggle: 'childToggle',
+  },
+},
+~~~
+
+<Description markdown={feedback} />
