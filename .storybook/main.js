@@ -107,7 +107,8 @@ module.exports = {
     '../projects/canopy/src/lib/spacing/padding/docs/padding.stories.ts',
     '../projects/canopy/src/lib/spacing/row-gap/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/spacing/row-gap/docs/row-gap.stories.ts',
-    '../projects/canopy/src/lib/sr-alert-message/sr-alert-message.stories.ts',
+    '../projects/canopy/src/lib/sr-alert-message/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/sr-alert-message/docs/sr-alert-message.stories.ts',
     '../projects/canopy/src/lib/variant/variant.stories.ts',
     //  Pipes
     '../projects/canopy/src/lib/pipes/camel-case/docs/guide.stories.mdx',
