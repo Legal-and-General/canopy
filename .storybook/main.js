@@ -13,6 +13,8 @@ module.exports = {
     '../projects/canopy/src/lib/brand-icon/docs/brand-icons.stories.ts',
     // Principles
     '../projects/canopy/src/lib/docs/principles/writing.stories.mdx',
+    '../projects/canopy/src/lib/docs/principles/accessibility/overview.stories.mdx',
+    '../projects/canopy/src/lib/docs/principles/accessibility/developer.stories.mdx',
     // Components
     '../projects/canopy/src/lib/accordion/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/accordion/docs/accordion.stories.ts',

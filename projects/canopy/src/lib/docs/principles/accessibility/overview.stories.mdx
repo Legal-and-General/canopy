@@ -1,0 +1,210 @@
+import { Meta } from '@storybook/addon-docs';
+import Feedback from '../../common/feedback.md';
+
+<Meta title="Principles/Accessibility/Overview" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Overview
+
+> "The power of the Web is in its universality.
+> Access by everyone regardless of disability is an essential aspect."
+>
+> <cite>Tim Berners-Lee, W3C Director and inventor of the World Wide Web</cite>
+
+## Introduction
+
+Before diving into explaining some of the key aspects of web accessibility here are some interesting facts to make you understand how important it is to create websites that are accessible by any user no matter their disabilities:
+
+- there are around 14.6 million disable people in the UK (almost one in five of the population).
+- only 17% of disabled people were born with their disabilities. The majority of disabled people acquire their disability later in life.
+- for an average business, disabled people may account for up to 20% of all costumers. Many businesses fail to recognise the business opportunity that improved access presents.
+- the main reasons for disabled customers switching to a more accessible competitor include inaccessible websites.
+
+## What is Web accessibility?
+
+Web accessibility means that websites, tools, and technologies are designed and developed so that people with disabilities can use them.
+
+Web accessibility isn’t just a moral requirement but also a legal one:
+
+> [...] website owners have been obliged by law to ensure that their websites are accessible to all users, as it is illegal to treat those with disabilities less favourably.
+>
+> <cite>Equality Act of 2010</cite>
+
+In order to achieve this we have to start thinking and learning about how other users use our websites and applications; in what circumstances do they use it.
+
+### Common challenges that we have to think about
+
+Accessibility means more than just making a website work for people with visual impairment or installing a ramp to enable wheel chair access. There are many types of impairments that can be permanent, temporary or even situational. Here are some different examples:
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Permanent</th>
+      <th>Temporary</th>
+      <th>Situational</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visual impairments</td>
+      <td>
+        <ul>
+          <li>Blindness</li>
+          <li>Colour blindness</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Low-level vision</li>
+          <li>Cataract</li>
+        </ul>
+      </td>
+      <td>Distraction</td>
+    </tr>
+    <tr>
+      <td>Mobility impairments</td>
+      <td>Physical issuesNeurological disordersGenetic disorders</td>
+      <td>Injury</td>
+      <td>On the phoneNew parent</td>
+    </tr>
+    <tr>
+      <td>Speech impairments</td>
+      <td>Non-verbal</td>
+      <td>Laryngitis</td>
+      <td>Heavy accent</td>
+    </tr>
+    <tr>
+      <td>Hearing impairments</td>
+      <td>
+        <ul>
+          <li>Low hearing levels</li>
+          <li>Deafness</li>
+        </ul>
+      </td>
+      <td>Ear infection</td>
+      <td>
+        <ul>
+          <li>Near heavy traffic</li>
+          <li>Near a sleeping person</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Cognitive impairments</td>
+      <td>
+        <ul>
+          <li>Intellectual disabilities</li>
+          <li>Learning disabilities</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Flu</li>
+          <li>Concussion</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Intoxicated</li>
+          <li>Non native speaker</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Getting started
+
+These guidelines are based on the <a href="https://www.w3.org/TR/WCAG21/" target="_blank">Web Content Accessibility Guidelines (WCAG) 2.1</a>.
+There are 3 levels of conformance to the guidelines, A, AA, and AAA with AAA conformance being the highest possible level that can be achieved.
+
+For reasons of practicality and to allow more design freedom, we have chosen to base our guidelines on AA conformance, which provides excellent accessibility and has minimal impact on design.
+
+By following these guidelines we can ensure that our goal of at least WCAG AA compliance is met along with some important AAA conformance criteria.
+
+## Designing for accessibility *
+
+To design for accessibility means to **be inclusive to the needs of your users**.
+
+### **Designing for users on the autistic spectrum**
+
+| **Do**                                                       | **Don’t**                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| use simple colours                                           | use bright contrasting colours                               |
+| write in plain English                                       | use figures of speech and idioms                             |
+| use simple sentences and bullets                             | create a wall of text                                        |
+| make button labels and link text descriptive - for example, Attach files | make button labels and link text vague and unpredictable - for example, Click here |
+| build simple and consistent layouts                          | build complex and cluttered layouts                          |
+
+### **Designing for users of screen readers**
+
+| **Do**                                                       | **Don’t**                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| describe images and provide transcripts for video            | only show information in an image or video                   |
+| follow a linear, logical layout                              | spread content all over a page                               |
+| structure content using HTML5                                | rely on text size and placement for structure                |
+| build for keyboard use only                                  | force mouse or screen use                                    |
+| write descriptive links and heading - for example, Contact us | write uninformative links and heading - for example, Click here |
+
+### **Designing for users with low vision**
+
+| **Do**                                                       | **Don’t**                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| use good contrasts and a readable font size                  | use low colour contrasts and small font size                 |
+| publish all information on web pages (HTML)                  | bury information in downloads                                |
+| use a combination of colour, shapes and text                 | only use colour to convey meaning                            |
+| follow a linear, logical layout and ensure text flows and is visible when text is magnified to 200% | spread content all over a page and force user to scroll horizontally when text is magnified to 200% |
+| put buttons and notifications in context                     | separate actions from their context                          |
+
+### **Designing for users with physical or motor disabilities**
+
+| **Do**                                      | **Don’t**                                                  |
+| ------------------------------------------- | ---------------------------------------------------------- |
+| make large clickable actions                | demand precision                                           |
+| give form fields space                      | bunch interactions together                                |
+| design for keyboard or speech only use      | make dynamic content that requires a lot of mouse movement |
+| design with mobile and touch screen in mind | have short time out windows                                |
+| provide shortcuts                           | tire users with lots of typing and scrolling               |
+
+### **Designing for users who are deaf or hard of hearing**
+
+| **Do**                                                       | **Don’t**                                                |
+| ------------------------------------------------------------ | -------------------------------------------------------- |
+| write in plain English                                       | use complicated words or figures of speech               |
+| use subtitles or provide transcripts for video               | put content in audio or video only                       |
+| use a linear, logical layout                                 | make complex layouts and menus                           |
+| break up content with sub-headings, images and videos        | make users read long blocks of content                   |
+| let users ask for their preferred communication support when booking appointments | don't make telephone the only means of contact for users |
+
+### **Designing for users with dyslexia**
+
+| **Do**                                                       | **Don’t**                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| use images and diagrams to support text                      | use large blocks of heavy text                               |
+| align text to the left and keep a consistent layout          | underline words, use italics or write capitals               |
+| consider producing materials in other formats (for example, audio and video) | force users to remember things from previous pages - give reminders and prompts |
+| keep content short, clear and simple                         | rely on accurate spelling - use autocorrect or provide suggestions |
+| let users change the contrast between background and text    | put too much information in one place                        |
+
+(*) From <a href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/" target="_blank">Dos and don'ts on designing for accessibility</a>.
+
+More resources for designers can be found on <a href="https://webaim.org/resources/designers/" target="_blank">WebAIM</a>.
+
+## Resources and useful links
+
+- <a href="http://www.w3.org/WAI/intro/accessibility.php" target="_blank">Disabilities facts and figures</a>
+- <a href="https://www.smashingmagazine.com/2018/04/designing-accessibility-inclusion/" target="_blank">Designing accessibility and inclusion</a>
+- <a href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/" target="_blank">Dos and don'ts on designing for accessibility</a>
+- <a href="https://www.w3.org/WAI/intro/aria" target="_blank">WAI-ARIA overview</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML" target="_blank">HTML and accessibility</a>
+- <a href="https://bitsofco.de/the-accessibility-cheatsheet/" target="_blank">The Accessibility cheatsheet</a>
+- <a href="https://webaim.org/techniques/css/invisiblecontent/" target="_blank">Invisible content just for screen reader users</a>
+- <a href="https://uxdesign.cc/designing-for-accessibility-is-not-that-hard-c04cc4779d94" target="_blank">Designing for accessibility is not that hard</a>
+- <a href="https://webaim.org/resources/designers/" target="_blank">Web Accessibility for Designers</a>
+- <a href="https://diginclusion.com/blog/" target="_blank">Dig Inclusion - Blog</a>
+
+## Related
+
+- [Accessibility - Developer](./?path=/docs/principles-accessibility-developer--page)
+
+<Feedback />
