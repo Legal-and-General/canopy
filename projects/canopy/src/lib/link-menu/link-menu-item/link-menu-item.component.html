@@ -3,5 +3,6 @@
   <ng-content select="lg-link-menu-item-content"></ng-content>
 </div>
 <div class="lg-link-menu-item__icon-container">
-  <lg-icon name="chevron-right" class="lg-font-size-0-8"></lg-icon>
+  <lg-icon [name]="internal ? 'chevron-right' : 'link-external'" class="lg-font-size-0-8"></lg-icon>
+  <span *ngIf="internal" class="lg-visually-hidden"> opens in a new tab</span>
 </div>

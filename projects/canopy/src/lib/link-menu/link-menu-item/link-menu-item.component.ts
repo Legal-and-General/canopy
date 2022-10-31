@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -14,4 +15,6 @@ import {
 })
 export class LgLinkMenuItemComponent {
   @HostBinding('class.lg-link-menu-item') class = true;
+
+  @Input() internal = true;
 }
