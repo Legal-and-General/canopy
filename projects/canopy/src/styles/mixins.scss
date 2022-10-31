@@ -18,14 +18,9 @@
   $bg-color: var(--default-focus-color),
   $inner-bg-color: var(--default-inner-focus-color)
 ) {
-<<<<<<< HEAD
-  outline: 0;
+  outline: 0 !important;
   box-shadow: 0 0 0 var(--inner-focus-width) $inner-bg-color,
     0 0 0 var(--outer-focus-width) $bg-color;
-=======
-  outline: 0 !important;
-  box-shadow: 0 0 0 0.125rem $inner-bg-color, 0 0 0 0.375rem $bg-color;
->>>>>>> feat(header): add account menu to header component
 }
 
 @mixin lg-link(
