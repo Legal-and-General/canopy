@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+
+  @include lg-breakpoint('md') {
+    flex-basis: 50%;
+  }
+}

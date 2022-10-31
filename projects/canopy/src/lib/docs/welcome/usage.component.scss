@@ -1,0 +1,16 @@
+@import '../../../styles/mixins';
+
+:host {
+  display: flex;
+  align-items: flex-end;
+  row-gap: var(--space-md);
+  flex-wrap: wrap;
+
+  @include lg-breakpoint('md') {
+    flex-wrap: nowrap;
+  }
+}
+
+li {
+  list-style-type: none;
+}
