@@ -1,0 +1,12 @@
+@import '../../../styles/mixins';
+
+.bottom-section {
+  display: flex;
+  column-gap: var(--space-xxl);
+  flex-wrap: wrap;
+  row-gap: var(--space-xl);
+
+  @include lg-breakpoint('md') {
+    flex-wrap: nowrap;
+  }
+}

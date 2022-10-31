@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+
+:host {
+  display: block;
+}
+
+.docs-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  row-gap: var(--space-lg);
+  column-gap: var(--space-lg);
+}
+
+.docs-list-item {
+  position: relative;
+  list-style-type: none;
+
+  @include lg-breakpoint('md') {
+    flex-basis: 46%;
+  }
+
+  @include lg-breakpoint('lg') {
+    flex-basis: 31%;
+  }
+}
