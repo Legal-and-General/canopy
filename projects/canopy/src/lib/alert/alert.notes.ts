@@ -18,4 +18,6 @@ A decorative icon is also added next to the heading if it's one of the these var
 |------|-------------|:----:|:-----:|:-----:|
 | \`\`variant\`\` | Applies colour treatment and ARIA role if applicable: \`\`generic\`\`, \`\`info\`\`, \`\`warning\`\`, \`\`error\`\`, \`\`success\`\` | string | \`\`generic\`\` | No |
 | \`\`showIcon\`\` | Whether the icon should display on the warning, error or success variants | boolean | true | No |
+
+
 `;
