@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
-import { lgIconChevronRight } from '../icon/icons.interface';
+import { lgIconChevronRight, lgIconLinkExternal } from '../icon/icons.interface';
 import { LgVariantModule } from '../variant/variant.module';
 import { LgCardModule } from '../card';
 
@@ -25,6 +25,6 @@ const components = [
 })
 export class LgLinkMenuModule {
   constructor(private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([ lgIconChevronRight ]);
+    this.iconRegistry.registerIcons([ lgIconChevronRight, lgIconLinkExternal ]);
   }
 }
