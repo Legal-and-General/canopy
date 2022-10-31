@@ -82,7 +82,7 @@ const colours = [
 ];
 
 export default {
-  title: 'Foundation/Brand icon/Catalog',
+  title: 'Foundations/Brand icon/Catalog',
   decorators: [
     moduleMetadata({
       declarations: [ SwatchBrandIconComponent, LgBrandIconComponent ],
