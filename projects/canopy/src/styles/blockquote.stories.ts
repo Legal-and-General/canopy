@@ -8,7 +8,7 @@ const template = `
 `;
 
 export default {
-  title: 'Components/Block quote/Examples',
+  title: 'Components/Blockquote/Examples',
   parameters: {
     viewMode: 'story',
     previewTabs: { 'storybook/docs/panel': { hidden: true } },
@@ -21,7 +21,7 @@ const quoteTemplate: Story = (args) => ({
 });
 
 export const quote = quoteTemplate.bind({});
-quote.storyName = 'Block quote';
+quote.storyName = 'Blockquote';
 
 quote.args = {
   content:
