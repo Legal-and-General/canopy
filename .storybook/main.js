@@ -15,6 +15,7 @@ module.exports = {
     // Principles
     '../projects/canopy/src/lib/docs/principles/writing.stories.mdx',
     '../projects/canopy/src/lib/docs/principles/accessibility/overview.stories.mdx',
+    '../projects/canopy/src/lib/docs/principles/accessibility/overview.stories.ts',
     '../projects/canopy/src/lib/docs/principles/accessibility/developer.stories.mdx',
     // Components
     '../projects/canopy/src/lib/accordion/docs/guide.stories.mdx',
