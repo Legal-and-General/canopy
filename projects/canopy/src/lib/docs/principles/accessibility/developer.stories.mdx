@@ -11,13 +11,16 @@ import Feedback from '../../common/feedback.md';
 
 A great deal of web content can be made accessible just by making sure the correct HTML elements are used for the correct purpose at all times.
 
-To make web content and web applications more accessible to people with disabilities you can use WAI-ARIA, the Accessible Rich Internet Applications Suite. It especially helps with dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies.
+WAI-ARIA, the Accessible Rich Internet Applications Suite, can be used to make web content and web applications more accessible to people with disabilities.
+
+WAI-ARIA is especially helpful when creating dynamic content and advanced user interface controls developed with Ajax, HTML, JavaScript, and related technologies.
+
 
 **Components from the Canopy Angular library have been built to be accessible.**
 
 ### Defining the language of the document
 
-Telling the browser which language you are using in your document has many benefits. It's good for SEO and it helps third-party translation tools and browsers to identify the right language and dictionary. Defining the correct language in an HTML page helps assistive technology to choose the correct voice profile or character set.
+Defining the language used in an HTML page has many benefits. It explicitly tells the browser what language you are using, thus improving SEO. Third-party translation tools and browsers can use the language information to use the correct dictionary. Additionally, assistive technologies can choose the suitable voice profile or character set.
 
 ```html
 <html lang="en">
@@ -33,9 +36,13 @@ If you switch language within a document you can use the lang attribute on speci
 
 ### Provide a "skip to main content" link
 
-When keyboard-only users interact with your site they use the tab key to jump from link to link. If you have a lot of links in your header or in a menu, they must tab through those every time they come to a new page just to get to the main content. Providing a skip to main content link allows them to easily bypass this.
+When keyboard-only users interact with your site, they use the tab key to jump from link to link.
 
-You can do that by using the class `skip-content`:
+Having a lot of link elements in your header or menu causes users to unnecessarily tab through each link before they can get to the main content.
+
+Providing a link that allows users to bypass the header and skip to the main content improves accessibility.
+
+You can do that by using the `skip-content` class:
 
 ```css
 .skip-content {
@@ -76,7 +83,7 @@ This is automatically added in Canopy by using the [page component](./?path=/doc
 
 ### Images and alt attributes
 
-If an image is used as content it will need the `alt` attribute to describe the images content. If the image is purely decorative or doesn't add any valuable information you can either embed it as a background-image through CSS or setting the `alt` attribute to an empty string:
+If an image is used as content it will need the `alt` attribute to describe its appearance or function. If the image is purely decorative or doesn't add any valuable information you can either embed it as a background-image through CSS or setting the `alt` attribute to an empty string:
 
 ```html
 <img src="some/image.jpg" alt="" />
@@ -98,7 +105,7 @@ Accessible tables need HTML markup that indicates header cells and data cells an
 
 Header cells must be marked up with `<th>`, and data cells with `<td>` to make tables accessible.
 
-For tables with unclear header directions, define the direction of each header by setting the scope attribute to col or row.
+For tables with unclear header directions, define the direction of each header by setting the scope attribute to `col` or `row`.
 
 A caption identifies the overall topic of a table and is useful in most situations.
 

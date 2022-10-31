@@ -72,8 +72,6 @@ Date validation is quite complex with a range of different validation errors, wh
 
 Internally the date-field can determine if the entered date is a valid date. If additional validation is required such as checking for past or future dates this can be done with external validators.
 
-For the validation to work properly it's very important to include the `ngForm` on the form tag and for the submit button to be within the form.
-
 ### Internal validation
 In some scenarios there could be multiple fields that are incorrect, to help guide the users to the correct issue the date field only returns the most significant validation error. Only one error should be shown at a time.
 
@@ -83,10 +81,10 @@ The current significance of errors with their recommended messages is as follows
 
 #### 1. Invalid fields
 
-One field is invalid, this may be a non-numerical character, or a number outside the valid range .e.g 13 for a month.
+One field is invalid, this may be a non-numerical character, or a number outside the valid range e.g. 13 for a month.
 `Enter a valid month`
 
-```json
+```js
 
 { invalidField: 'month'}
 
@@ -96,7 +94,7 @@ One field is invalid, this may be a non-numerical character, or a number outside
 As above but with two fields displaying an error.
 `Enter a valid month and year`
 
-```json
+```js
 
 { invalidFields: ['day', 'month']}
 
@@ -105,7 +103,7 @@ As above but with two fields displaying an error.
 If all three fields are invalid a generic 'invalidDate' message is provided.
 `Enter a valid date of birth`
 
-```json
+```js
 
 { invalidDate: true }
 
@@ -116,7 +114,7 @@ If all three fields are invalid a generic 'invalidDate' message is provided.
 If one field is empty either through form submission or inline deletion of the content.
 `Date of birth must include month`
 
-```json
+```js
 
 { requiredField: 'month'}
 
@@ -126,7 +124,7 @@ As above but with two fields missing.
 `Date of birth must include a month and year`
 
 
-```json
+```js
 
 { invalidFields: ['day', 'month']}
 
@@ -135,7 +133,7 @@ As above but with two fields missing.
 If all three fields are missing an 'invalidDate' message is provided.
 `Enter a valid date of birth`
 
-```json
+```js
 
 { invalidDate: true }
 
@@ -145,7 +143,7 @@ If all three fields are missing an 'invalidDate' message is provided.
 
 If all the individual fields are correct, but they do not concatenate to a valid date. e.g. 30 02 2020. `Enter a valid date of birth`
 
-```json
+```js
 
 { invalidDate: true }
 
@@ -156,7 +154,7 @@ If all the individual fields are correct, but they do not concatenate to a valid
 It is also possible to provide your own custom validation messages using <a href="https://angular.io/guide/form-validation#custom-validators" target="_blank">custom validators</a>
 and the validation component. This is particularly useful for checking things like whether the date is in the past or the future. Under the hood the date field uses the <a href="https://date-fns.org/" target="_blank">date-fns</a> library as a peer dependency, to keep build size to a minimum it may be worth considering using the same library in your application.
 
-```js
+```ts
 function notMondayValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
     return getDay(parseISO(control.value)) === 'monday' ? { notMonday: true } : null;

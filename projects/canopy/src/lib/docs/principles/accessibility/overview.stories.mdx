@@ -12,11 +12,11 @@ import Feedback from '../../common/feedback.md';
 
 ## Introduction
 
-Before diving into explaining some of the key aspects of web accessibility here are some interesting facts to make you understand how important it is to create websites that are accessible by any user no matter their disabilities:
+Before diving into explaining some of the key aspects of web accessibility here are some interesting facts to help you understand how important it is to create websites that are accessible by any user no matter their disabilities:
 
-- there are around 14.6 million disable people in the UK (almost one in five of the population).
+- there are around 14.6 million disabled people in the UK (almost one in five of the population).
 - only 17% of disabled people were born with their disabilities. The majority of disabled people acquire their disability later in life.
-- for an average business, disabled people may account for up to 20% of all costumers. Many businesses fail to recognise the business opportunity that improved access presents.
+- for an average business, disabled people may account for up to 20% of all customers. Many businesses fail to recognise the business opportunity that improved access presents.
 - the main reasons for disabled customers switching to a more accessible competitor include inaccessible websites.
 
 ## What is Web accessibility?
@@ -29,11 +29,11 @@ Web accessibility isn’t just a moral requirement but also a legal one:
 >
 > <cite>Equality Act of 2010</cite>
 
-In order to achieve this we have to start thinking and learning about how other users use our websites and applications; in what circumstances do they use it.
+In order to achieve this we have to start thinking and learning about how all users use our websites and applications, and in what circumstances they use them.
 
 ### Common challenges that we have to think about
 
-Accessibility means more than just making a website work for people with visual impairment or installing a ramp to enable wheel chair access. There are many types of impairments that can be permanent, temporary or even situational. Here are some different examples:
+Accessibility means more than just making a website work for people with visual impairment or installing a ramp to enable wheelchair access. There are many types of impairments that can be permanent, temporary or even situational. Here are some different examples:
 
 <table>
   <thead>
@@ -63,9 +63,20 @@ Accessibility means more than just making a website work for people with visual 
     </tr>
     <tr>
       <td>Mobility impairments</td>
-      <td>Physical issuesNeurological disordersGenetic disorders</td>
+      <td>
+        <ul>
+          <li>Physical issues</li>
+          <li>Neurological disorders</li>
+          <li>Genetic disorders</li>
+        </ul>
+      </td>
       <td>Injury</td>
-      <td>On the phoneNew parent</td>
+      <td>
+        <ul>
+          <li>On the phone</li>
+          <li>New parent</li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td>Speech impairments</td>
@@ -106,7 +117,7 @@ Accessibility means more than just making a website work for people with visual 
       <td>
         <ul>
           <li>Intoxicated</li>
-          <li>Non native speaker</li>
+          <li>Non-native speaker</li>
         </ul>
       </td>
     </tr>
@@ -126,65 +137,65 @@ By following these guidelines we can ensure that our goal of at least WCAG AA co
 
 To design for accessibility means to **be inclusive to the needs of your users**.
 
-### **Designing for users on the autistic spectrum**
+### Designing for users on the autistic spectrum
 
-| **Do**                                                       | **Don’t**                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| use simple colours                                           | use bright contrasting colours                               |
-| write in plain English                                       | use figures of speech and idioms                             |
-| use simple sentences and bullets                             | create a wall of text                                        |
+| Do                                                                       | Don't                                                                              |
+|--------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| use simple colours                                                       | use bright contrasting colours                                                     |
+| write in plain English                                                   | use figures of speech and idioms                                                   |
+| use simple sentences and bullets                                         | create a wall of text                                                              |
 | make button labels and link text descriptive - for example, Attach files | make button labels and link text vague and unpredictable - for example, Click here |
-| build simple and consistent layouts                          | build complex and cluttered layouts                          |
+| build simple and consistent layouts                                      | build complex and cluttered layouts                                                |
 
-### **Designing for users of screen readers**
+### Designing for users of screen readers
 
-| **Do**                                                       | **Don’t**                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| describe images and provide transcripts for video            | only show information in an image or video                   |
-| follow a linear, logical layout                              | spread content all over a page                               |
-| structure content using HTML5                                | rely on text size and placement for structure                |
-| build for keyboard use only                                  | force mouse or screen use                                    |
+| Do                                                            | Don't                                                           |
+|---------------------------------------------------------------|-----------------------------------------------------------------|
+| describe images and provide transcripts for video             | only show information in an image or video                      |
+| follow a linear, logical layout                               | spread content all over a page                                  |
+| structure content using HTML5                                 | rely on text size and placement for structure                   |
+| build for keyboard use only                                   | force mouse or screen use                                       |
 | write descriptive links and heading - for example, Contact us | write uninformative links and heading - for example, Click here |
 
-### **Designing for users with low vision**
+### Designing for users with low vision
 
-| **Do**                                                       | **Don’t**                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| use good contrasts and a readable font size                  | use low colour contrasts and small font size                 |
-| publish all information on web pages (HTML)                  | bury information in downloads                                |
-| use a combination of colour, shapes and text                 | only use colour to convey meaning                            |
+| Do                                                                                                  | Don't                                                                                               |
+|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| use good contrasts and a readable font size                                                         | use low colour contrasts and small font size                                                        |
+| publish all information on web pages (HTML)                                                         | bury information in downloads                                                                       |
+| use a combination of colour, shapes and text                                                        | only use colour to convey meaning                                                                   |
 | follow a linear, logical layout and ensure text flows and is visible when text is magnified to 200% | spread content all over a page and force user to scroll horizontally when text is magnified to 200% |
-| put buttons and notifications in context                     | separate actions from their context                          |
+| put buttons and notifications in context                                                            | separate actions from their context                                                                 |
 
-### **Designing for users with physical or motor disabilities**
+### Designing for users with physical or motor disabilities
 
-| **Do**                                      | **Don’t**                                                  |
-| ------------------------------------------- | ---------------------------------------------------------- |
+| Do                                          | Don't                                                      |
+|---------------------------------------------|------------------------------------------------------------|
 | make large clickable actions                | demand precision                                           |
 | give form fields space                      | bunch interactions together                                |
 | design for keyboard or speech only use      | make dynamic content that requires a lot of mouse movement |
 | design with mobile and touch screen in mind | have short time out windows                                |
 | provide shortcuts                           | tire users with lots of typing and scrolling               |
 
-### **Designing for users who are deaf or hard of hearing**
+### Designing for users who are deaf or hard of hearing
 
-| **Do**                                                       | **Don’t**                                                |
-| ------------------------------------------------------------ | -------------------------------------------------------- |
-| write in plain English                                       | use complicated words or figures of speech               |
-| use subtitles or provide transcripts for video               | put content in audio or video only                       |
-| use a linear, logical layout                                 | make complex layouts and menus                           |
-| break up content with sub-headings, images and videos        | make users read long blocks of content                   |
+| Do                                                                                | Don't                                                    |
+|-----------------------------------------------------------------------------------|----------------------------------------------------------|
+| write in plain English                                                            | use complicated words or figures of speech               |
+| use subtitles or provide transcripts for video                                    | put content in audio or video only                       |
+| use a linear, logical layout                                                      | make complex layouts and menus                           |
+| break up content with sub-headings, images and videos                             | make users read long blocks of content                   |
 | let users ask for their preferred communication support when booking appointments | don't make telephone the only means of contact for users |
 
-### **Designing for users with dyslexia**
+### Designing for users with dyslexia
 
-| **Do**                                                       | **Don’t**                                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| use images and diagrams to support text                      | use large blocks of heavy text                               |
-| align text to the left and keep a consistent layout          | underline words, use italics or write capitals               |
+| Do                                                                           | Don't                                                                           |
+|------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| use images and diagrams to support text                                      | use large blocks of heavy text                                                  |
+| align text to the left and keep a consistent layout                          | underline words, use italics or write capitals                                  |
 | consider producing materials in other formats (for example, audio and video) | force users to remember things from previous pages - give reminders and prompts |
-| keep content short, clear and simple                         | rely on accurate spelling - use autocorrect or provide suggestions |
-| let users change the contrast between background and text    | put too much information in one place                        |
+| keep content short, clear and simple                                         | rely on accurate spelling - use autocorrect or provide suggestions              |
+| let users change the contrast between background and text                    | put too much information in one place                                           |
 
 (*) From <a href="https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/" target="_blank">Dos and don'ts on designing for accessibility</a>.
 

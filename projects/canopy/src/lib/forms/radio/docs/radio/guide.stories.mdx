@@ -58,13 +58,13 @@ A radio button contains a circular toggle and a label, and will always appear in
 
 ### LgRadioGroupComponent inputs
 
-| Name     | Description                                                                    | Type        | Default                               | Required |
-|----------|--------------------------------------------------------------------------------|-------------|---------------------------------------|----------|
-| `id`     | HTML ID attribute, auto generated if not provided                              | `string`    | `lg-radio-group-id-${nextUniqueId++}` | No       |
-| `name`   | Set the name value for all inputs in the group, auto-generated if not provided | `string`    | `lg-radio-group-${nextUniqueId++}`    | No       |
-| `value`  | Set the default checked radio button, must match the value of the radio button | `boolean` \ | `string`                              | `null`   | No       |
-| `focus`  | Set the focus on the fieldset                                                  | `boolean`   | `null`                                | No       |
-| `inline` | If true, displays the radio buttons inline rather than stacked                 | `boolean`   | `false`                               | No       |
+| Name     | Description                                                                    | Type                   | Default                               | Required |
+|----------|--------------------------------------------------------------------------------|------------------------|---------------------------------------|----------|
+| `id`     | HTML ID attribute, auto generated if not provided                              | `string`               | `lg-radio-group-id-${nextUniqueId++}` | No       |
+| `name`   | Set the name value for all inputs in the group, auto-generated if not provided | `string`               | `lg-radio-group-${nextUniqueId++}`    | No       |
+| `value`  | Set the default checked radio button, must match the value of the radio button | `boolean`  \| `string` | `null`                                | No       |
+| `focus`  | Set the focus on the fieldset                                                  | `boolean`              | `null`                                | No       |
+| `inline` | If true, displays the radio buttons inline rather than stacked                 | `boolean`              | `false`                               | No       |
 
 ### LgRadioButtonComponent
 
@@ -75,7 +75,7 @@ A radio button contains a circular toggle and a label, and will always appear in
 | `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`    | `lg-radio-button-${++nextUniqueId}` | No       |
 | `name`            | HTML name attribute                                                                                                           | `string`    | `null`                              | Yes      |
 | `value`           | HTML value attribute                                                                                                          | `string`    | `null`                              | Yes      |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate. | `boolean`   | `null`                              | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate  | `boolean`   | `null`                              | No       |
 | `size`            | The size of the radio button                                                                                                  | `RadioSize` | `sm`                                | No       |
 
 #### Outputs
