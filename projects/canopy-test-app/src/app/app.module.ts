@@ -32,6 +32,7 @@ import {
   lgIconSearch,
   lgIconSecureMessaging,
   LgInputModule,
+  LgLinkMenuModule,
   LgMarginModule,
   LgPaddingModule,
   LgPageModule,
@@ -92,6 +93,7 @@ import { StoryContentComponent } from './story-content.component';
     LgSpinnerModule,
     LgTabsModule,
     LgToggleModule,
+    LgLinkMenuModule,
   ],
   bootstrap: [ AppComponent ],
 })

@@ -773,6 +773,57 @@
               </lg-card>
             </div>
           </div>
+          <div lgRow>
+            <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+              <lg-card>
+                <lg-card-header>
+                  Link Menu
+                </lg-card-header>
+                <lg-card-content>
+                  <lg-link-menu>
+                    <a href="#">
+                      <lg-link-menu-item>
+                        <lg-link-menu-item-heading>An internal link (default)</lg-link-menu-item-heading>
+                        <lg-link-menu-item-content>
+                          This links to an internal page
+                        </lg-link-menu-item-content>
+                      </lg-link-menu-item>
+                    </a>
+                    <a href="#" target="_blank">
+                      <lg-link-menu-item>
+                        <lg-link-menu-item-heading>An internal link (default)</lg-link-menu-item-heading>
+                        <lg-link-menu-item-content>
+                          This links to an internal page but opens in a <em>new</em> tab
+                        </lg-link-menu-item-content>
+                      </lg-link-menu-item>
+                    </a>
+                    <a href="#" >
+                      <lg-link-menu-item [internal]="false">
+                        <lg-link-menu-item-heading>An external link</lg-link-menu-item-heading>
+                        <lg-link-menu-item-content>
+                          This links to an external page opening in the same tab
+                        </lg-link-menu-item-content>
+                      </lg-link-menu-item>
+                    </a>
+                    <a href="#" target="_blank">
+                      <lg-link-menu-item [internal]="false">
+                        <lg-link-menu-item-heading>An external link</lg-link-menu-item-heading>
+                        <lg-link-menu-item-content>
+                          This links to an external page opening in a <em>new</em> tab
+                        </lg-link-menu-item-content>
+                      </lg-link-menu-item>
+                    </a>
+                    <lg-link-menu-item [internal]="false">
+                      <lg-link-menu-item-heading>An external link</lg-link-menu-item-heading>
+                      <lg-link-menu-item-content>
+                        This links to an external page opening in a <em>new</em> tab
+                      </lg-link-menu-item-content>
+                    </lg-link-menu-item>
+                  </lg-link-menu>
+                </lg-card-content>
+              </lg-card>
+            </div>
+          </div>
         </div>
       </div>
     </div>
