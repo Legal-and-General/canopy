@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   HostBinding,
-  Input,
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
@@ -18,7 +17,6 @@ import {
 export class LgLinkMenuItemComponent implements OnInit {
   @HostBinding('class.lg-link-menu-item') class = true;
 
-  @Input() internal = true;
   openInANewTab = false;
 
   constructor(private elementRef: ElementRef) {}

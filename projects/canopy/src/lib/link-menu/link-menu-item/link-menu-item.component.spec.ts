@@ -10,13 +10,12 @@ import { LgLinkMenuItemContentComponent } from '../link-menu-item-content/link-m
 import { LgLinkMenuItemComponent } from './link-menu-item.component';
 
 @Component({
-  template: ` <lg-link-menu-item [internal]="internal">
+  template: `<lg-link-menu-item>
     <lg-link-menu-item-heading>Update my direct debit</lg-link-menu-item-heading>
     <lg-link-menu-item-content>Do it online</lg-link-menu-item-content>
   </lg-link-menu-item>`,
 })
 class TestComponent {
-  @Input() internal = true;
   @Input() target: string = undefined;
 }
 
@@ -42,7 +41,6 @@ describe('LgLinkMenuItemComponent', () => {
     beforeEach(() => {
       fixture = TestBed.createComponent(TestComponent);
       component = fixture.componentInstance;
-      component.internal = true;
       fixture.detectChanges();
     });
 
@@ -64,19 +62,6 @@ describe('LgLinkMenuItemComponent', () => {
       ).toBeTruthy();
     });
 
-    it('should render the internal icon', () => {
-      expect(fixture.debugElement.query(By.css('[name="chevron-right"]'))).toBeDefined();
-      expect(fixture.debugElement.query(By.css('[name="link-external"]'))).toBeNull();
-    });
-
-    it('should render the external icon when the internal input is set to false', () => {
-      component.internal = false;
-      fixture.detectChanges();
-
-      expect(fixture.debugElement.query(By.css('[name="link-external"]'))).toBeDefined();
-      expect(fixture.debugElement.query(By.css('[name="chevron-right"]'))).toBeNull();
-    });
-
     it('should render the heading', () => {
       expect(
         fixture.debugElement.query(By.directive(LgLinkMenuItemHeadingComponent)),
@@ -87,6 +72,11 @@ describe('LgLinkMenuItemComponent', () => {
       expect(
         fixture.debugElement.query(By.directive(LgLinkMenuItemContentComponent)),
       ).toBeTruthy();
+    });
+
+    it('should render the "chevron-right" icon if the parent is not an anchor element', () => {
+      expect(fixture.debugElement.query(By.css('[name="chevron-right"]'))).toBeDefined();
+      expect(fixture.debugElement.query(By.css('[name="link-external"]'))).toBeNull();
     });
 
     it('should log a warning if the parent is not an anchor element', () => {
@@ -103,10 +93,9 @@ describe('LgLinkMenuItemComponent', () => {
   });
 
   describe('integration', () => {
-    describe('opens in a new tab text', () => {
-      const createComponentWithTarget = (target: string) => {
-        const template = `
-        <a href="#" [target]="target">
+    const createComponentWithTarget = (target: string) => {
+      const template = `
+        <a href="#" [attr.target]="target">
           <lg-link-menu-item>
             <lg-link-menu-item-heading>Update my direct debit</lg-link-menu-item-heading>
             <lg-link-menu-item-content>Do it online</lg-link-menu-item-content>
@@ -114,16 +103,17 @@ describe('LgLinkMenuItemComponent', () => {
         </a>
       `;
 
-        fixture = TestBed.overrideTemplate(TestComponent, template).createComponent(
-          TestComponent,
-        );
+      fixture = TestBed.overrideTemplate(TestComponent, template).createComponent(
+        TestComponent,
+      );
 
-        component = fixture.componentInstance;
-        component.target = target;
+      component = fixture.componentInstance;
+      component.target = target;
 
-        fixture.detectChanges();
-      };
+      fixture.detectChanges();
+    };
 
+    describe('opens in a new tab text', () => {
       const getTextOfElementUnderTest = () =>
         fixture.debugElement.query(By.css('.lg-link-menu-item__icon-container'))
           .nativeElement.textContent;
@@ -138,6 +128,28 @@ describe('LgLinkMenuItemComponent', () => {
         createComponentWithTarget('_blank');
 
         expect(getTextOfElementUnderTest()).toEqual(' opens in a new tab');
+      });
+    });
+
+    describe('icon displayed', () => {
+      it('should render the "chevron-right" icon when the parent anchor target attribute is not "_blank"', () => {
+        createComponentWithTarget('_parent');
+
+        expect(
+          fixture.debugElement.query(By.css('[name="chevron-right"]')),
+        ).toBeDefined();
+
+        expect(fixture.debugElement.query(By.css('[name="link-external"]'))).toBeNull();
+      });
+
+      it('should render the "link-external" icon when the parent anchor target attribute is "_blank"', () => {
+        createComponentWithTarget('_blank');
+
+        expect(
+          fixture.debugElement.query(By.css('[name="link-external"]')),
+        ).toBeDefined();
+
+        expect(fixture.debugElement.query(By.css('[name="chevron-right"]'))).toBeNull();
       });
     });
   });
