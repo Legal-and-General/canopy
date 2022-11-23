@@ -6,7 +6,7 @@ import { LgLinkMenuComponent } from '../link-menu.component';
 
 const template = `
 <lg-link-menu>
-  <a href="#" *ngFor="let item of menuItems">
+  <a href="#" *ngFor="let item of menuItems" [attr.target]="item.target">
     <lg-link-menu-item>
       <lg-link-menu-item-heading>{{ item.title }}</lg-link-menu-item-heading>
       <lg-link-menu-item-content *ngIf="item.description">
@@ -46,6 +46,7 @@ const linkMenuTemplate: Story<LgLinkMenuComponent> = (args: LgLinkMenuComponent)
 interface MenuItems {
   title: string;
   description: string;
+  target: '_blank' | null;
 }
 
 function getDefaultMenuItems(): Array<MenuItems> {
@@ -53,14 +54,17 @@ function getDefaultMenuItems(): Array<MenuItems> {
     {
       title: 'Change your bank details',
       description: 'Changes may take up to an hour',
+      target: null,
     },
     {
       title: 'Plan for retirement',
       description: '',
+      target: null,
     },
     {
       title: 'Life Insurance',
       description: 'Learn more',
+      target: '_blank',
     },
   ];
 }
