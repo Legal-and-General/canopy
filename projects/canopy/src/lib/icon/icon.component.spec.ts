@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgIconComponent } from './icon.component';
 import { LgIconRegistry } from './icon.registry';

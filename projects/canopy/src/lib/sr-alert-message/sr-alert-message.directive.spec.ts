@@ -7,7 +7,7 @@ import {
   waitForAsync,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock } from '@typestrong/ts-mockito';
 
 import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
 

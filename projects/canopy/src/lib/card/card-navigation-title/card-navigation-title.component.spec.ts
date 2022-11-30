@@ -2,7 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { MockComponents, MockedComponentFixture, MockRender } from 'ng-mocks';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { spy, verify } from '@typestrong/ts-mockito/ts-mockito';
+import { spy, verify } from '@typestrong/ts-mockito';
 
 import { LgHeadingComponent } from '../../heading/heading.component';
 import { LgIconComponent } from '../../icon';

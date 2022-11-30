@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponents } from 'ng-mocks';
-import { spy, when } from '@typestrong/ts-mockito/ts-mockito';
+import { spy, when } from '@typestrong/ts-mockito';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';

@@ -1,5 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { spy, verify } from '@typestrong/ts-mockito/ts-mockito';
+import { spy, verify } from '@typestrong/ts-mockito';
 import { Subscription } from 'rxjs';
 
 import { LgModalService } from './';

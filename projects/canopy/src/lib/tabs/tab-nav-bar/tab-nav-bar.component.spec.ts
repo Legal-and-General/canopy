@@ -1,7 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito';
 import { MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { keyName } from '../../utils/keyboard-keys';

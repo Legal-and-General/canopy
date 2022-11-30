@@ -7,7 +7,7 @@ import {
   MockRender,
   MockedComponentFixture,
 } from 'ng-mocks';
-import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgFocusDirective } from '../focus';
 import { LgHeadingComponent } from '../heading/heading.component';

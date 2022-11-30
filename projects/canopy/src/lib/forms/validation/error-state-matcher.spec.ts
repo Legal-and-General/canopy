@@ -1,5 +1,5 @@
 import { FormGroupDirective, NgControl } from '@angular/forms';
-import { instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgErrorStateMatcher } from './error-state-matcher';
 

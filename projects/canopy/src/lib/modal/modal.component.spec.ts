@@ -1,13 +1,6 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import {
-  anything,
-  instance,
-  mock,
-  spy,
-  verify,
-  when,
-} from '@typestrong/ts-mockito/ts-mockito';
+import { anything, instance, mock, spy, verify, when } from '@typestrong/ts-mockito';
 import { BehaviorSubject } from 'rxjs';
 import { MockComponents, MockedComponentFixture, MockModule, MockRender } from 'ng-mocks';
 

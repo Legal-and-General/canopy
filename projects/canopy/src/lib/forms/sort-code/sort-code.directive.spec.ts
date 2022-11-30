@@ -9,7 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock } from '@typestrong/ts-mockito';
 
 import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
 

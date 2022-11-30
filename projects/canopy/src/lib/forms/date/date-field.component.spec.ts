@@ -17,7 +17,7 @@ import {
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { skip } from 'rxjs/operators';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';

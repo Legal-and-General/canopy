@@ -9,7 +9,7 @@ import {
   MockRender,
   ngMocks,
 } from 'ng-mocks';
-import { instance, mock, spy, when } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock, spy, when } from '@typestrong/ts-mockito';
 
 import { LgHintComponent } from '../hint';
 import { LgInputFieldComponent } from '../input/input-field.component';

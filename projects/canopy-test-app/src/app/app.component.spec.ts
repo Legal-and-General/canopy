@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { UntypedFormBuilder } from '@angular/forms';
-import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock } from '@typestrong/ts-mockito';
 
 import { AppComponent } from './app.component';
 

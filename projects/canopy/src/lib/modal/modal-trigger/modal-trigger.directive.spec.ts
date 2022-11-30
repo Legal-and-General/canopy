@@ -1,13 +1,7 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import {
-  anything,
-  instance,
-  mock,
-  verify,
-  when,
-} from '@typestrong/ts-mockito/ts-mockito';
+import { anything, instance, mock, verify, when } from '@typestrong/ts-mockito';
 import { BehaviorSubject } from 'rxjs';
 
 import { LgModalService } from '../modal.service';

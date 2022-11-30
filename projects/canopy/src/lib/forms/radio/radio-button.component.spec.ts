@@ -8,14 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import {
-  anything,
-  instance,
-  mock,
-  spy,
-  verify,
-  when,
-} from '@typestrong/ts-mockito/ts-mockito';
+import { anything, instance, mock, spy, verify, when } from '@typestrong/ts-mockito';
 import { MockComponents } from 'ng-mocks';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';

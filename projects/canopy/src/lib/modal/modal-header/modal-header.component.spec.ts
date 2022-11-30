@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { instance, mock, verify } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock, verify } from '@typestrong/ts-mockito';
 
 import { LgModalService } from '../modal.service';
 
