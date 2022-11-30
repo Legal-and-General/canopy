@@ -8,7 +8,7 @@ import {
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ChangeDetectorRef } from '@angular/core';
-import { instance, mock } from '@typestrong/ts-mockito/ts-mockito';
+import { instance, mock } from '@typestrong/ts-mockito';
 
 import { LgSpinnerComponent } from './spinner.component';
 

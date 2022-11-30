@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponent } from 'ng-mocks';
-import { mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { mock, when } from '@typestrong/ts-mockito';
 
 import { LgIconComponent, LgIconRegistry } from '../../icon';
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';

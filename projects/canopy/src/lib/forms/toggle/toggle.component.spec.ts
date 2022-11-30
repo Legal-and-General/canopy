@@ -11,7 +11,7 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgIconComponent } from '../../icon';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';

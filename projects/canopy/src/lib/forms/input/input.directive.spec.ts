@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito/ts-mockito';
+import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgInputDirective } from '../input/input.directive';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
