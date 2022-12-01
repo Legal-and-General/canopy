@@ -56,7 +56,7 @@ class ReactiveFormFilterComponent {
 
   constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ color: '' });
-    this.form.valueChanges.subscribe((val) => this.filterChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.filterChange.emit(val));
   }
 }
 

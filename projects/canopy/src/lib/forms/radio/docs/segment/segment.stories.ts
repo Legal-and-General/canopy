@@ -51,7 +51,7 @@ class ReactiveFormSegmentComponent {
 
   constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ color: null });
-    this.form.valueChanges.subscribe((val) => this.segmentChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.segmentChange.emit(val));
   }
 }
 

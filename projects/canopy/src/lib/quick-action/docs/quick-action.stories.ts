@@ -58,7 +58,7 @@ export default {
   argTypes: {
     icon: {
       description: 'Icon to display',
-      options: [ 'None', ...lgIconsArray.map((i) => i.name) ],
+      options: [ 'None', ...lgIconsArray.map(i => i.name) ],
       control: {
         type: 'select',
       },

@@ -118,7 +118,7 @@ const typographyTemplate = `
 <lg-font-sizes-panel [isProductiveFont]="isProductiveFont"></lg-font-sizes-panel>
 `;
 
-const productiveStory: Story = (args) => ({
+const productiveStory: Story = args => ({
   props: args,
   template: typographyTemplate,
 });
@@ -130,7 +130,7 @@ productive.args = {
   isProductiveFont: true,
 };
 
-const expressiveStory: Story = (args) => ({
+const expressiveStory: Story = args => ({
   props: args,
   template: typographyTemplate,
 });

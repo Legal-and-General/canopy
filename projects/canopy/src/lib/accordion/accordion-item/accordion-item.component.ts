@@ -81,6 +81,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   ngAfterContentInit() {
     this.accordionPanelHeading.isActive = this.isActive;
     this._showContent = this.isActive || !this.lazyContent;
+    /* eslint-disable-next-line no-underscore-dangle */
     this._contentTemplate = (this.lazyContent || this.defaultContent)._template;
 
     if (this.isActive) {

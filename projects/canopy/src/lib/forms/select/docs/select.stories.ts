@@ -51,7 +51,7 @@ class ReactiveFormComponent {
       color: { value: '', disabled: false },
     });
 
-    this.form.valueChanges.subscribe((val) => this.selectChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
   }
 }
 

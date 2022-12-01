@@ -49,7 +49,7 @@ class ReactiveFormComponent {
       sortCode: [ '' ],
     });
 
-    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
 }
 

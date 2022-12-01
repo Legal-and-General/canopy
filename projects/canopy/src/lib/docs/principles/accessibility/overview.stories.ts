@@ -22,7 +22,7 @@ const mainQuoteTemplate = `
 </blockquote>
 `;
 
-const mainQuoteStory: Story = (args) => ({
+const mainQuoteStory: Story = args => ({
   props: args,
   template: mainQuoteTemplate,
 });
@@ -37,7 +37,7 @@ const equalityActQuoteTemplate = `
 </blockquote>
 `;
 
-const equalityActQuoteStory: Story = (args) => ({
+const equalityActQuoteStory: Story = args => ({
   props: args,
   template: equalityActQuoteTemplate,
 });
