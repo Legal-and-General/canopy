@@ -47,7 +47,7 @@ class ReactiveFormComponent {
       date: { value: '1970-01-01', disabled: false },
     });
 
-    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
 }
 

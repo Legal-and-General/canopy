@@ -34,7 +34,7 @@ describe('FeatureToggleGuard', () => {
     guardType: GuardTypes,
     config,
     marbleValue: boolean,
-    onceVerify: boolean = false,
+    onceVerify = false,
   ) => {
     /* eslint-disable @typescript-eslint/no-unused-expressions, no-unused-expressions */
     onceVerify

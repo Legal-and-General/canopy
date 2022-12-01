@@ -85,7 +85,7 @@ class SwatchComponent implements AfterViewInit {
     this.color.rgb = styles.backgroundColor;
 
     this.color.hex = convert.rgb.hex(
-      styles.backgroundColor.match(/\d+/g).map((e) => +e) as RGB,
+      styles.backgroundColor.match(/\d+/g).map(e => +e) as RGB,
     );
   }
 }
@@ -149,14 +149,14 @@ class TintSwatchComponent implements AfterViewInit {
       this.colors[i].rgb = styles.backgroundColor;
 
       this.colors[i].hex = convert.rgb.hex(
-        styles.backgroundColor.match(/\d+/g).map((e) => +e) as RGB,
+        styles.backgroundColor.match(/\d+/g).map(e => +e) as RGB,
       );
     });
   }
 
   @Input()
   set names(names: string) {
-    this.colors = names.split(',').map((name) => ({
+    this.colors = names.split(',').map(name => ({
       name,
       rgb: null,
       hex: null,
@@ -242,7 +242,7 @@ const tintsColoursTemplate = `
 </div>
 `;
 
-const coreColoursStory: Story = (args) => ({
+const coreColoursStory: Story = args => ({
   props: args,
   template: coreColoursTemplate,
 });
@@ -250,7 +250,7 @@ const coreColoursStory: Story = (args) => ({
 export const coreColours = coreColoursStory.bind({});
 coreColours.storyName = 'Core';
 
-const secondaryColoursStory: Story = (args) => ({
+const secondaryColoursStory: Story = args => ({
   props: args,
   template: secondaryColoursTemplate,
 });
@@ -258,7 +258,7 @@ const secondaryColoursStory: Story = (args) => ({
 export const secondaryColours = secondaryColoursStory.bind({});
 secondaryColours.storyName = 'Secondary';
 
-const greyscaleColoursStory: Story = (args) => ({
+const greyscaleColoursStory: Story = args => ({
   props: args,
   template: greyscaleColoursTemplate,
 });
@@ -266,7 +266,7 @@ const greyscaleColoursStory: Story = (args) => ({
 export const greyscaleColours = greyscaleColoursStory.bind({});
 greyscaleColours.storyName = 'Greyscale';
 
-const tintsColoursStory: Story = (args) => ({
+const tintsColoursStory: Story = args => ({
   props: args,
   template: tintsColoursTemplate,
 });

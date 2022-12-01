@@ -165,7 +165,7 @@ class ReactiveFormComponent {
   constructor(public fb: UntypedFormBuilder, private iconRegistry: LgIconRegistry) {
     this.iconRegistry.registerIcons([ lgIconSearch, lgIconClose ]);
     this.form = this.fb.group({ name: { value: '', disabled: false } });
-    this.form.valueChanges.subscribe((val) => this.inputChange.emit(val));
+    this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }
 
   onSubmit(event) {

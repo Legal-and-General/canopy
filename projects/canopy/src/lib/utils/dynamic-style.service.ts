@@ -89,7 +89,7 @@ export class DynamicStyleService {
     cssString: string,
     breakpoint: BreakpointValues,
     rule: string,
-    atStart: boolean = false,
+    atStart = false,
   ): string {
     const search = `@media(min-width:${breakpoint}){`;
     let index = cssString.indexOf(search);

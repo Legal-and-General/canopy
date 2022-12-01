@@ -138,7 +138,7 @@ export class StoryTableDetailComponent {
   constructor(private cd: ChangeDetectorRef) {}
 
   toggleRow(index: number) {
-    const matchIndex = this.expandedRows.findIndex((i) => i === index);
+    const matchIndex = this.expandedRows.findIndex(i => i === index);
 
     if (matchIndex < 0) {
       this.expandedRows.push(index);

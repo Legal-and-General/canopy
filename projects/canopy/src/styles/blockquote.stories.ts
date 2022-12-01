@@ -15,7 +15,7 @@ export default {
   },
 } as Meta;
 
-const quoteTemplate: Story = (args) => ({
+const quoteTemplate: Story = args => ({
   props: args,
   template,
 });
