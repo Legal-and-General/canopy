@@ -56,6 +56,14 @@ class LgDisplayFontSizeComponent {
           >
           </lg-display-font-size>
           <lg-display-font-size
+            *ngIf="font.size === '1' || font.size === '2' || font.size === '3'"
+            textString="{{ textString }}"
+            classString=".lg-font-size-{{ font.size }}--medium"
+            [pxValues]="font.px"
+            fontClass="lg-font-size-{{ font.size }}--medium"
+          >
+          </lg-display-font-size>
+          <lg-display-font-size
             *ngIf="font.size !== '0-8' && font.size !== '0-6'"
             textString="{{ textString }}"
             classString=".lg-font-size-{{ font.size }}--strong"
