@@ -13,7 +13,8 @@
   --font-weight-thin: 100;
   --font-weight-light: 300;
   --font-weight-regular: 400;
-  --font-weight-bold: 500;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 
   /* font size variables */
   --text-fs-7-size: calc(var(--text-base-size) + (8 * var(--text-scale-ratio))); // 52px
@@ -38,32 +39,46 @@
   --text-fs--8-line-height: 1.7;
   --text-fs--6-line-height: 1.25;
 
+  /* The default font-weight for sizes 7, 6, 5, 4, 3, 2 is --font-weight-light.
+  Modifiers --strong and --medium purposefully set the font-weight to regular 
+  to reflect the design. */
   --text-fs-7-weight: var(--font-weight-light);
+  --text-fs-7-weight--medium: var(--font-weight-regular);
   --text-fs-7-weight--strong: var(--font-weight-regular);
 
   --text-fs-6-weight: var(--font-weight-light);
+  --text-fs-6-weight--medium: var(--font-weight-regular);
   --text-fs-6-weight--strong: var(--font-weight-regular);
 
   --text-fs-5-weight: var(--font-weight-light);
+  --text-fs-5-weight--medium: var(--font-weight-regular);
   --text-fs-5-weight--strong: var(--font-weight-regular);
 
   --text-fs-4-weight: var(--font-weight-light);
+  --text-fs-4-weight--medium: var(--font-weight-regular);
   --text-fs-4-weight--strong: var(--font-weight-regular);
 
+  /* The modifier --medium is purposefully used to represent 
+  regular weight and --strong to represent medium weight */
   --text-fs-3-weight: var(--font-weight-light);
-  --text-fs-3-weight--strong: var(--font-weight-regular);
+  --text-fs-3-weight--medium: var(--font-weight-regular);
+  --text-fs-3-weight--strong: var(--font-weight-medium);
 
   --text-fs-2-weight: var(--font-weight-light);
-  --text-fs-2-weight--strong: var(--font-weight-regular);
+  --text-fs-2-weight--medium: var(--font-weight-regular);
+  --text-fs-2-weight--strong: var(--font-weight-bold);
 
   --text-fs-1-weight: var(--font-weight-regular);
+  --text-fs-1-weight--medium: var(--font-weight-medium);
   --text-fs-1-weight--strong: var(--font-weight-bold);
 
   --text-fs--8-weight: var(--font-weight-regular);
-  --text-fs--8-weight--strong: var(--font-weight-bold);
+  --text-fs--8-weight--medium: var(--font-weight-regular);
+  --text-fs--8-weight--strong: var(--font-weight-regular);
 
   --text-fs--6-weight: var(--font-weight-regular);
-  --text-fs--6-weight--strong: var(--font-weight-bold);
+  --text-fs--6-weight--medium: var(--font-weight-regular);
+  --text-fs--6-weight--strong: var(--font-weight-regular);
 
   @include lg-breakpoint('md') {
     --text-fs-7-size: calc(

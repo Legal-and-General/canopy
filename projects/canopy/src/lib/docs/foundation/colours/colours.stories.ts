@@ -48,7 +48,7 @@ interface Color {
       }
       .swatch__name {
         display: block;
-        font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-medium);
         margin-bottom: var(--space-xxxs);
       }
       .swatch__text {
