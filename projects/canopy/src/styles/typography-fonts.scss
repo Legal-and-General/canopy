@@ -79,3 +79,12 @@ $fonts-path-lyon: '/assets/fonts' !default;
   src: local('Roboto Medium'), local('Roboto-Medium'),
     url('#{$fonts-path}/roboto/roboto-latin-medium.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+    url('#{$fonts-path}/roboto/roboto-latin-bold.woff2') format('woff2');
+}
