@@ -12,7 +12,7 @@ $primary-nav-border-bottom-height: 0.25rem;
   padding: var(--space-sm);
   position: fixed;
   right: 0;
-  top: calc(var(--header-height) + var(--space-xxxs));
+  top: var(--header-height);
 
   &--active {
     display: block;
