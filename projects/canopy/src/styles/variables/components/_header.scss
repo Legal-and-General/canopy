@@ -4,7 +4,8 @@
   --header-height-lg: 5.5rem;
   --header-logo-width: 4rem;
   --header-logo-width-lg: 4rem;
-  --header-shadow: 0 0.25rem 0 rgba(0, 0, 0, 0.03);
+  --header-shadow-height: 0.25rem;
+  --header-shadow: 0 var(--header-shadow-height) 0 rgba(0, 0, 0, 0.03);
 
   --nav-item-border-radius: 0.25rem;
   --nav-item-icon-height: 1.5rem;
