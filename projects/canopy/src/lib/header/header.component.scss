@@ -2,7 +2,6 @@
 
 .lg-header {
   background-color: var(--header-bg-color);
-  box-shadow: var(--header-shadow);
   height: var(--header-height);
   left: 0;
   position: fixed;
@@ -13,6 +12,17 @@
   @include lg-breakpoint(lg) {
     height: var(--header-height-lg);
     position: static;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    height: var(--header-shadow-height);
+    margin-top: calc(var(--header-shadow-height) * -1);
+    background-color: transparent;
+    box-shadow: var(--header-shadow);
+    position: relative;
+    width: 100%;
   }
 }
 
