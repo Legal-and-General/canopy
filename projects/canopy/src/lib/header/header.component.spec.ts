@@ -161,7 +161,7 @@ describe('HeaderComponent', () => {
             expect(component.showResponsiveMenu).toBe(false);
           }));
 
-          describe('when the toggle button and the primaty nav are undefined', () => {
+          describe('when the toggle button and the primary nav are undefined', () => {
             it('should not close the menu', fakeAsync(() => {
               component.menuToggleButton = undefined;
               component.primaryNav = undefined;
@@ -253,9 +253,58 @@ describe('HeaderComponent', () => {
       let setup: () => void;
 
       beforeEach(() => {
-        tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab' });
         focusSpy = spyOn(toggleEl, 'focus');
-        preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+      });
+
+      describe('shift + tabbing out of first listitem when toggle button is visible', () => {
+        beforeEach(() => {
+          setup = () => {
+            component.navItems.first.tabbedOut.emit(tabKeyDownEvent);
+            tick();
+            fixture.detectChanges();
+          };
+
+          tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
+          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+        });
+
+        it('prevents default event bubbling', fakeAsync(() => {
+          setup();
+
+          expect(preventDefaultSpy).toHaveBeenCalledTimes(1);
+        }));
+
+        it('focuses toggle button', fakeAsync(() => {
+          setup();
+
+          expect(focusSpy).toHaveBeenCalledTimes(1);
+        }));
+      });
+
+      describe('shift + tabbing out of last listitem', () => {
+        beforeEach(() => {
+          setup = () => {
+            toggleEl.style.display = 'none';
+            component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
+            tick();
+            fixture.detectChanges();
+          };
+
+          tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
+          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+        });
+
+        it('does not prevent event from bubbling', fakeAsync(() => {
+          setup();
+
+          expect(preventDefaultSpy).not.toHaveBeenCalled();
+        }));
+
+        it('does not focus toggle button', fakeAsync(() => {
+          setup();
+
+          expect(focusSpy).not.toHaveBeenCalled();
+        }));
       });
 
       describe('tabbing out of last listitem when toggle button is visible', () => {
@@ -265,6 +314,9 @@ describe('HeaderComponent', () => {
             tick();
             fixture.detectChanges();
           };
+
+          tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
+          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
         });
 
         it('prevents default event bubbling', fakeAsync(() => {
@@ -288,9 +340,12 @@ describe('HeaderComponent', () => {
             tick();
             fixture.detectChanges();
           };
+
+          tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
+          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
         });
 
-        it('does not call prevent event from bubbling', fakeAsync(() => {
+        it('does not prevent event from bubbling', fakeAsync(() => {
           setup();
 
           expect(preventDefaultSpy).not.toHaveBeenCalled();
@@ -308,7 +363,7 @@ describe('HeaderComponent', () => {
       let tabKeyDownEvent: KeyboardEvent;
 
       beforeEach(() => {
-        tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab' });
+        tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
       });
 
       it('focuses primary nav when tabbing out of toggle button and menu is open', () => {
@@ -320,6 +375,15 @@ describe('HeaderComponent', () => {
 
       it('does not focus primary nav when tabbing out of toggle button and menu is closed', () => {
         component.showResponsiveMenu = false;
+        component.handleToggleKeydown(tabKeyDownEvent);
+
+        expect(primaryNavFocusSpy).toHaveBeenCalledTimes(0);
+      });
+
+      it('does not focus the toggle button if the user tabs to previous focusable element', () => {
+        tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
+
+        component.showResponsiveMenu = true;
         component.handleToggleKeydown(tabKeyDownEvent);
 
         expect(primaryNavFocusSpy).toHaveBeenCalledTimes(0);

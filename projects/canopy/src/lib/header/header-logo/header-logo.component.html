@@ -1,20 +1,14 @@
- <ng-container
-    *ngTemplateOutlet="
-      href ? linkTpl : imgTpl;
-      context: { img: { alt: alt, href: href, src: src } }
-    "
-  ></ng-container>
+<a *ngIf="href" [attr.href]="href" class="lg-header-logo__link" #logolink>
+  <img
+    [attr.alt]="alt"
+    [attr.src]="src"
+    [ngClass]="class"
+  />
+</a>
 
- <ng-template #linkTpl let-img="img">
-   <a [attr.href]="img?.href" class="lg-header-logo__link">
-     <ng-container *ngTemplateOutlet="imgTpl; context: { img: img }"></ng-container>
-   </a>
- </ng-template>
-
- <ng-template #imgTpl let-img="img">
-   <img
-     [attr.alt]="img?.alt"
-     [attr.src]="img?.src"
-     [ngClass]="class"
-   />
- </ng-template>
+<img
+  *ngIf="!href"
+  [attr.alt]="alt"
+  [attr.src]="src"
+  [ngClass]="class"
+/>
