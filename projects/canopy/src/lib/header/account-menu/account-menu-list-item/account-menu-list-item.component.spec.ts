@@ -39,4 +39,14 @@ describe('LgAccountMenuListItemComponent', () => {
 
     expect(clickedSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('emits an event when tab keydown occurs', () => {
+    const tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab' });
+    const tabKeyDownSpy = spyOn(component.tabbedOut, 'emit');
+
+    el.focus();
+    el.dispatchEvent(tabKeyDownEvent);
+
+    expect(tabKeyDownSpy).toHaveBeenCalledTimes(1);
+  });
 });

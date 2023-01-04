@@ -8,6 +8,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   encapsulation: ViewEncapsulation.None,
   host: {
     class: 'lg-account-menu',
+    tabindex: '-1',
     role: 'list',
     'aria-label': 'Account menu',
   },

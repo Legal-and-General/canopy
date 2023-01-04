@@ -45,4 +45,26 @@ describe('LgHeaderLogosComponent', () => {
 
     expect(fixture.debugElement.query(By.css(`a[href="${href}"]`))).toBeTruthy();
   });
+
+  it('emits an event when tab keydown occurs', () => {
+    const tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab' });
+    const tabKeyDownSpy = spyOn(component.tabbedOut, 'emit');
+
+    fixture.debugElement.nativeElement.focus();
+    fixture.debugElement.nativeElement.dispatchEvent(tabKeyDownEvent);
+
+    expect(tabKeyDownSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('focuses the logo link', () => {
+    component.href = href;
+    fixture.detectChanges();
+
+    const link = fixture.debugElement.query(By.css(`a[href="${href}"]`));
+    const focusSpy = spyOn(link.nativeElement, 'focus');
+
+    component.focus();
+
+    expect(focusSpy).toHaveBeenCalledTimes(1);
+  });
 });
