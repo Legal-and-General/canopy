@@ -3,23 +3,17 @@
 $primary-nav-border-bottom-height: 0.25rem;
 
 .lg-primary-nav {
-  background: var(--color-white);
   bottom: 0;
   display: none;
   flex-grow: 1;
   left: 0;
   overflow: visible;
-  padding: var(--space-sm);
   position: fixed;
   right: 0;
   top: var(--header-height);
 
   &--active {
     display: block;
-  }
-
-  @include lg-breakpoint(md) {
-    bottom: auto;
   }
 
   @include lg-breakpoint(lg) {
@@ -31,15 +25,33 @@ $primary-nav-border-bottom-height: 0.25rem;
   }
 }
 
+.lg-primary-nav-overlay {
+  background: var(--overlay-bg-color);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: calc(var(--z-index-header) - 2);
+}
+
 .lg-primary-nav-list {
+  background: var(--color-white);
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   list-style-type: none;
   margin: 0;
-  padding: var(--space-xxxs) 0 0 0;
+  padding: var(--space-sm);
+  position: relative;
   width: 100%;
+  height: 100%;
+  z-index: calc(var(--z-index-header) - 1);
+
+  @include lg-breakpoint(md) {
+    height: auto;
+  }
 
   @include lg-breakpoint(lg) {
     align-items: center;
