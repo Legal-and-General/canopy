@@ -218,6 +218,10 @@ describe('HeaderComponent', () => {
       it('emits an event', () => {
         expect(menuToggledSpy).toHaveBeenCalledWith(true);
       });
+
+      it('sets the overflow on the document body to hidden', () => {
+        expect(document.body.style.overflow).toBe('hidden');
+      });
     });
 
     describe('toggle responsive menu off', () => {
@@ -243,6 +247,12 @@ describe('HeaderComponent', () => {
 
       it('emits an event', () => {
         expect(menuToggledSpy).toHaveBeenCalledWith(false);
+      });
+
+      it('removes the overflow style from document body', () => {
+        fixture.detectChanges();
+
+        expect(document.body.style.overflow).toBe('');
       });
     });
 
