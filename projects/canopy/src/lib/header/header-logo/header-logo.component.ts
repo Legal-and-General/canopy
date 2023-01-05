@@ -53,7 +53,7 @@ export class LgHeaderLogoComponent implements AfterContentChecked {
     }
   }
 
-  focus() {
+  focus(): void {
     this.logoLinkRef.nativeElement.focus();
   }
 }
