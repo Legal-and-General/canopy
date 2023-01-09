@@ -9,19 +9,24 @@ import {
   EventEmitter,
   forwardRef,
   HostListener,
+  Inject,
   OnDestroy,
   Output,
   QueryList,
+  Renderer2,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { merge, skipWhile, Subscription } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { filter, merge, skipWhile, Subscription } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
 
+import { LgAccountMenuComponent } from './account-menu/account-menu.component';
 import { LgHeaderLogoComponent } from './header-logo/header-logo.component';
 import { LgPrimaryNavComponent } from './primary-navigation/primary-navigation.component';
 import { LgPrimaryNavListItemComponent } from './primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component';
+import { LgAccountMenuListItemComponent } from './account-menu/account-menu-list-item/account-menu-list-item.component';
 
 @Component({
   selector: '[lg-header]',
@@ -34,8 +39,7 @@ import { LgPrimaryNavListItemComponent } from './primary-navigation/primary-navi
   },
 })
 export class LgHeaderComponent implements AfterContentInit, OnDestroy {
-  private menuTabOutSubscription: Subscription;
-  private menuItemClickedSubscription: Subscription;
+  private subscriptions: Array<Subscription> = [];
   showResponsiveMenu = false;
 
   @Output() menuToggled = new EventEmitter<boolean>();
@@ -43,16 +47,24 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
   @ViewChild('menuToggleButton') menuToggleButton: ElementRef;
   @ContentChild(forwardRef(() => LgPrimaryNavComponent), { read: ElementRef })
   primaryNavEl: ElementRef;
+  @ContentChild(forwardRef(() => LgAccountMenuComponent), { read: ElementRef })
+  accountMenuEl: ElementRef;
   @ContentChild(forwardRef(() => LgPrimaryNavComponent))
   primaryNav: LgPrimaryNavComponent;
   @ContentChildren(forwardRef(() => LgPrimaryNavListItemComponent), { descendants: true })
   navItems: QueryList<LgPrimaryNavListItemComponent>;
-  @ContentChildren(forwardRef(() => LgHeaderLogoComponent), {
+  @ContentChildren(forwardRef(() => LgAccountMenuListItemComponent), {
     descendants: true,
   })
+  accountMenuItems: QueryList<LgAccountMenuListItemComponent>;
+  @ContentChildren(forwardRef(() => LgHeaderLogoComponent), { descendants: true })
   headerLogos: QueryList<LgHeaderLogoComponent>;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document,
+  ) {}
 
   @HostListener('document:click', [ '$event' ])
   onDocumentClickout({ target }: MouseEvent): void {
@@ -77,29 +89,76 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
         : 'lg-header-logo__second-img';
     });
 
-    if (this.navItems.length) {
-      this.menuTabOutSubscription = this.navItems.last.tabbedOut.subscribe(
-        (event: KeyboardEvent) => {
-          const isToggleVisible = !!this.menuToggleButton.nativeElement.offsetParent;
+    this.subscriptions.push(
+      // When tabbing out of the logo on sm devices, focus the account menu not the primary nav if the primary nav is open
+      this.headerLogos.last.tabbedOut
+        .pipe(
+          filter((event: KeyboardEvent) => !event.shiftKey && this.showResponsiveMenu),
+        )
+        .subscribe(() => {
+          this.accountMenuEl.nativeElement.focus();
+          this.cdr.markForCheck();
+        }),
+    );
 
-          if (isToggleVisible) {
+    if (this.accountMenuItems.length) {
+      this.subscriptions.push(
+        // When a user shift + tabs on first account menu item on sm devices, focus the last logo not the primary nav
+        this.accountMenuItems.first.tabbedOut
+          .pipe(
+            filter((event: KeyboardEvent) => event.shiftKey && this.showResponsiveMenu),
+          )
+          .subscribe((event: KeyboardEvent) => {
+            event.preventDefault();
+            this.headerLogos.last.focus();
+            this.cdr.markForCheck();
+          }),
+      );
+    }
+
+    if (this.navItems.length) {
+      this.subscriptions.push(
+        // When the user tabs out of the last primary nav item, focus the menu toggle button
+        this.navItems.last.tabbedOut
+          .pipe(
+            filter(
+              (event: KeyboardEvent) =>
+                !!this.menuToggleButton.nativeElement.offsetParent && !event.shiftKey,
+            ),
+          )
+          .subscribe((event: KeyboardEvent) => {
             event.preventDefault();
             this.menuToggleButton.nativeElement.focus();
             this.cdr.markForCheck();
-          }
-        },
+          }),
+
+        // When the user shift + tabs out of the first primary nav item, focus the menu toggle button instead of the logo
+        this.navItems.first.tabbedOut
+          .pipe(
+            filter(
+              (event: KeyboardEvent) =>
+                !!this.menuToggleButton.nativeElement.offsetParent && event.shiftKey,
+            ),
+          )
+          .subscribe((event: KeyboardEvent) => {
+            event.preventDefault();
+            this.menuToggleButton.nativeElement.focus();
+            this.cdr.markForCheck();
+          }),
       );
     }
 
     const clickedOutputs = this.navItems.map(({ clicked }) => clicked);
 
-    this.menuItemClickedSubscription = merge(...clickedOutputs)
-      .pipe(skipWhile(() => !this.showResponsiveMenu))
-      .subscribe(() => {
-        this.showResponsiveMenu = false;
-        this.primaryNav.showResponsiveMenu = this.showResponsiveMenu;
-        this.cdr.markForCheck();
-      });
+    this.subscriptions.push(
+      merge(...clickedOutputs)
+        .pipe(skipWhile(() => !this.showResponsiveMenu))
+        .subscribe(() => {
+          this.showResponsiveMenu = false;
+          this.primaryNav.showResponsiveMenu = this.showResponsiveMenu;
+          this.cdr.markForCheck();
+        }),
+    );
   }
 
   toggleResponsiveMenu(): void {
@@ -112,17 +171,24 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
 
     this.menuToggled.emit(this.showResponsiveMenu);
 
+    // Prevent the page from scrolling when the menu is open
+    if (this.showResponsiveMenu) {
+      this.renderer.setStyle(this.document.body, 'overflow', 'hidden');
+    } else {
+      this.renderer.removeStyle(this.document.body, 'overflow');
+    }
+
     this.cdr.markForCheck();
   }
 
   handleToggleKeydown(event: KeyboardEvent): void {
-    if (event.key === keyName.KEY_TAB && this.showResponsiveMenu) {
+    if (event.key === keyName.KEY_TAB && !event.shiftKey && this.showResponsiveMenu) {
       this.primaryNavEl.nativeElement.focus();
+      this.cdr.markForCheck();
     }
   }
 
   ngOnDestroy(): void {
-    this.menuTabOutSubscription?.unsubscribe();
-    this.menuItemClickedSubscription?.unsubscribe();
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }
