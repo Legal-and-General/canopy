@@ -18,7 +18,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { filter, merge, skipWhile, Subscription } from 'rxjs';
+import { startWith, filter, merge, skipWhile, Subscription, switchMap } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
 
@@ -102,10 +102,14 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
     );
 
     if (this.accountMenuItems.length) {
+      // When the user shift + tabs of the first account menu item, which could be added asyncronously
       this.subscriptions.push(
-        // When a user shift + tabs on first account menu item on sm devices, focus the last logo not the primary nav
-        this.accountMenuItems.first.tabbedOut
+        this.accountMenuItems.changes
           .pipe(
+            startWith(this.accountMenuItems),
+            switchMap(
+              (item: QueryList<LgAccountMenuListItemComponent>) => item.first.tabbedOut,
+            ),
             filter((event: KeyboardEvent) => event.shiftKey && this.showResponsiveMenu),
           )
           .subscribe((event: KeyboardEvent) => {
