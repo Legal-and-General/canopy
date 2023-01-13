@@ -1,4 +1,4 @@
-import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import {
@@ -16,6 +16,10 @@ import { LgPrimaryNavListItemComponent } from './primary-navigation/primary-navi
 import { LgPrimaryNavItemDirective } from './primary-navigation/primary-navigation-item.directive';
 import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.directive';
 import { LgIconComponent } from './../icon/icon.component';
+import { LgAccountMenuListItemComponent } from './account-menu/account-menu-list-item/account-menu-list-item.component';
+import { LgAccountMenuComponent } from './account-menu/account-menu.component';
+import { LgNotificationBadgeComponent } from './notification-badge/notification-badge.component';
+import { LgAccountMenuItemLabelComponent } from './account-menu/account-menu-item-label/account-menu-item-label.component';
 
 describe('HeaderComponent', () => {
   let component: DefaultRenderComponent<LgHeaderComponent>;
@@ -31,7 +35,13 @@ describe('HeaderComponent', () => {
         LgPrimaryNavListItemComponent,
         LgPrimaryNavComponent,
         LgAccountMenuItemDirective,
-        MockComponents(LgIconComponent),
+        LgAccountMenuComponent,
+        LgAccountMenuListItemComponent,
+        MockComponents(
+          LgIconComponent,
+          LgNotificationBadgeComponent,
+          LgAccountMenuItemLabelComponent,
+        ),
       ],
     }).compileComponents();
   }));
@@ -62,6 +72,8 @@ describe('HeaderComponent', () => {
 
   describe('co-branding', () => {
     it('adds a class to each of the logos', () => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <header lg-header>
           <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
@@ -87,6 +99,8 @@ describe('HeaderComponent', () => {
     let toggle: Array<DebugElement>;
 
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <header lg-header>
           <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
@@ -108,6 +122,8 @@ describe('HeaderComponent', () => {
     let menuToggledSpy: jasmine.Spy;
 
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <header lg-header>
           <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
@@ -148,39 +164,37 @@ describe('HeaderComponent', () => {
           beforeEach(() => {
             setup = () => {
               fixture.detectChanges();
-              tick();
               const el = document.querySelector('body');
 
               el.click();
             };
           });
 
-          it('closes the menu', fakeAsync(() => {
+          it('closes the menu', () => {
             setup();
 
             expect(component.showResponsiveMenu).toBe(false);
-          }));
+          });
 
           describe('when the toggle button and the primary nav are undefined', () => {
-            it('should not close the menu', fakeAsync(() => {
+            it('should not close the menu', () => {
               component.menuToggleButton = undefined;
               component.primaryNav = undefined;
               setup();
 
               expect(component.showResponsiveMenu).toBe(true);
-            }));
+            });
           });
         });
       });
     });
 
-    it('closes menu when an nav item is clicked', fakeAsync(() => {
+    it('closes menu when an nav item is clicked', () => {
       component.navItems.last.clicked.emit();
-      tick();
 
       expect(component.showResponsiveMenu).toBe(false);
       expect(component.primaryNav.showResponsiveMenu).toBe(false);
-    }));
+    });
 
     describe('toggle button', () => {
       it('should have correct class', () => {
@@ -270,7 +284,6 @@ describe('HeaderComponent', () => {
         beforeEach(() => {
           setup = () => {
             component.navItems.first.tabbedOut.emit(tabKeyDownEvent);
-            tick();
             fixture.detectChanges();
           };
 
@@ -278,17 +291,17 @@ describe('HeaderComponent', () => {
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
         });
 
-        it('prevents default event bubbling', fakeAsync(() => {
+        it('prevents default event bubbling', () => {
           setup();
 
           expect(preventDefaultSpy).toHaveBeenCalledTimes(1);
-        }));
+        });
 
-        it('focuses toggle button', fakeAsync(() => {
+        it('focuses toggle button', () => {
           setup();
 
           expect(focusSpy).toHaveBeenCalledTimes(1);
-        }));
+        });
       });
 
       describe('shift + tabbing out of last listitem', () => {
@@ -296,7 +309,6 @@ describe('HeaderComponent', () => {
           setup = () => {
             toggleEl.style.display = 'none';
             component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
-            tick();
             fixture.detectChanges();
           };
 
@@ -304,24 +316,23 @@ describe('HeaderComponent', () => {
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
         });
 
-        it('does not prevent event from bubbling', fakeAsync(() => {
+        it('does not prevent event from bubbling', () => {
           setup();
 
           expect(preventDefaultSpy).not.toHaveBeenCalled();
-        }));
+        });
 
-        it('does not focus toggle button', fakeAsync(() => {
+        it('does not focus toggle button', () => {
           setup();
 
           expect(focusSpy).not.toHaveBeenCalled();
-        }));
+        });
       });
 
       describe('tabbing out of last listitem when toggle button is visible', () => {
         beforeEach(() => {
           setup = () => {
             component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
-            tick();
             fixture.detectChanges();
           };
 
@@ -329,17 +340,17 @@ describe('HeaderComponent', () => {
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
         });
 
-        it('prevents default event bubbling', fakeAsync(() => {
+        it('prevents default event bubbling', () => {
           setup();
 
           expect(preventDefaultSpy).toHaveBeenCalledTimes(1);
-        }));
+        });
 
-        it('focuses toggle button', fakeAsync(() => {
+        it('focuses toggle button', () => {
           setup();
 
           expect(focusSpy).toHaveBeenCalledTimes(1);
-        }));
+        });
       });
 
       describe('tabbing out of last listitem when toggle button is hidden', () => {
@@ -347,7 +358,6 @@ describe('HeaderComponent', () => {
           setup = () => {
             toggleEl.style.display = 'none';
             component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
-            tick();
             fixture.detectChanges();
           };
 
@@ -355,17 +365,17 @@ describe('HeaderComponent', () => {
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
         });
 
-        it('does not prevent event from bubbling', fakeAsync(() => {
+        it('does not prevent event from bubbling', () => {
           setup();
 
           expect(preventDefaultSpy).not.toHaveBeenCalled();
-        }));
+        });
 
-        it('does not focus toggle button after tabbing out of last listitem', fakeAsync(() => {
+        it('does not focus toggle button after tabbing out of last listitem', () => {
           setup();
 
           expect(focusSpy).not.toHaveBeenCalled();
-        }));
+        });
       });
     });
 
@@ -398,6 +408,80 @@ describe('HeaderComponent', () => {
 
         expect(primaryNavFocusSpy).toHaveBeenCalledTimes(0);
       });
+    });
+  });
+
+  describe('with account menu', () => {
+    let tabKeyDownEvent: KeyboardEvent;
+    let focusSpy: jasmine.Spy;
+    let preventDefaultSpy: jasmine.Spy;
+
+    beforeEach(() => {
+      ngMocks.flushTestBed();
+
+      fixture = MockRender(`
+        <header lg-header>
+          <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
+
+          <lg-account-menu>
+            <lg-account-menu-list-item>
+              <button type="button" lgAccountMenuItem>
+                <lg-account-menu-item-label>Button</lg-account-menu-item-label>
+                <lg-icon name="radio-button-unselected"></lg-icon>
+                <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
+              </button>
+            </lg-account-menu-list-item>
+            <lg-account-menu-list-item>
+              <a href="#" lgAccountMenuItem>
+                <lg-account-menu-item-label>Link</lg-account-menu-item-label>
+                <lg-icon name="radio-button-unselected"></lg-icon>
+              </a>
+            </lg-account-menu-list-item>
+          </lg-account-menu>
+        </header>
+      `);
+
+      component = fixture.componentInstance;
+
+      const logoEl = fixture.debugElement.queryAll(By.css('.lg-header-logo__link'))[0]
+        .nativeElement;
+
+      focusSpy = spyOn(logoEl, 'focus');
+      tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
+      preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+
+      component.showResponsiveMenu = true;
+    });
+
+    it('prevents the default event', () => {
+      component.accountMenuItems.first.tabbedOut.emit(tabKeyDownEvent);
+      fixture.detectChanges();
+
+      expect(preventDefaultSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('focuses the logo when shift + tabbing out of the first item when primary nav is open', () => {
+      component.accountMenuItems.first.tabbedOut.emit(tabKeyDownEvent);
+      fixture.detectChanges();
+
+      expect(focusSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not focus the logo when shift + tabbing out of the first item when primary nav is closed', () => {
+      component.showResponsiveMenu = false;
+      component.accountMenuItems.first.tabbedOut.emit(tabKeyDownEvent);
+      fixture.detectChanges();
+
+      expect(focusSpy).not.toHaveBeenCalled();
+    });
+
+    it('does not focus the logo when tabbing out of the first item', () => {
+      tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
+      component.showResponsiveMenu = true;
+      component.accountMenuItems.first.tabbedOut.emit(tabKeyDownEvent);
+      fixture.detectChanges();
+
+      expect(focusSpy).not.toHaveBeenCalled();
     });
   });
 });
