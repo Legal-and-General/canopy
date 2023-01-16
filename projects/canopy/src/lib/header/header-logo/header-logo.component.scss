@@ -35,7 +35,10 @@
 
     &:focus {
       background-color: transparent;
-      @include lg-inner-focus-outline(var(--default-focus-color));
+      @include lg-focus-outline(
+        var(--default-focus-color),
+        var(--default-inner-focus-color)
+      );
     }
   }
 }
