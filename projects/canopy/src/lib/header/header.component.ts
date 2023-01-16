@@ -149,6 +149,11 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
             this.menuToggleButton.nativeElement.focus();
             this.cdr.markForCheck();
           }),
+
+        // Ensure we show/hide the burger menu if the number of nav items change to/from 0
+        this.navItems.changes.subscribe(() => {
+          this.cdr.markForCheck();
+        }),
       );
     }
 

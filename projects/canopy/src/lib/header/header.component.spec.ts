@@ -100,7 +100,9 @@ describe('HeaderComponent', () => {
 
     beforeEach(() => {
       ngMocks.flushTestBed();
+    });
 
+    it('should not be rendered when no nav items', () => {
       fixture = MockRender(`
         <header lg-header>
           <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
@@ -108,10 +110,26 @@ describe('HeaderComponent', () => {
       `);
 
       toggle = fixture.debugElement.queryAll(By.css('.primary-nav-toggle'));
+
+      expect(toggle.length).toBe(0);
     });
 
-    it('should not be rendered when no nav items', () => {
-      expect(toggle.length).toBe(0);
+    it('should be rendered when nav items exist', () => {
+      fixture = MockRender(`
+        <header lg-header>
+          <lg-header-logo src="http://a.b/logo.png" href="http://a.b"></lg-header-logo>
+
+          <lg-primary-nav>
+            <lg-primary-nav-list-item>
+              <a href="" lgPrimaryNavItem>Link</a>
+            </lg-primary-nav-list-item>
+          </lg-primary-nav>
+        </header>
+      `);
+
+      toggle = fixture.debugElement.queryAll(By.css('.primary-nav-toggle'));
+
+      expect(toggle.length).toBe(1);
     });
   });
 
