@@ -73,7 +73,7 @@
     "@semantic-release/npm": "^9.0.1",
     "@storybook/addon-a11y": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addons": "^6.5.15",
+    "@storybook/addons": "^6.5.16",
     "@storybook/angular": "^6.5.15",
     "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.15",
