@@ -165,6 +165,7 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
         .subscribe(() => {
           this.showResponsiveMenu = false;
           this.primaryNav.showResponsiveMenu = this.showResponsiveMenu;
+          this.renderer.removeStyle(this.document.body, 'overflow');
           this.cdr.markForCheck();
         }),
     );
