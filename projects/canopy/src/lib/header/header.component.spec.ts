@@ -214,6 +214,14 @@ describe('HeaderComponent', () => {
       expect(component.primaryNav.showResponsiveMenu).toBe(false);
     });
 
+    it('removes the overflow style from the body when a nav item is clicked', () => {
+      document.body.style.overflow = 'hidden';
+      component.showResponsiveMenu = true;
+      component.navItems.last.clicked.emit();
+
+      expect(document.body.style.overflow).toBe('');
+    });
+
     describe('toggle button', () => {
       it('should have correct class', () => {
         expect(toggleEl.getAttribute('class')).toContain('primary-nav-toggle');
