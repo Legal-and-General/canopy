@@ -75,7 +75,7 @@
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addons": "^6.5.15",
     "@storybook/angular": "^6.5.15",
-    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/theming": "^6.5.15",
     "@stylelint/postcss-css-in-js": "^0.38.0",
