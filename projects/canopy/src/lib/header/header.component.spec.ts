@@ -204,6 +204,27 @@ describe('HeaderComponent', () => {
             });
           });
         });
+
+        describe('when clicking on the overlay', () => {
+          let setup: () => void;
+
+          beforeEach(() => {
+            setup = () => {
+              fixture.detectChanges();
+              const el = document.querySelectorAll(
+                '.lg-primary-nav-overlay',
+              )[0] as HTMLElement;
+
+              el.click();
+            };
+          });
+
+          it('closes the menu', () => {
+            setup();
+
+            expect(component.showResponsiveMenu).toBe(false);
+          });
+        });
       });
     });
 
