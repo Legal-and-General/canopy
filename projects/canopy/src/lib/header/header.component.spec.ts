@@ -177,28 +177,29 @@ describe('HeaderComponent', () => {
         });
 
         describe('when clicking outside of the menu', () => {
-          let setup: () => void;
-
           beforeEach(() => {
-            setup = () => {
-              fixture.detectChanges();
-              const el = document.querySelector('body');
-
-              el.click();
-            };
+            document.body.style.overflow = 'hidden';
+            component.showResponsiveMenu = true;
+            fixture.detectChanges();
           });
 
           it('closes the menu', () => {
-            setup();
+            document.querySelector('body').click();
 
             expect(component.showResponsiveMenu).toBe(false);
+          });
+
+          it('removes the overflow style from the document body', () => {
+            document.querySelector('body').click();
+
+            expect(document.body.style.overflow).toBe('');
           });
 
           describe('when the toggle button and the primary nav are undefined', () => {
             it('should not close the menu', () => {
               component.menuToggleButton = undefined;
               component.primaryNav = undefined;
-              setup();
+              document.querySelector('body').click();
 
               expect(component.showResponsiveMenu).toBe(true);
             });
@@ -206,23 +207,23 @@ describe('HeaderComponent', () => {
         });
 
         describe('when clicking on the overlay', () => {
-          let setup: () => void;
-
           beforeEach(() => {
-            setup = () => {
-              fixture.detectChanges();
-              const el = document.querySelectorAll(
-                '.lg-primary-nav-overlay',
-              )[0] as HTMLElement;
+            document.body.style.overflow = 'hidden';
+            component.showResponsiveMenu = true;
+            fixture.detectChanges();
+            const el = document.querySelectorAll(
+              '.lg-primary-nav-overlay',
+            )[0] as HTMLElement;
 
-              el.click();
-            };
+            el.click();
           });
 
           it('closes the menu', () => {
-            setup();
-
             expect(component.showResponsiveMenu).toBe(false);
+          });
+
+          it('removes the overflow style fro mthe document body', () => {
+            expect(document.body.style.overflow).toBe('');
           });
         });
       });
@@ -321,7 +322,6 @@ describe('HeaderComponent', () => {
       let tabKeyDownEvent: KeyboardEvent;
       let focusSpy: jasmine.Spy;
       let preventDefaultSpy: jasmine.Spy;
-      let setup: () => void;
 
       beforeEach(() => {
         focusSpy = spyOn(toggleEl, 'focus');
@@ -329,98 +329,70 @@ describe('HeaderComponent', () => {
 
       describe('shift + tabbing out of first listitem when toggle button is visible', () => {
         beforeEach(() => {
-          setup = () => {
-            component.navItems.first.tabbedOut.emit(tabKeyDownEvent);
-            fixture.detectChanges();
-          };
-
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          component.navItems.first.tabbedOut.emit(tabKeyDownEvent);
+          fixture.detectChanges();
         });
 
         it('prevents default event bubbling', () => {
-          setup();
-
           expect(preventDefaultSpy).toHaveBeenCalledTimes(1);
         });
 
         it('focuses toggle button', () => {
-          setup();
-
           expect(focusSpy).toHaveBeenCalledTimes(1);
         });
       });
 
       describe('shift + tabbing out of last listitem', () => {
         beforeEach(() => {
-          setup = () => {
-            toggleEl.style.display = 'none';
-            component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
-            fixture.detectChanges();
-          };
-
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          toggleEl.style.display = 'none';
+          component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
+          fixture.detectChanges();
         });
 
         it('does not prevent event from bubbling', () => {
-          setup();
-
           expect(preventDefaultSpy).not.toHaveBeenCalled();
         });
 
         it('does not focus toggle button', () => {
-          setup();
-
           expect(focusSpy).not.toHaveBeenCalled();
         });
       });
 
       describe('tabbing out of last listitem when toggle button is visible', () => {
         beforeEach(() => {
-          setup = () => {
-            component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
-            fixture.detectChanges();
-          };
-
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
+          fixture.detectChanges();
         });
 
         it('prevents default event bubbling', () => {
-          setup();
-
           expect(preventDefaultSpy).toHaveBeenCalledTimes(1);
         });
 
         it('focuses toggle button', () => {
-          setup();
-
           expect(focusSpy).toHaveBeenCalledTimes(1);
         });
       });
 
       describe('tabbing out of last listitem when toggle button is hidden', () => {
         beforeEach(() => {
-          setup = () => {
-            toggleEl.style.display = 'none';
-            component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
-            fixture.detectChanges();
-          };
-
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
           preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          toggleEl.style.display = 'none';
+          component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
+          fixture.detectChanges();
         });
 
         it('does not prevent event from bubbling', () => {
-          setup();
-
           expect(preventDefaultSpy).not.toHaveBeenCalled();
         });
 
         it('does not focus toggle button after tabbing out of last listitem', () => {
-          setup();
-
           expect(focusSpy).not.toHaveBeenCalled();
         });
       });
