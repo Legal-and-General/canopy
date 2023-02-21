@@ -1,0 +1,110 @@
+import { Meta, Source } from '@storybook/addon-docs';
+import Feedback from '../../docs/common/feedback.md';
+
+<Meta title="Components/Pagination (WIP)/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Pagination
+
+<p class="standfirst">Controls a paginated list of items</p>
+
+## Warning: Work in progress
+
+This component is still in development and will be enhanced with more features in the near future.
+
+Things left to do:
+
+- Add overflow button when more than 5 buttons 
+- Add "Go to [value]" (page jumper) when the overflow is present
+- Small devices should show an overflow if more than 3 buttons
+
+## Usage
+
+Import the pagination module in your application:
+
+```typescript
+@NgModule({
+  ...
+  imports: [ ..., LgPaginationModule ],
+});
+```
+
+In your HTML
+```html
+<lg-pagination
+  [totalItems]="allItems.length"
+  [itemsPerPage]="itemsPerPage"
+  (pageChanged)="onPageChanged($event)"
+>
+</lg-pagination>
+```
+
+And in your code
+```typescript
+
+import { PageData } from '@legal-and-general/canopy';
+
+...
+
+export class PagingExampleComponent implements OnInit {
+  allItems: = [];
+  pagedItems: [];
+  itemsPerPage = 10;
+
+  ngOnInit(): void {
+    this.allItems = this.someService.getData();
+
+    // Create the first page of data on init
+    this.pagedItems = this.getPagedData(0, this.itemsPerPage - 1);
+  }
+
+  onPageChanged(pageData: PageData): void {
+    // And then respond to onPageChanged events to update the paged data
+    this.pagedItems = this.getPagedData(pageData.startIndex, pageData.endIndex)
+  }
+
+  private getPagedData(startIndex: number, endIndex: number): unknown[] {
+    // Important! Be careful if using array.prototype.splice as it returns
+    // items from startIndex, up to but not including endIndex.
+    return this.allItems.slice(startIndex, endIndex + 1);
+  }
+}
+```
+
+### Inputs
+
+| Name           | Description                                                                        | Type      | Default                           | Required |
+|----------------|------------------------------------------------------------------------------------|-----------|-----------------------------------|----------|
+| `id`           | HTML ID attribute, auto generated if not provided                                  | `string`  | `lg-pagination-${++nextUniqueId}` | No       |
+| `totalItems`   | The total number of items in the array being paged                                 | `number`  | `0`                               | No       |
+| `itemsPerPage` | The number of items to display per page                                            | `number`  | `10`                              | No       |
+| `currentPage`  | The current page, Can be programatically set but is usually controlled internally  | `number ` | `1`                               | No       |
+
+### Outputs
+
+| Name   | Description                             | Type                  | Default | Required |
+|--------|-----------------------------------------|-----------------------|---------|----------|
+| `pagedChanged` | Event emitted whenever the page needs to be changed because either an input property has changed or the user has clicked on one of the page buttons. This event can also be used to set the focus to the updated page section | `EventEmitter<PageData>` | n/a     | No       |
+
+
+```typescript
+export interface PageData {
+  // The requested page number.
+  page: number;
+
+  // The requested zero based start index of the data being paged.
+  startIndex: number;
+
+  // The requested end index (inclusive) of the data being paged
+  endIndex: number;
+}
+```
+
+## Additional notes
+The component will automatically hide itself when the the total number of items is **less than or equal to** the `itemsPerPage` input (i.e. There is only 1 page of data).
+
+The label (Showing x-y of n results) is positioned automatically, either to the right or below the pagination buttons, depending on the available space.
+
+Currently on mobile the maximum number of pages that can be shown before overflowing is 4. So your code will need to include logic to handle that. Future versions of the component will include an overflow icon to properly deal with this.
+
+<Feedback />
+
