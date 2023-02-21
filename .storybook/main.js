@@ -68,6 +68,8 @@ module.exports = {
     '../projects/canopy/src/lib/modal/docs/modal.stories.ts',
     '../projects/canopy/src/lib/primary-message/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/primary-message/docs/primary-message.stories.ts',
+    '../projects/canopy/src/lib/pagination/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/pagination/docs/pagination.stories.ts',
     '../projects/canopy/src/lib/promo-card/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/promo-card/docs/promo-card.stories.ts',
     '../projects/canopy/src/lib/quick-action/docs/guide.stories.mdx',

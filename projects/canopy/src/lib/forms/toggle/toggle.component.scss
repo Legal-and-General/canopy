@@ -47,8 +47,8 @@
     width: auto;
   }
 
-  .lg-toggle__input:focus + & {
-    @include lg-outer-focus-outline();
+  .lg-toggle__input:focus-visible + & {
+    @include lg-focus-outline();
   }
 
   .lg-toggle__input:checked + & {

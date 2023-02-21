@@ -82,7 +82,7 @@
       border-left-width: var(--keyline-width);
       border-color: var(--border-focus-color);
 
-      @include lg-outer-focus-outline();
+      @include lg-focus-outline;
     }
 
     #{$block}--block & {

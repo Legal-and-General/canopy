@@ -22,13 +22,9 @@
   margin-bottom: var(--component-margin);
   text-decoration: none;
 
-  &:focus,
-  &:hover:focus,
-  &:hover:focus:hover {
-    @include lg-focus-outline(
-      var(--default-focus-color),
-      var(--default-inner-focus-color)
-    );
+  &:focus-visible,
+  &:focus-visible:hover {
+    @include lg-focus-outline;
   }
 
   &:not(&--loading):disabled {
@@ -114,15 +110,15 @@
 
   @include lg-link();
 
-  &:focus,
-  &:hover:focus {
+  &:focus-visible,
+  &:hover:focus-visible {
     box-shadow: none;
   }
 
   &:hover,
   &:hover:visited,
-  &:focus,
-  &:focus:hover {
+  &:focus-visible,
+  &:focus-visible:hover {
     padding-bottom: 0.125rem;
   }
 }
@@ -135,7 +131,7 @@ $variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light',
 
 @each $variant in $variants {
   .lg-btn--#{$variant},
-  .lg-btn--#{$variant}:focus:not(.lg-btn-toggle),
+  .lg-btn--#{$variant}:focus-visible:not(.lg-btn-toggle),
   .lg-btn--#{$variant}:visited {
     background-color: var(--btn-#{$variant}-bg-color);
     border: var(--btn-#{$variant}-border-color) solid var(--border-width);
@@ -162,7 +158,7 @@ $variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light',
     }
   }
 
-  .lg-btn--#{$variant}:focus {
+  .lg-btn--#{$variant}:focus-visible {
     border-color: transparent;
 
     &:not(:disabled) {

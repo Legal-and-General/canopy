@@ -1,0 +1,58 @@
+@import '../../styles/mixins';
+
+.lg-pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: var(--space-xxs);
+  row-gap: var(--space-sm);
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  --button-size: 44px; /* stylelint-disable-line unit-allowed-list */
+
+  .lg-pagination__button {
+    width: var(--button-size);
+    height: var(--button-size);
+    border-width: 0;
+    border-radius: 50%;
+    font-size: var(--text-fs--8-size);
+    background-color: transparent;
+
+    &:hover:not(:disabled) {
+      cursor: pointer;
+      background-color: var(--pagination-button-hover-bg-color);
+      color: var(--pagination-button-hover-color);
+    }
+
+    &:focus-visible,
+    &:focus-visible:hover {
+      @include lg-focus-outline();
+    }
+
+    &.lg-pagination__button--prevnext {
+      &:hover:not(:disabled) {
+        border-width: var(--border-width);
+        background-color: inherit;
+        border-color: var(--pagination-button-prevnext-hover-border-color);
+        color: var(--pagination-button-prevnext-hover-color);
+      }
+    }
+
+    &.lg-pagination__button--active {
+      background-color: var(--pagination-button-active-bg-color);
+      color: var(--pagination-button-active-color);
+    }
+  }
+
+  .lg-pagination__label {
+    width: 200px; /* stylelint-disable-line unit-allowed-list */
+  }
+}

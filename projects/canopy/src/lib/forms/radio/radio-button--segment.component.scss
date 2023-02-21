@@ -58,13 +58,13 @@
       transition: all var(--animation-duration) var(--animation-fn);
     }
 
-    &:focus + .lg-radio-button__label {
-      @include lg-inner-focus-outline(var(--default-focus-color));
+    &:focus-visible + .lg-radio-button__label {
+      @include lg-inner-focus-outline();
     }
 
-    &:focus:hover + .lg-radio-button__label {
+    &:focus-visible:hover + .lg-radio-button__label {
       background-color: var(--radio-bg-color);
-      @include lg-inner-focus-outline(var(--default-focus-color));
+      @include lg-inner-focus-outline();
     }
   }
 

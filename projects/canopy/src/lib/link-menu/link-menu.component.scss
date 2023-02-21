@@ -31,14 +31,14 @@
 
     &:active,
     &:hover,
-    &:focus {
+    &:focus-visible {
       margin-bottom: calc(
         var(--border-width) - var(--link-menu-link-border-width-lg)
       ); // prevent bouncing effect caused by border
     }
 
     &:active,
-    &:focus {
+    &:focus-visible {
       color: var(--link-menu-link-active-color);
       border-bottom: var(--link-menu-link-border-width-lg) solid
         var(--link-menu-link-active-color);

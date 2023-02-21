@@ -67,16 +67,21 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
   ) {}
 
   @HostListener('document:click', [ '$event' ])
-  onDocumentClickout({ target }: MouseEvent): void {
+  onDocumentClickout(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+
     if (this.menuToggleButton && this.primaryNavEl) {
       const { nativeElement: menuToggleButtonEl } = this.menuToggleButton;
       const { nativeElement: primaryNavEl } = this.primaryNavEl;
+      const isNavOverlay = target.classList.contains('lg-primary-nav-overlay');
       const isOuterEl =
-        !menuToggleButtonEl.contains(target) && !primaryNavEl.contains(target);
+        (!menuToggleButtonEl.contains(target) && !primaryNavEl.contains(target)) ||
+        isNavOverlay;
 
       if (isOuterEl && this.showResponsiveMenu) {
         this.showResponsiveMenu = false;
         this.primaryNav.showResponsiveMenu = false;
+        this.renderer.removeStyle(this.document.body, 'overflow');
         this.cdr.markForCheck();
       }
     }

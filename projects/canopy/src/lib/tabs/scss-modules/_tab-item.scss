@@ -42,8 +42,8 @@
     }
   }
 
-  &:focus {
-    outline: none;
+  &:focus-visible {
+    @include lg-focus-outline();
   }
 
   &:hover {
@@ -54,9 +54,5 @@
       background-color: var(--tabs-hover-color);
       height: var(--tabs-hover-border-width);
     }
-  }
-
-  &[keyboard-focus]:focus {
-    @include lg-outer-focus-outline();
   }
 }

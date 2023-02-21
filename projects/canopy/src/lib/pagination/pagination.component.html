@@ -1,0 +1,40 @@
+<ul *ngIf="pages.length > 1">
+  <li>
+    <button
+      type="button"
+      class="lg-pagination__button lg-pagination__button--prevnext"
+      aria-label="Go to previous page"
+      lgMarginRight="xxs"
+      (click)="previous()"
+      [disabled]="currentPage === 1"
+    >
+      <lg-icon name="chevron-left"></lg-icon>
+    </button>
+  </li>
+  <li *ngFor="let page of pages">
+    <button
+      type="button"
+      class="lg-pagination__button"
+      lgMarginRight="xxs"
+      [attr.aria-label]="'Go to page ' + page"
+      [attr.aria-current]="currentPage === page ? 'true' : null"
+      [class.lg-pagination__button--active]="currentPage === page"
+      (click)="goTo(page)"
+    >
+      {{ page }}
+    </button>
+  </li>
+  <li>
+    <button
+      type="button"
+      class="lg-pagination__button lg-pagination__button--prevnext"
+      aria-label="Go to next page"
+      (click)="next()"
+      [disabled]="currentPage === numPages"
+    >
+      <lg-icon name="chevron-right"></lg-icon>
+    </button>
+  </li>
+</ul>
+<div class="lg-pagination__label lg-font-size-0-8" >{{label}}</div>
+

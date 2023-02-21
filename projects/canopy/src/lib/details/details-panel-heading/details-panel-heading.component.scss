@@ -23,8 +23,8 @@
     text-align: left;
     width: 100%;
 
-    &:focus {
-      @include lg-inner-focus-outline(var(--default-focus-color));
+    &:focus-visible {
+      @include lg-inner-focus-outline();
     }
 
     &--active .lg-details-panel-heading__state-icon {

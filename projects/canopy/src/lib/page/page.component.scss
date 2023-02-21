@@ -23,7 +23,7 @@
   background: var(--color-white);
   @include lg-visually-hidden;
 
-  &:focus,
+  &:focus-visible,
   &:active {
     left: 0;
     clip: auto !important;
