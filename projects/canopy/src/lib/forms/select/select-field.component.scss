@@ -37,7 +37,7 @@
     color: var(--form-error-border-color);
   }
 
-  .lg-select-field--error *:focus + & {
+  .lg-select-field--error *:focus-visible + & {
     color: inherit;
   }
 

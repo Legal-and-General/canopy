@@ -31,11 +31,11 @@
       cursor: pointer;
     }
 
-    &:focus {
+    &:focus-visible {
       outline: 0;
 
       > .lg-icon {
-        @include lg-outer-focus-outline(var(--default-focus-color));
+        @include lg-focus-outline();
       }
     }
   }

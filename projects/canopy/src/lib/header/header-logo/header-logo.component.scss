@@ -33,12 +33,9 @@
     display: inline-block;
     @include lg-unstyled-link;
 
-    &:focus {
+    &:focus-visible {
       background-color: transparent;
-      @include lg-focus-outline(
-        var(--default-focus-color),
-        var(--default-inner-focus-color)
-      );
+      @include lg-focus-outline;
     }
   }
 }

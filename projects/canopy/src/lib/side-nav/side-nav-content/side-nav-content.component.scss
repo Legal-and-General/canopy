@@ -7,8 +7,8 @@
   width: 100%;
   margin: 0;
 
-  &:focus {
-    @include lg-inner-focus-outline(var(--default-focus-color));
+  &:focus-visible {
+    @include lg-inner-focus-outline();
   }
 
   @include lg-breakpoint('lg') {

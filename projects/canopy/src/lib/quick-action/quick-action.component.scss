@@ -17,13 +17,13 @@
   color: var(--link-color);
 
   &:hover,
-  &:focus:hover {
+  &:focus-visible:hover {
     background-color: var(--quick-action-hover-bg-color);
     color: var(--quick-action-hover-color);
   }
 
   &:active,
-  &:active:focus {
+  &:active:focus-visible {
     background-color: var(--quick-action-active-bg-color);
     color: var(--quick-action-active-color);
   }
@@ -32,13 +32,13 @@
     color: var(--quick-action-visited-color);
   }
 
-  &:focus {
+  &:focus-visible {
     color: var(--link-color);
   }
 
-  &:focus,
-  &:focus:hover {
-    @include lg-outer-focus-outline(var(--default-focus-color));
+  &:focus-visible,
+  &:focus-visible:hover {
+    @include lg-focus-outline();
 
     background-color: var(--quick-action-bg-color);
     color: var(--link-color);

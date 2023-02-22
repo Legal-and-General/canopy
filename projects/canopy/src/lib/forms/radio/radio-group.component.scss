@@ -15,7 +15,7 @@
   }
 }
 
-fieldset[tabindex='-1']:focus {
+fieldset[tabindex='-1']:focus-visible {
   box-shadow: none;
   outline: 0.25rem solid var(--default-focus-color);
 }

@@ -67,9 +67,9 @@
     }
   }
 
-  .lg-radio-button__input:focus {
+  .lg-radio-button__input:focus-visible {
     + .lg-radio-button__label {
-      @include lg-outer-focus-outline();
+      @include lg-focus-outline;
     }
   }
 
