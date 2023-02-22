@@ -69,9 +69,8 @@
       );
     }
 
-    &:focus,
-    &:focus:hover,
-    &:focus:hover:hover {
+    &:focus-visible,
+    &:focus-visible:hover {
       background: transparent;
       border-bottom: var(--card-active-focus-border-bottom-width) solid
         var(--link-active-color);
@@ -87,13 +86,10 @@
           var(--card-active-focus-border-bottom-width)
       );
 
-      @include lg-focus-outline(
-        var(--default-focus-color),
-        var(--default-inner-focus-color)
-      );
+      @include lg-focus-outline;
     }
 
-    &:focus,
+    &:focus-visible,
     &:active {
       .lg-icon {
         background: var(--link-active-color);

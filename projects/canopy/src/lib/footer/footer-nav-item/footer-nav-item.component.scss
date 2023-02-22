@@ -54,9 +54,9 @@
   &:hover {
     text-decoration: underline;
 
-    &:focus:hover {
+    &:focus-visible {
       text-decoration: none;
-      @include lg-outer-focus-outline;
+      @include lg-focus-outline();
     }
   }
 

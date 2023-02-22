@@ -16,8 +16,8 @@
     padding: 0;
     width: var(--space-xxl);
 
-    &:focus {
-      @include lg-outer-focus-outline(var(--default-focus-color));
+    &:focus-visible {
+      @include lg-focus-outline();
     }
 
     .lg-icon {

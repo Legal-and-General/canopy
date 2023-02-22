@@ -3,17 +3,14 @@
   $color: colour of the outline.
   Sets the focus outline inside the element, by using multiple box shadows
 */
-@mixin lg-inner-focus-outline($bg-color, $color: var(--color-white)) {
+@mixin lg-inner-focus-outline(
+  $bg-color: var(--default-focus-color),
+  $color: var(--color-white)
+) {
   outline: 0;
   box-shadow: inset 0 0 0 0.25rem $bg-color, inset 0 0 0 0.3rem $color;
 }
 
-@mixin lg-outer-focus-outline($bg-color: var(--default-focus-color)) {
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem $bg-color;
-}
-
-// this mixin will replace lg-outer-focus-outline in the future when all the components will have to use this focus styling
 @mixin lg-focus-outline(
   $bg-color: var(--default-focus-color),
   $inner-bg-color: var(--default-inner-focus-color)
@@ -60,17 +57,13 @@
     outline: 0;
   }
 
-  &:focus,
-  &:focus:hover {
+  &:focus-visible,
+  &:focus-visible:hover {
     background-color: $focus-bg-color;
     border-bottom: 0;
     color: $focus-color;
-    outline: 0.063rem solid $focus-bg-color !important;
+    outline: 0.063rem solid $focus-bg-color;
     outline-offset: 0;
-
-    &:hover {
-      box-shadow: none;
-    }
   }
 }
 
@@ -87,15 +80,15 @@
   }
 
   &:active,
-  &:focus,
-  &:focus:hover {
+  &:focus-visible,
+  &:focus-visible:hover {
     background-color: transparent;
     color: inherit;
   }
 
-  &:focus,
-  &:focus:hover {
-    @include lg-outer-focus-outline;
+  &:focus-visible,
+  &:focus-visible:hover {
+    @include lg-focus-outline();
   }
 }
 
@@ -364,9 +357,8 @@ $breakpoints: (
     width: auto;
   }
 
-  &:focus,
-  &:hover:focus,
-  &:focus-visible {
+  &:focus-visible,
+  &:hover:focus-visible {
     background-color: var(--nav-item-bg-color-hover);
     color: var(--nav-item-color-hover);
 
@@ -407,7 +399,7 @@ $breakpoints: (
 
     &[type='button'],
     &[type='button']:hover,
-    &[type='button']:hover:focus {
+    &[type='button']:hover:focus-visible {
       background-color: var(--nav-item-bg-color-expanded);
       color: var(--nav-item-color-expanded);
 

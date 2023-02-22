@@ -80,16 +80,12 @@ button.lg-primary-nav-item {
   text-decoration: none;
   width: 100%;
 
-  &:focus,
-  &:focus:hover,
+  &:focus-visible:hover,
   &:focus-visible {
     border-bottom: $primary-nav-border-bottom-height solid
       var(--primary-nav-item-border-color-hover);
 
-    @include lg-focus-outline(
-      var(--default-focus-color),
-      var(--default-inner-focus-color)
-    );
+    @include lg-focus-outline;
   }
 
   &:visited {
@@ -114,8 +110,8 @@ button.lg-primary-nav-item {
     color: var(--primary-nav-item-color-active);
   }
 
-  &--active:focus,
-  &--active:hover:focus {
+  &--active:focus-visible,
+  &--active:hover:focus-visible {
     border-color: var(--primary-nav-item-border-color-active);
     color: var(--primary-nav-item-color-active);
   }
@@ -137,13 +133,13 @@ button.lg-primary-nav-item {
       color: var(--primary-nav-item-color-active-lg);
     }
 
-    &--active:focus,
-    &--active:hover:focus {
+    &--active:focus-visible,
+    &--active:hover:focus-visible {
       color: var(--primary-nav-item-color-active-lg);
     }
 
-    &:focus,
-    &:focus:hover {
+    &:focus-visible,
+    &:focus-visible:hover {
       border: 0;
     }
   }
