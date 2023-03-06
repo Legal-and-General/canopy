@@ -16,7 +16,7 @@
     margin: 0;
   }
 
-  --button-size: 44px; /* stylelint-disable-line unit-allowed-list */
+  --button-size: 2.75rem;
 
   .lg-pagination__button {
     width: var(--button-size);
@@ -53,6 +53,6 @@
   }
 
   .lg-pagination__label {
-    width: 200px; /* stylelint-disable-line unit-allowed-list */
+    width: 12.5rem;
   }
 }
