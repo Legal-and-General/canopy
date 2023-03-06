@@ -17,7 +17,7 @@
       class="lg-pagination__button"
       lgMarginRight="xxs"
       [attr.aria-label]="'Go to page ' + page"
-      [attr.aria-current]="currentPage === page ? 'true' : null"
+      [attr.aria-current]="currentPage === page"
       [class.lg-pagination__button--active]="currentPage === page"
       (click)="goTo(page)"
     >
