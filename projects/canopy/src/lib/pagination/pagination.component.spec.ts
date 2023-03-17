@@ -109,9 +109,11 @@ describe('LgPaginationComponent', () => {
       fixture.detectChanges();
 
       const nav = fixture.debugElement.query(By.css('nav'));
+      const label = fixture.debugElement.query(By.css('.lg-pagination__label'));
 
       expect(component.pages.length).toBe(1);
       expect(nav).toBeNull();
+      expect(label).toBeNull();
     });
   });
 
@@ -139,7 +141,7 @@ describe('LgPaginationComponent', () => {
       expect(label.textContent.trim()).toBe('Showing 11-20 of 33 results');
     });
 
-    it('displays the correct terxt on the last page', () => {
+    it('displays the correct text on the last page', () => {
       fixture.componentInstance.currentPage = 4;
       fixture.detectChanges();
 
