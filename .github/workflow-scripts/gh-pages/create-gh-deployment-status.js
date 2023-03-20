@@ -5,6 +5,7 @@ module.exports = async ({
   github,
   context: { repo: { repo, owner } },
 }) => {
+  console.log('hello');
   await github.rest.repos.createDeploymentStatus({
     owner,
     repo,
@@ -13,3 +14,5 @@ module.exports = async ({
     environment_url: environmentUrl
   });
 }
+
+
