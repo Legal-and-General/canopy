@@ -1,6 +1,13 @@
 <lg-heading [level]="headingLevel" *ngIf="link && title && headingLevel">
-  <a href="{{link}}" (click)="linkClicked()">
-    {{title}}
-    <lg-icon name="arrow-right"></lg-icon>
+  <a *ngIf="externalLink" [href]="link" (click)="linkClicked()">
+    <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
+  </a>
+  <a *ngIf="!externalLink" [routerLink]="[link]" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" (click)="linkClicked()">
+    <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
   </a>
 </lg-heading>
+
+<ng-template #linkContent>
+  {{title}}
+  <lg-icon name="arrow-right"></lg-icon>
+</ng-template>

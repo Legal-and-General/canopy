@@ -4,6 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { moduleMetadata, Story } from '@storybook/angular';
 
 import { LgGridModule } from '../../grid/grid.module';
@@ -164,6 +165,7 @@ export default {
         LgPaddingModule,
         LgMarginModule,
         LgSeparatorModule,
+        RouterModule.forRoot([]),
       ],
     }),
   ],
@@ -214,7 +216,7 @@ defaultCard.parameters = {
 const navigationCardTemplate = `
 <lg-card>
   <lg-card-header>
-    <lg-card-navigation-title [title]="title" link="https://www.landg.com" [headingLevel]="headingLevel"></lg-card-navigation-title>
+    <lg-card-navigation-title [title]="title" [link]="link" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" [headingLevel]="headingLevel"></lg-card-navigation-title>
   </lg-card-header>
   <lg-card-content>
     {{cardContent}} <a href="#">Test link</a>.
@@ -231,6 +233,9 @@ export const navigationCard = navigationCardStory.bind({});
 navigationCard.storyName = 'Card Navigation';
 
 navigationCard.args = {
+  link: 'https://www.landg.com',
+  queryParams: null,
+  queryParamsHandling: null,
   headingLevel: 2,
   title: 'The title',
   cardContent: content,
@@ -240,6 +245,19 @@ navigationCard.parameters = {
   docs: {
     source: {
       code: navigationCardTemplate,
+    },
+  },
+};
+
+navigationCard.argTypes = {
+  queryParams: {
+    table: {
+      disable: true,
+    },
+  },
+  queryParamsHandling: {
+    table: {
+      disable: true,
     },
   },
 };

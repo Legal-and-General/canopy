@@ -1,8 +1,9 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { MockComponents, MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { spy, verify } from '@typestrong/ts-mockito';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LgHeadingComponent } from '../../heading/heading.component';
 import { LgIconComponent } from '../../icon';
@@ -24,8 +25,13 @@ describe('LgCardNavigationTitleComponent', () => {
         LgCardNavigationTitleComponent,
         MockComponents(LgHeadingComponent, LgIconComponent),
       ],
+      imports: [ RouterTestingModule ],
     }).compileComponents();
   }));
+
+  afterEach(() => {
+    ngMocks.flushTestBed();
+  });
 
   describe('when the link, title and heading level are set', () => {
     beforeEach(() => {
@@ -71,6 +77,27 @@ describe('LgCardNavigationTitleComponent', () => {
       verify(linkClickedEventSpy.emit()).once();
 
       expect().nothing();
+    });
+
+    it('should know whether the link is external or internal', () => {
+      expect(component['externalLink']).toBeTrue();
+
+      fixture = MockRender(
+        `
+        <lg-card-navigation-title [title]="title" [link]="link" [headingLevel]="headingLevel">
+        </lg-card-navigation-title>
+      `,
+        {
+          title: 'Payments',
+          link: '/test-path',
+          headingLevel: 4,
+        },
+      );
+
+      debugElement = fixture.debugElement;
+      component = debugElement.children[0].componentInstance;
+
+      expect(component['externalLink']).toBeFalse();
     });
   });
 

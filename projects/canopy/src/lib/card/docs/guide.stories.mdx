@@ -121,11 +121,15 @@ This is where the main title and link should be provided. It should be located i
 
 #### Inputs
 
-| Name           | Description                                                            | Type     | Default | Required |
-|----------------|------------------------------------------------------------------------|----------|---------|----------|
-| `headingLevel` | The level of the card navigation heading: `1`, `2`, `3`, `4`, `5`, `6` | `number` | n/a     | Yes      |
-| `title`        | The title of the card navigation heading:                              | `string` | `''`    | Yes      |
-| `link`         | The link for the card navigation heading:                              | `string` | `''`    | Yes      |
+| Name                  | Description                                                            | Type                  | Default | Required |
+|-----------------------|------------------------------------------------------------------------|-----------------------|---------|----------|
+| `headingLevel`        | The level of the card navigation heading: `1`, `2`, `3`, `4`, `5`, `6` | `number`              | n/a     | Yes      |
+| `title`               | The title of the card navigation heading                               | `string`              | `''`    | Yes      |
+| `link`                | The link for the card navigation heading                               | `string`              | `''`    | Yes      |
+| `queryParams`         | The query params for the **internal** link [^*]                        | `Params`              | `null`  | No       |
+| `queryParamsHandling` | The query params handling for the **internal** link [^*]               | `QueryParamsHandling` | `null`  | No       |
+
+[^*]: See Angular documentation for the <a href="https://angular.io/api/router/RouterLink#routerlink" target="_blank">RouterLink</a>.
 
 #### Outputs
 
