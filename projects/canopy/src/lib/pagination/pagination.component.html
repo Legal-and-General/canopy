@@ -37,5 +37,12 @@
       </button>
     </li>
   </ul>
-  <div class="lg-pagination__label lg-font-size-0-8" >{{label}}</div>
+  <div
+    aria-live="polite"
+    aria-atomic="true"
+    [attr.aria-label]="label"
+    class="lg-pagination__label lg-font-size-0-8"
+  >
+    {{label}}
+  </div>
 </ng-container>
