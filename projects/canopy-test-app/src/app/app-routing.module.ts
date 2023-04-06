@@ -20,22 +20,22 @@ export const routes: Routes = [
   {
     path: 'side-nav-1',
     component: StoryContentComponent,
-    outlet: "side-nav"
+    outlet: 'side-nav',
   },
   {
     path: 'side-nav-2',
     component: StoryContentComponent,
-    outlet: "side-nav"
+    outlet: 'side-nav',
   },
   {
     path: 'side-nav-3',
     component: StoryContentComponent,
-    outlet: "side-nav"
+    outlet: 'side-nav',
   },
   {
     path: 'side-nav-4',
     component: StoryContentComponent,
-    outlet: "side-nav"
+    outlet: 'side-nav',
   },
   {
     path: '',
@@ -47,10 +47,9 @@ export const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-    useHash: true,
-    relativeLinkResolution: 'legacy'
-}),
+      useHash: true,
+    }),
   ],
-  exports: [RouterModule],
+  exports: [ RouterModule ],
 })
 export class AppRoutingModule {}
