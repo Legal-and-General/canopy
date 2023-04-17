@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 import { LgHeadingModule } from '../heading/heading.module';
 import { lgIconArrowRight, LgIconModule, LgIconRegistry } from '../icon';
@@ -38,7 +38,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, LgHeadingModule, LgIconModule, RouterLinkWithHref ],
+  imports: [ CommonModule, LgHeadingModule, LgIconModule, RouterLink ],
   declarations: [ components ],
   exports: [ components ],
 })
