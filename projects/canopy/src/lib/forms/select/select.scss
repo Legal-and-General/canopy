@@ -18,8 +18,6 @@
   }
 
   &:focus-visible {
-    border-left-width: var(--keyline-width);
-    border-color: var(--border-focus-color);
     padding-left: calc(var(--space-sm) - var(--keyline-width) + var(--border-width));
     @include lg-focus-outline();
   }
