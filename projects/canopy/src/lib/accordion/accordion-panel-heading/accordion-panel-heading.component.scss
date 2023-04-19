@@ -28,7 +28,9 @@
   width: 100%;
 
   &:focus-visible {
-    @include lg-inner-focus-outline();
+    @include lg-focus-outline;
+
+    z-index: 1;
   }
 
   .lg-accordion__heading-icon {

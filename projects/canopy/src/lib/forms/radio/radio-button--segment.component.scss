@@ -59,12 +59,12 @@
     }
 
     &:focus-visible + .lg-radio-button__label {
-      @include lg-inner-focus-outline();
+      @include lg-focus-outline;
     }
 
     &:focus-visible:hover + .lg-radio-button__label {
       background-color: var(--radio-bg-color);
-      @include lg-inner-focus-outline();
+      @include lg-focus-outline;
     }
   }
 
