@@ -4,15 +4,14 @@ import { MockComponents } from 'ng-mocks';
 import { Component, Input } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
-import { LgLinkMenuItemHeadingComponent } from '../link-menu-item-heading/link-menu-item-heading.component';
-import { LgLinkMenuItemContentComponent } from '../link-menu-item-content/link-menu-item-content.component';
+import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-item-text.component';
 
 import { LgLinkMenuItemComponent } from './link-menu-item.component';
 
 @Component({
   template: `<lg-link-menu-item>
-    <lg-link-menu-item-heading>Update my direct debit</lg-link-menu-item-heading>
-    <lg-link-menu-item-content>Do it online</lg-link-menu-item-content>
+    <lg-link-menu-item-text class="bold">Update my direct debit</lg-link-menu-item-text>
+    <lg-link-menu-item-text>Do it online</lg-link-menu-item-text>
   </lg-link-menu-item>`,
 })
 class TestComponent {
@@ -28,11 +27,7 @@ describe('LgLinkMenuItemComponent', () => {
       declarations: [
         TestComponent,
         LgLinkMenuItemComponent,
-        MockComponents(
-          LgLinkMenuItemHeadingComponent,
-          LgLinkMenuItemContentComponent,
-          LgIconComponent,
-        ),
+        MockComponents(LgLinkMenuItemTextComponent, LgIconComponent),
       ],
     }).compileComponents();
   });
@@ -62,15 +57,9 @@ describe('LgLinkMenuItemComponent', () => {
       ).toBeTruthy();
     });
 
-    it('should render the heading', () => {
+    it('should render the text', () => {
       expect(
-        fixture.debugElement.query(By.directive(LgLinkMenuItemHeadingComponent)),
-      ).toBeTruthy();
-    });
-
-    it('should render the content', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgLinkMenuItemContentComponent)),
+        fixture.debugElement.query(By.directive(LgLinkMenuItemTextComponent)),
       ).toBeTruthy();
     });
 
@@ -97,8 +86,8 @@ describe('LgLinkMenuItemComponent', () => {
       const template = `
         <a href="#" [attr.target]="target">
           <lg-link-menu-item>
-            <lg-link-menu-item-heading>Update my direct debit</lg-link-menu-item-heading>
-            <lg-link-menu-item-content>Do it online</lg-link-menu-item-content>
+            <lg-link-menu-item-text class="title">Update my direct debit</lg-link-menu-item-text>
+            <lg-link-menu-item-text>Do it online</lg-link-menu-item-text>
           </lg-link-menu-item>
         </a>
       `;
