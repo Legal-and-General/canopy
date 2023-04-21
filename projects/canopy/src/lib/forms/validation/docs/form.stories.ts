@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
 import {
   AbstractControl,
   FormGroupDirective,
@@ -253,7 +253,11 @@ class ReactiveFormComponent {
 
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+    private el: ElementRef,
+  ) {
     this.form = this.fb.group({
       text: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
       select: [ '', [ Validators.required, invalidValidator() ] ],
@@ -268,6 +272,12 @@ class ReactiveFormComponent {
   }
 
   onSubmit(event) {
+    const invalidControl = this.el.nativeElement.querySelector('.ng-invalid');
+
+    if (invalidControl) {
+      invalidControl.focus();
+    }
+
     this.formSubmit.emit(event);
   }
 
