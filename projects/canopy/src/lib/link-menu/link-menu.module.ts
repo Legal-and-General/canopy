@@ -9,13 +9,11 @@ import { LgCardModule } from '../card';
 
 import { LgLinkMenuComponent } from './link-menu.component';
 import { LgLinkMenuItemComponent } from './link-menu-item/link-menu-item.component';
-import { LgLinkMenuItemHeadingComponent } from './link-menu-item-heading/link-menu-item-heading.component';
-import { LgLinkMenuItemContentComponent } from './link-menu-item-content/link-menu-item-content.component';
+import { LgLinkMenuItemTextComponent } from './link-menu-item-text/link-menu-item-text.component';
 const components = [
   LgLinkMenuComponent,
   LgLinkMenuItemComponent,
-  LgLinkMenuItemHeadingComponent,
-  LgLinkMenuItemContentComponent,
+  LgLinkMenuItemTextComponent,
 ];
 
 @NgModule({
