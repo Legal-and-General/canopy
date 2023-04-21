@@ -8,10 +8,10 @@ const template = `
 <lg-link-menu>
   <a href="#" *ngFor="let item of menuItems" [attr.target]="item.target">
     <lg-link-menu-item>
-      <lg-link-menu-item-heading>{{ item.title }}</lg-link-menu-item-heading>
-      <lg-link-menu-item-content *ngIf="item.description">
+      <lg-link-menu-item-text class="title">{{ item.title }}</lg-link-menu-item-text>
+      <lg-link-menu-item-text *ngIf="item.description">
         {{ item.description }}
-      </lg-link-menu-item-content>
+      </lg-link-menu-item-text>
     </lg-link-menu-item>
   </a>
 </lg-link-menu>`;
