@@ -267,40 +267,6 @@ navigationCard.argTypes = {
   },
 };
 
-const nestedGridCardTemplate = `
-<lg-card lgPaddingHorizontal="none">
-  <lg-card-content>
-    <div lgContainer>
-      <div lgRow>
-        <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-          {{cardContent}}
-        </div>
-      </div>
-    </div>
-  </lg-card-content>
-</lg-card>
-`;
-
-const nestedGridCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template: nestedGridCardTemplate,
-});
-
-export const nestedGridCard = nestedGridCardStory.bind({});
-nestedGridCard.storyName = 'Nested grid';
-
-nestedGridCard.args = {
-  cardContent: content,
-};
-
-nestedGridCard.parameters = {
-  docs: {
-    source: {
-      code: nestedGridCardTemplate,
-    },
-  },
-};
-
 const productCardTemplate = `
 <lg-card>
   <lg-card-content>
