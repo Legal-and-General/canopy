@@ -86,7 +86,8 @@ describe('LgLinkMenuItemComponent', () => {
       const template = `
         <a href="#" [attr.target]="target">
           <lg-link-menu-item>
-            <lg-link-menu-item-text class="title">Update my direct debit</lg-link-menu-item-text>
+            <lg-icon [name]="'account'"></lg-icon>
+            <lg-link-menu-item-text isBold="true">Update my direct debit</lg-link-menu-item-text>
             <lg-link-menu-item-text>Do it online</lg-link-menu-item-text>
           </lg-link-menu-item>
         </a>

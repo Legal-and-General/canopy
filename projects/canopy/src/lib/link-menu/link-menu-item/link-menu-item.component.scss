@@ -8,6 +8,8 @@
 .lg-link-menu-item__container {
   display: flex;
   flex-direction: column;
+  margin-right: auto;
+  margin-left: var(--space-xs);
 
   @include lg-breakpoint('md') {
     padding-right: var(--space-sm);

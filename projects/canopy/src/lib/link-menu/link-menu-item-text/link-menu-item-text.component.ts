@@ -1,7 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostBinding, Input,
+  HostBinding,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
 
