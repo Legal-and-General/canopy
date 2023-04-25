@@ -19,7 +19,7 @@ import { LgSeparatorModule } from '../../separator';
     <lg-link-menu>
       <a *ngFor="let link of links" [href]="link.href" target="_blank">
         <lg-link-menu-item>
-          <lg-link-menu-item-text class="title">{{ link.text }}</lg-link-menu-item-text>
+          <lg-link-menu-item-text isBold="true">{{ link.text }}</lg-link-menu-item-text>
         </lg-link-menu-item>
       </a>
     </lg-link-menu>
