@@ -31,12 +31,19 @@ This is where the links are projected.
 ### LgLinkMenuItemComponent
 This is where the `LgLinkMenuItemTextComponent`s of the link are projected and positioned.
 
+This accepts either 1 or 2 `LgLinkMenuItemTextComponent`s, of which either 1 or both can be made bold, by using `isBold`.
+
 Depending on whether the parent, `<a>` element has `target="_blank"`, i.e. attempts to open in a new tab, the icon displayed will
 differ.
 
 ### LgLinkMenuItemTextComponent
-The text sub-component for the menu.
-Accepts a `title` class input that changes its style to make it the bolder title of the link item.
+The text sub-component for the menu item.
+Accepts a `isBold` attribute input that changes its style to make the text of the menu item bold.
+
+#### Inputs
+| Name     | Description                            |    Type   |   Default   | Required |
+|----------|----------------------------------------|:---------:|:-----------:|:--------:|
+| `isBold` | A toggle for making the text bold      | `boolean` |   `false`   |    No    |
 
 ---
 

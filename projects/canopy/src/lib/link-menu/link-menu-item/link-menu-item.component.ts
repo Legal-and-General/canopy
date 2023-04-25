@@ -1,11 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ContentChild,
   ElementRef,
   HostBinding,
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
+
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-link-menu-item',
@@ -16,6 +19,8 @@ import {
 })
 export class LgLinkMenuItemComponent implements OnInit {
   @HostBinding('class.lg-link-menu-item') class = true;
+
+  @ContentChild(LgIconComponent) iconComponent: LgIconComponent;
 
   openInANewTab = false;
 
