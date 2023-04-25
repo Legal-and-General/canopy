@@ -13,11 +13,10 @@
     #dateFormDirective="ngForm"
   >
     <div class="lg-date-field__date">
-      <label lg-label [for]="dateId">Day</label>
       <lg-input-field lgMarginBottom="none">
+        Day
         <input
           lgInput
-          [id]="dateId"
           (blur)="onBlur()"
           (input)="date.setValue($event.target.value)"
           formControlName="date"
@@ -31,11 +30,10 @@
     </div>
 
     <div class="lg-date-field__month">
-      <label lg-label [for]="monthId">Month</label>
       <lg-input-field lgMarginBottom="none">
+        Month
         <input
           lgInput
-          [id]="monthId"
           (blur)="onBlur()"
           (input)="month.setValue($event.target.value)"
           formControlName="month"
@@ -49,11 +47,10 @@
     </div>
 
     <div class="lg-date-field__year">
-      <label lg-label [for]="yearId">Year</label>
       <lg-input-field lgMarginBottom="none">
+        Year
         <input
           lgInput
-          [id]="yearId"
           (blur)="onBlur()"
           (input)="year.setValue($event.target.value)"
           formControlName="year"

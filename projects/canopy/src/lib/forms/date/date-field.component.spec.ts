@@ -226,14 +226,6 @@ describe('LgDateFieldComponent', () => {
     expect(component.form.controls.dateOfBirth.value).toEqual('1944-03-07');
   });
 
-  it('sets unique identifiers for each input field', () => {
-    fixture.detectChanges();
-
-    expect(/lg-input-year-\d{1,3}/.test(yearInput.nativeElement.id)).toBe(true);
-    expect(/lg-input-month-\d{1,3}/.test(monthInput.nativeElement.id)).toBe(true);
-    expect(/lg-input-date-\d{1,3}/.test(dateInput.nativeElement.id)).toBe(true);
-  });
-
   it('replaces empty fields with an empty string if date is not complete', done => {
     fixture.detectChanges();
 
