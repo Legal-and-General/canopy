@@ -1,14 +1,14 @@
 import { Meta, Story } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
-import { LgAlertModule } from '../../../lib/alert';
+import { LgAlertComponent } from '../../../lib/alert';
 import { LgMarginModule } from '../../../lib/spacing';
 
 export default {
   title: 'Components/Link/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgAlertModule, LgMarginModule ],
+      imports: [ LgAlertComponent, LgMarginModule ],
     }),
   ],
   parameters: {

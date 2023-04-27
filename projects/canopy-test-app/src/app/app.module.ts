@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
   LgAccordionModule,
-  LgAlertModule,
+  LgAlertComponent,
   lgBrandIconCalendar,
   LgBrandIconModule,
   LgBrandIconRegistry,
@@ -61,7 +61,7 @@ import { StoryContentComponent } from './story-content.component';
     ReactiveFormsModule,
     BrowserModule,
     LgAccordionModule,
-    LgAlertModule,
+    LgAlertComponent,
     LgBrandIconModule,
     LgBreadcrumbModule,
     LgButtonModule,

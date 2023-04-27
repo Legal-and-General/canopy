@@ -6,14 +6,26 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import type { Variant } from '../variant/variant.interface';
+import {
+  LgIconModule,
+  LgIconRegistry,
+  lgIconCheckmarkSpotFill,
+  lgIconCrossmarkSpotFill,
+  lgIconInformationFill,
+  lgIconWarningFill,
+} from '../icon';
+import { LgVariantModule } from '../variant';
+import type { Variant } from '../variant';
 
 @Component({
   selector: 'lg-alert',
   templateUrl: './alert.component.html',
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ CommonModule, LgIconModule, LgVariantModule ],
 })
 export class LgAlertComponent {
   private _variant: Variant;
@@ -43,7 +55,18 @@ export class LgAlertComponent {
     }
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+    private iconRegistry: LgIconRegistry,
+  ) {
     this.variant = 'generic';
+
+    this.iconRegistry.registerIcons([
+      lgIconCrossmarkSpotFill,
+      lgIconInformationFill,
+      lgIconWarningFill,
+      lgIconCheckmarkSpotFill,
+    ]);
   }
 }
