@@ -1,6 +1,6 @@
 .lg-accordion__panel {
   display: none;
-  padding: 0 var(--space-sm) var(--space-sm);
+  padding: var(--space-md) var(--space-sm) var(--space-sm);
   background-color: var(--accordion-bg-color);
 
   *:last-child {
