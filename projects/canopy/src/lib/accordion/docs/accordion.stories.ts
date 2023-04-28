@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
 import { LgButtonModule } from '../../button';
-import { LgAccordionModule } from '../accordion.module';
 import { LgAccordionComponent } from '../accordion.component';
+import { LgAccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -11,7 +12,13 @@ export default {
   component: LgAccordionComponent,
   decorators: [
     moduleMetadata({
-      imports: [ CommonModule, LgAccordionModule, LgButtonModule ],
+      imports: [
+        CommonModule,
+        LgAccordionComponent,
+        LgAccordionItemComponent,
+        LgAccordionPanelHeadingComponent,
+        LgButtonModule,
+      ],
     }),
   ],
   parameters: {
