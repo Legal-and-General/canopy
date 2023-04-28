@@ -1,7 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgBreadcrumbModule } from '../../breadcrumb/breadcrumb.module';
+import {
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgBreadcrumbItemEllipsisComponent,
+} from '../../breadcrumb';
 import { LgGridModule } from '../../grid/grid.module';
 import { LgMarginModule } from '../../spacing/margin/margin.module';
 import { LgCardModule } from '../../card/card.module';
@@ -164,7 +168,9 @@ export default {
         LgHeroModule,
         LgGridModule,
         LgMarginModule,
-        LgBreadcrumbModule,
+        LgBreadcrumbComponent,
+        LgBreadcrumbItemComponent,
+        LgBreadcrumbItemEllipsisComponent,
         LgCardModule,
         LgIconModule,
       ],

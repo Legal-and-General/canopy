@@ -8,7 +8,6 @@ import { LgFooterModule } from '../../footer';
 import { LgCardModule } from '../../card';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
 import { LgHeroModule } from '../../hero';
-import { LgBreadcrumbModule } from '../../breadcrumb';
 import { LgPageModule } from '../page.module';
 import { LgPageComponent } from '../page.component';
 
@@ -67,7 +66,6 @@ export default {
         LgFooterModule,
         LgCardModule,
         LgHeroModule,
-        LgBreadcrumbModule,
       ],
     }),
   ],

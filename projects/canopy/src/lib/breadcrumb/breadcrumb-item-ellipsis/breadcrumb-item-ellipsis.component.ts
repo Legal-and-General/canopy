@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
+import { LgIconModule, LgIconRegistry } from '../../icon';
+import * as iconSet from '../../icon/icons.interface';
 
 @Component({
   selector: 'lg-breadcrumb-item-ellipsis',
@@ -15,11 +17,21 @@ import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface'
   styleUrls: [ './breadcrumb-item-ellipsis.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgIconModule ],
 })
 export class LgBreadcrumbItemEllipsisComponent {
   private _variant: BreadcrumbVariant;
 
   @HostBinding('class.lg-breadcrumb-item-ellipsis') class = true;
+
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+    private registry: LgIconRegistry,
+  ) {
+    this.registry.registerIcons([ iconSet.lgIconHome, iconSet.lgIconOverflowHorizontal ]);
+  }
 
   set variant(variant: BreadcrumbVariant) {
     if (this._variant) {
@@ -39,6 +51,4 @@ export class LgBreadcrumbItemEllipsisComponent {
   get variant() {
     return this._variant;
   }
-
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
 }

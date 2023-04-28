@@ -10,8 +10,12 @@ import { moduleMetadata, Story } from '@storybook/angular';
 import { LgGridModule } from '../../grid/grid.module';
 import { LgPaddingModule } from '../../spacing/padding/padding.module';
 import { LgMarginModule } from '../../spacing/margin/margin.module';
-import { LgBreadcrumbModule } from '../../breadcrumb/breadcrumb.module';
 import { LgIconModule } from '../../icon/icon.module';
+import {
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgBreadcrumbItemEllipsisComponent,
+} from '../../breadcrumb';
 import { LgButtonModule } from '../../button/button.module';
 import { LgInputModule } from '../../forms/input/input.module';
 import { LgLabelModule } from '../../forms/label/label.module';
@@ -158,7 +162,9 @@ export default {
         LgLabelModule,
         LgHintModule,
         LgCardModule,
-        LgBreadcrumbModule,
+        LgBreadcrumbComponent,
+        LgBreadcrumbItemComponent,
+        LgBreadcrumbItemEllipsisComponent,
         LgIconModule,
         LgButtonModule,
         LgGridModule,

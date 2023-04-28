@@ -7,7 +7,9 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
+import { LgIconModule, LgIconRegistry } from '../../icon';
 import * as iconSet from '../../icon/icons.interface';
 
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
@@ -18,6 +20,8 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   styleUrls: [ './breadcrumb-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ CommonModule, LgIconModule ],
 })
 export class LgBreadcrumbItemComponent {
   private _variant: BreadcrumbVariant;
@@ -34,7 +38,10 @@ export class LgBreadcrumbItemComponent {
     private renderer: Renderer2,
     private hostElement: ElementRef,
     private cd: ChangeDetectorRef,
-  ) {}
+    private registry: LgIconRegistry,
+  ) {
+    this.registry.registerIcons([ iconSet.lgIconCaretLeft, iconSet.lgIconCaretRight ]);
+  }
 
   set hideIcons(hideIcons: boolean) {
     this._hideIcons = hideIcons;

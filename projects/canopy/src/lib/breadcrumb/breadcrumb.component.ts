@@ -20,6 +20,7 @@ import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
   styleUrls: [ './breadcrumb.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgBreadcrumbComponent implements AfterContentChecked {
   private _variant = BreadcrumbVariant.dark;
