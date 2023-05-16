@@ -37,6 +37,44 @@
       border-bottom: 0;
     }
   }
+
+  &--sm {
+    width: 100%;
+    display: table;
+    border-top: 0;
+
+    .lg-table-head-cell {
+      display: table-cell;
+      padding: var(--space-sm);
+    }
+
+    .lg-table-row {
+      display: table-row;
+    }
+
+    .lg-table-cell {
+      display: table-cell;
+      padding: var(--space-sm);
+      border-top: 0.063rem solid var(--color-platinum);
+      vertical-align: middle;
+
+      &__label {
+        display: none;
+      }
+
+      &__content {
+        overflow-wrap: anywhere;
+
+        &--align-end {
+          text-align: right;
+        }
+      }
+
+      .lg-label {
+        display: none;
+      }
+    }
+  }
 }
 
 @each $columns-breakpoint in $columns-breakpoints {

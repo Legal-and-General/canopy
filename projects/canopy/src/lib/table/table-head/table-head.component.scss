@@ -11,6 +11,10 @@
       @include lg-breakpoint($columns-breakpoint) {
         display: table-header-group;
       }
+
+      &--sm {
+        position: relative !important;
+      }
     }
   }
 }

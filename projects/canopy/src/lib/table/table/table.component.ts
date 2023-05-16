@@ -32,6 +32,13 @@ export class LgTableComponent implements AfterContentChecked {
   _variant: TableVariant;
 
   @Input()
+  set stackOnSm(stackOnSm: boolean) {
+    if (stackOnSm) {
+      this.renderer.addClass(this.hostElement.nativeElement, 'lg-table--sm');
+    }
+  }
+
+  @Input()
   set showColumnsAt(columnsBreakpoint: TableColumnLayoutBreakpoints) {
     this.addColumnsBreakpoint(columnsBreakpoint);
     this._showColumnsAt = columnsBreakpoint;

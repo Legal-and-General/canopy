@@ -5,6 +5,9 @@ import {
   ViewEncapsulation,
   AfterContentChecked,
   ContentChild,
+  Input,
+  Renderer2,
+  ElementRef,
 } from '@angular/core';
 
 import { LgTableRowComponent } from '../table-row/table-row.component';
@@ -20,6 +23,15 @@ export class LgTableHeadComponent implements AfterContentChecked {
   @HostBinding('class') class = 'lg-table-head';
 
   @ContentChild(LgTableRowComponent, { static: false }) headRow: LgTableRowComponent;
+
+  @Input()
+  set stackOnSm(stackOnSm: boolean) {
+    if (stackOnSm) {
+      this.renderer.addClass(this.hostElement.nativeElement, 'lg-table-head--sm');
+    }
+  }
+
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
 
   ngAfterContentChecked() {
     if (this.headRow) {

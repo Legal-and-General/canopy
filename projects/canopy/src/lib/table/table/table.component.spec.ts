@@ -34,23 +34,22 @@ describe('TableComponent', () => {
   let debugElement: DebugElement;
   let tableDebugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTableComponent,
-          LgTableHeadComponent,
-          LgTableBodyComponent,
-          LgTableRowComponent,
-          LgTableHeadCellComponent,
-          LgTableCellComponent,
-          LgTableRowToggleComponent,
-          MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
-        ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        LgTableComponent,
+        LgTableHeadComponent,
+        LgTableBodyComponent,
+        LgTableRowComponent,
+        LgTableHeadCellComponent,
+        LgTableCellComponent,
+        LgTableRowToggleComponent,
+        MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
+      ],
+    }).compileComponents();
 
-      fixture = MockRender(
-        `
+    fixture = MockRender(
+      `
     <table lg-table>
       <thead lg-table-head>
         <tr lg-table-row>
@@ -69,18 +68,17 @@ describe('TableComponent', () => {
       </tbody>
     </table>
     `,
-        {
-          books,
-          alignPublishColumn: AlignmentOptions.End,
-        },
-      );
+      {
+        books,
+        alignPublishColumn: AlignmentOptions.End,
+      },
+    );
 
-      debugElement = fixture.debugElement;
-      component = fixture.debugElement.children[0].componentInstance;
-      tableDebugElement = debugElement.query(By.directive(LgTableComponent));
-      fixture.detectChanges();
-    }),
-  );
+    debugElement = fixture.debugElement;
+    component = fixture.debugElement.children[0].componentInstance;
+    tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+    fixture.detectChanges();
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -397,6 +395,40 @@ describe('TableComponent', () => {
     });
   });
 
+  describe('stackOnSm flag', () => {
+    describe('when stackOnSm is set', () => {
+      beforeEach(() => {
+        fixture = MockRender(getStackOnSmMockRender());
+
+        debugElement = fixture.debugElement;
+        tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+        fixture.detectChanges();
+      });
+
+      it('should add the lg-table--sm class to the table', () => {
+        expect(tableDebugElement.classes['lg-table--sm']).toBe(true);
+        expect(tableDebugElement.classes['lg-table--lg']).toBe(undefined);
+        expect(tableDebugElement.classes['lg-table--md']).toBe(undefined);
+      });
+    });
+
+    describe('when stackOnSm is not set', () => {
+      beforeEach(() => {
+        fixture = MockRender(getStackOnSmMockRenderDefault());
+        debugElement = fixture.debugElement;
+        tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+        fixture.detectChanges();
+      });
+
+      it('should not append the sm class to the lg-table class', () => {
+        expect(tableDebugElement.classes['lg-table']).toBe(true);
+        expect(tableDebugElement.classes['lg-table--sm']).toBe(undefined);
+        expect(tableDebugElement.classes['lg-table--lg']).toBe(undefined);
+        expect(tableDebugElement.classes['lg-table--md']).toBe(undefined);
+      });
+    });
+  });
+
   function getShowLabelMockRender() {
     return `
     <table lg-table>
@@ -432,6 +464,40 @@ describe('TableComponent', () => {
   }
 
   function getShowColumnsAtMockRenderDefault() {
+    return `
+    <table lg-table>
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+  function getStackOnSmMockRender() {
+    return `
+    <table lg-table [stackOnSm]="true">
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell>Title</th>
+        </tr>
+      </thead>
+
+      <tbody lg-table-body>
+        <tr lg-table-row>
+          <td lg-table-cell>Accelerate: The Science of Lean Software and Devops</td>
+        </tr>
+      </tbody>
+    </table>`;
+  }
+
+  function getStackOnSmMockRenderDefault() {
     return `
     <table lg-table>
       <thead lg-table-head>
