@@ -20,8 +20,6 @@ import { LgSeparatorModule } from '../../separator/separator.module';
 import { lgIconChevronLeft, LgIconRegistry } from '../../icon';
 import { LgCardComponent } from '../card.component';
 import { LgCardModule } from '../card.module';
-import { LgDataPointModule } from '../../data-point';
-import { LgLinkMenuModule } from '../../link-menu';
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -156,8 +154,6 @@ export default {
       declarations: [ FormJourneyComponent, ShowMoreCardComponent ],
       imports: [
         ReactiveFormsModule,
-        LgDataPointModule,
-        LgLinkMenuModule,
         LgInputModule,
         LgLabelModule,
         LgHintModule,
@@ -392,66 +388,4 @@ showMoreCard.parameters = {
       code: showMoreCardTemplate,
     },
   },
-};
-
-const dataPointsCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template: `
-    <lg-card>
-      <lg-card-header>
-        <lg-card-navigation-title title="Data Points" link="#" [headingLevel]="2"></lg-card-navigation-title>
-      </lg-card-header>
-      <lg-card-content>
-        <lg-data-point *ngFor="let number of [].constructor(dataPoints); let i = index;">
-          <lg-data-point-label [headingLevel]="3">
-            {{data[i].label}}
-          </lg-data-point-label>
-          <lg-data-point-value>
-            {{data[i].value}}
-          </lg-data-point-value>
-        </lg-data-point>
-      </lg-card-content>
-      <lg-card-footer>
-        <lg-link-menu>
-          <a href="" target="_blank">
-            <lg-link-menu-item>
-              <lg-link-menu-item-heading>Link menu item 1</lg-link-menu-item-heading>
-            </lg-link-menu-item>
-          </a>
-          <a href="">
-            <lg-link-menu-item>
-              <lg-link-menu-item-heading>Link menu item 2</lg-link-menu-item-heading>
-            </lg-link-menu-item>
-          </a>
-        </lg-link-menu>
-      </lg-card-footer>
-    </lg-card>
-  `,
-});
-
-export const dataPointsCard = dataPointsCardStory.bind({});
-dataPointsCard.storyName = 'Data points';
-
-dataPointsCard.argTypes = {
-  dataPoints: {
-    control: { type: 'number', min: 1, max: 3, step: 1 },
-  },
-};
-
-dataPointsCard.args = {
-  dataPoints: 3,
-  data: [
-    {
-      label: 'Data key 1',
-      value: 'Data value 1',
-    },
-    {
-      label: 'Data key 2',
-      value: 'Data value 2',
-    },
-    {
-      label: 'Data key 3',
-      value: 'Data value 3',
-    },
-  ],
 };
