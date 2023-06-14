@@ -21,7 +21,7 @@ export class LgCardContentComponent {
     descendants: true,
   })
   dataPoints: QueryList<LgDataPointComponent>;
-  @HostBinding('class.lg-card-content--data-points') dataPointsClass() {
+  @HostBinding('class.lg-card-content--data-points') get dataPointsClass() {
     return this.dataPoints.length;
   }
 }
