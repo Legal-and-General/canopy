@@ -9,7 +9,7 @@ export class LgModalService {
 
   // Called onInit of the modal
   add(id: string): void {
-    this.states.set(id, new BehaviorSubject(false));
+    this.states.set(id, new BehaviorSubject(undefined));
   }
 
   // Called onDestroy of the modal

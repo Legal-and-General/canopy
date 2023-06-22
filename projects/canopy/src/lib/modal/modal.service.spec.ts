@@ -59,7 +59,7 @@ describe('LgModalService', () => {
       subscription = service.isOpen$('test-2').subscribe(data => {
         verify(serviceSpy.add('test-2')).once();
 
-        expect(data).toBeFalse();
+        expect(data).toBeUndefined();
         done();
       });
     });
