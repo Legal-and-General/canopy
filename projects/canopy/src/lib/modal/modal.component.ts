@@ -69,7 +69,7 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
           if (isOpen) {
             bodyEl.style.overflow = 'hidden';
             this.open.emit();
-          } else {
+          } else if (isOpen !== undefined) {
             this.closed.emit();
             bodyEl.style.overflow = '';
           }
