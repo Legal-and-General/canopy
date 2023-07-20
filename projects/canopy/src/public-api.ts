@@ -4,6 +4,7 @@
 
 export * from './lib/accordion/index';
 export * from './lib/alert/index';
+export * from './lib/banner/index';
 export * from './lib/breadcrumb/index';
 export * from './lib/button/index';
 export * from './lib/card/index';

@@ -1,0 +1,68 @@
+import { Meta, Source } from '@storybook/addon-docs';
+import Feedback from '../../docs/common/feedback.md';
+
+<Meta title="Components/Banner message (WIP)/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Banner message
+
+<p class="standfirst">Full-width banner to display at the top of a page, beneath the header but before the hero or other page content.</p>
+
+
+## Warning: Work in progress
+
+This component is still in development and will be enhanced with more features in the near future.
+
+Things left to do:
+
+- Add ability to optionally dismiss the banner
+- Add the error variant once the design has been finalised
+- Add styling to control links and buttons in the projected content
+
+## Usage
+
+Import the banner module into your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgBannerModule ],
+});
+```
+
+and in your HTML:
+
+<Source id="components-banner-message-wip-examples--standard-banner"></Source>
+
+### Variants
+
+There are 2 different variants to choose from: 'generic' and 'warning'.
+
+## Dos and Don'ts
+
+### Do
+
+![do](docs/banner/do.png)
+
+1. **Do** keep the message succinct.
+2. **Do** include a link to take an action or get more detailed information, when appropriate.
+
+## Don't
+
+![dont](docs/banner/dont.png)
+
+1. **Don't** use Banner message as a feedback mechanism. Consider using inline Message, Pop-up Notifcation or Modal Dialog instead.
+2. **Don't** use warning or error colours for the wrong purposes.
+3. **Don't** overload with messages. No more than one banner message at a time.
+
+## Additional development details
+
+### Inputs
+
+| Name       | Description                                                                                            | Type      | Default   | Required |
+|------------|--------------------------------------------------------------------------------------------------------|-----------|-----------|----------|
+| `variant`  | Applies colour treatment and ARIA role if applicable: `generic`, `warning` | `string`  | `generic` | No       |
+
+
+---
+
+<Feedback />

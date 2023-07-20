@@ -22,6 +22,8 @@ module.exports = {
     '../projects/canopy/src/lib/accordion/docs/accordion.stories.ts',
     '../projects/canopy/src/lib/alert/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/alert/docs/alert.stories.ts',
+    '../projects/canopy/src/lib/banner/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/banner/docs/banner.stories.ts',
     '../projects/canopy/src/styles/blockquote.stories.mdx',
     '../projects/canopy/src/styles/blockquote.stories.ts',
     '../projects/canopy/src/lib/breadcrumb/docs/guide.stories.mdx',
