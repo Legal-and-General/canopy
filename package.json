@@ -119,7 +119,7 @@
     "protractor": "^7.0.0",
     "sass": "^1.56.1",
     "semantic-release": "^19.0.5",
-    "stylelint": "^14.15.0",
+    "stylelint": "^15.10.2",
     "stylelint-config-recommended": "^9.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1",
     "svg-to-ts": "^8.9.0",
