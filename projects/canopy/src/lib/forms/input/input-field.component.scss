@@ -23,13 +23,7 @@
     }
   }
 
-  &--focus .lg-input {
-    padding-left: calc(var(--space-sm) - var(--keyline-width) + var(--border-width));
-  }
-
   &--focus &__prefix {
-    margin-left: calc(var(--suffix-margin) - var(--keyline-width) + var(--border-width));
-
     + .lg-input {
       padding-left: var(--space-sm);
     }
