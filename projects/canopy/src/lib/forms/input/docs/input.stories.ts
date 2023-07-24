@@ -349,3 +349,12 @@ setupInputStoryValues(withMultipleButtonSuffixes, inputTemplate, {
   showButtonFirstSuffix: true,
   showButtonSecondSuffix: true,
 });
+
+export const withTextPrefix = inputStory.bind({});
+withTextPrefix.storyName = 'With text prefix';
+
+setupInputStoryValues(withTextPrefix, inputTemplate, {
+  showTextPrefix: true,
+  label: 'Amount',
+  hint: null,
+});
