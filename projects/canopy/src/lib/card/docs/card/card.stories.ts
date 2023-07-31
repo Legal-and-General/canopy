@@ -7,21 +7,21 @@ import {
 import { RouterModule } from '@angular/router';
 import { moduleMetadata, Story } from '@storybook/angular';
 
-import { LgGridModule } from '../../grid/grid.module';
-import { LgPaddingModule } from '../../spacing/padding/padding.module';
-import { LgMarginModule } from '../../spacing/margin/margin.module';
-import { LgBreadcrumbModule } from '../../breadcrumb/breadcrumb.module';
-import { LgIconModule } from '../../icon/icon.module';
-import { LgButtonModule } from '../../button/button.module';
-import { LgInputModule } from '../../forms/input/input.module';
-import { LgLabelModule } from '../../forms/label/label.module';
-import { LgHintModule } from '../../forms/hint/hint.module';
-import { LgSeparatorModule } from '../../separator/separator.module';
-import { lgIconChevronLeft, LgIconRegistry } from '../../icon';
-import { LgCardComponent } from '../card.component';
-import { LgCardModule } from '../card.module';
-import { LgDataPointModule } from '../../data-point';
-import { LgLinkMenuModule } from '../../link-menu';
+import { LgGridModule } from '../../../grid/grid.module';
+import { LgPaddingModule } from '../../../spacing/padding/padding.module';
+import { LgMarginModule } from '../../../spacing/margin/margin.module';
+import { LgBreadcrumbModule } from '../../../breadcrumb/breadcrumb.module';
+import { LgIconModule } from '../../../icon/icon.module';
+import { LgButtonModule } from '../../../button/button.module';
+import { LgInputModule } from '../../../forms/input/input.module';
+import { LgLabelModule } from '../../../forms/label/label.module';
+import { LgHintModule } from '../../../forms/hint/hint.module';
+import { LgSeparatorModule } from '../../../separator/separator.module';
+import { lgIconChevronLeft, LgIconRegistry } from '../../../icon';
+import { LgCardComponent } from '../../card.component';
+import { LgCardModule } from '../../card.module';
+import { LgDataPointModule } from '../../../data-point';
+import { LgLinkMenuModule } from '../../../link-menu';
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
