@@ -1,6 +1,7 @@
 export * from './card-content/card-content.component';
 export * from './card-content-inner-data-points/card-content-inner-data-points.component';
 export * from './card-header/card-header.component';
+export * from './card-hero-img/card-hero-img.component';
 export * from './card-principle-data-point-date/card-principle-data-point-date.component';
 export * from './card-principle-data-point-label/card-principle-data-point-label.component';
 export * from './card-principle-data-point-value/card-principle-data-point-value.component';

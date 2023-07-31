@@ -1,5 +1,5 @@
 import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import Feedback from '../../../docs/common/feedback.md';
 
 <Meta title="Components/Card/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
 
@@ -102,6 +102,69 @@ The main body of the card. It accepts the projection of the following components
 - `LgCardHeaderComponent`
 - `LgCardContent`
 - `LgCardFooter`
+
+#### Inputs
+For Orientation each **key** is a mobile-first breakpoint from the standard list of available breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`.
+The current available options for Orientation are `vertical`, `horizontal`, `reverse-vertical`, `reverse-horizontal`.
+
+| Name           | Description                                                 | Type                | Default | Required |
+|----------------|-------------------------------------------------------------|---------------------|---------|----------|
+|   `variant`    | The variant of the card: `promotion`                        | `string`            |`default`|  No      |
+| `orientation`  | The orientation of the card content: `sm: 'vertical'`       | `SpacingResponsive` |   n/a   |  No      |
+
+### Responsive examples of orientations
+
+At the `sm` breakpoint apply `vertical` orientation, then at the `md` breakpoint apply `horizontal` orientation, then at the `lg` breakpoint apply `vertical` orientation.
+
+```html
+
+<lg-card [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }"></lg-card>
+
+```
+
+### LgCardHeroImageComponent
+
+This is the primary layout section of the card component, it is used to contain a hero Image or a Brand Icon.
+To use this component with a Brand Icon, the following is needed:
+
+Import the brand icon module in your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgBrandIconModule ],
+});
+```
+
+Import the `LgBrandIconRegistry` service and register your brand icons inside your module:
+
+```js
+// import the desired icon
+import { lgBrandIconSun } from '@legal-and-general/canopy';
+
+
+export class SomeModule {
+  constructor(private brandIconRegistry: LgBrandIconRegistry) {
+    // register the icon using the `brandIconRegistry` service
+    this.brandIconRegistry.registerBrandIcon([
+      lgBrandIconSun
+    ]);
+  }
+}
+```
+
+and in the HTML
+```html
+<lg-card-hero-img>
+  <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
+</lg-card-hero-img>
+```
+
+#### Inputs
+
+| Name           | Description                                                 | Type     | Default | Required |
+|----------------|-------------------------------------------------------------|----------|---------|----------|
+|   `imageUrl`   | The image url to be displayed: `/testUrl`                   | `string` | n/a     | No       |
 
 ### LgCardHeaderComponent
 
