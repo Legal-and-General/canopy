@@ -13,11 +13,14 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import type { SpacingResponsive } from '../spacing/spacing.interface';
 import { LgButtonToggleDirective } from '../button';
-import { SpacingService } from '../spacing/spacing.service';
 
-import { CardVariant, lgCardPanelIdPrefix, lgCardToggleIdPrefix } from './card.interface';
+import {
+  CardVariant,
+  lgCardPanelIdPrefix,
+  lgCardToggleIdPrefix,
+  OrientationResponsive,
+} from './card.interface';
 import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
 import { LgCardNavigationTitleComponent } from './card-navigation-title/card-navigation-title.component';
 
@@ -46,16 +49,12 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
   cardNavigationTitle: LgCardNavigationTitleComponent;
   @Input() variant: CardVariant = 'default';
 
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-    private spacingService: SpacingService,
-  ) {}
+  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
 
   @Input()
-  set orientation(orientation: SpacingResponsive) {
+  set orientation(orientation: OrientationResponsive) {
     this.orientationClasses = this.toggleClasses(
-      this.spacingService.createNewClasses(orientation, 'orientation'),
+      this.createNewOrientationClasses(orientation),
       this.orientationClasses,
     );
   }
@@ -94,6 +93,16 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
 
     newClasses.forEach(newClass => {
       this.renderer.addClass(this.hostElement.nativeElement, newClass);
+    });
+
+    return newClasses;
+  }
+
+  createNewOrientationClasses(rules: OrientationResponsive): Array<string> {
+    const newClasses = [];
+
+    Object.keys(rules).forEach(key => {
+      newClasses.push(`lg-orientation--${key}--${rules[key]}`);
     });
 
     return newClasses;

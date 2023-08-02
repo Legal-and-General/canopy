@@ -3,4 +3,10 @@
   class="lg-card-hero-image__content"
   [style.background-image]="'url(' + imageUrl + ')'"
 ></div>
+<img
+  *ngIf="imageSrc"
+  alt="card-hero-img"
+  [attr.src]="imageSrc"
+  class="lg-card-hero-image__src-content"
+/>
 <ng-content select="lg-brand-icon"></ng-content>
