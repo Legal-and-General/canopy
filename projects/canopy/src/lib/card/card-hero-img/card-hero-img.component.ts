@@ -15,8 +15,9 @@ import {
 })
 export class LgCardHeroImageComponent {
   @Input() imageUrl: string;
+  @Input() imageSrc: string;
   @HostBinding('class') get class(): string {
-    if (this.imageUrl) {
+    if (this.imageUrl || this.imageSrc) {
       return 'lg-card-hero-img';
     }
 

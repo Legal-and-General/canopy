@@ -125,6 +125,24 @@ At the `sm` breakpoint apply `vertical` orientation, then at the `md` breakpoint
 ### LgCardHeroImageComponent
 
 This is the primary layout section of the card component, it is used to contain a hero Image or a Brand Icon.
+An image is added via the `imageUrl` input. A Brand Icon is added via content projection using the `<lg-brand-icon>` component.
+
+#### Displaying an Image
+To display an image as the background image of this element, simply provide a URL to the desired image to the `imageUrl` input.
+``
+<lg-card-hero-img [imageUrl]="imageUrl">
+</lg-card-hero-img>
+``
+
+To display an image, simply provide a URL to the desired image to the `imageSrc` input. Using this method will set the image to the
+full width and height of the container, so you will need to choose the image size carefully to fit for purpose. We recomand a image with aspect ratio of
+3:2, dimensions: 600 × 400.
+``
+<lg-card-hero-img [imageSrc]="imageUrl">
+</lg-card-hero-img>
+``
+
+#### Displaying a Brand Icon
 To use this component with a Brand Icon, the following is needed:
 
 Import the brand icon module in your application:
@@ -165,6 +183,7 @@ and in the HTML
 | Name           | Description                                                 | Type     | Default | Required |
 |----------------|-------------------------------------------------------------|----------|---------|----------|
 |   `imageUrl`   | The image url to be displayed: `/testUrl`                   | `string` | n/a     | No       |
+|   `imageSrc`   | The image url to be displayed: `/testUrl`                   | `string` | n/a     | No       |
 
 ### LgCardHeaderComponent
 
