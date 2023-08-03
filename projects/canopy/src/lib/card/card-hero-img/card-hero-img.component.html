@@ -1,12 +1,12 @@
 <div
-  *ngIf="imageUrl"
-  class="lg-card-hero-image__content"
-  [style.background-image]="'url(' + imageUrl + ')'"
+  *ngIf="coverImageUrl"
+  class="lg-card-hero-image__cover-image"
+  [style.background-image]="'url(' + coverImageUrl + ')'"
 ></div>
 <img
   *ngIf="imageSrc"
-  alt="card-hero-img"
-  [attr.src]="imageSrc"
-  class="lg-card-hero-image__src-content"
+  [alt]="imageAlt"
+  [src]="imageSrc"
+  class="lg-card-hero-image__img"
 />
 <ng-content select="lg-brand-icon"></ng-content>
