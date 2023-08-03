@@ -280,8 +280,8 @@ describe('LgCardComponent', () => {
       expect(component.orientationClasses).toContain('lg-orientation--md--horizontal');
     });
 
-    it('should set the class lg-card-orientation on the lg-card', () => {
-      expect(el.className).toContain('lg-card-orientation');
+    it('should set the class lg-card--orientation on the lg-card', () => {
+      expect(el.className).toContain('lg-card--orientation');
     });
 
     it('should set the correct orientation classes on the lg-card', () => {

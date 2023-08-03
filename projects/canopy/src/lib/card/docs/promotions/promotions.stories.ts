@@ -33,7 +33,7 @@ const promotionsGeneralCardTemplate = `
   variant="promotion"
   [orientation]="orientation">
   <lg-card-hero-img
-    [imageUrl]="hasIcon ? '' : imgUrl">
+    [coverImageUrl]="hasIcon ? '' : imgUrl">
     <lg-brand-icon *ngIf="hasIcon" [name]="iconName" size="xs"></lg-brand-icon>
   </lg-card-hero-img>
   <lg-card-content>

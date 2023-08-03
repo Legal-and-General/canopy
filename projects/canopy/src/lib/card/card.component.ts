@@ -58,7 +58,7 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
       this.orientationClasses,
     );
   }
-  @HostBinding('class.lg-card-orientation') get orientationClass(): boolean {
+  @HostBinding('class.lg-card--orientation') get orientationClass(): boolean {
     return this.orientationClasses.length !== 0;
   }
 

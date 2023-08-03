@@ -29,7 +29,7 @@ and in your HTML, for a general promotion card with image:
   lgPadding="none"
   variant="promotion"
   [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
-  <lg-card-hero-img [imageUrl]="imageUrl">
+  <lg-card-hero-img [coverImageUrl]="imageUrl">
   </lg-card-hero-img>
   <lg-card-content>
     <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -91,7 +91,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -116,7 +116,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -132,7 +132,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -157,7 +157,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -173,7 +173,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -189,7 +189,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -217,7 +217,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -233,7 +233,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -249,7 +249,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -270,7 +270,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -286,7 +286,7 @@ In the examples bellow, we use The Canopy Grid System to get the desired layout 
         lgPadding="none"
         variant="promotion"
         [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [imageUrl]="imageUrl">
+        <lg-card-hero-img [coverImageUrl]="imageUrl">
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
@@ -398,17 +398,20 @@ The main body of the promotion card. It's composed by the following components:
 - `LgCardContent`
 
 #### Inputs
-For Orientation each **key** is a mobile-first breakpoint from the standard list of available breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`.
+The orientation input arranges the direct children of the card in vertical or horizontal layout, a responsive way.
+It accepts an object, where the **key** is a mobile-first breakpoint from the standard list of available breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`.
+The value is from the set of available Orientation options.
 The current available options for Orientation are `vertical`, `horizontal`, `reverse-vertical`, `reverse-horizontal`.
 
-| Name           | Description                                                 | Type                | Default | Required |
-|----------------|-------------------------------------------------------------|---------------------|---------|----------|
-|   `variant`    | The variant of the card: `promotion`                        | `string`            |`default`| Yes      |
-| `orientation`  | The orientation of the card content: `sm: 'vertical'`       | `SpacingResponsive` |   n/a   |  No      |
+| Name           | Description                                                     | Type                    | Default | Required |
+|----------------|-----------------------------------------------------------------|-------------------------|---------|----------|
+|   `variant`    | The variant of the card: `promotion`                            | `string`                |`default`| Yes      |
+| `orientation`  | The orientation of the card content: `{ sm: 'vertical' }`       | `OrientationResponsive` |   n/a   |  No      |
 
 ### Responsive examples of orientations
 
-At the `sm` breakpoint apply `vertical` orientation, then at the `md` breakpoint apply `horizontal` orientation, then at the `lg` breakpoint apply `vertical` orientation.
+Let's say that at the `sm` breakpoint you want to apply `vertical` orientation, then at the `md` breakpoint apply `horizontal` orientation, then at the `lg` breakpoint apply `vertical` orientation.
+The object you'd pass into `orientation` would look like this:
 
 ```html
 
@@ -419,18 +422,24 @@ At the `sm` breakpoint apply `vertical` orientation, then at the `md` breakpoint
 ### LgCardHeroImageComponent
 
 This is the primary layout section of the card component, it is used to contain a hero Image or a Brand Icon.
-An image is added via the `imageUrl` input. A Brand Icon is added via content projection using the `<lg-brand-icon>` component.
+An image is added via either the `coverImageUrl` input, or 'imageSrc' input(see below for differences). A Brand Icon is added via content projection using the `<lg-brand-icon>` component.
 
-#### Displaying an Image
-To display an image as the background image of this element, simply provide a URL to the desired image to the `imageUrl` input.
+#### Displaying a background cover image
+To display an image as the background image of this element, which fills the container at a set height or width using `background-size: cover`, simply provide a URL to the desired image to the `coverImageUrl` input.
+
+Note that this image will fill the space of the container, but will preserve it's own aspect ratio, and therefore will be cropped in various ways. For example, on a tablet breakpoint, the container has a portrait aspect ratio, and then on desktop, it is landscape. Therefore we recommend that you only use images that are a large square, with the focus of the image in the centre (like a face), to avoid anything important being cut off.
+
 ``
-<lg-card-hero-img [imageUrl]="imageUrl">
+<lg-card-hero-img [coverImageUrl]="imageUrl">
 </lg-card-hero-img>
 ``
 
+#### Displaying a normal image tag
 To display an image, simply provide a URL to the desired image to the `imageSrc` input. Using this method will set the image to the
 full width and height of the container, so you will need to choose the image size carefully to fit for purpose. We recomand a image with aspect ratio of
-3:2, dimensions: 600 × 400.
+3:2, dimensions: 600 × 400. You can also give an image alt text using the `imageAlt` input, and if the `imageAlt` input is not defined it will default
+to 'card-hero-img' as alt text for the image.
+
 ``
 <lg-card-hero-img [imageSrc]="imageUrl">
 </lg-card-hero-img>
@@ -474,10 +483,11 @@ and in the HTML
 
 #### Inputs
 
-| Name           | Description                                                 | Type     | Default | Required |
-|----------------|-------------------------------------------------------------|----------|---------|----------|
-|   `imageUrl`   | The image url to be displayed: `/testUrl`                   | `string` | n/a     | No       |
-|   `imageSrc`   | The image url to be displayed: `/testUrl`                   | `string` | n/a     | No       |
+| Name           | Description                                                                             | Type     | Default          | Required |
+|----------------|-----------------------------------------------------------------------------------------|----------|------------------|----------|
+|`coverImageUrl` | The image url to be displayed as a background cover image: `/testUrl`                   | `string` | n/a              | No       |
+|   `imageSrc`   | The image url to be displayed as an image tag: `/testUrl`                               | `string` | n/a              | No       |
+|   `imageAlt`   | The alternate text for an image, if the image cannot be displayed: `card-hero-img`      | `string` | `card-hero-img`  | No       |
 
 ### LgCardContent
 

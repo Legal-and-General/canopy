@@ -4,7 +4,7 @@
   display: block;
   @include lg-card;
 
-  &.lg-card--promotion {
+  &--promotion {
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -15,7 +15,33 @@
     }
   }
 
-  &.lg-card-orientation {
+  &--navigation {
+    padding-top: 0;
+    transition: box-shadow 250ms;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.01), 0 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.02),
+      0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.02), 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.02),
+      0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.03), 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.04);
+
+    &:hover {
+      box-shadow: 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.02),
+        0 0.125rem 0.0125rem 0 rgba(0, 0, 0, 0.03),
+        0 0.25rem 0.625rem 0 rgba(0, 0, 0, 0.04),
+        0 0.4375rem 1.125rem 0 rgba(0, 0, 0, 0.04),
+        0 0.8125rem 2.0625rem 0 rgba(0, 0, 0, 0.05), 0 2rem 5rem 0 rgba(0, 0, 0, 0.07);
+    }
+
+    .lg-card-header__title {
+      @include lg-breakpoint('md') {
+        margin-right: 0;
+      }
+    }
+
+    .lg-card-header {
+      border-bottom: none;
+    }
+  }
+
+  &.lg-card--orientation {
     display: flex;
     flex-direction: column;
 
@@ -113,32 +139,6 @@
       &.lg-orientation--xxl--reverse-horizontal {
         flex-direction: row-reverse;
       }
-    }
-  }
-
-  &--navigation {
-    padding-top: 0;
-    transition: box-shadow 250ms;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.01), 0 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.02),
-      0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.02), 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.02),
-      0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.03), 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.04);
-
-    &:hover {
-      box-shadow: 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.02),
-        0 0.125rem 0.0125rem 0 rgba(0, 0, 0, 0.03),
-        0 0.25rem 0.625rem 0 rgba(0, 0, 0, 0.04),
-        0 0.4375rem 1.125rem 0 rgba(0, 0, 0, 0.04),
-        0 0.8125rem 2.0625rem 0 rgba(0, 0, 0, 0.05), 0 2rem 5rem 0 rgba(0, 0, 0, 0.07);
-    }
-
-    .lg-card-header__title {
-      @include lg-breakpoint('md') {
-        margin-right: 0;
-      }
-    }
-
-    .lg-card-header {
-      border-bottom: none;
     }
   }
 }

@@ -21,8 +21,8 @@ describe('LgCardHeroImageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set the correct class if it has an image URL', () => {
-    component.imageUrl = 'test';
+  it('should set the correct class if it has a cover image URL', () => {
+    component.coverImageUrl = 'test';
 
     fixture.detectChanges();
 
@@ -31,19 +31,50 @@ describe('LgCardHeroImageComponent', () => {
     expect(el.classList).toContain('lg-card-hero-img');
   });
 
-  it('should set the correct backgroundImage if it has an image URL', () => {
-    component.imageUrl = 'test';
+  it('should set the correct class if it has an image Src', () => {
+    component.imageSrc = 'test';
 
     fixture.detectChanges();
 
     const el: HTMLElement = fixture.nativeElement;
-    const innerEl: HTMLElement = el.querySelector('.lg-card-hero-image__content');
+
+    expect(el.classList).toContain('lg-card-hero-img');
+  });
+
+  it('should set the default alt text if it has an image Src and no image Alt', () => {
+    component.imageSrc = 'test';
+
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.children[0].nativeElement.getAttribute('alt')).toContain(
+      'card-hero-img',
+    );
+  });
+
+  it('should set the correct alt text if it has an image Src and a image Alt', () => {
+    component.imageSrc = 'test';
+    component.imageAlt = 'alt-test';
+
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.children[0].nativeElement.getAttribute('alt')).toContain(
+      'alt-test',
+    );
+  });
+
+  it('should set the correct backgroundImage if it has a cover image URL', () => {
+    component.coverImageUrl = 'test';
+
+    fixture.detectChanges();
+
+    const el: HTMLElement = fixture.nativeElement;
+    const innerEl: HTMLElement = el.querySelector('.lg-card-hero-image__cover-image');
 
     expect(innerEl.style.backgroundImage).toContain('url("test")');
   });
 
-  it('should set the correct class if it does not have an image URL', () => {
-    component.imageUrl = undefined;
+  it('should set the correct class if it does not have a cover image URL', () => {
+    component.coverImageUrl = undefined;
 
     fixture.detectChanges();
 

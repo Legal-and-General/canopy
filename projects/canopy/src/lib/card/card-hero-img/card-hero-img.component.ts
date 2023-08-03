@@ -14,10 +14,11 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class LgCardHeroImageComponent {
-  @Input() imageUrl: string;
+  @Input() coverImageUrl: string;
   @Input() imageSrc: string;
+  @Input() imageAlt = 'card-hero-img';
   @HostBinding('class') get class(): string {
-    if (this.imageUrl || this.imageSrc) {
+    if (this.coverImageUrl || this.imageSrc) {
       return 'lg-card-hero-img';
     }
 
