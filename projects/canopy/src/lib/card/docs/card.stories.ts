@@ -411,7 +411,7 @@ const dataPointsCardTemplate = `
       </lg-data-point>
     </lg-card-content-inner-data-points>
   </lg-card-content>
-  <lg-card-footer>
+  <lg-card-footer lgPaddingTop="none">
     <lg-link-menu>
       <a href="" target="_blank">
         <lg-link-menu-item>
