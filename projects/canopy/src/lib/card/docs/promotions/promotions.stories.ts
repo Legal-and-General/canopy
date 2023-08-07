@@ -24,6 +24,7 @@ import {
   LgBrandIconRegistry,
   LgBrandIconModule,
 } from '../../../brand-icon';
+import { LgOrientationModule } from '../../../orientation';
 
 const promotionsGeneralCardTemplate = `
 <lg-card
@@ -31,9 +32,10 @@ const promotionsGeneralCardTemplate = `
   lgMarginBottom="lg"
   [lgPadding]="hasIcon ? 'lg' : 'none'"
   variant="promotion"
-  [orientation]="orientation">
+  [lgOrientation]="orientation">
   <lg-card-hero-img
-    [coverImageUrl]="hasIcon ? '' : imgUrl">
+    [cover]="true"
+    [src]="hasIcon ? '' : imgUrl">
     <lg-brand-icon *ngIf="hasIcon" [name]="iconName" size="xs"></lg-brand-icon>
   </lg-card-hero-img>
   <lg-card-content>
@@ -87,6 +89,7 @@ export default {
         LgMarginModule,
         LgSeparatorModule,
         LgBrandIconModule,
+        LgOrientationModule,
         RouterModule.forRoot([]),
       ],
     }),

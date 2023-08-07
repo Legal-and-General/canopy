@@ -9,7 +9,7 @@
     flex-direction: column;
     overflow: hidden;
 
-    .lg-card-hero-img + .lg-card-content {
+    .lg-card-hero-img__img + .lg-card-content {
       padding: var(--space-lg);
       padding-top: var(--space-md);
     }
@@ -38,107 +38,6 @@
 
     .lg-card-header {
       border-bottom: none;
-    }
-  }
-
-  &.lg-card--orientation {
-    display: flex;
-    flex-direction: column;
-
-    &.lg-orientation--sm--vertical {
-      flex-direction: column;
-    }
-
-    &.lg-orientation--sm--reverse-vertical {
-      flex-direction: column-reverse;
-    }
-
-    &.lg-orientation--sm--horizontal {
-      flex-direction: row;
-    }
-
-    &.lg-orientation--sm--reverse-horizontal {
-      flex-direction: row-reverse;
-    }
-
-    @include lg-breakpoint('md') {
-      flex-direction: row;
-
-      &.lg-orientation--md--vertical {
-        flex-direction: column;
-      }
-
-      &.lg-orientation--md--reverse-vertical {
-        flex-direction: column-reverse;
-      }
-
-      &.lg-orientation--md--horizontal {
-        flex-direction: row;
-      }
-
-      &.lg-orientation--md--reverse-horizontal {
-        flex-direction: row-reverse;
-      }
-    }
-
-    @include lg-breakpoint('lg') {
-      flex-direction: column;
-
-      &.lg-orientation--lg--vertical {
-        flex-direction: column;
-      }
-
-      &.lg-orientation--lg--reverse-vertical {
-        flex-direction: column-reverse;
-      }
-
-      &.lg-orientation--lg--horizontal {
-        flex-direction: row;
-      }
-
-      &.lg-orientation--lg--reverse-horizontal {
-        flex-direction: row-reverse;
-      }
-    }
-
-    @include lg-breakpoint('xl') {
-      flex-direction: column;
-
-      &.lg-orientation--xl--vertical {
-        flex-direction: column;
-      }
-
-      &.lg-orientation--xl--reverse-vertical {
-        flex-direction: column-reverse;
-      }
-
-      &.lg-orientation--xl--horizontal {
-        flex-direction: row;
-      }
-
-      &.lg-orientation--xl--reverse-horizontal {
-        flex-direction: row-reverse;
-      }
-    }
-
-    @include lg-breakpoint('xxl') {
-      flex-direction: column;
-
-      &.lg-orientation--xxl--vertical {
-        flex-direction: column;
-      }
-
-      &.lg-orientation--xxl--reverse-vertical {
-        flex-direction: column-reverse;
-      }
-
-      &.lg-orientation--xxl--horizontal {
-        flex-direction: row;
-      }
-
-      &.lg-orientation--xxl--reverse-horizontal {
-        flex-direction: row-reverse;
-      }
     }
   }
 }

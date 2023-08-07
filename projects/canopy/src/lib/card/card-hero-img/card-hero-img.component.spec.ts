@@ -21,39 +21,43 @@ describe('LgCardHeroImageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set the correct class if it has a cover image URL', () => {
-    component.coverImageUrl = 'test';
+  it('should render the correct element if it has cover true', () => {
+    component.src = 'test';
+    component.cover = true;
 
     fixture.detectChanges();
 
     const el: HTMLElement = fixture.nativeElement;
+    const innerEl: HTMLElement = el.querySelector('.lg-card-hero-image__cover-image');
 
-    expect(el.classList).toContain('lg-card-hero-img');
+    expect(innerEl.classList).toBeTruthy();
+  });
+
+  it('should render the correct element if it has cover false', () => {
+    component.src = 'test';
+    component.cover = false;
+
+    fixture.detectChanges();
+
+    const el: HTMLElement = fixture.nativeElement;
+    const innerEl: HTMLElement = el.querySelector('.lg-card-hero-image__img');
+
+    expect(innerEl.classList).toBeTruthy();
   });
 
   it('should set the correct class if it has an image Src', () => {
-    component.imageSrc = 'test';
+    component.src = 'test';
 
     fixture.detectChanges();
 
     const el: HTMLElement = fixture.nativeElement;
 
-    expect(el.classList).toContain('lg-card-hero-img');
-  });
-
-  it('should set the default alt text if it has an image Src and no image Alt', () => {
-    component.imageSrc = 'test';
-
-    fixture.detectChanges();
-
-    expect(fixture.debugElement.children[0].nativeElement.getAttribute('alt')).toContain(
-      'card-hero-img',
-    );
+    expect(el.classList).toContain('lg-card-hero-img__img');
   });
 
   it('should set the correct alt text if it has an image Src and a image Alt', () => {
-    component.imageSrc = 'test';
-    component.imageAlt = 'alt-test';
+    component.src = 'test';
+    component.alt = 'alt-test';
 
     fixture.detectChanges();
 
@@ -63,7 +67,8 @@ describe('LgCardHeroImageComponent', () => {
   });
 
   it('should set the correct backgroundImage if it has a cover image URL', () => {
-    component.coverImageUrl = 'test';
+    component.cover = true;
+    component.src = 'test';
 
     fixture.detectChanges();
 
@@ -73,13 +78,13 @@ describe('LgCardHeroImageComponent', () => {
     expect(innerEl.style.backgroundImage).toContain('url("test")');
   });
 
-  it('should set the correct class if it does not have a cover image URL', () => {
-    component.coverImageUrl = undefined;
+  it('should set the correct class if it does not have a Image src', () => {
+    component.src = undefined;
 
     fixture.detectChanges();
 
     const el: HTMLElement = fixture.nativeElement;
 
-    expect(el.classList).toContain('lg-card-hero-icon');
+    expect(el.classList).toContain('lg-card-hero-img__icon');
   });
 });

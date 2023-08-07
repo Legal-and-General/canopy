@@ -111,7 +111,7 @@ describe('LgCardComponent', () => {
     beforeEach(() => {
       const localFixture = MockRender(`
         <lg-card>
-         <lg-card-hero-img imageUrl="/test"></lg-card-hero-img>
+         <lg-card-hero-img src="/test"></lg-card-hero-img>
          <lg-card-content>Content</lg-card-content>
         </lg-card>
       `);
@@ -125,11 +125,9 @@ describe('LgCardComponent', () => {
     it('should expect card hero-image to render', () => {
       expect(debugElement.query(By.directive(LgCardHeroImageComponent))).toBeTruthy();
 
-      expect(
-        debugElement
-          .query(By.directive(LgCardHeroImageComponent))
-          .nativeElement.getAttribute('imageurl'),
-      ).toContain('/test');
+      expect(debugElement.children[0].children[0].componentInstance.src).toContain(
+        '/test',
+      );
     });
 
     it('should expect card content to render', () => {
@@ -255,39 +253,6 @@ describe('LgCardComponent', () => {
 
     it('should set the class lg-card--navigation on the lg-card', () => {
       expect(el.className).toContain('lg-card--navigation');
-    });
-  });
-
-  describe('when there is orientation', () => {
-    beforeEach(() => {
-      const localFixture = MockRender(`
-        <lg-card [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img imageUrl="/test"></lg-card-hero-img>
-         <lg-card-content>
-            Hello
-         </lg-card-content>
-        </lg-card>
-      `);
-
-      debugElement = localFixture.debugElement;
-      el = debugElement.children[0].nativeElement;
-      component = debugElement.children[0].componentInstance;
-      localFixture.detectChanges();
-    });
-
-    it('should populate the orientationClasses array on the lg-card', () => {
-      expect(component.orientationClasses.length).toBe(3);
-      expect(component.orientationClasses).toContain('lg-orientation--md--horizontal');
-    });
-
-    it('should set the class lg-card--orientation on the lg-card', () => {
-      expect(el.className).toContain('lg-card--orientation');
-    });
-
-    it('should set the correct orientation classes on the lg-card', () => {
-      expect(el.className).toContain('lg-orientation--sm--vertical');
-      expect(el.className).toContain('lg-orientation--md--horizontal');
-      expect(el.className).toContain('lg-orientation--lg--vertical');
     });
   });
 });
