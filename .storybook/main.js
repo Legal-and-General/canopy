@@ -113,6 +113,8 @@ module.exports = {
     '../projects/canopy/src/lib/grid/docs/grid.stories.ts',
     '../projects/canopy/src/lib/hide-at/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/hide-at/docs/hide-at.stories.ts',
+    '../projects/canopy/src/lib/orientation/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/orientation/docs/orientation.stories.ts',
     '../projects/canopy/src/lib/shadow/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/shadow/docs/shadow.stories.ts',
     '../projects/canopy/src/lib/show-at/docs/guide.stories.mdx',

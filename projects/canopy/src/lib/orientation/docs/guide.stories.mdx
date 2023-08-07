@@ -1,0 +1,111 @@
+import { Meta } from '@storybook/addon-docs';
+import Feedback from '../../docs/common/feedback.md';
+
+<Meta title="Helpers/Directives/Orientation/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+
+# Orientation
+
+The orientation directive arranges the direct children of the host element in a vertical or horizontal layout, in a responsive way.
+It accepts an object, where the **key** is a mobile-first breakpoint from the standard list of available breakpoints: `sm`, `md`, `lg`, `xl`, `xxl`.
+The **value** is from the set of available Orientation options.
+The current available options for Orientation are `vertical`, `horizontal`, `reverse-vertical` and `reverse-horizontal`.
+
+## Usage
+
+Import the orientation module in your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgOrientationModule ],
+});
+```
+
+In your HTML, apply the directive to the relevant component. If the default `lgOrientation` attribute has no value, the default orientation will remain.
+
+Pass in a **responsive orientation object** (see below).
+
+```html
+<lg-card [lgOrientation]="{ md: 'horizontal', lg: 'vertical' }"></lg-card>
+```
+
+## Responsive orientation
+
+### Responsive orientation object
+
+Use a responsive orientation object which will apply different layout orientations at the specified breakpoints, as defined by the `OrientationResponsive` type. Example:
+
+```js
+{
+  md: "horizontal",
+  lg: "vertical"
+}
+```
+
+Each **key** is a mobile-first breakpoint from the standard list of available breakpoints: `sm`, `md`, `lg`, `xl`, `xxl`.
+
+The **value** is from the set of available Orientation options.
+The current available options for Orientation are `vertical`, `horizontal`, `reverse-vertical` and `reverse-horizontal`.
+
+In the example above, the orientation at the `md` breakpoint will be `horizontal`, and at the `lg` will be `vertical`.
+
+### Orientation options
+
+Have this example in mind:
+```html
+<lg-card [lgOrientation]="{ sm: 'vertical' }">
+  <lg-card-hero-img
+    [cover]="true"
+    src="promo-card/general-promotion1.jpg">
+  </lg-card-hero-img>
+  <lg-card-content>
+    <h3 lgMarginBottom="xxs" class="lg-font--expressive">Content</h3>
+  </lg-card-content>
+</lg-card>
+```
+**vertical** - arranges the direct children of the host element in a vertical layout. The children maintain the same order and 'lg-card-hero-img' is displayed first at the top, followed by 'lg-card-content'.
+
+**horizontal** - arranges the direct children of the host element in a horizontal layout. The children maintain the same order and 'lg-card-hero-img' is displayed first on the left, followed by 'lg-card-content'.
+
+**reverse-vertical** - arranges the direct children of the host element in a **reverse** vertical layout. The children do not maintain the same order and 'lg-card-content' is displayed first at the top, followed by 'lg-card-hero-img'.
+
+**reverse-horizontal** - arranges the direct children of the host element in a **reverse** horizontal layout. The children do not maintain the same order and 'lg-card-content' is displayed first on the left, followed by 'lg-card-hero-img'.
+
+### Examples
+
+
+At the `sm` breakpoint apply `vertical` orientation, then at the `md` breakpoint apply `horizontal` orientation.
+
+```html
+
+<lg-card [lgOrientation]="{ sm: 'vertical', md: 'horizontal' }"></lg-card>
+
+```
+
+At the `sm` breakpoint apply `vertical` orientation, at the `md` breakpoint apply `reverse-horizontal` orientation, then at the `lg` breakpoint apply `vertical` orientation.
+
+```html
+
+<lg-card [lgOrientation]="{ sm: 'vertical', md: 'reverse-horizontal', lg: 'vertical' }"></lg-card>
+
+```
+
+## Inputs
+
+The current available orientation variants are `vertical`, `horizontal`, `reverse-vertical` and `reverse-horizontal`.
+
+The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
+
+| Name                  | Description                                                   |          Type           | Default | Required |
+|-----------------------|---------------------------------------------------------------|:-----------------------:|:-------:|:--------:|
+| `lgOrientation`       | The orientation variant applied: '{ sm: 'vertical' }'         | `OrientationResponsive` | `null`  |    No    |
+
+---
+
+## Related
+
+- [Promotions pattern](./?path=/docs/patterns-promotions-examples--promotions-general-three-card)
+- [Margin directive](./?path=/docs/helpers-directives-margin-guide--page)
+- [Row gap directive](./?path=/docs/helpers-directives-row-gap-guide--page)
+
+<Feedback />
