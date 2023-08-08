@@ -12,6 +12,7 @@
       }
     ],
     "at-rule-no-unknown": null,
+    "media-query-no-invalid": null,
     "no-descending-specificity": null,
     "unit-allowed-list": ["rem", "em", "%", "ms", "s", "deg", "vh", "vw", "fr"],
     "declaration-empty-line-before": [
