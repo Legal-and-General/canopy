@@ -1,5 +1,6 @@
 import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import CardHeroImageComponent from '../card-hero-image-component.md';
+import Feedback from '../../../docs/common/feedback.md';
 
 <Meta title="Components/Card/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
 
@@ -87,15 +88,30 @@ This component uses some extra card components, such as `LgCardNavigationTitleCo
 
 <Source id="components-card-examples--navigation-card"></Source>
 
+### Card with Data Points
+
+This component uses some extra card components, such as `LgCardContentInnerDataPoints` to display the correct layout of data points.
+
+<Source id="components-card-examples--data-points-card"></Source>
+
 ## Additional development details
 
 ### LgCardComponent
 
 The main body of the card. It accepts the projection of the following components:
 
+- `LgCardHeroImageComponent`
 - `LgCardHeaderComponent`
 - `LgCardContent`
 - `LgCardFooter`
+
+#### Inputs
+
+| Name           | Description                                                     | Type                    | Default | Required |
+|----------------|-----------------------------------------------------------------|-------------------------|---------|----------|
+|   `variant`    | The variant of the card: `promotion`                            | `string`                |`default`|  No      |
+
+<CardHeroImageComponent />
 
 ### LgCardHeaderComponent
 
@@ -104,6 +120,10 @@ This is the primary layout section of the card component, it is used to contain 
 ### LgCardContent
 
 This is the secondary layout section of the card component, it is used to contain the cards main content and provides the inner padding of the card.
+
+### LgCardContentInnerDataPoints
+
+This is the tertiary layout section of the card component, it is used to specifically contain data points components and provides their layout styles.
 
 ### LgCardTitleComponent
 

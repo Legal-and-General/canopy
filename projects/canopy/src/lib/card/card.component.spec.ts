@@ -12,6 +12,7 @@ import { LgCardFooterComponent } from './card-footer/card-footer.component';
 import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from './card.interface';
 import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
 import { LgCardNavigationTitleComponent } from './card-navigation-title/card-navigation-title.component';
+import { LgCardHeroImageComponent } from './card-hero-img/card-hero-img.component';
 
 describe('LgCardComponent', () => {
   let component: LgCardComponent;
@@ -25,6 +26,7 @@ describe('LgCardComponent', () => {
         LgCardComponent,
         MockComponents(
           LgCardHeaderComponent,
+          LgCardHeroImageComponent,
           LgCardContentComponent,
           LgCardToggableContentComponent,
           LgCardFooterComponent,
@@ -51,6 +53,13 @@ describe('LgCardComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-card');
   });
 
+  it('should have the promotion class if variant is promotion', () => {
+    component.variant = 'promotion';
+    fixture.detectChanges();
+
+    expect(el.getAttribute('class')).toContain('lg-card--promotion');
+  });
+
   it('should not set the class lg-card--navigation on the lg-card', () => {
     expect(el.className).not.toContain('lg-card--navigation');
   });
@@ -70,9 +79,7 @@ describe('LgCardComponent', () => {
     });
 
     it('should expect card content to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardContentComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardContentComponent))).toBeTruthy();
     });
   });
 
@@ -92,15 +99,39 @@ describe('LgCardComponent', () => {
     });
 
     it('should expect card header to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardHeaderComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardHeaderComponent))).toBeTruthy();
     });
 
     it('should expect card content to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardContentComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardContentComponent))).toBeTruthy();
+    });
+  });
+
+  describe('when there is lg-card-hero-img and lg-card-content', () => {
+    beforeEach(() => {
+      const localFixture = MockRender(`
+        <lg-card>
+         <lg-card-hero-img src="/test"></lg-card-hero-img>
+         <lg-card-content>Content</lg-card-content>
+        </lg-card>
+      `);
+
+      debugElement = localFixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      component = debugElement.children[0].componentInstance;
+      localFixture.detectChanges();
+    });
+
+    it('should expect card hero-image to render', () => {
+      expect(debugElement.query(By.directive(LgCardHeroImageComponent))).toBeTruthy();
+
+      expect(debugElement.children[0].children[0].componentInstance.src).toContain(
+        '/test',
+      );
+    });
+
+    it('should expect card content to render', () => {
+      expect(debugElement.query(By.directive(LgCardContentComponent))).toBeTruthy();
     });
   });
 
@@ -120,15 +151,11 @@ describe('LgCardComponent', () => {
     });
 
     it('should expect card content to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardContentComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardContentComponent))).toBeTruthy();
     });
 
     it('should expect card footer to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardFooterComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardFooterComponent))).toBeTruthy();
     });
   });
 
@@ -149,21 +176,15 @@ describe('LgCardComponent', () => {
     });
 
     it('should expect card header to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardHeaderComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardHeaderComponent))).toBeTruthy();
     });
 
     it('should expect card content to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardContentComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardContentComponent))).toBeTruthy();
     });
 
     it('should expect card footer to render', () => {
-      expect(
-        fixture.debugElement.query(By.directive(LgCardFooterComponent)),
-      ).toBeDefined();
+      expect(debugElement.query(By.directive(LgCardFooterComponent))).toBeTruthy();
     });
   });
 
@@ -224,6 +245,10 @@ describe('LgCardComponent', () => {
       el = debugElement.children[0].nativeElement;
       component = debugElement.children[0].componentInstance;
       localFixture.detectChanges();
+    });
+
+    it('should set the variant to navigation on the lg-card', () => {
+      expect(component.variant).toContain('navigation');
     });
 
     it('should set the class lg-card--navigation on the lg-card', () => {

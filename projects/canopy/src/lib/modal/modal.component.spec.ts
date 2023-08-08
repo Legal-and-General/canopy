@@ -21,7 +21,7 @@ describe('LgModalComponent', () => {
   let fixture: MockedComponentFixture<LgModalComponent>;
   let modalServiceMock: LgModalService;
   const id = 'test-1';
-  const isModalOpen$ = new BehaviorSubject<boolean>(false);
+  const isModalOpen$ = new BehaviorSubject<boolean>(undefined);
 
   beforeEach(waitForAsync(() => {
     cdrMock = mock(ChangeDetectorRef);
@@ -60,44 +60,56 @@ describe('LgModalComponent', () => {
   });
 
   describe('on init', () => {
-    it('should update isOpen', () => {
-      isModalOpen$.next(true);
+    describe('when the modal hasn\'t been opened/closed yet', () => {
+      it('should not emit a closed event', () => {
+        const closedEmitterSpy = spy(component.closed);
 
-      expect(component.isOpen).toBe(true);
+        component.ngOnInit();
+
+        verify(closedEmitterSpy.emit()).never();
+      });
     });
 
-    it('should add the overflow style to the body and emit an open event if the modal is open', () => {
-      const openEmitterSpy = spy(component.open);
+    describe('when the modal has been opened/closed', () => {
+      it('should update isOpen', () => {
+        isModalOpen$.next(true);
 
-      isModalOpen$.next(true);
+        expect(component.isOpen).toBe(true);
+      });
 
-      verify(openEmitterSpy.emit()).once();
+      it('should add the overflow style to the body and emit an open event if the modal is open', () => {
+        const openEmitterSpy = spy(component.open);
 
-      fixture.detectChanges();
-      const bodyEl: HTMLBodyElement = document.querySelector('body');
+        isModalOpen$.next(true);
 
-      expect(bodyEl.style.overflow).toEqual('hidden');
-    });
+        verify(openEmitterSpy.emit()).once();
 
-    it('should remove the overflow style on the body and emit a closed event if the modal is close', () => {
-      const closedEmitterSpy = spy(component.closed);
+        fixture.detectChanges();
+        const bodyEl: HTMLBodyElement = document.querySelector('body');
 
-      isModalOpen$.next(false);
+        expect(bodyEl.style.overflow).toEqual('hidden');
+      });
 
-      verify(closedEmitterSpy.emit()).once();
+      it('should remove the overflow style on the body and emit a closed event if the modal is close', () => {
+        const closedEmitterSpy = spy(component.closed);
 
-      fixture.detectChanges();
-      const bodyEl: HTMLBodyElement = document.querySelector('body');
+        isModalOpen$.next(false);
 
-      expect(bodyEl.style.overflow).toEqual('');
-    });
+        verify(closedEmitterSpy.emit()).once();
 
-    it('should detect changes', () => {
-      const cdrDetectChangesSpy = spyOn(component['cdr'], 'detectChanges');
+        fixture.detectChanges();
+        const bodyEl: HTMLBodyElement = document.querySelector('body');
 
-      isModalOpen$.next(true);
+        expect(bodyEl.style.overflow).toEqual('');
+      });
 
-      expect(cdrDetectChangesSpy).toHaveBeenCalledTimes(1);
+      it('should detect changes', () => {
+        const cdrDetectChangesSpy = spyOn(component['cdr'], 'detectChanges');
+
+        isModalOpen$.next(true);
+
+        expect(cdrDetectChangesSpy).toHaveBeenCalledTimes(1);
+      });
     });
   });
 

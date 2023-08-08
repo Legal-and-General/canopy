@@ -697,7 +697,7 @@
             <router-outlet name="side-nav"></router-outlet>
           </lg-side-nav-content>
         </lg-side-nav>
-        
+
         <lg-separator></lg-separator>
         <lg-heading level="4">Pagination</lg-heading>
         <lg-card lgPadding="none">
@@ -807,6 +807,49 @@
                     </a>
                   </lg-link-menu>
                 </lg-card-content>
+              </lg-card>
+            </div>
+          </div>
+          <div lgRow>
+            <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+              <lg-card>
+                <lg-card-header>
+                  <lg-card-navigation-title title="Data Points" link="#" [headingLevel]="2"></lg-card-navigation-title>
+                </lg-card-header>
+                <lg-card-content>
+                  <lg-data-point>
+                    <lg-data-point-label [headingLevel]="3">Label 1</lg-data-point-label>
+                    <lg-data-point-value>Value 1</lg-data-point-value>
+                  </lg-data-point>
+                  <lg-data-point>
+                    <lg-data-point-label [headingLevel]="3">Label 2</lg-data-point-label>
+                    <lg-data-point-value>Value 2</lg-data-point-value>
+                  </lg-data-point>
+                  <lg-data-point>
+                    <lg-data-point-label [headingLevel]="3">Label 3</lg-data-point-label>
+                    <lg-data-point-value>Value 3</lg-data-point-value>
+                  </lg-data-point>
+                </lg-card-content>
+                <lg-card-footer>
+                  <lg-link-menu>
+                    <a href="#">
+                      <lg-link-menu-item>
+                        <lg-link-menu-item-heading>An internal link (default)</lg-link-menu-item-heading>
+                        <lg-link-menu-item-content>
+                          This links to an internal page
+                        </lg-link-menu-item-content>
+                      </lg-link-menu-item>
+                    </a>
+                    <a href="#" target="_blank">
+                      <lg-link-menu-item>
+                        <lg-link-menu-item-heading>An external link</lg-link-menu-item-heading>
+                        <lg-link-menu-item-content>
+                          This links to an external page opening in a <em>new</em> tab
+                        </lg-link-menu-item-content>
+                      </lg-link-menu-item>
+                    </a>
+                  </lg-link-menu>
+                </lg-card-footer>
               </lg-card>
             </div>
           </div>

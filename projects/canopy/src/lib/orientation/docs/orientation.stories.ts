@@ -1,0 +1,85 @@
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
+
+import { LgCardModule } from '../../card';
+import { LgOrientationModule } from '../orientation.module';
+import { LgOrientationDirective } from '../orientation.directive';
+import { LgPaddingModule } from '../../spacing/padding/padding.module';
+
+const responsiveCategory = 'Responsive';
+
+export default {
+  title: 'Helpers/Directives/Orientation/Examples',
+  decorators: [
+    moduleMetadata({
+      imports: [ LgOrientationModule, LgCardModule, LgPaddingModule ],
+    }),
+  ],
+  parameters: {
+    a11y: {
+      disable: true,
+    },
+    viewMode: 'story',
+    previewTabs: { 'storybook/docs/panel': { hidden: true } },
+    backgrounds: {
+      default: 'Super Blue',
+    },
+  },
+  argTypes: {
+    orientation: {
+      name: 'orientation',
+      table: {
+        category: responsiveCategory,
+      },
+    },
+  },
+} as Meta;
+
+const orientationStory: Story<LgOrientationDirective> = (
+  args: LgOrientationDirective,
+) => ({
+  props: args,
+  template: `
+<lg-card
+  lgShadow
+  [lgOrientation]="orientation">
+  <lg-card-hero-img
+    [cover]="true"
+    src="promo-card/general-promotion1.jpg">
+  </lg-card-hero-img>
+  <lg-card-content lgPadding="md">
+    <h3 lgMarginBottom="xxs" class="lg-font--expressive">Card with orientation</h3>
+    <p lgMarginBottom="lg">{{ text }}</p>
+    <a href="#">{{ linkText }}</a>
+  </lg-card-content>
+</lg-card>
+<lg-card
+  lgShadow>
+  <lg-card-hero-img
+    [cover]="true"
+    src="promo-card/general-promotion1.jpg">
+  </lg-card-hero-img>
+  <lg-card-content lgPadding="md">
+    <h3 lgMarginBottom="xxs" class="lg-font--expressive">Card without orientation</h3>
+    <p lgMarginBottom="lg">{{ text }}</p>
+    <a href="#">{{ linkText }}</a>
+  </lg-card-content>
+</lg-card>
+  `,
+});
+
+export const orientation = orientationStory.bind({});
+orientation.storyName = 'Orientation';
+
+orientation.args = {
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae.',
+  linkText: 'Link or Button text',
+  orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
+};
+
+orientation.parameters = {
+  docs: {
+    source: {
+      code: null,
+    },
+  },
+};

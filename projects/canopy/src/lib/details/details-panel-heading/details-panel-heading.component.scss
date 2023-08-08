@@ -24,7 +24,7 @@
     width: 100%;
 
     &:focus-visible {
-      @include lg-inner-focus-outline();
+      @include lg-focus-outline;
     }
 
     &--active .lg-details-panel-heading__state-icon {
