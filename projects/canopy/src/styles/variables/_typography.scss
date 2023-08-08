@@ -29,9 +29,9 @@
     var(--text-base-size) - (var(--text-scale-ratio) * 3 / 4)
   ); // 13px
 
-  --text-fs-7-line-height: 1.4;
-  --text-fs-6-line-height: 1.4;
-  --text-fs-5-line-height: 1.4;
+  --text-fs-7-line-height: 1.231; // ~64px
+  --text-fs-6-line-height: 1.273; // ~56px
+  --text-fs-5-line-height: 1.334; // ~48px
   --text-fs-4-line-height: 1.4;
   --text-fs-3-line-height: 1.4;
   --text-fs-2-line-height: 1.4;
@@ -40,7 +40,7 @@
   --text-fs--6-line-height: 1.25;
 
   /* The default font-weight for sizes 7, 6, 5, 4, 3, 2 is --font-weight-light.
-  Modifiers --strong and --medium purposefully set the font-weight to regular 
+  Modifiers --strong and --medium purposefully set the font-weight to regular
   to reflect the design. */
   --text-fs-7-weight: var(--font-weight-light);
   --text-fs-7-weight--medium: var(--font-weight-regular);
@@ -58,7 +58,7 @@
   --text-fs-4-weight--medium: var(--font-weight-regular);
   --text-fs-4-weight--strong: var(--font-weight-regular);
 
-  /* The modifier --medium is purposefully used to represent 
+  /* The modifier --medium is purposefully used to represent
   regular weight and --strong to represent medium weight */
   --text-fs-3-weight: var(--font-weight-light);
   --text-fs-3-weight--medium: var(--font-weight-regular);
@@ -87,5 +87,9 @@
     --text-fs-6-size: calc(var(--text-base-size) + (8 * var(--text-scale-ratio))); // 48px
     --text-fs-5-size: calc(var(--text-base-size) + (6 * var(--text-scale-ratio))); // 40px
     --text-fs-4-size: calc(var(--text-base-size) + (4 * var(--text-scale-ratio))); // 32px
+
+    --text-fs-7-line-height: 1.215; // ~68px
+    --text-fs-6-line-height: 1.25; // 60px
+    --text-fs-5-line-height: 1.3; // 52px
   }
 }
