@@ -1,3 +1,5 @@
+import remarkGfm from 'remark-gfm';
+
 module.exports = {
   stories: [
     '../projects/canopy/src/lib/docs/welcome/welcome.stories.mdx',
@@ -146,6 +148,16 @@ module.exports = {
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
   staticDirs: [
     '../assets/',
