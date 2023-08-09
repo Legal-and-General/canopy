@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
 import { LgGridModule } from '../../grid';
@@ -73,8 +73,6 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     logo: {
@@ -153,7 +151,7 @@ const oneColumnTemplate = `
 </lg-page>
 `;
 
-const oneColumnStory: Story<LgPageComponent> = (args: LgPageComponent) => ({
+const oneColumnStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
   props: args,
   template: oneColumnTemplate,
 });
@@ -192,7 +190,7 @@ const twoColumnsTemplate = `
 </lg-page>
 `;
 
-const twoColumnsStory: Story<LgPageComponent> = (args: LgPageComponent) => ({
+const twoColumnsStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
   props: args,
   template: twoColumnsTemplate,
 });
@@ -229,7 +227,7 @@ const fullWidthTemplate = `
 </lg-page>
 `;
 
-const fullWidthStory: Story<LgPageComponent> = (args: LgPageComponent) => ({
+const fullWidthStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
   props: args,
   template: fullWidthTemplate,
 });
@@ -269,7 +267,7 @@ const fullWidthWithHeroTemplate = `
 </lg-page>
 `;
 
-const fullWidthWithHeroStory: Story<LgPageComponent> = (args: LgPageComponent) => ({
+const fullWidthWithHeroStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
   props: args,
   template: fullWidthWithHeroTemplate,
 });

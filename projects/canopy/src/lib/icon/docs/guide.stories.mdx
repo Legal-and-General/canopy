@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import {Meta, Markdown, Unstyled} from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Foundations/UI icon/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Foundations/UI icon/Guide" />
 
 # UI icon
 
@@ -75,17 +75,20 @@ and in your HTML:
 
 ### Inputs
 
-| Name   | Description          |   Type   |   Default   | Required |
-|--------|----------------------|:--------:|:-----------:|:--------:|
-| `name` | The name of the icon | `string` | `undefined` |   yes    |
+| Name   | Description          | Type     | Default     | Required |
+|--------|----------------------|----------|-------------|----------|
+| `name` | The name of the icon | `string` | `undefined` | Yes      |
 
 All icons have height and width equal to 1em. This means the icons will be as big as the font-size specified by the parent.
 
 By default, the icons have the `fill` css property set to `currentColor`.
 
-> `currentColor` acts like a variable for the current value of the `color` property on the element. And the Cascading part of CSS is still effective, so if there's no defined `color` property on an element, the cascade will determine the value of `currentColor`.
->
-> *- <a href="https://www.digitalocean.com/community/tutorials/css-currentcolor" target="_blank">Understanding the currentColor Keyword in CSS</a>*
+<Unstyled>
+  <blockquote>
+    `currentColor` acts like a variable for the current value of the `color` property on the element. And the Cascading part of CSS is still effective, so if there's no defined `color` property on an element, the cascade will determine the value of `currentColor`.
+    <cite><a href="https://www.digitalocean.com/community/tutorials/css-currentcolor" target="_blank">Understanding the currentColor Keyword in CSS</a></cite>
+  </blockquote>
+</Unstyled>
 
 Please note that the `need-help` and `question-mark` icons currently don't have the ability to change colour.
 
@@ -96,4 +99,4 @@ Please note that the `need-help` and `question-mark` icons currently don't have 
 - [Brand icon](./?path=/docs/foundations-brand-icon-guide--page)
 
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../card';
 import { LgSeparatorModule } from '../../separator';
@@ -13,10 +13,6 @@ export default {
       imports: [ LgHideAtModule, LgCardModule, LgSeparatorModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     lgHideAt: {
       options: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
@@ -58,7 +54,7 @@ const template = `
 ${directiveTemplate}
 `;
 
-const hideAtTemplate: Story<LgHideAtDirective> = (args: LgHideAtDirective) => ({
+const hideAtTemplate: StoryFn<LgHideAtDirective> = (args: LgHideAtDirective) => ({
   props: args,
   template,
 });

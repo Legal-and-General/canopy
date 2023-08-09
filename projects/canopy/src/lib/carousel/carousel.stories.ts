@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonModule } from '../button';
 
@@ -153,7 +153,7 @@ const defaultTemplate = `
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration">${carouselItems}</lg-carousel>
 `;
 
-const defaultStory: Story<LgCarouselComponent> = (args: LgCarouselComponent) => ({
+const defaultStory: StoryFn<LgCarouselComponent> = (args: LgCarouselComponent) => ({
   props: args,
   template: template,
 });

@@ -1,4 +1,4 @@
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgMarginModule } from '../../spacing';
 import { LgTabsModule } from '../tabs.module';
@@ -10,10 +10,6 @@ export default {
       imports: [ LgTabsModule, LgMarginModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     tabEvent: {
       action: 'Tab click',
@@ -106,7 +102,7 @@ const template = `
 </lg-tabs>
 `;
 
-const standardTabsStory: Story<LgTabsModule> = (args: LgTabsModule) => ({
+const standardTabsStory: StoryFn<LgTabsModule> = (args: LgTabsModule) => ({
   props: args,
   template,
 });

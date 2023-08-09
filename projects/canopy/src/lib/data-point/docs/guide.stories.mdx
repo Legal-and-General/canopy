@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Components/Data point/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Data point/Guide" />
 
 # Data point
 
@@ -34,5 +34,5 @@ and for a data point list:
 
 ---
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>
 

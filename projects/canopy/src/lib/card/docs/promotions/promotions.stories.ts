@@ -1,30 +1,22 @@
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgGridModule } from '../../../grid/grid.module';
 import { LgPaddingModule } from '../../../spacing/padding/padding.module';
 import { LgMarginModule } from '../../../spacing/margin/margin.module';
-import { LgBreadcrumbModule } from '../../../breadcrumb/breadcrumb.module';
-import { LgIconModule } from '../../../icon/icon.module';
 import { LgButtonModule } from '../../../button/button.module';
-import { LgInputModule } from '../../../forms/input/input.module';
-import { LgLabelModule } from '../../../forms/label/label.module';
-import { LgHintModule } from '../../../forms/hint/hint.module';
 import { LgSeparatorModule } from '../../../separator/separator.module';
 import { LgCardComponent } from '../../card.component';
 import { LgCardModule } from '../../card.module';
-import { LgDataPointModule } from '../../../data-point';
-import { LgLinkMenuModule } from '../../../link-menu';
 import {
-  lgBrandIconLookingAhead,
   lgBrandIconCalendarAppointment,
+  lgBrandIconLookingAhead,
+  LgBrandIconModule,
   lgBrandIconPensionPot,
   LgBrandIconRegistry,
-  LgBrandIconModule,
 } from '../../../brand-icon';
 import { LgOrientationModule } from '../../../orientation';
+import { LgShadowModule } from '../../../shadow';
 
 const promotionsGeneralCardTemplate = `
 <lg-card
@@ -74,29 +66,19 @@ export default {
     moduleMetadata({
       declarations: [ GeneralPromotionCardComponent ],
       imports: [
-        ReactiveFormsModule,
-        LgDataPointModule,
-        LgLinkMenuModule,
-        LgInputModule,
-        LgLabelModule,
-        LgHintModule,
         LgCardModule,
-        LgBreadcrumbModule,
-        LgIconModule,
         LgButtonModule,
         LgGridModule,
         LgPaddingModule,
         LgMarginModule,
+        LgShadowModule,
         LgSeparatorModule,
         LgBrandIconModule,
         LgOrientationModule,
-        RouterModule.forRoot([]),
       ],
     }),
   ],
   parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'White Smoke',
     },
@@ -323,7 +305,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
 </div>
 `;
 
-const promotionsGeneralCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const promotionsGeneralCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: promotionsGeneralCardStandAloneTemplate,
   title: 'Patterns/Card/Examples',
@@ -350,7 +332,7 @@ promotionsGeneralCard.parameters = {
   },
 };
 
-const promotionsGeneralTwoCardStory: Story<LgCardComponent> = (
+const promotionsGeneralTwoCardStory: StoryFn<LgCardComponent> = (
   args: LgCardComponent,
 ) => ({
   props: args,
@@ -379,7 +361,7 @@ promotionsGeneralTwoCard.parameters = {
   },
 };
 
-const promotionsGeneralThreeCardStory: Story<LgCardComponent> = (
+const promotionsGeneralThreeCardStory: StoryFn<LgCardComponent> = (
   args: LgCardComponent,
 ) => ({
   props: args,
@@ -408,7 +390,7 @@ promotionsGeneralThreeCard.parameters = {
   },
 };
 
-const promotionsGeneralMagazineLayoutStory: Story<LgCardComponent> = (
+const promotionsGeneralMagazineLayoutStory: StoryFn<LgCardComponent> = (
   args: LgCardComponent,
 ) => ({
   props: args,

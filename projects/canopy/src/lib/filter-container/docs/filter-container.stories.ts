@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { lgIconChevronDown, lgIconFilter, LgIconRegistry } from '../../icon';
 import { ButtonVariant } from '../../button';
@@ -27,10 +27,6 @@ export default {
       imports: [ LgFilterContainerModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     variant: {
       options: [ ...buttonVariants ],
@@ -73,7 +69,7 @@ function setComponentCode(toggleCode: string) {
 `;
 }
 
-const filterContainerTemplate: Story<LgFilterContainerModule> = (
+const filterContainerTemplate: StoryFn<LgFilterContainerModule> = (
   args: LgFilterContainerModule,
 ) => ({
   props: args,

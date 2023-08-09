@@ -9,10 +9,6 @@ const template = `
 
 export default {
   title: 'Components/Blockquote/Examples',
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
 } as Meta;
 
 const quoteTemplate: Story = args => ({

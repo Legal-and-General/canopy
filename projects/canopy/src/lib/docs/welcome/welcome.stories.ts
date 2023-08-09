@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { DocsWelcomePageComponent } from './welcome.component';
 
@@ -9,13 +9,9 @@ export default {
       imports: [ DocsWelcomePageComponent ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
 } as Meta;
 
-const welcomeTemplate: Story<DocsWelcomePageComponent> = (
+const welcomeTemplate: StoryFn<DocsWelcomePageComponent> = (
   args: DocsWelcomePageComponent,
 ) => ({
   props: args,

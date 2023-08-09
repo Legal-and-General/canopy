@@ -4,7 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgHintModule } from '../../hint';
 import { LgDateFieldComponent } from '../date-field.component';
@@ -60,10 +60,6 @@ export default {
       imports: [ ReactiveFormsModule, LgDateFieldModule, LgHintModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     inputChange: {
       action: 'Input change',
@@ -221,7 +217,7 @@ export default {
   },
 };
 
-const dateInputStory: Story<LgDateFieldModule> = (args: LgDateFieldModule) => ({
+const dateInputStory: StoryFn<LgDateFieldModule> = (args: LgDateFieldModule) => ({
   props: args,
   template: `
   <lg-reactive-form

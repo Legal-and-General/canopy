@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Helpers/Directives/Feature toggle/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Helpers/Directives/Feature toggle/Guide" />
 
 # Feature toggle
 
@@ -108,4 +108,4 @@ Example of inner routes (route definition inside the parent module):
 
 ---
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

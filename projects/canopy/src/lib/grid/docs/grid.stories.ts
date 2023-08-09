@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgAlertComponent } from '../../alert';
 import { LgMarginModule } from '../../spacing';
@@ -24,10 +24,6 @@ export default {
     }),
   ],
   parameters: {
-    parameters: {
-      viewMode: 'story',
-      previewTabs: { 'storybook/docs/panel': { hidden: true } },
-    },
     backgrounds: {
       default: 'Super Blue',
     },
@@ -274,7 +270,7 @@ const template = `
 </div>
 `;
 
-const gridStory: Story<LgAlertComponent> = (args: LgAlertComponent) => ({
+const gridStory: StoryFn<LgAlertComponent> = (args: LgAlertComponent) => ({
   props: args,
   template,
 });

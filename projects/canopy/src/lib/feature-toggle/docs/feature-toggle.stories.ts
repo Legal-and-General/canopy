@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { of } from 'rxjs';
 
 import { LgCardModule } from '../../card';
@@ -35,8 +35,6 @@ export default {
     }),
   ],
   parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'Super Blue',
     },
@@ -77,7 +75,7 @@ const template = `
 <lg-card *lgFeatureToggle="'fourthFeature'"><lg-card-content>Feature 4 not showing</lg-card-content></lg-card>
 `;
 
-const featureToggleTemplate: Story<LgFeatureToggleDirective> = (
+const featureToggleTemplate: StoryFn<LgFeatureToggleDirective> = (
   args: LgFeatureToggleDirective,
 ) => ({
   component: LgFeatureToggleDirective,

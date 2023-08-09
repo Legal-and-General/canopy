@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCamelCasePipe } from '../camel-case.pipe';
 
@@ -11,10 +11,6 @@ export default {
       declarations: [ LgCamelCasePipe ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     text: {
       description: 'Text to transform into camel case.',
@@ -29,7 +25,7 @@ export default {
 
 const template = '<p>{{text | camelCase}}</p>';
 
-const camelCasePipeTemplate: Story<LgCamelCasePipe> = (args: LgCamelCasePipe) => ({
+const camelCasePipeTemplate: StoryFn<LgCamelCasePipe> = (args: LgCamelCasePipe) => ({
   props: args,
   template,
 });

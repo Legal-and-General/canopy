@@ -4,7 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgSelectModule } from '../../select';
 import { LgHintModule } from '../../hint';
@@ -62,10 +62,6 @@ export default {
       imports: [ ReactiveFormsModule, LgInputModule, LgSortCodeModule, LgHintModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     inputmode: {
       table: {
@@ -105,7 +101,7 @@ export default {
   },
 };
 
-const sortCodeTemplate: Story<LgSortCodeModule> = (args: LgSelectModule) => ({
+const sortCodeTemplate: StoryFn<LgSortCodeModule> = (args: LgSelectModule) => ({
   props: args,
   template: `
   <lg-reactive-form

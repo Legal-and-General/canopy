@@ -1,8 +1,8 @@
-import { Meta, Source } from '@storybook/addon-docs';
+import {Markdown, Meta} from '@storybook/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
 
-<Meta title="Patterns/Promotions/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Patterns/Promotions/Guide" />
 
 # Promotions
 
@@ -12,12 +12,12 @@ import Feedback from '../../../docs/common/feedback.md';
 
 They are used to group promotional content within a page.
 
-Import the card module in your application:
+Import the following modules in your application:
 
 ```js
 @NgModule({
   ...
-  imports: [ ..., LgCardModule ],
+  imports: [ ..., LgCardModule, LgMarginModule, LgPaddingModule, LgOrientationModule, LgShadowModule ],
 });
 ```
 
@@ -204,6 +204,8 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
 ```
 
 ### Magazine layout
+
+To achieve this layout add the `LgSeparatorModule` to the module imports.
 
 ```html
 <div lgContainer>
@@ -400,11 +402,11 @@ The main body of the promotion card. It's composed by the following components:
 
 #### Inputs
 
-| Name           | Description                                                     | Type                    | Default | Required |
-|----------------|-----------------------------------------------------------------|-------------------------|---------|----------|
-|   `variant`    | The variant of the card: `promotion`                            | `string`                |`default`| Yes      |
+| Name      | Description                          | Type     | Default   | Required |
+|-----------|--------------------------------------|----------|-----------|----------|
+| `variant` | The variant of the card: `promotion` | `string` | `default` | Yes      |
 
-<CardHeroImageComponent />
+<Markdown>{CardHeroImageComponent}</Markdown>
 
 ### LgCardContent
 
@@ -427,4 +429,4 @@ Patterns which may perform a similar task, or which should be considered instead
 - [Cards](./?path=/docs/components-card-guide--page)
 - [Promo Cards](./?path=/docs/components-promo-cards-guide--page)
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

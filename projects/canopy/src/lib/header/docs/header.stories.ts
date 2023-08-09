@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgHeaderComponent } from '../../header/header.component';
@@ -72,8 +72,6 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     logo: {
@@ -180,7 +178,7 @@ const template = `
 </header>
 `;
 
-const standardStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
+const standardStory: StoryFn<LgHeaderComponent> = (args: LgHeaderComponent) => ({
   props: args,
   template,
 });
@@ -229,7 +227,7 @@ const coBrandedTemplate = `
 </header>
 `;
 
-const coBrandedStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
+const coBrandedStory: StoryFn<LgHeaderComponent> = (args: LgHeaderComponent) => ({
   props: args,
   template: coBrandedTemplate,
   styles: [
@@ -262,7 +260,7 @@ coBrandedHeader.parameters = {
   },
 };
 
-const navStory: Story<LgHeaderComponent> = (args: LgHeaderComponent) => ({
+const navStory: StoryFn<LgHeaderComponent> = (args: LgHeaderComponent) => ({
   props: args,
   template:
     '<lg-navigation [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></ lg-navigation>',

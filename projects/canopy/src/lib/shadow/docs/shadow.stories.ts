@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../card';
 import { LgShadowModule } from '../shadow.module';
@@ -17,8 +17,6 @@ export default {
     backgrounds: {
       default: 'White Smoke',
     },
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     class: {
@@ -37,7 +35,7 @@ const template = `
 </lg-card>
 `;
 
-const shadowTemplate: Story<LgShadowDirective> = (args: LgShadowDirective) => ({
+const shadowTemplate: StoryFn<LgShadowDirective> = (args: LgShadowDirective) => ({
   props: args,
   template,
 });

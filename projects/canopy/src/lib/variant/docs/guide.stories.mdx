@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Helpers/Directives/Variant/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Helpers/Directives/Variant/Guide" />
 
 # Variant
 
@@ -47,4 +47,4 @@ The current available variants are:
 
 ---
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

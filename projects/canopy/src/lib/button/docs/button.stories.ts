@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgIconModule, LgIconRegistry, lgIconsArray } from '../../icon';
 import { LgButtonModule } from '../button.module';
@@ -87,10 +87,6 @@ export default {
       imports: [ LgButtonModule, LgIconModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     variant: {
       options: [ ...buttonVariants ],
@@ -176,7 +172,7 @@ const buttonTemplate = `
     [icon]="icon">
   </lg-button-component-example>
 `;
-const buttonStory: Story<LgButtonComponent> = (args: LgButtonComponent) => ({
+const buttonStory: StoryFn<LgButtonComponent> = (args: LgButtonComponent) => ({
   props: args,
   template: buttonTemplate,
 });

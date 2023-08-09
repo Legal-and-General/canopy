@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgIconComponent } from '../icon.component';
 import { LgIconRegistry } from '../icon.registry';
@@ -38,7 +38,10 @@ class SwatchIconComponent implements OnChanges {
   icons = lgIconsArray;
   colourVar: SafeStyle;
 
-  constructor(private registry: LgIconRegistry, private sanitizer: DomSanitizer) {
+  constructor(
+    private registry: LgIconRegistry,
+    private sanitizer: DomSanitizer,
+  ) {
     this.registry.registerIcons(this.icons);
   }
 
@@ -65,10 +68,6 @@ export default {
       declarations: [ SwatchIconComponent, LgIconComponent ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     colour: {
       options: colours,
@@ -84,7 +83,7 @@ const exampleTemplate = `
 <lg-icon name="call"></lg-icon>
 `;
 
-const iconsTemplate: Story<LgIconComponent> = (args: LgIconComponent) => ({
+const iconsTemplate: StoryFn<LgIconComponent> = (args: LgIconComponent) => ({
   props: args,
   template: '<lg-swatch-icon [colour]="colour"></lg-swatch-icon>',
 });

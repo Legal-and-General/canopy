@@ -4,7 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../../icon';
 import { LgLabelModule } from '../../label/label.module';
@@ -162,7 +162,10 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder, private iconRegistry: LgIconRegistry) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private iconRegistry: LgIconRegistry,
+  ) {
     this.iconRegistry.registerIcons([ lgIconSearch, lgIconClose ]);
     this.form = this.fb.group({ name: { value: '', disabled: false } });
     this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
@@ -189,10 +192,6 @@ export default {
       ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     formSubmit: {
       action: 'submit',
@@ -320,7 +319,8 @@ export default {
   },
 };
 
-const inputStory: Story<LgInputModule> = (args: LgInputModule) => createInputStory(args);
+const inputStory: StoryFn<LgInputModule> = (args: LgInputModule) =>
+  createInputStory(args);
 
 export const standard = inputStory.bind({});
 standard.storyName = 'Standard';

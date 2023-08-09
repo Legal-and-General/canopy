@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../card/card.module';
 import { LgSeparatorModule } from '../../separator/separator.module';
@@ -14,10 +14,6 @@ export default {
       imports: [ LgShowAtModule, LgCardModule, LgSeparatorModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     lgShowAt: {
       options: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
@@ -59,7 +55,7 @@ const template = `
 ${directiveTemplate}
 `;
 
-const showAtTemplate: Story<LgShowAtDirective> = (args: LgShowAtDirective) => ({
+const showAtTemplate: StoryFn<LgShowAtDirective> = (args: LgShowAtDirective) => ({
   props: args,
   template,
 });

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgGridModule } from '../../grid';
 import { LgHeadingModule } from '../../heading';
@@ -90,10 +90,6 @@ export default {
       ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     variant1: {
       name: 'Promo card 1 variant',
@@ -175,7 +171,7 @@ const examplePromoCardTemplate = `
 </lg-promo-card-list>
 `;
 
-const promoCardListTemplate: Story<LgPromoCardComponent> = (
+const promoCardListTemplate: StoryFn<LgPromoCardComponent> = (
   args: LgPromoCardComponent,
 ) => ({
   props: args,

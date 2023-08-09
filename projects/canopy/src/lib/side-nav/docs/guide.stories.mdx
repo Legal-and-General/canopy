@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Patterns/Side nav/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Patterns/Side nav/Guide" />
 
 # Side nav
 <p class="standfirst">The side nav allows the user to define a series of navigation items that display content in a predefined area.</p>
@@ -83,4 +83,4 @@ the different nav item routes.
 
 ---
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

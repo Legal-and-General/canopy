@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgBreadcrumbModule } from '../../breadcrumb/breadcrumb.module';
 import { LgGridModule } from '../../grid/grid.module';
@@ -172,8 +172,6 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     overlap: {
@@ -185,7 +183,7 @@ export default {
   },
 };
 
-const productHeroStory: Story<LgHeroComponent> = (args: LgHeroComponent) => ({
+const productHeroStory: StoryFn<LgHeroComponent> = (args: LgHeroComponent) => ({
   props: args,
   template: '<lg-hero-product-story [overlap]="overlap"></lg-hero-product-story>',
 });
@@ -210,7 +208,7 @@ ${conversationalHeroHTML}
 ${bodyHTML}
 `;
 
-const conversationalHeroStory: Story<LgHeroComponent> = (args: LgHeroComponent) => ({
+const conversationalHeroStory: StoryFn<LgHeroComponent> = (args: LgHeroComponent) => ({
   props: args,
   template: conversationalHeroTemplate,
 });

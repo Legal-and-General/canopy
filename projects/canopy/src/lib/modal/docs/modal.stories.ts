@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgModalModule } from '../modal.module';
 import { LgButtonModule } from '../../button';
@@ -16,10 +16,6 @@ export default {
       imports: [ LgModalModule, LgButtonModule, LgMarginModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     headingLevel: {
       options: [ '1', '2', '3', '4', '5', '6' ],
@@ -123,7 +119,7 @@ const template = `
 </lg-modal>
 `;
 
-const detailsTemplate: Story<LgSeparatorComponent> = (args: LgSeparatorComponent) => ({
+const detailsTemplate: StoryFn<LgSeparatorComponent> = (args: LgSeparatorComponent) => ({
   props: args,
   template,
 });

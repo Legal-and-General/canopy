@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgSeparatorComponent } from '../separator.component';
 import { LgSeparatorModule } from '../separator.module';
@@ -11,10 +11,6 @@ export default {
       imports: [ LgSeparatorModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     variant: {
       options: [ 'solid', 'dotted' ],
@@ -59,7 +55,7 @@ const template = `
   <lg-separator [variant]="variant" [hasRole]="hasRole"></lg-separator>
 `;
 
-const detailsTemplate: Story<LgSeparatorComponent> = (args: LgSeparatorComponent) => ({
+const detailsTemplate: StoryFn<LgSeparatorComponent> = (args: LgSeparatorComponent) => ({
   props: args,
   template,
 });

@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonModule } from '../button.module';
 import { LgButtonGroupComponent } from '../button-group/button-group.component';
@@ -11,10 +11,6 @@ export default {
       imports: [ LgButtonModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     class: {
       table: { disable: true },
@@ -36,7 +32,7 @@ const template = `
 </lg-button-group>
 `;
 
-const buttonGroupStory: Story<LgButtonGroupComponent> = (
+const buttonGroupStory: StoryFn<LgButtonGroupComponent> = (
   args: LgButtonGroupComponent,
 ) => ({
   props: args,

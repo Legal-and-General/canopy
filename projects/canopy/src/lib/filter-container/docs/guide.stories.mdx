@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Patterns/Filter container/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Patterns/Filter container/Guide" />
 
 # Filter container
 
@@ -28,4 +28,4 @@ The toggle button **must have** the `lgButtonToggle` directive on it for the com
 
 More information on how to use the `lgButtonToggle` directive is available in the [button documentation](./?path=/docs/components-button-guide--page). Note that there is no need to set the `id` and `ariaControls` properties in this case as they are already handled by the `LgFilterContainerComponent`.
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

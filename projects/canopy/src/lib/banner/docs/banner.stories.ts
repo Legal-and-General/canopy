@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgIconRegistry } from '../../icon/icon.registry';
 import { LgIconModule, lgIconsArray } from '../../icon';
@@ -37,10 +37,6 @@ export default {
       imports: [ LgBannerModule, LgIconModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     icon: {
       description: 'Icon to display',
@@ -82,7 +78,7 @@ const template = `
 </lg-banner>
 `;
 
-const bannerTemplate: Story<LgBannerComponent> = (args: LgBannerComponent) => ({
+const bannerTemplate: StoryFn<LgBannerComponent> = (args: LgBannerComponent) => ({
   props: args,
   template: `
     <lg-banner-icon

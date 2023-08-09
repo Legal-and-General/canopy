@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonModule } from '../../button';
 import { LgAccordionModule } from '../accordion.module';
@@ -14,10 +14,6 @@ export default {
       imports: [ CommonModule, LgAccordionModule, LgButtonModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     toggle: {
       action: 'Toggle Item',
@@ -97,7 +93,9 @@ const accordionItems = `
 
 const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=multi>${accordionItems}</lg-accordion>`;
 
-const accordionTemplate: Story<LgAccordionComponent> = (args: LgAccordionComponent) => ({
+const accordionTemplate: StoryFn<LgAccordionComponent> = (
+  args: LgAccordionComponent,
+) => ({
   props: args,
   template: standardTemplate,
 });

@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import {
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
-  ReactiveFormsModule,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LgGridModule } from '../../../grid/grid.module';
 import { LgPaddingModule } from '../../../spacing/padding/padding.module';
@@ -98,7 +98,10 @@ class FormJourneyComponent {
 
   form: UntypedFormGroup;
 
-  constructor(private registry: LgIconRegistry, public fb: UntypedFormBuilder) {
+  constructor(
+    private registry: LgIconRegistry,
+    public fb: UntypedFormBuilder,
+  ) {
     this.registry.registerIcons([ lgIconChevronLeft ]);
     this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
   }
@@ -169,13 +172,11 @@ export default {
         LgPaddingModule,
         LgMarginModule,
         LgSeparatorModule,
-        RouterModule.forRoot([]),
+        RouterTestingModule,
       ],
     }),
   ],
   parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'White Smoke',
     },
@@ -195,7 +196,7 @@ const defaultCardTemplate = `
 </lg-card>
 `;
 
-const defaultCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const defaultCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: defaultCardTemplate,
 });
@@ -228,7 +229,7 @@ const navigationCardTemplate = `
 </lg-card>
 `;
 
-const navigationCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const navigationCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: navigationCardTemplate,
 });
@@ -280,7 +281,7 @@ const nestedGridCardTemplate = `
 </lg-card>
 `;
 
-const nestedGridCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const nestedGridCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: nestedGridCardTemplate,
 });
@@ -328,7 +329,7 @@ const productCardTemplate = `
 </lg-card>
 `;
 
-const productCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const productCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: productCardTemplate,
 });
@@ -348,7 +349,7 @@ productCard.parameters = {
   },
 };
 
-const formJourneyCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const formJourneyCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: `
     <lg-form-journey [title]="title" [cardContent]="cardContent" [hint]="hint" [policy]="policy" [label]="label"></lg-form-journey>
@@ -376,7 +377,7 @@ formJourneyCard.parameters = {
   },
 };
 
-const showMoreCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const showMoreCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: `
     <lg-card-show-more></lg-card-show-more>
@@ -428,7 +429,7 @@ const dataPointsCardTemplate = `
 </lg-card>
 `;
 
-const dataPointsCardStory: Story<LgCardComponent> = (args: LgCardComponent) => ({
+const dataPointsCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
   props: args,
   template: dataPointsCardTemplate,
 });

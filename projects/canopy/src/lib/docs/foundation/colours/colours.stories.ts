@@ -7,7 +7,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { Meta, Story } from '@storybook/angular';
+import { Meta, StoryFn } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import * as convert from 'color-convert';
 import { RGB } from 'color-convert/conversions';
@@ -242,7 +242,7 @@ const tintsColoursTemplate = `
 </div>
 `;
 
-const coreColoursStory: Story = args => ({
+const coreColoursStory: StoryFn = args => ({
   props: args,
   template: coreColoursTemplate,
 });
@@ -250,7 +250,7 @@ const coreColoursStory: Story = args => ({
 export const coreColours = coreColoursStory.bind({});
 coreColours.storyName = 'Core';
 
-const secondaryColoursStory: Story = args => ({
+const secondaryColoursStory: StoryFn = args => ({
   props: args,
   template: secondaryColoursTemplate,
 });
@@ -258,7 +258,7 @@ const secondaryColoursStory: Story = args => ({
 export const secondaryColours = secondaryColoursStory.bind({});
 secondaryColours.storyName = 'Secondary';
 
-const greyscaleColoursStory: Story = args => ({
+const greyscaleColoursStory: StoryFn = args => ({
   props: args,
   template: greyscaleColoursTemplate,
 });
@@ -266,7 +266,7 @@ const greyscaleColoursStory: Story = args => ({
 export const greyscaleColours = greyscaleColoursStory.bind({});
 greyscaleColours.storyName = 'Greyscale';
 
-const tintsColoursStory: Story = args => ({
+const tintsColoursStory: StoryFn = args => ({
   props: args,
   template: tintsColoursTemplate,
 });

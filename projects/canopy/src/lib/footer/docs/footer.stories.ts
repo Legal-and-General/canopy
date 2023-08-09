@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgFooterComponent } from '../../footer/footer.component';
 import { LgFooterModule } from '../footer.module';
@@ -45,8 +45,6 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     logo: {
@@ -106,7 +104,7 @@ const template = `
 </footer>
 `;
 
-const standardStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
+const standardStory: StoryFn<LgFooterComponent> = (args: LgFooterComponent) => ({
   props: args,
   template,
 });
@@ -155,7 +153,7 @@ const compactTemplate = `
 </footer>
 `;
 
-const compactStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
+const compactStory: StoryFn<LgFooterComponent> = (args: LgFooterComponent) => ({
   props: args,
   template: compactTemplate,
 });
@@ -225,7 +223,7 @@ const coBrandedTemplate = `
 </footer>
 `;
 
-const coBrandedStory: Story<LgFooterComponent> = (args: LgFooterComponent) => ({
+const coBrandedStory: StoryFn<LgFooterComponent> = (args: LgFooterComponent) => ({
   props: args,
   template: coBrandedTemplate,
 });

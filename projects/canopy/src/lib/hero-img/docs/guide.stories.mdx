@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Patterns/Hero image/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Patterns/Hero image/Guide" />
 
 # Hero image
 
@@ -74,4 +74,4 @@ If the hero has a subtitle it should be located within this component.
 
 ---
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

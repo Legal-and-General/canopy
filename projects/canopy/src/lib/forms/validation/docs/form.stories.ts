@@ -9,7 +9,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { pastDateValidator } from '../../date/pastDate.validator';
 import { LgInputModule } from '../../input';
@@ -306,10 +306,6 @@ export default {
       ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     formSubmit: {
       action: 'submit',
@@ -326,7 +322,7 @@ const template = `
 </lg-validation-form>
 `;
 
-const formValidationStory: Story<unknown> = (args: unknown) => ({
+const formValidationStory: StoryFn<unknown> = (args: unknown) => ({
   props: args,
   template,
 });

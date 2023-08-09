@@ -1,4 +1,4 @@
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgMarginModule } from '../../spacing';
 import { LgTabsModule } from '../tabs.module';
@@ -12,10 +12,6 @@ export default {
       imports: [ LgTabsModule, LgMarginModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     onClick: {
       action: 'Tab nav link click',
@@ -112,7 +108,7 @@ function getTemplate(preventDefault?: boolean) {
   `;
 }
 
-const tabNavBarStory: Story<LgTabsModule> = (args: LgTabsModule) => ({
+const tabNavBarStory: StoryFn<LgTabsModule> = (args: LgTabsModule) => ({
   props: args,
   template: getTemplate(true),
 });

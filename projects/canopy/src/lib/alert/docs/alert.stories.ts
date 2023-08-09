@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/angular';
+import { Meta, StoryFn } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgAlertModule } from '../alert.module';
@@ -15,10 +15,6 @@ export default {
       imports: [ LgAlertModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     content: {
       description: 'The projected content.',
@@ -66,7 +62,7 @@ const template = `
 </lg-alert>
 `;
 
-const alertTemplate: Story<LgAlertComponent> = (args: LgAlertComponent) => ({
+const alertTemplate: StoryFn<LgAlertComponent> = (args: LgAlertComponent) => ({
   props: args,
   template,
 });
