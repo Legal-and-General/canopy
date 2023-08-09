@@ -9,10 +9,6 @@ export default {
       imports: [ LgMarginModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
 } as Meta;
 
 const mainQuoteTemplate = `

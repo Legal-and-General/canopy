@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown } from "@storybook/blocks";
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Helpers/Directives/Orientation/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Helpers/Directives/Orientation/Guide" />
 
 # Orientation
 
@@ -98,7 +98,7 @@ The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 
 | Name                  | Description                                                   |          Type           | Default | Required |
 |-----------------------|---------------------------------------------------------------|:-----------------------:|:-------:|:--------:|
-| `lgOrientation`       | The orientation variant applied: '{ sm: 'vertical' }'         | `OrientationResponsive` | `null`  |    No    |
+| `lgOrientation`       | The orientation variant applied: `{ sm: 'vertical' }`         | `OrientationResponsive` | `null`  |    No    |
 
 ---
 
@@ -108,4 +108,4 @@ The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 - [Margin directive](./?path=/docs/helpers-directives-margin-guide--page)
 - [Row gap directive](./?path=/docs/helpers-directives-row-gap-guide--page)
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

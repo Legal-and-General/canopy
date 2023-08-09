@@ -141,22 +141,28 @@ module.exports = {
     '../projects/canopy/src/lib/heading/docs/heading.stories.ts',
     //  Style
     '../projects/canopy/src/styles/docs/mixins.stories.mdx',
-    '../projects/canopy/src/styles/docs/utils.stories.mdx',
+    '../projects/canopy/src/styles/docs/utils.stories.mdx'
   ],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
-    {
-      name: "@storybook/addon-docs",
-      options: { transcludeMarkdown: true },
-    },
+    '@storybook/addon-mdx-gfm'
   ],
   staticDirs: [
     '../assets/',
-    { from: '../assets/fonts/', to: 'assets/fonts' },
+    {
+      from: '../assets/fonts/',
+      to: 'assets/fonts'
+    }
   ],
   core: {
-    builder: 'webpack5',
-    fsCache: true,
+    fsCache: true
   },
+  framework: {
+    name: '@storybook/angular',
+    options: {}
+  },
+  docs: {
+    autodocs: false,
+  }
 };

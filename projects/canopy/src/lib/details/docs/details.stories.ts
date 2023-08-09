@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgHeadingModule } from '../../heading';
 import { LgIconModule } from '../../icon';
@@ -15,10 +15,6 @@ export default {
       imports: [ LgDetailsModule, LgHeadingModule, LgIconModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     toggle: {
       action: 'Toggle Item',
@@ -149,7 +145,7 @@ const template = `
 </lg-details>
 `;
 
-const detailsTemplate: Story<LgDetailsComponent> = (args: LgDetailsComponent) => ({
+const detailsTemplate: StoryFn<LgDetailsComponent> = (args: LgDetailsComponent) => ({
   props: args,
   template,
 });

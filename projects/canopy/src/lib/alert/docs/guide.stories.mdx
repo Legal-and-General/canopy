@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Components/Inline message (Alert)/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Inline message (Alert)/Guide" />
 
 # Inline message
 
@@ -116,4 +116,4 @@ This is based on best practice.
 - [Details](./?path=/docs/components-details-guide--page)
 - [Primary message](./?path=/docs/components-primary-message-guide--page)
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

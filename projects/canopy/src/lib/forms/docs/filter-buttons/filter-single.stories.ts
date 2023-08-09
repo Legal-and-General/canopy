@@ -4,7 +4,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgRadioModule } from '../../radio/radio.module';
 import { LgRadioButtonComponent } from '../../radio/radio-button.component';
@@ -69,10 +69,6 @@ export default {
       imports: [ ReactiveFormsModule, LgRadioModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     id: {
       table: {
@@ -216,7 +212,7 @@ export default {
   },
 };
 
-const filterButtonsStory: Story<LgRadioButtonComponent> = (
+const filterButtonsStory: StoryFn<LgRadioButtonComponent> = (
   args: LgRadioButtonComponent,
 ) => ({
   props: args,

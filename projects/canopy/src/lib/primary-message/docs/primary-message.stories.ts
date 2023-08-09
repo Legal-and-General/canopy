@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonModule } from '../../button';
 import {
@@ -46,10 +46,6 @@ export default {
       imports: [ LgPrimaryMessageModule, LgButtonModule, LgBrandIconModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     hasRole: {
       description: 'If false, removes the role ``alert`` from the component.',
@@ -92,7 +88,7 @@ const exampleTemplate = `
 </lg-primary-message>
 `;
 
-const detailsTemplate: Story<LgPrimaryMessageComponent> = (
+const detailsTemplate: StoryFn<LgPrimaryMessageComponent> = (
   args: LgPrimaryMessageComponent,
 ) => ({
   props: args,

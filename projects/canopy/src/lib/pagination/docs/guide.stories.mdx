@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Components/Pagination (WIP)/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Pagination (WIP)/Guide" />
 
 # Pagination
 
@@ -13,7 +13,7 @@ This component is still in development and will be enhanced with more features i
 
 Things left to do:
 
-- Add overflow button when more than 5 buttons 
+- Add overflow button when more than 5 buttons
 - Add "Go to [value]" (page jumper) when the overflow is present
 - Small devices should show an overflow if more than 3 buttons
 
@@ -106,5 +106,5 @@ The label (Showing x-y of n results) is positioned automatically, either to the 
 
 Currently on mobile the maximum number of pages that can be shown before overflowing is 4. So your code will need to include logic to handle that. Future versions of the component will include an overflow icon to properly deal with this.
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>
 

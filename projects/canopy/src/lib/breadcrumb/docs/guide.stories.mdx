@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Components/Breadcrumb/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Breadcrumb/Guide" />
 
 # Breadcrumb
 
@@ -116,4 +116,4 @@ This component is based on best practice and has not had specific usability test
 
 <a href="https://www.nngroup.com/articles/breadcrumbs/" target="_blank">Breadcrumbs: 11 Design Guidelines for Desktop and Mobile</a>
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

@@ -1,5 +1,5 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgToggleModule } from '../../toggle.module';
 import { LgToggleComponent } from '../../toggle.component';
@@ -18,10 +18,6 @@ export default {
       imports: [ ReactiveFormsModule, LgToggleModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     id: {
       table: {
@@ -187,7 +183,7 @@ export default {
   },
 };
 
-const switchStory: Story<LgToggleModule> = (args: LgToggleModule) =>
+const switchStory: StoryFn<LgToggleModule> = (args: LgToggleModule) =>
   createToggleStory(args, 'switch');
 
 const code = `

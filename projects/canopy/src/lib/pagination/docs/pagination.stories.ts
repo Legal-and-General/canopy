@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgTableModule } from '../../table';
 import { LgPaginationModule } from '../pagination.module';
@@ -94,10 +94,6 @@ export default {
       imports: [ LgTableModule, LgPaginationModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     id: {
       description:
@@ -156,7 +152,7 @@ export default {
   },
 } as Meta;
 
-const basicPaginationStory: Story<LgPagionationComponent> = (
+const basicPaginationStory: StoryFn<LgPagionationComponent> = (
   args: LgPagionationComponent,
 ) => ({
   props: args,

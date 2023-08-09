@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgIconModule } from '../../icon/icon.module';
 import { LgBreadcrumbModule } from '../breadcrumb.module';
@@ -12,10 +12,6 @@ export default {
       imports: [ LgIconModule, LgBreadcrumbModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     variant: {
       options: [ BreadcrumbVariant.light, BreadcrumbVariant.dark ],
@@ -82,7 +78,7 @@ const template = `
 </lg-breadcrumb>
 `;
 
-const breadcrumbTemplate: Story<LgBreadcrumbComponent> = (
+const breadcrumbTemplate: StoryFn<LgBreadcrumbComponent> = (
   args: LgBreadcrumbComponent,
 ) => ({
   props: args,
@@ -125,7 +121,7 @@ const ellipisTemplate = `
 </lg-breadcrumb>
 `;
 
-const breadcrumbEllipsisTemplate: Story<LgBreadcrumbComponent> = (
+const breadcrumbEllipsisTemplate: StoryFn<LgBreadcrumbComponent> = (
   args: LgBreadcrumbComponent,
 ) => ({
   props: args,

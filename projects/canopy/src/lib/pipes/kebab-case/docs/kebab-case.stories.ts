@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgKebabCasePipe } from '../kebab-case.pipe';
 
@@ -11,10 +11,6 @@ export default {
       declarations: [ LgKebabCasePipe ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     text: {
       description: 'Text to transform into kebab case.',
@@ -29,7 +25,7 @@ export default {
 
 const template = '<p>{{text | kebabCase}}</p>';
 
-const kebabCasePipeTemplate: Story<LgKebabCasePipe> = (args: LgKebabCasePipe) => ({
+const kebabCasePipeTemplate: StoryFn<LgKebabCasePipe> = (args: LgKebabCasePipe) => ({
   props: args,
   template,
 });

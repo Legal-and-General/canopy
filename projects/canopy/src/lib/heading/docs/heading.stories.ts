@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgHeadingModule } from '../../heading';
 import { LgHeadingComponent } from '../heading.component';
@@ -11,10 +11,6 @@ export default {
       imports: [ LgHeadingModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     content: {
       description: 'The projected content.',
@@ -43,7 +39,7 @@ const template = `
   <lg-heading [level]="level">{{content}}</lg-heading>
 `;
 
-const detailsTemplate: Story<LgHeadingComponent> = (args: LgHeadingComponent) => ({
+const detailsTemplate: StoryFn<LgHeadingComponent> = (args: LgHeadingComponent) => ({
   props: args,
   template,
 });

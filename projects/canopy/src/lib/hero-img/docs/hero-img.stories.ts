@@ -1,4 +1,4 @@
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgGridModule } from '../../grid';
 import { LgCardModule } from '../../card';
@@ -59,8 +59,6 @@ export default {
   ],
   parameters: {
     layout: 'fullscreen',
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
   argTypes: {
     overlap: {
@@ -82,7 +80,7 @@ ${imageBackgroundHeroHTML}
 ${bodyHTML}
 `;
 
-const heroImgStory: Story<LgHeroImgComponent> = (args: LgHeroImgComponent) => ({
+const heroImgStory: StoryFn<LgHeroImgComponent> = (args: LgHeroImgComponent) => ({
   props: args,
   template,
 });

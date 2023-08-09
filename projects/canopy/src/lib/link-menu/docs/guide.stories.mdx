@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Components/Link menu/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Link menu/Guide" />
 
 # Link menu
 
@@ -42,4 +42,4 @@ This is used to add a description for the link.
 
 ---
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

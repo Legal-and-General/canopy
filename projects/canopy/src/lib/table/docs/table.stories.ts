@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgInputModule } from '../../forms';
 import { LgMarginModule } from '../../spacing';
@@ -417,10 +417,6 @@ export default {
       declarations: [ StoryTableDetailComponent, StoryTableLongCopyComponent ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes,
 };
 
@@ -444,7 +440,7 @@ const standardTableTemplate = `
 </table>
 `;
 
-const standardTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
+const standardTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
   props: args,
   template: standardTableTemplate,
 });
@@ -470,7 +466,7 @@ standardTable.parameters = {
   },
 };
 
-const expandableTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
+const expandableTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
   props: args,
   template: `
     <lg-story-table-detail [books]="books" [variant]="variant" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></lg-story-table-detail>
@@ -535,7 +531,7 @@ const withInputTableTemplate = `
 </table>
 `;
 
-const withInputTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
+const withInputTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
   props: args,
   template: withInputTableTemplate,
 });
@@ -590,7 +586,7 @@ withInputTable.parameters = {
   },
 };
 
-const withLongCopyTableStory: Story<LgTableModule> = (args: LgTableModule) => ({
+const withLongCopyTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
   props: args,
   template: `
     <lg-story-table-long-copy

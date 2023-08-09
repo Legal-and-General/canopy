@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../../card';
 import { LgMarginModule } from '../margin.module';
@@ -35,8 +35,6 @@ export default {
       // and flagging false positives
       disable: true,
     },
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'Super Blue',
     },
@@ -120,7 +118,7 @@ export default {
   },
 } as Meta;
 
-const marginStory: Story<LgMarginDirective> = (args: LgMarginDirective) => ({
+const marginStory: StoryFn<LgMarginDirective> = (args: LgMarginDirective) => ({
   props: args,
   template: `
 <lg-card

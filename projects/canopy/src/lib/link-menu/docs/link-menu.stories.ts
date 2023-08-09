@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/angular';
+import { Meta, StoryFn } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgLinkMenuModule } from '../link-menu.module';
@@ -25,10 +25,6 @@ export default {
       imports: [ LgLinkMenuModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     class: {
       table: {
@@ -38,7 +34,7 @@ export default {
   },
 } as Meta;
 
-const linkMenuTemplate: Story<LgLinkMenuComponent> = (args: LgLinkMenuComponent) => ({
+const linkMenuTemplate: StoryFn<LgLinkMenuComponent> = (args: LgLinkMenuComponent) => ({
   props: args,
   template,
 });

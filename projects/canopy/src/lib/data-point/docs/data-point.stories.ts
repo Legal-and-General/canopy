@@ -1,4 +1,4 @@
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgHeaderModule } from '../../header';
 import { LgDataPointComponent, LgDataPointListComponent, LgDataPointModule } from '..';
@@ -10,10 +10,6 @@ export default {
       imports: [ LgDataPointModule, LgHeaderModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     headingLevel: {
       options: [ '1', '2', '3', '4', '5', '6' ],
@@ -41,7 +37,7 @@ const singleTemplate = `
 </lg-data-point>
 `;
 
-const singleStory: Story<LgDataPointComponent> = (args: LgDataPointComponent) => ({
+const singleStory: StoryFn<LgDataPointComponent> = (args: LgDataPointComponent) => ({
   props: args,
   template: singleTemplate,
 });
@@ -90,7 +86,9 @@ const listTemplate = `
 </lg-data-point-list>
 `;
 
-const listStory: Story<LgDataPointListComponent> = (args: LgDataPointListComponent) => ({
+const listStory: StoryFn<LgDataPointListComponent> = (
+  args: LgDataPointListComponent,
+) => ({
   props: args,
   template: listTemplate,
 });

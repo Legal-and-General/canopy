@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonModule } from '../../button';
 import { LgCardModule } from '../../card';
@@ -61,10 +61,6 @@ export default {
       ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     variant: {
       options: variants,
@@ -96,7 +92,7 @@ const exampleTemplate = `
 </lg-card>
 `;
 
-const variantStory: Story<LgVariantDirective> = (args: LgVariantDirective) => ({
+const variantStory: StoryFn<LgVariantDirective> = (args: LgVariantDirective) => ({
   props: args,
   template,
 });

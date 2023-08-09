@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgSpinnerComponent } from '../spinner.component';
 import { LgSpinnerModule } from '../spinner.module';
@@ -15,10 +15,6 @@ export default {
       imports: [ LgSpinnerModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     text: {
       description: 'The text to show under the spinner.',
@@ -80,7 +76,7 @@ const template = `
 <lg-spinner [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
 `;
 
-const alertTemplate: Story<LgSpinnerComponent> = (args: LgSpinnerComponent) => ({
+const alertTemplate: StoryFn<LgSpinnerComponent> = (args: LgSpinnerComponent) => ({
   props: args,
   template,
 });

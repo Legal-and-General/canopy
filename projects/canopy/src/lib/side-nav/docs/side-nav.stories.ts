@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonModule } from '../../button';
 import { LgMarginModule } from '../../spacing';
@@ -72,8 +72,6 @@ export default {
     backgrounds: {
       default: 'White Smoke',
     },
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
   },
 };
 
@@ -95,7 +93,7 @@ const getDefaultNavItems = (): Array<SideNavBarItem> => [
   },
 ];
 
-const sideNavStory: Story<LgValidationModule> = (args: LgValidationModule) => ({
+const sideNavStory: StoryFn<LgValidationModule> = (args: LgValidationModule) => ({
   props: args,
   template: '<lg-story-side-nav [navItems]="navItems"></lg-story-side-nav>',
 });

@@ -1,8 +1,8 @@
-import { Meta, Source } from '@storybook/addon-docs';
+import { Meta, Markdown, Source } from '@storybook/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
 
-<Meta title="Components/Card/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Card/Guide" />
 
 # Card
 
@@ -111,7 +111,7 @@ The main body of the card. It accepts the projection of the following components
 |----------------|-----------------------------------------------------------------|-------------------------|---------|----------|
 |   `variant`    | The variant of the card: `promotion`                            | `string`                |`default`|  No      |
 
-<CardHeroImageComponent />
+<Markdown>{CardHeroImageComponent}</Markdown>
 
 ### LgCardHeaderComponent
 
@@ -213,4 +213,4 @@ Patterns which may perform a similar task, or which should be considered instead
 - [Accordion](./?path=/docs/components-accordion-guide--page)
 - [Details](./?path=/docs/components-details-guide--page)
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Components/Separator/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Components/Separator/Guide" />
 
 # Separator
 
@@ -63,4 +63,4 @@ Patterns which may perform a similar task, or which should be considered instead
 
 - [Card](./?path=/docs/components-card-guide--page)
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

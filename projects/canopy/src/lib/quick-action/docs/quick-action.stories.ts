@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgIconRegistry } from '../../icon/icon.registry';
 import { LgIconModule, lgIconsArray } from '../../icon';
@@ -51,10 +51,6 @@ export default {
       imports: [ LgQuickActionModule, LgIconModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     icon: {
       description: 'Icon to display',
@@ -83,7 +79,7 @@ const exampleButtonTemplate = `
 </button>
 `;
 
-const quickActionButtonTemplate: Story<LgQuickActionButtonComponent> = (
+const quickActionButtonTemplate: StoryFn<LgQuickActionButtonComponent> = (
   args: LgQuickActionButtonComponent,
 ) => ({
   props: args,
@@ -119,7 +115,7 @@ const exampleLinkTemplate = `
 </a>
 `;
 
-const quickActionLinkTemplate: Story<LgQuickActionLinkComponent> = (
+const quickActionLinkTemplate: StoryFn<LgQuickActionLinkComponent> = (
   args: LgQuickActionLinkComponent,
 ) => ({
   props: args,

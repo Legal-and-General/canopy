@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgGridModule } from '../../grid/grid.module';
 import { LgSkeletonModule } from '../skeleton.module';
@@ -163,8 +163,6 @@ export default {
     }),
   ],
   parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'Super Blue',
     },
@@ -177,7 +175,9 @@ const skeletonTemplate = `
 <lg-async-skeleton-loading-data-point></lg-async-skeleton-loading-data-point>
 `;
 
-const defaultSkeletonStory: Story<LgSkeletonDirective> = (args: LgSkeletonDirective) => ({
+const defaultSkeletonStory: StoryFn<LgSkeletonDirective> = (
+  args: LgSkeletonDirective,
+) => ({
   props: args,
   template: skeletonTemplate,
 });

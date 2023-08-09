@@ -4,7 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgToggleModule } from '../../toggle/toggle.module';
 import { LgHintModule } from '../../hint';
@@ -64,10 +64,6 @@ export default {
       imports: [ ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     id: {
       table: {
@@ -186,7 +182,7 @@ export default {
   },
 };
 
-const filterMultiple: Story<LgCheckboxGroupComponent> = (
+const filterMultiple: StoryFn<LgCheckboxGroupComponent> = (
   args: LgCheckboxGroupComponent,
 ) => ({
   props: args,

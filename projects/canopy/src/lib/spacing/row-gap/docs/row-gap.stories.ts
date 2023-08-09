@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { SpacingVariant } from '../../spacing.interface';
 import { LgCardModule } from '../../../card';
@@ -78,8 +78,6 @@ export default {
     }),
   ],
   parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     a11y: {
       disable: true,
     },
@@ -107,7 +105,7 @@ const template = `
 <lg-row-gap-story [rowGap]="rowGap"></lg-row-gap-story>
 `;
 
-const rowGapStory: Story<LgRowGapDirective> = (args: LgRowGapDirective) => ({
+const rowGapStory: StoryFn<LgRowGapDirective> = (args: LgRowGapDirective) => ({
   props: args,
   template,
 });

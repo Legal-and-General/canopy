@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonModule } from '../../button';
 import { LgFocusDirective } from '../focus.directive';
@@ -12,10 +12,6 @@ export default {
       imports: [ LgFocusModule, LgButtonModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     lgFocus: {
       description: 'Whether the the element should have focus.',
@@ -40,7 +36,7 @@ const template = `
   <button lg-button variant="primary-dark" [lgFocus]="lgFocus">Focus directive example</button>
 `;
 
-const focusTemplate: Story<LgFocusDirective> = (args: LgFocusDirective) => ({
+const focusTemplate: StoryFn<LgFocusDirective> = (args: LgFocusDirective) => ({
   component: LgFocusDirective,
   props: args,
   template,

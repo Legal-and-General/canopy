@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../../card';
 import { LgPaddingModule } from '../padding.module';
@@ -118,7 +118,7 @@ export default {
   },
 } as Meta;
 
-const paddingStory: Story<LgPaddingDirective> = (args: LgPaddingDirective) => ({
+const paddingStory: StoryFn<LgPaddingDirective> = (args: LgPaddingDirective) => ({
   props: args,
   template: `
 <lg-card

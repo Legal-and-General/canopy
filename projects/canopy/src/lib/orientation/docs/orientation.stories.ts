@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../card';
 import { LgOrientationModule } from '../orientation.module';
@@ -18,8 +18,6 @@ export default {
     a11y: {
       disable: true,
     },
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
     backgrounds: {
       default: 'Super Blue',
     },
@@ -34,7 +32,7 @@ export default {
   },
 } as Meta;
 
-const orientationStory: Story<LgOrientationDirective> = (
+const orientationStory: StoryFn<LgOrientationDirective> = (
   args: LgOrientationDirective,
 ) => ({
   props: args,

@@ -11,10 +11,6 @@ export default {
       imports: [ LgAlertModule, LgMarginModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
 } as Meta;
 
 const standardTemplate = `

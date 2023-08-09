@@ -1,7 +1,7 @@
-import { Meta, Source } from '@storybook/addon-docs';
-import Feedback from '../../docs/common/feedback.md';
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Helpers/Directives/Shadow/Guide" parameters={{ viewMode: 'docs', previewTabs: { canvas: { hidden: true } } }} />
+<Meta title="Helpers/Directives/Shadow/Guide" />
 
 # Shadow
 
@@ -29,4 +29,4 @@ and in your HTML:
 
 ---
 
-<Feedback />
+<Markdown>{Feedback}</Markdown>

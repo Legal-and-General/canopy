@@ -4,7 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgHintModule } from '../../hint';
 import { LgSelectModule } from '../select.module';
@@ -64,10 +64,6 @@ export default {
       imports: [ ReactiveFormsModule, LgSelectModule, LgHintModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     id: {
       table: {
@@ -117,7 +113,7 @@ export default {
   },
 } as Meta;
 
-const selectTemplate: Story<LgSelectModule> = (args: LgSelectModule) => ({
+const selectTemplate: StoryFn<LgSelectModule> = (args: LgSelectModule) => ({
   props: args,
   template: `
   <lg-reactive-form

@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgValidationModule } from '../validation.module';
 import { LgValidationComponent } from '../validation.component';
@@ -13,10 +13,6 @@ export default {
       imports: [ LgValidationModule ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     content: {
       description: 'The projected content.',
@@ -74,7 +70,7 @@ const template = `
 </lg-validation>
 `;
 
-const validationStory: Story<LgValidationModule> = (args: LgValidationModule) => ({
+const validationStory: StoryFn<LgValidationModule> = (args: LgValidationModule) => ({
   props: args,
   template,
 });

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { moduleMetadata, Story } from '@storybook/angular';
+import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgBrandIconComponent } from '../brand-icon.component';
 import { LgBrandIconRegistry } from '../brand-icon.registry';
@@ -57,7 +57,10 @@ class SwatchBrandIconComponent implements OnChanges {
   icons = lgBrandIconsArray;
   cssVar: SafeStyle;
 
-  constructor(private registry: LgBrandIconRegistry, private sanitizer: DomSanitizer) {
+  constructor(
+    private registry: LgBrandIconRegistry,
+    private sanitizer: DomSanitizer,
+  ) {
     this.registry.registerBrandIcon(this.icons);
   }
 
@@ -88,10 +91,6 @@ export default {
       declarations: [ SwatchBrandIconComponent, LgBrandIconComponent ],
     }),
   ],
-  parameters: {
-    viewMode: 'story',
-    previewTabs: { 'storybook/docs/panel': { hidden: true } },
-  },
   argTypes: {
     size: {
       options: sizes,
@@ -184,7 +183,9 @@ const exampleTemplate = `
 ></lg-brand-icon>
 `;
 
-const brandIconsTemplate: Story<LgBrandIconComponent> = (args: LgBrandIconComponent) => ({
+const brandIconsTemplate: StoryFn<LgBrandIconComponent> = (
+  args: LgBrandIconComponent,
+) => ({
   props: args,
   template:
     '<lg-swatch-brand-icon [size]="size" [colour]="colour" [halfToneColour]="halfToneColour" [outlinesColour]="outlinesColour" [globalColour]="globalColour"></lg-swatch-brand-icon>',
