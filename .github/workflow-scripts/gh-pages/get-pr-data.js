@@ -16,7 +16,7 @@ module.exports = async ({
       sha,
       branch,
       pullNumber,
-      environmentUrl: `https://legal-and-general.github.io/canopy/sb-${branch}`
+      environmentUrl: `https://legal-and-general.github.io/canopy/lg-sb-${branch}`
     };
   } catch {
     throw `🚫 Error: PR #${pullNumber} was not found`;
