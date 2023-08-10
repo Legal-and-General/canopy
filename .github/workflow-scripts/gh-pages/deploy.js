@@ -14,13 +14,13 @@ module.exports = async ({
   if (branch === 'master') {
     console.info('ℹ️ Branch to deploy: master');
     console.info('ℹ️ Running storybook build');
-    await exec.exec('npm', ['run', 'build:storybook', '--', '--output-dir', 'sb-build']);
+    await exec.exec('npm', ['run', 'build:storybook', '--', '--output-dir', 'lg-sb-build']);
 
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   } else {
     console.info(`ℹ️ Branch to deploy: ${branch}`);
 
-    docsPath = `./docs/sb-${branch}`;
+    docsPath = `./docs/lg-sb-${branch}`;
 
     const checksPassed = await evaluatePullChecks({
       sha,
@@ -89,14 +89,14 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       if (branch === 'master') {
         // for master we want to clean everything from `./docs` with the exception of the directories of the deployed branches
         const filesToRemove = fs.readdirSync('./docs', { withFileTypes: true })
-          .filter(item => !item.name.startsWith('sb-'))
+          .filter(item => !item.name.startsWith('lg-sb-'))
           .map(({ name }) => name);
 
         for (const file of filesToRemove) {
           await exec.exec('rm', ['-rf', `./docs/${file}`]);
         }
       } else {
-        // for a branch we want to clean the specific branch folder e.g. `./docs/sb-<branch-name>`
+        // for a branch we want to clean the specific branch folder e.g. `./docs/lg-sb-<branch-name>`
         await exec.exec('rm', ['-rf', docsPath]);
       }
 
@@ -115,14 +115,14 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     if (branch === 'master') {
       // gh-pages only works in the root directory, or '/docs'
       // moving one file at the time because using `*` in the mv command breaks the code
-      const sbFiles = fs.readdirSync('./sb-build', { withFileTypes: true }).map(({ name }) => name);
+      const sbFiles = fs.readdirSync('./lg-sb-build', { withFileTypes: true }).map(({ name }) => name);
 
       for (const file of sbFiles) {
-        await exec.exec('mv', [`./sb-build/${file}`, './docs/']);
+        await exec.exec('mv', [`./lg-sb-build/${file}`, './docs/']);
       }
 
-      await exec.exec('rm', ['-rf', './sb-build']);
-      await exec.exec('git', ['add', './sb-build']);
+      await exec.exec('rm', ['-rf', './lg-sb-build']);
+      await exec.exec('git', ['add', './lg-sb-build']);
     }
 
     console.info('ℹ️ Adding storybook static files');
@@ -150,8 +150,8 @@ async function undeploy({ branch, repo, owner, github, exec }) {
   try {
     // get the existing deployed branches from the docs folder (removing the prefix)
     const branches = fs.readdirSync('./docs', { withFileTypes: true })
-      .filter(item => item.isDirectory() && item.name.startsWith('sb-') && item.name !== `sb-${branch}`)
-      .map(({ name }) => name.replace(/^sb-/, ''));
+      .filter(item => item.isDirectory() && item.name.startsWith('lg-sb-') && item.name !== `lg-sb-${branch}`)
+      .map(({ name }) => name.replace(/^lg-sb-/, ''));
 
     if (!branches.length) {
       console.info(`✅️ Skipping: no environments to un-deploy`);
@@ -175,8 +175,8 @@ async function undeploy({ branch, repo, owner, github, exec }) {
 
     for (const branch of branchesToUndeploy) {
       console.info(`ℹ️ Removing storybook static files for branch ${branch}`);
-      await exec.exec('rm', ['-rf', `./docs/sb-${branch}`]);
-      await exec.exec('git', ['add', `./docs/sb-${branch}`]);
+      await exec.exec('rm', ['-rf', `./docs/lg-sb-${branch}`]);
+      await exec.exec('git', ['add', `./docs/lg-sb-${branch}`]);
 
       try {
         console.info('ℹ️ Committing changes');

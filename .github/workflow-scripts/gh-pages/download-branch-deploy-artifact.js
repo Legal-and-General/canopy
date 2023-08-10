@@ -22,11 +22,11 @@ module.exports = async ({
     const { data } = await github.rest.actions.downloadArtifact({
       owner,
       repo,
-      artifact_id: artifacts.find(({ name }) => name === 'sb-build').id,
+      artifact_id: artifacts.find(({ name }) => name === 'lg-sb-build').id,
       archive_format: 'zip'
     });
 
-    fs.writeFileSync('./sb-build.zip', Buffer.from(data));
+    fs.writeFileSync('./lg-sb-build.zip', Buffer.from(data));
   } catch {
     throw `🚫 Error: no artifacts found`;
   }

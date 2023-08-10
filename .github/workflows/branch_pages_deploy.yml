@@ -45,8 +45,8 @@ jobs:
             });
 
       - run: |
-          unzip sb-build.zip -d ./docs/sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
-          rm sb-build.zip
+          unzip lg-sb-build.zip -d ./docs/lg-sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
+          rm lg-sb-build.zip
 
       - name: 'Notify GitHub of branch deployment'
         uses: actions/github-script@v6
