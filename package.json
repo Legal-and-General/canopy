@@ -123,7 +123,7 @@
     "storybook": "^7.2.2-alpha.0",
     "stylelint": "^15.10.2",
     "stylelint-config-recommended": "^13.0.0",
-    "stylelint-selector-bem-pattern": "^3.0.0",
+    "stylelint-selector-bem-pattern": "^3.0.1",
     "svg-to-ts": "^10.0.0",
     "svgo": "^3.0.2",
     "ts-node": "^10.9.1",
