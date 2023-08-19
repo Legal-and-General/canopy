@@ -106,7 +106,7 @@
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "license-checker": "^25.0.1",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^14.0.0",
     "mini-css-extract-plugin": "^2.7.6",
     "ng-mocks": "^14.11.0",
     "ng-packagr": "^14.2.2",
