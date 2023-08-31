@@ -169,13 +169,12 @@ describe('LgDateFieldComponent', () => {
     expect(dateInput.nativeElement.value).toEqual(date);
   });
 
-  it('joins the individual input fields and sets the value even if some are null', () => {
+  it('disallows partial dates', () => {
     fixture.detectChanges();
     dateFieldInstance.year.setValue('1970');
     dateFieldInstance.month.setValue('5');
-    dateFieldInstance.date.setValue('');
 
-    expect(component.form.controls.dateOfBirth.value).toEqual('1970-05-');
+    expect(component.form.controls.dateOfBirth.value).toEqual('');
   });
 
   it('sets the individual input fields to the empty string when no date value is provided', () => {
@@ -224,18 +223,6 @@ describe('LgDateFieldComponent', () => {
     fixture.detectChanges();
 
     expect(component.form.controls.dateOfBirth.value).toEqual('1944-03-07');
-  });
-
-  it('replaces empty fields with an empty string if date is not complete', done => {
-    fixture.detectChanges();
-
-    component.dateChange.pipe(skip(1)).subscribe(change => {
-      expect(change.dateOfBirth).toBe('1944-03-');
-      done();
-    });
-
-    dateFieldInstance.year.setValue('1944');
-    dateFieldInstance.month.setValue('3');
   });
 
   it('updates the date value on each input change', () => {
