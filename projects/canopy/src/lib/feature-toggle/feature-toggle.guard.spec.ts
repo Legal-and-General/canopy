@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRouteSnapshot, Route, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { cold } from 'jasmine-marbles';
 import { of } from 'rxjs';
 import { deepEqual, instance, mock, reset, verify, when } from '@typestrong/ts-mockito';
@@ -21,14 +21,14 @@ describe('FeatureToggleGuard', () => {
   const disabledConfig = { parent: false };
   const enabledConfig2 = { parent: true, child: true };
   const disabledConfig2 = { parent: false, child: false };
-  const routeSnapshot: Partial<ActivatedRouteSnapshot> = {
+  const routeSnapshot = {
     data: { featureToggle: 'parent' },
     children: [
       {
         data: { featureToggle: 'child' },
-      } as any,
+      },
     ],
-  };
+  } as unknown as ActivatedRouteSnapshot;
 
   const checkGuardConfigs = (
     guardType: GuardTypes,
@@ -45,7 +45,7 @@ describe('FeatureToggleGuard', () => {
     switch (guardType) {
       case GuardTypes.CAN_ACTIVATE:
 
-        expect(guard.canActivate(routeSnapshot as ActivatedRouteSnapshot)).toBeObservable(
+        expect(guard.canActivate(routeSnapshot)).toBeObservable(
           cold('(a|)', { a: marbleValue }),
         );
 
@@ -53,15 +53,15 @@ describe('FeatureToggleGuard', () => {
 
       case GuardTypes.CAN_ACTIVATE_CHILD:
 
-        expect(
-          guard.canActivateChild(routeSnapshot as ActivatedRouteSnapshot),
-        ).toBeObservable(cold('(a|)', { a: marbleValue }));
+        expect(guard.canActivateChild(routeSnapshot)).toBeObservable(
+          cold('(a|)', { a: marbleValue }),
+        );
 
         break;
 
       case GuardTypes.CAN_LOAD:
 
-        expect(guard.canLoad(routeSnapshot as Route)).toBeObservable(
+        expect(guard.canLoad(routeSnapshot)).toBeObservable(
           cold('(a|)', { a: marbleValue }),
         );
 

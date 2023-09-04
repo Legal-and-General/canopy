@@ -91,6 +91,7 @@ describe('LgSortCodeDirective', () => {
 
     it('should be called on a focusout event', () => {
       component.form.get('sortCode').setValue('000');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const spy = spyOn<any>(inputInstance, 'format');
 
       fixture.detectChanges();

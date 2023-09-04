@@ -92,7 +92,7 @@ export class LgBrandIconComponent {
 
   constructor(
     private iconRegistry: LgBrandIconRegistry,
-    @Inject(DOCUMENT) private document: any,
+    @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private hostElement: ElementRef,
   ) {

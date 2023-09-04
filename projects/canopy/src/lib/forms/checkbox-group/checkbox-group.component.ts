@@ -160,16 +160,19 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     this._value = value;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public onTouched(_?: any): void {}
 
   public writeValue(obj: Array<string>): void {
     this.value = obj;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
