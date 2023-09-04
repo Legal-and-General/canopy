@@ -137,18 +137,22 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     this.value = value;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public onTouched(_?: any): void {}
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public writeValue(value: any): void {
     if (value === this.value) {
       this.checked = true;
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }

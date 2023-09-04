@@ -4,16 +4,14 @@ import { MockRender, MockedComponentFixture } from 'ng-mocks';
 import { LgTableHeadCellComponent } from './table-head-cell.component';
 
 describe('LgTableHeadCellComponent', () => {
-  let component: any;
+  let component: LgTableHeadCellComponent;
   let fixture: MockedComponentFixture<LgTableHeadCellComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTableHeadCellComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LgTableHeadCellComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

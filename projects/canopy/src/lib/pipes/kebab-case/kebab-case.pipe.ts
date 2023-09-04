@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'kebabCase',
 })
 export class LgKebabCasePipe implements PipeTransform {
-  transform(str: string): any {
+  transform(str: string): string {
     return !str
       ? str
       : str

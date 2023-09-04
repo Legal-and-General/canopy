@@ -68,6 +68,7 @@ describe('LgFilterContainerComponent', () => {
   });
 
   it('should set the unique id of the panel, its state and call #toggleActiveClass', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const toggleActiveClassSpy = spyOn<any>(component, 'toggleActiveClass');
 
     expect(component.filterContainerPanel.uniqueId).toBe(component['uniqueId']);

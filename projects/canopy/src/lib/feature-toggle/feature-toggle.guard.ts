@@ -59,7 +59,7 @@ export class FeatureToggleGuard implements CanActivate, CanLoad {
 export function getDataPropertyValues(
   snapshot: ActivatedRouteSnapshot | Route,
   propertyName: string,
-  values = new Array<any>(),
+  values = new Array<string>(),
 ) {
   if (snapshot.data && snapshot.data.hasOwnProperty(propertyName)) {
     values.push(snapshot.data[propertyName]);

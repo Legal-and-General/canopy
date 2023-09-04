@@ -43,7 +43,7 @@ export class LgIconComponent {
   constructor(
     private hostElement: ElementRef,
     private iconRegistry: LgIconRegistry,
-    @Inject(DOCUMENT) private document: any,
+    @Inject(DOCUMENT) private document: Document,
   ) {}
 
   /*

@@ -13,10 +13,12 @@ export interface LgFeatureToggleOptions {
 export interface LgToggles {
   // The function to invoke to create a value for the token. This is invoked with
   // resolved values of tokens in the deps field.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   useFactory: (...args: Array<any>) => Observable<LgFeatureToggleConfig>;
 
   // A list of tokens which need to be resolved by the injector. The list of values is then
   // used as arguments to the `useFactory` function.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   deps?: Array<any>;
 }
 

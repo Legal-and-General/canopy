@@ -39,7 +39,7 @@ describe('LgAccordionItemComponent', () => {
   let fixture: ComponentFixture<TestAccordionWrapperItemComponent>;
   let triggerElement: DebugElement;
   let selectionDispatcher: UniqueSelectionDispatcher;
-  let accordionMock: any;
+  let accordionMock: { id: string; multi?: boolean };
 
   beforeEach(waitForAsync(() => {
     accordionMock = { id: 'lgAccordion123' };

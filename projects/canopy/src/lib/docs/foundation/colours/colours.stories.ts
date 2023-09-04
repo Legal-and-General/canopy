@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  ElementRef,
   HostBinding,
   Input,
   QueryList,
@@ -140,7 +141,7 @@ class TintSwatchComponent implements AfterViewInit {
 
   @HostBinding('class') class = 'tint-swatch';
 
-  @ViewChildren('swatch') swatches: QueryList<any>;
+  @ViewChildren('swatch') swatches: QueryList<ElementRef>;
 
   ngAfterViewInit() {
     this.swatches.forEach((swatch, i) => {

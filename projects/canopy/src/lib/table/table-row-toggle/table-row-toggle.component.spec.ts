@@ -1,7 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MockComponent, MockRender, MockedComponentFixture } from 'ng-mocks';
+import { MockComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon/icon.component';
 
@@ -9,16 +9,15 @@ import { LgTableRowToggleComponent } from './table-row-toggle.component';
 
 describe('LgTableRowToggleComponent', () => {
   let component: LgTableRowToggleComponent;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let fixture: MockedComponentFixture<LgTableRowToggleComponent, any>;
   let debugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender('<lg-table-row-toggle></lg-table-row-toggle>');

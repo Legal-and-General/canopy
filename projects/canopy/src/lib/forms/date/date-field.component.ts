@@ -286,6 +286,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public onTouched(_?: any) {}
 
   public onChange(date: string) {

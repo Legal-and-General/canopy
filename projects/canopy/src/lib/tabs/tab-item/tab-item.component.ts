@@ -11,9 +11,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgTabItemComponent {
-  @ViewChild('navItemTemplate', { static: true })
-  navItemTemplate: TemplateRef<any>;
-
-  @ViewChild('contentTemplate', { static: true })
-  contentTemplate: TemplateRef<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  @ViewChild('navItemTemplate', { static: true }) navItemTemplate: TemplateRef<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
 }

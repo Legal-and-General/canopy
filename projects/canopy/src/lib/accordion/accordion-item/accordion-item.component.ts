@@ -42,6 +42,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _showContent = false;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _contentTemplate: TemplateRef<any>;
 
   @Input() isActive = false;
