@@ -163,7 +163,11 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
           ? date.year
           : '';
 
-        this.onChange(`${year}-${month}-${day}`);
+        const formatedDate = day || month || year
+          ? `${year}-${month}-${day}`
+          : '';
+
+        this.onChange(formatedDate);
       }),
 
       // submit the group when the parent form is submitted
