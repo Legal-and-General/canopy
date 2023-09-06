@@ -212,6 +212,10 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     this.month.setErrors(omit(this.month.errors, 'invalidDate'));
     this.year.setErrors(omit(this.year.errors, 'invalidDate'));
 
+    if (!this.date.value && !this.month.value && !this.year.value) {
+      return null;
+    }
+
     const invalidFields: Array<string> = [];
 
     Object.keys(this.dateFormGroup.controls).forEach(fieldName => {
