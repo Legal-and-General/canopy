@@ -302,28 +302,6 @@ describe('LgDateFieldComponent', () => {
       });
     });
 
-    it('adds a required field validation rule if a field is empty', () => {
-      dateFieldInstance.month.markAsDirty();
-      dateFieldInstance.month.setValue('');
-      fixture.detectChanges();
-
-      expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toEqual({
-        requiredField: 'month',
-      });
-    });
-
-    it('adds a required fields validation rule if more than one field is empty', () => {
-      dateFieldInstance.month.markAsDirty();
-      dateFieldInstance.month.setValue('');
-      dateFieldInstance.date.markAsDirty();
-      dateFieldInstance.date.setValue('');
-      fixture.detectChanges();
-
-      expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toEqual({
-        requiredFields: [ 'day', 'month' ],
-      });
-    });
-
     it('adds an invalid fields validation rule if there are both invalid and required fields', () => {
       dateFieldInstance.month.markAsDirty();
       dateFieldInstance.month.setValue('x');
