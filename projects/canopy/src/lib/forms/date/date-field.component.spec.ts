@@ -339,5 +339,55 @@ describe('LgDateFieldComponent', () => {
 
       expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toBe(null);
     });
+
+    it('adds no validation rules if the day field is filled and then cleared', () => {
+      dateFieldInstance.date.markAsDirty();
+      dateFieldInstance.date.setValue('28');
+      fixture.detectChanges();
+
+      dateFieldInstance.date.setValue('');
+      fixture.detectChanges();
+
+      expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toBe(null);
+    });
+
+    it('adds no validation rules if the month field is filled and then cleared', () => {
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('2');
+      fixture.detectChanges();
+
+      dateFieldInstance.month.setValue('');
+      fixture.detectChanges();
+
+      expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toBe(null);
+    });
+
+    it('adds no validation rules if the year field is filled and then cleared', () => {
+      dateFieldInstance.year.markAsDirty();
+      dateFieldInstance.year.setValue('1970');
+      fixture.detectChanges();
+
+      dateFieldInstance.year.setValue('');
+      fixture.detectChanges();
+
+      expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toBe(null);
+    });
+
+    it('adds no validation rules if all fields are filled and then cleared', () => {
+      dateFieldInstance.date.markAsDirty();
+      dateFieldInstance.date.setValue('28');
+      dateFieldInstance.month.markAsDirty();
+      dateFieldInstance.month.setValue('2');
+      dateFieldInstance.year.markAsDirty();
+      dateFieldInstance.year.setValue('1970');
+      fixture.detectChanges();
+
+      dateFieldInstance.date.setValue('');
+      dateFieldInstance.month.setValue('');
+      dateFieldInstance.year.setValue('');
+      fixture.detectChanges();
+
+      expect(fixture.componentInstance.form.controls.dateOfBirth.errors).toBe(null);
+    });
   });
 });
