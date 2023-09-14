@@ -382,12 +382,12 @@ const dataPointsCardTemplate = `
     <lg-link-menu>
       <a href="" target="_blank">
         <lg-link-menu-item>
-          <lg-link-menu-item-heading>Link menu item 1</lg-link-menu-item-heading>
+          <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
         </lg-link-menu-item>
       </a>
       <a href="">
         <lg-link-menu-item>
-          <lg-link-menu-item-heading>Link menu item 2</lg-link-menu-item-heading>
+          <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
         </lg-link-menu-item>
       </a>
     </lg-link-menu>
