@@ -17,7 +17,7 @@
   h5,
   h6 {
     margin-bottom: 0;
-    @include lg-font-size(2, 'strong');
+    @include lg-font-size(2, 'medium');
   }
 
   &__close {
