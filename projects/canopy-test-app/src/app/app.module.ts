@@ -31,8 +31,10 @@ import {
   lgIconRepeat,
   lgIconSearch,
   lgIconSecureMessaging,
+  lgIconCheckmark,
   LgInputModule,
   LgLinkMenuModule,
+  LgListWithIconsModule,
   LgMarginModule,
   LgPaddingModule,
   LgPageModule,
@@ -80,6 +82,7 @@ import { StoryContentComponent } from './story-content.component';
     LgHintModule,
     LgIconModule,
     LgInputModule,
+    LgListWithIconsModule,
     LgMarginModule,
     LgPaddingModule,
     LgPageModule,
@@ -113,6 +116,7 @@ export class AppModule {
       lgIconRepeat,
       lgIconSecureMessaging,
       lgIconFilter,
+      lgIconCheckmark,
     ]);
 
     this.brandIconRegistry.registerBrandIcon([ lgBrandIconCalendar ]);

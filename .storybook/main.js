@@ -66,6 +66,8 @@ module.exports = {
     '../projects/canopy/src/lib/header/docs/header.stories.ts',
     '../projects/canopy/src/styles/docs/link/guide.stories.mdx',
     '../projects/canopy/src/styles/docs/link/link.stories.ts',
+    '../projects/canopy/src/lib/list-with-icons/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/list-with-icons/docs/list-with-icons.stories.ts',
     '../projects/canopy/src/lib/link-menu/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/link-menu/docs/link-menu.stories.ts',
     '../projects/canopy/src/lib/modal/docs/guide.stories.mdx',
