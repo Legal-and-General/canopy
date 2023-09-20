@@ -476,6 +476,21 @@
 <!--            </lg-modal>-->
 
             <lg-separator></lg-separator>
+            <lg-heading level="3">List with Icons</lg-heading>
+
+            <ul lg-list-with-icons>
+              <li lg-list-with-icons-item iconName="checkmark" iconColour="--color-leafy-green">List item 1</li>
+              <li lg-list-with-icons-item iconName="close" iconColour="--color-poppy-red"
+              >List item 2
+                <ul lg-list-with-icons>
+                  <li lg-list-with-icons-item iconName="checkmark" iconColour="--color-leafy-green">List item 2.1</li>
+                  <li lg-list-with-icons-item iconName="close" iconColour="--color-poppy-red">List item 2.2</li>
+                </ul>
+              </li>
+              <li lg-list-with-icons-item iconName="checkmark" iconColour="--color-leafy-green">List item 3</li>
+            </ul>
+
+            <lg-separator></lg-separator>
             <lg-heading level="3">Primary Message</lg-heading>
 
             <lg-primary-message>

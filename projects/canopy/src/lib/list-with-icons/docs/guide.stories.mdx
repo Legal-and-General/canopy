@@ -1,0 +1,122 @@
+import { Meta, Markdown, Source, Story, Controls } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+
+<Meta title="Components/List/Guide" />
+
+# List
+
+<p class="standfirst">Lists are used to list an array of items.</p>
+
+<div class="lg-sb-preview">
+  <Story id="components-list-examples--internal-coloured-list-with-icons"></Story>
+</div>
+
+## Standard list
+
+### Unordered list
+
+For a standard bulleted unordered list, in your HTML:
+
+```html
+<ul>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ul>
+```
+
+### Ordered list
+
+
+For a standard ordered list, in your HTML:
+
+```html
+<ol>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ol>
+```
+
+## List with icons
+
+### Usage
+
+Import the list with icons module in your application:
+
+```js
+@NgModule({
+  ...
+  imports: [ ..., LgListWithIconsModule ],
+});
+```
+
+Register the icons as explained in the [iconography guide](./?path=/docs/foundations-ui-icon-guide--docs).
+
+In your HTML, use either a `ul` or `ol` as you would normally with the addition of the appropriate component selectors as per examples below.
+
+#### On neutral background
+
+<Source id="components-list-examples--neutral-foreground-list-with-icons"></Source>
+
+#### On light background
+
+<Source id="components-list-examples--dark-foreground-list-with-icons"></Source>
+
+#### On dark background
+
+<Source id="components-list-examples--light-foreground-list-with-icons"></Source>
+
+#### With coloured icons
+
+_Note:_ this type of list should only be used on neutral or light background.
+
+```html
+<ul lg-list-with-icons>
+  <li lg-list-with-icons-item iconName="checkmark" iconColour="--color-leafy-green">List item 1</li>
+  <li lg-list-with-icons-item iconName="checkmark" iconColour="--color-leafy-green">List item 2</li>
+  <li lg-list-with-icons-item iconName="close" iconColour="--color-terracotta">List item 3</li>
+</ul>
+```
+
+#### Nested lists
+
+```html
+<ul lg-list-with-icons>
+  <li lg-list-with-icons-item iconName="help">List item 1</li>
+  <li lg-list-with-icons-item iconName="idea"
+    >List item 2
+    <ul lg-list-with-icons>
+      <li lg-list-with-icons-item iconName="at">List item 2.1</li>
+      <li lg-list-with-icons-item iconName="phone-on">List item 2.2</li>
+    </ul>
+  </li>
+  <li lg-list-with-icons-item iconName="house">List item 3</li>
+</ul>
+```
+
+
+### Additional development details
+
+#### LgListComponent
+This is where the list items are projected.
+
+##### Inputs
+
+| Name      | Description                                                                                | Type     | Default              | Required |
+|-----------|--------------------------------------------------------------------------------------------|----------|----------------------|----------|
+| `variant` | The colour variants available: `neutral-foreground`, `light-foreground`, `dark-foreground` | `string` | `neutral-foreground` | No       |
+
+#### LgListWithIconsItemComponent
+This is where the content of each list item is projected.
+
+##### Inputs
+
+| Name         | Description            | Type                                               | Default     | Required |
+|--------------|------------------------|----------------------------------------------------|-------------|----------|
+| `iconName`   | The name of the icon   | `string`                                           | `undefined` | Yes      |
+| `iconColour` | The colour of the icon | colour value as a `string` (accepts css variables) | `undefined` | No       |
+
+---
+
+<Markdown>{Feedback}</Markdown>
