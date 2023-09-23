@@ -120,7 +120,7 @@
     "remark-gfm": "^3.0.1",
     "sass": "^1.66.1",
     "semantic-release": "^21.1.1",
-    "storybook": "^7.4.0",
+    "storybook": "^7.4.4",
     "stylelint": "^15.10.3",
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-selector-bem-pattern": "^3.0.1",
