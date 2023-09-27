@@ -1,53 +1,24 @@
-import { Meta, Markdown, Source, Story, Controls } from '@storybook/blocks';
+import { Meta, Markdown, Source, Story } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 
-<Meta title="Components/List/Guide" />
+<Meta title="Components/List with icons/Guide" />
 
-# List
+# List with icons
 
-<p class="standfirst">Lists are used to list an array of items.</p>
+<p class="standfirst">List with icons is used to list an array of items and icons.</p>
 
 <div class="lg-sb-preview">
-  <Story id="components-list-examples--internal-coloured-list-with-icons"></Story>
+  <Story id="components-list-with-icons-examples--light-coloured-list-with-icons"></Story>
 </div>
 
-## Standard list
-
-### Unordered list
-
-For a standard bulleted unordered list, in your HTML:
-
-```html
-<ul>
-  <li>List item 1</li>
-  <li>List item 2</li>
-  <li>List item 3</li>
-</ul>
-```
-
-### Ordered list
-
-
-For a standard ordered list, in your HTML:
-
-```html
-<ol>
-  <li>List item 1</li>
-  <li>List item 2</li>
-  <li>List item 3</li>
-</ol>
-```
-
-## List with icons
-
-### Usage
+## Usage
 
 Import the list with icons module in your application:
 
 ```js
 @NgModule({
   ...
-  imports: [ ..., LgListWithIconsModule ],
+  imports: [ ..., LgListModule ],
 });
 ```
 
@@ -55,31 +26,21 @@ Register the icons as explained in the [iconography guide](./?path=/docs/foundat
 
 In your HTML, use either a `ul` or `ol` as you would normally with the addition of the appropriate component selectors as per examples below.
 
-#### On neutral background
+### Standard list on light background
 
-<Source id="components-list-examples--neutral-foreground-list-with-icons"></Source>
+<Source id="components-list-with-icons-examples--light-list-with-icons"></Source>
 
-#### On light background
+### List with coloured icons
 
-<Source id="components-list-examples--dark-foreground-list-with-icons"></Source>
+_Note:_ this type of list should only be used on light background.
 
-#### On dark background
+<Source id="components-list-with-icons-examples--light-coloured-list-with-icons"></Source>
 
-<Source id="components-list-examples--light-foreground-list-with-icons"></Source>
+### List on dark background
 
-#### With coloured icons
+<Source id="components-list-with-icons-examples--dark-list-with-icons"></Source>
 
-_Note:_ this type of list should only be used on neutral or light background.
-
-```html
-<ul lg-list-with-icons>
-  <li lg-list-with-icons-item iconName="checkmark" iconColour="--color-leafy-green">List item 1</li>
-  <li lg-list-with-icons-item iconName="checkmark" iconColour="--color-leafy-green">List item 2</li>
-  <li lg-list-with-icons-item iconName="close" iconColour="--color-terracotta">List item 3</li>
-</ul>
-```
-
-#### Nested lists
+### Nested lists
 
 ```html
 <ul lg-list-with-icons>
@@ -96,27 +57,31 @@ _Note:_ this type of list should only be used on neutral or light background.
 ```
 
 
-### Additional development details
+## Additional development details
 
-#### LgListComponent
+### LgListComponent
 This is where the list items are projected.
 
-##### Inputs
+#### Inputs
 
-| Name      | Description                                                                                | Type     | Default              | Required |
-|-----------|--------------------------------------------------------------------------------------------|----------|----------------------|----------|
-| `variant` | The colour variants available: `neutral-foreground`, `light-foreground`, `dark-foreground` | `string` | `neutral-foreground` | No       |
+| Name      | Description                                    | Type     | Default | Required |
+|-----------|------------------------------------------------|----------|---------|----------|
+| `variant` | The colour variants available: `light`, `dark` | `string` | `dark`  | No       |
 
-#### LgListWithIconsItemComponent
+### LgListWithIconsItemComponent
 This is where the content of each list item is projected.
 
-##### Inputs
+#### Inputs
 
 | Name         | Description            | Type                                               | Default     | Required |
 |--------------|------------------------|----------------------------------------------------|-------------|----------|
-| `iconName`   | The name of the icon   | `string`                                           | `undefined` | Yes      |
+| `iconName`   | The name of the icon   | `string`                                           | `undefined` | yes      |
 | `iconColour` | The colour of the icon | colour value as a `string` (accepts css variables) | `undefined` | No       |
 
 ---
+
+## Related
+
+- List
 
 <Markdown>{Feedback}</Markdown>
