@@ -1,7 +1,6 @@
 import {
   Component,
   ContentChild,
-  Host,
   HostBinding,
   Input,
   OnDestroy,
@@ -99,7 +98,6 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     @Optional()
     private ngControl: NgControl,
     @Optional()
-    @Host()
     @SkipSelf()
     private parentFormGroupDirective: FormGroupDirective,
   ) {
