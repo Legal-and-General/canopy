@@ -64,7 +64,7 @@ and in your HTML:
 // parent class component
 const form = new FormGroup({
   childFormGroup: new FormGroup({
-    date: ['', [Validators.required]]
+    date: new FormControl('', Validators.required)
   })
 });
 
