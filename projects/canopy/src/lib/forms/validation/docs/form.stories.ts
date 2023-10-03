@@ -42,7 +42,27 @@ function invalidValidator(): ValidatorFn {
         Inner Date Field
         <lg-validation *ngIf="isControlInvalid(date, formGroupDirective)">
           <ng-container *ngIf="date.hasError('required')">
-            Enter a date of for the inner date field
+            Enter a date for the inner date field
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidField')">
+            Enter a valid {{ date.errors.invalidField }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidFields')">
+            Enter a valid {{ date.errors.invalidFields[0] }} and
+            {{ date.errors.invalidFields[1] }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('requiredField')">
+            Date must include a {{ date.errors.requiredField }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('requiredFields')">
+            Date must include a {{ date.errors.requiredFields[0] }} and
+            {{ date.errors.requiredFields[1] }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidDate')">
+            Enter a valid date of birth
+          </ng-container>
+          <ng-container *ngIf="date.hasError('pastDate')">
+            Date must be in the past
           </ng-container>
         </lg-validation>
       </lg-date-field>
@@ -315,7 +335,7 @@ class ReactiveFormComponent {
       sortCode: [ '', [ Validators.required ] ],
       date: [ '', [ Validators.required, pastDateValidator() ] ],
       innerChildFormGroup: this.fb.group({
-        date: [ '', [ Validators.required ] ],
+        date: [ '', [ Validators.required, pastDateValidator() ] ],
       }),
     });
   }
