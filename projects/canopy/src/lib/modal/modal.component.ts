@@ -26,6 +26,9 @@ import { LgModalBodyComponent } from './modal-body/modal-body.component';
   templateUrl: './modal.component.html',
   styleUrls: [ './modal.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'lg-modal',
+  },
 })
 export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   private subscription: Subscription;
