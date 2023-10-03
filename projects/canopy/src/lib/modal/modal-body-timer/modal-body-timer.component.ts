@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostBinding,
   Input,
   ViewEncapsulation,
 } from '@angular/core';
@@ -12,12 +11,13 @@ import {
   styleUrls: [ './modal-body-timer.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'lg-modal-body__timer',
+  },
 })
 export class LgModalBodyTimerComponent {
   private _timer: number;
   formattedTime: string;
-
-  @HostBinding('class.lg-modal-body__timer') class = true;
 
   @Input()
   set timer(seconds: number | string) {

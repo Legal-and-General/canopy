@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  HostBinding,
-  ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lg-modal-footer',
@@ -11,7 +6,8 @@ import {
   styleUrls: [ './modal-footer.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'lg-modal-footer',
+  },
 })
-export class LgModalFooterComponent {
-  @HostBinding('class.lg-modal-footer') class = true;
-}
+export class LgModalFooterComponent {}
