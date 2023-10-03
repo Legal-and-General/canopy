@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { instance, mock, verify } from '@typestrong/ts-mockito';
+import { instance, mock, spy, verify } from '@typestrong/ts-mockito';
 
 import { LgModalService } from '../modal.service';
 
@@ -41,9 +41,12 @@ describe('LgModalHeaderComponent', () => {
   });
 
   it('should close the modal on #close', () => {
+    const closedEmitterSpy = spy(component.closed);
+
     component.modalId = 'test';
     component.close();
 
+    verify(closedEmitterSpy.emit()).once();
     verify(modalServiceMock.close('test')).once();
 
     expect().nothing();

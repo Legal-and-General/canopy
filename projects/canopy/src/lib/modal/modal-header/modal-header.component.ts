@@ -17,18 +17,21 @@ import { LgModalService } from '../modal.service';
   styleUrls: [ './modal-header.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'lg-modal-header',
+  },
 })
 export class LgModalHeaderComponent {
   @Input() headingLevel: HeadingLevel = 2;
   @Output() closed: EventEmitter<void> = new EventEmitter();
   modalId: string;
 
-  @HostBinding('class.lg-modal-header') class = true;
   @HostBinding('id') id: string;
 
   constructor(private modalService: LgModalService) {}
 
   close(): void {
+    this.closed.emit();
     this.modalService.close(this.modalId);
   }
 }

@@ -39,6 +39,16 @@ export default {
         disable: true,
       },
     },
+    closedOverlayClick: {
+      table: {
+        disable: true,
+      },
+    },
+    closedEscKey: {
+      table: {
+        disable: true,
+      },
+    },
     open: {
       table: {
         disable: true,
