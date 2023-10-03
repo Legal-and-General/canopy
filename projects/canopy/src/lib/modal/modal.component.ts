@@ -33,17 +33,23 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   @Input() id: string;
   @Output() open: EventEmitter<void> = new EventEmitter();
   @Output() closed: EventEmitter<void> = new EventEmitter();
+  @Output() closedOverlayClick: EventEmitter<void> = new EventEmitter();
+  @Output() closedEscKey: EventEmitter<void> = new EventEmitter();
 
   @ContentChild(forwardRef(() => LgModalHeaderComponent))
   modalHeaderComponent: LgModalHeaderComponent;
   @ContentChild(forwardRef(() => LgModalBodyComponent))
   modalBodyComponent: LgModalBodyComponent;
 
-  constructor(private cdr: ChangeDetectorRef, private modalService: LgModalService) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private modalService: LgModalService,
+  ) {}
 
   @HostListener('keydown', [ '$event' ]) onKeydown(event: KeyboardEvent): void {
     if (event.key === keyName.KEY_ESCAPE && this.isOpen) {
       this.modalService.close(this.id);
+      this.closedEscKey.emit();
     }
   }
 
@@ -55,6 +61,7 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   // drag the mouse on the overlay causing the modal to close.
   @HostListener('mousedown') onOverlayClick(): void {
     this.modalService.close(this.id);
+    this.closedOverlayClick.emit();
   }
 
   ngOnInit(): void {
