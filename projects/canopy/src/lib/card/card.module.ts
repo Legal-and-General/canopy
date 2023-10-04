@@ -13,6 +13,7 @@ import { LgCardContentComponent } from './card-content/card-content.component';
 import { LgCardHeaderComponent } from './card-header/card-header.component';
 import { LgCardSubtitleComponent } from './card-subtitle/card-subtitle.component';
 import { LgCardTitleComponent } from './card-title/card-title.component';
+import { LgCardSubheadingComponent } from './card-subheading/card-subheading.component';
 import { LgCardComponent } from './card.component';
 import { LgCardFooterComponent } from './card-footer/card-footer.component';
 import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
@@ -25,6 +26,7 @@ const components = [
   LgCardHeaderComponent,
   LgCardHeroImageComponent,
   LgCardTitleComponent,
+  LgCardSubheadingComponent,
   LgCardFooterComponent,
   LgCardSubtitleComponent,
   LgCardPrincipleDataPointComponent,
