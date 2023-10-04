@@ -120,6 +120,7 @@ const showMoreCardTemplate = `
     </lg-card-title>
   </lg-card-header>
   <lg-card-content>
+    <lg-card-subheading headingLevel="3">Subheading</lg-card-subheading>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
     <lg-card-toggable-content>
@@ -191,6 +192,7 @@ const defaultCardTemplate = `
     </lg-card-title>
   </lg-card-header>
   <lg-card-content>
+    <lg-card-subheading [headingLevel]="headingLevel + 1">Subheading</lg-card-subheading>
     {{cardContent}} <a href="#">Test link</a>.
   </lg-card-content>
 </lg-card>
@@ -224,6 +226,7 @@ const navigationCardTemplate = `
     <lg-card-navigation-title [title]="title" [link]="link" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" [headingLevel]="headingLevel"></lg-card-navigation-title>
   </lg-card-header>
   <lg-card-content>
+    <lg-card-subheading [headingLevel]="headingLevel + 1">Subheading</lg-card-subheading>
     {{cardContent}} <a href="#">Test link</a>.
   </lg-card-content>
 </lg-card>

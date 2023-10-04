@@ -155,6 +155,18 @@ This is where the main title and link should be provided. It should be located i
 
 If the card has a subtitle it should be located within this component. If a card has a subtitle it is expected to also implicitly have a title. It should be located inside the card content.
 
+### LgCardSubheadingComponent
+
+This is where the card subheading should be provided. It should be located inside the card content.
+
+#### Inputs
+
+| Name           | Description                                                    | Type     | Default | Required |
+|----------------|----------------------------------------------------------------|----------|---------|----------|
+| `headingLevel` | The level of the card subheading: `1`, `2`, `3`, `4`, `5`, `6` | `number` | n/a     | Yes      |
+
+**Note: The subheading styling will be consistent across all heading levels**
+
 ### LgCardToggableContent
 This is where additional content that can be shown/hidden should be located. This component is part of a pattern and will only work if used together with the `lgButtonToggle` directive.
 
