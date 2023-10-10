@@ -22,6 +22,7 @@ import { LgCardComponent } from '../../card.component';
 import { LgCardModule } from '../../card.module';
 import { LgDataPointModule } from '../../../data-point';
 import { LgLinkMenuModule } from '../../../link-menu';
+import { LgCardGroupComponent } from '../../card-group/card-group.component';
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -238,7 +239,7 @@ const navigationCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) =>
 });
 
 export const navigationCard = navigationCardStory.bind({});
-navigationCard.storyName = 'Card Navigation';
+navigationCard.storyName = 'Card navigation';
 
 navigationCard.args = {
   link: 'https://www.landg.com',
@@ -436,4 +437,134 @@ dataPointsCard.args = {
       value: 'Data value 3',
     },
   ],
+};
+
+const cardGroupTemplate = `
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="12">
+      <aside lg-card-group>
+        <lg-card>
+          <lg-card-header>
+            <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+          </lg-card-header>
+          <lg-card-content>
+            {{cardContent}} <a href="#">Test link</a>.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </lg-card-content>
+        </lg-card>
+        <lg-card *ngFor="let i of [].constructor(additionalCards)">
+          <lg-card-header>
+            <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+          </lg-card-header>
+          <lg-card-content>
+            {{cardContent}} <a href="#">Test link</a>.
+          </lg-card-content>
+          <lg-card-footer lgMarginTop="md" lgPaddingTop="none">
+            <lg-link-menu>
+              <a href="" target="_blank">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+              <a href="">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+            </lg-link-menu>
+          </lg-card-footer>
+        </lg-card>
+      </aside>
+    </div>
+  </div>
+</div>
+`;
+
+const cardGroupTemplateStory: StoryFn<LgCardGroupComponent> = (
+  args: LgCardGroupComponent,
+) => ({
+  props: args,
+  template: cardGroupTemplate,
+});
+
+export const cardGroup = cardGroupTemplateStory.bind({});
+cardGroup.storyName = 'Card group';
+
+cardGroup.args = {
+  cardContent: content,
+  additionalCards: 1,
+};
+
+cardGroup.parameters = {
+  docs: {
+    source: {
+      code: `
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="12">
+      <aside lg-card-group>
+        <lg-card>
+          <lg-card-header>
+            <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+          </lg-card-header>
+          <lg-card-content>
+            {{cardContent}} <a href="#">Test link</a>.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </lg-card-content>
+        </lg-card>
+        <lg-card>
+          <lg-card-header>
+            <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+          </lg-card-header>
+          <lg-card-content>
+            {{cardContent}} <a href="#">Test link</a>.
+          </lg-card-content>
+          <lg-card-footer lgMarginTop="md" lgPaddingTop="none">
+            <lg-link-menu>
+              <a href="" target="_blank">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+              <a href="">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+            </lg-link-menu>
+          </lg-card-footer>
+        </lg-card>
+        <lg-card>
+          <lg-card-header>
+            <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+          </lg-card-header>
+          <lg-card-content>
+            {{cardContent}} <a href="#">Test link</a>.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          </lg-card-content>
+        </lg-card>
+      </aside>
+    </div>
+  </div>
+</div>
+      `,
+    },
+  },
+};
+
+cardGroup.argTypes = {
+  queryParams: {
+    table: {
+      disable: true,
+    },
+  },
+  queryParamsHandling: {
+    table: {
+      disable: true,
+    },
+  },
 };

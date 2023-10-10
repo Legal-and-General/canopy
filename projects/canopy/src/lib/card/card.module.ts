@@ -20,6 +20,7 @@ import { LgCardToggableContentComponent } from './card-toggable-content/card-tog
 import { LgCardNavigationTitleComponent } from './card-navigation-title/card-navigation-title.component';
 import { LgCardContentInnerDataPointsComponent } from './card-content-inner-data-points/card-content-inner-data-points.component';
 import { LgCardHeroImageComponent } from './card-hero-img/card-hero-img.component';
+import { LgCardGroupComponent } from './card-group/card-group.component';
 
 const components = [
   LgCardComponent,
@@ -28,6 +29,7 @@ const components = [
   LgCardTitleComponent,
   LgCardSubheadingComponent,
   LgCardFooterComponent,
+  LgCardGroupComponent,
   LgCardSubtitleComponent,
   LgCardPrincipleDataPointComponent,
   LgCardPrincipleDataPointLabelComponent,
