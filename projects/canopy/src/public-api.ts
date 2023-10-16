@@ -25,6 +25,7 @@ export * from './lib/hero/index';
 export * from './lib/hero-img/index';
 export * from './lib/icon/index';
 export * from './lib/link-menu/index';
+export * from './lib/list-with-icons/index';
 export * from './lib/page/index';
 export * from './lib/brand-icon/index';
 export * from './lib/pagination/index';

@@ -1,0 +1,16 @@
+@import '../../../styles/mixins.scss';
+
+.lg-card-subheading {
+  display: block;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include lg-font-size(1, 'strong');
+
+    margin-bottom: var(--space-xxs);
+  }
+}

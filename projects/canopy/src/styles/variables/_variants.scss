@@ -1,4 +1,20 @@
 :root {
+  --dark-foreground-link-color: var(--color-charcoal);
+  --dark-foreground-link-hover-color: var(--color-charcoal);
+  --dark-foreground-link-visited-color: var(--color-black);
+  --dark-foreground-link-active-color: var(--color-black);
+  --dark-foreground-link-active-bg-color: var(--color-white);
+  --dark-foreground-link-focus-color: var(--color-white);
+  --dark-foreground-link-focus-bg-color: var(--color-black);
+
+  --light-foreground-link-color: var(--color-white);
+  --light-foreground-link-hover-color: var(--color-white);
+  --light-foreground-link-visited-color: var(--color-white);
+  --light-foreground-link-active-color: var(--color-white);
+  --light-foreground-link-active-bg-color: rgba(0, 0, 0, 0.5);
+  --light-foreground-link-focus-color: var(--color-charcoal);
+  --light-foreground-link-focus-bg-color: var(--color-white);
+
   --generic-bg-color: var(--color-white-smoke);
   --generic-color: var(--color-charcoal);
   --generic-link-color: var(--generic-color);

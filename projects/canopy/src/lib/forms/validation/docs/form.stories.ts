@@ -1,6 +1,8 @@
-import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
+  ControlContainer,
+  FormGroup,
   FormGroupDirective,
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -30,6 +32,68 @@ function invalidValidator(): ValidatorFn {
       ? { invalid: true }
       : null;
   };
+}
+
+@Component({
+  selector: 'lg-form-group-child',
+  template: `
+    <div formGroupName="innerChildFormGroup">
+      <lg-date-field formControlName="date">
+        Inner Date Field
+        <lg-validation *ngIf="isControlInvalid(date, formGroupDirective)">
+          <ng-container *ngIf="date.hasError('required')">
+            Enter a date for the inner date field
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidField')">
+            Enter a valid {{ date.errors.invalidField }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidFields')">
+            Enter a valid {{ date.errors.invalidFields[0] }} and
+            {{ date.errors.invalidFields[1] }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('requiredField')">
+            Date must include a {{ date.errors.requiredField }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('requiredFields')">
+            Date must include a {{ date.errors.requiredFields[0] }} and
+            {{ date.errors.requiredFields[1] }}
+          </ng-container>
+          <ng-container *ngIf="date.hasError('invalidDate')">
+            Enter a valid date of birth
+          </ng-container>
+          <ng-container *ngIf="date.hasError('pastDate')">
+            Date must be in the past
+          </ng-container>
+        </lg-validation>
+      </lg-date-field>
+    </div>
+  `,
+  viewProviders: [
+    {
+      provide: ControlContainer,
+      useExisting: FormGroupDirective,
+    },
+  ],
+})
+class FormGroupChildComponent implements OnInit {
+  parentForm: FormGroup;
+
+  constructor(
+    private errorState: LgErrorStateMatcher,
+    public formGroupDirective: FormGroupDirective,
+  ) {}
+
+  get date() {
+    return this.parentForm?.get('innerChildFormGroup.date');
+  }
+
+  isControlInvalid(control: AbstractControl, form: FormGroupDirective) {
+    return this.errorState.isControlInvalid(control, form);
+  }
+
+  ngOnInit() {
+    this.parentForm = this.formGroupDirective.control;
+  }
 }
 
 @Component({
@@ -192,6 +256,8 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-date-field>
 
+      <lg-form-group-child></lg-form-group-child>
+
       <lg-input-field>
         Sort Code
         <lg-hint>Must be 6 digits long</lg-hint>
@@ -266,8 +332,11 @@ class ReactiveFormComponent {
       colors: this.fb.control([], [ Validators.required ]),
       checkbox: [ '', [ Validators.requiredTrue ] ],
       switch: [ '', [ Validators.requiredTrue ] ],
-      date: [ '', [ Validators.required, pastDateValidator() ] ],
       sortCode: [ '', [ Validators.required ] ],
+      date: [ '', [ Validators.required, pastDateValidator() ] ],
+      innerChildFormGroup: this.fb.group({
+        date: [ '', [ Validators.required, pastDateValidator() ] ],
+      }),
     });
   }
 
@@ -290,7 +359,7 @@ export default {
   title: 'Components/Forms/Form validation/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent ],
+      declarations: [ ReactiveFormComponent, FormGroupChildComponent ],
       imports: [
         ReactiveFormsModule,
         LgInputModule,

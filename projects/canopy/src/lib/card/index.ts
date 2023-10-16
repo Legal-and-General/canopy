@@ -12,5 +12,7 @@ export * from './card-footer/card-footer.component';
 export * from './card-toggable-content/card-toggable-content.component';
 export * from './card.interface';
 export * from './card-navigation-title/card-navigation-title.component';
+export * from './card-subheading/card-subheading.component';
+export * from './card-group/card-group.component';
 export * from './card.component';
 export * from './card.module';

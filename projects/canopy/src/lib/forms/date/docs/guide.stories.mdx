@@ -58,6 +58,54 @@ and in your HTML:
 
 **Note: for the validation to work properly it's very important to include the `ngForm` on the form tag and for the submit button to be within the form.**
 
+**Note: if the date field must be used within a child component of the form and is also part of an inner form group, then the formGroupName directive must be used inside the component, else the validation won't work properly. See the below example:**
+
+```ts
+// parent class component
+const form = new FormGroup({
+  childFormGroup: new FormGroup({
+    date: new FormControl('', Validators.required)
+  })
+});
+
+```
+
+```html
+<!-- parent component -->
+<form [formGroup]="form" (ngSubmit)="..." #validationForm="ngForm">
+  <-- child component -->
+  <lg-child-form-group></lg-child-form-group>
+  <button type="submit">Submit</button>
+</form>
+```
+
+```ts
+  // child class component
+
+  @Component({
+    selector: 'lg-child-form-group',
+    template: 'child-form-group.component.html',
+    // the injection of the ControlContainer is required since the formGroupName requires a visible [formGroup]
+    viewProviders: [
+      {
+        provide: ControlContainer,
+        useExisting: FormGroupDirective,
+      },
+    ],
+  })
+```
+
+```html
+<!-- child component -->
+<ng-container formGroupName="childFormGroup">
+  <lg-date-field formControlName="date">
+      <ng-container *ngIf="date.hasError('required')">
+        Enter a date of birth
+      </ng-container>
+  </lg-date-field>
+</ng-container>
+```
+
 ### LgDateFieldComponent inputs
 | Name              | Description                                                                                                                       |   Type    |              Default               | Required |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------|:---------:|:----------------------------------:|:--------:|

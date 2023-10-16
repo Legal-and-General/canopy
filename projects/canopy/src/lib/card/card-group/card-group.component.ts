@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'lg-modal-footer',
-  templateUrl: './modal-footer.component.html',
-  styleUrls: [ './modal-footer.component.scss' ],
+  selector: '[lg-card-group]',
+  templateUrl: './card-group.component.html',
+  styleUrls: [ './card-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'lg-modal-footer',
+    class: 'lg-card-group',
   },
 })
-export class LgModalFooterComponent {}
+export class LgCardGroupComponent {}
