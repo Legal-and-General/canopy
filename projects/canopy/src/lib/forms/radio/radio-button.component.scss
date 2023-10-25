@@ -22,6 +22,7 @@
   display: flex;
   position: relative;
   font-weight: var(--font-weight-regular);
+  padding-left: calc(var(--radio-outer-lg-width) + var(--space-xxs));
 
   .lg-radio-button__input:disabled + & {
     color: var(--disabled-color);
@@ -44,6 +45,7 @@
   border-radius: 50%;
   border: var(--border-width) solid var(--radio-border-color);
   margin: auto var(--space-sm) auto 0;
+  position: absolute;
 
   .lg-radio-button__input:focus-visible + & {
     border-color: var(--border-focus-color);
