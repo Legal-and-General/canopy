@@ -67,7 +67,7 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-angular": "^17.7.0",
     "@commitlint/config-conventional": "^17.7.0",
-    "@commitlint/prompt": "^17.7.1",
+    "@commitlint/prompt": "^18.4.0",
     "@compodoc/compodoc": "^1.1.21",
     "@semantic-release/github": "^9.0.7",
     "@semantic-release/npm": "^10.0.5",
