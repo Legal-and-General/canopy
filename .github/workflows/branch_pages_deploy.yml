@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: 'Save PR data'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         id: prData
         with:
           script: |
@@ -33,7 +33,7 @@ jobs:
             });
 
       - name: 'Download artifacts from PR'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const downloadArtifact = require('./.github/workflow-scripts/gh-pages/download-branch-deploy-artifact.js');
@@ -49,7 +49,7 @@ jobs:
           rm lg-sb-build.zip
 
       - name: 'Notify GitHub of branch deployment'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         id: deploymentId
         with:
           script: |
@@ -61,7 +61,7 @@ jobs:
             });
 
       - name: 'Notify GitHub of deployment in progress'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
@@ -74,7 +74,7 @@ jobs:
             });
 
       - name: 'Branch deployment to GitHub Pages'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
@@ -93,7 +93,7 @@ jobs:
 
       - name: 'Notify GitHub of deployment status'
         if: always()
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
@@ -107,7 +107,7 @@ jobs:
 
       - name: 'Add label to PR'
         if: success()
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const addLabels = require('./.github/workflow-scripts/add-labels.js');

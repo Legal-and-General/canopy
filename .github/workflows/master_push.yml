@@ -85,7 +85,7 @@ jobs:
           path: dist/canopy/
 
       - name: 'Deployment to GitHub Pages'
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
