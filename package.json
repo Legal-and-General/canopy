@@ -71,7 +71,7 @@
     "@compodoc/compodoc": "^1.1.21",
     "@semantic-release/github": "^9.0.7",
     "@semantic-release/npm": "^10.0.5",
-    "@storybook/addon-a11y": "^7.4.2",
+    "@storybook/addon-a11y": "^7.6.4",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addons": "^7.4.2",
     "@storybook/angular": "^7.4.0",
