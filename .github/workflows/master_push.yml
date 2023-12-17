@@ -48,7 +48,7 @@ jobs:
         run: npm ci
 
       - name: 'Download dist folder'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ${{ github.event.repository.name }}
           path: dist/canopy/
@@ -79,7 +79,7 @@ jobs:
         run: npm ci
 
       - name: 'Download dist folder'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ${{ github.event.repository.name }}
           path: dist/canopy/
