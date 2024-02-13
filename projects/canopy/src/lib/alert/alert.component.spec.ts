@@ -11,17 +11,15 @@ describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
   let fixture: ComponentFixture<LgAlertComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgAlertComponent, MockComponents(LgIconComponent) ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LgAlertComponent, MockComponents(LgIconComponent) ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(LgAlertComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    }),
-  );
+    fixture = TestBed.createComponent(LgAlertComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -38,18 +36,36 @@ describe('LgAlertComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('success');
   });
 
-  it('does not add a Aria role for the info variant', () => {
-    component.variant = 'info';
-    fixture.detectChanges();
+  describe('role', () => {
+    it('does not add a Aria role for the info variant', () => {
+      component.variant = 'info';
+      fixture.detectChanges();
 
-    expect(fixture.nativeElement.getAttribute('role')).toBeNull();
-  });
+      expect(fixture.nativeElement.getAttribute('role')).toBeNull();
+    });
 
-  it('adds the Aria role "alert" for all other variants', () => {
-    component.variant = 'warning';
-    fixture.detectChanges();
+    it('does not add a Aria role for the generic variant', () => {
+      component.variant = 'generic';
+      fixture.detectChanges();
 
-    expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
+      expect(fixture.nativeElement.getAttribute('role')).toBeNull();
+    });
+
+    for (const variant of [ 'success', 'warning', 'error' ]) {
+      it(`adds the Aria role "alert" for the ${variant} variant`, () => {
+        component.variant = variant as Variant;
+        fixture.detectChanges();
+
+        expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
+      });
+    }
+
+    it('overrides the role attribute when role input is set', () => {
+      component.role = 'status';
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.getAttribute('role')).toBe('status');
+    });
   });
 
   it('does not renders an icon for generic variant', () => {
