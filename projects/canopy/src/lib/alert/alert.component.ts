@@ -50,10 +50,8 @@ export class LgAlertComponent {
     this._role = role;
   }
   private setRole() {
-    if (!this._role) {
-      if (this.variant !== 'info' && this.variant !== 'generic') {
-        this._role = 'alert';
-      }
+    if (!this._role && this.variant !== 'info' && this.variant !== 'generic') {
+      this._role = 'alert';
     }
   }
 }
