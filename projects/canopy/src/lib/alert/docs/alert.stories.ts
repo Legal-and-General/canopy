@@ -46,6 +46,10 @@ export default {
         type: 'select',
       },
     },
+    role: {
+      description: 'The ARIA role for the alert.',
+      defaultValue: '',
+    },
     class: {
       table: {
         disable: true,
@@ -57,7 +61,9 @@ export default {
 const template = `
 <lg-alert
   [showIcon]="showIcon"
-  [variant]="variant">
+  [variant]="variant"
+  [role]="role"
+>
   {{content}} Here is some <a href="#"> link text</a>.
 </lg-alert>
 `;
