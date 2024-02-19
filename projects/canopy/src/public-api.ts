@@ -2,6 +2,7 @@
  * Public API Surface of canopy
  */
 
+export * from './lib/utils/index';
 export * from './lib/accordion/index';
 export * from './lib/alert/index';
 export * from './lib/banner/index';
