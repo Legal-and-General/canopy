@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: 'Setup node'
-        uses: actions/setup-node@v4.0.0
+        uses: actions/setup-node@v4.0.2
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -51,7 +51,8 @@ jobs:
 
       - name: 'Build storybook'
         run: npm run build:storybook -- --output-dir ./lg-sb-build
-      - uses: actions/upload-artifact@v4.0.0
+      - uses: actions/upload-artifact@v4.3.1
         with:
           name: lg-sb-build
           path: ./lg-sb-build
+          overwrite: true
