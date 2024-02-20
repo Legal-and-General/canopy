@@ -73,7 +73,7 @@
     "@semantic-release/npm": "^10.0.5",
     "@storybook/addon-a11y": "^7.6.16",
     "@storybook/addon-essentials": "^7.6.16",
-    "@storybook/addons": "^7.6.16",
+    "@storybook/addons": "^7.6.17",
     "@storybook/angular": "^7.6.16",
     "@storybook/theming": "^7.6.16",
     "@stylelint/postcss-css-in-js": "^0.38.0",
