@@ -30,20 +30,28 @@ export class LgAlertComponent {
 
     this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
+    this.setRole();
   }
   get variant() {
     return this._variant;
   }
 
   @HostBinding('class.lg-alert') class = true;
+  @HostBinding('attr.role') _role: string;
 
-  @HostBinding('attr.role') get role(): string {
-    if (this.variant !== 'info' && this.variant !== 'generic') {
-      return 'alert';
-    }
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {
+    this.variant = 'generic';
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
-    this.variant = 'generic';
+  @Input() set role(role: string) {
+    this._role = role;
+  }
+  private setRole() {
+    if (!this._role && this.variant !== 'info' && this.variant !== 'generic') {
+      this._role = 'alert';
+    }
   }
 }
