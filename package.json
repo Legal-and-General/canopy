@@ -70,7 +70,7 @@
     "@commitlint/prompt": "^18.4.0",
     "@compodoc/compodoc": "^1.1.21",
     "@semantic-release/github": "^9.2.6",
-    "@semantic-release/npm": "^10.0.5",
+    "@semantic-release/npm": "^11.0.3",
     "@storybook/addon-a11y": "^7.6.16",
     "@storybook/addon-essentials": "^7.6.16",
     "@storybook/addons": "^7.6.16",
