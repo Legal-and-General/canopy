@@ -8,6 +8,8 @@ import { LgPrimaryNavItemDirective } from './primary-navigation-item.directive';
   template: `
     <button id="test" type="button" lgPrimaryNavItem>Primary nav button</button>
   `,
+  standalone: true,
+  imports: [ LgPrimaryNavItemDirective ],
 })
 class PrimaryNavTestItemComponent {}
 
@@ -18,7 +20,7 @@ describe('PrimaryNavigationLinkDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrimaryNavTestItemComponent, LgPrimaryNavItemDirective ],
+      imports: [ PrimaryNavTestItemComponent, LgPrimaryNavItemDirective ],
     }).compileComponents();
   }));
 

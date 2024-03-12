@@ -10,6 +10,7 @@ import {
 
 @Directive({
   selector: '[lgTabNavBarLink]',
+  standalone: true,
 })
 export class LgTabNavBarLinkDirective {
   private _isActive = false;

@@ -16,11 +16,14 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
-import { LgDomService } from '../../utils/dom.service';
-import { LgHintComponent } from '../hint/hint.component';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
-import { LgToggleComponent } from '../toggle/toggle.component';
+import { LgDomService } from '../../utils';
+import { LgHintComponent } from '../hint';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
+import { LgToggleComponent } from '../toggle';
+import { LgMarginDirective } from '../../spacing';
+import { LgLabelComponent } from '../label';
+import { LgFocusDirective } from '../../focus';
 
 import { CheckboxGroupVariant } from './checkbox-group.interface';
 
@@ -31,6 +34,8 @@ let uniqueId = 0;
   templateUrl: './checkbox-group.component.html',
   styleUrls: [ './checkbox-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private nextUniqueId = ++uniqueId;

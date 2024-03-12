@@ -9,13 +9,11 @@ describe('LgHeroCardFooterComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgHeroCardFooterComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgHeroCardFooterComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroCardFooterComponent);

@@ -10,12 +10,14 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { MockComponents } from 'ng-mocks';
+import { MockComponent } from 'ng-mocks';
 import { anything, instance, mock, when } from '@typestrong/ts-mockito';
+import { NgIf } from '@angular/common';
 
 import { LgHintComponent } from '../hint';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
+import { LgIconComponent } from '../../icon';
 
 import { LgRadioButtonComponent } from './radio-button.component';
 import { LgRadioGroupComponent } from './radio-group.component';
@@ -38,6 +40,16 @@ const hintTestId = 'test-hint-id';
       </lg-radio-group>
     </form>
   `,
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    LgRadioButtonComponent,
+    LgHintComponent,
+    LgValidationComponent,
+    LgRadioGroupComponent,
+    NgIf,
+  ],
 })
 class TestRadioGroupComponent {
   get color() {
@@ -45,7 +57,10 @@ class TestRadioGroupComponent {
   }
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       color: [ { value: '', disabled: false }, [ Validators.required ] ],
     });
@@ -73,12 +88,15 @@ describe('LgRadioGroupComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestRadioGroupComponent,
         LgRadioGroupComponent,
         LgRadioButtonComponent,
-        MockComponents(LgValidationComponent, LgHintComponent),
+        LgValidationComponent,
+        LgHintComponent,
+        MockComponent(LgIconComponent),
       ],
       providers: [
         {

@@ -5,6 +5,7 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   templateUrl: './hero-card-footer.component.html',
   styleUrls: [ './hero-card-footer.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgHeroCardFooterComponent {
   @HostBinding('class.lg-hero-card-footer') class = true;

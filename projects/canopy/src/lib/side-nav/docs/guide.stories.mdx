@@ -8,12 +8,12 @@ import Feedback from '../../docs/common/feedback.md?raw';
 
 ## Usage
 
-Import the side nav module in your application:
+Import the side nav components in your application:
 
 ```js
 @NgModule({
   ...
-  imports: [ ..., LgSideNavModule ],
+  imports: [ ..., LgSideNavComponent, etc. ],
 });
 ```
 
@@ -26,6 +26,7 @@ and in your HTML:
      [routerLink]="'firstPage'"
      [isActive]="true"
      lgSideNavBarLink
+     >
       <lg-side-nav-bar-item>
         <lg-side-nav-bar-item-heading>Overview</lg-side-nav-bar-item-heading>
       </lg-side-nav-bar-item>

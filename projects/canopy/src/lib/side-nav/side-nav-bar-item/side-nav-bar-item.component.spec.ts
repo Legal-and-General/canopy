@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockComponent } from 'ng-mocks';
+
+import { LgIconComponent } from '../../icon';
 
 import { LgSideNavBarItemComponent } from './side-nav-bar-item.component';
 
@@ -8,7 +11,7 @@ describe('LgSideNavBarItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgSideNavBarItemComponent ],
+      imports: [ LgSideNavBarItemComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
   });
 

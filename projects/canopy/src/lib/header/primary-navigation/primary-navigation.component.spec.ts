@@ -14,7 +14,7 @@ describe('PrimaryNavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgPrimaryNavComponent, LgPrimaryNavListItemComponent ],
+      imports: [ LgPrimaryNavComponent, LgPrimaryNavListItemComponent ],
     }).compileComponents();
   });
 

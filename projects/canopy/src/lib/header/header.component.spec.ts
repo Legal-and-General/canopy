@@ -9,13 +9,14 @@ import {
   ngMocks,
 } from 'ng-mocks';
 
+import { LgIconComponent } from '../icon';
+
 import { LgHeaderComponent } from './header.component';
 import { LgHeaderLogoComponent } from './header-logo/header-logo.component';
 import { LgPrimaryNavComponent } from './primary-navigation/primary-navigation.component';
 import { LgPrimaryNavListItemComponent } from './primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component';
 import { LgPrimaryNavItemDirective } from './primary-navigation/primary-navigation-item.directive';
 import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.directive';
-import { LgIconComponent } from './../icon/icon.component';
 import { LgAccountMenuListItemComponent } from './account-menu/account-menu-list-item/account-menu-list-item.component';
 import { LgAccountMenuComponent } from './account-menu/account-menu.component';
 import { LgNotificationBadgeComponent } from './notification-badge/notification-badge.component';
@@ -28,7 +29,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgHeaderComponent,
         LgHeaderLogoComponent,
         LgPrimaryNavItemDirective,

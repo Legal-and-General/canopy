@@ -9,17 +9,15 @@ describe('LgQuickActionComponent', () => {
   let component: LgQuickActionComponent;
   let fixture: ComponentFixture<LgQuickActionComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgQuickActionComponent, MockComponents(LgIconComponent) ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgQuickActionComponent, MockComponents(LgIconComponent) ],
+    }).compileComponents();
 
-      fixture = TestBed.createComponent(LgQuickActionComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    }),
-  );
+    fixture = TestBed.createComponent(LgQuickActionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

@@ -28,6 +28,12 @@ import { LgAccordionItemComponent } from './accordion-item.component';
       </ng-template>
     </lg-accordion-item>
   `,
+  standalone: true,
+  imports: [
+    LgAccordionItemComponent,
+    LgAccordionPanelHeadingComponent,
+    LgAccordionItemContentDirective,
+  ],
 })
 class TestAccordionWrapperItemComponent {
   isActive: boolean;
@@ -45,7 +51,7 @@ describe('LgAccordionItemComponent', () => {
     accordionMock = { id: 'lgAccordion123' };
 
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         TestAccordionWrapperItemComponent,
         LgAccordionItemComponent,
         LgAccordionPanelHeadingComponent,

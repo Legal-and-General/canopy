@@ -6,6 +6,8 @@ import { LgShowAtDirective } from './show-at.directive';
 
 @Component({
   template: ' <div [lgShowAt]="lgShowAt || null">How you see me...</div> ',
+  standalone: true,
+  imports: [ LgShowAtDirective ],
 })
 class TestComponent {
   @Input() lgShowAt = null;
@@ -16,25 +18,21 @@ describe('LgShowAt', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ TestComponent, LgShowAtDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ TestComponent, LgShowAtDirective ],
+    }).compileComponents();
+  }));
 
-  beforeEach(
-    waitForAsync(() => {
-      fixture = TestBed.createComponent(TestComponent);
-      fixture.detectChanges();
-      component = fixture.componentInstance;
+  beforeEach(waitForAsync(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    fixture.detectChanges();
+    component = fixture.componentInstance;
 
-      testElement = fixture.debugElement.query(By.css('div'));
+    testElement = fixture.debugElement.query(By.css('div'));
 
-      fixture.detectChanges();
-    }),
-  );
+    fixture.detectChanges();
+  }));
 
   it('does not add a class if the breakpoint is not defined', () => {
     fixture.detectChanges();

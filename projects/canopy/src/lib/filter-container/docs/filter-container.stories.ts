@@ -1,12 +1,26 @@
 import { Directive, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { lgIconChevronDown, lgIconFilter, LgIconRegistry } from '../../icon';
-import { ButtonVariant } from '../../button';
-import { LgFilterContainerModule } from '../filter-container.module';
+import {
+  lgIconChevronDown,
+  LgIconComponent,
+  lgIconFilter,
+  LgIconRegistry,
+} from '../../icon';
+import {
+  ButtonVariant,
+  LgButtonComponent,
+  LgButtonGroupComponent,
+  LgButtonToggleDirective,
+} from '../../button';
+import { LgFilterContainerComponent } from '../filter-container.component';
+import { LgFilterContainerPanelComponent } from '../filter-container-panel/filter-container-panel.component';
+import { LgFilterContainerPanelBodyComponent } from '../filter-container-panel-body/filter-container-panel-body.component';
+import { LgFilterContainerPanelFooterComponent } from '../filter-container-panel-footer/filter-container-panel-footer.component';
 
 @Directive({
   selector: '[lgStoryToggle]',
+  standalone: true,
 })
 class StoryToggleDirective {
   @Input() variant: ButtonVariant;
@@ -23,8 +37,17 @@ export default {
   title: 'Patterns/Filter container/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ StoryToggleDirective ],
-      imports: [ LgFilterContainerModule ],
+      imports: [
+        StoryToggleDirective,
+        LgFilterContainerComponent,
+        LgFilterContainerPanelComponent,
+        LgFilterContainerPanelBodyComponent,
+        LgFilterContainerPanelFooterComponent,
+        LgButtonGroupComponent,
+        LgButtonComponent,
+        LgIconComponent,
+        LgButtonToggleDirective,
+      ],
     }),
   ],
   argTypes: {
@@ -69,8 +92,8 @@ function setComponentCode(toggleCode: string) {
 `;
 }
 
-const filterContainerTemplate: StoryFn<LgFilterContainerModule> = (
-  args: LgFilterContainerModule,
+const filterContainerTemplate: StoryFn<LgFilterContainerComponent> = (
+  args: LgFilterContainerComponent,
 ) => ({
   props: args,
   template: setComponentCode(`

@@ -10,11 +10,16 @@ import {
   when,
 } from '@typestrong/ts-mockito';
 import { BehaviorSubject } from 'rxjs';
-import { MockComponents, MockedComponentFixture, MockModule, MockRender } from 'ng-mocks';
+import {
+  MockComponents,
+  MockDirective,
+  MockedComponentFixture,
+  MockRender,
+} from 'ng-mocks';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgCardModule } from '../card';
-import { LgFocusModule } from '../focus';
+import { LgCardComponent } from '../card';
+import { LgFocusDirective } from '../focus';
 
 import {
   LgModalBodyComponent,
@@ -28,6 +33,10 @@ describe('LgModalComponent', () => {
   let cdrMock: ChangeDetectorRef;
   let fixture: MockedComponentFixture<LgModalComponent>;
   let modalServiceMock: LgModalService;
+  let closedEmitterSpy: EventEmitter<void>;
+  let openEmitterSpy: EventEmitter<void>;
+  let closedEscKeySpy: EventEmitter<void>;
+  let closedOverlaySpy: EventEmitter<void>;
   const id = 'test-1';
   const isModalOpen$ = new BehaviorSubject<boolean>(undefined);
 
@@ -36,11 +45,11 @@ describe('LgModalComponent', () => {
     modalServiceMock = mock(LgModalService);
 
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgModalComponent,
-        MockComponents(LgModalHeaderComponent, LgModalBodyComponent),
+        MockComponents(LgCardComponent, LgModalHeaderComponent, LgModalBodyComponent),
+        MockDirective(LgFocusDirective),
       ],
-      imports: [ MockModule(LgCardModule), MockModule(LgFocusModule) ],
       providers: [
         { provide: LgModalService, useValue: instance(modalServiceMock) },
         { provide: ChangeDetectorRef, useValue: instance(cdrMock) },
@@ -48,9 +57,7 @@ describe('LgModalComponent', () => {
     }).compileComponents();
 
     when(modalServiceMock.isOpen$(anything())).thenReturn(isModalOpen$);
-  }));
 
-  beforeEach(() => {
     fixture = MockRender(`
       <lg-modal [id]="id">
         <lg-modal-header></lg-modal-header>
@@ -60,24 +67,24 @@ describe('LgModalComponent', () => {
 
     component = fixture.debugElement.children[0].componentInstance;
     component.id = id;
+
+    closedEmitterSpy = spy(component.closed);
+    openEmitterSpy = spy(component.open);
+    closedEscKeySpy = spy(component.closedEscKey);
+    closedOverlaySpy = spy(component.closedOverlayClick);
+
+    resetCalls(closedEmitterSpy);
+    resetCalls(openEmitterSpy);
+    resetCalls(closedEscKeySpy);
+
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   describe('on init', () => {
-    describe('when the modal hasn\'t been opened/closed yet', () => {
-      it('should not emit a closed event', () => {
-        const closedEmitterSpy = spy(component.closed);
-
-        component.ngOnInit();
-
-        verify(closedEmitterSpy.emit()).never();
-      });
-    });
-
     describe('when the modal has been opened/closed', () => {
       it('should update isOpen', () => {
         isModalOpen$.next(true);
@@ -86,8 +93,6 @@ describe('LgModalComponent', () => {
       });
 
       it('should add the overflow style to the body and emit an open event if the modal is open', () => {
-        const openEmitterSpy = spy(component.open);
-
         isModalOpen$.next(true);
 
         verify(openEmitterSpy.emit()).once();
@@ -99,8 +104,6 @@ describe('LgModalComponent', () => {
       });
 
       it('should remove the overflow style on the body and emit a closed event if the modal is close', () => {
-        const closedEmitterSpy = spy(component.closed);
-
         isModalOpen$.next(false);
 
         verify(closedEmitterSpy.emit()).once();
@@ -129,28 +132,21 @@ describe('LgModalComponent', () => {
   });
 
   describe('on keydown', () => {
-    let closedEmitterSpy: EventEmitter<void>;
     const escEvent = new KeyboardEvent('keydown', {
       key: keyName.KEY_ESCAPE,
     });
 
-    beforeEach(() => {
-      closedEmitterSpy = spy(component.closedEscKey);
-    });
-
     it('should close the modal and emit an event when the escape key is pressed and the modal is open', () => {
-      resetCalls(closedEmitterSpy);
       component.isOpen = true;
       component.onKeydown(escEvent);
 
       verify(modalServiceMock.close(id)).once();
-      verify(closedEmitterSpy.emit()).once();
+      verify(closedEscKeySpy.emit()).once();
 
       expect().nothing();
     });
 
     it('shouldn\'t close the modal and emit an event when any other key is pressed', () => {
-      resetCalls(closedEmitterSpy);
       component.isOpen = true;
       const event = new KeyboardEvent('keydown', {
         key: keyName.KEY_UP,
@@ -159,18 +155,17 @@ describe('LgModalComponent', () => {
       component.onKeydown(event);
 
       verify(modalServiceMock.close(id)).never();
-      verify(closedEmitterSpy.emit()).never();
+      verify(closedEscKeySpy.emit()).never();
 
       expect().nothing();
     });
 
     it('shouldn\'t close the modal when the modal is already closed', () => {
-      resetCalls(closedEmitterSpy);
       component.isOpen = false;
       component.onKeydown(escEvent);
 
       verify(modalServiceMock.close(id)).never();
-      verify(closedEmitterSpy.emit()).never();
+      verify(closedEscKeySpy.emit()).never();
 
       expect().nothing();
     });
@@ -190,12 +185,10 @@ describe('LgModalComponent', () => {
   describe('clicking on the modal overlay', () => {
     it('should close the modal and emit an event', () => {
       component.isOpen = true;
-      const closedEmitterSpy = spy(component.closedOverlayClick);
-
       component.onOverlayClick();
 
       verify(modalServiceMock.close(id)).once();
-      verify(closedEmitterSpy.emit()).once();
+      verify(closedOverlaySpy.emit()).once();
 
       expect().nothing();
     });

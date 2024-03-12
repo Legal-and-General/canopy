@@ -1,7 +1,6 @@
 import { Meta, StoryFn } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
-import { LgAlertModule } from '../alert.module';
 import { LgAlertComponent } from '../alert.component';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
@@ -12,7 +11,7 @@ export default {
   component: LgAlertComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgAlertModule ],
+      imports: [ LgAlertComponent ],
     }),
   ],
   argTypes: {

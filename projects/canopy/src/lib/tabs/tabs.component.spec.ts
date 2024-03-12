@@ -10,7 +10,7 @@ import {
 import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgFocusDirective } from '../focus';
-import { LgHeadingComponent } from '../heading/heading.component';
+import { LgHeadingComponent } from '../heading';
 import { keyName } from '../utils/keyboard-keys';
 
 import { LgTabItemContentComponent } from './tab-item-content/tab-item-content.component';
@@ -26,7 +26,7 @@ describe('LgTabsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgTabsComponent,
         MockDirective(LgFocusDirective),
         MockComponents(

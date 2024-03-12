@@ -17,11 +17,14 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
+import { NgClass, NgIf } from '@angular/common';
 
-import { LgDomService } from '../../utils/dom.service';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgDomService } from '../../utils';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
+import { LgIconComponent } from '../../icon';
+import { LgFocusDirective } from '../../focus';
 
 import type { ToggleVariant } from './toggle.interface';
 import { CheckboxSize } from './toggle.interface';
@@ -37,6 +40,8 @@ let nextUniqueId = 0;
     './toggle--filter.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ LgFocusDirective, NgClass, NgIf, LgIconComponent ],
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {
   uniqueId = nextUniqueId++;

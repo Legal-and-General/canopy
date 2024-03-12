@@ -8,7 +8,7 @@ describe('LgModalBodyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgModalBodyComponent ],
+      imports: [ LgModalBodyComponent ],
     }).compileComponents();
   });
 

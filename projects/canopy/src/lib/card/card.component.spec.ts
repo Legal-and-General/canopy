@@ -22,7 +22,7 @@ describe('LgCardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgCardComponent,
         MockComponents(
           LgCardHeaderComponent,

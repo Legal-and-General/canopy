@@ -2,6 +2,7 @@ import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockRender, MockComponents } from 'ng-mocks';
+import { NgFor } from '@angular/common';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
@@ -10,7 +11,7 @@ import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.com
 import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { AlignmentOptions } from '../table.interface';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 
 import { LgTableComponent } from './table.component';
@@ -34,23 +35,23 @@ describe('TableComponent', () => {
   let debugElement: DebugElement;
   let tableDebugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTableComponent,
-          LgTableHeadComponent,
-          LgTableBodyComponent,
-          LgTableRowComponent,
-          LgTableHeadCellComponent,
-          LgTableCellComponent,
-          LgTableRowToggleComponent,
-          MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
-        ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        LgTableComponent,
+        LgTableHeadComponent,
+        LgTableBodyComponent,
+        LgTableRowComponent,
+        LgTableHeadCellComponent,
+        LgTableCellComponent,
+        LgTableRowToggleComponent,
+        NgFor,
+        MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
+      ],
+    }).compileComponents();
 
-      fixture = MockRender(
-        `
+    fixture = MockRender(
+      `
     <table lg-table>
       <thead lg-table-head>
         <tr lg-table-row>
@@ -69,18 +70,17 @@ describe('TableComponent', () => {
       </tbody>
     </table>
     `,
-        {
-          books,
-          alignPublishColumn: AlignmentOptions.End,
-        },
-      );
+      {
+        books,
+        alignPublishColumn: AlignmentOptions.End,
+      },
+    );
 
-      debugElement = fixture.debugElement;
-      component = fixture.debugElement.children[0].componentInstance;
-      tableDebugElement = debugElement.query(By.directive(LgTableComponent));
-      fixture.detectChanges();
-    }),
-  );
+    debugElement = fixture.debugElement;
+    component = fixture.debugElement.children[0].componentInstance;
+    tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+    fixture.detectChanges();
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

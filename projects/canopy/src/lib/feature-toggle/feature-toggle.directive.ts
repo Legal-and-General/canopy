@@ -20,6 +20,7 @@ import { LgFeatureToggleService } from './feature-toggle.service';
 
 @Directive({
   selector: '[lgFeatureToggle]',
+  standalone: true,
 })
 export class LgFeatureToggleDirective implements OnInit, OnDestroy {
   subscription: Subscription;

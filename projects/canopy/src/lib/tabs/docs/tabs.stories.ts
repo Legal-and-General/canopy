@@ -1,13 +1,22 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgMarginModule } from '../../spacing';
-import { LgTabsModule } from '../tabs.module';
+import { LgTabsComponent } from '../tabs.component';
+import { LgMarginDirective } from '../../spacing';
+import { LgTabItemComponent } from '../tab-item/tab-item.component';
+import { LgTabItemHeadingComponent } from '../tab-item-heading/tab-item-heading.component';
+import { LgTabItemContentComponent } from '../tab-item-content/tab-item-content.component';
 
 export default {
   title: 'Components/Tabs/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgTabsModule, LgMarginModule ],
+      imports: [
+        LgTabsComponent,
+        LgMarginDirective,
+        LgTabItemComponent,
+        LgTabItemHeadingComponent,
+        LgTabItemContentComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -102,7 +111,7 @@ const template = `
 </lg-tabs>
 `;
 
-const standardTabsStory: StoryFn<LgTabsModule> = (args: LgTabsModule) => ({
+const standardTabsStory: StoryFn<LgTabsComponent> = (args: LgTabsComponent) => ({
   props: args,
   template,
 });

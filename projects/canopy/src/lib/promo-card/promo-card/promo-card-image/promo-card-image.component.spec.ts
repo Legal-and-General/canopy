@@ -6,13 +6,11 @@ describe('LgPromoCardImageComponent', () => {
   let component: LgPromoCardImageComponent;
   let fixture: ComponentFixture<LgPromoCardImageComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgPromoCardImageComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgPromoCardImageComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgPromoCardImageComponent);

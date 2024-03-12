@@ -15,13 +15,11 @@ describe('LgDataPointListComponent', () => {
   let dataPointDebugElements: Array<DebugElement>;
   let dataPointInstances: Array<LgDataPointComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgDataPointListComponent, MockComponent(LgDataPointComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgDataPointListComponent, MockComponent(LgDataPointComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

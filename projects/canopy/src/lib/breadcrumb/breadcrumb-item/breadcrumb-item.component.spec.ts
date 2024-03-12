@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponent } from 'ng-mocks';
 
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 
 import { LgBreadcrumbItemComponent } from './breadcrumb-item.component';
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
@@ -14,13 +14,11 @@ describe('LgBreadcrumbItemComponent', () => {
   let breadcrumbItemDebugElement: DebugElement;
   let breadcrumbItemEl: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgBreadcrumbItemComponent, MockComponent(LgIconComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgBreadcrumbItemComponent, MockComponent(LgIconComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBreadcrumbItemComponent);

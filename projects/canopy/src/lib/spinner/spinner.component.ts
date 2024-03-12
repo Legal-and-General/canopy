@@ -3,12 +3,14 @@ import {
   ChangeDetectorRef,
   Component,
   HostBinding,
+  inject,
   Input,
+  NgZone,
   OnDestroy,
-  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { NgClass, NgIf } from '@angular/common';
 
 import type { SpinnerSize, SpinnerVariant } from './spinner.interface';
 
@@ -18,9 +20,11 @@ import type { SpinnerSize, SpinnerVariant } from './spinner.interface';
   styleUrls: [ './spinner.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ NgClass, NgIf ],
 })
-export class LgSpinnerComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
+export class LgSpinnerComponent implements OnDestroy {
+  subscription: Subscription;
   readScreenReaderAlert = true;
 
   @Input() variant: SpinnerVariant = 'dark';
@@ -56,12 +60,12 @@ export class LgSpinnerComponent implements OnInit, OnDestroy {
     return null;
   }
 
-  constructor(private cdr: ChangeDetectorRef) {}
-
-  ngOnInit(): void {
-    this.subscription = interval(2500).subscribe(() => {
-      this.readScreenReaderAlert = !this.readScreenReaderAlert;
-      this.cdr.markForCheck();
+  constructor(private cdr: ChangeDetectorRef) {
+    inject(NgZone).runOutsideAngular(() => {
+      this.subscription = interval(2500).subscribe(() => {
+        this.readScreenReaderAlert = !this.readScreenReaderAlert;
+        this.cdr.markForCheck();
+      });
     });
   }
 

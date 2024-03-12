@@ -13,7 +13,7 @@ describe('LgIconComponent', () => {
     iconRegistryMock = mock(LgIconRegistry);
 
     TestBed.configureTestingModule({
-      declarations: [ LgIconComponent ],
+      imports: [ LgIconComponent ],
       providers: [
         {
           provide: LgIconRegistry,

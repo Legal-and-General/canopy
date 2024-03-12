@@ -8,7 +8,7 @@ describe('LgBannerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgBannerComponent ],
+      imports: [ LgBannerComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgBannerComponent);

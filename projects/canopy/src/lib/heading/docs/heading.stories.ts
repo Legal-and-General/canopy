@@ -1,6 +1,5 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgHeadingModule } from '../../heading';
 import { LgHeadingComponent } from '../heading.component';
 
 export default {
@@ -8,7 +7,7 @@ export default {
   component: LgHeadingComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgHeadingModule ],
+      imports: [ LgHeadingComponent ],
     }),
   ],
   argTypes: {

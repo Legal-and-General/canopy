@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, Input, Renderer2 } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-import { SpacingVariant } from '../index';
+import { SpacingVariant } from '../spacing.interface';
 
 import { LgRowGapDirective } from './row-gap.directive';
 
@@ -11,6 +11,8 @@ import { LgRowGapDirective } from './row-gap.directive';
     <div id="test-0" lgRowGap>Test 0</div>
     <div id="test-1" [lgRowGap]="rowGap">Test 1</div>
   `,
+  standalone: true,
+  imports: [ LgRowGapDirective ],
 })
 class TestComponent {
   @Input() rowGap: SpacingVariant;
@@ -25,7 +27,7 @@ describe('LgRowGapDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, LgRowGapDirective ],
+      imports: [ TestComponent, LgRowGapDirective ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);

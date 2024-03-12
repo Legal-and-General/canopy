@@ -1,15 +1,14 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgButtonModule } from '../../button';
 import { LgFocusDirective } from '../focus.directive';
-import { LgFocusModule } from '../focus.module';
+import { LgButtonComponent } from '../../button';
 
 export default {
   title: 'Helpers/Directives/Focus/Examples',
   component: LgFocusDirective,
   decorators: [
     moduleMetadata({
-      imports: [ LgFocusModule, LgButtonModule ],
+      imports: [ LgButtonComponent, LgFocusDirective ],
     }),
   ],
   argTypes: {

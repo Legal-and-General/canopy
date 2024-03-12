@@ -1,15 +1,22 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgFor } from '@angular/common';
 
-import { LgMarginModule } from '../../spacing';
-import { LgTabsModule } from '../tabs.module';
 import { LgTabsComponent } from '../tabs.component';
+import { LgTabNavBarComponent } from '../tab-nav-bar/tab-nav-bar.component';
+import { LgTabNavBarLinkDirective } from '../tab-nav-bar/tab-nav-bar-link.directive';
+import { LgTabNavContentComponent } from '../tab-nav-content/tab-nav-content.component';
 
 export default {
   title: 'Components/Tabs/Examples',
   component: LgTabsComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgTabsModule, LgMarginModule ],
+      imports: [
+        LgTabNavBarComponent,
+        LgTabNavBarLinkDirective,
+        LgTabNavContentComponent,
+        NgFor,
+      ],
     }),
   ],
   argTypes: {
@@ -108,7 +115,7 @@ function getTemplate(preventDefault?: boolean) {
   `;
 }
 
-const tabNavBarStory: StoryFn<LgTabsModule> = (args: LgTabsModule) => ({
+const tabNavBarStory: StoryFn<LgTabsComponent> = (args: LgTabsComponent) => ({
   props: args,
   template: getTemplate(true),
 });

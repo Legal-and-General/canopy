@@ -1,18 +1,61 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Component, Input } from '@angular/core';
 
-import { LgHeadingModule } from '../../heading';
-import { LgIconModule } from '../../icon';
-import { LgDetailsModule } from '../details.module';
 import { LgDetailsComponent } from '../details.component';
+import {
+  lgIconCheckmarkSpotFill,
+  lgIconChevronDown,
+  lgIconCrossmarkSpotFill,
+  lgIconInformationFill,
+  LgIconRegistry,
+  lgIconWarningFill,
+} from '../../icon';
+import { LgDetailsPanelHeadingComponent } from '../details-panel-heading/details-panel-heading.component';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+
+const template = `
+<lg-details
+  [isActive]="isActive"
+  [variant]="variant"
+  [showIcon]="showIcon"
+  (opened)="toggle('Detail opened')"
+  (closed)="toggle('Detail closed')">
+  <lg-details-panel-heading [headingLevel]="headingLevel">{{ headingText }}</lg-details-panel-heading>
+  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+  payment details
+</lg-details>
+`;
+
+@Component({
+  selector: 'lg-details-example',
+  template: template,
+  standalone: true,
+  imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+})
+class DetailsExampleComponent {
+  @Input() variant: string;
+  @Input() headingLevel: number;
+  @Input() headingText: string;
+  @Input() isActive: boolean;
+  @Input() showIcon: boolean;
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons([
+      lgIconChevronDown,
+      lgIconInformationFill,
+      lgIconCheckmarkSpotFill,
+      lgIconWarningFill,
+      lgIconCrossmarkSpotFill,
+    ]);
+  }
+}
 
 export default {
   title: 'Components/Details/Examples',
   component: LgDetailsComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgDetailsModule, LgHeadingModule, LgIconModule ],
+      imports: [ DetailsExampleComponent ],
     }),
   ],
   argTypes: {
@@ -132,22 +175,15 @@ export default {
   },
 } as Meta;
 
-const template = `
-<lg-details
-  [isActive]="isActive"
-  [variant]="variant"
-  [showIcon]="showIcon"
-  (opened)="toggle('Detail opened')"
-  (closed)="toggle('Detail closed')">
-  <lg-details-panel-heading [headingLevel]="headingLevel">{{ headingText }}</lg-details-panel-heading>
-  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-  payment details
-</lg-details>
-`;
-
 const detailsTemplate: StoryFn<LgDetailsComponent> = (args: LgDetailsComponent) => ({
   props: args,
-  template,
+  template: `<lg-details-example
+      [variant]="variant"
+      [headingLevel]="headingLevel"
+      [headingText]="headingText"
+      [isActive]="isActive"
+      [showIcon]="showIcon"
+     ></lg-details-example>`,
 });
 
 export const standardDetails = detailsTemplate.bind({});

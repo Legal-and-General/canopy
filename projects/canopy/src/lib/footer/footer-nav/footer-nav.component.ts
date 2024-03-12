@@ -25,6 +25,7 @@ import { FooterNavVariant } from '../footer.interface';
     class: 'lg-footer-nav',
     role: 'navigation',
   },
+  standalone: true,
 })
 export class LgFooterNavComponent implements OnInit, AfterViewChecked {
   private currentFooterNavItemLength: number;
@@ -36,7 +37,10 @@ export class LgFooterNavComponent implements OnInit, AfterViewChecked {
   })
   footerNavItemComponents: QueryList<LgFooterNavItemComponent>;
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   ngOnInit(): void {
     const el = this.hostElement.nativeElement as HTMLElement;

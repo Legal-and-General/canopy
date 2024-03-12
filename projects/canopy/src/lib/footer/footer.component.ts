@@ -20,6 +20,7 @@ import { LgFooterLogoComponent } from './footer-logo/footer-logo.component';
     class: 'lg-footer',
     role: 'contentinfo',
   },
+  standalone: true,
 })
 export class LgFooterComponent implements AfterContentInit {
   @ContentChildren(forwardRef(() => LgFooterLogoComponent), {

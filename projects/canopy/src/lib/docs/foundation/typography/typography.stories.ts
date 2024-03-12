@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgMarginModule } from '../../../spacing';
-
 const pangram = 'The five boxing wizards jump quickly';
 
 const availableFontSizesRoboto = [
@@ -117,7 +115,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ LgDisplayFontSizeComponent, LgFontPanelComponent ],
-      imports: [ LgMarginModule ],
+      imports: [],
     }),
   ],
 } as Meta;

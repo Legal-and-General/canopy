@@ -13,6 +13,7 @@ import { SpacingService } from '../spacing.service';
     [lgPaddingBottom],
     [lgPaddingLeft]
   `,
+  standalone: true,
 })
 export class LgPaddingDirective {
   paddingTopClasses: Array<string> = [];

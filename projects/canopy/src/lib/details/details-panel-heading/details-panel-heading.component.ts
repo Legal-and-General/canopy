@@ -7,9 +7,12 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import { lgIconChevronDown } from '../../icon';
 import type { Variant } from '../../variant';
+import { LgIconComponent } from '../../icon';
+import { LgHeadingComponent } from '../../heading';
 
 @Component({
   selector: 'lg-details-panel-heading',
@@ -17,6 +20,8 @@ import type { Variant } from '../../variant';
   styleUrls: [ './details-panel-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgHeadingComponent, NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgDetailsPanelHeadingComponent {
   @Input() headingLevel;

@@ -11,6 +11,7 @@ import {
   styleUrls: [ './card-header.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgCardHeaderComponent {
   @HostBinding('class.lg-card-header') class = true;

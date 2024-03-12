@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import type { HeadingLevel } from '../../heading';
+import { LgHeadingComponent } from '../../heading';
 
 @Component({
   selector: 'lg-hero-card-principle-data-point-label',
@@ -14,6 +15,8 @@ import type { HeadingLevel } from '../../heading';
   styleUrls: [ './hero-card-principle-data-point-label.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgHeadingComponent ],
 })
 export class LgHeroCardPrincipleDataPointLabelComponent {
   @HostBinding('class.lg-hero-card-principle-data-point-label') class = true;

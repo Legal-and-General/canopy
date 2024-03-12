@@ -19,16 +19,22 @@ import {
   NgControl,
   ValidationErrors,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { isValid, parseISO } from 'date-fns';
 
-import { LgDomService } from '../../utils/dom.service';
-import { LgHintComponent } from '../hint/hint.component';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgDomService } from '../../utils';
+import { LgHintComponent } from '../hint';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
 import omit from '../../utils/omit';
+import { LgInputDirective } from '../input';
+import { LgMarginDirective } from '../../spacing';
+import { LgInputFieldComponent } from '../input';
+import { LgLabelComponent } from '../label';
+import { LgFocusDirective } from '../../focus';
 
 import { DateField } from './date-field.interface';
 
@@ -45,6 +51,15 @@ const labelFieldMap = {
   templateUrl: './date-field.component.html',
   styleUrls: [ './date-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    LgFocusDirective,
+    LgLabelComponent,
+    ReactiveFormsModule,
+    LgInputFieldComponent,
+    LgMarginDirective,
+    LgInputDirective,
+  ],
 })
 export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDestroy {
   private uniqueId = nextUniqueId++;

@@ -1,7 +1,11 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgFor, NgIf } from '@angular/common';
 
-import { LgFooterComponent } from '../../footer/footer.component';
-import { LgFooterModule } from '../footer.module';
+import { LgFooterComponent } from '../footer.component';
+import { LgFooterNavComponent } from '../footer-nav/footer-nav.component';
+import { LgFooterNavItemComponent } from '../footer-nav-item/footer-nav-item.component';
+import { LgFooterLogoComponent } from '../footer-logo/footer-logo.component';
+import { LgFooterCopyrightComponent } from '../footer-copyright/footer-copyright.component';
 
 export const primaryLinks = [
   { id: 'primary-link-1', text: 'My account', href: 'https://app.somecompany.com' },
@@ -40,7 +44,15 @@ export default {
   component: LgFooterComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgFooterModule ],
+      imports: [
+        LgFooterComponent,
+        LgFooterNavComponent,
+        LgFooterNavItemComponent,
+        LgFooterLogoComponent,
+        LgFooterCopyrightComponent,
+        NgIf,
+        NgFor,
+      ],
     }),
   ],
   parameters: {

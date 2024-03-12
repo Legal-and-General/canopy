@@ -7,8 +7,15 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
 } from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
 
-import * as iconSet from '../../icon/icons.interface';
+import {
+  LgIconComponent,
+  LgIconRegistry,
+  lgIconCaretLeft,
+  lgIconCaretRight,
+  lgIconHome,
+} from '../../icon';
 
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
@@ -18,6 +25,8 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   styleUrls: [ './breadcrumb-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ NgClass, NgIf, LgIconComponent ],
 })
 export class LgBreadcrumbItemComponent {
   private _variant: BreadcrumbVariant;
@@ -25,7 +34,6 @@ export class LgBreadcrumbItemComponent {
   private _showForwardChevron = false;
   private _isSmScreenFeaturedItem = false;
   private _hideIcons = false;
-  icons = iconSet;
   index: number;
 
   @HostBinding('class.lg-breadcrumb-item') class = true;
@@ -34,7 +42,10 @@ export class LgBreadcrumbItemComponent {
     private renderer: Renderer2,
     private hostElement: ElementRef,
     private cd: ChangeDetectorRef,
-  ) {}
+    private registry: LgIconRegistry,
+  ) {
+    this.registry.registerIcons([ lgIconHome, lgIconCaretLeft, lgIconCaretRight ]);
+  }
 
   set hideIcons(hideIcons: boolean) {
     this._hideIcons = hideIcons;

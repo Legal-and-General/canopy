@@ -1,12 +1,10 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 
-import { LgMarginModule } from '../../../spacing';
-
 export default {
   title: 'Internal Accessibility Overview',
   decorators: [
     moduleMetadata({
-      imports: [ LgMarginModule ],
+      imports: [],
     }),
   ],
 } as Meta;

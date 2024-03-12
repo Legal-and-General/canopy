@@ -5,10 +5,10 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { LgHintModule } from '../../hint';
 import { LgDateFieldComponent } from '../date-field.component';
-import { LgDateFieldModule } from '../date-field.module';
+import { LgHintComponent } from '../../hint';
 
 const template = `
 <lg-date-field [focus]="focus" formControlName="date">
@@ -20,6 +20,8 @@ const template = `
 @Component({
   selector: 'lg-reactive-form',
   template: ` <form [formGroup]="form">${template}</form> `,
+  standalone: true,
+  imports: [ ReactiveFormsModule, LgDateFieldComponent, LgHintComponent, NgIf ],
 })
 class ReactiveFormComponent {
   @Input() hint: string;
@@ -56,8 +58,7 @@ export default {
   component: LgDateFieldComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgDateFieldModule, LgHintModule ],
+      imports: [ ReactiveFormComponent ],
     }),
   ],
   argTypes: {
@@ -217,7 +218,7 @@ export default {
   },
 };
 
-const dateInputStory: StoryFn<LgDateFieldModule> = (args: LgDateFieldModule) => ({
+const dateInputStory: StoryFn<LgDateFieldComponent> = (args: LgDateFieldComponent) => ({
   props: args,
   template: `
   <lg-reactive-form

@@ -1,12 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { JsonPipe } from '@angular/common';
 
 import { SpacingVariant } from '../../spacing.interface';
-import { LgCardModule } from '../../../card';
-import { LgSpacingModule } from '../../spacing.module';
-import { LgGridModule } from '../../../grid';
-import { LgRowGapModule } from '../row-gap.module';
 import { LgRowGapDirective } from '../row-gap.directive';
+import { LgCardComponent, LgCardContentComponent } from '../../../card';
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../../../grid';
+import { LgMarginDirective } from '../../margin';
 
 const spaces = [
   'undefined',
@@ -64,6 +68,17 @@ const spaces = [
       </div>
     </div>
   `,
+  standalone: true,
+  imports: [
+    LgCardComponent,
+    LgCardContentComponent,
+    JsonPipe,
+    LgRowGapDirective,
+    LgGridContainerDirective,
+    LgGridColDirective,
+    LgMarginDirective,
+    LgGridRowDirective,
+  ],
 })
 class LgRowGapStoryComponent {
   @Input() rowGap: SpacingVariant;
@@ -73,8 +88,7 @@ export default {
   title: 'Helpers/Directives/Row gap/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ LgRowGapStoryComponent ],
-      imports: [ LgRowGapModule, LgCardModule, LgSpacingModule, LgGridModule ],
+      imports: [ LgRowGapStoryComponent ],
     }),
   ],
   parameters: {

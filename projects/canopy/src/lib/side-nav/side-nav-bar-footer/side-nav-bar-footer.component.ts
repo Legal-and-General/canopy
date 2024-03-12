@@ -11,6 +11,7 @@ import {
   styleUrls: [ './side-nav-bar-footer.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgSideNavBarFooterComponent {
   @HostBinding('class.lg-side-nav-bar-footer') class = true;

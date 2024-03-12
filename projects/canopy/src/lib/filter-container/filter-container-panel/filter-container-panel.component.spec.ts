@@ -14,7 +14,7 @@ describe('LgFilterContainerPanelComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgFilterContainerPanelComponent ],
+      imports: [ LgFilterContainerPanelComponent ],
     }).compileComponents();
   }));
 

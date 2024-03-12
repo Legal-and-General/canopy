@@ -6,9 +6,8 @@ import {
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgRadioModule } from '../../radio/radio.module';
-import { LgRadioButtonComponent } from '../../radio/radio-button.component';
-import { LgRadioGroupComponent } from '../../radio/radio-group.component';
+import { LgRadioButtonComponent } from '../../radio';
+import { LgRadioGroupComponent } from '../../radio';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -33,6 +32,8 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form-filter',
   template: formTemplate,
+  standalone: true,
+  imports: [ ReactiveFormsModule, LgRadioGroupComponent, LgRadioButtonComponent ],
 })
 class ReactiveFormFilterComponent {
   @Input() label: string;
@@ -65,8 +66,7 @@ export default {
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormFilterComponent ],
-      imports: [ ReactiveFormsModule, LgRadioModule ],
+      imports: [ ReactiveFormFilterComponent ],
     }),
   ],
   argTypes: {

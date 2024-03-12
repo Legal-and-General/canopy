@@ -6,8 +6,10 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import type { Variant } from '../../variant';
+import { LgIconComponent } from '../../icon';
 
 let nextUniqueId = 0;
 
@@ -16,6 +18,8 @@ let nextUniqueId = 0;
   templateUrl: './validation.component.html',
   styleUrls: [ './validation.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgValidationComponent {
   private _variant: Variant;
@@ -43,7 +47,10 @@ export class LgValidationComponent {
 
   @HostBinding('class.lg-validation') class = true;
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {
     this.variant = 'error';
   }
 }

@@ -5,14 +5,20 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../../icon';
-import { LgLabelModule } from '../../label/label.module';
-import { LgButtonModule } from '../../../button/button.module';
-import { LgHintModule } from '../../hint';
-import type { ButtonVariant } from '../../../button';
-import { LgInputModule } from '../input.module';
+import {
+  lgIconClose,
+  LgIconComponent,
+  LgIconRegistry,
+  lgIconSearch,
+} from '../../../icon';
+import { ButtonVariant, LgButtonComponent } from '../../../button';
 import { LgInputFieldComponent } from '../input-field.component';
+import { LgPrefixDirective } from '../../../prefix';
+import { LgInputDirective } from '../input.directive';
+import { LgSuffixDirective } from '../../../suffix';
+import { LgHintComponent } from '../../hint';
 
 interface Config {
   block?: boolean;
@@ -31,7 +37,7 @@ interface Config {
   suffix?: string;
 }
 
-function createInputStory(args: LgInputModule) {
+function createInputStory(args: LgInputFieldComponent) {
   return {
     props: args,
     template: `
@@ -127,6 +133,18 @@ const inputTemplate = `
   template: `
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">${inputTemplate}</form>
   `,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    LgInputFieldComponent,
+    LgPrefixDirective,
+    LgSuffixDirective,
+    LgInputDirective,
+    LgButtonComponent,
+    LgIconComponent,
+    LgHintComponent,
+    NgIf,
+  ],
 })
 class ReactiveFormComponent {
   @Input()
@@ -181,15 +199,7 @@ export default {
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent ],
-      imports: [
-        ReactiveFormsModule,
-        LgButtonModule,
-        LgHintModule,
-        LgIconModule,
-        LgInputModule,
-        LgLabelModule,
-      ],
+      imports: [ ReactiveFormComponent ],
     }),
   ],
   argTypes: {
@@ -319,7 +329,7 @@ export default {
   },
 };
 
-const inputStory: StoryFn<LgInputModule> = (args: LgInputModule) =>
+const inputStory: StoryFn<LgInputFieldComponent> = (args: LgInputFieldComponent) =>
   createInputStory(args);
 
 export const standard = inputStory.bind({});

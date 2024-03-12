@@ -11,6 +11,7 @@ import {
   styleUrls: [ './hero-card-principle-data-point-value.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgHeroCardPrincipleDataPointValueComponent {
   @HostBinding('class.lg-hero-card-principle-data-point-value') class = true;

@@ -13,13 +13,11 @@ describe('LgDataPointLabelComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgDataPointLabelComponent, MockComponent(LgHeadingComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgDataPointLabelComponent, MockComponent(LgHeadingComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

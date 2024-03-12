@@ -1,7 +1,7 @@
 import { Meta, StoryFn, moduleMetadata } from '@storybook/angular';
-import { LgProgressBarComponent } from 'canopy';
 import { CommonModule } from '@angular/common';
 
+import { LgProgressBarComponent } from '../progress-bar/progress-bar.component';
 import { LgProgressIndicatorComponent } from '../progress-indicator.component';
 import { LgProgressHeaderComponent } from '../progress-header/progress-header.component';
 

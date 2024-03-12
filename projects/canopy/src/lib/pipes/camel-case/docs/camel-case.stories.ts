@@ -5,10 +5,9 @@ import { LgCamelCasePipe } from '../camel-case.pipe';
 // This default export determines where your story goes in the story list
 export default {
   title: 'Helpers/Pipes/Camel case/Examples',
-  component: LgCamelCasePipe,
   decorators: [
     moduleMetadata({
-      declarations: [ LgCamelCasePipe ],
+      imports: [ LgCamelCasePipe ],
     }),
   ],
   argTypes: {

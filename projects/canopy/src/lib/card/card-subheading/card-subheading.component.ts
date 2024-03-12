@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 
 import { HeadingLevel } from '../../heading';
+import { LgHeadingComponent } from '../../heading';
 
 @Component({
   selector: 'lg-card-subheading',
@@ -16,6 +17,8 @@ import { HeadingLevel } from '../../heading';
   host: {
     class: 'lg-card-subheading',
   },
+  standalone: true,
+  imports: [ LgHeadingComponent ],
 })
 export class LgCardSubheadingComponent {
   @Input() headingLevel: HeadingLevel;

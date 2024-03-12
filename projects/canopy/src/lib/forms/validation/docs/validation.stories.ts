@@ -1,16 +1,51 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Component, Input } from '@angular/core';
 
-import { LgValidationModule } from '../validation.module';
 import { LgValidationComponent } from '../validation.component';
+import {
+  lgIconCrossmarkSpotFill,
+  lgIconInformationFill,
+  lgIconCheckmarkSpotFill,
+  lgIconWarningFill,
+  LgIconRegistry,
+} from '../../../icon';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+
+const template = `
+<lg-validation
+  [showIcon]="showIcon"
+  [variant]="variant">
+  {{content}}
+</lg-validation>
+`;
+
+@Component({
+  selector: 'lg-validation-example',
+  template: template,
+  standalone: true,
+  imports: [ LgValidationComponent ],
+})
+class LgValidationExampleComponent {
+  @Input() variant: string;
+  @Input() content: string;
+  @Input() showIcon: boolean;
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons([
+      lgIconCrossmarkSpotFill,
+      lgIconInformationFill,
+      lgIconCheckmarkSpotFill,
+      lgIconWarningFill,
+    ]);
+  }
+}
 
 export default {
   title: 'Components/Forms/Form validation/Examples',
   component: LgValidationComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgValidationModule ],
+      imports: [ LgValidationExampleComponent ],
     }),
   ],
   argTypes: {
@@ -62,17 +97,15 @@ export default {
   },
 } as Meta;
 
-const template = `
-<lg-validation
-  [showIcon]="showIcon"
-  [variant]="variant">
-  {{content}}
-</lg-validation>
-`;
-
-const validationStory: StoryFn<LgValidationModule> = (args: LgValidationModule) => ({
+const validationStory: StoryFn<LgValidationComponent> = (
+  args: LgValidationComponent,
+) => ({
   props: args,
-  template,
+  template: `<lg-validation-example
+      [variant]="variant"
+      [showIcon]="showIcon"
+      [content]="content"
+     ></lg-validation-example>`,
 });
 
 export const validation = validationStory.bind({});
