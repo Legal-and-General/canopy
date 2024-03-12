@@ -9,12 +9,13 @@ import {
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgErrorStateMatcher } from '../validation';
 
 let nextUniqueId = 0;
 
 @Directive({
   selector: '[lgInput]',
+  standalone: true,
 })
 export class LgInputDirective {
   uniqueId = nextUniqueId++;

@@ -11,11 +11,11 @@ import {
 } from 'ng-mocks';
 import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
 
 import { LgSelectFieldComponent } from './select-field.component';
 import { LgSelectDirective } from './select.directive';
@@ -33,8 +33,9 @@ describe('LgSelectFieldComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         LgSelectFieldComponent,
         MockComponents(
           LgValidationComponent,

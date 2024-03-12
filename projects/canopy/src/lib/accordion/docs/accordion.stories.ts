@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgButtonModule } from '../../button';
-import { LgAccordionModule } from '../accordion.module';
 import { LgAccordionComponent } from '../accordion.component';
+import { LgAccordionItemComponent } from '../accordion-item/accordion-item.component';
+import { LgAccordionItemContentDirective } from '../accordion-item/accordion-item-content.directive';
+import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
+import { LgButtonComponent } from '../../button';
+import { LgMarginDirective } from '../../spacing';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -11,7 +14,15 @@ export default {
   component: LgAccordionComponent,
   decorators: [
     moduleMetadata({
-      imports: [ CommonModule, LgAccordionModule, LgButtonModule ],
+      imports: [
+        CommonModule,
+        LgAccordionComponent,
+        LgAccordionItemComponent,
+        LgAccordionItemContentDirective,
+        LgAccordionPanelHeadingComponent,
+        LgButtonComponent,
+        LgMarginDirective,
+      ],
     }),
   ],
   argTypes: {

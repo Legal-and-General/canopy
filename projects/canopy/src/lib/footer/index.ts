@@ -4,4 +4,3 @@ export * from './footer-nav/footer-nav.component';
 export * from './footer-logo/footer-logo.component';
 export * from './footer.interface';
 export * from './footer.component';
-export * from './footer.module';

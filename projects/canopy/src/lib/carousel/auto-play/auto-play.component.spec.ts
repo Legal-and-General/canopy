@@ -14,13 +14,11 @@ describe('LgButtonComponent', () => {
   let pause: DebugElement;
   let play: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgAutoplayComponent, MockComponents(LgIconComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgAutoplayComponent, MockComponents(LgIconComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgAutoplayComponent);

@@ -11,14 +11,15 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { NgIf } from '@angular/common';
 
-import { LgDomService } from '../../utils/dom.service';
-import { LgHintComponent } from '../hint/hint.component';
-import { LgLabelComponent } from '../label/label.component';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgDomService } from '../../utils';
+import { LgHintComponent } from '../hint';
+import { LgLabelComponent } from '../label';
+import { LgValidationComponent } from '../validation';
 import { LgButtonComponent } from '../../button';
-import { LgSuffixDirective } from '../../suffix/suffix.directive';
-import { LgPrefixDirective } from '../../prefix/prefix.directive';
+import { LgSuffixDirective } from '../../suffix';
+import { LgPrefixDirective } from '../../prefix';
 
 import { LgInputDirective } from './input.directive';
 
@@ -29,6 +30,17 @@ let nextUniqueId = 0;
   templateUrl: './input-field.component.html',
   styleUrls: [ './input-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    LgLabelComponent,
+    LgHintComponent,
+    LgValidationComponent,
+    LgButtonComponent,
+    LgSuffixDirective,
+    LgPrefixDirective,
+    LgInputDirective,
+    NgIf,
+  ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _id = nextUniqueId++;
@@ -37,7 +49,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _hintElement: LgHintComponent;
   private _validationElement: LgValidationComponent;
   private _suffixChildren: QueryList<LgSuffixDirective>;
-  private _prefixChildren: QueryList<LgSuffixDirective>;
+  private _prefixChildren: QueryList<LgPrefixDirective>;
   /*
   The input field control element mimics the border of the input field.
   This allows us to add buttons and icons inside the input field.

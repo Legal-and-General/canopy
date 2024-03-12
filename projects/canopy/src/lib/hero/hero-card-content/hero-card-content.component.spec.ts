@@ -6,13 +6,11 @@ describe('HeroCardContentComponent', () => {
   let component: LgHeroCardContentComponent;
   let fixture: ComponentFixture<LgHeroCardContentComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgHeroCardContentComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgHeroCardContentComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroCardContentComponent);

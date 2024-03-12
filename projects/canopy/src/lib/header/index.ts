@@ -8,4 +8,3 @@ export * from './notification-badge/notification-badge.component';
 export * from './primary-navigation/primary-navigation.component';
 export * from './primary-navigation/primary-navigation-item.directive';
 export * from './primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component';
-export * from './header.module';

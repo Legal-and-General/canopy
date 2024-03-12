@@ -2,25 +2,20 @@ import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import {
-  MockComponents,
-  MockDirectives,
-  MockedComponentFixture,
-  MockRender,
-  ngMocks,
-} from 'ng-mocks';
+import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 import { instance, mock, spy, when } from '@typestrong/ts-mockito';
+import { NgIf } from '@angular/common';
 
 import { LgHintComponent } from '../hint';
-import { LgInputFieldComponent } from '../input/input-field.component';
 import { LgLabelComponent } from '../label';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgValidationComponent } from '../validation';
 import { LgButtonComponent } from '../../button';
 import { LgErrorStateMatcher } from '../validation';
-import { LgFocusDirective } from '../../focus';
 import { LgPrefixDirective } from '../../prefix';
 import { LgSuffixDirective } from '../../suffix';
+import { LgIconComponent } from '../../icon';
 
+import { LgInputFieldComponent } from './input-field.component';
 import { LgInputDirective } from './input.directive';
 
 describe('LgInputFieldComponent', () => {
@@ -45,21 +40,18 @@ describe('LgInputFieldComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         LgInputFieldComponent,
-        MockComponents(
-          LgValidationComponent,
-          LgLabelComponent,
-          LgHintComponent,
-          LgButtonComponent,
-        ),
-        MockDirectives(
-          LgFocusDirective,
-          LgInputDirective,
-          LgSuffixDirective,
-          LgPrefixDirective,
-        ),
+        LgHintComponent,
+        LgValidationComponent,
+        LgInputDirective,
+        LgSuffixDirective,
+        LgPrefixDirective,
+        LgLabelComponent,
+        NgIf,
+        MockComponents(LgButtonComponent, LgIconComponent),
       ],
       providers: [
         {

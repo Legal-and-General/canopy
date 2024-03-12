@@ -3,7 +3,7 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MockComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
 
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 
 import { LgTableRowToggleComponent } from './table-row-toggle.component';
 
@@ -15,7 +15,7 @@ describe('LgTableRowToggleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
+      imports: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
   }));
 

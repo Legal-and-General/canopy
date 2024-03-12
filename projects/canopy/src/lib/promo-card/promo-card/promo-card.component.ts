@@ -14,6 +14,7 @@ import type { PromoCardVariant } from '../promo-card.interface';
   templateUrl: './promo-card.component.html',
   styleUrls: [ './promo-card.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgPromoCardComponent {
   private _variant: PromoCardVariant;
@@ -36,7 +37,10 @@ export class LgPromoCardComponent {
     return this._variant;
   }
 
-  constructor(private renderer: Renderer2, public hostElement: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    public hostElement: ElementRef,
+  ) {
     this.variant = 'solid-white';
   }
 }

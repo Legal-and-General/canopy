@@ -1,7 +1,6 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgSrAlertMessageDirective } from '../sr-alert-message.directive';
-import { LgSrAlertMessageModule } from '../sr-alert-message.module';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -9,7 +8,7 @@ export default {
   component: LgSrAlertMessageDirective,
   decorators: [
     moduleMetadata({
-      imports: [ LgSrAlertMessageModule ],
+      imports: [ LgSrAlertMessageDirective ],
     }),
   ],
   argTypes: {

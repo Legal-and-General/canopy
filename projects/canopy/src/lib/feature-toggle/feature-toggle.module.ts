@@ -10,7 +10,7 @@ import {
 import { LgFeatureToggleService } from './feature-toggle.service';
 
 @NgModule({
-  declarations: [ LgFeatureToggleDirective ],
+  imports: [ LgFeatureToggleDirective ],
   providers: [ LgFeatureToggleService ],
   exports: [ LgFeatureToggleDirective ],
 })

@@ -11,6 +11,7 @@ import {
   styleUrls: [ './side-nav-bar-item-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgSideNavBarItemHeadingComponent {
   @HostBinding('class.lg-side-nav-bar-item-heading') class = true;

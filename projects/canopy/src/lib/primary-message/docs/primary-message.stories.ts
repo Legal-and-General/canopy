@@ -1,14 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgButtonModule } from '../../button';
 import {
   lgBrandIconCalendar,
-  LgBrandIconModule,
+  LgBrandIconComponent,
   LgBrandIconRegistry,
 } from '../../brand-icon';
-import { LgPrimaryMessageModule } from '../primary-message.module';
 import { LgPrimaryMessageComponent } from '../primary-message.component';
+import { LgPrimaryMessageTitleComponent } from '../primary-message-title/primary-message-title.component';
+import { LgPrimaryMessageDescriptionComponent } from '../primary-message-description/primary-message-description.component';
+import { LgButtonComponent } from '../../button';
+import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-primary-message-story',
@@ -29,6 +31,15 @@ import { LgPrimaryMessageComponent } from '../primary-message.component';
       </lg-primary-message-description>
     </lg-primary-message>
   `,
+  standalone: true,
+  imports: [
+    LgPrimaryMessageComponent,
+    LgBrandIconComponent,
+    LgPrimaryMessageTitleComponent,
+    LgPrimaryMessageDescriptionComponent,
+    LgButtonComponent,
+    LgMarginDirective,
+  ],
 })
 class LgPrimaryMessageStoryComponent {
   @Input() hasRole: boolean;
@@ -43,7 +54,7 @@ export default {
   component: LgPrimaryMessageStoryComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgPrimaryMessageModule, LgButtonModule, LgBrandIconModule ],
+      imports: [ LgPrimaryMessageStoryComponent ],
     }),
   ],
   argTypes: {

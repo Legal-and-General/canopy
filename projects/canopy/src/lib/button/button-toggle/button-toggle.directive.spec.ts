@@ -2,10 +2,14 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+import { LgButtonComponent } from '../button.component';
+
 import { LgButtonToggleDirective } from './button-toggle.directive';
 
 @Component({
   template: '<a lg-button lgButtonToggle variant="secondary-dark">This is a link</a>',
+  standalone: true,
+  imports: [ LgButtonComponent, LgButtonToggleDirective ],
 })
 class LinkTestComponent {}
 
@@ -15,6 +19,8 @@ class LinkTestComponent {}
       This is a button
     </button>
   `,
+  standalone: true,
+  imports: [ LgButtonComponent, LgButtonToggleDirective ],
 })
 class ButtonTestComponent {}
 
@@ -25,7 +31,7 @@ describe('LgButtonToggleDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonTestComponent, LinkTestComponent, LgButtonToggleDirective ],
+      imports: [ ButtonTestComponent, LinkTestComponent, LgButtonToggleDirective ],
     }).compileComponents();
   }));
 

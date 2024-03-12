@@ -13,6 +13,8 @@ import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
 
 @Component({
   template: ' <p [lgSrAlertMessage]="lgSrAlertMessage">Test feature</p> ',
+  standalone: true,
+  imports: [ LgSrAlertMessageDirective ],
 })
 class TestComponent {
   @Input() lgSrAlertMessage;
@@ -29,7 +31,7 @@ describe('lgSrAlertMessage', () => {
     cdrMock = mock(ChangeDetectorRef);
 
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, LgSrAlertMessageDirective ],
+      imports: [ TestComponent, LgSrAlertMessageDirective ],
       providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
     }).compileComponents();
   }));

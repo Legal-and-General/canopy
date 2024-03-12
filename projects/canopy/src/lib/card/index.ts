@@ -15,4 +15,3 @@ export * from './card-navigation-title/card-navigation-title.component';
 export * from './card-subheading/card-subheading.component';
 export * from './card-group/card-group.component';
 export * from './card.component';
-export * from './card.module';

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { LgMarginModule } from '../../spacing';
-import { lgIconLinkExternal, LgIconModule, LgIconRegistry } from '../../icon';
+import { LgIconComponent, lgIconLinkExternal, LgIconRegistry } from '../../icon';
+import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-hero',
   standalone: true,
-  imports: [ LgMarginModule, LgIconModule ],
+  imports: [ LgMarginDirective, LgIconComponent ],
   template: `
     <img
       class="welcome-img"

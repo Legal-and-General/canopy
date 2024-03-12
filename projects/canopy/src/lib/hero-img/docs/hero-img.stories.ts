@@ -1,9 +1,15 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgGridModule } from '../../grid';
-import { LgCardModule } from '../../card';
 import { LgHeroImgComponent } from '../hero-img.component';
-import { LgHeroImgModule } from '../hero-img.module';
+import { LgCardComponent, LgCardContentComponent } from '../../card';
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../../grid';
+import { LgHeroImgCardComponent } from '../hero-img-card/hero-img-card.component';
+import { LgHeroImgCardTitleComponent } from '../hero-img-card-title/hero-img-card-title.component';
+import { LgHeroImgCardSubtitleComponent } from '../hero-img-card-subtitle/hero-img-card-subtitle.component';
 
 const bodyHTML = `
   <div lgContainer>
@@ -54,7 +60,17 @@ export default {
   excludeStories: [ 'imageBackgroundHeroHTML' ],
   decorators: [
     moduleMetadata({
-      imports: [ LgHeroImgModule, LgGridModule, LgCardModule ],
+      imports: [
+        LgGridContainerDirective,
+        LgGridRowDirective,
+        LgGridColDirective,
+        LgCardComponent,
+        LgCardContentComponent,
+        LgHeroImgComponent,
+        LgHeroImgCardComponent,
+        LgHeroImgCardTitleComponent,
+        LgHeroImgCardSubtitleComponent,
+      ],
     }),
   ],
   parameters: {

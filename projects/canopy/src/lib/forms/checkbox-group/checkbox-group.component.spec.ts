@@ -5,17 +5,18 @@ import {
   UntypedFormGroup,
   FormGroupDirective,
   FormsModule,
-  NgControl,
   ReactiveFormsModule,
   Validators,
+  NgControl,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { anything, instance, mock, when } from '@typestrong/ts-mockito';
+import { NgIf } from '@angular/common';
 
 import { LgHintComponent } from '../hint';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
 import { LgToggleComponent } from '../toggle';
 import { LgIconComponent } from '../../icon';
 
@@ -39,6 +40,16 @@ const hintTestId = 'test-hint-id';
       </lg-filter-multiple-group>
     </form>
   `,
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    LgCheckboxGroupComponent,
+    LgToggleComponent,
+    LgValidationComponent,
+    LgHintComponent,
+    NgIf,
+  ],
 })
 class TestCheckboxGroupComponent {
   get color() {
@@ -46,7 +57,10 @@ class TestCheckboxGroupComponent {
   }
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       color: this.fb.control([], [ Validators.required ]),
     });
@@ -54,6 +68,10 @@ class TestCheckboxGroupComponent {
 
   isControlInvalid(control: NgControl, form: FormGroupDirective) {
     return this.errorState.isControlInvalid(control, form);
+  }
+
+  login() {
+    return null;
   }
 }
 
@@ -74,12 +92,16 @@ describe('LgCheckboxGroupComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestCheckboxGroupComponent,
         LgCheckboxGroupComponent,
         LgToggleComponent,
-        MockComponents(LgValidationComponent, LgHintComponent, LgIconComponent),
+        LgValidationComponent,
+        LgHintComponent,
+        NgIf,
+        MockComponents(LgIconComponent),
       ],
       providers: [
         {

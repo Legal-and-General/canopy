@@ -6,6 +6,8 @@ import { LgHideAtDirective } from './hide-at.directive';
 
 @Component({
   template: ' <div [lgHideAt]="lgHideAt || null">How you see me...</div> ',
+  standalone: true,
+  imports: [ LgHideAtDirective ],
 })
 class TestComponent {
   @Input() lgHideAt;
@@ -16,25 +18,21 @@ describe('LgHideAtDirective', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ TestComponent, LgHideAtDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ TestComponent, LgHideAtDirective ],
+    }).compileComponents();
+  }));
 
-  beforeEach(
-    waitForAsync(() => {
-      fixture = TestBed.createComponent(TestComponent);
-      fixture.detectChanges();
-      component = fixture.componentInstance;
+  beforeEach(waitForAsync(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    fixture.detectChanges();
+    component = fixture.componentInstance;
 
-      testElement = fixture.debugElement.query(By.css('div'));
+    testElement = fixture.debugElement.query(By.css('div'));
 
-      fixture.detectChanges();
-    }),
-  );
+    fixture.detectChanges();
+  }));
 
   it('does not add a class if the breakpoint is not defined', () => {
     fixture.detectChanges();

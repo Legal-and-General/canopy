@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import type { HeadingLevel } from '../../../heading';
+import { LgHeadingComponent } from '../../../heading';
 
 @Component({
   selector: 'lg-promo-card-list-title',
@@ -14,6 +15,8 @@ import type { HeadingLevel } from '../../../heading';
   styleUrls: [ './promo-card-list-title.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgHeadingComponent ],
 })
 export class LgPromoCardListTitleComponent {
   @HostBinding('class.lg-promo-card-list-title') class = true;

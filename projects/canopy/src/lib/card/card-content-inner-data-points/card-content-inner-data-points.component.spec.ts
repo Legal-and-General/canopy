@@ -8,7 +8,7 @@ describe('LgCardContentInnerDataPointsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgCardContentInnerDataPointsComponent ],
+      imports: [ LgCardContentInnerDataPointsComponent ],
     }).compileComponents();
   }));
 

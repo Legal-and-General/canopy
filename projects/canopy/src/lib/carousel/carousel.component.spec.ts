@@ -39,6 +39,8 @@ import { LgCarouselComponent } from './carousel.component';
       </lg-carousel-item>
     </lg-carousel>
   `,
+  standalone: true,
+  imports: [ LgCarouselComponent, LgCarouselItemComponent ],
 })
 class TestCarouselComponent {
   carouselComponentRef: LgCarouselComponent;
@@ -51,6 +53,8 @@ class TestCarouselComponent {
 @Component({
   selector: 'lg-test-wrapper-component',
   template: '<lg-test-carousel></lg-test-carousel>',
+  standalone: true,
+  imports: [ TestCarouselComponent ],
 })
 class TestWrapperComponent {}
 
@@ -76,7 +80,7 @@ describe('LgCarouselComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         TestWrapperComponent,
         TestWrapperComponent,
         TestCarouselComponent,

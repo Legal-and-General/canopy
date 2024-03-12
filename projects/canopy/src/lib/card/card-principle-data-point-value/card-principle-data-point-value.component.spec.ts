@@ -6,13 +6,11 @@ describe('LgCardPrincipleDataPointValueComponent', () => {
   let component: LgCardPrincipleDataPointValueComponent;
   let fixture: ComponentFixture<LgCardPrincipleDataPointValueComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgCardPrincipleDataPointValueComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgCardPrincipleDataPointValueComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardPrincipleDataPointValueComponent);

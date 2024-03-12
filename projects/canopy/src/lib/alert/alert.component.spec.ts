@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 
 import { LgIconComponent } from '../icon';
-import type { Variant } from '../variant/variant.interface';
+import type { Variant } from '../variant';
 
 import { LgAlertComponent } from './alert.component';
 
@@ -13,7 +13,7 @@ describe('LgAlertComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgAlertComponent, MockComponents(LgIconComponent) ],
+      imports: [ LgAlertComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgAlertComponent);

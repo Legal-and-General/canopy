@@ -18,6 +18,8 @@ import { LgPaddingDirective } from './padding.directive';
       Test feature
     </div>
   `,
+  standalone: true,
+  imports: [ LgPaddingDirective ],
 })
 class TestComponent {
   @Input() lgPadding;
@@ -34,24 +36,20 @@ describe('LgPadding', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ TestComponent, LgPaddingDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ TestComponent, LgPaddingDirective ],
+    }).compileComponents();
+  }));
 
-  beforeEach(
-    waitForAsync(() => {
-      fixture = TestBed.createComponent(TestComponent);
-      component = fixture.componentInstance;
+  beforeEach(waitForAsync(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    component = fixture.componentInstance;
 
-      testElement = fixture.debugElement.query(By.css('div'));
+    testElement = fixture.debugElement.query(By.css('div'));
 
-      fixture.detectChanges();
-    }),
-  );
+    fixture.detectChanges();
+  }));
 
   describe('Non-responsive padding', () => {
     it('renders the same padding all round', () => {

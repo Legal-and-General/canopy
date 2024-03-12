@@ -5,17 +5,18 @@ import {
   UntypedFormGroup,
   FormGroupDirective,
   FormsModule,
-  NgControl,
   ReactiveFormsModule,
   Validators,
+  NgControl,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
 import { anything, instance, mock, when } from '@typestrong/ts-mockito';
+import { NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
 import { LgFocusDirective } from '../../focus';
 
 import { LgToggleComponent } from './toggle.component';
@@ -34,7 +35,7 @@ const validationTestId = 'test-validation-id';
         [variant]="variant"
         [size]="size"
       >
-        I will bring my Umbrella if it is raining
+        I will bring my Umbrella if it is raining {{ variant }}
         <lg-validation
           id="${validationTestId}"
           *ngIf="isControlInvalid(umbrella, testForm)"
@@ -44,6 +45,14 @@ const validationTestId = 'test-validation-id';
       </lg-toggle>
     </form>
   `,
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    LgToggleComponent,
+    LgValidationComponent,
+    NgIf,
+  ],
 })
 class TestToggleComponent {
   @Input() variant: ToggleVariant;
@@ -55,7 +64,10 @@ class TestToggleComponent {
     return this.form.get('umbrella');
   }
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },
@@ -88,6 +100,15 @@ class TestToggleComponent {
       </lg-switch>
     </form>
   `,
+  standalone: true,
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    LgToggleComponent,
+    LgValidationComponent,
+    LgIconComponent,
+    NgIf,
+  ],
 })
 class TestToggleVariantSelectorComponent {
   form: UntypedFormGroup;
@@ -96,7 +117,10 @@ class TestToggleVariantSelectorComponent {
     return this.form.get('umbrella');
   }
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },
@@ -122,11 +146,13 @@ describe('LgToggleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestToggleComponent,
         LgToggleComponent,
-        MockComponents(LgValidationComponent, LgIconComponent),
+        LgValidationComponent,
+        MockComponents(LgIconComponent),
         MockDirective(LgFocusDirective),
       ],
       providers: [
@@ -310,11 +336,13 @@ describe('LgToggleComponent selector variant', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestToggleVariantSelectorComponent,
         LgToggleComponent,
-        MockComponents(LgValidationComponent, LgIconComponent),
+        LgValidationComponent,
+        MockComponents(LgIconComponent),
       ],
       providers: [
         {

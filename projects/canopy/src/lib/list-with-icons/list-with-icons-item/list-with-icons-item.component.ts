@@ -9,7 +9,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { IconName } from '../../icon/icons.interface';
+import { IconName } from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 type Name = IconName;
 
@@ -22,6 +23,8 @@ type Name = IconName;
   host: {
     class: 'lg-list-with-icons-item',
   },
+  standalone: true,
+  imports: [ LgIconComponent ],
 })
 export class LgListWithIconsItemComponent implements AfterViewInit, OnChanges {
   @Input() iconName: Name;

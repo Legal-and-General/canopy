@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 import { spy, verify } from '@typestrong/ts-mockito';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
 import { HeadingLevel } from '../../heading';
 
@@ -21,11 +21,12 @@ describe('LgCardNavigationTitleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
+        RouterTestingModule,
         LgCardNavigationTitleComponent,
-        MockComponents(LgHeadingComponent, LgIconComponent),
+        LgHeadingComponent,
+        MockComponents(LgIconComponent),
       ],
-      imports: [ RouterTestingModule ],
     }).compileComponents();
   }));
 

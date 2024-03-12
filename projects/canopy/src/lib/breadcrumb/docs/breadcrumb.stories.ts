@@ -1,15 +1,24 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconModule } from '../../icon/icon.module';
-import { LgBreadcrumbModule } from '../breadcrumb.module';
-import { BreadcrumbVariant, LgBreadcrumbComponent } from '..';
+import {
+  BreadcrumbVariant,
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgBreadcrumbItemEllipsisComponent,
+} from '..';
+import { LgIconComponent } from '../../icon';
 
 export default {
   title: 'Components/Breadcrumb/Examples',
   component: LgBreadcrumbComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgIconModule, LgBreadcrumbModule ],
+      imports: [
+        LgBreadcrumbComponent,
+        LgBreadcrumbItemComponent,
+        LgBreadcrumbItemEllipsisComponent,
+        LgIconComponent,
+      ],
     }),
   ],
   argTypes: {

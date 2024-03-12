@@ -14,7 +14,7 @@ import {
 import { Subscription } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgButtonToggleDirective } from '../button/button-toggle/button-toggle.directive';
+import { LgButtonToggleDirective } from '../button';
 
 import { LgFilterContainerPanelComponent } from './filter-container-panel/filter-container-panel.component';
 import {
@@ -33,6 +33,7 @@ let nextUniqueId = 0;
   host: {
     class: 'lg-filter-container',
   },
+  standalone: true,
 })
 export class LgFilterContainerComponent implements AfterContentInit, OnDestroy {
   private uniqueId = nextUniqueId++;
@@ -46,7 +47,10 @@ export class LgFilterContainerComponent implements AfterContentInit, OnDestroy {
   @ContentChild(forwardRef(() => LgFilterContainerPanelComponent))
   filterContainerPanel: LgFilterContainerPanelComponent;
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   @HostListener('keydown', [ '$event' ]) onKeydown(event: KeyboardEvent): void {
     if (event.key === keyName.KEY_ESCAPE && this.filterContainerToggle?.isActive) {

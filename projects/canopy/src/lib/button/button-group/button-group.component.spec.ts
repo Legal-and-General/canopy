@@ -8,7 +8,7 @@ describe('LgButtonGroupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgButtonGroupComponent ],
+      imports: [ LgButtonGroupComponent ],
     }).compileComponents();
   });
 

@@ -11,6 +11,8 @@ import { LgFeatureToggleService } from './feature-toggle.service';
 @Component({
   template:
     ' <section *lgFeatureToggle="\'feature\'" id="feature">Test feature</section> ',
+  standalone: true,
+  imports: [ LgFeatureToggleDirective ],
 })
 class TestComponent {}
 
@@ -21,7 +23,7 @@ describe('LgFeatureToggleDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, LgFeatureToggleDirective ],
+      imports: [ TestComponent, LgFeatureToggleDirective ],
       providers: [
         TemplateRef,
         ViewContainerRef,

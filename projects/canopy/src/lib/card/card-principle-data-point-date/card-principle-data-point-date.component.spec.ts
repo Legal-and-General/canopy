@@ -6,13 +6,11 @@ describe('CardPrincipleDataPointDateComponent', () => {
   let component: LgCardPrincipleDataPointDateComponent;
   let fixture: ComponentFixture<LgCardPrincipleDataPointDateComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgCardPrincipleDataPointDateComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgCardPrincipleDataPointDateComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardPrincipleDataPointDateComponent);

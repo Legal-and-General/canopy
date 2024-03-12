@@ -11,6 +11,8 @@ import { LgModalTriggerDirective } from './modal-trigger.directive';
 @Component({
   template: ' <button lgModalTrigger="test" id="modal-trigger">Open modal</button> ',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgModalTriggerDirective ],
 })
 class TestTriggerComponent {}
 
@@ -26,7 +28,7 @@ describe('LgModalTriggerComponent', () => {
     modalServiceMock = mock(LgModalService);
 
     TestBed.configureTestingModule({
-      declarations: [ LgModalTriggerDirective, TestTriggerComponent ],
+      imports: [ LgModalTriggerDirective, TestTriggerComponent ],
       providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
     }).compileComponents();
 

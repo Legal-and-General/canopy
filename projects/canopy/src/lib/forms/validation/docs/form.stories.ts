@@ -12,19 +12,26 @@ import {
   Validators,
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { pastDateValidator } from '../../date/pastDate.validator';
-import { LgInputModule } from '../../input';
-import { LgHintModule } from '../../hint';
-import { LgSelectModule } from '../../select';
-import { LgRadioModule } from '../../radio';
-import { LgButtonModule } from '../../../button';
-import { LgToggleModule } from '../../toggle';
-import { LgCheckboxGroupModule } from '../../checkbox-group';
-import { LgDateFieldModule } from '../../date';
-import { LgSortCodeModule } from '../../sort-code';
-import { LgValidationModule } from '../validation.module';
+import { pastDateValidator } from '../../date';
 import { LgErrorStateMatcher } from '../error-state-matcher';
+import { LgInputDirective, LgInputFieldComponent } from '../../input';
+import { LgSelectDirective, LgSelectFieldComponent } from '../../select';
+import { LgRadioButtonComponent, LgRadioGroupComponent } from '../../radio';
+import { LgCheckboxGroupComponent } from '../../checkbox-group';
+import { LgToggleComponent } from '../../toggle';
+import { LgDateFieldComponent } from '../../date';
+import { LgValidationComponent } from '../validation.component';
+import { LgHintComponent } from '../../hint';
+import { LgSortCodeDirective } from '../../sort-code';
+import { LgButtonComponent } from '../../../button';
+import {
+  lgIconCheckboxMark,
+  lgIconChevronDown,
+  lgIconCrossmarkSpotFill,
+  LgIconRegistry,
+} from '../../../icon';
 
 function invalidValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -74,6 +81,8 @@ function invalidValidator(): ValidatorFn {
       useExisting: FormGroupDirective,
     },
   ],
+  standalone: true,
+  imports: [ LgDateFieldComponent, ReactiveFormsModule, LgValidationComponent, NgIf ],
 })
 class FormGroupChildComponent implements OnInit {
   parentForm: FormGroup;
@@ -275,6 +284,25 @@ class FormGroupChildComponent implements OnInit {
       <button lg-button type="submit" variant="primary-dark">Submit</button>
     </form>
   `,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    LgInputFieldComponent,
+    LgInputDirective,
+    LgHintComponent,
+    LgValidationComponent,
+    LgSelectFieldComponent,
+    LgSelectDirective,
+    LgRadioGroupComponent,
+    LgRadioButtonComponent,
+    LgCheckboxGroupComponent,
+    LgToggleComponent,
+    LgDateFieldComponent,
+    FormGroupChildComponent,
+    LgSortCodeDirective,
+    LgButtonComponent,
+    NgIf,
+  ],
 })
 class ReactiveFormComponent {
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
@@ -323,6 +351,7 @@ class ReactiveFormComponent {
     public fb: UntypedFormBuilder,
     private errorState: LgErrorStateMatcher,
     private el: ElementRef,
+    private registry: LgIconRegistry,
   ) {
     this.form = this.fb.group({
       text: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
@@ -338,6 +367,12 @@ class ReactiveFormComponent {
         date: [ '', [ Validators.required, pastDateValidator() ] ],
       }),
     });
+
+    this.registry.registerIcons([
+      lgIconChevronDown,
+      lgIconCheckboxMark,
+      lgIconCrossmarkSpotFill,
+    ]);
   }
 
   onSubmit(event) {
@@ -359,20 +394,7 @@ export default {
   title: 'Components/Forms/Form validation/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent, FormGroupChildComponent ],
-      imports: [
-        ReactiveFormsModule,
-        LgInputModule,
-        LgHintModule,
-        LgValidationModule,
-        LgSelectModule,
-        LgRadioModule,
-        LgButtonModule,
-        LgToggleModule,
-        LgCheckboxGroupModule,
-        LgDateFieldModule,
-        LgSortCodeModule,
-      ],
+      imports: [ ReactiveFormsModule, ReactiveFormComponent ],
     }),
   ],
   argTypes: {

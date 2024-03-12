@@ -6,13 +6,11 @@ describe('LgCardFooterComponent', () => {
   let component: LgCardFooterComponent;
   let fixture: ComponentFixture<LgCardFooterComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgCardFooterComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgCardFooterComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardFooterComponent);

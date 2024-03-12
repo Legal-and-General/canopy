@@ -1,9 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { LgIconModule, LgIconRegistry, lgIconsArray } from '../../icon';
-import { LgButtonModule } from '../button.module';
-import { ButtonIconPosition, ButtonSize, LgButtonComponent } from '../index';
+import { IconName, LgIconComponent, LgIconRegistry, lgIconsArray } from '../../icon';
+import {
+  ButtonIconPosition,
+  ButtonSize,
+  ButtonVariant,
+  LgButtonComponent,
+} from '../index';
 
 const buttonVariants = [
   'primary-dark',
@@ -61,17 +66,19 @@ const buttonVariants = [
       </a>
     </ng-container>
   `,
+  standalone: true,
+  imports: [ LgIconComponent, LgButtonComponent, NgIf ],
 })
 class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
   @Input() fullWidth: boolean;
-  @Input() icon: string;
+  @Input() icon: IconName;
   @Input() iconButton: boolean;
   @Input() doubleIconButton: boolean;
   @Input() iconPosition: ButtonIconPosition;
   @Input() loading: boolean;
   @Input() size: ButtonSize;
-  @Input() variant: string;
+  @Input() variant: ButtonVariant;
   @Input() content: string;
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(lgIconsArray);
@@ -83,8 +90,7 @@ export default {
   component: LgButtonComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ButtonComponentExampleComponent ],
-      imports: [ LgButtonModule, LgIconModule ],
+      imports: [ ButtonComponentExampleComponent ],
     }),
   ],
   argTypes: {

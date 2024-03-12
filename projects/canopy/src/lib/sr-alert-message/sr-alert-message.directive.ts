@@ -10,6 +10,7 @@ import { Subscription, timer } from 'rxjs';
 
 @Directive({
   selector: '[lgSrAlertMessage]',
+  standalone: true,
 })
 export class LgSrAlertMessageDirective implements OnInit, OnDestroy {
   private subscription: Subscription;

@@ -7,6 +7,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+import { LgHideAtDirective } from '../../hide-at';
+
 @Component({
   selector: 'lg-primary-nav',
   templateUrl: './primary-navigation.component.html',
@@ -20,6 +22,8 @@ import {
     id: 'primary-nav',
     'aria-label': 'Main navigation',
   },
+  standalone: true,
+  imports: [ LgHideAtDirective ],
 })
 export class LgPrimaryNavComponent {
   private _showResponsiveMenu = false;

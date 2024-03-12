@@ -10,8 +10,11 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgIf, NgFor, NgTemplateOutlet } from '@angular/common';
 
 import { LgIconComponent } from '../icon';
+import { LgMarginDirective } from '../spacing';
+import { LgSpinnerComponent } from '../spinner';
 
 import type { ButtonIconPosition, ButtonSize, ButtonVariant } from './button.interface';
 
@@ -20,6 +23,8 @@ import type { ButtonIconPosition, ButtonSize, ButtonVariant } from './button.int
   templateUrl: './button.component.html',
   styleUrls: [ './button.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ NgIf, NgFor, NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective ],
 })
 export class LgButtonComponent implements AfterViewInit {
   @HostBinding('class.lg-btn') class = true;
@@ -80,7 +85,10 @@ export class LgButtonComponent implements AfterViewInit {
     return this.size === 'sm';
   }
 
-  constructor(private renderer: Renderer2, public hostElement: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    public hostElement: ElementRef,
+  ) {
     this.variant = 'primary-dark';
     this.iconPosition = 'right';
     this.size = 'md';

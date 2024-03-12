@@ -10,8 +10,9 @@ import {
 import { By } from '@angular/platform-browser';
 import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
-import { LgSelectDirective } from '../select/select.directive';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgErrorStateMatcher } from '../validation';
+
+import { LgSelectDirective } from './select.directive';
 
 @Component({
   template: `
@@ -23,6 +24,8 @@ import { LgErrorStateMatcher } from '../validation/error-state-matcher';
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule, LgSelectDirective ],
 })
 class TestSelectComponent {
   form = new UntypedFormGroup({
@@ -38,8 +41,7 @@ describe('LgSelectDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [ LgSelectDirective, TestSelectComponent ],
+      imports: [ FormsModule, ReactiveFormsModule, LgSelectDirective, TestSelectComponent ],
       providers: [
         {
           provide: LgErrorStateMatcher,

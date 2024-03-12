@@ -11,6 +11,7 @@ import {
   styleUrls: [ './quick-action.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgQuickActionComponent {
   @HostBinding('class.lg-quick-action') class = true;

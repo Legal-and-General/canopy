@@ -11,6 +11,7 @@ import {
   styleUrls: [ './side-nav-content.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgSideNavContentComponent {
   @HostBinding('class.lg-side-nav-content') class = true;

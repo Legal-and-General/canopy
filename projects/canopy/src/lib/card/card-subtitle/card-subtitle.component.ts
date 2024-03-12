@@ -11,6 +11,7 @@ import {
   styleUrls: [ './card-subtitle.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgCardSubtitleComponent {
   @HostBinding('class.lg-card-subtitle') class = true;

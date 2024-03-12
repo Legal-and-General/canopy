@@ -6,10 +6,10 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgToggleModule } from '../../toggle/toggle.module';
-import { LgHintModule } from '../../hint';
-import { LgCheckboxGroupComponent } from '../../checkbox-group/checkbox-group.component';
-import { LgCheckboxGroupModule } from '../../checkbox-group/checkbox-group.module';
+import { LgCheckboxGroupComponent } from '../../checkbox-group';
+import { LgToggleComponent } from '../../toggle';
+import { LgHintComponent } from '../../hint';
+import { lgIconAdd, lgIconCheckmark, LgIconRegistry } from '../../../icon';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -27,6 +27,13 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form',
   template: formTemplate,
+  standalone: true,
+  imports: [
+    LgCheckboxGroupComponent,
+    LgHintComponent,
+    LgToggleComponent,
+    ReactiveFormsModule,
+  ],
 })
 class ReactiveFormComponent {
   @Input() label: string;
@@ -49,9 +56,13 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private registry: LgIconRegistry,
+  ) {
     this.form = this.fb.group({ colors: this.fb.control([ 'red' ]) });
     this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
+    this.registry.registerIcons([ lgIconAdd, lgIconCheckmark ]);
   }
 }
 
@@ -60,8 +71,7 @@ export default {
   component: LgCheckboxGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule ],
+      imports: [ ReactiveFormComponent ],
     }),
   ],
   argTypes: {

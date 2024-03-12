@@ -9,7 +9,7 @@ describe('LgAccountMenuListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgAccountMenuListItemComponent ],
+      imports: [ LgAccountMenuListItemComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgAccountMenuListItemComponent);

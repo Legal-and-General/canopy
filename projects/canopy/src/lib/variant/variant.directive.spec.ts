@@ -7,6 +7,8 @@ import type { Variant } from './variant.interface';
 
 @Component({
   template: ' <div [lgVariant]="lgVariant">Test</div> ',
+  standalone: true,
+  imports: [ LgVariantDirective ],
 })
 class TestComponent {
   @Input() lgVariant: Variant = 'generic';
@@ -17,25 +19,21 @@ describe('LgVariant', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ TestComponent, LgVariantDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ TestComponent, LgVariantDirective ],
+    }).compileComponents();
+  }));
 
-  beforeEach(
-    waitForAsync(() => {
-      fixture = TestBed.createComponent(TestComponent);
-      fixture.detectChanges();
-      component = fixture.componentInstance;
+  beforeEach(waitForAsync(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    fixture.detectChanges();
+    component = fixture.componentInstance;
 
-      testElement = fixture.debugElement.query(By.css('div'));
+    testElement = fixture.debugElement.query(By.css('div'));
 
-      fixture.detectChanges();
-    }),
-  );
+    fixture.detectChanges();
+  }));
 
   it('adds the generic variant class', () => {
     expect(testElement.nativeElement.getAttribute('class')).toContain(

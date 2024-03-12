@@ -7,6 +7,7 @@ let nextUniqueId = 0;
   templateUrl: './hint.component.html',
   styleUrls: [ './hint.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgHintComponent {
   @HostBinding('id')

@@ -27,6 +27,7 @@ let nextUniqueId = 0;
   styleUrls: [ './details.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   private subscription: Subscription;

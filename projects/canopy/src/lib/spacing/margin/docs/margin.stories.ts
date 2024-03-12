@@ -1,8 +1,8 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { LgCardModule } from '../../../card';
-import { LgMarginModule } from '../margin.module';
 import { LgMarginDirective } from '../margin.directive';
+import { LgCardComponent, LgCardContentComponent } from '../../../card';
 
 const spaces = [
   'undefined',
@@ -26,7 +26,7 @@ export default {
   title: 'Helpers/Directives/Margin/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgMarginModule, LgCardModule ],
+      imports: [ LgCardComponent, LgCardContentComponent, LgMarginDirective, NgIf ],
     }),
   ],
   parameters: {

@@ -9,13 +9,11 @@ describe('LgTableHeadComponent', () => {
   let component: LgTableHeadComponent;
   let fixture: ComponentFixture<LgTableHeadComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTableHeadComponent, MockComponent(LgTableRowComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgTableHeadComponent, MockComponent(LgTableRowComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`
