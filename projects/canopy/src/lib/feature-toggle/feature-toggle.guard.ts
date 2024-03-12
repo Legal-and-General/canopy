@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  CanLoad,
-  Route,
-  Router,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Route, Router } from '@angular/router';
 import { first, map } from 'rxjs/operators';
 
 import { LgFeatureToggleService } from './feature-toggle.service';
@@ -13,7 +7,7 @@ import { LgFeatureToggleService } from './feature-toggle.service';
 @Injectable({
   providedIn: 'root',
 })
-export class FeatureToggleGuard implements CanActivate, CanLoad {
+export class FeatureToggleGuard {
   constructor(
     private featureToggleService: LgFeatureToggleService,
     private router: Router,
