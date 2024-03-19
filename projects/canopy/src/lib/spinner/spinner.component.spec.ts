@@ -61,6 +61,21 @@ describe('LgSpinnerComponent', () => {
     );
   });
 
+  it('adds the extra small size variant to the component', () => {
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.nativeElement.getAttribute('class')).not.toContain(
+      'lg-spinner--xs',
+    );
+
+    component.size = 'xs';
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.nativeElement.getAttribute('class')).toContain(
+      'lg-spinner--xs',
+    );
+  });
+
   describe('text input', () => {
     describe('when not specified', () => {
       it('should add a visually hidden element with default text', () => {
