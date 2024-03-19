@@ -4,7 +4,7 @@ import { LgSpinnerComponent } from '../spinner.component';
 import { LgSpinnerModule } from '../spinner.module';
 
 const variantTypes = [ 'dark', 'light', 'color', 'inherit' ];
-const sizes = [ 'sm', 'md' ];
+const sizes = [ 'xs', 'sm', 'md' ];
 
 // This default export determines where your story goes in the story list
 export default {
