@@ -36,6 +36,9 @@ export class LgSpinnerComponent implements OnInit, OnDestroy {
   @HostBinding('class.lg-spinner--sm') get sizeClass() {
     return this.size === 'sm';
   }
+  @HostBinding('class.lg-spinner--xs') get sizeXsClass() {
+    return this.size === 'xs';
+  }
 
   @HostBinding('attr.role') get role() {
     if (this.readScreenReaderAlert) {
