@@ -12,5 +12,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
     role: 'list',
     'aria-label': 'Account menu',
   },
+  standalone: true,
 })
 export class LgAccountMenuComponent {}

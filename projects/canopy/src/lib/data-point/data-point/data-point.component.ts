@@ -12,6 +12,7 @@ import {
   styleUrls: [ './data-point.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgDataPointComponent {
   @HostBinding('class.lg-data-point') class = true;

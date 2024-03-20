@@ -5,4 +5,3 @@ export * from './tab-nav-bar/tab-nav-bar.component';
 export * from './tab-nav-bar/tab-nav-bar-link.directive';
 export * from './tab-nav-content/tab-nav-content.component';
 export * from './tabs.component';
-export * from './tabs.module';

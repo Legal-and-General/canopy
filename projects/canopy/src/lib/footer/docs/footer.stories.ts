@@ -1,7 +1,6 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgFooterComponent } from '../../footer/footer.component';
-import { LgFooterModule } from '../footer.module';
 
 export const primaryLinks = [
   { id: 'primary-link-1', text: 'My account', href: 'https://app.somecompany.com' },
@@ -40,7 +39,7 @@ export default {
   component: LgFooterComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgFooterModule ],
+      imports: [],
     }),
   ],
   parameters: {

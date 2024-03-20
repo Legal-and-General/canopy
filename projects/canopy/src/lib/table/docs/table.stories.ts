@@ -1,15 +1,9 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgInputModule } from '../../forms';
-import { LgMarginModule } from '../../spacing';
-import { LgSuffixModule } from '../../suffix';
-import { LgGridModule } from '../../grid';
-import { LgQuickActionModule } from '../../quick-action';
 import {
   lgIconChevronRightCircle,
   lgIconInformationFill,
-  LgIconModule,
   LgIconRegistry,
 } from '../../icon';
 import { LgTableModule } from '../table.module';
@@ -405,15 +399,7 @@ export default {
   excludeStories: [ 'StoryTableDetailComponent' ],
   decorators: [
     moduleMetadata({
-      imports: [
-        LgTableModule,
-        LgInputModule,
-        LgSuffixModule,
-        LgMarginModule,
-        LgGridModule,
-        LgQuickActionModule,
-        LgIconModule,
-      ],
+      imports: [ LgTableModule ],
       declarations: [ StoryTableDetailComponent, StoryTableLongCopyComponent ],
     }),
   ],

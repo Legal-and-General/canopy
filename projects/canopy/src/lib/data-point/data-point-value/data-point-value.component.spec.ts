@@ -10,13 +10,11 @@ describe('LgDataPointValueComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgDataPointValueComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgDataPointValueComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

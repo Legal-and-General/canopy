@@ -9,5 +9,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   host: {
     class: 'lg-card-group',
   },
+  standalone: true,
 })
 export class LgCardGroupComponent {}

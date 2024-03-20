@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
+import { LgIconComponent } from '../../icon/icon.component';
 
 @Component({
   selector: 'lg-breadcrumb-item-ellipsis',
@@ -15,6 +16,8 @@ import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface'
   styleUrls: [ './breadcrumb-item-ellipsis.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgIconComponent ],
 })
 export class LgBreadcrumbItemEllipsisComponent {
   private _variant: BreadcrumbVariant;
@@ -40,5 +43,8 @@ export class LgBreadcrumbItemEllipsisComponent {
     return this._variant;
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 }

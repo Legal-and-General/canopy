@@ -1,14 +1,13 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgSeparatorComponent } from '../separator.component';
-import { LgSeparatorModule } from '../separator.module';
 
 export default {
   title: 'Components/Separator/Examples',
   component: LgSeparatorComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgSeparatorModule ],
+      imports: [],
     }),
   ],
   argTypes: {

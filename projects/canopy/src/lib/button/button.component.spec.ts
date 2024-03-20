@@ -16,6 +16,7 @@ import { LgButtonComponent } from './button.component';
       <lg-icon name="add" second></lg-icon>
     </button>
   `,
+  standalone: true,
 })
 class ButtonDoubleIconTestComponent {
   @Input() iconPosition = null;
@@ -31,7 +32,7 @@ describe('LgButtonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgButtonComponent,
         ButtonDoubleIconTestComponent,
         LgSpinnerComponent,

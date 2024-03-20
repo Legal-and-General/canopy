@@ -8,6 +8,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+import { LgGridColDirective } from '../grid/grid-col.directive';
+import { LgGridRowDirective } from '../grid/grid-row.directive';
+import { LgGridContainerDirective } from '../grid/grid-container.directive';
+
 import type { BannerVariant } from './banner-variant.interface';
 
 @Component({
@@ -19,6 +23,8 @@ import type { BannerVariant } from './banner-variant.interface';
   host: {
     class: 'lg-banner',
   },
+  standalone: true,
+  imports: [ LgGridContainerDirective, LgGridRowDirective, LgGridColDirective ],
 })
 export class LgBannerComponent {
   private _variant: BannerVariant;
@@ -49,7 +55,10 @@ export class LgBannerComponent {
     }
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {
     this.variant = 'generic';
   }
 }

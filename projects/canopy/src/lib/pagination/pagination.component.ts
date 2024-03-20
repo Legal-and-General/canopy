@@ -9,6 +9,10 @@ import {
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgIf, NgFor } from '@angular/common';
+
+import { LgIconComponent } from '../icon/icon.component';
+import { LgMarginDirective } from '../spacing/margin/margin.directive';
 
 export interface PageData {
   pageNumber: number;
@@ -24,6 +28,8 @@ let nextUniqueId = 0;
   styleUrls: [ './pagination.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ NgIf, LgMarginDirective, LgIconComponent, NgFor ],
 })
 export class LgPagionationComponent implements OnChanges {
   private _itemsPerPage = 10;

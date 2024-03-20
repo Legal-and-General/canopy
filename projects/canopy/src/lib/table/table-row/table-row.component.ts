@@ -19,6 +19,7 @@ import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.com
   styleUrls: [ './table-row.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTableRowComponent {
   private _isHeadRow = false;

@@ -21,7 +21,7 @@ describe('LgSpinnerComponent', () => {
     cdrMock = mock(ChangeDetectorRef);
 
     TestBed.configureTestingModule({
-      declarations: [ LgSpinnerComponent ],
+      imports: [ LgSpinnerComponent ],
       providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
     }).compileComponents();
   }));

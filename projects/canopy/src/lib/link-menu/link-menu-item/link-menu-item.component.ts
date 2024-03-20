@@ -7,8 +7,10 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
+import { LgIconComponent as LgIconComponent_1 } from '../../icon/icon.component';
 
 @Component({
   selector: 'lg-link-menu-item',
@@ -16,6 +18,8 @@ import { LgIconComponent } from '../../icon';
   styleUrls: [ './link-menu-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ NgIf, LgIconComponent_1 ],
 })
 export class LgLinkMenuItemComponent implements OnInit {
   @HostBinding('class.lg-link-menu-item') class = true;

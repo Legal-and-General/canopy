@@ -6,13 +6,11 @@ describe('LgTabItemContentComponent', () => {
   let component: LgTabItemContentComponent;
   let fixture: ComponentFixture<LgTabItemContentComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTabItemContentComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgTabItemContentComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTabItemContentComponent);

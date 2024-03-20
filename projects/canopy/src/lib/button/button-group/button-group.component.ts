@@ -11,6 +11,7 @@ import {
   styleUrls: [ './button-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgButtonGroupComponent {
   @HostBinding('class.lg-btn-group') class = true;

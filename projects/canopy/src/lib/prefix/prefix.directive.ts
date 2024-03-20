@@ -4,6 +4,7 @@ let nextUniqueId = 0;
 
 @Directive({
   selector: '[lgPrefix]',
+  standalone: true,
 })
 export class LgPrefixDirective {
   @Input()

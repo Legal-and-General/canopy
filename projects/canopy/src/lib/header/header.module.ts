@@ -1,12 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgButtonModule } from '../button';
-import { LgGridModule } from '../grid';
-import { LgIconModule } from '../icon';
-import { LgHideAtModule } from '../hide-at';
-import { LgMarginModule } from '../spacing';
-import { LgFocusModule } from '../focus';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { lgIconClose, lgIconHamburgerMenu, lgIconSignIn } from '../icon/icons.interface';
 
@@ -35,17 +29,8 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [ ...components ],
   exports: [ ...components ],
-  imports: [
-    CommonModule,
-    LgGridModule,
-    LgIconModule,
-    LgHideAtModule,
-    LgButtonModule,
-    LgMarginModule,
-    LgFocusModule,
-  ],
+  imports: [ CommonModule, ...components ],
 })
 export class LgHeaderModule {
   constructor(private iconRegistry: LgIconRegistry) {

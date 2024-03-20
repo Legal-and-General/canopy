@@ -3,7 +3,7 @@ import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { lgIconChevronDown, lgIconFilter, LgIconRegistry } from '../../icon';
 import { ButtonVariant } from '../../button';
-import { LgFilterContainerModule } from '../filter-container.module';
+import { LgFilterContainerComponent } from '../filter-container.component';
 
 @Directive({
   selector: '[lgStoryToggle]',
@@ -24,7 +24,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ StoryToggleDirective ],
-      imports: [ LgFilterContainerModule ],
+      imports: [],
     }),
   ],
   argTypes: {
@@ -69,8 +69,8 @@ function setComponentCode(toggleCode: string) {
 `;
 }
 
-const filterContainerTemplate: StoryFn<LgFilterContainerModule> = (
-  args: LgFilterContainerModule,
+const filterContainerTemplate: StoryFn<LgFilterContainerComponent> = (
+  args: LgFilterContainerComponent,
 ) => ({
   props: args,
   template: setComponentCode(`

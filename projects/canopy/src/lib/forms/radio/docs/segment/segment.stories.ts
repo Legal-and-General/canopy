@@ -6,8 +6,6 @@ import {
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgHintModule } from '../../../hint/hint.module';
-import { LgRadioModule } from '../../radio.module';
 import { LgRadioGroupComponent } from '../../radio-group.component';
 import { RadioStackBreakpoint } from '../../radio.interface';
 
@@ -61,7 +59,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormSegmentComponent ],
-      imports: [ ReactiveFormsModule, LgRadioModule, LgHintModule ],
+      imports: [ ReactiveFormsModule ],
     }),
   ],
   argTypes: {
@@ -214,7 +212,11 @@ export default {
   },
 };
 
-const segmentStory: StoryFn<LgRadioModule> = (args: LgRadioModule) => ({
+const segmentStory: StoryFn<
+  /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgRadioModule
+> = (
+  args: /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgRadioModule,
+) => ({
   props: args,
   template: `
   <lg-reactive-form-segment

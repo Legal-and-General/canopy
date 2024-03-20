@@ -15,7 +15,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgAccordionPanelHeadingComponent,
         MockComponents(LgHeadingComponent, LgIconComponent),
       ],

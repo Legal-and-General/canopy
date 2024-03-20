@@ -14,6 +14,7 @@ import {
   host: {
     class: 'lg-modal-body__timer',
   },
+  standalone: true,
 })
 export class LgModalBodyTimerComponent {
   private _timer: number;

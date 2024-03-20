@@ -7,13 +7,11 @@ import {
   lgIconConsole,
   lgIconInformation,
   lgIconMail,
-  LgIconModule,
   lgIconProfile,
   LgIconRegistry,
   lgIconSecurity,
 } from '../../icon';
 import { LgCardModule } from '../../card';
-import { LgVariantModule } from '../../variant';
 import { LgLinkMenuModule } from '../link-menu.module';
 
 const template = `
@@ -53,13 +51,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ LinkMenuStoryComponent ],
-      imports: [
-        LgLinkMenuModule,
-        LgIconModule,
-        CommonModule,
-        LgVariantModule,
-        LgCardModule,
-      ],
+      imports: [ LgLinkMenuModule, CommonModule, LgCardModule ],
     }),
   ],
   argTypes: {

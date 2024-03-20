@@ -5,6 +5,7 @@ import { Directive, Input, HostBinding } from '@angular/core';
   host: {
     class: 'lg-account-menu-item',
   },
+  standalone: true,
 })
 export class LgAccountMenuItemDirective {
   private _isActive = false;

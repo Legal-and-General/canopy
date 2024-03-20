@@ -6,7 +6,6 @@ import {
 } from '@angular/forms';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgHintModule } from '../../hint';
 import { LgSelectModule } from '../select.module';
 import { LgSelectFieldComponent } from '../select-field.component';
 
@@ -61,7 +60,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgSelectModule, LgHintModule ],
+      imports: [ ReactiveFormsModule, LgSelectModule ],
     }),
   ],
   argTypes: {

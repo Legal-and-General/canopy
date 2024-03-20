@@ -12,13 +12,11 @@ describe('LgSideNavLinkDirective', () => {
   let el: HTMLElement;
   let eventSpy: jasmine.Spy;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgSideNavBarLinkDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgSideNavBarLinkDirective ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

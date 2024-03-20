@@ -13,7 +13,7 @@ describe('LgDetailsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+      imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
     }).compileComponents();
   }));
 

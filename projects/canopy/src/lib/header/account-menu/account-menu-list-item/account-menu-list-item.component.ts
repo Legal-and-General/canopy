@@ -19,6 +19,7 @@ import { keyName } from '../../../utils/keyboard-keys';
     class: 'lg-account-menu-list-item',
     role: 'listitem',
   },
+  standalone: true,
 })
 export class LgAccountMenuListItemComponent {
   @Output() clicked: EventEmitter<Event> = new EventEmitter();

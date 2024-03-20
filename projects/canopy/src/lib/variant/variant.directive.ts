@@ -4,6 +4,7 @@ import type { Variant } from './variant.interface';
 
 @Directive({
   selector: '[lgVariant]',
+  standalone: true,
 })
 export class LgVariantDirective {
   variantClass: string;
@@ -12,7 +13,10 @@ export class LgVariantDirective {
     this.variantClass = this.toggleClass(`lg-variant--${variant}`, this.variantClass);
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   toggleClass(newClass: string, oldClass: string): string {
     if (oldClass) {

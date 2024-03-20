@@ -8,7 +8,7 @@ describe('LgModalBodyTimerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgModalBodyTimerComponent ],
+      imports: [ LgModalBodyTimerComponent ],
     }).compileComponents();
   });
 

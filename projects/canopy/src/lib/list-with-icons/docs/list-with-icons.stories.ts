@@ -2,13 +2,7 @@ import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, HostBinding, Input } from '@angular/core';
 
 import { LgListWithIconsModule } from '../list-with-icons.module';
-import {
-  lgIconCheckmark,
-  lgIconClose,
-  lgIconDoc,
-  LgIconModule,
-  LgIconRegistry,
-} from '../../icon';
+import { lgIconCheckmark, lgIconClose, lgIconDoc, LgIconRegistry } from '../../icon';
 import { ListWithIconsVariant } from '../list-with-icons.interface';
 
 const template = `
@@ -65,7 +59,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ListWithIconsWrapperComponent ],
-      imports: [ LgListWithIconsModule, LgIconModule ],
+      imports: [ LgListWithIconsModule ],
     }),
   ],
   parameters: {

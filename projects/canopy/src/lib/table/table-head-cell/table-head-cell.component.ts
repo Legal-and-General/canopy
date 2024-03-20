@@ -15,6 +15,7 @@ import { AlignmentOptions } from '../table.interface';
   styleUrls: [ './table-head-cell.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTableHeadCellComponent {
   @HostBinding('class') class = 'lg-table-head-cell';

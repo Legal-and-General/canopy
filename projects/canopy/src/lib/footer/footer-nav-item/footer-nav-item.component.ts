@@ -19,12 +19,16 @@ import { FooterNavVariant } from '../footer.interface';
     class: 'lg-footer-nav-item',
     role: 'listitem',
   },
+  standalone: true,
 })
 export class LgFooterNavItemComponent implements AfterContentChecked {
   private currentVariant: FooterNavVariant;
   variant: FooterNavVariant;
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   ngAfterContentChecked(): void {
     if (this.variant && this.variant !== this.currentVariant) {

@@ -14,6 +14,7 @@ import {
   host: {
     class: 'lg-notification-badge',
   },
+  standalone: true,
 })
 export class LgNotificationBadgeComponent {
   @Input() count: number;

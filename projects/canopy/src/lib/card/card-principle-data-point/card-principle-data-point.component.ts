@@ -11,6 +11,7 @@ import {
   styleUrls: [ './card-principle-data-point.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgCardPrincipleDataPointComponent {
   @HostBinding('class.lg-card-principle-data-point') class = true;

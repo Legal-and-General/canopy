@@ -1,12 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgButtonModule } from '../../button';
-import {
-  lgBrandIconCalendar,
-  LgBrandIconModule,
-  LgBrandIconRegistry,
-} from '../../brand-icon';
+import { lgBrandIconCalendar, LgBrandIconRegistry } from '../../brand-icon';
 import { LgPrimaryMessageModule } from '../primary-message.module';
 import { LgPrimaryMessageComponent } from '../primary-message.component';
 
@@ -43,7 +38,7 @@ export default {
   component: LgPrimaryMessageStoryComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgPrimaryMessageModule, LgButtonModule, LgBrandIconModule ],
+      imports: [ LgPrimaryMessageModule ],
     }),
   ],
   argTypes: {

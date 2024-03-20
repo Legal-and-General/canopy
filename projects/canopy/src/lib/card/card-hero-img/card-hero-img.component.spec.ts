@@ -8,7 +8,7 @@ describe('LgCardHeroImageComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgCardHeroImageComponent ],
+      imports: [ LgCardHeroImageComponent ],
     }).compileComponents();
   }));
 

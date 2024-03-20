@@ -14,6 +14,7 @@ import {
   host: {
     class: 'lg-modal-body',
   },
+  standalone: true,
 })
 export class LgModalBodyComponent {
   @HostBinding('id') id: string;

@@ -12,7 +12,7 @@ describe('LgFooterNavComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgFooterNavComponent, MockComponent(LgFooterNavItemComponent) ],
+      imports: [ LgFooterNavComponent, MockComponent(LgFooterNavItemComponent) ],
     }).compileComponents();
   }));
 

@@ -25,6 +25,7 @@ import { LgTabNavBarLinkDirective } from './tab-nav-bar-link.directive';
   styleUrls: [ './tab-nav-bar.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();

@@ -1,15 +1,10 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
-import { LgGridModule } from '../../grid';
-import { LgMarginModule } from '../../spacing';
 import { LgHeaderModule } from '../../header';
-import { LgFooterModule } from '../../footer';
 import { LgCardModule } from '../../card';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
-import { LgHeroModule } from '../../hero';
 import { LgBreadcrumbModule } from '../../breadcrumb';
-import { LgPageModule } from '../page.module';
 import { LgPageComponent } from '../page.component';
 
 const createArgs = () => ({
@@ -59,16 +54,7 @@ export default {
   component: LgPageComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        LgPageModule,
-        LgGridModule,
-        LgMarginModule,
-        LgHeaderModule,
-        LgFooterModule,
-        LgCardModule,
-        LgHeroModule,
-        LgBreadcrumbModule,
-      ],
+      imports: [ LgHeaderModule, LgCardModule, LgBreadcrumbModule ],
     }),
   ],
   parameters: {

@@ -6,12 +6,8 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { lgIconClose, LgIconModule, LgIconRegistry, lgIconSearch } from '../../../icon';
-import { LgLabelModule } from '../../label/label.module';
-import { LgButtonModule } from '../../../button/button.module';
-import { LgHintModule } from '../../hint';
+import { lgIconClose, LgIconRegistry, lgIconSearch } from '../../../icon';
 import type { ButtonVariant } from '../../../button';
-import { LgInputModule } from '../input.module';
 import { LgInputFieldComponent } from '../input-field.component';
 
 interface Config {
@@ -31,7 +27,9 @@ interface Config {
   suffix?: string;
 }
 
-function createInputStory(args: LgInputModule) {
+function createInputStory(
+  args: /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgInputModule,
+) {
   return {
     props: args,
     template: `
@@ -182,14 +180,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],
-      imports: [
-        ReactiveFormsModule,
-        LgButtonModule,
-        LgHintModule,
-        LgIconModule,
-        LgInputModule,
-        LgLabelModule,
-      ],
+      imports: [ ReactiveFormsModule ],
     }),
   ],
   argTypes: {
@@ -319,8 +310,11 @@ export default {
   },
 };
 
-const inputStory: StoryFn<LgInputModule> = (args: LgInputModule) =>
-  createInputStory(args);
+const inputStory: StoryFn<
+  /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgInputModule
+> = (
+  args: /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgInputModule,
+) => createInputStory(args);
 
 export const standard = inputStory.bind({});
 standard.storyName = 'Standard';

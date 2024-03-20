@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import * as iconSet from '../icon/icons.interface';
 
@@ -10,17 +9,17 @@ import { LgBreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.com
 import { LgBreadcrumbComponent } from './breadcrumb.component';
 
 @NgModule({
-  declarations: [
-    LgBreadcrumbComponent,
-    LgBreadcrumbItemComponent,
-    LgBreadcrumbItemEllipsisComponent,
-  ],
   exports: [
     LgBreadcrumbComponent,
     LgBreadcrumbItemComponent,
     LgBreadcrumbItemEllipsisComponent,
   ],
-  imports: [ CommonModule, LgIconModule ],
+  imports: [
+    CommonModule,
+    LgBreadcrumbComponent,
+    LgBreadcrumbItemComponent,
+    LgBreadcrumbItemEllipsisComponent,
+  ],
 })
 export class LgBreadcrumbModule {
   constructor(private registry: LgIconRegistry) {

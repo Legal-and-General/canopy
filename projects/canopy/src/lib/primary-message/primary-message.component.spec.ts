@@ -2,7 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockedComponentFixture, MockModule, MockRender } from 'ng-mocks';
 
-import { LgBrandIconModule } from '../brand-icon';
+import { LgBrandIconComponent } from '../brand-icon';
 
 import {
   LgPrimaryMessageComponent,
@@ -14,20 +14,18 @@ describe('LgPrimaryMessageComponent', () => {
   let component: LgPrimaryMessageComponent;
   let fixture: MockedComponentFixture<LgPrimaryMessageComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgPrimaryMessageComponent,
-          MockComponents(
-            LgPrimaryMessageTitleComponent,
-            LgPrimaryMessageDescriptionComponent,
-          ),
-        ],
-        imports: [ MockModule(LgBrandIconModule) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        MockModule(LgBrandIconComponent),
+        LgPrimaryMessageComponent,
+        MockComponents(
+          LgPrimaryMessageTitleComponent,
+          LgPrimaryMessageDescriptionComponent,
+        ),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

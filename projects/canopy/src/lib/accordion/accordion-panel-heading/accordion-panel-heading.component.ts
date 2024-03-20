@@ -10,6 +10,8 @@ import {
 } from '@angular/core';
 
 import type { HeadingLevel } from '../../heading';
+import { LgIconComponent } from '../../icon/icon.component';
+import { LgHeadingComponent } from '../../heading/heading.component';
 
 let nextUniqueId = 0;
 
@@ -19,6 +21,8 @@ let nextUniqueId = 0;
   styleUrls: [ './accordion-panel-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   @Input() headingLevel: HeadingLevel;

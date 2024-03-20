@@ -11,7 +11,7 @@ describe('LgLinkMenuComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgLinkMenuComponent, MockComponents(LgIconComponent) ],
+      imports: [ LgLinkMenuComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgLinkMenuComponent);

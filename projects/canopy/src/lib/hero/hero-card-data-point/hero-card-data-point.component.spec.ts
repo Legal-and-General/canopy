@@ -6,13 +6,11 @@ describe('HeroCardDataPointComponent', () => {
   let component: LgHeroCardDataPointComponent;
   let fixture: ComponentFixture<LgHeroCardDataPointComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgHeroCardDataPointComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgHeroCardDataPointComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroCardDataPointComponent);

@@ -2,6 +2,7 @@ import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular
 
 @Directive({
   selector: '[lgFocus]',
+  standalone: true,
 })
 export class LgFocusDirective implements OnChanges {
   @Input() lgFocus: boolean;

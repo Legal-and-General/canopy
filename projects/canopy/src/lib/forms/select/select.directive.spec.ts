@@ -23,6 +23,8 @@ import { LgErrorStateMatcher } from '../validation/error-state-matcher';
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule ],
 })
 class TestSelectComponent {
   form = new UntypedFormGroup({
@@ -38,8 +40,7 @@ describe('LgSelectDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [ LgSelectDirective, TestSelectComponent ],
+      imports: [ FormsModule, ReactiveFormsModule, LgSelectDirective, TestSelectComponent ],
       providers: [
         {
           provide: LgErrorStateMatcher,

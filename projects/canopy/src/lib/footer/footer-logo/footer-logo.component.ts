@@ -6,6 +6,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 type FooterLogoClass = 'lg-footer-logo__img' | 'lg-footer-logo__second-img';
 
@@ -18,6 +19,8 @@ type FooterLogoClass = 'lg-footer-logo__img' | 'lg-footer-logo__second-img';
   host: {
     class: 'lg-footer-logo',
   },
+  standalone: true,
+  imports: [ NgClass ],
 })
 export class LgFooterLogoComponent implements AfterContentChecked {
   private currentClass: FooterLogoClass;

@@ -26,6 +26,7 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ { provide: LG_ACCORDION, useExisting: LgAccordionComponent } ],
+  standalone: true,
 })
 export class LgAccordionComponent implements AfterContentInit {
   @HostBinding('class.lg-accordion') class = true;

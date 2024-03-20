@@ -18,6 +18,7 @@ import { LgMarginDirective } from './margin.directive';
       Test feature
     </div>
   `,
+  standalone: true,
 })
 class TestComponent {
   @Input() lgMargin;
@@ -34,24 +35,20 @@ describe('LgMargin', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ TestComponent, LgMarginDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ TestComponent, LgMarginDirective ],
+    }).compileComponents();
+  }));
 
-  beforeEach(
-    waitForAsync(() => {
-      fixture = TestBed.createComponent(TestComponent);
-      component = fixture.componentInstance;
+  beforeEach(waitForAsync(() => {
+    fixture = TestBed.createComponent(TestComponent);
+    component = fixture.componentInstance;
 
-      testElement = fixture.debugElement.query(By.css('div'));
+    testElement = fixture.debugElement.query(By.css('div'));
 
-      fixture.detectChanges();
-    }),
-  );
+    fixture.detectChanges();
+  }));
 
   describe('Non-responsive margin', () => {
     it('renders the same margin all round', () => {

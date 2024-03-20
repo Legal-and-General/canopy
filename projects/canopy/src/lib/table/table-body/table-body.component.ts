@@ -14,6 +14,7 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
   templateUrl: './table-body.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTableBodyComponent {
   @HostBinding('class.lg-table-body') class = true;

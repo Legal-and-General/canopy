@@ -11,7 +11,7 @@ describe('LgHeaderLogosComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgHeaderLogoComponent ],
+      imports: [ LgHeaderLogoComponent ],
     }).compileComponents();
   }));
 

@@ -10,6 +10,8 @@ import {
 
 import type { HeadingLevel } from '../../heading';
 import { LgModalService } from '../modal.service';
+import { LgIconComponent } from '../../icon/icon.component';
+import { LgHeadingComponent } from '../../heading/heading.component';
 
 @Component({
   selector: 'lg-modal-header',
@@ -20,6 +22,8 @@ import { LgModalService } from '../modal.service';
   host: {
     class: 'lg-modal-header',
   },
+  standalone: true,
+  imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgModalHeaderComponent {
   @Input() headingLevel: HeadingLevel = 2;

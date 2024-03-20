@@ -4,6 +4,7 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   templateUrl: './page.component.html',
   styleUrls: [ './page.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgPageComponent {
   @HostBinding('class.lg-page') class = true;

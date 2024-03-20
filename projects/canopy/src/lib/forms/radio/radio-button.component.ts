@@ -17,6 +17,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
+import { NgClass, NgIf } from '@angular/common';
 
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgHintComponent } from '../hint';
@@ -36,6 +37,8 @@ let nextUniqueId = 0;
     './radio-button--segment.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ NgClass, NgIf ],
 })
 export class LgRadioButtonComponent implements OnInit {
   checked = false;

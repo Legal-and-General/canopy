@@ -44,6 +44,8 @@ const validationTestId = 'test-validation-id';
       </lg-toggle>
     </form>
   `,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule ],
 })
 class TestToggleComponent {
   @Input() variant: ToggleVariant;
@@ -55,7 +57,10 @@ class TestToggleComponent {
     return this.form.get('umbrella');
   }
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },
@@ -88,6 +93,8 @@ class TestToggleComponent {
       </lg-switch>
     </form>
   `,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule ],
 })
 class TestToggleVariantSelectorComponent {
   form: UntypedFormGroup;
@@ -96,7 +103,10 @@ class TestToggleVariantSelectorComponent {
     return this.form.get('umbrella');
   }
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },
@@ -122,8 +132,9 @@ describe('LgToggleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestToggleComponent,
         LgToggleComponent,
         MockComponents(LgValidationComponent, LgIconComponent),
@@ -310,8 +321,9 @@ describe('LgToggleComponent selector variant', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestToggleVariantSelectorComponent,
         LgToggleComponent,
         MockComponents(LgValidationComponent, LgIconComponent),

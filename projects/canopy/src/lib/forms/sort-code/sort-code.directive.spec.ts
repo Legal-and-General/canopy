@@ -20,6 +20,8 @@ import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule ],
 })
 class TestInputComponent {
   form = new UntypedFormGroup({
@@ -38,8 +40,12 @@ describe('LgSortCodeDirective', () => {
     control = mock(NgControl);
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [ LgSortCodeDirective, TestInputComponent ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        LgSortCodeDirective,
+        TestInputComponent,
+      ],
       providers: [ { provide: NgControl, useValue: instance(control) } ],
     }).compileComponents();
 

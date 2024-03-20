@@ -39,6 +39,8 @@ const hintTestId = 'test-hint-id';
       </lg-filter-multiple-group>
     </form>
   `,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule ],
 })
 class TestCheckboxGroupComponent {
   get color() {
@@ -46,7 +48,10 @@ class TestCheckboxGroupComponent {
   }
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       color: this.fb.control([], [ Validators.required ]),
     });
@@ -74,8 +79,9 @@ describe('LgCheckboxGroupComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestCheckboxGroupComponent,
         LgCheckboxGroupComponent,
         LgToggleComponent,

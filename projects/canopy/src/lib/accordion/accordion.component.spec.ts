@@ -27,6 +27,7 @@ import { LgAccordionComponent } from './accordion.component';
       </lg-accordion-item>
     </lg-accordion>
   `,
+  standalone: true,
 })
 class TestAccordionComponent {
   isMulti = true;
@@ -38,7 +39,7 @@ describe('LgAccordionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         TestAccordionComponent,
         LgAccordionComponent,
         LgAccordionItemComponent,

@@ -12,6 +12,7 @@ import {
   styleUrls: [ './carousel-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgCarouselItemComponent {
   @HostBinding('class.lg-carousel-item') class = true;

@@ -9,6 +9,7 @@ import {
   selector: 'lg-tab-item',
   templateUrl: './tab-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTabItemComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
