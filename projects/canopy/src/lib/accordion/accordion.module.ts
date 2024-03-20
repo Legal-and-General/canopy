@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgHeadingModule } from '../heading/heading.module';
-import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { lgIconChevronDown } from '../icon/icons.interface';
 
@@ -19,8 +17,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, LgHeadingModule, LgIconModule ],
-  declarations: [ ...components ],
+  imports: [ CommonModule, ...components ],
   exports: [ ...components ],
 })
 export class LgAccordionModule {

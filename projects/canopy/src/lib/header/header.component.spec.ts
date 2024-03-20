@@ -28,7 +28,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgHeaderComponent,
         LgHeaderLogoComponent,
         LgPrimaryNavItemDirective,

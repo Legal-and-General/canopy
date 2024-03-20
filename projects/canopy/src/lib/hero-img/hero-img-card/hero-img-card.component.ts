@@ -11,6 +11,7 @@ import {
   styleUrls: [ './hero-img-card.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgHeroImgCardComponent {
   @HostBinding('class.lg-hero-img-card') class = true;

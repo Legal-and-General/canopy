@@ -8,7 +8,7 @@ describe('LgFooterLogoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgFooterLogoComponent ],
+      imports: [ LgFooterLogoComponent ],
     }).compileComponents();
   }));
 

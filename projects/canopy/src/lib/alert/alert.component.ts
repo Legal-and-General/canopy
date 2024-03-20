@@ -6,14 +6,18 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import type { Variant } from '../variant/variant.interface';
+import { LgIconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'lg-alert',
   templateUrl: './alert.component.html',
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgAlertComponent {
   private _variant: Variant;

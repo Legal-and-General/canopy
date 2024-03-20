@@ -6,6 +6,7 @@ import { LgOrientationDirective } from './orientation.directive';
 
 @Component({
   template: ' <div [lgOrientation]="lgOrientation">Test feature</div> ',
+  standalone: true,
 })
 class TestComponent {
   @Input() lgOrientation;
@@ -18,7 +19,7 @@ describe('lgOrientation', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, LgOrientationDirective ],
+      imports: [ TestComponent, LgOrientationDirective ],
     }).compileComponents();
   }));
 

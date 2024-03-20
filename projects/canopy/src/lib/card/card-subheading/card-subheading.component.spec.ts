@@ -8,7 +8,7 @@ describe('CardSubheadingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgCardSubheadingComponent ],
+      imports: [ LgCardSubheadingComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgCardSubheadingComponent);

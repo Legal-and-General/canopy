@@ -7,8 +7,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
 } from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
 
 import * as iconSet from '../../icon/icons.interface';
+import { LgIconComponent } from '../../icon/icon.component';
 
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
@@ -18,6 +20,8 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   styleUrls: [ './breadcrumb-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ NgClass, NgIf, LgIconComponent ],
 })
 export class LgBreadcrumbItemComponent {
   private _variant: BreadcrumbVariant;

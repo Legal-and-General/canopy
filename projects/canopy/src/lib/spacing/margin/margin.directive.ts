@@ -13,6 +13,7 @@ import { SpacingService } from '../spacing.service';
     [lgMarginBottom],
     [lgMarginLeft]
   `,
+  standalone: true,
 })
 export class LgMarginDirective {
   marginTopClasses: Array<string> = [];

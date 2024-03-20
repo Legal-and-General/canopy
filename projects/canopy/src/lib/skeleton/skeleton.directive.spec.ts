@@ -6,6 +6,7 @@ import { LgSkeletonDirective } from './skeleton.directive';
 
 @Component({
   template: ' <div lgSkeleton>{{ data?.label }}</div> ',
+  standalone: true,
 })
 class TestComponent {
   @Input() data = null;
@@ -32,7 +33,7 @@ describe('LgSkeletonDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, LgSkeletonDirective ],
+      imports: [ TestComponent, LgSkeletonDirective ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);

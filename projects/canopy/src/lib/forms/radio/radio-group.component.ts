@@ -16,14 +16,18 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
+import { LgMarginDirective } from '../../spacing/margin/margin.directive';
+import { LgLabelComponent } from '../label/label.component';
+import { LgFocusDirective } from '../../focus/focus.directive';
 
-import { LgRadioButtonComponent } from './radio-button.component';
 import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
+import { LgRadioButtonComponent } from './radio-button.component';
 
 let uniqueId = 0;
 
@@ -32,6 +36,8 @@ let uniqueId = 0;
   templateUrl: './radio-group.component.html',
   styleUrls: [ './radio-group.component.scss', './radio-group--segment.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective, NgIf ],
 })
 export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {
   private nextUniqueId = ++uniqueId;

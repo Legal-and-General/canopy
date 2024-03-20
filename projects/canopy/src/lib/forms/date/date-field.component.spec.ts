@@ -41,6 +41,8 @@ const errorStateMatcherMock = mock(LgErrorStateMatcher);
       </lg-date-field>
     </form>
   `,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule, LgInputModule ],
 })
 class TestDateInputComponent {
   @Input()
@@ -87,8 +89,10 @@ describe('LgDateFieldComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule, LgInputModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        LgInputModule,
         TestDateInputComponent,
         LgDateFieldComponent,
         MockComponents(LgHintComponent, LgValidationComponent),

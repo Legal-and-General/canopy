@@ -1,13 +1,13 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgHeaderModule } from '../../header';
-import { LgDataPointComponent, LgDataPointListComponent, LgDataPointModule } from '..';
+import { LgDataPointComponent, LgDataPointListComponent } from '..';
 
 export default {
   title: 'Components/Data point/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgDataPointModule, LgHeaderModule ],
+      imports: [ LgHeaderModule ],
     }),
   ],
   argTypes: {

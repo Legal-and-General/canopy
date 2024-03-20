@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LgHeadingModule } from '../heading';
 import {
-  LgIconModule,
   LgIconRegistry,
   lgIconChevronLeft,
   lgIconChevronRight,
@@ -18,8 +16,7 @@ import { LgAutoplayComponent } from './auto-play/auto-play.component';
 const components = [ LgCarouselItemComponent, LgCarouselComponent ];
 
 @NgModule({
-  declarations: [ ...components, LgAutoplayComponent ],
-  imports: [ CommonModule, LgHeadingModule, LgIconModule ],
+  imports: [ CommonModule, ...components, LgAutoplayComponent ],
   exports: [ ...components ],
 })
 export class LgCarouselModule {

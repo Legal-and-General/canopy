@@ -12,7 +12,7 @@ describe('LgNotificationBadgeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgNotificationBadgeComponent ],
+      imports: [ LgNotificationBadgeComponent ],
     }).compileComponents();
 
     fixture = MockRender(`

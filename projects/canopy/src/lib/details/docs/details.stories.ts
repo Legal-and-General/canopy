@@ -1,7 +1,5 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgHeadingModule } from '../../heading';
-import { LgIconModule } from '../../icon';
 import { LgDetailsModule } from '../details.module';
 import { LgDetailsComponent } from '../details.component';
 
@@ -12,7 +10,7 @@ export default {
   component: LgDetailsComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgDetailsModule, LgHeadingModule, LgIconModule ],
+      imports: [ LgDetailsModule ],
     }),
   ],
   argTypes: {

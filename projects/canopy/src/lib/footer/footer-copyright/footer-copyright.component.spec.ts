@@ -8,7 +8,7 @@ describe('LgFooterCopyrightComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgFooterCopyrightComponent ],
+      imports: [ LgFooterCopyrightComponent ],
     }).compileComponents();
   }));
 

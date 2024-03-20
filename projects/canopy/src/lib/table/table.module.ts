@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { lgIconChevronDown } from '../icon/icons.interface';
 
@@ -26,8 +25,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, LgIconModule ],
-  declarations: [ ...components ],
+  imports: [ CommonModule, ...components ],
   exports: [ ...components ],
 })
 export class LgTableModule {

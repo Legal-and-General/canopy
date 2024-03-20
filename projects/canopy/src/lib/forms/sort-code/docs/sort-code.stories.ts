@@ -7,10 +7,7 @@ import {
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgSelectModule } from '../../select';
-import { LgHintModule } from '../../hint';
-import { LgInputModule } from '../../input';
 import { LgSortCodeDirective } from '../sort-code.directive';
-import { LgSortCodeModule } from '../sort-code.module';
 
 const template = `
 <lg-input-field>
@@ -59,7 +56,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgInputModule, LgSortCodeModule, LgHintModule ],
+      imports: [ ReactiveFormsModule ],
     }),
   ],
   argTypes: {
@@ -101,7 +98,9 @@ export default {
   },
 };
 
-const sortCodeTemplate: StoryFn<LgSortCodeModule> = (args: LgSelectModule) => ({
+const sortCodeTemplate: StoryFn<
+  /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgSortCodeModule
+> = (args: LgSelectModule) => ({
   props: args,
   template: `
   <lg-reactive-form

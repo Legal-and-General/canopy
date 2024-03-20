@@ -12,13 +12,11 @@ describe('LgTabNavLinkDirective', () => {
   let el: HTMLElement;
   let eventSpy: jasmine.Spy;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTabNavBarLinkDirective ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgTabNavBarLinkDirective ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

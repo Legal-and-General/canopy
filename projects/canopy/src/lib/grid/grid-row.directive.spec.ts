@@ -6,6 +6,7 @@ import { LgGridRowDirective } from './grid-row.directive';
 
 @Component({
   template: ' <div lgRow>Test feature</div> ',
+  standalone: true,
 })
 class TestComponent {}
 
@@ -15,7 +16,7 @@ describe('GridRowDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, LgGridRowDirective ],
+      imports: [ TestComponent, LgGridRowDirective ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);

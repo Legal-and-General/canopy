@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgButtonModule } from '../../button';
 import { LgAccordionModule } from '../accordion.module';
 import { LgAccordionComponent } from '../accordion.component';
 
@@ -11,7 +10,7 @@ export default {
   component: LgAccordionComponent,
   decorators: [
     moduleMetadata({
-      imports: [ CommonModule, LgAccordionModule, LgButtonModule ],
+      imports: [ CommonModule, LgAccordionModule ],
     }),
   ],
   argTypes: {

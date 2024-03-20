@@ -9,7 +9,7 @@ describe('LgHeadingComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgHeadingComponent ],
+      imports: [ LgHeadingComponent ],
     }).compileComponents();
   }));
 

@@ -3,12 +3,7 @@ import { Component, Input } from '@angular/core';
 
 import { LgHeaderComponent } from '../../header/header.component';
 import { LgHeaderModule } from '../../header/header.module';
-import {
-  LgIconModule,
-  LgIconRegistry,
-  lgIconProfile,
-  lgIconRadioButtonUnselected,
-} from '../../icon';
+import { LgIconRegistry, lgIconProfile, lgIconRadioButtonUnselected } from '../../icon';
 
 const navigationTemplate = `
 <header lg-header>
@@ -67,7 +62,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ PrimaryNavigationComponent ],
-      imports: [ LgHeaderModule, LgIconModule ],
+      imports: [ LgHeaderModule ],
     }),
   ],
   parameters: {

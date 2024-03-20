@@ -45,8 +45,9 @@ describe('LgInputFieldComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         LgInputFieldComponent,
         MockComponents(
           LgValidationComponent,

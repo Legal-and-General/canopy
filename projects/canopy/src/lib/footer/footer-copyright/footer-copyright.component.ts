@@ -9,5 +9,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   host: {
     class: 'lg-footer-copyright',
   },
+  standalone: true,
 })
 export class LgFooterCopyrightComponent {}

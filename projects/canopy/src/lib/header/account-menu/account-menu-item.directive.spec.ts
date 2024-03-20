@@ -8,6 +8,7 @@ import { LgAccountMenuItemDirective } from './account-menu-item.directive';
   template: `
     <button id="test" type="button" lgAccountMenuItem>Menu nav button</button>
   `,
+  standalone: true,
 })
 class AccountMenuTestItemComponent {}
 
@@ -18,7 +19,7 @@ describe('PrimaryNavigationLinkDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountMenuTestItemComponent, LgAccountMenuItemDirective ],
+      imports: [ AccountMenuTestItemComponent, LgAccountMenuItemDirective ],
     }).compileComponents();
   }));
 

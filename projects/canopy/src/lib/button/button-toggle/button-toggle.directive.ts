@@ -9,6 +9,7 @@ import {
 
 @Directive({
   selector: '[lgButtonToggle]',
+  standalone: true,
 })
 export class LgButtonToggleDirective {
   private _isActive = false;

@@ -10,7 +10,7 @@ describe('LgFooterNavComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgFooterNavItemComponent ],
+      imports: [ LgFooterNavItemComponent ],
     }).compileComponents();
   }));
 

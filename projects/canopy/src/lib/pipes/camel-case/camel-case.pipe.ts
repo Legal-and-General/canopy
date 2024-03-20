@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'camelCase',
+  standalone: true,
 })
 export class LgCamelCasePipe implements PipeTransform {
   transform(str: string): string {

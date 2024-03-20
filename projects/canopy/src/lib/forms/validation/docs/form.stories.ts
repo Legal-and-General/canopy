@@ -14,15 +14,9 @@ import {
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { pastDateValidator } from '../../date/pastDate.validator';
-import { LgInputModule } from '../../input';
-import { LgHintModule } from '../../hint';
 import { LgSelectModule } from '../../select';
-import { LgRadioModule } from '../../radio';
-import { LgButtonModule } from '../../../button';
 import { LgToggleModule } from '../../toggle';
-import { LgCheckboxGroupModule } from '../../checkbox-group';
 import { LgDateFieldModule } from '../../date';
-import { LgSortCodeModule } from '../../sort-code';
 import { LgValidationModule } from '../validation.module';
 import { LgErrorStateMatcher } from '../error-state-matcher';
 
@@ -362,16 +356,10 @@ export default {
       declarations: [ ReactiveFormComponent, FormGroupChildComponent ],
       imports: [
         ReactiveFormsModule,
-        LgInputModule,
-        LgHintModule,
         LgValidationModule,
         LgSelectModule,
-        LgRadioModule,
-        LgButtonModule,
         LgToggleModule,
-        LgCheckboxGroupModule,
         LgDateFieldModule,
-        LgSortCodeModule,
       ],
     }),
   ],

@@ -12,6 +12,7 @@ import {
   styleUrls: [ './hero.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgHeroComponent {
   @HostBinding('class.lg-hero') class = true;

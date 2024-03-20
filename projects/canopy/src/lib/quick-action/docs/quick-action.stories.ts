@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgIconRegistry } from '../../icon/icon.registry';
-import { LgIconModule, lgIconsArray } from '../../icon';
-import { LgQuickActionModule } from '../quick-action.module';
+import { lgIconsArray } from '../../icon';
 
 @Component({
   selector: 'lg-quick-action-link',
@@ -48,7 +47,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ LgQuickActionButtonComponent, LgQuickActionLinkComponent ],
-      imports: [ LgQuickActionModule, LgIconModule ],
+      imports: [],
     }),
   ],
   argTypes: {

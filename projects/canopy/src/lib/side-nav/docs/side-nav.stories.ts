@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgButtonModule } from '../../button';
-import { LgMarginModule } from '../../spacing';
 import { LgValidationModule } from '../../forms';
 import { LgSideNavModule } from '../side-nav.module';
 import { SideNavBarItem } from '../side-nav.interface';
@@ -65,7 +63,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ StorySideNavComponent ],
-      imports: [ LgSideNavModule, LgButtonModule, LgMarginModule ],
+      imports: [ LgSideNavModule ],
     }),
   ],
   parameters: {

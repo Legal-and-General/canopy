@@ -15,16 +15,11 @@ describe('LgTableCellComponent', () => {
     | MockedComponentFixture<LgTableCellComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTableCellComponent,
-          MockComponent(LgTableExpandedDetailComponent),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgTableCellComponent, MockComponent(LgTableExpandedDetailComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableCellComponent);
@@ -149,12 +144,12 @@ describe('LgTableCellComponent', () => {
 
   describe('when there is a expandable detail', () => {
     beforeEach(() => {
-      fixture = (MockRender(`
+      fixture = MockRender(`
         <td lg-table-cell>
           <lg-table-expanded-detail>
           </lg-table-expanded-detail>
         </td>
-      `) as unknown) as ComponentFixture<LgTableCellComponent>;
+      `) as unknown as ComponentFixture<LgTableCellComponent>;
     });
 
     it('should set the expanding detail class', () => {

@@ -2,6 +2,7 @@ import { Directive, ElementRef, Input, HostBinding, OnDestroy } from '@angular/c
 
 @Directive({
   selector: '[lgSkeleton]',
+  standalone: true,
 })
 export class LgSkeletonDirective implements OnDestroy {
   private changes: MutationObserver;

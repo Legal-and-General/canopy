@@ -11,7 +11,7 @@ describe('LgListWithIconsItemComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgListWithIconsItemComponent, LgIconComponent ],
+      imports: [ LgListWithIconsItemComponent, LgIconComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgListWithIconsItemComponent);

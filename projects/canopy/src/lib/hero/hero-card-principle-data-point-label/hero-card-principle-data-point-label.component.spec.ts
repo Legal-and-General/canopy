@@ -8,13 +8,11 @@ describe('LgHeroCardPrincipleDataPointLabelComponent', () => {
   let component: LgHeroCardPrincipleDataPointLabelComponent;
   let fixture: ComponentFixture<LgHeroCardPrincipleDataPointLabelComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgHeroCardPrincipleDataPointLabelComponent, LgHeadingComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgHeroCardPrincipleDataPointLabelComponent, LgHeadingComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroCardPrincipleDataPointLabelComponent);

@@ -8,7 +8,7 @@ describe('LgAccountMenuItemLabelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgAccountMenuItemLabelComponent ],
+      imports: [ LgAccountMenuItemLabelComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgAccountMenuItemLabelComponent);

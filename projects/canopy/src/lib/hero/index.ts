@@ -15,4 +15,3 @@ export * from './hero-card-footer/hero-card-footer.component';
 export * from './hero-content/hero-content.component';
 export * from './hero-header/hero-header.component';
 export * from './hero.component';
-export * from './hero.module';

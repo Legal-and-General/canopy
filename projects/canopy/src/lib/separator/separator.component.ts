@@ -14,6 +14,7 @@ import type { SeparatorVariant } from './separator.interface';
   template: '',
   styleUrls: [ './separator.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgSeparatorComponent {
   private _variant: SeparatorVariant;
@@ -47,7 +48,10 @@ export class LgSeparatorComponent {
     return !this.hasRole || null;
   }
 
-  constructor(private renderer: Renderer2, public hostElement: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    public hostElement: ElementRef,
+  ) {
     this.variant = 'solid';
   }
 }

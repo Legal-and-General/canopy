@@ -9,5 +9,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   host: {
     class: 'lg-account-menu-item-label',
   },
+  standalone: true,
 })
 export class LgAccountMenuItemLabelComponent {}

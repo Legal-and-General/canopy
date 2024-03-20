@@ -17,7 +17,7 @@ describe('LgTabNavBarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgTabNavBarComponent, LgTabNavBarLinkDirective ],
+      imports: [ LgTabNavBarComponent, LgTabNavBarLinkDirective ],
     }).compileComponents();
   }));
 

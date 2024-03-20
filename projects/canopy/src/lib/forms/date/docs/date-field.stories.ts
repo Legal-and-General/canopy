@@ -6,7 +6,6 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgHintModule } from '../../hint';
 import { LgDateFieldComponent } from '../date-field.component';
 import { LgDateFieldModule } from '../date-field.module';
 
@@ -57,7 +56,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgDateFieldModule, LgHintModule ],
+      imports: [ ReactiveFormsModule, LgDateFieldModule ],
     }),
   ],
   argTypes: {
