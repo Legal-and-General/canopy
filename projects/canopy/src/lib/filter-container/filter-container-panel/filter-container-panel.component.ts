@@ -19,6 +19,7 @@ import {
   host: {
     class: 'lg-filter-container-panel',
   },
+  standalone: true,
 })
 export class LgFilterContainerPanelComponent {
   isActive: boolean;

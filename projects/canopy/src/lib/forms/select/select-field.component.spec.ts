@@ -33,8 +33,9 @@ describe('LgSelectFieldComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         LgSelectFieldComponent,
         MockComponents(
           LgValidationComponent,

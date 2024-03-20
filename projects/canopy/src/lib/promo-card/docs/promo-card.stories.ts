@@ -1,11 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgGridModule } from '../../grid';
-import { LgHeadingModule } from '../../heading';
-import { LgButtonModule } from '../../button';
-import { LgSeparatorModule } from '../../separator';
-import { LgSpacingModule } from '../../spacing';
 import { LgPromoCardModule } from '../promo-card.module';
 import { LgPromoCardComponent } from '../promo-card/promo-card.component';
 import { PromoCardVariant } from '../promo-card.interface';
@@ -80,14 +75,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ PromoCardListStoryComponent ],
-      imports: [
-        LgPromoCardModule,
-        LgGridModule,
-        LgHeadingModule,
-        LgButtonModule,
-        LgSeparatorModule,
-        LgSpacingModule,
-      ],
+      imports: [ LgPromoCardModule ],
     }),
   ],
   argTypes: {

@@ -6,6 +6,7 @@ import { LgFocusDirective } from './focus.directive';
 
 @Component({
   template: ' <button type="button" [lgFocus]="testVar">Test button</button> ',
+  standalone: true,
 })
 class TestFocusComponent {
   testVar = false;
@@ -19,7 +20,7 @@ describe('LgFocusDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestFocusComponent, LgFocusDirective ],
+      imports: [ TestFocusComponent, LgFocusDirective ],
     });
 
     fixture = TestBed.createComponent(TestFocusComponent);

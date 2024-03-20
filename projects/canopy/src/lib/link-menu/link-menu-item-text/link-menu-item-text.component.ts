@@ -12,6 +12,7 @@ import {
   styleUrls: [ './link-menu-item-text.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgLinkMenuItemTextComponent {
   @HostBinding('class.lg-link-menu-item-text') class = true;

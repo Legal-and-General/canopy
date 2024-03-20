@@ -9,7 +9,7 @@ describe('LgTableHeadCellComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgTableHeadCellComponent ],
+      imports: [ LgTableHeadCellComponent ],
     }).compileComponents();
   }));
 

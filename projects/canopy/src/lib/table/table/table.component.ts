@@ -23,6 +23,7 @@ let nextUniqueId = 0;
   styleUrls: [ './table.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTableComponent implements AfterContentChecked {
   private _showColumnsAt: TableColumnLayoutBreakpoints;
@@ -66,7 +67,10 @@ export class LgTableComponent implements AfterContentChecked {
     return this.isExpandable;
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {
     this.variant = 'striped';
     this.showColumnsAt = TableColumnLayoutBreakpoints.Medium;
   }

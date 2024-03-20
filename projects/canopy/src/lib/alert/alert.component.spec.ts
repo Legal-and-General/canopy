@@ -13,7 +13,7 @@ describe('LgAlertComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgAlertComponent, MockComponents(LgIconComponent) ],
+      imports: [ LgAlertComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgAlertComponent);

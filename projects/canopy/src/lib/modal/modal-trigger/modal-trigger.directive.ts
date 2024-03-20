@@ -15,6 +15,7 @@ import { LgModalService } from '../modal.service';
 
 @Directive({
   selector: '[lgModalTrigger]',
+  standalone: true,
 })
 export class LgModalTriggerDirective implements OnInit, OnDestroy {
   private allowFocusOnModalTrigger: boolean;
@@ -23,7 +24,10 @@ export class LgModalTriggerDirective implements OnInit, OnDestroy {
   @Input() lgModalTrigger: string;
   @Output() clicked: EventEmitter<void> = new EventEmitter();
 
-  constructor(private el: ElementRef, private modalService: LgModalService) {}
+  constructor(
+    private el: ElementRef,
+    private modalService: LgModalService,
+  ) {}
 
   @HostListener('click') openModal(): void {
     this.allowFocusOnModalTrigger = true;

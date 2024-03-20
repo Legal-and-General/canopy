@@ -11,6 +11,7 @@ import {
   styleUrls: [ './hero-card-notification.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgHeroCardNotificationComponent {
   @HostBinding('class.lg-hero-card-notification') class = true;

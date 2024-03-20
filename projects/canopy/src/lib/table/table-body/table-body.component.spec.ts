@@ -6,13 +6,11 @@ describe('LgTableBodyComponent', () => {
   let component: LgTableBodyComponent;
   let fixture: ComponentFixture<LgTableBodyComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTableBodyComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgTableBodyComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableBodyComponent);

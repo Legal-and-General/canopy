@@ -14,7 +14,7 @@ describe('LgModalHeaderComponent', () => {
     modalServiceMock = mock(LgModalService);
 
     await TestBed.configureTestingModule({
-      declarations: [ LgModalHeaderComponent ],
+      imports: [ LgModalHeaderComponent ],
       providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
     }).compileComponents();
   });

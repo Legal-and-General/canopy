@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgGridModule } from '../../grid/grid.module';
-import { LgSkeletonModule } from '../skeleton.module';
-import { LgDataPointModule } from '../../data-point/data-point.module';
 import { LgCardModule } from '../../card/card.module';
 import { LgSkeletonDirective } from '../skeleton.directive';
 
@@ -159,7 +156,7 @@ export default {
         AsyncSkeletonLoadingCardComponent,
         AsyncSkeletonLoadingDataPointComponent,
       ],
-      imports: [ LgCardModule, LgDataPointModule, LgGridModule, LgSkeletonModule ],
+      imports: [ LgCardModule ],
     }),
   ],
   parameters: {

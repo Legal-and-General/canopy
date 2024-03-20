@@ -6,13 +6,11 @@ describe('LgCarouselItemComponent', () => {
   let component: LgCarouselItemComponent;
   let fixture: ComponentFixture<LgCarouselItemComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgCarouselItemComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgCarouselItemComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCarouselItemComponent);

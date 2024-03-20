@@ -6,6 +6,7 @@ import { LgButtonToggleDirective } from './button-toggle.directive';
 
 @Component({
   template: '<a lg-button lgButtonToggle variant="secondary-dark">This is a link</a>',
+  standalone: true,
 })
 class LinkTestComponent {}
 
@@ -15,6 +16,7 @@ class LinkTestComponent {}
       This is a button
     </button>
   `,
+  standalone: true,
 })
 class ButtonTestComponent {}
 
@@ -25,7 +27,7 @@ describe('LgButtonToggleDirective', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonTestComponent, LinkTestComponent, LgButtonToggleDirective ],
+      imports: [ ButtonTestComponent, LinkTestComponent, LgButtonToggleDirective ],
     }).compileComponents();
   }));
 

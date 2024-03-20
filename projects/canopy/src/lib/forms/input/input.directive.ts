@@ -15,6 +15,7 @@ let nextUniqueId = 0;
 
 @Directive({
   selector: '[lgInput]',
+  standalone: true,
 })
 export class LgInputDirective {
   uniqueId = nextUniqueId++;

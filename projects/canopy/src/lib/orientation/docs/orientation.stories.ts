@@ -1,9 +1,7 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../card';
-import { LgOrientationModule } from '../orientation.module';
 import { LgOrientationDirective } from '../orientation.directive';
-import { LgPaddingModule } from '../../spacing/padding/padding.module';
 
 const responsiveCategory = 'Responsive';
 
@@ -11,7 +9,7 @@ export default {
   title: 'Helpers/Directives/Orientation/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgOrientationModule, LgCardModule, LgPaddingModule ],
+      imports: [ LgCardModule ],
     }),
   ],
   parameters: {

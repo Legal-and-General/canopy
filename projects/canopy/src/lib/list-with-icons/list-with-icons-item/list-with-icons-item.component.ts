@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 
 import { IconName } from '../../icon/icons.interface';
+import { LgIconComponent } from '../../icon/icon.component';
 
 type Name = IconName;
 
@@ -22,6 +23,8 @@ type Name = IconName;
   host: {
     class: 'lg-list-with-icons-item',
   },
+  standalone: true,
+  imports: [ LgIconComponent ],
 })
 export class LgListWithIconsItemComponent implements AfterViewInit, OnChanges {
   @Input() iconName: Name;

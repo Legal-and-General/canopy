@@ -2,6 +2,7 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[lgCol],[lgColSm],[lgColMd],[lgColLg]',
+  standalone: true,
 })
 export class LgGridColDirective {
   lgColClass: string;
@@ -65,7 +66,10 @@ export class LgGridColDirective {
     );
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   toggleColumnClass(newClass: string, oldClass: string): string {
     if (oldClass) {

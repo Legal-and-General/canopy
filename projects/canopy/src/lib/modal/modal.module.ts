@@ -2,12 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { A11yModule } from '@angular/cdk/a11y';
 
-import { LgSeparatorModule } from '../separator';
-import { lgIconClose, LgIconModule, LgIconRegistry } from '../icon';
-import { LgFocusModule } from '../focus';
-import { LgHeadingModule } from '../heading';
+import { lgIconClose, LgIconRegistry } from '../icon';
 import { LgCardModule } from '../card';
-import { LgPaddingModule } from '../spacing';
 
 import { LgModalBodyComponent } from './modal-body/modal-body.component';
 import { LgModalBodyTimerComponent } from './modal-body-timer/modal-body-timer.component';
@@ -27,17 +23,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [ ...components ],
-  imports: [
-    A11yModule,
-    CommonModule,
-    LgFocusModule,
-    LgHeadingModule,
-    LgCardModule,
-    LgSeparatorModule,
-    LgPaddingModule,
-    LgIconModule,
-  ],
+  imports: [ A11yModule, CommonModule, LgCardModule, ...components ],
   providers: [ LgModalService ],
   exports: [ ...components ],
 })

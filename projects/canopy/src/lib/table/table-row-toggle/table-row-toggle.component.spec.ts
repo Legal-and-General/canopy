@@ -15,7 +15,7 @@ describe('LgTableRowToggleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
+      imports: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
   }));
 

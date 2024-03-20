@@ -1,8 +1,6 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgModalModule } from '../modal.module';
-import { LgButtonModule } from '../../button';
-import { LgMarginModule } from '../../spacing';
 import { LgSeparatorComponent } from '../../separator/separator.component';
 import { LgModalComponent } from '../modal.component';
 
@@ -13,7 +11,7 @@ export default {
   // subcomponents: { LgModalHeaderComponent,LgModalBodyComponent, LgModalBodyTimerComponent },
   decorators: [
     moduleMetadata({
-      imports: [ LgModalModule, LgButtonModule, LgMarginModule ],
+      imports: [ LgModalModule ],
     }),
   ],
   argTypes: {

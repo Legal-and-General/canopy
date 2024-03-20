@@ -9,6 +9,7 @@ import {
   ViewEncapsulation,
   ContentChild,
 } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 import { AlignmentOptions } from '../table.interface';
@@ -20,6 +21,9 @@ import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.
   styleUrls: [ './table-cell.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ NgClass ],
+  standalone: true,
+  host: { ngSkipHydration: 'true' },
 })
 export class LgTableCellComponent {
   private _align: AlignmentOptions = AlignmentOptions.Start;

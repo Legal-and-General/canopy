@@ -5,6 +5,7 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   templateUrl: './card-content.component.html',
   styleUrls: [ './card-content.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgCardContentComponent {
   @HostBinding('class.lg-card-content') class = true;

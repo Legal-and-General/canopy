@@ -7,6 +7,7 @@ import {
   EventEmitter,
   forwardRef,
   HostListener,
+  Inject,
   Input,
   OnDestroy,
   OnInit,
@@ -14,12 +15,18 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CdkTrapFocus } from '@angular/cdk/a11y';
+import { DOCUMENT, NgIf } from '@angular/common';
 
 import { keyName } from '../utils/keyboard-keys';
+import { LgCardContentComponent } from '../card/card-content/card-content.component';
+import { LgFocusDirective } from '../focus/focus.directive';
+import { LgPaddingDirective } from '../spacing/padding/padding.directive';
+import { LgCardComponent } from '../card/card.component';
 
-import { LgModalService } from './modal.service';
-import { LgModalHeaderComponent } from './modal-header/modal-header.component';
 import { LgModalBodyComponent } from './modal-body/modal-body.component';
+import { LgModalHeaderComponent } from './modal-header/modal-header.component';
+import { LgModalService } from './modal.service';
 
 @Component({
   selector: 'lg-modal',
@@ -29,6 +36,15 @@ import { LgModalBodyComponent } from './modal-body/modal-body.component';
   host: {
     class: 'lg-modal',
   },
+  standalone: true,
+  imports: [
+    NgIf,
+    LgCardComponent,
+    CdkTrapFocus,
+    LgPaddingDirective,
+    LgFocusDirective,
+    LgCardContentComponent,
+  ],
 })
 export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   private subscription: Subscription;
@@ -45,6 +61,7 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   modalBodyComponent: LgModalBodyComponent;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private cdr: ChangeDetectorRef,
     private modalService: LgModalService,
   ) {}
@@ -74,7 +91,7 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
         map(isOpen => {
           this.isOpen = isOpen;
 
-          const bodyEl: HTMLBodyElement = document.querySelector('body');
+          const bodyEl: HTMLBodyElement = this.document.querySelector('body');
 
           if (isOpen) {
             bodyEl.style.overflow = 'hidden';

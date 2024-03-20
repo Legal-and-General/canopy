@@ -19,6 +19,7 @@ import {
   NgControl,
   ValidationErrors,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -29,6 +30,11 @@ import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import omit from '../../utils/omit';
+import { LgInputDirective } from '../input/input.directive';
+import { LgMarginDirective } from '../../spacing/margin/margin.directive';
+import { LgInputFieldComponent } from '../input/input-field.component';
+import { LgLabelComponent } from '../label/label.component';
+import { LgFocusDirective } from '../../focus/focus.directive';
 
 import { DateField } from './date-field.interface';
 
@@ -45,6 +51,15 @@ const labelFieldMap = {
   templateUrl: './date-field.component.html',
   styleUrls: [ './date-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [
+    LgFocusDirective,
+    LgLabelComponent,
+    ReactiveFormsModule,
+    LgInputFieldComponent,
+    LgMarginDirective,
+    LgInputDirective,
+  ],
 })
 export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDestroy {
   private uniqueId = nextUniqueId++;

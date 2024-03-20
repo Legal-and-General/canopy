@@ -21,6 +21,7 @@ import { keyName } from '../../../utils/keyboard-keys';
     class: 'lg-primary-nav-list-item',
     role: 'listitem',
   },
+  standalone: true,
 })
 export class LgPrimaryNavListItemComponent {
   @Input() alignRight = false;

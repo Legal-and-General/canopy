@@ -11,6 +11,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { NgIf } from '@angular/common';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
@@ -29,6 +30,8 @@ let nextUniqueId = 0;
   templateUrl: './input-field.component.html',
   styleUrls: [ './input-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ LgLabelComponent, NgIf ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _id = nextUniqueId++;

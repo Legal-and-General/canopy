@@ -23,6 +23,7 @@ import { LgSideNavBarLinkDirective } from './side-nav-bar-link/side-nav-bar-link
   styleUrls: [ './side-nav.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgSideNavComponent implements AfterViewInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();

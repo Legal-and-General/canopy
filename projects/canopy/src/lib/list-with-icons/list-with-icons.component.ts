@@ -22,6 +22,7 @@ import { ListWithIconsVariant } from './list-with-icons.interface';
   host: {
     class: 'lg-list-with-icons',
   },
+  standalone: true,
 })
 export class LgListWithIconsComponent implements AfterContentInit {
   private _variant: ListWithIconsVariant;

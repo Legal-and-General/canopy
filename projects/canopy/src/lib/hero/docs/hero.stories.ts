@@ -2,11 +2,8 @@ import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgBreadcrumbModule } from '../../breadcrumb/breadcrumb.module';
-import { LgGridModule } from '../../grid/grid.module';
-import { LgMarginModule } from '../../spacing/margin/margin.module';
 import { LgCardModule } from '../../card/card.module';
-import { lgIconInformationFill, LgIconModule, LgIconRegistry } from '../../icon';
-import { LgHeroModule } from '../hero.module';
+import { lgIconInformationFill, LgIconRegistry } from '../../icon';
 import { LgHeroComponent } from '../hero.component';
 
 const bodyHTML = `
@@ -160,14 +157,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ HeroProductStoryComponent ],
-      imports: [
-        LgHeroModule,
-        LgGridModule,
-        LgMarginModule,
-        LgBreadcrumbModule,
-        LgCardModule,
-        LgIconModule,
-      ],
+      imports: [ LgBreadcrumbModule, LgCardModule ],
     }),
   ],
   parameters: {

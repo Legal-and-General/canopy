@@ -15,6 +15,7 @@ let nextUniqueId = 0;
 
 @Directive({
   selector: '[lgSelect]',
+  standalone: true,
 })
 export class LgSelectDirective {
   private uniqueId = nextUniqueId++;

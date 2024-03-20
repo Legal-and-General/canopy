@@ -5,6 +5,7 @@ import { Component, Input, ViewEncapsulation, HostBinding } from '@angular/core'
   templateUrl: './tab-nav-content.component.html',
   styleUrls: [ './tab-nav-content.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgTabNavContentComponent {
   @Input() selectedTabId: string;

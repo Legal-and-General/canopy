@@ -11,6 +11,7 @@ import {
   styleUrls: [ './primary-message-description.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgPrimaryMessageDescriptionComponent {
   @HostBinding('class.lg-primary-message-description') class = true;

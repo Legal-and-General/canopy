@@ -9,13 +9,11 @@ describe('HeroCardTitleComponent', () => {
   let component: LgHeroCardTitleComponent;
   let fixture: ComponentFixture<LgHeroCardTitleComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgHeroCardTitleComponent, MockComponents(LgHeadingComponent) ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgHeroCardTitleComponent, MockComponents(LgHeadingComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroCardTitleComponent);

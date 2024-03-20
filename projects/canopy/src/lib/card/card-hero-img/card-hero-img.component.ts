@@ -5,6 +5,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'lg-card-hero-img',
@@ -12,6 +13,8 @@ import {
   styleUrls: [ './card-hero-img.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ NgIf ],
 })
 export class LgCardHeroImageComponent {
   @Input() cover = false;

@@ -6,6 +6,9 @@ import {
   ViewEncapsulation,
   ChangeDetectorRef,
 } from '@angular/core';
+import { NgClass } from '@angular/common';
+
+import { LgIconComponent } from '../../icon/icon.component';
 
 @Component({
   selector: 'lg-table-row-toggle',
@@ -13,6 +16,8 @@ import {
   styleUrls: [ './table-row-toggle.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ LgIconComponent, NgClass ],
 })
 export class LgTableRowToggleComponent {
   private _tableId: number;

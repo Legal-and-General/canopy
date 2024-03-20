@@ -1,13 +1,98 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
+import {
+  LgAccordionModule,
+  LgAlertModule,
+  LgBrandIconModule,
+  LgBreadcrumbModule,
+  LgButtonModule,
+  LgCardModule,
+  LgCarouselModule,
+  LgCheckboxGroupModule,
+  LgDataPointModule,
+  LgDateFieldModule,
+  LgDetailsModule,
+  LgFilterContainerModule,
+  LgFooterModule,
+  LgGridModule,
+  LgHeaderModule,
+  LgHeadingModule,
+  LgHeroModule,
+  LgHintModule,
+  LgIconModule,
+  LgInputModule,
+  LgListWithIconsModule,
+  LgMarginModule,
+  LgPaddingModule,
+  LgPageModule,
+  LgPaginationModule,
+  LgPrimaryMessageModule,
+  LgPromoCardModule,
+  LgQuickActionModule,
+  LgRadioModule,
+  LgSelectModule,
+  LgSeparatorModule,
+  LgSideNavModule,
+  LgSortCodeModule,
+  LgSpinnerModule,
+  LgTabsModule,
+  LgToggleModule,
+  LgLinkMenuModule,
+} from 'canopy';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppModule } from './app/app.module';
+import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
+import { AppRoutingModule } from './app/app-routing.module';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    importProvidersFrom(
+      AppRoutingModule,
+      ReactiveFormsModule,
+      BrowserModule,
+      LgAccordionModule,
+      LgAlertModule,
+      LgBrandIconModule,
+      LgBreadcrumbModule,
+      LgButtonModule,
+      LgCardModule,
+      LgCarouselModule,
+      LgCheckboxGroupModule,
+      LgDataPointModule,
+      LgDateFieldModule,
+      LgDetailsModule,
+      LgFilterContainerModule,
+      LgFooterModule,
+      LgGridModule,
+      LgHeaderModule,
+      LgHeadingModule,
+      LgHeroModule,
+      LgHintModule,
+      LgIconModule,
+      LgInputModule,
+      LgListWithIconsModule,
+      LgMarginModule,
+      LgPaddingModule,
+      LgPageModule,
+      LgPaginationModule,
+      LgPaddingModule,
+      LgPrimaryMessageModule,
+      LgPromoCardModule,
+      LgQuickActionModule,
+      LgRadioModule,
+      LgSelectModule,
+      LgSeparatorModule,
+      LgSideNavModule,
+      LgSortCodeModule,
+      LgSpinnerModule,
+      LgTabsModule,
+      LgToggleModule,
+      LgLinkMenuModule,
+    ),
+  ],
+}).catch(err => console.error(err));

@@ -34,23 +34,22 @@ describe('TableComponent', () => {
   let debugElement: DebugElement;
   let tableDebugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTableComponent,
-          LgTableHeadComponent,
-          LgTableBodyComponent,
-          LgTableRowComponent,
-          LgTableHeadCellComponent,
-          LgTableCellComponent,
-          LgTableRowToggleComponent,
-          MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
-        ],
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        LgTableComponent,
+        LgTableHeadComponent,
+        LgTableBodyComponent,
+        LgTableRowComponent,
+        LgTableHeadCellComponent,
+        LgTableCellComponent,
+        LgTableRowToggleComponent,
+        MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
+      ],
+    }).compileComponents();
 
-      fixture = MockRender(
-        `
+    fixture = MockRender(
+      `
     <table lg-table>
       <thead lg-table-head>
         <tr lg-table-row>
@@ -69,18 +68,17 @@ describe('TableComponent', () => {
       </tbody>
     </table>
     `,
-        {
-          books,
-          alignPublishColumn: AlignmentOptions.End,
-        },
-      );
+      {
+        books,
+        alignPublishColumn: AlignmentOptions.End,
+      },
+    );
 
-      debugElement = fixture.debugElement;
-      component = fixture.debugElement.children[0].componentInstance;
-      tableDebugElement = debugElement.query(By.directive(LgTableComponent));
-      fixture.detectChanges();
-    }),
-  );
+    debugElement = fixture.debugElement;
+    component = fixture.debugElement.children[0].componentInstance;
+    tableDebugElement = debugElement.query(By.directive(LgTableComponent));
+    fixture.detectChanges();
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

@@ -5,6 +5,7 @@ import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core'
   templateUrl: './promo-card-image.component.html',
   styleUrls: [ './promo-card-image.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
 })
 export class LgPromoCardImageComponent {
   @HostBinding('class.lg-promo-card-image') class = true;

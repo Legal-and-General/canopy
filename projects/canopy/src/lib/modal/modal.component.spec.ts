@@ -36,11 +36,12 @@ describe('LgModalComponent', () => {
     modalServiceMock = mock(LgModalService);
 
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
+        MockModule(LgCardModule),
+        MockModule(LgFocusModule),
         LgModalComponent,
         MockComponents(LgModalHeaderComponent, LgModalBodyComponent),
       ],
-      imports: [ MockModule(LgCardModule), MockModule(LgFocusModule) ],
       providers: [
         { provide: LgModalService, useValue: instance(modalServiceMock) },
         { provide: ChangeDetectorRef, useValue: instance(cdrMock) },

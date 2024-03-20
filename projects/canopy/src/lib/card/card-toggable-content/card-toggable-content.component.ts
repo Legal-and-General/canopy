@@ -15,6 +15,7 @@ import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from '../card.interface';
   styleUrls: [ './card-toggable-content.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgCardToggableContentComponent {
   uniqueId: number;

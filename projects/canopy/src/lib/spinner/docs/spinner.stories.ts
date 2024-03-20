@@ -1,7 +1,6 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgSpinnerComponent } from '../spinner.component';
-import { LgSpinnerModule } from '../spinner.module';
 
 const variantTypes = [ 'dark', 'light', 'color', 'inherit' ];
 const sizes = [ 'sm', 'md' ];
@@ -12,7 +11,7 @@ export default {
   component: LgSpinnerComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgSpinnerModule ],
+      imports: [],
     }),
   ],
   argTypes: {

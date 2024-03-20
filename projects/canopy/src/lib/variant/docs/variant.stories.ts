@@ -1,14 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgButtonModule } from '../../button';
 import { LgCardModule } from '../../card';
-import { LgGridModule } from '../../grid';
-import { LgIconModule, LgIconRegistry, lgIconsArray } from '../../icon';
-import { LgShadowModule } from '../../shadow';
-import { LgSpacingModule } from '../../spacing';
+import { LgIconRegistry, lgIconsArray } from '../../icon';
 import type { Variant } from '../variant.interface';
-import { LgVariantModule } from '../variant.module';
 import { LgVariantDirective } from '..';
 
 const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
@@ -50,15 +45,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ LgVariantStoryComponent ],
-      imports: [
-        LgVariantModule,
-        LgCardModule,
-        LgButtonModule,
-        LgSpacingModule,
-        LgGridModule,
-        LgIconModule,
-        LgShadowModule,
-      ],
+      imports: [ LgCardModule ],
     }),
   ],
   argTypes: {

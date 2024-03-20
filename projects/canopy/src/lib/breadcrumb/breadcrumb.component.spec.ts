@@ -13,17 +13,15 @@ describe('LgBreadcrumbComponent', () => {
   let breadcrumbDebugElement: DebugElement;
   let breadcrumbEl: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgBreadcrumbComponent,
-          MockComponent(LgBreadcrumbItemComponent),
-          MockComponent(LgBreadcrumbItemEllipsisComponent),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        LgBreadcrumbComponent,
+        MockComponent(LgBreadcrumbItemComponent),
+        MockComponent(LgBreadcrumbItemEllipsisComponent),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBreadcrumbComponent);

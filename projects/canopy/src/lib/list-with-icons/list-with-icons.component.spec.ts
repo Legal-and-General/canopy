@@ -10,7 +10,7 @@ describe('LgListWithIconsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgListWithIconsComponent ],
+      imports: [ LgListWithIconsComponent ],
     }).compileComponents();
 
     fixture = MockRender(

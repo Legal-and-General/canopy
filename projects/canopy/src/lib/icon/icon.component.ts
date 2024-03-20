@@ -20,6 +20,8 @@ let nextUniqueId = 0;
   templateUrl: './icon.component.html',
   styleUrls: [ './icon.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  host: { ngSkipHydration: 'true' },
 })
 export class LgIconComponent {
   private svgIcon: SVGElement;

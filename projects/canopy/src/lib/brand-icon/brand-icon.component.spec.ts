@@ -13,7 +13,7 @@ describe('LgBrandIconComponent', () => {
     brandIconRegistryMock = mock(LgBrandIconRegistry);
 
     TestBed.configureTestingModule({
-      declarations: [ LgBrandIconComponent ],
+      imports: [ LgBrandIconComponent ],
       providers: [
         {
           provide: LgBrandIconRegistry,

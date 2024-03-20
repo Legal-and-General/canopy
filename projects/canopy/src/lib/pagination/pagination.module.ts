@@ -1,19 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import {
-  lgIconChevronLeft,
-  lgIconChevronRight,
-  LgIconModule,
-  LgIconRegistry,
-} from '../icon';
-import { LgMarginModule } from '../spacing';
+import { lgIconChevronLeft, lgIconChevronRight, LgIconRegistry } from '../icon';
 
 import { LgPagionationComponent } from './pagination.component';
 
 @NgModule({
-  imports: [ CommonModule, LgIconModule, LgMarginModule ],
-  declarations: [ LgPagionationComponent ],
+  imports: [ CommonModule, LgPagionationComponent ],
   exports: [ LgPagionationComponent ],
 })
 export class LgPaginationModule {

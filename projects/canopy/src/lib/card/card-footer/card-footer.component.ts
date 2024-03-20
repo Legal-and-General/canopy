@@ -11,6 +11,7 @@ import {
   styleUrls: [ './card-footer.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgCardFooterComponent {
   @HostBinding('class.lg-card-footer') class = true;
