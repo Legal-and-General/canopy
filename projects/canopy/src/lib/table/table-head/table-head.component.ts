@@ -15,6 +15,7 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
   styleUrls: [ './table-head.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTableHeadComponent implements AfterContentChecked {
   @HostBinding('class') class = 'lg-table-head';

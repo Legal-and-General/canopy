@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconModule, LgIconRegistry, lgIconsArray } from '../../icon';
-import { LgButtonModule } from '../button.module';
+import { LgIconRegistry, lgIconsArray } from '../../icon';
 import { ButtonIconPosition, ButtonSize, LgButtonComponent } from '../index';
 
 const buttonVariants = [
@@ -84,7 +83,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ButtonComponentExampleComponent ],
-      imports: [ LgButtonModule, LgIconModule ],
+      imports: [],
     }),
   ],
   argTypes: {

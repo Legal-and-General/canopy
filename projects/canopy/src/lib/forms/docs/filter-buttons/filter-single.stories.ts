@@ -6,7 +6,6 @@ import {
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgRadioModule } from '../../radio/radio.module';
 import { LgRadioButtonComponent } from '../../radio/radio-button.component';
 import { LgRadioGroupComponent } from '../../radio/radio-group.component';
 
@@ -66,7 +65,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormFilterComponent ],
-      imports: [ ReactiveFormsModule, LgRadioModule ],
+      imports: [ ReactiveFormsModule ],
     }),
   ],
   argTypes: {

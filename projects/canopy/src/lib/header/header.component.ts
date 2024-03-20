@@ -17,16 +17,22 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgIf } from '@angular/common';
 import { startWith, filter, merge, skipWhile, Subscription, switchMap } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
+import { LgIconComponent } from '../icon/icon.component';
+import { LgHideAtDirective } from '../hide-at/hide-at.directive';
+import { LgGridColDirective } from '../grid/grid-col.directive';
+import { LgGridRowDirective } from '../grid/grid-row.directive';
+import { LgGridContainerDirective } from '../grid/grid-container.directive';
 
 import { LgAccountMenuComponent } from './account-menu/account-menu.component';
 import { LgHeaderLogoComponent } from './header-logo/header-logo.component';
 import { LgPrimaryNavComponent } from './primary-navigation/primary-navigation.component';
 import { LgPrimaryNavListItemComponent } from './primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component';
 import { LgAccountMenuListItemComponent } from './account-menu/account-menu-list-item/account-menu-list-item.component';
+import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.directive';
 
 @Component({
   selector: '[lg-header]',
@@ -37,6 +43,16 @@ import { LgAccountMenuListItemComponent } from './account-menu/account-menu-list
   host: {
     class: 'lg-header',
   },
+  standalone: true,
+  imports: [
+    LgGridContainerDirective,
+    LgGridRowDirective,
+    LgGridColDirective,
+    NgIf,
+    LgHideAtDirective,
+    LgAccountMenuItemDirective,
+    LgIconComponent,
+  ],
 })
 export class LgHeaderComponent implements AfterContentInit, OnDestroy {
   private subscriptions: Array<Subscription> = [];

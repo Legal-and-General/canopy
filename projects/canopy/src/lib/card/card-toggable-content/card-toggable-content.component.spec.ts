@@ -11,7 +11,7 @@ describe('LgCardToggableContentComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgCardToggableContentComponent ],
+      imports: [ LgCardToggableContentComponent ],
     }).compileComponents();
   }));
 

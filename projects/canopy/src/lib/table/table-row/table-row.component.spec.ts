@@ -16,7 +16,7 @@ describe('LgTableRowComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgTableRowComponent,
         MockComponents(LgTableCellComponent, LgTableRowToggleComponent),
       ],

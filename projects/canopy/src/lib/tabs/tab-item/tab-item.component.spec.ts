@@ -13,16 +13,14 @@ describe('LgTabItemComponent', () => {
   let fixture: ComponentFixture<LgTabItemComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTabItemComponent,
-          MockComponents(LgTabItemHeadingComponent, LgTabItemContentComponent),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        LgTabItemComponent,
+        MockComponents(LgTabItemHeadingComponent, LgTabItemContentComponent),
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

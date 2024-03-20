@@ -4,6 +4,7 @@ let nextUniqueId = 0;
 
 @Directive({
   selector: '[lgSuffix]',
+  standalone: true,
 })
 export class LgSuffixDirective {
   @Input()

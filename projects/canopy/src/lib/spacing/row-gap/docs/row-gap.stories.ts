@@ -3,9 +3,6 @@ import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { SpacingVariant } from '../../spacing.interface';
 import { LgCardModule } from '../../../card';
-import { LgSpacingModule } from '../../spacing.module';
-import { LgGridModule } from '../../../grid';
-import { LgRowGapModule } from '../row-gap.module';
 import { LgRowGapDirective } from '../row-gap.directive';
 
 const spaces = [
@@ -74,7 +71,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ LgRowGapStoryComponent ],
-      imports: [ LgRowGapModule, LgCardModule, LgSpacingModule, LgGridModule ],
+      imports: [ LgCardModule ],
     }),
   ],
   parameters: {

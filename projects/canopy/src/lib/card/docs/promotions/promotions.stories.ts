@@ -1,22 +1,14 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
-import { LgGridModule } from '../../../grid/grid.module';
-import { LgPaddingModule } from '../../../spacing/padding/padding.module';
-import { LgMarginModule } from '../../../spacing/margin/margin.module';
-import { LgButtonModule } from '../../../button/button.module';
-import { LgSeparatorModule } from '../../../separator/separator.module';
 import { LgCardComponent } from '../../card.component';
 import { LgCardModule } from '../../card.module';
 import {
   lgBrandIconCalendarAppointment,
   lgBrandIconLookingAhead,
-  LgBrandIconModule,
   lgBrandIconPensionPot,
   LgBrandIconRegistry,
 } from '../../../brand-icon';
-import { LgOrientationModule } from '../../../orientation';
-import { LgShadowModule } from '../../../shadow';
 
 const promotionsGeneralCardTemplate = `
 <lg-card
@@ -65,17 +57,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ GeneralPromotionCardComponent ],
-      imports: [
-        LgCardModule,
-        LgButtonModule,
-        LgGridModule,
-        LgPaddingModule,
-        LgMarginModule,
-        LgShadowModule,
-        LgSeparatorModule,
-        LgBrandIconModule,
-        LgOrientationModule,
-      ],
+      imports: [ LgCardModule ],
     }),
   ],
   parameters: {

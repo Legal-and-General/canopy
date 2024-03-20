@@ -21,6 +21,9 @@ import { LgHintComponent } from '../hint/hint.component';
 import { LgErrorStateMatcher } from '../validation/error-state-matcher';
 import { LgValidationComponent } from '../validation/validation.component';
 import { LgToggleComponent } from '../toggle/toggle.component';
+import { LgMarginDirective } from '../../spacing/margin/margin.directive';
+import { LgLabelComponent } from '../label/label.component';
+import { LgFocusDirective } from '../../focus/focus.directive';
 
 import { CheckboxGroupVariant } from './checkbox-group.interface';
 
@@ -31,6 +34,8 @@ let uniqueId = 0;
   templateUrl: './checkbox-group.component.html',
   styleUrls: [ './checkbox-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private nextUniqueId = ++uniqueId;

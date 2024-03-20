@@ -3,6 +3,7 @@ import { NgControl, Validators } from '@angular/forms';
 
 @Directive({
   selector: '[lgSortCode]',
+  standalone: true,
 })
 export class LgSortCodeDirective implements OnInit {
   @HostBinding('placeholder') placeholder = '00-00-00';

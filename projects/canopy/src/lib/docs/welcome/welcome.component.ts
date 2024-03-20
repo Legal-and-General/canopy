@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { LgMarginModule, LgPaddingModule } from '../../spacing';
-
 import { DocsWelcomeHeroComponent } from './hero.component';
 import { DocsWelcomeBenefitsComponent } from './benefists.component';
 import { DocsWelcomeUsageComponent } from './usage.component';
@@ -33,8 +31,6 @@ const pageTemplate = `
   selector: 'lg-docs-welcome-page',
   standalone: true,
   imports: [
-    LgMarginModule,
-    LgPaddingModule,
     DocsWelcomeHeroComponent,
     DocsWelcomeBenefitsComponent,
     DocsWelcomeUsageComponent,

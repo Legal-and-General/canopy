@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LgButtonModule } from '../button/button.module';
-import { LgHeadingModule } from '../heading/heading.module';
-import { LgSeparatorModule } from '../separator/separator.module';
-
 import { LgPromoCardComponent } from './promo-card/promo-card.component';
 import { LgPromoCardListComponent } from './promo-card-list/promo-card-list.component';
 import { LgPromoCardTitleComponent } from './promo-card/promo-card-title/promo-card-title.component';
@@ -24,8 +20,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, LgButtonModule, LgHeadingModule, LgSeparatorModule ],
-  declarations: [ ...components ],
+  imports: [ CommonModule, ...components ],
   exports: [ ...components ],
 })
 export class LgPromoCardModule {}

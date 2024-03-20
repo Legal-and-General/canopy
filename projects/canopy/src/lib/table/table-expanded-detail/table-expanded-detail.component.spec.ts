@@ -9,16 +9,11 @@ describe('LgTableExpandedDetailComponent', () => {
   let component: LgTableExpandedDetailComponent;
   let fixture: ComponentFixture<LgTableExpandedDetailComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [
-          LgTableExpandedDetailComponent,
-          MockComponents(LgTableCellComponent),
-        ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgTableExpandedDetailComponent, MockComponents(LgTableCellComponent) ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableExpandedDetailComponent);

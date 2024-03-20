@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { LgHeadingModule } from '../heading/heading.module';
-import { lgIconArrowRight, LgIconModule, LgIconRegistry } from '../icon';
+import { lgIconArrowRight, LgIconRegistry } from '../icon';
 
 import { LgCardPrincipleDataPointDateComponent } from './card-principle-data-point-date/card-principle-data-point-date.component';
 import { LgCardPrincipleDataPointLabelComponent } from './card-principle-data-point-label/card-principle-data-point-label.component';
@@ -42,8 +41,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, LgHeadingModule, LgIconModule, RouterLink ],
-  declarations: [ components ],
+  imports: [ CommonModule, RouterLink, components ],
   exports: [ components ],
 })
 export class LgCardModule {

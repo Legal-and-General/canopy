@@ -8,7 +8,7 @@ describe('LgCardGroupComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgCardGroupComponent ],
+      imports: [ LgCardGroupComponent ],
     }).compileComponents();
   }));
 

@@ -19,6 +19,7 @@ import { LgGridColDirective } from './grid-col.directive';
       Test feature
     </div>
   `,
+  standalone: true,
 })
 class TestComponent {
   @Input() lgCol;
@@ -38,7 +39,7 @@ describe('LgColDirective', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestComponent, LgGridColDirective ],
+      imports: [ TestComponent, LgGridColDirective ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestComponent);

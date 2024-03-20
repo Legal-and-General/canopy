@@ -1,6 +1,5 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconModule } from '../../icon/icon.module';
 import { LgBreadcrumbModule } from '../breadcrumb.module';
 import { BreadcrumbVariant, LgBreadcrumbComponent } from '..';
 
@@ -9,7 +8,7 @@ export default {
   component: LgBreadcrumbComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgIconModule, LgBreadcrumbModule ],
+      imports: [ LgBreadcrumbModule ],
     }),
   ],
   argTypes: {

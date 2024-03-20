@@ -4,6 +4,7 @@ import { OrientationResponsive } from './orientation.interface';
 
 @Directive({
   selector: '[lgOrientation]',
+  standalone: true,
 })
 export class LgOrientationDirective {
   orientationClasses: Array<string> = [];
@@ -21,7 +22,10 @@ export class LgOrientationDirective {
     return this.orientationClasses.length;
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   toggleClasses(newClasses: Array<string>, oldClasses: Array<string>): Array<string> {
     if (oldClasses.length) {

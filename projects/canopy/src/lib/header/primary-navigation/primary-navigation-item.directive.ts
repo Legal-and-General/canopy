@@ -5,6 +5,7 @@ import { Directive, HostBinding, Input } from '@angular/core';
   host: {
     class: 'lg-primary-nav-item',
   },
+  standalone: true,
 })
 export class LgPrimaryNavItemDirective {
   private _isActive = false;

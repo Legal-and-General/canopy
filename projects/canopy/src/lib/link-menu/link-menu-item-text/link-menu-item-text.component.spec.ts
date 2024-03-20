@@ -11,7 +11,7 @@ describe('LgLinkMenuItemTextComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgLinkMenuItemTextComponent, MockComponents(LgIconComponent) ],
+      imports: [ LgLinkMenuItemTextComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
   });
 

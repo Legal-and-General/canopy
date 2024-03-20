@@ -9,5 +9,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   host: {
     class: 'lg-filter-container-panel-body',
   },
+  standalone: true,
 })
 export class LgFilterContainerPanelBodyComponent {}

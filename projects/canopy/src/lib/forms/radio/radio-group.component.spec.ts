@@ -38,6 +38,8 @@ const hintTestId = 'test-hint-id';
       </lg-radio-group>
     </form>
   `,
+  standalone: true,
+  imports: [ FormsModule, ReactiveFormsModule ],
 })
 class TestRadioGroupComponent {
   get color() {
@@ -45,7 +47,10 @@ class TestRadioGroupComponent {
   }
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder, private errorState: LgErrorStateMatcher) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private errorState: LgErrorStateMatcher,
+  ) {
     this.form = this.fb.group({
       color: [ { value: '', disabled: false }, [ Validators.required ] ],
     });
@@ -73,8 +78,9 @@ describe('LgRadioGroupComponent', () => {
     errorStateMatcherMock = mock(LgErrorStateMatcher);
 
     TestBed.configureTestingModule({
-      imports: [ FormsModule, ReactiveFormsModule ],
-      declarations: [
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
         TestRadioGroupComponent,
         LgRadioGroupComponent,
         LgRadioButtonComponent,

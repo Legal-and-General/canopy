@@ -1,7 +1,6 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../../card';
-import { LgMarginModule } from '../margin.module';
 import { LgMarginDirective } from '../margin.directive';
 
 const spaces = [
@@ -26,7 +25,7 @@ export default {
   title: 'Helpers/Directives/Margin/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgMarginModule, LgCardModule ],
+      imports: [ LgCardModule ],
     }),
   ],
   parameters: {

@@ -17,6 +17,7 @@ import { LgDataPointComponent } from '../data-point/data-point.component';
   styleUrls: [ './data-point-list.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgDataPointListComponent implements AfterContentInit {
   @HostBinding('class.lg-data-point-list') class = true;

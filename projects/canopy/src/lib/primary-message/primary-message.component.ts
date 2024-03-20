@@ -12,6 +12,7 @@ import {
   styleUrls: [ './primary-message.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgPrimaryMessageComponent {
   @Input() hasRole = true;

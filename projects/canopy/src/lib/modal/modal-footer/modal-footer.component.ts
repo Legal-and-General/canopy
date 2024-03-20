@@ -9,5 +9,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   host: {
     class: 'lg-modal-footer',
   },
+  standalone: true,
 })
 export class LgModalFooterComponent {}

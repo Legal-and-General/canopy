@@ -19,7 +19,7 @@ describe('LgBreadcrumbItemEllipsisComponent', () => {
     iconRegistryMock = mock(LgIconRegistry);
 
     TestBed.configureTestingModule({
-      declarations: [ LgBreadcrumbItemEllipsisComponent, MockComponent(LgIconComponent) ],
+      imports: [ LgBreadcrumbItemEllipsisComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
   }));
 

@@ -26,7 +26,7 @@ describe('LgTabsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgTabsComponent,
         MockDirective(LgFocusDirective),
         MockComponents(

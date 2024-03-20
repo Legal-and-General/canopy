@@ -11,13 +11,11 @@ describe('LgTabNavBarComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgTabNavContentComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgTabNavContentComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = MockRender(`

@@ -25,7 +25,7 @@ describe('LgFilterContainerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         LgFilterContainerComponent,
         LgButtonToggleDirective,
         MockComponents(LgFilterContainerPanelComponent, LgButtonComponent),

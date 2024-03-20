@@ -1,8 +1,6 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCardModule } from '../../card/card.module';
-import { LgSeparatorModule } from '../../separator/separator.module';
-import { LgShowAtModule } from '../show-at.module';
 import { LgShowAtDirective } from '../show-at.directive';
 
 // This default export determines where your story goes in the story list
@@ -11,7 +9,7 @@ export default {
   component: LgShowAtDirective,
   decorators: [
     moduleMetadata({
-      imports: [ LgShowAtModule, LgCardModule, LgSeparatorModule ],
+      imports: [ LgCardModule ],
     }),
   ],
   argTypes: {

@@ -11,10 +11,14 @@ import {
 } from '@angular/core';
 import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
+import { NgIf, NgFor, NgClass } from '@angular/common';
 
 import type { HeadingLevel } from '../heading';
+import { LgIconComponent } from '../icon/icon.component';
+import { LgHeadingComponent } from '../heading/heading.component';
 
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
+import { LgAutoplayComponent } from './auto-play/auto-play.component';
 
 @Component({
   selector: 'lg-carousel',
@@ -22,6 +26,15 @@ import { LgCarouselItemComponent } from './carousel-item/carousel-item.component
   styleUrls: [ './carousel.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    LgHeadingComponent,
+    NgIf,
+    LgAutoplayComponent,
+    LgIconComponent,
+    NgFor,
+    NgClass,
+  ],
 })
 export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   private unsubscribe: Subject<void> = new Subject<void>();

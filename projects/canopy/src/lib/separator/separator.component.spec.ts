@@ -6,13 +6,11 @@ describe('LgSeparatorComponent', () => {
   let component: LgSeparatorComponent;
   let fixture: ComponentFixture<LgSeparatorComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ LgSeparatorComponent ],
-      }).compileComponents();
-    }),
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgSeparatorComponent ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgSeparatorComponent);

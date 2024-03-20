@@ -1,7 +1,5 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgMarginModule } from '../../spacing';
-import { LgTabsModule } from '../tabs.module';
 import { LgTabsComponent } from '../tabs.component';
 
 export default {
@@ -9,7 +7,7 @@ export default {
   component: LgTabsComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgTabsModule, LgMarginModule ],
+      imports: [],
     }),
   ],
   argTypes: {
@@ -108,7 +106,7 @@ function getTemplate(preventDefault?: boolean) {
   `;
 }
 
-const tabNavBarStory: StoryFn<LgTabsModule> = (args: LgTabsModule) => ({
+const tabNavBarStory: StoryFn<LgTabsComponent> = (args: LgTabsComponent) => ({
   props: args,
   template: getTemplate(true),
 });

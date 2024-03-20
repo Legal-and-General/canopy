@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LgIconModule } from '../icon/icon.module';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { lgIconChevronRight, lgIconLinkExternal } from '../icon/icons.interface';
-import { LgVariantModule } from '../variant/variant.module';
 import { LgCardModule } from '../card';
 
 import { LgLinkMenuComponent } from './link-menu.component';
@@ -17,8 +15,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, LgIconModule, LgVariantModule, LgCardModule ],
-  declarations: [ ...components ],
+  imports: [ CommonModule, LgCardModule, ...components ],
   exports: [ ...components ],
 })
 export class LgLinkMenuModule {

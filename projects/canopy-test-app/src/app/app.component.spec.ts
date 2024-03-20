@@ -12,7 +12,7 @@ describe('AppComponent', () => {
     const formBuilderMock = mock(UntypedFormBuilder);
 
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ],
+      imports: [ AppComponent ],
       providers: [
         { provide: UntypedFormBuilder, useFactory: () => instance(formBuilderMock) },
       ],

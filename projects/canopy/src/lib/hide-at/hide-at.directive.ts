@@ -4,6 +4,7 @@ import type { Breakpoints } from '../shared/breakpoints.interface';
 
 @Directive({
   selector: '[lgHideAt]',
+  standalone: true,
 })
 export class LgHideAtDirective {
   responsiveUtilClass: string;
@@ -20,7 +21,10 @@ export class LgHideAtDirective {
     );
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   toggleClass(newClass: string, oldClass: string): string {
     if (oldClass) {

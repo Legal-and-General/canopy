@@ -28,6 +28,7 @@ let nextUniqueId = 0;
   host: {
     class: 'lg-card',
   },
+  standalone: true,
 })
 export class LgCardComponent implements AfterContentInit, OnDestroy {
   private subscription: Subscription;

@@ -4,6 +4,7 @@ import { SpacingVariant } from '../index';
 
 @Directive({
   selector: '[lgRowGap]',
+  standalone: true,
 })
 export class LgRowGapDirective {
   private readonly classPrefix = 'lg-row-gap--';
@@ -18,7 +19,10 @@ export class LgRowGapDirective {
     this.lgRowGapClass = this.toggleClass(newClass, this.lgRowGapClass);
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   private toggleClass(newClass: string, oldClass: string): string {
     this.renderer.removeClass(this.hostElement.nativeElement, oldClass);

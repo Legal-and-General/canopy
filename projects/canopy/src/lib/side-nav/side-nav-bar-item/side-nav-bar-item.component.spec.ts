@@ -8,7 +8,7 @@ describe('LgSideNavBarItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgSideNavBarItemComponent ],
+      imports: [ LgSideNavBarItemComponent ],
     }).compileComponents();
   });
 

@@ -11,6 +11,7 @@ import {
   styleUrls: [ './table-expanded-detail.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgTableExpandedDetailComponent {
   @HostBinding('class.lg-table-expanded-detail') class = true;

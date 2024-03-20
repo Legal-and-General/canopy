@@ -2,6 +2,7 @@ import { Directive, EventEmitter, HostBinding, Input, Output } from '@angular/co
 
 @Directive({
   selector: '[lgSideBarNavLink]',
+  standalone: true,
 })
 export class LgSideNavBarLinkDirective {
   _isActive = false;

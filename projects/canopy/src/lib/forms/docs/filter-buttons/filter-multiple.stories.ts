@@ -7,9 +7,7 @@ import {
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgToggleModule } from '../../toggle/toggle.module';
-import { LgHintModule } from '../../hint';
 import { LgCheckboxGroupComponent } from '../../checkbox-group/checkbox-group.component';
-import { LgCheckboxGroupModule } from '../../checkbox-group/checkbox-group.module';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -61,7 +59,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgCheckboxGroupModule, LgToggleModule, LgHintModule ],
+      imports: [ ReactiveFormsModule, LgToggleModule ],
     }),
   ],
   argTypes: {

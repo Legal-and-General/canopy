@@ -21,11 +21,11 @@ describe('LgCardNavigationTitleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
+        RouterTestingModule,
         LgCardNavigationTitleComponent,
         MockComponents(LgHeadingComponent, LgIconComponent),
       ],
-      imports: [ RouterTestingModule ],
     }).compileComponents();
   }));
 

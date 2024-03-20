@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgIconRegistry } from '../../icon/icon.registry';
-import { LgIconModule, lgIconsArray } from '../../icon';
-import { LgBannerModule } from '../banner.module';
+import { lgIconsArray } from '../../icon';
 import { LgBannerComponent } from '../banner.component';
 
 const variantTypes = [ 'generic', 'warning' ];
@@ -34,7 +33,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ LgBannerIconComponent ],
-      imports: [ LgBannerModule, LgIconModule ],
+      imports: [],
     }),
   ],
   argTypes: {
