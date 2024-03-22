@@ -1,13 +1,22 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgFor } from '@angular/common';
 
 import { LgTabsComponent } from '../tabs.component';
+import { LgTabNavBarComponent } from '../tab-nav-bar/tab-nav-bar.component';
+import { LgTabNavBarLinkDirective } from '../tab-nav-bar/tab-nav-bar-link.directive';
+import { LgTabNavContentComponent } from '../tab-nav-content/tab-nav-content.component';
 
 export default {
   title: 'Components/Tabs/Examples',
   component: LgTabsComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [
+        LgTabNavBarComponent,
+        LgTabNavBarLinkDirective,
+        LgTabNavContentComponent,
+        NgFor,
+      ],
     }),
   ],
   argTypes: {

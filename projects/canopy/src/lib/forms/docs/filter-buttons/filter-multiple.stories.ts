@@ -6,8 +6,8 @@ import {
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgToggleModule } from '../../toggle/toggle.module';
 import { LgCheckboxGroupComponent } from '../../checkbox-group/checkbox-group.component';
+import { LgToggleComponent } from '../../toggle';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -25,6 +25,7 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form',
   template: formTemplate,
+  standalone: true,
 })
 class ReactiveFormComponent {
   @Input() label: string;
@@ -59,7 +60,7 @@ export default {
   decorators: [
     moduleMetadata({
       declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgToggleModule ],
+      imports: [ ReactiveFormsModule, LgToggleComponent ],
     }),
   ],
   argTypes: {

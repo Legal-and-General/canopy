@@ -7,7 +7,7 @@ export default {
   component: LgHeadingComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [ LgHeadingComponent ],
     }),
   ],
   argTypes: {

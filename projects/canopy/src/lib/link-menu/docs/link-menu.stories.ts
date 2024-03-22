@@ -1,18 +1,22 @@
 import { Meta, StoryFn } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 import {
+  lgIconChevronRight,
+  LgIconComponent,
   lgIconConsole,
   lgIconInformation,
+  lgIconLinkExternal,
   lgIconMail,
   lgIconProfile,
   LgIconRegistry,
   lgIconSecurity,
 } from '../../icon';
-import { LgCardModule } from '../../card';
-import { LgLinkMenuModule } from '../link-menu.module';
+import { LgLinkMenuComponent } from '../link-menu.component';
+import { LgLinkMenuItemComponent } from '../link-menu-item/link-menu-item.component';
+import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-item-text.component';
 
 const template = `
 <lg-link-menu>
@@ -30,6 +34,15 @@ const template = `
 @Component({
   selector: 'lg-link-menu-story',
   template,
+  standalone: true,
+  imports: [
+    LgLinkMenuComponent,
+    LgLinkMenuItemComponent,
+    LgIconComponent,
+    LgLinkMenuItemTextComponent,
+    NgFor,
+    NgIf,
+  ],
 })
 class LinkMenuStoryComponent {
   @Input() menuItems: MenuItems;
@@ -41,6 +54,8 @@ class LinkMenuStoryComponent {
       lgIconMail,
       lgIconSecurity,
       lgIconConsole,
+      lgIconChevronRight,
+      lgIconLinkExternal,
     ]);
   }
 }
@@ -50,8 +65,7 @@ export default {
   title: 'Components/Link menu/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ LinkMenuStoryComponent ],
-      imports: [ LgLinkMenuModule, CommonModule, LgCardModule ],
+      imports: [ LinkMenuStoryComponent ],
     }),
   ],
   argTypes: {

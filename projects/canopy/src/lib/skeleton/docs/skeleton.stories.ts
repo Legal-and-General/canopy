@@ -1,8 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgCardModule } from '../../card/card.module';
 import { LgSkeletonDirective } from '../skeleton.directive';
+import {
+  LgCardComponent,
+  LgCardContentComponent,
+  LgCardHeaderComponent,
+  LgCardPrincipleDataPointComponent,
+  LgCardPrincipleDataPointDateComponent,
+  LgCardPrincipleDataPointLabelComponent,
+  LgCardPrincipleDataPointValueComponent,
+  LgCardSubtitleComponent,
+  LgCardTitleComponent,
+} from '../../card';
+import {
+  LgDataPointComponent,
+  LgDataPointLabelComponent,
+  LgDataPointValueComponent,
+} from '../../data-point';
+import { LgGridColDirective, LgGridRowDirective } from '../../grid';
 
 interface Data {
   title?: string;
@@ -21,7 +37,7 @@ interface Data {
   template: `
     <lg-card>
       <lg-card-header>
-        <lg-card-title headingLevel="4">
+        <lg-card-title [headingLevel]="4">
           <span lgSkeleton lgSkeletonWidth="20">{{ data?.title }}</span>
         </lg-card-title>
       </lg-card-header>
@@ -30,6 +46,14 @@ interface Data {
       </lg-card-content>
     </lg-card>
   `,
+  standalone: true,
+  imports: [
+    LgCardComponent,
+    LgCardHeaderComponent,
+    LgCardTitleComponent,
+    LgCardContentComponent,
+    LgSkeletonDirective,
+  ],
 })
 class AsyncSkeletonLoadingCardComponent implements OnInit {
   data: Data = null;
@@ -54,7 +78,7 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
       <lg-card-content>
         <div lgRow>
           <div lgCol="12" lgColMd="6">
-            <lg-card-title headingLevel="4">
+            <lg-card-title [headingLevel]="4">
               <a href="#" lgSkeleton lgSkeletonWidth="18">{{ data?.title }}</a>
             </lg-card-title>
             <lg-card-subtitle lgSkeletonWidth="14" lgSkeleton>
@@ -91,6 +115,20 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
       </lg-card-content>
     </lg-card>
   `,
+  standalone: true,
+  imports: [
+    LgCardPrincipleDataPointDateComponent,
+    LgSkeletonDirective,
+    LgCardPrincipleDataPointValueComponent,
+    LgCardPrincipleDataPointLabelComponent,
+    LgCardPrincipleDataPointComponent,
+    LgCardSubtitleComponent,
+    LgCardTitleComponent,
+    LgCardContentComponent,
+    LgCardComponent,
+    LgGridRowDirective,
+    LgGridColDirective,
+  ],
 })
 class AsyncSkeletonLoadingProductCardComponent implements OnInit {
   data: Data = null;
@@ -129,6 +167,15 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
       </lg-card-content>
     </lg-card>
   `,
+  standalone: true,
+  imports: [
+    LgDataPointValueComponent,
+    LgDataPointLabelComponent,
+    LgDataPointComponent,
+    LgCardContentComponent,
+    LgCardComponent,
+    LgSkeletonDirective,
+  ],
 })
 class AsyncSkeletonLoadingDataPointComponent implements OnInit {
   data: Data = null;
@@ -151,12 +198,11 @@ export default {
   title: 'Helpers/Directives/Skeleton loading/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [
+      imports: [
         AsyncSkeletonLoadingProductCardComponent,
         AsyncSkeletonLoadingCardComponent,
         AsyncSkeletonLoadingDataPointComponent,
       ],
-      imports: [ LgCardModule ],
     }),
   ],
   parameters: {

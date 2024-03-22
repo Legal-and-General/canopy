@@ -13,8 +13,8 @@ import {
 import { NgIf, NgFor, NgTemplateOutlet } from '@angular/common';
 
 import { LgIconComponent } from '../icon';
-import { LgMarginDirective } from '../spacing/margin/margin.directive';
-import { LgSpinnerComponent } from '../spinner/spinner.component';
+import { LgMarginDirective } from '../spacing';
+import { LgSpinnerComponent } from '../spinner';
 
 import type { ButtonIconPosition, ButtonSize, ButtonVariant } from './button.interface';
 

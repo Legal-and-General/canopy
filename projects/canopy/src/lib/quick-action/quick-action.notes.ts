@@ -5,7 +5,7 @@ Quick Actions are small clickable elements that can be used to provide functiona
 ~~~js
 @NgModule({
   ...
-  imports: [ ..., LgQuickActionModule ],
+  imports: [ ..., LgQuickActionComponent ],
 })
 ~~~
 `;

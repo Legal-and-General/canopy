@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 
 import type { HeadingLevel } from '../../heading';
-import { LgIconComponent } from '../../icon/icon.component';
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { lgIconChevronDown, LgIconComponent, LgIconRegistry } from '../../icon';
+import { LgHeadingComponent } from '../../heading';
 
 let nextUniqueId = 0;
 
@@ -41,7 +41,12 @@ export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   _panelId = `lg-accordion-panel-${this._id}`;
   _isActive = false;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private iconRegistry: LgIconRegistry,
+  ) {
+    this.iconRegistry.registerIcons([ lgIconChevronDown ]);
+  }
 
   ngAfterViewChecked() {
     this.cdr.detectChanges();

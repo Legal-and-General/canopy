@@ -1,8 +1,9 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgForOf } from '@angular/common';
 
-import { LgBrandIconComponent } from '../brand-icon.component';
+import { BrandIconSize, LgBrandIconComponent } from '../brand-icon.component';
 import { LgBrandIconRegistry } from '../brand-icon.registry';
 import { lgBrandIconsArray } from '../brand-icons.interface';
 
@@ -46,9 +47,11 @@ import { lgBrandIconsArray } from '../brand-icons.interface';
       }
     `,
   ],
+  standalone: true,
+  imports: [ LgBrandIconComponent, NgForOf ],
 })
 class SwatchBrandIconComponent implements OnChanges {
-  @Input() size: string;
+  @Input() size: BrandIconSize;
   @Input() colour: string;
   @Input() halfToneColour: string;
   @Input() outlinesColour: string;
@@ -88,7 +91,7 @@ export default {
   title: 'Foundations/Brand icon/Catalog',
   decorators: [
     moduleMetadata({
-      declarations: [ SwatchBrandIconComponent, LgBrandIconComponent ],
+      imports: [ SwatchBrandIconComponent, LgBrandIconComponent ],
     }),
   ],
   argTypes: {

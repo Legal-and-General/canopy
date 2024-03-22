@@ -1,7 +1,11 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgAlertComponent } from '../../alert';
-import { LgCardModule } from '../../card';
+import { LgCardComponent, LgCardContentComponent } from '../../card';
+import { LgGridContainerDirective } from '../grid-container.directive';
+import { LgGridRowDirective } from '../grid-row.directive';
+import { LgGridColDirective } from '../grid-col.directive';
+import { LgMarginDirective } from '../../spacing';
 
 const firstColCategory = 'Column 1';
 const secondColCategory = 'Column 2';
@@ -18,7 +22,14 @@ export default {
   title: 'Helpers/Directives/Grid/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgCardModule ],
+      imports: [
+        LgCardComponent,
+        LgCardContentComponent,
+        LgGridContainerDirective,
+        LgGridRowDirective,
+        LgGridColDirective,
+        LgMarginDirective,
+      ],
     }),
   ],
   parameters: {

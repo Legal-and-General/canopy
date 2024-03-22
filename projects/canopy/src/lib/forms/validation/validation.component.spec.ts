@@ -5,7 +5,6 @@ import { LgIconComponent } from '../../icon';
 import type { Variant } from '../../variant';
 
 import { LgValidationComponent } from './validation.component';
-import { LgValidationModule } from './validation.module';
 
 describe('LgValidationComponent', () => {
   let component: LgValidationComponent;
@@ -13,7 +12,7 @@ describe('LgValidationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgValidationModule ],
+      imports: [ LgValidationComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgValidationComponent);

@@ -5,10 +5,20 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { lgIconClose, LgIconRegistry, lgIconSearch } from '../../../icon';
-import type { ButtonVariant } from '../../../button';
+import {
+  lgIconClose,
+  LgIconComponent,
+  LgIconRegistry,
+  lgIconSearch,
+} from '../../../icon';
+import { ButtonVariant, LgButtonComponent } from '../../../button';
 import { LgInputFieldComponent } from '../input-field.component';
+import { LgPrefixDirective } from '../../../prefix';
+import { LgInputDirective } from '../input.directive';
+import { LgSuffixDirective } from '../../../suffix';
+import { LgHintComponent } from '../../hint';
 
 interface Config {
   block?: boolean;
@@ -27,9 +37,7 @@ interface Config {
   suffix?: string;
 }
 
-function createInputStory(
-  args: /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgInputModule,
-) {
+function createInputStory(args: LgInputFieldComponent) {
   return {
     props: args,
     template: `
@@ -125,6 +133,18 @@ const inputTemplate = `
   template: `
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">${inputTemplate}</form>
   `,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    LgInputFieldComponent,
+    LgPrefixDirective,
+    LgSuffixDirective,
+    LgInputDirective,
+    LgButtonComponent,
+    LgIconComponent,
+    LgHintComponent,
+    NgIf,
+  ],
 })
 class ReactiveFormComponent {
   @Input()
@@ -179,8 +199,7 @@ export default {
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule ],
+      imports: [ ReactiveFormComponent ],
     }),
   ],
   argTypes: {
@@ -310,11 +329,8 @@ export default {
   },
 };
 
-const inputStory: StoryFn<
-  /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgInputModule
-> = (
-  args: /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgInputModule,
-) => createInputStory(args);
+const inputStory: StoryFn<LgInputFieldComponent> = (args: LgInputFieldComponent) =>
+  createInputStory(args);
 
 export const standard = inputStory.bind({});
 standard.storyName = 'Standard';

@@ -1,7 +1,8 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { LgCardModule } from '../../../card';
 import { LgPaddingDirective } from '../padding.directive';
+import { LgCardComponent, LgCardContentComponent } from '../../../card';
 
 const spaces = [
   'undefined',
@@ -25,7 +26,7 @@ export default {
   title: 'Helpers/Directives/Padding/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgCardModule ],
+      imports: [ LgCardComponent, LgCardContentComponent, LgPaddingDirective, NgIf ],
     }),
   ],
   parameters: {

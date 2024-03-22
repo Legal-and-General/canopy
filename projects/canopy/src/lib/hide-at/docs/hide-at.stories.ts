@@ -1,7 +1,8 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgCardModule } from '../../card';
 import { LgHideAtDirective } from '../../hide-at';
+import { LgCardComponent, LgCardContentComponent } from '../../card';
+import { LgSeparatorComponent } from '../../separator';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -9,7 +10,12 @@ export default {
   component: LgHideAtDirective,
   decorators: [
     moduleMetadata({
-      imports: [ LgCardModule ],
+      imports: [
+        LgCardComponent,
+        LgCardContentComponent,
+        LgHideAtDirective,
+        LgSeparatorComponent,
+      ],
     }),
   ],
   argTypes: {

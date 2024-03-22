@@ -7,4 +7,3 @@ export * from './table-body/table-body.component';
 export * from './table-expanded-detail/table-expanded-detail.component';
 export * from './table-row-toggle/table-row-toggle.component';
 export * from './table.interface';
-export * from './table.module';
