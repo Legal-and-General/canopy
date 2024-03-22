@@ -7,12 +7,12 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { LgDomService } from '../../utils/dom.service';
-import { LgHintComponent } from '../hint/hint.component';
-import { LgLabelComponent } from '../label/label.component';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgDomService } from '../../utils';
+import { LgHintComponent } from '../hint';
+import { LgLabelComponent } from '../label';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
+import { LgIconComponent } from '../../icon';
 
 import { LgSelectDirective } from './select.directive';
 

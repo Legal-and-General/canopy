@@ -7,7 +7,7 @@ export default {
   component: LgSeparatorComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [ LgSeparatorComponent ],
     }),
   ],
   argTypes: {

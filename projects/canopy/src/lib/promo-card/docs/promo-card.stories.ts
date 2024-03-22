@@ -1,9 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgFor } from '@angular/common';
 
-import { LgPromoCardModule } from '../promo-card.module';
 import { LgPromoCardComponent } from '../promo-card/promo-card.component';
 import { PromoCardVariant } from '../promo-card.interface';
+import { LgPromoCardListComponent } from '../promo-card-list/promo-card-list.component';
+import { LgSeparatorComponent } from '../../separator';
+import { LgPromoCardImageComponent } from '../promo-card/promo-card-image/promo-card-image.component';
+import { LgPromoCardTitleComponent } from '../promo-card/promo-card-title/promo-card-title.component';
+import { LgPromoCardContentComponent } from '../promo-card/promo-card-content/promo-card-content.component';
+import { LgPromoCardFooterComponent } from '../promo-card/promo-card-footer/promo-card-footer.component';
+import { LgMarginDirective } from '../../spacing';
+import { LgButtonComponent } from '../../button';
+import { LgPromoCardListTitleComponent } from '../promo-card-list/promo-card-list-title/promo-card-list-title.component';
 
 const cardListConfig = {
   title: 'Get more from Legal & General',
@@ -61,6 +70,20 @@ const cardListConfig = {
       </lg-promo-card>
     </lg-promo-card-list>
   `,
+  standalone: true,
+  imports: [
+    LgPromoCardListComponent,
+    LgSeparatorComponent,
+    LgPromoCardListTitleComponent,
+    LgPromoCardComponent,
+    LgPromoCardImageComponent,
+    LgPromoCardTitleComponent,
+    LgPromoCardContentComponent,
+    LgPromoCardFooterComponent,
+    LgMarginDirective,
+    LgButtonComponent,
+    NgFor,
+  ],
 })
 class PromoCardListStoryComponent {
   @Input() variants: Array<PromoCardVariant> = [];
@@ -74,8 +97,7 @@ export default {
   title: 'Components/Promo cards/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ PromoCardListStoryComponent ],
-      imports: [ LgPromoCardModule ],
+      imports: [ PromoCardListStoryComponent ],
     }),
   ],
   argTypes: {

@@ -21,11 +21,11 @@ import { DOCUMENT, NgIf } from '@angular/common';
 import { startWith, filter, merge, skipWhile, Subscription, switchMap } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgIconComponent } from '../icon/icon.component';
-import { LgHideAtDirective } from '../hide-at/hide-at.directive';
-import { LgGridColDirective } from '../grid/grid-col.directive';
-import { LgGridRowDirective } from '../grid/grid-row.directive';
-import { LgGridContainerDirective } from '../grid/grid-container.directive';
+import { LgIconComponent } from '../icon';
+import { LgHideAtDirective } from '../hide-at';
+import { LgGridColDirective } from '../grid';
+import { LgGridRowDirective } from '../grid';
+import { LgGridContainerDirective } from '../grid';
 
 import { LgAccountMenuComponent } from './account-menu/account-menu.component';
 import { LgHeaderLogoComponent } from './header-logo/header-logo.component';

@@ -1,40 +1,17 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgCardModule } from '../../card';
 import { LgOrientationDirective } from '../orientation.directive';
+import {
+  LgCardComponent,
+  LgCardContentComponent,
+  LgCardHeroImageComponent,
+} from '../../card';
+import { LgShadowDirective } from '../../shadow';
+import { LgMarginDirective, LgPaddingDirective } from '../../spacing';
 
 const responsiveCategory = 'Responsive';
 
-export default {
-  title: 'Helpers/Directives/Orientation/Examples',
-  decorators: [
-    moduleMetadata({
-      imports: [ LgCardModule ],
-    }),
-  ],
-  parameters: {
-    a11y: {
-      disable: true,
-    },
-    backgrounds: {
-      default: 'Super Blue',
-    },
-  },
-  argTypes: {
-    orientation: {
-      name: 'orientation',
-      table: {
-        category: responsiveCategory,
-      },
-    },
-  },
-} as Meta;
-
-const orientationStory: StoryFn<LgOrientationDirective> = (
-  args: LgOrientationDirective,
-) => ({
-  props: args,
-  template: `
+const template = `
 <lg-card
   lgShadow
   [lgOrientation]="orientation">
@@ -59,8 +36,43 @@ const orientationStory: StoryFn<LgOrientationDirective> = (
     <p lgMarginBottom="lg">{{ text }}</p>
     <a href="#">{{ linkText }}</a>
   </lg-card-content>
-</lg-card>
-  `,
+</lg-card>`;
+
+export default {
+  title: 'Helpers/Directives/Orientation/Examples',
+  decorators: [
+    moduleMetadata({
+      imports: [
+        LgCardComponent,
+        LgCardHeroImageComponent,
+        LgShadowDirective,
+        LgOrientationDirective,
+        LgCardContentComponent,
+        LgMarginDirective,
+        LgPaddingDirective,
+      ],
+    }),
+  ],
+  parameters: {
+    backgrounds: {
+      default: 'Super Blue',
+    },
+  },
+  argTypes: {
+    orientation: {
+      name: 'orientation',
+      table: {
+        category: responsiveCategory,
+      },
+    },
+  },
+} as Meta;
+
+const orientationStory: StoryFn<LgOrientationDirective> = (
+  args: LgOrientationDirective,
+) => ({
+  props: args,
+  template,
 });
 
 export const orientation = orientationStory.bind({});
@@ -75,7 +87,7 @@ orientation.args = {
 orientation.parameters = {
   docs: {
     source: {
-      code: null,
+      code: template,
     },
   },
 };

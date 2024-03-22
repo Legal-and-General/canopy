@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconRegistry } from '../../icon/icon.registry';
-import { lgIconsArray } from '../../icon';
+import { LgIconRegistry, LgIconComponent } from '../../icon';
+import { IconName, lgIconsArray } from '../../icon';
 import { LgBannerComponent } from '../banner.component';
+import { BannerVariant } from '../banner-variant.interface';
 
 const variantTypes = [ 'generic', 'warning' ];
 
@@ -15,11 +16,13 @@ const variantTypes = [ 'generic', 'warning' ];
       {{ content }}
     </lg-banner>
   `,
+  standalone: true,
+  imports: [ LgBannerComponent, LgIconComponent ],
 })
 class LgBannerIconComponent {
   @Input() content: string;
-  @Input() variant: string;
-  @Input() icon: string;
+  @Input() variant: BannerVariant;
+  @Input() icon: IconName;
 
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(lgIconsArray);
@@ -32,8 +35,7 @@ export default {
   component: LgBannerComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ LgBannerIconComponent ],
-      imports: [],
+      imports: [ LgBannerIconComponent ],
     }),
   ],
   argTypes: {

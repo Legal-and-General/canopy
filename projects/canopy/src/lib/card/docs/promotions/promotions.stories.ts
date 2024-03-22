@@ -1,14 +1,27 @@
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 import { LgCardComponent } from '../../card.component';
-import { LgCardModule } from '../../card.module';
 import {
   lgBrandIconCalendarAppointment,
+  LgBrandIconComponent,
   lgBrandIconLookingAhead,
   lgBrandIconPensionPot,
   LgBrandIconRegistry,
 } from '../../../brand-icon';
+import { LgMarginDirective, LgPaddingDirective } from '../../../spacing';
+import { LgCardContentComponent } from '../../card-content/card-content.component';
+import { IconName } from '../../../icon';
+import { LgCardHeroImageComponent } from '../../card-hero-img/card-hero-img.component';
+import { LgOrientationDirective, OrientationResponsive } from '../../../orientation';
+import { LgShadowDirective } from '../../../shadow';
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../../../grid';
+import { LgSeparatorComponent } from '../../../separator';
 
 const promotionsGeneralCardTemplate = `
 <lg-card
@@ -27,21 +40,36 @@ const promotionsGeneralCardTemplate = `
     <p lgMarginBottom="lg">{{ text }}</p>
     <a href="#">{{ buttonText }}</a>
   </lg-card-content>
-</lg-card>
-`;
+</lg-card>`;
 
 @Component({
   selector: 'lg-card-general-promotion',
   template: promotionsGeneralCardTemplate,
+  standalone: true,
+  imports: [
+    LgMarginDirective,
+    LgCardContentComponent,
+    LgBrandIconComponent,
+    LgCardHeroImageComponent,
+    LgOrientationDirective,
+    LgPaddingDirective,
+    LgShadowDirective,
+    LgCardComponent,
+    NgIf,
+  ],
 })
 class GeneralPromotionCardComponent {
   @Input() title: string;
   @Input() text: string;
   @Input() buttonText: string;
   @Input() imgUrl: string;
-  @Input() iconName: string;
+  @Input() iconName: IconName;
   @Input() hasIcon: boolean;
-  @Input() orientation = { sm: 'vertical', md: 'horizontal', lg: 'horizontal' };
+  @Input() orientation: OrientationResponsive = {
+    sm: 'vertical',
+    md: 'horizontal',
+    lg: 'horizontal',
+  };
 
   constructor(private brandIconRegistry: LgBrandIconRegistry) {
     this.brandIconRegistry.registerBrandIcon([
@@ -56,8 +84,14 @@ export default {
   title: 'Patterns/Promotions/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ GeneralPromotionCardComponent ],
-      imports: [ LgCardModule ],
+      imports: [
+        GeneralPromotionCardComponent,
+        LgGridContainerDirective,
+        LgGridRowDirective,
+        LgGridColDirective,
+        LgSeparatorComponent,
+        LgMarginDirective,
+      ],
     }),
   ],
   parameters: {

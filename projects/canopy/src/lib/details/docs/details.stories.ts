@@ -1,16 +1,46 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Component, Input } from '@angular/core';
 
-import { LgDetailsModule } from '../details.module';
 import { LgDetailsComponent } from '../details.component';
+import { lgIconChevronDown, LgIconRegistry } from '../../icon';
+import { LgDetailsPanelHeadingComponent } from '../details-panel-heading/details-panel-heading.component';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+
+const template = `
+<lg-details
+  [isActive]="isActive"
+  [variant]="variant"
+  [showIcon]="showIcon"
+  (opened)="toggle('Detail opened')"
+  (closed)="toggle('Detail closed')">
+  <lg-details-panel-heading [headingLevel]="headingLevel">{{ headingText }}</lg-details-panel-heading>
+  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+  payment details
+</lg-details>
+`;
+
+@Component({
+  selector: 'lg-details-example',
+  template: template,
+  standalone: true,
+  imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+})
+class DetailsExampleComponent {
+  @Input() variant: string;
+  @Input() headingLevel: number;
+  @Input() headingText: string;
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons([ lgIconChevronDown ]);
+  }
+}
 
 export default {
   title: 'Components/Details/Examples',
   component: LgDetailsComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgDetailsModule ],
+      imports: [ DetailsExampleComponent ],
     }),
   ],
   argTypes: {
@@ -130,22 +160,10 @@ export default {
   },
 } as Meta;
 
-const template = `
-<lg-details
-  [isActive]="isActive"
-  [variant]="variant"
-  [showIcon]="showIcon"
-  (opened)="toggle('Detail opened')"
-  (closed)="toggle('Detail closed')">
-  <lg-details-panel-heading [headingLevel]="headingLevel">{{ headingText }}</lg-details-panel-heading>
-  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-  payment details
-</lg-details>
-`;
-
 const detailsTemplate: StoryFn<LgDetailsComponent> = (args: LgDetailsComponent) => ({
   props: args,
-  template,
+  template:
+    '<lg-details-example [variant]="variant" [headingLevel]="headingLevel" [headingText]="headingText"></lg-details-example>',
 });
 
 export const standardDetails = detailsTemplate.bind({});

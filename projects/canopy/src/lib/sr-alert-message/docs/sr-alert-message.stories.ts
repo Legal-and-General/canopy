@@ -8,7 +8,7 @@ export default {
   component: LgSrAlertMessageDirective,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [ LgSrAlertMessageDirective ],
     }),
   ],
   argTypes: {

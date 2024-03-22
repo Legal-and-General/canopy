@@ -1,9 +1,24 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
-import { LgHeaderComponent } from '../../header/header.component';
-import { LgHeaderModule } from '../../header/header.module';
-import { LgIconRegistry, lgIconProfile, lgIconRadioButtonUnselected } from '../../icon';
+import { LgHeaderComponent } from '../header.component';
+import {
+  LgIconRegistry,
+  lgIconProfile,
+  lgIconRadioButtonUnselected,
+  LgIconComponent,
+  lgIconHamburgerMenu,
+  lgIconClose,
+} from '../../icon';
+import { LgAccountMenuComponent } from '../account-menu/account-menu.component';
+import { LgAccountMenuItemDirective } from '../account-menu/account-menu-item.directive';
+import { LgAccountMenuItemLabelComponent } from '../account-menu/account-menu-item-label/account-menu-item-label.component';
+import { LgAccountMenuListItemComponent } from '../account-menu/account-menu-list-item/account-menu-list-item.component';
+import { LgHeaderLogoComponent } from '../header-logo/header-logo.component';
+import { LgNotificationBadgeComponent } from '../notification-badge/notification-badge.component';
+import { LgPrimaryNavComponent } from '../primary-navigation/primary-navigation.component';
+import { LgPrimaryNavItemDirective } from '../primary-navigation/primary-navigation-item.directive';
+import { LgPrimaryNavListItemComponent } from '../primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component';
 
 const navigationTemplate = `
 <header lg-header>
@@ -45,6 +60,20 @@ const navigationTemplate = `
 @Component({
   selector: 'lg-navigation',
   template: navigationTemplate,
+  standalone: true,
+  imports: [
+    LgHeaderComponent,
+    LgHeaderLogoComponent,
+    LgPrimaryNavComponent,
+    LgPrimaryNavListItemComponent,
+    LgPrimaryNavItemDirective,
+    LgNotificationBadgeComponent,
+    LgAccountMenuComponent,
+    LgAccountMenuListItemComponent,
+    LgAccountMenuItemDirective,
+    LgAccountMenuItemLabelComponent,
+    LgIconComponent,
+  ],
 })
 class PrimaryNavigationComponent {
   @Input() logo: string;
@@ -52,7 +81,12 @@ class PrimaryNavigationComponent {
   @Input() logoHref: string;
 
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconProfile, lgIconRadioButtonUnselected ]);
+    this.registry.registerIcons([
+      lgIconProfile,
+      lgIconRadioButtonUnselected,
+      lgIconHamburgerMenu,
+      lgIconClose,
+    ]);
   }
 }
 
@@ -61,8 +95,7 @@ export default {
   component: LgHeaderComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ PrimaryNavigationComponent ],
-      imports: [ LgHeaderModule ],
+      imports: [ PrimaryNavigationComponent, LgHeaderComponent, LgHeaderLogoComponent ],
     }),
   ],
   parameters: {

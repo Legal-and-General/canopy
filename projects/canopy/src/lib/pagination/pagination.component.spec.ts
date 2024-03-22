@@ -3,7 +3,7 @@ import { MockBuilder, MockedComponentFixture, MockRender, ngMocks } from 'ng-moc
 
 import { LgIconModule } from '../icon/index';
 
-import { LgPagionationComponent as LgPaginationComponent } from './pagination.component';
+import { LgPaginationComponent as LgPaginationComponent } from './pagination.component';
 
 describe('LgPaginationComponent', () => {
   const getButtons = () =>
