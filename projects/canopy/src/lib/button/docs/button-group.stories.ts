@@ -1,13 +1,14 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgButtonGroupComponent } from '../button-group/button-group.component';
+import { LgButtonComponent } from '../button.component';
 
 export default {
   title: 'Components/Button/Examples',
   component: LgButtonGroupComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [ LgButtonComponent ],
     }),
   ],
   argTypes: {

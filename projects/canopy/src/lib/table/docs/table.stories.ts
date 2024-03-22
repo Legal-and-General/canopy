@@ -1,15 +1,33 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgFor } from '@angular/common';
 
 import {
+  lgIconChevronDown,
   lgIconChevronRightCircle,
+  LgIconComponent,
   lgIconInformationFill,
   LgIconRegistry,
 } from '../../icon';
-import { LgTableModule } from '../table.module';
 import { AlignmentOptions, TableColumnLayoutBreakpoints } from '../table.interface';
 import type { TableVariant } from '../table.interface';
 import { LgTableComponent } from '../table/table.component';
+import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
+import { LgTableCellComponent } from '../table-cell/table-cell.component';
+import { LgTableRowComponent } from '../table-row/table-row.component';
+import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
+import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.component';
+import { LgTableHeadComponent } from '../table-head/table-head.component';
+import { LgTableBodyComponent } from '../table-body/table-body.component';
+import { LgInputDirective, LgInputFieldComponent } from '../../forms';
+import { LgMarginDirective } from '../../spacing';
+import { LgSuffixDirective } from '../../suffix';
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../../grid';
+import { LgQuickActionComponent } from '../../quick-action';
 
 interface TableStoryItem {
   author: string;
@@ -74,7 +92,7 @@ function getDefaultTableContent(): Array<TableStoryItem> {
 
 const expandableTableTemplate = `
 <table lg-table [showColumnsAt]="columnBreakpoint" [variant]="variant">
-  <thead lg-table-head>
+    <thead lg-table-head>
     <tr lg-table-row>
       <th scope="col" lg-table-head-cell>
         <span class="lg-visually-hidden">Toggle</span>
@@ -83,9 +101,9 @@ const expandableTableTemplate = `
       <th lg-table-head-cell>Book</th>
       <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody lg-table-body>
+    <tbody lg-table-body>
     <ng-container *ngFor="let book of books; index as i">
       <tr lg-table-row>
         <td lg-table-cell>
@@ -108,13 +126,25 @@ const expandableTableTemplate = `
         </td>
       </tr>
     </ng-container>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 `;
 
 @Component({
   selector: 'lg-story-table-detail',
   template: expandableTableTemplate,
+  standalone: true,
+  imports: [
+    LgTableComponent,
+    LgTableHeadComponent,
+    LgTableHeadCellComponent,
+    LgTableBodyComponent,
+    LgTableRowComponent,
+    LgTableCellComponent,
+    LgTableRowToggleComponent,
+    LgTableExpandedDetailComponent,
+    NgFor,
+  ],
 })
 export class StoryTableDetailComponent {
   @Input() books: Array<TableStoryItem> = [];
@@ -129,7 +159,12 @@ export class StoryTableDetailComponent {
     return Object.keys(this.books[0]).length + 1;
   }
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(
+    private cd: ChangeDetectorRef,
+    private registry: LgIconRegistry,
+  ) {
+    this.registry.registerIcons([ lgIconChevronDown ]);
+  }
 
   toggleRow(index: number) {
     const matchIndex = this.expandedRows.findIndex(i => i === index);
@@ -177,7 +212,7 @@ const withLongCopyTableTemplate = `
                 cupidatat non proident.
               </p>
             </td>
-            <td lg-table-cell [showLabel]="false" [stack]="stack">
+            <td lg-table-cell [stack]="stack">
               <p>Sed ut perspiciatis</p>
               <p>
                 emo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
@@ -244,6 +279,22 @@ const withLongCopyTableTemplate = `
 @Component({
   selector: 'lg-story-table-long-copy',
   template: withLongCopyTableTemplate,
+  standalone: true,
+  imports: [
+    LgTableComponent,
+    LgTableHeadComponent,
+    LgTableHeadCellComponent,
+    LgTableBodyComponent,
+    LgTableRowComponent,
+    LgTableCellComponent,
+    LgMarginDirective,
+    LgGridContainerDirective,
+    LgGridRowDirective,
+    LgGridColDirective,
+    LgQuickActionComponent,
+    LgIconComponent,
+    NgFor,
+  ],
 })
 class StoryTableLongCopyComponent {
   @Input() variant: TableVariant;
@@ -399,8 +450,21 @@ export default {
   excludeStories: [ 'StoryTableDetailComponent' ],
   decorators: [
     moduleMetadata({
-      imports: [ LgTableModule ],
-      declarations: [ StoryTableDetailComponent, StoryTableLongCopyComponent ],
+      imports: [
+        StoryTableDetailComponent,
+        StoryTableLongCopyComponent,
+        LgTableComponent,
+        LgTableHeadComponent,
+        LgTableRowComponent,
+        LgTableHeadCellComponent,
+        LgTableBodyComponent,
+        LgTableCellComponent,
+        LgInputFieldComponent,
+        LgInputDirective,
+        LgMarginDirective,
+        LgSuffixDirective,
+        NgFor,
+      ],
     }),
   ],
   argTypes,
@@ -426,7 +490,7 @@ const standardTableTemplate = `
 </table>
 `;
 
-const standardTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
+const standardTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
   props: args,
   template: standardTableTemplate,
 });
@@ -452,7 +516,7 @@ standardTable.parameters = {
   },
 };
 
-const expandableTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
+const expandableTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
   props: args,
   template: `
     <lg-story-table-detail [books]="books" [variant]="variant" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></lg-story-table-detail>
@@ -517,7 +581,7 @@ const withInputTableTemplate = `
 </table>
 `;
 
-const withInputTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
+const withInputTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
   props: args,
   template: withInputTableTemplate,
 });
@@ -572,7 +636,7 @@ withInputTable.parameters = {
   },
 };
 
-const withLongCopyTableStory: StoryFn<LgTableModule> = (args: LgTableModule) => ({
+const withLongCopyTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
   props: args,
   template: `
     <lg-story-table-long-copy

@@ -3,7 +3,6 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MockRender } from 'ng-mocks';
 
-import { LgFooterModule } from './footer.module';
 import { LgFooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -13,7 +12,7 @@ describe('FooterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgFooterModule ],
+      imports: [ LgFooterComponent ],
     }).compileComponents();
   }));
 

@@ -5,8 +5,11 @@ import {
 } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
+import { LgRadioButtonComponent } from '../../radio-button.component';
+import { LgHintComponent } from '../../../hint';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -25,6 +28,14 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form-radio',
   template: formTemplate,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    LgRadioGroupComponent,
+    LgHintComponent,
+    LgRadioButtonComponent,
+    NgIf,
+  ],
 })
 class ReactiveFormRadioComponent {
   @Input() inline = false;
@@ -60,8 +71,7 @@ export default {
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormRadioComponent ],
-      imports: [ ReactiveFormsModule ],
+      imports: [ ReactiveFormRadioComponent ],
     }),
   ],
   argTypes: {
@@ -228,11 +238,7 @@ export default {
   },
 };
 
-const radioStory: StoryFn<
-  /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgRadioModule
-> = (
-  args: /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgRadioModule,
-) => ({
+const radioStory: StoryFn<LgRadioButtonComponent> = (args: LgRadioButtonComponent) => ({
   props: args,
   template: `
   <lg-reactive-form-radio

@@ -5,9 +5,12 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgFor, NgIf } from '@angular/common';
 
-import { LgSelectModule } from '../select.module';
 import { LgSelectFieldComponent } from '../select-field.component';
+import { LgHintComponent } from '../../hint';
+import { LgSelectDirective } from '../select.directive';
+import { lgIconChevronDown, LgIconRegistry } from '../../../icon';
 
 const template = `
 <lg-select-field [block]="block">
@@ -22,6 +25,15 @@ const template = `
 @Component({
   selector: 'lg-reactive-form',
   template: ` <form [formGroup]="form">${template}</form> `,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    LgSelectFieldComponent,
+    LgHintComponent,
+    LgSelectDirective,
+    NgIf,
+    NgFor,
+  ],
 })
 class ReactiveFormComponent {
   @Input() block: boolean;
@@ -41,16 +53,20 @@ class ReactiveFormComponent {
     return this.form.controls.color.disabled;
   }
 
-  @Output() selectChange: EventEmitter<void> = new EventEmitter();
+  @Output() selectChange: EventEmitter<void> = new EventEmitter<void>();
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor(
+    public fb: UntypedFormBuilder,
+    private registry: LgIconRegistry,
+  ) {
     this.form = this.fb.group({
       color: { value: '', disabled: false },
     });
 
     this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
+    this.registry.registerIcons([ lgIconChevronDown ]);
   }
 }
 
@@ -59,8 +75,7 @@ export default {
   component: LgSelectFieldComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule, LgSelectModule ],
+      imports: [ ReactiveFormComponent ],
     }),
   ],
   argTypes: {
@@ -112,7 +127,9 @@ export default {
   },
 } as Meta;
 
-const selectTemplate: StoryFn<LgSelectModule> = (args: LgSelectModule) => ({
+const selectTemplate: StoryFn<LgSelectFieldComponent> = (
+  args: LgSelectFieldComponent,
+) => ({
   props: args,
   template: `
   <lg-reactive-form

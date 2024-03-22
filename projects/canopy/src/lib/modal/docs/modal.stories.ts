@@ -1,17 +1,60 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Component } from '@angular/core';
 
-import { LgModalModule } from '../modal.module';
-import { LgSeparatorComponent } from '../../separator/separator.component';
 import { LgModalComponent } from '../modal.component';
+import { LgModalTriggerDirective } from '../modal-trigger/modal-trigger.directive';
+import { LgModalHeaderComponent } from '../modal-header/modal-header.component';
+import { LgModalBodyComponent } from '../modal-body/modal-body.component';
+import { LgModalFooterComponent } from '../modal-footer/modal-footer.component';
+import { LgModalBodyTimerComponent } from '../modal-body-timer/modal-body-timer.component';
+import { lgIconClose, LgIconRegistry } from '../../icon';
+import { LgButtonComponent, LgButtonGroupComponent } from '../../button';
+
+const template = `
+<button lgModalTrigger="modal-story" lg-button type="button" variant="secondary-dark">Open modal</button>
+<lg-modal id="modal-story">
+  <lg-modal-header [headingLevel]="headingLevel">Lorem ipsum</lg-modal-header>
+  <lg-modal-body>
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <lg-modal-body-timer timer="90"></lg-modal-body-timer>
+  </lg-modal-body>
+  <lg-modal-footer>
+    <lg-button-group>
+      <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Button</button>
+      <button lg-button lgMarginBottom="none" variant="secondary-dark" type="button">Close</button>
+    </lg-button-group>
+  </lg-modal-footer>
+</lg-modal>
+`;
+
+@Component({
+  selector: 'lg-modal-wrapper',
+  template,
+  standalone: true,
+  imports: [
+    LgModalComponent,
+    LgModalTriggerDirective,
+    LgModalHeaderComponent,
+    LgModalBodyComponent,
+    LgModalFooterComponent,
+    LgModalBodyTimerComponent,
+    LgButtonComponent,
+    LgButtonGroupComponent,
+  ],
+})
+class ModalWrapperComponent {
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons([ lgIconClose ]);
+  }
+}
 
 export default {
   title: 'Components/Modal/Examples',
-  component: LgModalComponent,
   // TODO use subcomponents and define argTypes once this issue is resolved: https://github.com/storybookjs/storybook/issues/14710
   // subcomponents: { LgModalHeaderComponent,LgModalBodyComponent, LgModalBodyTimerComponent },
   decorators: [
     moduleMetadata({
-      imports: [ LgModalModule ],
+      imports: [ ModalWrapperComponent ],
     }),
   ],
   argTypes: {
@@ -110,26 +153,11 @@ export default {
   },
 } as Meta;
 
-const template = `
-<button lgModalTrigger="modal-story" lg-button type="button" variant="secondary-dark">Open modal</button>
-<lg-modal id="modal-story">
-  <lg-modal-header [headingLevel]="headingLevel">Lorem ipsum</lg-modal-header>
-  <lg-modal-body>
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    <lg-modal-body-timer timer="90"></lg-modal-body-timer>
-  </lg-modal-body>
-  <lg-modal-footer>
-    <lg-button-group>
-      <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Button</button>
-      <button lg-button lgMarginBottom="none" variant="secondary-dark" type="button">Close</button>
-    </lg-button-group>
-  </lg-modal-footer>
-</lg-modal>
-`;
-
-const detailsTemplate: StoryFn<LgSeparatorComponent> = (args: LgSeparatorComponent) => ({
+const detailsTemplate: StoryFn<ModalWrapperComponent> = (
+  args: ModalWrapperComponent,
+) => ({
   props: args,
-  template,
+  template: '<lg-modal-wrapper></lg-modal-wrapper>',
 });
 
 export const standardSeparator = detailsTemplate.bind({});

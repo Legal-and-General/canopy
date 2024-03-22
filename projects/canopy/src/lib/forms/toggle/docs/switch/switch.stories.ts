@@ -1,7 +1,6 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgToggleModule } from '../../toggle.module';
 import { LgToggleComponent } from '../../toggle.component';
 import {
   createToggleStory,
@@ -14,8 +13,7 @@ export default {
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveToggleFormComponent ],
-      imports: [ ReactiveFormsModule, LgToggleModule ],
+      imports: [ ReactiveFormsModule, LgToggleComponent, ReactiveToggleFormComponent ],
     }),
   ],
   argTypes: {
@@ -183,7 +181,7 @@ export default {
   },
 };
 
-const switchStory: StoryFn<LgToggleModule> = (args: LgToggleModule) =>
+const switchStory: StoryFn<LgToggleComponent> = (args: LgToggleComponent) =>
   createToggleStory(args, 'switch');
 
 const code = `

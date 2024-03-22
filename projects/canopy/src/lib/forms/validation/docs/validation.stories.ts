@@ -1,6 +1,5 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgValidationModule } from '../validation.module';
 import { LgValidationComponent } from '../validation.component';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
@@ -10,7 +9,7 @@ export default {
   component: LgValidationComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgValidationModule ],
+      imports: [ LgValidationComponent ],
     }),
   ],
   argTypes: {
@@ -70,7 +69,9 @@ const template = `
 </lg-validation>
 `;
 
-const validationStory: StoryFn<LgValidationModule> = (args: LgValidationModule) => ({
+const validationStory: StoryFn<LgValidationComponent> = (
+  args: LgValidationComponent,
+) => ({
   props: args,
   template,
 });

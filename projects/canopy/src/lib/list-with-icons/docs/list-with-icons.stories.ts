@@ -1,9 +1,11 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, HostBinding, Input } from '@angular/core';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 
-import { LgListWithIconsModule } from '../list-with-icons.module';
 import { lgIconCheckmark, lgIconClose, lgIconDoc, LgIconRegistry } from '../../icon';
 import { ListWithIconsVariant } from '../list-with-icons.interface';
+import { LgListWithIconsComponent } from '../list-with-icons.component';
+import { LgListWithIconsItemComponent } from '../list-with-icons-item/list-with-icons-item.component';
 
 const template = `
 <ul lg-list-with-icons [variant]="variant">
@@ -32,6 +34,14 @@ const template = `
       }
     `,
   ],
+  standalone: true,
+  imports: [
+    LgListWithIconsComponent,
+    LgListWithIconsItemComponent,
+    NgFor,
+    NgIf,
+    NgTemplateOutlet,
+  ],
 })
 class ListWithIconsWrapperComponent {
   @Input() variant: ListWithIconsVariant;
@@ -58,8 +68,7 @@ export default {
   title: 'Components/List/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ ListWithIconsWrapperComponent ],
-      imports: [ LgListWithIconsModule ],
+      imports: [ ListWithIconsWrapperComponent ],
     }),
   ],
   parameters: {

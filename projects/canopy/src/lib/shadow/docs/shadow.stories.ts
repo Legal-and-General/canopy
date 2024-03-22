@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgCardModule } from '../../card';
 import { LgShadowDirective } from '../shadow.directive';
+import { LgCardComponent, LgCardContentComponent } from '../../card';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -9,7 +9,7 @@ export default {
   component: LgShadowDirective,
   decorators: [
     moduleMetadata({
-      imports: [ LgCardModule ],
+      imports: [ LgCardComponent, LgCardContentComponent ],
     }),
   ],
   parameters: {
