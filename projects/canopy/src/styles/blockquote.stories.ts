@@ -1,4 +1,5 @@
-import { Meta, Story } from '@storybook/angular';
+import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
 const template = `
 <blockquote>
@@ -9,6 +10,11 @@ const template = `
 
 export default {
   title: 'Components/Blockquote/Examples',
+  decorators: [
+    moduleMetadata({
+      imports: [ NgIf ],
+    }),
+  ],
 } as Meta;
 
 const quoteTemplate: Story = args => ({

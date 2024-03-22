@@ -2,12 +2,12 @@ export const notes = (name: string) => `
 Provides a set of components to implement ${name} groups in a form. The ${name} Group component is a container which displays the label with an optional hint and should contain two or more Toggle components. The Toggle component represents a single ${name.toLowerCase()}. The Hint component may be used to provide extra context to the user.
 
 ## Usage
-Import the CheckboxGroup and Toggle modules into your application:
+Import the CheckboxGroup and Toggle components into your application:
 
 ~~~js
 @NgModule({
   ...
-  imports: [ ..., LgCheckboxGroupModule, LgToggleModule ],
+  imports: [ ..., LgCheckboxGroupComponent, LgToggleComponent ],
 })
 ~~~
 

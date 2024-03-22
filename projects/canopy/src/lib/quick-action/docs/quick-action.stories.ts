@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconRegistry } from '../../icon/icon.registry';
-import { lgIconsArray } from '../../icon';
+import { IconName, LgIconRegistry, lgIconsArray, LgIconComponent } from '../../icon';
+import { LgQuickActionComponent } from '../quick-action.component';
 
 @Component({
   selector: 'lg-quick-action-link',
@@ -12,12 +12,14 @@ import { lgIconsArray } from '../../icon';
       {{ content }}
     </a>
   `,
+  standalone: true,
+  imports: [ LgIconComponent, LgQuickActionComponent ],
 })
 class LgQuickActionLinkComponent {
   @Input() content: string;
   @Input() link: string;
   @Input() target: string;
-  @Input() icon: string;
+  @Input() icon: IconName;
 
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(lgIconsArray);
@@ -32,10 +34,12 @@ class LgQuickActionLinkComponent {
       {{ content }}
     </button>
   `,
+  standalone: true,
+  imports: [ LgIconComponent, LgQuickActionComponent ],
 })
 class LgQuickActionButtonComponent {
   @Input() content: string;
-  @Input() icon: string;
+  @Input() icon: IconName;
 
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons(lgIconsArray);
@@ -46,8 +50,7 @@ export default {
   title: 'Components/Quick action/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ LgQuickActionButtonComponent, LgQuickActionLinkComponent ],
-      imports: [],
+      imports: [ LgQuickActionButtonComponent, LgQuickActionLinkComponent ],
     }),
   ],
   argTypes: {

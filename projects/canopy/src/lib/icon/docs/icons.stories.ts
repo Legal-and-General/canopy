@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgForOf } from '@angular/common';
 
 import { LgIconComponent } from '../icon.component';
 import { LgIconRegistry } from '../icon.registry';
@@ -10,7 +11,7 @@ import { lgIconsArray } from '../icons.interface';
   selector: 'lg-swatch-icon',
   template: `
     <div class="swatch" *ngFor="let icon of icons">
-      <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar"> </lg-icon>
+      <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar"></lg-icon>
       <span class="swatch__name">{{ icon.name }}</span>
     </div>
   `,
@@ -31,6 +32,8 @@ import { lgIconsArray } from '../icons.interface';
       }
     `,
   ],
+  standalone: true,
+  imports: [ LgIconComponent, NgForOf ],
 })
 class SwatchIconComponent implements OnChanges {
   @Input() colour: string;
@@ -65,7 +68,7 @@ export default {
   title: 'Foundations/UI icon/Catalog',
   decorators: [
     moduleMetadata({
-      declarations: [ SwatchIconComponent, LgIconComponent ],
+      imports: [ SwatchIconComponent, LgIconComponent ],
     }),
   ],
   argTypes: {

@@ -8,7 +8,7 @@ Import the component in your application:
 ~~~js
 @NgModule({
   ...
-  imports: [ ..., LgSpinnerModule ],
+  imports: [ ..., LgSpinnerComponent ],
 })
 ~~~
 

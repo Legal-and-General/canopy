@@ -1,10 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgCardModule } from '../../card';
 import { LgIconRegistry, lgIconsArray } from '../../icon';
 import type { Variant } from '../variant.interface';
 import { LgVariantDirective } from '..';
+import { LgCardComponent, LgCardContentComponent } from '../../card';
+import { LgButtonComponent } from '../../button';
+import { LgShadowDirective } from '../../shadow';
+import { LgMarginDirective, LgPaddingDirective } from '../../spacing';
 
 const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
@@ -32,6 +35,16 @@ const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
       </lg-card-content>
     </lg-card>
   `,
+  standalone: true,
+  imports: [
+    LgCardComponent,
+    LgCardContentComponent,
+    LgVariantDirective,
+    LgButtonComponent,
+    LgShadowDirective,
+    LgMarginDirective,
+    LgPaddingDirective,
+  ],
 })
 class LgVariantStoryComponent {
   @Input() variant: Variant;
@@ -44,8 +57,7 @@ export default {
   title: 'Helpers/Directives/Variant/Examples',
   decorators: [
     moduleMetadata({
-      declarations: [ LgVariantStoryComponent ],
-      imports: [ LgCardModule ],
+      imports: [ LgVariantStoryComponent ],
     }),
   ],
   argTypes: {

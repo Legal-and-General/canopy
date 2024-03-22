@@ -8,9 +8,11 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { LgGridColDirective } from '../grid/grid-col.directive';
-import { LgGridRowDirective } from '../grid/grid-row.directive';
-import { LgGridContainerDirective } from '../grid/grid-container.directive';
+import {
+  LgGridColDirective,
+  LgGridRowDirective,
+  LgGridContainerDirective,
+} from '../grid';
 
 import type { BannerVariant } from './banner-variant.interface';
 

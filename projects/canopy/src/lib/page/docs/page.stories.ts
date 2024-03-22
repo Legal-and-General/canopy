@@ -1,11 +1,51 @@
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Component, Input } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 
 import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
-import { LgHeaderModule } from '../../header';
-import { LgCardModule } from '../../card';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
-import { LgBreadcrumbModule } from '../../breadcrumb';
 import { LgPageComponent } from '../page.component';
+import { LgHeaderComponent, LgHeaderLogoComponent } from '../../header';
+import { LgCardComponent, LgCardContentComponent } from '../../card';
+import {
+  LgFooterComponent,
+  LgFooterCopyrightComponent,
+  LgFooterLogoComponent,
+  LgFooterNavComponent,
+  LgFooterNavItemComponent,
+} from '../../footer';
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../../grid';
+import { LgMarginDirective } from '../../spacing';
+import {
+  LgHeroCardComponent,
+  LgHeroCardContentComponent,
+  LgHeroCardDataPointComponent,
+  LgHeroCardDataPointLabelComponent,
+  LgHeroCardDataPointListComponent,
+  LgHeroCardDataPointValueComponent,
+  LgHeroCardFooterComponent,
+  LgHeroCardHeaderComponent,
+  LgHeroCardNotificationComponent,
+  LgHeroCardPrincipleDataPointComponent,
+  LgHeroCardPrincipleDataPointLabelComponent,
+  LgHeroCardPrincipleDataPointValueComponent,
+  LgHeroCardSubtitleComponent,
+  LgHeroCardTitleComponent,
+  LgHeroComponent,
+  LgHeroContentComponent,
+  LgHeroHeaderComponent,
+} from '../../hero';
+import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
+import {
+  LgIconComponent,
+  lgIconHome,
+  lgIconInformationFill,
+  LgIconRegistry,
+} from '../../icon';
 
 const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
@@ -28,33 +68,143 @@ const createArgs = () => ({
 });
 
 const header = `
-  <header lg-header
-    [logo]="logo"
-    [logoAlt]="logoAlt"
-    [logoHref]="logoHref">
+  <header lg-header>
+    <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
   </header>
 `;
 
 const footer = `
-  <footer lg-footer
-    [logo]="logo"
-    [logoAlt]="logoAlt"
-    [copyright]="copyright"
-    [primaryLinks]="primaryLinks"
-    [secondaryLinks]="secondaryLinks">
-  </footer>
+<footer lg-footer>
+  <lg-footer-nav variant="primary">
+    <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
+      <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-nav variant="secondary">
+    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
+      <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
+
+  <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
+</footer>
 `;
 
 const headerCategory = 'header';
 const footerCategory = 'footer';
 const contentCategory = 'content';
 
+const fullWidthWithHeroTemplate = `
+<lg-page>
+  ${header}
+  <lg-hero [overlap]="overlap">
+    ${productHeroHTML}
+  </lg-hero>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12">
+        <lg-card lgMarginHorizontal="none">
+          <lg-card-content>
+            {{card1}} <br /><br />
+            {{card2}} <br /><br />
+            {{card3}}
+          </lg-card-content>
+        </lg-card>
+      </div>
+    </div>
+  </div>
+  ${footer}
+</lg-page>
+`;
+
+@Component({
+  selector: 'lg-full-width-with-header',
+  template: fullWidthWithHeroTemplate,
+  standalone: true,
+  imports: [
+    LgPageComponent,
+    LgHeroComponent,
+    LgHeroHeaderComponent,
+    LgHeroContentComponent,
+    LgHeroCardComponent,
+    LgHeroCardContentComponent,
+    LgHeroCardHeaderComponent,
+    LgHeroCardTitleComponent,
+    LgHeroCardSubtitleComponent,
+    LgHeroCardNotificationComponent,
+    LgHeroCardPrincipleDataPointComponent,
+    LgHeroCardPrincipleDataPointLabelComponent,
+    LgHeroCardPrincipleDataPointValueComponent,
+    LgHeroCardDataPointListComponent,
+    LgHeroCardDataPointComponent,
+    LgHeroCardDataPointLabelComponent,
+    LgHeroCardDataPointValueComponent,
+    LgHeroCardFooterComponent,
+    LgBreadcrumbComponent,
+    LgBreadcrumbItemComponent,
+    LgIconComponent,
+    LgGridContainerDirective,
+    LgGridRowDirective,
+    LgGridColDirective,
+    LgCardComponent,
+    LgCardContentComponent,
+    LgHeaderComponent,
+    LgHeaderLogoComponent,
+    LgFooterComponent,
+    LgFooterComponent,
+    LgFooterNavComponent,
+    LgFooterNavItemComponent,
+    LgFooterLogoComponent,
+    LgFooterCopyrightComponent,
+    NgIf,
+    NgFor,
+    LgMarginDirective,
+  ],
+})
+class FullWidthWithHeaderComponent {
+  @Input() overlap: number;
+  @Input() logo: string;
+  @Input() logoAlt: string;
+  @Input() copyright: string;
+  @Input() card1: string;
+  @Input() card2: string;
+  @Input() card3: string;
+  @Input() primaryLinks: never;
+  @Input() secondaryLinks: never;
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons([ lgIconHome, lgIconInformationFill ]);
+  }
+}
+
 export default {
   title: 'Templates/Page/Examples',
   component: LgPageComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgHeaderModule, LgCardModule, LgBreadcrumbModule ],
+      imports: [
+        LgHeaderComponent,
+        LgFooterComponent,
+        LgPageComponent,
+        LgGridContainerDirective,
+        LgGridRowDirective,
+        LgGridColDirective,
+        LgMarginDirective,
+        FullWidthWithHeaderComponent,
+        LgHeaderLogoComponent,
+        LgCardComponent,
+        LgCardContentComponent,
+        LgMarginDirective,
+        LgFooterComponent,
+        LgFooterNavComponent,
+        LgFooterNavItemComponent,
+        LgFooterLogoComponent,
+        LgFooterCopyrightComponent,
+        NgIf,
+        NgFor,
+      ],
     }),
   ],
   parameters: {
@@ -230,32 +380,19 @@ fullWidth.parameters = {
   },
 };
 
-const fullWidthWithHeroTemplate = `
-<lg-page>
-  ${header}
-  <lg-hero [overlap]="overlap">
-    ${productHeroHTML}
-  </lg-hero>
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <lg-card lgMarginHorizontal="none">
-          <lg-card-content>
-            {{card1}} <br /><br />
-            {{card2}} <br /><br />
-            {{card3}}
-          </lg-card-content>
-        </lg-card>
-      </div>
-    </div>
-  </div>
-  ${footer}
-</lg-page>
-`;
-
 const fullWidthWithHeroStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
   props: args,
-  template: fullWidthWithHeroTemplate,
+  template: `<lg-full-width-with-header
+    [overlap]="overlap"
+    [logo]="logo"
+    [logoAlt]="logoAlt"
+    [copyright]="copyright"
+    [card1]="card1"
+    [card2]="card2"
+    [card3]="card3"
+    [primaryLinks]="primaryLinks"
+    [secondaryLinks]="secondaryLinks"
+  ></lg-full-width-with-header>`,
 });
 
 export const fullWidthWithHero = fullWidthWithHeroStory.bind({});

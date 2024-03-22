@@ -8,8 +8,15 @@ import {
 } from '@angular/core';
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
-import type { Variant } from '../variant/variant.interface';
-import { LgIconComponent } from '../icon/icon.component';
+import type { Variant } from '../variant';
+import {
+  lgIconCheckmarkSpotFill,
+  LgIconComponent,
+  lgIconCrossmarkSpotFill,
+  lgIconInformationFill,
+  LgIconRegistry,
+  lgIconWarningFill,
+} from '../icon';
 
 @Component({
   selector: 'lg-alert',
@@ -46,8 +53,16 @@ export class LgAlertComponent {
   constructor(
     private renderer: Renderer2,
     private hostElement: ElementRef,
+    private iconRegistry: LgIconRegistry,
   ) {
     this.variant = 'generic';
+
+    this.iconRegistry.registerIcons([
+      lgIconCrossmarkSpotFill,
+      lgIconInformationFill,
+      lgIconWarningFill,
+      lgIconCheckmarkSpotFill,
+    ]);
   }
 
   @Input() set role(role: string) {

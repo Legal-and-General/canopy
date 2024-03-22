@@ -1,12 +1,20 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LgLinkMenuModule } from '../../link-menu';
+import { LgLinkMenuComponent, LgLinkMenuItemComponent } from '../../link-menu';
+import { LgSeparatorComponent } from '../../separator';
+import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-bottom-links-section',
   standalone: true,
-  imports: [ CommonModule, LgLinkMenuModule ],
+  imports: [
+    CommonModule,
+    LgLinkMenuComponent,
+    LgSeparatorComponent,
+    LgMarginDirective,
+    LgLinkMenuItemComponent,
+  ],
   template: `
     <h2 class="lg-font--expressive lg-font-size-4--strong">{{ heading }}</h2>
 

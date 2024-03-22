@@ -27,12 +27,12 @@ to 'card-hero-img' as alt text for the image.
 #### Displaying a Brand Icon
 To use this component with a Brand Icon, the following is needed:
 
-Import the brand icon module in your application:
+Import the brand icon component in your application:
 
 ```js
 @NgModule({
   ...
-  imports: [ ..., LgBrandIconModule ],
+  imports: [ ..., LgBrandIconComponent ],
 });
 ```
 

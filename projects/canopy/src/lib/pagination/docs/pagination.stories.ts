@@ -1,9 +1,18 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgFor } from '@angular/common';
 
-import { LgTableModule } from '../../table';
-import { LgPaginationModule } from '../pagination.module';
-import { LgPagionationComponent, PageData } from '../pagination.component';
+import { LgPaginationComponent, PageData } from '../pagination.component';
+import {
+  LgTableBodyComponent,
+  LgTableCellComponent,
+  LgTableComponent,
+  LgTableHeadCellComponent,
+  LgTableHeadComponent,
+  LgTableRowComponent,
+} from '../../table';
+import { lgIconChevronRight, lgIconChevronLeft, LgIconRegistry } from '../../icon';
+
 @Component({
   selector: 'lg-pagination-story',
   styles: [
@@ -42,6 +51,17 @@ import { LgPagionationComponent, PageData } from '../pagination.component';
       ></lg-pagination>
     </div>
   `,
+  standalone: true,
+  imports: [
+    LgTableComponent,
+    LgTableHeadComponent,
+    LgTableRowComponent,
+    LgTableHeadCellComponent,
+    LgTableBodyComponent,
+    LgTableCellComponent,
+    LgPaginationComponent,
+    NgFor,
+  ],
 })
 class PaginationStoryComponent implements OnInit, OnChanges {
   @Input() totalItems = 25;
@@ -50,6 +70,10 @@ class PaginationStoryComponent implements OnInit, OnChanges {
 
   allItems: Array<unknown> = [];
   pagedItems: Array<unknown> = [];
+
+  constructor(private registry: LgIconRegistry) {
+    this.registry.registerIcons([ lgIconChevronLeft, lgIconChevronRight ]);
+  }
 
   ngOnInit(): void {
     this.allItems = this.getData();
@@ -87,11 +111,10 @@ class PaginationStoryComponent implements OnInit, OnChanges {
 
 export default {
   title: 'Components/Pagination (WIP)/Examples',
-  component: LgPagionationComponent,
+  component: LgPaginationComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ PaginationStoryComponent ],
-      imports: [ LgTableModule, LgPaginationModule ],
+      imports: [ PaginationStoryComponent ],
     }),
   ],
   argTypes: {
@@ -152,8 +175,8 @@ export default {
   },
 } as Meta;
 
-const basicPaginationStory: StoryFn<LgPagionationComponent> = (
-  args: LgPagionationComponent,
+const basicPaginationStory: StoryFn<LgPaginationComponent> = (
+  args: LgPaginationComponent,
 ) => ({
   props: args,
   template: `

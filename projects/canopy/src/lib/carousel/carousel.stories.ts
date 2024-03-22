@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgCarouselModule } from './carousel.module';
 import { notes } from './carousel.notes';
 
 import { LgCarouselComponent } from '.';
@@ -10,7 +9,7 @@ export default {
   title: 'Components/Carousel',
   decorators: [
     moduleMetadata({
-      imports: [ CommonModule, LgCarouselModule ],
+      imports: [ CommonModule, LgCarouselComponent ],
     }),
   ],
   parameters: {

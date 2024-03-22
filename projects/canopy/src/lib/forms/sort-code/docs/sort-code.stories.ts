@@ -5,9 +5,11 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
-import { LgSelectModule } from '../../select';
 import { LgSortCodeDirective } from '../sort-code.directive';
+import { LgInputDirective, LgInputFieldComponent } from '../../input';
+import { LgHintComponent } from '../../hint';
 
 const template = `
 <lg-input-field>
@@ -20,6 +22,15 @@ const template = `
 @Component({
   selector: 'lg-reactive-form',
   template: ` <form [formGroup]="form">${template}</form> `,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    LgInputFieldComponent,
+    LgInputDirective,
+    LgHintComponent,
+    LgSortCodeDirective,
+    NgIf,
+  ],
 })
 class ReactiveFormComponent {
   @Input() hint: string;
@@ -37,7 +48,7 @@ class ReactiveFormComponent {
     return this.form.controls.sortCode.disabled;
   }
 
-  @Output() inputChange = new EventEmitter<void>();
+  @Output() inputChange: EventEmitter<void> = new EventEmitter<void>();
 
   form: UntypedFormGroup;
 
@@ -55,12 +66,12 @@ export default {
   component: LgSortCodeDirective,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormComponent ],
-      imports: [ ReactiveFormsModule ],
+      imports: [ ReactiveFormComponent ],
     }),
   ],
   argTypes: {
-    inputmode: {
+    inputChange: {
+      action: 'Input change',
       table: {
         disable: true,
       },
@@ -98,9 +109,7 @@ export default {
   },
 };
 
-const sortCodeTemplate: StoryFn<
-  /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgSortCodeModule
-> = (args: LgSelectModule) => ({
+const sortCodeTemplate: StoryFn<LgSortCodeDirective> = (args: LgSortCodeDirective) => ({
   props: args,
   template: `
   <lg-reactive-form

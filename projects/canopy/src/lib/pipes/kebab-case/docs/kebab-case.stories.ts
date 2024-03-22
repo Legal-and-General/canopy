@@ -5,10 +5,9 @@ import { LgKebabCasePipe } from '../kebab-case.pipe';
 // This default export determines where your story goes in the story list
 export default {
   title: 'Helpers/Pipes/Kebab case/Examples',
-  component: LgKebabCasePipe,
   decorators: [
     moduleMetadata({
-      declarations: [ LgKebabCasePipe ],
+      imports: [ LgKebabCasePipe ],
     }),
   ],
   argTypes: {

@@ -2,12 +2,21 @@ import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgTabsComponent } from '../tabs.component';
 import { LgMarginDirective } from '../../spacing';
+import { LgTabItemComponent } from '../tab-item/tab-item.component';
+import { LgTabItemHeadingComponent } from '../tab-item-heading/tab-item-heading.component';
+import { LgTabItemContentComponent } from '../tab-item-content/tab-item-content.component';
 
 export default {
   title: 'Components/Tabs/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgTabsComponent, LgMarginDirective ],
+      imports: [
+        LgTabsComponent,
+        LgMarginDirective,
+        LgTabItemComponent,
+        LgTabItemHeadingComponent,
+        LgTabItemContentComponent,
+      ],
     }),
   ],
   argTypes: {

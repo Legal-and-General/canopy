@@ -5,9 +5,12 @@ import {
 } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { NgIf } from '@angular/common';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
 import { RadioStackBreakpoint } from '../../radio.interface';
+import { LgRadioButtonComponent } from '../../radio-button.component';
+import { LgHintComponent } from '../../../hint';
 
 const segmentTemplate = `
 <lg-segment-group [inline]="inline" [focus]="focus" [stack]="stack" formControlName="color">
@@ -23,6 +26,14 @@ const segmentTemplate = `
 @Component({
   selector: 'lg-reactive-form-segment',
   template: ` <form [formGroup]="form">${segmentTemplate}</form> `,
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    LgHintComponent,
+    LgRadioGroupComponent,
+    LgRadioButtonComponent,
+    NgIf,
+  ],
 })
 class ReactiveFormSegmentComponent {
   @Input() label: string;
@@ -58,8 +69,7 @@ export default {
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({
-      declarations: [ ReactiveFormSegmentComponent ],
-      imports: [ ReactiveFormsModule ],
+      imports: [ ReactiveFormSegmentComponent ],
     }),
   ],
   argTypes: {
@@ -212,11 +222,7 @@ export default {
   },
 };
 
-const segmentStory: StoryFn<
-  /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgRadioModule
-> = (
-  args: /* TODO(standalone-migration): clean up removed NgModule reference manually. */ LgRadioModule,
-) => ({
+const segmentStory: StoryFn<LgRadioButtonComponent> = (args: LgRadioButtonComponent) => ({
   props: args,
   template: `
   <lg-reactive-form-segment
