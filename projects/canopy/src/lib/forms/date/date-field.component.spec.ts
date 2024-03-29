@@ -19,10 +19,9 @@ import { MockComponents } from 'ng-mocks';
 import { skip } from 'rxjs/operators';
 import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
-import { LgHintComponent } from '../hint/hint.component';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
-import { LgInputModule } from '../input';
+import { LgHintComponent } from '../hint';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
 
 import { LgDateFieldComponent } from './date-field.component';
 
@@ -42,7 +41,13 @@ const errorStateMatcherMock = mock(LgErrorStateMatcher);
     </form>
   `,
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule, LgInputModule ],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    LgHintComponent,
+    LgValidationComponent,
+    LgDateFieldComponent,
+  ],
 })
 class TestDateInputComponent {
   @Input()
@@ -92,7 +97,6 @@ describe('LgDateFieldComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        LgInputModule,
         TestDateInputComponent,
         LgDateFieldComponent,
         MockComponents(LgHintComponent, LgValidationComponent),

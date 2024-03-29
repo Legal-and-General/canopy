@@ -40,6 +40,7 @@ import { LgCarouselComponent } from './carousel.component';
     </lg-carousel>
   `,
   standalone: true,
+  imports: [ LgCarouselComponent, LgCarouselItemComponent ],
 })
 class TestCarouselComponent {
   carouselComponentRef: LgCarouselComponent;
@@ -53,6 +54,7 @@ class TestCarouselComponent {
   selector: 'lg-test-wrapper-component',
   template: '<lg-test-carousel></lg-test-carousel>',
   standalone: true,
+  imports: [ TestCarouselComponent ],
 })
 class TestWrapperComponent {}
 

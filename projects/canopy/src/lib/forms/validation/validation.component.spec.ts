@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { MockComponent } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon';
 import type { Variant } from '../../variant';
@@ -12,7 +13,7 @@ describe('LgValidationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgValidationComponent ],
+      imports: [ LgValidationComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgValidationComponent);

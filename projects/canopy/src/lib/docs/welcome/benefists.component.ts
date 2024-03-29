@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { LgMarginDirective } from '../../spacing';
+
 @Component({
   selector: 'lg-docs-welcome-benefits',
   standalone: true,
-  imports: [ CommonModule ],
+  imports: [ CommonModule, LgMarginDirective ],
   template: `
     <h2 class="lg-font--expressive lg-font-size-4--strong">Benefits of Canopy</h2>
 

@@ -19,12 +19,12 @@ import {
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 
-import { LgDomService } from '../../utils/dom.service';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
+import { LgDomService } from '../../utils';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
-import { LgIconComponent } from '../../icon/icon.component';
-import { LgFocusDirective } from '../../focus/focus.directive';
+import { LgIconComponent } from '../../icon';
+import { LgFocusDirective } from '../../focus';
 
 import type { ToggleVariant } from './toggle.interface';
 import { CheckboxSize } from './toggle.interface';

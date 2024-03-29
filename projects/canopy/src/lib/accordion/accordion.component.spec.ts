@@ -1,7 +1,7 @@
 import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponents } from 'ng-mocks';
+import { MockComponents, MockDirective } from 'ng-mocks';
 
 import { LgHeadingComponent } from '../heading';
 import { LgIconComponent } from '../icon';
@@ -28,6 +28,11 @@ import { LgAccordionComponent } from './accordion.component';
     </lg-accordion>
   `,
   standalone: true,
+  imports: [
+    LgAccordionItemComponent,
+    LgAccordionComponent,
+    LgAccordionPanelHeadingComponent,
+  ],
 })
 class TestAccordionComponent {
   isMulti = true;
@@ -43,9 +48,9 @@ describe('LgAccordionComponent', () => {
         TestAccordionComponent,
         LgAccordionComponent,
         LgAccordionItemComponent,
-        LgAccordionItemContentDirective,
         LgAccordionPanelHeadingComponent,
         MockComponents(LgHeadingComponent, LgIconComponent),
+        MockDirective(LgAccordionItemContentDirective),
       ],
     }).compileComponents();
   }));

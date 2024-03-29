@@ -9,7 +9,7 @@ import {
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import type { Variant } from '../../variant';
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 
 let nextUniqueId = 0;
 

@@ -8,7 +8,7 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { NgIf } from '@angular/common';
 
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-auto-play',

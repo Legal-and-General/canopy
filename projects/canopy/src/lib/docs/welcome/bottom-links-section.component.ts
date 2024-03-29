@@ -1,7 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LgLinkMenuComponent, LgLinkMenuItemComponent } from '../../link-menu';
+import {
+  LgLinkMenuComponent,
+  LgLinkMenuItemComponent,
+  LgLinkMenuItemTextComponent,
+} from '../../link-menu';
 import { LgSeparatorComponent } from '../../separator';
 import { LgMarginDirective } from '../../spacing';
 
@@ -11,6 +15,7 @@ import { LgMarginDirective } from '../../spacing';
   imports: [
     CommonModule,
     LgLinkMenuComponent,
+    LgLinkMenuItemTextComponent,
     LgSeparatorComponent,
     LgMarginDirective,
     LgLinkMenuItemComponent,
