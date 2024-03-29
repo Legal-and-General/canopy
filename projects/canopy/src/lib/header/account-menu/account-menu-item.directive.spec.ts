@@ -9,6 +9,7 @@ import { LgAccountMenuItemDirective } from './account-menu-item.directive';
     <button id="test" type="button" lgAccountMenuItem>Menu nav button</button>
   `,
   standalone: true,
+  imports: [ LgAccountMenuItemDirective ],
 })
 class AccountMenuTestItemComponent {}
 

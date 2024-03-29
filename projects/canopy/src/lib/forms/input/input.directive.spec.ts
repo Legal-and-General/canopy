@@ -10,8 +10,9 @@ import {
 import { By } from '@angular/platform-browser';
 import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
-import { LgInputDirective } from '../input/input.directive';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgErrorStateMatcher } from '../validation';
+
+import { LgInputDirective } from './input.directive';
 
 @Component({
   template: `
@@ -21,7 +22,7 @@ import { LgErrorStateMatcher } from '../validation/error-state-matcher';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule ],
+  imports: [ FormsModule, ReactiveFormsModule, LgInputDirective ],
 })
 class TestInputComponent {
   form = new UntypedFormGroup({

@@ -1,6 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponents, MockedComponentFixture, MockModule, MockRender } from 'ng-mocks';
+import { MockComponents, MockedComponentFixture, MockRender } from 'ng-mocks';
 
 import { LgBrandIconComponent } from '../brand-icon';
 
@@ -17,9 +17,9 @@ describe('LgPrimaryMessageComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        MockModule(LgBrandIconComponent),
         LgPrimaryMessageComponent,
         MockComponents(
+          LgBrandIconComponent,
           LgPrimaryMessageTitleComponent,
           LgPrimaryMessageDescriptionComponent,
         ),

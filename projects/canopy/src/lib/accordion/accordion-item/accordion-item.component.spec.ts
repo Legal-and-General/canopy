@@ -29,6 +29,11 @@ import { LgAccordionItemComponent } from './accordion-item.component';
     </lg-accordion-item>
   `,
   standalone: true,
+  imports: [
+    LgAccordionItemComponent,
+    LgAccordionPanelHeadingComponent,
+    LgAccordionItemContentDirective,
+  ],
 })
 class TestAccordionWrapperItemComponent {
   isActive: boolean;

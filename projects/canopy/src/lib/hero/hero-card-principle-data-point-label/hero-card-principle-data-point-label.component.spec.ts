@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { LgHeadingComponent } from '../../heading';
 
 import { LgHeroCardPrincipleDataPointLabelComponent } from './hero-card-principle-data-point-label.component';
 

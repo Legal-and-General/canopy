@@ -16,14 +16,14 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
-import { LgDomService } from '../../utils/dom.service';
-import { LgHintComponent } from '../hint/hint.component';
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
-import { LgValidationComponent } from '../validation/validation.component';
-import { LgToggleComponent } from '../toggle/toggle.component';
-import { LgMarginDirective } from '../../spacing/margin/margin.directive';
-import { LgLabelComponent } from '../label/label.component';
-import { LgFocusDirective } from '../../focus/focus.directive';
+import { LgDomService } from '../../utils';
+import { LgHintComponent } from '../hint';
+import { LgErrorStateMatcher } from '../validation';
+import { LgValidationComponent } from '../validation';
+import { LgToggleComponent } from '../toggle';
+import { LgMarginDirective } from '../../spacing';
+import { LgLabelComponent } from '../label';
+import { LgFocusDirective } from '../../focus';
 
 import { CheckboxGroupVariant } from './checkbox-group.interface';
 

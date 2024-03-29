@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { lgIconLinkExternal, LgIconRegistry } from '../../icon';
+import { LgIconComponent, lgIconLinkExternal, LgIconRegistry } from '../../icon';
+import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-usage',
   standalone: true,
-  imports: [],
+  imports: [ LgMarginDirective, LgIconComponent ],
   template: `
     <img src="docs/welcome/builders.svg" alt="" />
 

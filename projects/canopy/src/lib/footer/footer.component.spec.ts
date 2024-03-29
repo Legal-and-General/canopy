@@ -4,6 +4,7 @@ import { DebugElement } from '@angular/core';
 import { MockRender } from 'ng-mocks';
 
 import { LgFooterComponent } from './footer.component';
+import { LgFooterLogoComponent } from './footer-logo/footer-logo.component';
 
 describe('FooterComponent', () => {
   let component: LgFooterComponent;
@@ -12,7 +13,7 @@ describe('FooterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgFooterComponent ],
+      imports: [ LgFooterComponent, LgFooterLogoComponent ],
     }).compileComponents();
   }));
 

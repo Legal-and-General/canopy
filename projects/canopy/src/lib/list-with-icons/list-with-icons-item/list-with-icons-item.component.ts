@@ -9,8 +9,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { IconName } from '../../icon/icons.interface';
-import { LgIconComponent } from '../../icon/icon.component';
+import { IconName } from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 type Name = IconName;
 

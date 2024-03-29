@@ -14,6 +14,7 @@ import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
 @Component({
   template: ' <p [lgSrAlertMessage]="lgSrAlertMessage">Test feature</p> ',
   standalone: true,
+  imports: [ LgSrAlertMessageDirective ],
 })
 class TestComponent {
   @Input() lgSrAlertMessage;

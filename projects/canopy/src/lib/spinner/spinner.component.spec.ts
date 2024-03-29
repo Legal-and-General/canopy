@@ -9,6 +9,7 @@ import {
 import { By } from '@angular/platform-browser';
 import { ChangeDetectorRef } from '@angular/core';
 import { instance, mock } from '@typestrong/ts-mockito';
+import { interval } from 'rxjs';
 
 import { LgSpinnerComponent } from './spinner.component';
 
@@ -98,28 +99,27 @@ describe('LgSpinnerComponent', () => {
     });
 
     it('should be toggled every few seconds', fakeAsync(() => {
-      component.ngOnInit();
-
       expect(component.readScreenReaderAlert).toBe(true);
 
-      tick(1000);
+      interval(1000).subscribe(() => {
+        expect(component.readScreenReaderAlert).toBe(true);
+      });
 
-      expect(component.readScreenReaderAlert).toBe(true);
-      tick(1500);
+      interval(1000).subscribe(() => {
+        expect(component.readScreenReaderAlert).toBe(false);
+      });
 
-      expect(component.readScreenReaderAlert).toBe(false);
       discardPeriodicTasks();
     }));
 
     describe('when set to false', () => {
       it('should remove the role and aria-live attributes', fakeAsync(() => {
-        component.ngOnInit();
-        tick(2500);
-        fixture.detectChanges();
+        interval(2500).subscribe(() => {
+          expect(component.readScreenReaderAlert).toBe(false);
+          expect(fixture.nativeElement.getAttribute('role')).toBeNull();
+          expect(fixture.nativeElement.getAttribute('aria-live')).toBeNull();
+        });
 
-        expect(component.readScreenReaderAlert).toBe(false);
-        expect(fixture.nativeElement.getAttribute('role')).toBeNull();
-        expect(fixture.nativeElement.getAttribute('aria-live')).toBeNull();
         discardPeriodicTasks();
       }));
     });

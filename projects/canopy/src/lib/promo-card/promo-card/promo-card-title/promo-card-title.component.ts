@@ -6,7 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { LgHeadingComponent } from '../../../heading/heading.component';
+import { LgHeadingComponent } from '../../../heading';
+import { HeadingLevel } from '../../../heading';
 
 @Component({
   selector: 'lg-promo-card-title',
@@ -20,5 +21,5 @@ import { LgHeadingComponent } from '../../../heading/heading.component';
 export class LgPromoCardTitleComponent {
   @HostBinding('class.lg-promo-card-title') class = true;
 
-  @Input() headingLevel: string;
+  @Input() headingLevel: HeadingLevel;
 }

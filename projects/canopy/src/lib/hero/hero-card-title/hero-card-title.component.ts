@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 
 import type { HeadingLevel } from '../../heading';
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { LgHeadingComponent } from '../../heading';
 
 @Component({
   selector: 'lg-hero-card-title',

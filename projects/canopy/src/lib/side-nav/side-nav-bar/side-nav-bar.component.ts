@@ -6,10 +6,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { LgCardContentComponent } from '../../card/card-content/card-content.component';
-import { LgMarginDirective } from '../../spacing/margin/margin.directive';
-import { LgPaddingDirective } from '../../spacing/padding/padding.directive';
-import { LgCardComponent } from '../../card/card.component';
+import { LgCardContentComponent } from '../../card';
+import { LgMarginDirective } from '../../spacing';
+import { LgPaddingDirective } from '../../spacing';
+import { LgCardComponent } from '../../card';
 
 @Component({
   selector: 'lg-side-nav-bar',

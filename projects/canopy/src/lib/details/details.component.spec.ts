@@ -1,6 +1,9 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
+import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
+
+import { LgIconComponent } from '../icon';
+import { LgHeadingComponent } from '../heading';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 import { LgDetailsComponent } from './details.component';
@@ -13,7 +16,11 @@ describe('LgDetailsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+      imports: [
+        LgDetailsComponent,
+        LgDetailsPanelHeadingComponent,
+        MockComponents(LgIconComponent, LgHeadingComponent),
+      ],
     }).compileComponents();
   }));
 
