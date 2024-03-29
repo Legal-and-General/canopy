@@ -2,6 +2,7 @@ import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockRender, MockComponents } from 'ng-mocks';
+import { NgFor } from '@angular/common';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
@@ -10,7 +11,7 @@ import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.com
 import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { AlignmentOptions } from '../table.interface';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 
 import { LgTableComponent } from './table.component';
@@ -44,6 +45,7 @@ describe('TableComponent', () => {
         LgTableHeadCellComponent,
         LgTableCellComponent,
         LgTableRowToggleComponent,
+        NgFor,
         MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
       ],
     }).compileComponents();

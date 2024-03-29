@@ -2,11 +2,14 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+import { LgButtonComponent } from '../button.component';
+
 import { LgButtonToggleDirective } from './button-toggle.directive';
 
 @Component({
   template: '<a lg-button lgButtonToggle variant="secondary-dark">This is a link</a>',
   standalone: true,
+  imports: [ LgButtonComponent, LgButtonToggleDirective ],
 })
 class LinkTestComponent {}
 
@@ -17,6 +20,7 @@ class LinkTestComponent {}
     </button>
   `,
   standalone: true,
+  imports: [ LgButtonComponent, LgButtonToggleDirective ],
 })
 class ButtonTestComponent {}
 

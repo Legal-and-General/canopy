@@ -24,7 +24,7 @@ import type { SpinnerSize, SpinnerVariant } from './spinner.interface';
   imports: [ NgClass, NgIf ],
 })
 export class LgSpinnerComponent implements OnDestroy {
-  private subscription: Subscription;
+  subscription: Subscription;
   readScreenReaderAlert = true;
 
   @Input() variant: SpinnerVariant = 'dark';

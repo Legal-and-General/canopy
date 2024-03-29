@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
 import { NgFor, NgClass, NgTemplateOutlet } from '@angular/common';
 
 import { isKeyDown, isKeyLeft, isKeyRight, isKeyUp } from '../utils/keyboard-keys';
-import { LgFocusDirective } from '../focus/focus.directive';
+import { LgFocusDirective } from '../focus';
 
 import { LgTabItemComponent } from './tab-item/tab-item.component';
 

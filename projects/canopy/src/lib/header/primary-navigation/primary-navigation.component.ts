@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { LgHideAtDirective } from '../../hide-at/hide-at.directive';
+import { LgHideAtDirective } from '../../hide-at';
 
 @Component({
   selector: 'lg-primary-nav',

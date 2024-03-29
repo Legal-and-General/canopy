@@ -1,7 +1,8 @@
 import { By } from '@angular/platform-browser';
-import { MockBuilder, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
+import { MockComponent, ngMocks } from 'ng-mocks';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { LgIconModule } from '../icon/index';
+import { LgIconComponent } from '../icon';
 
 import { LgPaginationComponent as LgPaginationComponent } from './pagination.component';
 
@@ -19,16 +20,16 @@ describe('LgPaginationComponent', () => {
   };
 
   let component: LgPaginationComponent;
-  let fixture: MockedComponentFixture<LgPaginationComponent>;
+  let fixture: ComponentFixture<LgPaginationComponent>;
 
-  beforeEach(() => {
-    return MockBuilder(LgPaginationComponent).mock(LgIconModule);
-  });
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ LgPaginationComponent, MockComponent(LgIconComponent) ],
+    }).compileComponents();
 
-  beforeEach(() => {
-    fixture = MockRender(LgPaginationComponent);
-    component = fixture.point.componentInstance;
-  });
+    fixture = TestBed.createComponent(LgPaginationComponent);
+    component = fixture.componentInstance;
+  }));
 
   afterEach(() => ngMocks.flushTestBed());
 
@@ -70,8 +71,8 @@ describe('LgPaginationComponent', () => {
 
   describe('buttons', () => {
     beforeEach(() => {
-      fixture.componentInstance.totalItems = 30;
-      fixture.componentInstance.itemsPerPage = 10;
+      component.totalItems = 30;
+      component.itemsPerPage = 10;
       fixture.detectChanges();
     });
 
@@ -80,21 +81,21 @@ describe('LgPaginationComponent', () => {
     });
 
     it('should disable the previous button when the current page is the first', () => {
-      fixture.componentInstance.currentPage = 1;
+      fixture.componentRef.setInput('currentPage', 1);
       fixture.detectChanges();
 
       expect(getPreviousButton().nativeElement.disabled).toBe(true);
     });
 
     it('should disable the next button when the current page is the last', () => {
-      fixture.componentInstance.currentPage = fixture.componentInstance.numPages;
+      fixture.componentRef.setInput('currentPage', fixture.componentInstance.numPages);
       fixture.detectChanges();
 
       expect(getNextButton().nativeElement.disabled).toBe(true);
     });
 
     it('should highlight the current page', () => {
-      fixture.componentInstance.currentPage = 2;
+      fixture.componentRef.setInput('currentPage', 2);
       fixture.detectChanges();
 
       expect(getActiveButton().nativeElement.textContent.trim()).toBe('2');
@@ -104,8 +105,8 @@ describe('LgPaginationComponent', () => {
 
     it('should not render when there is only 1 page', () => {
       expect(fixture.debugElement.query(By.css('ul'))).not.toBeNull();
-      fixture.componentInstance.totalItems = 10;
-      fixture.componentInstance.itemsPerPage = 10;
+      fixture.componentRef.setInput('totalItems', 10);
+      fixture.componentRef.setInput('itemsPerPage', 10);
       fixture.detectChanges();
 
       const nav = fixture.debugElement.query(By.css('nav'));
@@ -121,8 +122,8 @@ describe('LgPaginationComponent', () => {
     let label: HTMLElement;
 
     beforeEach(() => {
-      fixture.componentInstance.totalItems = 33;
-      fixture.componentInstance.itemsPerPage = 10;
+      fixture.componentRef.setInput('totalItems', 33);
+      fixture.componentRef.setInput('itemsPerPage', 10);
       fixture.detectChanges();
       label = fixture.debugElement.query(By.css('div')).nativeElement;
     });
@@ -135,14 +136,14 @@ describe('LgPaginationComponent', () => {
     });
 
     it('displays the correct text on a middle page', () => {
-      fixture.componentInstance.currentPage = 2;
+      fixture.componentRef.setInput('currentPage', 2);
       fixture.detectChanges();
 
       expect(label.textContent.trim()).toBe('Showing 11-20 of 33 results');
     });
 
     it('displays the correct text on the last page', () => {
-      fixture.componentInstance.currentPage = 4;
+      fixture.componentRef.setInput('currentPage', 4);
       fixture.detectChanges();
 
       expect(label.textContent.trim()).toBe('Showing 31-33 of 33 results');
@@ -153,8 +154,8 @@ describe('LgPaginationComponent', () => {
     let pageChangedSpy: jasmine.Spy;
 
     beforeEach(() => {
-      fixture.componentInstance.totalItems = 30;
-      fixture.componentInstance.itemsPerPage = 10;
+      fixture.componentRef.setInput('totalItems', 30);
+      fixture.componentRef.setInput('itemsPerPage', 10);
 
       fixture.detectChanges();
 
@@ -162,8 +163,7 @@ describe('LgPaginationComponent', () => {
     });
 
     it('should emit when the total items input changes', () => {
-      fixture.componentInstance.totalItems = 40;
-
+      fixture.componentRef.setInput('totalItems', 40);
       fixture.detectChanges();
 
       expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
@@ -174,8 +174,7 @@ describe('LgPaginationComponent', () => {
     });
 
     it('should emit when the itemsPerPage input changes', () => {
-      fixture.componentInstance.itemsPerPage = 5;
-
+      fixture.componentRef.setInput('itemsPerPage', 5);
       fixture.detectChanges();
 
       expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
@@ -186,8 +185,7 @@ describe('LgPaginationComponent', () => {
     });
 
     it('should emit when the currentPage input changes', () => {
-      fixture.componentInstance.currentPage = 2;
-
+      fixture.componentRef.setInput('currentPage', 2);
       fixture.detectChanges();
 
       expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
@@ -210,7 +208,7 @@ describe('LgPaginationComponent', () => {
     });
 
     it('should emit when the previous button is clicked', () => {
-      fixture.componentInstance.currentPage = 2;
+      fixture.componentRef.setInput('currentPage', 2);
       fixture.detectChanges();
       pageChangedSpy.calls.reset();
 

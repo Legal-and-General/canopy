@@ -7,6 +7,7 @@ import { LgShowAtDirective } from './show-at.directive';
 @Component({
   template: ' <div [lgShowAt]="lgShowAt || null">How you see me...</div> ',
   standalone: true,
+  imports: [ LgShowAtDirective ],
 })
 class TestComponent {
   @Input() lgShowAt = null;

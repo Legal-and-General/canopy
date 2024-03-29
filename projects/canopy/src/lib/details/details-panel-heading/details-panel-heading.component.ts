@@ -11,8 +11,8 @@ import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import { lgIconChevronDown } from '../../icon';
 import type { Variant } from '../../variant';
-import { LgIconComponent } from '../../icon/icon.component';
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { LgIconComponent } from '../../icon';
+import { LgHeadingComponent } from '../../heading';
 
 @Component({
   selector: 'lg-details-panel-heading',

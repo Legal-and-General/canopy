@@ -11,7 +11,9 @@ import {
 import { By } from '@angular/platform-browser';
 import { instance, mock } from '@typestrong/ts-mockito';
 
-import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
+import { LgInputDirective } from '../input';
+
+import { LgSortCodeDirective } from './sort-code.directive';
 
 @Component({
   template: `
@@ -21,7 +23,7 @@ import { LgSortCodeDirective } from '../sort-code/sort-code.directive';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule ],
+  imports: [ FormsModule, ReactiveFormsModule, LgInputDirective, LgSortCodeDirective ],
 })
 class TestInputComponent {
   form = new UntypedFormGroup({

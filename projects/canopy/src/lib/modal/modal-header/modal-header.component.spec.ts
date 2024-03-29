@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { instance, mock, spy, verify } from '@typestrong/ts-mockito';
+import { MockComponent } from 'ng-mocks';
 
 import { LgModalService } from '../modal.service';
+import { LgIconComponent } from '../../icon';
 
 import { LgModalHeaderComponent } from './modal-header.component';
 
@@ -14,7 +16,7 @@ describe('LgModalHeaderComponent', () => {
     modalServiceMock = mock(LgModalService);
 
     await TestBed.configureTestingModule({
-      imports: [ LgModalHeaderComponent ],
+      imports: [ LgModalHeaderComponent, MockComponent(LgIconComponent) ],
       providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
     }).compileComponents();
   });

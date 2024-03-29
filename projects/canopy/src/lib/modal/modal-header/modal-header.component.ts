@@ -10,8 +10,8 @@ import {
 
 import type { HeadingLevel } from '../../heading';
 import { LgModalService } from '../modal.service';
-import { LgIconComponent } from '../../icon/icon.component';
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { LgIconComponent } from '../../icon';
+import { LgHeadingComponent } from '../../heading';
 
 @Component({
   selector: 'lg-modal-header',
