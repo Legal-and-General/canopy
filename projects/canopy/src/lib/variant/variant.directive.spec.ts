@@ -8,6 +8,7 @@ import type { Variant } from './variant.interface';
 @Component({
   template: ' <div [lgVariant]="lgVariant">Test</div> ',
   standalone: true,
+  imports: [ LgVariantDirective ],
 })
 class TestComponent {
   @Input() lgVariant: Variant = 'generic';

@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MockComponent } from 'ng-mocks';
 
-import { LgSpinnerComponent } from '../spinner/spinner.component';
+import { LgSpinnerComponent } from '../spinner';
 import { lgIconAdd, LgIconComponent, lgIconFilter, LgIconRegistry } from '../icon';
 
 import { LgButtonComponent } from './button.component';
@@ -17,6 +17,7 @@ import { LgButtonComponent } from './button.component';
     </button>
   `,
   standalone: true,
+  imports: [ LgIconComponent, LgButtonComponent ],
 })
 class ButtonDoubleIconTestComponent {
   @Input() iconPosition = null;

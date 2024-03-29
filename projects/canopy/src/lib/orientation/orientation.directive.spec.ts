@@ -7,6 +7,7 @@ import { LgOrientationDirective } from './orientation.directive';
 @Component({
   template: ' <div [lgOrientation]="lgOrientation">Test feature</div> ',
   standalone: true,
+  imports: [ LgOrientationDirective ],
 })
 class TestComponent {
   @Input() lgOrientation;

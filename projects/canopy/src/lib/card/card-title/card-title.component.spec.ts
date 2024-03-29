@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MockComponents } from 'ng-mocks';
 
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { LgHeadingComponent } from '../../heading';
 
 import { LgCardTitleComponent } from './card-title.component';
 

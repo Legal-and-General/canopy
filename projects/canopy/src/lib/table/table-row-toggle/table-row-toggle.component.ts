@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
-import { LgIconComponent } from '../../icon/icon.component';
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-table-row-toggle',

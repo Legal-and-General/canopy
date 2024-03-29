@@ -10,11 +10,16 @@ import {
   when,
 } from '@typestrong/ts-mockito';
 import { BehaviorSubject } from 'rxjs';
-import { MockComponents, MockedComponentFixture, MockModule, MockRender } from 'ng-mocks';
+import {
+  MockComponents,
+  MockDirective,
+  MockedComponentFixture,
+  MockRender,
+} from 'ng-mocks';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgCardModule } from '../card';
-import { LgFocusModule } from '../focus';
+import { LgCardComponent } from '../card';
+import { LgFocusDirective } from '../focus';
 
 import {
   LgModalBodyComponent,
@@ -37,10 +42,9 @@ describe('LgModalComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        MockModule(LgCardModule),
-        MockModule(LgFocusModule),
         LgModalComponent,
-        MockComponents(LgModalHeaderComponent, LgModalBodyComponent),
+        MockComponents(LgCardComponent, LgModalHeaderComponent, LgModalBodyComponent),
+        MockDirective(LgFocusDirective),
       ],
       providers: [
         { provide: LgModalService, useValue: instance(modalServiceMock) },

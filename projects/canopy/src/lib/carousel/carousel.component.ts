@@ -14,8 +14,8 @@ import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 import { NgIf, NgFor, NgClass } from '@angular/common';
 
 import type { HeadingLevel } from '../heading';
-import { LgIconComponent } from '../icon/icon.component';
-import { LgHeadingComponent } from '../heading/heading.component';
+import { LgIconComponent } from '../icon';
+import { LgHeadingComponent } from '../heading';
 
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgAutoplayComponent } from './auto-play/auto-play.component';

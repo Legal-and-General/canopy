@@ -11,7 +11,7 @@ import {
 import { anything, instance, mock, spy, verify, when } from '@typestrong/ts-mockito';
 import { MockComponents } from 'ng-mocks';
 
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgErrorStateMatcher } from '../validation';
 import { LgHintComponent } from '../hint';
 
 import { LgRadioButtonComponent } from './radio-button.component';
@@ -37,7 +37,13 @@ const hintTestId = 'test-hint-id';
     </form>
   `,
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule ],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    LgRadioButtonComponent,
+    LgRadioGroupComponent,
+    LgHintComponent,
+  ],
 })
 class TestRadioButtonComponent {
   form: UntypedFormGroup;

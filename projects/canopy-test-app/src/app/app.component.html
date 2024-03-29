@@ -93,7 +93,7 @@
         <aside lg-card-group lgMarginBottom="xl">
           <lg-card>
             <lg-card-header>
-              <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+              <lg-card-navigation-title title="The title" link="https://www.landg.com" [headingLevel]="2"></lg-card-navigation-title>
             </lg-card-header>
             <lg-card-content>
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -145,7 +145,7 @@
       <div lgCol="12" lgColLg="9" lgColMdOffset="0">
         <lg-card>
           <lg-card-content>
-            <lg-heading level="3">Accordion</lg-heading>
+            <lg-heading [level]="3">Accordion</lg-heading>
 
             <lg-accordion [headingLevel]="3">
               <lg-accordion-item>
@@ -169,10 +169,10 @@
             </lg-accordion>
 
             <lg-separator></lg-separator>
-            <lg-heading level="3">Alert</lg-heading>
+            <lg-heading [level]="3">Alert</lg-heading>
 
             <lg-alert variant="info">
-              <lg-heading level="4">Test heading</lg-heading>
+              <lg-heading [level]="4">Test heading</lg-heading>
               Information alert with some <a href="#"> link text</a> as an example.
             </lg-alert>
 
@@ -193,7 +193,7 @@
             </lg-alert>
 
             <lg-separator></lg-separator>
-            <lg-heading level="3">Buttons</lg-heading>
+            <lg-heading [level]="3">Buttons</lg-heading>
 
             <a href="#" lg-button variant="primary-dark">Primary dark button</a>
             <br />
@@ -544,7 +544,7 @@
             </ul>
 
             <lg-separator></lg-separator>
-            <lg-heading level="3">Primary Message</lg-heading>
+            <lg-heading [level]="3">Primary Message</lg-heading>
 
             <lg-primary-message>
               <lg-brand-icon name="calendar"></lg-brand-icon>
@@ -786,10 +786,10 @@
 
         <lg-card>
           <lg-card-header>
-            <lg-card-title headingLevel="4"> Test card title </lg-card-title>
+            <lg-card-title [headingLevel]="4"> Test card title </lg-card-title>
           </lg-card-header>
           <lg-card-content>
-            <lg-card-subheading headingLevel="5">Subheading</lg-card-subheading>
+            <lg-card-subheading [headingLevel]="5">Subheading</lg-card-subheading>
             Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna. Sed at egestas urna.
           </lg-card-content>
         </lg-card>

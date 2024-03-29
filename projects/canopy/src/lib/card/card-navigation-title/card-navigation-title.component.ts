@@ -13,8 +13,8 @@ import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 import type { HeadingLevel } from '../../heading';
 import isExternalURL from '../../utils/external-links';
-import { LgIconComponent } from '../../icon/icon.component';
-import { LgHeadingComponent } from '../../heading/heading.component';
+import { LgIconComponent } from '../../icon';
+import { LgHeadingComponent } from '../../heading';
 
 @Component({
   selector: 'lg-card-navigation-title',
