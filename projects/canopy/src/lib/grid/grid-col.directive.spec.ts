@@ -20,6 +20,7 @@ import { LgGridColDirective } from './grid-col.directive';
     </div>
   `,
   standalone: true,
+  imports: [ LgGridColDirective ],
 })
 class TestComponent {
   @Input() lgCol;

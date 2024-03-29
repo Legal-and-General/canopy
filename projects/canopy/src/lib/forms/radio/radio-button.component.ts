@@ -19,9 +19,9 @@ import {
 import { FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 
-import { LgErrorStateMatcher } from '../validation/error-state-matcher';
+import { LgErrorStateMatcher } from '../validation';
 import { LgHintComponent } from '../hint';
-import { LgDomService } from '../../utils/dom.service';
+import { LgDomService } from '../../utils';
 
 import { LgRadioGroupComponent } from './radio-group.component';
 import type { RadioSize, RadioStackBreakpoint, RadioVariant } from './radio.interface';

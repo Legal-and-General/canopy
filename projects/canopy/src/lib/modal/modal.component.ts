@@ -19,10 +19,10 @@ import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { DOCUMENT, NgIf } from '@angular/common';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgCardContentComponent } from '../card/card-content/card-content.component';
-import { LgFocusDirective } from '../focus/focus.directive';
-import { LgPaddingDirective } from '../spacing/padding/padding.directive';
-import { LgCardComponent } from '../card/card.component';
+import { LgCardContentComponent } from '../card';
+import { LgFocusDirective } from '../focus';
+import { LgPaddingDirective } from '../spacing';
+import { LgCardComponent } from '../card';
 
 import { LgModalBodyComponent } from './modal-body/modal-body.component';
 import { LgModalHeaderComponent } from './modal-header/modal-header.component';

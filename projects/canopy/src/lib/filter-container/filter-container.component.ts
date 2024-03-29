@@ -14,7 +14,7 @@ import {
 import { Subscription } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgButtonToggleDirective } from '../button/button-toggle/button-toggle.directive';
+import { LgButtonToggleDirective } from '../button';
 
 import { LgFilterContainerPanelComponent } from './filter-container-panel/filter-container-panel.component';
 import {

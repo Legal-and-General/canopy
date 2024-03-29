@@ -12,6 +12,7 @@ import { LgFeatureToggleService } from './feature-toggle.service';
   template:
     ' <section *lgFeatureToggle="\'feature\'" id="feature">Test feature</section> ',
   standalone: true,
+  imports: [ LgFeatureToggleDirective ],
 })
 class TestComponent {}
 
