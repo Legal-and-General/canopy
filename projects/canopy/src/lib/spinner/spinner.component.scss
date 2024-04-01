@@ -22,6 +22,11 @@
     width: var(--spinner-diameter--sm);
     height: var(--spinner-diameter--sm);
   }
+
+  .lg-spinner--xs & {
+    width: var(--spinner-diameter--xs);
+    height: var(--spinner-diameter--xs);
+  }
 }
 
 .lg-spinner__ring--color {
