@@ -30,6 +30,8 @@ class DetailsExampleComponent {
   @Input() variant: string;
   @Input() headingLevel: number;
   @Input() headingText: string;
+  @Input() isActive: boolean;
+  @Input() showIcon: boolean;
   constructor(private registry: LgIconRegistry) {
     this.registry.registerIcons([ lgIconChevronDown ]);
   }
@@ -162,8 +164,13 @@ export default {
 
 const detailsTemplate: StoryFn<LgDetailsComponent> = (args: LgDetailsComponent) => ({
   props: args,
-  template:
-    '<lg-details-example [variant]="variant" [headingLevel]="headingLevel" [headingText]="headingText"></lg-details-example>',
+  template: `<lg-details-example
+      [variant]="variant"
+      [headingLevel]="headingLevel"
+      [headingText]="headingText"
+      [isActive]="isActive"
+      [showIcon]="showIcon"
+     ></lg-details-example>`,
 });
 
 export const standardDetails = detailsTemplate.bind({});
