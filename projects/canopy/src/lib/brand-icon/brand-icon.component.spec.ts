@@ -56,7 +56,7 @@ describe('LgBrandIconComponent', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
 
       expect(
-        /lg-brand-icon-\d-\d/.test(
+        /lg-brand-icon-\d+-\d/.test(
           fixture.nativeElement.querySelector('svg').getAttribute('id'),
         ),
       ).toBeTrue();
