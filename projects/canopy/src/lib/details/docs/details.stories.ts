@@ -2,7 +2,14 @@ import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgDetailsComponent } from '../details.component';
-import { lgIconChevronDown, LgIconRegistry } from '../../icon';
+import {
+  lgIconCheckmarkSpotFill,
+  lgIconChevronDown,
+  lgIconCrossmarkSpotFill,
+  lgIconInformationFill,
+  LgIconRegistry,
+  lgIconWarningFill,
+} from '../../icon';
 import { LgDetailsPanelHeadingComponent } from '../details-panel-heading/details-panel-heading.component';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
@@ -33,7 +40,13 @@ class DetailsExampleComponent {
   @Input() isActive: boolean;
   @Input() showIcon: boolean;
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconChevronDown ]);
+    this.registry.registerIcons([
+      lgIconChevronDown,
+      lgIconInformationFill,
+      lgIconCheckmarkSpotFill,
+      lgIconWarningFill,
+      lgIconCrossmarkSpotFill,
+    ]);
   }
 }
 
