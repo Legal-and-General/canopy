@@ -77,6 +77,8 @@ describe('LgModalComponent', () => {
       it('should not emit a closed event', () => {
         const closedEmitterSpy = spy(component.closed);
 
+        resetCalls(closedEmitterSpy);
+
         component.ngOnInit();
 
         verify(closedEmitterSpy.emit()).never();
