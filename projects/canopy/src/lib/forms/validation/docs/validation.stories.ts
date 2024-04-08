@@ -2,7 +2,13 @@ import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgValidationComponent } from '../validation.component';
-import { lgIconCrossmarkSpotFill, LgIconRegistry } from '../../../icon';
+import {
+  lgIconCrossmarkSpotFill,
+  lgIconInformationFill,
+  lgIconCheckmarkSpotFill,
+  lgIconWarningFill,
+  LgIconRegistry,
+} from '../../../icon';
 
 const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
@@ -25,7 +31,12 @@ class LgValidationExampleComponent {
   @Input() content: string;
   @Input() showIcon: boolean;
   constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconCrossmarkSpotFill ]);
+    this.registry.registerIcons([
+      lgIconCrossmarkSpotFill,
+      lgIconInformationFill,
+      lgIconCheckmarkSpotFill,
+      lgIconWarningFill,
+    ]);
   }
 }
 
