@@ -7,10 +7,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-  AbstractControl,
-  ɵGetProperty,
-  ɵTypedOrUntyped,
-  ɵFormGroupRawValue,
+  NgControl,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
@@ -79,12 +76,7 @@ class TestToggleComponent {
     });
   }
 
-  isControlInvalid(
-    control: AbstractControl<
-      ɵGetProperty<ɵTypedOrUntyped<never, ɵFormGroupRawValue<never>, never>, 'umbrella'>
-    >,
-    form: FormGroupDirective,
-  ) {
+  isControlInvalid(control: NgControl, form: FormGroupDirective) {
     return this.errorState.isControlInvalid(control, form);
   }
 }
@@ -137,12 +129,7 @@ class TestToggleVariantSelectorComponent {
     });
   }
 
-  isControlInvalid(
-    control: AbstractControl<
-      ɵGetProperty<ɵTypedOrUntyped<never, ɵFormGroupRawValue<never>, never>, 'umbrella'>
-    >,
-    form: FormGroupDirective,
-  ) {
+  isControlInvalid(control: NgControl, form: FormGroupDirective) {
     return this.errorState.isControlInvalid(control, form);
   }
 }
