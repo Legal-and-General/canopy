@@ -9,7 +9,7 @@ import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-it
 import { LgLinkMenuItemComponent } from './link-menu-item.component';
 
 @Component({
-  template: ` <lg-link-menu-item>
+  template: `<lg-link-menu-item>
     <lg-link-menu-item-text class="bold">Update my direct debit</lg-link-menu-item-text>
     <lg-link-menu-item-text>Do it online</lg-link-menu-item-text>
   </lg-link-menu-item>`,

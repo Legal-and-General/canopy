@@ -74,23 +74,23 @@ const header = `
 `;
 
 const footer = `
-<footer lg-footer>
-  <lg-footer-nav variant="primary">
-    <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
-      <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
-    </lg-footer-nav-item>
-  </lg-footer-nav>
+  <footer lg-footer>
+    <lg-footer-nav variant="primary">
+      <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
+        <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
+      </lg-footer-nav-item>
+    </lg-footer-nav>
 
-  <lg-footer-nav variant="secondary">
-    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
-      <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
-    </lg-footer-nav-item>
-  </lg-footer-nav>
+    <lg-footer-nav variant="secondary">
+      <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
+        <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+      </lg-footer-nav-item>
+    </lg-footer-nav>
 
-  <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
+    <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
 
-  <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
-</footer>
+    <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
+  </footer>
 `;
 
 const headerCategory = 'header';
@@ -98,26 +98,26 @@ const footerCategory = 'footer';
 const contentCategory = 'content';
 
 const fullWidthWithHeroTemplate = `
-<lg-page>
-  ${header}
-  <lg-hero [overlap]="overlap">
-    ${productHeroHTML}
-  </lg-hero>
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <lg-card lgMarginHorizontal="none">
-          <lg-card-content>
-            {{card1}} <br /><br />
-            {{card2}} <br /><br />
-            {{card3}}
-          </lg-card-content>
-        </lg-card>
+  <lg-page>
+    ${header}
+    <lg-hero [overlap]="overlap">
+      ${productHeroHTML}
+    </lg-hero>
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-card lgMarginHorizontal="none">
+            <lg-card-content>
+              {{card1}} <br /><br />
+              {{card2}} <br /><br />
+              {{card3}}
+            </lg-card-content>
+          </lg-card>
+        </div>
       </div>
     </div>
-  </div>
-  ${footer}
-</lg-page>
+    ${footer}
+  </lg-page>
 `;
 
 @Component({
@@ -265,26 +265,26 @@ export default {
 } as Meta;
 
 const oneColumnTemplate = `
-<lg-page>
-  ${header}
-  <div lgContainer>
-    <div lgRow>
-      <div
-          lgCol="12"
-          lgColSm="10"
-          lgColSmOffset="1"
-          lgColMd="8"
-          lgColMdOffset="2"
-          lgColLg="6"
-          lgColLgOffset="3">
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1}}</lg-card-content></lg-card>
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2}}</lg-card-content></lg-card>
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3}}</lg-card-content></lg-card>
+  <lg-page>
+    ${header}
+    <div lgContainer>
+      <div lgRow>
+        <div
+            lgCol="12"
+            lgColSm="10"
+            lgColSmOffset="1"
+            lgColMd="8"
+            lgColMdOffset="2"
+            lgColLg="6"
+            lgColLgOffset="3">
+          <lg-card lgMarginHorizontal="none"><lg-card-content>{{card1}}</lg-card-content></lg-card>
+          <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2}}</lg-card-content></lg-card>
+          <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3}}</lg-card-content></lg-card>
+        </div>
       </div>
     </div>
-  </div>
-  ${footer}
-</lg-page>
+    ${footer}
+  </lg-page>
 `;
 
 const oneColumnStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
@@ -305,25 +305,25 @@ oneColumn.parameters = {
 };
 
 const twoColumnsTemplate = `
-<lg-page>
-  ${header}
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12" lgColMd="8" lgColLg="5" lgColLgOffset="2">
-        <lg-card lgMarginHorizontal="none">
-          <lg-card-content>
-            {{card1}}
-          </lg-card-content>
-        </lg-card>
-      </div>
-      <div lgCol="12" lgColMd="4" lgColLg="3">
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2}}</lg-card-content></lg-card>
-        <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3}}</lg-card-content></lg-card>
+  <lg-page>
+    ${header}
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12" lgColMd="8" lgColLg="5" lgColLgOffset="2">
+          <lg-card lgMarginHorizontal="none">
+            <lg-card-content>
+              {{card1}}
+            </lg-card-content>
+          </lg-card>
+        </div>
+        <div lgCol="12" lgColMd="4" lgColLg="3">
+          <lg-card lgMarginHorizontal="none"><lg-card-content>{{card2}}</lg-card-content></lg-card>
+          <lg-card lgMarginHorizontal="none"><lg-card-content>{{card3}}</lg-card-content></lg-card>
+        </div>
       </div>
     </div>
-  </div>
-  ${footer}
-</lg-page>
+    ${footer}
+  </lg-page>
 `;
 
 const twoColumnsStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
@@ -344,23 +344,23 @@ twoColumns.parameters = {
 };
 
 const fullWidthTemplate = `
-<lg-page>
-  ${header}
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <lg-card lgMarginHorizontal="none">
-          <lg-card-content>
-            {{card1}} <br /><br />
-            {{card2}} <br /><br />
-            {{card3}}
-          </lg-card-content>
-        </lg-card>
+  <lg-page>
+    ${header}
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-card lgMarginHorizontal="none">
+            <lg-card-content>
+              {{card1}} <br /><br />
+              {{card2}} <br /><br />
+              {{card3}}
+            </lg-card-content>
+          </lg-card>
+        </div>
       </div>
     </div>
-  </div>
-  ${footer}
-</lg-page>
+    ${footer}
+  </lg-page>
 `;
 
 const fullWidthStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
