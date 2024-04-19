@@ -10,7 +10,6 @@ import type { HeadingLevel } from './heading.interface';
   encapsulation: ViewEncapsulation.None,
   host: {
     class: 'lg-heading',
-    ngSkipHydration: 'true',
   },
   standalone: true,
   imports: [ NgIf, NgTemplateOutlet ],
