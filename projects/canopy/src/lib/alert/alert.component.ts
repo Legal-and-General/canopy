@@ -3,6 +3,7 @@ import {
   ElementRef,
   HostBinding,
   Input,
+  OnChanges,
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
@@ -15,8 +16,9 @@ import type { Variant } from '../variant/variant.interface';
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
 })
-export class LgAlertComponent {
+export class LgAlertComponent implements OnChanges {
   private _variant: Variant;
+  private explicitRole: string;
 
   @Input() showIcon = true;
   @Input()
@@ -30,14 +32,13 @@ export class LgAlertComponent {
 
     this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
     this._variant = variant;
-    this.setRole();
   }
   get variant() {
     return this._variant;
   }
 
   @HostBinding('class.lg-alert') class = true;
-  @HostBinding('attr.role') _role: string;
+  @HostBinding('attr.role') roleAttr: string;
 
   constructor(
     private renderer: Renderer2,
@@ -46,12 +47,22 @@ export class LgAlertComponent {
     this.variant = 'generic';
   }
 
-  @Input() set role(role: string) {
-    this._role = role;
+  ngOnChanges() {
+    this.initRole();
   }
-  private setRole() {
-    if (!this._role && this.variant !== 'info' && this.variant !== 'generic') {
-      this._role = 'alert';
+
+  @Input() set role(role: string) {
+    this.explicitRole = role;
+  }
+  private initRole() {
+    if (this.explicitRole) {
+      if (this.explicitRole !== 'none') {
+        this.roleAttr = this.explicitRole;
+      }
+    } else if (this.variant === 'info' || this.variant === 'generic') {
+      this.roleAttr = null;
+    } else {
+      this.roleAttr = 'alert';
     }
   }
 }
