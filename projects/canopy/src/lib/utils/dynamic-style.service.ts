@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 import { BreakpointValues } from '../shared/breakpoints.interface';
 
@@ -24,7 +25,7 @@ export class DynamicStyleService {
   selectors = [];
   mediaQueries = {};
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.addStyleTag();
   }
 
@@ -138,9 +139,9 @@ export class DynamicStyleService {
   }
 
   private addStyleTag(): void {
-    this.styleTag = document.createElement('style');
+    this.styleTag = this.document.createElement('style');
     this.styleTag.type = 'text/css';
-    document.getElementsByTagName('head')[0].appendChild(this.styleTag);
+    this.document.getElementsByTagName('head')[0].appendChild(this.styleTag);
   }
 
   private createMediaQuery(breakpoint: BreakpointValues): string {
