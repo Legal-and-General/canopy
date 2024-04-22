@@ -16,6 +16,7 @@
     .lg-table-cell__content {
       margin-left: 0;
       margin-bottom: var(--space-md);
+      text-align: start;
     }
 
     &:last-child {
@@ -46,6 +47,7 @@
 
 .lg-table-cell__content--hidden-label {
   margin-left: 0;
+  text-align: start;
 }
 
 .lg-table-cell--expandable-content {
