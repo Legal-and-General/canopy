@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import {
@@ -292,6 +292,70 @@ describe('LgInputFieldComponent', () => {
 
     it('links the hint to the input field with the correct aria attributes', () => {
       expect(inputDirectiveInstance.ariaDescribedBy).toContain(prefixId);
+    });
+  });
+
+  describe('ngAfterContentInit', () => {
+    it('should disable the button when the input control status is "DISABLED"', () => {
+      const status = 'DISABLED';
+
+      spyOnProperty(component.inputElement.control, 'status', 'get').and.returnValue(
+        status,
+      );
+
+      fixture.detectChanges();
+
+      expect(component.buttonElement.disabled).toBeTrue();
+    });
+
+    describe('character counter', () => {
+      it('should update the character count and remaining characters when the input value changes', fakeAsync(() => {
+        const inputValue = 'Spider-man';
+        const maxLength = 20;
+        const characterCounterTrigger = 10;
+
+        spyOnProperty(component.inputElement, 'maxlength', 'get').and.returnValue(
+          maxLength,
+        );
+
+        spyOnProperty(
+          component.inputElement,
+          'characterCounterTrigger',
+          'get',
+        ).and.returnValue(characterCounterTrigger);
+
+        fixture.detectChanges();
+
+        component.inputElement.control.value.setValue(inputValue);
+        tick(100);
+
+        expect(component.charCount).toBe(inputValue.length);
+        expect(component.remainingChars).toBe(maxLength - inputValue.length);
+      }));
+
+      it('should update the character count and remaining characters to 0 when the input value exceeds the max length', fakeAsync(() => {
+        const inputValue = 'Spider-man';
+        const maxLength = 20;
+        const characterCounterTrigger = 10;
+
+        spyOnProperty(component.inputElement, 'maxlength', 'get').and.returnValue(
+          maxLength,
+        );
+
+        spyOnProperty(
+          component.inputElement,
+          'characterCounterTrigger',
+          'get',
+        ).and.returnValue(characterCounterTrigger);
+
+        fixture.detectChanges();
+
+        component.inputElement.control.value.setValue(inputValue);
+        tick(100);
+
+        expect(component.charCount).toBe(inputValue.length);
+        expect(component.remainingChars).toBe(0);
+      }));
     });
   });
 });

@@ -45,6 +45,9 @@ export class LgInputDirective {
   @HostBinding('disabled')
   disabled = false;
 
+  @Input() maxlength: number | null = null;
+  @Input() characterCounterTrigger: number | null = null;
+
   @Input()
   @HostBinding('attr.aria-describedby')
   ariaDescribedBy: string | null = null;

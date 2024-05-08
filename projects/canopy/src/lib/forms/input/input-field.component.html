@@ -19,4 +19,6 @@
     <ng-content select="[lgSuffix]"></ng-content>
   </div>
 </div>
+<div *ngIf="characterCounterTrigger >= remainingChars" role="status">You have {{ remainingChars }} characters remaining</div>
+
 <ng-content select="lg-validation"></ng-content>

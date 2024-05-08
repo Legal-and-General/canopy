@@ -106,6 +106,19 @@ There is an additional add-on button variant for adding a button to the input fi
 </lg-input-field>
 ```
 
+### Character counter
+
+A character counter can be added to any input which is using the `lgInput` directive and which has a `maxlength` attribute. The character counter will display when the remaining characters in the field are less than or equal to the `characterCounterTrigger`.
+
+For example, in the below code, the character counter will display after 15 characters have been entered as then there will only be 5 characters remaining.
+
+```html
+<lg-input-field>
+  Occupation
+  <input lgInput formControlName="occupation" maxlength="20" characterCounterTrigger="5"/>
+</lg-input-field>
+```
+
 ## Dos and Don'ts
 
 ### Do
@@ -140,11 +153,13 @@ There is an additional add-on button variant for adding a button to the input fi
 
 ### LgInputFieldComponent inputs
 
-| Name        | Description                                                                                                            | Type      | Default                      | Required |
-|-------------|------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------|----------|
-| `id`        | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | `string`  | `lg-input-${nextUniqueId++}` | No       |
-| `block`     | Property to make the input full width (for small screens only)                                                         | `boolean` | `false`                      | No       |
-| `showLabel` | Show or visually hide the label                                                                                        | `boolean` | `true`                       | No       |
+| Name                      | Description                                                                                                            | Type      | Default                      | Required |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------|-----------|------------------------------|----------|
+| `id`                      | HTML ID attribute, auto generated if not provided. This will also propagate to the input 'id' and form 'for' attribute | `string`  | `lg-input-${nextUniqueId++}` | No       |
+| `block`                   | Property to make the input full width (for small screens only)                                                         | `boolean` | `false`                      | No       |
+| `showLabel`               | Show or visually hide the label                                                                                        | `boolean` | `true`                       | No       |
+| `characterCounterTrigger` | Number of remaining characters at which the character counter will display. Requires `maxlength` to be set.            | `number`  | `null`                       | No       |
+
 
 ------
 

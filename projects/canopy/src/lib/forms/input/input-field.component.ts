@@ -10,7 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime } from 'rxjs';
 
 import { LgDomService } from '../../utils/dom.service';
 import { LgHintComponent } from '../hint/hint.component';
@@ -46,6 +46,8 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private hasFocus = false;
   private hasHover = false;
   private disabledStateChanges: Subscription;
+  public charCount = 0;
+  public remainingChars: number;
 
   @Input() id = `lg-input-${this._id++}`;
   @Input() showLabel = true;
@@ -99,6 +101,14 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   }
   get inputElement(): LgInputDirective {
     return this._inputElement;
+  }
+
+  get maxLength(): number {
+    return this._inputElement.maxlength;
+  }
+
+  get characterCounterTrigger(): number {
+    return this._inputElement.characterCounterTrigger;
   }
 
   @ContentChild(LgHintComponent)
@@ -164,6 +174,17 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
       this.inputElement.control.statusChanges.subscribe(status => {
         this.buttonElement.disabled = status === 'DISABLED';
       });
+    }
+
+    if (this.characterCounterTrigger && this.maxLength) {
+      this.remainingChars = this.maxLength;
+
+      this.inputElement.control.valueChanges
+        .pipe(debounceTime(100))
+        .subscribe((v: string) => {
+          this.charCount = v?.length ?? 0;
+          this.remainingChars = this.maxLength - this.charCount;
+        });
     }
   }
 
