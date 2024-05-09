@@ -70,7 +70,7 @@ describe('LgAlertComponent', () => {
       component.ngOnChanges();
       fixture.detectChanges();
 
-      expect(fixture.nativeElement.getAttribute('none')).toBe(null);
+      expect(fixture.nativeElement.getAttribute('role')).toBe(null);
     });
   });
 
