@@ -59,10 +59,13 @@ export class LgAlertComponent implements OnChanges {
       if (this.explicitRole !== 'none') {
         this.roleAttr = this.explicitRole;
       }
-    } else if (this.variant === 'info' || this.variant === 'generic') {
-      this.roleAttr = null;
     } else {
-      this.roleAttr = 'alert';
+      switch (this.variant) {
+        case 'error':
+        case 'warning':
+        case 'success':
+          this.roleAttr = 'alert';
+      }
     }
   }
 }
