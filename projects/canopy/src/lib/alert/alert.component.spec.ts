@@ -37,34 +37,40 @@ describe('LgAlertComponent', () => {
   });
 
   describe('role', () => {
-    it('does not add a Aria role for the info variant', () => {
-      component.variant = 'info';
+    function testVariant(variant: Variant, expectedRole: null | 'alert' | 'status') {
+      component.variant = variant;
+      component.ngOnChanges();
       fixture.detectChanges();
 
-      expect(fixture.nativeElement.getAttribute('role')).toBeNull();
-    });
+      expect(fixture.nativeElement.getAttribute('role')).toBe(expectedRole);
+    }
 
-    it('does not add a Aria role for the generic variant', () => {
-      component.variant = 'generic';
-      fixture.detectChanges();
-
-      expect(fixture.nativeElement.getAttribute('role')).toBeNull();
-    });
+    for (const variant of [ 'info', 'generic' ]) {
+      it(`does not add a Aria role for the ${variant} variant`, () => {
+        testVariant(variant as Variant, null);
+      });
+    }
 
     for (const variant of [ 'success', 'warning', 'error' ]) {
       it(`adds the Aria role "alert" for the ${variant} variant`, () => {
-        component.variant = variant as Variant;
-        fixture.detectChanges();
-
-        expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
+        testVariant(variant as Variant, 'alert');
       });
     }
 
     it('overrides the role attribute when role input is set', () => {
       component.role = 'status';
+      component.ngOnChanges();
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe('status');
+    });
+
+    it('sets no role attribute when role input is set to "none"', () => {
+      component.role = 'none';
+      component.ngOnChanges();
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.getAttribute('role')).toBe(null);
     });
   });
 
