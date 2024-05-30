@@ -11,7 +11,12 @@ import {
 } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
 
-import { LgIconComponent } from '../icon';
+import {
+  lgIconChevronLeft,
+  lgIconChevronRight,
+  LgIconComponent,
+  LgIconRegistry,
+} from '../icon';
 import { LgMarginDirective } from '../spacing';
 
 export interface PageData {
@@ -75,6 +80,10 @@ export class LgPaginationComponent implements OnChanges {
   }
 
   @Output() pageChanged = new EventEmitter<PageData>();
+
+  constructor(private iconRegistry: LgIconRegistry) {
+    this.iconRegistry.registerIcons([ lgIconChevronLeft, lgIconChevronRight ]);
+  }
 
   get numPages() {
     return Math.ceil(this.totalItems / this.itemsPerPage);
