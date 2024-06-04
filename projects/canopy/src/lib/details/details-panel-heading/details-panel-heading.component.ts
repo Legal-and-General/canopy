@@ -14,11 +14,11 @@ import {
   lgIconChevronDown,
   lgIconCrossmarkSpotFill,
   lgIconInformationFill,
-  LgIconRegistry,
   lgIconWarningFill,
+  LgIconRegistry,
+  LgIconComponent,
 } from '../../icon';
 import type { Variant } from '../../variant';
-import { LgIconComponent } from '../../icon';
 import { LgHeadingComponent } from '../../heading';
 
 @Component({
@@ -64,10 +64,11 @@ export class LgDetailsPanelHeadingComponent {
     private iconRegistry: LgIconRegistry,
   ) {
     this.iconRegistry.registerIcons([
+      lgIconCheckmarkSpotFill,
+      lgIconChevronDown,
       lgIconCrossmarkSpotFill,
       lgIconInformationFill,
       lgIconWarningFill,
-      lgIconCheckmarkSpotFill,
     ]);
   }
 
