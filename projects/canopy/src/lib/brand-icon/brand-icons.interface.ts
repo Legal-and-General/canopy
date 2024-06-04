@@ -503,6 +503,13 @@ export const lgBrandIconChat: {
   name: 'chat',
   data: `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320"><g id="Foundations/Icons/Brand-Icons/Communication/08-chat" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><path id="lg-icon-fill-primary" fill="#FFD500" d="M96 80.3V200H80a8 8 0 0 0-5.66 2.34L48 228.69V208a8 8 0 0 0-8-8H16.3a.31.31 0 0 1-.3-.3V16.3a.31.31 0 0 1 .3-.3h199.4a.31.31 0 0 1 .3.3V72H104.3a8.31 8.31 0 0 0-8.3 8.3Z"/><path id="Half-tone" fill="#000" d="M28 184a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-16-16a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-48-16a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-16-16a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-48-16a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-16-16a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM28 88a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM44 72a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM28 56a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm96 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-64 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm96 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM60 56a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM44 40a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8ZM28 24a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm32 0a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/><path id="Outlines" fill="#000" d="M215.7 8a8.31 8.31 0 0 1 8.3 8.3V72h79.7a8.31 8.31 0 0 1 8.3 8.3v183.4a8.31 8.31 0 0 1-8.3 8.3H280v40l-40-40H104.3a8.31 8.31 0 0 1-8.3-8.3V208H80l-40 40v-40H16.3a8.31 8.31 0 0 1-8.3-8.3V16.3A8.31 8.31 0 0 1 16.3 8Zm88 72H104.3a.31.31 0 0 0-.3.3v183.4a.31.31 0 0 0 .3.3H240a8 8 0 0 1 5.66 2.34L272 292.69V272a8 8 0 0 1 8-8h23.7a.31.31 0 0 0 .3-.3V80.3a.31.31 0 0 0-.3-.3Zm-88-64H16.3a.31.31 0 0 0-.3.3v183.4a.31.31 0 0 0 .3.3H40a8 8 0 0 1 8 8v20.69l26.34-26.35A8 8 0 0 1 80 200h16V80.3a8.31 8.31 0 0 1 8.3-8.3H216V16.3a.31.31 0 0 0-.3-.3ZM196 176a4 4 0 0 1 .2 7.995l-.2.005h-64a4 4 0 0 1-.2-7.995l.2-.005h64Zm72-32a4 4 0 0 1 .2 7.995l-.2.005H132a4 4 0 0 1-.2-7.995l.2-.005h136Zm0-32a4 4 0 0 1 .2 7.995l-.2.005H132a4 4 0 0 1-.2-7.995l.2-.005h136Z"/></g></svg>`
 };
+export const lgBrandIconCheck: {
+  name: 'check';
+  data: string;
+} = {
+  name: 'check',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320"><g id="Check" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><circle id="lg-icon-fill-primary" cx="160" cy="160" r="112" fill="#FFD500"/><path id="Outline" fill="#000" d="M160 16c79.529 0 144 64.471 144 144s-64.471 144-144 144S16 239.529 16 160 80.471 16 160 16Zm0 8C84.89 24 24 84.89 24 160s60.89 136 136 136 136-60.89 136-136S235.11 24 160 24Zm0 24c61.856 0 112 50.144 112 112 0 61.237-49.146 110.996-110.148 111.985L160 272c-61.856 0-112-50.144-112-112S98.144 48 160 48Zm0 8c-57.438 0-104 46.562-104 104s46.562 104 104 104 104-46.562 104-104S217.438 56 160 56Zm58.828 61.172a4 4 0 0 1 0 5.656l-80 80a4 4 0 0 1-5.656 0l-32-32a4 4 0 1 1 5.656-5.656L136 194.343l77.172-77.171a4 4 0 0 1 5.656 0Z"/></g></svg>`
+};
 export const lgBrandIconChecklistForm: {
   name: 'checklist-form';
   data: string;
@@ -3495,6 +3502,7 @@ export type BrandIconName =
   | 'chart-warning'
   | 'chart'
   | 'chat'
+  | 'check'
   | 'checklist-form'
   | 'checklist-warning'
   | 'checklist'
@@ -3985,6 +3993,7 @@ export const BrandIconName = {
   'chart-warning': 'chart-warning' as BrandIconName,
   chart: 'chart' as BrandIconName,
   chat: 'chat' as BrandIconName,
+  check: 'check' as BrandIconName,
   'checklist-form': 'checklist-form' as BrandIconName,
   'checklist-warning': 'checklist-warning' as BrandIconName,
   checklist: 'checklist' as BrandIconName,
@@ -4483,6 +4492,7 @@ export const lgBrandIconsArray = [
   lgBrandIconChartWarning,
   lgBrandIconChart,
   lgBrandIconChat,
+  lgBrandIconCheck,
   lgBrandIconChecklistForm,
   lgBrandIconChecklistWarning,
   lgBrandIconChecklist,
