@@ -49,3 +49,4 @@ export * from './lib/variant/index';
 export * from './lib/modal/index';
 export * from './lib/primary-message/index';
 export * from './lib/orientation/index';
+export * from './lib/progress-indicator/index';

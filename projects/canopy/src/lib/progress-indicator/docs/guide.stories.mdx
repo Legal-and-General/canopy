@@ -1,0 +1,22 @@
+import { Meta, Markdown, Source } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+
+<Meta title="Components/Progress indicator/Guide" />
+
+# Progress Indicator
+
+<p class="standardfirst">The progress indicator inform users about the status of ongoing processes.</p>
+
+
+
+## Usage
+For a basic progress bar, where:
+    - max: is the maximum value in the progress bar
+    - value: is the current step in the process
+```html
+<lg-progress-bar [max]="max" [value]="value"></lg-progress-bar>
+```
+
+
+
+<Markdown>{Feedback}</Markdown>
