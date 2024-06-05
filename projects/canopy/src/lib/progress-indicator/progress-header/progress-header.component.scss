@@ -1,0 +1,7 @@
+@import '../../../styles/mixins.scss';
+
+.lg-progress-header {
+  @include lg-font-size(4);
+
+  padding-top: var(--space-sm);
+}

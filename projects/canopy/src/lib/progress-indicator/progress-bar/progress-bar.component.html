@@ -1,0 +1,10 @@
+<div
+  class="lg-progress-container"
+  [attr.aria-label]="'progress-bar'"
+  [attr.aria-valuemax]="max"
+  [attr.aria-valuemin]="value"
+  [attr.aria-valuenow]="value"
+  role="progressbar"
+>
+  <div [style.width.%]="progress" class="lg-progress-bar">&nbsp;</div>
+</div>
