@@ -56,18 +56,23 @@ export default {
         },
       },
     },
+    name: {
+      description: 'Journey title.',
+      table: {
+        type: {
+          summary: 'string',
+        },
+        defaultValue: {
+          summary: 'journey title',
+        },
+      },
+    },
   },
 } as Meta<LgProgressIndicatorComponent>;
 
 const template = `
-<lg-progress-indicator>
-  <lg-progress-journey [max]="max" [value]="value" [showAsPercentage]="showAsPercentage" [showProgressBar]="showProgressBar">
-    Journey title
-  </lg-progress-journey>
-  <lg-progress-bar [max]="max" [value]="value"></lg-progress-bar>
-  <lg-progress-header>
-    Step Heading
-  </lg-progress-header>
+<lg-progress-indicator [max]="max" [value]="value" [name]="name" [showAsPercentage]="showAsPercentage" [showProgressBar]="showProgressBar">
+  Step heading
 </lg-progress-indicator>
 `;
 
@@ -87,6 +92,7 @@ progressJourney.args = {
   value: 1,
   showAsPercentage: true,
   showProgressBar: true,
+  name: 'Journey Title',
 };
 
 progressJourney.parameters = {

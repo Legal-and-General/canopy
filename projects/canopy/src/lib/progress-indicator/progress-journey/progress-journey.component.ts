@@ -15,6 +15,7 @@ import {
 export class LgProgressJourneyComponent {
   @Input() max = 0;
   @Input() value = 0;
+  @Input() name: string;
   @Input() showProgressBar = true;
   @Input() showAsPercentage = true;
 

@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -14,4 +15,9 @@ import {
 })
 export class LgProgressIndicatorComponent {
   @HostBinding('class.lg-progress-indicator') class = true;
+  @Input() max = 0;
+  @Input() value = 0;
+  @Input() name: string;
+  @Input() showProgressBar = true;
+  @Input() showAsPercentage = true;
 }
