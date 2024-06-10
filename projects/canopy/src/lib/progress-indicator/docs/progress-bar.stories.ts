@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/angular';
 import { LgProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 const meta: Meta<LgProgressBarComponent> = {
-  title: 'Components/ Progress indicator/Examples',
+  title: 'Components/ Progress indicator/Examples/Progress bar',
   component: LgProgressBarComponent,
   argTypes: {
     max: {

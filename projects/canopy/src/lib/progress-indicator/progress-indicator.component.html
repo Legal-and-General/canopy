@@ -1,13 +1,12 @@
-<div>
-  <lg-progress-journey
-    [max]="max"
-    [value]="value"
-    [showAsPercentage]="showAsPercentage"
-    [showProgressBar]="showProgressBar"
-    [name]="name"
-  ></lg-progress-journey>
-  <lg-progress-bar [max]="max" [value]="value"></lg-progress-bar>
-  <lg-progress-header>
-    <ng-content></ng-content>
-  </lg-progress-header>
-</div>
+<lg-progress-journey
+  [max]="max"
+  [value]="value"
+  [showAsPercentage]="showAsPercentage"
+  [stepsPrefix]="stepsPrefix"
+>
+  <ng-content />
+</lg-progress-journey>
+
+<lg-progress-bar *ngIf="showProgressBar" [max]="max" [value]="value" />
+
+<ng-content select="lg-progress-header" />

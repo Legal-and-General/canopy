@@ -1,16 +1,10 @@
 <div class="lg-progress-journey">
-  <div class="lg-font-size-1--strong" *ngIf="name; else content">{{ name }}</div>
+  <div class="lg-font-size-1--strong">
+    <ng-content />
+  </div>
 
-  <div [ngSwitch]="showAsPercentage" *ngIf="showProgressBar">
-    <span class="lg-font-size-0-6" *ngSwitchCase="true">
-      Step {{ value }} of {{ max }}
-    </span>
-    <span class="lg-font-size-0-6" *ngSwitchCase="false"> {{ percentage }}% </span>
+  <div [ngSwitch]="showAsPercentage" class="lg-progress-journey-content lg-font-size-0-6">
+    <span *ngSwitchCase="true"> {{ stepsPrefix }} {{ value }} of {{ max }} </span>
+    <span *ngSwitchCase="false"> {{ percentage }}% </span>
   </div>
 </div>
-
-<ng-template #content>
-  <div class="lg-font-size-1--strong">
-    <ng-content></ng-content>
-  </div>
-</ng-template>
