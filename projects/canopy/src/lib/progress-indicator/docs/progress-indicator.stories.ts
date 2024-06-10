@@ -56,14 +56,14 @@ export default {
         },
       },
     },
-    name: {
-      description: 'Journey title.',
+    stepsPrefix: {
+      description: 'The prefix for the steps.',
       table: {
         type: {
           summary: 'string',
         },
         defaultValue: {
-          summary: 'journey title',
+          summary: 'Step',
         },
       },
     },
@@ -71,8 +71,11 @@ export default {
 } as Meta<LgProgressIndicatorComponent>;
 
 const template = `
-<lg-progress-indicator [max]="max" [value]="value" [name]="name" [showAsPercentage]="showAsPercentage" [showProgressBar]="showProgressBar">
-  Step heading
+<lg-progress-indicator [max]="max" [value]="value" [showAsPercentage]="showAsPercentage" [showProgressBar]="showProgressBar" [stepsPrefix]="stepsPrefix">
+  Journey title
+  <lg-progress-header>
+    Step Heading
+  </lg-progress-header>
 </lg-progress-indicator>
 `;
 
@@ -92,7 +95,7 @@ progressJourney.args = {
   value: 1,
   showAsPercentage: true,
   showProgressBar: true,
-  name: 'Journey Title',
+  stepsPrefix: 'Step',
 };
 
 progressJourney.parameters = {

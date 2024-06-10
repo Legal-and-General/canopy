@@ -1,10 +1,10 @@
 <div
-  class="lg-progress-container"
+  class="lg-progress-bar"
   [attr.aria-label]="'progress-bar'"
   [attr.aria-valuemax]="max"
   [attr.aria-valuemin]="value"
   [attr.aria-valuenow]="value"
   role="progressbar"
 >
-  <div [style.width.%]="progress" class="lg-progress-bar">&nbsp;</div>
+  <div class="lg-progress-bar_bar" [style.width.%]="progress">&nbsp;</div>
 </div>

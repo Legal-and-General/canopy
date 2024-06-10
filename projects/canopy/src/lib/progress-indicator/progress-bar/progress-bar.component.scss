@@ -1,11 +1,11 @@
-.lg-progress-container {
+.lg-progress-bar {
   background-color: #e3f2fd;
   height: calc(var(--space-xxxs) / 2);
   margin-bottom: calc(var(--space-xxxs) / 2);
   width: 100%;
 }
 
-.lg-progress-bar {
+.lg-progress-bar > .lg-progress-bar_bar {
   background-color: var(--color-super-blue);
   height: inherit;
 }

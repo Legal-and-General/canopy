@@ -15,11 +15,17 @@ import {
 export class LgProgressJourneyComponent {
   @Input() max = 0;
   @Input() value = 0;
-  @Input() name: string;
-  @Input() showProgressBar = true;
   @Input() showAsPercentage = true;
+  @Input() stepsPrefix = 'Step';
 
   get percentage(): number {
-    return Math.floor((this.value / this.max) * 100);
+    if (this.max === 0) {
+      return 0;
+    }
+
+    const rawPercentage = (this.value / this.max) * 100;
+    const clampedPercentage = Math.max(0, Math.min(100, rawPercentage));
+
+    return Math.floor(clampedPercentage);
   }
 }
