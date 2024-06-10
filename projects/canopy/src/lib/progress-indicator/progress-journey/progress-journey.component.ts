@@ -15,7 +15,7 @@ import {
 export class LgProgressJourneyComponent {
   @Input() max = 0;
   @Input() value = 0;
-  @Input() showAsPercentage = true;
+  @Input() showAsPercentage = false;
   @Input() stepsPrefix = 'Step';
 
   get percentage(): number {

@@ -26,7 +26,7 @@ describe('LgProgressIndicatorComponent', () => {
     expect(component.max).toBe(0);
     expect(component.value).toBe(0);
     expect(component.showProgressBar).toBe(true);
-    expect(component.showAsPercentage).toBe(true);
+    expect(component.showAsPercentage).toBe(false);
     expect(component.stepsPrefix).toBe('Step');
   });
 

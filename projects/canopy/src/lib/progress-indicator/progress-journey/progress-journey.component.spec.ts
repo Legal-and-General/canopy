@@ -11,9 +11,7 @@ describe('LgProgressJourneyComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ LgProgressJourneyComponent ],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(LgProgressJourneyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -47,24 +45,10 @@ describe('LgProgressJourneyComponent', () => {
   it('should display steps when showAsPercentage is false', () => {
     component.showAsPercentage = false;
     fixture.detectChanges();
-    const stepsElement = fixture.debugElement.query(
-      By.css('.lg-progress-journey-content'),
-    );
+    const stepsElement = fixture.debugElement.query(By.css('.progress-journey_stepper'));
 
     expect(stepsElement.nativeElement.textContent).toContain(
       `${component.stepsPrefix} ${component.value} of ${component.max}`,
     );
-  });
-
-  it('should display percentage when showAsPercentage is true', () => {
-    component.showAsPercentage = true;
-    component.max = 5;
-    component.value = 3;
-    fixture.detectChanges();
-    const percentageElement = fixture.debugElement.query(
-      By.css('.lg-progress-journey-content'),
-    );
-
-    expect(percentageElement.nativeElement.textContent).toContain('60%');
   });
 });

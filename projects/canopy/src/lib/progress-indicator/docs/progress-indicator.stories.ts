@@ -46,13 +46,13 @@ export default {
       },
     },
     showAsPercentage: {
-      description: 'Toggle the heading.',
+      description: 'Either show as percentage or stepper.',
       table: {
         type: {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: false,
         },
       },
     },
@@ -93,7 +93,7 @@ progressJourney.storyName = 'Progress indicator';
 progressJourney.args = {
   max: 5,
   value: 1,
-  showAsPercentage: true,
+  showAsPercentage: false,
   showProgressBar: true,
   stepsPrefix: 'Step',
 };
