@@ -3,8 +3,12 @@
     <ng-content />
   </div>
 
-  <div [ngSwitch]="showAsPercentage" class="lg-progress-journey-content lg-font-size-0-6">
-    <span *ngSwitchCase="true"> {{ stepsPrefix }} {{ value }} of {{ max }} </span>
-    <span *ngSwitchCase="false"> {{ percentage }}% </span>
+  <div [ngSwitch]="showAsPercentage" class="lg-font-size-0-6">
+    <span *ngSwitchCase="false" class="progress-journey_stepper">
+      {{ stepsPrefix }} {{ value }} of {{ max }}
+    </span>
+    <span *ngSwitchCase="true" class="progress-journey_percentage">
+      {{ percentage }}%
+    </span>
   </div>
 </div>

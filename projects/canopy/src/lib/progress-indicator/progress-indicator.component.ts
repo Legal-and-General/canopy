@@ -18,6 +18,6 @@ export class LgProgressIndicatorComponent {
   @Input() max = 0;
   @Input() value = 0;
   @Input() showProgressBar = true;
-  @Input() showAsPercentage = true;
+  @Input() showAsPercentage = false;
   @Input() stepsPrefix = 'Step';
 }
