@@ -14,7 +14,6 @@ describe('LgProgressJourneyComponent', () => {
 
     fixture = TestBed.createComponent(LgProgressJourneyComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -37,7 +36,7 @@ describe('LgProgressJourneyComponent', () => {
 
   it('should display the minimum percentage to be 0', () => {
     component.max = 0;
-    component.value = 0;
+    component.value = 2;
 
     expect(component.percentage).toEqual(0);
   });
@@ -45,10 +44,26 @@ describe('LgProgressJourneyComponent', () => {
   it('should display steps when showAsPercentage is false', () => {
     component.showAsPercentage = false;
     fixture.detectChanges();
-    const stepsElement = fixture.debugElement.query(By.css('.progress-journey_stepper'));
+    const stepsElement = fixture.debugElement.query(
+      By.css('.lg-progress-journey__stepper'),
+    );
 
     expect(stepsElement.nativeElement.textContent).toContain(
       `${component.stepsPrefix} ${component.value} of ${component.max}`,
     );
+  });
+
+  it('should display percentage when showAsPercentage is true', () => {
+    component.max = 4;
+    component.value = 3;
+
+    component.showAsPercentage = true;
+    fixture.detectChanges();
+
+    const stepsElement = fixture.debugElement.query(
+      By.css('.lg-progress-journey__percentage'),
+    );
+
+    expect(stepsElement.nativeElement.textContent).toContain('75%');
   });
 });

@@ -6,6 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+let nextUniqueId = 0;
+
 @Component({
   selector: 'lg-progress-indicator',
   templateUrl: './progress-indicator.component.html',
@@ -20,4 +22,12 @@ export class LgProgressIndicatorComponent {
   @Input() showProgressBar = true;
   @Input() showAsPercentage = false;
   @Input() stepsPrefix = 'Step';
+
+  _id = nextUniqueId++;
+  _journeyTitleId = `lg-progress-bar-journey-${this._id}`;
+  _stepsTextId = `lg-progress-bar-step-${this._id}`;
+
+  get ariaLabelledByIds(): string {
+    return `${this._journeyTitleId} ${this._stepsTextId}`;
+  }
 }

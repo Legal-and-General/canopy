@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'lg-progress-header',
@@ -7,4 +12,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LgProgressHeaderComponent {}
+export class LgProgressHeaderComponent {
+  @HostBinding('class.lg-progress-header') class = true;
+}

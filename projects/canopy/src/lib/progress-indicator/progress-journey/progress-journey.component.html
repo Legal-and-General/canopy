@@ -1,14 +1,20 @@
-<div class="lg-progress-journey">
-  <div class="lg-font-size-1--strong">
-    <ng-content />
-  </div>
+<div class="lg-font-size-1--strong" [attr.id]="journeyTitleId">
+  <ng-content />
+</div>
 
-  <div [ngSwitch]="showAsPercentage" class="lg-font-size-0-6">
-    <span *ngSwitchCase="false" class="progress-journey_stepper">
-      {{ stepsPrefix }} {{ value }} of {{ max }}
-    </span>
-    <span *ngSwitchCase="true" class="progress-journey_percentage">
-      {{ percentage }}%
-    </span>
-  </div>
+<div [ngSwitch]="showAsPercentage" class="lg-font-size-0-6">
+  <span
+    *ngSwitchCase="false"
+    class="lg-progress-journey__stepper"
+    [attr.id]="stepsTextId"
+  >
+    {{ stepsPrefix }} {{ value }} of {{ max }}
+  </span>
+  <span
+    *ngSwitchCase="true"
+    class="lg-progress-journey__percentage"
+    [attr.id]="stepsTextId"
+  >
+    {{ percentage }}%
+  </span>
 </div>

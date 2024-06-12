@@ -6,9 +6,13 @@ import Feedback from '../../docs/common/feedback.md?raw';
 # Progress Indicator
 
 <p class="standardfirst">
-  The progress indicator are used to inform users about the status of an ongoing
+  The progress indicator are used to informs users about the status of an ongoing
   processes.
 </p>
+
+The progress indicator is a container that comprises of 3 child components: `lg-progress-bar`, `lg-progress-header` and `lg-progress-journey`, which in combination is used to display the progress of a multi-part form journey.
+
+The container component and the progress bar component have an input API that aligns with the [HTML5 progress element](https://www.w3.org/WAI/tutorials/forms/multi-page/#using-the-html5-progress-element), using inputs called `max` and `value` (see **usage** below).
 
 <div class="lg-sb-preview">
   <Story id="components-progress-indicator-examples-progress-indicator--progress-journey"></Story>
@@ -17,6 +21,7 @@ import Feedback from '../../docs/common/feedback.md?raw';
 ## Usage
 
 Use this component when you want to show the progress of a journey. It can be used in a variety of ways, such as a simple progress bar or a more complex progress indicator with multiple steps.
+
 Import the separator module into your application:
 
 ```js
@@ -57,12 +62,12 @@ And for a progress indicator as a part of a form journey, use the following mark
 
 ### LgProgressIndicatorComponent inputs
 
-| Name               | Description                                 |   Type    | Default | Required |
-| ------------------ | ------------------------------------------- | :-------: | :-----: | :------: |
-| `max`              | The number of the maximum steps             | `number`  |   `0`   |   Yes    |
-| `value`            | The current step in the process             | `number`  |   `0`   |   Yes    |
-| `showAsPercentage` | Display as a step counter or percentage     | `boolean` | `false` |    No    |
-| `showProgressBar`  | Toggle display the progress bar             | `boolean` | `true`  |    No    |
-| `stepsPrefix`      | For a step counter, change the text content | `string`  | `Step`  |    No    |
+| Name               | Description                                                                                                |   Type    | Default | Required |
+| ------------------ | ---------------------------------------------------------------------------------------------------------- | :-------: | :-----: | :------: |
+| `max`              | The number of the maximum steps                                                                            | `number`  |   `0`   |   Yes    |
+| `value`            | The current step in the process                                                                            | `number`  |   `0`   |   Yes    |
+| `showAsPercentage` | Display as a step counter or percentage. The percentage is calculated based on the `max` and `min` values. | `boolean` | `false` |    No    |
+| `showProgressBar`  | Toggle display the progress bar                                                                            | `boolean` | `true`  |    No    |
+| `stepsPrefix`      | For a step counter, this changes the text content which describes the steps (e.g. Step 1 of 3).            | `string`  | `Step`  |    No    |
 
 <Markdown>{Feedback}</Markdown>

@@ -4,7 +4,7 @@ import { LgProgressIndicatorModule } from '../progress-indicator.module';
 import { LgProgressIndicatorComponent } from '../progress-indicator.component';
 
 export default {
-  title: 'Components/ Progress indicator/Examples/Progress indicator',
+  title: 'Components/Progress indicator/Examples/Progress indicator',
   component: LgProgressIndicatorComponent,
   decorators: [
     moduleMetadata({

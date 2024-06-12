@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgProgressHeaderComponent } from './progress-header.component';
 
-describe('HeroImgCardSubtitleComponent', () => {
+describe('LgProgressHeaderComponent', () => {
   let component: LgProgressHeaderComponent;
   let fixture: ComponentFixture<LgProgressHeaderComponent>;
 
@@ -18,5 +18,9 @@ describe('HeroImgCardSubtitleComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have the default class', () => {
+    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-progress-header');
   });
 });
