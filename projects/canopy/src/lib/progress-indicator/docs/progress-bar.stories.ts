@@ -2,8 +2,8 @@ import { Meta, StoryFn } from '@storybook/angular';
 
 import { LgProgressBarComponent } from '../progress-bar/progress-bar.component';
 
-const meta: Meta<LgProgressBarComponent> = {
-  title: 'Components/ Progress indicator/Examples/Progress bar',
+export default {
+  title: 'Components/Progress indicator/Examples/Progress bar',
   component: LgProgressBarComponent,
   argTypes: {
     max: {
@@ -29,9 +29,7 @@ const meta: Meta<LgProgressBarComponent> = {
       },
     },
   },
-};
-
-export default meta;
+} as Meta<LgProgressBarComponent>;
 
 const template = `
   <lg-progress-bar [max]="max" [value]="value"></lg-progress-bar>

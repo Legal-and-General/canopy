@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  HostBinding,
   Input,
   ViewEncapsulation,
 } from '@angular/core';
@@ -13,10 +14,14 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LgProgressJourneyComponent {
+  @HostBinding('class.lg-progress-journey') class = true;
+
   @Input() max = 0;
   @Input() value = 0;
   @Input() showAsPercentage = false;
   @Input() stepsPrefix = 'Step';
+  @Input() journeyTitleId: string;
+  @Input() stepsTextId: string;
 
   get percentage(): number {
     if (this.max === 0) {

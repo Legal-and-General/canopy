@@ -3,10 +3,17 @@
   [value]="value"
   [showAsPercentage]="showAsPercentage"
   [stepsPrefix]="stepsPrefix"
+  [journeyTitleId]="_journeyTitleId"
+  [stepsTextId]="_stepsTextId"
 >
   <ng-content />
 </lg-progress-journey>
 
-<lg-progress-bar *ngIf="showProgressBar" [max]="max" [value]="value" />
+<lg-progress-bar
+  *ngIf="showProgressBar"
+  [max]="max"
+  [value]="value"
+  [ariaLabelledBy]="ariaLabelledByIds"
+/>
 
 <ng-content select="lg-progress-header" />

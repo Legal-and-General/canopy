@@ -1,10 +1,12 @@
 <div
+  role="progressbar"
   class="lg-progress-bar"
-  [attr.aria-label]="'progress-bar'"
+  [attr.aria-label]="ariaLabel"
+  [attr.aria-labelledby]="ariaLabelledBy"
   [attr.aria-valuemax]="max"
   [attr.aria-valuemin]="value"
   [attr.aria-valuenow]="value"
-  role="progressbar"
+  [attr.aria-live]="isAriaLiveRegion ? 'polite' : 'off'"
 >
-  <div class="lg-progress-bar_bar" [style.width.%]="progress">&nbsp;</div>
+  <div class="lg-progress-bar__bar" [style.width.%]="progress"></div>
 </div>

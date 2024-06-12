@@ -15,6 +15,9 @@ import {
 export class LgProgressBarComponent {
   @Input() max = 0;
   @Input() value = 0;
+  @Input() isAriaLiveRegion: false;
+  @Input() ariaLabel = 'Progress bar';
+  @Input() ariaLabelledBy: null | string = null;
 
   // This getter calculates the progress as a percentage of `value` to `max`.
   // If `max` is 0, it returns 0 to avoid division by zero.
