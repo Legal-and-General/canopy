@@ -11,6 +11,7 @@ import {
   styleUrls: [ './progress-bar.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgProgressBarComponent {
   @Input() max = 0;

@@ -8,7 +8,7 @@ describe('LgProgressHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgProgressHeaderComponent ],
+      imports: [ LgProgressHeaderComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgProgressHeaderComponent);

@@ -8,7 +8,7 @@ describe('LgProgressIndicatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgProgressIndicatorComponent ],
+      imports: [ LgProgressIndicatorComponent ],
     }).compileComponents();
   });
 
@@ -25,7 +25,7 @@ describe('LgProgressIndicatorComponent', () => {
     expect(component.max).toBe(0);
     expect(component.value).toBe(0);
     expect(component.showProgressBar).toBe(true);
-    expect(component.showAsPercentage).toBe(false);
+    expect(component.displayAs).toBe('step');
     expect(component.stepsPrefix).toBe('Step');
   });
 
@@ -70,12 +70,12 @@ describe('LgProgressIndicatorComponent', () => {
     expect(component.value).toBe(value);
   });
 
-  it('should set showAsPercentage input correctly', () => {
-    const showAsPercentage = true;
+  it('should set displayAs input correctly', () => {
+    const showAsPercentage = 'percentage';
 
-    component.showAsPercentage = showAsPercentage;
+    component.displayAs = showAsPercentage;
 
-    expect(component.showAsPercentage).toBe(showAsPercentage);
+    expect(component.displayAs).toBe(showAsPercentage);
   });
 
   it('should set stepsPrefix input correctly', () => {
