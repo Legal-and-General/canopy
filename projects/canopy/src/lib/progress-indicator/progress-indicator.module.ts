@@ -16,8 +16,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [ CommonModule, LgHeadingModule ],
-  declarations: [ components ],
+  imports: [ CommonModule, LgHeadingModule, ...components ],
   exports: [ components ],
 })
 export class LgProgressIndicatorModule {}

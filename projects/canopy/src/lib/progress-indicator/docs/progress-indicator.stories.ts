@@ -1,14 +1,21 @@
 import { Meta, StoryFn, moduleMetadata } from '@storybook/angular';
+import { LgProgressBarComponent } from 'canopy';
+import { CommonModule } from '@angular/common';
 
-import { LgProgressIndicatorModule } from '../progress-indicator.module';
 import { LgProgressIndicatorComponent } from '../progress-indicator.component';
+import { LgProgressHeaderComponent } from '../progress-header/progress-header.component';
 
 export default {
-  title: 'Components/Progress indicator/Examples/Progress indicator',
+  title: 'Components/Progress indicator/Examples',
   component: LgProgressIndicatorComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgProgressIndicatorModule ],
+      imports: [
+        CommonModule,
+        LgProgressIndicatorComponent,
+        LgProgressHeaderComponent,
+        LgProgressBarComponent,
+      ],
     }),
   ],
   argTypes: {
@@ -45,14 +52,14 @@ export default {
         },
       },
     },
-    showAsPercentage: {
+    displayAs: {
       description: 'Either show as percentage or stepper.',
       table: {
         type: {
-          summary: 'boolean',
+          summary: 'percentage|step',
         },
         defaultValue: {
-          summary: false,
+          summary: 'step',
         },
       },
     },
@@ -71,7 +78,7 @@ export default {
 } as Meta<LgProgressIndicatorComponent>;
 
 const template = `
-<lg-progress-indicator [max]="max" [value]="value" [showAsPercentage]="showAsPercentage" [showProgressBar]="showProgressBar" [stepsPrefix]="stepsPrefix">
+<lg-progress-indicator [max]="max" [value]="value" [displayAs]="displayAs" [showProgressBar]="showProgressBar" [stepsPrefix]="stepsPrefix">
   Journey title
   <lg-progress-header>
     Step Heading
@@ -93,7 +100,7 @@ progressJourney.storyName = 'Progress indicator';
 progressJourney.args = {
   max: 5,
   value: 1,
-  showAsPercentage: false,
+  displayAs: 'step',
   showProgressBar: true,
   stepsPrefix: 'Step',
 };

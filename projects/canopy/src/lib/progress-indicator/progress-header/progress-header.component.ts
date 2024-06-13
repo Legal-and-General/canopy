@@ -11,6 +11,7 @@ import {
   styleUrls: [ './progress-header.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class LgProgressHeaderComponent {
   @HostBinding('class.lg-progress-header') class = true;

@@ -9,7 +9,7 @@ describe('LgProgressJourneyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LgProgressJourneyComponent ],
+      imports: [ LgProgressJourneyComponent ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgProgressJourneyComponent);
@@ -41,8 +41,8 @@ describe('LgProgressJourneyComponent', () => {
     expect(component.percentage).toEqual(0);
   });
 
-  it('should display steps when showAsPercentage is false', () => {
-    component.showAsPercentage = false;
+  it('should display steps when displayAs variable is step', () => {
+    component.displayAs = 'step';
     fixture.detectChanges();
     const stepsElement = fixture.debugElement.query(
       By.css('.lg-progress-journey__stepper'),
@@ -53,11 +53,11 @@ describe('LgProgressJourneyComponent', () => {
     );
   });
 
-  it('should display percentage when showAsPercentage is true', () => {
+  it('should display percentage when displayAs variable is percentage', () => {
     component.max = 4;
     component.value = 3;
 
-    component.showAsPercentage = true;
+    component.displayAs = 'percentage';
     fixture.detectChanges();
 
     const stepsElement = fixture.debugElement.query(

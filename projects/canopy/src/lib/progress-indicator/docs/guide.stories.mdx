@@ -43,7 +43,7 @@ And for a progress indicator as a part of a form journey, use the following mark
 <lg-progress-indicator
   [max]="max"
   [value]="value"
-  [showAsPercentage]="showAsPercentage"
+  [displayAs]="displayAs"
   [showProgressBar]="showProgressBar"
 >
   Journey title
@@ -62,12 +62,12 @@ And for a progress indicator as a part of a form journey, use the following mark
 
 ### LgProgressIndicatorComponent inputs
 
-| Name               | Description                                                                                                |   Type    | Default | Required |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- | :-------: | :-----: | :------: |
-| `max`              | The number of the maximum steps                                                                            | `number`  |   `0`   |   Yes    |
-| `value`            | The current step in the process                                                                            | `number`  |   `0`   |   Yes    |
-| `showAsPercentage` | Display as a step counter or percentage. The percentage is calculated based on the `max` and `min` values. | `boolean` | `false` |    No    |
-| `showProgressBar`  | Toggle display the progress bar                                                                            | `boolean` | `true`  |    No    |
-| `stepsPrefix`      | For a step counter, this changes the text content which describes the steps (e.g. Step 1 of 3).            | `string`  | `Step`  |    No    |
+| Name              | Description                                                                                                |           Type           | Default | Required |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | :----------------------: | :-----: | :------: |
+| `max`             | The number of the maximum steps                                                                            |         `number`         |   `0`   |   Yes    |
+| `value`           | The current step in the process                                                                            |         `number`         |   `0`   |   Yes    |
+| `displayAs`       | Display as a step counter or percentage. The percentage is calculated based on the `max` and `min` values. | `'percentage' \| 'step'` | `step`  |    No    |
+| `showProgressBar` | Toggle display the progress bar                                                                            |        `boolean`         | `true`  |    No    |
+| `stepsPrefix`     | For a step counter, this changes the text content which describes the steps (e.g. Step 1 of 3).            |         `string`         | `Step`  |    No    |
 
 <Markdown>{Feedback}</Markdown>

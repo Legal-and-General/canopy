@@ -8,7 +8,7 @@ describe('LgProgressBarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LgProgressBarComponent ],
+      imports: [ LgProgressBarComponent ],
     }).compileComponents();
   }));
 

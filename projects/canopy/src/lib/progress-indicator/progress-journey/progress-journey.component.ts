@@ -5,6 +5,9 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgSwitch, NgSwitchCase } from '@angular/common';
+
+import { displayAsType } from '../progress-indicator.interface';
 
 @Component({
   selector: 'lg-progress-journey',
@@ -12,13 +15,15 @@ import {
   styleUrls: [ './progress-journey.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ NgSwitch, NgSwitchCase ],
 })
 export class LgProgressJourneyComponent {
   @HostBinding('class.lg-progress-journey') class = true;
 
   @Input() max = 0;
   @Input() value = 0;
-  @Input() showAsPercentage = false;
+  @Input() displayAs: displayAsType = 'step';
   @Input() stepsPrefix = 'Step';
   @Input() journeyTitleId: string;
   @Input() stepsTextId: string;
