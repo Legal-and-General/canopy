@@ -23,8 +23,12 @@ export class LgProgressBarComponent {
   // If `max` is 0, it returns 0 to avoid division by zero.
   // The result is then passed to `Math.min` with 100 to ensure the progress never exceeds 100.
   get progress(): number {
-    return Math.min(this.max
-      ? (this.value / this.max) * 100
-      : 0, 100);
+    if (this.max <= 0) {
+      return 0;
+    }
+
+    const rawPercentage = (this.value / this.max) * 100;
+
+    return Math.min(rawPercentage, 100);
   }
 }
