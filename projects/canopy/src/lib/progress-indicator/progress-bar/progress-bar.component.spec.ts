@@ -17,8 +17,22 @@ describe('LgProgressBarComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create the component', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have the role progressbar', () => {
+    const progressBarElement: HTMLElement =
+      fixture.nativeElement.querySelector('.lg-progress-bar');
+
+    expect(progressBarElement.getAttribute('role')).toBe('progressbar');
+  });
+
+  it('adds a class to the progress bar', () => {
+    const progressBarElement: HTMLElement =
+      fixture.nativeElement.querySelector('.lg-progress-bar');
+
+    expect(progressBarElement.classList.contains('lg-progress-bar')).toBe(true);
   });
 
   it('should set aria-label correctly', () => {
@@ -30,6 +44,17 @@ describe('LgProgressBarComponent', () => {
       fixture.nativeElement.querySelector('.lg-progress-bar');
 
     expect(progressBarElement.getAttribute('aria-label')).toBe(ariaLabel);
+  });
+
+  it('should set aria-labelledby correctly', () => {
+    const ariaLabelledBy = 'ariaLabelledBy';
+
+    component.ariaLabelledBy = ariaLabelledBy;
+    fixture.detectChanges();
+    const progressBarElement: HTMLElement =
+      fixture.nativeElement.querySelector('.lg-progress-bar');
+
+    expect(progressBarElement.getAttribute('aria-labelledby')).toBe(ariaLabelledBy);
   });
 
   it('should set aria-valuemax correctly', () => {
@@ -66,18 +91,15 @@ describe('LgProgressBarComponent', () => {
     expect(progressBarElement.getAttribute('aria-valuenow')).toBe(value.toString());
   });
 
-  it('should have the class lg-progress-bar', () => {
+  it('should set aria-live correctly', () => {
+    const isAriaLiveRegion = true;
+
+    component.isAriaLiveRegion = isAriaLiveRegion;
+    fixture.detectChanges();
     const progressBarElement: HTMLElement =
       fixture.nativeElement.querySelector('.lg-progress-bar');
 
-    expect(progressBarElement.classList.contains('lg-progress-bar')).toBe(true);
-  });
-
-  it('should have the role progressbar', () => {
-    const progressBarElement: HTMLElement =
-      fixture.nativeElement.querySelector('.lg-progress-bar');
-
-    expect(progressBarElement.getAttribute('role')).toBe('progressbar');
+    expect(progressBarElement.getAttribute('aria-live')).toBe('polite');
   });
 
   it('should set [style.width.%] correctly', () => {

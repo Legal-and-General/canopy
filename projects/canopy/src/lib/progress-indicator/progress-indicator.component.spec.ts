@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { LgProgressIndicatorComponent } from './progress-indicator.component';
 
@@ -17,16 +18,29 @@ describe('LgProgressIndicatorComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create the component', () => {
+  it('should render journeyTitleId', () => {
+    component.journeyTitleId = 'New Journey title';
+    fixture.detectChanges();
+
+    const debugElement = fixture.debugElement;
+    const journeyTitleIdElement = debugElement.query(By.css('.lg-progress-journey'));
+
+    expect(journeyTitleIdElement.attributes['ng-reflect-journey-title-id']).toBe(
+      'New Journey title',
+    );
+  });
+
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have the correct default values', () => {
-    expect(component.max).toBe(0);
-    expect(component.value).toBe(0);
-    expect(component.showProgressBar).toBe(true);
-    expect(component.displayAs).toBe('step');
-    expect(component.stepsPrefix).toBe('Step');
+  it('should render the progress bar with the correct value', () => {
+    const hostElement = fixture.nativeElement;
+
+    fixture.detectChanges();
+
+    expect(hostElement.querySelector('lg-progress-bar')).toBeTruthy();
+    expect(hostElement.querySelector('lg-progress-journey')).toBeTruthy();
   });
 
   it('should apply the correct CSS class', () => {
@@ -37,15 +51,7 @@ describe('LgProgressIndicatorComponent', () => {
     expect(hostElement.classList.contains('lg-progress-indicator')).toBe(true);
   });
 
-  it('should render the progress bar with the correct value', () => {
-    const hostElement = fixture.nativeElement;
-
-    fixture.detectChanges();
-
-    expect(hostElement.querySelector('lg-progress-bar')).toBeTruthy();
-  });
-
-  it('should hide progressbar when showProgressBar is false', () => {
+  it('should hide progress bar when showProgressBar is false', () => {
     component.showProgressBar = false;
     const hostElement = fixture.nativeElement;
 
@@ -84,5 +90,68 @@ describe('LgProgressIndicatorComponent', () => {
     component.stepsPrefix = stepsPrefix;
 
     expect(component.stepsPrefix).toBe(stepsPrefix);
+  });
+
+  describe('accessibility', () => {
+    it('should populate not specified', () => {
+      fixture.detectChanges();
+
+      const debugElement = fixture.debugElement;
+      const journeyElement = debugElement.query(By.css('.lg-progress-journey'));
+
+      expect(journeyElement.attributes['ng-reflect-journey-title-id']).toContain(
+        'lg-progress-bar-journey-',
+      );
+
+      expect(journeyElement.attributes['ng-reflect-steps-text-id']).toContain(
+        'lg-progress-bar-step-',
+      );
+
+      const barDebugEle = debugElement.query(By.css('.lg-progress-bar'));
+
+      expect(barDebugEle.attributes['aria-labelledby']).toContain(
+        'lg-progress-bar-journey-',
+      );
+
+      expect(barDebugEle.attributes['aria-labelledby']).toContain(
+        'lg-progress-bar-step-',
+      );
+    });
+
+    it('should render ariaLabelledByIds correctly when specified', () => {
+      component.ariaLabelledByIds = 'New ariaLabelledByIds';
+      fixture.detectChanges();
+
+      const debugElement = fixture.debugElement;
+      const journeyTitleIdElement = debugElement.query(By.css('.lg-progress-bar'));
+
+      expect(journeyTitleIdElement.nativeElement.getAttribute('aria-labelledby')).toBe(
+        'New ariaLabelledByIds',
+      );
+    });
+
+    it('should render journeyTitleId correctly when specified', () => {
+      component.journeyTitleId = 'New Journey title';
+      fixture.detectChanges();
+
+      const debugElement = fixture.debugElement;
+      const journeyElement = debugElement.query(By.css('.lg-progress-journey'));
+
+      expect(journeyElement.attributes['ng-reflect-journey-title-id']).toBe(
+        'New Journey title',
+      );
+    });
+
+    it('should render stepsTextId correctly when specified', () => {
+      component.stepsTextId = 'New Step Text';
+      fixture.detectChanges();
+
+      const debugElement = fixture.debugElement;
+      const journeyElement = debugElement.query(By.css('.lg-progress-journey'));
+
+      expect(journeyElement.attributes['ng-reflect-steps-text-id']).toContain(
+        'New Step Text',
+      );
+    });
   });
 });

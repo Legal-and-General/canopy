@@ -16,7 +16,7 @@ import {
 export class LgProgressBarComponent {
   @Input() max = 0;
   @Input() value = 0;
-  @Input() isAriaLiveRegion: false;
+  @Input() isAriaLiveRegion = false;
   @Input() ariaLabel = 'Progress bar';
   @Input() ariaLabelledBy: null | string = null;
 

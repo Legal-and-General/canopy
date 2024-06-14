@@ -1,1 +1,1 @@
-export type displayAsType = 'percentage' | 'step';
+export type ProgressDisplayAs = 'percentage' | 'step';

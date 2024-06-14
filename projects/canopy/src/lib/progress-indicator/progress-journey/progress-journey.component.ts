@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { NgSwitch, NgSwitchCase } from '@angular/common';
 
-import { displayAsType } from '../progress-indicator.interface';
+import { ProgressDisplayAs } from '../progress-indicator.interface';
 
 @Component({
   selector: 'lg-progress-journey',
@@ -23,7 +23,7 @@ export class LgProgressJourneyComponent {
 
   @Input() max = 0;
   @Input() value = 0;
-  @Input() displayAs: displayAsType = 'step';
+  @Input() displayAs: ProgressDisplayAs = 'step';
   @Input() stepsPrefix = 'Step';
   @Input() journeyTitleId: string;
   @Input() stepsTextId: string;
