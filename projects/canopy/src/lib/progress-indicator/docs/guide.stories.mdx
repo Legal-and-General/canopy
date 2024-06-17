@@ -15,19 +15,24 @@ The progress indicator is a container that comprises of 3 child components: `lg-
 The container component and the progress bar component have an input API that aligns with the [HTML5 progress element](https://www.w3.org/WAI/tutorials/forms/multi-page/#using-the-html5-progress-element), using inputs called `max` and `value` (see **usage** below).
 
 <div class="lg-sb-preview">
-  <Story id="components-progress-indicator-examples-progress-indicator--progress-journey"></Story>
+  <Story id="components-progress-indicator-examples--progress-journey"></Story>
 </div>
 
 ## Usage
 
 Use this component when you want to show the progress of a journey. It can be used in a variety of ways, such as a simple progress bar or a more complex progress indicator with multiple steps.
 
-Import the separator module into your application:
+The progress indicator component is a **Angular standalone component**, you can import the component into your application as: 
 
 ```js
 @NgModule({
     ...
-    imports: [ ..., LgProgressIndicatorModule ],
+    imports: [ 
+      ..., 
+      LgProgressBarComponent,
+      LgProgressHeaderComponents,
+      LgProgressIndicatorComponent
+    ],
 });
 ```
 

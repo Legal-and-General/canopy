@@ -1,4 +1,3 @@
-export * from './progress-indicator.module';
 export * from './progress-indicator.component';
 export * from './progress-indicator.interface';
 
