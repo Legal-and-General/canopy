@@ -50,7 +50,9 @@ import {
   LgSpinnerModule,
   LgTabsModule,
   LgToggleModule,
-  LgProgressIndicatorModule,
+  LgProgressBarComponent,
+  LgProgressIndicatorComponent,
+  LgProgressHeaderComponent,
 } from 'canopy';
 
 import { AppComponent } from './app.component';
@@ -101,7 +103,9 @@ import { StoryContentComponent } from './story-content.component';
     LgTabsModule,
     LgToggleModule,
     LgLinkMenuModule,
-    LgProgressIndicatorModule,
+    LgProgressBarComponent,
+    LgProgressHeaderComponent,
+    LgProgressIndicatorComponent,
   ],
   bootstrap: [ AppComponent ],
 })
