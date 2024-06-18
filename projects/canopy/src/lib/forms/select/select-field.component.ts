@@ -12,7 +12,7 @@ import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
-import { LgIconComponent } from '../../icon';
+import { lgIconChevronDown, LgIconComponent, LgIconRegistry } from '../../icon';
 
 import { LgSelectDirective } from './select.directive';
 
@@ -90,5 +90,8 @@ export class LgSelectFieldComponent {
   constructor(
     private errorState: LgErrorStateMatcher,
     private domService: LgDomService,
-  ) {}
+    private iconRegistry: LgIconRegistry,
+  ) {
+    this.iconRegistry.registerIcons([ lgIconChevronDown ]);
+  }
 }

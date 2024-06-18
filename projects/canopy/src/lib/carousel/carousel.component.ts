@@ -14,7 +14,12 @@ import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 import { NgIf, NgFor, NgClass } from '@angular/common';
 
 import type { HeadingLevel } from '../heading';
-import { LgIconComponent } from '../icon';
+import {
+  lgIconChevronLeft,
+  lgIconChevronRight,
+  LgIconComponent,
+  LgIconRegistry,
+} from '../icon';
 import { LgHeadingComponent } from '../heading';
 
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
@@ -56,7 +61,12 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(LgCarouselItemComponent, { read: LgCarouselItemComponent })
   carouselItems = new QueryList<LgCarouselItemComponent>();
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(
+    private cd: ChangeDetectorRef,
+    private iconRegistry: LgIconRegistry,
+  ) {
+    this.iconRegistry.registerIcons([ lgIconChevronLeft, lgIconChevronRight ]);
+  }
 
   pauseCarousel(): void {
     this.pause.next(true);
