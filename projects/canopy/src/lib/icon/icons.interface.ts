@@ -1420,13 +1420,6 @@ export const lgIconQuery: {
   name: 'query',
   data: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill-rule="evenodd" d="M16 28C9.373 28 4 22.627 4 16S9.373 4 16 4s12 5.373 12 12-5.373 12-12 12zm0-22C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm-.25 13.75c.825 0 1.5.672 1.5 1.496 0 .83-.673 1.504-1.5 1.504s-1.5-.674-1.5-1.504c0-.824.675-1.496 1.5-1.496zm.007-10.25c1.995 0 3.624 1.597 3.75 3.61l.007.5c-.065 1.154-.538 2.046-1.5 2.827-.507.41-.884.782-1.018.962a1.241 1.241 0 0 1-.903 1.074 1.236 1.236 0 0 1-1.53-.87c-.255-.884.4-1.9 1.889-3.104.446-.363.574-.62.574-1.14 0-.76-.574-1.37-1.269-1.37-.73 0-1.269.543-1.269 1.278a1.243 1.243 0 1 1-2.488 0c0-2.11 1.65-3.767 3.757-3.767z"/></svg>`,
 };
-export const lgIconQuestionMark: {
-  name: 'question-mark';
-  data: string;
-} = {
-  name: 'question-mark',
-  data: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"><defs><path id="a" d="M16 28C9.373 28 4 22.627 4 16S9.373 4 16 4s12 5.373 12 12-5.373 12-12 12zm0-22C10.477 6 6 10.477 6 16s4.477 10 10 10 10-4.477 10-10S21.523 6 16 6zm-.25 13.75c.825 0 1.5.672 1.5 1.496 0 .83-.673 1.504-1.5 1.504s-1.5-.674-1.5-1.504c0-.824.675-1.496 1.5-1.496zm.007-10.25c1.995 0 3.624 1.597 3.75 3.61l.007.5c-.065 1.154-.538 2.046-1.5 2.827-.507.41-.884.782-1.018.962a1.241 1.241 0 0 1-.903 1.074 1.236 1.236 0 0 1-1.531-.869c-.254-.885.4-1.902 1.89-3.105.446-.363.574-.62.574-1.14 0-.76-.574-1.37-1.269-1.37-.73 0-1.269.543-1.269 1.278a1.243 1.243 0 1 1-2.488 0c0-2.11 1.65-3.767 3.757-3.767z"/></defs><g fill-rule="evenodd"><circle cx="16" cy="16" r="12"/><use xlink:href="#a"/></g></svg>`,
-};
 export const lgIconRadioButtonSelected: {
   name: 'radio-button-selected';
   data: string;
@@ -2072,7 +2065,6 @@ export type IconName =
   | 'profile'
   | 'query-fill'
   | 'query'
-  | 'question-mark'
   | 'radio-button-selected'
   | 'radio-button-unselected'
   | 'recommend'
@@ -2340,7 +2332,6 @@ export const IconName = {
   profile: 'profile' as IconName,
   'query-fill': 'query-fill' as IconName,
   query: 'query' as IconName,
-  'question-mark': 'question-mark' as IconName,
   'radio-button-selected': 'radio-button-selected' as IconName,
   'radio-button-unselected': 'radio-button-unselected' as IconName,
   recommend: 'recommend' as IconName,
@@ -2614,7 +2605,6 @@ export const lgIconsArray = [
   lgIconProfile,
   lgIconQueryFill,
   lgIconQuery,
-  lgIconQuestionMark,
   lgIconRadioButtonSelected,
   lgIconRadioButtonUnselected,
   lgIconRecommend,
