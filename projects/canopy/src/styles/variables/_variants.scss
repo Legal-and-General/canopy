@@ -67,4 +67,42 @@
 
   --form-error-color: var(--color-terracotta);
   --form-error-border-color: var(--color-poppy-red);
+
+  // New variables
+
+  --theme-1-bold-bg-color: var(--color-super-blue);
+  --theme-1-bold-light-color: var(--color-white);
+  --theme-1-bold-dark-color: var(--color-black);
+
+  --theme-1-subtle-bg-color: var(--color-super-blue-lightest);
+  --theme-1-subtle-light-color: var(--color-super-blue-light);
+  --theme-1-subtle-dark-color: var(--color-super-blue-darkest);
+
+  --theme-2-bold-bg-color: var(--color-leafy-green);
+  --theme-2-bold-light-color: var(--color-white);
+  --theme-2-bold-dark-color: var(--color-black);
+
+  --theme-2-subtle-bg-color: var(--color-leafy-green-lightest);
+  --theme-2-subtle-light-color: var(--color-leafy-green-light);
+  --theme-2-subtle-dark-color: var(--color-leafy-green-darkest);
+
+  --theme-3-bold-bg-color: var(--color-dandelion-yellow);
+  --theme-3-bold-light-color: var(--color-white);
+  --theme-3-bold-dark-color: var(--color-black);
+
+  --theme-3-subtle-bg-color: var(--color-dandelion-yellow-lightest);
+  --theme-3-subtle-light-color: var(--color-dandelion-yellow-light);
+  --theme-3-subtle-dark-color: var(--color-dandelion-yellow-darkest);
+
+  --theme-4-bold-bg-color: var(--color-poppy-red);
+  --theme-4-bold-light-color: var(--color-white);
+  --theme-4-bold-dark-color: var(--color-black);
+
+  --theme-4-subtle-bg-color: var(--color-poppy-red-lightest);
+  --theme-4-subtle-light-color: var(--color-poppy-red-light);
+  --theme-4-subtle-dark-color: var(--color-poppy-red-darkest);
+
+  --theme-5-subtle-bg-color: var(--color-white-smoke);
+  --theme-5-subtle-light-color: var(--color-platinum);
+  --theme-5-subtle-dark-color: var(--color-charcoal);
 }

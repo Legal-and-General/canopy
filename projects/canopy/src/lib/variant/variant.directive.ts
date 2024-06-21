@@ -6,13 +6,22 @@ import type { Variant } from './variant.interface';
   selector: '[lgVariant]',
 })
 export class LgVariantDirective {
-  variantClass: string;
+  themeClass: string;
+  fgClass: string;
   @Input()
   set lgVariant(variant: Variant) {
-    this.variantClass = this.toggleClass(`lg-variant--${variant}`, this.variantClass);
+    const variantArr = variant.split('--');
+    const theme = variantArr[0];
+    const fg = variantArr[1];
+
+    this.themeClass = this.toggleClass(`lg-variant-${theme}`, this.themeClass);
+    this.fgClass = this.toggleClass(`lg-variant-${theme}--${fg}`, this.fgClass);
   }
 
-  constructor(private renderer: Renderer2, private hostElement: ElementRef) {}
+  constructor(
+    private renderer: Renderer2,
+    private hostElement: ElementRef,
+  ) {}
 
   toggleClass(newClass: string, oldClass: string): string {
     if (oldClass) {

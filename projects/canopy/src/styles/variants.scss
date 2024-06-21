@@ -1,21 +1,142 @@
-@import 'mixins';
+@use 'sass:string';
+@use 'sass:list';
 
-.lg-variant--generic {
-  @include lg-variant('generic');
+//.lg-variant--generic {
+//  @include lg-variant('generic');
+//}
+//
+//.lg-variant--info {
+//  @include lg-variant('info');
+//}
+//
+//.lg-variant--success {
+//  @include lg-variant('success');
+//}
+//
+//.lg-variant--warning {
+//  @include lg-variant('warning');
+//}
+//
+//.lg-variant--error {
+//  @include lg-variant('error');
+//}
+
+// New variants
+
+@mixin lg-link-new($color, $type, $fg) {
+  $box-shadow-inset-width: -0.063rem;
+  $active-and-focus-bg-color: color-mix(in srgb, $color 20%, transparent);
+  $visited-bg-color: color-mix(in srgb, $color 0%, var(--color-black) 80%);
+
+  @if $fg == 'dark' and $type == 'bold' or $fg == 'subtle' {
+    $visited-bg-color: color-mix(in srgb, var(--color-white) 80%, transparent);
+  }
+
+  border-bottom: 0.125rem solid $color;
+  color: $color;
+  line-height: initial;
+  padding: 0 0.125rem;
+  text-decoration: none;
+
+  &:hover,
+  &:hover:visited {
+    color: $color;
+    border-bottom: 0;
+    box-shadow:
+      inset 0 $box-shadow-inset-width 0 0 $color,
+      0 0.188rem 0 0 $color;
+  }
+
+  &:visited {
+    color: $color;
+    background-color: $visited-bg-color;
+    border-color: $color;
+  }
+
+  &:active,
+  &:focus-visible,
+  &:focus-visible:hover {
+    background-color: $active-and-focus-bg-color;
+    border-bottom: 0;
+    box-shadow:
+      inset 0 $box-shadow-inset-width 0 0 $color,
+      0 0.188rem 0 0 $color;
+    color: $color;
+    outline: $active-and-focus-bg-color;
+    outline-offset: 0;
+  }
 }
 
-.lg-variant--info {
-  @include lg-variant('info');
+@mixin lg-btn-variants-overrides($theme, $type) {
+  $btn-variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light';
+
+  @each $variant in $btn-variants {
+    $primary-fg: 'light';
+    $secondary-fg: 'dark';
+
+    @if (str-index($variant, 'light')) {
+      $primary-fg: 'dark';
+      $secondary-fg: 'light';
+    }
+
+    --btn-#{$variant}-bg-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+    --btn-#{$variant}-border-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+    --btn-#{$variant}-color: var(--#{$theme}-#{$type}-#{$secondary-fg}-color);
+    --btn-#{$variant}-active-border-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+    --btn-#{$variant}-active-bg-color: color-mix(
+      in srgb,
+      transparent 0%,
+      var(--#{$theme}-#{$type}-#{$secondary-fg}-color) 80%
+    );
+    --btn-#{$variant}-active-border-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+    --btn-#{$variant}-active-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+    --btn-#{$variant}-hover-bg-color: color-mix(
+      in srgb,
+      transparent 0%,
+      var(--#{$theme}-#{$type}-#{$secondary-fg}-color) 40%
+    );
+    --btn-#{$variant}-hover-border-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+    --btn-#{$variant}-hover-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+
+    @if (str-index($variant, 'secondary')) {
+      --btn-#{$variant}-bg-color: transparent;
+      --btn-#{$variant}-color: var(--#{$theme}-#{$type}-#{$primary-fg}-color);
+    }
+  }
 }
 
-.lg-variant--success {
-  @include lg-variant('success');
+@mixin create-variant-classes($theme, $type) {
+  $fgs: 'light', 'dark';
+
+  .lg-variant-#{$theme}-#{$type} {
+    background-color: var(--#{$theme}-#{$type}-bg-color) !important;
+
+    .lg-btn {
+      @include lg-btn-variants-overrides($theme, $type);
+    }
+
+    @each $fg in $fgs {
+      &--#{$fg} {
+        color: var(--#{$theme}-#{$type}-#{$fg}-color) !important;
+
+        a:not(.lg-btn) {
+          $type: list.nth(string.split('#{$theme}-#{$type}', '-'), -1);
+
+          @include lg-link-new(var(--#{$theme}-#{$type}-#{$fg}-color), $type, $fg);
+        }
+      }
+    }
+  }
 }
 
-.lg-variant--warning {
-  @include lg-variant('warning');
+$themes: 'theme-1', 'theme-2', 'theme-3', 'theme-4';
+$types: 'bold', 'subtle';
+
+@each $theme in $themes {
+  @each $type in $types {
+    @include create-variant-classes($theme, $type);
+  }
 }
 
-.lg-variant--error {
-  @include lg-variant('error');
-}
+// Only the subtle option has theme-5
+@include create-variant-classes('theme-5', 'subtle');
