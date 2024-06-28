@@ -68,7 +68,7 @@
     "@commitlint/config-angular": "^17.7.0",
     "@commitlint/config-conventional": "^17.7.0",
     "@commitlint/prompt": "^18.4.0",
-    "@compodoc/compodoc": "^1.1.21",
+    "@compodoc/compodoc": "^1.1.25",
     "@semantic-release/github": "^9.2.6",
     "@semantic-release/npm": "^10.0.5",
     "@storybook/addon-a11y": "^7.6.16",
