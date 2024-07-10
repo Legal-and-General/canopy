@@ -21,11 +21,12 @@ import { DOCUMENT, NgIf } from '@angular/common';
 import { startWith, filter, merge, skipWhile, Subscription, switchMap } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgIconComponent } from '../icon';
+import { LgIconComponent, LgIconRegistry } from '../icon';
 import { LgHideAtDirective } from '../hide-at';
 import { LgGridColDirective } from '../grid';
 import { LgGridRowDirective } from '../grid';
 import { LgGridContainerDirective } from '../grid';
+import { lgIconClose, lgIconHamburgerMenu } from '../icon/icons.interface';
 
 import { LgAccountMenuComponent } from './account-menu/account-menu.component';
 import { LgHeaderLogoComponent } from './header-logo/header-logo.component';
@@ -77,10 +78,13 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
   headerLogos: QueryList<LgHeaderLogoComponent>;
 
   constructor(
+    private iconRegistry: LgIconRegistry,
     private cdr: ChangeDetectorRef,
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
-  ) {}
+  ) {
+    this.iconRegistry.registerIcons([ lgIconHamburgerMenu, lgIconClose ]);
+  }
 
   @HostListener('document:click', [ '$event' ])
   onDocumentClickout(event: MouseEvent): void {
