@@ -648,7 +648,23 @@
               lgMarginTop="xxl"
               size="xs"
             ></lg-spinner>
-          </lg-card-content>
+            <lg-separator></lg-separator>
+            <div lgPaddingBottom="xxl">
+              <lg-heading level="3">Progress bar</lg-heading>
+              <lg-progress-bar [value]="3" [max]="5"></lg-progress-bar>
+            </div>
+            <div lgPaddingVertical="xxl">
+              <lg-heading level="3">Progress indicator</lg-heading>
+              <lg-progress-indicator [value]="3" [max]="5">
+                Withdraw money
+                <lg-progress-header>
+                  Thinking long term
+                </lg-progress-header>
+              </lg-progress-indicator>  
+            </div>
+            <lg-separator></lg-separator>
+
+    </lg-card-content>
         </lg-card>
 
         <lg-heading level="3">Tabs</lg-heading>
