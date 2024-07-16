@@ -89,6 +89,9 @@ module.exports = {
     '../projects/canopy/src/lib/tabs/docs/guide.stories.mdx',
     '../projects/canopy/src/lib/tabs/docs/tab-nav-bar.stories.ts',
     '../projects/canopy/src/lib/tabs/docs/tabs.stories.ts',
+    '../projects/canopy/src/lib/progress-indicator/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/progress-indicator/docs/progress-bar.stories.ts',
+    '../projects/canopy/src/lib/progress-indicator/docs/progress-indicator.stories.ts',
     // Patterns
     '../projects/canopy/src/lib/card/docs/promotions/guide.stories.mdx',
     '../projects/canopy/src/lib/card/docs/promotions/promotions.stories.ts',
@@ -145,7 +148,7 @@ module.exports = {
     '../projects/canopy/src/lib/heading/docs/heading.stories.ts',
     //  Style
     '../projects/canopy/src/styles/docs/mixins.stories.mdx',
-    '../projects/canopy/src/styles/docs/utils.stories.mdx'
+    '../projects/canopy/src/styles/docs/utils.stories.mdx',
   ],
   addons: [
     '@storybook/addon-a11y',
@@ -165,17 +168,17 @@ module.exports = {
     '../assets/',
     {
       from: '../assets/fonts/',
-      to: 'assets/fonts'
-    }
+      to: 'assets/fonts',
+    },
   ],
   core: {
-    fsCache: true
+    fsCache: true,
   },
   framework: {
     name: '@storybook/angular',
-    options: {}
+    options: {},
   },
   docs: {
     autodocs: false,
-  }
+  },
 };

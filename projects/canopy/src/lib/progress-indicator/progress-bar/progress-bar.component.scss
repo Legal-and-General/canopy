@@ -1,0 +1,12 @@
+.lg-progress-bar {
+  background-color: #e3f2fd;
+  height: calc(var(--space-xxxs));
+  border-radius: var(--border-radius-sm);
+  width: 100%;
+
+  &__bar {
+    background-color: var(--color-super-blue);
+    border-radius: var(--border-radius-sm);
+    height: inherit;
+  }
+}

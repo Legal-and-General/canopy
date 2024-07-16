@@ -1,0 +1,19 @@
+<lg-progress-journey
+  [max]="max"
+  [value]="value"
+  [displayAs]="displayAs"
+  [stepsPrefix]="stepsPrefix"
+  [journeyTitleId]="_journeyTitleId"
+  [stepsTextId]="_stepsTextId"
+>
+  <ng-content />
+</lg-progress-journey>
+
+<lg-progress-bar
+  *ngIf="showProgressBar"
+  [max]="max"
+  [value]="value"
+  [ariaLabelledBy]="ariaLabelledByIds"
+/>
+
+<ng-content select="lg-progress-header" />

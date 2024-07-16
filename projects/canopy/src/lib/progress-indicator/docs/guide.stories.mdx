@@ -1,0 +1,78 @@
+import { Meta, Markdown, Source, Story } from '@storybook/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+
+<Meta title="Components/Progress indicator/Guide" />
+
+# Progress Indicator
+
+<p class="standardfirst">
+  The progress indicator is used to inform users about the status of an ongoing
+  processes.
+</p>
+
+The progress indicator is a container that comprises of 3 child components: `lg-progress-bar`, `lg-progress-header` and `lg-progress-journey`, which in combination is used to display the progress of a multi-part form journey.
+
+The container component and the progress bar component have an input API that aligns with the [HTML5 progress element](https://www.w3.org/WAI/tutorials/forms/multi-page/#using-the-html5-progress-element), using inputs called `max` and `value` (see **usage** below).
+
+<div class="lg-sb-preview">
+  <Story id="components-progress-indicator-examples--progress-journey"></Story>
+</div>
+
+## Usage
+
+Use this component when you want to show the progress of a journey. It can be used in a variety of ways, such as a simple progress bar or a more complex progress indicator with multiple steps.
+
+The progress indicator component is a **Angular standalone component**, you can import the component into your application as: 
+
+```js
+@NgModule({
+    ...
+    imports: [ 
+      ..., 
+      LgProgressBarComponent,
+      LgProgressHeaderComponents,
+      LgProgressIndicatorComponent
+    ],
+});
+```
+
+For a single progress bar, use the following markup:
+
+```html
+<lg-progress-bar [max]="max" [value]="value"></lg-progress-bar>
+```
+
+And for a progress indicator as a part of a form journey, use the following markup:
+
+```html
+<lg-progress-indicator
+  [max]="max"
+  [value]="value"
+  [displayAs]="displayAs"
+  [showProgressBar]="showProgressBar"
+>
+  Journey title
+  <lg-progress-header> Step Heading </lg-progress-header>
+</lg-progress-indicator>
+```
+
+## Additional development details
+
+### LgProgressBarComponent inputs
+
+| Name    | Description                     |   Type   | Default | Required |
+| ------- | ------------------------------- | :------: | :-----: | :------: |
+| `max`   | The number of the maximum steps | `number` |   `0`   |   Yes    |
+| `value` | The current step in the process | `number` |   `0`   |   Yes    |
+
+### LgProgressIndicatorComponent inputs
+
+| Name              | Description                                                                                                |           Type           | Default | Required |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- | :----------------------: | :-----: | :------: |
+| `max`             | The number of the maximum steps                                                                            |         `number`         |   `0`   |   Yes    |
+| `value`           | The current step in the process                                                                            |         `number`         |   `0`   |   Yes    |
+| `displayAs`       | Display as a step counter or percentage. The percentage is calculated based on the `max` and `min` values. | `'percentage' \| 'step'` | `step`  |    No    |
+| `showProgressBar` | Toggle display the progress bar                                                                            |        `boolean`         | `true`  |    No    |
+| `stepsPrefix`     | For a step counter, this changes the text content which describes the steps (e.g. Step 1 of 3).            |         `string`         | `Step`  |    No    |
+
+<Markdown>{Feedback}</Markdown>
