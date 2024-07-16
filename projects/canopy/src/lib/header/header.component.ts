@@ -21,7 +21,12 @@ import { DOCUMENT, NgIf } from '@angular/common';
 import { startWith, filter, merge, skipWhile, Subscription, switchMap } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
-import { LgIconComponent } from '../icon';
+import {
+  lgIconClose,
+  LgIconComponent,
+  lgIconHamburgerMenu,
+  LgIconRegistry,
+} from '../icon';
 import { LgHideAtDirective } from '../hide-at';
 import { LgGridColDirective } from '../grid';
 import { LgGridRowDirective } from '../grid';
@@ -80,7 +85,10 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
     private cdr: ChangeDetectorRef,
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document: Document,
-  ) {}
+    private iconRegistry: LgIconRegistry,
+  ) {
+    this.iconRegistry.registerIcons([ lgIconHamburgerMenu, lgIconClose ]);
+  }
 
   @HostListener('document:click', [ '$event' ])
   onDocumentClickout(event: MouseEvent): void {

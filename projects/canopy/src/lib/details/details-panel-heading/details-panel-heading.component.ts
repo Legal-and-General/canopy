@@ -9,9 +9,16 @@ import {
 } from '@angular/core';
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
-import { lgIconChevronDown } from '../../icon';
+import {
+  lgIconCheckmarkSpotFill,
+  lgIconChevronDown,
+  lgIconCrossmarkSpotFill,
+  lgIconInformationFill,
+  lgIconWarningFill,
+  LgIconRegistry,
+  LgIconComponent,
+} from '../../icon';
 import type { Variant } from '../../variant';
-import { LgIconComponent } from '../../icon';
 import { LgHeadingComponent } from '../../heading';
 
 @Component({
@@ -52,7 +59,18 @@ export class LgDetailsPanelHeadingComponent {
   chevronDown = lgIconChevronDown.name;
   uniqueId: number;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private iconRegistry: LgIconRegistry,
+  ) {
+    this.iconRegistry.registerIcons([
+      lgIconCheckmarkSpotFill,
+      lgIconChevronDown,
+      lgIconCrossmarkSpotFill,
+      lgIconInformationFill,
+      lgIconWarningFill,
+    ]);
+  }
 
   toggle(): void {
     this.isActive = !this.isActive;
