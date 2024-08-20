@@ -2,11 +2,25 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { spy, verify } from '@typestrong/ts-mockito';
+import { Component } from '@angular/core';
 
 import { LgHeadingComponent } from '../../heading';
-import { LgIconComponent } from '../../icon';
+import { LgIconComponent, lgIconIdea, LgIconRegistry } from '../../icon';
 
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.component';
+
+@Component({
+  template: `
+    <lg-accordion-panel-heading>
+      <lg-icon name="idea"></lg-icon>Panel heading
+    </lg-accordion-panel-heading>
+  `,
+})
+class LgAccordionPanelHeadingWithDecorativeIconComponent {
+  constructor(private iconRegistry: LgIconRegistry) {
+    this.iconRegistry.registerIcons([ lgIconIdea ]);
+  }
+}
 
 describe('LgAccordionPanelHeadingComponent', () => {
   let component: LgAccordionPanelHeadingComponent;
@@ -17,6 +31,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         LgAccordionPanelHeadingComponent,
+        LgAccordionPanelHeadingWithDecorativeIconComponent,
         MockComponents(LgHeadingComponent, LgIconComponent),
       ],
     }).compileComponents();
@@ -124,6 +139,35 @@ describe('LgAccordionPanelHeadingComponent', () => {
       verify(componentEventSpy.emit(true)).once();
 
       expect().nothing();
+    });
+  });
+
+  describe('accordion panel heading with decorative icon', () => {
+    let fixtureAccordionPanelHeadingWithIcon: ComponentFixture<LgAccordionPanelHeadingWithDecorativeIconComponent>;
+
+    beforeEach(() => {
+      fixtureAccordionPanelHeadingWithIcon = TestBed.createComponent(
+        LgAccordionPanelHeadingWithDecorativeIconComponent,
+      );
+
+      fixtureAccordionPanelHeadingWithIcon.detectChanges();
+    });
+
+    it('should render an icon when an lg-icon is passed via content projection', () => {
+      const icons = fixtureAccordionPanelHeadingWithIcon.debugElement.queryAll(
+        By.css('lg-icon'),
+      );
+
+      expect(icons[0].attributes.name).toBe('idea');
+    });
+
+    it('should still render the chevron icon', () => {
+      const icons = fixtureAccordionPanelHeadingWithIcon.debugElement.queryAll(
+        By.css('lg-icon'),
+      );
+
+      expect(icons.length).toBe(2);
+      expect(icons[1].attributes.name).toBe('chevron-down');
     });
   });
 });

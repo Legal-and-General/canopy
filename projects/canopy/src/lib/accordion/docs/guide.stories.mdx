@@ -17,6 +17,8 @@ Information that is important or relevant to most users should not be hidden wit
 
 Accordions work best for simple content and links but can support rich content (sound, video, imagery, etc), if required.
 
+If needed visually, an icon can be set for each accordion item heading. The icon must match an `lgIcon` asset which has to be to be registered with the `LgIconRegistry.registerIcons` method.
+
 Import the accordion components into your application:
 
 ```js
@@ -48,13 +50,17 @@ and in your HTML:
     </button>
   </lg-accordion-item>
   <lg-accordion-item (opened)="loadDynamicContent()">
-    <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+    <lg-accordion-panel-heading>Item 3</lg-accordion-panel-heading>
 
     <ng-template lgAccordionItemContent>
       <app-dynamic-component [content]="dynamicContentItems$ | async">
           An example component that loads data from the network when this panel is opened.
       </app-dynamic-component>
     </ng-template>
+  </lg-accordion-item>
+  <lg-accordion-item>
+    <lg-accordion-panel-heading><lg-icon name="news"></lg-icon>Item 4</lg-accordion-panel-heading>
+    <p>An example of for an accordion panel heading with a decorative icon</p>
   </lg-accordion-item>
 </lg-accordion>
 ```
