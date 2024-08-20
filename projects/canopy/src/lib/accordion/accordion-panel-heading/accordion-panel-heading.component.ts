@@ -40,6 +40,7 @@ export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _isActive = false;
+  _hasDecorativeIcon = false;
 
   constructor(
     private cdr: ChangeDetectorRef,

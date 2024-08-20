@@ -34,16 +34,33 @@
   }
 
   .lg-accordion__heading-icon {
-    transition: transform var(--animation-duration) var(--animation-fn);
-    position: absolute;
-    left: 0;
-    top: calc(50% - var(--icon-width) / 2);
     margin-left: var(--space-sm);
     margin-right: var(--space-sm);
+    width: var(--space-md);
+    height: var(--space-md);
     pointer-events: none;
+
+    &--animated {
+      transition: transform var(--animation-duration) var(--animation-fn);
+    }
   }
 
-  &--active .lg-accordion__heading-icon {
+  &--active .lg-accordion__heading-icon--animated {
     transform: rotateX(180deg);
+  }
+
+  lg-icon {
+    position: absolute;
+    left: 0;
+    top: calc(50% - var(--space-md) / 2);
+
+    &:first-child {
+      @extend .lg-accordion__heading-icon;
+    }
+
+    & ~ lg-icon {
+      right: 0;
+      left: unset;
+    }
   }
 }
