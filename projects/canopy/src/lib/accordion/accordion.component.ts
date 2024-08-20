@@ -39,8 +39,13 @@ export class LgAccordionComponent implements AfterContentInit {
   panelHeadings: QueryList<LgAccordionPanelHeadingComponent>;
 
   ngAfterContentInit() {
-    this.panelHeadings.forEach(panelHeading => {
+    this.panelHeadings.forEach((panelHeading, index) => {
       panelHeading.headingLevel = this.headingLevel;
+      const itemCounting = `item ${index + 1} of ${this.panelHeadings.length}`;
+
+      panelHeading.ariaDescription = panelHeading.ariaDescription
+        ? `${panelHeading.ariaDescription}, ${itemCounting}`
+        : itemCounting;
     });
   }
 }

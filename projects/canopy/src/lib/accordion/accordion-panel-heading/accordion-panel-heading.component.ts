@@ -22,6 +22,7 @@ let nextUniqueId = 0;
 })
 export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   @Input() headingLevel: HeadingLevel;
+  @Input() ariaDescription;
   @Input()
   get isActive() {
     return this._isActive;

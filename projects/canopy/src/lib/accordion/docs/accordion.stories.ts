@@ -64,7 +64,7 @@ const accordionItems = `
 <lg-accordion-item [isActive]="itemOneActive"
                    (opened)="toggle('Item 1 opened')"
                    (closed)="toggle('Item 1 closed')">
-  <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+  <lg-accordion-panel-heading ariaDescription="Test accordion">Item 1</lg-accordion-panel-heading>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -72,7 +72,7 @@ const accordionItems = `
 <lg-accordion-item [isActive]="itemTwoActive"
                    (opened)="toggle('Item 3 opened')"
                    (closed)="toggle('Item 2 closed')">
-  <lg-accordion-panel-heading>Item 2</lg-accordion-panel-heading>
+  <lg-accordion-panel-heading ariaDescription="Test accordion">Item 2</lg-accordion-panel-heading>
 
   <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
     ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -83,7 +83,7 @@ const accordionItems = `
   </button>
 </lg-accordion-item>
 <lg-accordion-item [isActive]="itemThreeActive">
-  <lg-accordion-panel-heading>Item 3 is Lazy</lg-accordion-panel-heading>
+  <lg-accordion-panel-heading ariaDescription="Test accordion">Item 3 is Lazy</lg-accordion-panel-heading>
 
   <ng-template lgAccordionItemContent>
     <p>This panel content is only initialised when opened</p>
