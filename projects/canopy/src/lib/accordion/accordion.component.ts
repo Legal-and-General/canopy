@@ -43,6 +43,7 @@ export class LgAccordionComponent implements AfterContentInit {
       panelHeading.headingLevel = this.headingLevel;
       const itemCounting = `item ${index + 1} of ${this.panelHeadings.length}`;
 
+      // Add more context to the heading, uses whatever has been provided with @Input ariaDescription property of the panel heading and the item counting
       panelHeading.ariaDescription = panelHeading.ariaDescription
         ? `${panelHeading.ariaDescription}, ${itemCounting}`
         : itemCounting;
