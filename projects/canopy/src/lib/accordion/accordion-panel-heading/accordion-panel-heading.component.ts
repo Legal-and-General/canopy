@@ -22,6 +22,8 @@ let nextUniqueId = 0;
 })
 export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   @Input() headingLevel: HeadingLevel;
+  // provide more context to the screen readers about the current accordion item
+  @Input() ariaDescribedBy: string = null;
   @Input()
   get isActive() {
     return this._isActive;

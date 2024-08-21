@@ -92,7 +92,7 @@ const accordionItems = `
 `;
 
 const standardTemplate = `<h1 id="accordion-title">Test accordion</h1>
-<lg-accordion [headingLevel]="headingLevel" [multi]=multi>${accordionItems}</lg-accordion>`;
+<lg-accordion [headingLevel]="headingLevel" [multi]="multi">${accordionItems}</lg-accordion>`;
 
 const accordionTemplate: StoryFn<LgAccordionComponent> = (
   args: LgAccordionComponent,
