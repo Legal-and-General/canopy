@@ -30,6 +30,7 @@ let nextUniqueId = 0;
 export class LgAccordionComponent implements AfterContentInit {
   @HostBinding('class.lg-accordion') class = true;
   @HostBinding('id') @Input() id = `lg-accordion-${nextUniqueId++}`;
+  @HostBinding('role') role = 'list';
   @Input() headingLevel: HeadingLevel;
   @Input() multi = true;
 
@@ -39,14 +40,8 @@ export class LgAccordionComponent implements AfterContentInit {
   panelHeadings: QueryList<LgAccordionPanelHeadingComponent>;
 
   ngAfterContentInit() {
-    this.panelHeadings.forEach((panelHeading, index) => {
+    this.panelHeadings.forEach(panelHeading => {
       panelHeading.headingLevel = this.headingLevel;
-      const itemCounting = `item ${index + 1} of ${this.panelHeadings.length}`;
-
-      // Add more context to the heading, uses whatever has been provided with @Input ariaDescription property of the panel heading and the item counting
-      panelHeading.ariaDescription = panelHeading.ariaDescription
-        ? `${panelHeading.ariaDescription}, ${itemCounting}`
-        : itemCounting;
     });
   }
 }

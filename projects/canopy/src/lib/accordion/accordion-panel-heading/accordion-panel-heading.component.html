@@ -9,7 +9,7 @@
     [attr.aria-expanded]="_isActive"
     [attr.aria-controls]="_panelId"
     (click)="toggle()"
-    [attr.aria-description]="ariaDescription"
+    [attr.aria-describedBy]="ariaDescribedBy"
   >
     <ng-content></ng-content>
     <lg-icon class="lg-accordion__heading-icon" name="chevron-down"></lg-icon>

@@ -16,9 +16,7 @@ import { LgAccordionComponent } from './accordion.component';
   template: `
     <lg-accordion [headingLevel]="2" [multi]="isMulti">
       <lg-accordion-item>
-        <lg-accordion-panel-heading ariaDescription="Test accordion"
-          >Test</lg-accordion-panel-heading
-        >
+        <lg-accordion-panel-heading>Test</lg-accordion-panel-heading>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
         incididunt ut labore et dolore magna aliqua.
       </lg-accordion-item>
@@ -96,20 +94,6 @@ describe('LgAccordionComponent', () => {
 
       expect(itemOne.componentInstance.isActive).toBeTruthy();
       expect(itemTwo.componentInstance.isActive).toBeFalsy();
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should add aria-description to each panel heading', () => {
-      const items = fixture.debugElement.queryAll(
-        By.css('.lg-accordion__heading button'),
-      );
-
-      expect(items[0].componentInstance.ariaDescription).toBe(
-        'Test accordion, item 1 of 2',
-      );
-
-      expect(items[1].componentInstance.ariaDescription).toBe('item 2 of 2');
     });
   });
 });

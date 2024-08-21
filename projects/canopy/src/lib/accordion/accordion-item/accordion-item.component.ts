@@ -16,6 +16,7 @@ import {
   TemplateRef,
   ViewChild,
   ViewEncapsulation,
+  HostBinding,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -45,6 +46,9 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   _contentTemplate: TemplateRef<any>;
 
+  @HostBinding('role') role = 'listitem';
+  // used for adding more context to the heading
+  @Input() ariaDescribedBy: string = null;
   @Input() isActive = false;
   @Output() opened = new EventEmitter<void>();
   @Output() closed = new EventEmitter<void>();

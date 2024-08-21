@@ -57,12 +57,6 @@ export default {
         disable: true,
       },
     },
-    ariaDescription: {
-      control: {
-        type: 'text',
-      },
-      description: 'Used for adding more context to the heading.',
-    },
   },
 } as Meta;
 
@@ -70,7 +64,7 @@ const accordionItems = `
 <lg-accordion-item [isActive]="itemOneActive"
                    (opened)="toggle('Item 1 opened')"
                    (closed)="toggle('Item 1 closed')">
-  <lg-accordion-panel-heading [ariaDescription]="accordionDescription">Item 1</lg-accordion-panel-heading>
+  <lg-accordion-panel-heading ariaDescribedBy="accordion-title">Item 1</lg-accordion-panel-heading>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -78,7 +72,7 @@ const accordionItems = `
 <lg-accordion-item [isActive]="itemTwoActive"
                    (opened)="toggle('Item 3 opened')"
                    (closed)="toggle('Item 2 closed')">
-  <lg-accordion-panel-heading [ariaDescription]="accordionDescription">Item 2</lg-accordion-panel-heading>
+  <lg-accordion-panel-heading ariaDescribedBy="accordion-title">Item 2</lg-accordion-panel-heading>
 
   <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
     ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -89,7 +83,7 @@ const accordionItems = `
   </button>
 </lg-accordion-item>
 <lg-accordion-item [isActive]="itemThreeActive">
-  <lg-accordion-panel-heading [ariaDescription]="accordionDescription">Item 3 is Lazy</lg-accordion-panel-heading>
+  <lg-accordion-panel-heading ariaDescribedBy="accordion-title">Item 3 is Lazy</lg-accordion-panel-heading>
 
   <ng-template lgAccordionItemContent>
     <p>This panel content is only initialised when opened</p>
@@ -97,7 +91,8 @@ const accordionItems = `
 </lg-accordion-item>
 `;
 
-const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=multi>${accordionItems}</lg-accordion>`;
+const standardTemplate = `<h1 id="accordion-title">Test accordion</h1>
+<lg-accordion [headingLevel]="headingLevel" [multi]=multi>${accordionItems}</lg-accordion>`;
 
 const accordionTemplate: StoryFn<LgAccordionComponent> = (
   args: LgAccordionComponent,
@@ -115,7 +110,6 @@ standardAccordion.args = {
   itemTwoActive: true,
   itemThreeActive: false,
   multi: false,
-  accordionDescription: 'Test accordion',
 };
 
 standardAccordion.parameters = {
