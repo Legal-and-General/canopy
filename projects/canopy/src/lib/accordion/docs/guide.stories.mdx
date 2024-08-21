@@ -33,7 +33,7 @@ and in your HTML:
 ```html
 <lg-accordion [headingLevel]="2">
   <lg-accordion-item [isActive]="isActive" (opened)="handleItemOpened()" (closed)="handleItemClosed()">
-    <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+    <lg-accordion-panel-heading ariaDescription="Test accordion">Item 1</lg-accordion-panel-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.</p>
   </lg-accordion-item>
@@ -94,6 +94,15 @@ Accordions have a chevron to indicate that they are interactive, but clicking an
 | Name       | Description                            | Type      | Default | Required |
 |------------|----------------------------------------|-----------|---------|----------|
 | `isActive` | The active state of the accordion item | `boolean` | `false` | No       |
+
+
+### LgAccordionPanelHeadingComponent
+
+#### Inputs
+
+| Name              | Description                      | Type      | Default | Required |
+|------------       |----------------------------------|-----------|---------|----------|
+| `ariaDescription` | Add more context to the heading  | `string ` | ``      | No       |
 
 #### Outputs
 
