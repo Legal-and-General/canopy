@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { notes } from './carousel.notes';
-
-import { LgCarouselComponent } from '.';
+import { notes } from '../carousel.notes';
+import { LgCarouselComponent } from '..';
 
 export default {
-  title: 'Components/Carousel',
+  title: 'Components/Carousel/Examples',
   decorators: [
     moduleMetadata({
       imports: [ CommonModule, LgCarouselComponent ],

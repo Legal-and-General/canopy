@@ -13,7 +13,7 @@
     class="lg-carousel__wrapper"
     [style.width.%]="100 * carouselItemCount"
     [style.left.%]="-100 * selectedItemIndex"
-    [style.transition]="'left ease ' + slideDuration / 1000 + 's'"
+    [style.transition]="'left ' + slideDuration / 1000 + 's'"
   >
     <ng-content></ng-content>
   </div>
