@@ -163,6 +163,12 @@ import {
 } from '../../../canopy/src/lib/side-nav';
 import { LgPaginationComponent } from '../../../canopy/src/lib/pagination';
 import { LgFooterComponent, LgFooterLogoComponent } from '../../../canopy/src/lib/footer';
+import {
+  LgProgressBarComponent,
+  LgProgressIndicatorComponent,
+  LgProgressHeaderComponent,
+  LgProgressJourneyComponent,
+} from '../../../canopy/src/lib/progress-indicator';
 
 @Component({
   selector: 'lg-app-root',
@@ -276,6 +282,10 @@ import { LgFooterComponent, LgFooterLogoComponent } from '../../../canopy/src/li
     LgHeroCardPrincipleDataPointComponent,
     LgHeroContentComponent,
     LgButtonToggleDirective,
+    LgProgressBarComponent,
+    LgProgressIndicatorComponent,
+    LgProgressHeaderComponent,
+    LgProgressJourneyComponent,
     RouterLink,
     RouterOutlet,
     NgForOf,
