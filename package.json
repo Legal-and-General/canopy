@@ -84,7 +84,7 @@
     "@typescript-eslint/eslint-plugin": "6.7.0",
     "@typescript-eslint/parser": "6.13.2",
     "@typestrong/ts-mockito": "^2.6.6",
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.20",
     "codelyzer": "^6.0.2",
     "color-convert": "^2.0.1",
     "commitizen": "^4.3.0",
