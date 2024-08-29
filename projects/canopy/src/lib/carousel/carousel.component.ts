@@ -14,12 +14,16 @@ import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 import { NgIf, NgFor, NgClass } from '@angular/common';
 
 import type { HeadingLevel } from '../heading';
-import { LgIconComponent, lgIconChevronLeft, lgIconChevronRight } from '../icon';
+import {
+  LgIconComponent,
+  LgIconRegistry,
+  lgIconChevronLeft,
+  lgIconChevronRight,
+} from '../icon';
 import { LgHeadingComponent } from '../heading';
 
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgAutoplayComponent } from './auto-play/auto-play.component';
-import { LgIconRegistry } from './../icon/icon.registry';
 
 @Component({
   selector: 'lg-carousel',
