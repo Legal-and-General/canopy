@@ -47,6 +47,7 @@ import {
   LgIconComponent,
   lgIconFilter,
   lgIconLinkExternal,
+  lgIconNotes,
   LgIconRegistry,
   lgIconRepeat,
   lgIconSearch,
@@ -369,6 +370,7 @@ export class AppComponent {
       lgIconArrowRight,
       lgIconLinkExternal,
       lgIconCheckboxMark,
+      lgIconNotes,
     ]);
 
     this.brandIconRegistry.registerBrandIcon([ lgBrandIconCalendar ]);
