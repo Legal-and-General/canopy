@@ -12,10 +12,9 @@ import {
 import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
 import { NgIf, NgFor, NgClass } from '@angular/common';
-import { lgIconChevronLeft, lgIconChevronRight } from 'canopy';
 
 import type { HeadingLevel } from '../heading';
-import { LgIconComponent } from '../icon';
+import { LgIconComponent, lgIconChevronLeft, lgIconChevronRight } from '../icon';
 import { LgHeadingComponent } from '../heading';
 
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
