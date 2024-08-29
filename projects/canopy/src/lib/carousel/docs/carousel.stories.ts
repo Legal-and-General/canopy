@@ -2,13 +2,21 @@ import { CommonModule } from '@angular/common';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { notes } from '../carousel.notes';
-import { LgCarouselComponent } from '..';
+import { LgCarouselComponent, LgCarouselItemComponent } from '..';
+import { LgIconComponent } from '../../icon';
+import { LgAutoplayComponent } from '../auto-play/auto-play.component';
 
 export default {
   title: 'Components/Carousel/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ CommonModule, LgCarouselComponent ],
+      imports: [
+        CommonModule,
+        LgCarouselComponent,
+        LgIconComponent,
+        LgAutoplayComponent,
+        LgCarouselItemComponent,
+      ],
     }),
   ],
   parameters: {
