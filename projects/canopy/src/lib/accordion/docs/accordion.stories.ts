@@ -88,7 +88,7 @@ export default {
         LgAccordionPanelHeadingComponent,
         LgButtonComponent,
         LgMarginDirective,
-        LgIconComponent
+        LgIconComponent,
       ],
       declarations: [ AccordionWrapperComponent ],
     }),
