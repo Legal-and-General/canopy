@@ -41,6 +41,9 @@ import { LgAutoplayComponent } from './auto-play/auto-play.component';
     NgClass,
   ],
 })
+/**
+ * @deprecated This component will be removed in the future
+ */
 export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   private unsubscribe: Subject<void> = new Subject<void>();
   selectedItem: LgCarouselItemComponent;
