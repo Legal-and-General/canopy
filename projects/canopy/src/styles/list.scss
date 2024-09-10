@@ -1,0 +1,28 @@
+:root {
+  --custom-list-counter-color: var(--color-black);
+}
+
+ol {
+  &.lg-list-with-custom-counter {
+    counter-reset: custom-counter;
+    list-style: none;
+    margin: 0;
+
+    & > li {
+      counter-increment: custom-counter;
+      position: relative;
+      padding-left: var(--space-md);
+      padding-bottom: var(--space-sm);
+
+      &::before {
+        color: var(--custom-list-counter-color);
+        content: counter(custom-counter) ' ';
+        font-size: var(--text-fs-3-weight--strong);
+        font-family: var(--font-family-expressive);
+        padding: 0;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}
