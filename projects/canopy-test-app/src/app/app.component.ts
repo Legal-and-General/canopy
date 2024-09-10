@@ -121,7 +121,8 @@ import {
 import {
   LgListWithIconsComponent,
   LgListWithIconsItemComponent,
-} from '../../../canopy/src/lib/list-with-icons';
+  LgListWithCustomCounterDirective,
+} from '../../../canopy/src/lib/list';
 import {
   LgPrimaryMessageComponent,
   LgPrimaryMessageDescriptionComponent,
@@ -287,6 +288,7 @@ import {
     LgProgressIndicatorComponent,
     LgProgressHeaderComponent,
     LgProgressJourneyComponent,
+    LgListWithCustomCounterDirective,
     RouterLink,
     RouterOutlet,
     NgForOf,

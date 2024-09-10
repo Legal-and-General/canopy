@@ -6,6 +6,7 @@ import { lgIconCheckmark, lgIconClose, lgIconDoc, LgIconRegistry } from '../../i
 import { ListWithIconsVariant } from '../list-with-icons.interface';
 import { LgListWithIconsComponent } from '../list-with-icons.component';
 import { LgListWithIconsItemComponent } from '../list-with-icons-item/list-with-icons-item.component';
+import { LgListWithCustomCounterDirective } from '../list-with-custom-counter/list-with-custom-counter.directive';
 
 const template = `
 <ul lg-list-with-icons [variant]="variant">
@@ -68,7 +69,7 @@ export default {
   title: 'Components/List/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ ListWithIconsWrapperComponent ],
+      imports: [ ListWithIconsWrapperComponent, LgListWithCustomCounterDirective ],
     }),
   ],
   parameters: {
@@ -234,3 +235,23 @@ lightForegroundListWithIcons.parameters = {
     },
   },
 };
+
+const orderedListTemplate = () => ({
+  template: `
+    <ol lgListWithCustomCounter>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+    </ol>
+  `,
+});
+
+export const orderedListWithNumerals = orderedListTemplate.bind({});
+orderedListWithNumerals.storyName = 'Ordered list with custom counter';
