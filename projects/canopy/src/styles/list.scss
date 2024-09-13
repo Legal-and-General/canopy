@@ -19,6 +19,8 @@ ol {
         content: counter(custom-counter) ' ';
         font-size: var(--text-fs-3-weight--strong);
         font-family: var(--font-family-expressive);
+        font-variant-numeric: lining-nums;
+        font-weight: bold;
         padding: 0;
         position: absolute;
         left: 0;
