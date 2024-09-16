@@ -62,7 +62,7 @@
     "@angular-eslint/schematics": "^17.2.1",
     "@angular-eslint/template-parser": "17.2.1",
     "@angular/cli": "^17.2.2",
-    "@angular/compiler-cli": "^17.2.2",
+    "@angular/compiler-cli": "^17.3.12",
     "@angular/language-service": "^17.2.2",
     "@commitlint/cli": "^17.7.2",
     "@commitlint/config-angular": "^17.7.0",
