@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChild,
   EventEmitter,
   Input,
   Output,
@@ -35,12 +36,12 @@ export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
     this.cdr.markForCheck();
   }
   @Output() toggleActive = new EventEmitter<boolean>();
+  @ContentChild(LgIconComponent) decorativeIcon: LgIconComponent;
 
   _id = nextUniqueId++;
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _isActive = false;
-  _hasDecorativeIcon = false;
 
   constructor(
     private cdr: ChangeDetectorRef,
