@@ -3,11 +3,13 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChild,
   EventEmitter,
   Input,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 import type { HeadingLevel } from '../../heading';
 import { lgIconChevronDown, LgIconComponent, LgIconRegistry } from '../../icon';
@@ -22,7 +24,7 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ LgHeadingComponent, LgIconComponent ],
+  imports: [ LgHeadingComponent, LgIconComponent, NgClass ],
 })
 export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   @Input() headingLevel: HeadingLevel;
@@ -35,12 +37,12 @@ export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
     this.cdr.markForCheck();
   }
   @Output() toggleActive = new EventEmitter<boolean>();
+  @ContentChild(LgIconComponent) decorativeIcon: LgIconComponent;
 
   _id = nextUniqueId++;
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _isActive = false;
-  _hasDecorativeIcon = false;
 
   constructor(
     private cdr: ChangeDetectorRef,
