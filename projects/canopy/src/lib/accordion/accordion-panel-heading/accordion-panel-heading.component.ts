@@ -9,7 +9,6 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { NgClass } from '@angular/common';
 
 import type { HeadingLevel } from '../../heading';
 import { lgIconChevronDown, LgIconComponent, LgIconRegistry } from '../../icon';
@@ -24,7 +23,7 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ LgHeadingComponent, LgIconComponent, NgClass ],
+  imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   @Input() headingLevel: HeadingLevel;
