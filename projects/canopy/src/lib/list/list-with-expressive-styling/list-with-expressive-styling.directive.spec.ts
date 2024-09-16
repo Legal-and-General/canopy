@@ -1,20 +1,20 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { MockedComponentFixture, MockRender } from 'ng-mocks';
 
-import { LgListWithCustomCounterDirective } from './list-with-custom-counter.directive';
+import { LgListWithExpressiveStylingDirective } from './list-with-expressive-styling.directive';
 
-describe('LgListWithCustomCounterDirective', () => {
-  let fixture: MockedComponentFixture<LgListWithCustomCounterDirective, {}>;
+describe('LgListWithExpressiveStyling', () => {
+  let fixture: MockedComponentFixture<LgListWithExpressiveStylingDirective, {}>;
   let orderedList: HTMLElement;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgListWithCustomCounterDirective ],
+      imports: [ LgListWithExpressiveStylingDirective ],
     }).compileComponents();
 
     fixture = MockRender(
       `
-      <ol lgListWithCustomCounter>
+      <ol lgListWithExpressiveStyling>
         <li>Item 1</li>
         <li>Item 2</li>
       </ol>
@@ -29,7 +29,7 @@ describe('LgListWithCustomCounterDirective', () => {
 
   describe('when the directive is set', () => {
     it('should add a CSS class to the list', () => {
-      expect(orderedList.getAttribute('class')).toContain('lg-list-with-custom-counter');
+      expect(orderedList.getAttribute('class')).toContain('lg-expressive-list');
     });
   });
 });
