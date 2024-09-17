@@ -255,3 +255,4 @@ const orderedListTemplate = () => ({
 
 export const orderedListWithNumerals = orderedListTemplate.bind({});
 orderedListWithNumerals.storyName = 'Ordered list with expressive styling';
+orderedListWithNumerals.argTypes = { colouredIcons: { table: { disable: true } } };
