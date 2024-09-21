@@ -65,7 +65,7 @@
     "@angular/compiler-cli": "^17.2.2",
     "@angular/language-service": "^17.2.2",
     "@commitlint/cli": "^17.7.2",
-    "@commitlint/config-angular": "^17.7.0",
+    "@commitlint/config-angular": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/prompt": "^18.4.0",
     "@compodoc/compodoc": "^1.1.25",
