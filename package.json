@@ -72,7 +72,7 @@
     "@semantic-release/github": "^10.3.3",
     "@semantic-release/npm": "^12.0.1",
     "@storybook/addon-a11y": "^7.6.17",
-    "@storybook/addon-essentials": "^7.6.16",
+    "@storybook/addon-essentials": "^7.6.20",
     "@storybook/addons": "^7.6.17",
     "@storybook/angular": "^7.6.16",
     "@storybook/theming": "^7.6.16",
