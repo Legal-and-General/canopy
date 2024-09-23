@@ -27,6 +27,10 @@
   text-align: left;
   width: 100%;
 
+  &--with-icon {
+    padding-right: var(--space-xxl);
+  }
+
   &:focus-visible {
     @include lg-focus-outline;
 
