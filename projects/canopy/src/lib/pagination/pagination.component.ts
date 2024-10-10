@@ -11,7 +11,12 @@ import {
 } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
 
-import { LgIconComponent } from '../icon';
+import {
+  lgIconChevronLeft,
+  lgIconChevronRight,
+  LgIconComponent,
+  LgIconRegistry,
+} from '../icon';
 import { LgMarginDirective } from '../spacing';
 
 export interface PageData {
@@ -88,6 +93,10 @@ export class LgPaginationComponent implements OnChanges {
     return `Showing ${this.startIndex + 1}-${this.endIndex + 1} of ${
       this.totalItems
     } results`;
+  }
+
+  constructor(private iconRegistry: LgIconRegistry) {
+    this.iconRegistry.registerIcons([ lgIconChevronLeft, lgIconChevronRight ]);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
