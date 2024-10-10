@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
-import { LgIconComponent } from '../../icon';
+import { lgIconChevronDown, LgIconComponent, LgIconRegistry } from '../../icon';
 
 @Component({
   selector: 'lg-table-row-toggle',
@@ -28,7 +28,12 @@ export class LgTableRowToggleComponent {
 
   @HostBinding('class') class = 'lg-table-row-toggle';
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(
+    private cd: ChangeDetectorRef,
+    private iconRegistry: LgIconRegistry,
+  ) {
+    this.iconRegistry.registerIcons([ lgIconChevronDown ]);
+  }
 
   set tableId(tableId: number) {
     this._tableId = tableId;

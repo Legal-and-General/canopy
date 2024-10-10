@@ -14,7 +14,6 @@ import {
   LgIconRegistry,
   lgIconCaretLeft,
   lgIconCaretRight,
-  lgIconHome,
 } from '../../icon';
 
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
@@ -44,7 +43,7 @@ export class LgBreadcrumbItemComponent {
     private cd: ChangeDetectorRef,
     private registry: LgIconRegistry,
   ) {
-    this.registry.registerIcons([ lgIconHome, lgIconCaretLeft, lgIconCaretRight ]);
+    this.registry.registerIcons([ lgIconCaretLeft, lgIconCaretRight ]);
   }
 
   set hideIcons(hideIcons: boolean) {
