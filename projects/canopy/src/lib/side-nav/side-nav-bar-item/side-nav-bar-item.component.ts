@@ -5,7 +5,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { LgIconComponent } from '../../icon';
+import { lgIconChevronRight, LgIconComponent, LgIconRegistry } from '../../icon';
 
 @Component({
   selector: 'lg-side-nav-bar-item',
@@ -18,4 +18,8 @@ import { LgIconComponent } from '../../icon';
 })
 export class LgSideNavBarItemComponent {
   @HostBinding('class.lg-side-nav-bar-item') class = true;
+
+  constructor(private iconRegistry: LgIconRegistry) {
+    this.iconRegistry.registerIcons([ lgIconChevronRight ]);
+  }
 }
