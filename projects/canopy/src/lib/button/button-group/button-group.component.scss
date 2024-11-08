@@ -1,18 +1,13 @@
 @import '../../../styles/mixins.scss';
 
 .lg-btn-group {
-  display: block;
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: var(--space-sm);
+  row-gap: var(--space-sm);
 
   .lg-btn {
     margin-bottom: 0;
-
-    + .lg-btn {
-      margin-top: var(--space-sm);
-
-      @include lg-breakpoint(md) {
-        margin-left: var(--space-sm);
-        margin-top: 0;
-      }
-    }
+    margin-top: 0;
   }
 }
