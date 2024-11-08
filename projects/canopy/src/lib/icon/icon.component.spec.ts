@@ -54,5 +54,11 @@ describe('LgIconComponent', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
       expect(fixture.nativeElement.querySelector('#lg-icon-0')).toBeDefined();
     });
+
+    it('should not throw an error when an icon is not registered', () => {
+      expect(() => {
+        component.name = 'add';
+      }).not.toThrow();
+    });
   });
 });

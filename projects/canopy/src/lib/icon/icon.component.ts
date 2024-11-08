@@ -38,8 +38,10 @@ export class LgIconComponent {
 
     const svgData = this.setSVGAttributes(this.iconRegistry.getIcon(name));
 
-    this.svgIcon = this.svgElementFromString(svgData);
-    this.hostElement.nativeElement.appendChild(this.svgIcon);
+    if (svgData) {
+      this.svgIcon = this.svgElementFromString(svgData);
+      this.hostElement.nativeElement.appendChild(this.svgIcon);
+    }
   }
 
   constructor(
@@ -56,7 +58,7 @@ export class LgIconComponent {
    */
   private setSVGAttributes(svgData: string): string {
     return svgData
-      .replace(/id="\w+"/g, () => `id="lg-icon-${this.id}"`)
+      ?.replace(/id="\w+"/g, () => `id="lg-icon-${this.id}"`)
       .replace(/xlink:href="#\w+"/g, () => `xlink:href="#lg-icon-${this.id}"`);
   }
 
