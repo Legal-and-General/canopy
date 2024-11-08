@@ -88,8 +88,10 @@ export class LgBrandIconComponent {
 
     const svgData = this.setSVGAttributes(this.iconRegistry.getBrandIcon(name));
 
-    this.svgElement = this.svgElementFromString(svgData);
-    this.hostElement.nativeElement.appendChild(this.svgElement);
+    if (svgData) {
+      this.svgElement = this.svgElementFromString(svgData);
+      this.hostElement.nativeElement.appendChild(this.svgElement);
+    }
   }
 
   constructor(
@@ -115,9 +117,12 @@ export class LgBrandIconComponent {
     let xlinkCount = 0;
 
     return (
+      // Changes the lg-icon-fill-primary id to be a data attribute to avoid issues with duplicated ids.
       svgData
-        // Changes the lg-icon-fill-primary id to be a data attribute to avoid issues with duplicated ids.
-        .replace(/id="lg-icon-fill-primary"/g, () => 'data-colour="lg-icon-fill-primary"')
+        ?.replace(
+          /id="lg-icon-fill-primary"/g,
+          () => 'data-colour="lg-icon-fill-primary"',
+        )
         .replace(/id="Half-tone"/g, () => 'data-colour="lg-icon-half-tone-fill"')
         .replace(/id="Outlines"/g, () => 'data-colour="lg-icon-outlines-fill"')
         .replace(/id="([^"]+)"/g, () => `id="lg-brand-icon-${this.id}-${idCount++}"`)
