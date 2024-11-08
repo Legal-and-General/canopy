@@ -66,6 +66,12 @@ describe('LgBrandIconComponent', () => {
       expect(pathEl.getAttribute('id')).not.toContain('lg-icon-fill-primary');
       expect(pathEl.getAttribute('data-colour')).toContain('lg-icon-fill-primary');
     });
+
+    it('should not throw an error when an icon is not registered', () => {
+      expect(() => {
+        component.name = 'sun';
+      }).not.toThrow();
+    });
   });
 
   describe('the colour input', () => {
