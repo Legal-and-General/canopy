@@ -1,13 +1,42 @@
+@import '../../styles/mixins';
+
 .lg-banner {
   display: block;
   background-color: var(--color-battleship-grey);
   color: var(--color-white);
   box-shadow: 0 0.25rem 0 0 rgba(0, 0, 0, 0.03);
+
+  a:not(.lg-btn) {
+    border-bottom-color: var(--color-white);
+    color: var(--color-white);
+
+    @include lg-link(
+      $default-color: var(--color-white),
+      $hover-color: var(--color-white),
+      $visited-color: var(--color-white),
+      $active-color: var(--color-white),
+      $active-bg-color: var(--color-charcoal),
+      $focus-color: var(--color-charcoal),
+      $focus-bg-color: var(--color-white)
+    );
+  }
 }
 
 .lg-banner-variant--warning {
   background-color: var(--color-dandelion-yellow);
   color: var(--color-charcoal);
+
+  a:not(.lg-btn) {
+    @include lg-link(
+      $default-color: var(--color-charcoal),
+      $hover-color: var(--color-charcoal),
+      $visited-color: var(--color-charcoal),
+      $active-color: var(--color-charcoal),
+      $active-bg-color: var(--color-white),
+      $focus-color: var(--link-focus-color),
+      $focus-bg-color: var(--color-charcoal)
+    );
+  }
 }
 
 .lg-banner__container {
