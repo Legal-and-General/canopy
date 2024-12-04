@@ -2,39 +2,36 @@
 
 .lg-banner {
   display: block;
-  background-color: var(--color-battleship-grey);
-  color: var(--color-white);
+  background-color: var(--banner-generic-bg-color);
+  color: var(--banner-generic-color);
   box-shadow: 0 0.25rem 0 0 rgba(0, 0, 0, 0.03);
 
   a:not(.lg-btn) {
-    border-bottom-color: var(--color-white);
-    color: var(--color-white);
-
     @include lg-link(
-      $default-color: var(--color-white),
-      $hover-color: var(--color-white),
-      $visited-color: var(--color-white),
-      $active-color: var(--color-white),
-      $active-bg-color: var(--color-charcoal),
-      $focus-color: var(--color-charcoal),
-      $focus-bg-color: var(--color-white)
+      $default-color: var(--light-foreground-link-color),
+      $hover-color: var(--light-foreground-link-hover-color),
+      $visited-color: var(--light-foreground-link-visited-color),
+      $active-color: var(--light-foreground-link-active-color),
+      $active-bg-color: var(--light-foreground-link-active-bg-color),
+      $focus-color: var(--light-foreground-link-focus-color),
+      $focus-bg-color: var(--light-foreground-link-focus-bg-color)
     );
   }
 }
 
 .lg-banner-variant--warning {
-  background-color: var(--color-dandelion-yellow);
-  color: var(--color-charcoal);
+  background-color: var(--banner-warning-bg-color);
+  color: var(--banner-warning-color);
 
   a:not(.lg-btn) {
     @include lg-link(
-      $default-color: var(--color-charcoal),
-      $hover-color: var(--color-charcoal),
-      $visited-color: var(--color-charcoal),
-      $active-color: var(--color-charcoal),
-      $active-bg-color: var(--color-white),
-      $focus-color: var(--link-focus-color),
-      $focus-bg-color: var(--color-charcoal)
+      $default-color: var(--dark-foreground-link-color),
+      $hover-color: var(--dark-foreground-link-hover-color),
+      $visited-color: var(--dark-foreground-link-visited-color),
+      $active-color: var(--dark-foreground-link-active-color),
+      $active-bg-color: var(--dark-foreground-link-active-bg-color),
+      $focus-color: var(--dark-foreground-link-focus-color),
+      $focus-bg-color: var(--dark-foreground-link-focus-bg-color)
     );
   }
 }
