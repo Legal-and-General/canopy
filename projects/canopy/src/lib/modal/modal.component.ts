@@ -50,6 +50,7 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   private subscription: Subscription;
   isOpen: boolean;
   @Input() id: string;
+  @Input() closeOnOverlayClick = true;
   @Output() open: EventEmitter<void> = new EventEmitter();
   @Output() closed: EventEmitter<void> = new EventEmitter();
   @Output() closedOverlayClick: EventEmitter<void> = new EventEmitter();
@@ -80,8 +81,11 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   // the `click` event a user could click inside the modal and
   // drag the mouse on the overlay causing the modal to close.
   @HostListener('mousedown') onOverlayClick(): void {
-    this.modalService.close(this.id);
-    this.closedOverlayClick.emit();
+    if (this.closeOnOverlayClick) {
+      this.modalService.close(this.id);
+
+      this.closedOverlayClick.emit();
+    }
   }
 
   ngOnInit(): void {
