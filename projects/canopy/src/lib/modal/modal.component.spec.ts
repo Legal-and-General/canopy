@@ -188,14 +188,22 @@ describe('LgModalComponent', () => {
   });
 
   describe('clicking on the modal overlay', () => {
-    it('should close the modal and emit an event', () => {
+    it('should close the modal and emit an event when closeOnOverlayClick is true', () => {
       component.isOpen = true;
-      const closedEmitterSpy = spy(component.closedOverlayClick);
-
+      component.closeOnOverlayClick = true;
       component.onOverlayClick();
 
       verify(modalServiceMock.close(id)).once();
-      verify(closedEmitterSpy.emit()).once();
+
+      expect().nothing();
+    });
+
+    it('should not close the modal or emit an event when closeOnOverlayClick is false', () => {
+      component.isOpen = true;
+      component.closeOnOverlayClick = false;
+      component.onOverlayClick();
+
+      verify(modalServiceMock.close(id)).never();
 
       expect().nothing();
     });

@@ -127,7 +127,7 @@ describe('LgCarouselComponent', () => {
     expect(component.carouselItemCount).toBe(3);
 
     expect(wrapperElement.attributes['style']).toBe(
-      'width: 300%; left: 0%; transition: left 0.5s ease 0s;',
+      'width: 300%; left: 0%; transition: left 0.5s;',
     );
   });
 

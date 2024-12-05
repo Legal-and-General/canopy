@@ -29,6 +29,20 @@ export default {
         type: 'select',
       },
     },
+    closeOnOverlayClick: {
+      description: 'Whether the modal should close when the overlay is clicked.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: true,
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
     id: {
       table: {
         disable: true,
@@ -114,7 +128,7 @@ export default {
 
 const template = `
 <button lgModalTrigger="modal-story" lg-button type="button" variant="secondary-dark">Open modal</button>
-<lg-modal id="modal-story">
+<lg-modal id="modal-story" closeOnOverlayClick="closeOnOverlayClick">
   <lg-modal-header [headingLevel]="headingLevel">Lorem ipsum</lg-modal-header>
   <lg-modal-body>
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -139,6 +153,7 @@ standardSeparator.storyName = 'Modal';
 
 standardSeparator.args = {
   headingLevel: 2,
+  closeOnOverlayClick: true,
 };
 
 standardSeparator.parameters = {
