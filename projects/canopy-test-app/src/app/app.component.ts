@@ -7,6 +7,13 @@ import {
 import { NgForOf, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
+import {
+  LgModalBodyComponent,
+  LgModalComponent,
+  LgModalFooterComponent,
+  LgModalHeaderComponent,
+  LgModalTriggerDirective,
+} from '../../../canopy/src/lib/modal';
 import { LgPageComponent } from '../../../canopy/src/lib/page';
 import { LgHeaderComponent, LgHeaderLogoComponent } from '../../../canopy/src/lib/header';
 import {
@@ -294,6 +301,11 @@ import {
     RouterOutlet,
     NgForOf,
     NgIf,
+    LgModalComponent,
+    LgModalTriggerDirective,
+    LgModalHeaderComponent,
+    LgModalBodyComponent,
+    LgModalFooterComponent,
   ],
 })
 export class AppComponent {
