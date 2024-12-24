@@ -5,6 +5,20 @@
   flex: 1 0;
   position: relative;
 
+  &--solid-green {
+    .lg-promo-card__content-inner {
+      background: var(--color-leafy-green);
+      color: var(--color-white);
+    }
+  }
+
+  &--solid-yellow {
+    .lg-promo-card__content-inner {
+      background: var(--color-dandelion-yellow);
+      color: var(--color-black);
+    }
+  }
+
   @media (min-width: $promo-card-inline-breakpoint) {
     min-height: var(--promo-card-image-dimension);
     display: flex;
@@ -12,13 +26,6 @@
   }
   @include lg-breakpoint('lg') {
     display: block;
-  }
-}
-
-.lg-promo-card--solid-green {
-  .lg-promo-card__content-inner {
-    background: var(--color-leafy-green);
-    color: var(--color-white);
   }
 }
 
