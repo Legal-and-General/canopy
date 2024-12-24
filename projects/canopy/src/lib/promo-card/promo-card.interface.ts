@@ -1,1 +1,1 @@
-export type PromoCardVariant = 'solid-white' | 'solid-green';
+export type PromoCardVariant = 'solid-white' | 'solid-green' | 'solid-yellow';
