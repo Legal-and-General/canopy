@@ -11,7 +11,7 @@ import { LgPromoCardTitleComponent } from '../promo-card/promo-card-title/promo-
 import { LgPromoCardContentComponent } from '../promo-card/promo-card-content/promo-card-content.component';
 import { LgPromoCardFooterComponent } from '../promo-card/promo-card-footer/promo-card-footer.component';
 import { LgMarginDirective } from '../../spacing';
-import { LgButtonComponent } from '../../button';
+import { ButtonVariant, LgButtonComponent } from '../../button';
 import { LgPromoCardListTitleComponent } from '../promo-card-list/promo-card-list-title/promo-card-list-title.component';
 
 const cardListConfig = {
@@ -62,7 +62,7 @@ const cardListConfig = {
             lgMarginBottom="none"
             lg-button
             type="button"
-            [variant]="variants[i] === 'solid-white' ? 'primary-dark' : 'primary-light'"
+            [variant]="buttonVariants[variants[i]]"
           >
             {{ card.ctaText }}
           </button>
@@ -89,9 +89,14 @@ class PromoCardListStoryComponent {
   @Input() variants: Array<PromoCardVariant> = [];
   title = cardListConfig.title;
   cards = cardListConfig.cards;
+  buttonVariants: { [key: string]: ButtonVariant } = {
+    'solid-white': 'primary-dark',
+    'solid-green': 'primary-light',
+    'solid-yellow': 'secondary-dark',
+  };
 }
 
-const variants = [ 'solid-white', 'solid-green' ];
+const variants = [ 'solid-white', 'solid-green', 'solid-yellow' ];
 
 export default {
   title: 'Components/Promo cards/Examples',
@@ -159,8 +164,8 @@ const examplePromoCardTemplate = `
     {{ title }}
   </lg-promo-card-list-title>
   <lg-promo-card
-    *ngFor="let card of cards; let i = index;"
-    variant="variant[i]">
+    *ngFor="let card of cards; let i = index"
+    [variant]="variant[i]">
     <lg-promo-card-image [imageUrl]="card.imageUrl"></lg-promo-card-image>
     <lg-promo-card-title headingLevel="2">
       {{ card.title }}
@@ -173,7 +178,7 @@ const examplePromoCardTemplate = `
         lgMarginBottom="none"
         lg-button
         type="button"
-        [variant]="variant[i] === 'solid-white' ? 'primary-dark' : 'primary-light'">
+        [variant]="buttonVariants[variants[i]]">
         {{ card.ctaText }}
       </button>
     </lg-promo-card-footer>
