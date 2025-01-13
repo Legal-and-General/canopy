@@ -6,16 +6,15 @@ import { RouterOutlet } from '@angular/router';
 import { SideNavBarItem } from '../side-nav.interface';
 import { LgSideNavComponent } from '../side-nav.component';
 import { LgValidationComponent } from '../../forms';
+import { LgButtonComponent } from '../../button';
 import { LgSideNavBarComponent } from '../side-nav-bar/side-nav-bar.component';
+import { LgSideNavContentComponent } from '../side-nav-content/side-nav-content.component';
 import { LgSideNavBarLinkDirective } from '../side-nav-bar-link/side-nav-bar-link.directive';
 import { LgSideNavBarItemComponent } from '../side-nav-bar-item/side-nav-bar-item.component';
 import { LgSideNavBarItemHeadingComponent } from '../side-nav-bar-item-heading/side-nav-bar-item-heading.component';
 import { LgSideNavBarItemContentComponent } from '../side-nav-bar-item-content/side-nav-bar-item-content.component';
 import { LgSideNavBarFooterComponent } from '../side-nav-bar-footer/side-nav-bar-footer.component';
 import { LgMarginDirective } from '../../spacing';
-import { LgSideNavContentComponent } from '../side-nav-content/side-nav-content.component';
-import { LgButtonComponent } from '../../button';
-import { lgIconChevronRight, LgIconRegistry } from '../../icon';
 
 const template = `
 <lg-side-nav>
@@ -77,10 +76,6 @@ export class StorySideNavComponent {
 
   @Input()
   navItems = [];
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconChevronRight ]);
-  }
 
   onClick = (ev, ix) => {
     ev.preventDefault();

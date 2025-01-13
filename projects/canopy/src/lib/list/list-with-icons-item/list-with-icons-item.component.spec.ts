@@ -1,13 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { LgIconComponent, lgIconDoc, LgIconRegistry } from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 import { LgListWithIconsItemComponent } from './list-with-icons-item.component';
 
 describe('LgListWithIconsItemComponent', () => {
   let component: LgListWithIconsItemComponent;
   let fixture: ComponentFixture<LgListWithIconsItemComponent>;
-  let iconRegistry: LgIconRegistry;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -16,9 +15,6 @@ describe('LgListWithIconsItemComponent', () => {
 
     fixture = TestBed.createComponent(LgListWithIconsItemComponent);
     component = fixture.componentInstance;
-
-    iconRegistry = TestBed.inject(LgIconRegistry);
-    iconRegistry.registerIcons([ lgIconDoc ]);
 
     component.iconName = 'doc';
 

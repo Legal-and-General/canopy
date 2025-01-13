@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconRegistry, lgIconsArray } from '../../icon';
 import type { Variant } from '../variant.interface';
 import { LgVariantDirective } from '..';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
@@ -48,9 +47,6 @@ const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
 })
 class LgVariantStoryComponent {
   @Input() variant: Variant;
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(lgIconsArray);
-  }
 }
 
 export default {

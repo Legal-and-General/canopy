@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconComponent, lgIconInformationFill, LgIconRegistry } from '../../icon';
 import { LgHeroComponent } from '../hero.component';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
 import { LgMarginDirective } from '../../spacing';
@@ -27,6 +26,7 @@ import { LgHeroCardSubtitleComponent } from '../hero-card-subtitle/hero-card-sub
 import { LgHeroCardTitleComponent } from '../hero-card-title/hero-card-title.component';
 import { LgHeroCardHeaderComponent } from '../hero-card-header/hero-card-header.component';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
+import { LgIconComponent } from '../../icon';
 
 const bodyHTML = `
   <div lgContainer>
@@ -196,10 +196,6 @@ const productHeroTemplate = `<lg-hero [overlap]="overlap" lgMarginTop="none">${p
 })
 class HeroProductStoryComponent {
   @Input() overlap: number;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconInformationFill ]);
-  }
 }
 
 export default {

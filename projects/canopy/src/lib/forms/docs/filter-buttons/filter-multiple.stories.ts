@@ -1,15 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
-  ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 
 import { LgCheckboxGroupComponent } from '../../checkbox-group';
 import { LgToggleComponent } from '../../toggle';
 import { LgHintComponent } from '../../hint';
-import { lgIconAdd, lgIconCheckmark, LgIconRegistry } from '../../../icon';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -56,13 +55,9 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private registry: LgIconRegistry,
-  ) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ colors: this.fb.control([ 'red' ]) });
     this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
-    this.registry.registerIcons([ lgIconAdd, lgIconCheckmark ]);
   }
 }
 

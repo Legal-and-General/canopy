@@ -2,14 +2,7 @@ import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgHeaderComponent } from '../header.component';
-import {
-  LgIconRegistry,
-  lgIconProfile,
-  lgIconRadioButtonUnselected,
-  LgIconComponent,
-  lgIconHamburgerMenu,
-  lgIconClose,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 import { LgAccountMenuComponent } from '../account-menu/account-menu.component';
 import { LgAccountMenuItemDirective } from '../account-menu/account-menu-item.directive';
 import { LgAccountMenuItemLabelComponent } from '../account-menu/account-menu-item-label/account-menu-item-label.component';
@@ -79,15 +72,6 @@ class PrimaryNavigationComponent {
   @Input() logo: string;
   @Input() logoAlt: string;
   @Input() logoHref: string;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([
-      lgIconProfile,
-      lgIconRadioButtonUnselected,
-      lgIconHamburgerMenu,
-      lgIconClose,
-    ]);
-  }
 }
 
 export default {

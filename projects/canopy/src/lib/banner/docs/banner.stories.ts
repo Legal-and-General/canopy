@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import { LgIconRegistry, LgIconComponent } from '../../icon';
-import { IconName, lgIconsArray } from '../../icon';
+import { IconName, LgIconComponent } from '../../icon';
 import { LgBannerComponent } from '../banner.component';
 import { BannerVariant } from '../banner-variant.interface';
+import { lgIconsArray } from '../../ui-icons-files';
 
 const variantTypes = [ 'generic', 'warning' ];
 
@@ -23,10 +23,6 @@ class LgBannerIconComponent {
   @Input() content: string;
   @Input() variant: BannerVariant;
   @Input() icon: IconName;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(lgIconsArray);
-  }
 }
 
 // This default export determines where your story goes in the story list

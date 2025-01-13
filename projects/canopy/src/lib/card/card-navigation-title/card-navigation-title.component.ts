@@ -12,9 +12,9 @@ import { Params, QueryParamsHandling, RouterLink } from '@angular/router';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 import type { HeadingLevel } from '../../heading';
-import isExternalURL from '../../utils/external-links';
-import { lgIconArrowRight, LgIconComponent, LgIconRegistry } from '../../icon';
 import { LgHeadingComponent } from '../../heading';
+import isExternalURL from '../../utils/external-links';
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-card-navigation-title',
@@ -36,10 +36,6 @@ export class LgCardNavigationTitleComponent implements OnInit {
   @Input() queryParams?: Params = null;
   @Input() queryParamsHandling?: QueryParamsHandling = null;
   @Output() linkClickedEvent = new EventEmitter<void>();
-
-  constructor(private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([ lgIconArrowRight ]);
-  }
 
   ngOnInit(): void {
     if (!(this.headingLevel && this.title && this.link)) {

@@ -1,14 +1,14 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostBinding,
   Input,
   ViewEncapsulation,
-  ChangeDetectorRef,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
-import { lgIconChevronDown, LgIconComponent, LgIconRegistry } from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-table-row-toggle',
@@ -28,12 +28,7 @@ export class LgTableRowToggleComponent {
 
   @HostBinding('class') class = 'lg-table-row-toggle';
 
-  constructor(
-    private cd: ChangeDetectorRef,
-    private iconRegistry: LgIconRegistry,
-  ) {
-    this.iconRegistry.registerIcons([ lgIconChevronDown ]);
-  }
+  constructor(private cd: ChangeDetectorRef) {}
 
   set tableId(tableId: number) {
     this._tableId = tableId;

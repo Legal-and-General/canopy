@@ -40,12 +40,7 @@ import {
   LgHeroHeaderComponent,
 } from '../../hero';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
-import {
-  LgIconComponent,
-  lgIconHome,
-  lgIconInformationFill,
-  LgIconRegistry,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
@@ -174,9 +169,6 @@ class FullWidthWithHeaderComponent {
   @Input() card3: string;
   @Input() primaryLinks: never;
   @Input() secondaryLinks: never;
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconHome, lgIconInformationFill ]);
-  }
 }
 
 export default {

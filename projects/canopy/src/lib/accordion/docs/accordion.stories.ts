@@ -8,13 +8,7 @@ import { LgAccordionItemContentDirective } from '../accordion-item/accordion-ite
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
 import { LgButtonComponent } from '../../button';
 import { LgMarginDirective } from '../../spacing';
-import {
-  lgIconNews,
-  lgIconNotes,
-  lgIconIdea,
-  LgIconRegistry,
-  LgIconComponent,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 const accordionItems = `
 <lg-accordion-item [isActive]="itemOneActive"
@@ -70,9 +64,6 @@ class AccordionWrapperComponent {
   @Input() itemTwoActive = true;
   @Input() itemThreeActive = false;
   @Input() multi = false;
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconNotes, lgIconNews, lgIconIdea ]);
-  }
 }
 
 // This default export determines where your story goes in the story list

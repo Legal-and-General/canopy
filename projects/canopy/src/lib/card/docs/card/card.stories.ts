@@ -8,14 +8,6 @@ import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import {
-  lgIconChevronLeft,
-  lgIconArrowRight,
-  LgIconComponent,
-  LgIconRegistry,
-  lgIconLinkExternal,
-  lgIconChevronRight,
-} from '../../../icon';
 import { LgCardComponent } from '../../card.component';
 import { LgCardGroupComponent } from '../../card-group/card-group.component';
 import { LgCardHeaderComponent } from '../../card-header/card-header.component';
@@ -50,6 +42,7 @@ import {
   LgLinkMenuItemComponent,
   LgLinkMenuItemTextComponent,
 } from '../../../link-menu';
+import { LgIconComponent } from '../../../icon';
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
@@ -148,11 +141,7 @@ class FormJourneyComponent {
 
   form: UntypedFormGroup;
 
-  constructor(
-    private registry: LgIconRegistry,
-    public fb: UntypedFormBuilder,
-  ) {
-    this.registry.registerIcons([ lgIconChevronLeft ]);
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
   }
 
@@ -260,10 +249,6 @@ class NavigationCardComponent {
   @Input() headingLevel: string;
   isToggleActive: boolean;
 
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconArrowRight ]);
-  }
-
   toggleActive(state: boolean): void {
     this.isToggleActive = state;
   }
@@ -328,14 +313,6 @@ const dataPointsCardTemplate = `
 class DataPointsCardComponent {
   @Input() dataPoints: number;
   @Input() data: Array<never>;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([
-      lgIconArrowRight,
-      lgIconLinkExternal,
-      lgIconChevronRight,
-    ]);
-  }
 }
 
 const cardGroupTemplate = `
@@ -410,14 +387,6 @@ const cardGroupTemplate = `
 class GroupCardComponent {
   @Input() cardContent: never;
   @Input() additionalCards: number;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([
-      lgIconArrowRight,
-      lgIconLinkExternal,
-      lgIconChevronRight,
-    ]);
-  }
 }
 
 export default {

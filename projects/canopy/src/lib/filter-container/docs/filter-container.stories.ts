@@ -2,12 +2,6 @@ import { Directive, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
 import {
-  lgIconChevronDown,
-  LgIconComponent,
-  lgIconFilter,
-  LgIconRegistry,
-} from '../../icon';
-import {
   ButtonVariant,
   LgButtonComponent,
   LgButtonGroupComponent,
@@ -17,6 +11,7 @@ import { LgFilterContainerComponent } from '../filter-container.component';
 import { LgFilterContainerPanelComponent } from '../filter-container-panel/filter-container-panel.component';
 import { LgFilterContainerPanelBodyComponent } from '../filter-container-panel-body/filter-container-panel-body.component';
 import { LgFilterContainerPanelFooterComponent } from '../filter-container-panel-footer/filter-container-panel-footer.component';
+import { LgIconComponent } from '../../icon';
 
 @Directive({
   selector: '[lgStoryToggle]',
@@ -24,10 +19,6 @@ import { LgFilterContainerPanelFooterComponent } from '../filter-container-panel
 })
 class StoryToggleDirective {
   @Input() variant: ButtonVariant;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconFilter, lgIconChevronDown ]);
-  }
 }
 
 const buttonVariants = [ 'primary-dark', 'secondary-dark' ];

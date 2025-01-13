@@ -1,20 +1,15 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostBinding,
   Renderer2,
   ViewEncapsulation,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
 } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
 
-import {
-  LgIconComponent,
-  LgIconRegistry,
-  lgIconCaretLeft,
-  lgIconCaretRight,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
@@ -41,10 +36,7 @@ export class LgBreadcrumbItemComponent {
     private renderer: Renderer2,
     private hostElement: ElementRef,
     private cd: ChangeDetectorRef,
-    private registry: LgIconRegistry,
-  ) {
-    this.registry.registerIcons([ lgIconCaretLeft, lgIconCaretRight ]);
-  }
+  ) {}
 
   set hideIcons(hideIcons: boolean) {
     this._hideIcons = hideIcons;

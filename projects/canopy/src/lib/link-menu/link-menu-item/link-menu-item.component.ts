@@ -9,12 +9,7 @@ import {
 } from '@angular/core';
 import { NgIf } from '@angular/common';
 
-import {
-  lgIconChevronRight,
-  LgIconComponent,
-  lgIconLinkExternal,
-  LgIconRegistry,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 import { LgIconComponent as LgIconComponent_1 } from '../../icon/icon.component';
 
 @Component({
@@ -33,12 +28,7 @@ export class LgLinkMenuItemComponent implements OnInit {
 
   openInANewTab = false;
 
-  constructor(
-    private elementRef: ElementRef,
-    private iconRegistry: LgIconRegistry,
-  ) {
-    this.iconRegistry.registerIcons([ lgIconChevronRight, lgIconLinkExternal ]);
-  }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     if (this.elementRef) {

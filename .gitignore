@@ -9,6 +9,11 @@ documentation.json
 /test-dist
 /tmp
 /out-tsc
+/projects/canopy/src/lib/ui-icons-files
+/projects/canopy/src/lib/brand-icons-files
+/projects/canopy/src/lib/icon/ui-icons-files.interface.ts
+/projects/canopy/src/lib/brand-icon/brand-icons-files.interface.ts
+
 # Only exists if Bazel was run
 /bazel-out
 

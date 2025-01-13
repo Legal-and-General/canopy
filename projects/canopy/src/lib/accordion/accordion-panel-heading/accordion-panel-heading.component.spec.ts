@@ -5,7 +5,7 @@ import { spy, verify } from '@typestrong/ts-mockito';
 import { Component } from '@angular/core';
 
 import { LgHeadingComponent } from '../../heading';
-import { LgIconComponent, lgIconIdea, LgIconRegistry } from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.component';
 
@@ -16,11 +16,7 @@ import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.comp
     </lg-accordion-panel-heading>
   `,
 })
-class LgAccordionPanelHeadingWithDecorativeIconComponent {
-  constructor(private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([ lgIconIdea ]);
-  }
-}
+class LgAccordionPanelHeadingWithDecorativeIconComponent {}
 
 describe('LgAccordionPanelHeadingComponent', () => {
   let component: LgAccordionPanelHeadingComponent;

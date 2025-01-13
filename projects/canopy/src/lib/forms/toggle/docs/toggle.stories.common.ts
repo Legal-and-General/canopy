@@ -15,7 +15,6 @@ import {
 import type { ToggleVariant } from '../toggle.interface';
 import { CheckboxSize } from '../toggle.interface';
 import { LgToggleComponent } from '../toggle.component';
-import { lgIconCheckboxMark, LgIconRegistry } from '../../../icon';
 
 @Component({
   selector: 'lg-reactive-form',
@@ -65,16 +64,12 @@ export class ReactiveToggleFormComponent implements OnChanges {
 
   form: UntypedFormGroup;
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private registry: LgIconRegistry,
-  ) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       umbrella: [ { value: '', disabled: false } ],
     });
 
     this.form.valueChanges.subscribe(val => this.toggleChange.emit(val));
-    this.registry.registerIcons([ lgIconCheckboxMark ]);
   }
 
   ngOnChanges({ checked }: SimpleChanges): void {

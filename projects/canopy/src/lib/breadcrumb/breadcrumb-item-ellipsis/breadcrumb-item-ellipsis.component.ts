@@ -1,19 +1,14 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostBinding,
   Renderer2,
   ViewEncapsulation,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
-import {
-  lgIconCaretRight,
-  LgIconComponent,
-  lgIconOverflowHorizontal,
-  LgIconRegistry,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-breadcrumb-item-ellipsis',
@@ -51,8 +46,5 @@ export class LgBreadcrumbItemEllipsisComponent {
   constructor(
     private renderer: Renderer2,
     private hostElement: ElementRef,
-    private registry: LgIconRegistry,
-  ) {
-    this.registry.registerIcons([ lgIconCaretRight, lgIconOverflowHorizontal ]);
-  }
+  ) {}
 }

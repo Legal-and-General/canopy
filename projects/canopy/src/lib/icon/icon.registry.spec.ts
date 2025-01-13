@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LgIconRegistry } from './icon.registry';
-import { Icon } from './icons.interface';
+import { Icon } from './ui-icons-files.interface';
 
 describe('LgIconRegistry', () => {
   let registry: LgIconRegistry;
@@ -14,27 +14,26 @@ describe('LgIconRegistry', () => {
     expect(registry).toBeTruthy();
   });
 
-  it('should get a registered icon', () => {
+  it('should get a registered icon', async () => {
     const icon = {
       name: 'add',
       data: 'test',
     } as Icon;
 
-    expect(registry.getIcon(icon.name)).toBeUndefined();
+    registry['registry'].set(icon.name, icon.data);
 
-    registry.registerIcons([ icon ]);
+    expect(registry['registry'].has(icon.name)).toBe(true);
 
-    expect(registry.getIcon(icon.name)).toBe(icon.data);
+    expect(await registry.get(icon.name)).toBe(icon.data);
   });
 
-  it('should warn when an icon is not in the registry', () => {
+  it('should auto-register an icon when it\'s not in the registry', async () => {
     const unexpectedIcon = 'chevron-right';
-    const spy = spyOn(console, 'warn');
 
-    expect(registry.getIcon(unexpectedIcon)).toBeUndefined();
+    expect(registry['registry'].has(unexpectedIcon)).toBe(false);
 
-    expect(spy).toHaveBeenCalledWith(
-      `${unexpectedIcon}: Icon not found, ensure it is added to the icon registry`,
-    );
+    await registry.get(unexpectedIcon);
+
+    expect(registry['registry'].has(unexpectedIcon)).toBe(true);
   });
 });

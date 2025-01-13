@@ -11,16 +11,11 @@ import {
 } from '@angular/core';
 import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
-import { NgIf, NgFor, NgClass } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 
 import type { HeadingLevel } from '../heading';
-import {
-  LgIconComponent,
-  LgIconRegistry,
-  lgIconChevronLeft,
-  lgIconChevronRight,
-} from '../icon';
 import { LgHeadingComponent } from '../heading';
+import { LgIconComponent } from '../icon';
 
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgAutoplayComponent } from './auto-play/auto-play.component';
@@ -64,12 +59,7 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
   @ContentChildren(LgCarouselItemComponent, { read: LgCarouselItemComponent })
   carouselItems = new QueryList<LgCarouselItemComponent>();
 
-  constructor(
-    private cd: ChangeDetectorRef,
-    private iconRegistry: LgIconRegistry,
-  ) {
-    this.iconRegistry.registerIcons([ lgIconChevronLeft, lgIconChevronRight ]);
-  }
+  constructor(private cd: ChangeDetectorRef) {}
 
   pauseCarousel(): void {
     this.pause.next(true);

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Icon, IconName } from './icons.interface';
+import { LgCamelCasePipe } from '../pipes';
+
+import { IconName } from './ui-icons-files.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -8,15 +10,17 @@ import { Icon, IconName } from './icons.interface';
 export class LgIconRegistry {
   private registry = new Map<IconName, string>();
 
-  registerIcons(icons: Array<Icon>): void {
-    icons.forEach(icon => {
-      this.registry.set(icon.name, icon.data);
-    });
-  }
-
-  getIcon(name: IconName): string | undefined {
+  async get(name: IconName): Promise<string | undefined> {
     if (!this.registry.has(name)) {
-      console.warn(`${name}: Icon not found, ensure it is added to the icon registry`);
+      const str = new LgCamelCasePipe().transform(name);
+
+      const iconName = `lgIcon${str.replace(/^./, str[0].toUpperCase())}`;
+
+      const { [iconName]: icon } = await import(
+        `../ui-icons-files/set/lgIcon-${name}.icon`
+      );
+
+      this.registry.set(icon.name, icon.data);
     }
 
     return this.registry.get(name);
