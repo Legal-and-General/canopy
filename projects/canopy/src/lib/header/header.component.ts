@@ -18,19 +18,16 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { DOCUMENT, NgIf } from '@angular/common';
-import { startWith, filter, merge, skipWhile, Subscription, switchMap } from 'rxjs';
+import { filter, merge, skipWhile, startWith, Subscription, switchMap } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
-import {
-  lgIconClose,
-  LgIconComponent,
-  lgIconHamburgerMenu,
-  LgIconRegistry,
-} from '../icon';
+import { LgIconComponent } from '../icon';
 import { LgHideAtDirective } from '../hide-at';
-import { LgGridColDirective } from '../grid';
-import { LgGridRowDirective } from '../grid';
-import { LgGridContainerDirective } from '../grid';
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../grid';
 
 import { LgAccountMenuComponent } from './account-menu/account-menu.component';
 import { LgHeaderLogoComponent } from './header-logo/header-logo.component';
@@ -84,11 +81,8 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
   constructor(
     private cdr: ChangeDetectorRef,
     private renderer: Renderer2,
-    private iconRegistry: LgIconRegistry,
     @Inject(DOCUMENT) private document: Document,
-  ) {
-    this.iconRegistry.registerIcons([ lgIconHamburgerMenu, lgIconClose ]);
-  }
+  ) {}
 
   @HostListener('document:click', [ '$event' ])
   onDocumentClickout(event: MouseEvent): void {

@@ -23,17 +23,17 @@ describe('LgBreadcrumbItemEllipsisComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(LgBreadcrumbItemEllipsisComponent);
     component = fixture.componentInstance;
     breadcrumbEllipsisDebugElement = fixture.debugElement;
     breadcrumbEllipsisEl = breadcrumbEllipsisDebugElement.nativeElement;
 
-    when(iconRegistryMock.getIcon('caret-right')).thenReturn(
+    when(await iconRegistryMock.get('caret-right')).thenReturn(
       '<svg id="test">test-svg</svg>',
     );
 
-    when(iconRegistryMock.getIcon('overflow-horizontal')).thenReturn(
+    when(await iconRegistryMock.get('overflow-horizontal')).thenReturn(
       '<svg id="test">test-svg</svg>',
     );
 

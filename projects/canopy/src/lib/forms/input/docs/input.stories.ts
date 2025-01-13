@@ -1,24 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
+  ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
-  ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
-import {
-  lgIconClose,
-  LgIconComponent,
-  LgIconRegistry,
-  lgIconSearch,
-} from '../../../icon';
 import { ButtonVariant, LgButtonComponent } from '../../../button';
 import { LgInputFieldComponent } from '../input-field.component';
 import { LgPrefixDirective } from '../../../prefix';
 import { LgInputDirective } from '../input.directive';
 import { LgSuffixDirective } from '../../../suffix';
 import { LgHintComponent } from '../../hint';
+import { LgIconComponent } from '../../../icon';
 
 interface Config {
   block?: boolean;
@@ -180,11 +175,7 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private iconRegistry: LgIconRegistry,
-  ) {
-    this.iconRegistry.registerIcons([ lgIconSearch, lgIconClose ]);
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ name: { value: '', disabled: false } });
     this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }

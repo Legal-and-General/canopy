@@ -14,24 +14,17 @@ import {
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
-import { pastDateValidator } from '../../date';
+import { LgDateFieldComponent, pastDateValidator } from '../../date';
 import { LgErrorStateMatcher } from '../error-state-matcher';
 import { LgInputDirective, LgInputFieldComponent } from '../../input';
 import { LgSelectDirective, LgSelectFieldComponent } from '../../select';
 import { LgRadioButtonComponent, LgRadioGroupComponent } from '../../radio';
 import { LgCheckboxGroupComponent } from '../../checkbox-group';
 import { LgToggleComponent } from '../../toggle';
-import { LgDateFieldComponent } from '../../date';
 import { LgValidationComponent } from '../validation.component';
 import { LgHintComponent } from '../../hint';
 import { LgSortCodeDirective } from '../../sort-code';
 import { LgButtonComponent } from '../../../button';
-import {
-  lgIconCheckboxMark,
-  lgIconChevronDown,
-  lgIconCrossmarkSpotFill,
-  LgIconRegistry,
-} from '../../../icon';
 
 function invalidValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -351,7 +344,6 @@ class ReactiveFormComponent {
     public fb: UntypedFormBuilder,
     private errorState: LgErrorStateMatcher,
     private el: ElementRef,
-    private registry: LgIconRegistry,
   ) {
     this.form = this.fb.group({
       text: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
@@ -367,12 +359,6 @@ class ReactiveFormComponent {
         date: [ '', [ Validators.required, pastDateValidator() ] ],
       }),
     });
-
-    this.registry.registerIcons([
-      lgIconChevronDown,
-      lgIconCheckboxMark,
-      lgIconCrossmarkSpotFill,
-    ]);
   }
 
   onSubmit(event) {

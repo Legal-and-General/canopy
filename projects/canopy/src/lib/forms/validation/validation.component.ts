@@ -9,14 +9,7 @@ import {
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import type { Variant } from '../../variant';
-import {
-  lgIconCheckmarkSpotFill,
-  LgIconComponent,
-  lgIconCrossmarkSpotFill,
-  lgIconInformationFill,
-  LgIconRegistry,
-  lgIconWarningFill,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 let nextUniqueId = 0;
 
@@ -57,15 +50,7 @@ export class LgValidationComponent {
   constructor(
     private renderer: Renderer2,
     private hostElement: ElementRef,
-    private iconRegistry: LgIconRegistry,
   ) {
     this.variant = 'error';
-
-    this.iconRegistry.registerIcons([
-      lgIconCrossmarkSpotFill,
-      lgIconInformationFill,
-      lgIconWarningFill,
-      lgIconCheckmarkSpotFill,
-    ]);
   }
 }

@@ -4,13 +4,12 @@ import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { NgForOf } from '@angular/common';
 
 import { LgIconComponent } from '../icon.component';
-import { LgIconRegistry } from '../icon.registry';
-import { lgIconsArray } from '../icons.interface';
+import { lgIconsArray } from '../../ui-icons-files';
 
 @Component({
   selector: 'lg-swatch-icon',
   template: `
-    <div class="swatch" *ngFor="let icon of icons">
+    <div class="swatch" *ngFor="let icon of lgIconsArray">
       <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar"></lg-icon>
       <span class="swatch__name">{{ icon.name }}</span>
     </div>
@@ -38,15 +37,9 @@ import { lgIconsArray } from '../icons.interface';
 class SwatchIconComponent implements OnChanges {
   @Input() colour: string;
 
-  icons = lgIconsArray;
   colourVar: SafeStyle;
 
-  constructor(
-    private registry: LgIconRegistry,
-    private sanitizer: DomSanitizer,
-  ) {
-    this.registry.registerIcons(this.icons);
-  }
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnChanges({ colour }: SimpleChanges) {
     if (colour && colour.currentValue) {
@@ -55,6 +48,8 @@ class SwatchIconComponent implements OnChanges {
       );
     }
   }
+
+  protected readonly lgIconsArray = lgIconsArray;
 }
 
 const colours = [

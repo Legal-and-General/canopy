@@ -42,14 +42,15 @@ describe('LgIconComponent', () => {
   });
 
   describe('setting the name', () => {
-    it('should append the correct svg element to the component', () => {
+    it('should append the correct svg element to the component', async () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
       expect(fixture.nativeElement.querySelector('#lg-icon-0')).toBeNull();
 
-      when(iconRegistryMock.getIcon('add')).thenReturn('<svg id="test">test-svg</svg>');
+      when(await iconRegistryMock.get('add')).thenReturn('<svg id="test">test-svg</svg>');
 
       component.name = 'add';
       fixture.detectChanges();
+      await fixture.whenStable();
 
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
       expect(fixture.nativeElement.querySelector('#lg-icon-0')).toBeDefined();

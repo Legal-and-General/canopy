@@ -2,15 +2,8 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { NgFor } from '@angular/common';
 
-import {
-  lgIconChevronDown,
-  lgIconChevronRightCircle,
-  LgIconComponent,
-  lgIconInformationFill,
-  LgIconRegistry,
-} from '../../icon';
-import { AlignmentOptions, TableColumnLayoutBreakpoints } from '../table.interface';
 import type { TableVariant } from '../table.interface';
+import { AlignmentOptions, TableColumnLayoutBreakpoints } from '../table.interface';
 import { LgTableComponent } from '../table/table.component';
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
@@ -28,6 +21,7 @@ import {
   LgGridRowDirective,
 } from '../../grid';
 import { LgQuickActionComponent } from '../../quick-action';
+import { LgIconComponent } from '../../icon';
 
 interface TableStoryItem {
   author: string;
@@ -159,12 +153,7 @@ export class StoryTableDetailComponent {
     return Object.keys(this.books[0]).length + 1;
   }
 
-  constructor(
-    private cd: ChangeDetectorRef,
-    private registry: LgIconRegistry,
-  ) {
-    this.registry.registerIcons([ lgIconChevronDown ]);
-  }
+  constructor(private cd: ChangeDetectorRef) {}
 
   toggleRow(index: number) {
     const matchIndex = this.expandedRows.findIndex(i => i === index);
@@ -299,9 +288,6 @@ const withLongCopyTableTemplate = `
 class StoryTableLongCopyComponent {
   @Input() variant: TableVariant;
   @Input() stack: boolean;
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconChevronRightCircle, lgIconInformationFill ]);
-  }
 }
 
 const responsiveCategory = 'Responsive options';

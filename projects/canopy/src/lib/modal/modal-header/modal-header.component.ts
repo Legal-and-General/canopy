@@ -9,9 +9,9 @@ import {
 } from '@angular/core';
 
 import type { HeadingLevel } from '../../heading';
-import { LgModalService } from '../modal.service';
-import { lgIconClose, LgIconComponent, LgIconRegistry } from '../../icon';
 import { LgHeadingComponent } from '../../heading';
+import { LgModalService } from '../modal.service';
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-modal-header',
@@ -32,12 +32,7 @@ export class LgModalHeaderComponent {
 
   @HostBinding('id') id: string;
 
-  constructor(
-    private modalService: LgModalService,
-    private iconRegistry: LgIconRegistry,
-  ) {
-    this.iconRegistry.registerIcons([ lgIconClose ]);
-  }
+  constructor(private modalService: LgModalService) {}
 
   close(): void {
     this.closed.emit();

@@ -7,7 +7,6 @@ import { LgModalHeaderComponent } from '../modal-header/modal-header.component';
 import { LgModalBodyComponent } from '../modal-body/modal-body.component';
 import { LgModalFooterComponent } from '../modal-footer/modal-footer.component';
 import { LgModalBodyTimerComponent } from '../modal-body-timer/modal-body-timer.component';
-import { lgIconClose, LgIconRegistry } from '../../icon';
 import { LgButtonComponent, LgButtonGroupComponent } from '../../button';
 
 const template = `
@@ -45,10 +44,6 @@ const template = `
 class ModalWrapperComponent {
   @Input() headingLevel = 2;
   @Input() closeOnOverlayClick = true;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconClose ]);
-  }
 }
 
 export default {

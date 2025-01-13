@@ -10,7 +10,6 @@ import { NgIf } from '@angular/common';
 import { LgCheckboxGroupComponent } from '../../../checkbox-group';
 import { LgHintComponent } from '../../../hint';
 import { LgToggleComponent } from '../../toggle.component';
-import { lgIconCheckboxMark, LgIconRegistry } from '../../../../icon';
 
 const formTemplate = `
 <form [formGroup]="form">
@@ -57,13 +56,9 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private registry: LgIconRegistry,
-  ) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({ colors: this.fb.control([ 'red' ]) });
     this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
-    this.registry.registerIcons([ lgIconCheckboxMark ]);
   }
 }
 

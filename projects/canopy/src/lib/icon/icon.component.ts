@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 import { LgIconRegistry } from './icon.registry';
-import { IconName } from './icons.interface';
+import { IconName } from './ui-icons-files.interface';
 
 type Name = IconName;
 
@@ -32,16 +32,18 @@ export class LgIconComponent {
 
   @Input()
   set name(name: Name) {
-    if (this.svgIcon) {
-      this.hostElement.nativeElement.removeChild(this.svgIcon);
-    }
+    (async () => {
+      if (this.svgIcon) {
+        this.hostElement.nativeElement.removeChild(this.svgIcon);
+      }
 
-    const svgData = this.setSVGAttributes(this.iconRegistry.getIcon(name));
+      const svgData = this.setSVGAttributes(await this.iconRegistry.get(name));
 
-    if (svgData) {
-      this.svgIcon = this.svgElementFromString(svgData);
-      this.hostElement.nativeElement.appendChild(this.svgIcon);
-    }
+      if (svgData) {
+        this.svgIcon = this.svgElementFromString(svgData);
+        this.hostElement.nativeElement.appendChild(this.svgIcon);
+      }
+    })();
   }
 
   constructor(

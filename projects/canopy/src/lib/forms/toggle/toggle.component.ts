@@ -23,13 +23,7 @@ import { LgDomService } from '../../utils';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
-import {
-  lgIconAdd,
-  lgIconCheckboxMark,
-  lgIconCheckmark,
-  LgIconComponent,
-  LgIconRegistry,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 import { LgFocusDirective } from '../../focus';
 
 import type { ToggleVariant } from './toggle.interface';
@@ -103,7 +97,6 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     @SkipSelf()
     private controlContainer: FormGroupDirective,
     private hostElement: ElementRef,
-    private iconRegistry: LgIconRegistry,
   ) {
     this.selectorVariant = this.hostElement.nativeElement.tagName
       .split('-')[1]
@@ -116,8 +109,6 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     if (this.control != null) {
       this.control.valueAccessor = this;
     }
-
-    this.iconRegistry.registerIcons([ lgIconAdd, lgIconCheckmark, lgIconCheckboxMark ]);
   }
 
   onCheck(): void {

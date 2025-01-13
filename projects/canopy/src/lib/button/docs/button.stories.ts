@@ -2,13 +2,14 @@ import { Component, Input } from '@angular/core';
 import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
-import { IconName, LgIconComponent, LgIconRegistry, lgIconsArray } from '../../icon';
+import { IconName, LgIconComponent } from '../../icon';
 import {
   ButtonIconPosition,
   ButtonSize,
   ButtonVariant,
   LgButtonComponent,
 } from '../index';
+import { lgIconsArray } from '../../ui-icons-files';
 
 const buttonVariants = [
   'primary-dark',
@@ -67,7 +68,7 @@ const buttonVariants = [
     </ng-container>
   `,
   standalone: true,
-  imports: [ LgIconComponent, LgButtonComponent, NgIf ],
+  imports: [ LgButtonComponent, LgIconComponent, NgIf ],
 })
 class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
@@ -80,9 +81,6 @@ class ButtonComponentExampleComponent {
   @Input() size: ButtonSize;
   @Input() variant: ButtonVariant;
   @Input() content: string;
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons(lgIconsArray);
-  }
 }
 
 export default {

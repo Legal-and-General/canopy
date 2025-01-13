@@ -1,19 +1,8 @@
-import { Meta, StoryFn } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 
-import {
-  lgIconChevronRight,
-  LgIconComponent,
-  lgIconConsole,
-  lgIconInformation,
-  lgIconLinkExternal,
-  lgIconMail,
-  lgIconProfile,
-  LgIconRegistry,
-  lgIconSecurity,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 import { LgLinkMenuComponent } from '../link-menu.component';
 import { LgLinkMenuItemComponent } from '../link-menu-item/link-menu-item.component';
 import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-item-text.component';
@@ -46,18 +35,6 @@ const template = `
 })
 class LinkMenuStoryComponent {
   @Input() menuItems: MenuItems;
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([
-      lgIconInformation,
-      lgIconProfile,
-      lgIconMail,
-      lgIconSecurity,
-      lgIconConsole,
-      lgIconChevronRight,
-      lgIconLinkExternal,
-    ]);
-  }
 }
 
 // This default export determines where your story goes in the story list

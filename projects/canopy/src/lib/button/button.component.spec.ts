@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { MockComponent } from 'ng-mocks';
 
 import { LgSpinnerComponent } from '../spinner';
-import { lgIconAdd, LgIconComponent, lgIconFilter, LgIconRegistry } from '../icon';
+import { LgIconComponent } from '../icon';
 
 import { LgButtonComponent } from './button.component';
 
@@ -21,10 +21,6 @@ import { LgButtonComponent } from './button.component';
 })
 class ButtonDoubleIconTestComponent {
   @Input() iconPosition = null;
-
-  constructor(private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([ lgIconFilter, lgIconAdd ]);
-  }
 }
 
 describe('LgButtonComponent', () => {

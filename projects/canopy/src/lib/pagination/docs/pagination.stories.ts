@@ -11,7 +11,6 @@ import {
   LgTableHeadComponent,
   LgTableRowComponent,
 } from '../../table';
-import { lgIconChevronRight, lgIconChevronLeft, LgIconRegistry } from '../../icon';
 
 @Component({
   selector: 'lg-pagination-story',
@@ -70,10 +69,6 @@ class PaginationStoryComponent implements OnInit, OnChanges {
 
   allItems: Array<unknown> = [];
   pagedItems: Array<unknown> = [];
-
-  constructor(private registry: LgIconRegistry) {
-    this.registry.registerIcons([ lgIconChevronLeft, lgIconChevronRight ]);
-  }
 
   ngOnInit(): void {
     this.allItems = this.getData();

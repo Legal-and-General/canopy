@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {
-  UntypedFormGroup,
-  UntypedFormBuilder,
   ReactiveFormsModule,
+  UntypedFormBuilder,
+  UntypedFormGroup,
 } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -42,25 +42,7 @@ import {
   LgBreadcrumbComponent,
   LgBreadcrumbItemComponent,
 } from '../../../canopy/src/lib/breadcrumb';
-import {
-  lgIconAdd,
-  lgIconArrowDown,
-  lgIconArrowRight,
-  lgIconCheckboxMark,
-  lgIconCheckmark,
-  lgIconChevronLeft,
-  lgIconChevronRight,
-  lgIconClose,
-  LgIconComponent,
-  lgIconFilter,
-  lgIconHome,
-  lgIconLinkExternal,
-  lgIconNotes,
-  LgIconRegistry,
-  lgIconRepeat,
-  lgIconSearch,
-  lgIconSecureMessaging,
-} from '../../../canopy/src/lib/icon';
+import { LgIconComponent } from '../../../canopy/src/lib/icon';
 import { LgMarginDirective, LgPaddingDirective } from '../../../canopy/src/lib/spacing';
 import {
   LgCardComponent,
@@ -127,9 +109,9 @@ import {
   LgToggleComponent,
 } from '../../../canopy/src/lib/forms';
 import {
+  LgListWithExpressiveStylingDirective,
   LgListWithIconsComponent,
   LgListWithIconsItemComponent,
-  LgListWithExpressiveStylingDirective,
 } from '../../../canopy/src/lib/list';
 import {
   LgPrimaryMessageComponent,
@@ -137,7 +119,6 @@ import {
   LgPrimaryMessageTitleComponent,
 } from '../../../canopy/src/lib/primary-message';
 import {
-  lgBrandIconCalendar,
   LgBrandIconComponent,
   LgBrandIconRegistry,
 } from '../../../canopy/src/lib/brand-icon';
@@ -175,9 +156,8 @@ import { LgPaginationComponent } from '../../../canopy/src/lib/pagination';
 import { LgFooterComponent, LgFooterLogoComponent } from '../../../canopy/src/lib/footer';
 import {
   LgProgressBarComponent,
-  LgProgressIndicatorComponent,
   LgProgressHeaderComponent,
-  LgProgressJourneyComponent,
+  LgProgressIndicatorComponent,
 } from '../../../canopy/src/lib/progress-indicator';
 
 @Component({
@@ -295,7 +275,6 @@ import {
     LgProgressBarComponent,
     LgProgressIndicatorComponent,
     LgProgressHeaderComponent,
-    LgProgressJourneyComponent,
     LgListWithExpressiveStylingDirective,
     RouterLink,
     RouterOutlet,
@@ -351,7 +330,6 @@ export class AppComponent {
 
   constructor(
     public fb: UntypedFormBuilder,
-    private iconRegistry: LgIconRegistry,
     private brandIconRegistry: LgBrandIconRegistry,
   ) {
     this.form = this.fb.group({
@@ -371,25 +349,7 @@ export class AppComponent {
       sortCode: [ '' ],
     });
 
-    this.iconRegistry.registerIcons([
-      lgIconAdd,
-      lgIconArrowDown,
-      lgIconClose,
-      lgIconHome,
-      lgIconSearch,
-      lgIconRepeat,
-      lgIconSecureMessaging,
-      lgIconFilter,
-      lgIconCheckmark,
-      lgIconChevronLeft,
-      lgIconChevronRight,
-      lgIconArrowRight,
-      lgIconLinkExternal,
-      lgIconCheckboxMark,
-      lgIconNotes,
-    ]);
-
-    this.brandIconRegistry.registerBrandIcon([ lgBrandIconCalendar ]);
+    this.brandIconRegistry.registerBrandIcon([]);
   }
 
   onSubmit(event): void {

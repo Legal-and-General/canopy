@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { LgIconComponent, lgIconLinkExternal, LgIconRegistry } from '../../icon';
+import { LgIconComponent } from '../../icon';
 import { LgMarginDirective } from '../../spacing';
 
 @Component({
@@ -38,8 +38,4 @@ import { LgMarginDirective } from '../../spacing';
   `,
   styleUrls: [ './usage.component.scss' ],
 })
-export class DocsWelcomeUsageComponent {
-  constructor(private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([ lgIconLinkExternal ]);
-  }
-}
+export class DocsWelcomeUsageComponent {}

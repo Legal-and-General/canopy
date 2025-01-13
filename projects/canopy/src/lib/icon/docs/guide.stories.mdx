@@ -22,26 +22,6 @@ Import the icon component into your application:
 })
 ```
 
-
-
-Import the `LgIconRegistry` service and register your icons inside your module:
-
-```js
-// import the desired icon
-import { lgIconEmail } from '@legal-and-general/canopy';
-
-export class SomeModule {
-  // register the icon using the `LgIconRegistry` service
-  constructor(private iconRegistry: LgIconRegistry) {
-    this.iconRegistry.registerIcons([
-      lgIconEmail
-    ]);
-  }
-}
-```
-
-
-
 and in your HTML:
 
 ```html

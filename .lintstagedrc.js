@@ -1,8 +1,4 @@
 module.exports = {
-  'projects/canopy/src/**/*.svg': [
-    'npm run build:icons',
-    'git add'
-  ],
   'projects/canopy/src/**/*.json': [
     'prettier --write',
     'git add'

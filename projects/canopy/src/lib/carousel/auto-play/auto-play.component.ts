@@ -8,12 +8,7 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { NgIf } from '@angular/common';
 
-import {
-  LgIconComponent,
-  lgIconPauseSpot,
-  lgIconPlaySpot,
-  LgIconRegistry,
-} from '../../icon';
+import { LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-auto-play',
@@ -28,10 +23,5 @@ export class LgAutoplayComponent {
 
   @HostBinding('class.lg-carousel-autoplay') class = true;
 
-  constructor(
-    public element: ElementRef,
-    private iconRegistry: LgIconRegistry,
-  ) {
-    this.iconRegistry.registerIcons([ lgIconPauseSpot, lgIconPlaySpot ]);
-  }
+  constructor(public element: ElementRef) {}
 }
