@@ -42,16 +42,17 @@ describe('LgBrandIconComponent', () => {
   });
 
   describe('setting the name', () => {
-    it('should append the correct svg element to the component', () => {
+    it('should append the correct svg element to the component', async () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
       expect(fixture.nativeElement.querySelector('svg')).toBeNull();
 
-      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+      when(await brandIconRegistryMock.get('sun')).thenReturn(
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
       component.name = 'sun';
       fixture.detectChanges();
+      await fixture.whenStable();
 
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
 
@@ -75,8 +76,8 @@ describe('LgBrandIconComponent', () => {
   });
 
   describe('the colour input', () => {
-    beforeEach(() => {
-      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+    beforeEach(async () => {
+      when(await brandIconRegistryMock.get('sun')).thenReturn(
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
@@ -106,14 +107,15 @@ describe('LgBrandIconComponent', () => {
       });
     });
 
-    it('when the icon isn\'t coloured it should not set the fill style', () => {
-      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+    it('when the icon isn\'t coloured it should not set the fill style', async () => {
+      when(await brandIconRegistryMock.get('sun')).thenReturn(
         '<svg id="test">test-svg<path id="no-color"></path></svg>',
       );
 
       component.name = 'sun';
-
       fixture.detectChanges();
+      await fixture.whenStable();
+
       const el = fixture.nativeElement.querySelector('path[id^="lg-brand-icon-"]');
 
       expect(el.getAttribute('data-colour')).toBeNull();
@@ -122,14 +124,16 @@ describe('LgBrandIconComponent', () => {
   });
 
   describe('the half tone colour input', () => {
-    it('should apply the specific colour', () => {
-      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+    it('should apply the specific colour', async () => {
+      when(await brandIconRegistryMock.get('sun')).thenReturn(
         '<svg id="test">test-svg<path id="Half-tone"></path></svg>',
       );
 
       component.name = 'sun';
       component.halfToneColour = '--colour-css-variable';
       fixture.detectChanges();
+      await fixture.whenStable();
+
       const el = fixture.nativeElement.querySelector(
         '[data-colour="lg-icon-half-tone-fill"]',
       );
@@ -139,14 +143,16 @@ describe('LgBrandIconComponent', () => {
   });
 
   describe('the outlines colour input', () => {
-    it('should apply the specific colour', () => {
-      when(brandIconRegistryMock.getBrandIcon('sun')).thenReturn(
+    it('should apply the specific colour', async () => {
+      when(await brandIconRegistryMock.get('sun')).thenReturn(
         '<svg id="test">test-svg<path id="Outlines"></path></svg>',
       );
 
       component.name = 'sun';
       component.outlinesColour = 'rgb(102, 102, 102)';
       fixture.detectChanges();
+      await fixture.whenStable();
+
       const el = fixture.nativeElement.querySelector(
         '[data-colour="lg-icon-outlines-fill"]',
       );

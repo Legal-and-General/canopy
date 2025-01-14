@@ -3,13 +3,7 @@ import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 import { LgCardComponent } from '../../card.component';
-import {
-  lgBrandIconCalendarAppointment,
-  LgBrandIconComponent,
-  lgBrandIconLookingAhead,
-  lgBrandIconPensionPot,
-  LgBrandIconRegistry,
-} from '../../../brand-icon';
+import { LgBrandIconComponent } from '../../../brand-icon';
 import { LgMarginDirective, LgPaddingDirective } from '../../../spacing';
 import { LgCardContentComponent } from '../../card-content/card-content.component';
 import { IconName } from '../../../icon';
@@ -70,14 +64,6 @@ class GeneralPromotionCardComponent {
     md: 'horizontal',
     lg: 'horizontal',
   };
-
-  constructor(private brandIconRegistry: LgBrandIconRegistry) {
-    this.brandIconRegistry.registerBrandIcon([
-      lgBrandIconLookingAhead,
-      lgBrandIconPensionPot,
-      lgBrandIconCalendarAppointment,
-    ]);
-  }
 }
 
 export default {

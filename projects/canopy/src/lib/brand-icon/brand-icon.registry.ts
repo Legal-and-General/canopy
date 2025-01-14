@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { BrandIcon, BrandIconName } from './brand-icons.interface';
+import { LgCamelCasePipe } from '../pipes';
+
+import { BrandIconName } from './brand-icons-files.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -8,17 +10,17 @@ import { BrandIcon, BrandIconName } from './brand-icons.interface';
 export class LgBrandIconRegistry {
   private registry = new Map<BrandIconName, string>();
 
-  registerBrandIcon(icons: Array<BrandIcon>): void {
-    icons.forEach(icon => {
-      this.registry.set(icon.name, icon.data);
-    });
-  }
-
-  getBrandIcon(name: BrandIconName): string | undefined {
+  async get(name: BrandIconName): Promise<string | undefined> {
     if (!this.registry.has(name)) {
-      console.warn(
-        `${name}: Brand icon not found, ensure it is added to the brand icon registry`,
+      const str = new LgCamelCasePipe().transform(name);
+
+      const iconName = `lgBrandIcon${str.replace(/^./, str[0].toUpperCase())}`;
+
+      const { [iconName]: icon } = await import(
+        `../brand-icons-files/set/lgBrandIcon-${name}.icon`
       );
+
+      this.registry.set(icon.name, icon.data);
     }
 
     return this.registry.get(name);

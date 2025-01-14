@@ -4,13 +4,12 @@ import { moduleMetadata, StoryFn } from '@storybook/angular';
 import { NgForOf } from '@angular/common';
 
 import { BrandIconSize, LgBrandIconComponent } from '../brand-icon.component';
-import { LgBrandIconRegistry } from '../brand-icon.registry';
-import { lgBrandIconsArray } from '../brand-icons.interface';
+import { lgBrandIconsArray } from '../../brand-icons-files';
 
 @Component({
   selector: 'lg-swatch-brand-icon',
   template: `
-    <div class="swatch" *ngFor="let icon of icons; let i = index">
+    <div class="swatch" *ngFor="let icon of lgBrandIconsArray; let i = index">
       <lg-brand-icon
         class="swatch__svg"
         [name]="icon.name"
@@ -57,15 +56,9 @@ class SwatchBrandIconComponent implements OnChanges {
   @Input() outlinesColour: string;
   @Input() globalColour: string;
 
-  icons = lgBrandIconsArray;
   cssVar: SafeStyle;
 
-  constructor(
-    private registry: LgBrandIconRegistry,
-    private sanitizer: DomSanitizer,
-  ) {
-    this.registry.registerBrandIcon(this.icons);
-  }
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnChanges({ globalColour }: SimpleChanges) {
     if (globalColour && globalColour.currentValue) {
@@ -74,6 +67,8 @@ class SwatchBrandIconComponent implements OnChanges {
       );
     }
   }
+
+  protected readonly lgBrandIconsArray = lgBrandIconsArray;
 }
 
 const sizes = [ 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' ];
