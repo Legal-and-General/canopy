@@ -34,11 +34,11 @@ jobs:
       - name: 'Stylelint'
         run: npm run stylelint
 
-      - name: 'Unit test'
-        run: npm run test:ci
-
       - name: 'Build'
         run: npm run build
+
+      - name: 'Unit tests'
+        run: npm run test:ci
 
       - name: 'Install build dependencies'
         run: npm --prefix ./dist/canopy install
