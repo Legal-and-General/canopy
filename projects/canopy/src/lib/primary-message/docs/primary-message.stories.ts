@@ -1,11 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
 
-import {
-  lgBrandIconCalendar,
-  LgBrandIconComponent,
-  LgBrandIconRegistry,
-} from '../../brand-icon';
+import { LgBrandIconComponent } from '../../brand-icon';
 import { LgPrimaryMessageComponent } from '../primary-message.component';
 import { LgPrimaryMessageTitleComponent } from '../primary-message-title/primary-message-title.component';
 import { LgPrimaryMessageDescriptionComponent } from '../primary-message-description/primary-message-description.component';
@@ -43,10 +39,6 @@ import { LgMarginDirective } from '../../spacing';
 })
 class LgPrimaryMessageStoryComponent {
   @Input() hasRole: boolean;
-
-  constructor(private brandIconRegistry: LgBrandIconRegistry) {
-    this.brandIconRegistry.registerBrandIcon([ lgBrandIconCalendar ]);
-  }
 }
 
 export default {

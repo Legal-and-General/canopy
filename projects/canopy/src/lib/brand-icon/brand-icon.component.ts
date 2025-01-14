@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 import { LgBrandIconRegistry } from './brand-icon.registry';
-import { BrandIconName } from './brand-icons.interface';
+import { BrandIconName } from './brand-icons-files.interface';
 
 type Name = BrandIconName;
 
@@ -29,12 +29,21 @@ export type BrandIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 export class LgBrandIconComponent {
   private svgElement: SVGElement;
   private id = nextUniqueId++;
+  private _colour: string;
+  private _halfToneColour: string;
+  private _outlinesColour: string;
 
   @HostBinding('class.lg-brand-icon') class = true;
   @HostBinding('attr.aria-hidden') hidden = true;
 
   @Input()
   set colour(colour: string) {
+    this._colour = colour;
+
+    if (!this.svgElement) {
+      return;
+    }
+
     const el = this.hostElement.nativeElement.querySelector(
       '[data-colour="lg-icon-fill-primary"]',
     );
@@ -47,6 +56,12 @@ export class LgBrandIconComponent {
 
   @Input()
   set halfToneColour(colour: string) {
+    this._halfToneColour = colour;
+
+    if (!this.svgElement) {
+      return;
+    }
+
     const el = this.hostElement.nativeElement.querySelector(
       '[data-colour="lg-icon-half-tone-fill"]',
     );
@@ -56,6 +71,12 @@ export class LgBrandIconComponent {
 
   @Input()
   set outlinesColour(colour: string) {
+    this._outlinesColour = colour;
+
+    if (!this.svgElement) {
+      return;
+    }
+
     const el = this.hostElement.nativeElement.querySelector(
       '[data-colour="lg-icon-outlines-fill"]',
     );
@@ -82,16 +103,19 @@ export class LgBrandIconComponent {
 
   @Input()
   set name(name: Name) {
-    if (this.svgElement) {
-      this.hostElement.nativeElement.removeChild(this.svgElement);
-    }
+    (async () => {
+      if (this.svgElement) {
+        this.hostElement.nativeElement.removeChild(this.svgElement);
+      }
 
-    const svgData = this.setSVGAttributes(this.iconRegistry.getBrandIcon(name));
+      const svgData = this.setSVGAttributes(await this.iconRegistry.get(name));
 
-    if (svgData) {
-      this.svgElement = this.svgElementFromString(svgData);
-      this.hostElement.nativeElement.appendChild(this.svgElement);
-    }
+      if (svgData) {
+        this.svgElement = this.svgElementFromString(svgData);
+        this.hostElement.nativeElement.appendChild(this.svgElement);
+        this.applyStoredColours();
+      }
+    })();
   }
 
   constructor(
@@ -148,6 +172,20 @@ export class LgBrandIconComponent {
       el.style.fill = isCssVar
         ? `var(${colour})`
         : colour;
+    }
+  }
+
+  private applyStoredColours(): void {
+    if (this._colour) {
+      this.colour = this._colour;
+    }
+
+    if (this._halfToneColour) {
+      this.halfToneColour = this._halfToneColour;
+    }
+
+    if (this._outlinesColour) {
+      this.outlinesColour = this._outlinesColour;
     }
   }
 }

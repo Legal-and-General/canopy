@@ -47,6 +47,10 @@ module.exports = {
           from: path.resolve(__dirname, 'projects/canopy/src/lib/ui-icons-files'),
           to: path.resolve(__dirname, 'dist/canopy/ui-icons-files'),
         },
+        {
+          from: path.resolve(__dirname, 'projects/canopy/src/lib/brand-icons-files'),
+          to: path.resolve(__dirname, 'dist/canopy/brand-icons-files'),
+        },
       ],
     }),
   ],

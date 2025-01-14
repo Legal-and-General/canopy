@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LgBrandIconRegistry } from './brand-icon.registry';
-import { BrandIcon } from './brand-icons.interface';
+import { BrandIcon } from './brand-icons-files.interface';
 
 describe('LgBrandIconRegistry', () => {
   let registry: LgBrandIconRegistry;
@@ -14,27 +14,26 @@ describe('LgBrandIconRegistry', () => {
     expect(registry).toBeTruthy();
   });
 
-  it('should get a registered brand-icon', () => {
+  it('should get a registered brand-icon', async () => {
     const icon = {
       name: 'sun',
       data: 'test',
     } as BrandIcon;
 
-    expect(registry.getBrandIcon(icon.name)).toBeUndefined();
+    registry['registry'].set(icon.name, icon.data);
 
-    registry.registerBrandIcon([ icon ]);
+    expect(registry['registry'].has(icon.name)).toBe(true);
 
-    expect(registry.getBrandIcon(icon.name)).toBe(icon.data);
+    expect(await registry.get(icon.name)).toBe(icon.data);
   });
 
-  it('should warn when an brand icon is not in the registry', () => {
+  it('should auto-register a brand icon when it\'s not in the registry', async () => {
     const unexpectedBrandIcon = 'cookies-and-arrows';
-    const spy = spyOn(console, 'warn');
 
-    expect(registry.getBrandIcon(unexpectedBrandIcon)).toBeUndefined();
+    expect(registry['registry'].has(unexpectedBrandIcon)).toBe(false);
 
-    expect(spy).toHaveBeenCalledWith(
-      `${unexpectedBrandIcon}: Brand icon not found, ensure it is added to the brand icon registry`,
-    );
+    await registry.get(unexpectedBrandIcon);
+
+    expect(registry['registry'].has(unexpectedBrandIcon)).toBe(true);
   });
 });

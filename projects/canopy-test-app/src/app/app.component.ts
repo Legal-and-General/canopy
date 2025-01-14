@@ -118,10 +118,7 @@ import {
   LgPrimaryMessageDescriptionComponent,
   LgPrimaryMessageTitleComponent,
 } from '../../../canopy/src/lib/primary-message';
-import {
-  LgBrandIconComponent,
-  LgBrandIconRegistry,
-} from '../../../canopy/src/lib/brand-icon';
+import { LgBrandIconComponent } from '../../../canopy/src/lib/brand-icon';
 import {
   LgPromoCardComponent,
   LgPromoCardContentComponent,
@@ -328,10 +325,7 @@ export class AppComponent {
     },
   ];
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private brandIconRegistry: LgBrandIconRegistry,
-  ) {
+  constructor(public fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       text: [ '' ],
       textSearch: [ '' ],
@@ -348,8 +342,6 @@ export class AppComponent {
       date: [ '' ],
       sortCode: [ '' ],
     });
-
-    this.brandIconRegistry.registerBrandIcon([]);
   }
 
   onSubmit(event): void {

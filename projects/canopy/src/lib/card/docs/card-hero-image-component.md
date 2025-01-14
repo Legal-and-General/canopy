@@ -36,23 +36,6 @@ Import the brand icon component in your application:
 });
 ```
 
-Import the `LgBrandIconRegistry` service and register your brand icons inside your module:
-
-```js
-// import the desired icon
-import { lgBrandIconSun } from '@legal-and-general/canopy';
-
-
-export class SomeModule {
-  constructor(private brandIconRegistry: LgBrandIconRegistry) {
-    // register the icon using the `brandIconRegistry` service
-    this.brandIconRegistry.registerBrandIcon([
-      lgBrandIconSun
-    ]);
-  }
-}
-```
-
 and in the HTML
 ```html
 <lg-card-hero-img>
