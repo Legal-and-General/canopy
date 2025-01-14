@@ -115,8 +115,6 @@ The build is currently handled by [Github Actions](https://help.github.com/en/ac
 
 To add a new SVG icon to Canopy simply add the file to either the `icons` or `brand-icons` folder within `assets`.
 
-When committing the new icons [lint-staged](https://github.com/okonet/lint-staged) will run and generate all the `ts` files automatically.
-
 ## Fonts
 
 The Roboto font is stored in **/projects/canopy/src/assets/fonts/roboto** as normal and is included in the distributed Canopy package.
