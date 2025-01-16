@@ -37,7 +37,7 @@ export class LgFooterNavItemComponent implements AfterContentChecked {
       this.currentVariant = this.variant;
       this.renderer.addClass(hostEl, `lg-footer-nav-item--${this.variant}`);
 
-      const childEl = hostEl.firstChild as HTMLAnchorElement | HTMLButtonElement;
+      const childEl = hostEl.firstElementChild as HTMLAnchorElement | HTMLButtonElement;
 
       this.renderer.addClass(childEl, 'lg-footer-action');
 
