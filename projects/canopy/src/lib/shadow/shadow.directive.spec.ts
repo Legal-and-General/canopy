@@ -21,7 +21,7 @@ describe('LgShadowDirective', () => {
       By.directive(LgShadowDirective),
     ).nativeElement;
 
-    expect(hostElem.getAttribute('class')).not.toContain('lg-shadow-hover');
+    expect(hostElem.getAttribute('class')).not.toContain('lg-shadow--hover');
   });
 
   it('sets the hover class when hasHoverState is true', () => {
@@ -30,7 +30,7 @@ describe('LgShadowDirective', () => {
       By.directive(LgShadowDirective),
     ).nativeElement;
 
-    expect(hostElem.getAttribute('class')).toContain('lg-shadow-hover');
+    expect(hostElem.getAttribute('class')).toContain('lg-shadow--hover');
   });
 
   it('does not set the hover class when hasHoverState is false', () => {
@@ -39,6 +39,6 @@ describe('LgShadowDirective', () => {
       By.directive(LgShadowDirective),
     ).nativeElement;
 
-    expect(hostElem.getAttribute('class')).not.toContain('lg-shadow-hover');
+    expect(hostElem.getAttribute('class')).not.toContain('lg-shadow--hover');
   });
 });

@@ -8,7 +8,7 @@ export class LgShadowDirective {
   hasHoverState = input(false);
 
   @HostBinding('class.lg-shadow') class = true;
-  @HostBinding('class.lg-shadow-hover') get hoverClass() {
+  @HostBinding('class.lg-shadow--hover') get hoverClass() {
     return this.hasHoverState();
   }
 }
