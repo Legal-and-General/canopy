@@ -19,7 +19,7 @@ import { LgSeparatorComponent } from '../../../separator';
 
 const promotionsGeneralCardTemplate = `
 <lg-card
-  lgShadow
+  lgShadow [hasHoverState]="true"
   lgMarginBottom="lg"
   [lgPadding]="hasIcon ? 'lg' : 'none'"
   variant="promotion"
