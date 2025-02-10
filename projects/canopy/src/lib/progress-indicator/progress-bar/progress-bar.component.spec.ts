@@ -70,14 +70,10 @@ describe('LgProgressBarComponent', () => {
   });
 
   it('should set aria-valuemin correctly', () => {
-    const min = 2;
-
-    component.value = min;
-    fixture.detectChanges();
     const progressBarElement: HTMLElement =
       fixture.nativeElement.querySelector('.lg-progress-bar');
 
-    expect(progressBarElement.getAttribute('aria-valuemin')).toBe(min.toString());
+    expect(progressBarElement.getAttribute('aria-valuemin')).toBe('0');
   });
 
   it('should set aria-valuenow correctly', () => {
