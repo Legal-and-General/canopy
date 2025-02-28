@@ -278,7 +278,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
     } else if (
       ((this.date.valid && this.month.valid && this.year.valid) ||
         (this.formGroupDirective && this.formGroupDirective.submitted)) &&
-      !isValid(parseISO(control.value))
+      !isValid(parseISO(control.value || ''))
     ) {
       this.date.setErrors(error);
       this.month.setErrors(error);
