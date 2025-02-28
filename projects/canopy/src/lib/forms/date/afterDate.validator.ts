@@ -9,7 +9,7 @@ export function afterDateValidator(dateToCompare: Date): ValidatorFn {
   }
 
   return (control: AbstractControl): ValidationErrors | null => {
-    const date = parseISO(control.value);
+    const date = parseISO(control.value || '');
 
     return !isValid(date) || isAfter(date, dateToCompare)
       ? null
