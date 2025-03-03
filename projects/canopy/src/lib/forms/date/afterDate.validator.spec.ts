@@ -50,10 +50,10 @@ describe('afterDate', () => {
     });
   });
 
-  it('throws an error if the date is null', () => {
+  it('returns null if the date is null', () => {
     when(control.value).thenReturn(null);
 
-    expect(() => validator(instance(control))).toThrow();
+    expect(validator(instance(control))).toBe(null);
   });
 
   it('throws an error if the date is not a valid date', () => {
