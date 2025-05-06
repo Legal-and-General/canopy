@@ -1,9 +1,0 @@
-name: Dependabot Batcher Ad-hoc
-on: workflow_dispatch
-
-jobs:
-  # Batches Dependabot PRs into one by merging them into a combined branch, then raising a new PR
-  dependabot-batcher:
-    name: 'Combine Dependabot PRs (Ad-hoc)'
-    uses: ./.github/workflows/dependabot.reusable.yml
-    secrets: inherit
