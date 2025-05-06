@@ -1,39 +1,66 @@
 version: 2
 updates:
-  # Maintain dependencies for GitHub Actions
+
+  # Maintain dependencies for GitHub Actions in `.github/workflows`
   - package-ecosystem: 'github-actions'
+    open-pull-requests-limit: 10
     # Workflow files stored in the
     # default location of `.github/workflows`
     directory: '/'
+    commit-message:
+      include: 'scope'
+      prefix: 'gh-actions'
     schedule:
-      day: 'sunday'
+      day: 'friday'
       interval: 'weekly'
-      time: '00:00'
+      time: '18:00'
       timezone: 'Europe/London'
+    pull-request-branch-name:
+      separator: '-'
+    groups:
+      gh-actions:
+        applies-to: version-updates
+        patterns:
+          - "*"
 
   # Maintain dependencies for npm
   - package-ecosystem: 'npm'
+    open-pull-requests-limit: 15
     # Files stored in repository root
     directory: '/'
-    schedule:
-      day: 'sunday'
-      interval: 'weekly'
-      time: '00:00'
-      timezone: 'Europe/London'
+    registries:
+      - npm-registry
     commit-message:
-      prefix: 'npm'
       include: 'scope'
-    versioning-strategy: increase
+      prefix: 'npm'
+    schedule:
+      day: 'friday'
+      interval: 'weekly'
+      time: '18:00'
+      timezone: 'Europe/London'
+    pull-request-branch-name:
+      separator: '-'
+    groups:
+      npm:
+        applies-to: version-updates
+        patterns:
+          - "*"
+    # Please keep alphabetically sorted:
     ignore:
-      - dependency-name: "@types/node"
-        update-types: ["version-update:semver-major"]
+      - dependency-name: '*'
+        update-types: [ "version-update:semver-patch" ]
       - dependency-name: "@angular/*"
         update-types: ["version-update:semver-major"]
       - dependency-name: "@angular-devkit/*"
         update-types: ["version-update:semver-major"]
-      - dependency-name: "@storybook/*"
-        update-types: ["version-update:semver-major"]
       - dependency-name: "@angular-devkit/build-angular"
       - dependency-name: "@angular-eslint/*"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "@storybook/*"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "@types/node"
+        update-types: [ "version-update:semver-major" ]
+      - dependency-name: "nx"
+        update-types: [ "version-update:semver-major" ]
       - dependency-name: 'typescript'
+    versioning-strategy: increase
