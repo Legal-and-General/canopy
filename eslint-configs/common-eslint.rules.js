@@ -1,5 +1,6 @@
+// eslint-configs/common-eslint.rules.js
 module.exports = {
-  'array-bracket-spacing': [ 'error', 'always' ],
+  'array-bracket-spacing': ['error', 'always'],
   'arrow-parens': [
     'error',
     'as-needed',
@@ -40,21 +41,21 @@ module.exports = {
     {
       SwitchCase: 1,
       MemberExpression: 1,
-      ignoredNodes: [ 'PropertyDefinition' ]
+      ignoredNodes: ['PropertyDefinition']
     },
   ],
   'key-spacing': 'error',
   'keyword-spacing': 'error',
-  'multiline-ternary': [ 'error', 'always' ],
+  'multiline-ternary': ['error', 'always'],
   'no-bitwise': 'error',
   'no-console': [
     'error',
     {
-      allow: [ 'warn', 'error', 'info' ],
+      allow: ['warn', 'error', 'info'],
     },
   ],
   'no-eval': 'error',
-  'no-multiple-empty-lines': [ 'error', { max: 1, maxEOF: 1 } ],
+  'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
   'no-multi-spaces': 'error',
   'no-new-wrappers': 'error',
   'no-restricted-imports': [
@@ -64,12 +65,12 @@ module.exports = {
   ],
   'no-trailing-spaces': 'error',
   'no-undef-init': 'error',
-  'object-curly-spacing': [ 'error', 'always' ],
+  'object-curly-spacing': ['error', 'always'],
   'padding-line-between-statements': [
     'error',
     { blankLine: 'always', prev: '*', next: 'return' },
-    { blankLine: 'always', prev: [ 'const', 'let' ], next: '*' },
-    { blankLine: 'any', prev: [ 'const', 'let' ], next: [ 'const', 'let' ] },
+    { blankLine: 'always', prev: ['const', 'let'], next: '*' },
+    { blankLine: 'any', prev: ['const', 'let'], next: ['const', 'let'] },
     { blankLine: 'always', prev: '*', next: 'block-like' },
     { blankLine: 'always', prev: 'block-like', next: '*' },
     { blankLine: 'always', prev: '*', next: 'multiline-expression' },
