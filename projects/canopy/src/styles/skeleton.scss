@@ -1,5 +1,3 @@
-$rgba-transparent: rgba(255, 255, 255, 0);
-
 .lg-skeleton {
   overflow: hidden;
   position: relative;
@@ -35,9 +33,9 @@ $rgba-transparent: rgba(255, 255, 255, 0);
   animation: Shimmer 1.5s infinite;
   background-image: linear-gradient(
     -75deg,
-    $rgba-transparent 30%,
+    rgba(255, 255, 255, 0) 30%,
     #fff 50%,
-    $rgba-transparent 70%
+    rgba(255, 255, 255, 0) 70%
   );
   background-repeat: no-repeat;
   background-size: 100vw 100%;
