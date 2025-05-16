@@ -30,7 +30,8 @@
             "lintFilePatterns": [
               "projects/canopy/**/*.ts",
               "projects/canopy/**/*.html"
-            ]
+            ],
+            "eslintConfig": "eslint.config.js"
           }
         },
         "storybook": {
@@ -151,15 +152,6 @@
             "polyfills": "projects/canopy-test-app/src/polyfills.ts",
             "tsConfig": "projects/canopy-test-app/tsconfig.spec.json",
             "karmaConfig": "projects/canopy-test-app/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/canopy/**/*.ts",
-              "projects/canopy/**/*.html"
-            ]
           }
         },
         "e2e": {
