@@ -10,8 +10,7 @@ import {
 } from '@angular/core';
 import { Meta, StoryFn } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
-import * as convert from 'color-convert';
-import { RGB } from 'color-convert/conversions';
+import convert, { RGB } from 'color-convert';
 
 interface Color {
   name: string;
@@ -148,6 +147,8 @@ class TintSwatchComponent implements AfterViewInit {
       const styles = window.getComputedStyle(swatch.nativeElement);
 
       this.colors[i].rgb = styles.backgroundColor;
+
+      convert.rgb.hex(123, 45, 67);
 
       this.colors[i].hex = convert.rgb.hex(
         styles.backgroundColor.match(/\d+/g).map(e => +e) as RGB,
