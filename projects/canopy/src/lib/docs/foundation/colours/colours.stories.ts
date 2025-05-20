@@ -148,8 +148,6 @@ class TintSwatchComponent implements AfterViewInit {
 
       this.colors[i].rgb = styles.backgroundColor;
 
-      convert.rgb.hex(123, 45, 67);
-
       this.colors[i].hex = convert.rgb.hex(
         styles.backgroundColor.match(/\d+/g).map(e => +e) as RGB,
       );
