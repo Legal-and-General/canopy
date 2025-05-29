@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-toggle__label--filter {
   display: inline-block;
@@ -77,7 +77,7 @@
 
 .lg-toggle__input:focus-visible {
   + .lg-toggle__label--filter {
-    @include lg-focus-outline();
+    @include mixins.lg-focus-outline();
   }
 }
 

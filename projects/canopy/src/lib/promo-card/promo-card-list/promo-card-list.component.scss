@@ -1,13 +1,13 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-promo-card-list__separator {
   margin-top: var(--space-sm);
 
-  @include lg-breakpoint('sm') {
+  @include mixins.lg-breakpoint('sm') {
     margin-top: var(--space-lg);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     margin-top: var(--space-xxl);
   }
 }
@@ -25,7 +25,7 @@
   }
   // end of workaround
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     flex-direction: row;
     justify-content: space-between;
 

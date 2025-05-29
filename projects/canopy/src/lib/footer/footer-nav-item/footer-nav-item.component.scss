@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-footer-nav-item {
   display: block;
@@ -11,7 +11,7 @@
       margin-bottom: 0;
     }
 
-    @include lg-breakpoint('lg') {
+    @include mixins.lg-breakpoint('lg') {
       margin-top: var(--space-sm);
       margin-bottom: 0;
       flex: 0 0 50%;
@@ -22,13 +22,13 @@
     margin-bottom: var(--space-sm);
     list-style-type: none;
 
-    @include lg-font-size('-6');
+    @include mixins.lg-font-size('-6');
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    @include lg-breakpoint('lg') {
+    @include mixins.lg-breakpoint('lg') {
       display: inline-block;
       margin-right: var(--space-xs);
       margin-bottom: 0;
@@ -46,7 +46,7 @@
 }
 
 .lg-footer-action {
-  @include lg-unstyled-link;
+  @include mixins.lg-unstyled-link;
 
   text-decoration: none;
   color: var(--footer-text-color);
@@ -56,7 +56,7 @@
 
     &:focus-visible {
       text-decoration: none;
-      @include lg-focus-outline();
+      @include mixins.lg-focus-outline();
     }
   }
 

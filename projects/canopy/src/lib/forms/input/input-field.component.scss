@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 :root {
   --suffix-margin: var(--space-sm);
@@ -73,13 +73,13 @@
     }
 
     #{$block}--focus & {
-      @include lg-focus-outline;
+      @include mixins.lg-focus-outline;
     }
 
     #{$block}--block & {
       display: flex;
 
-      @include lg-breakpoint('md') {
+      @include mixins.lg-breakpoint('md') {
         display: inline-flex;
       }
     }
@@ -87,7 +87,7 @@
 }
 
 .lg-input {
-  @include lg-typography-default;
+  @include mixins.lg-typography-default;
 
   flex: 1 0 auto;
   display: block;

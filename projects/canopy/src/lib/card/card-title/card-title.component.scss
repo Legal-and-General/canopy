@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-card-title {
   color: var(--card-title-color);
@@ -14,7 +14,7 @@
   }
 
   a {
-    @include lg-unstyled-link;
+    @include mixins.lg-unstyled-link;
 
     color: var(--link-color);
     outline: none;

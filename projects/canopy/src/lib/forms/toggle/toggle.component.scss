@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-toggle {
   display: block;
@@ -6,7 +6,7 @@
 }
 
 .lg-toggle__input {
-  @include lg-visually-hidden;
+  @include mixins.lg-visually-hidden;
 }
 
 .lg-toggle__label {
@@ -48,7 +48,7 @@
   }
 
   .lg-toggle__input:focus-visible + & {
-    @include lg-focus-outline();
+    @include mixins.lg-focus-outline();
   }
 
   .lg-toggle__input:checked + & {

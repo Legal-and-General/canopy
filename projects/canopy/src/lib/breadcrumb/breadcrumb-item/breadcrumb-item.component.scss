@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-breadcrumb-item {
   align-items: center;
@@ -7,7 +7,7 @@
     display: none;
     margin-right: var(--space-xxs);
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       display: flex;
     }
 
@@ -20,14 +20,14 @@
     .lg-breadcrumb-item__content .lg-icon {
       display: none;
 
-      @include lg-breakpoint('md') {
+      @include mixins.lg-breakpoint('md') {
         display: inline;
       }
     }
   }
 
   .lg-icon {
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       display: inline;
     }
   }
@@ -39,7 +39,7 @@
   }
 
   a {
-    @include lg-unstyled-link;
+    @include mixins.lg-unstyled-link;
   }
 
   a,
@@ -66,7 +66,7 @@
     }
 
     a:focus-visible {
-      @include lg-focus-outline();
+      @include mixins.lg-focus-outline();
 
       background-color: transparent;
     }
@@ -88,13 +88,13 @@
     .lg-breadcrumb-item__icon-forward {
       display: none;
 
-      @include lg-breakpoint('md') {
+      @include mixins.lg-breakpoint('md') {
         display: flex;
       }
     }
 
     .lg-breadcrumb-item__icon-backward {
-      @include lg-breakpoint('md') {
+      @include mixins.lg-breakpoint('md') {
         display: none;
       }
     }

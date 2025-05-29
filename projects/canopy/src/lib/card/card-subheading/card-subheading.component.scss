@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-card-subheading {
   display: block;
@@ -9,7 +9,7 @@
   h4,
   h5,
   h6 {
-    @include lg-font-size(1, 'strong');
+    @include mixins.lg-font-size(1, 'strong');
 
     margin-bottom: var(--space-xxs);
   }

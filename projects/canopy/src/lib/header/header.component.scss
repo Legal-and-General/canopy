@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-header {
   background-color: var(--header-bg-color);
@@ -9,7 +9,7 @@
   top: 0;
   z-index: var(--z-index-header);
 
-  @include lg-breakpoint(lg) {
+  @include mixins.lg-breakpoint(lg) {
     height: var(--header-height-lg);
     position: static;
   }
@@ -32,7 +32,7 @@
   justify-content: flex-end;
   height: var(--header-height);
 
-  @include lg-breakpoint(lg) {
+  @include mixins.lg-breakpoint(lg) {
     height: var(--header-height-lg);
   }
 }

@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-hero-img-card-title__heading {
   > h1,
@@ -7,7 +7,7 @@
   > h4,
   > h5,
   > h6 {
-    @include lg-font-size('7', 'strong');
+    @include mixins.lg-font-size('7', 'strong');
 
     color: var(--hero-img-color);
     font-family: var(--font-family-expressive);

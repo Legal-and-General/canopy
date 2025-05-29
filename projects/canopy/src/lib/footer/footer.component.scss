@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-footer {
   background-color: var(--footer-bg-color);
@@ -6,13 +6,13 @@
   display: flex;
   flex-direction: column;
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     flex-direction: row;
     padding: var(--space-lg);
   }
 
   &__links {
-    @include lg-breakpoint('lg') {
+    @include mixins.lg-breakpoint('lg') {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -28,7 +28,7 @@
   }
 
   &__org {
-    @include lg-breakpoint('lg') {
+    @include mixins.lg-breakpoint('lg') {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;

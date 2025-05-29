@@ -1,5 +1,5 @@
-@import '../../../styles/mixins.scss';
-@import '../table.breakpoints';
+@use '../../../styles/mixins.scss';
+@use '../table.breakpoints';
 
 .lg-table-row {
   display: flex;
@@ -11,14 +11,14 @@
   }
 
   &--hidden {
-    @include lg-visually-hidden;
+    @include mixins.lg-visually-hidden;
   }
 }
 
-@each $columns-breakpoint in $columns-breakpoints {
+@each $columns-breakpoint in table.$columns-breakpoints {
   .lg-table--columns-#{$columns-breakpoint} {
     .lg-table-row {
-      @include lg-breakpoint($columns-breakpoint) {
+      @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-row;
       }
     }

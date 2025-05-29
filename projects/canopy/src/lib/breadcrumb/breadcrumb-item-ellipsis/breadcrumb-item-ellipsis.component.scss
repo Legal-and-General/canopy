@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-breadcrumb-item-ellipsis {
   margin-right: var(--space-sm);
@@ -19,7 +19,7 @@
     color: var(--breadcrumb-dark-color);
   }
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     display: flex;
   }
 }

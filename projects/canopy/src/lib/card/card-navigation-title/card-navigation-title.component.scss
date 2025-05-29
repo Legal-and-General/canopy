@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-card-navigation-title {
   --card-active-focus-border-bottom-width: var(--space-xxxs);
@@ -23,7 +23,10 @@
   }
 
   a {
-    @include lg-link($default-color: var(--link-color), $hover-color: var(--link-color));
+    @include mixins.lg-link(
+      $default-color: var(--link-color),
+      $hover-color: var(--link-color)
+    );
 
     border-bottom: solid var(--border-width) var(--card-title-border-color);
     padding: var(--card-navigation-link-padding-top) 0
@@ -38,7 +41,7 @@
     padding-right: var(--component-padding);
     padding-top: var(--card-navigation-link-padding-bottom);
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       padding-top: var(--card-navigation-link-padding-top-md);
     }
 
@@ -82,11 +85,11 @@
       padding-right: calc(var(--component-padding) - var(--outer-focus-width));
       padding-left: calc(var(--component-padding) - var(--outer-focus-width));
       padding-bottom: calc(
-        var(--card-navigation-link-padding-bottom) + var(--border-width) -
-          var(--card-active-focus-border-bottom-width)
+        var(--card-navigation-link-padding-bottom) +
+          var(--border-width) - var(--card-active-focus-border-bottom-width)
       );
 
-      @include lg-focus-outline;
+      @include mixins.lg-focus-outline;
     }
 
     &:focus-visible,

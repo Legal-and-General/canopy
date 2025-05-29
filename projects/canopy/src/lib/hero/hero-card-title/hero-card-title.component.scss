@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-hero-card-title {
   display: block;
@@ -11,7 +11,7 @@
   > h4,
   > h5,
   > h6 {
-    @include lg-font-size(6);
+    @include mixins.lg-font-size(6);
 
     margin-bottom: var(--space-sm);
   }

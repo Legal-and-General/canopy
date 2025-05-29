@@ -1,5 +1,5 @@
-@import './select.scss';
-@import '../../../styles/mixins';
+@use 'select.scss';
+@use '../../../styles/mixins';
 
 .lg-select-field {
   display: block;
@@ -19,7 +19,7 @@
   &--block {
     width: 100%;
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       width: auto;
     }
   }

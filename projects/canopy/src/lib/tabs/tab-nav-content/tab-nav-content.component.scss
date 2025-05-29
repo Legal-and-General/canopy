@@ -1,14 +1,14 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-tab-nav-content {
   padding: var(--space-sm);
   display: block;
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     padding: var(--space-md);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     padding: var(--space-lg);
   }
 }

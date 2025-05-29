@@ -1,7 +1,7 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-side-nav-bar {
-  @include lg-card;
+  @include mixins.lg-card;
 
   position: relative;
   display: flex;
@@ -16,7 +16,7 @@
     text-decoration: none;
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     margin: 0;
     padding: 0 var(--component-margin) var(--component-margin) 0;
     border-right: var(--border-width) solid var(--color-platinum);

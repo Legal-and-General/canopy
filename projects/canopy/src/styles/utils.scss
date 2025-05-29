@@ -1,9 +1,9 @@
-@import 'mixins';
+@use 'mixins';
 
 .lg-visually-hidden {
-  @include lg-visually-hidden;
+  @include mixins.lg-visually-hidden;
 }
 
 .lg-unstyled-link {
-  @include lg-unstyled-link;
+  @include mixins.lg-unstyled-link;
 }
