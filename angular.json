@@ -73,12 +73,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/canopy-test-app",
+            "outputPath": {
+              "base": "dist/canopy-test-app"
+            },
             "index": "projects/canopy-test-app/src/index.html",
-            "main": "projects/canopy-test-app/src/main.ts",
-            "polyfills": "projects/canopy-test-app/src/polyfills.ts",
+            "polyfills": [
+              "projects/canopy-test-app/src/polyfills.ts"
+            ],
             "tsConfig": "projects/canopy-test-app/tsconfig.app.json",
             "aot": false,
             "assets": [
@@ -89,12 +92,11 @@
               "dist/canopy/canopy.css"
             ],
             "scripts": [],
-            "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "browser": "projects/canopy-test-app/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -110,8 +112,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
