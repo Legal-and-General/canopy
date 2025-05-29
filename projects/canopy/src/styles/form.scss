@@ -1,5 +1,5 @@
-@import '../lib/forms/toggle/toggle.component';
-@import '../lib/forms/input/input-field.component';
-@import '../lib/forms/select/select-field.component';
-@import '../lib/forms/radio/radio-button.component';
-@import '../lib/forms/radio/radio-group.component';
+@use '../lib/forms/toggle/toggle.component';
+@use '../lib/forms/input/input-field.component';
+@use '../lib/forms/select/select-field.component';
+@use '../lib/forms/radio/radio-button.component';
+@use '../lib/forms/radio/radio-group.component';
