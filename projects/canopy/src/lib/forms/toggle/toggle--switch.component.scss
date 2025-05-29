@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-toggle__input {
   &:checked + .lg-toggle__label--switch {
@@ -51,7 +51,7 @@
 
   .lg-toggle__input:focus-visible + & {
     border-color: var(--border-focus-color);
-    @include lg-focus-outline();
+    @include mixins.lg-focus-outline();
   }
 
   .lg-toggle__input:checked + & {

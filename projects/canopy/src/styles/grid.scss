@@ -1,18 +1,20 @@
+@use 'mixins';
+
 @use 'sass:math';
 
 :root {
   --grid-margin: var(--space-sm);
   --grid-gutter: var(--space-sm);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     --grid-margin: var(--space-lg);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     --grid-gutter: calc(var(--space-sm) + var(--space-xxxs));
   }
 
-  @include lg-breakpoint('xl') {
+  @include mixins.lg-breakpoint('xl') {
     --grid-gutter: var(--space-lg);
   }
 }
@@ -118,7 +120,7 @@ $columns: 12;
 }
 
 @for $i from 1 through $columns {
-  $width: percentage(math.div($i, $columns));
+  $width: math.percentage(math.div($i, $columns));
 
   .lg-col-xs-#{$i} {
     flex-basis: $width;
@@ -132,7 +134,7 @@ $columns: 12;
 
 @include lg-grid-alignment('xs');
 
-@include lg-breakpoint('sm') {
+@include mixins.lg-breakpoint('sm') {
   .lg-col-sm {
     @include col-style;
 
@@ -153,7 +155,7 @@ $columns: 12;
   }
 
   @for $i from 1 through 12 {
-    $width: percentage(math.div($i, 12));
+    $width: math.percentage(math.div($i, 12));
 
     .lg-col-sm-#{$i} {
       flex-basis: $width;
@@ -168,7 +170,7 @@ $columns: 12;
   @include lg-grid-alignment('sm');
 }
 
-@include lg-breakpoint('md') {
+@include mixins.lg-breakpoint('md') {
   .lg-col-md {
     @include col-style;
 
@@ -189,7 +191,7 @@ $columns: 12;
   }
 
   @for $i from 1 through 12 {
-    $width: percentage(math.div($i, 12));
+    $width: math.percentage(math.div($i, 12));
 
     .lg-col-md-#{$i} {
       flex-basis: $width;
@@ -204,7 +206,7 @@ $columns: 12;
   @include lg-grid-alignment('md');
 }
 
-@include lg-breakpoint('lg') {
+@include mixins.lg-breakpoint('lg') {
   .lg-col-lg {
     @include col-style;
 
@@ -225,7 +227,7 @@ $columns: 12;
   }
 
   @for $i from 1 through 12 {
-    $width: percentage(math.div($i, 12));
+    $width: math.percentage(math.div($i, 12));
 
     .lg-col-lg-#{$i} {
       flex-basis: $width;

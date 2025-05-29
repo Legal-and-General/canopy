@@ -1,4 +1,5 @@
-@import '../scss-modules/tab-item';
+@use '../scss-modules/tab-item';
+@use '../../../styles/mixins';
 
 .lg-tab-nav-bar {
   position: relative;
@@ -8,11 +9,11 @@
   font-size: var(--text-base-size);
   font-weight: var(--tabs-list-item-font-weight);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     padding: 0 var(--space-md);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     padding: 0 var(--space-lg);
   }
 
@@ -29,7 +30,7 @@
 }
 
 .lg-tab-nav-bar-link {
-  @include lg-unstyled-link;
+  @include mixins.lg-unstyled-link;
 
   display: flex;
   justify-content: center;
@@ -37,7 +38,7 @@
   flex-direction: column;
   text-decoration: none;
   z-index: 1;
-  @include lg-tab-item;
+  @include tab-item.lg-tab-item;
 
   &:hover,
   &:hover:focus-visible,

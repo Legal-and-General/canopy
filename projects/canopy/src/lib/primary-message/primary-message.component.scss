@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-primary-message {
   display: flex;
@@ -9,7 +9,7 @@
   .lg-brand-icon {
     width: var(--brand-icon-xxs);
 
-    @include lg-breakpoint(md) {
+    @include mixins.lg-breakpoint(md) {
       width: var(--brand-icon-xs);
     }
   }

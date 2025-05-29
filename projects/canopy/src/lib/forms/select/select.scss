@@ -1,7 +1,7 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-select {
-  @include lg-typography-default;
+  @include mixins.lg-typography-default;
 
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius-sm);
@@ -18,7 +18,7 @@
   }
 
   &:focus-visible {
-    @include lg-focus-outline();
+    @include mixins.lg-focus-outline();
   }
 
   &:disabled {
@@ -41,7 +41,7 @@
   &--block {
     width: 100%;
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       width: auto;
     }
   }

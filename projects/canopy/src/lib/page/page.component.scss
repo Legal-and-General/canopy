@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-page {
   display: flex;
@@ -21,7 +21,7 @@
 
 .lg-page__skip-link {
   background: var(--color-white);
-  @include lg-visually-hidden;
+  @include mixins.lg-visually-hidden;
 
   &:focus-visible,
   &:active {

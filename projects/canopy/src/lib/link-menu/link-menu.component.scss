@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-link-menu {
   display: flex;
@@ -6,7 +6,7 @@
 
   a {
     flex: 1;
-    @include lg-unstyled-link();
+    @include mixins.lg-unstyled-link();
 
     text-decoration: none;
     color: var(--link-menu-link-color);
@@ -15,11 +15,11 @@
     padding: var(--space-sm) var(--space-sm) var(--space-xs);
     width: 100%;
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       padding: var(--space-sm);
     }
 
-    @include lg-breakpoint('lg') {
+    @include mixins.lg-breakpoint('lg') {
       padding: var(--space-sm) var(--space-xs);
     }
 

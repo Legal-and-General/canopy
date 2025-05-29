@@ -1,14 +1,14 @@
-@import '../../../../styles/mixins';
+@use '../../../../styles/mixins';
 
 .lg-promo-card-title {
   display: block;
   margin-bottom: var(--space-sm);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     margin-bottom: var(--space-xs);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     margin-bottom: var(--space-sm);
   }
 
@@ -20,7 +20,6 @@
   h6 {
     margin-bottom: 0;
 
-    @include lg-font-size('4', 'strong', 'expressive');
+    @include mixins.lg-font-size('4', 'strong', 'expressive');
   }
 }
-

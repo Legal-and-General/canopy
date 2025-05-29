@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-hero-card-data-point-label {
   display: block;
@@ -9,11 +9,11 @@
   h4,
   h5,
   h6 {
-    @include lg-font-size('1');
+    @include mixins.lg-font-size('1');
 
     margin-bottom: var(--space-xxs);
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       margin-bottom: var(--space-xxxs);
     }
   }

@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-modal-overlay {
   background-color: var(--overlay-color);
@@ -31,7 +31,7 @@
   width: 90%;
   z-index: var(--z-index-modal);
 
-  @include lg-breakpoint(md) {
+  @include mixins.lg-breakpoint(md) {
     left: 50%;
     max-width: 37rem;
     position: fixed;

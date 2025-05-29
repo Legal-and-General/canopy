@@ -1,7 +1,7 @@
-@import '../../styles/mixins.scss';
+@use '../../styles/mixins.scss';
 
 .lg-quick-action {
-  @include lg-unstyled-link;
+  @include mixins.lg-unstyled-link;
 
   display: inline-block;
   text-decoration: none;
@@ -38,7 +38,7 @@
 
   &:focus-visible,
   &:focus-visible:hover {
-    @include lg-focus-outline();
+    @include mixins.lg-focus-outline();
 
     background-color: var(--quick-action-bg-color);
     color: var(--link-color);

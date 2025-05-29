@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-radio-button--filter {
   display: inline-block;
@@ -9,7 +9,7 @@
   }
 
   .lg-radio-button__input {
-    @include lg-visually-hidden;
+    @include mixins.lg-visually-hidden;
   }
 
   .lg-radio-button__label {
@@ -69,7 +69,7 @@
 
   .lg-radio-button__input:focus-visible {
     + .lg-radio-button__label {
-      @include lg-focus-outline;
+      @include mixins.lg-focus-outline;
     }
   }
 

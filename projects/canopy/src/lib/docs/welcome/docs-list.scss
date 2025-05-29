@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 :host {
   display: block;
@@ -17,11 +17,11 @@
   position: relative;
   list-style-type: none;
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     flex-basis: 46%;
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     flex-basis: 31%;
   }
 }

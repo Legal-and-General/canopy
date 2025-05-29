@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-hero-img {
   background-repeat: no-repeat;
@@ -13,13 +13,13 @@
     background-size: 180%;
   }
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     background-position: 70% center;
     background-size: cover;
     min-height: 30rem;
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     background-position: center center;
     min-height: 35rem;
   }
@@ -28,7 +28,7 @@
     padding-right: 0;
     padding-left: 0;
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       padding-right: var(--grid-margin);
       padding-left: var(--grid-margin);
     }

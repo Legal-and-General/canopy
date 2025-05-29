@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-data-point-list {
   display: flex;
@@ -7,7 +7,7 @@
   margin-left: 0;
   margin-right: 0;
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     flex-direction: row;
   }
 }

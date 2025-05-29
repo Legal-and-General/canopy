@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-banner {
   display: block;
@@ -7,7 +7,7 @@
   box-shadow: 0 0.25rem 0 0 rgba(0, 0, 0, 0.03);
 
   a:not(.lg-btn) {
-    @include lg-link(
+    @include mixins.lg-link(
       $default-color: var(--light-foreground-link-color),
       $hover-color: var(--light-foreground-link-hover-color),
       $visited-color: var(--light-foreground-link-visited-color),
@@ -24,7 +24,7 @@
   color: var(--banner-warning-color);
 
   a:not(.lg-btn) {
-    @include lg-link(
+    @include mixins.lg-link(
       $default-color: var(--dark-foreground-link-color),
       $hover-color: var(--dark-foreground-link-hover-color),
       $visited-color: var(--dark-foreground-link-visited-color),

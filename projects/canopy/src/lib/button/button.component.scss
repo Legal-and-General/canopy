@@ -1,9 +1,9 @@
-@import '../../styles/mixins.scss';
+@use '../../styles/mixins.scss';
 
 .lg-btn {
   appearance: none;
 
-  @include lg-unstyled-link;
+  @include mixins.lg-unstyled-link;
 
   display: flex;
   position: relative;
@@ -24,7 +24,7 @@
 
   &:focus-visible,
   &:focus-visible:hover {
-    @include lg-focus-outline;
+    @include mixins.lg-focus-outline;
   }
 
   &:not(&--loading):disabled {
@@ -71,7 +71,7 @@
   }
 
   // Always full width on 'sm', above 'sm' only when --block is applied`
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     display: inline-flex;
     width: auto;
 
@@ -88,7 +88,7 @@
     padding: var(--btn-icon-only-padding);
 
     .lg-btn__text {
-      @include lg-visually-hidden;
+      @include mixins.lg-visually-hidden;
     }
 
     .lg-icon {
@@ -108,7 +108,7 @@
   border-radius: 0;
   width: initial;
 
-  @include lg-link();
+  @include mixins.lg-link();
 
   &:focus-visible,
   &:hover:focus-visible {
@@ -127,7 +127,8 @@
   transform: rotateX(180deg);
 }
 
-$variants: 'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light', 'add-on' !default;
+$variants:
+  'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light', 'add-on' !default;
 
 @each $variant in $variants {
   .lg-btn--#{$variant},

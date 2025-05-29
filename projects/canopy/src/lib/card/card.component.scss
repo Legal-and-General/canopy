@@ -1,10 +1,10 @@
-@import '../../styles/mixins.scss';
+@use '../../styles/mixins.scss';
 
 .lg-card {
   display: flex;
   flex-direction: column;
 
-  @include lg-card;
+  @include mixins.lg-card;
 
   &--promotion {
     overflow: hidden;
@@ -25,7 +25,7 @@
     }
 
     .lg-card-header__title {
-      @include lg-breakpoint('md') {
+      @include mixins.lg-breakpoint('md') {
         margin-right: 0;
       }
     }

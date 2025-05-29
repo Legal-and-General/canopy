@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-list-with-icons {
   margin-left: 0;
@@ -15,7 +15,7 @@
     color: var(--color-text);
 
     a {
-      @include lg-link(
+      @include mixins.lg-link(
         $default-color: var(--dark-foreground-link-color),
         $hover-color: var(--dark-foreground-link-hover-color),
         $visited-color: var(--dark-foreground-link-visited-color),
@@ -31,7 +31,7 @@
     color: var(--color-white);
 
     a {
-      @include lg-link(
+      @include mixins.lg-link(
         $default-color: var(--light-foreground-link-color),
         $hover-color: var(--light-foreground-link-hover-color),
         $visited-color: var(--light-foreground-link-visited-color),
