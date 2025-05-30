@@ -1,9 +1,9 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-card-principle-data-point {
   display: block;
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     display: flex;
     flex-direction: column;
     text-align: right;

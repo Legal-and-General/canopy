@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-card-header {
   display: flex;
@@ -8,13 +8,13 @@
   padding-bottom: var(--space-lg);
   margin-bottom: var(--card-header-margin-bottom);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     flex-direction: row;
   }
 }
 
 .lg-card-header__title {
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     flex: 1 1 0;
     margin-right: var(--space-lg);
   }

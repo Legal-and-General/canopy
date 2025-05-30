@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-checkbox-group--checkbox {
   display: block;
@@ -36,7 +36,7 @@
     }
 
     .lg-toggle__icon-wrapper {
-      @include lg-visually-hidden;
+      @include mixins.lg-visually-hidden;
     }
   }
 }

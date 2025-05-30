@@ -1,9 +1,9 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-account-menu {
   display: flex;
 
-  @include lg-breakpoint(lg) {
+  @include mixins.lg-breakpoint(lg) {
     align-items: center;
     border-left: 0.063rem solid var(--color-platinum);
     height: 100%;
@@ -14,17 +14,17 @@
 
 a.lg-account-menu-item,
 button.lg-account-menu-item {
-  @include lg-nav-item();
-
   display: flex;
   flex-direction: column;
   padding: var(--space-xxs);
   position: relative;
 
+  @include mixins.lg-nav-item();
+
   .lg-icon {
     order: -1;
 
-    @include lg-breakpoint(lg) {
+    @include mixins.lg-breakpoint(lg) {
       margin-bottom: var(--space-xxxs);
     }
   }
@@ -38,7 +38,7 @@ button.lg-account-menu-item {
     top: 0;
     width: 1.25rem;
 
-    @include lg-breakpoint(lg) {
+    @include mixins.lg-breakpoint(lg) {
       left: 50%;
     }
   }

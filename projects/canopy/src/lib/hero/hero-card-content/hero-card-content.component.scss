@@ -1,10 +1,10 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-hero-card-content {
   display: flex;
   flex-direction: column;
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     margin-top: var(--space-md);
     flex-direction: row;
     margin-bottom: var(--space-md);

@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-hero-card-notification {
   padding: var(--space-xs);
@@ -9,13 +9,13 @@
   background-color: var(--hero-overlay-bg-color);
   border-radius: var(--border-radius-sm);
 
-  @include lg-breakpoint(lg) {
+  @include mixins.lg-breakpoint(lg) {
     padding-right: var(--space-sm);
     margin-bottom: 0;
   }
 
   a {
-    @include lg-link(
+    @include mixins.lg-link(
       $default-color: var(--hero-link-color),
       $hover-color: var(--hero-link-hover-color),
       $visited-color: var(--hero-link-visited-color),

@@ -1,3 +1,5 @@
+@use 'mixins';
+
 .lg-orientation {
   display: flex !important;
   flex-direction: column;
@@ -18,7 +20,7 @@
     flex-direction: row-reverse;
   }
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     flex-direction: row;
 
     &.lg-orientation--md--vertical {
@@ -38,7 +40,7 @@
     }
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     flex-direction: column;
 
     &.lg-orientation--lg--vertical {
@@ -58,7 +60,7 @@
     }
   }
 
-  @include lg-breakpoint('xl') {
+  @include mixins.lg-breakpoint('xl') {
     flex-direction: column;
 
     &.lg-orientation--xl--vertical {
@@ -78,7 +80,7 @@
     }
   }
 
-  @include lg-breakpoint('xxl') {
+  @include mixins.lg-breakpoint('xxl') {
     flex-direction: column;
 
     &.lg-orientation--xxl--vertical {

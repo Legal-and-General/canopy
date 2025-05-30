@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-radio-group__segment {
   display: inline-flex;
@@ -14,7 +14,7 @@ $stack-breakpoints: 'sm', 'md', 'lg' !default;
 
 @each $stack-breakpoint in $stack-breakpoints {
   .lg-radio-group--stack-#{$stack-breakpoint} .lg-radio-group__segment {
-    @include lg-breakpoint($stack-breakpoint, 'max-width') {
+    @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
       display: block;
     }
   }

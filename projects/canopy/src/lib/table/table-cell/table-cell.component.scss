@@ -1,5 +1,5 @@
-@import '../../../styles/mixins.scss';
-@import '../table.breakpoints';
+@use '../../../styles/mixins.scss';
+@use '../table.breakpoints';
 
 .lg-table-cell {
   display: flex;
@@ -65,36 +65,36 @@
   padding-right: var(--space-md);
 }
 
-@each $columns-breakpoint in $columns-breakpoints {
+@each $columns-breakpoint in table.$columns-breakpoints {
   .lg-table--columns-#{$columns-breakpoint} {
     .lg-table-cell {
-      @include lg-breakpoint($columns-breakpoint) {
+      @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-cell;
         padding: var(--space-sm);
       }
 
       &--toggle-cell {
-        @include lg-breakpoint($columns-breakpoint) {
+        @include mixins.lg-breakpoint($columns-breakpoint) {
           min-width: var(--table-toggle-width);
           padding: 0;
         }
       }
 
       &__content {
-        @include lg-breakpoint($columns-breakpoint) {
+        @include mixins.lg-breakpoint($columns-breakpoint) {
           margin-bottom: 0;
           text-align: left;
         }
 
         &--align-end {
-          @include lg-breakpoint($columns-breakpoint) {
+          @include mixins.lg-breakpoint($columns-breakpoint) {
             text-align: right;
           }
         }
       }
 
       &__label {
-        @include lg-breakpoint($columns-breakpoint) {
+        @include mixins.lg-breakpoint($columns-breakpoint) {
           display: none;
         }
       }

@@ -1,4 +1,4 @@
-@import '../../../../styles/mixins';
+@use '../../../../styles/mixins';
 
 .lg-primary-nav-list-item {
   width: 100%;
@@ -10,7 +10,7 @@
     border-bottom: 0;
   }
 
-  @include lg-breakpoint(lg) {
+  @include mixins.lg-breakpoint(lg) {
     padding-top: 0;
     margin: 0 var(--space-xxs) 0;
     border: 0;

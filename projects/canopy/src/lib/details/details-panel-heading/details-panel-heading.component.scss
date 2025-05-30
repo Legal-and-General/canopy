@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-details-panel-heading {
   h1,
@@ -24,7 +24,7 @@
     width: 100%;
 
     &:focus-visible {
-      @include lg-focus-outline;
+      @include mixins.lg-focus-outline;
     }
 
     &--active .lg-details-panel-heading__state-icon {

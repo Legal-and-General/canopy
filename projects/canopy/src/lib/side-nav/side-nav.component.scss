@@ -1,11 +1,11 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins';
 
 .lg-side-nav {
   display: flex;
   flex-direction: column-reverse;
 
-  @include lg-breakpoint('lg') {
-    @include lg-card;
+  @include mixins.lg-breakpoint('lg') {
+    @include mixins.lg-card;
 
     flex-direction: row;
     margin-bottom: 0;
@@ -13,7 +13,7 @@
 }
 
 .lg-side-nav-bar-link {
-  @include lg-unstyled-link();
+  @include mixins.lg-unstyled-link();
 
   text-decoration: none;
   color: var(--side-nav-bar-link-color);
@@ -22,11 +22,11 @@
   padding: var(--space-sm);
   width: 100%;
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     padding: var(--space-sm);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     padding: var(--space-sm) var(--space-xs);
   }
 
