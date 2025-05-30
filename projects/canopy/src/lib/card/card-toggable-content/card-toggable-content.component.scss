@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-card-toggable-content {
   display: block;
@@ -7,7 +7,7 @@
   transition: all var(--animation-duration) var(--animation-fn);
 
   &:focus-visible {
-    @include lg-focus-outline;
+    @include mixins.lg-focus-outline;
 
     padding: var(--space-xxxs);
   }

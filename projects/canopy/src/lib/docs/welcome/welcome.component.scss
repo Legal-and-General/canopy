@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .bottom-section {
   display: flex;
@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   row-gap: var(--space-xl);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     flex-wrap: nowrap;
   }
 }

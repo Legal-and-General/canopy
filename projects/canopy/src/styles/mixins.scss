@@ -1,3 +1,4 @@
+@use 'sass:map';
 /*
   $bg-color: background color of the element.
   $color: colour of the outline.
@@ -8,7 +9,9 @@
   $color: var(--color-white)
 ) {
   outline: 0;
-  box-shadow: inset 0 0 0 0.25rem $bg-color, inset 0 0 0 0.3rem $color;
+  box-shadow:
+    inset 0 0 0 0.25rem $bg-color,
+    inset 0 0 0 0.3rem $color;
 }
 
 @mixin lg-focus-outline(
@@ -16,7 +19,8 @@
   $inner-bg-color: var(--default-inner-focus-color)
 ) {
   outline: 0 !important;
-  box-shadow: 0 0 0 var(--inner-focus-width) $inner-bg-color,
+  box-shadow:
+    0 0 0 var(--inner-focus-width) $inner-bg-color,
     0 0 0 var(--outer-focus-width) $bg-color;
 }
 
@@ -41,7 +45,8 @@
   &:hover:visited {
     color: $hover-color;
     border-bottom: 0;
-    box-shadow: inset 0 $box-shadow-inset-width 0 0 $hover-color,
+    box-shadow:
+      inset 0 $box-shadow-inset-width 0 0 $hover-color,
       0 0.188rem 0 0 $hover-color;
   }
 
@@ -137,8 +142,8 @@ $breakpoints: (
   Creates a mixin which allows breakpoints to be added to css blocks
 */
 @mixin lg-breakpoint($breakpoint, $range: 'min-width') {
-  @if map-has-key($breakpoints, $breakpoint) {
-    $value: map-get($breakpoints, $breakpoint);
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
 
     @if $range == 'max-width' {
       // Removes 1 pixel if using max-width so that there is no
@@ -151,7 +156,7 @@ $breakpoints: (
     }
   } @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-      + "Available breakpoints are: #{map-keys($breakpoints)}.";
+      + "Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }
 

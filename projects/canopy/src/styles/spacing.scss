@@ -1,4 +1,4 @@
-@import 'mixins';
+@use 'mixins';
 
 :root {
   /* spacing values */
@@ -17,11 +17,11 @@
   --component-padding: var(--space-sm);
   --component-margin: var(--space-md);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     --component-padding: var(--space-lg);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     --component-margin: var(--space-lg);
   }
 }

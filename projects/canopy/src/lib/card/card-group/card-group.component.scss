@@ -1,15 +1,15 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-card-group {
   display: flex;
   flex-wrap: wrap;
   row-gap: var(--space-lg);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     column-gap: calc(var(--space-sm) - 0.5%);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     column-gap: calc(var(--space-md) - 0.5%);
   }
 
@@ -17,11 +17,11 @@
     flex: 0 0 100%;
     margin-bottom: 0;
 
-    @include lg-breakpoint('md') {
+    @include mixins.lg-breakpoint('md') {
       flex-basis: 49%;
     }
 
-    @include lg-breakpoint('lg') {
+    @include mixins.lg-breakpoint('lg') {
       flex-basis: 32%;
     }
   }

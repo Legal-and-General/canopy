@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-accordion__heading {
   > h1,
@@ -32,7 +32,7 @@
   }
 
   &:focus-visible {
-    @include lg-focus-outline;
+    @include mixins.lg-focus-outline;
 
     z-index: 1;
   }

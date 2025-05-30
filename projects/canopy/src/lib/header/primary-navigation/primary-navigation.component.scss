@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 $primary-nav-border-bottom-height: 0.25rem;
 
@@ -16,7 +16,7 @@ $primary-nav-border-bottom-height: 0.25rem;
     display: block;
   }
 
-  @include lg-breakpoint(lg) {
+  @include mixins.lg-breakpoint(lg) {
     display: flex;
     justify-content: flex-end;
     padding: 0;
@@ -36,7 +36,6 @@ $primary-nav-border-bottom-height: 0.25rem;
 }
 
 .lg-primary-nav-list {
-  background: var(--color-white);
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -50,11 +49,11 @@ $primary-nav-border-bottom-height: 0.25rem;
   height: 100%;
   z-index: calc(var(--z-index-header) - 1);
 
-  @include lg-breakpoint(md) {
+  @include mixins.lg-breakpoint(md) {
     height: auto;
   }
 
-  @include lg-breakpoint(lg) {
+  @include mixins.lg-breakpoint(lg) {
     align-items: center;
     flex-direction: row;
     margin-left: var(--space-lg);
@@ -64,8 +63,6 @@ $primary-nav-border-bottom-height: 0.25rem;
 
 a.lg-primary-nav-item,
 button.lg-primary-nav-item {
-  @include lg-unstyled-link();
-
   align-items: center;
   appearance: none;
   background: var(--color-white);
@@ -81,12 +78,42 @@ button.lg-primary-nav-item {
   text-decoration: none;
   width: 100%;
 
+  @include mixins.lg-unstyled-link();
+
+  @include mixins.lg-breakpoint(lg) {
+    border: 0;
+
+    @include mixins.lg-nav-item();
+
+    &:hover,
+    &:hover:visited {
+      color: var(--primary-nav-item-color-hover-lg);
+    }
+
+    &--active,
+    &--active:visited,
+    &--active:hover,
+    &--active:visited:hover {
+      color: var(--primary-nav-item-color-active-lg);
+    }
+
+    &--active:focus-visible,
+    &--active:hover:focus-visible {
+      color: var(--primary-nav-item-color-active-lg);
+    }
+
+    &:focus-visible,
+    &:focus-visible:hover {
+      border: 0;
+    }
+  }
+
   &:focus-visible:hover,
   &:focus-visible {
     border-bottom: $primary-nav-border-bottom-height solid
       var(--primary-nav-item-border-color-hover);
 
-    @include lg-focus-outline;
+    @include mixins.lg-focus-outline;
   }
 
   &:visited {
@@ -115,33 +142,5 @@ button.lg-primary-nav-item {
   &--active:hover:focus-visible {
     border-color: var(--primary-nav-item-border-color-active);
     color: var(--primary-nav-item-color-active);
-  }
-
-  @include lg-breakpoint(lg) {
-    @include lg-nav-item();
-
-    border: 0;
-
-    &:hover,
-    &:hover:visited {
-      color: var(--primary-nav-item-color-hover-lg);
-    }
-
-    &--active,
-    &--active:visited,
-    &--active:hover,
-    &--active:visited:hover {
-      color: var(--primary-nav-item-color-active-lg);
-    }
-
-    &--active:focus-visible,
-    &--active:hover:focus-visible {
-      color: var(--primary-nav-item-color-active-lg);
-    }
-
-    &:focus-visible,
-    &:focus-visible:hover {
-      border: 0;
-    }
   }
 }

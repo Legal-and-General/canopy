@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@use '../../../styles/mixins.scss';
 
 .lg-hero-card-data-point {
   display: block;
@@ -10,7 +10,7 @@
     border-bottom: none;
   }
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     border-bottom: none;
     border-right: solid var(--border-width) var(--hero-rule-color);
     margin-right: var(--space-xl);

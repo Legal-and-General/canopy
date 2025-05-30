@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-hero-img-card {
   background-color: rgba(var(--hero-img-bg-color-rgb), 1);
@@ -7,7 +7,7 @@
   min-height: 15rem;
   padding: var(--space-md) var(--space-md) var(--space-xxs);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     background-color: rgba(var(--hero-img-bg-color-rgb), 0.9);
     margin-top: var(--space-xxl);
     margin-bottom: var(--space-xxl);
@@ -15,7 +15,7 @@
     width: 50%;
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     width: 100%;
   }
 }

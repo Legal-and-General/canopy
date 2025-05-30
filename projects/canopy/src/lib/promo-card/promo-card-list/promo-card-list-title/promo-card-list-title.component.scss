@@ -1,8 +1,6 @@
-@import '../../../../styles/mixins';
+@use '../../../../styles/mixins';
 
 .lg-promo-card-list-title {
-
-
   h1,
   h2,
   h3,
@@ -12,9 +10,9 @@
     margin-top: var(--space-md);
     margin-bottom: var(--space-lg);
 
-    @include lg-font-size('5', 'strong', 'expressive');
+    @include mixins.lg-font-size('5', 'strong', 'expressive');
 
-    @include lg-breakpoint('lg') {
+    @include mixins.lg-breakpoint('lg') {
       margin-top: var(--space-lg);
       margin-bottom: var(--space-xxl);
     }

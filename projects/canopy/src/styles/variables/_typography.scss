@@ -1,3 +1,5 @@
+@use '../mixins';
+
 :root {
   --font-family: 'Roboto', arial, Sans-Serif;
   --font-family-expressive: 'Lyon', 'Roboto', arial, Sans-Serif;
@@ -80,7 +82,7 @@
   --text-fs--6-weight--medium: var(--font-weight-regular);
   --text-fs--6-weight--strong: var(--font-weight-regular);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     --text-fs-7-size: calc(
       var(--text-base-size) + (10 * var(--text-scale-ratio))
     ); // 56px

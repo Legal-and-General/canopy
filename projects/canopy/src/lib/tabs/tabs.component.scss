@@ -1,5 +1,5 @@
-@import '../../styles/mixins';
-@import 'scss-modules/tab-item';
+@use '../../styles/mixins';
+@use 'scss-modules/tab-item';
 
 .lg-tabs {
   display: block;
@@ -7,7 +7,7 @@
   margin-right: calc(-1 * var(--space-sm));
   margin-bottom: var(--component-margin);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     margin-left: calc(-1 * var(--space-lg));
     margin-right: calc(-1 * var(--space-lg));
   }
@@ -21,11 +21,11 @@
   padding: 0 var(--space-sm);
   margin-left: 0;
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     padding: 0 var(--space-md);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     padding: 0 var(--space-lg);
   }
 }
@@ -39,17 +39,17 @@
 }
 
 .lg-tabs__list-item-toggle {
-  @include lg-tab-item();
+  @include tab-item.lg-tab-item();
 }
 
 .lg-tabs__content-section {
   padding: var(--space-sm);
 
-  @include lg-breakpoint('md') {
+  @include mixins.lg-breakpoint('md') {
     padding: var(--space-md);
   }
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     padding: var(--space-lg);
   }
 }

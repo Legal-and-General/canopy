@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-modal-header {
   border-bottom: var(--border-width) solid var(--color-platinum);
@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding: var(--space-sm);
 
-  @include lg-breakpoint(md) {
+  @include mixins.lg-breakpoint(md) {
     padding: var(--space-md);
   }
 
@@ -17,7 +17,7 @@
   h5,
   h6 {
     margin-bottom: 0;
-    @include lg-font-size(2, 'medium');
+    @include mixins.lg-font-size(2, 'medium');
   }
 
   &__close {
@@ -25,7 +25,7 @@
     border: 0;
     display: flex;
     padding: 0 0 0 var(--space-xs);
-    @include lg-font-size(3);
+    @include mixins.lg-font-size(3);
 
     &:hover {
       cursor: pointer;
@@ -35,7 +35,7 @@
       outline: 0;
 
       > .lg-icon {
-        @include lg-focus-outline();
+        @include mixins.lg-focus-outline();
       }
     }
   }

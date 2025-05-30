@@ -1,9 +1,9 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-hero-card-principle-data-point-value {
-  @include lg-font-size('6');
+  @include mixins.lg-font-size('6');
 
-  @include lg-breakpoint('lg') {
+  @include mixins.lg-breakpoint('lg') {
     margin-bottom: var(--space-sm);
     text-align: left;
   }

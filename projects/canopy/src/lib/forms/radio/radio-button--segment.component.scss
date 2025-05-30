@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@use '../../../styles/mixins';
 
 .lg-radio-button--segment {
   display: flex;
@@ -59,12 +59,12 @@
     }
 
     &:focus-visible + .lg-radio-button__label {
-      @include lg-focus-outline;
+      @include mixins.lg-focus-outline;
     }
 
     &:focus-visible:hover + .lg-radio-button__label {
       background-color: var(--radio-bg-color);
-      @include lg-focus-outline;
+      @include mixins.lg-focus-outline;
     }
   }
 
@@ -72,26 +72,26 @@
 
   @each $stack-breakpoint in $stack-breakpoints {
     &.lg-radio-button--stacked-#{$stack-breakpoint} {
-      @include lg-breakpoint($stack-breakpoint, 'max-width') {
+      @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
         display: flex;
         flex-flow: column wrap;
         margin: 0;
       }
 
       .lg-radio-button__label {
-        @include lg-breakpoint($stack-breakpoint, 'max-width') {
+        @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
           margin: calc(var(--space-xxxs) + var(--radio-segment-separator-border-width)) 0
             var(--space-xxxs);
         }
       }
 
       + .lg-radio-button--segment {
-        @include lg-breakpoint($stack-breakpoint, 'max-width') {
+        @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
           border-left: 0;
         }
 
         &::before {
-          @include lg-breakpoint($stack-breakpoint, 'max-width') {
+          @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
             content: '';
             display: inline-block;
             width: 100%;

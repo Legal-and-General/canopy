@@ -1,15 +1,15 @@
-@import '../styles/mixins.scss';
+@use '../styles/mixins.scss';
 
 .lg-body {
-  @include lg-typography-default;
+  @include mixins.lg-typography-default;
 }
 
 .lg-paragraph {
-  @include lg-paragraph;
+  @include mixins.lg-paragraph;
 }
 
 .lg-anchor {
-  @include lg-link;
+  @include mixins.lg-link;
 }
 
 .lg-medium {
@@ -22,7 +22,7 @@
 }
 
 .lg-list {
-  @include lg-list-margin;
+  @include mixins.lg-list-margin;
 }
 
 .lg-font--expressive {
@@ -40,77 +40,77 @@
 }
 
 .lg-font-size-7 {
-  @include lg-font-size('7');
+  @include mixins.lg-font-size('7');
 }
 
 .lg-font-size-7--strong {
-  @include lg-font-size('7', 'strong');
+  @include mixins.lg-font-size('7', 'strong');
 }
 
 .lg-font-size-6 {
-  @include lg-font-size('6');
+  @include mixins.lg-font-size('6');
 }
 
 .lg-font-size-6--strong {
-  @include lg-font-size('6', 'strong');
+  @include mixins.lg-font-size('6', 'strong');
 }
 
 .lg-font-size-5 {
-  @include lg-font-size('5');
+  @include mixins.lg-font-size('5');
 }
 
 .lg-font-size-5--strong {
-  @include lg-font-size('5', 'strong');
+  @include mixins.lg-font-size('5', 'strong');
 }
 
 .lg-font-size-4 {
-  @include lg-font-size('4');
+  @include mixins.lg-font-size('4');
 }
 
 .lg-font-size-4--strong {
-  @include lg-font-size('4', 'strong');
+  @include mixins.lg-font-size('4', 'strong');
 }
 
 .lg-font-size-3 {
-  @include lg-font-size('3');
+  @include mixins.lg-font-size('3');
 }
 
 .lg-font-size-3--medium {
-  @include lg-font-size('3', 'medium');
+  @include mixins.lg-font-size('3', 'medium');
 }
 
 .lg-font-size-3--strong {
-  @include lg-font-size('3', 'strong');
+  @include mixins.lg-font-size('3', 'strong');
 }
 
 .lg-font-size-2 {
-  @include lg-font-size('2');
+  @include mixins.lg-font-size('2');
 }
 
 .lg-font-size-2--medium {
-  @include lg-font-size('2', 'medium');
+  @include mixins.lg-font-size('2', 'medium');
 }
 
 .lg-font-size-2--strong {
-  @include lg-font-size('2', 'strong');
+  @include mixins.lg-font-size('2', 'strong');
 }
 
 .lg-font-size-1 {
-  @include lg-font-size('1');
+  @include mixins.lg-font-size('1');
 }
 
 .lg-font-size-1--medium {
-  @include lg-font-size('1', 'medium');
+  @include mixins.lg-font-size('1', 'medium');
 }
 
 .lg-font-size-1--strong {
-  @include lg-font-size('1', 'strong');
+  @include mixins.lg-font-size('1', 'strong');
 }
 
 .lg-font-size-0-8 {
-  @include lg-font-size('-8');
+  @include mixins.lg-font-size('-8');
 }
 
 .lg-font-size-0-6 {
-  @include lg-font-size('-6');
+  @include mixins.lg-font-size('-6');
 }
