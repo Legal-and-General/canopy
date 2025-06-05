@@ -55,7 +55,7 @@
     "zone.js": "^0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.19",
+    "@angular-devkit/build-angular": "^20.0.1",
     "@angular-eslint/builder": "18.4.3",
     "@angular-eslint/eslint-plugin": "18.4.3",
     "@angular-eslint/eslint-plugin-template": "18.4.3",
@@ -74,7 +74,7 @@
     "@storybook/addon-a11y": "^7.6.17",
     "@storybook/addon-essentials": "^7.6.16",
     "@storybook/addons": "^7.6.17",
-    "@storybook/angular": "^7.6.16",
+    "@storybook/angular": "^9.0.4",
     "@storybook/theming": "^7.6.16",
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "@stylelint/postcss-markdown": "^0.36.2",
