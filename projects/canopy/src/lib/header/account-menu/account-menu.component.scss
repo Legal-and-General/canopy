@@ -14,12 +14,15 @@
 
 a.lg-account-menu-item,
 button.lg-account-menu-item {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-xxs);
-  position: relative;
-
   @include mixins.lg-nav-item();
+
+  /* stylelint-disable no-duplicate-selectors */
+  & {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xxs);
+    position: relative;
+  }
 
   .lg-icon {
     order: -1;
