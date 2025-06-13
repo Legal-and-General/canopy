@@ -36,6 +36,7 @@ $primary-nav-border-bottom-height: 0.25rem;
 }
 
 .lg-primary-nav-list {
+  background: var(--color-white);
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -63,49 +64,24 @@ $primary-nav-border-bottom-height: 0.25rem;
 
 a.lg-primary-nav-item,
 button.lg-primary-nav-item {
-  align-items: center;
-  appearance: none;
-  background: var(--color-white);
-  border: 0;
-  border-bottom: $primary-nav-border-bottom-height solid transparent;
-  color: var(--color-text);
-  cursor: pointer;
-  display: flex;
-  line-height: 1.5;
-  margin-bottom: 0;
-  padding: var(--space-xs) var(--space-sm);
-  text-align: left;
-  text-decoration: none;
-  width: 100%;
-
   @include mixins.lg-unstyled-link();
 
-  @include mixins.lg-breakpoint(lg) {
+  /* stylelint-disable no-duplicate-selectors */
+  & {
+    align-items: center;
+    appearance: none;
+    background: var(--color-white);
     border: 0;
-
-    @include mixins.lg-nav-item();
-
-    &:hover,
-    &:hover:visited {
-      color: var(--primary-nav-item-color-hover-lg);
-    }
-
-    &--active,
-    &--active:visited,
-    &--active:hover,
-    &--active:visited:hover {
-      color: var(--primary-nav-item-color-active-lg);
-    }
-
-    &--active:focus-visible,
-    &--active:hover:focus-visible {
-      color: var(--primary-nav-item-color-active-lg);
-    }
-
-    &:focus-visible,
-    &:focus-visible:hover {
-      border: 0;
-    }
+    border-bottom: $primary-nav-border-bottom-height solid transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding: var(--space-xs) var(--space-sm);
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
   }
 
   &:focus-visible:hover,
@@ -142,5 +118,33 @@ button.lg-primary-nav-item {
   &--active:hover:focus-visible {
     border-color: var(--primary-nav-item-border-color-active);
     color: var(--primary-nav-item-color-active);
+  }
+
+  @include mixins.lg-breakpoint(lg) {
+    border: 0;
+
+    @include mixins.lg-nav-item();
+
+    &:hover,
+    &:hover:visited {
+      color: var(--primary-nav-item-color-hover-lg);
+    }
+
+    &--active,
+    &--active:visited,
+    &--active:hover,
+    &--active:visited:hover {
+      color: var(--primary-nav-item-color-active-lg);
+    }
+
+    &--active:focus-visible,
+    &--active:hover:focus-visible {
+      color: var(--primary-nav-item-color-active-lg);
+    }
+
+    &:focus-visible,
+    &:focus-visible:hover {
+      border: 0;
+    }
   }
 }
