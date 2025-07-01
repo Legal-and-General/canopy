@@ -179,7 +179,5 @@ module.exports = {
     name: '@storybook/angular',
     options: {},
   },
-  docs: {
-    autodocs: false,
-  },
+  docs: {},
 };
