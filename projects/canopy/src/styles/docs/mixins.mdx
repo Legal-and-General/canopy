@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Helpers/Style/Mixins" />
+
+# Mixins
+
+## lg-inner-focus-outline
+
+Sets the focus outline inside the element, by using multiple box shadows.
+
+### Arguments
+
+| Name        | Description                         |       Default        | Required |
+|-------------|-------------------------------------|:--------------------:|:--------:|
+| `$bg-color` | The background color of the element |         n/a          |   Yes    |
+| `$color`    | The colour of the outline           | `var(--color-white)` |    No    |
+
+## lg-focus-outline
+
+Sets the focus outline outside the element, by using box shadows. This is currently used on buttons.
+
+### Arguments
+
+| Name              | Description                        |              Default               | Required |
+|-------------------|------------------------------------|:----------------------------------:|:--------:|
+| `$bg-color`       | The outer colour of the box-shadow |    `var(--default-focus-color)`    |    No    |
+| `$inner-bg-color` | The inner colour of the box-shadow | `var(--default-inner-focus-color)` |    No    |
+
+## lg-link
+
+Styles elements with the link style.
+
+### Arguments
+
+| Name               | Description                                 |            Default            | Required |
+|--------------------|---------------------------------------------|:-----------------------------:|:--------:|
+| `$default-color`   | The default colour of the element           |      `var(--link-color)`      |    No    |
+| `$hover-color`     | The hover colour of the element             |   `var(--link-hover-color)`   |    No    |
+| `$visited-color`   | The visited colour of the element           |  `var(--link-visited-color)`  |    No    |
+| `$active-color`    | The active colour of the element            |  `var(--link-active-color)`   |    No    |
+| `$active-bg-color` | The active background colour of the element | `var(--link-active-bg-color)` |    No    |
+| `$focus-color`     | The focus colour of the element             |   `var(--link-focus-color)`   |    No    |
+| `$focus-bg-color`  | The focus background colour of the element  | `var(--link-focus-bg-color)`  |    No    |
+
+## lg-unstyled-link
+
+Revert the links styles added with `lg-link`.
+
+## lg-font-size
+
+Styles text to one of the predefined font sizes. '-8' and '-6' are the sub body font sizes.
+
+### Arguments
+
+| Name        | Description                                                                  | Default | Required |
+|-------------|------------------------------------------------------------------------------|:-------:|:--------:|
+|   `$size`   | The font size, `7` | `6` | `5` | `4` | `3` | `2` | `1` | `-8` | `-6` |   n/a   |   Yes    |
+
+## lg-visually-hidden
+
+Provides styles to hide information intended only for screen readers from the layout of the rendered page.
+
+## lg-breakpoint
+
+Allows breakpoints to be added to css blocks.
+
+### Arguments
+
+| Name          | Description                                     | Default | Required |
+|---------------|-------------------------------------------------|:-------:|:--------:|
+| `$breakpoint` | The string value for the breakpoint screen size |   n/a   |   Yes    |
+
+## lg-variant
+
+Styles components and native child elements to the specified variant.
+
+### Arguments
+
+| Name       | Description                                                                |           Default            | Required |
+|------------|----------------------------------------------------------------------------|:----------------------------:|:--------:|
+| `$variant` | The variant type, `generic` | `info` | `success` | `warning` | `error` |          `generic`           |    No    |
