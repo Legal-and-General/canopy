@@ -1,0 +1,8 @@
+import { Meta, Story } from '@storybook/blocks';
+import * as WelcomeStories from './welcome.stories';
+
+<Meta of={WelcomeStories} />
+
+{/* <Story id="internal-welcome--welcome-story" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+<Story id="internal-welcome--welcome-story" />
