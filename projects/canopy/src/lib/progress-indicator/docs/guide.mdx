@@ -1,8 +1,8 @@
 import { Meta, Markdown, Source, Story } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import * as GuideStories from './guide.stories';
+import * as ProgressIndicatorStories from './progress-indicator.stories';
 
-<Meta of={GuideStories} />
+<Meta title="Components/Progress indicator/Guide" />
 
 # Progress Indicator
 
@@ -16,9 +16,7 @@ The progress indicator is a container that comprises of 3 child components: `lg-
 The container component and the progress bar component have an input API that aligns with the [HTML5 progress element](https://www.w3.org/WAI/tutorials/forms/multi-page/#using-the-html5-progress-element), using inputs called `max` and `value` (see **usage** below).
 
 <div class="lg-sb-preview">
-  {/* <Story id="components-progress-indicator-examples--progress-journey" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="components-progress-indicator-examples--progress-journey" />
+  <Story of={ProgressIndicatorStories.progressJourney} />
 </div>
 
 ## Usage
@@ -30,8 +28,8 @@ The progress indicator component is a **Angular standalone component**, you can 
 ```js
 @NgModule({
     ...
-    imports: [ 
-      ..., 
+    imports: [
+      ...,
       LgProgressBarComponent,
       LgProgressHeaderComponents,
       LgProgressIndicatorComponent

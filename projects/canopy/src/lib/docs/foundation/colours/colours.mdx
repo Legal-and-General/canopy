@@ -1,6 +1,6 @@
 import { Meta, Markdown, Story } from '@storybook/blocks';
 import Feedback from '../../common/feedback.md';
-import * as ColoursStories from './colours.stories';
+import * as ColoursStories from './colours.stories.ts';
 
 <Meta of={ColoursStories} />
 
@@ -42,9 +42,7 @@ Primary colours are used for:
 * Highlighted content
 * Form field elements
 
-{/* <Story id="internal-colours--core-colours" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-<Story id="internal-colours--core-colours" />
+<Story of={ColoursStories.coreColours} />
 
 ### Secondary
 
@@ -55,17 +53,13 @@ The rest of our colour palette expands on the four core colours. We use compleme
 * Infographics
 * [Brand icons](./?path=/docs/foundations-brand-icon-guide--docs)
 
-{/* <Story id="internal-colours--secondary-colours" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-<Story id="internal-colours--secondary-colours" />
+<Story of={ColoursStories.secondaryColours} />
 
 ### Tints
 
 For digital use only, we have also created a range of tints to be used within our UI elements.
 
-{/* <Story id="internal-colours--tints-colours" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-<Story id="internal-colours--tints-colours" />
+<Story of={ColoursStories.tintsColours} />
 
 ### Greyscale
 
@@ -75,9 +69,7 @@ Our black and grey palette is mostly reserved for typography, but we also use th
 * Backgrounds
 * Lines and UI elements
 
-{/* <Story id="internal-colours--greyscale-colours" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-<Story id="internal-colours--greyscale-colours" />
+<Story of={ColoursStories.greyscaleColours} />
 
 ## Further information
 

@@ -1,17 +1,15 @@
 import { Meta, Markdown, Source, Story, Controls } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import * as GuideStories from './guide.stories';
+import * as ListStories from './lists.stories';
 
-<Meta of={GuideStories} />
+<Meta title="Components/List/Guide" />
 
 # List
 
 <p class="standfirst">Lists are used to list an array of items.</p>
 
 <div class="lg-sb-preview">
-  {/* <Story id="components-list-examples--internal-coloured-list-with-icons" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="components-list-examples--internal-coloured-list-with-icons" />
+  <Story of={ListStories.internalColouredListWithIcons} />
 </div>
 
 ## Standard list
