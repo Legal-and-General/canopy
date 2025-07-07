@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/blocks';
-import * as BlockquoteStories from './blockquote.stories';
+import * as BlockquoteStories from './blockquote.stories.ts';
 
 <Meta of={BlockquoteStories} />
 
@@ -8,9 +8,7 @@ import * as BlockquoteStories from './blockquote.stories';
 <p class="standfirst">A blockquote is used to denote text that has come from another source.</p>
 
 <div class="lg-sb-preview">
-  {/* <Story id="components-blockquote-examples--quote" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="components-blockquote-examples--quote" />
+  <Story of={BlockquoteStories.quote} />
 </div>
 
 ## Usage

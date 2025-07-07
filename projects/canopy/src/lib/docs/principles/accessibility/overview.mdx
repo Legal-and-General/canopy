@@ -1,14 +1,12 @@
 import { Meta, Markdown, Story } from '@storybook/blocks';
 import Feedback from '../../common/feedback.md';
-import * as OverviewStories from './overview.stories';
+import * as OverviewStories from './overview.stories.ts';
 
 <Meta of={OverviewStories} />
 
 # Overview
 
-{/* <Story id="internal-accessibility-overview--main-quote" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-<Story id="internal-accessibility-overview--main-quote" />
+<Story of={OverviewStories.mainQuote} />
 
 ## Introduction
 
@@ -25,9 +23,7 @@ Web accessibility means that websites, tools, and technologies are designed and 
 
 Web accessibility isn’t just a moral requirement but also a legal one:
 
-{/* <Story id="internal-accessibility-overview--equality-act-quote" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-<Story id="internal-accessibility-overview--equality-act-quote" />
+<Story of={OverviewStories.equalityActQuote} />
 
 In order to achieve this we have to start thinking and learning about how all users use our websites and applications, and in what circumstances they use them.
 
