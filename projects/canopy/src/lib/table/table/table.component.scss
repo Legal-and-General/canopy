@@ -8,7 +8,7 @@
   border-spacing: 0;
   border-top: solid var(--table-header-border-width) var(--table-header-border-color);
 
-  &--striped:not(&--expandable) tr:nth-child(even) {
+  &--striped:not(&--expandable) tbody tr:nth-child(odd) {
     background-color: var(--table-stripe-color);
   }
 
@@ -22,12 +22,12 @@
 
   &--expandable {
     &.lg-table--striped {
-      tr {
-        &:nth-child(4n + 3) {
+      tbody tr {
+        &:nth-child(4n + 1) {
           background-color: var(--table-stripe-color);
         }
 
-        &:nth-child(4n + 4) {
+        &:nth-child(4n + 2) {
           background-color: var(--table-stripe-color);
         }
       }
