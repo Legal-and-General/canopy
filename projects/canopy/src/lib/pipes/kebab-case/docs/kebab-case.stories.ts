@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgKebabCasePipe } from '../kebab-case.pipe';
 
@@ -24,22 +24,20 @@ export default {
 
 const template = '<p>{{text | kebabCase}}</p>';
 
-const kebabCasePipeTemplate: StoryFn<LgKebabCasePipe> = (args: LgKebabCasePipe) => ({
-  props: args,
-  template,
-});
-
-export const kebabCasePipeStory = kebabCasePipeTemplate.bind({});
-kebabCasePipeStory.storyName = 'Kebab case';
-
-kebabCasePipeStory.args = {
-  text: 'Kebab case me',
-};
-
-kebabCasePipeStory.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const kebabCasePipeStory = {
+  name: 'Kebab case',
+  render: (args: LgKebabCasePipe) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    text: 'Kebab case me',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

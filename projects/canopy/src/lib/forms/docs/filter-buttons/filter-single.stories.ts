@@ -4,7 +4,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgRadioButtonComponent } from '../../radio';
 import { LgRadioGroupComponent } from '../../radio';
@@ -212,34 +212,30 @@ export default {
   },
 };
 
-const filterButtonsStory: StoryFn<LgRadioButtonComponent> = (
-  args: LgRadioButtonComponent,
-) => ({
-  props: args,
-  template: `
-  <lg-reactive-form-filter
-    [disabled]="disabled"
-    [label]="label"
-    [focus]="focus"
-    (filterChange)="filterChange($event)"
-    (filterBlur)="filterBlur($event)">
-  </lg-reactive-form-filter>
-  `,
-});
-
-export const filterButtons = filterButtonsStory.bind({});
-filterButtons.storyName = 'Select one';
-
-filterButtons.args = {
-  label: 'Select a color',
-  disabled: false,
-  focus: false,
-};
-
-filterButtons.parameters = {
-  docs: {
-    source: {
-      code: formTemplate,
+export const filterButtons = {
+  name: 'Select one',
+  render: (args: LgRadioButtonComponent) => ({
+    props: args,
+    template: `
+      <lg-reactive-form-filter
+        [disabled]="disabled"
+        [label]="label"
+        [focus]="focus"
+        (filterChange)="filterChange($event)"
+        (filterBlur)="filterBlur($event)">
+      </lg-reactive-form-filter>
+    `,
+  }),
+  args: {
+    label: 'Select a color',
+    disabled: false,
+    focus: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: formTemplate,
+      },
     },
   },
 };

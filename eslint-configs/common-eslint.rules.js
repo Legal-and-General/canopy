@@ -1,10 +1,7 @@
 // eslint-configs/common-eslint.rules.js
 module.exports = {
   'array-bracket-spacing': ['error', 'always'],
-  'arrow-parens': [
-    'error',
-    'as-needed',
-  ],
+  'arrow-parens': ['error', 'as-needed'],
   'arrow-spacing': [
     'error',
     {
@@ -12,14 +9,8 @@ module.exports = {
       before: true,
     },
   ],
-  'brace-style': [
-    'error',
-    '1tbs',
-  ],
-  'comma-dangle': [
-    'error',
-    'always-multiline',
-  ],
+  'brace-style': ['error', '1tbs'],
+  'comma-dangle': ['error', 'always-multiline'],
   'comma-spacing': [
     'error',
     {
@@ -30,10 +21,7 @@ module.exports = {
   'computed-property-spacing': 'error',
   curly: 'error',
   'eol-last': 'error',
-  eqeqeq: [
-    'error',
-    'smart',
-  ],
+  eqeqeq: ['error', 'smart'],
   'guard-for-in': 'error',
   indent: [
     'error',
@@ -41,7 +29,7 @@ module.exports = {
     {
       SwitchCase: 1,
       MemberExpression: 1,
-      ignoredNodes: ['PropertyDefinition']
+      ignoredNodes: ['PropertyDefinition'],
     },
   ],
   'key-spacing': 'error',
@@ -58,11 +46,7 @@ module.exports = {
   'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
   'no-multi-spaces': 'error',
   'no-new-wrappers': 'error',
-  'no-restricted-imports': [
-    'error',
-    'rxjs/Rx',
-    'rxjs/internal/operators',
-  ],
+  'no-restricted-imports': ['error', 'rxjs/Rx', 'rxjs/internal/operators'],
   'no-trailing-spaces': 'error',
   'no-undef-init': 'error',
   'object-curly-spacing': ['error', 'always'],
@@ -76,10 +60,7 @@ module.exports = {
     { blankLine: 'always', prev: '*', next: 'multiline-expression' },
     { blankLine: 'always', prev: 'multiline-expression', next: '*' },
   ],
-  'quote-props': [
-    'error',
-    'as-needed',
-  ],
+  'quote-props': ['error', 'as-needed'],
   'rest-spread-spacing': 'error',
   'semi-spacing': 'error',
   'space-before-function-paren': [

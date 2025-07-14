@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgHeroComponent } from '../hero.component';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
@@ -231,22 +231,20 @@ export default {
   },
 };
 
-const productHeroStory: StoryFn<LgHeroComponent> = (args: LgHeroComponent) => ({
-  props: args,
-  template: '<lg-hero-product-story [overlap]="overlap"></lg-hero-product-story>',
-});
-
-export const productHero = productHeroStory.bind({});
-productHero.storyName = 'Product details';
-
-productHero.args = {
-  overlap: 2,
-};
-
-productHero.parameters = {
-  docs: {
-    source: {
-      code: productHeroTemplate,
+export const productHero = {
+  name: 'Product details',
+  render: (args: LgHeroComponent) => ({
+    props: args,
+    template: '<lg-hero-product-story [overlap]="overlap"></lg-hero-product-story>',
+  }),
+  args: {
+    overlap: 2,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: productHeroTemplate,
+      },
     },
   },
 };
@@ -256,22 +254,20 @@ ${conversationalHeroHTML}
 ${bodyHTML}
 `;
 
-const conversationalHeroStory: StoryFn<LgHeroComponent> = (args: LgHeroComponent) => ({
-  props: args,
-  template: conversationalHeroTemplate,
-});
-
-export const conversationalHero = conversationalHeroStory.bind({});
-conversationalHero.storyName = 'Conversational UI';
-
-conversationalHero.args = {
-  overlap: 2,
-};
-
-conversationalHero.parameters = {
-  docs: {
-    source: {
-      code: conversationalHeroHTML,
+export const conversationalHero = {
+  name: 'Conversational UI',
+  render: (args: LgHeroComponent) => ({
+    props: args,
+    template: conversationalHeroTemplate,
+  }),
+  args: {
+    overlap: 2,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: conversationalHeroHTML,
+      },
     },
   },
 };

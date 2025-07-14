@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { NgFor } from '@angular/common';
 
 import { LgPaginationComponent, PageData } from '../pagination.component';
@@ -125,14 +125,14 @@ export default {
       description: 'The total number of items in the array being paged.',
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: 0 },
+        defaultValue: { summary: '0' },
       },
     },
     itemsPerPage: {
       description: 'The maximum number of items to show in each page.',
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: 10 },
+        defaultValue: { summary: '10' },
       },
     },
     currentPage: {
@@ -140,7 +140,7 @@ export default {
         'The current page. This is usually controlled internally by the componment itself,  but can also be set externally.',
       table: {
         type: { summary: 'number' },
-        defaultValue: { summary: 1 },
+        defaultValue: { summary: '1' },
       },
     },
     pageChanged: {
@@ -170,11 +170,11 @@ export default {
   },
 } as Meta;
 
-const basicPaginationStory: StoryFn<LgPaginationComponent> = (
-  args: LgPaginationComponent,
-) => ({
-  props: args,
-  template: `
+export const basicPagination = {
+  name: 'Basic pagination',
+  render: (args: LgPaginationComponent) => ({
+    props: args,
+    template: `
     <lg-pagination-story
       [totalItems]="totalItems"
       [itemsPerPage]="itemsPerPage"
@@ -182,14 +182,11 @@ const basicPaginationStory: StoryFn<LgPaginationComponent> = (
     >
     </lg-pagination-story>
   `,
-});
-
-export const basicPagination = basicPaginationStory.bind({});
-basicPagination.storyName = 'Basic paginiation';
-
-basicPagination.args = {
-  id: 'lg-pagination-1',
-  totalItems: 25,
-  itemsPerPage: 5,
-  currentPage: 1,
+  }),
+  args: {
+    id: 'lg-pagination-1',
+    totalItems: 25,
+    itemsPerPage: 5,
+    currentPage: 1,
+  },
 };

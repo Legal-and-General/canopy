@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgCamelCasePipe } from '../camel-case.pipe';
 
@@ -24,22 +24,20 @@ export default {
 
 const template = '<p>{{text | camelCase}}</p>';
 
-const camelCasePipeTemplate: StoryFn<LgCamelCasePipe> = (args: LgCamelCasePipe) => ({
-  props: args,
-  template,
-});
-
-export const camelCasePipeStory = camelCasePipeTemplate.bind({});
-camelCasePipeStory.storyName = 'Camel case';
-
-camelCasePipeStory.args = {
-  text: 'Camel case me',
-};
-
-camelCasePipeStory.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const camelCasePipeStory = {
+  name: 'Camel case',
+  render: (args: LgCamelCasePipe) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    text: 'Camel case me',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

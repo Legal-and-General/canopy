@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { of } from 'rxjs';
 
 import { LgFeatureToggleOptions } from '../feature-toggle.interface';
@@ -76,21 +76,18 @@ const template = `
 <lg-card *lgFeatureToggle="'fourthFeature'"><lg-card-content>Feature 4 not showing</lg-card-content></lg-card>
 `;
 
-const featureToggleTemplate: StoryFn<LgFeatureToggleDirective> = (
-  args: LgFeatureToggleDirective,
-) => ({
-  component: LgFeatureToggleDirective,
-  props: args,
-  template,
-});
-
-export const featureToggle = featureToggleTemplate.bind({});
-featureToggle.storyName = 'Feature Toggle';
-
-featureToggle.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const featureToggle = {
+  name: 'featureToggle',
+  render: (args: LgFeatureToggleDirective) => ({
+    component: LgFeatureToggleDirective,
+    props: args,
+    template,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

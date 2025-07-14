@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgForOf } from '@angular/common';
 
 import { BrandIconSize, LgBrandIconComponent } from '../brand-icon.component';
@@ -181,28 +181,24 @@ const exampleTemplate = `
 ></lg-brand-icon>
 `;
 
-const brandIconsTemplate: StoryFn<LgBrandIconComponent> = (
-  args: LgBrandIconComponent,
-) => ({
-  props: args,
-  template:
-    '<lg-swatch-brand-icon [size]="size" [colour]="colour" [halfToneColour]="halfToneColour" [outlinesColour]="outlinesColour" [globalColour]="globalColour"></lg-swatch-brand-icon>',
-});
-
-export const standardBrandIcons = brandIconsTemplate.bind({});
-standardBrandIcons.storyName = 'Catalog';
-
-standardBrandIcons.args = {
-  size: 'sm',
-  colour: '--color-super-blue',
-  halfToneColour: '--color-poppy-red-dark',
-  outlinesColour: '--color-super-blue-darkest',
-};
-
-standardBrandIcons.parameters = {
-  docs: {
-    source: {
-      code: exampleTemplate,
+export const standardBrandIcons = {
+  name: 'Catalog',
+  render: (args: LgBrandIconComponent) => ({
+    props: args,
+    template:
+      '<lg-swatch-brand-icon [size]="size" [colour]="colour" [halfToneColour]="halfToneColour" [outlinesColour]="outlinesColour" [globalColour]="globalColour"></lg-swatch-brand-icon>',
+  }),
+  args: {
+    size: 'sm',
+    colour: '--color-super-blue',
+    halfToneColour: '--color-poppy-red-dark',
+    outlinesColour: '--color-super-blue-darkest',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: exampleTemplate,
+      },
     },
   },
 };

@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgFor } from '@angular/common';
 
 import type { TableVariant } from '../table.interface';
@@ -476,70 +476,65 @@ const standardTableTemplate = `
 </table>
 `;
 
-const standardTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
-  props: args,
-  template: standardTableTemplate,
-});
-
-export const standardTable = standardTableStory.bind({});
-standardTable.storyName = 'Standard';
-
-standardTable.args = {
-  books: getDefaultTableContent(),
-  variant: 'striped',
-  alignTitleColumn: AlignmentOptions.Start,
-  alignPublishColumn: AlignmentOptions.End,
-  columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
-  showAuthorLabel: false,
-  stack: false,
-};
-
-standardTable.parameters = {
-  docs: {
-    source: {
-      code: standardTableTemplate,
+export const standardTable = {
+  name: 'Standard',
+  render: (args: LgTableComponent) => ({
+    props: args,
+    template: standardTableTemplate,
+  }),
+  args: {
+    books: getDefaultTableContent(),
+    variant: 'striped',
+    alignTitleColumn: AlignmentOptions.Start,
+    alignPublishColumn: AlignmentOptions.End,
+    columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
+    showAuthorLabel: false,
+    stack: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: standardTableTemplate,
+      },
     },
   },
 };
 
-const expandableTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
-  props: args,
-  template: `
-    <lg-story-table-detail [books]="books" [variant]="variant" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></lg-story-table-detail>
-  `,
-});
-
-export const expandableTable = expandableTableStory.bind({});
-expandableTable.storyName = 'Expandable details';
-
-expandableTable.argTypes = {
-  ...argTypes,
-  showColumnsAt: {
-    table: {
-      disable: true,
+export const expandableTable = {
+  name: 'Expandable details',
+  render: (args: LgTableComponent) => ({
+    props: args,
+    template: `
+      <lg-story-table-detail [books]="books" [variant]="variant" [alignPublishColumn]="alignPublishColumn" [showAuthorLabel]="showAuthorLabel" [columnBreakpoint]="columnBreakpoint"></lg-story-table-detail>
+    `,
+  }),
+  args: {
+    books: getDefaultTableContent(),
+    variant: 'striped',
+    alignTitleColumn: AlignmentOptions.Start,
+    alignPublishColumn: AlignmentOptions.End,
+    columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
+    showAuthorLabel: false,
+    stack: false,
+  },
+  argTypes: {
+    ...argTypes,
+    showColumnsAt: {
+      table: {
+        disable: true,
+      },
+    },
+    alignTitleColumn: {
+      table: {
+        disable: true,
+      },
     },
   },
-  alignTitleColumn: {
-    table: {
-      disable: true,
-    },
-  },
-};
-
-expandableTable.args = {
-  books: getDefaultTableContent(),
-  variant: 'striped',
-  alignTitleColumn: AlignmentOptions.Start,
-  alignPublishColumn: AlignmentOptions.End,
-  columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
-  showAuthorLabel: false,
-  stack: false,
-};
-
-expandableTable.parameters = {
-  docs: {
-    source: {
-      code: expandableTableTemplate,
+  parameters: {
+    docs: {
+      source: {
+        code: expandableTableTemplate,
+      },
     },
   },
 };
@@ -567,112 +562,106 @@ const withInputTableTemplate = `
 </table>
 `;
 
-const withInputTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
-  props: args,
-  template: withInputTableTemplate,
-});
-
-export const withInputTable = withInputTableStory.bind({});
-withInputTable.storyName = 'With input';
-
-withInputTable.argTypes = {
-  ...argTypes,
-  showColumnsAt: {
-    table: {
-      disable: true,
+export const withInputTable = {
+  name: 'With input',
+  render: (args: LgTableComponent) => ({
+    props: args,
+    template: withInputTableTemplate,
+  }),
+  args: {
+    books: getDefaultTableContent(),
+    variant: 'striped',
+  },
+  argTypes: {
+    ...argTypes,
+    showColumnsAt: {
+      table: {
+        disable: true,
+      },
+    },
+    alignTitleColumn: {
+      table: {
+        disable: true,
+      },
+    },
+    alignPublishColumn: {
+      table: {
+        disable: true,
+      },
+    },
+    columnBreakpoint: {
+      table: {
+        disable: true,
+      },
+    },
+    showAuthorLabel: {
+      table: {
+        disable: true,
+      },
+    },
+    stack: {
+      table: {
+        disable: true,
+      },
     },
   },
-  alignTitleColumn: {
-    table: {
-      disable: true,
-    },
-  },
-  alignPublishColumn: {
-    table: {
-      disable: true,
-    },
-  },
-  columnBreakpoint: {
-    table: {
-      disable: true,
-    },
-  },
-  showAuthorLabel: {
-    table: {
-      disable: true,
-    },
-  },
-  stack: {
-    table: {
-      disable: true,
-    },
-  },
-};
-
-withInputTable.args = {
-  books: getDefaultTableContent(),
-  variant: 'striped',
-};
-
-withInputTable.parameters = {
-  docs: {
-    source: {
-      code: withInputTableTemplate,
+  parameters: {
+    docs: {
+      source: {
+        code: withInputTableTemplate,
+      },
     },
   },
 };
 
-const withLongCopyTableStory: StoryFn<LgTableComponent> = (args: LgTableComponent) => ({
-  props: args,
-  template: `
-    <lg-story-table-long-copy
-      [variant]="variant"
-      [stack]="stack">
-    </lg-story-table-long-copy>
-  `,
-});
-
-export const withLongCopyTable = withLongCopyTableStory.bind({});
-withLongCopyTable.storyName = 'With long copy';
-
-withLongCopyTable.argTypes = {
-  ...argTypes,
-  showColumnsAt: {
-    table: {
-      disable: true,
+export const withLongCopyTable = {
+  name: 'With long copy',
+  render: (args: LgTableComponent) => ({
+    props: args,
+    template: `
+      <lg-story-table-long-copy
+        [variant]="variant"
+        [stack]="stack">
+      </lg-story-table-long-copy>
+    `,
+  }),
+  args: {
+    variant: 'striped',
+    stack: true,
+  },
+  argTypes: {
+    ...argTypes,
+    showColumnsAt: {
+      table: {
+        disable: true,
+      },
+    },
+    alignTitleColumn: {
+      table: {
+        disable: true,
+      },
+    },
+    alignPublishColumn: {
+      table: {
+        disable: true,
+      },
+    },
+    columnBreakpoint: {
+      table: {
+        disable: true,
+      },
+    },
+    showAuthorLabel: {
+      table: {
+        disable: true,
+      },
     },
   },
-  alignTitleColumn: {
-    table: {
-      disable: true,
-    },
-  },
-  alignPublishColumn: {
-    table: {
-      disable: true,
-    },
-  },
-  columnBreakpoint: {
-    table: {
-      disable: true,
-    },
-  },
-  showAuthorLabel: {
-    table: {
-      disable: true,
-    },
-  },
-};
-
-withLongCopyTable.args = {
-  variant: 'striped',
-  stack: true,
-};
-
-withLongCopyTable.parameters = {
-  docs: {
-    source: {
-      code: withLongCopyTableTemplate,
+  parameters: {
+    docs: {
+      source: {
+        code: withLongCopyTableTemplate,
+      },
     },
   },
 };

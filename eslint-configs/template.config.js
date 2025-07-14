@@ -26,5 +26,5 @@ module.exports = [
       '@angular-eslint/template/no-negated-async': 'warn',
       '@angular-eslint/template/no-positive-tabindex': 'error',
     },
-  }
+  },
 ];

@@ -1,4 +1,4 @@
-const commonESLintRules = require('./common-eslint.rules.js')
+const commonESLintRules = require('./common-eslint.rules.js');
 
 module.exports = [
   {
@@ -31,9 +31,7 @@ module.exports = [
   // GitHub Workflow Scripts overrides
   {
     name: 'GitHub Workflow Scripts',
-    files: [
-      '.github/workflow-scripts/**/*.js',
-    ],
+    files: ['.github/workflow-scripts/**/*.js'],
     rules: {
       'no-shadow': 'off',
     },

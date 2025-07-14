@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { notes } from '../carousel.notes';
 import { LgCarouselComponent, LgCarouselItemComponent } from '..';
@@ -159,27 +159,25 @@ const defaultTemplate = `
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration">${carouselItems}</lg-carousel>
 `;
 
-const defaultStory: StoryFn<LgCarouselComponent> = (args: LgCarouselComponent) => ({
-  props: args,
-  template: template,
-});
-
-export const defaultCarousel = defaultStory.bind({});
-defaultCarousel.storyName = 'Standard';
-
-defaultCarousel.args = {
-  headingLevel: 2,
-  description: 'Example carousel',
-  slideDuration: 500,
-  loopMode: null,
-  autoPlayDelay: null,
-  autoPlay: null,
-};
-
-defaultCarousel.parameters = {
-  docs: {
-    source: {
-      code: defaultTemplate,
+export const defaultCarousel = {
+  name: 'Standard',
+  render: (args: LgCarouselComponent) => ({
+    props: args,
+    template: template,
+  }),
+  args: {
+    headingLevel: 2,
+    description: 'Example carousel',
+    slideDuration: 500,
+    loopMode: null,
+    autoPlayDelay: null,
+    autoPlay: null,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: defaultTemplate,
+      },
     },
   },
 };
@@ -189,22 +187,25 @@ const loopEnabledTemplate = `
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [loopMode]="loopMode">${carouselItems}</lg-carousel>
 `;
 
-export const loopModeEnabledCarousel = defaultStory.bind({});
-loopModeEnabledCarousel.storyName = 'Loop enabled';
-
-loopModeEnabledCarousel.args = {
-  headingLevel: 2,
-  description: 'Example carousel',
-  slideDuration: 500,
-  loopMode: true,
-  autoPlayDelay: null,
-  autoPlay: null,
-};
-
-loopModeEnabledCarousel.parameters = {
-  docs: {
-    source: {
-      code: loopEnabledTemplate,
+export const loopModeEnabledCarousel = {
+  name: 'Loop enabled',
+  render: (args: LgCarouselComponent) => ({
+    props: args,
+    template: loopEnabledTemplate,
+  }),
+  args: {
+    headingLevel: 2,
+    description: 'Example carousel',
+    slideDuration: 500,
+    loopMode: true,
+    autoPlayDelay: null,
+    autoPlay: null,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: loopEnabledTemplate,
+      },
     },
   },
 };
@@ -214,22 +215,25 @@ const autoPlayEnabledTemplate = `
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [autoPlayDelay]="5000" [autoPlay]="true">${carouselItems}</lg-carousel>
 `;
 
-export const autoPlayEnabledCarousel = defaultStory.bind({});
-autoPlayEnabledCarousel.storyName = 'Auto play enabled';
-
-autoPlayEnabledCarousel.args = {
-  headingLevel: 2,
-  description: 'Example carousel',
-  slideDuration: 500,
-  loopMode: null,
-  autoPlayDelay: 5000,
-  autoPlay: true,
-};
-
-autoPlayEnabledCarousel.parameters = {
-  docs: {
-    source: {
-      code: autoPlayEnabledTemplate,
+export const autoPlayEnabledCarousel = {
+  name: 'Auto play enabled',
+  render: (args: LgCarouselComponent) => ({
+    props: args,
+    template: autoPlayEnabledTemplate,
+  }),
+  args: {
+    headingLevel: 2,
+    description: 'Example carousel',
+    slideDuration: 500,
+    loopMode: null,
+    autoPlayDelay: 5000,
+    autoPlay: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: autoPlayEnabledTemplate,
+      },
     },
   },
 };

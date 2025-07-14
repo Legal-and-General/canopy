@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgBrandIconComponent } from '../../brand-icon';
 import { LgPrimaryMessageComponent } from '../primary-message.component';
@@ -57,7 +57,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: 'true',
         },
       },
     },
@@ -91,24 +91,20 @@ const exampleTemplate = `
 </lg-primary-message>
 `;
 
-const detailsTemplate: StoryFn<LgPrimaryMessageComponent> = (
-  args: LgPrimaryMessageComponent,
-) => ({
-  props: args,
-  template,
-});
-
-export const standardPrimaryMessage = detailsTemplate.bind({});
-standardPrimaryMessage.storyName = 'Primary message';
-
-standardPrimaryMessage.args = {
-  hasRole: true,
-};
-
-standardPrimaryMessage.parameters = {
-  docs: {
-    source: {
-      code: exampleTemplate,
+export const standardPrimaryMessage = {
+  name: 'Primary message',
+  args: {
+    hasRole: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: exampleTemplate,
+      },
     },
   },
+  render: (args: LgPrimaryMessageComponent) => ({
+    props: args,
+    template,
+  }),
 };

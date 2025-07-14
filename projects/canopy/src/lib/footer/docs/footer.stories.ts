@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { NgFor, NgIf } from '@angular/common';
 
 import { LgFooterComponent } from '../footer.component';
@@ -116,39 +116,36 @@ const template = `
 </footer>
 `;
 
-const standardStory: StoryFn<LgFooterComponent> = (args: LgFooterComponent) => ({
-  props: args,
-  template,
-});
-
-export const standardFooter = standardStory.bind({});
-standardFooter.storyName = 'Standard';
-
-standardFooter.args = {
-  logo: 'legal-and-general-logo.svg',
-  logoAlt: 'Company name',
-  copyright: '© Some Company plc 2018',
-  secondaryLinks: secondaryLinks,
-  primaryLinks: primaryLinks,
-};
-
-standardFooter.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardFooter = {
+  name: 'Standard',
+  render: (args: LgFooterComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    logo: 'legal-and-general-logo.svg',
+    logoAlt: 'Company name',
+    copyright: '© Some Company plc 2018',
+    secondaryLinks: secondaryLinks,
+    primaryLinks: primaryLinks,
+  },
+  argTypes: {
+    secondaryLogo: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoAlt: {
+      table: {
+        disable: true,
+      },
     },
   },
-};
-
-standardFooter.argTypes = {
-  secondaryLogo: {
-    table: {
-      disable: true,
-    },
-  },
-  secondaryLogoAlt: {
-    table: {
-      disable: true,
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };
@@ -165,51 +162,48 @@ const compactTemplate = `
 </footer>
 `;
 
-const compactStory: StoryFn<LgFooterComponent> = (args: LgFooterComponent) => ({
-  props: args,
-  template: compactTemplate,
-});
-
-export const compactFooter = compactStory.bind({});
-compactFooter.storyName = 'Compact';
-
-compactFooter.args = {
-  copyright: '© Some Company plc 2018',
-  secondaryLinks: secondaryLinks,
-};
-
-compactFooter.parameters = {
-  docs: {
-    source: {
-      code: compactTemplate,
+export const compactFooter = {
+  name: 'Compact',
+  render: (args: LgFooterComponent) => ({
+    props: args,
+    template: compactTemplate,
+  }),
+  args: {
+    copyright: '© Some Company plc 2018',
+    secondaryLinks: secondaryLinks,
+  },
+  argTypes: {
+    primaryLinks: {
+      table: {
+        disable: true,
+      },
+    },
+    logo: {
+      table: {
+        disable: true,
+      },
+    },
+    logoAlt: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogo: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoAlt: {
+      table: {
+        disable: true,
+      },
     },
   },
-};
-
-compactFooter.argTypes = {
-  primaryLinks: {
-    table: {
-      disable: true,
-    },
-  },
-  logo: {
-    table: {
-      disable: true,
-    },
-  },
-  logoAlt: {
-    table: {
-      disable: true,
-    },
-  },
-  secondaryLogo: {
-    table: {
-      disable: true,
-    },
-  },
-  secondaryLogoAlt: {
-    table: {
-      disable: true,
+  parameters: {
+    docs: {
+      source: {
+        code: compactTemplate,
+      },
     },
   },
 };
@@ -235,28 +229,26 @@ const coBrandedTemplate = `
 </footer>
 `;
 
-const coBrandedStory: StoryFn<LgFooterComponent> = (args: LgFooterComponent) => ({
-  props: args,
-  template: coBrandedTemplate,
-});
-
-export const coBrandedFooter = coBrandedStory.bind({});
-coBrandedFooter.storyName = 'Co-branded';
-
-coBrandedFooter.args = {
-  logo: 'legal-and-general-logo.svg',
-  logoAlt: 'Company name',
-  secondaryLogo: 'dummy-logo.svg',
-  secondaryLogoAlt: 'Secondary company name',
-  copyright: '© Some Company plc 2018',
-  secondaryLinks: secondaryLinks,
-  primaryLinks: primaryLinks,
-};
-
-coBrandedFooter.parameters = {
-  docs: {
-    source: {
-      code: coBrandedTemplate,
+export const coBrandedFooter = {
+  name: 'Co-Branded',
+  render: (args: LgFooterComponent) => ({
+    props: args,
+    template: coBrandedTemplate,
+  }),
+  args: {
+    logo: 'legal-and-general-logo.svg',
+    logoAlt: 'Company name',
+    secondaryLogo: 'dummy-logo.svg',
+    secondaryLogoAlt: 'Secondary company name',
+    copyright: '© Some Company plc 2018',
+    secondaryLinks: secondaryLinks,
+    primaryLinks: primaryLinks,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: coBrandedTemplate,
+      },
     },
   },
 };

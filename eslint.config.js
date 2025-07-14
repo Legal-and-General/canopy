@@ -1,6 +1,10 @@
 const globals = require('globals');
 const angularTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
-const { javascriptConfig, templateConfig, typescriptConfig } = require('./eslint-configs/index.js');
+const {
+  javascriptConfig,
+  templateConfig,
+  typescriptConfig,
+} = require('./eslint-configs/index.js');
 
 module.exports = [
   {
@@ -28,4 +32,4 @@ module.exports = [
   ...typescriptConfig,
   ...templateConfig,
   ...javascriptConfig,
-]
+];

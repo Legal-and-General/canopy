@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 
@@ -54,13 +54,6 @@ export default {
   },
 } as Meta;
 
-const linkMenuTemplate: StoryFn<LinkMenuStoryComponent> = (
-  args: LinkMenuStoryComponent,
-) => ({
-  props: args,
-  template: '<lg-link-menu-story [menuItems]="menuItems"></lg-link-menu-story>',
-});
-
 interface MenuItems {
   title: string;
   description: string;
@@ -103,17 +96,20 @@ function getDefaultMenuItems(): Array<MenuItems> {
   ];
 }
 
-export const standardLinkMenu = linkMenuTemplate.bind({});
-standardLinkMenu.storyName = 'Link menu';
-
-standardLinkMenu.args = {
-  menuItems: getDefaultMenuItems(),
-};
-
-standardLinkMenu.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardLinkMenu = {
+  name: 'Link menu',
+  render: (args: LinkMenuStoryComponent) => ({
+    props: args,
+    template: '<lg-link-menu-story [menuItems]="menuItems"></lg-link-menu-story>',
+  }),
+  args: {
+    menuItems: getDefaultMenuItems(),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

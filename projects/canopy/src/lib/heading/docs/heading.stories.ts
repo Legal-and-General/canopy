@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgHeadingComponent } from '../heading.component';
 
@@ -19,7 +19,7 @@ export default {
       description: 'The level of the details heading.',
       table: {
         type: {
-          summary: [ '1', '2', '3', '4', '5', '6' ],
+          summary: '1 | 2 | 3 | 4 | 5 | 6',
         },
       },
       control: {
@@ -38,23 +38,21 @@ const template = `
   <lg-heading [level]="level">{{content}}</lg-heading>
 `;
 
-const detailsTemplate: StoryFn<LgHeadingComponent> = (args: LgHeadingComponent) => ({
-  props: args,
-  template,
-});
-
-export const standardHeading = detailsTemplate.bind({});
-standardHeading.storyName = 'Heading';
-
-standardHeading.args = {
-  content: 'Heading',
-  level: 1,
-};
-
-standardHeading.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardHeading = {
+  name: 'Heading',
+  render: (args: LgHeadingComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    content: 'Heading',
+    level: 1,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

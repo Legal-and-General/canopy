@@ -1,7 +1,23 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgShadowDirective } from '../shadow.directive';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
+
+const template = `
+  <!-- lgShadow without hover state -->
+  <lg-card lgShadow>
+    <lg-card-content>
+      Look, I have a shadow
+    </lg-card-content>
+  </lg-card>
+
+  <!-- lgShadow with hover state -->
+  <lg-card lgShadow [hasHoverState]="hasHoverState">
+    <lg-card-content>
+      Look, I have a shadow
+    </lg-card-content>
+  </lg-card>
+`;
 
 // This default export determines where your story goes in the story list
 export default {
@@ -26,41 +42,22 @@ export default {
   },
 } as Meta;
 
-const template = `
-<!-- lgShadow without hover state -->
-<lg-card lgShadow>
-  <lg-card-content>
-    Look, I have a shadow
-  </lg-card-content>
-</lg-card>
-
-<!-- lgShadow with hover state -->
-<lg-card lgShadow [hasHoverState]="hasHoverState">
-  <lg-card-content>
-    Look, I have a shadow
-  </lg-card-content>
-</lg-card>
-`;
-
-const shadowTemplate: StoryFn<LgShadowDirective> = (args: LgShadowDirective) => ({
-  props: {
-    ...args,
-    hasHoverState: args.hasHoverState,
-  },
+const ShadowRenderer = (args: { hasHoverState: boolean }) => ({
+  props: args,
   template,
 });
 
-export const shadowStory = shadowTemplate.bind({});
-shadowStory.storyName = 'Shadow';
-
-shadowStory.args = {
-  hasHoverState: false,
-};
-
-shadowStory.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const Shadow = {
+  name: 'Shadow',
+  render: ShadowRenderer,
+  args: {
+    hasHoverState: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

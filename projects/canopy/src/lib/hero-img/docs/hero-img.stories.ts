@@ -1,4 +1,4 @@
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgHeroImgComponent } from '../hero-img.component';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
@@ -96,25 +96,23 @@ ${imageBackgroundHeroHTML}
 ${bodyHTML}
 `;
 
-const heroImgStory: StoryFn<LgHeroImgComponent> = (args: LgHeroImgComponent) => ({
-  props: args,
-  template,
-});
-
-export const heroImg = heroImgStory.bind({});
-heroImg.storyName = 'Hero image';
-
-heroImg.args = {
-  overlap: 2,
-  title: 'Title',
-  subTitle: 'Subtitle',
-  imageUrl: 'hero-img/map-illustration.png',
-};
-
-heroImg.parameters = {
-  docs: {
-    source: {
-      code: imageBackgroundHeroHTML,
+export const heroImg = {
+  name: 'Hero image',
+  render: (args: LgHeroImgComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    overlap: 2,
+    title: 'Title',
+    subTitle: 'Subtitle',
+    imageUrl: 'hero-img/map-illustration.png',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: imageBackgroundHeroHTML,
+      },
     },
   },
 };

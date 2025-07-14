@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import type { Variant } from '../variant.interface';
 import { LgVariantDirective } from '..';
@@ -87,22 +87,20 @@ const exampleTemplate = `
 </lg-card>
 `;
 
-const variantStory: StoryFn<LgVariantDirective> = (args: LgVariantDirective) => ({
-  props: args,
-  template,
-});
-
-export const standardVariant = variantStory.bind({});
-standardVariant.storyName = 'Variant';
-
-standardVariant.args = {
-  variant: 'success',
-};
-
-standardVariant.parameters = {
-  docs: {
-    source: {
-      code: exampleTemplate,
+export const standardVariant = {
+  name: 'Variant',
+  render: (args: LgVariantDirective) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    variant: 'success',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: exampleTemplate,
+      },
     },
   },
 };

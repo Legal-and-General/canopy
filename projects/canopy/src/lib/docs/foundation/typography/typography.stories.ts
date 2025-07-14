@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 const pangram = 'The five boxing wizards jump quickly';
 
@@ -124,26 +124,24 @@ const typographyTemplate = `
 <lg-font-sizes-panel [isProductiveFont]="isProductiveFont"></lg-font-sizes-panel>
 `;
 
-const productiveStory: Story = args => ({
-  props: args,
-  template: typographyTemplate,
-});
-
-export const productive: Story = productiveStory.bind({});
-productive.storyName = 'Productive';
-
-productive.args = {
-  isProductiveFont: true,
+export const productive = {
+  name: 'Productive',
+  render: (args: LgDisplayFontSizeComponent) => ({
+    props: args,
+    template: typographyTemplate,
+  }),
+  args: {
+    isProductiveFont: true,
+  },
 };
 
-const expressiveStory: Story = args => ({
-  props: args,
-  template: typographyTemplate,
-});
-
-export const expressive: Story = expressiveStory.bind({});
-expressive.storyName = 'Expressive';
-
-expressive.args = {
-  isProductiveFont: false,
+export const expressive = {
+  name: 'Productive',
+  render: (args: LgDisplayFontSizeComponent) => ({
+    props: args,
+    template: typographyTemplate,
+  }),
+  args: {
+    isProductiveFont: false,
+  },
 };

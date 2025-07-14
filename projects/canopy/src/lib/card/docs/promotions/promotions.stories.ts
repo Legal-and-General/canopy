@@ -1,4 +1,4 @@
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
 
@@ -307,114 +307,92 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
 </div>
 `;
 
-const promotionsGeneralCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template: promotionsGeneralCardStandAloneTemplate,
-  title: 'Patterns/Card/Examples',
-});
-
-export const promotionsGeneralCard = promotionsGeneralCardStory.bind({
-  title: 'Patterns/Card/Examples',
-});
-promotionsGeneralCard.storyName = 'Stand-alone card';
-
-promotionsGeneralCard.args = {
-  title: 'Promotion Title here',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
-  buttonText: 'Link or Button text',
-  hasIcon: false,
-  orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
-};
-
-promotionsGeneralCard.parameters = {
-  docs: {
-    source: {
-      code: promotionsGeneralCardStandAloneTemplate,
+export const promotionsGeneralCard = {
+  name: 'Stand-alone card',
+  args: {
+    title: 'Promotion Title here',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
+    buttonText: 'Link or Button text',
+    hasIcon: false,
+    orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: promotionsGeneralCardStandAloneTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: promotionsGeneralCardStandAloneTemplate,
+    title: 'Patterns/Card/Examples',
+  }),
 };
 
-const promotionsGeneralTwoCardStory: StoryFn<LgCardComponent> = (
-  args: LgCardComponent,
-) => ({
-  props: args,
-  template: promotionsGeneralCardTwoCardsTemplate,
-  title: 'Patterns/Card/Examples',
-});
-
-export const promotionsGeneralTwoCard = promotionsGeneralTwoCardStory.bind({
-  title: 'Patterns/Card/Examples',
-});
-promotionsGeneralTwoCard.storyName = 'Two cards';
-
-promotionsGeneralTwoCard.args = {
-  title: 'Promotion Title here',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
-  buttonText: 'Link or Button text',
-  hasIcon: false,
-  orientation: { sm: 'vertical', md: 'horizontal', lg: 'vertical' },
-};
-
-promotionsGeneralTwoCard.parameters = {
-  docs: {
-    source: {
-      code: promotionsGeneralCardTwoCardsTemplate,
+export const promotionsGeneralTwoCard = {
+  name: 'Two cards',
+  args: {
+    title: 'Promotion Title here',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
+    buttonText: 'Link or Button text',
+    hasIcon: false,
+    orientation: { sm: 'vertical', md: 'horizontal', lg: 'vertical' },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: promotionsGeneralCardTwoCardsTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: promotionsGeneralCardTwoCardsTemplate,
+    title: 'Patterns/Card/Examples',
+  }),
 };
 
-const promotionsGeneralThreeCardStory: StoryFn<LgCardComponent> = (
-  args: LgCardComponent,
-) => ({
-  props: args,
-  template: promotionsGeneralCardThreeCardsTemplate,
-  title: 'Patterns/Card/Examples',
-});
-
-export const promotionsGeneralThreeCard = promotionsGeneralThreeCardStory.bind({
-  title: 'Patterns/Card/Examples',
-});
-promotionsGeneralThreeCard.storyName = 'Three cards';
-
-promotionsGeneralThreeCard.args = {
-  title: 'Promotion Title here',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
-  buttonText: 'Link or Button text',
-  hasIcon: false,
-  orientation: { sm: 'vertical', md: 'horizontal', lg: 'vertical' },
-};
-
-promotionsGeneralThreeCard.parameters = {
-  docs: {
-    source: {
-      code: promotionsGeneralCardThreeCardsTemplate,
+export const promotionsGeneralThreeCard = {
+  name: 'Three cards',
+  args: {
+    title: 'Promotion Title here',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
+    buttonText: 'Link or Button text',
+    hasIcon: false,
+    orientation: { sm: 'vertical', md: 'horizontal', lg: 'vertical' },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: promotionsGeneralCardThreeCardsTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: promotionsGeneralCardThreeCardsTemplate,
+    title: 'Patterns/Card/Examples',
+  }),
 };
 
-const promotionsGeneralMagazineLayoutStory: StoryFn<LgCardComponent> = (
-  args: LgCardComponent,
-) => ({
-  props: args,
-  template: promotionsGeneralCardMagazineLayoutTemplate,
-  title: 'Patterns/Card/Examples',
-});
-
-export const promotionsGeneralMagazineLayout = promotionsGeneralMagazineLayoutStory.bind({
-  title: 'Patterns/Card/Examples',
-});
-promotionsGeneralMagazineLayout.storyName = 'Magazine Layout';
-
-promotionsGeneralMagazineLayout.args = {
-  title: 'Promotion Title here',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
-  buttonText: 'Link or Button text',
-};
-
-promotionsGeneralMagazineLayout.parameters = {
-  docs: {
-    source: {
-      code: promotionsGeneralCardMagazineLayoutTemplate,
+export const promotionsGeneralMagazineLayout = {
+  name: 'Magazine Layout',
+  args: {
+    title: 'Promotion Title here',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae. Cras at turpis sapien. Nunc pharetra felis vitae luctus mattis. Aenean eu velit viverra, iaculis sapien non, imperdiet ipsum.',
+    buttonText: 'Link or Button text',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: promotionsGeneralCardMagazineLayoutTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: promotionsGeneralCardMagazineLayoutTemplate,
+    title: 'Patterns/Card/Examples',
+  }),
 };

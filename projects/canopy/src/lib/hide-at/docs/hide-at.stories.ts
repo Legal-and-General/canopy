@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgHideAtDirective } from '../../hide-at';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
@@ -24,7 +24,7 @@ export default {
       description: 'The name of the breakpoint applied.',
       table: {
         type: {
-          summary: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
+          summary: 'sm | md | lg | xl | xxl',
         },
       },
       control: {
@@ -59,22 +59,20 @@ const template = `
 ${directiveTemplate}
 `;
 
-const hideAtTemplate: StoryFn<LgHideAtDirective> = (args: LgHideAtDirective) => ({
-  props: args,
-  template,
-});
-
-export const hideAtStory = hideAtTemplate.bind({});
-hideAtStory.storyName = 'Hide at';
-
-hideAtStory.args = {
-  lgHideAt: 'md',
-};
-
-hideAtStory.parameters = {
-  docs: {
-    source: {
-      code: directiveTemplate,
+export const hideAtStory = {
+  name: 'Hide at',
+  render: (args: LgHideAtDirective) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    lgHideAt: 'md',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: directiveTemplate,
+      },
     },
   },
 };

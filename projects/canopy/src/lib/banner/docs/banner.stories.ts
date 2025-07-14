@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { IconName, LgIconComponent } from '../../icon';
 import { LgBannerComponent } from '../banner.component';
@@ -50,7 +50,7 @@ export default {
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: variantTypes,
+          summary: 'generic | warning',
         },
         defaultValue: {
           summary: 'generic',
@@ -75,30 +75,28 @@ const template = `
 </lg-banner>
 `;
 
-const bannerTemplate: StoryFn<LgBannerComponent> = (args: LgBannerComponent) => ({
-  props: args,
-  template: `
-    <lg-banner-icon
-      [content]="content"
-      [icon]="icon"
-      [variant]="variant">
-    </lg-banner-icon>
-  `,
-});
-
-export const standardBanner = bannerTemplate.bind({});
-standardBanner.storyName = 'Banner';
-
-standardBanner.args = {
-  content: 'This is a banner message.',
-  variant: 'generic',
-  icon: 'warning',
-};
-
-standardBanner.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardBanner = {
+  name: 'Banner',
+  render: (args: LgBannerComponent) => ({
+    props: args,
+    template: `
+      <lg-banner-icon
+        [content]="content"
+        [icon]="icon"
+        [variant]="variant">
+      </lg-banner-icon>
+    `,
+  }),
+  args: {
+    content: 'This is a banner message.',
+    variant: 'generic',
+    icon: 'warning',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

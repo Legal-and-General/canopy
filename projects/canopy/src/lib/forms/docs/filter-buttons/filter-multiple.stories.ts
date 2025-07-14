@@ -4,7 +4,7 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgCheckboxGroupComponent } from '../../checkbox-group';
 import { LgToggleComponent } from '../../toggle';
@@ -187,36 +187,32 @@ export default {
   },
 };
 
-const filterMultiple: StoryFn<LgCheckboxGroupComponent> = (
-  args: LgCheckboxGroupComponent,
-) => ({
-  props: args,
-  template: `
-  <lg-reactive-form
-    [disabled]="disabled"
-    [focus]="focus"
-    [label]="label"
-    [hint]="hint"
-    (checkboxChange)="checkboxChange($event)"
-    (checkboxBlur)="checkboxBlur($event)">
-  </lg-reactive-form>
-  `,
-});
-
-export const filterMultipleButtons = filterMultiple.bind({});
-filterMultipleButtons.storyName = 'Select multiple';
-
-filterMultipleButtons.args = {
-  label: 'Select colors',
-  hint: 'Please select all colours that apply',
-  disabled: false,
-  focus: false,
-};
-
-filterMultipleButtons.parameters = {
-  docs: {
-    source: {
-      code: formTemplate,
+export const filterMultipleButtons = {
+  name: 'Select multiple',
+  render: (args: LgCheckboxGroupComponent) => ({
+    props: args,
+    template: `
+      <lg-reactive-form
+        [disabled]="disabled"
+        [focus]="focus"
+        [label]="label"
+        [hint]="hint"
+        (checkboxChange)="checkboxChange($event)"
+        (checkboxBlur)="checkboxBlur($event)">
+      </lg-reactive-form>
+    `,
+  }),
+  args: {
+    label: 'Select colors',
+    hint: 'Please select all colours that apply',
+    disabled: false,
+    focus: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: formTemplate,
+      },
     },
   },
 };

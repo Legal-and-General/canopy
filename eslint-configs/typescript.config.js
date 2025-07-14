@@ -6,22 +6,22 @@ const jasminePlugin = require('eslint-plugin-jasmine');
 module.exports = [
   {
     name: 'Typescript',
-    files: [ './projects/**/*.ts' ],
+    files: ['./projects/**/*.ts'],
     languageOptions: {
       parser: require('@typescript-eslint/parser'),
       parserOptions: {
         ecmaVersion: 2020,
         project: './tsconfig.json',
         sourceType: 'module',
-      }
+      },
     },
     plugins: {
       '@angular-eslint': angularESLintPlugin,
       '@typescript-eslint': typescriptESLintPlugin,
       '@stylistic': require('@stylistic/eslint-plugin'),
-      'import': require('eslint-plugin-import'),
+      import: require('eslint-plugin-import'),
       'unused-imports': require('eslint-plugin-unused-imports'),
-      'jasmine': jasminePlugin,
+      jasmine: jasminePlugin,
     },
     rules: {
       // Include recommended rules from each plugin
@@ -61,21 +61,24 @@ module.exports = [
       '@typescript-eslint/no-unsafe-function-type': 'warn',
       '@typescript-eslint/no-wrapper-object-types': 'warn',
       '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-      '@typescript-eslint/member-ordering': ['error', {
-        default: [
-          // Fields
-          'private-field',
-          'public-field',
+      '@typescript-eslint/member-ordering': [
+        'error',
+        {
+          default: [
+            // Fields
+            'private-field',
+            'public-field',
 
-          // Constructors
-          'constructor',
+            // Constructors
+            'constructor',
 
-          // Methods
-          'public-method',
-          'private-method',
-          'protected-method',
-        ],
-      }],
+            // Methods
+            'public-method',
+            'private-method',
+            'protected-method',
+          ],
+        },
+      ],
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-unused-expressions': 'error',
@@ -90,8 +93,8 @@ module.exports = [
       '@typescript-eslint/unbound-method': [
         'error',
         {
-          'ignoreStatic': true
-        }
+          ignoreStatic: true,
+        },
       ],
 
       // Stylistic rules
@@ -106,20 +109,16 @@ module.exports = [
             delimiter: 'semi',
             requireLast: false,
           },
-          multilineDetection: 'brackets'
+          multilineDetection: 'brackets',
         },
       ],
-      '@stylistic/quotes': [
-        'error',
-        'single',
-      ],
+      '@stylistic/quotes': ['error', 'single'],
       '@stylistic/semi': 'error',
       '@stylistic/type-annotation-spacing': 'error',
 
-
       // From ESLint plugin
       ...commonESLintRules,
-      'no-underscore-dangle': ['error', { 'allowAfterThis': true }],
+      'no-underscore-dangle': ['error', { allowAfterThis: true }],
 
       // From unused-imports plugin
       'unused-imports/no-unused-imports': 'error',
@@ -131,7 +130,13 @@ module.exports = [
         {
           'newlines-between': 'always',
           groups: [
-            'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object',
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
           ],
           pathGroups: [
             {
@@ -147,7 +152,7 @@ module.exports = [
       // From Jasmine plugin
       'jasmine/new-line-before-expect': 'error',
       'jasmine/no-spec-dupes': ['error', 'branch'],
-    }
+    },
   },
   {
     name: 'TypeScript Spec Files',
@@ -159,6 +164,6 @@ module.exports = [
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/unbound-method': 'off',
       'unused-imports/no-unused-vars': 'off',
-    }
-  }
+    },
+  },
 ];

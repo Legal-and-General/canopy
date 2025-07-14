@@ -4,7 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { LgSortCodeDirective } from '../sort-code.directive';
@@ -109,31 +109,29 @@ export default {
   },
 };
 
-const sortCodeTemplate: StoryFn<LgSortCodeDirective> = (args: LgSortCodeDirective) => ({
-  props: args,
-  template: `
-  <lg-reactive-form
-    (inputChange)="inputChange($event)"
-    [disabled]="disabled"
-    [hint]="hint"
-    [label]="label"
-  ></lg-reactive-form>
-  `,
-});
-
-export const sortCode = sortCodeTemplate.bind({});
-sortCode.storyName = 'Sort code';
-
-sortCode.args = {
-  label: 'Sort code',
-  hint: 'Must be 6 digits long',
-  disabled: false,
-};
-
-sortCode.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const sortCode = {
+  name: 'Sort code',
+  render: (args: LgSortCodeDirective) => ({
+    props: args,
+    template: `
+      <lg-reactive-form
+        (inputChange)="inputChange($event)"
+        [disabled]="disabled"
+        [hint]="hint"
+        [label]="label"
+      ></lg-reactive-form>
+    `,
+  }),
+  args: {
+    label: 'Sort code',
+    hint: 'Must be 6 digits long',
+    disabled: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };
