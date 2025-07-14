@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgShowAtDirective } from '../show-at.directive';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
@@ -19,7 +19,7 @@ export default {
       description: 'The name of the breakpoint applied.',
       table: {
         type: {
-          summary: [ 'sm', 'md', 'lg', 'xl', 'xxl' ],
+          summary: 'sm | md | lg | xl | xxl',
         },
       },
       control: {
@@ -40,36 +40,34 @@ export default {
 } as Meta;
 
 const directiveTemplate = `
-<lg-card [lgShowAt]="lgShowAt">
-  <lg-card-content>
-    Now you see me...
-  </lg-card-content>
-</lg-card>
+  <lg-card [lgShowAt]="lgShowAt">
+    <lg-card-content>
+      Now you see me...
+    </lg-card-content>
+  </lg-card>
 `;
 
 const template = `
-<p><strong>Change viewport width to see the card appear at specified breakpoint</strong></p>
-<pre>lgShowAt="{{lgShowAt}}"</pre>
-<lg-separator></lg-separator>
-${directiveTemplate}
+  <p><strong>Change viewport width to see the card appear at specified breakpoint</strong></p>
+  <pre>lgShowAt="{{lgShowAt}}"</pre>
+  <lg-separator></lg-separator>
+  ${directiveTemplate}
 `;
 
-const showAtTemplate: StoryFn<LgShowAtDirective> = (args: LgShowAtDirective) => ({
-  props: args,
-  template,
-});
-
-export const showAtStory = showAtTemplate.bind({});
-showAtStory.storyName = 'Show at';
-
-showAtStory.args = {
-  lgShowAt: 'md',
-};
-
-showAtStory.parameters = {
-  docs: {
-    source: {
-      code: directiveTemplate,
+export const showAtStory = {
+  name: 'Show at',
+  render: (args: LgShowAtDirective) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    lgShowAt: 'md',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: directiveTemplate,
+      },
     },
   },
 };

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { IconName, LgIconComponent } from '../../icon';
@@ -176,123 +176,134 @@ const buttonTemplate = `
     [icon]="icon">
   </lg-button-component-example>
 `;
-const buttonStory: StoryFn<LgButtonComponent> = (args: LgButtonComponent) => ({
-  props: args,
-  template: buttonTemplate,
-});
 
-export const primaryDark = buttonStory.bind({});
-primaryDark.storyName = 'Primary dark';
-
-primaryDark.args = {
-  ...defaultArgValues,
-  variant: 'primary-dark',
-};
-
-primaryDark.parameters = {
-  backgrounds: {
-    default: setBackground(primaryDark.args.variant),
+export const primaryDark = {
+  name: 'Primary dark',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  args: {
+    ...defaultArgValues,
+    variant: 'primary-dark',
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('primary-dark'),
+    },
   },
 };
 
-export const primaryLight = buttonStory.bind({});
-primaryLight.storyName = 'Primary light';
-
-primaryLight.args = {
-  ...defaultArgValues,
-  variant: 'primary-light',
-};
-
-primaryLight.parameters = {
-  backgrounds: {
-    default: setBackground(primaryLight.args.variant),
+export const primaryLight = {
+  name: 'Primary light',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  args: {
+    ...defaultArgValues,
+    variant: 'primary-light',
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('primary-light'),
+    },
   },
 };
 
-export const secondaryDark = buttonStory.bind({});
-secondaryDark.storyName = 'Secondary dark';
-
-secondaryDark.args = {
-  ...defaultArgValues,
-  variant: 'secondary-dark',
-};
-
-secondaryDark.parameters = {
-  backgrounds: {
-    default: setBackground(secondaryDark.args.variant),
+export const secondaryDark = {
+  name: 'Secondary dark',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  args: {
+    ...defaultArgValues,
+    variant: 'secondary-dark',
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('secondary-dark'),
+    },
   },
 };
 
-export const secondaryLight = buttonStory.bind({});
-secondaryLight.storyName = 'Secondary light';
-
-secondaryLight.args = {
-  ...defaultArgValues,
-  variant: 'secondary-light',
-};
-
-secondaryLight.parameters = {
-  backgrounds: {
-    default: setBackground(secondaryLight.args.variant),
+export const secondaryLight = {
+  name: 'Secondary light',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  args: {
+    ...defaultArgValues,
+    variant: 'secondary-light',
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('secondary-light'),
+    },
   },
 };
 
-export const textWithIcon = buttonStory.bind({});
-textWithIcon.storyName = 'Single icon with text';
-
-textWithIcon.argTypes = {
-  icon: iconArgType,
-};
-
-textWithIcon.args = {
-  ...defaultArgValues,
-  variant: 'primary-dark',
-  icon: lgIconsArray[0].name,
-};
-
-textWithIcon.parameters = {
-  backgrounds: {
-    default: setBackground(textWithIcon.args.variant),
+export const textWithIcon = {
+  name: 'Single icon with text',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  argTypes: {
+    icon: iconArgType,
+  },
+  args: {
+    ...defaultArgValues,
+    variant: 'primary-dark',
+    icon: lgIconsArray[0].name,
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('primary-dark'),
+    },
   },
 };
 
-export const textWithDoubleIcon = buttonStory.bind({});
-textWithDoubleIcon.storyName = 'Double icon with text';
-
-textWithDoubleIcon.argTypes = {
-  icon: iconArgType,
-};
-
-textWithDoubleIcon.args = {
-  ...defaultArgValues,
-  variant: 'primary-dark',
-  icon: lgIconsArray[0].name,
-  doubleIconButton: true,
-};
-
-textWithDoubleIcon.parameters = {
-  backgrounds: {
-    default: setBackground(textWithDoubleIcon.args.variant),
+export const textWithDoubleIcon = {
+  name: 'Double icon with text',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  argTypes: {
+    icon: iconArgType,
+  },
+  args: {
+    ...defaultArgValues,
+    variant: 'primary-dark',
+    icon: lgIconsArray[0].name,
+    doubleIconButton: true,
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('primary-dark'),
+    },
   },
 };
 
-export const iconOnly = buttonStory.bind({});
-iconOnly.storyName = 'Icon only';
-
-iconOnly.argTypes = {
-  icon: iconArgType,
-};
-
-iconOnly.args = {
-  ...defaultArgValues,
-  variant: 'primary-dark',
-  iconButton: true,
-  icon: lgIconsArray[0].name,
-};
-
-iconOnly.parameters = {
-  backgrounds: {
-    default: setBackground(iconOnly.args.variant),
+export const iconOnly = {
+  name: 'Icon only',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  args: {
+    ...defaultArgValues,
+    variant: 'primary-dark',
+    iconButton: true,
+    icon: lgIconsArray[0].name,
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('primary-dark'),
+    },
   },
 };
 
@@ -309,16 +320,19 @@ function setBackground(variant: string) {
   return bgs[variant];
 }
 
-export const link = buttonStory.bind({});
-link.storyName = 'Link';
-
-link.args = {
-  ...defaultArgValues,
-  variant: 'link',
-};
-
-link.parameters = {
-  backgrounds: {
-    default: setBackground(link.args.variant),
+export const link = {
+  name: 'Link',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  args: {
+    ...defaultArgValues,
+    variant: 'link',
+  },
+  parameters: {
+    backgrounds: {
+      default: setBackground('link'),
+    },
   },
 };

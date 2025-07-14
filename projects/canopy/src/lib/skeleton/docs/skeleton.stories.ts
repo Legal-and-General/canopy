@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSkeletonDirective } from '../skeleton.directive';
 import {
@@ -218,20 +218,17 @@ const skeletonTemplate = `
 <lg-async-skeleton-loading-data-point></lg-async-skeleton-loading-data-point>
 `;
 
-const defaultSkeletonStory: StoryFn<LgSkeletonDirective> = (
-  args: LgSkeletonDirective,
-) => ({
-  props: args,
-  template: skeletonTemplate,
-});
-
-export const defaultSkeleton = defaultSkeletonStory.bind({});
-defaultSkeleton.storyName = 'Skeleton Loading';
-
-defaultSkeleton.parameters = {
-  docs: {
-    source: {
-      code: skeletonTemplate,
+export const defaultSkeleton = {
+  name: 'Skeleton Loading',
+  render: (args: LgSkeletonDirective) => ({
+    props: args,
+    template: skeletonTemplate,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: skeletonTemplate,
+      },
     },
   },
 };

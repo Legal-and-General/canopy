@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgForOf } from '@angular/common';
 
 import { LgIconComponent } from '../icon.component';
@@ -81,22 +81,20 @@ const exampleTemplate = `
 <lg-icon name="call"></lg-icon>
 `;
 
-const iconsTemplate: StoryFn<LgIconComponent> = (args: LgIconComponent) => ({
-  props: args,
-  template: '<lg-swatch-icon [colour]="colour"></lg-swatch-icon>',
-});
-
-export const standardIcons = iconsTemplate.bind({});
-standardIcons.storyName = 'Catalog';
-
-standardIcons.args = {
-  colour: '--color-charcoal',
-};
-
-standardIcons.parameters = {
-  docs: {
-    source: {
-      code: exampleTemplate,
+export const standardIcons = {
+  name: 'Catalog',
+  render: (args: LgIconComponent) => ({
+    props: args,
+    template: '<lg-swatch-icon [colour]="colour"></lg-swatch-icon>',
+  }),
+  args: {
+    colour: '--color-charcoal',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: exampleTemplate,
+      },
     },
   },
 };

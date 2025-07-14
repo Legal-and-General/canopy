@@ -4,7 +4,7 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { NgFor, NgIf } from '@angular/common';
 
 import { LgSelectFieldComponent } from '../select-field.component';
@@ -122,37 +122,33 @@ export default {
   },
 } as Meta;
 
-const selectTemplate: StoryFn<LgSelectFieldComponent> = (
-  args: LgSelectFieldComponent,
-) => ({
-  props: args,
-  template: `
-  <lg-reactive-form
-    (selectChange)="selectChange($event)"
-    [block]="block"
-    [disabled]="disabled"
-    [hint]="hint"
-    [label]="label"
-    [options]="options"
-  ></lg-reactive-form>
-  `,
-});
-
-export const select = selectTemplate.bind({});
-select.storyName = 'Select';
-
-select.args = {
-  label: 'Color',
-  hint: 'Please select a color',
-  block: false,
-  options: [ 'Red', 'Blue', 'Green', 'Yellow' ],
-  disabled: false,
-};
-
-select.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const select = {
+  name: 'Select',
+  render: (args: LgSelectFieldComponent) => ({
+    props: args,
+    template: `
+      <lg-reactive-form
+        (selectChange)="selectChange($event)"
+        [block]="block"
+        [disabled]="disabled"
+        [hint]="hint"
+        [label]="label"
+        [options]="options"
+      ></lg-reactive-form>
+    `,
+  }),
+  args: {
+    label: 'Color',
+    hint: 'Please select a color',
+    block: false,
+    options: [ 'Red', 'Blue', 'Green', 'Yellow' ],
+    disabled: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

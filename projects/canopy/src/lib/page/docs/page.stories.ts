@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 
@@ -279,19 +279,18 @@ const oneColumnTemplate = `
   </lg-page>
 `;
 
-const oneColumnStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
-  props: args,
-  template: oneColumnTemplate,
-});
-
-export const oneColumn = oneColumnStory.bind({});
-oneColumn.storyName = 'One column';
-oneColumn.args = createArgs();
-
-oneColumn.parameters = {
-  docs: {
-    source: {
-      code: oneColumnTemplate,
+export const oneColumn = {
+  name: 'OneColumn',
+  render: (args: LgPageComponent) => ({
+    props: args,
+    template: oneColumnTemplate,
+  }),
+  args: createArgs(),
+  parameters: {
+    docs: {
+      source: {
+        code: oneColumnTemplate,
+      },
     },
   },
 };
@@ -318,19 +317,18 @@ const twoColumnsTemplate = `
   </lg-page>
 `;
 
-const twoColumnsStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
-  props: args,
-  template: twoColumnsTemplate,
-});
-
-export const twoColumns = twoColumnsStory.bind({});
-twoColumns.storyName = 'Two columns';
-twoColumns.args = createArgs();
-
-twoColumns.parameters = {
-  docs: {
-    source: {
-      code: twoColumnsTemplate,
+export const twoColumns = {
+  name: 'Two columns',
+  render: (args: LgPageComponent) => ({
+    props: args,
+    template: twoColumnsTemplate,
+  }),
+  args: createArgs(),
+  parameters: {
+    docs: {
+      source: {
+        code: twoColumnsTemplate,
+      },
     },
   },
 };
@@ -355,59 +353,55 @@ const fullWidthTemplate = `
   </lg-page>
 `;
 
-const fullWidthStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
-  props: args,
-  template: fullWidthTemplate,
-});
-
-export const fullWidth = fullWidthStory.bind({});
-fullWidth.storyName = 'Full width';
-fullWidth.args = createArgs();
-
-fullWidth.parameters = {
-  docs: {
-    source: {
-      code: fullWidthTemplate,
+export const fullWidth = {
+  name: 'Full width',
+  render: (args: LgPageComponent) => ({
+    props: args,
+    template: fullWidthTemplate,
+  }),
+  args: createArgs(),
+  parameters: {
+    docs: {
+      source: {
+        code: fullWidthTemplate,
+      },
     },
   },
 };
 
-const fullWidthWithHeroStory: StoryFn<LgPageComponent> = (args: LgPageComponent) => ({
-  props: args,
-  template: `<lg-full-width-with-header
-    [overlap]="overlap"
-    [logo]="logo"
-    [logoAlt]="logoAlt"
-    [copyright]="copyright"
-    [card1]="card1"
-    [card2]="card2"
-    [card3]="card3"
-    [primaryLinks]="primaryLinks"
-    [secondaryLinks]="secondaryLinks"
-  ></lg-full-width-with-header>`,
-});
-
-export const fullWidthWithHero = fullWidthWithHeroStory.bind({});
-fullWidthWithHero.storyName = 'Full width with Hero';
-
-fullWidthWithHero.args = {
-  ...createArgs(),
-  overlap: 2,
-};
-
-fullWidthWithHero.argTypes = {
-  overlap: {
-    description: 'The amount that the page content overlaps the hero component (rem)',
-    table: {
-      category: 'other',
+export const fullWidthWithHero = {
+  name: 'Full width with Hero',
+  render: (args: LgPageComponent) => ({
+    props: args,
+    template: `<lg-full-width-with-header
+      [overlap]="overlap"
+      [logo]="logo"
+      [logoAlt]="logoAlt"
+      [copyright]="copyright"
+      [card1]="card1"
+      [card2]="card2"
+      [card3]="card3"
+      [primaryLinks]="primaryLinks"
+      [secondaryLinks]="secondaryLinks"
+    ></lg-full-width-with-header>`,
+  }),
+  args: {
+    ...createArgs(),
+    overlap: 2,
+  },
+  argTypes: {
+    overlap: {
+      description: 'The amount that the page content overlaps the hero component (rem)',
+      table: {
+        category: 'other',
+      },
     },
   },
-};
-
-fullWidthWithHero.parameters = {
-  docs: {
-    source: {
-      code: fullWidthWithHeroTemplate,
+  parameters: {
+    docs: {
+      source: {
+        code: fullWidthWithHeroTemplate,
+      },
     },
   },
 };

@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgAlertComponent } from '../../alert';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
@@ -279,41 +279,39 @@ const template = `
 </div>
 `;
 
-const gridStory: StoryFn<LgAlertComponent> = (args: LgAlertComponent) => ({
-  props: args,
-  template,
-});
+export const grid = {
+  name: 'Grid',
+  render: (args: LgAlertComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    firstCol: 12,
+    firstColMd: 4,
+    firstColLg: 3,
+    firstColOffset: 0,
+    firstColMdOffset: 0,
+    firstColLgOffset: 1,
 
-export const grid = gridStory.bind({});
-grid.storyName = 'Grid';
+    secondCol: 12,
+    secondColMd: 4,
+    secondColLg: 3,
+    secondColOffset: 0,
+    secondColMdOffset: 0,
+    secondColLgOffset: 1,
 
-grid.args = {
-  firstCol: 12,
-  firstColMd: 4,
-  firstColLg: 3,
-  firstColOffset: 0,
-  firstColMdOffset: 0,
-  firstColLgOffset: 1,
-
-  secondCol: 12,
-  secondColMd: 4,
-  secondColLg: 3,
-  secondColOffset: 0,
-  secondColMdOffset: 0,
-  secondColLgOffset: 1,
-
-  thirdCol: 12,
-  thirdColMd: 4,
-  thirdColLg: 3,
-  thirdColOffset: 0,
-  thirdColMdOffset: 0,
-  thirdColLgOffset: 1,
-};
-
-grid.parameters = {
-  docs: {
-    source: {
-      code: template,
+    thirdCol: 12,
+    thirdColMd: 4,
+    thirdColLg: 3,
+    thirdColOffset: 0,
+    thirdColMdOffset: 0,
+    thirdColLgOffset: 1,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

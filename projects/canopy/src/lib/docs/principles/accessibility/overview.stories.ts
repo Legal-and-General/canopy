@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 export default {
   title: 'Internal Accessibility Overview',
@@ -16,13 +16,13 @@ const mainQuoteTemplate = `
 </blockquote>
 `;
 
-const mainQuoteStory: Story = args => ({
-  props: args,
-  template: mainQuoteTemplate,
-});
-
-export const mainQuote = mainQuoteStory.bind({});
-mainQuote.storyName = 'Main';
+export const mainQuote = {
+  name: 'Main',
+  render: (args: unknown) => ({
+    props: args,
+    template: mainQuoteTemplate,
+  }),
+};
 
 const equalityActQuoteTemplate = `
 <blockquote lgMarginVertical="md">
@@ -31,10 +31,10 @@ const equalityActQuoteTemplate = `
 </blockquote>
 `;
 
-const equalityActQuoteStory: Story = args => ({
-  props: args,
-  template: equalityActQuoteTemplate,
-});
-
-export const equalityActQuote = equalityActQuoteStory.bind({});
-equalityActQuote.storyName = 'Equality Act';
+export const equalityActQuote = {
+  name: 'Equality Act',
+  render: (args: unknown) => ({
+    props: args,
+    template: equalityActQuoteTemplate,
+  }),
+};

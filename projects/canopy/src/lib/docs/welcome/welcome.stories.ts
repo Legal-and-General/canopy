@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { DocsWelcomePageComponent } from './welcome.component';
 
@@ -11,12 +11,10 @@ export default {
   ],
 } as Meta;
 
-const welcomeTemplate: StoryFn<DocsWelcomePageComponent> = (
-  args: DocsWelcomePageComponent,
-) => ({
-  props: args,
-  template: '<lg-docs-welcome-page></lg-docs-welcome-page>',
-});
-
-export const welcomeStory = welcomeTemplate.bind({});
-welcomeStory.storyName = 'Welcome page';
+export const welcomeStory = {
+  name: 'Welcome page',
+  render: (args: DocsWelcomePageComponent) => ({
+    props: args,
+    template: '<lg-docs-welcome-page></lg-docs-welcome-page>',
+  }),
+};

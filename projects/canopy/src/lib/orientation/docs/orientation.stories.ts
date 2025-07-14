@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgOrientationDirective } from '../orientation.directive';
 import {
@@ -68,26 +68,22 @@ export default {
   },
 } as Meta;
 
-const orientationStory: StoryFn<LgOrientationDirective> = (
-  args: LgOrientationDirective,
-) => ({
-  props: args,
-  template,
-});
-
-export const orientation = orientationStory.bind({});
-orientation.storyName = 'Orientation';
-
-orientation.args = {
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae.',
-  linkText: 'Link or Button text',
-  orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
-};
-
-orientation.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const orientation = {
+  name: 'Orientation',
+  render: (args: LgOrientationDirective) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consectetur elementum diam, eget viverra nibh congue vitae.',
+    linkText: 'Link or Button text',
+    orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

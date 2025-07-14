@@ -4,7 +4,7 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { ButtonVariant, LgButtonComponent } from '../../../button';
@@ -320,22 +320,25 @@ export default {
   },
 };
 
-const inputStory: StoryFn<LgInputFieldComponent> = (args: LgInputFieldComponent) =>
-  createInputStory(args);
-
-export const standard = inputStory.bind({});
-standard.storyName = 'Standard';
+export const standard = {
+  name: 'Standard',
+  render: (args: LgInputFieldComponent) => createInputStory(args),
+};
 setupInputStoryValues(standard, inputTemplate);
 
-export const withButtonSuffix = inputStory.bind({});
-withButtonSuffix.storyName = 'With button suffix';
+export const withButtonSuffix = {
+  name: 'With button suffix',
+  render: (args: LgInputFieldComponent) => createInputStory(args),
+};
 
 setupInputStoryValues(withButtonSuffix, inputTemplate, {
   showButtonFirstSuffix: true,
 });
 
-export const withTextSuffix = inputStory.bind({});
-withTextSuffix.storyName = 'With text suffix';
+export const withTextSuffix = {
+  name: 'With test suffix',
+  render: (args: LgInputFieldComponent) => createInputStory(args),
+};
 
 setupInputStoryValues(withTextSuffix, inputTemplate, {
   showTextSuffix: true,
@@ -343,16 +346,20 @@ setupInputStoryValues(withTextSuffix, inputTemplate, {
   hint: null,
 });
 
-export const withMultipleButtonSuffixes = inputStory.bind({});
-withMultipleButtonSuffixes.storyName = 'With multiple buttons suffixes';
+export const withMultipleButtonSuffixes = {
+  name: 'With multiple buttons suffixes',
+  render: (args: LgInputFieldComponent) => createInputStory(args),
+};
 
 setupInputStoryValues(withMultipleButtonSuffixes, inputTemplate, {
   showButtonFirstSuffix: true,
   showButtonSecondSuffix: true,
 });
 
-export const withTextPrefix = inputStory.bind({});
-withTextPrefix.storyName = 'With text prefix';
+export const withTextPrefix = {
+  name: 'With text prefix',
+  render: (args: LgInputFieldComponent) => createInputStory(args),
+};
 
 setupInputStoryValues(withTextPrefix, inputTemplate, {
   showTextPrefix: true,

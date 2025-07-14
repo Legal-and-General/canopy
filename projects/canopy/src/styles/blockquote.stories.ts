@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 const template = `
@@ -17,24 +17,22 @@ export default {
   ],
 } as Meta;
 
-const quoteTemplate: Story = args => ({
-  props: args,
-  template,
-});
-
-export const quote = quoteTemplate.bind({});
-quote.storyName = 'Blockquote';
-
-quote.args = {
-  content:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  author: 'Cicero',
-};
-
-quote.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const quote = {
+  name: 'Blockquote',
+  render: (args: unknown) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    author: 'Cicero',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

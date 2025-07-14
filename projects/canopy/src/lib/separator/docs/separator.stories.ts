@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSeparatorComponent } from '../separator.component';
 
@@ -16,7 +16,7 @@ export default {
       description: 'The variant of separator.',
       table: {
         type: {
-          summary: [ 'solid', 'dotted' ],
+          summary: 'solid | dotted',
         },
         defaultValue: {
           summary: 'solid',
@@ -33,7 +33,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: false,
+          summary: 'false',
         },
       },
     },
@@ -54,23 +54,21 @@ const template = `
   <lg-separator [variant]="variant" [hasRole]="hasRole"></lg-separator>
 `;
 
-const detailsTemplate: StoryFn<LgSeparatorComponent> = (args: LgSeparatorComponent) => ({
-  props: args,
-  template,
-});
-
-export const standardSeparator = detailsTemplate.bind({});
-standardSeparator.storyName = 'Separator';
-
-standardSeparator.args = {
-  variant: 'solid',
-  hasRole: false,
-};
-
-standardSeparator.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardSeparator = {
+  name: 'Standard',
+  render: (args: LgSeparatorComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    variant: 'solid',
+    hasRole: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

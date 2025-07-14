@@ -11,7 +11,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { LgDateFieldComponent, pastDateValidator } from '../../date';
@@ -399,18 +399,17 @@ const template = `
 </lg-validation-form>
 `;
 
-const formValidationStory: StoryFn<unknown> = (args: unknown) => ({
-  props: args,
-  template,
-});
-
-export const formValidation = formValidationStory.bind({});
-formValidation.storyName = 'Form validation';
-
-formValidation.parameters = {
-  docs: {
-    source: {
-      code: null,
+export const formValidation = {
+  name: 'Form validation',
+  render: (args: LgValidationComponent) => ({
+    props: args,
+    template,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: null,
+      },
     },
   },
 };

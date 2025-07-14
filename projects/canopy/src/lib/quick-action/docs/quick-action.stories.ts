@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { IconName, LgIconComponent } from '../../icon';
 import { LgQuickActionComponent } from '../quick-action.component';
@@ -74,33 +74,28 @@ const exampleButtonTemplate = `
 </button>
 `;
 
-const quickActionButtonTemplate: StoryFn<LgQuickActionButtonComponent> = (
-  args: LgQuickActionButtonComponent,
-) => ({
-  props: args,
-  template: `
-    <lg-quick-action-button
-      [content]="content"
-      [icon]="icon">
-    </lg-quick-action-button>
-  `,
-});
-
-export const quickActionButton = quickActionButtonTemplate.bind({});
-quickActionButton.storyName = 'Button';
-quickActionButton.component = LgQuickActionButtonComponent;
-
-quickActionButton.args = {
-  icon: 'repeat',
-  content: 'Load more',
-};
-
-quickActionButton.parameters = {
-  docs: {
-    source: {
-      code: exampleButtonTemplate,
+export const quickActionButton = {
+  name: 'Button',
+  args: {
+    icon: 'repeat',
+    content: 'Load more',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: exampleButtonTemplate,
+      },
     },
   },
+  render: (args: LgQuickActionButtonComponent) => ({
+    props: args,
+    template: `
+      <lg-quick-action-button
+        [content]="content"
+        [icon]="icon">
+      </lg-quick-action-button>
+    `,
+  }),
 };
 
 const exampleLinkTemplate = `
@@ -110,48 +105,43 @@ const exampleLinkTemplate = `
 </a>
 `;
 
-const quickActionLinkTemplate: StoryFn<LgQuickActionLinkComponent> = (
-  args: LgQuickActionLinkComponent,
-) => ({
-  props: args,
-  template: `
-    <lg-quick-action-link
-      [target]="target"
-      [link]="link"
-      [content]="content"
-      [icon]="icon">
-    </lg-quick-action-link>
-  `,
-});
-
-export const quickActionLink = quickActionLinkTemplate.bind({});
-quickActionLink.storyName = 'Link';
-
-quickActionLink.args = {
-  link: 'https://google.com',
-  target: '_blank',
-  icon: 'secure-messaging',
-  content: 'Send us a message',
-};
-
-quickActionLink.argTypes = {
-  target: {
-    options: [ '_self', '_blank' ],
-    table: {
-      type: {
-        summary: [ '_self', '_blank' ],
+export const quickActionLink = {
+  name: 'Link',
+  args: {
+    link: 'https://google.com',
+    target: '_blank',
+    icon: 'secure-messaging',
+    content: 'Send us a message',
+  },
+  argTypes: {
+    target: {
+      options: [ '_self', '_blank' ],
+      table: {
+        type: {
+          summary: [ '_self', '_blank' ],
+        },
+      },
+      control: {
+        type: 'select',
       },
     },
-    control: {
-      type: 'select',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: exampleLinkTemplate,
+      },
     },
   },
-};
-
-quickActionLink.parameters = {
-  docs: {
-    source: {
-      code: exampleLinkTemplate,
-    },
-  },
+  render: (args: LgQuickActionLinkComponent) => ({
+    props: args,
+    template: `
+      <lg-quick-action-link
+        [target]="target"
+        [link]="link"
+        [content]="content"
+        [icon]="icon">
+      </lg-quick-action-link>
+    `,
+  }),
 };
