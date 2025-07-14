@@ -1,12 +1,8 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgToggleComponent } from '../../toggle.component';
-import {
-  createToggleStory,
-  ReactiveToggleFormComponent,
-  setupToggleStoryValues,
-} from '../toggle.stories.common';
+import { createToggleStory, ReactiveToggleFormComponent } from '../toggle.stories.common';
 
 export default {
   title: 'Components/Forms/Switch/Examples',
@@ -181,9 +177,6 @@ export default {
   },
 };
 
-const switchStory: StoryFn<LgToggleComponent> = (args: LgToggleComponent) =>
-  createToggleStory(args, 'switch');
-
 const code = `
 <lg-switch
   formControlName="umbrella"
@@ -196,11 +189,22 @@ const code = `
 </lg-switch>
 `;
 
-export const switchObj = switchStory.bind({});
-switchObj.storyName = 'Switch';
-setupToggleStoryValues(switchObj, code);
-
-switchObj.args = {
-  ...switchObj.args,
-  variant: 'switch',
+export const switchObj = {
+  name: 'Switch',
+  render: (args: LgToggleComponent) => createToggleStory(args, 'switch'),
+  args: {
+    disabled: false,
+    inline: false,
+    focus: false,
+    size: 'sm',
+    label: 'I will bring my Umbrella if it is raining',
+    variant: 'switch',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code,
+      },
+    },
+  },
 };

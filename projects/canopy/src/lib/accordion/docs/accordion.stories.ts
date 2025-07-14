@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgAccordionComponent } from '../accordion.component';
@@ -100,7 +100,7 @@ export default {
         'The heading level of the accordion panel heading. This will change the tag but not the style.',
       table: {
         type: {
-          summary: [ '1', '2', '3', '4', '5', '6' ],
+          summary: '1 | 2 | 3 | 4 | 5 | 6',
         },
       },
       control: {
@@ -130,12 +130,12 @@ export default {
   },
 } as Meta;
 
-const standardAccordionTemplate: StoryFn<AccordionWrapperComponent> = (
-  args: AccordionWrapperComponent,
-) => ({
-  props: args,
-  template: `
-        <lg-accordion-with-icons-wrapper
+export const standardAccordion = {
+  name: 'Accordion',
+  render: (args: AccordionWrapperComponent) => ({
+    props: args,
+    template: `
+      <lg-accordion-with-icons-wrapper
         [headingLevel]="headingLevel"
         [itemOneActive]="itemOneActive"
         [itemTwoActive]="itemTwoActive"
@@ -143,75 +143,67 @@ const standardAccordionTemplate: StoryFn<AccordionWrapperComponent> = (
         [multi]="multi"
         >
       </lg-accordion-with-icons-wrapper>
-  `,
-});
-
-export const standardAccordion = standardAccordionTemplate.bind({});
-standardAccordion.storyName = 'Accordion';
-
-standardAccordion.args = {
-  headingLevel: 2,
-  itemOneActive: false,
-  itemTwoActive: true,
-  itemThreeActive: false,
-  multi: false,
+    `,
+  }),
+  args: {
+    headingLevel: 2,
+    itemOneActive: false,
+    itemTwoActive: true,
+    itemThreeActive: false,
+    multi: false,
+  },
 };
 
-const accordionWithIconsTemplate: StoryFn<AccordionWrapperComponent> = (
-  args: AccordionWrapperComponent,
-) => ({
-  props: args,
-  template: `<lg-accordion-with-icons-wrapper
-                [headingLevel]="headingLevel"
-                [itemOneActive]="itemOneActive"
-                [itemTwoActive]="itemTwoActive"
-                [itemThreeActive]="itemThreeActive"
-                [iconForFirstAccordionItem]="iconForFirstAccordionItem"
-                [iconForSecondAccordionItem]="iconForSecondAccordionItem"
-                [iconForThirdAccordionItem]="iconForThirdAccordionItem"
-                [multi]="multi"
-              >
-            </lg-accordion-with-icons-wrapper>`,
-});
-
-export const accordionWithIcons = accordionWithIconsTemplate.bind({});
-
-accordionWithIcons.storyName = 'Accordion with Icons';
-
-accordionWithIcons.args = {
-  iconForFirstAccordionItem: 'notes',
-  iconForSecondAccordionItem: 'news',
-  iconForThirdAccordionItem: 'idea',
-  headingLevel: 2,
-  itemOneActive: false,
-  itemTwoActive: true,
-  itemThreeActive: false,
-  multi: false,
-};
-
-accordionWithIcons.argTypes = {
-  iconForFirstAccordionItem: {
-    options: [ 'news', 'notes', 'idea' ],
-    description:
-      'The icon to display in the left side of the heading of the first accordion item.',
-    control: {
-      type: 'select',
-    },
+export const accordionWithIcons = {
+  name: 'Accordion with Icons',
+  render: (args: AccordionWrapperComponent) => ({
+    props: args,
+    template: `<lg-accordion-with-icons-wrapper
+        [headingLevel]="headingLevel"
+        [itemOneActive]="itemOneActive"
+        [itemTwoActive]="itemTwoActive"
+        [itemThreeActive]="itemThreeActive"
+        [iconForFirstAccordionItem]="iconForFirstAccordionItem"
+        [iconForSecondAccordionItem]="iconForSecondAccordionItem"
+        [iconForThirdAccordionItem]="iconForThirdAccordionItem"
+        [multi]="multi"
+      >
+    </lg-accordion-with-icons-wrapper>`,
+  }),
+  args: {
+    iconForFirstAccordionItem: 'notes',
+    iconForSecondAccordionItem: 'news',
+    iconForThirdAccordionItem: 'idea',
+    headingLevel: 2,
+    itemOneActive: false,
+    itemTwoActive: true,
+    itemThreeActive: false,
+    multi: false,
   },
-  iconForSecondAccordionItem: {
-    options: [ 'news', 'notes', 'idea' ],
-    description:
-      'The icon to display in the left side of the heading of the second accordion item.',
-    control: {
-      type: 'select',
+  argTypes: {
+    iconForFirstAccordionItem: {
+      options: [ 'news', 'notes', 'idea' ],
+      description:
+        'The icon to display in the left side of the heading of the first accordion item.',
+      control: {
+        type: 'select',
+      },
     },
-  },
-  iconForThirdAccordionItem: {
-    options: [ 'news', 'notes', 'idea' ],
-    description:
-      'The icon to display in the left side of the heading of the third accordion item.',
-    control: {
-      type: 'select',
+    iconForSecondAccordionItem: {
+      options: [ 'news', 'notes', 'idea' ],
+      description:
+        'The icon to display in the left side of the heading of the second accordion item.',
+      control: {
+        type: 'select',
+      },
+    },
+    iconForThirdAccordionItem: {
+      options: [ 'news', 'notes', 'idea' ],
+      description:
+        'The icon to display in the left side of the heading of the third accordion item.',
+      control: {
+        type: 'select',
+      },
     },
   },
 };

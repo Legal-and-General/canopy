@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import {
   BreadcrumbVariant,
@@ -27,7 +27,7 @@ export default {
       description: 'The colour variant for use on light or dark backgrounds',
       table: {
         type: {
-          summary: [ BreadcrumbVariant.light, BreadcrumbVariant.dark ],
+          summary: `${BreadcrumbVariant.light}, ${BreadcrumbVariant.dark}`,
         },
         defaultValue: {
           summary: BreadcrumbVariant.dark,
@@ -87,24 +87,20 @@ const template = `
 </lg-breadcrumb>
 `;
 
-const breadcrumbTemplate: StoryFn<LgBreadcrumbComponent> = (
-  args: LgBreadcrumbComponent,
-) => ({
-  props: args,
-  template,
-});
-
-export const threeItems = breadcrumbTemplate.bind({});
-threeItems.storyName = 'Three items';
-
-threeItems.args = {
-  variant: BreadcrumbVariant.dark,
-};
-
-threeItems.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const threeItems = {
+  name: 'Three items',
+  render: (args: LgBreadcrumbComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    variant: BreadcrumbVariant.dark,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };
@@ -130,24 +126,20 @@ const ellipisTemplate = `
 </lg-breadcrumb>
 `;
 
-const breadcrumbEllipsisTemplate: StoryFn<LgBreadcrumbComponent> = (
-  args: LgBreadcrumbComponent,
-) => ({
-  props: args,
-  template: ellipisTemplate,
-});
-
-export const ellipsis = breadcrumbEllipsisTemplate.bind({});
-ellipsis.storyName = 'More than three items';
-
-ellipsis.args = {
-  variant: BreadcrumbVariant.dark,
-};
-
-ellipsis.parameters = {
-  docs: {
-    source: {
-      code: ellipisTemplate,
+export const ellipsis = {
+  name: 'More than three items',
+  render: (args: LgBreadcrumbComponent) => ({
+    props: args,
+    template: ellipisTemplate,
+  }),
+  args: {
+    variant: BreadcrumbVariant.dark,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: ellipisTemplate,
+      },
     },
   },
 };

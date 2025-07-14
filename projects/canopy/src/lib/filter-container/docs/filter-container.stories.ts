@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import {
   ButtonVariant,
@@ -83,36 +83,32 @@ function setComponentCode(toggleCode: string) {
 `;
 }
 
-const filterContainerTemplate: StoryFn<LgFilterContainerComponent> = (
-  args: LgFilterContainerComponent,
-) => ({
-  props: args,
-  template: setComponentCode(`
-<button lg-button [variant]="variant" lgButtonToggle lgStoryToggle>
-  <lg-icon name="filter" first></lg-icon>
-  Filters
-  <lg-icon name="chevron-down" second></lg-icon>
-</button>
-  `),
-});
-
-export const standardFilterContainer = filterContainerTemplate.bind({});
-standardFilterContainer.storyName = 'Filter container';
-
-standardFilterContainer.args = {
-  variant: 'secondary-dark',
-};
-
-standardFilterContainer.parameters = {
-  docs: {
-    source: {
-      code: setComponentCode(`
-  <button lg-button [variant]="variant" lgButtonToggle>
-    <lg-icon name="filter" first></lg-icon>
-    Filters
-    <lg-icon name="chevron-down" second></lg-icon>
-  </button>
-      `),
+export const standardFilterContainer = {
+  name: 'Filter container',
+  render: (args: LgFilterContainerComponent) => ({
+    props: args,
+    template: setComponentCode(`
+      <button lg-button [variant]="variant" lgButtonToggle lgStoryToggle>
+        <lg-icon name="filter" first></lg-icon>
+        Filters
+        <lg-icon name="chevron-down" second></lg-icon>
+      </button>
+    `),
+  }),
+  args: {
+    variant: 'secondary-dark',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: setComponentCode(`
+          <button lg-button [variant]="variant" lgButtonToggle>
+            <lg-icon name="filter" first></lg-icon>
+            Filters
+            <lg-icon name="chevron-down" second></lg-icon>
+          </button>
+        `),
+      },
     },
   },
 };

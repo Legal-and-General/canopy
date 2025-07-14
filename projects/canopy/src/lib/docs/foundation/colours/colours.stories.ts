@@ -8,7 +8,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { Meta, StoryFn } from '@storybook/angular';
+import { Meta } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import convert, { RGB } from 'color-convert';
 
@@ -242,34 +242,34 @@ const tintsColoursTemplate = `
 </div>
 `;
 
-const coreColoursStory: StoryFn = args => ({
-  props: args,
-  template: coreColoursTemplate,
-});
+export const coreColours = {
+  name: 'Core',
+  render: (args: SwatchComponent) => ({
+    props: args,
+    template: coreColoursTemplate,
+  }),
+};
 
-export const coreColours = coreColoursStory.bind({});
-coreColours.storyName = 'Core';
+export const secondaryColours = {
+  name: 'Secondary',
+  render: (args: SwatchComponent) => ({
+    props: args,
+    template: secondaryColoursTemplate,
+  }),
+};
 
-const secondaryColoursStory: StoryFn = args => ({
-  props: args,
-  template: secondaryColoursTemplate,
-});
+export const greyscaleColours = {
+  name: 'Secondary',
+  render: (args: SwatchComponent) => ({
+    props: args,
+    template: greyscaleColoursTemplate,
+  }),
+};
 
-export const secondaryColours = secondaryColoursStory.bind({});
-secondaryColours.storyName = 'Secondary';
-
-const greyscaleColoursStory: StoryFn = args => ({
-  props: args,
-  template: greyscaleColoursTemplate,
-});
-
-export const greyscaleColours = greyscaleColoursStory.bind({});
-greyscaleColours.storyName = 'Greyscale';
-
-const tintsColoursStory: StoryFn = args => ({
-  props: args,
-  template: tintsColoursTemplate,
-});
-
-export const tintsColours = tintsColoursStory.bind({});
-tintsColours.storyName = 'Tints';
+export const tintsColours = {
+  name: 'Tints',
+  render: (args: TintSwatchComponent) => ({
+    props: args,
+    template: tintsColoursTemplate,
+  }),
+};

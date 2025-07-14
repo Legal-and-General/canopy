@@ -1,4 +1,4 @@
-import { Meta, StoryFn, moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
 
 import { LgProgressBarComponent } from '../progress-bar/progress-bar.component';
@@ -26,7 +26,7 @@ export default {
           summary: 'number',
         },
         defaultValue: {
-          summary: 4,
+          summary: '4',
         },
       },
     },
@@ -37,7 +37,7 @@ export default {
           summary: 'number',
         },
         defaultValue: {
-          summary: 1,
+          summary: '1',
         },
       },
     },
@@ -48,7 +48,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: 'true',
         },
       },
     },
@@ -86,29 +86,24 @@ const template = `
 </lg-progress-indicator>
 `;
 
-const progressJourneyStory: StoryFn<LgProgressIndicatorComponent> = (
-  args: LgProgressIndicatorComponent,
-) => ({
-  props: args,
-  template,
-});
-
-export const progressJourney = progressJourneyStory.bind({});
-
-progressJourney.storyName = 'Progress indicator';
-
-progressJourney.args = {
-  max: 5,
-  value: 1,
-  displayAs: 'step',
-  showProgressBar: true,
-  stepsPrefix: 'Step',
-};
-
-progressJourney.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const progressJourney = {
+  name: 'Progress indicator',
+  render: (args: LgProgressIndicatorComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    max: 5,
+    value: 1,
+    displayAs: 'step',
+    showProgressBar: true,
+    stepsPrefix: 'Step',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

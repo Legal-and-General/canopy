@@ -4,7 +4,7 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -437,65 +437,60 @@ const defaultCardTemplate = `
 </lg-card>
 `;
 
-const defaultCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template: defaultCardTemplate,
-});
-
-export const defaultCard = defaultCardStory.bind({});
-defaultCard.storyName = 'Standard';
-
-defaultCard.args = {
-  headingLevel: 2,
-  title: 'The title',
-  cardContent: content,
-};
-
-defaultCard.parameters = {
-  docs: {
-    source: {
-      code: defaultCardTemplate,
+export const defaultCard = {
+  name: 'Standard',
+  args: {
+    headingLevel: 2,
+    title: 'The title',
+    cardContent: content,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: defaultCardTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: defaultCardTemplate,
+  }),
 };
 
-const navigationCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template:
-    '<lg-card-navigation [title]="title" [link]="link" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" [headingLevel]="headingLevel" [cardContent]="cardContent"></lg-card-navigation>',
-});
-
-export const navigationCard = navigationCardStory.bind({});
-navigationCard.storyName = 'Card navigation';
-
-navigationCard.args = {
-  link: 'https://www.landg.com',
-  queryParams: null,
-  queryParamsHandling: null,
-  headingLevel: 2,
-  title: 'The title',
-  cardContent: content,
-};
-
-navigationCard.parameters = {
-  docs: {
-    source: {
-      code: navigationCardTemplate,
+export const navigationCard = {
+  name: 'Card navigation',
+  args: {
+    link: 'https://www.landg.com',
+    queryParams: null,
+    queryParamsHandling: null,
+    headingLevel: 2,
+    title: 'The title',
+    cardContent: content,
+  },
+  argTypes: {
+    queryParams: {
+      table: {
+        disable: true,
+      },
+    },
+    queryParamsHandling: {
+      table: {
+        disable: true,
+      },
     },
   },
-};
-
-navigationCard.argTypes = {
-  queryParams: {
-    table: {
-      disable: true,
+  parameters: {
+    docs: {
+      source: {
+        code: navigationCardTemplate,
+      },
     },
   },
-  queryParamsHandling: {
-    table: {
-      disable: true,
-    },
-  },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template:
+      '<lg-card-navigation [title]="title" [link]="link" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" [headingLevel]="headingLevel" [cardContent]="cardContent"></lg-card-navigation>',
+  }),
 };
 
 const productCardTemplate = `
@@ -526,146 +521,133 @@ const productCardTemplate = `
 </lg-card>
 `;
 
-const productCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template: productCardTemplate,
-});
-
-export const productCard = productCardStory.bind({});
-productCard.storyName = 'Product';
-
-productCard.args = {
-  title: 'Standard Lifetime Annuity Joint Life Full',
-};
-
-productCard.parameters = {
-  docs: {
-    source: {
-      code: productCardTemplate,
+export const productCard = {
+  name: 'Product',
+  args: {
+    title: 'Standard Lifetime Annuity Joint Life Full',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: productCardTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: productCardTemplate,
+  }),
 };
 
-const formJourneyCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template: `
-    <lg-form-journey [title]="title" [cardContent]="cardContent" [hint]="hint" [policy]="policy" [label]="label"></lg-form-journey>
-  `,
-});
-
-export const formJourneyCard = formJourneyCardStory.bind({});
-formJourneyCard.storyName = 'Form journey';
-
-formJourneyCard.args = {
-  title: 'New bank details',
-  cardContent:
-    'Any changes today are unlikely to be processed in time for your next payment, due no later January.',
-  hint: 'Must be 8 digits long',
-  policy:
-    'By completing this form you are confirming you have consent to share these details with us. See our privacy policy.',
-  label: 'Account Number',
-};
-
-formJourneyCard.parameters = {
-  docs: {
-    source: {
-      code: formJourneyTemplate,
+export const formJourneyCard = {
+  name: 'Form journey',
+  args: {
+    title: 'New bank details',
+    cardContent:
+      'Any changes today are unlikely to be processed in time for your next payment, due no later January.',
+    hint: 'Must be 8 digits long',
+    policy:
+      'By completing this form you are confirming you have consent to share these details with us. See our privacy policy.',
+    label: 'Account Number',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: formJourneyTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: `
+      <lg-form-journey [title]="title" [cardContent]="cardContent" [hint]="hint" [policy]="policy" [label]="label"></lg-form-journey>
+    `,
+  }),
 };
 
-const showMoreCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template: `
-    <lg-card-show-more></lg-card-show-more>
-  `,
-});
-
-export const showMoreCard = showMoreCardStory.bind({});
-showMoreCard.storyName = 'Show more';
-
-showMoreCard.parameters = {
-  docs: {
-    source: {
-      code: showMoreCardTemplate,
+export const showMoreCard = {
+  name: 'Show more',
+  parameters: {
+    docs: {
+      source: {
+        code: showMoreCardTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: `
+      <lg-card-show-more></lg-card-show-more>
+    `,
+  }),
 };
 
-const dataPointsCardStory: StoryFn<LgCardComponent> = (args: LgCardComponent) => ({
-  props: args,
-  template:
-    '<lg-card-data-points [dataPoints]="dataPoints" [data]="data"></lg-card-data-points>',
-});
-
-export const dataPointsCard = dataPointsCardStory.bind({});
-dataPointsCard.storyName = 'Data points';
-
-dataPointsCard.parameters = {
-  docs: {
-    source: {
-      code: dataPointsCardTemplate,
+export const dataPointsCard = {
+  name: 'Data points',
+  args: {
+    dataPoints: 3,
+    data: [
+      {
+        label: 'Data key 1',
+        value: 'Data value 1',
+      },
+      {
+        label: 'Data key 2',
+        value: 'Data value 2',
+      },
+      {
+        label: 'Data key 3',
+        value: 'Data value 3',
+      },
+    ],
+  },
+  argTypes: {
+    dataPoints: {
+      control: { type: 'number', min: 1, max: 3, step: 1 },
     },
   },
-};
-
-dataPointsCard.argTypes = {
-  dataPoints: {
-    control: { type: 'number', min: 1, max: 3, step: 1 },
-  },
-};
-
-dataPointsCard.args = {
-  dataPoints: 3,
-  data: [
-    {
-      label: 'Data key 1',
-      value: 'Data value 1',
-    },
-    {
-      label: 'Data key 2',
-      value: 'Data value 2',
-    },
-    {
-      label: 'Data key 3',
-      value: 'Data value 3',
-    },
-  ],
-};
-
-const cardGroupTemplateStory: StoryFn<LgCardGroupComponent> = (
-  args: LgCardGroupComponent,
-) => ({
-  props: args,
-  template:
-    '<lg-card-group [cardContent]="cardContent" [additionalCards]="additionalCards"></lg-card-group>',
-});
-
-export const cardGroup = cardGroupTemplateStory.bind({});
-cardGroup.storyName = 'Card group';
-
-cardGroup.args = {
-  cardContent: content,
-  additionalCards: 1,
-};
-
-cardGroup.parameters = {
-  docs: {
-    source: {
-      code: cardGroupTemplate,
+  parameters: {
+    docs: {
+      source: {
+        code: dataPointsCardTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template:
+      '<lg-card-data-points [dataPoints]="dataPoints" [data]="data"></lg-card-data-points>',
+  }),
 };
 
-cardGroup.argTypes = {
-  queryParams: {
-    table: {
-      disable: true,
+export const cardGroup = {
+  name: 'Card group',
+  args: {
+    cardContent: content,
+    additionalCards: 1,
+  },
+  argTypes: {
+    queryParams: {
+      table: {
+        disable: true,
+      },
+    },
+    queryParamsHandling: {
+      table: {
+        disable: true,
+      },
     },
   },
-  queryParamsHandling: {
-    table: {
-      disable: true,
+  parameters: {
+    docs: {
+      source: {
+        code: cardGroupTemplate,
+      },
     },
   },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template:
+      '<lg-card-group [cardContent]="cardContent" [additionalCards]="additionalCards"></lg-card-group>',
+  }),
 };

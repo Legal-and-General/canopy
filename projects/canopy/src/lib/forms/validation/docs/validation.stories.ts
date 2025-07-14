@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgValidationComponent } from '../validation.component';
@@ -45,7 +45,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: 'true',
         },
       },
     },
@@ -54,7 +54,7 @@ export default {
       description: 'The variant of the validation.',
       table: {
         type: {
-          summary: variantTypes,
+          summary: 'generic | info | success | warning | error',
         },
         defaultValue: {
           summary: 'error',
@@ -82,29 +82,25 @@ export default {
   },
 } as Meta;
 
-const validationStory: StoryFn<LgValidationComponent> = (
-  args: LgValidationComponent,
-) => ({
-  props: args,
-  template: `<lg-validation-example
+export const validation = {
+  name: 'Validation',
+  render: (args: LgValidationComponent) => ({
+    props: args,
+    template: `<lg-validation-example
       [variant]="variant"
       [showIcon]="showIcon"
       [content]="content"
      ></lg-validation-example>`,
-});
-
-export const validation = validationStory.bind({});
-validation.storyName = 'Validation';
-
-validation.args = {
-  content: 'Please enter a valid date of birth',
-  variant: 'error',
-};
-
-validation.parameters = {
-  docs: {
-    source: {
-      code: template,
+  }),
+  args: {
+    content: 'Please enter a valid date of birth',
+    variant: 'error',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

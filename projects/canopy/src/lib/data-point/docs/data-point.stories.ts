@@ -1,4 +1,4 @@
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import {
   LgDataPointComponent,
@@ -48,22 +48,20 @@ const singleTemplate = `
 </lg-data-point>
 `;
 
-const singleStory: StoryFn<LgDataPointComponent> = (args: LgDataPointComponent) => ({
-  props: args,
-  template: singleTemplate,
-});
-
-export const singleDataPoint = singleStory.bind({});
-singleDataPoint.storyName = 'Single data point';
-
-singleDataPoint.args = {
-  headingLevel: 3,
-};
-
-singleDataPoint.parameters = {
-  docs: {
-    source: {
-      code: singleTemplate,
+export const singleDataPoint = {
+  name: 'Single Data Point',
+  render: (args: LgDataPointComponent) => ({
+    props: args,
+    template: singleTemplate,
+  }),
+  args: {
+    headingLevel: 3,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: singleTemplate,
+      },
     },
   },
 };
@@ -97,24 +95,20 @@ const listTemplate = `
 </lg-data-point-list>
 `;
 
-const listStory: StoryFn<LgDataPointListComponent> = (
-  args: LgDataPointListComponent,
-) => ({
-  props: args,
-  template: listTemplate,
-});
-
-export const dataPointsListStory = listStory.bind({});
-dataPointsListStory.storyName = 'Data point list';
-
-dataPointsListStory.args = {
-  headingLevel: 3,
-};
-
-dataPointsListStory.parameters = {
-  docs: {
-    source: {
-      code: listTemplate,
+export const dataPointsListStory = {
+  name: 'Data point list',
+  render: (args: LgDataPointListComponent) => ({
+    props: args,
+    template: listTemplate,
+  }),
+  args: {
+    headingLevel: 3,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: listTemplate,
+      },
     },
   },
 };

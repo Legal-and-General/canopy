@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgModalComponent } from '../modal.component';
@@ -61,7 +61,7 @@ export default {
       description: 'The level of the modal heading.',
       table: {
         type: {
-          summary: [ '1', '2', '3', '4', '5', '6' ],
+          summary: '1 | 2 | 3 | 4 | 5 | 6',
         },
       },
       control: {
@@ -75,7 +75,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: 'true',
         },
       },
       control: {
@@ -165,26 +165,22 @@ export default {
   },
 } as Meta;
 
-const detailsTemplate: StoryFn<ModalWrapperComponent> = (
-  args: ModalWrapperComponent,
-) => ({
-  props: args,
-  template:
-    '<lg-modal-wrapper [headingLevel]="headingLevel" [closeOnOverlayClick]="closeOnOverlayClick"></lg-modal-wrapper>',
-});
-
-export const standardSeparator = detailsTemplate.bind({});
-standardSeparator.storyName = 'Modal';
-
-standardSeparator.args = {
-  headingLevel: 2,
-  closeOnOverlayClick: true,
-};
-
-standardSeparator.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardSeparator = {
+  name: 'Modal',
+  render: (args: ModalWrapperComponent) => ({
+    props: args,
+    template:
+      '<lg-modal-wrapper [headingLevel]="headingLevel" [closeOnOverlayClick]="closeOnOverlayClick"></lg-modal-wrapper>',
+  }),
+  args: {
+    headingLevel: 2,
+    closeOnOverlayClick: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

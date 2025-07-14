@@ -5,12 +5,11 @@ const svgoBrandIconsConfig = {
       params: {
         overrides: {
           cleanupIds: false,
-          removeViewBox: false
+          removeViewBox: false,
         },
       },
     },
-  ]
+  ],
 };
 
 module.exports = svgoBrandIconsConfig;
-

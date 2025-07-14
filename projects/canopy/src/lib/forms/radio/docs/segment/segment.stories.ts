@@ -4,7 +4,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
@@ -222,37 +222,35 @@ export default {
   },
 };
 
-const segmentStory: StoryFn<LgRadioButtonComponent> = (args: LgRadioButtonComponent) => ({
-  props: args,
-  template: `
-  <lg-reactive-form-segment
-    [stack]="stack"
-    [disabled]="disabled"
-    [focus]="focus"
-    [label]="label"
-    [hint]="hint"
-    [secondButtonLabel]="secondButtonLabel"
-    (segmentChange)="segmentChange($event)"
-    (segmentBlur)="segmentBlur($event)">
-  </lg-reactive-form-segment>
-  `,
-});
-
-export const segmentButtons = segmentStory.bind({});
-segmentButtons.storyName = 'Segment';
-
-segmentButtons.args = {
-  disabled: false,
-  stack: false,
-  focus: false,
-  label: 'Color',
-  hint: 'Please select a color',
-};
-
-segmentButtons.parameters = {
-  docs: {
-    source: {
-      code: segmentTemplate,
+export const segmentButtons = {
+  name: 'Segment',
+  render: (args: LgRadioButtonComponent) => ({
+    props: args,
+    template: `
+      <lg-reactive-form-segment
+        [stack]="stack"
+        [disabled]="disabled"
+        [focus]="focus"
+        [label]="label"
+        [hint]="hint"
+        [secondButtonLabel]="secondButtonLabel"
+        (segmentChange)="segmentChange($event)"
+        (segmentBlur)="segmentBlur($event)">
+      </lg-reactive-form-segment>
+    `,
+  }),
+  args: {
+    disabled: false,
+    stack: false,
+    focus: false,
+    label: 'Color',
+    hint: 'Please select a color',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: segmentTemplate,
+      },
     },
   },
 };

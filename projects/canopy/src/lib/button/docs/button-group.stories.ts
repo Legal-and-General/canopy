@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgButtonGroupComponent } from '../button-group/button-group.component';
 import { LgButtonComponent } from '../button.component';
@@ -32,22 +32,19 @@ const template = `
 </lg-button-group>
 `;
 
-const buttonGroupStory: StoryFn<LgButtonGroupComponent> = (
-  args: LgButtonGroupComponent,
-) => ({
-  props: args,
-  template,
-});
-
-export const standardButtonGroup = buttonGroupStory.bind({});
-standardButtonGroup.storyName = 'Group';
-
-standardButtonGroup.parameters = {
-  controls: { hideNoControlsWarning: true },
-  docs: {
-    args: null,
-    source: {
-      code: template,
+export const standardButtonGroup = {
+  name: 'Group',
+  render: (args: LgButtonGroupComponent) => ({
+    props: args,
+    template,
+  }),
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+    docs: {
+      args: null,
+      source: {
+        code: template,
+      },
     },
   },
 };

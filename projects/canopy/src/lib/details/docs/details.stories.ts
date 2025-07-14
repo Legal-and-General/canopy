@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgDetailsComponent } from '../details.component';
@@ -57,7 +57,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: 'true',
         },
       },
     },
@@ -66,7 +66,7 @@ export default {
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: variantTypes,
+          summary: 'generic | info | success | warning | error',
         },
         defaultValue: {
           summary: 'generic',
@@ -82,7 +82,7 @@ export default {
         'The level of the details heading. This will change the tag but not the style.',
       table: {
         type: {
-          summary: [ '1', '2', '3', '4', '5', '6' ],
+          summary: '1 | 2 | 3 | 4 | 5 | 6',
         },
       },
       control: {
@@ -96,7 +96,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: 'true',
         },
       },
     },
@@ -158,30 +158,28 @@ export default {
   },
 } as Meta;
 
-const detailsTemplate: StoryFn<LgDetailsComponent> = (args: LgDetailsComponent) => ({
-  props: args,
-  template: `<lg-details-example
+export const standardDetails = {
+  name: 'Details',
+  render: (args: LgDetailsComponent) => ({
+    props: args,
+    template: `<lg-details-example
       [variant]="variant"
       [headingLevel]="headingLevel"
       [headingText]="headingText"
       [isActive]="isActive"
       [showIcon]="showIcon"
      ></lg-details-example>`,
-});
-
-export const standardDetails = detailsTemplate.bind({});
-standardDetails.storyName = 'Details';
-
-standardDetails.args = {
-  variant: 'generic',
-  headingLevel: 5,
-  headingText: 'How do I change my payment details?',
-};
-
-standardDetails.parameters = {
-  docs: {
-    source: {
-      code: template,
+  }),
+  args: {
+    variant: 'generic',
+    headingLevel: 5,
+    headingText: 'How do I change my payment details?',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

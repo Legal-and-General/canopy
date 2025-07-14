@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSpinnerComponent } from '../spinner.component';
 
@@ -23,7 +23,7 @@ export default {
       description: 'The colour variant of the spinner.',
       table: {
         type: {
-          summary: variantTypes,
+          summary: 'dark | light | color | inherit',
         },
         defaultValue: {
           summary: 'dark',
@@ -38,7 +38,7 @@ export default {
       description: 'The size of the spinner.',
       table: {
         type: {
-          summary: sizes,
+          summary: 'xs | sm | md',
         },
         defaultValue: {
           summary: 'md',
@@ -75,30 +75,27 @@ const template = `
 <lg-spinner [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
 `;
 
-const alertTemplate: StoryFn<LgSpinnerComponent> = (args: LgSpinnerComponent) => ({
-  props: args,
-  template,
-});
+export const standardAlert = {
+  render: (args: LgSpinnerComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    text: 'Please wait while we load your data.',
+    variant: 'generic',
+    size: 'md',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          # Display a spinner while loading
+          <lg-spinner *ngIf="!loaded" [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
 
-export const standardAlert = alertTemplate.bind({});
-standardAlert.storyName = 'Spinner';
-
-standardAlert.args = {
-  text: 'Please wait while we load your data.',
-  variant: 'generic',
-  size: 'md',
-};
-
-standardAlert.parameters = {
-  docs: {
-    source: {
-      code: `
-# Display a spinner while loading
-<lg-spinner *ngIf="!loaded" [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
-
-# Tell screen reader to read a message when loading is finished
-<p [lgSrAlertMessage]="loaded">Loading complete</p>
-      `,
+          # Tell screen reader to read a message when loading is finished
+          <p [lgSrAlertMessage]="loaded">Loading complete</p>
+        `,
+      },
     },
   },
 };

@@ -1,4 +1,4 @@
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgFor } from '@angular/common';
 
 import { LgTabsComponent } from '../tabs.component';
@@ -115,23 +115,21 @@ function getTemplate(preventDefault?: boolean) {
   `;
 }
 
-const tabNavBarStory: StoryFn<LgTabsComponent> = (args: LgTabsComponent) => ({
-  props: args,
-  template: getTemplate(true),
-});
-
-export const tabNavBar = tabNavBarStory.bind({});
-tabNavBar.storyName = 'Tabbed navigation';
-
-tabNavBar.args = {
-  tabs: [ 'Tab 1', 'Tab 2', 'Tab 3', 'Tab 4' ],
-  selectedTabNavIndex: 1,
-};
-
-tabNavBar.parameters = {
-  docs: {
-    source: {
-      code: getTemplate(),
+export const tabNavBar = {
+  name: 'Tabbed navigation',
+  render: (args: LgTabsComponent) => ({
+    props: args,
+    template: getTemplate(true),
+  }),
+  args: {
+    tabs: [ 'Tab 1', 'Tab 2', 'Tab 3', 'Tab 4' ],
+    selectedTabNavIndex: 1,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: getTemplate(),
+      },
     },
   },
 };

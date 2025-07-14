@@ -4,7 +4,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { LgDateFieldComponent } from '../date-field.component';
@@ -218,33 +218,31 @@ export default {
   },
 };
 
-const dateInputStory: StoryFn<LgDateFieldComponent> = (args: LgDateFieldComponent) => ({
-  props: args,
-  template: `
-  <lg-reactive-form
-    (inputChange)="inputChange($event)"
-    [disabled]="disabled"
-    [hint]="hint"
-    [label]="label"
-    [focus]="focus"
-  ></lg-reactive-form>
-  `,
-});
-
-export const dateInput = dateInputStory.bind({});
-dateInput.storyName = 'Date input';
-
-dateInput.args = {
-  disabled: false,
-  label: 'Date of birth',
-  hint: 'For example, 12 06 1983',
-  focus: false,
-};
-
-dateInput.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const dateInput = {
+  name: 'Date input',
+  render: (args: LgDateFieldComponent) => ({
+    props: args,
+    template: `
+      <lg-reactive-form
+        (inputChange)="inputChange($event)"
+        [disabled]="disabled"
+        [hint]="hint"
+        [label]="label"
+        [focus]="focus"
+      ></lg-reactive-form>
+    `,
+  }),
+  args: {
+    disabled: false,
+    label: 'Date of birth',
+    hint: 'For example, 12 06 1983',
+    focus: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

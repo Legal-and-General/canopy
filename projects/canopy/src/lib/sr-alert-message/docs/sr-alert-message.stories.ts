@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSrAlertMessageDirective } from '../sr-alert-message.directive';
 
@@ -47,28 +47,24 @@ const template = `
 <p [lgSrAlertMessage]="lgSrAlertMessage" [timer]="timer">Loading complete</p>
 `;
 
-const srAlertMessageTemplate: StoryFn<LgSrAlertMessageDirective> = (
-  args: LgSrAlertMessageDirective,
-) => ({
-  props: args,
-  template: `
-  <p>The HTML element the directive is applied on is automatically visually hidden. Turn on the screen reader to listen to the message.</p>
-  ${template}
-  `,
-});
-
-export const srAlertMessageStory = srAlertMessageTemplate.bind({});
-srAlertMessageStory.storyName = 'Screen reader alert message';
-
-srAlertMessageStory.args = {
-  lgSrAlertMessage: false,
-  timer: 8000,
-};
-
-srAlertMessageStory.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const srAlertMessageStory = {
+  name: 'Screen reader alert message',
+  render: (args: LgSrAlertMessageDirective) => ({
+    props: args,
+    template: `
+      <p>The HTML element the directive is applied on is automatically visually hidden. Turn on the screen reader to listen to the message.</p>
+      ${template}
+    `,
+  }),
+  args: {
+    lgSrAlertMessage: false,
+    timer: 8000,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

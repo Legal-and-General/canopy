@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { NgFor } from '@angular/common';
 
 import { LgPromoCardComponent } from '../promo-card/promo-card.component';
@@ -112,7 +112,7 @@ export default {
       description: 'The variant to apply to the card.',
       table: {
         type: {
-          summary: variants,
+          summary: 'solid-white | solid-green | solid-yellow',
         },
         defaultValue: {
           summary: variants[0],
@@ -128,7 +128,7 @@ export default {
       description: 'The variant to apply to the card.',
       table: {
         type: {
-          summary: variants,
+          summary: 'solid-white | solid-green | solid-yellow',
         },
         defaultValue: {
           summary: variants[0],
@@ -144,7 +144,7 @@ export default {
       description: 'The variant to apply to the card.',
       table: {
         type: {
-          summary: variants,
+          summary: 'solid-white | solid-green | solid-yellow',
         },
         defaultValue: {
           summary: variants[1],
@@ -186,28 +186,23 @@ const examplePromoCardTemplate = `
 </lg-promo-card-list>
 `;
 
-const promoCardListTemplate: StoryFn<LgPromoCardComponent> = (
-  args: LgPromoCardComponent,
-) => ({
-  props: args,
-  template:
-    '<lg-promo-card-list-story [variants]="[variant1, variant2, variant3]"></lg-promo-card-list-story>',
-});
-
-export const promoCardList = promoCardListTemplate.bind({});
-promoCardList.storyName = 'Promo card list';
-promoCardList.component = promoCardListTemplate;
-
-promoCardList.args = {
-  variant1: variants[0],
-  variant2: variants[0],
-  variant3: variants[1],
-};
-
-promoCardList.parameters = {
-  docs: {
-    source: {
-      code: examplePromoCardTemplate,
+export const promoCardList = {
+  name: 'Promo card list',
+  render: (args: PromoCardListStoryComponent) => ({
+    props: args,
+    template:
+      '<lg-promo-card-list-story [variants]="[variant1, variant2, variant3]"></lg-promo-card-list-story>',
+  }),
+  args: {
+    variant1: variants[0],
+    variant2: variants[0],
+    variant3: variants[1],
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: examplePromoCardTemplate,
+      },
     },
   },
 };

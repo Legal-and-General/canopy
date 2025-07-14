@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/angular';
+import { Meta } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgAlertComponent } from '../alert.component';
@@ -26,7 +26,7 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: true,
+          summary: 'true',
         },
       },
     },
@@ -35,7 +35,7 @@ export default {
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: variantTypes,
+          summary: 'generic | info | success | warning | error',
         },
         defaultValue: {
           summary: 'generic',
@@ -67,23 +67,21 @@ const template = `
 </lg-alert>
 `;
 
-const alertTemplate: StoryFn<LgAlertComponent> = (args: LgAlertComponent) => ({
-  props: args,
-  template,
-});
-
-export const standardAlert = alertTemplate.bind({});
-standardAlert.storyName = 'Inline message';
-
-standardAlert.args = {
-  content: 'This is an inline message.',
-  variant: 'generic',
-};
-
-standardAlert.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardAlert = {
+  name: 'Inline message',
+  render: (args: LgAlertComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    content: 'This is an inline message.',
+    variant: 'generic',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

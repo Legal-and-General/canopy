@@ -4,17 +4,17 @@ const svgoIconsConfig = {
       name: 'preset-default',
       params: {
         overrides: {
-          removeViewBox: false
+          removeViewBox: false,
         },
       },
     },
     {
       name: 'removeAttrs',
       params: {
-        attrs: [ 'fill', 'path:fill' ]
+        attrs: ['fill', 'path:fill'],
       },
     },
-  ]
+  ],
 };
 
 module.exports = svgoIconsConfig;

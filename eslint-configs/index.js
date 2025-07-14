@@ -5,5 +5,5 @@ const javascriptConfig = require('./javascript.config.js');
 module.exports = {
   typescriptConfig,
   templateConfig,
-  javascriptConfig
+  javascriptConfig,
 };

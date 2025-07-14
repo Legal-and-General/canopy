@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/angular';
+import { Meta } from '@storybook/angular';
 
 import { LgProgressBarComponent } from '../progress-bar/progress-bar.component';
 
@@ -13,7 +13,7 @@ export default {
           summary: 'number',
         },
         defaultValue: {
-          summary: 4,
+          summary: '4',
         },
       },
     },
@@ -24,7 +24,7 @@ export default {
           summary: 'number',
         },
         defaultValue: {
-          summary: 1,
+          summary: '1',
         },
       },
     },
@@ -35,26 +35,21 @@ const template = `
   <lg-progress-bar [max]="max" [value]="value"></lg-progress-bar>
 `;
 
-const detailsTemplate: StoryFn<LgProgressBarComponent> = (
-  args: LgProgressBarComponent,
-) => ({
-  props: args,
-  template,
-});
-
-export const progressBar = detailsTemplate.bind({});
-
-progressBar.storyName = 'Progress bar';
-
-progressBar.args = {
-  max: 4,
-  value: 1,
-};
-
-progressBar.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const progressBar = {
+  name: 'Progress bar',
+  render: (args: LgProgressBarComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    max: 4,
+    value: 1,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

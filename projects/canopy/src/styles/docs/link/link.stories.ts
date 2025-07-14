@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/angular';
+import { Meta } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgAlertComponent } from '../../../lib/alert';
@@ -18,17 +18,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit <a href="#">inline link 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 `;
 
-const linksTemplateStory: Story = () => ({
-  template: standardTemplate,
-});
-
-export const links = linksTemplateStory.bind({});
-links.storyName = 'Standard';
-
-links.parameters = {
-  docs: {
-    source: {
-      code: standardTemplate,
+export const links = {
+  name: 'Standard',
+  render: (args: unknown) => ({
+    props: args,
+    template: standardTemplate,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: standardTemplate,
+      },
     },
   },
 };
@@ -40,17 +40,17 @@ const linksInlineMessagesTemplate = `
 <lg-alert variant="error">Example of <a href="#">link text</a> within an alert.</lg-alert>
 `;
 
-const linksInlineMessagesStory: Story = () => ({
-  template: linksInlineMessagesTemplate,
-});
-
-export const linksInlineMessages = linksInlineMessagesStory.bind({});
-linksInlineMessages.storyName = 'Within inline messages';
-
-linksInlineMessages.parameters = {
-  docs: {
-    source: {
-      code: linksInlineMessagesTemplate,
+export const linksInlineMessages = {
+  name: 'Within inline messages',
+  render: (args: unknown) => ({
+    props: args,
+    template: linksInlineMessagesTemplate,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: linksInlineMessagesTemplate,
+      },
     },
   },
 };

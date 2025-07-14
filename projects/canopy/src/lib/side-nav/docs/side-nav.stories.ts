@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 import { SideNavBarItem } from '../side-nav.interface';
 import { LgSideNavComponent } from '../side-nav.component';
-import { LgValidationComponent } from '../../forms';
 import { LgButtonComponent } from '../../button';
 import { LgSideNavBarComponent } from '../side-nav-bar/side-nav-bar.component';
 import { LgSideNavContentComponent } from '../side-nav-content/side-nav-content.component';
@@ -117,22 +116,20 @@ const getDefaultNavItems = (): Array<SideNavBarItem> => [
   },
 ];
 
-const sideNavStory: StoryFn<LgValidationComponent> = (args: LgValidationComponent) => ({
-  props: args,
-  template: '<lg-story-side-nav [navItems]="navItems"></lg-story-side-nav>',
-});
-
-export const sideNav = sideNavStory.bind({});
-sideNav.storyName = 'Side nav';
-
-sideNav.args = {
-  navItems: getDefaultNavItems(),
-};
-
-sideNav.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const sideNav = {
+  name: 'Side nav',
+  render: (args: StorySideNavComponent) => ({
+    props: args,
+    template: '<lg-story-side-nav [navItems]="navItems"></lg-story-side-nav>',
+  }),
+  args: {
+    navItems: getDefaultNavItems(),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

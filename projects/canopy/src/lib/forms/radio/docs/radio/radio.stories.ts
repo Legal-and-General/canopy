@@ -4,7 +4,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
@@ -238,38 +238,36 @@ export default {
   },
 };
 
-const radioStory: StoryFn<LgRadioButtonComponent> = (args: LgRadioButtonComponent) => ({
-  props: args,
-  template: `
-  <lg-reactive-form-radio
-    [disabled]="disabled"
-    [hint]="hint"
-    [inline]="inline"
-    [size]="size"
-    [label]="label"
-    [focus]="focus"
-    (radioChange)="radioChange($event)"
-    (radioBlur)="radioBlur($event)">
-  </lg-reactive-form-radio>
-  `,
-});
-
-export const radio = radioStory.bind({});
-radio.storyName = 'Radio';
-
-radio.args = {
-  disabled: false,
-  inline: false,
-  size: 'sm',
-  focus: false,
-  label: 'Color',
-  hint: 'Please select a color',
-};
-
-radio.parameters = {
-  docs: {
-    source: {
-      code: formTemplate,
+export const radio = {
+  name: 'Radio',
+  render: (args: LgRadioButtonComponent) => ({
+    props: args,
+    template: `
+      <lg-reactive-form-radio
+        [disabled]="disabled"
+        [hint]="hint"
+        [inline]="inline"
+        [size]="size"
+        [label]="label"
+        [focus]="focus"
+        (radioChange)="radioChange($event)"
+        (radioBlur)="radioBlur($event)">
+      </lg-reactive-form-radio>
+    `,
+  }),
+  args: {
+    disabled: false,
+    inline: false,
+    size: 'sm',
+    focus: false,
+    label: 'Color',
+    hint: 'Please select a color',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: formTemplate,
+      },
     },
   },
 };

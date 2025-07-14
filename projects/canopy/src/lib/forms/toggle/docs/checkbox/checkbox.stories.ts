@@ -1,12 +1,8 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgToggleComponent } from '../../toggle.component';
-import {
-  createToggleStory,
-  ReactiveToggleFormComponent,
-  setupToggleStoryValues,
-} from '../toggle.stories.common';
+import { createToggleStory, ReactiveToggleFormComponent } from '../toggle.stories.common';
 
 export default {
   title: 'Components/Forms/Checkbox/Examples',
@@ -176,9 +172,6 @@ export default {
   },
 };
 
-const checkboxStory: StoryFn<LgToggleComponent> = (args: LgToggleComponent) =>
-  createToggleStory(args, 'checkbox');
-
 const code = `
 <lg-checkbox
   formControlName="umbrella"
@@ -192,11 +185,22 @@ const code = `
 </lg-checkbox>
 `;
 
-export const checkbox = checkboxStory.bind({});
-checkbox.storyName = 'Checkbox';
-setupToggleStoryValues(checkbox, code);
-
-checkbox.args = {
-  ...checkbox.args,
-  variant: 'checkbox',
+export const checkbox = {
+  name: 'Checkbox',
+  render: (args: LgToggleComponent) => createToggleStory(args, 'checkbox'),
+  args: {
+    disabled: false,
+    inline: false,
+    focus: false,
+    size: 'sm',
+    label: 'I will bring my Umbrella if it is raining',
+    variant: 'checkbox',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code,
+      },
+    },
+  },
 };

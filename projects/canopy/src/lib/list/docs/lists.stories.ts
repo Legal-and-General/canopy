@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, HostBinding, Input } from '@angular/core';
 import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 
@@ -139,115 +139,124 @@ function getDefaultList(): Array<ListItems> {
   ];
 }
 
-const listWithIconsTemplate: StoryFn<ListWithIconsWrapperComponent> = (
-  args: ListWithIconsWrapperComponent,
-) => ({
-  props: args,
-  template:
-    '<lg-list-with-icons-wrapper [listItems]="listItems" [variant]="variant" [colouredIcons]="colouredIcons"></lg-list-with-icons-wrapper>',
-});
-
-export const internalColouredListWithIcons = listWithIconsTemplate.bind({});
-internalColouredListWithIcons.storyName = 'Internal coloured icons';
-
-internalColouredListWithIcons.args = {
-  listItems: getDefaultList(),
-  colouredIcons: true,
+export const internalColouredListWithIcons = {
+  name: 'Internal coloured icons',
+  render: (args: ListWithIconsWrapperComponent) => ({
+    props: args,
+    template:
+      '<lg-list-with-icons-wrapper [listItems]="listItems" [variant]="variant" [colouredIcons]="colouredIcons"></lg-list-with-icons-wrapper>',
+  }),
+  args: {
+    listItems: getDefaultList(),
+    colouredIcons: true,
+  },
 };
 
-export const neutralForegroundListWithIcons = listWithIconsTemplate.bind({});
-neutralForegroundListWithIcons.storyName = 'List with icons - Neutral foreground';
-
-neutralForegroundListWithIcons.args = {
-  listItems: getDefaultList(),
-  colouredIcons: false,
-};
-
-neutralForegroundListWithIcons.parameters = {
-  docs: {
-    source: {
-      code: `
-<ul lg-list-with-icons>
-  <li lg-list-with-icons-item iconName="checkmark">List item 1</li>
-  <li lg-list-with-icons-item iconName="checkmark">List item 2</li>
-  <li lg-list-with-icons-item iconName="close">List item 3</li>
-</ul>
-      `,
+export const neutralForegroundListWithIcons = {
+  name: 'List with icons - Neutral foreground',
+  render: (args: ListWithIconsWrapperComponent) => ({
+    props: args,
+    template:
+      '<lg-list-with-icons-wrapper [listItems]="listItems" [variant]="variant" [colouredIcons]="colouredIcons"></lg-list-with-icons-wrapper>',
+  }),
+  args: {
+    listItems: getDefaultList(),
+    colouredIcons: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          <ul lg-list-with-icons>
+            <li lg-list-with-icons-item iconName="checkmark">List item 1</li>
+            <li lg-list-with-icons-item iconName="checkmark">List item 2</li>
+            <li lg-list-with-icons-item iconName="close">List item 3</li>
+          </ul>
+        `,
+      },
     },
   },
 };
 
-export const darkForegroundListWithIcons = listWithIconsTemplate.bind({});
-darkForegroundListWithIcons.storyName = 'List with icons - Dark foreground';
-
-darkForegroundListWithIcons.args = {
-  variant: 'dark-foreground',
-  listItems: getDefaultList(),
-  colouredIcons: false,
-};
-
-darkForegroundListWithIcons.parameters = {
-  docs: {
-    source: {
-      code: `
-<ul lg-list-with-icons variant="dark-foreground">
-  <li lg-list-with-icons-item iconName="help">List item 1</li>
-  <li lg-list-with-icons-item iconName="idea">List item 2</li>
-  <li lg-list-with-icons-item iconName="house">List item 3</li>
-</ul>
-      `,
+export const darkForegroundListWithIcons = {
+  name: 'List with icons - Dark foreground',
+  render: (args: ListWithIconsWrapperComponent) => ({
+    props: args,
+    template:
+      '<lg-list-with-icons-wrapper [listItems]="listItems" [variant]="variant" [colouredIcons]="colouredIcons"></lg-list-with-icons-wrapper>',
+  }),
+  args: {
+    variant: 'dark-foreground',
+    listItems: getDefaultList(),
+    colouredIcons: false,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          <ul lg-list-with-icons variant="dark-foreground">
+            <li lg-list-with-icons-item iconName="help">List item 1</li>
+            <li lg-list-with-icons-item iconName="idea">List item 2</li>
+            <li lg-list-with-icons-item iconName="house">List item 3</li>
+          </ul>
+        `,
+      },
     },
   },
 };
 
-export const lightForegroundListWithIcons = listWithIconsTemplate.bind({});
-lightForegroundListWithIcons.storyName = 'List with icons - Light foreground';
-
-lightForegroundListWithIcons.args = {
-  variant: 'light-foreground',
-  listItems: getDefaultList(),
-  colouredIcons: false,
-};
-
-lightForegroundListWithIcons.argTypes = {
-  colouredIcons: {
-    table: {
-      disable: true,
+export const lightForegroundListWithIcons = {
+  name: 'List with icons - Light foreground',
+  render: (args: ListWithIconsWrapperComponent) => ({
+    props: args,
+    template:
+      '<lg-list-with-icons-wrapper [listItems]="listItems" [variant]="variant" [colouredIcons]="colouredIcons"></lg-list-with-icons-wrapper>',
+  }),
+  args: {
+    variant: 'light-foreground',
+    listItems: getDefaultList(),
+    colouredIcons: false,
+  },
+  argTypes: {
+    colouredIcons: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+          <ul lg-list-with-icons variant="light-foreground">
+            <li lg-list-with-icons-item iconName="doc">List item 1</li>
+            <li lg-list-with-icons-item iconName="doc">List item 2</li>
+            <li lg-list-with-icons-item iconName="doc">List item 3</li>
+          </ul>
+        `,
+      },
     },
   },
 };
 
-lightForegroundListWithIcons.parameters = {
-  docs: {
-    source: {
-      code: `
-<ul lg-list-with-icons variant="light-foreground">
-  <li lg-list-with-icons-item iconName="doc">List item 1</li>
-  <li lg-list-with-icons-item iconName="doc">List item 2</li>
-  <li lg-list-with-icons-item iconName="doc">List item 3</li>
-</ul>
-      `,
-    },
-  },
+export const orderedListWithNumerals = {
+  name: 'Ordered list with expressive styling',
+  render: (args: ListWithIconsWrapperComponent) => ({
+    props: args,
+    template: `
+      <ol lgListWithExpressiveStyling>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+        <li>Item 10</li>
+      </ol>
+    `,
+  }),
+  argTypes: { colouredIcons: { table: { disable: true } } },
 };
-
-const orderedListTemplate = () => ({
-  template: `
-    <ol lgListWithExpressiveStyling>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-      <li>Item 4</li>
-      <li>Item 5</li>
-      <li>Item 6</li>
-      <li>Item 7</li>
-      <li>Item 8</li>
-      <li>Item 9</li>
-      <li>Item 10</li>
-    </ol>
-  `,
-});
-
-export const orderedListWithNumerals = orderedListTemplate.bind({});
-orderedListWithNumerals.storyName = 'Ordered list with expressive styling';
-orderedListWithNumerals.argTypes = { colouredIcons: { table: { disable: true } } };

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { JsonPipe } from '@angular/common';
 
 import { SpacingVariant } from '../../spacing.interface';
@@ -108,7 +108,8 @@ export default {
       options: spaces,
       table: {
         type: {
-          summary: spaces,
+          summary:
+            'undefined | none | xxxs | xxs | xs | sm | md | lg | xl | xxl | xxxl | xxxxl',
         },
       },
     },
@@ -119,22 +120,19 @@ const template = `
 <lg-row-gap-story [rowGap]="rowGap"></lg-row-gap-story>
 `;
 
-const rowGapStory: StoryFn<LgRowGapDirective> = (args: LgRowGapDirective) => ({
-  props: args,
-  template,
-});
-
-export const rowGap = rowGapStory.bind({});
-rowGap.storyName = 'Row gap';
-
-rowGap.args = {
-  rowGap: 'sm',
-};
-
-rowGap.parameters = {
-  docs: {
-    source: {
-      code: null,
+export const rowGap = {
+  renderer: (args: LgRowGapDirective) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    rowGap: 'sm',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: null,
+      },
     },
   },
 };

@@ -1,4 +1,4 @@
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 
 import { LgTabsComponent } from '../tabs.component';
 import { LgMarginDirective } from '../../spacing';
@@ -111,22 +111,20 @@ const template = `
 </lg-tabs>
 `;
 
-const standardTabsStory: StoryFn<LgTabsComponent> = (args: LgTabsComponent) => ({
-  props: args,
-  template,
-});
-
-export const standardTabs = standardTabsStory.bind({});
-standardTabs.storyName = 'Tabbed content';
-
-standardTabs.args = {
-  tabs: getDefaultTabsContent(),
-};
-
-standardTabs.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardTabs = {
+  name: 'Tabbed content',
+  render: (args: LgTabsComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    tabs: getDefaultTabsContent(),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };

@@ -1,4 +1,4 @@
-import { Meta, moduleMetadata, StoryFn } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgHeaderComponent } from '../header.component';
@@ -190,42 +190,39 @@ const template = `
 </header>
 `;
 
-const standardStory: StoryFn<LgHeaderComponent> = (args: LgHeaderComponent) => ({
-  props: args,
-  template,
-});
-
-export const standardHeader = standardStory.bind({});
-standardHeader.storyName = 'Standard';
-
-standardHeader.args = {
-  logo: 'legal-and-general-logo.svg',
-  logoAlt: 'Company name',
-  logoHref: 'https://storybook.js.org',
-};
-
-standardHeader.parameters = {
-  docs: {
-    source: {
-      code: template,
+export const standardHeader = {
+  name: 'Standard',
+  render: (args: LgHeaderComponent) => ({
+    props: args,
+    template,
+  }),
+  args: {
+    logo: 'legal-and-general-logo.svg',
+    logoAlt: 'Company name',
+    logoHref: 'https://storybook.js.org',
+  },
+  argTypes: {
+    secondaryLogo: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoAlt: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoHref: {
+      table: {
+        disable: true,
+      },
     },
   },
-};
-
-standardHeader.argTypes = {
-  secondaryLogo: {
-    table: {
-      disable: true,
-    },
-  },
-  secondaryLogoAlt: {
-    table: {
-      disable: true,
-    },
-  },
-  secondaryLogoHref: {
-    table: {
-      disable: true,
+  parameters: {
+    docs: {
+      source: {
+        code: template,
+      },
     },
   },
 };
@@ -239,76 +236,71 @@ const coBrandedTemplate = `
 </header>
 `;
 
-const coBrandedStory: StoryFn<LgHeaderComponent> = (args: LgHeaderComponent) => ({
-  props: args,
-  template: coBrandedTemplate,
-  styles: [
-    `
-      :host {
-        --header-second-logo-width: 100px;
-        --header-second-logo-width-lg: 300px;
-      }
-    `,
-  ],
-});
-
-export const coBrandedHeader = coBrandedStory.bind({});
-coBrandedHeader.storyName = 'Co-branded';
-
-coBrandedHeader.args = {
-  logo: 'legal-and-general-logo.svg',
-  logoAlt: 'Company name',
-  logoHref: 'https://storybook.js.org',
-  secondaryLogo: 'dummy-logo.svg',
-  secondaryLogoAlt: 'Second company name',
-  secondaryLogoHref: 'https://storybook.js.org',
-};
-
-coBrandedHeader.parameters = {
-  docs: {
-    source: {
-      code: coBrandedTemplate,
+export const coBrandedHeader = {
+  name: 'Co-branded',
+  render: (args: LgHeaderComponent) => ({
+    props: args,
+    template: coBrandedTemplate,
+    styles: [
+      `
+        :host {
+          --header-second-logo-width: 100px;
+          --header-second-logo-width-lg: 300px;
+        }
+      `,
+    ],
+  }),
+  args: {
+    logo: 'legal-and-general-logo.svg',
+    logoAlt: 'Company name',
+    logoHref: 'https://storybook.js.org',
+    secondaryLogo: 'dummy-logo.svg',
+    secondaryLogoAlt: 'Second company name',
+    secondaryLogoHref: 'https://storybook.js.org',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: coBrandedTemplate,
+      },
     },
   },
 };
 
-const navStory: StoryFn<LgHeaderComponent> = (args: LgHeaderComponent) => ({
-  props: args,
-  template:
-    '<lg-navigation [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></ lg-navigation>',
-});
-
-export const navHeader = navStory.bind({});
-navHeader.storyName = 'Navigation';
-
-navHeader.args = {
-  logo: 'legal-and-general-logo.svg',
-  logoAlt: 'Company name',
-  logoHref: 'https://storybook.js.org',
-};
-
-navHeader.parameters = {
-  docs: {
-    source: {
-      code: navigationTemplate,
+export const navHeader = {
+  name: 'Navigation',
+  render: (args: LgHeaderComponent) => ({
+    props: args,
+    template:
+      '<lg-navigation [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref"></ lg-navigation>',
+  }),
+  args: {
+    logo: 'legal-and-general-logo.svg',
+    logoAlt: 'Company name',
+    logoHref: 'https://storybook.js.org',
+  },
+  argTypes: {
+    secondaryLogo: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoAlt: {
+      table: {
+        disable: true,
+      },
+    },
+    secondaryLogoHref: {
+      table: {
+        disable: true,
+      },
     },
   },
-};
-
-navHeader.argTypes = {
-  secondaryLogo: {
-    table: {
-      disable: true,
-    },
-  },
-  secondaryLogoAlt: {
-    table: {
-      disable: true,
-    },
-  },
-  secondaryLogoHref: {
-    table: {
-      disable: true,
+  parameters: {
+    docs: {
+      source: {
+        code: navigationTemplate,
+      },
     },
   },
 };

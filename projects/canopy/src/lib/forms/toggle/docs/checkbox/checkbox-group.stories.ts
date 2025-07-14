@@ -4,7 +4,7 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
-import { moduleMetadata, StoryFn } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
 import { LgCheckboxGroupComponent } from '../../../checkbox-group';
@@ -194,38 +194,34 @@ export default {
   },
 };
 
-const checkboxGroupStory: StoryFn<LgCheckboxGroupComponent> = (
-  args: LgCheckboxGroupComponent,
-) => ({
-  props: args,
-  template: `
-    <lg-reactive-form
-      [disabled]="disabled"
-      [hint]="hint"
-      [inline]="inline"
-      [focus]="focus"
-      [label]="label"
-      (checkboxChange)="checkboxChange($event)"
-      (checkboxBlur)="checkboxBlur($event)">
-    </lg-reactive-form>
-  `,
-});
-
-export const checkboxGroup = checkboxGroupStory.bind({});
-checkboxGroup.storyName = 'Checkbox group';
-
-checkboxGroup.args = {
-  inline: false,
-  disabled: false,
-  focus: false,
-  label: 'Color',
-  hint: 'Please select all colors that apply',
-};
-
-checkboxGroup.parameters = {
-  docs: {
-    source: {
-      code: formTemplate,
+export const checkboxGroup = {
+  name: 'Checkbox group',
+  render: (args: LgCheckboxGroupComponent) => ({
+    props: args,
+    template: `
+      <lg-reactive-form
+        [disabled]="disabled"
+        [hint]="hint"
+        [inline]="inline"
+        [focus]="focus"
+        [label]="label"
+        (checkboxChange)="checkboxChange($event)"
+        (checkboxBlur)="checkboxBlur($event)">
+      </lg-reactive-form>
+    `,
+  }),
+  args: {
+    inline: false,
+    disabled: false,
+    focus: false,
+    label: 'Color',
+    hint: 'Please select all colors that apply',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: formTemplate,
+      },
     },
   },
 };
