@@ -172,6 +172,8 @@ export default {
       declarations: [ SwatchComponent, TintSwatchComponent ],
     }),
   ],
+  // !dev tag removes a story/component from the sidebar (See: https://github.com/storybookjs/storybook/pull/26634)
+  tags: [ '!dev' ],
 } as Meta;
 
 const coreColoursTemplate = `
