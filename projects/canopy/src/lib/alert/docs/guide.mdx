@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as AlertStories from './alert.stories.ts';
 
 <Meta title="Components/Inline message (Alert)/Guide" />
 
@@ -27,7 +28,7 @@ Import the inline message (alert) component into your application:
 
 and in your HTML:
 
-<Source id="components-inline-message-alert-examples--standard-alert" />
+<Source of={AlertStories.standardAlert} />
 
 ### Variants
 

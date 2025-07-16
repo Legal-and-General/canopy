@@ -100,7 +100,7 @@ export default {
         'The heading level of the accordion panel heading. This will change the tag but not the style.',
       table: {
         type: {
-          summary: '1 | 2 | 3 | 4 | 5 | 6',
+          summary: '1,2,3,4,5,6',
         },
       },
       control: {

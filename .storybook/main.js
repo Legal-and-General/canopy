@@ -27,7 +27,7 @@ module.exports = {
     '../projects/canopy/src/lib/alert/docs/alert.stories.ts',
     '../projects/canopy/src/lib/banner/docs/guide.mdx',
     '../projects/canopy/src/lib/banner/docs/banner.stories.ts',
-    '../projects/canopy/src/styles/blockquote.mdx',
+    '../projects/canopy/src/styles/guide.mdx',
     '../projects/canopy/src/styles/blockquote.stories.ts',
     '../projects/canopy/src/lib/breadcrumb/docs/guide.mdx',
     '../projects/canopy/src/lib/breadcrumb/docs/breadcrumb.stories.ts',
@@ -140,20 +140,30 @@ module.exports = {
     '../projects/canopy/src/lib/variant/docs/guide.mdx',
     '../projects/canopy/src/lib/variant/docs/variant.stories.ts',
     //  Pipes
-    '../projects/canopy/src/lib/pipes/camel-case/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/pipes/camel-case/docs/guide.mdx',
     '../projects/canopy/src/lib/pipes/camel-case/docs/camel-case.stories.ts',
-    '../projects/canopy/src/lib/pipes/kebab-case/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/pipes/kebab-case/docs/guide.mdx',
     '../projects/canopy/src/lib/pipes/kebab-case/docs/kebab-case.stories.ts',
     //  Components
-    '../projects/canopy/src/lib/heading/docs/guide.stories.mdx',
+    '../projects/canopy/src/lib/heading/docs/guide.mdx',
     '../projects/canopy/src/lib/heading/docs/heading.stories.ts',
     //  Style
-    '../projects/canopy/src/styles/docs/mixins.stories.mdx',
-    '../projects/canopy/src/styles/docs/utils.stories.mdx',
+    '../projects/canopy/src/styles/docs/mixins.mdx',
+    '../projects/canopy/src/styles/docs/utils.mdx',
   ],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
   staticDirs: [
     '../assets/',
@@ -169,5 +179,4 @@ module.exports = {
     name: '@storybook/angular',
     options: {},
   },
-  docs: {},
 };

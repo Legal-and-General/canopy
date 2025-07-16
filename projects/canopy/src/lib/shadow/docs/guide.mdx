@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as ShadowStories from './shadow.stories';
 
 <Meta title="Helpers/Directives/Shadow/Guide" />
 
@@ -20,7 +21,7 @@ Import the shadow directive in your application:
 
 and in your HTML:
 
-<Source id="helpers-directives-shadow-examples--shadow-story" />
+<Source of={ShadowStories.shadow} />
 
 ### Inputs
 

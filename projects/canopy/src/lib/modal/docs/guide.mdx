@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as ModalStories from './modal.stories';
 
 <Meta title="Components/Modal/Guide" />
 
@@ -49,7 +50,7 @@ and to close it:
 
 Then in your HTML:
 
-<Source id="components-modal-examples--standard-separator" />
+<Source of={ModalStories.standardSeparator} />
 
 ## How it works
 

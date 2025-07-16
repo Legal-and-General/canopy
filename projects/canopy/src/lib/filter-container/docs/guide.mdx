@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as FilterContainerStories from './filter-container.stories';
 
 <Meta title="Patterns/Filter container/Guide" />
 
@@ -22,7 +23,7 @@ Import the filter container components in your application:
 
 and in your HTML:
 
-<Source id="patterns-filter-container-examples--standard-filter-container" />
+<Source of={FilterContainerStories.standardFilterContainer} />
 
 The toggle button **must have** the `lgButtonToggle` directive on it for the component to work properly.
 

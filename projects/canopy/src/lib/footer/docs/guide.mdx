@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as FooterStories from './footer.stories';
 
 <Meta title="Components/Footer/Guide" />
 
@@ -20,7 +21,7 @@ Import the footer components in your application:
 
 and in your HTML:
 
-<Source id="components-footer-examples--standard-footer" />
+<Source of={FooterStories.standardFooter} />
 
 ## Additional development details
 
@@ -59,13 +60,13 @@ This is where a navigation item should be projected.
 
 Co-branding can be achieved by adding two logos side by side using the `LgFooterLogoComponent`:
 
-<Source id="components-footer-examples--co-branded-footer" />
+<Source of={FooterStories.coBrandedFooter} />
 
 ### Compact
 
 A compact layout can be achieved by using the below structure:
 
-<Source id="components-footer-examples--compact-footer" />
+<Source of={FooterStories.compactFooter} />
 
 ### Changing the width of the logos
 

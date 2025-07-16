@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as ButtonsGroupStories from './button-group.stories';
 
 <Meta title="Components/Button/Guide" />
 
@@ -178,7 +179,7 @@ Buttons can be grouped together by using the `LgButtonGroupComponent` – a cont
 
 Useful for forms where a 'Submit' and 'Cancel' button are placed side by side, for example.
 
-<Source id="components-button-examples--standard-button-group" />
+<Source of={ButtonsGroupStories.standardButtonGroup} />
 
 ### Button toggle directive
 

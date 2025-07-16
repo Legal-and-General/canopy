@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as ShowAtStories from './show-at.stories';
 
 <Meta title="Helpers/Directives/Show at/Guide" />
 
@@ -26,7 +27,7 @@ Import the show-at directive in your application:
 
 and in your HTML:
 
-<Source id="helpers-directives-show-at-examples--show-at-story" />
+<Source of={ShowAtStories.showAtStory} />
 
 ### Inputs
 

@@ -166,7 +166,7 @@ class TintSwatchComponent implements AfterViewInit {
 }
 
 export default {
-  title: 'Internal Colours',
+  title: 'Foundations/Colours',
   decorators: [
     moduleMetadata({
       declarations: [ SwatchComponent, TintSwatchComponent ],

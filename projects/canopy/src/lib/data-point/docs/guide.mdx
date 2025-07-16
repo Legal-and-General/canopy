@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as DataPointStories from './data-point.stories';
 
 <Meta title="Components/Data point/Guide" />
 
@@ -20,11 +21,11 @@ Import the data point components in your application:
 
 In your HTML, for a single data point:
 
-<Source id="components-data-point-examples--single-data-point" />
+<Source of={DataPointStories.singleDataPoint} />
 
 and for a data point list:
 
-<Source id="components-data-point-examples--data-points-list-story" />
+<Source of={DataPointStories.dataPointsListStory} />
 
 ### Inputs
 

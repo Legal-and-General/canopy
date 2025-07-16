@@ -3,7 +3,7 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 import { DocsWelcomePageComponent } from './welcome.component';
 
 export default {
-  title: 'Internal Welcome',
+  title: 'Welcome',
   decorators: [
     moduleMetadata({
       imports: [ DocsWelcomePageComponent ],
