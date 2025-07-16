@@ -1,12 +1,14 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 export default {
-  title: 'Internal Accessibility Overview',
+  title: 'Accessibility Overview',
   decorators: [
     moduleMetadata({
       imports: [],
     }),
   ],
+  // !dev tag removes a story/component from the sidebar (See: https://github.com/storybookjs/storybook/pull/26634)
+  tags: [ '!dev' ],
 } as Meta;
 
 const mainQuoteTemplate = `
