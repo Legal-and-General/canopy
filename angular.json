@@ -37,6 +37,8 @@
         "storybook": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
+            "configDir": ".storybook",
+            "browserTarget": "canopy:build",
             "styles": [
               "dist/canopy/canopy.css",
               ".storybook/lyon-override.css"
@@ -49,6 +51,9 @@
         "build-storybook": {
           "builder": "@storybook/angular:build-storybook",
           "options": {
+            "configDir": ".storybook",
+            "browserTarget": "canopy:build",
+            "outputDir": "dist/storybook",
             "styles": [
               "dist/canopy/canopy.css",
               ".storybook/lyon-override.css"
