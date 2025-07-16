@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../../docs/common/feedback.md';
+import * as SortCodeStories from './sort-code.stories';
 
 <Meta title="Patterns/Sort code/Guide" />
 
@@ -20,7 +21,7 @@ Import the sort code and the [text input component](./?path=/docs/components-for
 
 and in your HTML:
 
-<Source id="patterns-sort-code-examples--sort-code" />
+<Source of={SortCodeStories.sortCode} />
 
 Both the `lgInput` and `lgSortCode` directives have to be present on the input element.
 

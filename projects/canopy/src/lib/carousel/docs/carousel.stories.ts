@@ -32,7 +32,7 @@ export default {
       description: 'The visually hidden heading level for the carousel.',
       table: {
         type: {
-          summary: [ '1', '2', '3', '4', '5', '6' ],
+          summary: '1,2,3,4,5,6',
         },
       },
       control: {

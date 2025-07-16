@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as BannerStories from './banner.stories.ts';
 
 <Meta title="Components/Banner message (WIP)/Guide" />
 
@@ -30,7 +31,7 @@ Import the banner component into your application:
 
 and in your HTML:
 
-<Source id="components-banner-message-wip-examples--standard-banner" />
+<Source of={BannerStories.standardBanner} />
 
 ### Variants
 

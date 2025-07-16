@@ -42,14 +42,12 @@ export default {
   },
 } as Meta;
 
-const ShadowRenderer = (args: { hasHoverState: boolean }) => ({
-  props: args,
-  template,
-});
-
-export const Shadow = {
+export const shadow = {
   name: 'Shadow',
-  render: ShadowRenderer,
+  render: (args: { hasHoverState: boolean }) => ({
+    props: args,
+    template,
+  }),
   args: {
     hasHoverState: false,
   },

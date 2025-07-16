@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as LinkMenuStories from './link-menu.stories';
 
 <Meta title="Components/Link menu/Guide" />
 
@@ -20,7 +21,7 @@ Import the link menu components in your application:
 
 and in your HTML:
 
-<Source id="components-link-menu-examples--standard-link-menu" />
+<Source of={LinkMenuStories.standardLinkMenu} />
 
 ## Additional development details
 

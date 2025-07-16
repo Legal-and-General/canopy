@@ -1,5 +1,7 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../../docs/common/feedback.md';
+import * as FilterSingleStories from './filter-single.stories';
+import * as FilterMultipleStories from './filter-multiple.stories';
 
 <Meta title="Components/Filter buttons/Guide" />
 
@@ -80,7 +82,7 @@ When a user selects a Select Multiple filter button, they can click to deselect 
 
 ### Select one
 
-<Source id="components-filter-buttons-examples--filter-buttons" />
+<Source of={FilterSingleStories.filterButtons} />
 
 #### LgRadioGroupComponent inputs
 
@@ -112,7 +114,7 @@ When a user selects a Select Multiple filter button, they can click to deselect 
 
 ### Select multiple
 
-<Source id="components-filter-buttons-examples--filter-multiple-buttons" />
+<Source of={FilterMultipleStories.filterMultipleButtons} />
 
 #### LgCheckboxGroupComponent inputs
 

@@ -111,7 +111,7 @@ class LgFontPanelComponent {
 }
 
 export default {
-  title: 'Internal Typography',
+  title: 'Foundations/Typography',
   decorators: [
     moduleMetadata({
       declarations: [ LgDisplayFontSizeComponent, LgFontPanelComponent ],

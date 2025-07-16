@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as HeroStories from './hero.stories';
 
 <Meta title="Patterns/Hero/Guide" />
 
@@ -20,7 +21,7 @@ Import the hero components in your application:
 
 and in your HTML:
 
-<Source id="patterns-hero-examples--conversational-hero" />
+<Source of={HeroStories.conversationalHero} />
 
 ### Other hero types and templates
 

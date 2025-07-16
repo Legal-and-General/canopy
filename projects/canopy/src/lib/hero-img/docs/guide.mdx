@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as HeroImgStories from './hero-img.stories';
 
 <Meta title="Patterns/Hero image/Guide" />
 
@@ -20,7 +21,7 @@ Import the hero image components in your application:
 
 and in your HTML:
 
-<Source id="patterns-hero-image-examples--hero-img" />
+<Source of={HeroImgStories.heroImg} />
 
 ## Additional development details
 
