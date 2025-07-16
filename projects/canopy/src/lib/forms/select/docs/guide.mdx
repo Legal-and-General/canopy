@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../../docs/common/feedback.md';
+import * as SelectStories from './select.stories';
 
 <Meta title="Components/Forms/Select/Guide" />
 
@@ -24,7 +25,7 @@ Import the select component and directive in your application:
 
 and in your HTML:
 
-<Source id="components-forms-select-examples--select" />
+<Source of={SelectStories.select} />
 
 ## How it works
 

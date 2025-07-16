@@ -19,7 +19,7 @@ export default {
       description: 'The level of the details heading.',
       table: {
         type: {
-          summary: '1 | 2 | 3 | 4 | 5 | 6',
+          summary: '1,2,3,4,5,6',
         },
       },
       control: {

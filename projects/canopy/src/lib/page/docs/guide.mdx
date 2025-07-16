@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as PageStories from './page.stories';
 
 <Meta title="Templates/Page/Guide" />
 
@@ -22,7 +23,7 @@ Import the page component and grid directives in your application:
 
 and in your HTML:
 
-<Source id="templates-page-examples--two-columns" />
+<Source of={PageStories.twoColumns} />
 
 ## Additional development details
 

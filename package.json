@@ -124,7 +124,7 @@
     "prettier": "^3.5.3",
     "pretty-quick": "^4.1.1",
     "protractor": "^7.0.0",
-    "remark-gfm": "^3.0.1",
+    "remark-gfm": "^4.0.1",
     "sass": "^1.89.0",
     "semantic-release": "^24.2.3",
     "storybook": "^8.6.14",

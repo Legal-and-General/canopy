@@ -1,6 +1,7 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
+import * as CardStories from './card.stories';
 
 <Meta title="Components/Card/Guide" />
 
@@ -68,25 +69,25 @@ As the card component is just a container for content, you can add whatever cont
 
 This component uses some extra card components, such as `LgCardPrincipleDataPoint`, `LgCardPrincipleDataPointLabel` and `LgCardPrincipleDataPointValue` to display data points.
 
-<Source id="components-card-examples--product-card" />
+<Source of={CardStories.productCard} />
 
 ### Form Journey card
 
 Creates the Form Journey template, used to display a single page form. Note that the `<form>` element is a parent of the `<lg-card>` component, this is because the form inputs and submit button are spread out between the card content and card footer.
 
-<Source id="components-card-examples--form-journey-card" />
+<Source of={CardStories.formJourneyCard} />
 
 ### Card Navigation
 
 This component uses some extra card components, such as `LgCardNavigationTitleComponent` to display in navigational format.
 
-<Source id="components-card-examples--navigation-card" />
+<Source of={CardStories.navigationCard} />
 
 ### Card with Data Points
 
 This component uses some extra card components, such as `LgCardContentInnerDataPoints` to display the correct layout of data points.
 
-<Source id="components-card-examples--data-points-card" />
+<Source of={CardStories.dataPointsCard} />
 
 ### Card Group
 
@@ -94,7 +95,7 @@ Cards can be grouped together by using the `LgCardGroupComponent` - a container 
 
 The card group should always be wrapped in a `lgCol="12"` container as shown in the example below.
 
-<Source id="components-card-examples--card-group" />
+<Source of={CardStories.cardGroup} />
 
 ## Additional development details
 
@@ -181,7 +182,7 @@ This is where the card subheading should be provided. It should be located insid
 
 This is where additional content that can be shown/hidden should be located. This component is part of a pattern and will only work if used together with the `lgButtonToggle` directive.
 
-<Source id="components-card-examples--show-more-card" />
+<Source of={CardStories.showMoreCard} />
 
 The `isToggleActive` property and `toggleActive` function will be defined in your component as follows:
 

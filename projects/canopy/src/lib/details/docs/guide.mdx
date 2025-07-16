@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as DetailStories from './details.stories';
 
 <Meta title="Components/Details/Guide" />
 
@@ -24,7 +25,7 @@ Import the details components into your application:
 
 and in your HTML:
 
-<Source id="components-details-examples--standard-details" />
+<Source of={DetailStories.standardDetails} />
 
 Information that is important or relevant to most users should not be included within this component and should be displayed on the page instead.
 

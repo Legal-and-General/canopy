@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as HideAtStories from './hide-at.stories';
 
 <Meta title="Helpers/Directives/Hide at/Guide" />
 
@@ -26,7 +27,7 @@ Import the hide-at directive in your application:
 
 and in your HTML:
 
-<Source id="helpers-directives-hide-at-examples--hide-at-story" />
+<Source of={HideAtStories.hideAtStory} />
 
 ### Inputs
 

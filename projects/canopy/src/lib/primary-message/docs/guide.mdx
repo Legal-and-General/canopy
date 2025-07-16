@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as PrimaryMessageStories from './primary-message.stories';
 
 <Meta title="Components/Primary message/Guide" />
 
@@ -31,7 +32,7 @@ Import the primary message components into your application:
 
 and in your HTML:
 
-<Source id="components-primary-message-examples--standard-primary-message" />
+<Source of={PrimaryMessageStories.standardPrimaryMessage} />
 
 ## How it works
 

@@ -1,5 +1,6 @@
 import { Meta, Markdown, Source } from '@storybook/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as FocusStories from './focus.stories';
 
 <Meta title="Helpers/Directives/Focus/Guide" />
 
@@ -20,7 +21,7 @@ Import the focus directive in your application:
 
 and in your HTML:
 
-<Source id="helpers-directives-focus-examples--focus" />
+<Source of={FocusStories.focus} />
 
 ### Inputs
 

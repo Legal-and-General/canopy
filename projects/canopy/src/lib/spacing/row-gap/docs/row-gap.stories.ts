@@ -108,8 +108,7 @@ export default {
       options: spaces,
       table: {
         type: {
-          summary:
-            'undefined | none | xxxs | xxs | xs | sm | md | lg | xl | xxl | xxxl | xxxxl',
+          summary: 'undefined,none,xxxs,xxs,xs,sm,md,lg,xl,xxl,xxxl,xxxxl',
         },
       },
     },
@@ -121,7 +120,8 @@ const template = `
 `;
 
 export const rowGap = {
-  renderer: (args: LgRowGapDirective) => ({
+  name: 'Row gap',
+  render: (args: LgRowGapDirective) => ({
     props: args,
     template,
   }),
