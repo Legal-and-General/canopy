@@ -139,8 +139,8 @@ function getDefaultList(): Array<ListItems> {
   ];
 }
 
-export const internalColouredListWithIcons = {
-  name: 'Internal coloured icons',
+export const colouredListWithIcons = {
+  name: 'Coloured icons',
   render: (args: ListWithIconsWrapperComponent) => ({
     props: args,
     template:
@@ -150,6 +150,8 @@ export const internalColouredListWithIcons = {
     listItems: getDefaultList(),
     colouredIcons: true,
   },
+  // !dev tag removes a story/component from the sidebar (See: https://github.com/storybookjs/storybook/pull/26634)
+  tags: [ '!dev' ],
 };
 
 export const neutralForegroundListWithIcons = {
