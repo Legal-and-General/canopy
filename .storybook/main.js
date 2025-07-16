@@ -171,8 +171,5 @@ module.exports = {
   core: {
     fsCache: true,
   },
-  framework: {
-    name: '@storybook/angular',
-    options: {},
-  },
+  framework: '@storybook/angular',
 };
