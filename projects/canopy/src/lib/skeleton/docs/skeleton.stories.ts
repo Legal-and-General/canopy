@@ -205,10 +205,8 @@ export default {
       ],
     }),
   ],
-  parameters: {
-    backgrounds: {
-      default: 'Super Blue',
-    },
+  globals: {
+    backgrounds: { value: 'super-blue' },
   },
 } as Meta;
 

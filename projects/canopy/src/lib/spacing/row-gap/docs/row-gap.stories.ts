@@ -95,9 +95,9 @@ export default {
     a11y: {
       disable: true,
     },
-    backgrounds: {
-      default: 'Super Blue',
-    },
+  },
+  globals: {
+    backgrounds: { value: 'super-blue' },
   },
   argTypes: {
     rowGap: {

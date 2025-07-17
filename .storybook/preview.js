@@ -10,15 +10,17 @@ const preview = {
       expanded: true
     },
     backgrounds: {
-      default: 'Default',
-      values: [
-        {name: 'Default', value: 'transparent'},
-        {name: 'Midnight Blue', value: '#005380'},
-        {name: 'Charcoal', value: '#333'},
-        {name: 'Super Blue', value: '#0076d6'},
-        {name: 'Leafy Green', value: '#028844'},
-        {name: 'White Smoke', value: '#f6f6f6'},
-      ],
+      options: {
+        // Default colors
+        light: { name: 'Light', value: '#FFFFFF' },
+        dark: { name: 'Dark', value: '#333' },
+        // Custom colors
+        'midnight-blue': { name: 'Midnight Blue', value: '#005380'},
+        'charcoal': {name: 'Charcoal', value: '#333'},
+        'super-blue': {name: 'Super Blue', value: '#0076d6'},
+        'leafy-green': {name: 'Leafy Green', value: '#028844'},
+        'white-smoke': {name: 'White Smoke', value: '#f6f6f6'},
+      },
     },
     docs: {
       inlineStories: true,
@@ -31,6 +33,10 @@ const preview = {
   },
   percy: {
     waitForTimeout: 500 // Wait for half a second to ensure all elements are rendered before taking a snapshot
-  }
+  },
+  initialGlobals: {
+    // Set the initial background color
+    backgrounds: { value: 'light' },
+  },
 };
 export default preview;
