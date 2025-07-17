@@ -91,10 +91,8 @@ export default {
       imports: [ StorySideNavComponent ],
     }),
   ],
-  parameters: {
-    backgrounds: {
-      default: 'White Smoke',
-    },
+  globals: {
+    backgrounds: { value: 'white-smoke' },
   },
 };
 

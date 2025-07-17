@@ -28,10 +28,8 @@ export default {
       imports: [ LgCardComponent, LgCardContentComponent ],
     }),
   ],
-  parameters: {
-    backgrounds: {
-      default: 'White Smoke',
-    },
+  globals: {
+    backgrounds: { value: 'white-smoke' },
   },
   argTypes: {
     class: {

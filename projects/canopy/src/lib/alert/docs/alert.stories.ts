@@ -35,7 +35,7 @@ export default {
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: 'generic | info | success | warning | error',
+          summary: 'generic,info,success,warning,error',
         },
         defaultValue: {
           summary: 'generic',
