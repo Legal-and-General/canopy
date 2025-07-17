@@ -416,10 +416,8 @@ export default {
       ],
     }),
   ],
-  parameters: {
-    backgrounds: {
-      default: 'White Smoke',
-    },
+  globals: {
+    backgrounds: { value: 'white-smoke' },
   },
 };
 

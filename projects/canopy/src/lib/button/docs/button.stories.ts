@@ -187,10 +187,8 @@ export const primaryDark = {
     ...defaultArgValues,
     variant: 'primary-dark',
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('primary-dark'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('primary-dark') },
   },
 };
 
@@ -204,10 +202,8 @@ export const primaryLight = {
     ...defaultArgValues,
     variant: 'primary-light',
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('primary-light'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('primary-light') },
   },
 };
 
@@ -221,10 +217,8 @@ export const secondaryDark = {
     ...defaultArgValues,
     variant: 'secondary-dark',
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('secondary-dark'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('secondary-dark') },
   },
 };
 
@@ -238,10 +232,8 @@ export const secondaryLight = {
     ...defaultArgValues,
     variant: 'secondary-light',
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('secondary-light'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('secondary-light') },
   },
 };
 
@@ -259,10 +251,8 @@ export const textWithIcon = {
     variant: 'primary-dark',
     icon: lgIconsArray[0].name,
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('primary-dark'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('primary-dark') },
   },
 };
 
@@ -281,10 +271,8 @@ export const textWithDoubleIcon = {
     icon: lgIconsArray[0].name,
     doubleIconButton: true,
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('primary-dark'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('primary-dark') },
   },
 };
 
@@ -300,21 +288,19 @@ export const iconOnly = {
     iconButton: true,
     icon: lgIconsArray[0].name,
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('primary-dark'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('primary-dark') },
   },
 };
 
 function setBackground(variant: string) {
   const bgs = {
-    'primary-dark': 'Default',
-    'primary-light': 'Super Blue',
-    'secondary-dark': 'Default',
-    'secondary-light': 'Super Blue',
-    link: 'Default',
-    'add-on': 'Default',
+    'primary-dark': 'light',
+    'primary-light': 'super-blue',
+    'secondary-dark': 'light',
+    'secondary-light': 'super-blue',
+    link: 'light',
+    'add-on': 'light',
   };
 
   return bgs[variant];
@@ -330,9 +316,7 @@ export const link = {
     ...defaultArgValues,
     variant: 'link',
   },
-  parameters: {
-    backgrounds: {
-      default: setBackground('link'),
-    },
+  globals: {
+    backgrounds: { value: setBackground('link') },
   },
 };

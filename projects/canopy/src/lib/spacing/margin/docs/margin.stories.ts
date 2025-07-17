@@ -38,9 +38,9 @@ export default {
       // and flagging false positives
       disable: true,
     },
-    backgrounds: {
-      default: 'Super Blue',
-    },
+  },
+  globals: {
+    backgrounds: { value: 'super-blue' },
   },
   argTypes: {
     margin: {
