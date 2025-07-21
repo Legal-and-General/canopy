@@ -82,7 +82,7 @@ export default {
   },
 } as Meta;
 
-export const validation = {
+export const Validation = {
   name: 'Validation',
   render: (args: LgValidationComponent) => ({
     props: args,

@@ -170,7 +170,7 @@ export default {
   },
 } as Meta;
 
-export const basicPagination = {
+export const BasicPagination = {
   name: 'Basic pagination',
   render: (args: LgPaginationComponent) => ({
     props: args,

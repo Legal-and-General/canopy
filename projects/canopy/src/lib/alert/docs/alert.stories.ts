@@ -67,7 +67,7 @@ const template = `
 </lg-alert>
 `;
 
-export const standardAlert = {
+export const StandardAlert = {
   name: 'Inline message',
   render: (args: LgAlertComponent) => ({
     props: args,

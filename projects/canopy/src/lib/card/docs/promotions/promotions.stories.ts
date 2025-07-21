@@ -305,7 +305,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
 </div>
 `;
 
-export const promotionsGeneralCard = {
+export const PromotionsGeneralCard = {
   name: 'Stand-alone card',
   args: {
     title: 'Promotion Title here',
@@ -328,7 +328,7 @@ export const promotionsGeneralCard = {
   }),
 };
 
-export const promotionsGeneralTwoCard = {
+export const PromotionsGeneralTwoCard = {
   name: 'Two cards',
   args: {
     title: 'Promotion Title here',
@@ -351,7 +351,7 @@ export const promotionsGeneralTwoCard = {
   }),
 };
 
-export const promotionsGeneralThreeCard = {
+export const PromotionsGeneralThreeCard = {
   name: 'Three cards',
   args: {
     title: 'Promotion Title here',
@@ -374,7 +374,7 @@ export const promotionsGeneralThreeCard = {
   }),
 };
 
-export const promotionsGeneralMagazineLayout = {
+export const PromotionsGeneralMagazineLayout = {
   name: 'Magazine Layout',
   args: {
     title: 'Promotion Title here',

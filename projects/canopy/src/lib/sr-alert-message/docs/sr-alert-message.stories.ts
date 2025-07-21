@@ -47,7 +47,7 @@ const template = `
 <p [lgSrAlertMessage]="lgSrAlertMessage" [timer]="timer">Loading complete</p>
 `;
 
-export const srAlertMessageStory = {
+export const SrAlertMessageStory = {
   name: 'Screen reader alert message',
   render: (args: LgSrAlertMessageDirective) => ({
     props: args,

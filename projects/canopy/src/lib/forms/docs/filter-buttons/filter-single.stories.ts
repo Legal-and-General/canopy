@@ -212,7 +212,7 @@ export default {
   },
 };
 
-export const filterButtons = {
+export const FilterButtons = {
   name: 'Select one',
   render: (args: LgRadioButtonComponent) => ({
     props: args,

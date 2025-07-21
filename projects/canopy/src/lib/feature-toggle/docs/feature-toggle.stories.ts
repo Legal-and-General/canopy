@@ -74,7 +74,7 @@ const template = `
 <lg-card *lgFeatureToggle="'fourthFeature'"><lg-card-content>Feature 4 not showing</lg-card-content></lg-card>
 `;
 
-export const featureToggle = {
+export const FeatureToggle = {
   name: 'featureToggle',
   render: (args: LgFeatureToggleDirective) => ({
     component: LgFeatureToggleDirective,

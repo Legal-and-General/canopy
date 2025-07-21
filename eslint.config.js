@@ -1,4 +1,4 @@
-const storybook = require("eslint-plugin-storybook");
+const storybook = require('eslint-plugin-storybook');
 const globals = require('globals');
 const angularTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
 const {

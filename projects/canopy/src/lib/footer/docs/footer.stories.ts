@@ -7,7 +7,7 @@ import { LgFooterNavItemComponent } from '../footer-nav-item/footer-nav-item.com
 import { LgFooterLogoComponent } from '../footer-logo/footer-logo.component';
 import { LgFooterCopyrightComponent } from '../footer-copyright/footer-copyright.component';
 
-export const primaryLinks = [
+export const PrimaryLinks = [
   { id: 'primary-link-1', text: 'My account', href: 'https://app.somecompany.com' },
   { id: 'primary-link-2', text: 'My quotes', href: 'https://somecompany.com/quotes' },
   {
@@ -18,7 +18,7 @@ export const primaryLinks = [
   { id: 'primary-link-4', text: 'Contact', href: 'https://somecompany.com/contact' },
 ];
 
-export const secondaryLinks = [
+export const SecondaryLinks = [
   {
     id: 'secondary-link-1',
     text: 'Accessibility',
@@ -116,7 +116,7 @@ const template = `
 </footer>
 `;
 
-export const standardFooter = {
+export const StandardFooter = {
   name: 'Standard',
   render: (args: LgFooterComponent) => ({
     props: args,
@@ -126,8 +126,8 @@ export const standardFooter = {
     logo: 'legal-and-general-logo.svg',
     logoAlt: 'Company name',
     copyright: '© Some Company plc 2018',
-    secondaryLinks: secondaryLinks,
-    primaryLinks: primaryLinks,
+    secondaryLinks: SecondaryLinks,
+    primaryLinks: PrimaryLinks,
   },
   argTypes: {
     secondaryLogo: {
@@ -162,7 +162,7 @@ const compactTemplate = `
 </footer>
 `;
 
-export const compactFooter = {
+export const CompactFooter = {
   name: 'Compact',
   render: (args: LgFooterComponent) => ({
     props: args,
@@ -170,7 +170,7 @@ export const compactFooter = {
   }),
   args: {
     copyright: '© Some Company plc 2018',
-    secondaryLinks: secondaryLinks,
+    secondaryLinks: SecondaryLinks,
   },
   argTypes: {
     primaryLinks: {
@@ -229,7 +229,7 @@ const coBrandedTemplate = `
 </footer>
 `;
 
-export const coBrandedFooter = {
+export const CoBrandedFooter = {
   name: 'Co-Branded',
   render: (args: LgFooterComponent) => ({
     props: args,
@@ -241,8 +241,8 @@ export const coBrandedFooter = {
     secondaryLogo: 'dummy-logo.svg',
     secondaryLogoAlt: 'Secondary company name',
     copyright: '© Some Company plc 2018',
-    secondaryLinks: secondaryLinks,
-    primaryLinks: primaryLinks,
+    secondaryLinks: SecondaryLinks,
+    primaryLinks: PrimaryLinks,
   },
   parameters: {
     docs: {

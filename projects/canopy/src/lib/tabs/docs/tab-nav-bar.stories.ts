@@ -115,7 +115,7 @@ function getTemplate(preventDefault?: boolean) {
   `;
 }
 
-export const tabNavBar = {
+export const TabNavBar = {
   name: 'Tabbed navigation',
   render: (args: LgTabsComponent) => ({
     props: args,

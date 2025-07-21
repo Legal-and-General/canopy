@@ -87,7 +87,7 @@ const exampleTemplate = `
 </lg-card>
 `;
 
-export const standardVariant = {
+export const StandardVariant = {
   name: 'Variant',
   render: (args: LgVariantDirective) => ({
     props: args,

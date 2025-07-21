@@ -181,7 +181,7 @@ const exampleTemplate = `
 ></lg-brand-icon>
 `;
 
-export const standardBrandIcons = {
+export const StandardBrandIcons = {
   name: 'Catalog',
   render: (args: LgBrandIconComponent) => ({
     props: args,

@@ -24,7 +24,7 @@ export default {
 
 const template = '<p>{{text | kebabCase}}</p>';
 
-export const kebabCasePipeStory = {
+export const KebabCasePipeStory = {
   name: 'Kebab case',
   render: (args: LgKebabCasePipe) => ({
     props: args,

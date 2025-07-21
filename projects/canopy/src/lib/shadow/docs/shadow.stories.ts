@@ -40,7 +40,7 @@ export default {
   },
 } as Meta;
 
-export const shadow = {
+export const Shadow = {
   name: 'Shadow',
   render: (args: { hasHoverState: boolean }) => ({
     props: args,

@@ -216,7 +216,7 @@ const skeletonTemplate = `
 <lg-async-skeleton-loading-data-point></lg-async-skeleton-loading-data-point>
 `;
 
-export const defaultSkeleton = {
+export const DefaultSkeleton = {
   name: 'Skeleton Loading',
   render: (args: LgSkeletonDirective) => ({
     props: args,

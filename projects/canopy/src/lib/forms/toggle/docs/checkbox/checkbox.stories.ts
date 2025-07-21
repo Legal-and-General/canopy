@@ -185,7 +185,7 @@ const code = `
 </lg-checkbox>
 `;
 
-export const checkbox = {
+export const Checkbox = {
   name: 'Checkbox',
   render: (args: LgToggleComponent) => createToggleStory(args, 'checkbox'),
   args: {

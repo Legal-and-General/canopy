@@ -165,7 +165,7 @@ export default {
   },
 } as Meta;
 
-export const standardSeparator = {
+export const StandardSeparator = {
   name: 'Modal',
   render: (args: ModalWrapperComponent) => ({
     props: args,

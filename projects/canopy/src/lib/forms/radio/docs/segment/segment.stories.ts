@@ -222,7 +222,7 @@ export default {
   },
 };
 
-export const segmentButtons = {
+export const SegmentButtons = {
   name: 'Segment',
   render: (args: LgRadioButtonComponent) => ({
     props: args,

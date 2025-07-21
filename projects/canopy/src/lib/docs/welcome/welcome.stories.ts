@@ -13,7 +13,7 @@ export default {
   tags: [ '!dev' ],
 } as Meta;
 
-export const welcomeStory = {
+export const WelcomeStory = {
   name: 'Welcome page',
   render: (args: DocsWelcomePageComponent) => ({
     props: args,

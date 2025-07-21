@@ -399,7 +399,7 @@ const template = `
 </lg-validation-form>
 `;
 
-export const formValidation = {
+export const FormValidation = {
   name: 'Form validation',
   render: (args: LgValidationComponent) => ({
     props: args,

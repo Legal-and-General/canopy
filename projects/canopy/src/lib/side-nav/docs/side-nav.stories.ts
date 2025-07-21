@@ -114,7 +114,7 @@ const getDefaultNavItems = (): Array<SideNavBarItem> => [
   },
 ];
 
-export const sideNav = {
+export const SideNav = {
   name: 'Side nav',
   render: (args: StorySideNavComponent) => ({
     props: args,

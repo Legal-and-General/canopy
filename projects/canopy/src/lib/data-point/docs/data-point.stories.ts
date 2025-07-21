@@ -48,7 +48,7 @@ const singleTemplate = `
 </lg-data-point>
 `;
 
-export const singleDataPoint = {
+export const SingleDataPoint = {
   name: 'Single Data Point',
   render: (args: LgDataPointComponent) => ({
     props: args,
@@ -95,7 +95,7 @@ const listTemplate = `
 </lg-data-point-list>
 `;
 
-export const dataPointsListStory = {
+export const DataPointsListStory = {
   name: 'Data point list',
   render: (args: LgDataPointListComponent) => ({
     props: args,

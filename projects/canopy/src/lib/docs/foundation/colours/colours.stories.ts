@@ -244,7 +244,7 @@ const tintsColoursTemplate = `
 </div>
 `;
 
-export const coreColours = {
+export const CoreColours = {
   name: 'Core',
   render: (args: SwatchComponent) => ({
     props: args,
@@ -252,7 +252,7 @@ export const coreColours = {
   }),
 };
 
-export const secondaryColours = {
+export const SecondaryColours = {
   name: 'Secondary',
   render: (args: SwatchComponent) => ({
     props: args,
@@ -260,7 +260,7 @@ export const secondaryColours = {
   }),
 };
 
-export const greyscaleColours = {
+export const GreyscaleColours = {
   name: 'Secondary',
   render: (args: SwatchComponent) => ({
     props: args,
@@ -268,7 +268,7 @@ export const greyscaleColours = {
   }),
 };
 
-export const tintsColours = {
+export const TintsColours = {
   name: 'Tints',
   render: (args: TintSwatchComponent) => ({
     props: args,

@@ -87,7 +87,7 @@ const template = `
 </lg-breadcrumb>
 `;
 
-export const threeItems = {
+export const ThreeItems = {
   name: 'Three items',
   render: (args: LgBreadcrumbComponent) => ({
     props: args,
@@ -126,7 +126,7 @@ const ellipisTemplate = `
 </lg-breadcrumb>
 `;
 
-export const ellipsis = {
+export const Ellipsis = {
   name: 'More than three items',
   render: (args: LgBreadcrumbComponent) => ({
     props: args,

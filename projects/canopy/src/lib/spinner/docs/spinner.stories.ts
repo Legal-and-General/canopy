@@ -75,7 +75,7 @@ const template = `
 <lg-spinner [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
 `;
 
-export const standardAlert = {
+export const StandardAlert = {
   render: (args: LgSpinnerComponent) => ({
     props: args,
     template,

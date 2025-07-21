@@ -119,7 +119,7 @@ const template = `
 <lg-row-gap-story [rowGap]="rowGap"></lg-row-gap-story>
 `;
 
-export const rowGap = {
+export const RowGap = {
   name: 'Row gap',
   render: (args: LgRowGapDirective) => ({
     props: args,
