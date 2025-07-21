@@ -126,7 +126,7 @@ const typographyTemplate = `
 <lg-font-sizes-panel [isProductiveFont]="isProductiveFont"></lg-font-sizes-panel>
 `;
 
-export const productive = {
+export const Productive = {
   name: 'Productive',
   render: (args: LgDisplayFontSizeComponent) => ({
     props: args,
@@ -137,7 +137,7 @@ export const productive = {
   },
 };
 
-export const expressive = {
+export const Expressive = {
   name: 'Productive',
   render: (args: LgDisplayFontSizeComponent) => ({
     props: args,

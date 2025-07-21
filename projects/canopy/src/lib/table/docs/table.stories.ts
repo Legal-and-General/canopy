@@ -476,7 +476,7 @@ const standardTableTemplate = `
 </table>
 `;
 
-export const standardTable = {
+export const StandardTable = {
   name: 'Standard',
   render: (args: LgTableComponent) => ({
     props: args,
@@ -500,7 +500,7 @@ export const standardTable = {
   },
 };
 
-export const expandableTable = {
+export const ExpandableTable = {
   name: 'Expandable details',
   render: (args: LgTableComponent) => ({
     props: args,
@@ -562,7 +562,7 @@ const withInputTableTemplate = `
 </table>
 `;
 
-export const withInputTable = {
+export const WithInputTable = {
   name: 'With input',
   render: (args: LgTableComponent) => ({
     props: args,
@@ -614,7 +614,7 @@ export const withInputTable = {
   },
 };
 
-export const withLongCopyTable = {
+export const WithLongCopyTable = {
   name: 'With long copy',
   render: (args: LgTableComponent) => ({
     props: args,

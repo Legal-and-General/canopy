@@ -186,7 +186,7 @@ const examplePromoCardTemplate = `
 </lg-promo-card-list>
 `;
 
-export const promoCardList = {
+export const PromoCardList = {
   name: 'Promo card list',
   render: (args: PromoCardListStoryComponent) => ({
     props: args,

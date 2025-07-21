@@ -159,7 +159,7 @@ const defaultTemplate = `
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration">${carouselItems}</lg-carousel>
 `;
 
-export const defaultCarousel = {
+export const DefaultCarousel = {
   name: 'Standard',
   render: (args: LgCarouselComponent) => ({
     props: args,
@@ -187,7 +187,7 @@ const loopEnabledTemplate = `
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [loopMode]="loopMode">${carouselItems}</lg-carousel>
 `;
 
-export const loopModeEnabledCarousel = {
+export const LoopModeEnabledCarousel = {
   name: 'Loop enabled',
   render: (args: LgCarouselComponent) => ({
     props: args,
@@ -215,7 +215,7 @@ const autoPlayEnabledTemplate = `
   <lg-carousel [description]="description" [headingLevel]="headingLevel" [slideDuration]="slideDuration" [autoPlayDelay]="5000" [autoPlay]="true">${carouselItems}</lg-carousel>
 `;
 
-export const autoPlayEnabledCarousel = {
+export const AutoPlayEnabledCarousel = {
   name: 'Auto play enabled',
   render: (args: LgCarouselComponent) => ({
     props: args,

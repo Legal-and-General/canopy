@@ -18,7 +18,7 @@ const mainQuoteTemplate = `
 </blockquote>
 `;
 
-export const mainQuote = {
+export const MainQuote = {
   name: 'Main',
   render: (args: unknown) => ({
     props: args,
@@ -33,7 +33,7 @@ const equalityActQuoteTemplate = `
 </blockquote>
 `;
 
-export const equalityActQuote = {
+export const EqualityActQuote = {
   name: 'Equality Act',
   render: (args: unknown) => ({
     props: args,

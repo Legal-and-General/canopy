@@ -189,7 +189,7 @@ const code = `
 </lg-switch>
 `;
 
-export const switchObj = {
+export const SwitchObj = {
   name: 'Switch',
   render: (args: LgToggleComponent) => createToggleStory(args, 'switch'),
   args: {

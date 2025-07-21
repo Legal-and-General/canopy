@@ -277,7 +277,7 @@ const template = `
 </div>
 `;
 
-export const grid = {
+export const Grid = {
   name: 'Grid',
   render: (args: LgAlertComponent) => ({
     props: args,

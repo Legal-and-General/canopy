@@ -35,7 +35,7 @@ const template = `
   <button lg-button variant="primary-dark" [lgFocus]="lgFocus">Focus directive example</button>
 `;
 
-export const focus = {
+export const Focus = {
   name: 'Focus',
   render: (args: LgFocusDirective) => ({
     component: LgFocusDirective,

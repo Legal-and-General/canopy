@@ -35,7 +35,7 @@ const template = `
   <lg-progress-bar [max]="max" [value]="value"></lg-progress-bar>
 `;
 
-export const progressBar = {
+export const ProgressBar = {
   name: 'Progress bar',
   render: (args: LgProgressBarComponent) => ({
     props: args,

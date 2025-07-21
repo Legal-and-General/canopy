@@ -91,7 +91,7 @@ const exampleTemplate = `
 </lg-primary-message>
 `;
 
-export const standardPrimaryMessage = {
+export const StandardPrimaryMessage = {
   name: 'Primary message',
   args: {
     hasRole: true,

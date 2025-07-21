@@ -435,7 +435,7 @@ const defaultCardTemplate = `
 </lg-card>
 `;
 
-export const defaultCard = {
+export const DefaultCard = {
   name: 'Standard',
   args: {
     headingLevel: 2,
@@ -455,7 +455,7 @@ export const defaultCard = {
   }),
 };
 
-export const navigationCard = {
+export const NavigationCard = {
   name: 'Card navigation',
   args: {
     link: 'https://www.landg.com',
@@ -519,7 +519,7 @@ const productCardTemplate = `
 </lg-card>
 `;
 
-export const productCard = {
+export const ProductCard = {
   name: 'Product',
   args: {
     title: 'Standard Lifetime Annuity Joint Life Full',
@@ -537,7 +537,7 @@ export const productCard = {
   }),
 };
 
-export const formJourneyCard = {
+export const FormJourneyCard = {
   name: 'Form journey',
   args: {
     title: 'New bank details',
@@ -563,7 +563,7 @@ export const formJourneyCard = {
   }),
 };
 
-export const showMoreCard = {
+export const ShowMoreCard = {
   name: 'Show more',
   parameters: {
     docs: {
@@ -580,7 +580,7 @@ export const showMoreCard = {
   }),
 };
 
-export const dataPointsCard = {
+export const DataPointsCard = {
   name: 'Data points',
   args: {
     dataPoints: 3,
@@ -618,7 +618,7 @@ export const dataPointsCard = {
   }),
 };
 
-export const cardGroup = {
+export const CardGroup = {
   name: 'Card group',
   args: {
     cardContent: content,

@@ -130,7 +130,7 @@ export default {
   },
 } as Meta;
 
-export const standardAccordion = {
+export const StandardAccordion = {
   name: 'Accordion',
   render: (args: AccordionWrapperComponent) => ({
     props: args,
@@ -154,7 +154,7 @@ export const standardAccordion = {
   },
 };
 
-export const accordionWithIcons = {
+export const AccordionWithIcons = {
   name: 'Accordion with Icons',
   render: (args: AccordionWrapperComponent) => ({
     props: args,

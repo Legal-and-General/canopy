@@ -177,7 +177,7 @@ const buttonTemplate = `
   </lg-button-component-example>
 `;
 
-export const primaryDark = {
+export const PrimaryDark = {
   name: 'Primary dark',
   render: (args: LgButtonComponent) => ({
     props: args,
@@ -192,7 +192,7 @@ export const primaryDark = {
   },
 };
 
-export const primaryLight = {
+export const PrimaryLight = {
   name: 'Primary light',
   render: (args: LgButtonComponent) => ({
     props: args,
@@ -207,7 +207,7 @@ export const primaryLight = {
   },
 };
 
-export const secondaryDark = {
+export const SecondaryDark = {
   name: 'Secondary dark',
   render: (args: LgButtonComponent) => ({
     props: args,
@@ -222,7 +222,7 @@ export const secondaryDark = {
   },
 };
 
-export const secondaryLight = {
+export const SecondaryLight = {
   name: 'Secondary light',
   render: (args: LgButtonComponent) => ({
     props: args,
@@ -237,7 +237,7 @@ export const secondaryLight = {
   },
 };
 
-export const textWithIcon = {
+export const TextWithIcon = {
   name: 'Single icon with text',
   render: (args: LgButtonComponent) => ({
     props: args,
@@ -256,7 +256,7 @@ export const textWithIcon = {
   },
 };
 
-export const textWithDoubleIcon = {
+export const TextWithDoubleIcon = {
   name: 'Double icon with text',
   render: (args: LgButtonComponent) => ({
     props: args,
@@ -276,7 +276,7 @@ export const textWithDoubleIcon = {
   },
 };
 
-export const iconOnly = {
+export const IconOnly = {
   name: 'Icon only',
   render: (args: LgButtonComponent) => ({
     props: args,
@@ -306,7 +306,7 @@ function setBackground(variant: string) {
   return bgs[variant];
 }
 
-export const link = {
+export const Link = {
   name: 'Link',
   render: (args: LgButtonComponent) => ({
     props: args,

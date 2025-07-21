@@ -74,7 +74,7 @@ const exampleButtonTemplate = `
 </button>
 `;
 
-export const quickActionButton = {
+export const QuickActionButton = {
   name: 'Button',
   args: {
     icon: 'repeat',
@@ -105,7 +105,7 @@ const exampleLinkTemplate = `
 </a>
 `;
 
-export const quickActionLink = {
+export const QuickActionLink = {
   name: 'Link',
   args: {
     link: 'https://google.com',

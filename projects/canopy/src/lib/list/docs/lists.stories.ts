@@ -139,7 +139,7 @@ function getDefaultList(): Array<ListItems> {
   ];
 }
 
-export const colouredListWithIcons = {
+export const ColouredListWithIcons = {
   name: 'Coloured icons',
   render: (args: ListWithIconsWrapperComponent) => ({
     props: args,
@@ -154,7 +154,7 @@ export const colouredListWithIcons = {
   tags: [ '!dev' ],
 };
 
-export const neutralForegroundListWithIcons = {
+export const NeutralForegroundListWithIcons = {
   name: 'List with icons - Neutral foreground',
   render: (args: ListWithIconsWrapperComponent) => ({
     props: args,
@@ -180,7 +180,7 @@ export const neutralForegroundListWithIcons = {
   },
 };
 
-export const darkForegroundListWithIcons = {
+export const DarkForegroundListWithIcons = {
   name: 'List with icons - Dark foreground',
   render: (args: ListWithIconsWrapperComponent) => ({
     props: args,
@@ -207,7 +207,7 @@ export const darkForegroundListWithIcons = {
   },
 };
 
-export const lightForegroundListWithIcons = {
+export const LightForegroundListWithIcons = {
   name: 'List with icons - Light foreground',
   render: (args: ListWithIconsWrapperComponent) => ({
     props: args,
@@ -241,7 +241,7 @@ export const lightForegroundListWithIcons = {
   },
 };
 
-export const orderedListWithNumerals = {
+export const OrderedListWithNumerals = {
   name: 'Ordered list with expressive styling',
   render: (args: ListWithIconsWrapperComponent) => ({
     props: args,

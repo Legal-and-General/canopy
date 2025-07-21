@@ -17,7 +17,7 @@ export default {
   ],
 } as Meta;
 
-export const quote = {
+export const Quote = {
   name: 'Blockquote',
   render: (args: unknown) => ({
     props: args,

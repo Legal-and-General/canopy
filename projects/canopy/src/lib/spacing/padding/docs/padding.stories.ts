@@ -118,7 +118,7 @@ export default {
   },
 } as Meta;
 
-export const padding = {
+export const Padding = {
   name: 'Padding',
   render: (args: LgPaddingDirective) => ({
     props: args,

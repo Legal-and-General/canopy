@@ -54,7 +54,7 @@ const template = `
   <lg-separator [variant]="variant" [hasRole]="hasRole"></lg-separator>
 `;
 
-export const standardSeparator = {
+export const StandardSeparator = {
   name: 'Standard',
   render: (args: LgSeparatorComponent) => ({
     props: args,

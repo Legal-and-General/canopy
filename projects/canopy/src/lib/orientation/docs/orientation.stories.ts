@@ -66,7 +66,7 @@ export default {
   },
 } as Meta;
 
-export const orientation = {
+export const Orientation = {
   name: 'Orientation',
   render: (args: LgOrientationDirective) => ({
     props: args,

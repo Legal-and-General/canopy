@@ -38,7 +38,7 @@ const template = `
   <lg-heading [level]="level">{{content}}</lg-heading>
 `;
 
-export const standardHeading = {
+export const StandardHeading = {
   name: 'Heading',
   render: (args: LgHeadingComponent) => ({
     props: args,

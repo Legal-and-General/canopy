@@ -2,7 +2,7 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 
-import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
+import { PrimaryLinks, SecondaryLinks } from '../../footer/docs/footer.stories';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
 import { LgPageComponent } from '../page.component';
 import { LgHeaderComponent, LgHeaderLogoComponent } from '../../header';
@@ -58,8 +58,8 @@ const createArgs = () => ({
   card3: `Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one
     customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art
     customer service.`,
-  primaryLinks: primaryLinks,
-  secondaryLinks: secondaryLinks,
+  primaryLinks: PrimaryLinks,
+  secondaryLinks: SecondaryLinks,
 });
 
 const header = `
@@ -279,7 +279,7 @@ const oneColumnTemplate = `
   </lg-page>
 `;
 
-export const oneColumn = {
+export const OneColumn = {
   name: 'OneColumn',
   render: (args: LgPageComponent) => ({
     props: args,
@@ -317,7 +317,7 @@ const twoColumnsTemplate = `
   </lg-page>
 `;
 
-export const twoColumns = {
+export const TwoColumns = {
   name: 'Two columns',
   render: (args: LgPageComponent) => ({
     props: args,
@@ -353,7 +353,7 @@ const fullWidthTemplate = `
   </lg-page>
 `;
 
-export const fullWidth = {
+export const FullWidth = {
   name: 'Full width',
   render: (args: LgPageComponent) => ({
     props: args,
@@ -369,7 +369,7 @@ export const fullWidth = {
   },
 };
 
-export const fullWidthWithHero = {
+export const FullWidthWithHero = {
   name: 'Full width with Hero',
   render: (args: LgPageComponent) => ({
     props: args,

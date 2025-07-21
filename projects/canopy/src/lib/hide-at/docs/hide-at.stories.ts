@@ -59,7 +59,7 @@ const template = `
 ${directiveTemplate}
 `;
 
-export const hideAtStory = {
+export const HideAtStory = {
   name: 'Hide at',
   render: (args: LgHideAtDirective) => ({
     props: args,

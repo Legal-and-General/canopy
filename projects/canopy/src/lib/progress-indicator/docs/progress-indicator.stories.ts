@@ -86,7 +86,7 @@ const template = `
 </lg-progress-indicator>
 `;
 
-export const progressJourney = {
+export const ProgressJourney = {
   name: 'Progress indicator',
   render: (args: LgProgressIndicatorComponent) => ({
     props: args,

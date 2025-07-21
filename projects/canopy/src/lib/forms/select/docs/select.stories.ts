@@ -122,7 +122,7 @@ export default {
   },
 } as Meta;
 
-export const select = {
+export const Select = {
   name: 'Select',
   render: (args: LgSelectFieldComponent) => ({
     props: args,

@@ -109,7 +109,7 @@ export default {
   },
 };
 
-export const sortCode = {
+export const SortCode = {
   name: 'Sort code',
   render: (args: LgSortCodeDirective) => ({
     props: args,
