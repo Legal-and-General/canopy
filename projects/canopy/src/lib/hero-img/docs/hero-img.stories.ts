@@ -96,7 +96,7 @@ ${imageBackgroundHeroHTML}
 ${bodyHTML}
 `;
 
-export const heroImg = {
+export const HeroImg = {
   name: 'Hero image',
   render: (args: LgHeroImgComponent) => ({
     props: args,

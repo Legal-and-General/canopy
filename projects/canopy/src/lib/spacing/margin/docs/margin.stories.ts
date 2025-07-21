@@ -121,7 +121,7 @@ export default {
   },
 } as Meta;
 
-export const margin = {
+export const Margin = {
   name: 'Margin',
   render: (args: LgMarginDirective) => ({
     props: args,

@@ -83,7 +83,7 @@ function setComponentCode(toggleCode: string) {
 `;
 }
 
-export const standardFilterContainer = {
+export const StandardFilterContainer = {
   name: 'Filter container',
   render: (args: LgFilterContainerComponent) => ({
     props: args,

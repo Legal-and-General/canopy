@@ -238,7 +238,7 @@ export default {
   },
 };
 
-export const radio = {
+export const Radio = {
   name: 'Radio',
   render: (args: LgRadioButtonComponent) => ({
     props: args,

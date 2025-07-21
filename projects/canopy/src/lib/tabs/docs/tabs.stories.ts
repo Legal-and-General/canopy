@@ -111,7 +111,7 @@ const template = `
 </lg-tabs>
 `;
 
-export const standardTabs = {
+export const StandardTabs = {
   name: 'Tabbed content',
   render: (args: LgTabsComponent) => ({
     props: args,

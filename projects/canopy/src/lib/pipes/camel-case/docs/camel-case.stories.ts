@@ -24,7 +24,7 @@ export default {
 
 const template = '<p>{{text | camelCase}}</p>';
 
-export const camelCasePipeStory = {
+export const CamelCasePipeStory = {
   name: 'Camel case',
   render: (args: LgCamelCasePipe) => ({
     props: args,

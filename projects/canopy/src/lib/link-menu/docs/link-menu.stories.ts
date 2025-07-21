@@ -96,7 +96,7 @@ function getDefaultMenuItems(): Array<MenuItems> {
   ];
 }
 
-export const standardLinkMenu = {
+export const StandardLinkMenu = {
   name: 'Link menu',
   render: (args: LinkMenuStoryComponent) => ({
     props: args,

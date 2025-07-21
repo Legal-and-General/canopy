@@ -218,7 +218,7 @@ export default {
   },
 };
 
-export const dateInput = {
+export const DateInput = {
   name: 'Date input',
   render: (args: LgDateFieldComponent) => ({
     props: args,

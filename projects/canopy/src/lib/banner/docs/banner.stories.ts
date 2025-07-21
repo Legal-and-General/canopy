@@ -75,7 +75,7 @@ const template = `
 </lg-banner>
 `;
 
-export const standardBanner = {
+export const StandardBanner = {
   name: 'Banner',
   render: (args: LgBannerComponent) => ({
     props: args,

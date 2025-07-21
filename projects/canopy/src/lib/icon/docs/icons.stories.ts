@@ -81,7 +81,7 @@ const exampleTemplate = `
 <lg-icon name="call"></lg-icon>
 `;
 
-export const standardIcons = {
+export const StandardIcons = {
   name: 'Catalog',
   render: (args: LgIconComponent) => ({
     props: args,

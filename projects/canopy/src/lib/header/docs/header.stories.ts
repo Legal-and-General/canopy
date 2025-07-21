@@ -190,7 +190,7 @@ const template = `
 </header>
 `;
 
-export const standardHeader = {
+export const StandardHeader = {
   name: 'Standard',
   render: (args: LgHeaderComponent) => ({
     props: args,
@@ -236,7 +236,7 @@ const coBrandedTemplate = `
 </header>
 `;
 
-export const coBrandedHeader = {
+export const CoBrandedHeader = {
   name: 'Co-branded',
   render: (args: LgHeaderComponent) => ({
     props: args,
@@ -267,7 +267,7 @@ export const coBrandedHeader = {
   },
 };
 
-export const navHeader = {
+export const NavHeader = {
   name: 'Navigation',
   render: (args: LgHeaderComponent) => ({
     props: args,

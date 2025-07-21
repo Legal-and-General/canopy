@@ -158,7 +158,7 @@ export default {
   },
 } as Meta;
 
-export const standardDetails = {
+export const StandardDetails = {
   name: 'Details',
   render: (args: LgDetailsComponent) => ({
     props: args,

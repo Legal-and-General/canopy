@@ -194,7 +194,7 @@ export default {
   },
 };
 
-export const checkboxGroup = {
+export const CheckboxGroup = {
   name: 'Checkbox group',
   render: (args: LgCheckboxGroupComponent) => ({
     props: args,

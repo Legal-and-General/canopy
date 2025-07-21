@@ -32,7 +32,7 @@ const template = `
 </lg-button-group>
 `;
 
-export const standardButtonGroup = {
+export const StandardButtonGroup = {
   name: 'Group',
   render: (args: LgButtonGroupComponent) => ({
     props: args,

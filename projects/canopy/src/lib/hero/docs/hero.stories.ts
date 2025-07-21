@@ -231,7 +231,7 @@ export default {
   },
 };
 
-export const productHero = {
+export const ProductHero = {
   name: 'Product details',
   render: (args: LgHeroComponent) => ({
     props: args,
@@ -254,7 +254,7 @@ ${conversationalHeroHTML}
 ${bodyHTML}
 `;
 
-export const conversationalHero = {
+export const ConversationalHero = {
   name: 'Conversational UI',
   render: (args: LgHeroComponent) => ({
     props: args,

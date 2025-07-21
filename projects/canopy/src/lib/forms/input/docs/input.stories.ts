@@ -320,48 +320,48 @@ export default {
   },
 };
 
-export const standard = {
+export const Standard = {
   name: 'Standard',
   render: (args: LgInputFieldComponent) => createInputStory(args),
 };
-setupInputStoryValues(standard, inputTemplate);
+setupInputStoryValues(Standard, inputTemplate);
 
-export const withButtonSuffix = {
+export const WithButtonSuffix = {
   name: 'With button suffix',
   render: (args: LgInputFieldComponent) => createInputStory(args),
 };
 
-setupInputStoryValues(withButtonSuffix, inputTemplate, {
+setupInputStoryValues(WithButtonSuffix, inputTemplate, {
   showButtonFirstSuffix: true,
 });
 
-export const withTextSuffix = {
+export const WithTextSuffix = {
   name: 'With test suffix',
   render: (args: LgInputFieldComponent) => createInputStory(args),
 };
 
-setupInputStoryValues(withTextSuffix, inputTemplate, {
+setupInputStoryValues(WithTextSuffix, inputTemplate, {
   showTextSuffix: true,
   label: 'Amount',
   hint: null,
 });
 
-export const withMultipleButtonSuffixes = {
+export const WithMultipleButtonSuffixes = {
   name: 'With multiple buttons suffixes',
   render: (args: LgInputFieldComponent) => createInputStory(args),
 };
 
-setupInputStoryValues(withMultipleButtonSuffixes, inputTemplate, {
+setupInputStoryValues(WithMultipleButtonSuffixes, inputTemplate, {
   showButtonFirstSuffix: true,
   showButtonSecondSuffix: true,
 });
 
-export const withTextPrefix = {
+export const WithTextPrefix = {
   name: 'With text prefix',
   render: (args: LgInputFieldComponent) => createInputStory(args),
 };
 
-setupInputStoryValues(withTextPrefix, inputTemplate, {
+setupInputStoryValues(WithTextPrefix, inputTemplate, {
   showTextPrefix: true,
   label: 'Amount',
   hint: null,

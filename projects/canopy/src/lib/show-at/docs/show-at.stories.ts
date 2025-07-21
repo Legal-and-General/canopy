@@ -54,7 +54,7 @@ const template = `
   ${directiveTemplate}
 `;
 
-export const showAtStory = {
+export const ShowAtStory = {
   name: 'Show at',
   render: (args: LgShowAtDirective) => ({
     props: args,

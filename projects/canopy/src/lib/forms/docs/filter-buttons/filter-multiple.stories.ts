@@ -187,7 +187,7 @@ export default {
   },
 };
 
-export const filterMultipleButtons = {
+export const FilterMultipleButtons = {
   name: 'Select multiple',
   render: (args: LgCheckboxGroupComponent) => ({
     props: args,
