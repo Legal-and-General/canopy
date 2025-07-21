@@ -21,7 +21,6 @@ import { LgInputDirective } from './input.directive';
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ FormsModule, ReactiveFormsModule, LgInputDirective ],
 })
 class TestInputComponent {

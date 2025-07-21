@@ -6,7 +6,6 @@ import { LgSkeletonDirective } from './skeleton.directive';
 
 @Component({
   template: ' <div lgSkeleton>{{ data?.label }}</div> ',
-  standalone: true,
   imports: [ LgSkeletonDirective ],
 })
 class TestComponent {

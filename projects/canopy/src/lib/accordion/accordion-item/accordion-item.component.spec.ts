@@ -28,7 +28,6 @@ import { LgAccordionItemComponent } from './accordion-item.component';
       </ng-template>
     </lg-accordion-item>
   `,
-  standalone: true,
   imports: [
     LgAccordionItemComponent,
     LgAccordionPanelHeadingComponent,

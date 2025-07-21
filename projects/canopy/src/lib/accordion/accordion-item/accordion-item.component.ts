@@ -36,7 +36,6 @@ let nextUniqueId = 0;
   changeDetection: ChangeDetectionStrategy.OnPush,
   // Do not provide LG_ACCORDION to nested accordion components
   providers: [ { provide: LG_ACCORDION, useValue: undefined } ],
-  standalone: true,
   imports: [ NgIf, NgTemplateOutlet, LgAccordionItemContentDirective ],
 })
 export class LgAccordionItemComponent implements AfterContentInit, OnChanges, OnDestroy {

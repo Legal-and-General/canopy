@@ -15,7 +15,6 @@ import { ProgressDisplayAs } from '../progress-indicator.interface';
   styleUrls: [ './progress-journey.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ NgSwitch, NgSwitchCase ],
 })
 export class LgProgressJourneyComponent {

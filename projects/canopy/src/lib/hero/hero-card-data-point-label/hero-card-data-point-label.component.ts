@@ -15,7 +15,6 @@ import { LgHeadingComponent } from '../../heading';
   styleUrls: [ './hero-card-data-point-label.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ LgHeadingComponent ],
 })
 export class LgHeroCardDataPointLabelComponent {

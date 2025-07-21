@@ -18,7 +18,6 @@ let nextUniqueId = 0;
   templateUrl: './validation.component.html',
   styleUrls: [ './validation.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgValidationComponent {

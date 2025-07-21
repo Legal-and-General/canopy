@@ -22,7 +22,6 @@ const template = `
 @Component({
   selector: 'lg-details-example',
   template: template,
-  standalone: true,
   imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
 })
 class DetailsExampleComponent {

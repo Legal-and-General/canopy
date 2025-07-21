@@ -16,7 +16,6 @@ const variantTypes = [ 'generic', 'warning' ];
       {{ content }} Here is some <a href="#"> link text</a>.
     </lg-banner>
   `,
-  standalone: true,
   imports: [ LgBannerComponent, LgIconComponent ],
 })
 class LgBannerIconComponent {

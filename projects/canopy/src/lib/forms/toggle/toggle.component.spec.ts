@@ -45,7 +45,6 @@ const validationTestId = 'test-validation-id';
       </lg-toggle>
     </form>
   `,
-  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -100,7 +99,6 @@ class TestToggleComponent {
       </lg-switch>
     </form>
   `,
-  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,

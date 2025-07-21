@@ -16,7 +16,6 @@ import { LgButtonComponent } from './button.component';
       <lg-icon name="add" second></lg-icon>
     </button>
   `,
-  standalone: true,
   imports: [ LgIconComponent, LgButtonComponent ],
 })
 class ButtonDoubleIconTestComponent {

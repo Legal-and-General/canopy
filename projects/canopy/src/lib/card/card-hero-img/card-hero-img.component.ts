@@ -13,7 +13,6 @@ import { NgIf } from '@angular/common';
   styleUrls: [ './card-hero-img.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ NgIf ],
 })
 export class LgCardHeroImageComponent {

@@ -32,7 +32,6 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form-filter',
   template: formTemplate,
-  standalone: true,
   imports: [ ReactiveFormsModule, LgRadioGroupComponent, LgRadioButtonComponent ],
 })
 class ReactiveFormFilterComponent {

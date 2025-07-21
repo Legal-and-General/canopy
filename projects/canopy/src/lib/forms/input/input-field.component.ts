@@ -30,7 +30,6 @@ let nextUniqueId = 0;
   templateUrl: './input-field.component.html',
   styleUrls: [ './input-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [
     LgLabelComponent,
     LgHintComponent,

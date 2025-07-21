@@ -50,7 +50,6 @@ import {
       ></lg-pagination>
     </div>
   `,
-  standalone: true,
   imports: [
     LgTableComponent,
     LgTableHeadComponent,

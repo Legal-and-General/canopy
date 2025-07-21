@@ -22,7 +22,6 @@ import { LgSortCodeDirective } from './sort-code.directive';
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ FormsModule, ReactiveFormsModule, LgInputDirective, LgSortCodeDirective ],
 })
 class TestInputComponent {

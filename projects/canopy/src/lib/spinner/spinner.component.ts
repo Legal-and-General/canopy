@@ -20,7 +20,6 @@ import type { SpinnerSize, SpinnerVariant } from './spinner.interface';
   styleUrls: [ './spinner.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ NgClass, NgIf ],
 })
 export class LgSpinnerComponent implements OnDestroy {

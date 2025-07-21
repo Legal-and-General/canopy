@@ -28,7 +28,6 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form-radio',
   template: formTemplate,
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     LgRadioGroupComponent,

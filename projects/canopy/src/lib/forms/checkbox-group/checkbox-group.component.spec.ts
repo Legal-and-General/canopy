@@ -40,7 +40,6 @@ const hintTestId = 'test-hint-id';
       </lg-filter-multiple-group>
     </form>
   `,
-  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,

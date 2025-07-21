@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  ViewEncapsulation,
+  ViewEncapsulation, OnInit,
 } from '@angular/core';
 
 import { HeadingLevel } from '../../heading';
@@ -17,15 +17,14 @@ import { LgHeadingComponent } from '../../heading';
   host: {
     class: 'lg-card-subheading',
   },
-  standalone: true,
   imports: [ LgHeadingComponent ],
 })
-export class LgCardSubheadingComponent {
+export class LgCardSubheadingComponent implements OnInit {
   @Input() headingLevel: HeadingLevel;
 
   ngOnInit(): void {
     if (!this.headingLevel) {
-      // eslint-disable-next-line no-console
+
       console.error('headingLevel must be set');
     }
   }

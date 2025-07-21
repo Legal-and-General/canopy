@@ -33,7 +33,6 @@ import { LgToggleComponent } from '../toggle.component';
       </lg-toggle>
     </form>
   `,
-  standalone: true,
   imports: [ ReactiveFormsModule, LgToggleComponent ],
 })
 export class ReactiveToggleFormComponent implements OnChanges {

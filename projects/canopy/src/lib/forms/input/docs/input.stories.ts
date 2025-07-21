@@ -128,7 +128,6 @@ const inputTemplate = `
   template: `
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)">${inputTemplate}</form>
   `,
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     LgInputFieldComponent,

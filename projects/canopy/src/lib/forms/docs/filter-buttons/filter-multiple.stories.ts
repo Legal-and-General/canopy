@@ -26,7 +26,6 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form',
   template: formTemplate,
-  standalone: true,
   imports: [
     LgCheckboxGroupComponent,
     LgHintComponent,

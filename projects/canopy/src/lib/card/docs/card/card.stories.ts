@@ -108,7 +108,6 @@ const formJourneyTemplate = `
 @Component({
   selector: 'lg-form-journey',
   template: formJourneyTemplate,
-  standalone: true,
   imports: [
     NgIf,
     LgGridContainerDirective,
@@ -193,7 +192,6 @@ const showMoreCardTemplate = `
 @Component({
   selector: 'lg-card-show-more',
   template: showMoreCardTemplate,
-  standalone: true,
   imports: [
     NgIf,
     LgCardToggableContentComponent,
@@ -230,7 +228,6 @@ const navigationCardTemplate = `
 @Component({
   selector: 'lg-card-navigation',
   template: navigationCardTemplate,
-  standalone: true,
   imports: [
     LgCardSubheadingComponent,
     LgCardContentComponent,
@@ -291,7 +288,6 @@ const dataPointsCardTemplate = `
 @Component({
   selector: 'lg-card-data-points',
   template: dataPointsCardTemplate,
-  standalone: true,
   imports: [
     LgCardContentComponent,
     LgCardHeaderComponent,
@@ -365,7 +361,6 @@ const cardGroupTemplate = `
 @Component({
   selector: 'lg-card-group',
   template: cardGroupTemplate,
-  standalone: true,
   imports: [
     LgCardContentComponent,
     LgCardNavigationTitleComponent,

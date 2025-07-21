@@ -40,7 +40,6 @@ let nextUniqueId = 0;
     './toggle--filter.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ LgFocusDirective, NgClass, NgIf, LgIconComponent ],
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {

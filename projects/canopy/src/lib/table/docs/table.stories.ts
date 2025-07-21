@@ -127,7 +127,6 @@ const expandableTableTemplate = `
 @Component({
   selector: 'lg-story-table-detail',
   template: expandableTableTemplate,
-  standalone: true,
   imports: [
     LgTableComponent,
     LgTableHeadComponent,
@@ -268,7 +267,6 @@ const withLongCopyTableTemplate = `
 @Component({
   selector: 'lg-story-table-long-copy',
   template: withLongCopyTableTemplate,
-  standalone: true,
   imports: [
     LgTableComponent,
     LgTableHeadComponent,

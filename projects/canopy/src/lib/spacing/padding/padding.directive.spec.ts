@@ -18,7 +18,6 @@ import { LgPaddingDirective } from './padding.directive';
       Test feature
     </div>
   `,
-  standalone: true,
   imports: [ LgPaddingDirective ],
 })
 class TestComponent {

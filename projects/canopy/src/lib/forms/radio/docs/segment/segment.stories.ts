@@ -26,7 +26,6 @@ const segmentTemplate = `
 @Component({
   selector: 'lg-reactive-form-segment',
   template: ` <form [formGroup]="form">${segmentTemplate}</form> `,
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     LgHintComponent,
