@@ -54,7 +54,7 @@ export default {
       description: 'The variant of the validation.',
       table: {
         type: {
-          summary: 'generic,info,success,warning,error',
+          summary: variantTypes.join(','),
         },
         defaultValue: {
           summary: 'error',

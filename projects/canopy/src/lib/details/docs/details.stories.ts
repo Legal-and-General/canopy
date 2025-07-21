@@ -66,7 +66,7 @@ export default {
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: 'generic,info,success,warning,error',
+          summary: variantTypes.join(','),
         },
         defaultValue: {
           summary: 'generic',

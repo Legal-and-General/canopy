@@ -19,7 +19,7 @@ export default {
       description: 'The name of the breakpoint applied.',
       table: {
         type: {
-          summary: 'sm | md | lg | xl | xxl',
+          summary: 'sm,md,lg,xl,xxl',
         },
       },
       control: {

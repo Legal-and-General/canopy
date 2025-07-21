@@ -140,7 +140,7 @@ function getDefaultList(): Array<ListItems> {
 }
 
 export const ColouredListWithIcons = {
-  name: 'Coloured icons',
+  name: '[Internal] Coloured icons',
   render: (args: ListWithIconsWrapperComponent) => ({
     props: args,
     template:
