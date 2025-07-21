@@ -5,7 +5,6 @@ import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-hero',
-  standalone: true,
   imports: [ LgMarginDirective, LgIconComponent ],
   template: `
     <img

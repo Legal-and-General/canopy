@@ -22,7 +22,6 @@ import { LgIconComponent } from '../../icon';
   host: {
     class: 'lg-modal-header',
   },
-  standalone: true,
   imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgModalHeaderComponent {

@@ -22,7 +22,6 @@ type Name = IconName;
   host: {
     class: 'lg-list-with-icons-item',
   },
-  standalone: true,
   imports: [ LgIconComponent ],
 })
 export class LgListWithIconsItemComponent implements AfterViewInit, OnChanges {

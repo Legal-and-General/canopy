@@ -19,7 +19,6 @@ type FooterLogoClass = 'lg-footer-logo__img' | 'lg-footer-logo__second-img';
   host: {
     class: 'lg-footer-logo',
   },
-  standalone: true,
   imports: [ NgClass ],
 })
 export class LgFooterLogoComponent implements AfterContentChecked {

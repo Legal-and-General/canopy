@@ -15,7 +15,6 @@ import { LgHeadingComponent } from '../../../heading';
   styleUrls: [ './promo-card-list-title.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ LgHeadingComponent ],
 })
 export class LgPromoCardListTitleComponent {

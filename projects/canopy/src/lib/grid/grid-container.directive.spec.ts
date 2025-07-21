@@ -6,7 +6,6 @@ import { LgGridContainerDirective } from './grid-container.directive';
 
 @Component({
   template: ' <div lgContainer>Test feature</div> ',
-  standalone: true,
   imports: [ LgGridContainerDirective ],
 })
 class TestComponent {}

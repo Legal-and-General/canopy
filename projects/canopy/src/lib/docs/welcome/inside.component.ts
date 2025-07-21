@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'lg-docs-welcome-inside',
-  standalone: true,
   imports: [ CommonModule ],
   template: `
     <h2 class="lg-font--expressive lg-font-size-4--strong">What's inside</h2>

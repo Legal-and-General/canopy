@@ -11,7 +11,6 @@ import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-bottom-links-section',
-  standalone: true,
   imports: [
     CommonModule,
     LgLinkMenuComponent,

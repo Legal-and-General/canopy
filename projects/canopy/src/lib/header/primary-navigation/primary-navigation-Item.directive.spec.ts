@@ -8,7 +8,6 @@ import { LgPrimaryNavItemDirective } from './primary-navigation-item.directive';
   template: `
     <button id="test" type="button" lgPrimaryNavItem>Primary nav button</button>
   `,
-  standalone: true,
   imports: [ LgPrimaryNavItemDirective ],
 })
 class PrimaryNavTestItemComponent {}

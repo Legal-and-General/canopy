@@ -19,7 +19,6 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   styleUrls: [ './breadcrumb-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ NgClass, NgIf, LgIconComponent ],
 })
 export class LgBreadcrumbItemComponent {

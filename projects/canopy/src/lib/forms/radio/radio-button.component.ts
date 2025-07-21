@@ -37,7 +37,6 @@ let nextUniqueId = 0;
     './radio-button--segment.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ NgClass, NgIf ],
 })
 export class LgRadioButtonComponent implements OnInit {

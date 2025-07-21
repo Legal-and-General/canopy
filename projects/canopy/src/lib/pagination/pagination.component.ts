@@ -28,7 +28,6 @@ let nextUniqueId = 0;
   styleUrls: [ './pagination.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ NgIf, LgMarginDirective, LgIconComponent, NgFor ],
 })
 export class LgPaginationComponent implements OnChanges {

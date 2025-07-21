@@ -19,7 +19,6 @@ import { LgGridColDirective } from './grid-col.directive';
       Test feature
     </div>
   `,
-  standalone: true,
   imports: [ LgGridColDirective ],
 })
 class TestComponent {

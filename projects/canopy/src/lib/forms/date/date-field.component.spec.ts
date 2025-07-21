@@ -40,7 +40,6 @@ const errorStateMatcherMock = mock(LgErrorStateMatcher);
       </lg-date-field>
     </form>
   `,
-  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,

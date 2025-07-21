@@ -51,7 +51,6 @@ const labelFieldMap = {
   templateUrl: './date-field.component.html',
   styleUrls: [ './date-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [
     LgFocusDirective,
     LgLabelComponent,

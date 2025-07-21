@@ -46,7 +46,6 @@ import { lgBrandIconsArray } from '../../brand-icons-files';
       }
     `,
   ],
-  standalone: true,
   imports: [ LgBrandIconComponent, NgForOf ],
 })
 class SwatchBrandIconComponent implements OnChanges {

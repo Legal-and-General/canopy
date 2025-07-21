@@ -70,7 +70,6 @@ const cardListConfig = {
       </lg-promo-card>
     </lg-promo-card-list>
   `,
-  standalone: true,
   imports: [
     LgPromoCardListComponent,
     LgSeparatorComponent,

@@ -16,7 +16,6 @@ import { LgIconComponent } from '../../icon';
   styleUrls: [ './breadcrumb-item-ellipsis.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ LgIconComponent ],
 })
 export class LgBreadcrumbItemEllipsisComponent {

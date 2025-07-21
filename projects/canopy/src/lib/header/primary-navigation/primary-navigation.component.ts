@@ -22,7 +22,6 @@ import { LgHideAtDirective } from '../../hide-at';
     id: 'primary-nav',
     'aria-label': 'Main navigation',
   },
-  standalone: true,
   imports: [ LgHideAtDirective ],
 })
 export class LgPrimaryNavComponent {

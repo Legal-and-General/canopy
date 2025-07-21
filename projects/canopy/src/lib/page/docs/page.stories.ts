@@ -118,7 +118,6 @@ const fullWidthWithHeroTemplate = `
 @Component({
   selector: 'lg-full-width-with-header',
   template: fullWidthWithHeroTemplate,
-  standalone: true,
   imports: [
     LgPageComponent,
     LgHeroComponent,

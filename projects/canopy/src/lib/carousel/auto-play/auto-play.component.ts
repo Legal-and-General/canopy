@@ -15,7 +15,6 @@ import { LgIconComponent } from '../../icon';
   templateUrl: './auto-play.component.html',
   styleUrls: [ './auto-play.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ NgIf, LgIconComponent ],
 })
 export class LgAutoplayComponent {

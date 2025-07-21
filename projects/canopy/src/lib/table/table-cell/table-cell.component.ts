@@ -22,7 +22,6 @@ import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ NgClass ],
-  standalone: true,
   host: { ngSkipHydration: 'true' },
 })
 export class LgTableCellComponent {

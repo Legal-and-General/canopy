@@ -16,7 +16,6 @@ import { LgIconComponent } from '../../icon';
   styleUrls: [ './table-row-toggle.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ LgIconComponent, NgClass ],
 })
 export class LgTableRowToggleComponent {

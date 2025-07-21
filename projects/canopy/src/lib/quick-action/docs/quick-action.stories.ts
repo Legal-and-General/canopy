@@ -13,7 +13,6 @@ import { lgIconsArray } from '../../ui-icons-files';
       {{ content }}
     </a>
   `,
-  standalone: true,
   imports: [ LgIconComponent, LgQuickActionComponent ],
 })
 class LgQuickActionLinkComponent {
@@ -31,7 +30,6 @@ class LgQuickActionLinkComponent {
       {{ content }}
     </button>
   `,
-  standalone: true,
   imports: [ LgIconComponent, LgQuickActionComponent ],
 })
 class LgQuickActionButtonComponent {

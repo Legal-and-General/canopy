@@ -74,7 +74,6 @@ function invalidValidator(): ValidatorFn {
       useExisting: FormGroupDirective,
     },
   ],
-  standalone: true,
   imports: [ LgDateFieldComponent, ReactiveFormsModule, LgValidationComponent, NgIf ],
 })
 class FormGroupChildComponent implements OnInit {
@@ -277,7 +276,6 @@ class FormGroupChildComponent implements OnInit {
       <button lg-button type="submit" variant="primary-dark">Submit</button>
     </form>
   `,
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     LgInputFieldComponent,

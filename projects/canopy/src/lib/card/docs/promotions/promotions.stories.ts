@@ -39,7 +39,6 @@ const promotionsGeneralCardTemplate = `
 @Component({
   selector: 'lg-card-general-promotion',
   template: promotionsGeneralCardTemplate,
-  standalone: true,
   imports: [
     LgMarginDirective,
     LgCardContentComponent,

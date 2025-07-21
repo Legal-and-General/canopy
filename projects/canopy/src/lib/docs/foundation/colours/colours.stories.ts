@@ -57,6 +57,7 @@ interface Color {
       }
     `,
   ],
+  standalone: false,
 })
 class SwatchComponent implements AfterViewInit {
   @HostBinding('class') class = 'swatch';
@@ -134,6 +135,7 @@ class SwatchComponent implements AfterViewInit {
       }
     `,
   ],
+  standalone: false,
 })
 class TintSwatchComponent implements AfterViewInit {
   colors: Array<Color>;

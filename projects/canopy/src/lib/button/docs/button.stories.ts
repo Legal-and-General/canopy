@@ -67,7 +67,6 @@ const buttonVariants = [
       </a>
     </ng-container>
   `,
-  standalone: true,
   imports: [ LgButtonComponent, LgIconComponent, NgIf ],
 })
 class ButtonComponentExampleComponent {

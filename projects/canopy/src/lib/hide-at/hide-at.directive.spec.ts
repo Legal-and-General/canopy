@@ -6,7 +6,6 @@ import { LgHideAtDirective } from './hide-at.directive';
 
 @Component({
   template: ' <div [lgHideAt]="lgHideAt || null">How you see me...</div> ',
-  standalone: true,
   imports: [ LgHideAtDirective ],
 })
 class TestComponent {

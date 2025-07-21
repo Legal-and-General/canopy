@@ -8,7 +8,6 @@ import { LgButtonToggleDirective } from './button-toggle.directive';
 
 @Component({
   template: '<a lg-button lgButtonToggle variant="secondary-dark">This is a link</a>',
-  standalone: true,
   imports: [ LgButtonComponent, LgButtonToggleDirective ],
 })
 class LinkTestComponent {}
@@ -19,7 +18,6 @@ class LinkTestComponent {}
       This is a button
     </button>
   `,
-  standalone: true,
   imports: [ LgButtonComponent, LgButtonToggleDirective ],
 })
 class ButtonTestComponent {}

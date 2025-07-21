@@ -31,7 +31,6 @@ import { lgIconsArray } from '../../ui-icons-files';
       }
     `,
   ],
-  standalone: true,
   imports: [ LgIconComponent, NgForOf ],
 })
 class SwatchIconComponent implements OnChanges {
