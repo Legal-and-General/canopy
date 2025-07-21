@@ -56,7 +56,7 @@ export default {
       description: 'Either show as percentage or stepper.',
       table: {
         type: {
-          summary: 'percentage|step',
+          summary: 'percentage,step',
         },
         defaultValue: {
           summary: 'step',

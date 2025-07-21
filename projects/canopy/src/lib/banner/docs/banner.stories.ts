@@ -50,7 +50,7 @@ export default {
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: 'generic,warning',
+          summary: variantTypes.join(','),
         },
         defaultValue: {
           summary: 'generic',

@@ -112,7 +112,7 @@ export default {
       description: 'The variant to apply to the card.',
       table: {
         type: {
-          summary: 'solid-white | solid-green | solid-yellow',
+          summary: 'solid-white,solid-green,solid-yellow',
         },
         defaultValue: {
           summary: variants[0],
@@ -128,7 +128,7 @@ export default {
       description: 'The variant to apply to the card.',
       table: {
         type: {
-          summary: 'solid-white | solid-green | solid-yellow',
+          summary: 'solid-white,solid-green,solid-yellow',
         },
         defaultValue: {
           summary: variants[0],
@@ -144,7 +144,7 @@ export default {
       description: 'The variant to apply to the card.',
       table: {
         type: {
-          summary: 'solid-white | solid-green | solid-yellow',
+          summary: 'solid-white,solid-green,solid-yellow',
         },
         defaultValue: {
           summary: variants[1],
