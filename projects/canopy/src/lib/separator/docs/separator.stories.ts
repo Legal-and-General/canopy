@@ -16,7 +16,7 @@ export default {
       description: 'The variant of separator.',
       table: {
         type: {
-          summary: 'solid | dotted',
+          summary: 'solid,dotted',
         },
         defaultValue: {
           summary: 'solid',

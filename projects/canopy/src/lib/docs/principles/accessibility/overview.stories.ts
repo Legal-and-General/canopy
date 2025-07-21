@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 export default {
-  title: 'Accessibility Overview',
+  title: '[Internal] Accessibility Overview',
   decorators: [
     moduleMetadata({
       imports: [],
