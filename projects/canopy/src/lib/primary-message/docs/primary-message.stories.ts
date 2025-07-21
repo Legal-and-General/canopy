@@ -27,7 +27,6 @@ import { LgMarginDirective } from '../../spacing';
       </lg-primary-message-description>
     </lg-primary-message>
   `,
-  standalone: true,
   imports: [
     LgPrimaryMessageComponent,
     LgBrandIconComponent,

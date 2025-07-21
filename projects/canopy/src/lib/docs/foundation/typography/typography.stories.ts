@@ -33,6 +33,7 @@ const availableFontSizesLyon = [
 
     <ng-template #px>sm > xxl: {{ pxValues?.sm }}px</ng-template>
   `,
+  standalone: false,
 })
 class LgDisplayFontSizeComponent {
   @Input() textString: string;
@@ -102,6 +103,7 @@ class LgDisplayFontSizeComponent {
       }
     `,
   ],
+  standalone: false,
 })
 class LgFontPanelComponent {
   @Input() isProductiveFont: boolean;

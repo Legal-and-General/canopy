@@ -6,7 +6,6 @@ import { LgFocusDirective } from './focus.directive';
 
 @Component({
   template: ' <button type="button" [lgFocus]="testVar">Test button</button> ',
-  standalone: true,
   imports: [ LgFocusDirective ],
 })
 class TestFocusComponent {

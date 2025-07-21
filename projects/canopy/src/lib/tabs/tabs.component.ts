@@ -29,7 +29,6 @@ let nextUniqueId = 0;
   styleUrls: [ './tabs.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ NgFor, NgClass, LgFocusDirective, NgTemplateOutlet ],
 })
 export class LgTabsComponent implements AfterContentInit, OnDestroy {

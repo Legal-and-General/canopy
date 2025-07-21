@@ -17,7 +17,6 @@ import { LgIconComponent } from '../icon';
   templateUrl: './alert.component.html',
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgAlertComponent implements OnChanges {

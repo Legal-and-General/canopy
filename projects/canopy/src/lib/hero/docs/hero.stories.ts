@@ -164,7 +164,6 @@ const productHeroTemplate = `<lg-hero [overlap]="overlap" lgMarginTop="none">${p
 @Component({
   selector: 'lg-hero-product-story',
   template: productHeroTemplate,
-  standalone: true,
   imports: [
     LgCardComponent,
     LgCardContentComponent,

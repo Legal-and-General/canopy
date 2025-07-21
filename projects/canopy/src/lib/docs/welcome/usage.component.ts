@@ -5,7 +5,6 @@ import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-usage',
-  standalone: true,
   imports: [ LgMarginDirective, LgIconComponent ],
   template: `
     <img src="docs/welcome/builders.svg" alt="" />

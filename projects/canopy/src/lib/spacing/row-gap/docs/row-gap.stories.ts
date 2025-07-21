@@ -68,7 +68,6 @@ const spaces = [
       </div>
     </div>
   `,
-  standalone: true,
   imports: [
     LgCardComponent,
     LgCardContentComponent,

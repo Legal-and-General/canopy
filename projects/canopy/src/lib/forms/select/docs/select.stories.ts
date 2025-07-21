@@ -24,7 +24,6 @@ const template = `
 @Component({
   selector: 'lg-reactive-form',
   template: ` <form [formGroup]="form">${template}</form> `,
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     LgSelectFieldComponent,

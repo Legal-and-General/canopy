@@ -11,7 +11,6 @@ import { LgModalTriggerDirective } from './modal-trigger.directive';
 @Component({
   template: ' <button lgModalTrigger="test" id="modal-trigger">Open modal</button> ',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ LgModalTriggerDirective ],
 })
 class TestTriggerComponent {}

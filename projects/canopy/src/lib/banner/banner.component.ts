@@ -25,7 +25,6 @@ import type { BannerVariant } from './banner-variant.interface';
   host: {
     class: 'lg-banner',
   },
-  standalone: true,
   imports: [ LgGridContainerDirective, LgGridRowDirective, LgGridColDirective ],
 })
 export class LgBannerComponent {

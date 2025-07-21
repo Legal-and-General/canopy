@@ -26,7 +26,6 @@ import { LgAutoplayComponent } from './auto-play/auto-play.component';
   styleUrls: [ './carousel.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [
     LgHeadingComponent,
     NgIf,

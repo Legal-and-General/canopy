@@ -46,7 +46,6 @@ interface Data {
       </lg-card-content>
     </lg-card>
   `,
-  standalone: true,
   imports: [
     LgCardComponent,
     LgCardHeaderComponent,
@@ -115,7 +114,6 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
       </lg-card-content>
     </lg-card>
   `,
-  standalone: true,
   imports: [
     LgCardPrincipleDataPointDateComponent,
     LgSkeletonDirective,
@@ -167,7 +165,6 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
       </lg-card-content>
     </lg-card>
   `,
-  standalone: true,
   imports: [
     LgDataPointValueComponent,
     LgDataPointLabelComponent,

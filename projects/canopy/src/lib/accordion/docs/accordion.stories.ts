@@ -54,6 +54,7 @@ const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=mu
       }
     `,
   ],
+  standalone: false,
 })
 class AccordionWrapperComponent {
   @Input() iconForFirstAccordionItem = '';

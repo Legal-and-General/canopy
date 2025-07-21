@@ -27,7 +27,6 @@ import { LgAccordionComponent } from './accordion.component';
       </lg-accordion-item>
     </lg-accordion>
   `,
-  standalone: true,
   imports: [
     LgAccordionItemComponent,
     LgAccordionComponent,

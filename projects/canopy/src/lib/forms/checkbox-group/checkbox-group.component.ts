@@ -34,7 +34,6 @@ let uniqueId = 0;
   templateUrl: './checkbox-group.component.html',
   styleUrls: [ './checkbox-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {

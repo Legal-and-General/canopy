@@ -15,6 +15,7 @@ import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.comp
       <lg-icon name="idea"></lg-icon>Panel heading
     </lg-accordion-panel-heading>
   `,
+  standalone: false,
 })
 class LgAccordionPanelHeadingWithDecorativeIconComponent {}
 

@@ -36,7 +36,6 @@ const hintTestId = 'test-hint-id';
       </lg-radio-group>
     </form>
   `,
-  standalone: true,
   imports: [
     FormsModule,
     ReactiveFormsModule,

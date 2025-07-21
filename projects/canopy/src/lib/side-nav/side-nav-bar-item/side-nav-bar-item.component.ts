@@ -13,7 +13,6 @@ import { LgIconComponent } from '../../icon';
   styleUrls: [ './side-nav-bar-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ LgIconComponent ],
 })
 export class LgSideNavBarItemComponent {

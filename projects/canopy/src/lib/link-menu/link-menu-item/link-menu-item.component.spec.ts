@@ -13,7 +13,6 @@ import { LgLinkMenuItemComponent } from './link-menu-item.component';
     <lg-link-menu-item-text class="bold">Update my direct debit</lg-link-menu-item-text>
     <lg-link-menu-item-text>Do it online</lg-link-menu-item-text>
   </lg-link-menu-item>`,
-  standalone: true,
   imports: [ LgLinkMenuItemTextComponent, LgLinkMenuItemComponent ],
 })
 class TestComponent {

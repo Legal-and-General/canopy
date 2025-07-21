@@ -24,7 +24,6 @@ import { LgSelectDirective } from './select.directive';
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ FormsModule, ReactiveFormsModule, LgSelectDirective ],
 })
 class TestSelectComponent {

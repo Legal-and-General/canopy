@@ -17,7 +17,6 @@ import { LgCardComponent } from '../../card';
   styleUrls: [ './side-nav-bar.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [
     LgCardComponent,
     LgPaddingDirective,

@@ -45,7 +45,6 @@ import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.dir
   host: {
     class: 'lg-header',
   },
-  standalone: true,
   imports: [
     LgGridContainerDirective,
     LgGridRowDirective,

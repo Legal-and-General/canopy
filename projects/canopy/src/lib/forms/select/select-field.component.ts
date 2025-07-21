@@ -23,7 +23,6 @@ let nextUniqueId = 0;
   templateUrl: './select-field.component.html',
   styleUrls: [ './select-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ LgLabelComponent, LgIconComponent ],
 })
 export class LgSelectFieldComponent {

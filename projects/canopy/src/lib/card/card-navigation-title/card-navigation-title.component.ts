@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewEncapsulation,
+  ViewEncapsulation, OnChanges,
 } from '@angular/core';
 import { Params, QueryParamsHandling, RouterLink } from '@angular/router';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
@@ -25,10 +25,9 @@ import { LgIconComponent } from '../../icon';
   host: {
     class: 'lg-card-navigation-title',
   },
-  standalone: true,
   imports: [ NgIf, LgHeadingComponent, NgTemplateOutlet, RouterLink, LgIconComponent ],
 })
-export class LgCardNavigationTitleComponent implements OnInit {
+export class LgCardNavigationTitleComponent implements OnInit, OnChanges {
   protected externalLink: boolean;
   @Input() headingLevel: HeadingLevel;
   @Input() title = '';
@@ -39,7 +38,7 @@ export class LgCardNavigationTitleComponent implements OnInit {
 
   ngOnInit(): void {
     if (!(this.headingLevel && this.title && this.link)) {
-      // eslint-disable-next-line no-console
+
       console.error('headingLevel, title and link must be set');
     }
   }

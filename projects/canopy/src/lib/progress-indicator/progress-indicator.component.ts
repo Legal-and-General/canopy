@@ -19,7 +19,6 @@ let nextUniqueId = 0;
   styleUrls: [ './progress-indicator.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ CommonModule, LgProgressBarComponent, LgProgressJourneyComponent ],
 })
 export class LgProgressIndicatorComponent {

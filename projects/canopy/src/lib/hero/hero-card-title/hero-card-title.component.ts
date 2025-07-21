@@ -8,7 +8,6 @@ import { LgHeadingComponent } from '../../heading';
   templateUrl: './hero-card-title.component.html',
   styleUrls: [ './hero-card-title.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ LgHeadingComponent ],
 })
 export class LgHeroCardTitleComponent {

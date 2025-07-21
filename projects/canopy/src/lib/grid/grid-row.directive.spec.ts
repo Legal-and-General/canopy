@@ -6,7 +6,6 @@ import { LgGridRowDirective } from './grid-row.directive';
 
 @Component({
   template: ' <div lgRow>Test feature</div> ',
-  standalone: true,
   imports: [ LgGridRowDirective ],
 })
 class TestComponent {}

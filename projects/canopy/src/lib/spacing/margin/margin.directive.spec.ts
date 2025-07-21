@@ -18,7 +18,6 @@ import { LgMarginDirective } from './margin.directive';
       Test feature
     </div>
   `,
-  standalone: true,
   imports: [ LgMarginDirective ],
 })
 class TestComponent {

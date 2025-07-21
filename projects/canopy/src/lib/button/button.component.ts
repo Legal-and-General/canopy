@@ -23,7 +23,6 @@ import type { ButtonIconPosition, ButtonSize, ButtonVariant } from './button.int
   templateUrl: './button.component.html',
   styleUrls: [ './button.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ NgIf, NgFor, NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective ],
 })
 export class LgButtonComponent implements AfterViewInit {

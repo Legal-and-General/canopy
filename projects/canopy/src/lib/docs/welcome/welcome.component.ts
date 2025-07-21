@@ -31,7 +31,6 @@ const pageTemplate = `
 
 @Component({
   selector: 'lg-docs-welcome-page',
-  standalone: true,
   imports: [
     DocsWelcomeHeroComponent,
     DocsWelcomeBenefitsComponent,

@@ -19,7 +19,6 @@ import { LgHeadingComponent } from '../../heading';
   styleUrls: [ './details-panel-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ LgHeadingComponent, NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgDetailsPanelHeadingComponent {

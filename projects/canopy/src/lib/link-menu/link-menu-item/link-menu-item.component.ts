@@ -18,7 +18,6 @@ import { LgIconComponent as LgIconComponent_1 } from '../../icon/icon.component'
   styleUrls: [ './link-menu-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ NgIf, LgIconComponent_1 ],
 })
 export class LgLinkMenuItemComponent implements OnInit {

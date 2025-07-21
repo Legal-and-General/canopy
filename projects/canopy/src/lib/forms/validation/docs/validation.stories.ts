@@ -16,7 +16,6 @@ const template = `
 @Component({
   selector: 'lg-validation-example',
   template: template,
-  standalone: true,
   imports: [ LgValidationComponent ],
 })
 class LgValidationExampleComponent {

@@ -36,7 +36,6 @@ let uniqueId = 0;
   templateUrl: './radio-group.component.html',
   styleUrls: [ './radio-group.component.scss', './radio-group--segment.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  standalone: true,
   imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective, NgIf ],
 })
 export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {

@@ -11,7 +11,6 @@ import { LgRowGapDirective } from './row-gap.directive';
     <div id="test-0" lgRowGap>Test 0</div>
     <div id="test-1" [lgRowGap]="rowGap">Test 1</div>
   `,
-  standalone: true,
   imports: [ LgRowGapDirective ],
 })
 class TestComponent {

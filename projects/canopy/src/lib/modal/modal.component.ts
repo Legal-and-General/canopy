@@ -36,7 +36,6 @@ import { LgModalService } from './modal.service';
   host: {
     class: 'lg-modal',
   },
-  standalone: true,
   imports: [
     NgIf,
     LgCardComponent,

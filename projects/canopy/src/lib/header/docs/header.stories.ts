@@ -53,7 +53,6 @@ const navigationTemplate = `
 @Component({
   selector: 'lg-navigation',
   template: navigationTemplate,
-  standalone: true,
   imports: [
     LgHeaderComponent,
     LgHeaderLogoComponent,

@@ -11,7 +11,6 @@ import type { HeadingLevel } from './heading.interface';
   host: {
     class: 'lg-heading',
   },
-  standalone: true,
   imports: [ NgIf, NgTemplateOutlet ],
 })
 export class LgHeadingComponent {

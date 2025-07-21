@@ -34,7 +34,6 @@ const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
       </lg-card-content>
     </lg-card>
   `,
-  standalone: true,
   imports: [
     LgCardComponent,
     LgCardContentComponent,
