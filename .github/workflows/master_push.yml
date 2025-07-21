@@ -101,3 +101,9 @@ jobs:
               exec,
               core
             });
+
+      - name: 'Update visual baselines'
+        run: npx percy storybook ./docs
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: 'master'

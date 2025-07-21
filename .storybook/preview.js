@@ -30,5 +30,8 @@ const preview = {
       theme: canopyTheme,
     }
   },
+  percy: {
+    waitForTimeout: 500 // Wait for half a second to ensure all elements are rendered before taking a snapshot
+  }
 };
 export default preview;

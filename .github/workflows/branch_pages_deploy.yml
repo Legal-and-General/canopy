@@ -87,6 +87,12 @@ jobs:
               exec,
             });
 
+      - name: 'Visual comparison'
+        run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }}
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
+
       - name: 'Checking out current branch'
         if: always()
         run: git checkout ${{ github.sha }}

@@ -49,6 +49,24 @@ Current linting includes
 - `stylelint` and `prettier` for scss files
 - `prettier` for json files
 
+## Running visual tests
+
+Visual tests run using [Percy](https://percy.io/). The visual tests will take screenshots of the components and compare them to the baseline images.
+
+### Branch environment
+
+The visual tests run as part of the branch deployment which can only be triggered by a [Canopy Core Contributors](https://github.com/orgs/Legal-and-General/teams/canopy-core-contributors).
+
+### Local env
+
+Pre-requisites:
+```bash
+export PERCY_BRANCH='local';
+export PERCY_TOKEN='<percy-token>'; # this is available in the Percy project settings
+```
+
+Run `npm run test:visual` to execute the visual regression tests locally.
+
 ## Conventional commits
 
 This repository is set up to work with the [angular version](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines) of [conventional commits](https://www.conventionalcommits.org).
