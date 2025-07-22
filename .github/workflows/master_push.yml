@@ -103,7 +103,7 @@ jobs:
             });
 
       - name: 'Update visual baselines'
-        run: npx percy storybook ./docs
+        run: npx percy storybook ./docs --config=.percy.yml
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: 'master'
