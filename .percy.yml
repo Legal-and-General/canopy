@@ -1,0 +1,28 @@
+version: 2
+percy:
+  useSystemProxy: false
+  skipBaseBuild: false
+snapshot:
+  widths:
+    - 1024
+    - 1280
+  minHeight: 900
+  percyCSS: ''
+  enableJavaScript: false
+  cliEnableJavaScript: true
+  disableShadowDOM: false
+  responsiveSnapshotCapture: false
+discovery:
+  allowedHostnames: []
+  disallowedHostnames: []
+  # Percy waits up to NETWORK_IDLE_WAIT_TIMEOUT to find 750ms of no network activity
+  networkIdleTimeout: 750
+  captureMockedServiceWorker: false
+  retry: false
+upload:
+  files: '**/*.{png,jpg,jpeg}'
+  ignore: ''
+  stripExtensions: false
+storybook:
+  # Waits for half a second to ensure all elements are rendered before taking a snapshot
+  waitForTimeout: 500

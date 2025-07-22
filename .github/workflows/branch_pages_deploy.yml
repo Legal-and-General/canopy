@@ -92,6 +92,7 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
+          NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Checking out current branch'
         if: always()
