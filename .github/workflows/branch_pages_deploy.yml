@@ -88,7 +88,7 @@ jobs:
             });
 
       - name: 'Visual comparison'
-        run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }}
+        run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }} --config=.percy.yml
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
