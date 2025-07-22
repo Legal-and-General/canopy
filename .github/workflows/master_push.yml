@@ -107,3 +107,4 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: 'master'
+          NETWORK_IDLE_WAIT_TIMEOUT: 5000

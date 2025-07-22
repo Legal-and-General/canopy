@@ -45,7 +45,7 @@ export const focus = focusTemplate.bind({});
 focus.storyName = 'Focus';
 
 focus.args = {
-  lgFocus: false,
+  lgFocus: true,
 };
 
 focus.parameters = {
