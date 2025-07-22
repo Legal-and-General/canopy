@@ -19,7 +19,7 @@
     "e2e": "ng e2e",
     "test": "ng test",
     "test:ci": "ng test canopy --watch=false --browsers=ChromeHeadless && ng test canopy-test-app --watch=false --browsers=ChromeHeadless",
-    "test:visual": "npm run build:storybook && npx percy storybook ./storybook-static",
+    "test:visual": "npm run build && npm run build:storybook && npx percy storybook ./storybook-static",
     "// ----- LINTING AND OPTIMISATION": "",
     "eslint": "ng lint",
     "lint": "npm run eslint && npm run stylelint",
