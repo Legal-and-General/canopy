@@ -20,3 +20,9 @@ const welcomeTemplate: StoryFn<DocsWelcomePageComponent> = (
 
 export const welcomeStory = welcomeTemplate.bind({});
 welcomeStory.storyName = 'Welcome page';
+
+welcomeStory.parameters = {
+  percy: {
+    waitForSelector: '.welcome-img',
+  },
+};
