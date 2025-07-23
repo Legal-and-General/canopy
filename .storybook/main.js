@@ -41,7 +41,6 @@ module.exports = {
     '../projects/canopy/src/lib/details/docs/guide.mdx',
     '../projects/canopy/src/lib/details/docs/details.stories.ts',
     '../projects/canopy/src/lib/forms/docs/forms-design.mdx',
-    '../projects/canopy/src/lib/forms/checkbox-group/filter-group.stories.ts',
     '../projects/canopy/src/lib/forms/input/docs/guide.mdx',
     '../projects/canopy/src/lib/forms/input/docs/input.stories.ts',
     '../projects/canopy/src/lib/forms/docs/filter-buttons/guide.mdx',
