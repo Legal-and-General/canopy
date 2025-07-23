@@ -14,7 +14,7 @@ export default {
 } as Meta;
 
 export const WelcomeStory = {
-  name: 'Welcome page',
+  name: '[Hidden] Welcome page',
   render: (args: DocsWelcomePageComponent) => ({
     props: args,
     template: '<lg-docs-welcome-page></lg-docs-welcome-page>',

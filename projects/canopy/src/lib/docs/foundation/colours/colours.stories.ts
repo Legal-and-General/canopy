@@ -245,7 +245,7 @@ const tintsColoursTemplate = `
 `;
 
 export const CoreColours = {
-  name: 'Core',
+  name: '[Hidden] Core',
   render: (args: SwatchComponent) => ({
     props: args,
     template: coreColoursTemplate,
@@ -253,7 +253,7 @@ export const CoreColours = {
 };
 
 export const SecondaryColours = {
-  name: 'Secondary',
+  name: '[Hidden] Secondary',
   render: (args: SwatchComponent) => ({
     props: args,
     template: secondaryColoursTemplate,
@@ -261,7 +261,7 @@ export const SecondaryColours = {
 };
 
 export const GreyscaleColours = {
-  name: 'Secondary',
+  name: '[Hidden] Greyscale',
   render: (args: SwatchComponent) => ({
     props: args,
     template: greyscaleColoursTemplate,
@@ -269,7 +269,7 @@ export const GreyscaleColours = {
 };
 
 export const TintsColours = {
-  name: 'Tints',
+  name: '[Hidden] Tints',
   render: (args: TintSwatchComponent) => ({
     props: args,
     template: tintsColoursTemplate,
