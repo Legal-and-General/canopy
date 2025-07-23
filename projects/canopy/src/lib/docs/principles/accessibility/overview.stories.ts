@@ -19,7 +19,7 @@ const mainQuoteTemplate = `
 `;
 
 export const MainQuote = {
-  name: 'Main',
+  name: '[Hidden] Main',
   render: (args: unknown) => ({
     props: args,
     template: mainQuoteTemplate,
@@ -34,7 +34,7 @@ const equalityActQuoteTemplate = `
 `;
 
 export const EqualityActQuote = {
-  name: 'Equality Act',
+  name: '[Hidden] Equality Act',
   render: (args: unknown) => ({
     props: args,
     template: equalityActQuoteTemplate,

@@ -127,7 +127,7 @@ const typographyTemplate = `
 `;
 
 export const Productive = {
-  name: 'Productive',
+  name: '[Hidden] Productive',
   render: (args: LgDisplayFontSizeComponent) => ({
     props: args,
     template: typographyTemplate,
@@ -138,7 +138,7 @@ export const Productive = {
 };
 
 export const Expressive = {
-  name: 'Productive',
+  name: '[Hidden] Productive',
   render: (args: LgDisplayFontSizeComponent) => ({
     props: args,
     template: typographyTemplate,
