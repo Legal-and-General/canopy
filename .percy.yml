@@ -8,7 +8,7 @@ snapshot:
     - 1280
   minHeight: 900
   percyCSS: ''
-  enableJavaScript: false
+  enableJavaScript: true
   cliEnableJavaScript: true
   disableShadowDOM: false
   responsiveSnapshotCapture: false
@@ -26,4 +26,4 @@ upload:
 storybook:
   # Waits for half a second to ensure all elements are rendered before taking a snapshot
   waitForTimeout: 500
-  exclude: [ '^.*\[Hidden\].*$' ]
+  exclude: [ '^.*\[Hidden|DEPRECATED\].*$',]
