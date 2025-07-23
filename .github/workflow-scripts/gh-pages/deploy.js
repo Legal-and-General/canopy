@@ -13,8 +13,6 @@ module.exports = async ({
 
   if (branch === 'master') {
     console.info('ℹ️ Branch to deploy: master');
-    console.info('ℹ️ Running storybook build');
-    await exec.exec('npm', ['run', 'build:storybook', '--', '--output-dir', 'lg-sb-build']);
 
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   } else {
