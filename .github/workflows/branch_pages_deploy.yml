@@ -44,9 +44,17 @@ jobs:
               context
             });
 
-      - run: |
+      - name: 'Unzip storybook build'
+        run: |
           unzip lg-sb-build.zip -d ./docs/lg-sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
           rm lg-sb-build.zip
+
+      - name: 'Visual comparison'
+        run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }} --config=.percy.yml
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
+          NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Notify GitHub of branch deployment'
         uses: actions/github-script@v7
@@ -86,13 +94,6 @@ jobs:
               context,
               exec,
             });
-
-      - name: 'Visual comparison'
-        run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }} --config=.percy.yml
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
-          NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Checking out current branch'
         if: always()
