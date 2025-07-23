@@ -91,6 +91,12 @@ jobs:
       - name: 'Build storybook'
         run: npm run build:storybook -- --output-dir ./lg-sb-build
 
+      - name: 'Update visual baselines'
+        run: npx percy storybook ./lg-sb-build --config=.percy.yml
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_BRANCH: 'master'
+          NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Deployment to GitHub Pages'
         uses: actions/github-script@v7
@@ -105,10 +111,3 @@ jobs:
               exec,
               core
             });
-
-      - name: 'Update visual baselines'
-        run: npx percy storybook ./docs --config=.percy.yml
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          PERCY_BRANCH: 'master'
-          NETWORK_IDLE_WAIT_TIMEOUT: 5000
