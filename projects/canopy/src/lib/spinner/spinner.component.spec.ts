@@ -113,30 +113,36 @@ describe('LgSpinnerComponent', () => {
       jasmine.clock().install();
     });
 
-    it('should be toggled every few seconds', fakeAsync(() => {
-      expect(component.readScreenReaderAlert).toBe(true);
-
-      interval(1000).subscribe(() => {
+    it('should be toggled every few seconds', fakeAsync(
+      () => {
         expect(component.readScreenReaderAlert).toBe(true);
-      });
 
-      interval(1000).subscribe(() => {
-        expect(component.readScreenReaderAlert).toBe(false);
-      });
+        interval(1000).subscribe(() => {
+          expect(component.readScreenReaderAlert).toBe(true);
+        });
 
-      discardPeriodicTasks();
-    }));
-
-    describe('when set to false', () => {
-      it('should remove the role and aria-live attributes', fakeAsync(() => {
-        interval(2500).subscribe(() => {
+        interval(1000).subscribe(() => {
           expect(component.readScreenReaderAlert).toBe(false);
-          expect(fixture.nativeElement.getAttribute('role')).toBeNull();
-          expect(fixture.nativeElement.getAttribute('aria-live')).toBeNull();
         });
 
         discardPeriodicTasks();
-      }));
+      },
+      { flush: false },
+    ));
+
+    describe('when set to false', () => {
+      it('should remove the role and aria-live attributes', fakeAsync(
+        () => {
+          interval(2500).subscribe(() => {
+            expect(component.readScreenReaderAlert).toBe(false);
+            expect(fixture.nativeElement.getAttribute('role')).toBeNull();
+            expect(fixture.nativeElement.getAttribute('aria-live')).toBeNull();
+          });
+
+          discardPeriodicTasks();
+        },
+        { flush: false },
+      ));
     });
 
     describe('when set to true', () => {
