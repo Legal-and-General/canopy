@@ -53,7 +53,7 @@
           "options": {
             "configDir": ".storybook",
             "browserTarget": "canopy:build",
-            "outputDir": "dist/storybook",
+            "outputDir": "storybook-static",
             "styles": [
               "dist/canopy/canopy.css",
               ".storybook/lyon-override.css"
