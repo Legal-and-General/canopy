@@ -165,13 +165,16 @@ export default {
   },
 } as Meta;
 
-export const StandardSeparator = {
+export const StandardModal = {
   name: 'Modal',
   render: (args: ModalWrapperComponent) => ({
     props: args,
     template:
       '<lg-modal-wrapper [headingLevel]="headingLevel" [closeOnOverlayClick]="closeOnOverlayClick"></lg-modal-wrapper>',
   }),
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.click(canvas.getByRole('button', { name: 'Open modal' }));
+  },
   args: {
     headingLevel: 2,
     closeOnOverlayClick: true,
@@ -181,6 +184,9 @@ export const StandardSeparator = {
       source: {
         code: template,
       },
+    },
+    percy: {
+      waitForSelector: '.lg-modal',
     },
   },
 };

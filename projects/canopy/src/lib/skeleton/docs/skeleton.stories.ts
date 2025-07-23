@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSkeletonDirective } from '../skeleton.directive';
@@ -178,11 +178,10 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
   ],
 })
 class AsyncSkeletonLoadingDataPointComponent implements OnInit {
+  @Input() mockAsyncDelay = 5000;
   data: Data = null;
 
   ngOnInit() {
-    const mockAsyncDelay = 5000;
-
     setTimeout(() => {
       this.data = {
         datapoint: {
@@ -190,7 +189,7 @@ class AsyncSkeletonLoadingDataPointComponent implements OnInit {
           value: '£999.99',
         },
       };
-    }, mockAsyncDelay);
+    }, this.mockAsyncDelay);
   }
 }
 
@@ -213,7 +212,7 @@ export default {
 const skeletonTemplate = `
 <lg-async-skeleton-loading-card></lg-async-skeleton-loading-card>
 <lg-async-skeleton-loading-product-card></lg-async-skeleton-loading-product-card>
-<lg-async-skeleton-loading-data-point></lg-async-skeleton-loading-data-point>
+<lg-async-skeleton-loading-data-point [mockAsyncDelay]="mockAsyncDelay"></lg-async-skeleton-loading-data-point>
 `;
 
 export const DefaultSkeleton = {
@@ -227,6 +226,9 @@ export const DefaultSkeleton = {
       source: {
         code: skeletonTemplate,
       },
+    },
+    percy: {
+      args: { mockAsyncDelay: 30000 },
     },
   },
 };
