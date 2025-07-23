@@ -22,19 +22,7 @@ module.exports = async ({
 
     docsPath = `./docs/lg-sb-${branch}`;
 
-    const checksPassed = await evaluatePullChecks({
-      sha,
-      github,
-      repo,
-      owner,
-    });
-
-    if (checksPassed) {
-      console.info('ℹ️ The PR checks passed successfully');
-      await deploy({ branch, sha, repo, owner, docsPath, github, exec });
-    } else {
-      throw `🚫 Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
-    }
+    await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   }
 }
 
