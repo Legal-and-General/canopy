@@ -117,13 +117,16 @@ describe('LgSpinnerComponent', () => {
       () => {
         expect(component.readScreenReaderAlert).toBe(true);
 
-        interval(1000).subscribe(() => {
+        const firstSubscription = interval(1000).subscribe(() => {
           expect(component.readScreenReaderAlert).toBe(true);
         });
 
-        interval(1000).subscribe(() => {
+        const secondSubscription = interval(1000).subscribe(() => {
           expect(component.readScreenReaderAlert).toBe(false);
         });
+
+        firstSubscription.unsubscribe();
+        secondSubscription.unsubscribe();
 
         discardPeriodicTasks();
       },
@@ -133,11 +136,13 @@ describe('LgSpinnerComponent', () => {
     describe('when set to false', () => {
       it('should remove the role and aria-live attributes', fakeAsync(
         () => {
-          interval(2500).subscribe(() => {
+          const subscription = interval(2500).subscribe(() => {
             expect(component.readScreenReaderAlert).toBe(false);
             expect(fixture.nativeElement.getAttribute('role')).toBeNull();
             expect(fixture.nativeElement.getAttribute('aria-live')).toBeNull();
           });
+
+          subscription.unsubscribe();
 
           discardPeriodicTasks();
         },

@@ -57,7 +57,6 @@ interface Color {
       }
     `,
   ],
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class SwatchComponent implements AfterViewInit {
@@ -136,7 +135,6 @@ class SwatchComponent implements AfterViewInit {
       }
     `,
   ],
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class TintSwatchComponent implements AfterViewInit {
