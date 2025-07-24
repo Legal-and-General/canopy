@@ -33,7 +33,6 @@ const availableFontSizesLyon = [
 
     <ng-template #px>sm > xxl: {{ pxValues?.sm }}px</ng-template>
   `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class LgDisplayFontSizeComponent {
@@ -104,7 +103,7 @@ class LgDisplayFontSizeComponent {
       }
     `,
   ],
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
+
   standalone: false,
 })
 class LgFontPanelComponent {

@@ -54,7 +54,6 @@ const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=mu
       }
     `,
   ],
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class AccordionWrapperComponent {
