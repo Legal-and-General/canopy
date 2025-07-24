@@ -164,6 +164,14 @@ module.exports = [
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/unbound-method': 'off',
       'unused-imports/no-unused-vars': 'off',
+      '@angular-eslint/prefer-standalone': 'off'
+    },
+  },
+  {
+    name: 'TypeScript Story Files',
+    files: ['./**/*.stories.ts'],
+    rules: {
+      '@angular-eslint/prefer-standalone': 'off'
     },
   },
 ];
