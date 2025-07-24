@@ -7,7 +7,7 @@ import { LgFooterNavItemComponent } from '../footer-nav-item/footer-nav-item.com
 import { LgFooterLogoComponent } from '../footer-logo/footer-logo.component';
 import { LgFooterCopyrightComponent } from '../footer-copyright/footer-copyright.component';
 
-export const PrimaryLinks = [
+export const primaryLinks = [
   { id: 'primary-link-1', text: 'My account', href: 'https://app.somecompany.com' },
   { id: 'primary-link-2', text: 'My quotes', href: 'https://somecompany.com/quotes' },
   {
@@ -18,7 +18,7 @@ export const PrimaryLinks = [
   { id: 'primary-link-4', text: 'Contact', href: 'https://somecompany.com/contact' },
 ];
 
-export const SecondaryLinks = [
+export const secondaryLinks = [
   {
     id: 'secondary-link-1',
     text: 'Accessibility',
@@ -126,8 +126,8 @@ export const StandardFooter = {
     logo: 'legal-and-general-logo.svg',
     logoAlt: 'Company name',
     copyright: '© Some Company plc 2018',
-    secondaryLinks: SecondaryLinks,
-    primaryLinks: PrimaryLinks,
+    secondaryLinks,
+    primaryLinks,
   },
   argTypes: {
     secondaryLogo: {
@@ -170,7 +170,7 @@ export const CompactFooter = {
   }),
   args: {
     copyright: '© Some Company plc 2018',
-    secondaryLinks: SecondaryLinks,
+    secondaryLinks,
   },
   argTypes: {
     primaryLinks: {
@@ -241,8 +241,8 @@ export const CoBrandedFooter = {
     secondaryLogo: 'dummy-logo.svg',
     secondaryLogoAlt: 'Secondary company name',
     copyright: '© Some Company plc 2018',
-    secondaryLinks: SecondaryLinks,
-    primaryLinks: PrimaryLinks,
+    secondaryLinks,
+    primaryLinks,
   },
   parameters: {
     docs: {
