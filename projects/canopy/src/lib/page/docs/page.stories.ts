@@ -2,7 +2,7 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 
-import { PrimaryLinks, SecondaryLinks } from '../../footer/docs/footer.stories';
+import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
 import { LgPageComponent } from '../page.component';
 import { LgHeaderComponent, LgHeaderLogoComponent } from '../../header';
@@ -58,8 +58,8 @@ const createArgs = () => ({
   card3: `Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one
     customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art
     customer service.`,
-  primaryLinks: PrimaryLinks,
-  secondaryLinks: SecondaryLinks,
+  primaryLinks,
+  secondaryLinks,
 });
 
 const header = `
@@ -172,6 +172,7 @@ class FullWidthWithHeaderComponent {
 
 export default {
   title: 'Templates/Page/Examples',
+  excludeStories: [ 'primaryLinks', 'secondaryLinks' ],
   component: LgPageComponent,
   decorators: [
     moduleMetadata({
