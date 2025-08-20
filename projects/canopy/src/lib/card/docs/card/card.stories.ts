@@ -318,7 +318,7 @@ const cardGroupTemplate = `
       <aside lg-card-group>
         <lg-card>
           <lg-card-header>
-            <lg-card-navigation-title title="The title" link="https://www.landg.com"
+            <lg-card-navigation-title title="Internal link title" link="/foo"
                                       [headingLevel]="2"></lg-card-navigation-title>
           </lg-card-header>
           <lg-card-content>
@@ -332,7 +332,7 @@ const cardGroupTemplate = `
         </lg-card>
         <lg-card *ngFor="let i of [].constructor(additionalCards)">
           <lg-card-header>
-            <lg-card-navigation-title title="The title" link="https://www.landg.com"
+            <lg-card-navigation-title title="External link title" link="https://www.landg.com"
                                       headingLevel="2"></lg-card-navigation-title>
           </lg-card-header>
           <lg-card-content>
@@ -453,7 +453,7 @@ export const DefaultCard = {
 export const NavigationCard = {
   name: 'Card navigation',
   args: {
-    link: 'https://www.landg.com',
+    link: '/foo',
     queryParams: null,
     queryParamsHandling: null,
     headingLevel: 2,
