@@ -20,6 +20,10 @@
     background: var(--link-color);
     border-radius: 50%;
     color: var(--color-white);
+
+    > svg {
+      padding: 0.125rem;
+    }
   }
 
   a {

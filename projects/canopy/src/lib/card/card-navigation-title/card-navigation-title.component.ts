@@ -3,18 +3,19 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
   SimpleChanges,
-  ViewEncapsulation, OnChanges,
+  ViewEncapsulation,
 } from '@angular/core';
 import { Params, QueryParamsHandling, RouterLink } from '@angular/router';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 import type { HeadingLevel } from '../../heading';
 import { LgHeadingComponent } from '../../heading';
-import isExternalURL from '../../utils/external-links';
 import { LgIconComponent } from '../../icon';
+import isExternalURL from '../../utils/external-links';
 
 @Component({
   selector: 'lg-card-navigation-title',
@@ -38,14 +39,13 @@ export class LgCardNavigationTitleComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     if (!(this.headingLevel && this.title && this.link)) {
-
       console.error('headingLevel, title and link must be set');
     }
   }
 
   ngOnChanges({ link }: SimpleChanges): void {
     if (link?.currentValue) {
-      this.externalLink = isExternalURL(link?.currentValue);
+      this.externalLink = isExternalURL(link?.currentValue as string);
     }
   }
 

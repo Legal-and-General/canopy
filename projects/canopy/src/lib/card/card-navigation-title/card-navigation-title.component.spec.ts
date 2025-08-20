@@ -81,7 +81,11 @@ describe('LgCardNavigationTitleComponent', () => {
     });
 
     it('should know whether the link is external or internal', () => {
+      expect(component.link).toBe('http://www.landg.com');
       expect(component['externalLink']).toBeTrue();
+      let anchorEL = fixture.debugElement.query(By.css('a'));
+
+      expect(anchorEL.nativeElement.getAttribute('target')).toBe('_blank');
 
       fixture = MockRender(
         `
@@ -99,6 +103,10 @@ describe('LgCardNavigationTitleComponent', () => {
       component = debugElement.children[0].componentInstance;
 
       expect(component['externalLink']).toBeFalse();
+      expect(component.link).toBe('/test-path');
+      anchorEL = fixture.debugElement.query(By.css('a'));
+
+      expect(anchorEL.nativeElement.getAttribute('target')).toBeNull();
     });
   });
 
