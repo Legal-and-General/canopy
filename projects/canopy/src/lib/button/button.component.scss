@@ -107,6 +107,7 @@
   min-width: initial;
   border-radius: 0;
   width: initial;
+  font-weight: var(--font-weight-regular);
 
   @include mixins.lg-link();
 
