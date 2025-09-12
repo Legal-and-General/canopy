@@ -108,6 +108,7 @@
   border-radius: 0;
   width: initial;
   font-weight: var(--font-weight-regular);
+  text-align: start;
 
   @include mixins.lg-link();
 
