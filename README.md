@@ -5,12 +5,8 @@
 
 # Canopy
 
-> An Angular implementation of the Legal & General design system.
+> We are working on the brand modenisation of the Legal & General design system.
 
-Interested in [contributing?](docs/CONTRIBUTING.md)
+Brand modernisation [sorybook](https://legal-and-general.github.io/canopy/master-bm?path=/docs/welcome--docs)
 
 Want to learn how to [use it in a project?](docs/USAGE.md)
-
-Have an [issue you would like to raise?](../../issues)
-
-Want to [request a modification or a new feature?](../../discussions)
