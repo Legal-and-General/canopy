@@ -16,14 +16,6 @@
             "project": "projects/canopy/ng-package.json"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/canopy/src/test.ts",
-            "tsConfig": "projects/canopy/tsconfig.spec.json",
-            "karmaConfig": "projects/canopy/karma.conf.js"
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -148,15 +140,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "buildTarget": "canopy-test-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/canopy-test-app/src/test.ts",
-            "polyfills": "projects/canopy-test-app/src/polyfills.ts",
-            "tsConfig": "projects/canopy-test-app/tsconfig.spec.json",
-            "karmaConfig": "projects/canopy-test-app/karma.conf.js"
           }
         },
         "e2e": {
