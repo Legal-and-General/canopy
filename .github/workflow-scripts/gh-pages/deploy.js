@@ -148,7 +148,11 @@ async function undeploy({ branch, repo, owner, github, exec }) {
   try {
     // get the existing deployed branches from the docs folder (removing the prefix)
     const branches = fs.readdirSync('./docs', { withFileTypes: true })
-      .filter(item => item.isDirectory() && item.name.startsWith('lg-sb-') && item.name !== `lg-sb-${branch}`)
+      .filter(item => item.isDirectory() &&
+        item.name.startsWith('lg-sb-') &&
+        item.name !== `lg-sb-${branch}` &&
+        item.name !== `lg-sb-master-bm`
+      )
       .map(({ name }) => name.replace(/^lg-sb-/, ''));
 
     if (!branches.length) {
