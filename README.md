@@ -7,6 +7,6 @@
 
 > We are working on the brand modenisation of the Legal & General design system.
 
-Brand modernisation [sorybook](https://legal-and-general.github.io/canopy/master-bm?path=/docs/welcome--docs)
+Brand modernisation [storybook](https://legal-and-general.github.io/canopy/master-bm?path=/docs/welcome--docs)
 
 Want to learn how to [use it in a project?](docs/USAGE.md)
