@@ -23,7 +23,6 @@ module.exports = [
   {
     name: 'Global - Ignores',
     ignores: [
-      '**/test.ts',
       '**/brand-icons.interface.ts',
       '**/icons.interface.ts',
       '!.github',
