@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - next
+      - master-bm
     tags-ignore:
       - '*'
 
@@ -65,7 +66,7 @@ jobs:
 
   deploy:
     needs: [ build ]
-    if: github.ref_name == 'master'
+    if: github.ref_name == 'master' || github.ref_name == 'master-bm'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -88,14 +89,17 @@ jobs:
       - name: 'Build icons'
         run: npm run build:icons
 
+      - name: 'Set Storybook output directory'
+        run: echo "SB_OUTPUT_DIR=${{ endsWith(github.ref_name, '-bm') && './docs/lg-sb-master-bm' || './lg-sb-build' }}" >> $GITHUB_ENV
+
       - name: 'Build storybook'
-        run: npm run build:storybook -- --output-dir ./lg-sb-build
+        run: npm run build:storybook -- --output-dir $SB_OUTPUT_DIR
 
       - name: 'Set PERCY_TOKEN env var'
-        run: echo "PERCY_TOKEN_NAME=${{ startsWith(github.ref_name, 'bm-') && 'PERCY_TOKEN_BM' || 'PERCY_TOKEN' }}" >> $GITHUB_ENV
+        run: echo "PERCY_TOKEN_NAME=${{ endsWith(github.ref_name, '-bm') && 'PERCY_TOKEN_BM' || 'PERCY_TOKEN' }}" >> $GITHUB_ENV
 
       - name: 'Update visual baselines'
-        run: npx percy storybook ./lg-sb-build --config=.percy.yml
+        run: npx percy storybook $SB_OUTPUT_DIR --config=.percy.yml
         env:
           PERCY_TOKEN: ${{ secrets[env.PERCY_TOKEN_NAME] }}
           PERCY_BRANCH: '${{ github.ref_name }}'
@@ -107,7 +111,7 @@ jobs:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
             await deployBranch({
-              branch: 'master',
+              branch: '${{ github.ref_name }}',
               sha: '${{ github.sha }}',
               github,
               context,
