@@ -19,31 +19,33 @@ module.exports = async ({
 
   if (branch === DEFAULT_BRANCH) {
     console.info(`ℹ️ Branch to deploy: ${DEFAULT_BRANCH}`);
+    await deploy({ branch, sha, repo, owner, docsPath, github, exec });
 
+    return;
+  }
+
+  console.info(`ℹ️ Branch to deploy: ${branch}`);
+
+  docsPath = `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`;
+
+  if (branch === BM_BRANCH) {
+    await deploy({ branch, sha, repo, owner, docsPath, github, exec });
+
+    return;
+  }
+
+  const checksPassed = await evaluatePullChecks({
+    sha,
+    github,
+    repo,
+    owner,
+  });
+
+  if (checksPassed) {
+    console.info('ℹ️ The PR checks passed successfully');
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   } else {
-    console.info(`ℹ️ Branch to deploy: ${branch}`);
-
-    docsPath = `./${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`;
-
-    if (branch === BM_BRANCH) {
-      console.info(`ℹ️ The PR is targeting the ${BM_BRANCH} branch, proceeding with the deployment`);
-      await deploy({ branch, sha, repo, owner, docsPath, github, exec });
-    } else {
-      const checksPassed = await evaluatePullChecks({
-        sha,
-        github,
-        repo,
-        owner,
-      });
-
-      if (checksPassed) {
-        console.info('ℹ️ The PR checks passed successfully');
-        await deploy({ branch, sha, repo, owner, docsPath, github, exec });
-      } else {
-        throw `🚫 Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
-      }
-    }
+    throw `🚫 Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
   }
 }
 
@@ -68,8 +70,8 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     console.info('ℹ️ Logging status');
     await exec.exec('git', ['status']);
 
-    if (branch === DEFAULT_BRANCH) {
-      // On the default branch the documentation.json gets updated when we run the build.
+    if (branch === DEFAULT_BRANCH || branch === BM_BRANCH) {
+      // On the default branch and BM branch the documentation.json gets updated when we run the build.
       // This causes merge conflicts so we restore its previous state since it's
       // not needed for deployment.
       console.info('ℹ️ Restore the documentation.json');
@@ -121,17 +123,12 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     console.info('ℹ️ Applying the stash with the storybook changes');
     await exec.exec('git', ['stash', 'pop']);
 
-    if (branch === DEFAULT_BRANCH) {
+    if (branch === DEFAULT_BRANCH || branch === BM_BRANCH) {
       // gh-pages only works in the root directory, or '/docs'
-      // moving one file at the time because using `*` in the mv command breaks the code
-      const sbFiles = fs.readdirSync(STORYBOOK_BUILD_PATH, { withFileTypes: true }).map(({ name }) => name);
-
-      for (const file of sbFiles) {
-        await exec.exec('mv', [`${STORYBOOK_BUILD_PATH}/${file}`, `${ROOT_DOCS_PATH}/`]);
-      }
-
-      await exec.exec('rm', ['-rf', STORYBOOK_BUILD_PATH]);
-      await exec.exec('git', ['add', STORYBOOK_BUILD_PATH]);
+      await moveFiles({
+        destinationPath: docsPath,
+        exec
+      });
     }
 
     console.info('ℹ️ Adding storybook static files');
@@ -153,6 +150,18 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
   } catch (e) {
     throw `🚫 Error: something went wrong during the deployment of branch ${branch}\n${e}`;
   }
+}
+
+async function moveFiles({ destinationPath, exec }) {
+  // moving one file at the time because using `*` in the mv command breaks the code
+  const sbFiles = fs.readdirSync(STORYBOOK_BUILD_PATH, { withFileTypes: true }).map(({ name }) => name);
+
+  for (const file of sbFiles) {
+    await exec.exec('mv', [`${STORYBOOK_BUILD_PATH}/${file}`, destinationPath]);
+  }
+
+  await exec.exec('rm', ['-rf', STORYBOOK_BUILD_PATH]);
+  await exec.exec('git', ['add', STORYBOOK_BUILD_PATH]);
 }
 
 async function undeploy({ branch, repo, owner, github, exec }) {
