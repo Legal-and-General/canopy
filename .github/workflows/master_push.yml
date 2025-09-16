@@ -93,7 +93,7 @@ jobs:
         run: npm run build:storybook -- --output-dir ./lg-sb-build
 
       - name: 'Set PERCY_TOKEN env var'
-        run: echo "PERCY_TOKEN_NAME=${{ startsWith(github.ref_name, 'bm-') && 'PERCY_TOKEN_BM' || 'PERCY_TOKEN' }}" >> $GITHUB_ENV
+        run: echo "PERCY_TOKEN_NAME=${{ endsWith(github.ref_name, '-bm') && 'PERCY_TOKEN_BM' || 'PERCY_TOKEN' }}" >> $GITHUB_ENV
 
       - name: 'Update visual baselines'
         run: npx percy storybook ./lg-sb-build --config=.percy.yml
