@@ -1,5 +1,11 @@
 const fs = require('fs-extra');
 
+const DEFAULT_BRANCH = 'master';
+const BM_BRANCH = 'master-bm';
+const ROOT_DOCS_PATH = './docs';
+const STORYBOOK_BUILD_PREFIX = 'lg-sb-';
+const STORYBOOK_BUILD_PATH = `./${STORYBOOK_BUILD_PREFIX}build`;
+
 module.exports = async ({
   branch,
   sha,
@@ -9,29 +15,34 @@ module.exports = async ({
   exec,
 }) => {
   console.info('ℹ️ Commencing storybook gh-pages deploy');
-  let docsPath = './docs';
+  let docsPath = ROOT_DOCS_PATH;
 
-  if (branch === 'master') {
-    console.info('ℹ️ Branch to deploy: master');
+  if (branch === DEFAULT_BRANCH) {
+    console.info(`ℹ️ Branch to deploy: ${DEFAULT_BRANCH}`);
 
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
   } else {
     console.info(`ℹ️ Branch to deploy: ${branch}`);
 
-    docsPath = `./docs/lg-sb-${branch}`;
+    docsPath = `./${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`;
 
-    const checksPassed = await evaluatePullChecks({
-      sha,
-      github,
-      repo,
-      owner,
-    });
-
-    if (checksPassed) {
-      console.info('ℹ️ The PR checks passed successfully');
+    if (branch === BM_BRANCH) {
+      console.info(`ℹ️ The PR is targeting the ${BM_BRANCH} branch, proceeding with the deployment`);
       await deploy({ branch, sha, repo, owner, docsPath, github, exec });
     } else {
-      throw `🚫 Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
+      const checksPassed = await evaluatePullChecks({
+        sha,
+        github,
+        repo,
+        owner,
+      });
+
+      if (checksPassed) {
+        console.info('ℹ️ The PR checks passed successfully');
+        await deploy({ branch, sha, repo, owner, docsPath, github, exec });
+      } else {
+        throw `🚫 Error: please make sure the checks for PR #${pullNumber} have all passed before running the deployment`;
+      }
     }
   }
 }
@@ -57,8 +68,8 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     console.info('ℹ️ Logging status');
     await exec.exec('git', ['status']);
 
-    if (branch === 'master') {
-      // On master the documentation.json gets updated when we run the build.
+    if (branch === DEFAULT_BRANCH) {
+      // On the default branch the documentation.json gets updated when we run the build.
       // This causes merge conflicts so we restore its previous state since it's
       // not needed for deployment.
       console.info('ℹ️ Restore the documentation.json');
@@ -84,14 +95,14 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     if (fs.existsSync(docsPath)) {
       // this is to avoid any merge conflict when an environment is redeployed
       console.info(`ℹ️ Cleaning existing ${docsPath}`);
-      if (branch === 'master') {
-        // for master we want to clean everything from `./docs` with the exception of the directories of the deployed branches
-        const filesToRemove = fs.readdirSync('./docs', { withFileTypes: true })
-          .filter(item => !item.name.startsWith('lg-sb-'))
+      if (branch === DEFAULT_BRANCH) {
+        // for the default branch we want to clean everything from `./docs` with the exception of the directories of the deployed branches
+        const filesToRemove = fs.readdirSync(ROOT_DOCS_PATH, { withFileTypes: true })
+          .filter(item => !item.name.startsWith(STORYBOOK_BUILD_PREFIX))
           .map(({ name }) => name);
 
         for (const file of filesToRemove) {
-          await exec.exec('rm', ['-rf', `./docs/${file}`]);
+          await exec.exec('rm', ['-rf', `${ROOT_DOCS_PATH}/${file}`]);
         }
       } else {
         // for a branch we want to clean the specific branch folder e.g. `./docs/lg-sb-<branch-name>`
@@ -110,17 +121,17 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     console.info('ℹ️ Applying the stash with the storybook changes');
     await exec.exec('git', ['stash', 'pop']);
 
-    if (branch === 'master') {
+    if (branch === DEFAULT_BRANCH) {
       // gh-pages only works in the root directory, or '/docs'
       // moving one file at the time because using `*` in the mv command breaks the code
-      const sbFiles = fs.readdirSync('./lg-sb-build', { withFileTypes: true }).map(({ name }) => name);
+      const sbFiles = fs.readdirSync(STORYBOOK_BUILD_PATH, { withFileTypes: true }).map(({ name }) => name);
 
       for (const file of sbFiles) {
-        await exec.exec('mv', [`./lg-sb-build/${file}`, './docs/']);
+        await exec.exec('mv', [`${STORYBOOK_BUILD_PATH}/${file}`, `${ROOT_DOCS_PATH}/`]);
       }
 
-      await exec.exec('rm', ['-rf', './lg-sb-build']);
-      await exec.exec('git', ['add', './lg-sb-build']);
+      await exec.exec('rm', ['-rf', STORYBOOK_BUILD_PATH]);
+      await exec.exec('git', ['add', STORYBOOK_BUILD_PATH]);
     }
 
     console.info('ℹ️ Adding storybook static files');
@@ -146,14 +157,16 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
 
 async function undeploy({ branch, repo, owner, github, exec }) {
   try {
+    const prefixRegex = new RegExp(`^${STORYBOOK_BUILD_PREFIX}`);
+
     // get the existing deployed branches from the docs folder (removing the prefix)
-    const branches = fs.readdirSync('./docs', { withFileTypes: true })
+    const branches = fs.readdirSync(ROOT_DOCS_PATH, { withFileTypes: true })
       .filter(item => item.isDirectory() &&
-        item.name.startsWith('lg-sb-') &&
-        item.name !== `lg-sb-${branch}` &&
-        item.name !== `lg-sb-master-bm`
+        item.name.startsWith(STORYBOOK_BUILD_PREFIX) &&
+        item.name !== `${STORYBOOK_BUILD_PREFIX}${branch}` &&
+        item.name !== `${STORYBOOK_BUILD_PREFIX}${BM_BRANCH}`
       )
-      .map(({ name }) => name.replace(/^lg-sb-/, ''));
+      .map(({ name }) => name.replace(prefixRegex, ''));
 
     if (!branches.length) {
       console.info(`✅️ Skipping: no environments to un-deploy`);
@@ -177,8 +190,8 @@ async function undeploy({ branch, repo, owner, github, exec }) {
 
     for (const branch of branchesToUndeploy) {
       console.info(`ℹ️ Removing storybook static files for branch ${branch}`);
-      await exec.exec('rm', ['-rf', `./docs/lg-sb-${branch}`]);
-      await exec.exec('git', ['add', `./docs/lg-sb-${branch}`]);
+      await exec.exec('rm', ['-rf', `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`]);
+      await exec.exec('git', ['add', `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`]);
 
       try {
         console.info('ℹ️ Committing changes');
