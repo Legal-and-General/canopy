@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "master", "next", "master-bm" ]
   pull_request:
-    branches: [ "**" ]
+    types: [ opened, synchronize ]
 
 jobs:
   analyze:
@@ -13,6 +13,8 @@ jobs:
 
     permissions:
       security-events: write
+      pull-requests: write
+      statuses: write
       packages: read
       actions: read
       contents: read
@@ -20,11 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-        - language: actions
-          build-mode: none
-        - language: javascript-typescript
-          build-mode: none
+        language: [ 'actions', 'javascript-typescript' ]
 
     steps:
       - name: Checkout repository
@@ -39,23 +37,11 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
-          build-mode: ${{ matrix.build-mode }}
 
       # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below)
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
-
-      # ℹ️ Command-line programs to run using the OS shell.
-      # 📚 https://git.io/JvXDl
-
-      # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
-      #    and modify them (or add more) to build your code if your project
-      #    uses a compiled language
-
-      #- run: |
-      #   make bootstrap
-      #   make release
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
