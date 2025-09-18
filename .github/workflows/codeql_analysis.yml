@@ -37,6 +37,13 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
+          config: |
+            queries:
+              - uses: security-and-quality
+
+            query-filters:
+              - exclude:
+                  id: actions/excessive-secrets-exposure
 
       # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below)
