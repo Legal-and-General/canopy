@@ -319,3 +319,19 @@ export const Link = {
     backgrounds: { value: setBackground('link') },
   },
 };
+
+export const LinkWithIcon = {
+  name: 'Link with icon',
+  render: (args: LgButtonComponent) => ({
+    props: args,
+    template: buttonTemplate,
+  }),
+  argTypes: {
+    icon: iconArgType,
+  },
+  args: {
+    ...defaultArgValues,
+    variant: 'link',
+    icon: lgIconsArray[0].name,
+  },
+};
