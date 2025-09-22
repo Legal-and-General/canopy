@@ -77,7 +77,7 @@ describe('LgFooterNavComponent', () => {
   });
 
   it('should log an error message when the inner element is neither an anchor or a button', () => {
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation(() => {});
 
     fixture = MockRender(`
       <lg-footer-nav-item>

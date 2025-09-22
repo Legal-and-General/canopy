@@ -10,7 +10,7 @@ describe('LgSideNavLinkDirective', () => {
   let directive: LgSideNavBarLinkDirective;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let eventSpy: jasmine.Spy;
+  let eventSpy: jest.Mock;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -28,7 +28,7 @@ describe('LgSideNavLinkDirective', () => {
     debugElement = fixture.debugElement.children[0].query(By.css('a'));
     directive = debugElement.injector.get(LgSideNavBarLinkDirective);
     el = debugElement.nativeElement;
-    eventSpy = spyOn(directive.activated, 'emit');
+    eventSpy = jest.spyOn(directive.activated, 'emit');
 
     fixture.detectChanges();
   });

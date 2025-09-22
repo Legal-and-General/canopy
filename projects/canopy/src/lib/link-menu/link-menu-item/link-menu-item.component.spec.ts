@@ -70,15 +70,15 @@ describe('LgLinkMenuItemComponent', () => {
     });
 
     it('should log a warning if the parent is not an anchor element', () => {
-      const consoleSpy = spyOn(console, 'warn').and.stub();
+      const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
       fixture = TestBed.createComponent(TestComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
 
-      expect(consoleSpy).toHaveBeenCalledOnceWith(
-        'expected \'lg-link-menu-item\' parent to be an HTML Anchor but got DIV',
-      );
+      expect(consoleSpy.mock.calls).toEqual([
+        [ 'expected \'lg-link-menu-item\' parent to be an HTML Anchor but got DIV' ],
+      ]);
     });
   });
 

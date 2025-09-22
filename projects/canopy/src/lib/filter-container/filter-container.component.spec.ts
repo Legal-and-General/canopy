@@ -69,7 +69,7 @@ describe('LgFilterContainerComponent', () => {
 
   it('should set the unique id of the panel, its state and call #toggleActiveClass', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const toggleActiveClassSpy = spyOn<any>(component, 'toggleActiveClass');
+    const toggleActiveClassSpy = jest.spyOn<any>(component, 'toggleActiveClass');
 
     expect(component.filterContainerPanel.uniqueId).toBe(component['uniqueId']);
     component.filterContainerToggle.toggleActive.emit(true);
@@ -87,7 +87,7 @@ describe('LgFilterContainerComponent', () => {
     const escEvent = new KeyboardEvent('keydown', {
       key: keyName.KEY_ESCAPE,
     });
-    const toggleSpy = spyOn(component.filterContainerToggle, 'toggle');
+    const toggleSpy = jest.spyOn(component.filterContainerToggle, 'toggle');
 
     component.onKeydown(escEvent);
 

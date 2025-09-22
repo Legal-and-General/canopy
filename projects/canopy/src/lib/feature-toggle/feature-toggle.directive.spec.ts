@@ -110,7 +110,9 @@ describe('LgFeatureToggleDirective', () => {
 
   describe('cleanup', () => {
     it('should unsubscribe only when there is a subscription in ngOnDestroy', () => {
-      const mockSubscription = jasmine.createSpyObj('Subscription', [ 'unsubscribe' ]);
+      const mockSubscription = {
+        unsubscribe: jest.fn(),
+      };
 
       directive.subscription = mockSubscription;
 
