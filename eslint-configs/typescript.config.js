@@ -1,7 +1,7 @@
 const commonESLintRules = require('./common-eslint.rules.js');
 const angularESLintPlugin = require('@angular-eslint/eslint-plugin');
 const typescriptESLintPlugin = require('@typescript-eslint/eslint-plugin');
-const jasminePlugin = require('eslint-plugin-jasmine');
+const jestEslint = require('eslint-plugin-jest');
 
 module.exports = [
   {
@@ -21,14 +21,13 @@ module.exports = [
       '@stylistic': require('@stylistic/eslint-plugin'),
       import: require('eslint-plugin-import'),
       'unused-imports': require('eslint-plugin-unused-imports'),
-      jasmine: jasminePlugin,
+      jest: jestEslint,
     },
     rules: {
       // Include recommended rules from each plugin
       ...angularESLintPlugin.configs.recommended.rules,
       ...typescriptESLintPlugin.configs.recommended.rules,
       ...typescriptESLintPlugin.configs['recommended-requiring-type-checking'].rules,
-      ...jasminePlugin.configs.recommended.rules,
 
       // From Angular ESLint plugin
       '@angular-eslint/no-output-native': 'warn',
@@ -148,10 +147,6 @@ module.exports = [
           pathGroupsExcludedImportTypes: ['external'],
         },
       ],
-
-      // From Jasmine plugin
-      'jasmine/new-line-before-expect': 'error',
-      'jasmine/no-spec-dupes': ['error', 'branch'],
     },
   },
   {
