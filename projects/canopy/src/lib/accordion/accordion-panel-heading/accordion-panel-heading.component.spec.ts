@@ -134,8 +134,6 @@ describe('LgAccordionPanelHeadingComponent', () => {
       component.toggle();
 
       verify(componentEventSpy.emit(true)).once();
-
-      expect().nothing();
     });
   });
 

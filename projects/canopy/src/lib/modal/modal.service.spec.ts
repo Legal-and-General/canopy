@@ -31,7 +31,7 @@ describe('LgModalService', () => {
     service.open(id);
 
     subscription = service['states'].get(id).subscribe(data => {
-      expect(data).toBeTrue();
+      expect(data).toBe(true);
       done();
     });
   });
@@ -40,7 +40,7 @@ describe('LgModalService', () => {
     service.close(id);
 
     subscription = service['states'].get(id).subscribe(data => {
-      expect(data).toBeFalse();
+      expect(data).toBe(false);
       done();
     });
   });
@@ -50,7 +50,7 @@ describe('LgModalService', () => {
       service['states'].get(id).next(true);
 
       subscription = service.isOpen$(id).subscribe(data => {
-        expect(data).toBeTrue();
+        expect(data).toBe(true);
         done();
       });
     });
@@ -66,22 +66,22 @@ describe('LgModalService', () => {
   });
 
   it('should add a new item to the map when calling #add', () => {
-    expect(service['states'].has(id)).toBeTrue();
-    expect(service['states'].has('test-2')).toBeFalse();
+    expect(service['states'].has(id)).toBe(true);
+    expect(service['states'].has('test-2')).toBe(false);
 
     service.add('test-2');
 
-    expect(service['states'].has(id)).toBeTrue();
-    expect(service['states'].has('test-2')).toBeTrue();
+    expect(service['states'].has(id)).toBe(true);
+    expect(service['states'].has('test-2')).toBe(true);
   });
 
   it('should call #close and remove an item from the map when calling #remove', () => {
-    expect(service['states'].has(id)).toBeTrue();
+    expect(service['states'].has(id)).toBe(true);
 
     service.remove(id);
 
     verify(serviceSpy.close(id)).once();
 
-    expect(service['states'].has(id)).toBeFalse();
+    expect(service['states'].has(id)).toBe(false);
   });
 });

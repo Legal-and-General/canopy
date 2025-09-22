@@ -137,8 +137,8 @@ describe('HeaderComponent', () => {
   describe('with primary navigation', () => {
     let primaryNavEl: HTMLElement;
     let toggleEl: HTMLButtonElement;
-    let primaryNavFocusSpy: jasmine.Spy;
-    let menuToggledSpy: jasmine.Spy;
+    let primaryNavFocusSpy: jest.Mock;
+    let menuToggledSpy: jest.Mock;
 
     beforeEach(() => {
       ngMocks.flushTestBed();
@@ -166,8 +166,8 @@ describe('HeaderComponent', () => {
       toggleEl = fixture.debugElement.queryAll(By.css('.primary-nav-toggle'))[0]
         .nativeElement;
 
-      primaryNavFocusSpy = spyOn(primaryNavEl, 'focus');
-      menuToggledSpy = spyOn(component.menuToggled, 'emit');
+      primaryNavFocusSpy = jest.spyOn(primaryNavEl, 'focus');
+      menuToggledSpy = jest.spyOn(component.menuToggled, 'emit');
       fixture.detectChanges();
     });
 
@@ -321,17 +321,17 @@ describe('HeaderComponent', () => {
 
     describe('trap focus', () => {
       let tabKeyDownEvent: KeyboardEvent;
-      let focusSpy: jasmine.Spy;
-      let preventDefaultSpy: jasmine.Spy;
+      let focusSpy: jest.Mock;
+      let preventDefaultSpy: jest.Mock;
 
       beforeEach(() => {
-        focusSpy = spyOn(toggleEl, 'focus');
+        focusSpy = jest.spyOn(toggleEl, 'focus');
       });
 
       describe('shift + tabbing out of first listitem when toggle button is visible', () => {
         beforeEach(() => {
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
-          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          preventDefaultSpy = jest.spyOn(tabKeyDownEvent, 'preventDefault');
           component.navItems.first.tabbedOut.emit(tabKeyDownEvent);
           fixture.detectChanges();
         });
@@ -348,7 +348,7 @@ describe('HeaderComponent', () => {
       describe('shift + tabbing out of last listitem', () => {
         beforeEach(() => {
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
-          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          preventDefaultSpy = jest.spyOn(tabKeyDownEvent, 'preventDefault');
           toggleEl.style.display = 'none';
           component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
           fixture.detectChanges();
@@ -366,7 +366,7 @@ describe('HeaderComponent', () => {
       describe('tabbing out of last listitem when toggle button is visible', () => {
         beforeEach(() => {
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
-          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          preventDefaultSpy = jest.spyOn(tabKeyDownEvent, 'preventDefault');
           component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
           fixture.detectChanges();
         });
@@ -383,7 +383,7 @@ describe('HeaderComponent', () => {
       describe('tabbing out of last listitem when toggle button is hidden', () => {
         beforeEach(() => {
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
-          preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+          preventDefaultSpy = jest.spyOn(tabKeyDownEvent, 'preventDefault');
           toggleEl.style.display = 'none';
           component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
           fixture.detectChanges();
@@ -433,8 +433,8 @@ describe('HeaderComponent', () => {
 
   describe('with account menu', () => {
     let tabKeyDownEvent: KeyboardEvent;
-    let focusSpy: jasmine.Spy;
-    let preventDefaultSpy: jasmine.Spy;
+    let focusSpy: jest.Mock;
+    let preventDefaultSpy: jest.Mock;
 
     beforeEach(() => {
       ngMocks.flushTestBed();
@@ -466,9 +466,9 @@ describe('HeaderComponent', () => {
       const logoEl = fixture.debugElement.queryAll(By.css('.lg-header-logo__link'))[0]
         .nativeElement;
 
-      focusSpy = spyOn(logoEl, 'focus');
+      focusSpy = jest.spyOn(logoEl, 'focus');
       tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
-      preventDefaultSpy = spyOn(tabKeyDownEvent, 'preventDefault');
+      preventDefaultSpy = jest.spyOn(tabKeyDownEvent, 'preventDefault');
 
       component.showResponsiveMenu = true;
     });

@@ -115,7 +115,7 @@ describe('LgModalComponent', () => {
       });
 
       it('should detect changes', () => {
-        const cdrDetectChangesSpy = spyOn(component['cdr'], 'detectChanges');
+        const cdrDetectChangesSpy = jest.spyOn(component['cdr'], 'detectChanges');
 
         isModalOpen$.next(true);
 
@@ -142,8 +142,6 @@ describe('LgModalComponent', () => {
 
       verify(modalServiceMock.close(id)).once();
       verify(closedEscKeySpy.emit()).once();
-
-      expect().nothing();
     });
 
     it('shouldn\'t close the modal and emit an event when any other key is pressed', () => {
@@ -156,8 +154,6 @@ describe('LgModalComponent', () => {
 
       verify(modalServiceMock.close(id)).never();
       verify(closedEscKeySpy.emit()).never();
-
-      expect().nothing();
     });
 
     it('shouldn\'t close the modal when the modal is already closed', () => {
@@ -166,8 +162,6 @@ describe('LgModalComponent', () => {
 
       verify(modalServiceMock.close(id)).never();
       verify(closedEscKeySpy.emit()).never();
-
-      expect().nothing();
     });
   });
 
@@ -175,7 +169,7 @@ describe('LgModalComponent', () => {
     it('should stop the propagation of the event', () => {
       const event = new Event('click');
 
-      spyOn(event, 'stopPropagation').and.callThrough();
+      jest.spyOn(event, 'stopPropagation');
       component.onModalClick(event);
 
       expect(event.stopPropagation).toHaveBeenCalledTimes(1);
@@ -190,8 +184,6 @@ describe('LgModalComponent', () => {
 
       verify(modalServiceMock.close(id)).once();
       verify(closedOverlaySpy.emit()).once();
-
-      expect().nothing();
     });
 
     it('should not close the modal or emit an event when closeOnOverlayClick is false', () => {
@@ -201,8 +193,6 @@ describe('LgModalComponent', () => {
 
       verify(modalServiceMock.close(id)).never();
       verify(closedOverlaySpy.emit()).never();
-
-      expect().nothing();
     });
   });
 });

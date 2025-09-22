@@ -75,7 +75,7 @@ describe('LgButtonToggleDirective', () => {
 
   describe('#toggle', () => {
     it('should toggle isActive and emit an event', () => {
-      const toggleActiveSpy = spyOn(directive.toggleActive, 'emit');
+      const toggleActiveSpy = jest.spyOn(directive.toggleActive, 'emit');
 
       directive.toggle();
 
@@ -90,7 +90,7 @@ describe('LgButtonToggleDirective', () => {
   });
 
   it('should call #toggle when clicked', () => {
-    const toggleSpy = spyOn(directive, 'toggle');
+    const toggleSpy = jest.spyOn(directive, 'toggle');
 
     testButtonElement.nativeElement.click();
 

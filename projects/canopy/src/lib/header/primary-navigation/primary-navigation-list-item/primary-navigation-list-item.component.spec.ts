@@ -42,7 +42,7 @@ describe('PrimaryNavigationListItemComponent', () => {
 
   it('emits an event when tab keydown occurs', () => {
     const tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab' });
-    const tabKeyDownSpy = spyOn(component.tabbedOut, 'emit');
+    const tabKeyDownSpy = jest.spyOn(component.tabbedOut, 'emit');
 
     el.focus();
     el.dispatchEvent(tabKeyDownEvent);
@@ -52,7 +52,7 @@ describe('PrimaryNavigationListItemComponent', () => {
 
   it('emits an event when clicked', () => {
     const clickEvent = new KeyboardEvent('click');
-    const clickedSpy = spyOn(component.clicked, 'emit');
+    const clickedSpy = jest.spyOn(component.clicked, 'emit');
 
     el.focus();
     el.dispatchEvent(clickEvent);

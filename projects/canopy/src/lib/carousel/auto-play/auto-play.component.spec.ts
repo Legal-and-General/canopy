@@ -42,7 +42,7 @@ describe('LgButtonComponent', () => {
       By.css('.lg-carousel-autoplay__btn.lg-carousel-autoplay__btn--pause'),
     );
 
-    const spy = spyOn(component.pause, 'next');
+    const spy = jest.spyOn(component.pause, 'next');
 
     pause.nativeElement.click();
 
@@ -57,7 +57,7 @@ describe('LgButtonComponent', () => {
       By.css('.lg-carousel-autoplay__btn.lg-carousel-autoplay__btn--play'),
     );
 
-    const spy = spyOn(component.pause, 'next');
+    const spy = jest.spyOn(component.pause, 'next');
 
     play.nativeElement.click();
 

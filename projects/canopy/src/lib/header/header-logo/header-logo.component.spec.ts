@@ -48,7 +48,7 @@ describe('LgHeaderLogosComponent', () => {
 
   it('emits an event when tab keydown occurs', () => {
     const tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab' });
-    const tabKeyDownSpy = spyOn(component.tabbedOut, 'emit');
+    const tabKeyDownSpy = jest.spyOn(component.tabbedOut, 'emit');
 
     fixture.debugElement.nativeElement.focus();
     fixture.debugElement.nativeElement.dispatchEvent(tabKeyDownEvent);
@@ -61,7 +61,7 @@ describe('LgHeaderLogosComponent', () => {
     fixture.detectChanges();
 
     const link = fixture.debugElement.query(By.css(`a[href="${href}"]`));
-    const focusSpy = spyOn(link.nativeElement, 'focus');
+    const focusSpy = jest.spyOn(link.nativeElement, 'focus');
 
     component.focus();
 

@@ -120,7 +120,7 @@ describe('LgTabNavBarComponent', () => {
 
     it('should select the next tab when using right key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_RIGHT);
-      const selectSpy = spyOn(component.tabs[1], 'selectByKeyboard');
+      const selectSpy = jest.spyOn(component.tabs[1], 'selectByKeyboard');
 
       component.onKeyUp(instance(mockKeyEvent));
 
@@ -130,7 +130,7 @@ describe('LgTabNavBarComponent', () => {
 
     it('should select the next tab when using down key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_DOWN);
-      const selectSpy = spyOn(component.tabs[1], 'selectByKeyboard');
+      const selectSpy = jest.spyOn(component.tabs[1], 'selectByKeyboard');
 
       component.onKeyUp(instance(mockKeyEvent));
 
@@ -140,7 +140,7 @@ describe('LgTabNavBarComponent', () => {
 
     it('should select the previous tab when using left key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_LEFT);
-      const selectSpy = spyOn(component.tabs[3], 'selectByKeyboard');
+      const selectSpy = jest.spyOn(component.tabs[3], 'selectByKeyboard');
 
       component.onKeyUp(instance(mockKeyEvent));
 
@@ -150,7 +150,7 @@ describe('LgTabNavBarComponent', () => {
 
     it('should select the previous tab when using up key', () => {
       when(mockKeyEvent.key).thenReturn(keyName.KEY_UP);
-      const selectSpy = spyOn(component.tabs[3], 'selectByKeyboard');
+      const selectSpy = jest.spyOn(component.tabs[3], 'selectByKeyboard');
 
       component.onKeyUp(instance(mockKeyEvent));
 

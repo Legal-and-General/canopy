@@ -109,8 +109,8 @@ describe('LgSpinnerComponent', () => {
 
   describe('readScreenReaderAlert', () => {
     beforeEach(() => {
-      jasmine.clock().uninstall();
-      jasmine.clock().install();
+      jest.useRealTimers();
+      jest.useFakeTimers();
     });
 
     it('should be toggled every few seconds', fakeAsync(

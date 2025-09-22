@@ -139,9 +139,11 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('sets the correct style variant on the toggle button based on the selector', () => {
-    expect(fixture.debugElement.query(By.css('label')).nativeElement).toHaveClass(
-      'lg-toggle__label--filter',
-    );
+    expect(
+      fixture.debugElement
+        .query(By.css('label'))
+        .nativeElement.classList.contains('lg-toggle__label--filter'),
+    ).toBe(true);
   });
 
   it('adds the tabindex attribute to the fieldset element', () => {

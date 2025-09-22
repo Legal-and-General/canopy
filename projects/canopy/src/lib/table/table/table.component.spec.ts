@@ -339,7 +339,7 @@ describe('TableComponent', () => {
   });
 
   describe('when the toggle is clicked on an table with expanded detail', () => {
-    const clickSpy = jasmine.createSpy();
+    const clickSpy = jest.fn();
 
     beforeEach(() => {
       fixture = MockRender(getExpandableTableMockRender(), {

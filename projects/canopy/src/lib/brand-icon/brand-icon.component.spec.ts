@@ -60,7 +60,7 @@ describe('LgBrandIconComponent', () => {
         /lg-brand-icon-\d+-\d/.test(
           fixture.nativeElement.querySelector('svg').getAttribute('id'),
         ),
-      ).toBeTrue();
+      ).toBe(true);
 
       const pathEl = fixture.nativeElement.querySelector('path');
 

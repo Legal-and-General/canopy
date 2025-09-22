@@ -149,7 +149,7 @@ describe('LgDetailsComponent', () => {
     });
 
     it('should emit the isActive status of true', () => {
-      const componentEventSpy = spyOn(component.opened, 'emit');
+      const componentEventSpy = jest.spyOn(component.opened, 'emit');
 
       component.panelHeading.toggleActive.emit(true);
 
@@ -157,7 +157,7 @@ describe('LgDetailsComponent', () => {
     });
 
     it('should emit the isActive status of false', () => {
-      const componentEventSpy = spyOn(component.closed, 'emit');
+      const componentEventSpy = jest.spyOn(component.closed, 'emit');
 
       component.panelHeading.toggleActive.emit(false);
 

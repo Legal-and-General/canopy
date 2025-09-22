@@ -265,7 +265,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('triggers the onChange action when the toggle is checked', () => {
-    const onChangeSpy = spyOn(toggleInstance, 'onChange');
+    const onChangeSpy = jest.spyOn(toggleInstance, 'onChange');
 
     inputDebugElement.triggerEventHandler('click', null);
 
@@ -273,7 +273,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('triggers the onBlur action when the toggle is blurred', () => {
-    const onBlurSpy = spyOn(toggleInstance, 'onBlur');
+    const onBlurSpy = jest.spyOn(toggleInstance, 'onBlur');
 
     inputDebugElement.triggerEventHandler('blur', null);
 

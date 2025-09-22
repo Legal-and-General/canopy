@@ -16,7 +16,7 @@ describe('LgFocusDirective', () => {
   let component: TestFocusComponent;
   let fixture: ComponentFixture<TestFocusComponent>;
   let el: HTMLElement;
-  let focusSpy: jasmine.Spy;
+  let focusSpy: jest.Mock;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -28,7 +28,7 @@ describe('LgFocusDirective', () => {
     const de = fixture.debugElement.query(By.css('button'));
 
     el = de.nativeElement;
-    focusSpy = spyOn(el, 'focus');
+    focusSpy = jest.spyOn(el, 'focus');
   });
 
   describe('when the directive is set to "true"', () => {
