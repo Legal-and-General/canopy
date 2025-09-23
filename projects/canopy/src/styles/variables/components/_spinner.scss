@@ -5,11 +5,11 @@
   --spinner-diameter--xs: var(--space-sm);
   --spinner-rotation-speed: 800ms;
 
-  --spinner-ring-top-color: var(--color-poppy-red);
-  --spinner-ring-bottom-color: var(--color-super-blue);
-  --spinner-ring-left-color: var(--color-dandelion-yellow);
-  --spinner-ring-right-color: var(--color-leafy-green);
+  --spinner-ring-top-color: var(--colour-red-600);
+  --spinner-ring-bottom-color: var(--colour-blue-600);
+  --spinner-ring-left-color: var(--colour-yellow-600);
+  --spinner-ring-right-color: var(--colour-green-600);
 
-  --spinner-dark-color: var(--color-charcoal);
-  --spinner-light-color: var(--color-white-smoke);
+  --spinner-dark-color: var(--colour-greyscale-900);
+  --spinner-light-color: var(--colour-greyscale-100);
 }

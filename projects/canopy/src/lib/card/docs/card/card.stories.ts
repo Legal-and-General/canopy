@@ -412,7 +412,7 @@ export default {
     }),
   ],
   globals: {
-    backgrounds: { value: 'white-smoke' },
+    backgrounds: { value: 'off-white' },
   },
 };
 
