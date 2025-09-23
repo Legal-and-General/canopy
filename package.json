@@ -18,7 +18,6 @@
     "// ----- TEST": "",
     "e2e": "ng e2e",
     "test": "jest",
-    "test:ci": "jest --config=projects/canopy/jest.config.js",
     "test:visual": "npm run build && npm run build:storybook && npx percy storybook ./storybook-static",
     "// ----- LINTING AND OPTIMISATION": "",
     "eslint": "ng lint --quiet",

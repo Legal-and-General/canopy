@@ -38,7 +38,7 @@ jobs:
         run: npm run build
 
       - name: 'Unit tests'
-        run: npm run test:ci
+        run: npm run test
 
       - name: 'Install build dependencies'
         run: npm --prefix ./dist/canopy install
