@@ -18,6 +18,7 @@
     "// ----- TEST": "",
     "e2e": "ng e2e",
     "test": "jest",
+    "test:ci": "jest --ci --workers=2",
     "test:visual": "npm run build && npm run build:storybook && npx percy storybook ./storybook-static",
     "// ----- LINTING AND OPTIMISATION": "",
     "eslint": "ng lint --quiet",
