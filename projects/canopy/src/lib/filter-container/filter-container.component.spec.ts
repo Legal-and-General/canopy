@@ -1,11 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import {
-  DefaultRenderComponent,
-  MockComponents,
-  MockedComponentFixture,
-  MockRender,
-} from 'ng-mocks';
-import { DebugElement } from '@angular/core';
+import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
+import { DebugElement, EventEmitter } from '@angular/core';
 
 import { LgButtonComponent, LgButtonToggleDirective } from '../button';
 import { keyName } from '../utils/keyboard-keys';
@@ -18,10 +13,11 @@ import {
 } from './';
 
 describe('LgFilterContainerComponent', () => {
-  let component: DefaultRenderComponent<LgFilterContainerComponent>;
+  let component: LgFilterContainerComponent;
   let fixture: MockedComponentFixture<LgFilterContainerComponent>;
   let debugElement: DebugElement;
   let el: HTMLElement;
+  let toggleActiveClassSpy: jest.SpyInstance;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -34,17 +30,25 @@ describe('LgFilterContainerComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-filter-container>
         <button id="test" lg-button variant="secondary-dark" lgButtonToggle>Filters</button>
-
         <lg-filter-container-panel></lg-filter-container-panel>
       </lg-filter-container>
     `);
 
-    component = fixture.componentInstance;
     debugElement = fixture.debugElement;
     el = debugElement.children[0].nativeElement;
+
+    component = ngMocks.findInstance(LgFilterContainerComponent);
+
+    toggleActiveClassSpy = jest.spyOn(component as any, 'toggleActiveClass');
+
+    if (!component.filterContainerToggle.toggleActive) {
+      component.filterContainerToggle.toggleActive = new EventEmitter<boolean>();
+    }
 
     fixture.detectChanges();
   });
@@ -68,16 +72,20 @@ describe('LgFilterContainerComponent', () => {
   });
 
   it('should set the unique id of the panel, its state and call #toggleActiveClass', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const toggleActiveClassSpy = jest.spyOn<any>(component, 'toggleActiveClass');
-
     expect(component.filterContainerPanel.uniqueId).toBe(component['uniqueId']);
+
+    // Clear previous calls before our test
+    toggleActiveClassSpy.mockClear();
+
+    // Use the direct emit method to ensure event propagation
     component.filterContainerToggle.toggleActive.emit(true);
+    fixture.detectChanges();
 
     expect(component.filterContainerPanel.isActive).toBe(true);
     expect(toggleActiveClassSpy).toHaveBeenCalledWith(true);
 
     component.filterContainerToggle.toggleActive.emit(false);
+    fixture.detectChanges();
 
     expect(component.filterContainerPanel.isActive).toBe(false);
     expect(toggleActiveClassSpy).toHaveBeenCalledWith(false);

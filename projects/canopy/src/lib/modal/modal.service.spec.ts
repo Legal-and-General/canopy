@@ -27,7 +27,7 @@ describe('LgModalService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should push true to the state of the specific modal when calling the #open fn', (done: DoneFn) => {
+  it('should push true to the state of the specific modal when calling the #open fn', done => {
     service.open(id);
 
     subscription = service['states'].get(id).subscribe(data => {
@@ -36,7 +36,7 @@ describe('LgModalService', () => {
     });
   });
 
-  it('should push false to the state of the specific modal when calling the #close fn', (done: DoneFn) => {
+  it('should push false to the state of the specific modal when calling the #close fn', done => {
     service.close(id);
 
     subscription = service['states'].get(id).subscribe(data => {
@@ -46,7 +46,7 @@ describe('LgModalService', () => {
   });
 
   describe('isOpen$', () => {
-    it('should return the state observable for the specific modal', (done: DoneFn) => {
+    it('should return the state observable for the specific modal', done => {
       service['states'].get(id).next(true);
 
       subscription = service.isOpen$(id).subscribe(data => {
@@ -55,7 +55,7 @@ describe('LgModalService', () => {
       });
     });
 
-    it('should call #add when the modal doesn\'t exist', (done: DoneFn) => {
+    it('should call #add when the modal doesn\'t exist', done => {
       subscription = service.isOpen$('test-2').subscribe(data => {
         verify(serviceSpy.add('test-2')).once();
 

@@ -1,5 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgListWithIconsComponent } from './list-with-icons.component';
 
@@ -12,6 +12,8 @@ describe('LgListWithIconsComponent', () => {
     TestBed.configureTestingModule({
       imports: [ LgListWithIconsComponent ],
     }).compileComponents();
+
+    ngMocks.flushTestBed();
 
     fixture = MockRender(
       `

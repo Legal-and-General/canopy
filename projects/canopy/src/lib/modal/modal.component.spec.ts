@@ -15,6 +15,7 @@ import {
   MockDirective,
   MockedComponentFixture,
   MockRender,
+  ngMocks,
 } from 'ng-mocks';
 
 import { keyName } from '../utils/keyboard-keys';
@@ -57,6 +58,8 @@ describe('LgModalComponent', () => {
     }).compileComponents();
 
     when(modalServiceMock.isOpen$(anything())).thenReturn(isModalOpen$);
+
+    ngMocks.flushTestBed();
 
     fixture = MockRender(`
       <lg-modal [id]="id">

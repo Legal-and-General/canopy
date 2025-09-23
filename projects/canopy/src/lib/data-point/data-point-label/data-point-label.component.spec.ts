@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MockComponent, MockRender } from 'ng-mocks';
+import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgHeadingComponent } from '../../heading';
 
@@ -20,6 +20,8 @@ describe('LgDataPointLabelComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-data-point-label [headingLevel]="4">
         Name on account

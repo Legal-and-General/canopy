@@ -34,6 +34,6 @@ describe('LgPromoCardImageComponent', () => {
     const el: HTMLElement = fixture.nativeElement;
     const innerEl: HTMLElement = el.querySelector('.lg-promo-card-image__content');
 
-    expect(innerEl.style.backgroundImage).toContain('url("test")');
+    expect(innerEl.style.backgroundImage).toContain('url(test)');
   });
 });

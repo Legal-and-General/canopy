@@ -98,9 +98,9 @@ describe('LgAccordionItemComponent', () => {
   });
 
   describe('clicking on the child component trigger', () => {
-    let openedSpy: jest.Mock;
-    let closedSpy: jest.Mock;
-    let selectionDispatcherSpy: jest.Mock;
+    let openedSpy: jest.SpyInstance;
+    let closedSpy: jest.SpyInstance;
+    let selectionDispatcherSpy: jest.SpyInstance;
 
     beforeEach(() => {
       openedSpy = jest.spyOn(component.opened, 'emit');
@@ -176,7 +176,7 @@ describe('LgAccordionItemComponent', () => {
 
   describe('when notified of sibling accordion item activated', () => {
     const someOtherId = 'some-other-id';
-    let closedSpy: jest.Mock;
+    let closedSpy: jest.SpyInstance;
 
     beforeEach(() => {
       fixture.debugElement.componentInstance.isActive = true;

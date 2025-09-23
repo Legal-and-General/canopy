@@ -28,6 +28,8 @@ describe('LgCardNavigationTitleComponent', () => {
         MockComponents(LgIconComponent),
       ],
     }).compileComponents();
+
+    jest.spyOn(console, 'error').mockImplementation();
   }));
 
   afterEach(() => {
@@ -36,6 +38,8 @@ describe('LgCardNavigationTitleComponent', () => {
 
   describe('when the link, title and heading level are set', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         `
         <lg-card-navigation-title [title]="title" [link]="link" [headingLevel]="headingLevel">
@@ -85,6 +89,8 @@ describe('LgCardNavigationTitleComponent', () => {
 
       expect(anchorEL.nativeElement.getAttribute('target')).toBe('_blank');
 
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         `
         <lg-card-navigation-title [title]="title" [link]="link" [headingLevel]="headingLevel">
@@ -110,6 +116,8 @@ describe('LgCardNavigationTitleComponent', () => {
 
   describe('when the link is set but title is not set', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         `
       <lg-card-navigation-title [title]="title" [link]="link" [headingLevel]="headingLevel">

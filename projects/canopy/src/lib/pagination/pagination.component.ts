@@ -38,7 +38,7 @@ export class LgPaginationComponent implements OnChanges {
   private endIndex = this._itemsPerPage - 1;
 
   @HostBinding('class') class = 'lg-pagination';
-  @HostBinding('role') role = 'navigation';
+  @HostBinding('attr.role') role = 'navigation';
   @HostBinding('attr.aria-label') ariaLabel = 'Pagination Navigation';
   @HostBinding('id') @Input() id = `lg-pagination-${nextUniqueId++}`;
   @Input()

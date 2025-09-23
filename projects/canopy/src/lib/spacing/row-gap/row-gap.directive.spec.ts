@@ -22,7 +22,7 @@ describe('LgRowGapDirective', () => {
   let testElements: Array<DebugElement>;
   let component: TestComponent;
   let renderer: Renderer2;
-  let rendererRemoveClassSpy: jest.Mock;
+  let rendererRemoveClassSpy: jest.SpyInstance;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

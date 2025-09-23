@@ -124,9 +124,7 @@ describe('LgRadioButtonComponent', () => {
       fixture = TestBed.createComponent(LgRadioButtonComponent);
       component = fixture.componentInstance;
 
-      expect(fixture.debugElement.nativeElement.getAttribute('class')).not.toContain(
-        'lg-radio-button--segment',
-      );
+      expect(fixture.debugElement.nativeElement.getAttribute('class')).toBeNull();
     });
   });
 

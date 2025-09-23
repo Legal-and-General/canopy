@@ -1,6 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { MockComponent, MockRender } from 'ng-mocks';
+import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
 import { LgBreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.component';
@@ -49,6 +49,8 @@ describe('LgBreadcrumbComponent', () => {
 
   describe('where there is 1 breadcrumb item', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-breadcrumb>
           <lg-breadcrumb-item>Home</lg-breadcrumb-item>
@@ -85,6 +87,8 @@ describe('LgBreadcrumbComponent', () => {
 
   describe('where there are 2 breadcrumb items', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-breadcrumb>
           <lg-breadcrumb-item>Home</lg-breadcrumb-item>
@@ -115,6 +119,8 @@ describe('LgBreadcrumbComponent', () => {
 
   describe('where there are 3 breadcrumb items', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-breadcrumb>
           <lg-breadcrumb-item>Home</lg-breadcrumb-item>

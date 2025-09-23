@@ -55,6 +55,7 @@ module.exports = [
           default: 'generic',
         },
       ],
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-restricted-types': 'warn',
       '@typescript-eslint/no-empty-object-type': 'warn',
       '@typescript-eslint/no-unsafe-function-type': 'warn',

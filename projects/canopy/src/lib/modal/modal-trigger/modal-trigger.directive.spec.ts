@@ -20,7 +20,7 @@ describe('LgModalTriggerComponent', () => {
   let triggerDebugElement: DebugElement;
   let triggerInstance: LgModalTriggerDirective;
   let modalServiceMock: LgModalService;
-  let focusSpy: jest.Mock;
+  let focusSpy: jest.SpyInstance;
   const isOpen$ = new BehaviorSubject(true);
 
   beforeEach(waitForAsync(() => {

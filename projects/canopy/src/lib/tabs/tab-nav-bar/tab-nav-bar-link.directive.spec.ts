@@ -1,7 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgTabNavBarLinkDirective } from './tab-nav-bar-link.directive';
 
@@ -10,7 +10,7 @@ describe('LgTabNavLinkDirective', () => {
   let directive: LgTabNavBarLinkDirective;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let eventSpy: jest.Mock;
+  let eventSpy: jest.SpyInstance;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -19,6 +19,8 @@ describe('LgTabNavLinkDirective', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <div>
         <a lgTabNavBarLink href="/">Test tab</a>
@@ -111,8 +113,8 @@ describe('LgTabNavLinkDirective', () => {
   });
 
   describe('selectByKeyboard', () => {
-    let clickSpy: jest.Mock;
-    let focusSpy: jest.Mock;
+    let clickSpy: jest.SpyInstance;
+    let focusSpy: jest.SpyInstance;
 
     beforeEach(() => {
       clickSpy = jest.spyOn(el, 'click');

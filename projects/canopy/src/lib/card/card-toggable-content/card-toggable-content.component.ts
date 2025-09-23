@@ -22,7 +22,7 @@ export class LgCardToggableContentComponent {
   isActive: boolean;
 
   @HostBinding('class.lg-card-toggable-content') class = true;
-  @HostBinding('role') role = 'region';
+  @HostBinding('attr.role') role = 'region';
   @HostBinding('tabindex') get tabindex(): string {
     return this.isActive
       ? '-1'

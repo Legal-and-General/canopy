@@ -1,7 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgSideNavBarLinkDirective } from './side-nav-bar-link.directive';
 
@@ -10,7 +10,7 @@ describe('LgSideNavLinkDirective', () => {
   let directive: LgSideNavBarLinkDirective;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let eventSpy: jest.Mock;
+  let eventSpy: jest.SpyInstance;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -19,6 +19,8 @@ describe('LgSideNavLinkDirective', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <div>
         <a lgSideBarNavLink href="/">Test link</a>

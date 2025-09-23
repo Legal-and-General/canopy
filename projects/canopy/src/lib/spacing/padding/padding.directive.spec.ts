@@ -115,35 +115,35 @@ describe('LgPadding', () => {
       component.lgPaddingVertical = 'lg';
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain(
-        'lg-padding__top--lg',
-        'lg-padding__bottom--lg',
-      );
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__top--lg');
+
+      expect(el).toContain('lg-padding__bottom--lg');
     });
 
     it('adds paddings to left and right when the horizontal directive is applied', () => {
       component.lgPaddingHorizontal = 'xxl';
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain(
-        'lg-padding__left--xxl',
-        'lg-padding__right--xxl',
-      );
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__left--xxl');
+
+      expect(el).toContain('lg-padding__right--xxl');
     });
   });
 
   describe('Responsive padding', () => {
-    it('adds repsonive padding to all of the sides', () => {
+    it('adds responsive padding to all of the sides', () => {
       component.lgPadding = { sm: 'md', md: 'lg' };
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain(
-        'lg-padding--sm--md',
-      );
+      const el = testElement.nativeElement.getAttribute('class');
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain(
-        'lg-padding--md--lg',
-      );
+      expect(el).toContain('lg-padding--sm--md');
+
+      expect(el).toContain('lg-padding--md--lg');
     });
 
     it('adds responsive padding to the specified sides', () => {
@@ -203,20 +203,22 @@ describe('LgPadding', () => {
       component.lgPaddingVertical = { md: 'xxl' };
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain(
-        'lg-padding__top--md--xxl',
-        'lg-padding__bottom--md--xxl',
-      );
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__top--md--xxl');
+
+      expect(el).toContain('lg-padding__bottom--md--xxl');
     });
 
     it('adds respsonsive padding to left and right when the horizontal directive is applied', () => {
       component.lgPaddingHorizontal = { md: 'xxl' };
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain(
-        'lg-padding__left--md--xxl',
-        'lg-padding__right--md--xxl',
-      );
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__left--md--xxl');
+
+      expect(el).toContain('lg-padding__right--md--xxl');
     });
   });
 });
