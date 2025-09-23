@@ -34,9 +34,7 @@ describe('lgOrientation', () => {
     component.lgOrientation = undefined;
     fixture.detectChanges();
 
-    expect(testElement.nativeElement.getAttribute('class')).not.toContain(
-      'lg-orientation',
-    );
+    expect(testElement.nativeElement.getAttribute('class')).toBeNull();
   });
 
   it('should set the class lg-orientation on the component', () => {

@@ -1,5 +1,5 @@
 import { By } from '@angular/platform-browser';
-import { MockBuilder, MockRender } from 'ng-mocks';
+import { MockBuilder, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgPrefixDirective } from './prefix.directive';
 
@@ -7,6 +7,8 @@ describe('LgPrefixDirective', () => {
   beforeEach(() => MockBuilder(LgPrefixDirective));
 
   it('automatically sets an id', () => {
+    ngMocks.flushTestBed();
+
     const fixture = MockRender('<span lgPrefix>Prefix</span>');
 
     expect(

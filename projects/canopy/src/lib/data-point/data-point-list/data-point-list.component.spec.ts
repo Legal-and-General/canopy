@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MockComponent, MockRender } from 'ng-mocks';
+import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgDataPointComponent } from '../data-point/data-point.component';
 
@@ -22,6 +22,8 @@ describe('LgDataPointListComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-data-point-list>
       </lg-data-point-list>
@@ -47,6 +49,8 @@ describe('LgDataPointListComponent', () => {
 
   describe('when there are 3 items', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-data-point-list>
           <lg-data-point></lg-data-point>

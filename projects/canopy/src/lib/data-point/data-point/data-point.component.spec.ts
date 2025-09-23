@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MockComponents, MockRender } from 'ng-mocks';
+import { MockComponents, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgDataPointLabelComponent } from '../data-point-label/data-point-label.component';
 import { LgDataPointValueComponent } from '../data-point-value/data-point-value.component';
@@ -67,6 +67,8 @@ describe('LgDataPointComponent', () => {
 
   describe('isListItem input', () => {
     it('should have the aria role `listitem` if isListItem is `true`', () => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-data-point [isListItem]="true"></lg-data-point>
       `);
@@ -80,6 +82,8 @@ describe('LgDataPointComponent', () => {
     });
 
     it('should have no aria role if isListItem is falsy', () => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-data-point></lg-data-point>
       `);

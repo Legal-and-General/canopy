@@ -29,7 +29,6 @@ export class LgFeatureToggleDirective implements OnInit, OnDestroy {
 
   constructor(
     private lgFeatureToggleService: LgFeatureToggleService,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
     @Optional()

@@ -1,13 +1,13 @@
 import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
-  UntypedFormBuilder,
-  UntypedFormGroup,
   FormGroupDirective,
   FormsModule,
-  ReactiveFormsModule,
-  Validators,
   NgControl,
+  ReactiveFormsModule,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
@@ -15,8 +15,7 @@ import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 import { NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
-import { LgErrorStateMatcher } from '../validation';
-import { LgValidationComponent } from '../validation';
+import { LgErrorStateMatcher, LgValidationComponent } from '../validation';
 import { LgFocusDirective } from '../../focus';
 
 import { LgToggleComponent } from './toggle.component';
@@ -104,7 +103,6 @@ class TestToggleComponent {
     ReactiveFormsModule,
     LgToggleComponent,
     LgValidationComponent,
-    LgIconComponent,
     NgIf,
   ],
 })
@@ -141,6 +139,8 @@ describe('LgToggleComponent', () => {
   let inputLabelElement: DebugElement;
 
   const errorStateMatcherMock = mock(LgErrorStateMatcher);
+
+  jest.spyOn(console, 'error').mockImplementation();
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({

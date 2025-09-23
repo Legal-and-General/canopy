@@ -55,6 +55,8 @@ describe('LgSelectFieldComponent', () => {
   }));
 
   function renderComponent({ block } = { block: false }) {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-select-field [block]="${block}">
         Label

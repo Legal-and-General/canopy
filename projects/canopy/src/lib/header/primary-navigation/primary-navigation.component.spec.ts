@@ -1,7 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { DefaultRenderComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
+import {
+  DefaultRenderComponent,
+  MockedComponentFixture,
+  MockRender,
+  ngMocks,
+} from 'ng-mocks';
 
 import { LgPrimaryNavComponent } from './primary-navigation.component';
 import { LgPrimaryNavListItemComponent } from './primary-navigation-list-item/primary-navigation-list-item.component';
@@ -19,6 +24,8 @@ describe('PrimaryNavigationComponent', () => {
   });
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-primary-nav>
         <lg-primary-nav-list-item>

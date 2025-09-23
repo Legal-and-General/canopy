@@ -27,6 +27,10 @@ describe('HeaderComponent', () => {
   let fixture: MockedComponentFixture<LgHeaderComponent>;
   let logoDebugElements: Array<DebugElement>;
 
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -137,8 +141,8 @@ describe('HeaderComponent', () => {
   describe('with primary navigation', () => {
     let primaryNavEl: HTMLElement;
     let toggleEl: HTMLButtonElement;
-    let primaryNavFocusSpy: jest.Mock;
-    let menuToggledSpy: jest.Mock;
+    let primaryNavFocusSpy: jest.SpyInstance;
+    let menuToggledSpy: jest.SpyInstance;
 
     beforeEach(() => {
       ngMocks.flushTestBed();
@@ -321,8 +325,8 @@ describe('HeaderComponent', () => {
 
     describe('trap focus', () => {
       let tabKeyDownEvent: KeyboardEvent;
-      let focusSpy: jest.Mock;
-      let preventDefaultSpy: jest.Mock;
+      let focusSpy: jest.SpyInstance;
+      let preventDefaultSpy: jest.SpyInstance;
 
       beforeEach(() => {
         focusSpy = jest.spyOn(toggleEl, 'focus');
@@ -330,6 +334,8 @@ describe('HeaderComponent', () => {
 
       describe('shift + tabbing out of first listitem when toggle button is visible', () => {
         beforeEach(() => {
+          // Ensure toggle button is visible
+          Object.defineProperty(toggleEl, 'offsetParent', { get: () => true });
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true });
           preventDefaultSpy = jest.spyOn(tabKeyDownEvent, 'preventDefault');
           component.navItems.first.tabbedOut.emit(tabKeyDownEvent);
@@ -365,6 +371,8 @@ describe('HeaderComponent', () => {
 
       describe('tabbing out of last listitem when toggle button is visible', () => {
         beforeEach(() => {
+          // Ensure toggle button is visible
+          Object.defineProperty(toggleEl, 'offsetParent', { get: () => true });
           tabKeyDownEvent = new KeyboardEvent('keydown', { key: 'Tab', shiftKey: false });
           preventDefaultSpy = jest.spyOn(tabKeyDownEvent, 'preventDefault');
           component.navItems.last.tabbedOut.emit(tabKeyDownEvent);
@@ -433,8 +441,8 @@ describe('HeaderComponent', () => {
 
   describe('with account menu', () => {
     let tabKeyDownEvent: KeyboardEvent;
-    let focusSpy: jest.Mock;
-    let preventDefaultSpy: jest.Mock;
+    let focusSpy: jest.SpyInstance;
+    let preventDefaultSpy: jest.SpyInstance;
 
     beforeEach(() => {
       ngMocks.flushTestBed();

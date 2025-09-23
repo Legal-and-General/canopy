@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MockRender } from 'ng-mocks';
+import { MockRender, ngMocks } from 'ng-mocks';
 
 import { LgTabNavContentComponent } from './tab-nav-content.component';
 
@@ -18,6 +18,8 @@ describe('LgTabNavBarComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-tab-nav-content selectedTabId="test-0">
         <p>Test content<p>

@@ -3,6 +3,18 @@ import { TestBed } from '@angular/core/testing';
 import { LgIconRegistry } from './icon.registry';
 import { Icon } from './ui-icons-files.interface';
 
+// Mock dynamic imports for this test file
+jest.mock(
+  '../ui-icons-files/set/lgIcon-chevron-right.icon',
+  () => ({
+    lgIconChevronRight: {
+      name: 'chevron-right',
+      data: 'mock-svg-data',
+    },
+  }),
+  { virtual: true },
+);
+
 describe('LgIconRegistry', () => {
   let registry: LgIconRegistry;
 
@@ -32,8 +44,9 @@ describe('LgIconRegistry', () => {
 
     expect(registry['registry'].has(unexpectedIcon)).toBe(false);
 
-    await registry.get(unexpectedIcon);
+    const result = await registry.get(unexpectedIcon);
 
     expect(registry['registry'].has(unexpectedIcon)).toBe(true);
+    expect(result).toBe('mock-svg-data');
   });
 });

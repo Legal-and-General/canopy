@@ -2,7 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { instance, mock, when } from '@typestrong/ts-mockito';
-import { MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { keyName } from '../../utils/keyboard-keys';
 
@@ -22,6 +22,8 @@ describe('LgTabNavBarComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-tab-nav-bar label="Tabbed Navigation Label">
         <a lgTabNavBarLink href="/" [isActive]="true">Tab 1</a>

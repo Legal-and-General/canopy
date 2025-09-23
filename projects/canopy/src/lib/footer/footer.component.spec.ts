@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MockRender } from 'ng-mocks';
+import { MockRender, ngMocks } from 'ng-mocks';
 
 import { LgFooterComponent } from './footer.component';
 import { LgFooterLogoComponent } from './footer-logo/footer-logo.component';
@@ -18,6 +18,8 @@ describe('FooterComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <footer lg-footer>
         <lg-footer-logo src="http://a.b/logo.png" alt="logo alt"></lg-footer-logo>
@@ -41,6 +43,8 @@ describe('FooterComponent', () => {
 
   describe('co-branding', () => {
     it('adds a class to each of the logos', () => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
       <footer lg-footer>
         <lg-footer-logo src="http://a.b/logo.png" alt="logo alt"></lg-footer-logo>

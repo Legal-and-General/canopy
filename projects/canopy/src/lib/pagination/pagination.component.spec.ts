@@ -151,7 +151,7 @@ describe('LgPaginationComponent', () => {
   });
 
   describe('#pageChanged', () => {
-    let pageChangedSpy: jest.Mock;
+    let pageChangedSpy: jest.SpyInstance;
 
     beforeEach(() => {
       fixture.componentRef.setInput('totalItems', 30);
@@ -166,45 +166,33 @@ describe('LgPaginationComponent', () => {
       fixture.componentRef.setInput('totalItems', 40);
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit.mock.calls).toEqual([
-        [
-          {
-            pageNumber: 1,
-            startIndex: 0,
-            endIndex: 9,
-          },
-        ],
-      ]);
+      expect(pageChangedSpy).toHaveBeenCalledWith({
+        pageNumber: 1,
+        startIndex: 0,
+        endIndex: 9,
+      });
     });
 
     it('should emit when the itemsPerPage input changes', () => {
       fixture.componentRef.setInput('itemsPerPage', 5);
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit.mock.calls).toEqual([
-        [
-          {
-            pageNumber: 1,
-            startIndex: 0,
-            endIndex: 4,
-          },
-        ],
-      ]);
+      expect(pageChangedSpy).toHaveBeenCalledWith({
+        pageNumber: 1,
+        startIndex: 0,
+        endIndex: 4,
+      });
     });
 
     it('should emit when the currentPage input changes', () => {
       fixture.componentRef.setInput('currentPage', 2);
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit.mock.calls).toEqual([
-        [
-          {
-            pageNumber: 2,
-            startIndex: 10,
-            endIndex: 19,
-          },
-        ],
-      ]);
+      expect(pageChangedSpy).toHaveBeenCalledWith({
+        pageNumber: 2,
+        startIndex: 10,
+        endIndex: 19,
+      });
     });
 
     it('should emit when the next button is clicked', () => {
@@ -212,15 +200,11 @@ describe('LgPaginationComponent', () => {
 
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit.mock.calls).toEqual([
-        [
-          {
-            pageNumber: 2,
-            startIndex: 10,
-            endIndex: 19,
-          },
-        ],
-      ]);
+      expect(pageChangedSpy).toHaveBeenCalledWith({
+        pageNumber: 2,
+        startIndex: 10,
+        endIndex: 19,
+      });
     });
 
     it('should emit when the previous button is clicked', () => {
@@ -232,15 +216,11 @@ describe('LgPaginationComponent', () => {
 
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit.mock.calls).toEqual([
-        [
-          {
-            pageNumber: 1,
-            startIndex: 0,
-            endIndex: 9,
-          },
-        ],
-      ]);
+      expect(pageChangedSpy).toHaveBeenCalledWith({
+        pageNumber: 1,
+        startIndex: 0,
+        endIndex: 9,
+      });
     });
 
     it('should emit when the a page button is clicked', () => {
@@ -248,15 +228,11 @@ describe('LgPaginationComponent', () => {
 
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit.mock.calls).toEqual([
-        [
-          {
-            pageNumber: 2,
-            startIndex: 10,
-            endIndex: 19,
-          },
-        ],
-      ]);
+      expect(pageChangedSpy).toHaveBeenCalledWith({
+        pageNumber: 2,
+        startIndex: 10,
+        endIndex: 19,
+      });
     });
   });
 });

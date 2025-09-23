@@ -1,6 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponents, MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgBrandIconComponent } from '../brand-icon';
 
@@ -28,6 +28,8 @@ describe('LgPrimaryMessageComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-primary-message>
         <lg-primary-message-title

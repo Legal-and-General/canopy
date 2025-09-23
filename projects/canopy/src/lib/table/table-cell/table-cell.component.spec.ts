@@ -1,7 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockComponent, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
 import { AlignmentOptions } from '../table.interface';
@@ -144,6 +144,8 @@ describe('LgTableCellComponent', () => {
 
   describe('when there is a expandable detail', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <td lg-table-cell>
           <lg-table-expanded-detail>

@@ -1,7 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MockComponent, MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockComponent, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon';
 
@@ -9,7 +9,7 @@ import { LgTableRowToggleComponent } from './table-row-toggle.component';
 
 describe('LgTableRowToggleComponent', () => {
   let component: LgTableRowToggleComponent;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   let fixture: MockedComponentFixture<LgTableRowToggleComponent, any>;
   let debugElement: DebugElement;
 
@@ -20,6 +20,8 @@ describe('LgTableRowToggleComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender('<lg-table-row-toggle></lg-table-row-toggle>');
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -31,6 +33,8 @@ describe('LgTableRowToggleComponent', () => {
 
   describe('when the row index and table id are set', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         `<lg-table-row-toggle>
         </lg-table-row-toggle>`,
@@ -59,6 +63,8 @@ describe('LgTableRowToggleComponent', () => {
     let toggleDebugElement: DebugElement;
 
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         '<lg-table-row-toggle [isActive]="isActive"></lg-table-row-toggle>',
         {
@@ -76,7 +82,7 @@ describe('LgTableRowToggleComponent', () => {
     });
 
     it('should set the text to Collapse', () => {
-      expect(debugElement.nativeElement.innerText).toEqual('Collapse');
+      expect(debugElement.nativeElement.textContent).toEqual('Collapse');
     });
 
     it('should set the aria expanded attribute to true', () => {
@@ -90,6 +96,8 @@ describe('LgTableRowToggleComponent', () => {
     let toggleDebugElement: DebugElement;
 
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         '<lg-table-row-toggle [isActive]="isActive"></lg-table-row-toggle>',
         {
@@ -106,7 +114,7 @@ describe('LgTableRowToggleComponent', () => {
     });
 
     it('should set the text to Expand', () => {
-      expect(debugElement.nativeElement.innerText).toEqual('Expand');
+      expect(debugElement.nativeElement.textContent).toEqual('Expand');
     });
 
     it('should not set the aria expanded attribute', () => {

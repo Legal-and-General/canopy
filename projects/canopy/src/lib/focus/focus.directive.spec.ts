@@ -16,7 +16,7 @@ describe('LgFocusDirective', () => {
   let component: TestFocusComponent;
   let fixture: ComponentFixture<TestFocusComponent>;
   let el: HTMLElement;
-  let focusSpy: jest.Mock;
+  let focusSpy: jest.SpyInstance;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

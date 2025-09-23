@@ -98,8 +98,7 @@ describe('LgSortCodeDirective', () => {
 
     it('should be called on a focusout event', () => {
       component.form.get('sortCode').setValue('000');
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const spy = jest.spyOn<any>(inputInstance, 'format');
+      const spy = jest.spyOn(inputInstance as any, 'format');
 
       fixture.detectChanges();
       inputDebugElement.nativeElement.dispatchEvent(new Event('focusout'));

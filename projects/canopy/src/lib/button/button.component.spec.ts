@@ -260,12 +260,6 @@ describe('LgButtonComponent', () => {
       'lg-margin__right--xxs',
     );
 
-    expect(deSecond.nativeElement.getAttribute('class')).not.toContain(
-      'lg-margin__left--none',
-    );
-
-    expect(deSecond.nativeElement.getAttribute('class')).not.toContain(
-      'lg-margin__right--xxs',
-    );
+    expect(deSecond.nativeElement.getAttribute('class')).toBeNull();
   });
 });
