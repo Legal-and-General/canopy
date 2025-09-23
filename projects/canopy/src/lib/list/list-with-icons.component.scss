@@ -28,7 +28,7 @@
   }
 
   &--light-foreground {
-    color: var(--color-white);
+    color: var(--colour-greyscale-0);
 
     a {
       @include mixins.lg-link(

@@ -1,8 +1,8 @@
 :root {
-  --radio-bg-color: var(--color-super-blue);
-  --radio-color: var(--color-white);
+  --radio-bg-color: var(--colour-blue-600);
+  --radio-color: var(--colour-greyscale-0);
   --radio-border-color: var(--border-color);
-  --radio-disabled-color: var(--color-taupe-grey);
+  --radio-disabled-color: var(--colour-greyscale-600);
 
   --radio-outer-height: 1rem;
   --radio-outer-width: var(--radio-outer-height);
@@ -14,7 +14,7 @@
   --radio-inner-lg-width: var(--radio-inner-lg-height);
 
   --radio-segment-separator-border-width: var(--border-width);
-  --radio-segment-separator-border-color: var(--color-platinum);
+  --radio-segment-separator-border-color: var(--colour-greyscale-200);
   --radio-segment-label-min-width: calc(6 * var(--space-unit));
-  --radio-segment-hover-bg-color: var(--color-super-blue-dark);
+  --radio-segment-hover-bg-color: var(--colour-blue-700);
 }

@@ -33,7 +33,7 @@ describe('LgListWithIconsItemComponent', () => {
   });
 
   it('should set the correct colour for the icon using css variables', () => {
-    component.iconColour = '--color-super-blue';
+    component.iconColour = '--colour-blue-600';
 
     // In Jest with JSDOM, CSS variables might not format exactly as expected
     // So instead we'll test the component's logic indirectly
@@ -41,7 +41,7 @@ describe('LgListWithIconsItemComponent', () => {
 
     component.ngAfterViewInit();
 
-    expect(updateIconColourSpy).toHaveBeenCalledWith('--color-super-blue');
+    expect(updateIconColourSpy).toHaveBeenCalledWith('--colour-blue-600');
   });
 
   it('should set the correct colour for the icon using any colour', () => {

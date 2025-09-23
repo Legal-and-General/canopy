@@ -73,12 +73,12 @@ class SwatchBrandIconComponent implements OnChanges {
 const sizes = [ 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' ];
 
 const colours = [
-  '--color-dandelion-yellow',
-  '--color-super-blue',
-  '--color-lily-green',
-  '--color-shocking-pink',
-  '--color-poppy-red-dark',
-  '--color-transparent',
+  '--colour-yellow-600',
+  '--colour-blue-600',
+  '--colour-green-400',
+  '--colour-red-400',
+  '--colour-red-700',
+  '--colour-transparent',
 ];
 
 export default {
@@ -111,7 +111,7 @@ export default {
       name: 'Example of applying colour globally',
       table: {
         defaultValue: {
-          summary: '--color-dandelion-yellow',
+          summary: '--colour-yellow-600',
         },
       },
       control: {
@@ -127,7 +127,7 @@ export default {
           summary: colours,
         },
         defaultValue: {
-          summary: '--color-super-blue',
+          summary: '--colour-blue-600',
         },
       },
       control: {
@@ -136,10 +136,10 @@ export default {
     },
     halfToneColour: {
       options: [
-        '#333',
-        '--color-poppy-red-dark',
+        '--colour-greyscale-900',
+        '--colour-red-700',
         'rgb(0, 83, 128)',
-        '--color-transparent',
+        '--colour-transparent',
       ],
       description:
         'The half tone (dots) colour of a specific icon, using the halfToneColour input',
@@ -154,7 +154,7 @@ export default {
       },
     },
     outlinesColour: {
-      options: [ '#333', '--color-super-blue-darkest', 'rgb(0, 83, 128)' ],
+      options: [ '#333', '--colour-blue-900', 'rgb(0, 83, 128)' ],
       description:
         'The colour of the outlines of a specific icon, using the `outlinesColour` input',
       name: 'Example of applying outlines colour specifically to an icon (third one)',
@@ -189,9 +189,9 @@ export const StandardBrandIcons = {
   }),
   args: {
     size: 'sm',
-    colour: '--color-super-blue',
-    halfToneColour: '--color-poppy-red-dark',
-    outlinesColour: '--color-super-blue-darkest',
+    colour: '--colour-blue-600',
+    halfToneColour: '--colour-red-700',
+    outlinesColour: '--colour-blue-900',
   },
   parameters: {
     docs: {

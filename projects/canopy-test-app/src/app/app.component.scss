@@ -9,12 +9,12 @@
 }
 
 .light-buttons-container {
-  background-color: var(--color-super-blue);
+  background-color: var(--colour-blue-600);
   display: flex;
   justify-content: center;
   align-items: center;
 
   &:last-child {
-    background-color: var(--color-leafy-green);
+    background-color: var(--colour-green-600);
   }
 }

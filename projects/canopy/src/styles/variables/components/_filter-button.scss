@@ -1,13 +1,13 @@
 :root {
-  --filter-btn-bg-color-hover: var(--color-taupe-grey);
-  --filter-btn-bg-color-active: var(--color-charcoal);
-  --filter-btn-bg-color-disabled: var(--color-platinum);
-  --filter-btn-bg-color-selected: var(--color-leafy-green);
-  --filter-btn-bg-color-selected-hover: var(--color-leafy-green-dark);
-  --filter-btn-bg-color-selected-active: var(--color-leafy-green-darkest);
+  --filter-btn-bg-color-hover: var(--colour-greyscale-600);
+  --filter-btn-bg-color-active: var(--colour-greyscale-900);
+  --filter-btn-bg-color-disabled: var(--colour-greyscale-200);
+  --filter-btn-bg-color-selected: var(--colour-green-600);
+  --filter-btn-bg-color-selected-hover: var(--colour-green-800);
+  --filter-btn-bg-color-selected-active: var(--colour-green-900);
 
-  --filter-btn-text-color-selected: var(--color-white);
-  --filter-btn-text-color-disabled: var(--color-taupe-grey);
+  --filter-btn-text-color-selected: var(--colour-greyscale-0);
+  --filter-btn-text-color-disabled: var(--colour-greyscale-600);
 
   --filter-btn-line-height: 1.6;
 }
