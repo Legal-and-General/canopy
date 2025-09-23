@@ -1,10 +1,10 @@
 :root {
-  --toggle-bg-color: var(--color-super-blue);
+  --toggle-bg-color: var(--colour-blue-600);
   --toggle-border-color: var(--border-color);
-  --toggle-disabled-color: var(--color-taupe-grey);
+  --toggle-disabled-color: var(--colour-greyscale-600);
 
-  --toggle-checkbox-color: var(--color-white);
-  --toggle-checkbox-active-border-color: var(--color-super-blue);
+  --toggle-checkbox-color: var(--colour-greyscale-0);
+  --toggle-checkbox-active-border-color: var(--colour-blue-600);
 
   --toggle-inner-height: 0.5rem;
   --toggle-inner-width: var(--toggle-inner-height);
@@ -15,15 +15,15 @@
   --toggle-switch-width: calc(var(--toggle-switch-height) * 1.85);
   --toggle-switch-dot-offset: var(--space-xxxs);
 
-  --toggle-switch-off-bg-color: var(--color-white-smoke);
-  --toggle-switch-off-dot-bg-color: var(--color-super-blue);
+  --toggle-switch-off-bg-color: var(--colour-greyscale-100);
+  --toggle-switch-off-dot-bg-color: var(--colour-blue-600);
 
-  --toggle-switch-on-bg-color: var(--color-super-blue);
-  --toggle-switch-on-dot-bg-color: var(--color-white);
-  --toggle-switch-on-border-color: var(--color-super-blue);
+  --toggle-switch-on-bg-color: var(--colour-blue-600);
+  --toggle-switch-on-dot-bg-color: var(--colour-greyscale-0);
+  --toggle-switch-on-border-color: var(--colour-blue-600);
 
-  --toggle-switch-disabled-bg-color: var(--color-white);
+  --toggle-switch-disabled-bg-color: var(--colour-greyscale-0);
   --toggle-switch-disabled-dot-bg-color: var(--disabled-color);
   --toggle-switch-disabled-border-color: var(--disabled-color);
-  --toggle-switch-disabled-color: var(--color-platinum);
+  --toggle-switch-disabled-color: var(--colour-greyscale-200);
 }

@@ -35,7 +35,7 @@ import { LgMarginDirective } from '../../spacing';
       }
 
       .welcome-heading {
-        color: var(--color-super-blue);
+        color: var(--colour-blue-600);
       }
 
       .no-wrap {

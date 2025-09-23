@@ -6,7 +6,7 @@
 */
 @mixin lg-inner-focus-outline(
   $bg-color: var(--default-focus-color),
-  $color: var(--color-white)
+  $color: var(--colour-greyscale-0)
 ) {
   outline: 0;
   box-shadow:
@@ -183,54 +183,54 @@ $breakpoints: (
 
     @if ($variant == 'generic') {
       &:hover {
-        background-color: var(--color-taupe-grey) !important;
-        border-color: var(--color-taupe-grey) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-greyscale-600) !important;
+        border-color: var(--colour-greyscale-600) !important;
+        color: var(--colour-greyscale-0) !important;
       }
 
       &:active {
-        background-color: var(--color-charcoal) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-greyscale-900) !important;
+        color: var(--colour-greyscale-0) !important;
       }
     } @else if ($variant == 'info') {
       &:hover {
-        background-color: var(--color-midnight-blue) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-blue-800) !important;
+        color: var(--colour-greyscale-0) !important;
       }
 
       &:active {
-        background-color: var(--color-super-blue-darkest) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-blue-900) !important;
+        color: var(--colour-greyscale-0) !important;
       }
     } @else if ($variant == 'success') {
       &:hover {
-        background-color: var(--color-mexican-green) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-green-700) !important;
+        color: var(--colour-greyscale-0) !important;
       }
 
       &:active {
-        background-color: var(--color-leafy-green-dark) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-green-800) !important;
+        color: var(--colour-greyscale-0) !important;
       }
     } @else if ($variant == 'warning') {
       &:hover {
-        background-color: var(--color-earth-brown-dark) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-yellow-900) !important;
+        color: var(--colour-greyscale-0) !important;
       }
 
       &:active {
-        background-color: var(--color-earth-brown-darkest) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-yellow-1000) !important;
+        color: var(--colour-greyscale-0) !important;
       }
     } @else if ($variant == 'error') {
       &:hover {
-        background-color: var(--color-terracotta) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-red-800) !important;
+        color: var(--colour-greyscale-0) !important;
       }
 
       &:active {
-        background-color: var(--color-earth-brown-darkest) !important;
-        color: var(--color-white) !important;
+        background-color: var(--colour-yellow-1000) !important;
+        color: var(--colour-greyscale-0) !important;
       }
     }
   }
