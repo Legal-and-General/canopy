@@ -7,15 +7,15 @@
 
   &--solid-green {
     .lg-promo-card__content-inner {
-      background: var(--color-leafy-green);
-      color: var(--color-white);
+      background: var(--colour-green-600);
+      color: var(--colour-greyscale-0);
     }
   }
 
   &--solid-yellow {
     .lg-promo-card__content-inner {
-      background: var(--color-dandelion-yellow);
-      color: var(--color-black);
+      background: var(--colour-yellow-600);
+      color: var(--colour-greyscale-1000);
     }
   }
 
@@ -56,7 +56,7 @@
 .lg-promo-card__content-inner {
   position: relative;
   padding: var(--space-sm);
-  background: var(--color-white);
+  background: var(--colour-greyscale-0);
 
   @include mixins.lg-breakpoint('md') {
     padding: var(--space-md);

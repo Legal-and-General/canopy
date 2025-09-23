@@ -1,9 +1,9 @@
 :root {
   --btn-border-radius: var(--border-radius-sm);
 
-  --btn-disabled-bg-color: var(--color-platinum);
-  --btn-disabled-border-color: var(--color-platinum);
-  --btn-disabled-color: var(--color-taupe-grey);
+  --btn-disabled-bg-color: var(--colour-greyscale-200);
+  --btn-disabled-border-color: var(--colour-greyscale-200);
+  --btn-disabled-color: var(--colour-greyscale-600);
 
   --btn-vertical-padding: var(--form-field-vertical-padding); // 9px
   --btn-horizontal-padding: 1.1875rem; // 19px

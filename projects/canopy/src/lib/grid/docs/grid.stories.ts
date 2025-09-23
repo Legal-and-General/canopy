@@ -33,7 +33,7 @@ export default {
     }),
   ],
   globals: {
-    backgrounds: { value: 'super-blue' },
+    backgrounds: { value: 'breezy-blue' },
   },
   argTypes: {
     firstCol: {

@@ -9,7 +9,7 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-image: linear-gradient(
-    var(--color-platinum) calc(100% - 0.063em),
+    var(--colour-greyscale-200) calc(100% - 0.063em),
     transparent 0
   );
   text-indent: -9999em;
@@ -35,9 +35,9 @@
   animation: Shimmer 1.5s infinite;
   background-image: linear-gradient(
     -75deg,
-    rgba(255, 255, 255, 0) 30%,
-    #fff 50%,
-    rgba(255, 255, 255, 0) 70%
+    rgba(var(--colour-greyscale-0-rgb), 0) 30%,
+    var(--colour-greyscale-0) 50%,
+    rgba(var(--colour-greyscale-0), 0) 70%
   );
   background-repeat: no-repeat;
   background-size: 100vw 100%;

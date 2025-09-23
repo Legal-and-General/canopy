@@ -36,7 +36,7 @@ $primary-nav-border-bottom-height: 0.25rem;
 }
 
 .lg-primary-nav-list {
-  background: var(--color-white);
+  background: var(--colour-greyscale-0);
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@ button.lg-primary-nav-item {
   & {
     align-items: center;
     appearance: none;
-    background: var(--color-white);
+    background: var(--colour-greyscale-0);
     border: 0;
     border-bottom: $primary-nav-border-bottom-height solid transparent;
     color: var(--color-text);
@@ -93,7 +93,7 @@ button.lg-primary-nav-item {
   }
 
   &:visited {
-    background: var(--color-white);
+    background: var(--colour-greyscale-0);
     border-color: transparent;
     color: var(--primary-nav-item-color);
   }
