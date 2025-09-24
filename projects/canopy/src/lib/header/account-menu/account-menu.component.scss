@@ -5,7 +5,7 @@
 
   @include mixins.lg-breakpoint(lg) {
     align-items: center;
-    border-left: 0.063rem solid var(--color-platinum);
+    border-left: 0.063rem solid var(--colour-greyscale-200);
     height: 100%;
     margin-left: var(--space-sm);
     padding-left: var(--space-sm);

@@ -52,10 +52,10 @@ class SwatchIconComponent implements OnChanges {
 }
 
 const colours = [
-  '--color-charcoal',
-  '--color-super-blue',
-  '--color-leafy-green-dark',
-  '--color-poppy-red-dark',
+  '--colour-greyscale-900',
+  '--colour-blue-600',
+  '--colour-green-800',
+  '--colour-red-700',
 ];
 
 export default {
@@ -87,7 +87,7 @@ export const StandardIcons = {
     template: '<lg-swatch-icon [colour]="colour"></lg-swatch-icon>',
   }),
   args: {
-    colour: '--color-charcoal',
+    colour: '--colour-greyscale-900',
   },
   parameters: {
     docs: {

@@ -20,7 +20,7 @@
 }
 
 .lg-page__skip-link {
-  background: var(--color-white);
+  background: var(--colour-greyscale-0);
   @include mixins.lg-visually-hidden;
 
   &:focus-visible,

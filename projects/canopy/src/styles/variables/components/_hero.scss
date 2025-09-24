@@ -1,16 +1,16 @@
 :root {
   --hero-padding: var(--space-sm);
-  --hero-color: var(--color-white);
-  --hero-bg-color: var(--color-super-blue-dark);
-  --hero-rule-color: rgba(255, 255, 255, 0.2);
+  --hero-color: var(--colour-greyscale-0);
+  --hero-bg-color: var(--colour-blue-700);
+  --hero-rule-color: rgba(var(--colour-greyscale-0-rgb), 0.2);
   --hero-bg-alpha: 0.1;
-  --hero-overlay-bg-color: rgba(0, 0, 0, var(--hero-bg-alpha));
+  --hero-overlay-bg-color: rgba(var(--colour-greyscale-1000-rgb), var(--hero-bg-alpha));
 
   --hero-link-color: var(--hero-color);
   --hero-link-hover-color: var(--hero-color);
   --hero-link-visited-color: var(--hero-color);
   --hero-link-active-color: var(--hero-color);
-  --hero-link-active-bg-color: var(--color-super-blue-darkest);
-  --hero-link-focus-color: var(--color-super-blue-darkest);
-  --hero-link-focus-bg-color: var(--color-white);
+  --hero-link-active-bg-color: var(--colour-blue-900);
+  --hero-link-focus-color: var(--colour-blue-900);
+  --hero-link-focus-bg-color: var(--colour-greyscale-0);
 }

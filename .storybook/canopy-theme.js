@@ -2,13 +2,13 @@ import { create } from 'storybook/theming/create';
 
 export default create({
   appBg: '#fff',
-  barSelectedColor: '#0076d6',
+  barSelectedColor: '#005dba',
   base: 'light',
   brandTitle: 'Canopy',
   brandUrl: 'https://github.com/Legal-and-General/canopy',
   brandImage: 'legal-and-general-logo.svg',
   colorPrimary: '#fff',
-  colorSecondary: '#0076d6',
+  colorSecondary: '#005dba',
   fontBase: '"Roboto", arial, sans-serif',
-  textColor: '#333',
+  textColor: '#1d1d1b',
 });

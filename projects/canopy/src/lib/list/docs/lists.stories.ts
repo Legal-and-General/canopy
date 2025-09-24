@@ -51,11 +51,11 @@ class ListWithIconsWrapperComponent {
   @HostBinding('style.background-color') get bgColour(): string {
     switch (this.variant) {
       case 'dark-foreground':
-        return 'var(--color-dandelion-yellow)';
+        return 'var(--colour-yellow-600)';
       case 'light-foreground':
-        return 'var(--color-super-blue)';
+        return 'var(--colour-blue-600)';
       default:
-        return 'var(--color-white)';
+        return 'var(--colour-greyscale-0)';
     }
   }
 }
@@ -99,27 +99,27 @@ function getDefaultList(): Array<ListItems> {
   return [
     {
       iconName: 'checkmark',
-      iconColour: '--color-leafy-green',
+      iconColour: '--colour-green-600',
       text: 'List item 1',
     },
     {
       iconName: 'close',
-      iconColour: '--color-terracotta',
+      iconColour: '--colour-red-800',
       text: 'List item 2',
     },
     {
       iconName: 'checkmark',
-      iconColour: '--color-leafy-green',
+      iconColour: '--colour-green-600',
       text: 'List item 3',
       children: [
         {
           iconName: 'checkmark',
-          iconColour: '--color-leafy-green',
+          iconColour: '--colour-green-600',
           text: 'List item 3.1',
         },
         {
           iconName: 'checkmark',
-          iconColour: '--color-leafy-green',
+          iconColour: '--colour-green-600',
           text: 'List item 3.2',
           isLink: true,
         },
@@ -127,12 +127,12 @@ function getDefaultList(): Array<ListItems> {
     },
     {
       iconName: 'checkmark',
-      iconColour: '--color-leafy-green',
+      iconColour: '--colour-green-600',
       text: 'List item 4',
     },
     {
       iconName: 'checkmark',
-      iconColour: '--color-leafy-green',
+      iconColour: '--colour-green-600',
       text: 'List item 5',
       isLink: true,
     },

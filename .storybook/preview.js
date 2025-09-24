@@ -13,13 +13,13 @@ const preview = {
       options: {
         // Default colors
         light: { name: 'Light', value: '#FFFFFF' },
-        dark: { name: 'Dark', value: '#333' },
+        dark: { name: 'Dark', value: '#1d1d1b' },
         // Custom colors
-        'midnight-blue': { name: 'Midnight Blue', value: '#005380'},
-        'charcoal': {name: 'Charcoal', value: '#333'},
-        'super-blue': {name: 'Super Blue', value: '#0076d6'},
-        'leafy-green': {name: 'Leafy Green', value: '#028844'},
-        'white-smoke': {name: 'White Smoke', value: '#f6f6f6'},
+        'regal-blue': { name: 'Regal Blue', value: '#001d6e'},
+        'off-black': {name: 'Off Black', value: '#1d1d1b'},
+        'breezy-blue': {name: 'Breezy Blue', value: '#005dba'},
+        'plush-green': {name: 'Plush Green', value: '#00633d'},
+        'off-white': {name: 'Off White', value: '#f4f4f4'},
       },
     },
     docs: {

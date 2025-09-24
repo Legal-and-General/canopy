@@ -203,7 +203,7 @@ export default {
     }),
   ],
   globals: {
-    backgrounds: { value: 'super-blue' },
+    backgrounds: { value: 'breezy-blue' },
   },
 } as Meta;
 

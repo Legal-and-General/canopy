@@ -19,7 +19,7 @@
   @include mixins.lg-breakpoint('lg') {
     margin: 0;
     padding: 0 var(--component-margin) var(--component-margin) 0;
-    border-right: var(--border-width) solid var(--color-platinum);
+    border-right: var(--border-width) solid var(--colour-greyscale-200);
     flex: 1;
   }
 }

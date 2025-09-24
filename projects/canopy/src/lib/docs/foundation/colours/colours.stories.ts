@@ -5,7 +5,6 @@ import {
   HostBinding,
   Input,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { Meta } from '@storybook/angular';
@@ -20,85 +19,11 @@ interface Color {
 }
 
 @Component({
-  selector: 'lg-swatch',
-  template: `
-    <div #swatch class="swatch__color" [ngStyle]="{ background: color.background }"></div>
-    <div class="swatch__details">
-      <span class="swatch__name">{{ color.name }}</span>
-      <span class="swatch__text lg-font-size-0-6">#{{ color.hex }}</span>
-      <span class="swatch__text lg-font-size-0-6">{{ color.rgb }}</span>
-    </div>
-  `,
-  styles: [
-    `
-      :host {
-        margin-top: var(--space-md);
-        margin-right: var(--space-sm);
-        margin-bottom: var(--component-margin);
-        border: solid var(--border-width) var(--border-color);
-        border-radius: var(--border-radius-sm);
-        display: inline-block;
-      }
-      .swatch__details {
-        padding: var(--space-sm);
-      }
-      .swatch__color {
-        width: 14rem;
-        height: 10rem;
-      }
-      .swatch__name {
-        display: block;
-        font-weight: var(--font-weight-medium);
-        margin-bottom: var(--space-xxxs);
-      }
-      .swatch__text {
-        display: block;
-        margin-bottom: var(--space-xxxs);
-      }
-    `,
-  ],
-  standalone: false,
-})
-class SwatchComponent implements AfterViewInit {
-  @HostBinding('class') class = 'swatch';
-
-  @ViewChild('swatch') swatch;
-
-  @Input()
-  color: Color;
-
-  @Input()
-  set name(val: string) {
-    this.color = {
-      name: val,
-      background: `var(${val})`,
-      rgb: null,
-      hex: null,
-    };
-  }
-  get name() {
-    return this.color.name;
-  }
-
-  ngAfterViewInit() {
-    const styles = window.getComputedStyle(this.swatch.nativeElement);
-
-    this.color.rgb = styles.backgroundColor;
-
-    this.color.hex = convert.rgb.hex(
-      styles.backgroundColor.match(/\d+/g).map(e => +e) as RGB,
-    );
-  }
-}
-
-@Component({
   selector: 'lg-tint-swatch',
   template: `
     <div *ngFor="let color of colors" class="tint-swatch__item">
       <div class="tint-swatch__details">
         <strong class="tint-swatch__name">{{ color.name }}</strong>
-        <span class="tint-swatch__text lg-font-size-0-6">#{{ color.hex }}</span>
-        <span class="tint-swatch__text lg-font-size-0-6">{{ color.rgb }}</span>
       </div>
       <div
         #swatch
@@ -171,109 +96,39 @@ export default {
   title: 'Foundations/Colours',
   decorators: [
     moduleMetadata({
-      declarations: [ SwatchComponent, TintSwatchComponent ],
+      declarations: [ TintSwatchComponent ],
     }),
   ],
   // !dev tag removes a story/component from the sidebar (See: https://github.com/storybookjs/storybook/pull/26634)
   tags: [ '!dev' ],
 } as Meta;
 
-const coreColoursTemplate = `
-<div>
-  <lg-swatch name="--color-super-blue"></lg-swatch>
-  <lg-swatch name="--color-leafy-green"></lg-swatch>
-  <lg-swatch name="--color-dandelion-yellow"></lg-swatch>
-  <lg-swatch name="--color-poppy-red"></lg-swatch>
-</div>
-`;
-
-const secondaryColoursTemplate = `
-<div>
-  <div>
-    <lg-swatch name="--color-lavender"></lg-swatch>
-    <lg-swatch name="--color-sky-blue"></lg-swatch>
-    <lg-swatch name="--color-midnight-blue"></lg-swatch>
-  </div>
-  <div>
-    <lg-swatch name="--color-tea-green"></lg-swatch>
-    <lg-swatch name="--color-lily-green"></lg-swatch>
-    <lg-swatch name="--color-mexican-green"></lg-swatch>
-  </div>
-  <div>
-    <lg-swatch name="--color-champagne"></lg-swatch>
-    <lg-swatch name="--color-harvest-gold"></lg-swatch>
-    <lg-swatch name="--color-earth-brown"></lg-swatch>
-  </div>
-  <div>
-    <lg-swatch name="--color-dusky-pink"></lg-swatch>
-    <lg-swatch name="--color-shocking-pink"></lg-swatch>
-    <lg-swatch name="--color-terracotta"></lg-swatch>
-  </div>
-</div>
-`;
-
-const greyscaleColoursTemplate = `
-<div>
-  <lg-swatch name="--color-black"></lg-swatch>
-  <lg-swatch name="--color-charcoal"></lg-swatch>
-  <lg-swatch name="--color-battleship-grey"></lg-swatch>
-  <lg-swatch name="--color-taupe-grey"></lg-swatch>
-  <lg-swatch name="--color-platinum"></lg-swatch>
-  <lg-swatch name="--color-white-smoke"></lg-swatch>
-  <lg-swatch name="--color-white"></lg-swatch>
-</div>
-`;
-
-const tintsColoursTemplate = `
+const foundationsColoursTemplate = `
 <div>
   <div>
     <lg-tint-swatch
-      names="--color-super-blue-lightest,--color-super-blue-light,--color-super-blue-dark,--color-super-blue-darkest">
+      names="--colour-blue-0, --colour-blue-100,--colour-blue-200,--colour-blue-300,--colour-blue-400, --colour-blue-500, --colour-blue-600, --colour-blue-700, --colour-blue-800, --colour-blue-900, --colour-blue-1000">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--color-leafy-green-lightest,--color-leafy-green-light,--color-leafy-green-dark,--color-leafy-green-darkest">
+      names="--colour-green-0, --colour-green-100,--colour-green-200,--colour-green-300,--colour-green-400, --colour-green-500, --colour-green-600, --colour-green-700, --colour-green-800, --colour-green-900, --colour-green-1000">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--color-dandelion-yellow-lightest,--color-dandelion-yellow-light">
+      names="--colour-greyscale-0, --colour-greyscale-100,--colour-greyscale-200,--colour-greyscale-300,--colour-greyscale-400, --colour-greyscale-500, --colour-greyscale-600, --colour-greyscale-700, --colour-greyscale-800, --colour-greyscale-900, --colour-greyscale-1000">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--color-earth-brown-dark,--color-earth-brown-darkest">
+      names="--colour-red-0, --colour-red-100,--colour-red-200,--colour-red-300,--colour-red-400, --colour-red-500, --colour-red-600, --colour-red-700, --colour-red-800, --colour-red-900, --colour-red-1000">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--color-poppy-red-lightest,--color-poppy-red-light,--color-poppy-red-dark,--color-poppy-red-darkest">
+      names="--colour-yellow-0, --colour-yellow-100,--colour-yellow-200,--colour-yellow-300,--colour-yellow-400, --colour-yellow-500, --colour-yellow-600, --colour-yellow-700, --colour-yellow-800, --colour-yellow-900, --colour-yellow-1000">
     </lg-tint-swatch>
   </div>
 </div>
 `;
-
-export const CoreColours = {
-  name: '[Hidden] Core',
-  render: (args: SwatchComponent) => ({
-    props: args,
-    template: coreColoursTemplate,
-  }),
-};
-
-export const SecondaryColours = {
-  name: '[Hidden] Secondary',
-  render: (args: SwatchComponent) => ({
-    props: args,
-    template: secondaryColoursTemplate,
-  }),
-};
-
-export const GreyscaleColours = {
-  name: '[Hidden] Greyscale',
-  render: (args: SwatchComponent) => ({
-    props: args,
-    template: greyscaleColoursTemplate,
-  }),
-};
 
 export const TintsColours = {
   name: '[Hidden] Tints',
   render: (args: TintSwatchComponent) => ({
     props: args,
-    template: tintsColoursTemplate,
+    template: foundationsColoursTemplate,
   }),
 };

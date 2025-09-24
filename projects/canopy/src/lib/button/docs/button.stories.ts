@@ -295,9 +295,9 @@ export const IconOnly = {
 function setBackground(variant: string) {
   const bgs = {
     'primary-dark': 'light',
-    'primary-light': 'super-blue',
+    'primary-light': 'breezy-blue',
     'secondary-dark': 'light',
-    'secondary-light': 'super-blue',
+    'secondary-light': 'breezy-blue',
     link: 'light',
     'add-on': 'light',
   };

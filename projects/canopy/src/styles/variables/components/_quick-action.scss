@@ -1,10 +1,10 @@
 :root {
-  --quick-action-bg-color: var(--color-white);
-  --quick-action-hover-bg-color: var(--color-super-blue);
-  --quick-action-hover-color: var(--color-white);
-  --quick-action-active-bg-color: var(--color-super-blue-dark);
-  --quick-action-active-color: var(--color-white);
+  --quick-action-bg-color: var(--colour-greyscale-0);
+  --quick-action-hover-bg-color: var(--colour-blue-600);
+  --quick-action-hover-color: var(--colour-greyscale-0);
+  --quick-action-active-bg-color: var(--colour-blue-700);
+  --quick-action-active-color: var(--colour-greyscale-0);
   --quick-action-visited-color: var(--link-color);
-  --quick-action-visited-hover-bg-color: var(--color-super-blue-dark);
-  --quick-action-visited-hover-color: var(--color-white);
+  --quick-action-visited-hover-bg-color: var(--colour-blue-700);
+  --quick-action-visited-hover-color: var(--colour-greyscale-0);
 }
