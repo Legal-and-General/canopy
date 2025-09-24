@@ -2,8 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { spy, verify } from '@typestrong/ts-mockito';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
@@ -22,11 +21,11 @@ describe('LgCardNavigationTitleComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
         LgCardNavigationTitleComponent,
         LgHeadingComponent,
         MockComponents(LgIconComponent),
       ],
+      providers: [ provideRouter([]) ],
     }).compileComponents();
 
     jest.spyOn(console, 'error').mockImplementation();
@@ -75,11 +74,11 @@ describe('LgCardNavigationTitleComponent', () => {
     });
 
     it('should emit events', () => {
-      const linkClickedEventSpy = spy(component.linkClickedEvent);
+      const linkClickedEventSpy = jest.spyOn(component.linkClickedEvent, 'emit');
 
       component.linkClicked();
 
-      verify(linkClickedEventSpy.emit()).once();
+      expect(linkClickedEventSpy).toHaveBeenCalledTimes(1);
     });
 
     it('should know whether the link is external or internal', () => {

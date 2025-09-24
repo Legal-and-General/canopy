@@ -9,7 +9,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { instance, mock } from '@typestrong/ts-mockito';
 
 import { LgInputDirective } from '../input';
 
@@ -35,11 +34,8 @@ describe('LgSortCodeDirective', () => {
   let component: TestInputComponent;
   let inputDebugElement: DebugElement;
   let inputInstance: LgSortCodeDirective;
-  let control: NgControl;
 
   beforeEach(waitForAsync(() => {
-    control = mock(NgControl);
-
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -47,7 +43,7 @@ describe('LgSortCodeDirective', () => {
         LgSortCodeDirective,
         TestInputComponent,
       ],
-      providers: [ { provide: NgControl, useValue: instance(control) } ],
+      providers: [ { provide: NgControl, useValue: {} } ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestInputComponent);

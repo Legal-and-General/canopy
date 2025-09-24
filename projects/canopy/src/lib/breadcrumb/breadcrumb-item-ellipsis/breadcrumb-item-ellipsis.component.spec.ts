@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponent } from 'ng-mocks';
-import { mock, when } from '@typestrong/ts-mockito';
 
 import { LgIconComponent, LgIconRegistry } from '../../icon';
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
@@ -11,31 +10,33 @@ import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis.co
 describe('LgBreadcrumbItemEllipsisComponent', () => {
   let component: LgBreadcrumbItemEllipsisComponent;
   let fixture: ComponentFixture<LgBreadcrumbItemEllipsisComponent>;
-  let iconRegistryMock: LgIconRegistry;
+  let iconRegistryMock: jest.Mocked<LgIconRegistry>;
   let breadcrumbEllipsisDebugElement: DebugElement;
   let breadcrumbEllipsisEl: HTMLElement;
 
   beforeEach(waitForAsync(() => {
-    iconRegistryMock = mock(LgIconRegistry);
+    iconRegistryMock = {
+      get: jest.fn(),
+    } as unknown as jest.Mocked<LgIconRegistry>;
 
     TestBed.configureTestingModule({
       imports: [ LgBreadcrumbItemEllipsisComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
   }));
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(LgBreadcrumbItemEllipsisComponent);
     component = fixture.componentInstance;
     breadcrumbEllipsisDebugElement = fixture.debugElement;
     breadcrumbEllipsisEl = breadcrumbEllipsisDebugElement.nativeElement;
 
-    when(await iconRegistryMock.get('caret-right')).thenReturn(
-      '<svg id="test">test-svg</svg>',
-    );
+    iconRegistryMock.get.mockImplementation(name => {
+      if (name === 'caret-right' || name === 'overflow-horizontal') {
+        return Promise.resolve('<svg id="test">test-svg</svg>');
+      }
 
-    when(await iconRegistryMock.get('overflow-horizontal')).thenReturn(
-      '<svg id="test">test-svg</svg>',
-    );
+      return Promise.resolve('');
+    });
 
     fixture.detectChanges();
   });

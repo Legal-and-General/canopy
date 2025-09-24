@@ -17,7 +17,6 @@ import {
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { skip } from 'rxjs/operators';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
@@ -27,8 +26,6 @@ import { LgDateFieldComponent } from './date-field.component';
 
 const errorId = 'test-error-id';
 const hintId = 'test-hint-id';
-
-const errorStateMatcherMock = mock(LgErrorStateMatcher);
 
 @Component({
   template: `
@@ -90,8 +87,13 @@ describe('LgDateFieldComponent', () => {
   let monthInput: DebugElement;
   let yearInput: DebugElement;
   let component: TestDateInputComponent;
+  let errorStateMatcherMock: LgErrorStateMatcher;
 
   beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn().mockReturnValue(false),
+    } as unknown as LgErrorStateMatcher;
+
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -103,7 +105,7 @@ describe('LgDateFieldComponent', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
+          useValue: errorStateMatcherMock,
         },
       ],
     }).compileComponents();
@@ -121,10 +123,6 @@ describe('LgDateFieldComponent', () => {
     dateInput = fixture.debugElement.query(By.css('[formcontrolname="date"]'));
     monthInput = fixture.debugElement.query(By.css('[formcontrolname="month"]'));
     yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
-
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      false,
-    );
   }));
 
   describe('markup', () => {

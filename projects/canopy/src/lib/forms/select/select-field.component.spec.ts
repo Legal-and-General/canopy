@@ -9,7 +9,6 @@ import {
   MockRender,
   ngMocks,
 } from 'ng-mocks';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgIconComponent } from '../../icon';
 import { LgHintComponent } from '../hint';
@@ -29,9 +28,13 @@ describe('LgSelectFieldComponent', () => {
   const errorId = 'test-error-id';
   const hintId = 'test-hint-id';
 
-  const errorStateMatcherMock = mock(LgErrorStateMatcher);
+  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn().mockReturnValue(false),
+    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -48,7 +51,7 @@ describe('LgSelectFieldComponent', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
+          useValue: errorStateMatcherMock,
         },
       ],
     }).compileComponents();
@@ -112,7 +115,7 @@ describe('LgSelectFieldComponent', () => {
   });
 
   it('adds the error class to the select field when the input field is invalid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     renderComponent();
 
     expect(selectFieldDebugElement.nativeElement.className).toContain(
@@ -121,10 +124,7 @@ describe('LgSelectFieldComponent', () => {
   });
 
   it('does not add the error class to the select field when the input field is valid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      false,
-    );
-
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(false);
     renderComponent();
 
     expect(selectFieldDebugElement.nativeElement.className).not.toContain(
