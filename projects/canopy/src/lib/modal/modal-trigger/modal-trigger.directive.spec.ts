@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { anything, instance, mock, verify, when } from '@typestrong/ts-mockito';
 import { BehaviorSubject } from 'rxjs';
 
 import { LgModalService } from '../modal.service';
@@ -19,19 +18,22 @@ describe('LgModalTriggerComponent', () => {
   let fixture: ComponentFixture<TestTriggerComponent>;
   let triggerDebugElement: DebugElement;
   let triggerInstance: LgModalTriggerDirective;
-  let modalServiceMock: LgModalService;
+  let modalServiceMock: jest.Mocked<LgModalService>;
   let focusSpy: jest.SpyInstance;
   const isOpen$ = new BehaviorSubject(true);
 
   beforeEach(waitForAsync(() => {
-    modalServiceMock = mock(LgModalService);
+    modalServiceMock = {
+      isOpen$: jest.fn(),
+      open: jest.fn(),
+    } as unknown as jest.Mocked<LgModalService>;
+
+    modalServiceMock.isOpen$.mockReturnValue(isOpen$);
 
     TestBed.configureTestingModule({
       imports: [ LgModalTriggerDirective, TestTriggerComponent ],
-      providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
+      providers: [ { provide: LgModalService, useValue: modalServiceMock } ],
     }).compileComponents();
-
-    when(modalServiceMock.isOpen$(anything())).thenReturn(isOpen$);
 
     fixture = TestBed.createComponent(TestTriggerComponent);
 
@@ -54,8 +56,7 @@ describe('LgModalTriggerComponent', () => {
     triggerDebugElement.nativeElement.click();
 
     expect(triggerInstance['allowFocusOnModalTrigger']).toBe(true);
-    verify(modalServiceMock.open('test')).once();
-
+    expect(modalServiceMock.open).toHaveBeenNthCalledWith(1, 'test');
     expect(clickedSpy).toHaveBeenCalledTimes(1);
   });
 

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgIconComponent } from './icon.component';
 import { LgIconRegistry } from './icon.registry';
@@ -7,17 +6,19 @@ import { LgIconRegistry } from './icon.registry';
 describe('LgIconComponent', () => {
   let component: LgIconComponent;
   let fixture: ComponentFixture<LgIconComponent>;
-  let iconRegistryMock: LgIconRegistry;
+  let iconRegistryMock: jest.Mocked<LgIconRegistry>;
 
   beforeEach(waitForAsync(() => {
-    iconRegistryMock = mock(LgIconRegistry);
+    iconRegistryMock = {
+      get: jest.fn(),
+    } as unknown as jest.Mocked<LgIconRegistry>;
 
     TestBed.configureTestingModule({
       imports: [ LgIconComponent ],
       providers: [
         {
           provide: LgIconRegistry,
-          useFactory: () => instance(iconRegistryMock),
+          useValue: iconRegistryMock,
         },
       ],
     }).compileComponents();
@@ -46,7 +47,7 @@ describe('LgIconComponent', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
       expect(fixture.nativeElement.querySelector('#lg-icon-0')).toBeNull();
 
-      when(await iconRegistryMock.get('add')).thenReturn('<svg id="test">test-svg</svg>');
+      iconRegistryMock.get.mockResolvedValue('<svg id="test">test-svg</svg>');
 
       component.name = 'add';
       fixture.detectChanges();

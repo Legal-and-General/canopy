@@ -7,7 +7,6 @@ import {
   waitForAsync,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { instance, mock } from '@typestrong/ts-mockito';
 
 import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
 
@@ -24,14 +23,17 @@ describe('lgSrAlertMessage', () => {
   let directive: LgSrAlertMessageDirective;
   let testElement: DebugElement;
   let component: TestComponent;
-  let cdrMock: ChangeDetectorRef;
+  let cdrMock: jest.Mocked<ChangeDetectorRef>;
 
   beforeEach(waitForAsync(() => {
-    cdrMock = mock(ChangeDetectorRef);
+    cdrMock = {
+      detectChanges: jest.fn(),
+      markForCheck: jest.fn(),
+    } as unknown as jest.Mocked<ChangeDetectorRef>;
 
     TestBed.configureTestingModule({
       imports: [ TestComponent, LgSrAlertMessageDirective ],
-      providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
+      providers: [ { provide: ChangeDetectorRef, useValue: cdrMock } ],
     }).compileComponents();
   }));
 
