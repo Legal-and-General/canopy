@@ -1,19 +1,17 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { addDays, format, subDays } from 'date-fns';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { afterDateValidator } from './afterDate.validator';
 import { dateFormat } from './date-field.interface';
 
 describe('afterDate', () => {
-  let control: AbstractControl;
+  let control: Partial<AbstractControl>;
   let validator: ValidatorFn;
   let dateToCompare: Date;
   let date: Date;
 
   beforeEach(() => {
     dateToCompare = new Date();
-    control = mock(AbstractControl);
     validator = afterDateValidator(dateToCompare);
   });
 
@@ -26,15 +24,15 @@ describe('afterDate', () => {
   describe('date is before the specified date', () => {
     beforeEach(() => {
       date = subDays(dateToCompare, 10);
-      when(control.value).thenReturn(format(date, 'yyyy-MM-dd'));
+      control = { value: format(date, 'yyyy-MM-dd') };
     });
 
     it('adds a afterDate error', () => {
-      expect(validator(instance(control))).toEqual(expect.any(Object));
+      expect(validator(control as AbstractControl)).toEqual(expect.any(Object));
     });
 
     it('includes the date to compare against', () => {
-      expect(validator(instance(control)).afterDate).toEqual(
+      expect(validator(control as AbstractControl)?.afterDate).toEqual(
         expect.objectContaining({
           required: format(dateToCompare, dateFormat),
         }),
@@ -42,7 +40,7 @@ describe('afterDate', () => {
     });
 
     it('includes the date that was entered', () => {
-      expect(validator(instance(control)).afterDate).toEqual(
+      expect(validator(control as AbstractControl)?.afterDate).toEqual(
         expect.objectContaining({
           actual: format(date, dateFormat),
         }),
@@ -51,21 +49,18 @@ describe('afterDate', () => {
   });
 
   it('returns null if the date is null', () => {
-    when(control.value).thenReturn(null);
-
-    expect(validator(instance(control))).toBe(null);
+    control = { value: null };
+    expect(validator(control as AbstractControl)).toBe(null);
   });
 
   it('throws an error if the date is not a valid date', () => {
-    when(control.value).thenReturn(new Date('not a date'));
-
-    expect(() => validator(instance(control))).toThrow();
+    control = { value: new Date('not a date') };
+    expect(() => validator(control as AbstractControl)).toThrow();
   });
 
   it('returns null if date is after the specified date', () => {
     date = addDays(dateToCompare, 10);
-    when(control.value).thenReturn(format(date, 'yyyy-MM-dd'));
-
-    expect(validator(instance(control))).toEqual(null);
+    control = { value: format(date, 'yyyy-MM-dd') };
+    expect(validator(control as AbstractControl)).toEqual(null);
   });
 });

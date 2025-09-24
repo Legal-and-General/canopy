@@ -8,7 +8,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { anything, instance, mock, spy, verify, when } from '@typestrong/ts-mockito';
 import { MockComponents } from 'ng-mocks';
 
 import { LgErrorStateMatcher } from '../validation';
@@ -26,8 +25,8 @@ const hintTestId = 'test-hint-id';
       <lg-radio-group formControlName="color">
         Color
         <lg-radio-button value="red" [size]="size">Red</lg-radio-button>
-        <lg-radio-button value="yellow"
-          >Yellow
+        <lg-radio-button value="yellow">
+          Yellow
           <div class="lg-radio-button__content">
             <lg-hint id="${hintTestId}">Custom text</lg-hint>
           </div>
@@ -60,16 +59,29 @@ describe('LgRadioButtonComponent', () => {
   let testComponent: TestRadioButtonComponent;
   let fixture: ComponentFixture<LgRadioButtonComponent>;
   let testFixture: ComponentFixture<TestRadioButtonComponent>;
-  let errorStateMatcherMock: LgErrorStateMatcher;
-  let radioGroupMock: LgRadioGroupComponent;
+  let errorStateMatcherMock: { isControlInvalid: jest.Mock };
+  let radioGroupMock: {
+    name: string;
+    variant: string;
+    disabled: boolean;
+    onTouched: jest.Mock;
+    onChange: jest.Mock;
+  };
   let hintDebugElement: DebugElement;
   let inputDebugElement: DebugElement;
 
   beforeEach(waitForAsync(() => {
-    errorStateMatcherMock = mock(LgErrorStateMatcher);
-    radioGroupMock = mock(LgRadioGroupComponent);
-    when(radioGroupMock.name).thenReturn('color');
-    when(radioGroupMock.variant).thenReturn('segment');
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn(),
+    };
+
+    radioGroupMock = {
+      name: 'color',
+      variant: 'segment',
+      disabled: false,
+      onTouched: jest.fn(),
+      onChange: jest.fn(),
+    };
 
     TestBed.configureTestingModule({
       imports: [
@@ -81,25 +93,17 @@ describe('LgRadioButtonComponent', () => {
         MockComponents(LgHintComponent),
       ],
       providers: [
-        {
-          provide: LgRadioGroupComponent,
-          useFactory: () => instance(radioGroupMock),
-        },
-        {
-          provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
-        },
+        { provide: LgRadioGroupComponent, useValue: radioGroupMock },
+        { provide: LgErrorStateMatcher, useValue: errorStateMatcherMock },
       ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgRadioButtonComponent);
     component = fixture.componentInstance;
-
     fixture.detectChanges();
 
     testFixture = TestBed.createComponent(TestRadioButtonComponent);
     testComponent = testFixture.componentInstance;
-
     testFixture.detectChanges();
 
     inputDebugElement = testFixture.debugElement.queryAll(By.css('input'))[1];
@@ -116,29 +120,33 @@ describe('LgRadioButtonComponent', () => {
     });
 
     it('should set the correct class modifier', () => {
-      expect(fixture.debugElement.nativeElement.getAttribute('class')).toContain(
+      expect(fixture.debugElement.nativeElement.classList).toContain(
         'lg-radio-button--segment',
       );
 
-      when(radioGroupMock.variant).thenReturn('radio');
+      radioGroupMock.variant = 'radio';
       fixture = TestBed.createComponent(LgRadioButtonComponent);
       component = fixture.componentInstance;
+      fixture.detectChanges();
 
-      expect(fixture.debugElement.nativeElement.getAttribute('class')).toBeNull();
+      const classList = fixture.debugElement.nativeElement.classList;
+
+      expect(classList).toContain('lg-radio-button--radio');
+      expect(classList).not.toContain('lg-radio-button--segment');
     });
   });
 
   it('adds the radio button size based on the variant', () => {
     expect(fixture.debugElement.query(By.css('.lg-radio-button__label--sm'))).toBeNull();
 
-    when(radioGroupMock.variant).thenReturn('radio');
+    radioGroupMock.variant = 'radio';
     fixture = TestBed.createComponent(LgRadioButtonComponent);
     component = fixture.componentInstance;
     component.size = 'sm';
     fixture.detectChanges();
 
     expect(
-      fixture.debugElement.query(By.css('.lg-radio-button__label--sm')).nativeElement,
+      fixture.debugElement.query(By.css('.lg-radio-button__label--sm'))?.nativeElement,
     ).toBeDefined();
 
     expect(fixture.debugElement.query(By.css('.lg-radio-button__label--lg'))).toBeNull();
@@ -147,43 +155,20 @@ describe('LgRadioButtonComponent', () => {
     fixture.detectChanges();
 
     expect(
-      fixture.debugElement.query(By.css('.lg-radio-button__label--lg')).nativeElement,
+      fixture.debugElement.query(By.css('.lg-radio-button__label--lg'))?.nativeElement,
     ).toBeDefined();
 
     expect(fixture.debugElement.query(By.css('.lg-radio-button__label--sm'))).toBeNull();
   });
 
-  // https://github.com/NagRock/ts-mockito/issues/120
-  xit('sets the radio group value when checked', () => {
-    component.value = 'red';
-    const radio = fixture.debugElement.query(By.css('input'));
-
-    radio.triggerEventHandler('click', null);
-    fixture.detectChanges();
-    verify(radioGroupMock.value).called();
-  });
-
   it('sets the disabled property when the radio group is disabled', () => {
-    when(radioGroupMock.disabled).thenReturn(true);
+    radioGroupMock.disabled = true;
     fixture.detectChanges();
-
     expect(component.disabled).toBe(true);
   });
 
-  // https://github.com/NagRock/ts-mockito/issues/120
-  xit('marks the radioGroup as touched if the radio is checked', () => {
-    const radio = fixture.debugElement.query(By.css('input'));
-
-    radio.triggerEventHandler('click', null);
-    fixture.detectChanges();
-    verify(radioGroupMock.onTouched()).once();
-  });
-
   it('sets the aria-invalid attribute to false when the input is valid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      false,
-    );
-
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(false);
     fixture.detectChanges();
     const radio = fixture.debugElement.query(By.css('input'));
 
@@ -191,7 +176,7 @@ describe('LgRadioButtonComponent', () => {
   });
 
   it('adds the error class and set aria-invalid to true if the form field is invalid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     fixture.detectChanges();
 
     expect(fixture.debugElement.nativeElement.className).toContain(
@@ -204,18 +189,18 @@ describe('LgRadioButtonComponent', () => {
   });
 
   it('links the hint to the input with the correct aria attributes', () => {
-    expect(testComponent).not.toBe(null);
-    expect(hintDebugElement.nativeElement.getAttribute('id').length).not.toEqual(0);
+    expect(testComponent).not.toBeNull();
+    expect(hintDebugElement.nativeElement.id.length).toBeGreaterThan(0);
 
-    expect(inputDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
-      hintDebugElement.nativeElement.getAttribute('id'),
+    expect(inputDebugElement.nativeElement.getAttribute('aria-describedby')).toContain(
+      hintDebugElement.nativeElement.id,
     );
   });
 
   it('should emit an event when #onBlur is called', () => {
-    const blurEmitterSpy = spy(component.blur);
+    const blurSpy = jest.spyOn(component.blur, 'emit');
 
     component.onBlur(new Event(''));
-    verify(blurEmitterSpy.emit(anything())).once();
+    expect(blurSpy).toHaveBeenCalled();
   });
 });

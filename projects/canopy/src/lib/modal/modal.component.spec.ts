@@ -1,26 +1,18 @@
-import { ChangeDetectorRef, EventEmitter } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import {
-  anything,
-  instance,
-  mock,
-  resetCalls,
-  spy,
-  verify,
-  when,
-} from '@typestrong/ts-mockito';
-import { BehaviorSubject } from 'rxjs';
 import {
   MockComponents,
   MockDirective,
   MockedComponentFixture,
+  MockProvider,
   MockRender,
   ngMocks,
 } from 'ng-mocks';
+import { of } from 'rxjs';
 
-import { keyName } from '../utils/keyboard-keys';
 import { LgCardComponent } from '../card';
 import { LgFocusDirective } from '../focus';
+import { keyName } from '../utils/keyboard-keys';
 
 import {
   LgModalBodyComponent,
@@ -33,17 +25,17 @@ describe('LgModalComponent', () => {
   let component: LgModalComponent;
   let cdrMock: ChangeDetectorRef;
   let fixture: MockedComponentFixture<LgModalComponent>;
-  let modalServiceMock: LgModalService;
-  let closedEmitterSpy: EventEmitter<void>;
-  let openEmitterSpy: EventEmitter<void>;
-  let closedEscKeySpy: EventEmitter<void>;
-  let closedOverlaySpy: EventEmitter<void>;
+  let isOpenSpy = jest.fn().mockReturnValue(of(undefined));
+  const modalServiceMock = {
+    isOpen$: isOpenSpy,
+    open: jest.fn(),
+    close: jest.fn(),
+    remove: jest.fn(),
+  };
   const id = 'test-1';
-  const isModalOpen$ = new BehaviorSubject<boolean>(undefined);
 
   beforeEach(waitForAsync(() => {
-    cdrMock = mock(ChangeDetectorRef);
-    modalServiceMock = mock(LgModalService);
+    cdrMock = MockProvider(ChangeDetectorRef) as unknown as ChangeDetectorRef;
 
     TestBed.configureTestingModule({
       imports: [
@@ -51,13 +43,8 @@ describe('LgModalComponent', () => {
         MockComponents(LgCardComponent, LgModalHeaderComponent, LgModalBodyComponent),
         MockDirective(LgFocusDirective),
       ],
-      providers: [
-        { provide: LgModalService, useValue: instance(modalServiceMock) },
-        { provide: ChangeDetectorRef, useValue: instance(cdrMock) },
-      ],
+      providers: [ { provide: LgModalService, useValue: modalServiceMock }, cdrMock ],
     }).compileComponents();
-
-    when(modalServiceMock.isOpen$(anything())).thenReturn(isModalOpen$);
 
     ngMocks.flushTestBed();
 
@@ -71,17 +58,15 @@ describe('LgModalComponent', () => {
     component = fixture.debugElement.children[0].componentInstance;
     component.id = id;
 
-    closedEmitterSpy = spy(component.closed);
-    openEmitterSpy = spy(component.open);
-    closedEscKeySpy = spy(component.closedEscKey);
-    closedOverlaySpy = spy(component.closedOverlayClick);
-
-    resetCalls(closedEmitterSpy);
-    resetCalls(openEmitterSpy);
-    resetCalls(closedEscKeySpy);
-
-    fixture.detectChanges();
+    jest.spyOn(component.closed, 'emit').mockImplementation(() => {});
+    jest.spyOn(component.open, 'emit').mockImplementation(() => {});
+    jest.spyOn(component.closedEscKey, 'emit').mockImplementation(() => {});
+    jest.spyOn(component.closedOverlayClick, 'emit').mockImplementation(() => {});
   }));
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -90,28 +75,29 @@ describe('LgModalComponent', () => {
   describe('on init', () => {
     describe('when the modal has been opened/closed', () => {
       it('should update isOpen', () => {
-        isModalOpen$.next(true);
+        isOpenSpy.mockReturnValue(of(true));
+        component.ngOnInit();
 
         expect(component.isOpen).toBe(true);
       });
 
       it('should add the overflow style to the body and emit an open event if the modal is open', () => {
-        isModalOpen$.next(true);
+        isOpenSpy.mockReturnValue(of(true));
+        component.ngOnInit();
 
-        verify(openEmitterSpy.emit()).once();
+        expect(component.open.emit).toHaveBeenCalledTimes(1);
 
-        fixture.detectChanges();
         const bodyEl: HTMLBodyElement = document.querySelector('body');
 
         expect(bodyEl.style.overflow).toEqual('hidden');
       });
 
       it('should remove the overflow style on the body and emit a closed event if the modal is close', () => {
-        isModalOpen$.next(false);
+        isOpenSpy.mockReturnValue(of(false));
+        component.ngOnInit();
 
-        verify(closedEmitterSpy.emit()).once();
+        expect(component.closed.emit).toHaveBeenCalledTimes(1);
 
-        fixture.detectChanges();
         const bodyEl: HTMLBodyElement = document.querySelector('body');
 
         expect(bodyEl.style.overflow).toEqual('');
@@ -120,7 +106,8 @@ describe('LgModalComponent', () => {
       it('should detect changes', () => {
         const cdrDetectChangesSpy = jest.spyOn(component['cdr'], 'detectChanges');
 
-        isModalOpen$.next(true);
+        isOpenSpy.mockReturnValue(of(true));
+        component.ngOnInit();
 
         expect(cdrDetectChangesSpy).toHaveBeenCalledTimes(1);
       });
@@ -143,8 +130,8 @@ describe('LgModalComponent', () => {
       component.isOpen = true;
       component.onKeydown(escEvent);
 
-      verify(modalServiceMock.close(id)).once();
-      verify(closedEscKeySpy.emit()).once();
+      expect(modalServiceMock.close).toHaveBeenNthCalledWith(1, id);
+      expect(component.closedEscKey.emit).toHaveBeenCalledTimes(1);
     });
 
     it('shouldn\'t close the modal and emit an event when any other key is pressed', () => {
@@ -155,16 +142,16 @@ describe('LgModalComponent', () => {
 
       component.onKeydown(event);
 
-      verify(modalServiceMock.close(id)).never();
-      verify(closedEscKeySpy.emit()).never();
+      expect(modalServiceMock.close).not.toHaveBeenCalled();
+      expect(component.closedEscKey.emit).not.toHaveBeenCalled();
     });
 
     it('shouldn\'t close the modal when the modal is already closed', () => {
       component.isOpen = false;
       component.onKeydown(escEvent);
 
-      verify(modalServiceMock.close(id)).never();
-      verify(closedEscKeySpy.emit()).never();
+      expect(modalServiceMock.close).not.toHaveBeenCalled();
+      expect(component.closedEscKey.emit).not.toHaveBeenCalled();
     });
   });
 
@@ -185,8 +172,8 @@ describe('LgModalComponent', () => {
       component.closeOnOverlayClick = true;
       component.onOverlayClick();
 
-      verify(modalServiceMock.close(id)).once();
-      verify(closedOverlaySpy.emit()).once();
+      expect(modalServiceMock.close).toHaveBeenNthCalledWith(1, id);
+      expect(component.closedOverlayClick.emit).toHaveBeenCalledTimes(1);
     });
 
     it('should not close the modal or emit an event when closeOnOverlayClick is false', () => {
@@ -194,8 +181,16 @@ describe('LgModalComponent', () => {
       component.closeOnOverlayClick = false;
       component.onOverlayClick();
 
-      verify(modalServiceMock.close(id)).never();
-      verify(closedOverlaySpy.emit()).never();
+      expect(modalServiceMock.close).not.toHaveBeenCalled();
+      expect(component.closedOverlayClick.emit).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('on destroy', () => {
+    it('should call the modal service remove function', () => {
+      component.ngOnDestroy();
+
+      expect(modalServiceMock.remove).toHaveBeenNthCalledWith(1, id);
     });
   });
 });

@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
-import { spy, verify } from '@typestrong/ts-mockito';
 import { Component } from '@angular/core';
 
 import { LgHeadingComponent } from '../../heading';
@@ -129,11 +128,11 @@ describe('LgAccordionPanelHeadingComponent', () => {
     });
 
     it('should emit an event with the value of \'isActive\'', () => {
-      const componentEventSpy = spy(component.toggleActive);
+      const componentEventSpy = jest.spyOn(component.toggleActive, 'emit');
 
       component.toggle();
 
-      verify(componentEventSpy.emit(true)).once();
+      expect(componentEventSpy).toHaveBeenNthCalledWith(1, true);
     });
   });
 

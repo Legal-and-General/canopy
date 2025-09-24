@@ -8,7 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgErrorStateMatcher } from '../validation';
 
@@ -36,15 +35,19 @@ describe('LgSelectDirective', () => {
   let fixture: ComponentFixture<TestSelectComponent>;
   let component: TestSelectComponent;
   let selectDebugElement: DebugElement;
-  const errorStateMatcherMock = mock(LgErrorStateMatcher);
+  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn(),
+    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, LgSelectDirective, TestSelectComponent ],
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
+          useValue: errorStateMatcherMock,
         },
       ],
     }).compileComponents();
@@ -68,7 +71,7 @@ describe('LgSelectDirective', () => {
   });
 
   it('adds an error class when the field has a validation error', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     fixture.detectChanges();
 
     expect(selectDebugElement.nativeElement.className).toContain('lg-select--error');

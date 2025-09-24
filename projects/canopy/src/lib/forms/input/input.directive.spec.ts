@@ -8,7 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgErrorStateMatcher } from '../validation';
 
@@ -34,15 +33,19 @@ describe('LgInputDirective', () => {
   let component: TestInputComponent;
   let inputDebugElement: DebugElement;
   let inputInstance: LgInputDirective;
-  const errorStateMatcherMock = mock(LgErrorStateMatcher);
+  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn().mockReturnValue(false),
+    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, LgInputDirective, TestInputComponent ],
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
+          useValue: errorStateMatcherMock,
         },
       ],
     }).compileComponents();
@@ -75,7 +78,7 @@ describe('LgInputDirective', () => {
   });
 
   it('adds an error class when the field has a validation error', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     fixture.detectChanges();
 
     expect(inputDebugElement.nativeElement.className).toContain('lg-input--error');

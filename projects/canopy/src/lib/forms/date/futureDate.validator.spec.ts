@@ -1,35 +1,34 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import { addDays, format, subDays } from 'date-fns';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { futureDateValidator } from './futureDate.validator';
 
 describe('futureDate', () => {
-  let control: AbstractControl;
   let validator: ValidatorFn;
 
   beforeEach(() => {
-    control = mock(AbstractControl);
     validator = futureDateValidator();
   });
 
   it('returns a futureDate error if the date is not in the future', () => {
-    when(control.value).thenReturn(format(subDays(new Date(), 10), 'yyyy-MM-dd'));
+    const pastDate = format(subDays(new Date(), 10), 'yyyy-MM-dd');
+    const control = { value: pastDate } as AbstractControl;
 
-    expect(validator(instance(control))).toEqual({
+    expect(validator(control)).toEqual({
       futureDate: true,
     });
   });
 
   it('returns null if the date is not a valid date', () => {
-    when(control.value).thenReturn(null);
+    const control = { value: null } as AbstractControl;
 
-    expect(validator(instance(control))).toBe(null);
+    expect(validator(control)).toBe(null);
   });
 
   it('returns null if date is in the future', () => {
-    when(control.value).thenReturn(format(addDays(new Date(), 10), 'yyyy-MM-dd'));
+    const futureDate = format(addDays(new Date(), 10), 'yyyy-MM-dd');
+    const control = { value: futureDate } as AbstractControl;
 
-    expect(validator(instance(control))).toBe(null);
+    expect(validator(control)).toBe(null);
   });
 });

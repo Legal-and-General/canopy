@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { instance, mock, spy, verify } from '@typestrong/ts-mockito';
 import { MockComponent } from 'ng-mocks';
 
 import { LgModalService } from '../modal.service';
@@ -10,14 +9,16 @@ import { LgModalHeaderComponent } from './modal-header.component';
 describe('LgModalHeaderComponent', () => {
   let component: LgModalHeaderComponent;
   let fixture: ComponentFixture<LgModalHeaderComponent>;
-  let modalServiceMock: LgModalService;
+  let modalServiceMock: jest.Mocked<LgModalService>;
 
   beforeEach(async () => {
-    modalServiceMock = mock(LgModalService);
+    modalServiceMock = {
+      close: jest.fn(),
+    } as unknown as jest.Mocked<LgModalService>;
 
     await TestBed.configureTestingModule({
       imports: [ LgModalHeaderComponent, MockComponent(LgIconComponent) ],
-      providers: [ { provide: LgModalService, useValue: instance(modalServiceMock) } ],
+      providers: [ { provide: LgModalService, useValue: modalServiceMock } ],
     }).compileComponents();
   });
 
@@ -43,12 +44,12 @@ describe('LgModalHeaderComponent', () => {
   });
 
   it('should close the modal on #close', () => {
-    const closedEmitterSpy = spy(component.closed);
+    const closedEmitterSpy = jest.spyOn(component.closed, 'emit');
 
     component.modalId = 'test';
     component.close();
 
-    verify(closedEmitterSpy.emit()).once();
-    verify(modalServiceMock.close('test')).once();
+    expect(closedEmitterSpy).toHaveBeenCalledTimes(1);
+    expect(modalServiceMock.close).toHaveBeenNthCalledWith(1, 'test');
   });
 });

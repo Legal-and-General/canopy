@@ -11,7 +11,6 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
-import { anything, instance, mock, when } from '@typestrong/ts-mockito';
 import { NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
@@ -138,11 +137,15 @@ describe('LgToggleComponent', () => {
   let inputDebugElement: DebugElement;
   let inputLabelElement: DebugElement;
 
-  const errorStateMatcherMock = mock(LgErrorStateMatcher);
+  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
   jest.spyOn(console, 'error').mockImplementation();
 
   beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn(),
+    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -156,7 +159,7 @@ describe('LgToggleComponent', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
+          useValue: errorStateMatcherMock,
         },
       ],
     }).compileComponents();
@@ -296,7 +299,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('links the error to the fieldset with the correct aria attributes', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     fixture.detectChanges();
 
     expect(inputDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
@@ -305,9 +308,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('unlinks the error from the fieldset with the correct aria attributes when valid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(
-      false,
-    );
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(false);
 
     fixture.detectChanges();
 
@@ -316,7 +317,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('adds the error class and the aria-invalid attribute if the form field is invalid', () => {
-    when(errorStateMatcherMock.isControlInvalid(anything(), anything())).thenReturn(true);
+    errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     fixture.detectChanges();
 
     expect(toggleDebugElement.nativeElement.className).toContain('lg-toggle--error');
@@ -330,9 +331,13 @@ describe('LgToggleComponent selector variant', () => {
   let toggleInstance: LgToggleComponent;
   let inputLabelElement: DebugElement;
 
-  const errorStateMatcherMock = mock(LgErrorStateMatcher);
+  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn(),
+    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -345,7 +350,7 @@ describe('LgToggleComponent selector variant', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
+          useValue: errorStateMatcherMock,
         },
       ],
     }).compileComponents();

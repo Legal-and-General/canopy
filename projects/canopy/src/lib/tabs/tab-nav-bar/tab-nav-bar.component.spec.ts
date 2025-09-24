@@ -1,7 +1,6 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { keyName } from '../../utils/keyboard-keys';
@@ -117,44 +116,43 @@ describe('LgTabNavBarComponent', () => {
 
     beforeEach(() => {
       component.selectedIndex = 0;
-      mockKeyEvent = mock(KeyboardEvent);
     });
 
     it('should select the next tab when using right key', () => {
-      when(mockKeyEvent.key).thenReturn(keyName.KEY_RIGHT);
+      mockKeyEvent = new KeyboardEvent('keyup', { key: keyName.KEY_RIGHT });
       const selectSpy = jest.spyOn(component.tabs[1], 'selectByKeyboard');
 
-      component.onKeyUp(instance(mockKeyEvent));
+      component.onKeyUp(mockKeyEvent);
 
       expect(component.selectedIndex).toEqual(1);
       expect(selectSpy).toHaveBeenCalled();
     });
 
     it('should select the next tab when using down key', () => {
-      when(mockKeyEvent.key).thenReturn(keyName.KEY_DOWN);
+      mockKeyEvent = new KeyboardEvent('keyup', { key: keyName.KEY_DOWN });
       const selectSpy = jest.spyOn(component.tabs[1], 'selectByKeyboard');
 
-      component.onKeyUp(instance(mockKeyEvent));
+      component.onKeyUp(mockKeyEvent);
 
       expect(component.selectedIndex).toEqual(1);
       expect(selectSpy).toHaveBeenCalled();
     });
 
     it('should select the previous tab when using left key', () => {
-      when(mockKeyEvent.key).thenReturn(keyName.KEY_LEFT);
+      mockKeyEvent = new KeyboardEvent('keyup', { key: keyName.KEY_LEFT });
       const selectSpy = jest.spyOn(component.tabs[3], 'selectByKeyboard');
 
-      component.onKeyUp(instance(mockKeyEvent));
+      component.onKeyUp(mockKeyEvent);
 
       expect(component.selectedIndex).toEqual(3);
       expect(selectSpy).toHaveBeenCalled();
     });
 
     it('should select the previous tab when using up key', () => {
-      when(mockKeyEvent.key).thenReturn(keyName.KEY_UP);
+      mockKeyEvent = new KeyboardEvent('keyup', { key: keyName.KEY_UP });
       const selectSpy = jest.spyOn(component.tabs[3], 'selectByKeyboard');
 
-      component.onKeyUp(instance(mockKeyEvent));
+      component.onKeyUp(mockKeyEvent);
 
       expect(component.selectedIndex).toEqual(3);
       expect(selectSpy).toHaveBeenCalled();

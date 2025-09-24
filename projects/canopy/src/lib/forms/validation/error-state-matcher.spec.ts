@@ -1,74 +1,84 @@
 import { FormGroupDirective, NgControl } from '@angular/forms';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgErrorStateMatcher } from './error-state-matcher';
 
 describe('LgErrorStateMatcher', () => {
   let service: LgErrorStateMatcher;
-  let control: NgControl;
-  let controlContainer: FormGroupDirective;
 
   beforeEach(() => {
     service = new LgErrorStateMatcher();
-    control = mock(NgControl);
-    controlContainer = mock(FormGroupDirective);
   });
 
   describe('isControlInvalid', () => {
     describe('invalid states', () => {
       it('control is invalid, touched and dirty', () => {
-        when(control.invalid).thenReturn(true);
-        when(control.touched).thenReturn(true);
-        when(control.dirty).thenReturn(true);
+        const control = {
+          invalid: true,
+          touched: true,
+          dirty: true,
+        } as NgControl;
 
-        expect(service.isControlInvalid(instance(control))).toBe(true);
+        expect(service.isControlInvalid(control)).toBe(true);
       });
 
       it('control is invalid and untouched and form is submitted', () => {
-        when(control.invalid).thenReturn(true);
-        when(control.touched).thenReturn(false);
-        when(controlContainer.submitted).thenReturn(true);
+        const control = {
+          invalid: true,
+          touched: false,
+          dirty: false,
+        } as NgControl;
 
-        expect(
-          service.isControlInvalid(instance(control), instance(controlContainer)),
-        ).toBe(true);
+        const controlContainer = {
+          submitted: true,
+        } as FormGroupDirective;
+
+        expect(service.isControlInvalid(control, controlContainer)).toBe(true);
       });
     });
 
     describe('pending states', () => {
       it('control is invalid and not touched', () => {
-        when(control.invalid).thenReturn(true);
-        when(control.touched).thenReturn(false);
-        when(control.dirty).thenReturn(false);
+        const control = {
+          invalid: true,
+          touched: false,
+          dirty: false,
+        } as NgControl;
 
-        expect(service.isControlInvalid(instance(control))).toBe(false);
+        expect(service.isControlInvalid(control)).toBe(false);
       });
 
       it('control is not invalid and not touched', () => {
-        when(control.invalid).thenReturn(false);
-        when(control.touched).thenReturn(false);
-        when(control.dirty).thenReturn(false);
+        const control = {
+          invalid: false,
+          touched: false,
+          dirty: false,
+        } as NgControl;
 
-        expect(service.isControlInvalid(instance(control))).toBe(false);
+        expect(service.isControlInvalid(control)).toBe(false);
       });
 
       it('control is valid and touched', () => {
-        when(control.invalid).thenReturn(false);
-        when(control.touched).thenReturn(true);
-        when(control.dirty).thenReturn(true);
+        const control = {
+          invalid: false,
+          touched: true,
+          dirty: true,
+        } as NgControl;
 
-        expect(service.isControlInvalid(instance(control))).toBe(false);
+        expect(service.isControlInvalid(control)).toBe(false);
       });
 
       it('control is valid and untouched and form is submitted', () => {
-        when(control.invalid).thenReturn(false);
-        when(control.touched).thenReturn(false);
-        when(control.dirty).thenReturn(false);
-        when(controlContainer.submitted).thenReturn(true);
+        const control = {
+          invalid: false,
+          touched: false,
+          dirty: false,
+        } as NgControl;
 
-        expect(
-          service.isControlInvalid(instance(control), instance(controlContainer)),
-        ).toBe(false);
+        const controlContainer = {
+          submitted: true,
+        } as FormGroupDirective;
+
+        expect(service.isControlInvalid(control, controlContainer)).toBe(false);
       });
     });
   });

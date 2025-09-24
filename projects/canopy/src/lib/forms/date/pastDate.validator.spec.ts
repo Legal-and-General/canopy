@@ -1,35 +1,38 @@
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormControl } from '@angular/forms';
 import { addDays, format, subDays } from 'date-fns';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { pastDateValidator } from './pastDate.validator';
 
 describe('pastDate', () => {
   let control: AbstractControl;
-  let validator: ValidatorFn;
+  let validator: ReturnType<typeof pastDateValidator>;
 
   beforeEach(() => {
-    control = mock(AbstractControl);
+    control = new FormControl();
     validator = pastDateValidator();
   });
 
   it('returns a pastDate error if the date is not in the past', () => {
-    when(control.value).thenReturn(format(addDays(new Date(), 10), 'yyyy-MM-dd'));
+    const futureDate = format(addDays(new Date(), 10), 'yyyy-MM-dd');
 
-    expect(validator(instance(control))).toEqual({
+    control.setValue(futureDate);
+
+    expect(validator(control)).toEqual({
       pastDate: true,
     });
   });
 
   it('returns null if the date is not a valid date', () => {
-    when(control.value).thenReturn(null);
+    control.setValue(null);
 
-    expect(validator(instance(control))).toBe(null);
+    expect(validator(control)).toBe(null);
   });
 
   it('returns null if date is in the past', () => {
-    when(control.value).thenReturn(format(subDays(new Date(), 10), 'yyyy-MM-dd'));
+    const pastDate = format(subDays(new Date(), 10), 'yyyy-MM-dd');
 
-    expect(validator(instance(control))).toBe(null);
+    control.setValue(pastDate);
+
+    expect(validator(control)).toBe(null);
   });
 });
