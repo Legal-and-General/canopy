@@ -56,16 +56,14 @@ describe('LgBrandIconComponent', () => {
 
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
 
-      expect(
-        /lg-brand-icon-\d+-\d/.test(
-          fixture.nativeElement.querySelector('svg').getAttribute('id'),
-        ),
-      ).toBeTrue();
+      const svgElement = fixture.nativeElement.querySelector('svg');
 
-      const pathEl = fixture.nativeElement.querySelector('path');
+      expect(svgElement.getAttribute('id')).toMatch(/lg-brand-icon-\d+-\d/);
 
-      expect(pathEl.getAttribute('id')).not.toContain('lg-icon-fill-primary');
-      expect(pathEl.getAttribute('data-colour')).toContain('lg-icon-fill-primary');
+      const pathElement = svgElement.querySelector('path');
+
+      expect(pathElement.getAttribute('id')).toBeNull();
+      expect(pathElement.getAttribute('data-colour')).toBe('lg-icon-fill-primary');
     });
 
     it('should not throw an error when an icon is not registered', () => {

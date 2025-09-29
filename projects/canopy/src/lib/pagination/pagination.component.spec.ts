@@ -99,8 +99,8 @@ describe('LgPaginationComponent', () => {
       fixture.detectChanges();
 
       expect(getActiveButton().nativeElement.textContent.trim()).toBe('2');
-      expect(getPreviousButton().nativeElement.disabled).toBeFalse();
-      expect(getNextButton().nativeElement.disabled).toBeFalse();
+      expect(getPreviousButton().nativeElement.disabled).toBe(false);
+      expect(getNextButton().nativeElement.disabled).toBe(false);
     });
 
     it('should not render when there is only 1 page', () => {
@@ -151,7 +151,7 @@ describe('LgPaginationComponent', () => {
   });
 
   describe('#pageChanged', () => {
-    let pageChangedSpy: jasmine.Spy;
+    let pageChangedSpy: jest.SpyInstance;
 
     beforeEach(() => {
       fixture.componentRef.setInput('totalItems', 30);
@@ -159,14 +159,14 @@ describe('LgPaginationComponent', () => {
 
       fixture.detectChanges();
 
-      pageChangedSpy = spyOn(component.pageChanged, 'emit');
+      pageChangedSpy = jest.spyOn(component.pageChanged, 'emit');
     });
 
     it('should emit when the total items input changes', () => {
       fixture.componentRef.setInput('totalItems', 40);
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
+      expect(pageChangedSpy).toHaveBeenCalledWith({
         pageNumber: 1,
         startIndex: 0,
         endIndex: 9,
@@ -177,7 +177,7 @@ describe('LgPaginationComponent', () => {
       fixture.componentRef.setInput('itemsPerPage', 5);
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
+      expect(pageChangedSpy).toHaveBeenCalledWith({
         pageNumber: 1,
         startIndex: 0,
         endIndex: 4,
@@ -188,7 +188,7 @@ describe('LgPaginationComponent', () => {
       fixture.componentRef.setInput('currentPage', 2);
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
+      expect(pageChangedSpy).toHaveBeenCalledWith({
         pageNumber: 2,
         startIndex: 10,
         endIndex: 19,
@@ -200,7 +200,7 @@ describe('LgPaginationComponent', () => {
 
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
+      expect(pageChangedSpy).toHaveBeenCalledWith({
         pageNumber: 2,
         startIndex: 10,
         endIndex: 19,
@@ -210,13 +210,13 @@ describe('LgPaginationComponent', () => {
     it('should emit when the previous button is clicked', () => {
       fixture.componentRef.setInput('currentPage', 2);
       fixture.detectChanges();
-      pageChangedSpy.calls.reset();
+      pageChangedSpy.mockReset();
 
       getPreviousButton().nativeElement.click();
 
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
+      expect(pageChangedSpy).toHaveBeenCalledWith({
         pageNumber: 1,
         startIndex: 0,
         endIndex: 9,
@@ -228,7 +228,7 @@ describe('LgPaginationComponent', () => {
 
       fixture.detectChanges();
 
-      expect(component.pageChanged.emit).toHaveBeenCalledOnceWith({
+      expect(pageChangedSpy).toHaveBeenCalledWith({
         pageNumber: 2,
         startIndex: 10,
         endIndex: 19,

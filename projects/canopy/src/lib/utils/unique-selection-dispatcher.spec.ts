@@ -17,20 +17,17 @@ describe('SingleItemDispatcherService', () => {
     expect(dispatcher).toBeTruthy();
   });
 
-  it(
-    'should add listener',
-    waitForAsync(() => {
-      dispatcher.listen((_id: string, _context: string) => {
-        expect(_id).toBe(id);
-        expect(_context).toBe(context);
-      });
+  it('should add listener', waitForAsync(() => {
+    dispatcher.listen((_id: string, _context: string) => {
+      expect(_id).toBe(id);
+      expect(_context).toBe(context);
+    });
 
-      dispatcher.notify(id, context);
-    }),
-  );
+    dispatcher.notify(id, context);
+  }));
 
   it('should remove listener', () => {
-    const spy = jasmine.createSpy('listener', () => {});
+    const spy = jest.fn();
     const removeListener = dispatcher.listen(spy);
 
     dispatcher.notify(id, context);
@@ -44,7 +41,7 @@ describe('SingleItemDispatcherService', () => {
   });
 
   it('should clear listeners when destroyed', () => {
-    const spy = jasmine.createSpy('listener', () => {});
+    const spy = jest.fn();
 
     dispatcher.listen(spy);
     dispatcher.ngOnDestroy();

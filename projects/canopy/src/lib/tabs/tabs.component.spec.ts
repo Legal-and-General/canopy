@@ -6,6 +6,7 @@ import {
   MockDirective,
   MockRender,
   MockedComponentFixture,
+  ngMocks,
 } from 'ng-mocks';
 import { instance, mock, when } from '@typestrong/ts-mockito';
 
@@ -40,6 +41,8 @@ describe('LgTabsComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-tabs>
         <lg-tab-item>
@@ -117,6 +120,8 @@ describe('LgTabsComponent', () => {
 
   describe('when label is investments', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-tabs label="investments">
           <lg-tab-item></lg-tab-item>
@@ -140,6 +145,8 @@ describe('LgTabsComponent', () => {
 
   describe('when are 3 tab items', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-tabs>
           <lg-tab-item>

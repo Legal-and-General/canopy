@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { MockComponents, MockDirective, MockRender } from 'ng-mocks';
+import { MockComponents, MockDirective, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgButtonToggleDirective } from '../button';
 
@@ -66,6 +66,8 @@ describe('LgCardComponent', () => {
 
   describe('when there is only lg-card-content', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-content>Content</lg-card-content>
@@ -85,6 +87,8 @@ describe('LgCardComponent', () => {
 
   describe('when there is lg-card-header and lg-card-content', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-header>Top</lg-card-header>
@@ -109,6 +113,8 @@ describe('LgCardComponent', () => {
 
   describe('when there is lg-card-hero-img and lg-card-content', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-hero-img src="/test"></lg-card-hero-img>
@@ -137,6 +143,8 @@ describe('LgCardComponent', () => {
 
   describe('when there is lg-card-content and lg-card-footer', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-content>Content</lg-card-content>
@@ -161,6 +169,8 @@ describe('LgCardComponent', () => {
 
   describe('when there is lg-card-header, lg-card-content and lg-card-footer', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-header>Top</lg-card-header>
@@ -190,6 +200,8 @@ describe('LgCardComponent', () => {
 
   describe('when there is a button toggle and the lg-card-toggable-content', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-header>Top</lg-card-header>
@@ -230,6 +242,8 @@ describe('LgCardComponent', () => {
 
   describe('when there is the lg-card-navigation-title', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-header>

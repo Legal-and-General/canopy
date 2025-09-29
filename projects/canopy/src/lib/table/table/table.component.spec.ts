@@ -1,7 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockRender, MockComponents } from 'ng-mocks';
+import { MockRender, MockComponents, ngMocks } from 'ng-mocks';
 import { NgFor } from '@angular/common';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
@@ -49,6 +49,8 @@ describe('TableComponent', () => {
         MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
       ],
     }).compileComponents();
+
+    ngMocks.flushTestBed();
 
     fixture = MockRender(
       `
@@ -157,6 +159,8 @@ describe('TableComponent', () => {
 
   describe('when the publish column has align set to end', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(getAlignmentMockRender(), {
         alignPublishColumn: AlignmentOptions.End,
       });
@@ -179,6 +183,8 @@ describe('TableComponent', () => {
 
   describe('when the publish column has align set to start', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(getAlignmentMockRender(), {
         alignPublishColumn: AlignmentOptions.Start,
       });
@@ -202,6 +208,8 @@ describe('TableComponent', () => {
   describe('showLabel setting', () => {
     describe('when showLabel is true', () => {
       beforeEach(() => {
+        ngMocks.flushTestBed();
+
         fixture = MockRender(getShowLabelMockRender(), {
           showLabel: true,
         });
@@ -236,6 +244,8 @@ describe('TableComponent', () => {
 
     describe('when showLabel is false', () => {
       beforeEach(() => {
+        ngMocks.flushTestBed();
+
         fixture = MockRender(getShowLabelMockRender(), {
           showLabel: false,
         });
@@ -276,6 +286,8 @@ describe('TableComponent', () => {
     let rowToggle: DebugElement;
 
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(getExpandableTableMockRender(), {
         colspan: 4,
         isActive: true,
@@ -303,7 +315,7 @@ describe('TableComponent', () => {
 
     it('should set the aria id on the detail body row', () => {
       expect(detailBodyRow.nativeElement.getAttribute('id')).toMatch(
-        'lg-table-[0-9]+-detail-row-0',
+        /lg-table-[0-9]+-detail-row-0/,
       );
     });
 
@@ -317,13 +329,13 @@ describe('TableComponent', () => {
 
     it('should set the aria labelled by attribute on the detail body row', () => {
       expect(detailBodyRow.nativeElement.getAttribute('aria-labelledby')).toMatch(
-        'lg-table-[0-9]+-toggle-row-0',
+        /lg-table-[0-9]+-toggle-row-0/,
       );
     });
 
     it('should set the id on the toggle', () => {
       expect(rowToggle.nativeElement.getAttribute('id')).toMatch(
-        'lg-table-[0-9]+-toggle-row-0',
+        /lg-table-[0-9]+-toggle-row-0/,
       );
     });
 
@@ -339,9 +351,11 @@ describe('TableComponent', () => {
   });
 
   describe('when the toggle is clicked on an table with expanded detail', () => {
-    const clickSpy = jasmine.createSpy();
+    const clickSpy = jest.fn();
 
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(getExpandableTableMockRender(), {
         colspan: 4,
         isActive: true,
@@ -365,6 +379,8 @@ describe('TableComponent', () => {
   describe('showColumnsAt setting', () => {
     describe('when showColumnsAt is set', () => {
       beforeEach(() => {
+        ngMocks.flushTestBed();
+
         fixture = MockRender(getShowColumnsAtMockRender(), {
           showColumnsAt: 'sm',
         });
@@ -383,6 +399,8 @@ describe('TableComponent', () => {
 
     describe('when showColumnsAt is not set', () => {
       beforeEach(() => {
+        ngMocks.flushTestBed();
+
         fixture = MockRender(getShowColumnsAtMockRenderDefault());
         debugElement = fixture.debugElement;
         tableDebugElement = debugElement.query(By.directive(LgTableComponent));

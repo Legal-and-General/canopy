@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponents } from 'ng-mocks';
+import { MockComponents, MockProvider } from 'ng-mocks';
 import { Component, Input } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
 import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-item-text.component';
+import { LgIconRegistry } from '../../icon';
 
 import { LgLinkMenuItemComponent } from './link-menu-item.component';
 
@@ -30,7 +31,11 @@ describe('LgLinkMenuItemComponent', () => {
         LgLinkMenuItemComponent,
         MockComponents(LgLinkMenuItemTextComponent, LgIconComponent),
       ],
+      providers: [ MockProvider(LgIconRegistry) ],
     }).compileComponents();
+
+    jest.spyOn(console, 'warn').mockImplementation();
+    jest.spyOn(console, 'error').mockImplementation();
   });
 
   describe('component tests', () => {
@@ -70,13 +75,14 @@ describe('LgLinkMenuItemComponent', () => {
     });
 
     it('should log a warning if the parent is not an anchor element', () => {
-      const consoleSpy = spyOn(console, 'warn').and.stub();
+      const consoleSpy = jest.spyOn(console, 'warn').mockImplementation();
 
       fixture = TestBed.createComponent(TestComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
 
-      expect(consoleSpy).toHaveBeenCalledOnceWith(
+      expect(consoleSpy).toHaveBeenNthCalledWith(
+        1,
         'expected \'lg-link-menu-item\' parent to be an HTML Anchor but got DIV',
       );
     });

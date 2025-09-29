@@ -1,6 +1,6 @@
 const storybook = require('eslint-plugin-storybook');
 const globals = require('globals');
-const angularTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
+const jestEslint = require('eslint-plugin-jest');
 const {
   javascriptConfig,
   templateConfig,
@@ -13,8 +13,9 @@ module.exports = [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.jasmine,
+        ...globals.jest,
         ...globals.node,
+        ...jestEslint.environments.globals.globals,
       },
       ecmaVersion: 2020,
       sourceType: 'module',
@@ -23,12 +24,15 @@ module.exports = [
   {
     name: 'Global - Ignores',
     ignores: [
-      '**/test.ts',
       '**/brand-icons.interface.ts',
       '**/icons.interface.ts',
       '!.github',
       '**/*.d.ts',
       '!.storybook',
+      'coverage/**',
+      'dist/**',
+      '.husky/**',
+      'node_modules/**',
     ],
   },
   ...storybook.configs['flat/recommended'],

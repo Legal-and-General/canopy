@@ -1,7 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgTabNavBarLinkDirective } from './tab-nav-bar-link.directive';
 
@@ -10,7 +10,7 @@ describe('LgTabNavLinkDirective', () => {
   let directive: LgTabNavBarLinkDirective;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let eventSpy: jasmine.Spy;
+  let eventSpy: jest.SpyInstance;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -19,6 +19,8 @@ describe('LgTabNavLinkDirective', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <div>
         <a lgTabNavBarLink href="/">Test tab</a>
@@ -28,7 +30,7 @@ describe('LgTabNavLinkDirective', () => {
     debugElement = fixture.debugElement.children[0].query(By.css('a'));
     directive = debugElement.injector.get(LgTabNavBarLinkDirective);
     el = debugElement.nativeElement;
-    eventSpy = spyOn(directive.selectedTabIndexChange, 'emit');
+    eventSpy = jest.spyOn(directive.selectedTabIndexChange, 'emit');
 
     fixture.detectChanges();
   });
@@ -111,12 +113,12 @@ describe('LgTabNavLinkDirective', () => {
   });
 
   describe('selectByKeyboard', () => {
-    let clickSpy: jasmine.Spy;
-    let focusSpy: jasmine.Spy;
+    let clickSpy: jest.SpyInstance;
+    let focusSpy: jest.SpyInstance;
 
     beforeEach(() => {
-      clickSpy = spyOn(el, 'click');
-      focusSpy = spyOn(el, 'focus');
+      clickSpy = jest.spyOn(el, 'click');
+      focusSpy = jest.spyOn(el, 'focus');
     });
 
     it('sets isKeyboardEvent to true', () => {

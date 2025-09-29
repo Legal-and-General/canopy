@@ -20,7 +20,7 @@ describe('LgModalTriggerComponent', () => {
   let triggerDebugElement: DebugElement;
   let triggerInstance: LgModalTriggerDirective;
   let modalServiceMock: LgModalService;
-  let focusSpy: jasmine.Spy;
+  let focusSpy: jest.SpyInstance;
   const isOpen$ = new BehaviorSubject(true);
 
   beforeEach(waitForAsync(() => {
@@ -43,17 +43,17 @@ describe('LgModalTriggerComponent', () => {
       LgModalTriggerDirective,
     );
 
-    focusSpy = spyOn(triggerDebugElement.nativeElement, 'focus');
+    focusSpy = jest.spyOn(triggerDebugElement.nativeElement, 'focus');
 
     fixture.detectChanges();
   }));
 
   it('should open the modal on click of the trigger element', () => {
-    const clickedSpy = spyOn(triggerInstance.clicked, 'emit');
+    const clickedSpy = jest.spyOn(triggerInstance.clicked, 'emit');
 
     triggerDebugElement.nativeElement.click();
 
-    expect(triggerInstance['allowFocusOnModalTrigger']).toBeTrue();
+    expect(triggerInstance['allowFocusOnModalTrigger']).toBe(true);
     verify(modalServiceMock.open('test')).once();
 
     expect(clickedSpy).toHaveBeenCalledTimes(1);

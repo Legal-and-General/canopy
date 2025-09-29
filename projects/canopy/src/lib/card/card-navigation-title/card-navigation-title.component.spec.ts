@@ -28,6 +28,8 @@ describe('LgCardNavigationTitleComponent', () => {
         MockComponents(LgIconComponent),
       ],
     }).compileComponents();
+
+    jest.spyOn(console, 'error').mockImplementation();
   }));
 
   afterEach(() => {
@@ -36,6 +38,8 @@ describe('LgCardNavigationTitleComponent', () => {
 
   describe('when the link, title and heading level are set', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         `
         <lg-card-navigation-title [title]="title" [link]="link" [headingLevel]="headingLevel">
@@ -76,16 +80,16 @@ describe('LgCardNavigationTitleComponent', () => {
       component.linkClicked();
 
       verify(linkClickedEventSpy.emit()).once();
-
-      expect().nothing();
     });
 
     it('should know whether the link is external or internal', () => {
       expect(component.link).toBe('http://www.landg.com');
-      expect(component['externalLink']).toBeTrue();
+      expect(component['externalLink']).toBe(true);
       let anchorEL = fixture.debugElement.query(By.css('a'));
 
       expect(anchorEL.nativeElement.getAttribute('target')).toBe('_blank');
+
+      ngMocks.flushTestBed();
 
       fixture = MockRender(
         `
@@ -102,7 +106,7 @@ describe('LgCardNavigationTitleComponent', () => {
       debugElement = fixture.debugElement;
       component = debugElement.children[0].componentInstance;
 
-      expect(component['externalLink']).toBeFalse();
+      expect(component['externalLink']).toBe(false);
       expect(component.link).toBe('/test-path');
       anchorEL = fixture.debugElement.query(By.css('a'));
 
@@ -112,6 +116,8 @@ describe('LgCardNavigationTitleComponent', () => {
 
   describe('when the link is set but title is not set', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(
         `
       <lg-card-navigation-title [title]="title" [link]="link" [headingLevel]="headingLevel">

@@ -1,5 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgFooterNavItemComponent } from './footer-nav-item.component';
 
@@ -15,6 +15,8 @@ describe('LgFooterNavComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-footer-nav-item>
         <a href="#">Test</a>
@@ -53,6 +55,8 @@ describe('LgFooterNavComponent', () => {
 
   describe('when the inner element is a button', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-footer-nav-item>
           <button>Test</button>
@@ -77,7 +81,9 @@ describe('LgFooterNavComponent', () => {
   });
 
   it('should log an error message when the inner element is neither an anchor or a button', () => {
-    spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    ngMocks.flushTestBed();
 
     fixture = MockRender(`
       <lg-footer-nav-item>

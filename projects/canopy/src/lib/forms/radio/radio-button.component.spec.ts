@@ -124,9 +124,7 @@ describe('LgRadioButtonComponent', () => {
       fixture = TestBed.createComponent(LgRadioButtonComponent);
       component = fixture.componentInstance;
 
-      expect(fixture.debugElement.nativeElement.getAttribute('class')).not.toContain(
-        'lg-radio-button--segment',
-      );
+      expect(fixture.debugElement.nativeElement.getAttribute('class')).toBeNull();
     });
   });
 
@@ -163,8 +161,6 @@ describe('LgRadioButtonComponent', () => {
     radio.triggerEventHandler('click', null);
     fixture.detectChanges();
     verify(radioGroupMock.value).called();
-
-    expect().nothing();
   });
 
   it('sets the disabled property when the radio group is disabled', () => {
@@ -181,8 +177,6 @@ describe('LgRadioButtonComponent', () => {
     radio.triggerEventHandler('click', null);
     fixture.detectChanges();
     verify(radioGroupMock.onTouched()).once();
-
-    expect().nothing();
   });
 
   it('sets the aria-invalid attribute to false when the input is valid', () => {

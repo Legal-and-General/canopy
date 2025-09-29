@@ -1,35 +1,28 @@
-import {
-  ComponentFixture,
-  discardPeriodicTasks,
-  fakeAsync,
-  TestBed,
-  tick,
-  waitForAsync,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ChangeDetectorRef } from '@angular/core';
-import { instance, mock } from '@typestrong/ts-mockito';
-import { interval } from 'rxjs';
+import { MockProvider } from 'ng-mocks';
 
 import { LgSpinnerComponent } from './spinner.component';
 
 describe('LgSpinnerComponent', () => {
   let component: LgSpinnerComponent;
   let fixture: ComponentFixture<LgSpinnerComponent>;
-  let cdrMock: ChangeDetectorRef;
 
   beforeEach(waitForAsync(() => {
-    cdrMock = mock(ChangeDetectorRef);
-
     TestBed.configureTestingModule({
       imports: [ LgSpinnerComponent ],
-      providers: [ { provide: ChangeDetectorRef, useValue: instance(cdrMock) } ],
+      providers: [ MockProvider(ChangeDetectorRef) ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgSpinnerComponent);
     component = fixture.componentInstance;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it('should create', () => {
@@ -81,12 +74,13 @@ describe('LgSpinnerComponent', () => {
     describe('when not specified', () => {
       it('should add a visually hidden element with default text', () => {
         fixture.detectChanges();
+
         const hiddenEl = fixture.nativeElement.querySelector('.lg-visually-hidden');
         const textEl = fixture.nativeElement.querySelector('.lg-spinner__content');
 
         expect(textEl).toBeNull();
         expect(hiddenEl).toBeDefined();
-        expect(hiddenEl.innerText).toEqual('Loading...');
+        expect(hiddenEl.textContent).toEqual('Loading...');
       });
     });
 
@@ -100,66 +94,65 @@ describe('LgSpinnerComponent', () => {
           '.lg-spinner__content > span[aria-hidden="true"]',
         );
 
-        expect(hiddenEl.innerText).not.toEqual('Loading...');
+        expect(hiddenEl.textContent).not.toEqual('Loading...');
         expect(textEl).toBeDefined();
-        expect(textEl.innerText).toBe('Test text');
+        expect(textEl.textContent).toBe('Test text');
       });
     });
   });
 
   describe('readScreenReaderAlert', () => {
-    beforeEach(() => {
-      jasmine.clock().uninstall();
-      jasmine.clock().install();
-    });
-
-    it('should be toggled every few seconds', fakeAsync(
-      () => {
-        expect(component.readScreenReaderAlert).toBe(true);
-
-        const firstSubscription = interval(1000).subscribe(() => {
-          expect(component.readScreenReaderAlert).toBe(true);
-        });
-
-        const secondSubscription = interval(1000).subscribe(() => {
-          expect(component.readScreenReaderAlert).toBe(false);
-        });
-
-        firstSubscription.unsubscribe();
-        secondSubscription.unsubscribe();
-
-        discardPeriodicTasks();
-      },
-      { flush: false },
-    ));
-
     describe('when set to false', () => {
-      it('should remove the role and aria-live attributes', fakeAsync(
-        () => {
-          const subscription = interval(2500).subscribe(() => {
-            expect(component.readScreenReaderAlert).toBe(false);
-            expect(fixture.nativeElement.getAttribute('role')).toBeNull();
-            expect(fixture.nativeElement.getAttribute('aria-live')).toBeNull();
-          });
+      it('should remove the role and aria-live attributes', () => {
+        component.readScreenReaderAlert = false;
+        fixture.detectChanges();
 
-          subscription.unsubscribe();
-
-          discardPeriodicTasks();
-        },
-        { flush: false },
-      ));
+        expect(fixture.nativeElement.getAttribute('role')).toBeNull();
+        expect(fixture.nativeElement.getAttribute('aria-live')).toBeNull();
+      });
     });
 
     describe('when set to true', () => {
-      it('should add the role and aria-live attributes', fakeAsync(() => {
-        tick(1000);
+      it('should add the role and aria-live attributes', () => {
         fixture.detectChanges();
 
         expect(component.readScreenReaderAlert).toBe(true);
         expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
         expect(fixture.nativeElement.getAttribute('aria-live')).toBe('assertive');
-        discardPeriodicTasks();
-      }));
+      });
+    });
+
+    describe('constructor', () => {
+      beforeEach(() => {
+        jest.useFakeTimers();
+
+        fixture = TestBed.createComponent(LgSpinnerComponent);
+        component = fixture.componentInstance;
+      });
+
+      afterEach(() => {
+        jest.useRealTimers();
+      });
+
+      it('should toggle readScreenReaderAlert every 2.5 seconds', () => {
+        expect(component.readScreenReaderAlert).toBe(true);
+
+        jest.advanceTimersByTime(2500);
+
+        expect(component.readScreenReaderAlert).toBe(false);
+
+        jest.advanceTimersByTime(2500);
+
+        expect(component.readScreenReaderAlert).toBe(true);
+      });
+
+      it('should clean up subscription on destroy', () => {
+        const unsubscribeSpy = jest.spyOn(component.subscription, 'unsubscribe');
+
+        component.ngOnDestroy();
+
+        expect(unsubscribeSpy).toHaveBeenCalled();
+      });
     });
   });
 });

@@ -26,6 +26,8 @@ describe('LgDetailsComponent', () => {
 
   describe('component', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-details>
           <lg-details-panel-heading></lg-details-panel-heading>
@@ -69,6 +71,8 @@ describe('LgDetailsComponent', () => {
 
   describe('Aria roles', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-details>
           <lg-details-panel-heading></lg-details-panel-heading>
@@ -115,6 +119,8 @@ describe('LgDetailsComponent', () => {
 
   describe('when details are active', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-details [isActive]="true">
           <lg-details-panel-heading></lg-details-panel-heading>
@@ -133,6 +139,8 @@ describe('LgDetailsComponent', () => {
 
   describe('when details are inactive', () => {
     beforeEach(() => {
+      ngMocks.flushTestBed();
+
       fixture = MockRender(`
         <lg-details [isActive]="false">
           <lg-details-panel-heading></lg-details-panel-heading>
@@ -149,7 +157,7 @@ describe('LgDetailsComponent', () => {
     });
 
     it('should emit the isActive status of true', () => {
-      const componentEventSpy = spyOn(component.opened, 'emit');
+      const componentEventSpy = jest.spyOn(component.opened, 'emit');
 
       component.panelHeading.toggleActive.emit(true);
 
@@ -157,7 +165,7 @@ describe('LgDetailsComponent', () => {
     });
 
     it('should emit the isActive status of false', () => {
-      const componentEventSpy = spyOn(component.closed, 'emit');
+      const componentEventSpy = jest.spyOn(component.closed, 'emit');
 
       component.panelHeading.toggleActive.emit(false);
 

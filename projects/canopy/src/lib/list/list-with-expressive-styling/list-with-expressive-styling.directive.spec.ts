@@ -1,5 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { MockedComponentFixture, MockRender } from 'ng-mocks';
+import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgListWithExpressiveStylingDirective } from './list-with-expressive-styling.directive';
 
@@ -11,6 +11,8 @@ describe('LgListWithExpressiveStyling', () => {
     TestBed.configureTestingModule({
       imports: [ LgListWithExpressiveStylingDirective ],
     }).compileComponents();
+
+    ngMocks.flushTestBed();
 
     fixture = MockRender(
       `

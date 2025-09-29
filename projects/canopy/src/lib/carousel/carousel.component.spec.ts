@@ -237,22 +237,22 @@ describe('LgCarouselComponent', () => {
           By.css('.lg-carousel__active-content'),
         );
 
-        expect(ariaLiveRegion.nativeNode.innerText).toBe(
-          'Carousel item 1\n\nLorem ipsum dolor sit amet',
+        expect(ariaLiveRegion.nativeNode.textContent).toBe(
+          'Carousel item 1Lorem ipsum dolor sit amet',
         );
 
         bullet2.nativeElement.click();
         fixture.detectChanges();
 
-        expect(ariaLiveRegion.nativeNode.innerText).toBe(
-          'Carousel item 2\n\nLorem ipsum dolor sit amet',
+        expect(ariaLiveRegion.nativeNode.textContent).toBe(
+          'Carousel item 2Lorem ipsum dolor sit amet',
         );
 
         bullet3.nativeElement.click();
         fixture.detectChanges();
 
-        expect(ariaLiveRegion.nativeNode.innerText).toBe(
-          'Carousel item 3\n\nLorem ipsum dolor sit amet',
+        expect(ariaLiveRegion.nativeNode.textContent).toBe(
+          'Carousel item 3Lorem ipsum dolor sit amet',
         );
       });
     });

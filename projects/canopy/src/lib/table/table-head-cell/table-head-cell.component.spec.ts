@@ -1,5 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { MockRender, MockedComponentFixture } from 'ng-mocks';
+import { MockRender, MockedComponentFixture, ngMocks } from 'ng-mocks';
 
 import { LgTableHeadCellComponent } from './table-head-cell.component';
 
@@ -14,6 +14,8 @@ describe('LgTableHeadCellComponent', () => {
   }));
 
   beforeEach(() => {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <th lg-table-head-cell align="end">Hello</th>
     `);
@@ -33,7 +35,7 @@ describe('LgTableHeadCellComponent', () => {
   });
 
   it('should contain the header Hello', () => {
-    expect(fixture.debugElement.children[0].nativeElement.innerText).toEqual('Hello');
+    expect(fixture.debugElement.children[0].nativeElement.textContent).toEqual('Hello');
   });
 
   it('should have the text-align style set to right', () => {

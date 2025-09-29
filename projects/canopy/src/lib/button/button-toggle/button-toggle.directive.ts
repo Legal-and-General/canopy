@@ -19,7 +19,7 @@ export class LgButtonToggleDirective {
   @Output() toggleActive: EventEmitter<boolean> = new EventEmitter();
 
   @HostBinding('class.lg-btn-toggle') class = true;
-  @HostBinding('role') role = 'button';
+  @HostBinding('attr.role') role = 'button';
 
   constructor(private hostElement: ElementRef) {
     if (this.hostElement.nativeElement.tagName !== 'BUTTON') {

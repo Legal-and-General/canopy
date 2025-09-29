@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "inlineSources": true,
-    "types": [],
+    "types": [ "jest" ],
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
@@ -15,7 +15,6 @@
     "enableResourceInlining": true
   },
   "exclude": [
-    "src/test.ts",
     "**/*.spec.ts"
   ]
 }

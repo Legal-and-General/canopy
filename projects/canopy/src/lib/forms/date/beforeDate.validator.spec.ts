@@ -30,12 +30,12 @@ describe('beforeDate', () => {
     });
 
     it('adds a beforeDate error', () => {
-      expect(validator(instance(control))).toEqual(jasmine.any(Object));
+      expect(validator(instance(control))).toEqual(expect.any(Object));
     });
 
     it('includes the date to compare against', () => {
       expect(validator(instance(control)).beforeDate).toEqual(
-        jasmine.objectContaining({
+        expect.objectContaining({
           required: format(dateToCompare, dateFormat),
         }),
       );
@@ -43,7 +43,7 @@ describe('beforeDate', () => {
 
     it('includes the date that was entered', () => {
       expect(validator(instance(control)).beforeDate).toEqual(
-        jasmine.objectContaining({
+        expect.objectContaining({
           actual: format(date, dateFormat),
         }),
       );

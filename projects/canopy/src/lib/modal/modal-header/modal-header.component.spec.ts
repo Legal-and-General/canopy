@@ -50,7 +50,5 @@ describe('LgModalHeaderComponent', () => {
 
     verify(closedEmitterSpy.emit()).once();
     verify(modalServiceMock.close('test')).once();
-
-    expect().nothing();
   });
 });

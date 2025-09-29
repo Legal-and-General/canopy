@@ -10,10 +10,10 @@ describe('SpacingService', () => {
   let dynamicStyleService: DynamicStyleService;
 
   beforeEach(() => {
-    const spy = jasmine.createSpyObj('DynamicStyleService', [
-      'addRules',
-      'addRulesToMediaQuery',
-    ]);
+    const spy = {
+      addRules: jest.fn(),
+      addRulesToMediaQuery: jest.fn(),
+    };
 
     TestBed.configureTestingModule({
       providers: [ SpacingService, { provide: DynamicStyleService, useValue: spy } ],

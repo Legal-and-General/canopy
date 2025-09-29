@@ -68,6 +68,8 @@ describe('LgInputFieldComponent', () => {
     hasSuffix = false,
     showLabel = true,
   }) {
+    ngMocks.flushTestBed();
+
     fixture = MockRender(`
       <lg-input-field [block]="${block}" [showLabel]="${showLabel}">
         Label
@@ -265,7 +267,7 @@ describe('LgInputFieldComponent', () => {
     });
 
     it('renders the suffix into the suffix wrapper', () => {
-      expect(inputWrapperDebugElement.nativeElement.innerText).toContain(suffixText);
+      expect(inputWrapperDebugElement.nativeElement.textContent).toContain(suffixText);
     });
 
     it('links the hint to the input field with the correct aria attributes', () => {
@@ -279,7 +281,7 @@ describe('LgInputFieldComponent', () => {
     });
 
     it('renders the prefix into the prefix wrapper', () => {
-      expect(inputWrapperDebugElement.nativeElement.innerText).toContain(prefixText);
+      expect(inputWrapperDebugElement.nativeElement.textContent).toContain(prefixText);
     });
 
     it('links the hint to the input field with the correct aria attributes', () => {

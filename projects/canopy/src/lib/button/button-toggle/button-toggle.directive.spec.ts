@@ -75,7 +75,7 @@ describe('LgButtonToggleDirective', () => {
 
   describe('#toggle', () => {
     it('should toggle isActive and emit an event', () => {
-      const toggleActiveSpy = spyOn(directive.toggleActive, 'emit');
+      const toggleActiveSpy = jest.spyOn(directive.toggleActive, 'emit');
 
       directive.toggle();
 
@@ -90,7 +90,7 @@ describe('LgButtonToggleDirective', () => {
   });
 
   it('should call #toggle when clicked', () => {
-    const toggleSpy = spyOn(directive, 'toggle');
+    const toggleSpy = jest.spyOn(directive, 'toggle');
 
     testButtonElement.nativeElement.click();
 
@@ -110,7 +110,9 @@ describe('LgButtonToggleDirective', () => {
   });
 
   it('should throw an error if the element is not a button', () => {
-    expect(() => TestBed.createComponent(LinkTestComponent)).toThrowError(
+    const createComponent = () => TestBed.createComponent(LinkTestComponent);
+
+    expect(createComponent).toThrow(
       'The `lgButtonToggle` directive should always be added to a button element. Please change the HTML tag accordingly',
     );
   });
