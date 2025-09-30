@@ -77,6 +77,15 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       console.info(`ℹ️ Unable to restore the documentation.json: \n${e}`);
     }
 
+    // Removing the icons as they are only needed when building Storybook,
+    // and they create unnecessary conflicts
+    console.info('ℹ️ Removing any leftover UI and Brand icon file');
+    try {
+      await exec.exec('git', ['restore', 'projects/canopy/src/assets/*icons']);
+    } catch (e) {
+      console.info(`ℹ️ No icons found: \n${e}`);
+    }
+
     console.info('ℹ️ Starting to track the storybook changes before stashing');
     await exec.exec('git', ['add', '.']);
 
