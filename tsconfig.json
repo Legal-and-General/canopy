@@ -34,7 +34,10 @@
       ],
       "core-js/es7/*": [
         "node_modules/core-js/es"
-      ]
+      ],
+      "@lib/storybook/*": [
+        "projects/canopy/storybook/*"
+      ],
     },
     "useDefineForClassFields": false
   }
