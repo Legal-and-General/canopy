@@ -5,6 +5,7 @@ const BM_BRANCH = 'master-bm';
 const ROOT_DOCS_PATH = './docs';
 const STORYBOOK_BUILD_PREFIX = 'lg-sb-';
 const STORYBOOK_BUILD_PATH = `./${STORYBOOK_BUILD_PREFIX}build`;
+const STASH_NAME = 'sb-stash';
 
 module.exports = async ({
   branch,
@@ -77,11 +78,16 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
       console.info(`ℹ️ Unable to restore the documentation.json: \n${e}`);
     }
 
+    const buildPath = branch === DEFAULT_BRANCH ? STORYBOOK_BUILD_PATH : docsPath;
+
     console.info('ℹ️ Starting to track the storybook changes before stashing');
-    await exec.exec('git', ['add', '.']);
+    await exec.exec('git', ['add', buildPath]);
 
     console.info('ℹ️ Stashing the storybook changes');
-    await exec.exec('git', ['stash']);
+    await exec.exec('git', ['stash', 'push', '-m', STASH_NAME, '--', buildPath]);
+
+    console.info('ℹ️ Clearing the current environment');
+    await exec.exec('git', ['reset', '--hard']);
 
     console.info('ℹ️ Fetching the latest changes from gh-pages branch');
     await exec.exec('git', ['fetch', 'origin', 'gh-pages:gh-pages']);
@@ -116,7 +122,7 @@ async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {
     }
 
     console.info('ℹ️ Applying the stash with the storybook changes');
-    await exec.exec('git', ['stash', 'pop']);
+    await exec.exec('git', ['stash', 'apply', `stash^{/${ STASH_NAME }}`]);
 
     if (branch === DEFAULT_BRANCH) {
       // gh-pages only works in the root directory, or '/docs'

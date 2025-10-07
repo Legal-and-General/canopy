@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponents } from 'ng-mocks';
-import { spy, when } from '@typestrong/ts-mockito';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
@@ -10,7 +9,6 @@ import { LgTableRowComponent } from './table-row.component';
 
 describe('LgTableRowComponent', () => {
   let component: LgTableRowComponent;
-  let componentSpy: LgTableRowComponent;
   let fixture: ComponentFixture<LgTableRowComponent>;
   let debugElement: DebugElement;
 
@@ -26,7 +24,6 @@ describe('LgTableRowComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableRowComponent);
     component = fixture.componentInstance;
-    componentSpy = spy(component);
     debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
@@ -40,14 +37,14 @@ describe('LgTableRowComponent', () => {
   });
 
   it('should have the table row toggle class if the row is expandable', () => {
-    when(componentSpy.hasToggle).thenReturn(true);
+    jest.spyOn(component, 'hasToggle', 'get').mockReturnValue(true);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-table-row__toggle');
   });
 
   it('shouldn\'t have the table row toggle class if the row is not expandable', () => {
-    when(componentSpy.hasToggle).thenReturn(false);
+    jest.spyOn(component, 'hasToggle', 'get').mockReturnValue(false);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).not.toContain(
@@ -56,7 +53,7 @@ describe('LgTableRowComponent', () => {
   });
 
   it('should have the active class if the row is toggled active', () => {
-    when(componentSpy.isToggledActive).thenReturn(true);
+    jest.spyOn(component, 'isToggledActive', 'get').mockReturnValue(true);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).toContain(
@@ -65,7 +62,7 @@ describe('LgTableRowComponent', () => {
   });
 
   it('shouldn\'t have the active class if the row is not toggled active', () => {
-    when(componentSpy.isToggledActive).thenReturn(false);
+    jest.spyOn(component, 'isToggledActive', 'get').mockReturnValue(false);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).not.toContain(

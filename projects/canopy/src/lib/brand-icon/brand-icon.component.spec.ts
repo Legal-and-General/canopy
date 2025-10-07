@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgBrandIconComponent } from './brand-icon.component';
 import { LgBrandIconRegistry } from './brand-icon.registry';
@@ -7,17 +6,19 @@ import { LgBrandIconRegistry } from './brand-icon.registry';
 describe('LgBrandIconComponent', () => {
   let component: LgBrandIconComponent;
   let fixture: ComponentFixture<LgBrandIconComponent>;
-  let brandIconRegistryMock: LgBrandIconRegistry;
+  let brandIconRegistryMock: jest.Mocked<LgBrandIconRegistry>;
 
   beforeEach(waitForAsync(() => {
-    brandIconRegistryMock = mock(LgBrandIconRegistry);
+    brandIconRegistryMock = {
+      get: jest.fn(),
+    } as unknown as jest.Mocked<LgBrandIconRegistry>;
 
     TestBed.configureTestingModule({
       imports: [ LgBrandIconComponent ],
       providers: [
         {
           provide: LgBrandIconRegistry,
-          useFactory: () => instance(brandIconRegistryMock),
+          useValue: brandIconRegistryMock,
         },
       ],
     }).compileComponents();
@@ -46,7 +47,7 @@ describe('LgBrandIconComponent', () => {
       expect(fixture.nativeElement.querySelector('#test')).toBeNull();
       expect(fixture.nativeElement.querySelector('svg')).toBeNull();
 
-      when(await brandIconRegistryMock.get('sun')).thenReturn(
+      brandIconRegistryMock.get.mockResolvedValue(
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
@@ -74,8 +75,8 @@ describe('LgBrandIconComponent', () => {
   });
 
   describe('the colour input', () => {
-    beforeEach(async () => {
-      when(await brandIconRegistryMock.get('sun')).thenReturn(
+    beforeEach(() => {
+      brandIconRegistryMock.get.mockResolvedValue(
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
@@ -106,7 +107,7 @@ describe('LgBrandIconComponent', () => {
     });
 
     it('when the icon isn\'t coloured it should not set the fill style', async () => {
-      when(await brandIconRegistryMock.get('sun')).thenReturn(
+      brandIconRegistryMock.get.mockResolvedValue(
         '<svg id="test">test-svg<path id="no-color"></path></svg>',
       );
 
@@ -123,7 +124,7 @@ describe('LgBrandIconComponent', () => {
 
   describe('the half tone colour input', () => {
     it('should apply the specific colour', async () => {
-      when(await brandIconRegistryMock.get('sun')).thenReturn(
+      brandIconRegistryMock.get.mockResolvedValue(
         '<svg id="test">test-svg<path id="Half-tone"></path></svg>',
       );
 
@@ -142,7 +143,7 @@ describe('LgBrandIconComponent', () => {
 
   describe('the outlines colour input', () => {
     it('should apply the specific colour', async () => {
-      when(await brandIconRegistryMock.get('sun')).thenReturn(
+      brandIconRegistryMock.get.mockResolvedValue(
         '<svg id="test">test-svg<path id="Outlines"></path></svg>',
       );
 

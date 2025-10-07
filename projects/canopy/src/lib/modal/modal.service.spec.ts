@@ -1,5 +1,4 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { spy, verify } from '@typestrong/ts-mockito';
 import { Subscription } from 'rxjs';
 
 import { LgModalService } from './';
@@ -7,7 +6,6 @@ import { LgModalService } from './';
 describe('LgModalService', () => {
   const id = 'test-1';
   let service: LgModalService;
-  let serviceSpy: LgModalService;
   let subscription: Subscription;
 
   beforeEach(waitForAsync(() => {
@@ -15,12 +13,12 @@ describe('LgModalService', () => {
   }));
 
   beforeEach(() => {
-    serviceSpy = spy(service);
     service.add(id);
   });
 
   afterEach(() => {
     subscription?.unsubscribe();
+    jest.restoreAllMocks();
   });
 
   it('should be created', () => {
@@ -56,9 +54,10 @@ describe('LgModalService', () => {
     });
 
     it('should call #add when the modal doesn\'t exist', done => {
-      subscription = service.isOpen$('test-2').subscribe(data => {
-        verify(serviceSpy.add('test-2')).once();
+      const addSpy = jest.spyOn(service, 'add');
 
+      subscription = service.isOpen$('test-2').subscribe(data => {
+        expect(addSpy).toHaveBeenCalledWith('test-2');
         expect(data).toBeUndefined();
         done();
       });
@@ -78,10 +77,11 @@ describe('LgModalService', () => {
   it('should call #close and remove an item from the map when calling #remove', () => {
     expect(service['states'].has(id)).toBe(true);
 
+    const closeSpy = jest.spyOn(service, 'close');
+
     service.remove(id);
 
-    verify(serviceSpy.close(id)).once();
-
+    expect(closeSpy).toHaveBeenCalledWith(id);
     expect(service['states'].has(id)).toBe(false);
   });
 });

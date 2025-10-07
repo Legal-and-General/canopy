@@ -8,7 +8,6 @@ import {
   MockedComponentFixture,
   ngMocks,
 } from 'ng-mocks';
-import { instance, mock, when } from '@typestrong/ts-mockito';
 
 import { LgFocusDirective } from '../focus';
 import { LgHeadingComponent } from '../heading';
@@ -203,10 +202,9 @@ describe('LgTabsComponent', () => {
 
     it('the selected index should be 2 when the key press is left', () => {
       component.selectedIndex = 0;
-      const mockClickLeftEvent = mock(KeyboardEvent);
+      const keyboardEvent = new KeyboardEvent('keydown', { key: keyName.KEY_LEFT });
 
-      when(mockClickLeftEvent.key).thenReturn(keyName.KEY_LEFT);
-      component.keyboardNavigation(instance(mockClickLeftEvent));
+      component.keyboardNavigation(keyboardEvent);
 
       expect(component.isKeyboardEvent).toEqual(true);
       expect(component.selectedIndex).toEqual(2);
@@ -214,10 +212,9 @@ describe('LgTabsComponent', () => {
 
     it('the selected index should be 2 when the key press is up', () => {
       component.selectedIndex = 0;
-      const mockClickLeftEvent = mock(KeyboardEvent);
+      const keyboardEvent = new KeyboardEvent('keydown', { key: keyName.KEY_UP });
 
-      when(mockClickLeftEvent.key).thenReturn(keyName.KEY_UP);
-      component.keyboardNavigation(instance(mockClickLeftEvent));
+      component.keyboardNavigation(keyboardEvent);
 
       expect(component.isKeyboardEvent).toEqual(true);
       expect(component.selectedIndex).toEqual(2);
@@ -225,10 +222,9 @@ describe('LgTabsComponent', () => {
 
     it('the selected index should be 1 when the key press is right', () => {
       component.selectedIndex = 0;
-      const mockClickLeftEvent = mock(KeyboardEvent);
+      const keyboardEvent = new KeyboardEvent('keydown', { key: keyName.KEY_RIGHT });
 
-      when(mockClickLeftEvent.key).thenReturn(keyName.KEY_RIGHT);
-      component.keyboardNavigation(instance(mockClickLeftEvent));
+      component.keyboardNavigation(keyboardEvent);
 
       expect(component.isKeyboardEvent).toEqual(true);
       expect(component.selectedIndex).toEqual(1);
@@ -236,10 +232,9 @@ describe('LgTabsComponent', () => {
 
     it('the selected index should be 1 when the key press is down', () => {
       component.selectedIndex = 0;
-      const mockClickLeftEvent = mock(KeyboardEvent);
+      const keyboardEvent = new KeyboardEvent('keydown', { key: keyName.KEY_DOWN });
 
-      when(mockClickLeftEvent.key).thenReturn(keyName.KEY_DOWN);
-      component.keyboardNavigation(instance(mockClickLeftEvent));
+      component.keyboardNavigation(keyboardEvent);
 
       expect(component.isKeyboardEvent).toEqual(true);
       expect(component.selectedIndex).toEqual(1);
@@ -247,10 +242,9 @@ describe('LgTabsComponent', () => {
 
     it('the selected index should change from 2 to 0 when the key press is right', () => {
       component.selectedIndex = 2;
-      const mockClickLeftEvent = mock(KeyboardEvent);
+      const keyboardEvent = new KeyboardEvent('keydown', { key: keyName.KEY_RIGHT });
 
-      when(mockClickLeftEvent.key).thenReturn(keyName.KEY_RIGHT);
-      component.keyboardNavigation(instance(mockClickLeftEvent));
+      component.keyboardNavigation(keyboardEvent);
 
       expect(component.isKeyboardEvent).toEqual(true);
       expect(component.selectedIndex).toEqual(0);

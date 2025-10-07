@@ -3,7 +3,6 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
-import { instance, mock, spy, when } from '@typestrong/ts-mockito';
 import { NgIf } from '@angular/common';
 
 import { LgHintComponent } from '../hint';
@@ -25,7 +24,7 @@ describe('LgInputFieldComponent', () => {
   let inputDirectiveInstance: LgInputDirective;
   let inputFieldDebugElement: DebugElement;
   let inputWrapperDebugElement: DebugElement;
-  let errorStateMatcherMock: LgErrorStateMatcher;
+  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
   let labelDebugElement: DebugElement;
 
   const errorId = 'test-error-id';
@@ -37,7 +36,9 @@ describe('LgInputFieldComponent', () => {
   const prefixText = 'prefix';
 
   beforeEach(waitForAsync(() => {
-    errorStateMatcherMock = mock(LgErrorStateMatcher);
+    errorStateMatcherMock = {
+      isControlInvalid: jest.fn().mockReturnValue(false),
+    } as unknown as jest.Mocked<LgErrorStateMatcher>;
 
     TestBed.configureTestingModule({
       imports: [
@@ -56,7 +57,7 @@ describe('LgInputFieldComponent', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useFactory: () => instance(errorStateMatcherMock),
+          useValue: errorStateMatcherMock,
         },
       ],
     }).compileComponents();
@@ -234,16 +235,13 @@ describe('LgInputFieldComponent', () => {
   });
 
   describe('error', () => {
-    let componentSpy: LgInputFieldComponent;
-
     beforeEach(() => {
       renderComponent({});
-      componentSpy = spy(component);
       fixture.detectChanges();
     });
 
     it('adds an error class to the input wrapper when the control is invalid', () => {
-      when(componentSpy.errorClass).thenReturn(true);
+      jest.spyOn(component, 'errorClass', 'get').mockReturnValue(true);
       fixture.detectChanges();
 
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).toContain(
@@ -252,7 +250,7 @@ describe('LgInputFieldComponent', () => {
     });
 
     it('does not add the error class to the input wrapper when the control is valid', () => {
-      when(componentSpy.errorClass).thenReturn(false);
+      jest.spyOn(component, 'errorClass', 'get').mockReturnValue(false);
       fixture.detectChanges();
 
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(
