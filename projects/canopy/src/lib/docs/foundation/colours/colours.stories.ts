@@ -10,6 +10,7 @@ import {
 import { Meta } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import convert, { RGB } from 'color-convert';
+import coloursVariables from '@lib/storybook/css-variables/colours';
 
 interface Color {
   name: string;
@@ -82,13 +83,21 @@ class TintSwatchComponent implements AfterViewInit {
   }
 
   @Input()
-  set names(names: string) {
-    this.colors = names.split(',').map(name => ({
-      name,
-      rgb: null,
-      hex: null,
-      background: `var(${name})`,
-    }));
+  set names(filterName: string) {
+    this.colors = coloursVariables
+      .filter(name => name.includes(filterName) && !name.includes('rgb'))
+      .sort((a, b) => {
+        const numA = parseInt(a.match(/\d+/)?.[0] ?? '0', 10);
+        const numB = parseInt(b.match(/\d+/)?.[0] ?? '0', 10);
+
+        return numA - numB;
+      })
+      .map(name => ({
+        name,
+        rgb: null,
+        hex: null,
+        background: `var(${name})`,
+      }));
   }
 }
 
@@ -107,19 +116,19 @@ const foundationsColoursTemplate = `
 <div>
   <div>
     <lg-tint-swatch
-      names="--colour-blue-0, --colour-blue-100,--colour-blue-200,--colour-blue-300,--colour-blue-400, --colour-blue-500, --colour-blue-600, --colour-blue-700, --colour-blue-800, --colour-blue-900, --colour-blue-1000">
+      names="colour-blue">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--colour-green-0, --colour-green-100,--colour-green-200,--colour-green-300,--colour-green-400, --colour-green-500, --colour-green-600, --colour-green-700, --colour-green-800, --colour-green-900, --colour-green-1000">
+      names="colour-green">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--colour-greyscale-0, --colour-greyscale-100,--colour-greyscale-200,--colour-greyscale-300,--colour-greyscale-400, --colour-greyscale-500, --colour-greyscale-600, --colour-greyscale-700, --colour-greyscale-800, --colour-greyscale-900, --colour-greyscale-1000">
+      names="colour-greyscale">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--colour-red-0, --colour-red-100,--colour-red-200,--colour-red-300,--colour-red-400, --colour-red-500, --colour-red-600, --colour-red-700, --colour-red-800, --colour-red-900, --colour-red-1000">
+      names="colour-red">
     </lg-tint-swatch>
     <lg-tint-swatch
-      names="--colour-yellow-0, --colour-yellow-100,--colour-yellow-200,--colour-yellow-300,--colour-yellow-400, --colour-yellow-500, --colour-yellow-600, --colour-yellow-700, --colour-yellow-800, --colour-yellow-900, --colour-yellow-1000">
+      names="colour-yellow">
     </lg-tint-swatch>
   </div>
 </div>
