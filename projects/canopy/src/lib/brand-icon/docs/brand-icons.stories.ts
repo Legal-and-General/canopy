@@ -78,7 +78,7 @@ const colours = [
   '--colour-green-400',
   '--colour-red-400',
   '--colour-red-700',
-  '--color-transparent',
+  '--colour-transparent',
 ];
 
 export default {
