@@ -5,10 +5,9 @@
   --header-logo-width: 4rem;
   --header-logo-width-lg: 4rem;
   --header-shadow-height: 0.25rem;
-  --header-shadow: 0 var(--header-shadow-height) 0
-    rgba(var(--colour-greyscale-1000-rgb), 0.03);
+  --header-shadow: 0 var(--header-shadow-height) 0 rgba(0, 0, 0, 0.03);
 
-  --overlay-bg-color: rgba(var(--colour-greyscale-1000-rgb), 0.4);
+  --overlay-bg-color: rgba(0, 0, 0, 0.4);
 
   --nav-item-border-radius: 0.25rem;
   --nav-item-icon-height: 1.5rem;
