@@ -55,10 +55,6 @@ interface Color {
         display: inline-block;
         flex: 1 1 50%;
       }
-      .tint-swatch__text {
-        display: block;
-        margin-bottom: var(--space-xxxs);
-      }
     `,
   ],
   standalone: false,
@@ -84,7 +80,7 @@ class TintSwatchComponent implements AfterViewInit {
 
   @Input()
   set names(filterName: string) {
-    this.colors = coloursVariables
+    this.colors = Object.keys(coloursVariables)
       .filter(name => name.includes(filterName) && !name.includes('rgb'))
       .sort((a, b) => {
         const numA = parseInt(a.match(/\d+/)?.[0] ?? '0', 10);

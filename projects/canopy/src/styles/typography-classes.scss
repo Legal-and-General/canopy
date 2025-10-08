@@ -1,5 +1,7 @@
 @use '../styles/mixins.scss';
+@use 'sass:map';
 
+// Base typography classes
 .lg-body {
   @include mixins.lg-typography-default;
 }
@@ -12,13 +14,21 @@
   @include mixins.lg-link;
 }
 
+// Font weight classes
 .lg-medium {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-500);
 }
 
 .lg-bold,
 .lg-strong {
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-700);
+}
+
+.lg-underline {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 6%;
+  text-underline-offset: 13%;
 }
 
 .lg-list {
@@ -29,6 +39,7 @@
   font-family: var(--font-family-expressive);
 }
 
+// Heading classes
 .h1,
 .h2,
 .h3,
@@ -39,78 +50,53 @@
   margin-bottom: var(--text-bottom-margin);
 }
 
-.lg-font-size-7 {
-  @include mixins.lg-font-size('7');
-}
+// Font size variables
+$font-sizes: ('9', '8', '7', '6', '5', '4', '3', '2', '1', '0-8', '0-6');
+$font-weights: (
+  '300': true,
+  // Only for sizes 4 and above
+  '400': true,
+  // All sizes
+  '500': true,
+  // All sizes
+  '700': true, // All sizes
+);
 
-.lg-font-size-7--strong {
-  @include mixins.lg-font-size('7', 'strong');
-}
+// Generate font size classes using a loop
+@each $size in $font-sizes {
+  // Default weight class
+  .lg-font-size-#{$size} {
+    @include mixins.lg-font-size($size);
+  }
 
-.lg-font-size-6 {
-  @include mixins.lg-font-size('6');
-}
-
-.lg-font-size-6--strong {
-  @include mixins.lg-font-size('6', 'strong');
-}
-
-.lg-font-size-5 {
-  @include mixins.lg-font-size('5');
-}
-
-.lg-font-size-5--strong {
-  @include mixins.lg-font-size('5', 'strong');
-}
-
-.lg-font-size-4 {
-  @include mixins.lg-font-size('4');
-}
-
-.lg-font-size-4--strong {
-  @include mixins.lg-font-size('4', 'strong');
-}
-
-.lg-font-size-3 {
-  @include mixins.lg-font-size('3');
-}
-
-.lg-font-size-3--medium {
-  @include mixins.lg-font-size('3', 'medium');
-}
-
-.lg-font-size-3--strong {
-  @include mixins.lg-font-size('3', 'strong');
-}
-
-.lg-font-size-2 {
-  @include mixins.lg-font-size('2');
-}
-
-.lg-font-size-2--medium {
-  @include mixins.lg-font-size('2', 'medium');
-}
-
-.lg-font-size-2--strong {
-  @include mixins.lg-font-size('2', 'strong');
-}
-
-.lg-font-size-1 {
-  @include mixins.lg-font-size('1');
-}
-
-.lg-font-size-1--medium {
-  @include mixins.lg-font-size('1', 'medium');
-}
-
-.lg-font-size-1--strong {
-  @include mixins.lg-font-size('1', 'strong');
-}
-
-.lg-font-size-0-8 {
-  @include mixins.lg-font-size('-8');
-}
-
-.lg-font-size-0-6 {
-  @include mixins.lg-font-size('-6');
+  // Weight variations
+  @each $weight, $enabled in $font-weights {
+    // Apply conditional logic for weights that should only apply to certain sizes
+    @if $enabled ==
+      true and
+      // Only generate 300 weight for sizes 4 and above
+      (
+        $weight !=
+          '300' or
+          (
+            $weight ==
+              '300' and
+              $size !=
+              '3' and
+              $size !=
+              '2' and
+              $size !=
+              '1' and
+              $size !=
+              '0-8' and
+              $size !=
+              '0-6'
+          )
+      )
+    {
+      .lg-font-size-#{$size}--#{$weight} {
+        @include mixins.lg-font-size($size, $weight);
+      }
+    }
+  }
 }

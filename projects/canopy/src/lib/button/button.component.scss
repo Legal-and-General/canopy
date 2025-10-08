@@ -12,7 +12,7 @@
   justify-content: center;
   border-radius: var(--btn-border-radius);
   font-size: var(--btn-font-size);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-500);
   cursor: pointer;
   min-width: var(--btn-min-width);
   line-height: var(--btn-line-height);
@@ -107,7 +107,7 @@
   min-width: initial;
   border-radius: 0;
   width: initial;
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-400);
   text-align: start;
 
   @include mixins.lg-link();

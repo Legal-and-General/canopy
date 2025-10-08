@@ -8,7 +8,7 @@
     "annotation-no-unknown": [
       true,
       {
-        "ignoreAnnotations": ["default"],
+        "ignoreAnnotations": ["default"]
       }
     ],
     "at-rule-no-unknown": null,
@@ -26,13 +26,13 @@
     "rule-empty-line-before": [
       "always",
       {
-        "ignore": ["after-comment", "first-nested"],
+        "ignore": ["after-comment", "first-nested"]
       }
     ],
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["space", "map-get", "percentage", "/math.*/"],
+        "ignoreFunctions": ["space", "map-get", "percentage", "/math.*/"]
       }
     ]
   }

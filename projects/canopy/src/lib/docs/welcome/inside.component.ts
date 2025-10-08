@@ -5,14 +5,14 @@ import { CommonModule } from '@angular/common';
   selector: 'lg-docs-welcome-inside',
   imports: [ CommonModule ],
   template: `
-    <h2 class="lg-font--expressive lg-font-size-4--strong">What's inside</h2>
+    <h2 class="lg-font--expressive lg-font-size-4--700">What's inside</h2>
 
     <ul lgMargin="none" class="docs-list">
       <li *ngFor="let section of sections" class="docs-list-item">
         <div class="docs-list-item__img" lgMarginBottom="xxs">
           <img [src]="section.src" alt="" />
         </div>
-        <h3 class="lg-font-size-2--strong">{{ section.heading }}</h3>
+        <h3 class="lg-font-size-2--700">{{ section.heading }}</h3>
         {{ section.text }}
       </li>
     </ul>

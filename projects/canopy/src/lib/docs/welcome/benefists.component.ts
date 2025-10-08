@@ -7,7 +7,7 @@ import { LgMarginDirective } from '../../spacing';
   selector: 'lg-docs-welcome-benefits',
   imports: [ CommonModule, LgMarginDirective ],
   template: `
-    <h2 class="lg-font--expressive lg-font-size-4--strong">Benefits of Canopy</h2>
+    <h2 class="lg-font--expressive lg-font-size-4--700">Benefits of Canopy</h2>
 
     <ul lgMargin="none" class="docs-list">
       <li *ngFor="let benefit of benefits" class="docs-list-item">

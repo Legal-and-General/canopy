@@ -9,6 +9,6 @@ export default create({
   brandImage: 'legal-and-general-logo.svg',
   colorPrimary: '#fff',
   colorSecondary: '#005dba',
-  fontBase: '"Roboto", arial, sans-serif',
+  fontBase: '"Nunito Sans", arial, sans-serif',
   textColor: '#1d1d1b',
 });

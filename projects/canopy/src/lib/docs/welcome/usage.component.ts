@@ -10,7 +10,7 @@ import { LgMarginDirective } from '../../spacing';
     <img src="docs/welcome/builders.svg" alt="" />
 
     <div class="usage" [lgMarginLeft]="{ xs: 'none', md: 'xxl' }">
-      <h2 class="lg-font--expressive lg-font-size-4--strong">First time using Canopy?</h2>
+      <h2 class="lg-font--expressive lg-font-size-4--700">First time using Canopy?</h2>
 
       <p>
         Successful Canopy projects start with the right setup - If it's your first time

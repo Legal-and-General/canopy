@@ -1,7 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "exclude": ["../projects/canopy/*.spec.ts"],
-  "include": ["../projects/canopy/src/**/*.stories.ts"],
+  "include": [
+    "../projects/canopy/src/**/*.stories.ts",
+    "../projects/canopy/src/**/*.mdx",
+    "../projects/canopy/src/lib/**/docs/**/*.ts",
+    "../projects/canopy/storybook/**/*.ts"
+  ],
   "compilerOptions": {
     "skipLibCheck": true
   }

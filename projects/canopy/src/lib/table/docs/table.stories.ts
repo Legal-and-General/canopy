@@ -188,7 +188,7 @@ const withLongCopyTableTemplate = `
         <tbody lg-table-body>
           <tr lg-table-row>
             <td lg-table-cell [stack]="stack">
-              <h1 class="lg-font-size-1--strong" lgMarginVertical="xs">
+              <h1 class="lg-font-size-1--700" lgMarginVertical="xs">
                 Item one: Lorem ipsum dolor sit amet
               </h1>
               <p lgMarginBottom="xs">
@@ -214,7 +214,7 @@ const withLongCopyTableTemplate = `
           </tr>
           <tr lg-table-row>
             <td lg-table-cell [stack]="stack">
-              <h1 class="lg-font-size-1--strong" lgMarginVertical="xs">
+              <h1 class="lg-font-size-1--700" lgMarginVertical="xs">
                 Item two: At vero eos et accusamus
               </h1>
               <p>
@@ -241,7 +241,7 @@ const withLongCopyTableTemplate = `
           </tr>
           <tr lg-table-row>
             <td lg-table-cell [stack]="stack">
-              <h1 class="lg-font-size-1--strong" lgMarginVertical="xs">
+              <h1 class="lg-font-size-1--700" lgMarginVertical="xs">
                 Item three: Ut enim ad minima veniam
               </h1>
               <p>Proportionate final payment: Applies</p>

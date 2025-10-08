@@ -162,10 +162,6 @@ module.exports = {
   }],
   staticDirs: [
     '../assets/',
-    {
-      from: '../assets/fonts/',
-      to: 'assets/fonts',
-    },
   ],
   core: {
     fsCache: true,
