@@ -3,5 +3,5 @@
 .lg-card-principle-data-point-date {
   color: var(--card-principle-data-point-date-color);
   display: block;
-  @include mixins.lg-font-size('8');
+  @include mixins.lg-font-size('0-8');
 }
