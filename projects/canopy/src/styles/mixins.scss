@@ -98,18 +98,24 @@
 }
 
 @mixin lg-font-size($size, $modifier: null, $type: null) {
-  font-size: var(--text-fs-#{$size}-size);
-  line-height: var(--text-fs-#{$size}-line-height);
+  font-size: var(--font-size-#{$size});
+  line-height: var(--line-height-#{$size});
 
-  @if $modifier {
-    font-weight: var(--text-fs-#{$size}-weight--#{$modifier});
-  } @else {
-    font-weight: var(--text-fs-#{$size}-weight);
-  }
-
-  @if $type == 'expressive' {
+  @if $type {
     font-family: var(--font-family-#{$type});
   }
+
+  $weight: '400';
+
+  @if $type == 'expressive' {
+    $weight: '500';
+  }
+
+  @if $modifier {
+    $weight: $modifier;
+  }
+
+  font-weight: var(--font-weight-#{$weight});
 }
 
 @mixin lg-visually-hidden {
@@ -245,14 +251,14 @@ $breakpoints: (
 
 @mixin lg-typography-default {
   font-size: var(--text-base-size);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-400);
   font-family: var(--font-family);
   line-height: var(--text-base-line-height);
-  color: var(--color-text);
+  color: var(--text-default);
 }
 
 @mixin lg-paragraph {
-  font-size: var(--text-fs-1-size);
+  font-size: var(--font-size-1);
   margin-bottom: var(--text-bottom-margin);
 
   &:last-child {
@@ -283,7 +289,7 @@ $breakpoints: (
 
   b,
   strong {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-700);
   }
 
   h1,
@@ -317,11 +323,11 @@ $breakpoints: (
   }
 
   h6 {
-    @include lg-font-size('-8');
+    @include lg-font-size('0-8');
   }
 
   small {
-    @include lg-font-size('-6');
+    @include lg-font-size('0-6');
   }
 
   ul,
@@ -409,7 +415,7 @@ $breakpoints: (
       color: var(--nav-item-color-expanded);
 
       .lg-notification-badge {
-        color: var(--color-text);
+        color: var(--text-default);
         background-color: var(--nav-item-bg-color);
       }
 

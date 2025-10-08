@@ -8,11 +8,11 @@
   }
 
   &--neutral-foreground {
-    color: var(--color-text);
+    color: var(--text-default);
   }
 
   &--dark-foreground {
-    color: var(--color-text);
+    color: var(--text-default);
 
     a {
       @include mixins.lg-link(

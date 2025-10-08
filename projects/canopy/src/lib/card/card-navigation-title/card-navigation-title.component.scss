@@ -12,7 +12,7 @@
   h5,
   h6 {
     margin-bottom: calc(-1 * var(--card-header-margin-bottom));
-    font-size: var(--text-fs-3-size);
+    font-size: var(--font-size-3);
   }
 
   .lg-icon {
@@ -37,7 +37,7 @@
       var(--card-navigation-link-padding-bottom);
     align-items: center;
     display: flex;
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-500);
     margin-left: calc(-1 * var(--component-padding));
     margin-right: calc(-1 * var(--component-padding));
     margin-top: var(--outer-focus-width);

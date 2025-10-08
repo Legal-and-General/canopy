@@ -133,17 +133,10 @@ The build is currently handled by [Github Actions](https://help.github.com/en/ac
 
 To add a new SVG icon to Canopy simply add the file to either the `icons` or `brand-icons` folder within `assets`.
 
-## Fonts
-
-The Roboto font is stored in **/projects/canopy/src/assets/fonts/roboto** as normal and is included in the distributed Canopy package.
-
-The Lyon font files are stored in **/assets/fonts** and omitted from the distributed package via the Webpack config. The `css-loader` options prevent it from transforming any URL referencing the Lyon font. This means the path will stay as relative to the base URL of the consuming application (/assets/fonts), therefore looking in the assets directory of consuming app.
-
-For more info, see the fonts section in USAGE.md.
-
 ## Angular Material CDK
+
 The `@angular/cdk` can be used as long as only the necessary functionality is imported. 
 
 ## Dependabot
-The dependency updates are currently handled by [Dependabot](./DEPENDABOT.md).
 
+The dependency updates are currently handled by [Dependabot](./DEPENDABOT.md).

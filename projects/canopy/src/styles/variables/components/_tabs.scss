@@ -5,13 +5,13 @@
   --tabs-list-item-line-height: var(--space-xxl);
   --tabs-list-item-lg-line-height: 3.25rem; // 52px;
   --tabs-list-item-color: var(--colour-greyscale-900);
-  --tabs-list-item-font-weight: var(--font-weight-regular);
+  --tabs-list-item-font-weight: var(--font-weight-400);
 
   --tabs-hover-border-width: 0.3125rem; // 5px;
   --tabs-hover-color: var(--colour-blue-700);
 
   --tabs-active-border-color: var(--colour-blue-600);
   --tabs-active-color: var(--colour-blue-600);
-  --tabs-active-font-weight: var(--font-weight-medium);
+  --tabs-active-font-weight: var(--font-weight-500);
   --tabs-active-border-width: var(--keyline-width);
 }

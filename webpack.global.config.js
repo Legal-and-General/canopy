@@ -64,9 +64,6 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              url: {
-                filter: url => !url.match(/lyon-display([a-z-]+).(woff2|woff)/g),
-              },
             }
           },
           {
@@ -78,7 +75,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff(2)?)$/,
+        test: /\.(woff(2)?|ttf)$/,
         type: 'asset/resource',
         generator: {
           filename: content => {
