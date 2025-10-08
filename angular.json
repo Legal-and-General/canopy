@@ -32,8 +32,7 @@
             "configDir": ".storybook",
             "browserTarget": "canopy:build",
             "styles": [
-              "dist/canopy/canopy.css",
-              ".storybook/lyon-override.css"
+              "dist/canopy/canopy.css"
             ],
             "compodocArgs": [
               "-p", "./tsconfig.json", "--disablePrivate", "-e", "json", "-d", "."
@@ -47,8 +46,7 @@
             "browserTarget": "canopy:build",
             "outputDir": "storybook-static",
             "styles": [
-              "dist/canopy/canopy.css",
-              ".storybook/lyon-override.css"
+              "dist/canopy/canopy.css"
             ],
             "quiet": true,
             "compodocArgs": [

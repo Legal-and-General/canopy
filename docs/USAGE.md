@@ -115,38 +115,7 @@ You can find the scss files here:
 
 ### Canopy Fonts
 
-Canopy consists of two fonts; Roboto and Lyon. Roboto is included in the distributed Canopy package, and will load automatically when you have installed Canopy correctly.
-
-Due to commercial licensing agreements the Lyon font is not included in the distributed package. You will need to manually add it to the **assets** directory of your application. Canopy does provide the css to work with the font and no additional code should be required. You will  need to ensure the font is in the directory specified by Canopy.
-
-Canopy's default path for Lyon is **/assets/fonts/lyon/**, therefore you need to put the font files in the following location:
-
-```bash
-my-app/
-  src/
-    assets/
-      fonts/
-        lyon/
-          lyon-display-regular.woff
-          lyon-display-regular.woff2
-          lyon-display-bold.woff
-          lyon-display-bold.woff2
-```
-
-> This will result in the font being served in your app like this: <br>http://my-app.landg.com/assets/fonts/lyon/LyonDisplay-Regular-Web.woff2
-
-When you include the canopy.css file in your project, it will try to load the font from that exact path. If your font files are in the wrong location, or have a typo in the filename, the Lyon font won't load correctly.
-
-If required, it is possible to set another path for Lyon by adding the following in your project's scss entry file:
-
-projects/canopy-test-app/src/styles.scss:
-
-```scss
-$fonts-path-lyon: 'path/to/lyon/fonts';
-@import 'dist/canopy/styles/styles';
-```
-
-Please ensure you have the correct licensing agreement in place before using the Lyon font in your application.
+Canopy consists of two fonts; Nunito Sans and ABC Otto. Both fonts are included in the distributed Canopy package, and will load automatically when you have installed Canopy correctly.
 
 ## Using the components
 

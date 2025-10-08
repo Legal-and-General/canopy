@@ -4,22 +4,17 @@
   --border-radius-lg: 0.25rem;
 
   --drop-shadow:
-    0 0 0 0 rgba(var(--colour-greyscale-1000-rgb), 0.01),
-    0 0.0625rem 0.0625rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.02),
-    0 0.0625rem 0.125rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.02),
-    0 0.125rem 0.25rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.02),
-    0 0.1875rem 0.4375rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.03),
-    0 0.5rem 1rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.04);
+    0 0 0 0 rgba(0, 0, 0, 0.01), 0 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.02),
+    0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.02), 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.02),
+    0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.03), 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.04);
 
   --drop-shadow-hover:
-    0 0.0625rem 0.125rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.02),
-    0 0.125rem 0.0125rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.03),
-    0 0.25rem 0.625rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.04),
-    0 0.4375rem 1.125rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.04),
-    0 0.8125rem 2.0625rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.05),
-    0 2rem 5rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.07);
-  --bottom-shadow: 0 0.3125rem 0.25rem 0 rgba(var(--colour-greyscale-1000-rgb), 0.03);
-  --overlay-color: rgba(var(--colour-greyscale-1000-rgb), 0.5);
+    0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.02),
+    0 0.125rem 0.0125rem 0 rgba(0, 0, 0, 0.03), 0 0.25rem 0.625rem 0 rgba(0, 0, 0, 0.04),
+    0 0.4375rem 1.125rem 0 rgba(0, 0, 0, 0.04),
+    0 0.8125rem 2.0625rem 0 rgba(0, 0, 0, 0.05), 0 2rem 5rem 0 rgba(0, 0, 0, 0.07);
+  --bottom-shadow: 0 0.3125rem 0.25rem 0 rgba(0, 0, 0, 0.03);
+  --overlay-color: rgba(0, 0, 0, 0.5);
 
   --default-focus-color: var(--colour-yellow-600);
   --default-inner-focus-color: var(--colour-greyscale-1000);

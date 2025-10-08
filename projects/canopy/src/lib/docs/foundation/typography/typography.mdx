@@ -1,6 +1,16 @@
-import { Meta, Markdown, Story } from '@storybook/addon-docs/blocks';
+import { Markdown, Meta, Story } from '@storybook/addon-docs/blocks';
 import Feedback from '../../common/feedback.md';
 import * as TypographyStories from './typography.stories.ts';
+import {
+  convertLineHeightToPx,
+  convertToPxAndRem,
+  fontFamilyVars,
+  fontSizeVars,
+  fontWeightVars,
+  lineHeightVars,
+  resolveVarValue,
+  typographyVariables,
+} from './typography-utils.ts';
 
 <Meta of={TypographyStories} />
 
@@ -12,27 +22,15 @@ Productive type is our default system and should be used in the majority of case
 
 ## Productive text
 
-The basis for the productive text scale is Roboto, chosen for its legibility and suitability for communicating key information to the user. It should be used for all instances of paragraph text, tabular text and interactive elements such as buttons. Roboto is available from <a href="https://fonts.google.com/specimen/Roboto" target="_blank">Google Fonts</a>.
+The basis for the productive text scale is Nunito Sans, chosen for its legibility and suitability for communicating key information to the user. It should be used for all instances of paragraph text, tabular text and interactive elements such as buttons. Nunito Sans is available from <a href="https://fonts.google.com/specimen/Nunito+Sans" target="_blank">Google Fonts</a>.
 
 We have created a flexible scale (based on our 4px grid) that allows you to apply any size to any text element while maintaining semantic hierarchy:
 
 <Story of={TypographyStories.Productive} />
 
-### Available weights
-
-We use Roboto Light for headings, and Roboto Medium for emphasis.
-
-300 - Light
-
-400 - Regular
-
-500 - Medium
-
-700 - Bold
-
 ## Expressive text
 
-The basis for the expressive scale is Lyon Display, which is our brand typeface. It should only be used in display settings at larger sizes where a greater degree of brand identity needs to be applied. You can find out more about Lyon Display, and where to get it on the <a href="https://www.legalandgeneralbrandhub.com/b/www/c/en-GB/BrandKnowledge/Guideline/2?Page=6" target="_blank">L\&G Brand Hub</a>.
+The basis for the expressive scale is ABC Otto, which is our brand typeface. It should only be used in display settings at larger sizes where a greater degree of brand identity needs to be applied. You can find out more about ABC Otto, and where to get it on the <a href="https://www.legalandgeneralbrandhub.com/b/www/c/en-GB/BrandKnowledge/Guideline/2?Page=6" target="_blank">L\&G Brand Hub</a>.
 
 <Story of={TypographyStories.Expressive} />
 
@@ -54,13 +52,152 @@ The basis for the expressive scale is Lyon Display, which is our brand typeface.
 * **Don't** use expressive text for paragraphs, or anything below `.lg-font-size-4` (32px) in size.
 * **Don't** use centre alignment for large passages of copy.
 
+## Additional development details
+
+### Typography Variables
+
+#### Font Families
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {fontFamilyVars.map(({ name, value, description }) => (
+      <tr key={name}>
+        <td><code>{name}</code></td>
+        <td><code>{value}</code></td>
+        <td>{description}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+#### Font Weights
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {fontWeightVars.map(({ name, value, description }) => (
+      <tr key={name}>
+        <td><code>{name}</code></td>
+        <td>{value}</td>
+        <td>{description}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+#### Font Sizes
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colSpan={2}>SM-MD</th>
+      <th colSpan={2}>LG upwards</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>px</th>
+      <th>Rem</th>
+      <th>px</th>
+      <th>Rem</th>
+    </tr>
+  </thead>
+  <tbody>
+    {fontSizeVars.map(([name, value]) => {
+      const { px, rem } = convertToPxAndRem(value, typographyVariables);
+      return (
+        <tr key={name}>
+          <td><code>{name}</code></td>
+          <td>{px}</td>
+          <td>{rem}</td>
+          <td>{px}</td>
+          <td>{rem}</td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
+
+#### Line Heights
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colSpan={2}>SM-MD</th>
+      <th colSpan={2}>LG upwards</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>px</th>
+      <th>Rem</th>
+      <th>px</th>
+      <th>Rem</th>
+    </tr>
+  </thead>
+  <tbody>
+    {lineHeightVars.map(([name, value]) => {
+      const resolved = resolveVarValue(value, typographyVariables);
+      const remValue = parseFloat(resolved);
+      const fontSizeKey = name.replace('--line-height-', '--font-size-');
+      const fontSize = typographyVariables[fontSizeKey] || '1rem';
+      const pxValue = convertLineHeightToPx(value, fontSize, typographyVariables);
+      return (
+        <tr key={name}>
+          <td><code>{name}</code></td>
+          <td>{pxValue}</td>
+          <td>{isNaN(remValue) ? 'N/A' : remValue}</td>
+          <td>{pxValue}</td>
+          <td>{isNaN(remValue) ? 'N/A' : remValue}</td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
+
+### Mixin
+
+Use the lg-font-size mixin to automatically apply the appropriate font size, weight, and line height across breakpoints.
+
+```scss
+@use "canopy/styles/mixins";
+
+...
+
+.class-name {
+  @include mixins.lg-font-size($size, $modifier: null, $type: null);
+  ...
+}
+```
+
+#### Inputs
+
+| Name        | Description                         |       Default        | Required |
+|-------------|-------------------------------------|:--------------------:|:--------:|
+| `$size` | The font size: `1`, `2`, `3` etc. |         n/a          |   Yes    |
+| `$modifier`    | The font weight: `300`, `400`, `500` etc.          | `300` |    No    |
+| `$type`    | The font family type if expressive: `expressive`  | `productive` |    No    |
+
 ## Accessibility
 
 It's important that we use typography in a way that provides an accessible experience to every user. Ensure typography is legible with enough contrast to ensure accessibility. If you're not sure, use <a href="https://webaim.org/resources/contrastchecker/" target="_blank">Colour Contrast Checker</a> or similar.
 
 ## Further information
 
-For further guidance on the use of Type please visit our <a href="https://www.legalandgeneralbrandhub.com/b/www/c/en-GB/BrandKnowledge/Guideline/2?Page=6" target="_blank">L\&G Brand Hub</a>.
+For further guidance on the use of Type please visit our <a href="https://brandportal.landg.com/point/en/legal-and-general/component/default/210862" target="_blank">L\&G Brand Hub</a>.
 
 <Markdown>
   {Feedback}

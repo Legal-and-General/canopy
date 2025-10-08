@@ -22,7 +22,7 @@
     margin-bottom: var(--space-sm);
     list-style-type: none;
 
-    @include mixins.lg-font-size('-6');
+    @include mixins.lg-font-size('0-6');
 
     &:last-child {
       margin-bottom: 0;

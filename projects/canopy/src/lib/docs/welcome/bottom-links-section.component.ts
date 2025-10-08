@@ -20,7 +20,7 @@ import { LgMarginDirective } from '../../spacing';
     LgLinkMenuItemComponent,
   ],
   template: `
-    <h2 class="lg-font--expressive lg-font-size-4--strong">{{ heading }}</h2>
+    <h2 class="lg-font--expressive lg-font-size-4--700">{{ heading }}</h2>
 
     <p>{{ text }}</p>
 

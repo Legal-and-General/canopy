@@ -1,90 +1,46 @@
-$fonts-path: '../assets/fonts' !default;
-$fonts-path-lyon: '/assets/fonts' !default;
+$fonts-path-otto: '../assets/fonts/otto' !default;
+$fonts-path-nunito-sans: '../assets/fonts/nunito-sans' !default;
 
 /*
-  Lyon - font path is not transformed by the build, see USAGE.md for details
+  Nunito Sans
  */
 @font-face {
-  font-family: 'Lyon';
+  font-family: 'Nunito Sans';
+  font-weight: 100 700;
   font-style: normal;
-  font-weight: 100;
   font-display: swap;
-  src: local('Lyon'), local('Lyon-Regular'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lyon';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: local('Lyon'), local('Lyon-Regular'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lyon';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Lyon Bold'), local('Lyon-Bold'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lyon';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Lyon Bold'), local('Lyon-Bold'),
-    url('#{$fonts-path-lyon}/lyon/lyon-display-bold.woff2') format('woff2');
+  src: url('#{$fonts-path-nunito-sans}/NunitoSans-VariableFont.ttf') format('truetype');
+  font-variation-settings:
+    'wdth' 100,
+    'YTLC' 500;
 }
 
 /*
-  Roboto - Restricted to Latin character sets with support back to IE 9
+  ABC Otto
  */
 
+/* Medium weight of Otto is the bold variant as it's the 500 weight.
+ 700 weight is only used by Productive font Nunito Sans */
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'ABC Otto';
   font-style: normal;
-  font-weight: 100;
   font-display: swap;
-  src: local('Roboto Thin'), local('Roboto-Thin'),
-    url('#{$fonts-path}/roboto/roboto-latin-thin.woff2') format('woff2');
+  font-weight: 300; // Light
+  src: url('#{$fonts-path-otto}/ABCOtto-Light.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'ABC Otto';
   font-style: normal;
-  font-weight: 300;
   font-display: swap;
-  src: local('Roboto Light'), local('Roboto-Light'),
-    url('#{$fonts-path}/roboto/roboto-latin-light.woff2') format('woff2');
+  font-weight: 400; // Regular
+  src: url('#{$fonts-path-otto}/ABCOtto-Medium.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'ABC Otto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500; // Medium
   font-display: swap;
-  src: local('Roboto'), local('Roboto-Regular'),
-    url('#{$fonts-path}/roboto/roboto-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Roboto Medium'), local('Roboto-Medium'),
-    url('#{$fonts-path}/roboto/roboto-latin-medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Roboto Bold'), local('Roboto-Bold'),
-    url('#{$fonts-path}/roboto/roboto-latin-bold.woff2') format('woff2');
+  src: url('#{$fonts-path-otto}/ABCOtto-Bold.woff2') format('woff2');
 }

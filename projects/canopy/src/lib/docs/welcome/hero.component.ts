@@ -14,7 +14,7 @@ import { LgMarginDirective } from '../../spacing';
       lgMarginBottom="lg"
     />
 
-    <h1 class="lg-font--expressive lg-font-size-7--strong" lgMarginBottom="sm">
+    <h1 class="lg-font--expressive lg-font-size-7--700" lgMarginBottom="sm">
       <span class="welcome-heading no-wrap">Welcome to Canopy,</span>
       <br />
       The digital design system

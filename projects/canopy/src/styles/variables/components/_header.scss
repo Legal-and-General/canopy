@@ -5,16 +5,15 @@
   --header-logo-width: 4rem;
   --header-logo-width-lg: 4rem;
   --header-shadow-height: 0.25rem;
-  --header-shadow: 0 var(--header-shadow-height) 0
-    rgba(var(--colour-greyscale-1000-rgb), 0.03);
+  --header-shadow: 0 var(--header-shadow-height) 0 rgba(0, 0, 0, 0.03);
 
-  --overlay-bg-color: rgba(var(--colour-greyscale-1000-rgb), 0.4);
+  --overlay-bg-color: rgba(0, 0, 0, 0.4);
 
   --nav-item-border-radius: 0.25rem;
   --nav-item-icon-height: 1.5rem;
 
-  --nav-item-color: var(--color-text);
-  --nav-item-color-hover: var(--color-text);
+  --nav-item-color: var(--text-default);
+  --nav-item-color-hover: var(--text-default);
   --nav-item-color-active: var(--colour-blue-600);
   --nav-item-color-expanded: var(--colour-greyscale-0);
 
@@ -38,9 +37,9 @@
   --notification-badge-width: 1.5rem;
   --notification-badge-height: 1.5rem;
 
-  --primary-nav-item-color: var(--color-text);
+  --primary-nav-item-color: var(--text-default);
   --primary-nav-item-color-hover: var(--colour-blue-600);
-  --primary-nav-item-color-hover-lg: var(--color-text);
+  --primary-nav-item-color-hover-lg: var(--text-default);
   --primary-nav-item-color-active: var(--colour-blue-900);
   --primary-nav-item-color-active-lg: var(--colour-blue-600);
 
