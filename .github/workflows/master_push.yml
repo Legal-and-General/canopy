@@ -96,6 +96,7 @@ jobs:
         run: npm run build:storybook -- --output-dir $SB_OUTPUT_DIR
 
       - name: 'Update visual baselines'
+        if: github.ref_name == 'master'
         run: npx percy storybook $SB_OUTPUT_DIR --config=.percy.yml
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
