@@ -49,14 +49,10 @@ jobs:
           unzip lg-sb-build.zip -d ./docs/lg-sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
           rm lg-sb-build.zip
 
-      - name: 'Set PERCY_TOKEN env var'
-        run: echo "PERCY_TOKEN_NAME=${{ startsWith(fromJSON(steps.prData.outputs.result).branch, 'bm-') && 'PERCY_TOKEN_BM' || 'PERCY_TOKEN' }}" >> $GITHUB_ENV
-
-
       - name: 'Visual comparison'
         run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }} --config=.percy.yml
         env:
-          PERCY_TOKEN: ${{ secrets[env.PERCY_TOKEN_NAME] }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
           NETWORK_IDLE_WAIT_TIMEOUT: 5000
 

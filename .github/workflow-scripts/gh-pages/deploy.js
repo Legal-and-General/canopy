@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 
 const DEFAULT_BRANCH = 'master';
-const BM_BRANCH = 'master-bm';
+const LEGACY_BRANCH = 'legacy';
 const ROOT_DOCS_PATH = './docs';
 const STORYBOOK_BUILD_PREFIX = 'lg-sb-';
 const STORYBOOK_BUILD_PATH = `./${STORYBOOK_BUILD_PREFIX}build`;
@@ -29,7 +29,7 @@ module.exports = async ({
 
   docsPath = `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`;
 
-  if (branch === BM_BRANCH) {
+  if (branch === LEGACY_BRANCH) {
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
 
     return;
@@ -174,7 +174,7 @@ async function undeploy({ branch, repo, owner, github, exec }) {
       .filter(item => item.isDirectory() &&
         item.name.startsWith(STORYBOOK_BUILD_PREFIX) &&
         item.name !== `${STORYBOOK_BUILD_PREFIX}${branch}` &&
-        item.name !== `${STORYBOOK_BUILD_PREFIX}${BM_BRANCH}`
+        item.name !== `${STORYBOOK_BUILD_PREFIX}${LEGACY_BRANCH}`
       )
       .map(({ name }) => name.replace(prefixRegex, ''));
 
