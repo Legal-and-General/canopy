@@ -2,7 +2,7 @@ name: 'CodeQL'
 
 on:
   push:
-    branches: [ "master", "next", "master-bm" ]
+    branches: [ "master", "next", "legacy" ]
   pull_request:
     types: [ opened, synchronize ]
 
