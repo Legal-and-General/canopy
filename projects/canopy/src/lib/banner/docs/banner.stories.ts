@@ -97,5 +97,8 @@ export const StandardBanner = {
         code: template,
       },
     },
+    percy: {
+      additionalSnapshots: [ { suffix: ' [warning]', args: { variant: 'warning' } } ],
+    },
   },
 };
