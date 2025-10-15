@@ -101,5 +101,13 @@ export const StandardVariant = {
         code: exampleTemplate,
       },
     },
+    percy: {
+      additionalSnapshots: [
+        { suffix: ' [info]', args: { variant: 'info' } },
+        { suffix: ' [success]', args: { variant: 'success' } },
+        { suffix: ' [warning]', args: { variant: 'warning' } },
+        { suffix: ' [error]', args: { variant: 'error' } },
+      ],
+    },
   },
 };
