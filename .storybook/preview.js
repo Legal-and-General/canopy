@@ -31,9 +31,6 @@ const preview = {
       theme: canopyTheme,
     }
   },
-  percy: {
-    waitForTimeout: 500 // Wait for half a second to ensure all elements are rendered before taking a snapshot
-  },
   initialGlobals: {
     // Set the initial background color
     backgrounds: { value: 'light' },
