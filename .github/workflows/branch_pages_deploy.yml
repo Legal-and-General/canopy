@@ -54,6 +54,7 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
+          PERCY_STORYBOOK_DOC_CAPTURE: true
           NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Notify GitHub of branch deployment'
