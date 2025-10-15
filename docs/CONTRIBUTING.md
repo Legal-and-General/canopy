@@ -63,6 +63,7 @@ Pre-requisites:
 ```bash
 export PERCY_BRANCH='local';
 export PERCY_TOKEN='<percy-token>'; # this is available in the Percy project settings
+export PERCY_STORYBOOK_DOC_CAPTURE: true;
 ```
 
 Run `npm run test:visual` to execute the visual regression tests locally.
