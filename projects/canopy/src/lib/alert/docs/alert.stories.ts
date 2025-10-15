@@ -83,5 +83,14 @@ export const StandardAlert = {
         code: template,
       },
     },
+    percy: {
+      additionalSnapshots: [
+        { suffix: ' [info]', args: { variant: 'info' } },
+        { suffix: ' [success]', args: { variant: 'success' } },
+        { suffix: ' [warning]', args: { variant: 'warning' } },
+        { suffix: ' [error]', args: { variant: 'error' } },
+        { suffix: ' [with icon]', args: { variant: 'info', showIcon: true } },
+      ],
+    },
   },
 };
