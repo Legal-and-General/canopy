@@ -101,6 +101,7 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: '${{ github.ref_name }}'
+          PERCY_STORYBOOK_DOC_CAPTURE: true
           NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Deployment to GitHub Pages'
