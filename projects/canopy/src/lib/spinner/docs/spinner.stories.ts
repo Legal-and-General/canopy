@@ -75,7 +75,7 @@ const template = `
 <lg-spinner [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
 `;
 
-export const StandardAlert = {
+export const StandardSpinner = {
   render: (args: LgSpinnerComponent) => ({
     props: args,
     template,
@@ -96,6 +96,20 @@ export const StandardAlert = {
           <p [lgSrAlertMessage]="loaded">Loading complete</p>
         `,
       },
+    },
+    percy: {
+      additionalSnapshots: [
+        {
+          suffix: ' [light]',
+          args: { variant: 'light' },
+          globals: {
+            backgrounds: { value: 'dark' },
+          },
+        },
+        { suffix: ' [colour]', args: { variant: 'color' } },
+        { suffix: ' [sm]', args: { size: 'sm' } },
+        { suffix: ' [lg]', args: { size: 'lg' } },
+      ],
     },
   },
 };
