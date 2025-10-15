@@ -24,6 +24,4 @@ upload:
   ignore: ''
   stripExtensions: false
 storybook:
-  # Waits for half a second to ensure all elements are rendered before taking a snapshot
-  waitForTimeout: 500
   exclude: [ '^.*\[Hidden|DEPRECATED\].*$',]
