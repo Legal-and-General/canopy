@@ -52,9 +52,11 @@ Styles text to one of the predefined font sizes. '0-8' and '0-6' are the sub bod
 
 ### Arguments
 
-| Name    | Description        | Default | Required |
-| ------- | ------------------ | :-----: | :------: | --- | --- | --- | --- | ---- | ---- | --- | --- |
-| `$size` | The font size, `7` |   `6`   |   `5`    | `4` | `3` | `2` | `1` | `0-8` | `0-6` | n/a | Yes |
+| Name        | Description                                                          |                   Default                    | Required |
+| ----------- | -------------------------------------------------------------------- | :------------------------------------------: | :------: |
+| `$size`     | The font size (e.g. `7`, `6`, `5`, `4`, `3`, `2`, `1`, `0-8`, `0-6`) |                     n/a                      |   Yes    |
+| `$modifier` | Font weight modifier, (e.g. `300`, `400`, `500`, `700`)              | `400` for Nunito Sans, `500` for ABC Otto |    No    |
+| `$type`     | Font family type (e.g. 'expressive')                                 |                     null                     |    No    |
 
 ## lg-visually-hidden
 
@@ -76,6 +78,6 @@ Styles components and native child elements to the specified variant.
 
 ### Arguments
 
-| Name       | Description                 | Default | Required  |
-| ---------- | --------------------------- | :-----: | :-------: | --------- | ------- | --------- | --- |
-| `$variant` | The variant type, `generic` | `info`  | `success` | `warning` | `error` | `generic` | No  |
+| Name       | Description                                                                          | Default | Required |
+| ---------- | ------------------------------------------------------------------------------------ | :-----: | :------: |
+| `$variant` | The variant type (e.g. `generic`, `info` , `success`, `warning`, `error`, `generic`) |   No    |
