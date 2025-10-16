@@ -186,7 +186,7 @@ export const StandardModal = {
       },
     },
     percy: {
-      waitForSelector: '.lg-modal',
+      waitForSelector: '.lg-card',
     },
   },
 };
