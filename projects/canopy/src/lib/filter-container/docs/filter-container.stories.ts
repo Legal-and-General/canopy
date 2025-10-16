@@ -95,6 +95,9 @@ export const StandardFilterContainer = {
       </button>
     `),
   }),
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.click(canvas.getByRole('button', { name: 'Filters' }));
+  },
   args: {
     variant: 'secondary-dark',
   },
@@ -109,6 +112,9 @@ export const StandardFilterContainer = {
           </button>
         `),
       },
+    },
+    percy: {
+      waitForSelector: '.lg-filter-container-panel--active',
     },
   },
 };
