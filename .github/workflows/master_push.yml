@@ -66,7 +66,6 @@ jobs:
 
   deploy:
     needs: [ build ]
-    if: github.ref_name == 'master' || github.ref_name == 'legacy'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -90,7 +89,7 @@ jobs:
         run: npm run build:icons
 
       - name: 'Set Storybook output directory'
-        run: echo "SB_OUTPUT_DIR=${{ github.ref_name == 'legacy' && './docs/lg-sb-legacy' || './lg-sb-build' }}" >> $GITHUB_ENV
+        run: echo "SB_OUTPUT_DIR=${{ github.ref_name == 'master' && './lg-sb-build' || format('./docs/lg-sb-{0}', github.ref_name) }}" >> $GITHUB_ENV
 
       - name: 'Build storybook'
         run: npm run build:storybook -- --output-dir $SB_OUTPUT_DIR
