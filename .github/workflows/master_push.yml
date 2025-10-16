@@ -13,10 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: 'Setup node'
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v6.0.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -38,10 +38,10 @@ jobs:
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: 'Setup node'
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v6.0.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -50,7 +50,7 @@ jobs:
         run: npm ci
 
       - name: 'Download dist folder'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: ${{ github.event.repository.name }}
           path: dist/canopy/
@@ -68,10 +68,10 @@ jobs:
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: 'Setup node'
-        uses: actions/setup-node@v4.4.0
+        uses: actions/setup-node@v6.0.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -80,7 +80,7 @@ jobs:
         run: npm ci
 
       - name: 'Download dist folder'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: ${{ github.event.repository.name }}
           path: dist/canopy/
@@ -104,7 +104,7 @@ jobs:
           NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Deployment to GitHub Pages'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');

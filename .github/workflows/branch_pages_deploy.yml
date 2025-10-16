@@ -11,9 +11,9 @@ jobs:
   deploy-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4.4.0
+      - uses: actions/setup-node@v6.0.0
         with:
           node-version-file: '.nvmrc'
 
@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: 'Save PR data'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: prData
         with:
           script: |
@@ -33,7 +33,7 @@ jobs:
             });
 
       - name: 'Download artifacts from PR'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const downloadArtifact = require('./.github/workflow-scripts/gh-pages/download-branch-deploy-artifact.js');
@@ -58,7 +58,7 @@ jobs:
           NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Notify GitHub of branch deployment'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: deploymentId
         with:
           script: |
@@ -70,7 +70,7 @@ jobs:
             });
 
       - name: 'Notify GitHub of deployment in progress'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
@@ -83,7 +83,7 @@ jobs:
             });
 
       - name: 'Branch deployment to GitHub Pages'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
@@ -102,7 +102,7 @@ jobs:
 
       - name: 'Notify GitHub of deployment status'
         if: always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
@@ -116,7 +116,7 @@ jobs:
 
       - name: 'Add label to PR'
         if: success()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const addLabels = require('./.github/workflow-scripts/add-labels.js');
