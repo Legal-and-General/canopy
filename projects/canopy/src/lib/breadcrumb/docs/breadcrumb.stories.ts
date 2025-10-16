@@ -102,6 +102,17 @@ export const ThreeItems = {
         code: template,
       },
     },
+    percy: {
+      additionalSnapshots: [
+        {
+          suffix: ' [light]',
+          args: { variant: BreadcrumbVariant.light },
+          globals: {
+            backgrounds: { value: 'dark' },
+          },
+        },
+      ],
+    },
   },
 };
 
@@ -140,6 +151,17 @@ export const Ellipsis = {
       source: {
         code: ellipisTemplate,
       },
+    },
+    percy: {
+      additionalSnapshots: [
+        {
+          suffix: ' [light]',
+          args: { variant: BreadcrumbVariant.light },
+          globals: {
+            backgrounds: { value: 'dark' },
+          },
+        },
+      ],
     },
   },
 };
