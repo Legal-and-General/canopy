@@ -15,10 +15,8 @@ They are used to group promotional content within a page.
 Import the following components in your application:
 
 ```js
-@NgModule({
   ...
   imports: [ ..., LgCardComponent, etc., LgMarginComponent, LgPaddingComponent, LgOrientationComponent, LgShadowComponent ],
-});
 ```
 
 and in your HTML, for a general promotion card with image:
@@ -206,7 +204,7 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
 
 ### Magazine layout
 
-To achieve this layout add the `LgSeparatorModule` to the module imports.
+To achieve this layout add the `LgSeparatorComponent` to the imports.
 
 ```html
 <div lgContainer>
@@ -254,96 +252,6 @@ To achieve this layout add the `LgSeparatorModule` to the module imports.
         variant="promotion"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
-        </lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="lg">{{ text }}</p>
-          <a href="#">{{ buttonText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-  </div>
-  <div lgRow>
-    <div lgCol="12">
-      <lg-separator variant="dotted" lgMarginTop="none"></lg-separator>
-    </div>
-    <div lgColSm="12" lgColLg="6">
-      <lg-card
-        lgShadow [hasHoverState]="true"
-        lgMarginBottom="lg"
-        lgPadding="none"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [cover]="true" [src]="imageUrl">
-        </lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="lg">{{ text }}</p>
-          <a href="#">{{ buttonText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-    <div lgColSm="12" lgColLg="6">
-      <lg-card
-        lgShadow [hasHoverState]="true"
-        lgMarginBottom="lg"
-        lgPadding="none"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [cover]="true" [src]="imageUrl">
-        </lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="lg">{{ text }}</p>
-          <a href="#">{{ buttonText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-  </div>
-  <div lgRow>
-    <div lgCol="12">
-      <lg-separator variant="dotted" lgMarginTop="none"></lg-separator>
-    </div>
-    <div lgColSm="12" lgColLg="4">
-      <lg-card
-        lgShadow [hasHoverState]="true"
-        lgMarginBottom="lg"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img>
-          <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
-        </lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="lg">{{ text }}</p>
-          <a href="#">{{ buttonText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-    <div lgColSm="12" lgColLg="4">
-      <lg-card
-        lgShadow [hasHoverState]="true"
-        lgMarginBottom="lg"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img>
-          <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
-        </lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="lg">{{ text }}</p>
-          <a href="#">{{ buttonText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-    <div lgColSm="12" lgColLg="4">
-      <lg-card
-        lgShadow [hasHoverState]="true"
-        lgMarginBottom="lg"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img>
-          <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSkeletonDirective } from '../skeleton.directive';
@@ -55,18 +55,17 @@ interface Data {
   ],
 })
 class AsyncSkeletonLoadingCardComponent implements OnInit {
+  @Input() delay = 5000;
   data: Data = null;
 
   ngOnInit() {
-    const mockAsyncDelay = 5000;
-
     setTimeout(() => {
       this.data = {
         title: 'Title of product',
         content:
           'Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.',
       };
-    }, mockAsyncDelay);
+    }, this.delay);
   }
 }
 
@@ -129,11 +128,10 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
   ],
 })
 class AsyncSkeletonLoadingProductCardComponent implements OnInit {
+  @Input() delay = 5000;
   data: Data = null;
 
   ngOnInit() {
-    const mockAsyncDelay = 5000;
-
     setTimeout(() => {
       this.data = {
         title: 'Card title',
@@ -145,7 +143,7 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
           suffix: 'as of 01 Jan 2020',
         },
       };
-    }, mockAsyncDelay);
+    }, this.delay);
   }
 }
 
@@ -175,10 +173,11 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
   ],
 })
 class AsyncSkeletonLoadingDataPointComponent implements OnInit {
+  @Input() delay = 5000;
   data: Data = null;
 
   ngOnInit() {
-    const mockAsyncDelay = 5000;
+    console.info('Loading data point', this.delay);
 
     setTimeout(() => {
       this.data = {
@@ -187,7 +186,7 @@ class AsyncSkeletonLoadingDataPointComponent implements OnInit {
           value: '£999.99',
         },
       };
-    }, mockAsyncDelay);
+    }, this.delay);
   }
 }
 
@@ -208,9 +207,9 @@ export default {
 } as Meta;
 
 const skeletonTemplate = `
-<lg-async-skeleton-loading-card></lg-async-skeleton-loading-card>
-<lg-async-skeleton-loading-product-card></lg-async-skeleton-loading-product-card>
-<lg-async-skeleton-loading-data-point></lg-async-skeleton-loading-data-point>
+<lg-async-skeleton-loading-card [delay]="delay"></lg-async-skeleton-loading-card>
+<lg-async-skeleton-loading-product-card [delay]="delay"></lg-async-skeleton-loading-product-card>
+<lg-async-skeleton-loading-data-point [delay]="delay"></lg-async-skeleton-loading-data-point>
 `;
 
 export const DefaultSkeleton = {
@@ -219,11 +218,17 @@ export const DefaultSkeleton = {
     props: args,
     template: skeletonTemplate,
   }),
+  args: {
+    delay: 5000,
+  },
   parameters: {
     docs: {
       source: {
         code: skeletonTemplate,
       },
+    },
+    percy: {
+      args: { delay: '100000' },
     },
   },
 };

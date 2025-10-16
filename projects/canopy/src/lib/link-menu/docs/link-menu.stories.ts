@@ -61,37 +61,47 @@ interface MenuItems {
   icon: string;
 }
 
-function getDefaultMenuItems(): Array<MenuItems> {
+function getDefaultMenuItems(withIcons = true): Array<MenuItems> {
   return [
     {
       title: 'Overview',
       description: '',
       target: null,
-      icon: 'information',
+      icon: withIcons
+        ? 'information'
+        : '',
     },
     {
       title: 'Personal Details',
       description: 'Name, date of birth, marital status',
       target: '_blank',
-      icon: 'profile',
+      icon: withIcons
+        ? 'profile'
+        : '',
     },
     {
       title: 'Contact',
       description: 'Email, address and phone numbers',
       target: null,
-      icon: 'mail',
+      icon: withIcons
+        ? 'mail'
+        : '',
     },
     {
       title: 'Login and security',
       description: 'Reset your password and get a User ID reminder',
       target: null,
-      icon: 'security',
+      icon: withIcons
+        ? 'security'
+        : '',
     },
     {
       title: 'Preferences',
       description: 'How we send you documents and marketing',
       target: null,
-      icon: 'console',
+      icon: withIcons
+        ? 'console'
+        : '',
     },
   ];
 }
@@ -111,5 +121,8 @@ export const StandardLinkMenu = {
         code: template,
       },
     },
+    additionalSnapshots: [
+      { suffix: ' [without icons]', args: { menuItems: getDefaultMenuItems(false) } },
+    ],
   },
 };
