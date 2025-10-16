@@ -8,7 +8,6 @@ on:
 
 jobs:
   verify:
-    if: ${{ !startsWith(github.head_ref, 'dependabot/')  }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: 'Lint commit'
-        if: ${{ !contains(github.head_ref, 'dependabot/') }}
+        if: ${{ !startsWith(github.head_ref, 'dependabot-')  }}
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
       - name: 'Eslint'
