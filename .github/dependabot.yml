@@ -1,64 +1,128 @@
 version: 2
 updates:
 
-  # Maintain dependencies for GitHub Actions in `.github/workflows`
   - package-ecosystem: 'github-actions'
-    open-pull-requests-limit: 10
-    # Workflow files stored in the
-    # default location of `.github/workflows`
-    directory: '/'
-    commit-message:
-      include: 'scope'
-      prefix: 'gh-actions'
-    schedule:
-      day: 'friday'
-      interval: 'weekly'
-      time: '18:00'
-      timezone: 'Europe/London'
-    pull-request-branch-name:
-      separator: '-'
-    groups:
-      gh-actions:
-        applies-to: version-updates
-        patterns:
-          - "*"
-
-  # Maintain dependencies for npm
-  - package-ecosystem: 'npm'
     open-pull-requests-limit: 15
-    # Files stored in repository root
     directory: '/'
     commit-message:
       include: 'scope'
-      prefix: 'npm'
+      prefix: 'chore'
     schedule:
-      day: 'friday'
-      interval: 'weekly'
+      interval: 'daily'
       time: '18:00'
       timezone: 'Europe/London'
     pull-request-branch-name:
       separator: '-'
     groups:
-      npm:
-        applies-to: version-updates
+      actions:
         patterns:
-          - "*"
-    # Please keep alphabetically sorted:
-    ignore:
-      - dependency-name: '*'
-        update-types: [ "version-update:semver-patch" ]
-      - dependency-name: "@angular/*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular-devkit/*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@angular-devkit/build-angular"
-      - dependency-name: "@angular-eslint/*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@storybook/*"
-        update-types: [ "version-update:semver-major" ]
-      - dependency-name: "@types/node"
-        update-types: [ "version-update:semver-major" ]
-      - dependency-name: "nx"
-        update-types: [ "version-update:semver-major" ]
-      - dependency-name: 'typescript'
+          - '*'
+
+  # We have two entries for npm, with a 'target-branch' key on one as it's a hack
+  # until Dependabot supports multiple configurations per ecosystem:
+  # https://github.com/dependabot/dependabot-core/issues/1778#issuecomment-1988140219
+  #
+  # We do this as there's no other way to ignore patch updates for Angular and Storybook only.
+  # Ideally we could allow all minor updates globally, then ignore them per-group, but
+  # Dependabot doesn't support that, since groups are inclusive only and ignore is
+  # global. Since we want to allow minor updates in other groups, we have to split the
+  # Angular and Storybook groups into a separate configuration using the hack.
+
+  # MAJOR UPDATES ONLY
+  - package-ecosystem: 'npm'
+    target-branch: master
     versioning-strategy: increase
+    open-pull-requests-limit: 15
+    commit-message:
+      include: 'scope'
+      prefix: 'chore'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '18:00'
+      timezone: 'Europe/London'
+    pull-request-branch-name:
+      separator: '-'
+    groups:
+      npm-dev-major:
+        dependency-type: development
+        patterns:
+          - '*'
+        exclude-patterns:
+          - '@angular-builders/*'
+          - '@angular-devkit/*'
+          - '@angular-eslint/*'
+          - '@angular/*'
+          - '@storybook/*'
+          - 'eslint-plugin-storybook'
+          - 'ng-packagr'
+          - 'storybook'
+          - 'typescript'
+      npm-prod-major:
+        dependency-type: production
+        patterns:
+          - '*'
+        exclude-patterns:
+          - '@angular/*'
+          - 'rxjs'
+          - 'zone.js'
+      storybook-major:
+        patterns:
+          - '@storybook/*'
+          - 'eslint-plugin-storybook'
+          - 'storybook'
+      angular-major:
+        patterns:
+          - '@angular-builders/*'
+          - '@angular-devkit/*'
+          - '@angular-eslint/*'
+          - '@angular/*'
+          - 'ng-packagr'
+          - 'rxjs'
+          - 'typescript'
+          - 'zone.js'
+    ignore:
+      # This ecosystem configuration is only for major updates
+      - dependency-name: '*'
+        update-types: [ 'version-update:semver-patch', 'version-update:semver-minor' ]
+
+  # MINOR UPDATES ONLY
+  - package-ecosystem: 'npm'
+    versioning-strategy: increase
+    open-pull-requests-limit: 15
+    commit-message:
+      include: 'scope'
+      prefix: 'chore'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '18:00'
+      timezone: 'Europe/London'
+    pull-request-branch-name:
+      separator: '-'
+    groups:
+      npm-dev-minor:
+        dependency-type: development
+        patterns:
+          - '*'
+      npm-prod-minor:
+        dependency-type: production
+        patterns:
+          - '*'
+    ignore:
+      # This ecosystem configuration is only for minor updates
+      - dependency-name: '*'
+        update-types: [ 'version-update:semver-patch', 'version-update:semver-major' ]
+      # Ignore all Storybook and Angular updates as they are covered by the other ecosystem configuration
+      - dependency-name: '@angular-builders/*'
+      - dependency-name: '@angular-devkit/*'
+      - dependency-name: '@angular-eslint/*'
+      - dependency-name: '@angular/*'
+      - dependency-name: '@storybook/*'
+      - dependency-name: 'eslint-plugin-storybook'
+      - dependency-name: 'ng-packagr'
+      - dependency-name: 'rxjs'
+      - dependency-name: 'storybook'
+      - dependency-name: 'typescript'
+      - dependency-name: 'zone.js'
+
