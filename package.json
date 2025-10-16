@@ -50,7 +50,7 @@
     "@angular/platform-browser": "19.2.14",
     "@angular/platform-browser-dynamic": "19.2.14",
     "@angular/router": "19.2.14",
-    "core-js": "3.42.0",
+    "core-js": "3.46.0",
     "date-fns": "4.1.0",
     "rxjs": "7.8.1",
     "tslib": "2.8.1",
