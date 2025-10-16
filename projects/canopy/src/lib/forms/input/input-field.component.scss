@@ -98,6 +98,11 @@
   outline: 0;
   max-width: 100%;
 
+  &::placeholder {
+    color: var(--color-charcoal);
+    opacity: 1;
+  }
+
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
