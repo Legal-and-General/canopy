@@ -10,6 +10,7 @@ import { LgIconComponent } from '../../icon';
 
 export default {
   title: 'Components/Breadcrumb/Examples',
+  tags: [ 'pending' ],
   component: LgBreadcrumbComponent,
   decorators: [
     moduleMetadata({

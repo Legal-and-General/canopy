@@ -2,10 +2,13 @@ import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
 import * as CardStories from './card.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Components/Card/Guide" />
+<Meta title="Components/Card/Guide" tags={['pending']}/>
 
 # Card
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Cards are containers for content and actions on a specific topic.</p>
 

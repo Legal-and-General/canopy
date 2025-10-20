@@ -1,10 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as PrimaryMessageStories from './primary-message.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Components/Primary message/Guide" />
+<Meta title="Components/Primary message/Guide" tags={['pending']}/>
 
 # Primary message
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">A message that sits in the page and provides a simple and engaging message to the user.</p>
 

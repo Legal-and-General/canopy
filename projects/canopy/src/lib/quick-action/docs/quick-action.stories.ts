@@ -39,6 +39,7 @@ class LgQuickActionButtonComponent {
 
 export default {
   title: 'Components/Quick action/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LgQuickActionButtonComponent, LgQuickActionLinkComponent ],

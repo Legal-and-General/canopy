@@ -1,10 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeaderStories from './header.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Components/Header/Guide" />
+<Meta title="Components/Header/Guide" tags={['pending']}/>
 
 # Header
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Provides a generic header for display at the top of the page.</p>
 

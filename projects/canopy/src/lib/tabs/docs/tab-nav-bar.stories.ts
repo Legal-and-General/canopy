@@ -8,6 +8,7 @@ import { LgTabNavContentComponent } from '../tab-nav-content/tab-nav-content.com
 
 export default {
   title: 'Components/Tabs/Examples',
+  tags: [ 'pending' ],
   component: LgTabsComponent,
   decorators: [
     moduleMetadata({

@@ -214,6 +214,7 @@ const skeletonTemplate = `
 
 export const DefaultSkeleton = {
   name: 'Skeleton Loading',
+  tags: [ 'pending' ],
   render: (args: LgSkeletonDirective) => ({
     props: args,
     template: skeletonTemplate,

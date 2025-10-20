@@ -1,10 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as SpinnerStories from './spinner.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Components/Spinner/Guide" />
+<Meta title="Components/Spinner/Guide" tags={['pending']}/>
 
 # Spinner
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">A spinner lets the user know that something is happening. They are normally used on form submissions or loading pages when the data retrieval is typically slow.</p>
 

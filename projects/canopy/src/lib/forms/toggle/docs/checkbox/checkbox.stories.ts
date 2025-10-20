@@ -6,6 +6,7 @@ import { createToggleStory, ReactiveToggleFormComponent } from '../toggle.storie
 
 export default {
   title: 'Components/Forms/Checkbox/Examples',
+  tags: [ 'pending' ],
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({

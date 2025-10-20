@@ -150,16 +150,20 @@ module.exports = {
     '../projects/canopy/src/styles/docs/mixins.mdx',
     '../projects/canopy/src/styles/docs/utils.mdx',
   ],
-  addons: ['@storybook/addon-a11y', {
-    name: '@storybook/addon-docs',
-    options: {
-      mdxPluginOptions: {
-        mdxCompileOptions: {
-          remarkPlugins: [remarkGfm],
+    addons: [
+    '@storybook/addon-a11y',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
         },
       },
     },
-  }],
+    'storybook-addon-tag-badges'
+  ],
   staticDirs: [
     '../assets/',
   ],

@@ -430,6 +430,7 @@ const argTypes = {
 
 export default {
   title: 'Components/Table/Examples',
+  tags: [ 'pending' ],
   component: LgTableComponent,
   excludeStories: [ 'StoryTableDetailComponent' ],
   decorators: [

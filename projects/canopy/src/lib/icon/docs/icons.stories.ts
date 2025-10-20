@@ -60,6 +60,7 @@ const colours = [
 
 export default {
   title: 'Foundations/UI icon/Catalog',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ SwatchIconComponent, LgIconComponent ],

@@ -1,10 +1,13 @@
 import { Meta, Markdown, Source, Story, Controls } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as ListStories from './lists.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Components/List/Guide" />
+<Meta title="Components/List/Guide"  tags={['pending']}/>
 
 # List
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Lists are used to list an array of items.</p>
 

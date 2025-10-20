@@ -7,6 +7,7 @@ import { LgSeparatorComponent } from '../../separator';
 // This default export determines where your story goes in the story list
 export default {
   title: 'Helpers/Directives/Hide at/Examples',
+  tags: [ 'pending' ],
   component: LgHideAtDirective,
   decorators: [
     moduleMetadata({

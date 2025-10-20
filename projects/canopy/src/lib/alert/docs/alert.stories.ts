@@ -8,6 +8,7 @@ const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Inline message (Alert)/Examples',
+  tags: [ 'pending' ],
   component: LgAlertComponent,
   decorators: [
     moduleMetadata({

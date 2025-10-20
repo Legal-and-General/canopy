@@ -5,6 +5,7 @@ import { LgButtonComponent } from '../button.component';
 
 export default {
   title: 'Components/Button/Examples',
+  tags: [ 'pending' ],
   component: LgButtonGroupComponent,
   decorators: [
     moduleMetadata({

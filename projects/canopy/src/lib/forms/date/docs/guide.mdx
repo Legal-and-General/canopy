@@ -1,9 +1,12 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Patterns/Date input/Guide" />
+<Meta title="Patterns/Date input/Guide" tags={['pending']}/>
 
 # Date input
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Provides a component for capturing and validating a date.</p>
 The output is a concatenation of individual string values into a valid ISO 8601 date format 'YYYY-MM-DD'.

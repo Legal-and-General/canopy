@@ -1,10 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as DataPointStories from './data-point.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Components/Data point/Guide" />
+<Meta title="Components/Data point/Guide" tags={['pending']}/>
 
 # Data point
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Display data organised by heading and value. A data point can be used on its own, or grouped into a data point list where each one will be displayed horizontally and given a list-item role.</p>
 
