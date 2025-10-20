@@ -47,7 +47,7 @@ You can do that by using the `skip-content` class:
 .skip-content {
   background: var(--colour-greyscale-0);
   border: 0 !important;
-  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
   height: auto !important;
   margin: 0 !important;
   overflow: hidden !important;
@@ -58,8 +58,8 @@ You can do that by using the `skip-content` class:
 
   &:focus-visible,
   &:active {
+    clip-path: none !important;
     left: 0;
-    clip: auto !important;
     width: auto !important;
     height: auto !important;
     z-index: var(--z-index-skip-link);
