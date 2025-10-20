@@ -186,6 +186,7 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Forms/Text input/Examples',
+  tags: [ 'pending' ],
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({

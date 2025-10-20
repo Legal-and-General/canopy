@@ -62,6 +62,7 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Patterns/Sort code/Examples',
+  tags: [ 'pending' ],
   component: LgSortCodeDirective,
   decorators: [
     moduleMetadata({

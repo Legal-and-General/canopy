@@ -5,6 +5,7 @@ import { LgButtonComponent } from '../../button';
 
 export default {
   title: 'Helpers/Directives/Focus/Examples',
+  tags: [ 'pending' ],
   component: LgFocusDirective,
   decorators: [
     moduleMetadata({

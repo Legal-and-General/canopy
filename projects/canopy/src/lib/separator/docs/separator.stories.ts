@@ -4,6 +4,7 @@ import { LgSeparatorComponent } from '../separator.component';
 
 export default {
   title: 'Components/Separator/Examples',
+  tags: [ 'pending' ],
   component: LgSeparatorComponent,
   decorators: [
     moduleMetadata({

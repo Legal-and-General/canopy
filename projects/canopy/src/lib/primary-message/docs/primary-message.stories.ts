@@ -42,6 +42,7 @@ class LgPrimaryMessageStoryComponent {
 
 export default {
   title: 'Components/Primary message/Examples',
+  tags: [ 'pending' ],
   component: LgPrimaryMessageStoryComponent,
   decorators: [
     moduleMetadata({

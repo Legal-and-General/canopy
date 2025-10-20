@@ -26,6 +26,7 @@ const buttonVariants = [ 'primary-dark', 'secondary-dark' ];
 // This default export determines where your story goes in the story list
 export default {
   title: 'Patterns/Filter container/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

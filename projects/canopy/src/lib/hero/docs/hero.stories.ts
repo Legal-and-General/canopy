@@ -199,6 +199,7 @@ class HeroProductStoryComponent {
 
 export default {
   title: 'Patterns/Hero/Examples',
+  tags: [ 'pending' ],
   excludeStories: [ 'productHeroHTML', 'conversationalHeroHTML' ],
   decorators: [
     moduleMetadata({

@@ -67,6 +67,7 @@ class GeneralPromotionCardComponent {
 
 export default {
   title: 'Patterns/Promotions/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

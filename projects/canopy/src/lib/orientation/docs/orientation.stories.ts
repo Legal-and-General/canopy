@@ -40,6 +40,7 @@ const template = `
 
 export default {
   title: 'Helpers/Directives/Orientation/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

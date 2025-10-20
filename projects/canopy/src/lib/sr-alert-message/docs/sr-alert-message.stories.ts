@@ -5,6 +5,7 @@ import { LgSrAlertMessageDirective } from '../sr-alert-message.directive';
 // This default export determines where your story goes in the story list
 export default {
   title: 'Helpers/Directives/Screen reader alert message/Examples',
+  tags: [ 'pending' ],
   component: LgSrAlertMessageDirective,
   decorators: [
     moduleMetadata({

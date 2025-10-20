@@ -62,6 +62,7 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Filter buttons/Examples',
+  tags: [ 'pending' ],
   component: LgCheckboxGroupComponent,
   decorators: [
     moduleMetadata({

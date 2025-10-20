@@ -7,6 +7,7 @@ import { LgProgressHeaderComponent } from '../progress-header/progress-header.co
 
 export default {
   title: 'Components/Progress indicator/Examples',
+  tags: [ 'pending' ],
   component: LgProgressIndicatorComponent,
   decorators: [
     moduleMetadata({

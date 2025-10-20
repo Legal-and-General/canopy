@@ -6,6 +6,7 @@ import { LgMarginDirective } from '../../../lib/spacing';
 
 export default {
   title: 'Components/Link/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LgAlertComponent, LgMarginDirective ],

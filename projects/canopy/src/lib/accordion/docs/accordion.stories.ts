@@ -70,6 +70,7 @@ class AccordionWrapperComponent {
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Accordion/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

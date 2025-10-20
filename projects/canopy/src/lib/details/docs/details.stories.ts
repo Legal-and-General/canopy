@@ -34,6 +34,7 @@ class DetailsExampleComponent {
 
 export default {
   title: 'Components/Details/Examples',
+  tags: [ 'pending' ],
   component: LgDetailsComponent,
   decorators: [
     moduleMetadata({

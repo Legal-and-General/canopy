@@ -40,6 +40,7 @@ class LinkMenuStoryComponent {
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Link menu/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LinkMenuStoryComponent ],

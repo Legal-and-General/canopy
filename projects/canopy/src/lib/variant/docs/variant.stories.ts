@@ -50,6 +50,7 @@ class LgVariantStoryComponent {
 
 export default {
   title: 'Helpers/Directives/Variant/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LgVariantStoryComponent ],

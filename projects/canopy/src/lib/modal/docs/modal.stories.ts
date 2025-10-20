@@ -48,6 +48,7 @@ class ModalWrapperComponent {
 
 export default {
   title: 'Components/Modal/Examples',
+  tags: [ 'pending' ],
   // TODO use subcomponents and define argTypes once this issue is resolved: https://github.com/storybookjs/storybook/issues/14710
   // subcomponents: { LgModalHeaderComponent,LgModalBodyComponent, LgModalBodyTimerComponent },
   decorators: [

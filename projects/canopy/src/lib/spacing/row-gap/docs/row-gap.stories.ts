@@ -85,6 +85,7 @@ class LgRowGapStoryComponent {
 
 export default {
   title: 'Helpers/Directives/Row gap/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LgRowGapStoryComponent ],
