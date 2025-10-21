@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-benefits',
-  imports: [ CommonModule, LgMarginDirective ],
+  imports: [ LgMarginDirective ],
   template: `
     <h2 class="lg-font--expressive lg-font-size-4--700">Benefits of Canopy</h2>
 
     <ul lgMargin="none" class="docs-list">
-      <li *ngFor="let benefit of benefits" class="docs-list-item">
-        <img class="benefits__img" lgMarginBottom="xxs" [src]="benefit.src" alt="" />
-        <span class="lg-font-size-3">{{ benefit.text }}</span>
-      </li>
+      @for (benefit of benefits; track benefit) {
+        <li class="docs-list-item">
+          <img class="benefits__img" lgMarginBottom="xxs" [src]="benefit.src" alt="" />
+          <span class="lg-font-size-3">{{ benefit.text }}</span>
+        </li>
+      }
     </ul>
   `,
   styleUrls: [ './docs-list.scss' ],

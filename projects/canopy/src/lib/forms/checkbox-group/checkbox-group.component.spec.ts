@@ -33,9 +33,9 @@ const hintTestId = 'test-hint-id';
         <lg-toggle value="red">Red</lg-toggle>
         <lg-toggle value="yellow">Yellow</lg-toggle>
         <lg-toggle value="blue">Blue</lg-toggle>
-        <lg-validation id="${validationTestId}" *ngIf="isControlInvalid(color, testForm)">
-          Error
-        </lg-validation>
+        @if (isControlInvalid(color, testForm)) {
+          <lg-validation id="${validationTestId}"> Error </lg-validation>
+        }
       </lg-filter-multiple-group>
     </form>
   `,
@@ -46,7 +46,6 @@ const hintTestId = 'test-hint-id';
     LgToggleComponent,
     LgValidationComponent,
     LgHintComponent,
-    NgIf,
   ],
 })
 class TestCheckboxGroupComponent {

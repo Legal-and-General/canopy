@@ -5,7 +5,6 @@ import {
 } from '@angular/forms';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
 import { LgRadioButtonComponent } from '../../radio-button.component';
@@ -33,7 +32,6 @@ const formTemplate = `
     LgRadioGroupComponent,
     LgHintComponent,
     LgRadioButtonComponent,
-    NgIf,
   ],
 })
 class ReactiveFormRadioComponent {

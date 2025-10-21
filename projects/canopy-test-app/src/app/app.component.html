@@ -70,343 +70,445 @@
                     2T
                     <span lgMarginLeft="sm" class="lg-font-size-1"
                       >Received on 12 Mar 2019</span
+                      >
+                    </lg-hero-card-data-point-value>
+                  </lg-hero-card-data-point>
+                </lg-hero-card-content>
+                <lg-hero-card-footer>
+                  <small class="lg-font-size-0-6"
+                    >* This is not a guaranteed amount and could be subject to
+                    change.</small
                     >
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-              </lg-hero-card-content>
-              <lg-hero-card-footer>
-                <small class="lg-font-size-0-6"
-                  >* This is not a guaranteed amount and could be subject to
-                  change.</small
-                >
-              </lg-hero-card-footer>
-            </lg-hero-card>
-          </div>
-        </div>
-      </div>
-    </lg-hero-content>
-  </lg-hero>
-
-  <div lgContainer>
-    <div lgRow>
-      <div lgCol="12">
-        <aside lg-card-group lgMarginBottom="xl">
-          <lg-card>
-            <lg-card-header>
-              <lg-card-navigation-title title="The title" link="/foo" [headingLevel]="2"></lg-card-navigation-title>
-            </lg-card-header>
-            <lg-card-content>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </lg-card-content>
-            <lg-card-footer lgMarginTop="md" lgPaddingTop="none">
-              <lg-link-menu>
-                <a href="" target="_blank">
-                  <lg-link-menu-item>
-                    <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
-                  </lg-link-menu-item>
-                </a>
-                <a href="">
-                  <lg-link-menu-item>
-                    <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
-                  </lg-link-menu-item>
-                </a>
-              </lg-link-menu>
-            </lg-card-footer>
-          </lg-card>
-          <lg-card>
-            <lg-card-header>
-              <lg-card-navigation-title title="The title" link="/boo" headingLevel="2"></lg-card-navigation-title>
-            </lg-card-header>
-            <lg-card-content>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </lg-card-content>
-          </lg-card>
-          <lg-card>
-            <lg-card-header>
-              <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
-            </lg-card-header>
-            <lg-card-content>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </lg-card-content>
-          </lg-card>
-          <lg-card>
-            <lg-card-header>
-              <lg-card-navigation-title title="The title" link="/test" headingLevel="2"></lg-card-navigation-title>
-            </lg-card-header>
-            <lg-card-content>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </lg-card-content>
-          </lg-card>
-        </aside>
-      </div>
-    </div>
-
-    <div lgRow>
-      <div lgCol="12" lgColLg="9" lgColMdOffset="0">
-        <lg-card>
-          <lg-card-content>
-            <lg-heading [level]="3">Accordion</lg-heading>
-
-            <lg-accordion [headingLevel]="3">
-              <lg-accordion-item>
-                <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </lg-accordion-item>
-              <lg-accordion-item>
-                <lg-accordion-panel-heading>Item 2</lg-accordion-panel-heading>
-                <p>
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                  voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-                <button lg-button lgMarginTop="sm" variant="primary-dark">
-                  Test primary dark button
-                </button>
-              </lg-accordion-item>
-              <lg-accordion-item>
-                <lg-accordion-panel-heading><lg-icon name="notes"></lg-icon>Accordion item with icon and very long heading text</lg-accordion-panel-heading>
-                <p>
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                  voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-              </lg-accordion-item>
-            </lg-accordion>
-
-            <lg-separator></lg-separator>
-            <lg-heading [level]="3">Alert</lg-heading>
-
-            <lg-alert variant="info">
-              <lg-heading [level]="4">Test heading</lg-heading>
-              Information alert with some <a href="#"> link text</a> as an example.
-            </lg-alert>
-
-            <lg-alert variant="warning"> Warning alert with some <a href="#"> link text</a> as an example.</lg-alert>
-
-            <lg-alert variant="success"> Success alert with some <a href="#"> link text</a> as an example.</lg-alert>
-
-            <lg-alert variant="error"> Error alert with some <a href="#"> link text</a> as an example.</lg-alert>
-
-            <lg-alert variant="generic">
-              Generic alert with some <a href="#"> link text</a> as an example.
-              <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-              </ul>
-            </lg-alert>
-
-            <lg-separator></lg-separator>
-            <lg-heading [level]="3">Buttons</lg-heading>
-
-            <a href="#" lg-button variant="primary-dark">Primary dark button</a>
-            <br />
-
-            <a href="#" lg-button variant="secondary-dark">Secondary dark button</a>
-            <br />
-
-            <button lg-button variant="primary-dark" [loading]="true">
-              Loading button
-            </button>
-            <br />
-
-            <button lg-button variant="primary-dark">
-              Button with icon
-              <lg-icon name="add"></lg-icon>
-            </button>
-            <br />
-
-            <button lg-button variant="secondary-dark" iconPosition="left">
-              Button with left aligned icon
-              <lg-icon name="arrow-down"></lg-icon>
-            </button>
-            <br />
-
-            <button lg-button variant="primary-dark" [iconButton]="true">
-              Icon Button
-              <lg-icon name="close"></lg-icon>
-            </button>
-            <br />
-
-            <button lg-button variant="primary-dark" size="sm">
-              Small button
-            </button>
-            <br />
-
-            <button lg-button variant="primary-dark" size="sm" [loading]="true">
-              Small button
-            </button>
-            <br />
-
-            <div>
-              <div class="light-buttons-container" lgPadding="md" lgMarginBottom="lg">
-                <button lg-button variant="primary-light" lgMarginRight="sm">
-                  Primary Light
-                </button>
-                <button lg-button variant="secondary-light">
-                  Secondary Light
-                </button>
-              </div>
-              <div class="light-buttons-container" lgPadding="sm">
-                <button lg-button variant="primary-light" lgMarginRight="sm">
-                  Primary Light
-                </button>
-                <button lg-button variant="secondary-light">
-                  Secondary Light
-                </button>
+                  </lg-hero-card-footer>
+                </lg-hero-card>
               </div>
             </div>
+          </div>
+        </lg-hero-content>
+      </lg-hero>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Button group</lg-heading>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <aside lg-card-group lgMarginBottom="xl">
+              <lg-card>
+                <lg-card-header>
+                  <lg-card-navigation-title title="The title" link="/foo" [headingLevel]="2"></lg-card-navigation-title>
+                </lg-card-header>
+                <lg-card-content>
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </lg-card-content>
+                <lg-card-footer lgMarginTop="md" lgPaddingTop="none">
+                  <lg-link-menu>
+                    <a href="" target="_blank">
+                      <lg-link-menu-item>
+                        <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
+                      </lg-link-menu-item>
+                    </a>
+                    <a href="">
+                      <lg-link-menu-item>
+                        <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
+                      </lg-link-menu-item>
+                    </a>
+                  </lg-link-menu>
+                </lg-card-footer>
+              </lg-card>
+              <lg-card>
+                <lg-card-header>
+                  <lg-card-navigation-title title="The title" link="/boo" headingLevel="2"></lg-card-navigation-title>
+                </lg-card-header>
+                <lg-card-content>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </lg-card-content>
+              </lg-card>
+              <lg-card>
+                <lg-card-header>
+                  <lg-card-navigation-title title="The title" link="https://www.landg.com" headingLevel="2"></lg-card-navigation-title>
+                </lg-card-header>
+                <lg-card-content>
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </lg-card-content>
+              </lg-card>
+              <lg-card>
+                <lg-card-header>
+                  <lg-card-navigation-title title="The title" link="/test" headingLevel="2"></lg-card-navigation-title>
+                </lg-card-header>
+                <lg-card-content>
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </lg-card-content>
+              </lg-card>
+            </aside>
+          </div>
+        </div>
 
-            <lg-button-group>
-              <button
-                lg-button
-                variant="primary-dark"
-              >Button</button>
-              <a
-                lg-button
-                href="#"
-                variant="secondary-dark"
-              >Link</a>
-            </lg-button-group>
+        <div lgRow>
+          <div lgCol="12" lgColLg="9" lgColMdOffset="0">
+            <lg-card>
+              <lg-card-content>
+                <lg-heading [level]="3">Accordion</lg-heading>
 
-            <lg-heading level="4">One button in the group</lg-heading>
-            <lg-button-group>
-              <button
-                type="button"
-                lg-button
-                variant="primary-dark"
-              >I think you got the wrong car, McFly.</button>
-            </lg-button-group>
+                <lg-accordion [headingLevel]="3">
+                  <lg-accordion-item>
+                    <lg-accordion-panel-heading>Item 1</lg-accordion-panel-heading>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </lg-accordion-item>
+                  <lg-accordion-item>
+                    <lg-accordion-panel-heading>Item 2</lg-accordion-panel-heading>
+                    <p>
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                    <button lg-button lgMarginTop="sm" variant="primary-dark">
+                      Test primary dark button
+                    </button>
+                  </lg-accordion-item>
+                  <lg-accordion-item>
+                    <lg-accordion-panel-heading><lg-icon name="notes"></lg-icon>Accordion item with icon and very long heading text</lg-accordion-panel-heading>
+                    <p>
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                  </lg-accordion-item>
+                </lg-accordion>
 
-            <lg-heading level="4">Two buttons in the group</lg-heading>
-            <lg-button-group>
-              <button
-                type="button"
-                lg-button
-                variant="primary-dark"
-              >Doc, I'm from the future. I came here in a time machine that you invented.</button>
-              <button
-                type="button"
-                lg-button
-                variant="secondary-dark"
-              >Now, I need your help to get back to the year 1985.</button>
-            </lg-button-group>
+                <lg-separator></lg-separator>
+                <lg-heading [level]="3">Alert</lg-heading>
 
-            <lg-heading level="4">Three buttons in the group</lg-heading>
-            <lg-button-group>
-              <button
-                type="button"
-                lg-button
-                variant="primary-dark"
-              >Marty, don't be such a square. Everybody who's anybody drinks.</button>
-              <button
-                type="button"
-                lg-button
-                variant="secondary-dark"
-              >What the hell is a gigawatt?</button>
-              <button
-                type="button"
-                lg-button
-                variant="secondary-dark"
-              >Let him go, Biff, you're drunk.</button>
-            </lg-button-group>
+                <lg-alert variant="info">
+                  <lg-heading [level]="4">Test heading</lg-heading>
+                  Information alert with some <a href="#"> link text</a> as an example.
+                </lg-alert>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Carousel</lg-heading>
+                <lg-alert variant="warning"> Warning alert with some <a href="#"> link text</a> as an example.</lg-alert>
 
-            <lg-carousel description="Example carousel" [headingLevel]="4" [slideDuration]="600" [loopMode]="true">
-              <lg-carousel-item style="background-color: #028844; color: #FFFFFF">
-                <h3>Carousel item 1</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
+                <lg-alert variant="success"> Success alert with some <a href="#"> link text</a> as an example.</lg-alert>
 
-              <lg-carousel-item style="background-color: #0076D6; color: #FFFFFF">
-                <h3>Carousel item 2</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
+                <lg-alert variant="error"> Error alert with some <a href="#"> link text</a> as an example.</lg-alert>
 
-              <lg-carousel-item style="background-color: #028844; color: #FFFFFF">
-                <h3>Carousel item 3</h3>
-                <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
-                <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
-              </lg-carousel-item>
-            </lg-carousel>
+                <lg-alert variant="generic">
+                  Generic alert with some <a href="#"> link text</a> as an example.
+                  <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                  </ul>
+                </lg-alert>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Data Point</lg-heading>
+                <lg-separator></lg-separator>
+                <lg-heading [level]="3">Buttons</lg-heading>
 
-            <lg-data-point>
-              <lg-data-point-label [headingLevel]="4">
-                Annual increase
-              </lg-data-point-label>
-              <lg-data-point-value>
-                Retail price index (RPI)
-              </lg-data-point-value>
-            </lg-data-point>
+                <a href="#" lg-button variant="primary-dark">Primary dark button</a>
+                <br />
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Details</lg-heading>
+                <a href="#" lg-button variant="secondary-dark">Secondary dark button</a>
+                <br />
 
-            <lg-details>
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
+                <button lg-button variant="primary-dark" [loading]="true">
+                  Loading button
+                </button>
+                <br />
 
-            <lg-details variant="info">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
+                <button lg-button variant="primary-dark">
+                  Button with icon
+                  <lg-icon name="add"></lg-icon>
+                </button>
+                <br />
 
-            <lg-details variant="warning">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
+                <button lg-button variant="secondary-dark" iconPosition="left">
+                  Button with left aligned icon
+                  <lg-icon name="arrow-down"></lg-icon>
+                </button>
+                <br />
 
-            <lg-details variant="success">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
+                <button lg-button variant="primary-dark" [iconButton]="true">
+                  Icon Button
+                  <lg-icon name="close"></lg-icon>
+                </button>
+                <br />
 
-            <lg-details variant="error">
-              <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
-              Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-      payment details
-            </lg-details>
+                <button lg-button variant="primary-dark" size="sm">
+                  Small button
+                </button>
+                <br />
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Filter container</lg-heading>
+                <button lg-button variant="primary-dark" size="sm" [loading]="true">
+                  Small button
+                </button>
+                <br />
 
-            <lg-filter-container>
-              <button lg-button variant="secondary-dark" lgButtonToggle>
-                <lg-icon name="filter" first></lg-icon>
-                Filters
-                <lg-icon name="chevron-down" second></lg-icon>
-              </button>
+                <div>
+                  <div class="light-buttons-container" lgPadding="md" lgMarginBottom="lg">
+                    <button lg-button variant="primary-light" lgMarginRight="sm">
+                      Primary Light
+                    </button>
+                    <button lg-button variant="secondary-light">
+                      Secondary Light
+                    </button>
+                  </div>
+                  <div class="light-buttons-container" lgPadding="sm">
+                    <button lg-button variant="primary-light" lgMarginRight="sm">
+                      Primary Light
+                    </button>
+                    <button lg-button variant="secondary-light">
+                      Secondary Light
+                    </button>
+                  </div>
+                </div>
 
-              <lg-filter-container-panel>
-                <lg-filter-container-panel-body>
-                  <lg-date-field>
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Button group</lg-heading>
+
+                <lg-button-group>
+                  <button
+                    lg-button
+                    variant="primary-dark"
+                  >Button</button>
+                  <a
+                    lg-button
+                    href="#"
+                    variant="secondary-dark"
+                  >Link</a>
+                </lg-button-group>
+
+                <lg-heading level="4">One button in the group</lg-heading>
+                <lg-button-group>
+                  <button
+                    type="button"
+                    lg-button
+                    variant="primary-dark"
+                  >I think you got the wrong car, McFly.</button>
+                </lg-button-group>
+
+                <lg-heading level="4">Two buttons in the group</lg-heading>
+                <lg-button-group>
+                  <button
+                    type="button"
+                    lg-button
+                    variant="primary-dark"
+                  >Doc, I'm from the future. I came here in a time machine that you invented.</button>
+                  <button
+                    type="button"
+                    lg-button
+                    variant="secondary-dark"
+                  >Now, I need your help to get back to the year 1985.</button>
+                </lg-button-group>
+
+                <lg-heading level="4">Three buttons in the group</lg-heading>
+                <lg-button-group>
+                  <button
+                    type="button"
+                    lg-button
+                    variant="primary-dark"
+                  >Marty, don't be such a square. Everybody who's anybody drinks.</button>
+                  <button
+                    type="button"
+                    lg-button
+                    variant="secondary-dark"
+                  >What the hell is a gigawatt?</button>
+                  <button
+                    type="button"
+                    lg-button
+                    variant="secondary-dark"
+                  >Let him go, Biff, you're drunk.</button>
+                </lg-button-group>
+
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Carousel</lg-heading>
+
+                <lg-carousel description="Example carousel" [headingLevel]="4" [slideDuration]="600" [loopMode]="true">
+                  <lg-carousel-item style="background-color: #028844; color: #FFFFFF">
+                    <h3>Carousel item 1</h3>
+                    <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
+                    <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
+                  </lg-carousel-item>
+
+                  <lg-carousel-item style="background-color: #0076D6; color: #FFFFFF">
+                    <h3>Carousel item 2</h3>
+                    <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
+                    <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
+                  </lg-carousel-item>
+
+                  <lg-carousel-item style="background-color: #028844; color: #FFFFFF">
+                    <h3>Carousel item 3</h3>
+                    <p>Carousel items scale vertically to the largest item in the carousel and scale horizontally to the width of the parent container.</p>
+                    <p>Carousels are built to work with varied content sizes but will work best if the content of each carousel item is of a similar size</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maiores, dolor suscipit ullam omnis corrupti laboriosam, amet, rem fugiat id deleniti ipsum possimus. At assumenda, asperiores dolorem temporibus quaerat libero quos blanditiis quod in? Magni laborum tempora, laudantium facilis ut sunt totam beatae repellat doloribus blanditiis sed repellendus maiores necessitatibus iste ex quod voluptate? Nesciunt, libero officiis labore molestias enim doloribus id assumenda dicta numquam fuga velit reiciendis quae praesentium soluta eaque exercitationem? Ullam iste culpa accusantium tenetur repellendus sit sunt error nisi dicta deleniti cum amet, voluptates soluta et laudantium quis.</p>
+                  </lg-carousel-item>
+                </lg-carousel>
+
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Data Point</lg-heading>
+
+                <lg-data-point>
+                  <lg-data-point-label [headingLevel]="4">
+                    Annual increase
+                  </lg-data-point-label>
+                  <lg-data-point-value>
+                    Retail price index (RPI)
+                  </lg-data-point-value>
+                </lg-data-point>
+
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Details</lg-heading>
+
+                <lg-details>
+                  <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+                  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+                  payment details
+                </lg-details>
+
+                <lg-details variant="info">
+                  <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+                  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+                  payment details
+                </lg-details>
+
+                <lg-details variant="warning">
+                  <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+                  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+                  payment details
+                </lg-details>
+
+                <lg-details variant="success">
+                  <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+                  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+                  payment details
+                </lg-details>
+
+                <lg-details variant="error">
+                  <lg-details-panel-heading headingLevel="4">Details component</lg-details-panel-heading>
+                  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
+                  payment details
+                </lg-details>
+
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Filter container</lg-heading>
+
+                <lg-filter-container>
+                  <button lg-button variant="secondary-dark" lgButtonToggle>
+                    <lg-icon name="filter" first></lg-icon>
+                    Filters
+                    <lg-icon name="chevron-down" second></lg-icon>
+                  </button>
+
+                  <lg-filter-container-panel>
+                    <lg-filter-container-panel-body>
+                      <lg-date-field>
+                        Date of birth
+                        <lg-hint>e.g. 05 12 1980</lg-hint>
+                      </lg-date-field>
+
+                      <lg-checkbox-group>
+                        Test checkbox group
+                        <lg-hint>This is a standard checkbox group</lg-hint>
+                        <lg-toggle value="red">Red</lg-toggle>
+                        <lg-toggle value="yellow">Yellow</lg-toggle>
+                        <lg-toggle value="green">Green</lg-toggle>
+                        <lg-toggle value="blue">Blue</lg-toggle>
+                      </lg-checkbox-group>
+                    </lg-filter-container-panel-body>
+
+                    <lg-filter-container-panel-footer>
+                      <lg-button-group>
+                        <button
+                          lg-button
+                          variant="primary-dark"
+                        >Apply</button>
+                        <button
+                          lg-button
+                          variant="secondary-dark"
+                        >Cancel</button>
+                      </lg-button-group>
+                    </lg-filter-container-panel-footer>
+                  </lg-filter-container-panel>
+                </lg-filter-container>
+
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Form</lg-heading>
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+                  <lg-input-field>
+                    Text input
+                    <lg-hint>Enter some text</lg-hint>
+                    <input lgInput formControlName="text" />
+                  </lg-input-field>
+
+
+                  <lg-input-field>
+                    Text input with icon
+                    <input lgInput formControlName="textSearch" />
+                    <button
+                      lg-button
+                      lgSuffix
+                      size="sm"
+                      [iconButton]="true"
+                      >
+                      Search
+                      <lg-icon name="search"></lg-icon>
+                    </button>
+                  </lg-input-field>
+
+                  <lg-input-field>
+                    Text input with add-on icon
+                    <input lgInput formControlName="textSearch" />
+                    <button
+                      lg-button
+                      lgSuffix
+                      size="sm"
+                      [iconButton]="true"
+                      variant="add-on"
+                      >
+                      Cancel
+                      <lg-icon name="close"></lg-icon>
+                    </button>
+                    <button
+                      lg-button
+                      lgSuffix
+                      size="sm"
+                      [iconButton]="true"
+                      >
+                      Search
+                      <lg-icon name="search"></lg-icon>
+                    </button>
+                  </lg-input-field>
+
+                  <lg-input-field>
+                    Text input with prefix
+                    <input lgInput formControlName="textPound" />
+                    <span lgPrefix>£</span>
+                  </lg-input-field>
+
+                  <lg-input-field>
+                    Text input with suffix
+                    <input lgInput formControlName="textPercent" />
+                    <span lgSuffix>%</span>
+                  </lg-input-field>
+
+                  <lg-select-field>
+                    Select input
+                    <lg-hint>Pick an option</lg-hint>
+                    <select lgSelect formControlName="select">
+                      <option value="blue">Blue</option>
+                      <option value="yellow">Yellow</option>
+                      <option value="green">Green</option>
+                      <option value="red">Red</option>
+                    </select>
+                  </lg-select-field>
+
+                  <lg-date-field formControlName="date">
                     Date of birth
                     <lg-hint>e.g. 05 12 1980</lg-hint>
                   </lg-date-field>
 
-                  <lg-checkbox-group>
+                  <lg-checkbox-group formControlName="colors" lgMarginBottom="none">
                     Test checkbox group
                     <lg-hint>This is a standard checkbox group</lg-hint>
                     <lg-toggle value="red">Red</lg-toggle>
@@ -414,646 +516,548 @@
                     <lg-toggle value="green">Green</lg-toggle>
                     <lg-toggle value="blue">Blue</lg-toggle>
                   </lg-checkbox-group>
-                </lg-filter-container-panel-body>
 
-                <lg-filter-container-panel-footer>
-                  <lg-button-group>
-                    <button
-                      lg-button
-                      variant="primary-dark"
-                    >Apply</button>
-                    <button
-                      lg-button
-                      variant="secondary-dark"
-                    >Cancel</button>
-                  </lg-button-group>
-                </lg-filter-container-panel-footer>
-              </lg-filter-container-panel>
-            </lg-filter-container>
+                  <lg-toggle formControlName="checkbox"> Test checkbox </lg-toggle>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Form</lg-heading>
+                  <lg-toggle variant="switch" formControlName="switch">Test switch</lg-toggle>
 
-            <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-              <lg-input-field>
-                Text input
-                <lg-hint>Enter some text</lg-hint>
-                <input lgInput formControlName="text" />
-              </lg-input-field>
+                  <lg-radio-group formControlName="radio">
+                    Test radio group
+                    <lg-hint>Pick an option</lg-hint>
+                    <lg-radio-button value="red">Red</lg-radio-button>
+                    <lg-radio-button value="yellow">Yellow</lg-radio-button>
+                    <lg-radio-button value="green">Green</lg-radio-button>
+                    <lg-radio-button value="blue">Blue</lg-radio-button>
+                  </lg-radio-group>
 
 
-              <lg-input-field>
-                Text input with icon
-                <input lgInput formControlName="textSearch" />
-                <button
-                  lg-button
-                  lgSuffix
-                  size="sm"
-                  [iconButton]="true"
-                >
-                  Search
-                  <lg-icon name="search"></lg-icon>
-                </button>
-              </lg-input-field>
+                  <lg-segment-group formControlName="segment" value="top" stack="md">
+                    Test segment
+                    <lg-segment-button value="top">Top</lg-segment-button>
+                    <lg-segment-button value="right">Right</lg-segment-button>
+                    <lg-segment-button value="bottom">Bottom</lg-segment-button>
+                  </lg-segment-group>
 
-              <lg-input-field>
-                Text input with add-on icon
-                <input lgInput formControlName="textSearch" />
-                <button
-                  lg-button
-                  lgSuffix
-                  size="sm"
-                  [iconButton]="true"
-                  variant="add-on"
-                >
-                  Cancel
-                  <lg-icon name="close"></lg-icon>
-                </button>
-                <button
-                  lg-button
-                  lgSuffix
-                  size="sm"
-                  [iconButton]="true"
-                >
-                  Search
-                  <lg-icon name="search"></lg-icon>
-                </button>
-              </lg-input-field>
+                  <lg-filter-group formControlName="filter">
+                    Test filter group
+                    <lg-filter-button value="red">Red</lg-filter-button>
+                    <lg-filter-button value="yellow">Yellow</lg-filter-button>
+                    <lg-filter-button value="green">Green</lg-filter-button>
+                    <lg-filter-button value="blue">Blue</lg-filter-button>
+                  </lg-filter-group>
 
-              <lg-input-field>
-                Text input with prefix
-                <input lgInput formControlName="textPound" />
-                <span lgPrefix>£</span>
-              </lg-input-field>
+                  <lg-filter-multiple-group formControlName="filters">
+                    Test filter group, multiple selection
+                    <lg-filter-checkbox value="red">Red</lg-filter-checkbox>
+                    <lg-filter-checkbox value="yellow">Yellow</lg-filter-checkbox>
+                    <lg-filter-checkbox value="green">Green</lg-filter-checkbox>
+                    <lg-filter-checkbox value="blue">Blue</lg-filter-checkbox>
+                  </lg-filter-multiple-group>
 
-              <lg-input-field>
-                Text input with suffix
-                <input lgInput formControlName="textPercent" />
-                <span lgSuffix>%</span>
-              </lg-input-field>
+                  <lg-input-field>
+                    Sort Code
+                    <lg-hint>Must be 6 digits long</lg-hint>
+                    <input lgInput lgSortCode formControlName="sortCode" />
+                  </lg-input-field>
 
-              <lg-select-field>
-                Select input
-                <lg-hint>Pick an option</lg-hint>
-                <select lgSelect formControlName="select">
-                  <option value="blue">Blue</option>
-                  <option value="yellow">Yellow</option>
-                  <option value="green">Green</option>
-                  <option value="red">Red</option>
-                </select>
-              </lg-select-field>
+                  <button lg-button type="submit" variant="primary-dark">Submit</button>
+                </form>
 
-              <lg-date-field formControlName="date">
-                Date of birth
-                <lg-hint>e.g. 05 12 1980</lg-hint>
-              </lg-date-field>
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Modal</lg-heading>
 
-              <lg-checkbox-group formControlName="colors" lgMarginBottom="none">
-                Test checkbox group
-                <lg-hint>This is a standard checkbox group</lg-hint>
-                <lg-toggle value="red">Red</lg-toggle>
-                <lg-toggle value="yellow">Yellow</lg-toggle>
-                <lg-toggle value="green">Green</lg-toggle>
-                <lg-toggle value="blue">Blue</lg-toggle>
-              </lg-checkbox-group>
+                <button lgModalTrigger="modal" lg-button type="button" variant="secondary-dark">Open modal</button>
+                <lg-modal id="modal">
+                  <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>
+                  <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>
+                  <lg-modal-footer>
+                    <lg-button-group>
+                      <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Primary CTA</button>
+                      <button lg-button lgMarginBottom="none" variant="secondary-dark" type="button">Cancel</button>
+                    </lg-button-group>
+                  </lg-modal-footer>
+                </lg-modal>
 
-              <lg-toggle formControlName="checkbox"> Test checkbox </lg-toggle>
+                <lg-separator></lg-separator>
+                <lg-heading level="3">List with Icons</lg-heading>
 
-              <lg-toggle variant="switch" formControlName="switch">Test switch</lg-toggle>
-
-              <lg-radio-group formControlName="radio">
-                Test radio group
-                <lg-hint>Pick an option</lg-hint>
-                <lg-radio-button value="red">Red</lg-radio-button>
-                <lg-radio-button value="yellow">Yellow</lg-radio-button>
-                <lg-radio-button value="green">Green</lg-radio-button>
-                <lg-radio-button value="blue">Blue</lg-radio-button>
-              </lg-radio-group>
-
-
-              <lg-segment-group formControlName="segment" value="top" stack="md">
-                Test segment
-                <lg-segment-button value="top">Top</lg-segment-button>
-                <lg-segment-button value="right">Right</lg-segment-button>
-                <lg-segment-button value="bottom">Bottom</lg-segment-button>
-              </lg-segment-group>
-
-              <lg-filter-group formControlName="filter">
-                Test filter group
-                <lg-filter-button value="red">Red</lg-filter-button>
-                <lg-filter-button value="yellow">Yellow</lg-filter-button>
-                <lg-filter-button value="green">Green</lg-filter-button>
-                <lg-filter-button value="blue">Blue</lg-filter-button>
-              </lg-filter-group>
-
-              <lg-filter-multiple-group formControlName="filters">
-                Test filter group, multiple selection
-                <lg-filter-checkbox value="red">Red</lg-filter-checkbox>
-                <lg-filter-checkbox value="yellow">Yellow</lg-filter-checkbox>
-                <lg-filter-checkbox value="green">Green</lg-filter-checkbox>
-                <lg-filter-checkbox value="blue">Blue</lg-filter-checkbox>
-              </lg-filter-multiple-group>
-
-              <lg-input-field>
-                Sort Code
-                <lg-hint>Must be 6 digits long</lg-hint>
-                <input lgInput lgSortCode formControlName="sortCode" />
-              </lg-input-field>
-
-              <button lg-button type="submit" variant="primary-dark">Submit</button>
-            </form>
-
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Modal</lg-heading>
-
-            <button lgModalTrigger="modal" lg-button type="button" variant="secondary-dark">Open modal</button>
-            <lg-modal id="modal">
-              <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>
-              <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>
-              <lg-modal-footer>
-                <lg-button-group>
-                  <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Primary CTA</button>
-                  <button lg-button lgMarginBottom="none" variant="secondary-dark" type="button">Cancel</button>
-                </lg-button-group>
-              </lg-modal-footer>
-            </lg-modal>
-
-            <lg-separator></lg-separator>
-            <lg-heading level="3">List with Icons</lg-heading>
-
-            <ul lg-list-with-icons>
-              <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 1</li>
-              <li lg-list-with-icons-item iconName="close" iconColour="--colour-red-600"
-              >List item 2
                 <ul lg-list-with-icons>
-                  <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 2.1</li>
-                  <li lg-list-with-icons-item iconName="close" iconColour="--colour-red-600">List item 2.2</li>
+                  <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 1</li>
+                  <li lg-list-with-icons-item iconName="close" iconColour="--colour-red-600"
+                    >List item 2
+                    <ul lg-list-with-icons>
+                      <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 2.1</li>
+                      <li lg-list-with-icons-item iconName="close" iconColour="--colour-red-600">List item 2.2</li>
+                    </ul>
+                  </li>
+                  <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 3</li>
                 </ul>
-              </li>
-              <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 3</li>
-            </ul>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Ordered list with custom counter</lg-heading>
-            <ol lgListWithExpressiveStyling>
-              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            </ol>
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Ordered list with custom counter</lg-heading>
+                <ol lgListWithExpressiveStyling>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                </ol>
 
-            <lg-separator></lg-separator>
-            <lg-heading [level]="3">Primary Message</lg-heading>
+                <lg-separator></lg-separator>
+                <lg-heading [level]="3">Primary Message</lg-heading>
 
-            <lg-primary-message>
-              <lg-brand-icon name="calendar"></lg-brand-icon>
-              <lg-primary-message-title
-              >This is a message with brand icon
-              </lg-primary-message-title>
-              <lg-primary-message-description>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
-              </lg-primary-message-description>
-              <lg-primary-message-description>
-                <button lg-button variant="primary-dark" lgMarginTop="sm" type="button">
-                  Call to action
+                <lg-primary-message>
+                  <lg-brand-icon name="calendar"></lg-brand-icon>
+                  <lg-primary-message-title
+                    >This is a message with brand icon
+                  </lg-primary-message-title>
+                  <lg-primary-message-description>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
+                  </lg-primary-message-description>
+                  <lg-primary-message-description>
+                    <button lg-button variant="primary-dark" lgMarginTop="sm" type="button">
+                      Call to action
+                    </button>
+                  </lg-primary-message-description>
+                </lg-primary-message>
+
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Promo Cards</lg-heading>
+
+                <lg-promo-card-list>
+                  <lg-separator variant="dotted" lgMargin="none"></lg-separator>
+                  <lg-promo-card-list-title [headingLevel]="4">
+                    Get more from Legal &amp; General
+                  </lg-promo-card-list-title>
+                  <lg-promo-card variant="solid-white">
+                    <lg-promo-card-image imageUrl="assets/promo-card/care.jpg"></lg-promo-card-image>
+                    <lg-promo-card-title [headingLevel]="5">
+                      Need help with Care?
+                    </lg-promo-card-title>
+                    <lg-promo-card-content>
+                      <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
+                    </lg-promo-card-content>
+                    <lg-promo-card-footer>
+                      <button
+                        lgMarginBottom="none"
+                        lg-button
+                        type="button"
+                        variant="primary-dark">
+                        Find care options
+                      </button>
+                    </lg-promo-card-footer>
+                  </lg-promo-card>
+                  <lg-promo-card variant="solid-green">
+                    <lg-promo-card-image imageUrl="assets/promo-card/pension-consolidation.jpg"></lg-promo-card-image>
+                    <lg-promo-card-title [headingLevel]="5">
+                      Consolidate your pension pots
+                    </lg-promo-card-title>
+                    <lg-promo-card-content>
+                      <p>You may have pension pots from several employers. We can help you trace any lost pensions and combine them into one easy to manage plan.</p>
+                    </lg-promo-card-content>
+                    <lg-promo-card-footer>
+                      <button
+                        lgMarginBottom="none"
+                        lg-button
+                        type="button"
+                        variant="secondary-light">
+                        Start consolidating
+                      </button>
+                    </lg-promo-card-footer>
+                  </lg-promo-card>
+                  <lg-promo-card variant="solid-yellow">
+                    <lg-promo-card-image imageUrl="assets/promo-card/care.jpg"></lg-promo-card-image>
+                    <lg-promo-card-title [headingLevel]="5">
+                      Need help with Care?
+                    </lg-promo-card-title>
+                    <lg-promo-card-content>
+                      <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
+                    </lg-promo-card-content>
+                    <lg-promo-card-footer>
+                      <button
+                        lgMarginBottom="none"
+                        lg-button
+                        type="button"
+                        variant="secondary-dark">
+                        Find care options
+                      </button>
+                    </lg-promo-card-footer>
+                  </lg-promo-card>
+                </lg-promo-card-list>
+
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Quick Action</lg-heading>
+
+                <lg-heading level="4">Button</lg-heading>
+                <button lg-quick-action lgMarginBottom="md">
+                  <lg-icon name="repeat"></lg-icon>
+                  Load more
                 </button>
-              </lg-primary-message-description>
-            </lg-primary-message>
+                <br>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Promo Cards</lg-heading>
+                  <lg-heading level="4">Link</lg-heading>
+                  <a lg-quick-action href="#">
+                    <lg-icon name="secure-messaging"></lg-icon>
+                    Send us a message
+                  </a>
 
-            <lg-promo-card-list>
-              <lg-separator variant="dotted" lgMargin="none"></lg-separator>
-              <lg-promo-card-list-title [headingLevel]="4">
-                Get more from Legal &amp; General
-              </lg-promo-card-list-title>
-              <lg-promo-card variant="solid-white">
-                <lg-promo-card-image imageUrl="assets/promo-card/care.jpg"></lg-promo-card-image>
-                <lg-promo-card-title [headingLevel]="5">
-                  Need help with Care?
-                </lg-promo-card-title>
-                <lg-promo-card-content>
-                  <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
-                </lg-promo-card-content>
-                <lg-promo-card-footer>
-                  <button
-                    lgMarginBottom="none"
-                    lg-button
-                    type="button"
-                    variant="primary-dark">
-                    Find care options
-                  </button>
-                </lg-promo-card-footer>
-              </lg-promo-card>
-              <lg-promo-card variant="solid-green">
-                <lg-promo-card-image imageUrl="assets/promo-card/pension-consolidation.jpg"></lg-promo-card-image>
-                <lg-promo-card-title [headingLevel]="5">
-                  Consolidate your pension pots
-                </lg-promo-card-title>
-                <lg-promo-card-content>
-                  <p>You may have pension pots from several employers. We can help you trace any lost pensions and combine them into one easy to manage plan.</p>
-                </lg-promo-card-content>
-                <lg-promo-card-footer>
-                  <button
-                    lgMarginBottom="none"
-                    lg-button
-                    type="button"
-                    variant="secondary-light">
-                    Start consolidating
-                  </button>
-                </lg-promo-card-footer>
-              </lg-promo-card>
-              <lg-promo-card variant="solid-yellow">
-                <lg-promo-card-image imageUrl="assets/promo-card/care.jpg"></lg-promo-card-image>
-                <lg-promo-card-title [headingLevel]="5">
-                  Need help with Care?
-                </lg-promo-card-title>
-                <lg-promo-card-content>
-                  <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
-                </lg-promo-card-content>
-                <lg-promo-card-footer>
-                  <button
-                    lgMarginBottom="none"
-                    lg-button
-                    type="button"
-                    variant="secondary-dark">
-                    Find care options
-                  </button>
-                </lg-promo-card-footer>
-              </lg-promo-card>
-            </lg-promo-card-list>
+                  <lg-separator></lg-separator>
+                  <lg-heading level="3">Spinners</lg-heading>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Quick Action</lg-heading>
+                  <lg-spinner variant="dark"></lg-spinner>
 
-            <lg-heading level="4">Button</lg-heading>
-            <button lg-quick-action lgMarginBottom="md">
-              <lg-icon name="repeat"></lg-icon>
-              Load more
-            </button>
-            <br>
+                  <lg-spinner
+                    variant="color"
+                    text="Medium Spinner"
+                    lgMarginTop="xxl"
+                  ></lg-spinner>
 
-            <lg-heading level="4">Link</lg-heading>
-            <a lg-quick-action href="#">
-              <lg-icon name="secure-messaging"></lg-icon>
-              Send us a message
-            </a>
+                  <lg-spinner
+                    variant="color"
+                    text="Small spinner"
+                    lgMarginTop="xxl"
+                    size="sm"
+                  ></lg-spinner>
 
-            <lg-separator></lg-separator>
-            <lg-heading level="3">Spinners</lg-heading>
-
-            <lg-spinner variant="dark"></lg-spinner>
-
-            <lg-spinner
-              variant="color"
-              text="Medium Spinner"
-              lgMarginTop="xxl"
-            ></lg-spinner>
-
-            <lg-spinner
-              variant="color"
-              text="Small spinner"
-              lgMarginTop="xxl"
-              size="sm"
-            ></lg-spinner>
-
-            <lg-spinner
-              variant="color"
-              text="Extra Small spinner"
-              lgMarginTop="xxl"
-              size="xs"
-            ></lg-spinner>
-            <lg-separator></lg-separator>
-            <div lgPaddingBottom="xxl">
-              <lg-heading level="3">Progress bar</lg-heading>
-              <lg-progress-bar [value]="3" [max]="5"></lg-progress-bar>
-            </div>
-            <div lgPaddingVertical="xxl">
-              <lg-heading level="3">Progress indicator</lg-heading>
-              <lg-progress-indicator [value]="3" [max]="5">
-                Withdraw money
-                <lg-progress-header>
-                  Thinking long term
-                </lg-progress-header>
-              </lg-progress-indicator>
-            </div>
-            <lg-separator></lg-separator>
-
-    </lg-card-content>
-        </lg-card>
-
-        <lg-heading level="3">Tabs</lg-heading>
-
-        <lg-heading level="4">Standard</lg-heading>
-        <lg-card lgPaddingVertical="none">
-          <lg-card-content>
-            <lg-tabs label="Annuities">
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 1</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere
-                      nec leo nec hendrerit. Pellentesque eu lacinia tortor. Donec urna
-                      felis, dictum et faucibus et, interdum ut urna. Nam eleifend eleifend
-                      mi vel blandit. Morbi rutrum a odio in pharetra.
-                    </p>
+                  <lg-spinner
+                    variant="color"
+                    text="Extra Small spinner"
+                    lgMarginTop="xxl"
+                    size="xs"
+                  ></lg-spinner>
+                  <lg-separator></lg-separator>
+                  <div lgPaddingBottom="xxl">
+                    <lg-heading level="3">Progress bar</lg-heading>
+                    <lg-progress-bar [value]="3" [max]="5"></lg-progress-bar>
                   </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 2</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-                    <p>
-                      Maecenas laoreet tristique ligula, mollis ullamcorper est faucibus
-                      eget. Aenean quis placerat arcu. Sed efficitur odio nunc, id facilisis
-                      orci accumsan eget. Nunc feugiat elit eget imperdiet faucibus.
-                      Maecenas faucibus sit amet nisi a ultricies.
-                    </p>
+                  <div lgPaddingVertical="xxl">
+                    <lg-heading level="3">Progress indicator</lg-heading>
+                    <lg-progress-indicator [value]="3" [max]="5">
+                      Withdraw money
+                      <lg-progress-header>
+                        Thinking long term
+                      </lg-progress-header>
+                    </lg-progress-indicator>
                   </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 3</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-                    <p>
-                      Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna.
-                      Sed at egestas urna. Donec at nibh eros. Pellentesque at nunc in elit
-                      egestas pellentesque a quis nunc. Praesent commodo risus in metus
-                      tincidunt pretium. Nulla vehicula sem lectus, ac eleifend velit
-                      pellentesque a. Proin et varius ante, nec venenatis nulla.
-                      Pellentesque pharetra risus lorem, et congue ligula interdum volutpat.
-                      Donec ut iaculis metus.
-                    </p>
-                  </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-              <lg-tab-item>
-                <lg-tab-item-heading>Tab 4</lg-tab-item-heading>
-                <lg-tab-item-content>
-                  <div class="lg-tabs__content-section">
-                    <p>
-                      Pellentesque finibus ac libero ac rutrum. Morbi faucibus, dui et
-                      efficitur posuere, urna ipsum vehicula dui, in placerat risus felis et
-                      lectus. Vivamus imperdiet nulla nisi, eget varius mi cursus nec.
-                      Suspendisse quis risus eleifend, pretium lectus eget, condimentum leo.
-                      Aliquam faucibus at mi sit amet volutpat.
-                    </p>
-                  </div>
-                </lg-tab-item-content>
-              </lg-tab-item>
-            </lg-tabs>
-          </lg-card-content>
-        </lg-card>
+                  <lg-separator></lg-separator>
 
-        <lg-heading level="4">Navigation</lg-heading>
-        <lg-card lgPadding="none">
-          <lg-card-content>
-            <lg-tab-nav-bar label="Test nav tabs">
-              <a
-                id="nav-tab-{{ i }}"
-                *ngFor="let tab of tabs; index as i"
-                [routerLink]="[tab.path]"
-                [isActive]="selectedTabIndex === i"
-                (click)="handleTabClick($event, i)"
-                lgTabNavBarLink
-                >{{ tab.label }}</a
-              >
-            </lg-tab-nav-bar>
-            <lg-tab-nav-content>
-              <router-outlet></router-outlet>
-            </lg-tab-nav-content>
-          </lg-card-content>
-        </lg-card>
+                </lg-card-content>
+              </lg-card>
 
-        <lg-separator></lg-separator>
-        <lg-heading level="3">Side Nav</lg-heading>
-        <lg-side-nav>
-          <lg-side-nav-bar label="Side Nav Demo">
-            <a
-              *ngFor="let item of sideNav; index as i"
-              id="side-nav-{{ i }}"
-              [routerLink]="['/', { outlets: { 'side-nav': item.path } }]"
-              (click)="handleSideNavClick($event, i)"
-              [isActive]="selectedSideNavIndex === i"
-              lgSideBarNavLink
-            >
-              <lg-side-nav-bar-item>
-                <lg-side-nav-bar-item-heading>{{ item.title }}</lg-side-nav-bar-item-heading>
-                <lg-side-nav-bar-item-content *ngIf="item.description">{{
-                  item.description
-                  }}</lg-side-nav-bar-item-content>
-              </lg-side-nav-bar-item>
-            </a>
-            <lg-side-nav-bar-footer>
-              <a
-                lg-button
-                lgMarginBottom="none"
-                variant="secondary-dark"
-                [fullWidth]="false"
-                href="#"
-              >Logout</a
-              >
-            </lg-side-nav-bar-footer>
-          </lg-side-nav-bar>
-          <lg-side-nav-content>
-            <router-outlet name="side-nav"></router-outlet>
-          </lg-side-nav-content>
-        </lg-side-nav>
+              <lg-heading level="3">Tabs</lg-heading>
 
-        <lg-separator></lg-separator>
-        <lg-heading level="4">Pagination</lg-heading>
-        <lg-card lgPadding="none">
-          <lg-card-content>
-            <lg-pagination lgMargin="xs" itemsPerPage="5" totalItems="20"></lg-pagination>
-          </lg-card-content>
-        </lg-card>
+              <lg-heading level="4">Standard</lg-heading>
+              <lg-card lgPaddingVertical="none">
+                <lg-card-content>
+                  <lg-tabs label="Annuities">
+                    <lg-tab-item>
+                      <lg-tab-item-heading>Tab 1</lg-tab-item-heading>
+                      <lg-tab-item-content>
+                        <div class="lg-tabs__content-section">
 
-        <lg-separator></lg-separator>
-        <lg-heading level="3">Cards</lg-heading>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere
+                            nec leo nec hendrerit. Pellentesque eu lacinia tortor. Donec urna
+                            felis, dictum et faucibus et, interdum ut urna. Nam eleifend eleifend
+                            mi vel blandit. Morbi rutrum a odio in pharetra.
+                          </p>
+                        </div>
+                      </lg-tab-item-content>
+                    </lg-tab-item>
+                    <lg-tab-item>
+                      <lg-tab-item-heading>Tab 2</lg-tab-item-heading>
+                      <lg-tab-item-content>
+                        <div class="lg-tabs__content-section">
+                          <p>
+                            Maecenas laoreet tristique ligula, mollis ullamcorper est faucibus
+                            eget. Aenean quis placerat arcu. Sed efficitur odio nunc, id facilisis
+                            orci accumsan eget. Nunc feugiat elit eget imperdiet faucibus.
+                            Maecenas faucibus sit amet nisi a ultricies.
+                          </p>
+                        </div>
+                      </lg-tab-item-content>
+                    </lg-tab-item>
+                    <lg-tab-item>
+                      <lg-tab-item-heading>Tab 3</lg-tab-item-heading>
+                      <lg-tab-item-content>
+                        <div class="lg-tabs__content-section">
+                          <p>
+                            Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna.
+                            Sed at egestas urna. Donec at nibh eros. Pellentesque at nunc in elit
+                            egestas pellentesque a quis nunc. Praesent commodo risus in metus
+                            tincidunt pretium. Nulla vehicula sem lectus, ac eleifend velit
+                            pellentesque a. Proin et varius ante, nec venenatis nulla.
+                            Pellentesque pharetra risus lorem, et congue ligula interdum volutpat.
+                            Donec ut iaculis metus.
+                          </p>
+                        </div>
+                      </lg-tab-item-content>
+                    </lg-tab-item>
+                    <lg-tab-item>
+                      <lg-tab-item-heading>Tab 4</lg-tab-item-heading>
+                      <lg-tab-item-content>
+                        <div class="lg-tabs__content-section">
+                          <p>
+                            Pellentesque finibus ac libero ac rutrum. Morbi faucibus, dui et
+                            efficitur posuere, urna ipsum vehicula dui, in placerat risus felis et
+                            lectus. Vivamus imperdiet nulla nisi, eget varius mi cursus nec.
+                            Suspendisse quis risus eleifend, pretium lectus eget, condimentum leo.
+                            Aliquam faucibus at mi sit amet volutpat.
+                          </p>
+                        </div>
+                      </lg-tab-item-content>
+                    </lg-tab-item>
+                  </lg-tabs>
+                </lg-card-content>
+              </lg-card>
 
-        <lg-card>
-          <lg-card-header>
-            <lg-card-title [headingLevel]="4"> Test card title </lg-card-title>
-          </lg-card-header>
-          <lg-card-content>
-            <lg-card-subheading [headingLevel]="5">Subheading</lg-card-subheading>
-            Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna. Sed at egestas urna.
-          </lg-card-content>
-        </lg-card>
-
-        <lg-card>
-          <lg-card-content>
-            <div lgRow>
-              <div lgCol="12" lgColMd="6">
-                <lg-card-title headingLevel="4">
-                  <a href="#">Product card title</a>
-                </lg-card-title>
-                <lg-card-subtitle class="lg-card-subtitle"> Payroll Reference Number P23456 </lg-card-subtitle>
-              </div>
-              <lg-card-principle-data-point lgCol="12" lgColMd="6">
-                <lg-card-principle-data-point-label> Last payment (after tax and deductions) </lg-card-principle-data-point-label>
-                <lg-card-principle-data-point-value>
-                  <span><span class="lg-font-size-3">£</span>230.20</span>
-                </lg-card-principle-data-point-value>
-                <lg-card-principle-data-point-date> as of 01 Jan 2020 </lg-card-principle-data-point-date>
-              </lg-card-principle-data-point>
-            </div>
-          </lg-card-content>
-        </lg-card>
-
-        <div lgContainer>
-          <div lgRow>
-            <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+              <lg-heading level="4">Navigation</lg-heading>
               <lg-card lgPadding="none">
-                <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
-                  <lg-breadcrumb lgMarginBottom="none">
-                    <lg-breadcrumb-item>
-                      <a href="#">
-                        <lg-icon [name]="'chevron-left'"></lg-icon>
-                        Back
-                      </a>
-                    </lg-breadcrumb-item>
-                  </lg-breadcrumb>
-                </lg-card-header>
                 <lg-card-content>
-                  <div lgContainer>
-                    <div lgRow>
-                      <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                        <lg-card-title headingLevel="4">
-                          Form Journey Card
-                        </lg-card-title>
-                        <lg-separator></lg-separator>
-                        <p>Form Journey card content</p>
-                        <lg-input-field>
-                          Account number
-                          <lg-hint>Must contain 8 digits</lg-hint>
-                          <input lgInput size="8"/>
-                        </lg-input-field>
-                      </div>
-                    </div>
-                  </div>
-                </lg-card-content>
-                <lg-card-footer>
-                  <div lgContainer>
-                    <div lgRow>
-                      <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                        <button lg-button type="button" variant="secondary-dark" lgMarginRight="sm">Back</button>
-                        <button lg-button type="submit" variant="primary-dark">Confirm</button>
-                      </div>
-                    </div>
-                  </div>
-                </lg-card-footer>
-              </lg-card>
-            </div>
-          </div>
-          <div lgRow>
-            <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
-              <lg-card>
-                <lg-card-header>
-                  Link Menu
-                </lg-card-header>
-                <lg-card-content>
-                  <lg-link-menu>
-                    <a href="#">
-                      <lg-link-menu-item>
-                        <lg-link-menu-item-text isBold="true">An internal link (default)</lg-link-menu-item-text>
-                        <lg-link-menu-item-text>
-                          This links to an internal page
-                        </lg-link-menu-item-text>
-                      </lg-link-menu-item>
-                    </a>
-                    <a href="#" target="_blank">
-                      <lg-link-menu-item>
-                        <lg-link-menu-item-text isBold="true">An external link</lg-link-menu-item-text>
-                        <lg-link-menu-item-text>
-                          This links to an external page opening in a <em>new</em> tab
-                        </lg-link-menu-item-text>
-                      </lg-link-menu-item>
-                    </a>
-                  </lg-link-menu>
-                </lg-card-content>
-              </lg-card>
-            </div>
-          </div>
-          <div lgRow>
-            <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
-              <lg-card>
-                <lg-card-header>
-                  <lg-card-navigation-title title="Data Points" link="#" [headingLevel]="2"></lg-card-navigation-title>
-                </lg-card-header>
-                <lg-card-content>
-                  <lg-data-point>
-                    <lg-data-point-label [headingLevel]="3">Label 1</lg-data-point-label>
-                    <lg-data-point-value>Value 1</lg-data-point-value>
-                  </lg-data-point>
-                  <lg-data-point>
-                    <lg-data-point-label [headingLevel]="3">Label 2</lg-data-point-label>
-                    <lg-data-point-value>Value 2</lg-data-point-value>
-                  </lg-data-point>
-                  <lg-data-point>
-                    <lg-data-point-label [headingLevel]="3">Label 3</lg-data-point-label>
-                    <lg-data-point-value>Value 3</lg-data-point-value>
-                  </lg-data-point>
-                </lg-card-content>
-                <lg-card-footer>
-                  <lg-link-menu>
-                    <a href="#">
-                      <lg-link-menu-item>
-                        <lg-link-menu-item-text isBold="true">An internal link (default)</lg-link-menu-item-text>
-                        <lg-link-menu-item-text>
-                          This links to an internal page
-                        </lg-link-menu-item-text>
-                      </lg-link-menu-item>
-                    </a>
-                    <a href="#" target="_blank">
-                      <lg-link-menu-item>
-                        <lg-link-menu-item-text isBold="true">An external link</lg-link-menu-item-text>
-                        <lg-link-menu-item-text>
-                          This links to an external page opening in a <em>new</em> tab
-                        </lg-link-menu-item-text>
-                      </lg-link-menu-item>
-                    </a>
-                  </lg-link-menu>
-                </lg-card-footer>
-              </lg-card>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-            <!--        <lg-card lgPaddingTop="none">-->
-<!--          <lg-card-content>-->
-<!--            <lg-tabs label="Annuities">-->
-<!--              <lg-tab-item>-->
-<!--                <lg-tab-item-heading>Tab 1</lg-tab-item-heading>-->
-<!--                <lg-tab-item-content>-->
-<!--                  <div class="lg-tabs__content-section">-->
+                  <lg-tab-nav-bar label="Test nav tabs">
+                    @for (tab of tabs; track tab; let i = $index) {
+                      <a
+                        id="nav-tab-{{ i }}"
+                        [routerLink]="[tab.path]"
+                        [isActive]="selectedTabIndex === i"
+                        (click)="handleTabClick($event, i)"
+                        lgTabNavBarLink
+                        >{{ tab.label }}</a
+                        >
+                      }
+                    </lg-tab-nav-bar>
+                    <lg-tab-nav-content>
+                      <router-outlet></router-outlet>
+                    </lg-tab-nav-content>
+                  </lg-card-content>
+                </lg-card>
 
-<!--                    <p>-->
-<!--                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere-->
-<!--                      nec leo nec hendrerit. Pellentesque eu lacinia tortor. Donec urna-->
-<!--                      felis, dictum et faucibus et, interdum ut urna. Nam eleifend eleifend-->
-<!--                      mi vel blandit. Morbi rutrum a odio in pharetra.-->
-<!--                    </p>-->
-<!--                  </div>-->
-<!--                </lg-tab-item-content>-->
-<!--              </lg-tab-item>-->
-<!--              <lg-tab-item>-->
-<!--                <lg-tab-item-heading>Tab 2</lg-tab-item-heading>-->
-<!--                <lg-tab-item-content>-->
-<!--                  <div class="lg-tabs__content-section">-->
-<!--                    <p>-->
-<!--                      Maecenas laoreet tristique ligula, mollis ullamcorper est faucibus-->
-<!--                      eget. Aenean quis placerat arcu. Sed efficitur odio nunc, id facilisis-->
-<!--                      orci accumsan eget. Nunc feugiat elit eget imperdiet faucibus.-->
-<!--                      Maecenas faucibus sit amet nisi a ultricies.-->
-<!--                    </p>-->
+                <lg-separator></lg-separator>
+                <lg-heading level="3">Side Nav</lg-heading>
+                <lg-side-nav>
+                  <lg-side-nav-bar label="Side Nav Demo">
+                    @for (item of sideNav; track item; let i = $index) {
+                      <a
+                        id="side-nav-{{ i }}"
+                        [routerLink]="['/', { outlets: { 'side-nav': item.path } }]"
+                        (click)="handleSideNavClick($event, i)"
+                        [isActive]="selectedSideNavIndex === i"
+                        lgSideBarNavLink
+                        >
+                        <lg-side-nav-bar-item>
+                          <lg-side-nav-bar-item-heading>{{ item.title }}</lg-side-nav-bar-item-heading>
+                          @if (item.description) {
+                            <lg-side-nav-bar-item-content>{{
+                              item.description
+                            }}</lg-side-nav-bar-item-content>
+                          }
+                        </lg-side-nav-bar-item>
+                      </a>
+                    }
+                    <lg-side-nav-bar-footer>
+                      <a
+                        lg-button
+                        lgMarginBottom="none"
+                        variant="secondary-dark"
+                        [fullWidth]="false"
+                        href="#"
+                        >Logout</a
+                        >
+                      </lg-side-nav-bar-footer>
+                    </lg-side-nav-bar>
+                    <lg-side-nav-content>
+                      <router-outlet name="side-nav"></router-outlet>
+                    </lg-side-nav-content>
+                  </lg-side-nav>
+
+                  <lg-separator></lg-separator>
+                  <lg-heading level="4">Pagination</lg-heading>
+                  <lg-card lgPadding="none">
+                    <lg-card-content>
+                      <lg-pagination lgMargin="xs" itemsPerPage="5" totalItems="20"></lg-pagination>
+                    </lg-card-content>
+                  </lg-card>
+
+                  <lg-separator></lg-separator>
+                  <lg-heading level="3">Cards</lg-heading>
+
+                  <lg-card>
+                    <lg-card-header>
+                      <lg-card-title [headingLevel]="4"> Test card title </lg-card-title>
+                    </lg-card-header>
+                    <lg-card-content>
+                      <lg-card-subheading [headingLevel]="5">Subheading</lg-card-subheading>
+                      Phasellus enim sem, dignissim nec ullamcorper id, euismod in magna. Sed at egestas urna.
+                    </lg-card-content>
+                  </lg-card>
+
+                  <lg-card>
+                    <lg-card-content>
+                      <div lgRow>
+                        <div lgCol="12" lgColMd="6">
+                          <lg-card-title headingLevel="4">
+                            <a href="#">Product card title</a>
+                          </lg-card-title>
+                          <lg-card-subtitle class="lg-card-subtitle"> Payroll Reference Number P23456 </lg-card-subtitle>
+                        </div>
+                        <lg-card-principle-data-point lgCol="12" lgColMd="6">
+                          <lg-card-principle-data-point-label> Last payment (after tax and deductions) </lg-card-principle-data-point-label>
+                          <lg-card-principle-data-point-value>
+                            <span><span class="lg-font-size-3">£</span>230.20</span>
+                          </lg-card-principle-data-point-value>
+                          <lg-card-principle-data-point-date> as of 01 Jan 2020 </lg-card-principle-data-point-date>
+                        </lg-card-principle-data-point>
+                      </div>
+                    </lg-card-content>
+                  </lg-card>
+
+                  <div lgContainer>
+                    <div lgRow>
+                      <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+                        <lg-card lgPadding="none">
+                          <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
+                            <lg-breadcrumb lgMarginBottom="none">
+                              <lg-breadcrumb-item>
+                                <a href="#">
+                                  <lg-icon [name]="'chevron-left'"></lg-icon>
+                                  Back
+                                </a>
+                              </lg-breadcrumb-item>
+                            </lg-breadcrumb>
+                          </lg-card-header>
+                          <lg-card-content>
+                            <div lgContainer>
+                              <div lgRow>
+                                <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+                                  <lg-card-title headingLevel="4">
+                                    Form Journey Card
+                                  </lg-card-title>
+                                  <lg-separator></lg-separator>
+                                  <p>Form Journey card content</p>
+                                  <lg-input-field>
+                                    Account number
+                                    <lg-hint>Must contain 8 digits</lg-hint>
+                                    <input lgInput size="8"/>
+                                  </lg-input-field>
+                                </div>
+                              </div>
+                            </div>
+                          </lg-card-content>
+                          <lg-card-footer>
+                            <div lgContainer>
+                              <div lgRow>
+                                <div lgCol="12" lgColMd="10" lgColMdOffset="1">
+                                  <button lg-button type="button" variant="secondary-dark" lgMarginRight="sm">Back</button>
+                                  <button lg-button type="submit" variant="primary-dark">Confirm</button>
+                                </div>
+                              </div>
+                            </div>
+                          </lg-card-footer>
+                        </lg-card>
+                      </div>
+                    </div>
+                    <div lgRow>
+                      <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+                        <lg-card>
+                          <lg-card-header>
+                            Link Menu
+                          </lg-card-header>
+                          <lg-card-content>
+                            <lg-link-menu>
+                              <a href="#">
+                                <lg-link-menu-item>
+                                  <lg-link-menu-item-text isBold="true">An internal link (default)</lg-link-menu-item-text>
+                                  <lg-link-menu-item-text>
+                                    This links to an internal page
+                                  </lg-link-menu-item-text>
+                                </lg-link-menu-item>
+                              </a>
+                              <a href="#" target="_blank">
+                                <lg-link-menu-item>
+                                  <lg-link-menu-item-text isBold="true">An external link</lg-link-menu-item-text>
+                                  <lg-link-menu-item-text>
+                                    This links to an external page opening in a <em>new</em> tab
+                                  </lg-link-menu-item-text>
+                                </lg-link-menu-item>
+                              </a>
+                            </lg-link-menu>
+                          </lg-card-content>
+                        </lg-card>
+                      </div>
+                    </div>
+                    <div lgRow>
+                      <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+                        <lg-card>
+                          <lg-card-header>
+                            <lg-card-navigation-title title="Data Points" link="#" [headingLevel]="2"></lg-card-navigation-title>
+                          </lg-card-header>
+                          <lg-card-content>
+                            <lg-data-point>
+                              <lg-data-point-label [headingLevel]="3">Label 1</lg-data-point-label>
+                              <lg-data-point-value>Value 1</lg-data-point-value>
+                            </lg-data-point>
+                            <lg-data-point>
+                              <lg-data-point-label [headingLevel]="3">Label 2</lg-data-point-label>
+                              <lg-data-point-value>Value 2</lg-data-point-value>
+                            </lg-data-point>
+                            <lg-data-point>
+                              <lg-data-point-label [headingLevel]="3">Label 3</lg-data-point-label>
+                              <lg-data-point-value>Value 3</lg-data-point-value>
+                            </lg-data-point>
+                          </lg-card-content>
+                          <lg-card-footer>
+                            <lg-link-menu>
+                              <a href="#">
+                                <lg-link-menu-item>
+                                  <lg-link-menu-item-text isBold="true">An internal link (default)</lg-link-menu-item-text>
+                                  <lg-link-menu-item-text>
+                                    This links to an internal page
+                                  </lg-link-menu-item-text>
+                                </lg-link-menu-item>
+                              </a>
+                              <a href="#" target="_blank">
+                                <lg-link-menu-item>
+                                  <lg-link-menu-item-text isBold="true">An external link</lg-link-menu-item-text>
+                                  <lg-link-menu-item-text>
+                                    This links to an external page opening in a <em>new</em> tab
+                                  </lg-link-menu-item-text>
+                                </lg-link-menu-item>
+                              </a>
+                            </lg-link-menu>
+                          </lg-card-footer>
+                        </lg-card>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--        <lg-card lgPaddingTop="none">-->
+            <!--          <lg-card-content>-->
+            <!--            <lg-tabs label="Annuities">-->
+            <!--              <lg-tab-item>-->
+            <!--                <lg-tab-item-heading>Tab 1</lg-tab-item-heading>-->
+            <!--                <lg-tab-item-content>-->
+            <!--                  <div class="lg-tabs__content-section">-->
+
+            <!--                    <p>-->
+            <!--                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere-->
+            <!--                      nec leo nec hendrerit. Pellentesque eu lacinia tortor. Donec urna-->
+            <!--                      felis, dictum et faucibus et, interdum ut urna. Nam eleifend eleifend-->
+            <!--                      mi vel blandit. Morbi rutrum a odio in pharetra.-->
+          <!--                    </p>-->
+        <!--                  </div>-->
+      <!--                </lg-tab-item-content>-->
+    <!--              </lg-tab-item>-->
+    <!--              <lg-tab-item>-->
+    <!--                <lg-tab-item-heading>Tab 2</lg-tab-item-heading>-->
+    <!--                <lg-tab-item-content>-->
+    <!--                  <div class="lg-tabs__content-section">-->
+    <!--                    <p>-->
+    <!--                      Maecenas laoreet tristique ligula, mollis ullamcorper est faucibus-->
+    <!--                      eget. Aenean quis placerat arcu. Sed efficitur odio nunc, id facilisis-->
+    <!--                      orci accumsan eget. Nunc feugiat elit eget imperdiet faucibus.-->
+    <!--                      Maecenas faucibus sit amet nisi a ultricies.-->
+  <!--                    </p>-->
 <!--                  </div>-->
 <!--                </lg-tab-item-content>-->
 <!--              </lg-tab-item>-->
@@ -1613,7 +1617,7 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
-  <footer lg-footer>
-    <lg-footer-logo src="assets/legal-and-general-logo.svg"></lg-footer-logo>
-  </footer>
+<footer lg-footer>
+  <lg-footer-logo src="assets/legal-and-general-logo.svg"></lg-footer-logo>
+</footer>
 </lg-page>

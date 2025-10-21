@@ -10,7 +10,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import type { SpinnerSize, SpinnerVariant } from './spinner.interface';
 
@@ -20,7 +20,7 @@ import type { SpinnerSize, SpinnerVariant } from './spinner.interface';
   styleUrls: [ './spinner.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ NgClass, NgIf ],
+  imports: [ NgClass ],
 })
 export class LgSpinnerComponent implements OnDestroy {
   private cdr = inject(ChangeDetectorRef);

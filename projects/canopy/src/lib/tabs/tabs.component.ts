@@ -15,7 +15,7 @@ import {
   inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { NgFor, NgClass, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 
 import { isKeyDown, isKeyLeft, isKeyRight, isKeyUp } from '../utils/keyboard-keys';
 import { LgFocusDirective } from '../focus';
@@ -30,7 +30,7 @@ let nextUniqueId = 0;
   styleUrls: [ './tabs.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ NgFor, NgClass, LgFocusDirective, NgTemplateOutlet ],
+  imports: [ NgClass, LgFocusDirective, NgTemplateOutlet ],
 })
 export class LgTabsComponent implements AfterContentInit, OnDestroy {
   private cd = inject(ChangeDetectorRef);

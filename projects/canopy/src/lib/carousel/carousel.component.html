@@ -1,8 +1,10 @@
 <section class="lg-carousel" [attr.aria-labelledby]="description">
   <lg-heading [level]="headingLevel" class="lg-carousel__heading lg-visually-hidden">{{
-    description
-  }}</lg-heading>
-  <lg-auto-play *ngIf="autoPlay" [pause]="pause"></lg-auto-play>
+      description
+    }}</lg-heading>
+  @if (autoPlay) {
+    <lg-auto-play [pause]="pause"></lg-auto-play>
+  }
   <div
     class="lg-carousel__active-content lg-visually-hidden"
     aria-atomic="true"
@@ -30,28 +32,25 @@
         <lg-icon name="chevron-left"></lg-icon>
       </span>
     </button>
-    <button
+    @for (item of carouselItems; let i = $index; track item) {
+      <button
       role="tab"
       class="lg-carousel__button lg-carousel--centered"
       (click)="selectCarouselItem(i)"
-      *ngFor="let item of carouselItems; let i = index"
       [tabindex]="i === selectedItemIndex ? 0 : -1"
       [attr.aria-selected]="i === selectedItemIndex"
     >
       <span class="lg-visually-hidden">{{ description }} {{ i + 1 }}</span>
-      <span class="lg-visually-hidden" *ngIf="i === selectedItemIndex">(selected)</span>
+        @if (i === selectedItemIndex) {
+          <span class="lg-visually-hidden">(selected)</span>
+        }
       <span
         class="lg-carousel__bullet"
         [ngClass]="{ 'lg-carousel__bullet--active': i === selectedItemIndex }"
       ></span>
-      <svg
+      @if (autoPlay && selectedItemIndex === carouselItemCount - 1 && i === 0 && !pause.value) {
+        <svg
         class="lg-carousel__button-timer"
-        *ngIf="
-          autoPlay &&
-          selectedItemIndex === carouselItemCount - 1 &&
-          i === 0 &&
-          !pause.value
-        "
       >
         <circle
           class="lg-carousel__button-timer__circle"
@@ -61,9 +60,10 @@
           cy="20"
         ></circle>
       </svg>
-      <svg
+      }
+      @if (autoPlay && i === selectedItemIndex + 1 && !pause.value) {
+        <svg
         class="lg-carousel__button-timer"
-        *ngIf="autoPlay && i === selectedItemIndex + 1 && !pause.value"
       >
         <circle
           class="lg-carousel__button-timer__circle"
@@ -73,7 +73,9 @@
           cy="20"
         ></circle>
       </svg>
+      }
     </button>
+    }
     <button
       role="tab"
       class="lg-carousel__button"

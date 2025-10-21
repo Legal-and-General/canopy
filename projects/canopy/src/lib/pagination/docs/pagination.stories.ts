@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { NgFor } from '@angular/common';
 
 import { LgPaginationComponent, PageData } from '../pagination.component';
 import {
@@ -35,11 +34,13 @@ import {
           </tr>
         </thead>
         <tbody lg-table-body>
-          <tr lg-table-row *ngFor="let user of pagedItems">
-            <td lg-table-cell>{{ user.id }}</td>
-            <td lg-table-cell>{{ user.name }}</td>
-            <td lg-table-cell>{{ user.email }}</td>
-          </tr>
+          @for (user of pagedItems; track user) {
+            <tr lg-table-row>
+              <td lg-table-cell>{{ user.id }}</td>
+              <td lg-table-cell>{{ user.name }}</td>
+              <td lg-table-cell>{{ user.email }}</td>
+            </tr>
+          }
         </tbody>
       </table>
       <lg-pagination
@@ -58,7 +59,6 @@ import {
     LgTableBodyComponent,
     LgTableCellComponent,
     LgPaginationComponent,
-    NgFor,
   ],
 })
 class PaginationStoryComponent implements OnInit, OnChanges {

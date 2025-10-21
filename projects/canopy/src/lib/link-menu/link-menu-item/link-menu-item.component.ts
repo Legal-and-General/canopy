@@ -8,7 +8,6 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
 
@@ -18,7 +17,7 @@ import { LgIconComponent } from '../../icon';
   styleUrls: [ './link-menu-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ NgIf, LgIconComponent ],
+  imports: [ LgIconComponent ],
 })
 export class LgLinkMenuItemComponent implements OnInit {
   private elementRef = inject(ElementRef);

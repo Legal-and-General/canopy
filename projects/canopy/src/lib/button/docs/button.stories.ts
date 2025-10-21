@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { IconName, LgIconComponent } from '../../icon';
 import {
@@ -34,12 +33,18 @@ const buttonVariants = [
       [size]="size"
       [variant]="variant"
     >
-      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" name="filter" first></lg-icon>
+      @if (icon !== 'None' && doubleIconButton) {
+        <lg-icon name="filter" first></lg-icon>
+      }
       {{ content }}
-      <lg-icon *ngIf="icon !== 'None' && doubleIconButton" [name]="icon" second></lg-icon>
-      <lg-icon *ngIf="icon !== 'None' && !doubleIconButton" [name]="icon"></lg-icon>
+      @if (icon !== 'None' && doubleIconButton) {
+        <lg-icon [name]="icon" second></lg-icon>
+      }
+      @if (icon !== 'None' && !doubleIconButton) {
+        <lg-icon [name]="icon"></lg-icon>
+      }
     </button>
-    <ng-container *ngIf="variant !== 'link'">
+    @if (variant !== 'link') {
       <p>Used on a <strong>link</strong> element</p>
       <a
         lg-button
@@ -52,22 +57,20 @@ const buttonVariants = [
         [size]="size"
         [variant]="variant"
       >
-        <lg-icon
-          *ngIf="icon !== 'None' && doubleIconButton"
-          name="filter"
-          first
-        ></lg-icon>
+        @if (icon !== 'None' && doubleIconButton) {
+          <lg-icon name="filter" first></lg-icon>
+        }
         {{ content }}
-        <lg-icon
-          *ngIf="icon !== 'None' && doubleIconButton"
-          [name]="icon"
-          second
-        ></lg-icon>
-        <lg-icon *ngIf="icon !== 'None' && !doubleIconButton" [name]="icon"></lg-icon>
+        @if (icon !== 'None' && doubleIconButton) {
+          <lg-icon [name]="icon" second></lg-icon>
+        }
+        @if (icon !== 'None' && !doubleIconButton) {
+          <lg-icon [name]="icon"></lg-icon>
+        }
       </a>
-    </ng-container>
+    }
   `,
-  imports: [ LgButtonComponent, LgIconComponent, NgIf ],
+  imports: [ LgButtonComponent, LgIconComponent ],
 })
 class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
