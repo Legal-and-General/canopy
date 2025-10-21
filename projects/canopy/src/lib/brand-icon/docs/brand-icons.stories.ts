@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata } from '@storybook/angular';
-import { NgForOf } from '@angular/common';
 
 import { BrandIconSize, LgBrandIconComponent } from '../brand-icon.component';
 import { lgBrandIconsArray } from '../../brand-icons-files';
@@ -9,18 +8,20 @@ import { lgBrandIconsArray } from '../../brand-icons-files';
 @Component({
   selector: 'lg-swatch-brand-icon',
   template: `
-    <div class="swatch" *ngFor="let icon of lgBrandIconsArray; let i = index">
-      <lg-brand-icon
-        class="swatch__svg"
-        [name]="icon.name"
-        [size]="size"
-        [colour]="i === 0 ? colour : null"
-        [halfToneColour]="i === 2 ? halfToneColour : null"
-        [outlinesColour]="i === 2 ? outlinesColour : null"
-        [attr.style]="cssVar"
-      ></lg-brand-icon>
-      <span class="swatch__name">{{ icon.name }}</span>
-    </div>
+    @for (icon of lgBrandIconsArray; track icon; let i = $index) {
+      <div class="swatch">
+        <lg-brand-icon
+          class="swatch__svg"
+          [name]="icon.name"
+          [size]="size"
+          [colour]="i === 0 ? colour : null"
+          [halfToneColour]="i === 2 ? halfToneColour : null"
+          [outlinesColour]="i === 2 ? outlinesColour : null"
+          [attr.style]="cssVar"
+        ></lg-brand-icon>
+        <span class="swatch__name">{{ icon.name }}</span>
+      </div>
+    }
   `,
   styles: [
     `
@@ -46,7 +47,7 @@ import { lgBrandIconsArray } from '../../brand-icons-files';
       }
     `,
   ],
-  imports: [ LgBrandIconComponent, NgForOf ],
+  imports: [ LgBrandIconComponent ],
 })
 class SwatchBrandIconComponent implements OnChanges {
   private sanitizer = inject(DomSanitizer);

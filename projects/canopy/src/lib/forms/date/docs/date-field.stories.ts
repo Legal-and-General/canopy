@@ -5,7 +5,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { LgDateFieldComponent } from '../date-field.component';
 import { LgHintComponent } from '../../hint';
@@ -20,7 +19,7 @@ const template = `
 @Component({
   selector: 'lg-reactive-form',
   template: ` <form [formGroup]="form">${template}</form> `,
-  imports: [ ReactiveFormsModule, LgDateFieldComponent, LgHintComponent, NgIf ],
+  imports: [ ReactiveFormsModule, LgDateFieldComponent, LgHintComponent ],
 })
 class ReactiveFormComponent {
   fb = inject(UntypedFormBuilder);

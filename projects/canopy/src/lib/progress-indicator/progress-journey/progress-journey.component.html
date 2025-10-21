@@ -2,19 +2,23 @@
   <ng-content />
 </div>
 
-<div [ngSwitch]="displayAs" class="lg-font-size-0-6">
-  <span
-    *ngSwitchCase="'step'"
-    class="lg-progress-journey__stepper"
-    [attr.id]="stepsTextId"
-  >
-    {{ stepsPrefix }} {{ value }} of {{ max }}
-  </span>
-  <span
-    *ngSwitchCase="'percentage'"
-    class="lg-progress-journey__percentage"
-    [attr.id]="stepsTextId"
-  >
-    {{ percentage }}%
-  </span>
+<div class="lg-font-size-0-6">
+  @switch (displayAs) {
+    @case ('step') {
+      <span
+        class="lg-progress-journey__stepper"
+        [attr.id]="stepsTextId"
+        >
+        {{ stepsPrefix }} {{ value }} of {{ max }}
+      </span>
+    }
+    @case ('percentage') {
+      <span
+        class="lg-progress-journey__percentage"
+        [attr.id]="stepsTextId"
+        >
+        {{ percentage }}%
+      </span>
+    }
+  }
 </div>

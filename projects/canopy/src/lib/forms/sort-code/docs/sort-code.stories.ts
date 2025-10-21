@@ -5,7 +5,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { LgSortCodeDirective } from '../sort-code.directive';
 import { LgInputDirective, LgInputFieldComponent } from '../../input';
@@ -28,7 +27,6 @@ const template = `
     LgInputDirective,
     LgHintComponent,
     LgSortCodeDirective,
-    NgIf,
   ],
 })
 class ReactiveFormComponent {

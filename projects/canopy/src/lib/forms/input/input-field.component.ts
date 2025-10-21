@@ -12,7 +12,6 @@ import {
   inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { NgIf } from '@angular/common';
 
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
@@ -39,7 +38,6 @@ let nextUniqueId = 0;
     LgSuffixDirective,
     LgPrefixDirective,
     LgInputDirective,
-    NgIf,
   ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {

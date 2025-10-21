@@ -153,8 +153,6 @@ const fullWidthWithHeroTemplate = `
     LgFooterNavItemComponent,
     LgFooterLogoComponent,
     LgFooterCopyrightComponent,
-    NgIf,
-    NgFor,
     LgMarginDirective,
   ],
 })

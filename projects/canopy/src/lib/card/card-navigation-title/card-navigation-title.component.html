@@ -1,11 +1,17 @@
-<lg-heading [level]="headingLevel" *ngIf="link && title && headingLevel">
-  <a *ngIf="externalLink" [href]="link" (click)="linkClicked()" target="_blank">
-    <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
-  </a>
-  <a *ngIf="!externalLink" [routerLink]="[link]" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" (click)="linkClicked()">
-    <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
-  </a>
-</lg-heading>
+@if (link && title && headingLevel) {
+  <lg-heading [level]="headingLevel">
+    @if (externalLink) {
+      <a [href]="link" (click)="linkClicked()" target="_blank">
+        <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
+      </a>
+    }
+    @if (!externalLink) {
+      <a [routerLink]="[link]" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" (click)="linkClicked()">
+        <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
+      </a>
+    }
+  </lg-heading>
+}
 
 <ng-template #linkContent>
   {{title}}

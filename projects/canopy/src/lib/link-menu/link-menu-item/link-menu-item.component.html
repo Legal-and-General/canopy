@@ -1,11 +1,15 @@
-<div class="lg-link-menu-item__icon-left-container" *ngIf="iconComponent">
-  <ng-content select="lg-icon"></ng-content>
-</div>
+@if (iconComponent) {
+  <div class="lg-link-menu-item__icon-left-container">
+    <ng-content select="lg-icon"></ng-content>
+  </div>
+}
 <div class="lg-link-menu-item__container">
   <ng-content select="lg-link-menu-item-text"></ng-content>
   <ng-content select="lg-link-menu-item-text"></ng-content>
 </div>
 <div class="lg-link-menu-item__icon-container">
   <lg-icon [name]="!openInANewTab ? 'chevron-right' : 'link-external'" class="lg-font-size-0-8"></lg-icon>
-  <span *ngIf="openInANewTab" class="lg-visually-hidden"> opens in a new tab</span>
+  @if (openInANewTab) {
+    <span class="lg-visually-hidden"> opens in a new tab</span>
+  }
 </div>

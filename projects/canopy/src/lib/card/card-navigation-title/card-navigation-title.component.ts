@@ -10,7 +10,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Params, QueryParamsHandling, RouterLink } from '@angular/router';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 
 import type { HeadingLevel } from '../../heading';
 import { LgHeadingComponent } from '../../heading';
@@ -26,7 +26,7 @@ import isExternalURL from '../../utils/external-links';
   host: {
     class: 'lg-card-navigation-title',
   },
-  imports: [ NgIf, LgHeadingComponent, NgTemplateOutlet, RouterLink, LgIconComponent ],
+  imports: [ LgHeadingComponent, NgTemplateOutlet, RouterLink, LgIconComponent ],
 })
 export class LgCardNavigationTitleComponent implements OnInit, OnChanges {
   protected externalLink: boolean;

@@ -11,7 +11,6 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
-import { NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
 import { LgErrorStateMatcher, LgValidationComponent } from '../validation';
@@ -34,22 +33,15 @@ const validationTestId = 'test-validation-id';
         [size]="size"
       >
         I will bring my Umbrella if it is raining {{ variant }}
-        <lg-validation
-          id="${validationTestId}"
-          *ngIf="isControlInvalid(umbrella, testForm)"
-        >
-          You must agree to the terms and conditions
-        </lg-validation>
+        @if (isControlInvalid(umbrella, testForm)) {
+          <lg-validation id="${validationTestId}">
+            You must agree to the terms and conditions
+          </lg-validation>
+        }
       </lg-toggle>
     </form>
   `,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    LgToggleComponent,
-    LgValidationComponent,
-    NgIf,
-  ],
+  imports: [ FormsModule, ReactiveFormsModule, LgToggleComponent, LgValidationComponent ],
 })
 class TestToggleComponent {
   private fb = inject(UntypedFormBuilder);
@@ -93,22 +85,15 @@ class TestToggleComponent {
         (blur)="onBlur($event)"
       >
         I will bring my Umbrella if it is raining
-        <lg-validation
-          id="${validationTestId}"
-          *ngIf="isControlInvalid(umbrella, testForm)"
-        >
-          You must agree to the terms and conditions
-        </lg-validation>
+        @if (isControlInvalid(umbrella, testForm)) {
+          <lg-validation id="${validationTestId}">
+            You must agree to the terms and conditions
+          </lg-validation>
+        }
       </lg-switch>
     </form>
   `,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    LgToggleComponent,
-    LgValidationComponent,
-    NgIf,
-  ],
+  imports: [ FormsModule, ReactiveFormsModule, LgToggleComponent, LgValidationComponent ],
 })
 class TestToggleVariantSelectorComponent {
   private fb = inject(UntypedFormBuilder);

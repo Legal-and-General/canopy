@@ -12,7 +12,7 @@ import {
   inject,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import { LgErrorStateMatcher } from '../validation';
 import { LgHintComponent } from '../hint';
@@ -32,7 +32,7 @@ let nextUniqueId = 0;
     './radio-button--segment.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ NgClass, NgIf ],
+  imports: [ NgClass ],
 })
 export class LgRadioButtonComponent implements OnInit {
   private radioGroup = inject(LgRadioGroupComponent);

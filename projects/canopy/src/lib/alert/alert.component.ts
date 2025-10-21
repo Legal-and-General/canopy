@@ -8,7 +8,6 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import type { Variant } from '../variant';
 import { LgIconComponent } from '../icon';
@@ -18,7 +17,7 @@ import { LgIconComponent } from '../icon';
   templateUrl: './alert.component.html',
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
+  imports: [ LgIconComponent ],
 })
 export class LgAlertComponent implements OnChanges {
   private renderer = inject(Renderer2);

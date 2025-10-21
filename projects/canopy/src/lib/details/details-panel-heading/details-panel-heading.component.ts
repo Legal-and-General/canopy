@@ -8,7 +8,6 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
 import type { Variant } from '../../variant';
@@ -20,7 +19,7 @@ import { LgHeadingComponent } from '../../heading';
   styleUrls: [ './details-panel-heading.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ LgHeadingComponent, NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
+  imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgDetailsPanelHeadingComponent {
   private cdr = inject(ChangeDetectorRef);

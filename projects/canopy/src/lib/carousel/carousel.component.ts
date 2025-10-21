@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import type { HeadingLevel } from '../heading';
 import { LgHeadingComponent } from '../heading';
@@ -27,14 +27,7 @@ import { LgAutoplayComponent } from './auto-play/auto-play.component';
   styleUrls: [ './carousel.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    LgHeadingComponent,
-    NgIf,
-    LgAutoplayComponent,
-    LgIconComponent,
-    NgFor,
-    NgClass,
-  ],
+  imports: [ LgHeadingComponent, LgAutoplayComponent, LgIconComponent, NgClass ],
 })
 /**
  * @deprecated This component will be removed in the future

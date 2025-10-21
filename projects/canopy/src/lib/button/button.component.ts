@@ -11,7 +11,7 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { NgIf, NgFor, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 
 import { LgIconComponent } from '../icon';
 import { LgMarginDirective } from '../spacing';
@@ -24,7 +24,7 @@ import type { ButtonIconPosition, ButtonSize, ButtonVariant } from './button.int
   templateUrl: './button.component.html',
   styleUrls: [ './button.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ NgIf, NgFor, NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective ],
+  imports: [ NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective ],
 })
 export class LgButtonComponent implements AfterViewInit {
   private renderer = inject(Renderer2);
