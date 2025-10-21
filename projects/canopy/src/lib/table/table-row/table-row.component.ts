@@ -8,6 +8,7 @@ import {
   Input,
   QueryList,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
@@ -22,6 +23,8 @@ import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.com
   standalone: true,
 })
 export class LgTableRowComponent {
+  private cd = inject(ChangeDetectorRef);
+
   private _isHeadRow = false;
   set isHeadRow(isHeadRow: boolean) {
     this._isHeadRow = isHeadRow;
@@ -78,6 +81,4 @@ export class LgTableRowComponent {
   get hasToggle(): boolean {
     return !!this.tableCellComponent?.toggleClass;
   }
-
-  constructor(private cd: ChangeDetectorRef) {}
 }

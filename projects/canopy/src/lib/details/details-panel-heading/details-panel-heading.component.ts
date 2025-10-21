@@ -6,6 +6,7 @@ import {
   Input,
   Output,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
@@ -22,6 +23,8 @@ import { LgHeadingComponent } from '../../heading';
   imports: [ LgHeadingComponent, NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgDetailsPanelHeadingComponent {
+  private cdr = inject(ChangeDetectorRef);
+
   @Input() headingLevel;
   @Input() isActive = false;
 
@@ -48,8 +51,6 @@ export class LgDetailsPanelHeadingComponent {
   @Output() toggleActive = new EventEmitter<boolean>();
 
   uniqueId: number;
-
-  constructor(private cdr: ChangeDetectorRef) {}
 
   toggle(): void {
     this.isActive = !this.isActive;

@@ -5,11 +5,9 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  Optional,
-  Self,
-  SkipSelf,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -61,6 +59,14 @@ const labelFieldMap = {
   ],
 })
 export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDestroy {
+  private domService = inject(LgDomService);
+  private errorState = inject(LgErrorStateMatcher);
+  private ngControl = inject(NgControl, { self: true, optional: true });
+  private parentFormGroupDirective = inject(FormGroupDirective, {
+    optional: true,
+    skipSelf: true,
+  });
+
   private uniqueId = nextUniqueId++;
   dateFormGroup: UntypedFormGroup;
   date: UntypedFormControl;
@@ -105,16 +111,7 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
   @ViewChild('dateFormDirective')
   formGroupDirective: FormGroupDirective;
 
-  constructor(
-    private domService: LgDomService,
-    private errorState: LgErrorStateMatcher,
-    @Self()
-    @Optional()
-    private ngControl: NgControl,
-    @Optional()
-    @SkipSelf()
-    private parentFormGroupDirective: FormGroupDirective,
-  ) {
+  constructor() {
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }

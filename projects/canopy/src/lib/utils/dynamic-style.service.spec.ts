@@ -1,4 +1,3 @@
-import { DOCUMENT } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
 
 import { BreakpointValues } from '../shared/breakpoints.interface';
@@ -7,11 +6,10 @@ import { DynamicStyleService } from './dynamic-style.service';
 
 describe('DynamicStyleService', () => {
   let service: DynamicStyleService;
-  let document: Document;
 
   beforeEach(() => {
-    document = TestBed.inject(DOCUMENT);
-    service = new DynamicStyleService(document);
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(DynamicStyleService);
     service.styleTag = {};
     service.styleTag.innerHTML = '';
   });

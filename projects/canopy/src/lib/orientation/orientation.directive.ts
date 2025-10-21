@@ -1,4 +1,11 @@
-import { Directive, ElementRef, Input, HostBinding, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  HostBinding,
+  Renderer2,
+  inject,
+} from '@angular/core';
 
 import { OrientationResponsive } from './orientation.interface';
 
@@ -7,6 +14,9 @@ import { OrientationResponsive } from './orientation.interface';
   standalone: true,
 })
 export class LgOrientationDirective {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   orientationClasses: Array<string> = [];
 
   @Input()
@@ -21,11 +31,6 @@ export class LgOrientationDirective {
   @HostBinding('class.lg-orientation') get orientationClass(): number {
     return this.orientationClasses.length;
   }
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 
   toggleClasses(newClasses: Array<string>, oldClasses: Array<string>): Array<string> {
     if (oldClasses.length) {

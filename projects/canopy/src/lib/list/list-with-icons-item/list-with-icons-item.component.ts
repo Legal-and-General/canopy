@@ -7,6 +7,7 @@ import {
   OnChanges,
   SimpleChanges,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { IconName, LgIconComponent } from '../../icon';
@@ -25,10 +26,10 @@ type Name = IconName;
   imports: [ LgIconComponent ],
 })
 export class LgListWithIconsItemComponent implements AfterViewInit, OnChanges {
+  private hostElement = inject(ElementRef);
+
   @Input() iconName: Name;
   @Input() iconColour: string;
-
-  constructor(private hostElement: ElementRef) {}
 
   ngAfterViewInit(): void {
     this.updateIconColour(this.iconColour);

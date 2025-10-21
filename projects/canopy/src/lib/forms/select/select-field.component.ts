@@ -5,6 +5,7 @@ import {
   Input,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { LgDomService } from '../../utils';
@@ -26,6 +27,9 @@ let nextUniqueId = 0;
   imports: [ LgLabelComponent, LgIconComponent ],
 })
 export class LgSelectFieldComponent {
+  private errorState = inject(LgErrorStateMatcher);
+  private domService = inject(LgDomService);
+
   @Input() id = `lg-select-${nextUniqueId++}`;
   @HostBinding('class.lg-select-field') class = true;
   @HostBinding('class.lg-select-field--error') get errorClass() {
@@ -85,9 +89,4 @@ export class LgSelectFieldComponent {
 
     this._validationElement = element;
   }
-
-  constructor(
-    private errorState: LgErrorStateMatcher,
-    private domService: LgDomService,
-  ) {}
 }

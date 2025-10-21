@@ -5,6 +5,7 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
+  inject,
 } from '@angular/core';
 import {
   ReactiveFormsModule,
@@ -36,6 +37,8 @@ import { LgToggleComponent } from '../toggle.component';
   imports: [ ReactiveFormsModule, LgToggleComponent ],
 })
 export class ReactiveToggleFormComponent implements OnChanges {
+  fb = inject(UntypedFormBuilder);
+
   @Input() label: string;
   @Input() variant: ToggleVariant;
   @Input() checked: boolean;
@@ -63,7 +66,7 @@ export class ReactiveToggleFormComponent implements OnChanges {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({
       umbrella: [ { value: '', disabled: false } ],
     });

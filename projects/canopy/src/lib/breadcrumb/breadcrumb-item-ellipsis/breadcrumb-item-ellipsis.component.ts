@@ -5,6 +5,7 @@ import {
   HostBinding,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { BreadcrumbVariant } from '../breadcrumb-item/breadcrumb-item.interface';
@@ -19,6 +20,9 @@ import { LgIconComponent } from '../../icon';
   imports: [ LgIconComponent ],
 })
 export class LgBreadcrumbItemEllipsisComponent {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private _variant: BreadcrumbVariant;
 
   @HostBinding('class.lg-breadcrumb-item-ellipsis') class = true;
@@ -41,9 +45,4 @@ export class LgBreadcrumbItemEllipsisComponent {
   get variant() {
     return this._variant;
   }
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 }

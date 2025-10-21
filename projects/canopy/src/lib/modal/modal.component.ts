@@ -7,11 +7,11 @@ import {
   EventEmitter,
   forwardRef,
   HostListener,
-  Inject,
   Input,
   OnDestroy,
   OnInit,
   Output,
+  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -46,6 +46,10 @@ import { LgModalService } from './modal.service';
   ],
 })
 export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
+  private document = inject<Document>(DOCUMENT);
+  private cdr = inject(ChangeDetectorRef);
+  private modalService = inject(LgModalService);
+
   private subscription: Subscription;
   isOpen: boolean;
   @Input() id: string;
@@ -59,12 +63,6 @@ export class LgModalComponent implements OnInit, AfterContentInit, OnDestroy {
   modalHeaderComponent: LgModalHeaderComponent;
   @ContentChild(forwardRef(() => LgModalBodyComponent))
   modalBodyComponent: LgModalBodyComponent;
-
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private cdr: ChangeDetectorRef,
-    private modalService: LgModalService,
-  ) {}
 
   @HostListener('keydown', [ '$event' ]) onKeydown(event: KeyboardEvent): void {
     if (event.key === keyName.KEY_ESCAPE && this.isOpen) {

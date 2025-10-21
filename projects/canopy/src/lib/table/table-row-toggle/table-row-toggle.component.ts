@@ -5,6 +5,7 @@ import {
   HostBinding,
   Input,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
@@ -19,6 +20,8 @@ import { LgIconComponent } from '../../icon';
   imports: [ LgIconComponent, NgClass ],
 })
 export class LgTableRowToggleComponent {
+  private cd = inject(ChangeDetectorRef);
+
   private _tableId: number;
   private _rowId: number;
   context = '';
@@ -26,8 +29,6 @@ export class LgTableRowToggleComponent {
   @Input() isActive = false;
 
   @HostBinding('class') class = 'lg-table-row-toggle';
-
-  constructor(private cd: ChangeDetectorRef) {}
 
   set tableId(tableId: number) {
     this._tableId = tableId;

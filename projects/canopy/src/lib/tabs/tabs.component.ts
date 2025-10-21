@@ -12,6 +12,7 @@ import {
   Output,
   QueryList,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NgFor, NgClass, NgTemplateOutlet } from '@angular/common';
@@ -32,6 +33,8 @@ let nextUniqueId = 0;
   imports: [ NgFor, NgClass, LgFocusDirective, NgTemplateOutlet ],
 })
 export class LgTabsComponent implements AfterContentInit, OnDestroy {
+  private cd = inject(ChangeDetectorRef);
+
   private subscription: Subscription;
   selectedIndex = 0;
   isKeyboardEvent = false;
@@ -48,8 +51,6 @@ export class LgTabsComponent implements AfterContentInit, OnDestroy {
   @Input() label = 'tabs';
 
   @Output() tabEvent: EventEmitter<{ index: number }> = new EventEmitter();
-
-  constructor(private cd: ChangeDetectorRef) {}
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

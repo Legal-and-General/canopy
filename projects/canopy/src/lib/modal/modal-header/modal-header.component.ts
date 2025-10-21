@@ -6,6 +6,7 @@ import {
   Input,
   Output,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import type { HeadingLevel } from '../../heading';
@@ -25,13 +26,13 @@ import { LgIconComponent } from '../../icon';
   imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgModalHeaderComponent {
+  private modalService = inject(LgModalService);
+
   @Input() headingLevel: HeadingLevel = 2;
   @Output() closed: EventEmitter<void> = new EventEmitter();
   modalId: string;
 
   @HostBinding('id') id: string;
-
-  constructor(private modalService: LgModalService) {}
 
   close(): void {
     this.closed.emit();

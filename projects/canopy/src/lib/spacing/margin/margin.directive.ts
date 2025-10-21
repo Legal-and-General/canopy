@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
 
 import type { SpacingResponsive, SpacingVariant } from '../spacing.interface';
 import { SpacingService } from '../spacing.service';
@@ -16,6 +16,10 @@ import { SpacingService } from '../spacing.service';
   standalone: true,
 })
 export class LgMarginDirective {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+  private spacingService = inject(SpacingService);
+
   marginTopClasses: Array<string> = [];
   marginRightClasses: Array<string> = [];
   marginBottomClasses: Array<string> = [];
@@ -72,12 +76,6 @@ export class LgMarginDirective {
       this.marginClasses,
     );
   }
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-    private spacingService: SpacingService,
-  ) {}
 
   toggleClasses(newClasses: Array<string>, oldClasses: Array<string>) {
     if (oldClasses.length) {

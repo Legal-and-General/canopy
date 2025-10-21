@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata } from '@storybook/angular';
 import { NgForOf } from '@angular/common';
@@ -49,6 +49,8 @@ import { lgBrandIconsArray } from '../../brand-icons-files';
   imports: [ LgBrandIconComponent, NgForOf ],
 })
 class SwatchBrandIconComponent implements OnChanges {
+  private sanitizer = inject(DomSanitizer);
+
   @Input() size: BrandIconSize;
   @Input() colour: string;
   @Input() halfToneColour: string;
@@ -56,8 +58,6 @@ class SwatchBrandIconComponent implements OnChanges {
   @Input() globalColour: string;
 
   cssVar: SafeStyle;
-
-  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnChanges({ globalColour }: SimpleChanges) {
     if (globalColour && globalColour.currentValue) {

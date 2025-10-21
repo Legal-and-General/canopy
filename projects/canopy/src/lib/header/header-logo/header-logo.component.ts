@@ -10,6 +10,7 @@ import {
   Output,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgIf, NgClass } from '@angular/common';
 
@@ -29,6 +30,8 @@ type HeaderLogoClass = 'lg-header-logo__img' | 'lg-header-logo__second-img';
   imports: [ NgIf, NgClass ],
 })
 export class LgHeaderLogoComponent implements AfterContentChecked {
+  private cdr = inject(ChangeDetectorRef);
+
   private currentClass: HeaderLogoClass;
   class: HeaderLogoClass;
 
@@ -39,8 +42,6 @@ export class LgHeaderLogoComponent implements AfterContentChecked {
   @ViewChild('logolink') logoLinkRef: ElementRef;
 
   @Output() tabbedOut: EventEmitter<KeyboardEvent> = new EventEmitter();
-
-  constructor(private cdr: ChangeDetectorRef) {}
 
   @HostListener('keydown', [ '$event' ]) handleKeyDown(event: KeyboardEvent) {
     if (event.key === keyName.KEY_TAB) {

@@ -23,6 +23,8 @@ import type { SpinnerSize, SpinnerVariant } from './spinner.interface';
   imports: [ NgClass, NgIf ],
 })
 export class LgSpinnerComponent implements OnDestroy {
+  private cdr = inject(ChangeDetectorRef);
+
   subscription: Subscription;
   readScreenReaderAlert = true;
 
@@ -59,7 +61,7 @@ export class LgSpinnerComponent implements OnDestroy {
     return null;
   }
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor() {
     inject(NgZone).runOutsideAngular(() => {
       this.subscription = interval(2500).subscribe(() => {
         this.readScreenReaderAlert = !this.readScreenReaderAlert;

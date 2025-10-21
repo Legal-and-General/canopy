@@ -5,6 +5,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  inject,
 } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 
@@ -13,6 +14,8 @@ import { Subscription, timer } from 'rxjs';
   standalone: true,
 })
 export class LgSrAlertMessageDirective implements OnInit, OnDestroy {
+  private cdr = inject(ChangeDetectorRef);
+
   private subscription: Subscription;
 
   @Input() lgSrAlertMessage: boolean;
@@ -39,8 +42,6 @@ export class LgSrAlertMessageDirective implements OnInit, OnDestroy {
 
     return null;
   }
-
-  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.subscription = timer(this.timer).subscribe(() => {

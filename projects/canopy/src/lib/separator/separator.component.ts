@@ -5,6 +5,7 @@ import {
   Input,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import type { SeparatorVariant } from './separator.interface';
@@ -17,7 +18,10 @@ import type { SeparatorVariant } from './separator.interface';
   standalone: true,
 })
 export class LgSeparatorComponent {
+  private renderer = inject(Renderer2);
   private _variant: SeparatorVariant;
+
+  hostElement = inject(ElementRef);
 
   @Input() hasRole: boolean;
   @Input()
@@ -48,10 +52,7 @@ export class LgSeparatorComponent {
     return !this.hasRole || null;
   }
 
-  constructor(
-    private renderer: Renderer2,
-    public hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = 'solid';
   }
 }

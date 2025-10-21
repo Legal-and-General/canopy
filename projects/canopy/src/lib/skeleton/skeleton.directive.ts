@@ -1,10 +1,19 @@
-import { Directive, ElementRef, Input, HostBinding, OnDestroy } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  HostBinding,
+  OnDestroy,
+  inject,
+} from '@angular/core';
 
 @Directive({
   selector: '[lgSkeleton]',
   standalone: true,
 })
 export class LgSkeletonDirective implements OnDestroy {
+  private hostElement = inject(ElementRef);
+
   private changes: MutationObserver;
   private hasContent = false;
 
@@ -44,7 +53,7 @@ export class LgSkeletonDirective implements OnDestroy {
       : 'auto';
   }
 
-  constructor(private hostElement: ElementRef) {
+  constructor() {
     this.changes = new MutationObserver(this.observeChanges);
 
     this.changes.observe(this.hostElement.nativeElement, {

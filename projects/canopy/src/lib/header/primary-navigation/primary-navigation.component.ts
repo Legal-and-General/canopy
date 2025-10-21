@@ -5,6 +5,7 @@ import {
   HostBinding,
   Input,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { LgHideAtDirective } from '../../hide-at';
@@ -25,6 +26,8 @@ import { LgHideAtDirective } from '../../hide-at';
   imports: [ LgHideAtDirective ],
 })
 export class LgPrimaryNavComponent {
+  private cdr = inject(ChangeDetectorRef);
+
   private _showResponsiveMenu = false;
 
   @Input() set showResponsiveMenu(show: boolean) {
@@ -43,6 +46,4 @@ export class LgPrimaryNavComponent {
       ? false
       : null;
   }
-
-  constructor(private cdr: ChangeDetectorRef) {}
 }

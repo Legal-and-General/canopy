@@ -1,4 +1,11 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  inject,
+} from '@angular/core';
 import {
   AbstractControl,
   ControlContainer,
@@ -77,12 +84,10 @@ function invalidValidator(): ValidatorFn {
   imports: [ LgDateFieldComponent, ReactiveFormsModule, LgValidationComponent, NgIf ],
 })
 class FormGroupChildComponent implements OnInit {
-  parentForm: FormGroup;
+  private errorState = inject(LgErrorStateMatcher);
+  formGroupDirective = inject(FormGroupDirective);
 
-  constructor(
-    private errorState: LgErrorStateMatcher,
-    public formGroupDirective: FormGroupDirective,
-  ) {}
+  parentForm: FormGroup;
 
   get date() {
     return this.parentForm?.get('innerChildFormGroup.date');
@@ -296,6 +301,10 @@ class FormGroupChildComponent implements OnInit {
   ],
 })
 class ReactiveFormComponent {
+  private fb = inject(UntypedFormBuilder);
+  private errorState = inject(LgErrorStateMatcher);
+  private el = inject(ElementRef);
+
   @Output() inputChange: EventEmitter<void> = new EventEmitter();
 
   form: UntypedFormGroup;
@@ -338,11 +347,7 @@ class ReactiveFormComponent {
 
   @Output() formSubmit: EventEmitter<void> = new EventEmitter();
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private errorState: LgErrorStateMatcher,
-    private el: ElementRef,
-  ) {
+  constructor() {
     this.form = this.fb.group({
       text: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
       select: [ '', [ Validators.required, invalidValidator() ] ],

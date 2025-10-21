@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
 
 import type { Breakpoints } from '../shared/breakpoints.interface';
 
@@ -7,6 +7,9 @@ import type { Breakpoints } from '../shared/breakpoints.interface';
   standalone: true,
 })
 export class LgHideAtDirective {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   responsiveUtilClass: string;
 
   @Input()
@@ -20,11 +23,6 @@ export class LgHideAtDirective {
       this.responsiveUtilClass,
     );
   }
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 
   toggleClass(newClass: string, oldClass: string): string {
     if (oldClass) {

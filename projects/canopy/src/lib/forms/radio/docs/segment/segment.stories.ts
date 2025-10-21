@@ -3,7 +3,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
@@ -35,6 +35,8 @@ const segmentTemplate = `
   ],
 })
 class ReactiveFormSegmentComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input() label: string;
   @Input() hint: string;
   @Input() secondButtonLabel: string;
@@ -57,7 +59,7 @@ class ReactiveFormSegmentComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({ color: null });
     this.form.valueChanges.subscribe(val => this.segmentChange.emit(val));
   }
