@@ -13,7 +13,6 @@ import {
   inject,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
-import { NgIf } from '@angular/common';
 
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
@@ -33,7 +32,7 @@ let uniqueId = 0;
   templateUrl: './radio-group.component.html',
   styleUrls: [ './radio-group.component.scss', './radio-group--segment.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective, NgIf ],
+  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
 })
 export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {
   private control = inject(NgControl, { self: true, optional: true });

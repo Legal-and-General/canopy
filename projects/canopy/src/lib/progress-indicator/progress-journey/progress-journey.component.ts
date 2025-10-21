@@ -5,7 +5,6 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { NgSwitch, NgSwitchCase } from '@angular/common';
 
 import { ProgressDisplayAs } from '../progress-indicator.interface';
 
@@ -15,7 +14,7 @@ import { ProgressDisplayAs } from '../progress-indicator.interface';
   styleUrls: [ './progress-journey.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ NgSwitch, NgSwitchCase ],
+  imports: [],
 })
 export class LgProgressJourneyComponent {
   @HostBinding('class.lg-progress-journey') class = true;

@@ -7,11 +7,11 @@ import {
   tick,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponents } from 'ng-mocks';
+import { MockComponents, MockProviders } from 'ng-mocks';
 import { Subscription } from 'rxjs';
 
 import { HeadingLevel, LgHeadingComponent } from '../heading';
-import { LgIconComponent } from '../icon';
+import { LgIconComponent, LgIconRegistry } from '../icon';
 
 import { LgCarouselItemComponent } from './carousel-item/carousel-item.component';
 import { LgCarouselComponent } from './carousel.component';
@@ -86,6 +86,7 @@ describe('LgCarouselComponent', () => {
         LgCarouselComponent,
         MockComponents(LgHeadingComponent, LgIconComponent),
       ],
+      providers: [ MockProviders(LgIconRegistry) ],
     }).compileComponents();
   });
 

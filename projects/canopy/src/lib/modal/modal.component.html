@@ -1,4 +1,4 @@
-<ng-container *ngIf="isOpen">
+@if (isOpen) {
   <div class="lg-modal-overlay" aria-hidden="true"></div>
   <lg-card
     cdkTrapFocus
@@ -11,11 +11,11 @@
     tabindex="-1"
     (mousedown)="onModalClick($event)"
     [lgFocus]="isOpen"
-  >
+    >
     <lg-card-content>
       <ng-content select="lg-modal-header"></ng-content>
       <ng-content select="lg-modal-body"></ng-content>
       <ng-content select="lg-modal-footer"></ng-content>
     </lg-card-content>
   </lg-card>
-</ng-container>
+}

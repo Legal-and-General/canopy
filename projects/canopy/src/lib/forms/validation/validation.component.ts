@@ -7,7 +7,6 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
 import type { Variant } from '../../variant';
 import { LgIconComponent } from '../../icon';
@@ -19,7 +18,7 @@ let nextUniqueId = 0;
   templateUrl: './validation.component.html',
   styleUrls: [ './validation.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
+  imports: [ LgIconComponent ],
 })
 export class LgValidationComponent {
   private renderer = inject(Renderer2);

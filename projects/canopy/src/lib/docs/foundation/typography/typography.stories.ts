@@ -14,12 +14,14 @@ const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
   template: `
     <div>
       <p [ngClass]="fontClass" class="lg-margin__bottom--xxxs">{{ textString }}</p>
-      <div *ngIf="showSizeInfo" class="lg-margin__bottom--xl">
-        <p class="lg-font-size-0-8--400 lg-margin__top--xs">
-          SM > MD: {{ pxValues.sm }}px | {{ remValues.sm }}rem<br />
-          LG > XXL: {{ pxValues.lg }}px | {{ remValues.lg }}rem
-        </p>
-      </div>
+      @if (showSizeInfo) {
+        <div class="lg-margin__bottom--xl">
+          <p class="lg-font-size-0-8--400 lg-margin__top--xs">
+            SM > MD: {{ pxValues.sm }}px | {{ remValues.sm }}rem<br />
+            LG > XXL: {{ pxValues.lg }}px | {{ remValues.lg }}rem
+          </p>
+        </div>
+      }
     </div>
   `,
   standalone: false,
@@ -36,83 +38,92 @@ class LgDisplayFontSizeComponent {
   selector: 'lg-font-sizes-panel',
   template: `
     <div class="font-panels">
-      <div *ngIf="isProductiveFont" class="font-panels__panel">
-        <p class="lg-font-size-4--300 font-panels__heading">Productive</p>
-        <p class="lg-font-size-5--700 font-panels__subheading">Nunito Sans</p>
-        <ng-container *ngFor="let fontGroup of productiveFontGroups">
-          <ng-container *ngFor="let weight of fontGroup.weights; let last = last">
-            <lg-display-font-size
-              [textString]="getFontLabel(fontGroup.size, weight)"
-              [pxValues]="fontGroup.px"
-              [remValues]="fontGroup.rem"
-              [fontClass]="'lg-font-size-' + fontGroup.size + '--' + weight"
-              [showSizeInfo]="false"
-            >
-            </lg-display-font-size>
+      @if (isProductiveFont) {
+        <div class="font-panels__panel">
+          <p class="lg-font-size-4--300 font-panels__heading">Productive</p>
+          <p class="lg-font-size-5--700 font-panels__subheading">Nunito Sans</p>
+          @for (fontGroup of productiveFontGroups; track fontGroup) {
+            @for (weight of fontGroup.weights; track weight; let last = $last) {
+              <lg-display-font-size
+                [textString]="getFontLabel(fontGroup.size, weight)"
+                [pxValues]="fontGroup.px"
+                [remValues]="fontGroup.rem"
+                [fontClass]="'lg-font-size-' + fontGroup.size + '--' + weight"
+                [showSizeInfo]="false"
+              >
+              </lg-display-font-size>
+              <!-- Add underlined version of the last weight in each group -->
+              @if (last && isLastWeightInGroup(fontGroup, weight)) {
+                <lg-display-font-size
+                  [textString]="getFontLabel(fontGroup.size, weight, true)"
+                  [pxValues]="fontGroup.px"
+                  [remValues]="fontGroup.rem"
+                  [fontClass]="
+                    'lg-font-size-' + fontGroup.size + '--400' + ' lg-underline'
+                  "
+                  [showSizeInfo]="true"
+                  [ngClass]="{ 'lg-margin__bottom--none': true }"
+                >
+                </lg-display-font-size>
+              }
+            }
+          }
+        </div>
+      }
 
-            <!-- Add underlined version of the last weight in each group -->
-            <lg-display-font-size
-              *ngIf="last && isLastWeightInGroup(fontGroup, weight)"
-              [textString]="getFontLabel(fontGroup.size, weight, true)"
-              [pxValues]="fontGroup.px"
-              [remValues]="fontGroup.rem"
-              [fontClass]="'lg-font-size-' + fontGroup.size + '--400' + ' lg-underline'"
-              [showSizeInfo]="true"
-              [ngClass]="{ 'lg-margin__bottom--none': true }"
-            >
-            </lg-display-font-size>
-          </ng-container>
-        </ng-container>
-      </div>
-
-      <div *ngIf="!isProductiveFont" class="font-panels__panel">
-        <p class="lg-font-size-4--300 lg-font--expressive font-panels__heading">
-          Expressive
-        </p>
-        <p class="lg-font-size-5--700 lg-font--expressive font-panels__subheading">
-          ABC Otto
-        </p>
-        <ng-container *ngFor="let fontGroup of expressiveFontGroups">
-          <ng-container
-            *ngFor="let weight of fontGroup.weights; let i = index; let last = last"
-          >
-            <lg-display-font-size
-              [textString]="getFontLabel(fontGroup.size, weight)"
-              [pxValues]="fontGroup.px"
-              [remValues]="fontGroup.rem"
-              [fontClass]="
-                'lg-font-size-' +
-                fontGroup.size +
-                '--' +
-                weight +
-                ' ' +
-                'lg-font--expressive'
-              "
-              [showSizeInfo]="false"
-            >
-            </lg-display-font-size>
-
-            <!-- Add underlined version of the last weight in each group -->
-            <lg-display-font-size
-              *ngIf="i === fontGroup.weights.length - 1"
-              [textString]="getFontLabel(fontGroup.size, weight, true)"
-              [pxValues]="fontGroup.px"
-              [remValues]="fontGroup.rem"
-              [fontClass]="
-                'lg-font-size-' +
-                fontGroup.size +
-                '--400' +
-                ' ' +
-                'lg-font--expressive' +
-                ' lg-underline'
-              "
-              [showSizeInfo]="true"
-              [ngClass]="{ 'lg-margin__bottom--none': true }"
-            >
-            </lg-display-font-size>
-          </ng-container>
-        </ng-container>
-      </div>
+      @if (!isProductiveFont) {
+        <div class="font-panels__panel">
+          <p class="lg-font-size-4--300 lg-font--expressive font-panels__heading">
+            Expressive
+          </p>
+          <p class="lg-font-size-5--700 lg-font--expressive font-panels__subheading">
+            ABC Otto
+          </p>
+          @for (fontGroup of expressiveFontGroups; track fontGroup) {
+            @for (
+              weight of fontGroup.weights;
+              track weight;
+              let i = $index;
+              let last = $last
+            ) {
+              <lg-display-font-size
+                [textString]="getFontLabel(fontGroup.size, weight)"
+                [pxValues]="fontGroup.px"
+                [remValues]="fontGroup.rem"
+                [fontClass]="
+                  'lg-font-size-' +
+                  fontGroup.size +
+                  '--' +
+                  weight +
+                  ' ' +
+                  'lg-font--expressive'
+                "
+                [showSizeInfo]="false"
+              >
+              </lg-display-font-size>
+              <!-- Add underlined version of the last weight in each group -->
+              @if (i === fontGroup.weights.length - 1) {
+                <lg-display-font-size
+                  [textString]="getFontLabel(fontGroup.size, weight, true)"
+                  [pxValues]="fontGroup.px"
+                  [remValues]="fontGroup.rem"
+                  [fontClass]="
+                    'lg-font-size-' +
+                    fontGroup.size +
+                    '--400' +
+                    ' ' +
+                    'lg-font--expressive' +
+                    ' lg-underline'
+                  "
+                  [showSizeInfo]="true"
+                  [ngClass]="{ 'lg-margin__bottom--none': true }"
+                >
+                </lg-display-font-size>
+              }
+            }
+          }
+        </div>
+      }
     </div>
   `,
   styles: [

@@ -1,13 +1,23 @@
-<div
-  *ngIf="showIcon && variant !== 'generic'"
-  [ngSwitch]="variant"
-  class="lg-validation__icon"
->
-  <lg-icon *ngSwitchCase="'error'" name="crossmark-spot-fill"></lg-icon>
-  <lg-icon *ngSwitchCase="'info'" name="information-fill"></lg-icon>
-  <lg-icon *ngSwitchCase="'warning'" name="warning-fill"></lg-icon>
-  <lg-icon *ngSwitchCase="'success'" name="checkmark-spot-fill"></lg-icon>
-</div>
+@if (showIcon && variant !== 'generic') {
+  <div
+    class="lg-validation__icon"
+    >
+    @switch (variant) {
+      @case ('error') {
+        <lg-icon name="crossmark-spot-fill"></lg-icon>
+      }
+      @case ('info') {
+        <lg-icon name="information-fill"></lg-icon>
+      }
+      @case ('warning') {
+        <lg-icon name="warning-fill"></lg-icon>
+      }
+      @case ('success') {
+        <lg-icon name="checkmark-spot-fill"></lg-icon>
+      }
+    }
+  </div>
+}
 
 <div>
   <ng-content></ng-content>

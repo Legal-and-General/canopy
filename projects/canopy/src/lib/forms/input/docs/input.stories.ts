@@ -5,7 +5,6 @@ import {
   UntypedFormGroup,
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { ButtonVariant, LgButtonComponent } from '../../../button';
 import { LgInputFieldComponent } from '../input-field.component';
@@ -137,7 +136,6 @@ const inputTemplate = `
     LgButtonComponent,
     LgIconComponent,
     LgHintComponent,
-    NgIf,
   ],
 })
 class ReactiveFormComponent {

@@ -1,14 +1,17 @@
-<a *ngIf="href" [attr.href]="href" class="lg-header-logo__link" #logolink>
+@if (href) {
+  <a [attr.href]="href" class="lg-header-logo__link" #logolink>
+    <img
+      [attr.alt]="alt"
+      [attr.src]="src"
+      [ngClass]="class"
+      />
+  </a>
+}
+
+@if (!href) {
   <img
     [attr.alt]="alt"
     [attr.src]="src"
     [ngClass]="class"
-  />
-</a>
-
-<img
-  *ngIf="!href"
-  [attr.alt]="alt"
-  [attr.src]="src"
-  [ngClass]="class"
-/>
+    />
+}

@@ -12,7 +12,7 @@ import {
   inject,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import { LgDomService } from '../../utils';
 import { LgErrorStateMatcher } from '../validation';
@@ -35,7 +35,7 @@ let nextUniqueId = 0;
     './toggle--filter.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ LgFocusDirective, NgClass, NgIf, LgIconComponent ],
+  imports: [ LgFocusDirective, NgClass, LgIconComponent ],
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {
   private checkboxGroup = inject(LgCheckboxGroupComponent, { optional: true });

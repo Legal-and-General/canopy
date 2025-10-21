@@ -1,6 +1,5 @@
 import { moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
 
 import { LgCardComponent } from '../../card.component';
 import { LgBrandIconComponent } from '../../../brand-icon';
@@ -48,7 +47,6 @@ const promotionsGeneralCardTemplate = `
     LgPaddingDirective,
     LgShadowDirective,
     LgCardComponent,
-    NgIf,
   ],
 })
 class GeneralPromotionCardComponent {

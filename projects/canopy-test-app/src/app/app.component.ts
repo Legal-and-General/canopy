@@ -4,7 +4,6 @@ import {
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
-import { NgForOf, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 import {
@@ -274,8 +273,6 @@ import {
     LgListWithExpressiveStylingDirective,
     RouterLink,
     RouterOutlet,
-    NgForOf,
-    NgIf,
     LgModalComponent,
     LgModalTriggerDirective,
     LgModalHeaderComponent,

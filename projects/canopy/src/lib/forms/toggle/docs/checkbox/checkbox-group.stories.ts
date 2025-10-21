@@ -5,7 +5,6 @@ import {
   UntypedFormGroup,
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { LgCheckboxGroupComponent } from '../../../checkbox-group';
 import { LgHintComponent } from '../../../hint';
@@ -30,7 +29,6 @@ const formTemplate = `
     LgCheckboxGroupComponent,
     LgHintComponent,
     LgToggleComponent,
-    NgIf,
   ],
 })
 class ReactiveFormComponent {

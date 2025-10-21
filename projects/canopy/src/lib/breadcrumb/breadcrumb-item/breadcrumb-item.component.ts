@@ -8,7 +8,7 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
 
@@ -20,7 +20,7 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   styleUrls: [ './breadcrumb-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ NgClass, NgIf, LgIconComponent ],
+  imports: [ NgClass, LgIconComponent ],
 })
 export class LgBreadcrumbItemComponent {
   private renderer = inject(Renderer2);

@@ -7,7 +7,6 @@ import {
   inject,
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
 
@@ -16,7 +15,7 @@ import { LgIconComponent } from '../../icon';
   templateUrl: './auto-play.component.html',
   styleUrls: [ './auto-play.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ NgIf, LgIconComponent ],
+  imports: [ LgIconComponent ],
 })
 export class LgAutoplayComponent {
   element = inject(ElementRef);

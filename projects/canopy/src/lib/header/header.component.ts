@@ -17,7 +17,7 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { DOCUMENT, NgIf } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { filter, merge, skipWhile, startWith, Subscription, switchMap } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
@@ -49,7 +49,6 @@ import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.dir
     LgGridContainerDirective,
     LgGridRowDirective,
     LgGridColDirective,
-    NgIf,
     LgHideAtDirective,
     LgAccountMenuItemDirective,
     LgIconComponent,

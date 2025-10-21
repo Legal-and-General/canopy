@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 
 import type { HeadingLevel } from './heading.interface';
 
@@ -11,7 +11,7 @@ import type { HeadingLevel } from './heading.interface';
   host: {
     class: 'lg-heading',
   },
-  imports: [ NgIf, NgTemplateOutlet ],
+  imports: [ NgTemplateOutlet ],
 })
 export class LgHeadingComponent {
   @Input() level: HeadingLevel;

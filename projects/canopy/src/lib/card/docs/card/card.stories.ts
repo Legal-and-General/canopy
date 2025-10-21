@@ -5,7 +5,6 @@ import {
   UntypedFormGroup,
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
-import { NgFor, NgIf } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { LgCardComponent } from '../../card.component';
@@ -109,7 +108,6 @@ const formJourneyTemplate = `
   selector: 'lg-form-journey',
   template: formJourneyTemplate,
   imports: [
-    NgIf,
     LgGridContainerDirective,
     LgGridRowDirective,
     LgGridColDirective,
@@ -195,7 +193,6 @@ const showMoreCardTemplate = `
   selector: 'lg-card-show-more',
   template: showMoreCardTemplate,
   imports: [
-    NgIf,
     LgCardToggableContentComponent,
     LgCardSubheadingComponent,
     LgCardContentComponent,
@@ -304,7 +301,6 @@ const dataPointsCardTemplate = `
     LgLinkMenuItemComponent,
     LgLinkMenuItemTextComponent,
     LgPaddingDirective,
-    NgFor,
     RouterTestingModule,
   ],
 })
@@ -376,7 +372,6 @@ const cardGroupTemplate = `
     LgGridColDirective,
     LgGridRowDirective,
     LgGridContainerDirective,
-    NgFor,
     LgMarginDirective,
     LgPaddingDirective,
   ],

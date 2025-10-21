@@ -1,7 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata } from '@storybook/angular';
-import { NgForOf } from '@angular/common';
 
 import { LgIconComponent } from '../icon.component';
 import { lgIconsArray } from '../../ui-icons-files';
@@ -9,10 +8,16 @@ import { lgIconsArray } from '../../ui-icons-files';
 @Component({
   selector: 'lg-swatch-icon',
   template: `
-    <div class="swatch" *ngFor="let icon of lgIconsArray">
-      <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar"></lg-icon>
-      <span class="swatch__name">{{ icon.name }}</span>
-    </div>
+    @for (icon of lgIconsArray; track icon) {
+      <div class="swatch">
+        <lg-icon
+          class="swatch__svg"
+          [name]="icon.name"
+          [attr.style]="colourVar"
+        ></lg-icon>
+        <span class="swatch__name">{{ icon.name }}</span>
+      </div>
+    }
   `,
   styles: [
     `
@@ -31,7 +36,7 @@ import { lgIconsArray } from '../../ui-icons-files';
       }
     `,
   ],
-  imports: [ LgIconComponent, NgForOf ],
+  imports: [ LgIconComponent ],
 })
 class SwatchIconComponent implements OnChanges {
   private sanitizer = inject(DomSanitizer);
