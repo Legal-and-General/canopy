@@ -10,6 +10,7 @@ import {
   OnDestroy,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -36,6 +37,9 @@ let nextUniqueId = 0;
   standalone: true,
 })
 export class LgFilterContainerComponent implements AfterContentInit, OnDestroy {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private uniqueId = nextUniqueId++;
   private subscription: Subscription;
 
@@ -46,11 +50,6 @@ export class LgFilterContainerComponent implements AfterContentInit, OnDestroy {
 
   @ContentChild(forwardRef(() => LgFilterContainerPanelComponent))
   filterContainerPanel: LgFilterContainerPanelComponent;
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 
   @HostListener('keydown', [ '$event' ]) onKeydown(event: KeyboardEvent): void {
     if (event.key === keyName.KEY_ESCAPE && this.filterContainerToggle?.isActive) {

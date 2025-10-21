@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -32,6 +32,8 @@ const template = `
   ],
 })
 class ReactiveFormComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input() hint: string;
   @Input() label: string;
 
@@ -51,7 +53,7 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({
       sortCode: [ '' ],
     });

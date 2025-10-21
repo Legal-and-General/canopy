@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -23,6 +23,8 @@ const template = `
   imports: [ ReactiveFormsModule, LgDateFieldComponent, LgHintComponent, NgIf ],
 })
 class ReactiveFormComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input() hint: string;
   @Input() label: string;
   @Input() focus: boolean;
@@ -43,7 +45,7 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({
       date: { value: '1970-01-01', disabled: false },
     });

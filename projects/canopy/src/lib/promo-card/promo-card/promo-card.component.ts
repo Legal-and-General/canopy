@@ -5,6 +5,7 @@ import {
   Input,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import type { PromoCardVariant } from '../promo-card.interface';
@@ -17,7 +18,10 @@ import type { PromoCardVariant } from '../promo-card.interface';
   standalone: true,
 })
 export class LgPromoCardComponent {
+  private renderer = inject(Renderer2);
   private _variant: PromoCardVariant;
+
+  hostElement = inject(ElementRef);
 
   @HostBinding('class.lg-promo-card') class = true;
 
@@ -37,10 +41,7 @@ export class LgPromoCardComponent {
     return this._variant;
   }
 
-  constructor(
-    private renderer: Renderer2,
-    public hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = 'solid-white';
   }
 }

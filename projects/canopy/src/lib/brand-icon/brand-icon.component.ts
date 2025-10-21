@@ -3,10 +3,10 @@ import {
   Component,
   ElementRef,
   HostBinding,
-  Inject,
   Input,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { LgBrandIconRegistry } from './brand-icon.registry';
@@ -27,6 +27,11 @@ export type BrandIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   host: { ngSkipHydration: 'true' },
 })
 export class LgBrandIconComponent {
+  private iconRegistry = inject(LgBrandIconRegistry);
+  private document = inject<Document>(DOCUMENT);
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private svgElement: SVGElement;
   private id = nextUniqueId++;
   private _colour: string;
@@ -118,12 +123,7 @@ export class LgBrandIconComponent {
     })();
   }
 
-  constructor(
-    private iconRegistry: LgBrandIconRegistry,
-    @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {
+  constructor() {
     this.renderer.addClass(
       this.hostElement.nativeElement,
       `lg-brand-icon--${this._size}`,

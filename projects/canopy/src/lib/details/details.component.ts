@@ -12,6 +12,7 @@ import {
   Output,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -30,6 +31,10 @@ let nextUniqueId = 0;
   standalone: true,
 })
 export class LgDetailsComponent implements AfterContentInit, OnDestroy {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+  private cdr = inject(ChangeDetectorRef);
+
   private subscription: Subscription;
   uniqueId = nextUniqueId++;
   _showIcon = true;
@@ -81,11 +86,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   @ContentChild(LgDetailsPanelHeadingComponent)
   panelHeading: LgDetailsPanelHeadingComponent;
 
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-    private cdr: ChangeDetectorRef,
-  ) {
+  constructor() {
     this.variant = 'generic';
   }
 

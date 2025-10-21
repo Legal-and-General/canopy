@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -34,6 +34,8 @@ const formTemplate = `
   ],
 })
 class ReactiveFormComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input() label: string;
   @Input() hint: string;
   @Input() focus: boolean;
@@ -54,7 +56,7 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({ colors: this.fb.control([ 'red' ]) });
     this.form.valueChanges.subscribe(val => this.checkboxChange.emit(val));
   }

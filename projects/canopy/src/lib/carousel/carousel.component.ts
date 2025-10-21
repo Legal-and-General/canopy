@@ -8,6 +8,7 @@ import {
   OnDestroy,
   QueryList,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { BehaviorSubject, defer, interval, Observable, Subject } from 'rxjs';
 import { filter, map, takeUntil, withLatestFrom } from 'rxjs/operators';
@@ -39,6 +40,8 @@ import { LgAutoplayComponent } from './auto-play/auto-play.component';
  * @deprecated This component will be removed in the future
  */
 export class LgCarouselComponent implements AfterContentInit, OnDestroy {
+  private cd = inject(ChangeDetectorRef);
+
   private unsubscribe: Subject<void> = new Subject<void>();
   selectedItem: LgCarouselItemComponent;
   carouselItemCount: number;
@@ -57,8 +60,6 @@ export class LgCarouselComponent implements AfterContentInit, OnDestroy {
 
   @ContentChildren(LgCarouselItemComponent, { read: LgCarouselItemComponent })
   carouselItems = new QueryList<LgCarouselItemComponent>();
-
-  constructor(private cd: ChangeDetectorRef) {}
 
   pauseCarousel(): void {
     this.pause.next(true);

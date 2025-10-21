@@ -11,6 +11,7 @@ import {
   OnDestroy,
   QueryList,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { merge, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -28,6 +29,8 @@ import { LgTabNavBarLinkDirective } from './tab-nav-bar-link.directive';
   standalone: true,
 })
 export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
+  private cd = inject(ChangeDetectorRef);
+
   private ngUnsubscribe: Subject<void> = new Subject<void>();
   selectedIndex = 0;
   tabs: Array<LgTabNavBarLinkDirective>;
@@ -46,8 +49,6 @@ export class LgTabNavBarComponent implements AfterContentChecked, OnDestroy {
       ? this.label
       : 'Tabs';
   }
-
-  constructor(private cd: ChangeDetectorRef) {}
 
   @HostListener('keyup', [ '$event' ]) onKeyUp(event: KeyboardEvent): void {
     const isPreviousKey = isKeyLeft(event) || isKeyUp(event);

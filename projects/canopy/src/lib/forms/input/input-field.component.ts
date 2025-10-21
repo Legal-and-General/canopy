@@ -9,6 +9,7 @@ import {
   QueryList,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NgIf } from '@angular/common';
@@ -42,6 +43,8 @@ let nextUniqueId = 0;
   ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
+  private domService = inject(LgDomService);
+
   private _id = nextUniqueId++;
   private _labelElement: LgLabelComponent;
   private _inputElement: LgInputDirective;
@@ -167,8 +170,6 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   get prefixChildren() {
     return this._prefixChildren;
   }
-
-  constructor(private domService: LgDomService) {}
 
   ngAfterContentInit(): void {
     if (this.inputElement && this.buttonElement) {

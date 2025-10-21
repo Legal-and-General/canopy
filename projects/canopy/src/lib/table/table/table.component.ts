@@ -8,6 +8,7 @@ import {
   Input,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { LgTableBodyComponent } from '../table-body/table-body.component';
@@ -26,6 +27,9 @@ let nextUniqueId = 0;
   standalone: true,
 })
 export class LgTableComponent implements AfterContentChecked {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private _showColumnsAt: TableColumnLayoutBreakpoints;
   isExpandable = false;
   id = nextUniqueId++;
@@ -67,10 +71,7 @@ export class LgTableComponent implements AfterContentChecked {
     return this.isExpandable;
   }
 
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = 'striped';
     this.showColumnsAt = TableColumnLayoutBreakpoints.Medium;
   }

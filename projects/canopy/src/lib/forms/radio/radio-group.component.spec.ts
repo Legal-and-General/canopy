@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, inject } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   UntypedFormBuilder,
@@ -50,15 +50,15 @@ const hintTestId = 'test-hint-id';
   ],
 })
 class TestRadioGroupComponent {
+  private fb = inject(UntypedFormBuilder);
+  private errorState = inject(LgErrorStateMatcher);
+
   get color() {
     return this.form.get('color');
   }
   form: UntypedFormGroup;
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private errorState: LgErrorStateMatcher,
-  ) {
+  constructor() {
     this.form = this.fb.group({
       color: [ { value: '', disabled: false }, [ Validators.required ] ],
     });
