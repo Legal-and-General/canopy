@@ -5,6 +5,7 @@ import {
   HostBinding,
   HostListener,
   Output,
+  inject,
 } from '@angular/core';
 
 @Directive({
@@ -12,6 +13,8 @@ import {
   standalone: true,
 })
 export class LgButtonToggleDirective {
+  private hostElement = inject(ElementRef);
+
   private _isActive = false;
   id: string;
   ariaControls: string;
@@ -21,7 +24,7 @@ export class LgButtonToggleDirective {
   @HostBinding('class.lg-btn-toggle') class = true;
   @HostBinding('attr.role') role = 'button';
 
-  constructor(private hostElement: ElementRef) {
+  constructor() {
     if (this.hostElement.nativeElement.tagName !== 'BUTTON') {
       throw Error(
         'The `lgButtonToggle` directive should always be added to a button element. Please change the HTML tag accordingly',

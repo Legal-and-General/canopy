@@ -8,6 +8,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   ContentChild,
+  inject,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
@@ -25,6 +26,8 @@ import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.
   host: { ngSkipHydration: 'true' },
 })
 export class LgTableCellComponent {
+  private cd = inject(ChangeDetectorRef);
+
   private _align: AlignmentOptions = AlignmentOptions.Start;
   private _showLabel = true;
   private _columnLabel = '';
@@ -68,8 +71,6 @@ export class LgTableCellComponent {
 
   @ContentChild(LgTableRowToggleComponent, { static: false })
   toggle: LgTableRowToggleComponent;
-
-  constructor(private cd: ChangeDetectorRef) {}
 
   set rowIndex(rowIndex: number) {
     this._rowIndex = rowIndex;

@@ -5,6 +5,7 @@ import {
   Input,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
@@ -21,6 +22,9 @@ let nextUniqueId = 0;
   imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgValidationComponent {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private _variant: Variant;
 
   @Input() showIcon = true;
@@ -46,10 +50,7 @@ export class LgValidationComponent {
 
   @HostBinding('class.lg-validation') class = true;
 
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = 'error';
   }
 }

@@ -6,6 +6,7 @@ import {
   HostBinding,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
 
@@ -22,6 +23,10 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   imports: [ NgClass, NgIf, LgIconComponent ],
 })
 export class LgBreadcrumbItemComponent {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+  private cd = inject(ChangeDetectorRef);
+
   private _variant: BreadcrumbVariant;
   private _showBackChevron = false;
   private _showForwardChevron = false;
@@ -30,12 +35,6 @@ export class LgBreadcrumbItemComponent {
   index: number;
 
   @HostBinding('class.lg-breadcrumb-item') class = true;
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-    private cd: ChangeDetectorRef,
-  ) {}
 
   set hideIcons(hideIcons: boolean) {
     this._hideIcons = hideIcons;

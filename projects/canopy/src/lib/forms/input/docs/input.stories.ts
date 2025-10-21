@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -141,6 +141,8 @@ const inputTemplate = `
   ],
 })
 class ReactiveFormComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input()
   set disabled(disabled: boolean) {
     if (disabled === true) {
@@ -174,7 +176,7 @@ class ReactiveFormComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({ name: { value: '', disabled: false } });
     this.form.valueChanges.subscribe(val => this.inputChange.emit(val));
   }

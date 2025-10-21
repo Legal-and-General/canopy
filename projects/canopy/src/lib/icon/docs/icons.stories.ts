@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata } from '@storybook/angular';
 import { NgForOf } from '@angular/common';
@@ -34,11 +34,11 @@ import { lgIconsArray } from '../../ui-icons-files';
   imports: [ LgIconComponent, NgForOf ],
 })
 class SwatchIconComponent implements OnChanges {
+  private sanitizer = inject(DomSanitizer);
+
   @Input() colour: string;
 
   colourVar: SafeStyle;
-
-  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnChanges({ colour }: SimpleChanges) {
     if (colour && colour.currentValue) {

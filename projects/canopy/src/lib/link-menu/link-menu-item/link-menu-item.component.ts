@@ -6,6 +6,7 @@ import {
   HostBinding,
   OnInit,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgIf } from '@angular/common';
 
@@ -20,13 +21,13 @@ import { LgIconComponent } from '../../icon';
   imports: [ NgIf, LgIconComponent ],
 })
 export class LgLinkMenuItemComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+
   @HostBinding('class.lg-link-menu-item') class = true;
 
   @ContentChild(LgIconComponent) iconComponent: LgIconComponent;
 
   openInANewTab = false;
-
-  constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     if (this.elementRef) {

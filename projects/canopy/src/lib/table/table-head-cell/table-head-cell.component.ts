@@ -5,6 +5,7 @@ import {
   HostBinding,
   Input,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { AlignmentOptions } from '../table.interface';
@@ -18,6 +19,8 @@ import { AlignmentOptions } from '../table.interface';
   standalone: true,
 })
 export class LgTableHeadCellComponent {
+  element = inject(ElementRef);
+
   @HostBinding('class') class = 'lg-table-head-cell';
 
   @HostBinding('style.text-align')
@@ -29,6 +32,4 @@ export class LgTableHeadCellComponent {
 
   @Input() align: AlignmentOptions = AlignmentOptions.Start;
   @Input() showLabel = true;
-
-  constructor(public element: ElementRef) {}
 }

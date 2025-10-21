@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import { BreakpointValues } from '../shared/breakpoints.interface';
 import { DynamicStyleService } from '../utils/dynamic-style.service';
@@ -7,7 +7,7 @@ import { SpacingResponsive, SpacingValues, SpacingVariant } from './spacing.inte
 
 @Injectable({ providedIn: 'root' })
 export class SpacingService {
-  constructor(private dynamicStyleService: DynamicStyleService) {}
+  private dynamicStyleService = inject(DynamicStyleService);
 
   /**
    * Returns the correct class names

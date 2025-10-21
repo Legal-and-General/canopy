@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Route, Router } from '@angular/router';
 import { first, map } from 'rxjs/operators';
 
@@ -8,10 +8,8 @@ import { LgFeatureToggleService } from './feature-toggle.service';
   providedIn: 'root',
 })
 export class FeatureToggleGuard {
-  constructor(
-    private featureToggleService: LgFeatureToggleService,
-    private router: Router,
-  ) {}
+  private featureToggleService = inject(LgFeatureToggleService);
+  private router = inject(Router);
 
   canLoad(route: Route) {
     return this.isActive(route);

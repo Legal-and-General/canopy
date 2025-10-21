@@ -6,6 +6,7 @@ import {
   OnChanges,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 
@@ -20,6 +21,9 @@ import { LgIconComponent } from '../icon';
   imports: [ NgIf, NgSwitch, NgSwitchCase, LgIconComponent ],
 })
 export class LgAlertComponent implements OnChanges {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private _variant: Variant;
   private explicitRole: string;
 
@@ -43,10 +47,7 @@ export class LgAlertComponent implements OnChanges {
   @HostBinding('class.lg-alert') class = true;
   @HostBinding('attr.role') roleAttr: string;
 
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = 'generic';
   }
 

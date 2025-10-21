@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener, OnInit } from '@angular/core';
+import { Directive, HostBinding, HostListener, OnInit, inject } from '@angular/core';
 import { NgControl, Validators } from '@angular/forms';
 
 @Directive({
@@ -6,14 +6,14 @@ import { NgControl, Validators } from '@angular/forms';
   standalone: true,
 })
 export class LgSortCodeDirective implements OnInit {
+  private ngControl = inject(NgControl);
+
   @HostBinding('placeholder') placeholder = '00-00-00';
   @HostBinding('required') required = true;
   @HostBinding('attr.inputmode') inputmode = 'numeric';
   // 8 because we allow for the two dashes
   @HostBinding('attr.maxlength') maxlength = '8';
   @HostBinding('attr.size') size = '7';
-
-  constructor(private ngControl: NgControl) {}
 
   @HostListener('focusout', [ '$event.target.value' ]) onBlur(value) {
     if (this.ngControl.valid) {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -284,6 +284,8 @@ import {
   ],
 })
 export class AppComponent {
+  fb = inject(UntypedFormBuilder);
+
   title = 'canopy-test-app';
   form: UntypedFormGroup;
   selectedTabIndex = 0;
@@ -324,7 +326,7 @@ export class AppComponent {
     },
   ];
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({
       text: [ '' ],
       textSearch: [ '' ],

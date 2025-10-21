@@ -5,6 +5,7 @@ import {
   HostBinding,
   HostListener,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from '../card.interface';
@@ -18,6 +19,8 @@ import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from '../card.interface';
   standalone: true,
 })
 export class LgCardToggableContentComponent {
+  private host = inject(ElementRef);
+
   uniqueId: number;
   isActive: boolean;
 
@@ -41,8 +44,6 @@ export class LgCardToggableContentComponent {
   @HostBinding('id') get id(): string {
     return `${lgCardPanelIdPrefix}${this.uniqueId}`;
   }
-
-  constructor(private host: ElementRef) {}
 
   @HostListener('blur') onBlur(): void {
     this.host.nativeElement.removeAttribute('tabindex');

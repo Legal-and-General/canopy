@@ -5,6 +5,7 @@ import {
   Component,
   Input,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
@@ -22,13 +23,13 @@ type FooterLogoClass = 'lg-footer-logo__img' | 'lg-footer-logo__second-img';
   imports: [ NgClass ],
 })
 export class LgFooterLogoComponent implements AfterContentChecked {
+  private cdr = inject(ChangeDetectorRef);
+
   private currentClass: FooterLogoClass;
   class: FooterLogoClass;
 
   @Input() alt = '';
   @Input() src: string;
-
-  constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterContentChecked(): void {
     if (this.class && this.class !== this.currentClass) {

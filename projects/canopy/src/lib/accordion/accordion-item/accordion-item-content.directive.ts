@@ -1,9 +1,9 @@
-import { Directive, TemplateRef } from '@angular/core';
+import { Directive, TemplateRef, inject } from '@angular/core';
 
 @Directive({
   selector: 'ng-template[lgAccordionItemContent]',
   standalone: true,
 })
 export class LgAccordionItemContentDirective {
-  constructor(public _template: TemplateRef<any>) {}
+  _template = inject<TemplateRef<any>>(TemplateRef);
 }

@@ -9,6 +9,7 @@ import {
   QueryList,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { ListWithIconsVariant } from './list-with-icons.interface';
@@ -25,6 +26,9 @@ import { ListWithIconsVariant } from './list-with-icons.interface';
   standalone: true,
 })
 export class LgListWithIconsComponent implements AfterContentInit {
+  private hostElement = inject(ElementRef);
+  private renderer = inject(Renderer2);
+
   private _variant: ListWithIconsVariant;
   @Input()
   set variant(variant: ListWithIconsVariant) {
@@ -52,11 +56,6 @@ export class LgListWithIconsComponent implements AfterContentInit {
     descendants: true,
   })
   nestedListWithIconsComponents: QueryList<LgListWithIconsComponent>;
-
-  constructor(
-    private hostElement: ElementRef,
-    private renderer: Renderer2,
-  ) {}
 
   ngAfterContentInit(): void {
     this.variant = this.variant || 'neutral-foreground';

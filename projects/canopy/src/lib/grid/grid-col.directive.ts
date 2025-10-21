@@ -1,10 +1,13 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
 
 @Directive({
   selector: '[lgCol],[lgColSm],[lgColMd],[lgColLg]',
   standalone: true,
 })
 export class LgGridColDirective {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   lgColClass: string;
   lgColSmClass: string;
   lgColMdClass: string;
@@ -65,11 +68,6 @@ export class LgGridColDirective {
       this.lgColLgOffsetClass,
     );
   }
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 
   toggleColumnClass(newClass: string, oldClass: string): string {
     if (oldClass) {

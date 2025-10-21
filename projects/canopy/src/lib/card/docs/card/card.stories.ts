@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -132,6 +132,8 @@ const formJourneyTemplate = `
   ],
 })
 class FormJourneyComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input() title: string;
   @Input() cardContent: string;
   @Input() hint: string;
@@ -140,7 +142,7 @@ class FormJourneyComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
   }
 

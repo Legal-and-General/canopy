@@ -1,12 +1,11 @@
 import {
   Directive,
-  Inject,
   Input,
   OnDestroy,
   OnInit,
-  Optional,
   TemplateRef,
   ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { filter, tap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
@@ -23,18 +22,16 @@ import { LgFeatureToggleService } from './feature-toggle.service';
   standalone: true,
 })
 export class LgFeatureToggleDirective implements OnInit, OnDestroy {
+  private lgFeatureToggleService = inject(LgFeatureToggleService);
+  private templateRef = inject<TemplateRef<any>>(TemplateRef);
+  private viewContainer = inject(ViewContainerRef);
+  private options = inject<LgFeatureToggleOptions>(togglesOptionsInjectable, {
+    optional: true,
+  });
+
   subscription: Subscription;
 
   @Input() lgFeatureToggle: string;
-
-  constructor(
-    private lgFeatureToggleService: LgFeatureToggleService,
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef,
-    @Optional()
-    @Inject(togglesOptionsInjectable)
-    private options?: LgFeatureToggleOptions,
-  ) {}
 
   ngOnInit(): void {
     this.subscription = this.lgFeatureToggleService.toggles$

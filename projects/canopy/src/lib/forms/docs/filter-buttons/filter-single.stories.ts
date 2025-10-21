@@ -3,7 +3,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, inject } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgRadioButtonComponent } from '../../radio';
@@ -35,6 +35,8 @@ const formTemplate = `
   imports: [ ReactiveFormsModule, LgRadioGroupComponent, LgRadioButtonComponent ],
 })
 class ReactiveFormFilterComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input() label: string;
   @Input() focus: boolean;
   @Input()
@@ -54,7 +56,7 @@ class ReactiveFormFilterComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({ color: '' });
     this.form.valueChanges.subscribe(val => this.filterChange.emit(val));
   }

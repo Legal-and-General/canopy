@@ -9,6 +9,7 @@ import {
   QueryList,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { NgIf, NgFor, NgTemplateOutlet } from '@angular/common';
 
@@ -26,6 +27,9 @@ import type { ButtonIconPosition, ButtonSize, ButtonVariant } from './button.int
   imports: [ NgIf, NgFor, NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective ],
 })
 export class LgButtonComponent implements AfterViewInit {
+  private renderer = inject(Renderer2);
+  hostElement = inject(ElementRef);
+
   @HostBinding('class.lg-btn') class = true;
 
   @ContentChildren(forwardRef(() => LgIconComponent), {
@@ -84,10 +88,7 @@ export class LgButtonComponent implements AfterViewInit {
     return this.size === 'sm';
   }
 
-  constructor(
-    private renderer: Renderer2,
-    public hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = 'primary-dark';
     this.iconPosition = 'right';
     this.size = 'md';

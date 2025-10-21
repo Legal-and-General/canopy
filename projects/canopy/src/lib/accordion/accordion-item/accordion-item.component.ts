@@ -5,17 +5,15 @@ import {
   Component,
   ContentChild,
   EventEmitter,
-  Inject,
   Input,
   OnChanges,
   OnDestroy,
-  Optional,
   Output,
   SimpleChanges,
-  SkipSelf,
   TemplateRef,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
@@ -39,7 +37,13 @@ let nextUniqueId = 0;
   imports: [ NgIf, NgTemplateOutlet, LgAccordionItemContentDirective ],
 })
 export class LgAccordionItemComponent implements AfterContentInit, OnChanges, OnDestroy {
+  private selectionDispatcher = inject(UniqueSelectionDispatcher);
+  private cdr = inject(ChangeDetectorRef);
   private _toggleSubscription: Subscription;
+  accordion = inject<LgAccordionComponent>(LG_ACCORDION, {
+    optional: true,
+    skipSelf: true,
+  });
   _id = `${nextUniqueId++}`;
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
@@ -58,11 +62,10 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   @ContentChild(LgAccordionPanelHeadingComponent)
   accordionPanelHeading: LgAccordionPanelHeadingComponent;
 
-  constructor(
-    @Optional() @SkipSelf() @Inject(LG_ACCORDION) public accordion: LgAccordionComponent,
-    private selectionDispatcher: UniqueSelectionDispatcher,
-    private cdr: ChangeDetectorRef,
-  ) {
+  constructor() {
+    const accordion = this.accordion;
+    const selectionDispatcher = this.selectionDispatcher;
+
     this._removeSingleItemSelectionListener = selectionDispatcher.listen(
       (id: string, accordionId: string) => {
         if (

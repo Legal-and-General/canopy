@@ -3,18 +3,13 @@ import {
   ContentChild,
   ElementRef,
   EventEmitter,
-  forwardRef,
-  Host,
   HostBinding,
-  Inject,
   Input,
   OnInit,
-  Optional,
   Output,
-  Self,
-  SkipSelf,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
@@ -43,6 +38,17 @@ let nextUniqueId = 0;
   imports: [ LgFocusDirective, NgClass, NgIf, LgIconComponent ],
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {
+  private checkboxGroup = inject(LgCheckboxGroupComponent, { optional: true });
+  private domService = inject(LgDomService);
+  private errorState = inject(LgErrorStateMatcher);
+  private controlContainer = inject(FormGroupDirective, {
+    optional: true,
+    host: true,
+    skipSelf: true,
+  });
+  private hostElement = inject(ElementRef);
+  control = inject(NgControl, { self: true, optional: true });
+
   uniqueId = nextUniqueId++;
   selectorVariant: string;
 
@@ -84,19 +90,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     this._validationElement = element;
   }
 
-  constructor(
-    @Self() @Optional() public control: NgControl,
-    @Optional()
-    @Inject(forwardRef(() => LgCheckboxGroupComponent))
-    private checkboxGroup: LgCheckboxGroupComponent,
-    private domService: LgDomService,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    @Host()
-    @SkipSelf()
-    private controlContainer: FormGroupDirective,
-    private hostElement: ElementRef,
-  ) {
+  constructor() {
     this.selectorVariant = this.hostElement.nativeElement.tagName
       .split('-')[1]
       .toLowerCase();

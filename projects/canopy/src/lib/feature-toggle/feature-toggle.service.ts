@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { LgFeatureToggleConfig, togglesInjectable } from './feature-toggle.interface';
@@ -7,7 +7,5 @@ import { LgFeatureToggleConfig, togglesInjectable } from './feature-toggle.inter
   providedIn: 'root',
 })
 export class LgFeatureToggleService {
-  constructor(
-    @Inject(togglesInjectable) public toggles$: Observable<LgFeatureToggleConfig>,
-  ) {}
+  toggles$ = inject<Observable<LgFeatureToggleConfig>>(togglesInjectable);
 }

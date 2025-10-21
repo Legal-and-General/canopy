@@ -5,15 +5,12 @@ import {
   ContentChildren,
   ElementRef,
   forwardRef,
-  Host,
   HostBinding,
   Input,
-  Optional,
   QueryList,
   Renderer2,
-  Self,
-  SkipSelf,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { NgIf } from '@angular/common';
@@ -39,6 +36,17 @@ let uniqueId = 0;
   imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective, NgIf ],
 })
 export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {
+  private control = inject(NgControl, { self: true, optional: true });
+  private errorState = inject(LgErrorStateMatcher);
+  private controlContainer = inject(FormGroupDirective, {
+    optional: true,
+    host: true,
+    skipSelf: true,
+  });
+  private domService = inject(LgDomService);
+  private hostElement = inject(ElementRef);
+  private renderer = inject(Renderer2);
+
   private nextUniqueId = ++uniqueId;
   private _name = `lg-radio-group-${this.nextUniqueId}`;
   variant: RadioVariant;
@@ -145,17 +153,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     this._updateRadioButtonNames();
   }
 
-  constructor(
-    @Self() @Optional() private control: NgControl,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    @Host()
-    @SkipSelf()
-    private controlContainer: FormGroupDirective,
-    private domService: LgDomService,
-    private hostElement: ElementRef,
-    private renderer: Renderer2,
-  ) {
+  constructor() {
     this.variant = this.hostElement.nativeElement.tagName
       .split('-')[1]
       .toLowerCase() as RadioVariant;

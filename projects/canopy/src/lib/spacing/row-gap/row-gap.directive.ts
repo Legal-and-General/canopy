@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
 
 import { SpacingVariant } from '../spacing.interface';
 
@@ -7,6 +7,9 @@ import { SpacingVariant } from '../spacing.interface';
   standalone: true,
 })
 export class LgRowGapDirective {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private readonly classPrefix = 'lg-row-gap--';
   private readonly defaultGap = 'sm';
 
@@ -18,11 +21,6 @@ export class LgRowGapDirective {
 
     this.lgRowGapClass = this.toggleClass(newClass, this.lgRowGapClass);
   }
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 
   private toggleClass(newClass: string, oldClass: string): string {
     this.renderer.removeClass(this.hostElement.nativeElement, oldClass);

@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 import { BreakpointValues } from '../shared/breakpoints.interface';
@@ -21,11 +21,13 @@ interface RuleResponsive {
  * Dynamically add CSS rules to a <style> tag in the <head>
  */
 export class DynamicStyleService {
+  private document = inject<Document>(DOCUMENT);
+
   styleTag = null;
   selectors = [];
   mediaQueries = {};
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor() {
     this.addStyleTag();
   }
 
