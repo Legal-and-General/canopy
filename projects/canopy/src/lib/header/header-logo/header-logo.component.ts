@@ -12,7 +12,7 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
-import { NgIf, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import { keyName } from '../../utils/keyboard-keys';
 
@@ -27,7 +27,7 @@ type HeaderLogoClass = 'lg-header-logo__img' | 'lg-header-logo__second-img';
   host: {
     class: 'lg-header-logo',
   },
-  imports: [ NgIf, NgClass ],
+  imports: [ NgClass ],
 })
 export class LgHeaderLogoComponent implements AfterContentChecked {
   private cdr = inject(ChangeDetectorRef);

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import {
   LgLinkMenuComponent,
@@ -12,7 +11,6 @@ import { LgMarginDirective } from '../../spacing';
 @Component({
   selector: 'lg-docs-welcome-bottom-links-section',
   imports: [
-    CommonModule,
     LgLinkMenuComponent,
     LgLinkMenuItemTextComponent,
     LgSeparatorComponent,
@@ -27,11 +25,13 @@ import { LgMarginDirective } from '../../spacing';
     <lg-separator lgMarginBottom="none"></lg-separator>
 
     <lg-link-menu>
-      <a *ngFor="let link of links" [href]="link.href" target="_blank">
-        <lg-link-menu-item>
-          <lg-link-menu-item-text isBold="true">{{ link.text }}</lg-link-menu-item-text>
-        </lg-link-menu-item>
-      </a>
+      @for (link of links; track link) {
+        <a [href]="link.href" target="_blank">
+          <lg-link-menu-item>
+            <lg-link-menu-item-text isBold="true">{{ link.text }}</lg-link-menu-item-text>
+          </lg-link-menu-item>
+        </a>
+      }
     </lg-link-menu>
   `,
   styleUrls: [ './bottom-links-section.component.scss' ],

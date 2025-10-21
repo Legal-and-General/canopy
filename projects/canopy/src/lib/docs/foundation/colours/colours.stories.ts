@@ -22,16 +22,18 @@ interface Color {
 @Component({
   selector: 'lg-tint-swatch',
   template: `
-    <div *ngFor="let color of colors" class="tint-swatch__item">
-      <div class="tint-swatch__details">
-        <strong class="tint-swatch__name">{{ color.name }}</strong>
+    @for (color of colors; track color) {
+      <div class="tint-swatch__item">
+        <div class="tint-swatch__details">
+          <strong class="tint-swatch__name">{{ color.name }}</strong>
+        </div>
+        <div
+          #swatch
+          class="tint-swatch__color"
+          [ngStyle]="{ background: color.background }"
+        ></div>
       </div>
-      <div
-        #swatch
-        class="tint-swatch__color"
-        [ngStyle]="{ background: color.background }"
-      ></div>
-    </div>
+    }
   `,
   styles: [
     `

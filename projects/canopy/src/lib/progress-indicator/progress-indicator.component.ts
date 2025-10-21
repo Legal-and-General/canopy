@@ -5,7 +5,6 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { ProgressDisplayAs } from './progress-indicator.interface';
 import { LgProgressBarComponent } from './progress-bar/progress-bar.component';
@@ -19,7 +18,7 @@ let nextUniqueId = 0;
   styleUrls: [ './progress-indicator.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ CommonModule, LgProgressBarComponent, LgProgressJourneyComponent ],
+  imports: [ LgProgressBarComponent, LgProgressJourneyComponent ],
 })
 export class LgProgressIndicatorComponent {
   @HostBinding('class.lg-progress-indicator') class = true;

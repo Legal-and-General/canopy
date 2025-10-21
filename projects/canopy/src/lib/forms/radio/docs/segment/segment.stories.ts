@@ -5,7 +5,6 @@ import {
 } from '@angular/forms';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
 import { RadioStackBreakpoint } from '../../radio.interface';
@@ -31,7 +30,6 @@ const segmentTemplate = `
     LgHintComponent,
     LgRadioGroupComponent,
     LgRadioButtonComponent,
-    NgIf,
   ],
 })
 class ReactiveFormSegmentComponent {

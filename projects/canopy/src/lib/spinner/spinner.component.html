@@ -8,17 +8,17 @@
   aria-busy="true"
 ></div>
 
-<p
-  *ngIf="text; else defaultText"
-  class="lg-spinner__content"
+@if (text) {
+  <p
+    class="lg-spinner__content"
   [ngClass]="{
     'lg-spinner__content--light': variant === 'light'
   }"
->
-  <span aria-hidden="true">{{ text }}</span>
-  <span class="lg-visually-hidden">{{ text }}</span>
-</p>
-
-<ng-template #defaultText>
+    >
+    <span aria-hidden="true">{{ text }}</span>
+    <span class="lg-visually-hidden">{{ text }}</span>
+  </p>
+} @else {
   <p class="lg-visually-hidden">Loading...</p>
-</ng-template>
+}
+

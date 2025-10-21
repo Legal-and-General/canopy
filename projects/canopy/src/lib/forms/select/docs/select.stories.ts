@@ -5,7 +5,6 @@ import {
   UntypedFormGroup,
 } from '@angular/forms';
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { NgFor, NgIf } from '@angular/common';
 
 import { LgSelectFieldComponent } from '../select-field.component';
 import { LgHintComponent } from '../../hint';
@@ -29,8 +28,6 @@ const template = `
     LgSelectFieldComponent,
     LgHintComponent,
     LgSelectDirective,
-    NgIf,
-    NgFor,
   ],
 })
 class ReactiveFormComponent {

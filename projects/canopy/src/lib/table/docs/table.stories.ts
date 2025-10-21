@@ -136,7 +136,6 @@ const expandableTableTemplate = `
     LgTableCellComponent,
     LgTableRowToggleComponent,
     LgTableExpandedDetailComponent,
-    NgFor,
   ],
 })
 export class StoryTableDetailComponent {
@@ -280,7 +279,6 @@ const withLongCopyTableTemplate = `
     LgGridColDirective,
     LgQuickActionComponent,
     LgIconComponent,
-    NgFor,
   ],
 })
 class StoryTableLongCopyComponent {

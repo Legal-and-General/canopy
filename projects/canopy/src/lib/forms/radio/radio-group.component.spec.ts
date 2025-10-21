@@ -11,7 +11,6 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponent } from 'ng-mocks';
-import { NgIf } from '@angular/common';
 
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
@@ -33,9 +32,9 @@ const hintTestId = 'test-hint-id';
         <lg-radio-button value="red">Red</lg-radio-button>
         <lg-radio-button value="yellow">Yellow</lg-radio-button>
         <lg-radio-button value="blue">Blue</lg-radio-button>
-        <lg-validation id="${validationTestId}" *ngIf="isControlInvalid(color, testForm)">
-          Error
-        </lg-validation>
+        @if (isControlInvalid(color, testForm)) {
+          <lg-validation id="${validationTestId}"> Error </lg-validation>
+        }
       </lg-radio-group>
     </form>
   `,
@@ -46,7 +45,6 @@ const hintTestId = 'test-hint-id';
     LgHintComponent,
     LgValidationComponent,
     LgRadioGroupComponent,
-    NgIf,
   ],
 })
 class TestRadioGroupComponent {

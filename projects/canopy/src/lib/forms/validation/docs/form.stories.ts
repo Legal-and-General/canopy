@@ -19,7 +19,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { LgDateFieldComponent, pastDateValidator } from '../../date';
 import { LgErrorStateMatcher } from '../error-state-matcher';
@@ -47,31 +46,33 @@ function invalidValidator(): ValidatorFn {
     <div formGroupName="innerChildFormGroup">
       <lg-date-field formControlName="date">
         Inner Date Field
-        <lg-validation *ngIf="isControlInvalid(date, formGroupDirective)">
-          <ng-container *ngIf="date.hasError('required')">
-            Enter a date for the inner date field
-          </ng-container>
-          <ng-container *ngIf="date.hasError('invalidField')">
-            Enter a valid {{ date.errors.invalidField }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('invalidFields')">
-            Enter a valid {{ date.errors.invalidFields[0] }} and
-            {{ date.errors.invalidFields[1] }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('requiredField')">
-            Date must include a {{ date.errors.requiredField }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('requiredFields')">
-            Date must include a {{ date.errors.requiredFields[0] }} and
-            {{ date.errors.requiredFields[1] }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('invalidDate')">
-            Enter a valid date of birth
-          </ng-container>
-          <ng-container *ngIf="date.hasError('pastDate')">
-            Date must be in the past
-          </ng-container>
-        </lg-validation>
+        @if (isControlInvalid(date, formGroupDirective)) {
+          <lg-validation>
+            @if (date.hasError('required')) {
+              Enter a date for the inner date field
+            }
+            @if (date.hasError('invalidField')) {
+              Enter a valid {{ date.errors.invalidField }}
+            }
+            @if (date.hasError('invalidFields')) {
+              Enter a valid {{ date.errors.invalidFields[0] }} and
+              {{ date.errors.invalidFields[1] }}
+            }
+            @if (date.hasError('requiredField')) {
+              Date must include a {{ date.errors.requiredField }}
+            }
+            @if (date.hasError('requiredFields')) {
+              Date must include a {{ date.errors.requiredFields[0] }} and
+              {{ date.errors.requiredFields[1] }}
+            }
+            @if (date.hasError('invalidDate')) {
+              Enter a valid date of birth
+            }
+            @if (date.hasError('pastDate')) {
+              Date must be in the past
+            }
+          </lg-validation>
+        }
       </lg-date-field>
     </div>
   `,
@@ -81,7 +82,7 @@ function invalidValidator(): ValidatorFn {
       useExisting: FormGroupDirective,
     },
   ],
-  imports: [ LgDateFieldComponent, ReactiveFormsModule, LgValidationComponent, NgIf ],
+  imports: [ LgDateFieldComponent, ReactiveFormsModule, LgValidationComponent ],
 })
 class FormGroupChildComponent implements OnInit {
   private errorState = inject(LgErrorStateMatcher);
@@ -122,21 +123,15 @@ class FormGroupChildComponent implements OnInit {
         Text
         <input lgInput formControlName="text" />
         <lg-hint>This is a standard input field</lg-hint>
-        <lg-validation
-          *ngIf="isControlInvalid(text, validationForm) && text.hasError('required')"
-        >
-          Text is a required field
-        </lg-validation>
-        <lg-validation
-          *ngIf="isControlInvalid(text, validationForm) && text.hasError('minlength')"
-        >
-          Text should be at least 4 characters
-        </lg-validation>
-        <lg-validation
-          *ngIf="isControlInvalid(text, validationForm) && text.hasError('invalid')"
-        >
-          Please enter a valid value
-        </lg-validation>
+        @if (isControlInvalid(text, validationForm) && text.hasError('required')) {
+          <lg-validation> Text is a required field </lg-validation>
+        }
+        @if (isControlInvalid(text, validationForm) && text.hasError('minlength')) {
+          <lg-validation> Text should be at least 4 characters </lg-validation>
+        }
+        @if (isControlInvalid(text, validationForm) && text.hasError('invalid')) {
+          <lg-validation> Please enter a valid value </lg-validation>
+        }
       </lg-input-field>
 
       <lg-select-field>
@@ -149,16 +144,12 @@ class FormGroupChildComponent implements OnInit {
           <option value="yellow">Yellow</option>
           <option value="invalid">Invalid</option>
         </select>
-        <lg-validation
-          *ngIf="isControlInvalid(select, validationForm) && select.hasError('invalid')"
-        >
-          Please select a valid option
-        </lg-validation>
-        <lg-validation
-          *ngIf="isControlInvalid(select, validationForm) && select.hasError('required')"
-        >
-          Select is a required field
-        </lg-validation>
+        @if (isControlInvalid(select, validationForm) && select.hasError('invalid')) {
+          <lg-validation> Please select a valid option </lg-validation>
+        }
+        @if (isControlInvalid(select, validationForm) && select.hasError('required')) {
+          <lg-validation> Select is a required field </lg-validation>
+        }
       </lg-select-field>
 
       <lg-radio-group formControlName="radio">
@@ -168,16 +159,12 @@ class FormGroupChildComponent implements OnInit {
         <lg-radio-button value="red">Red</lg-radio-button>
         <lg-radio-button value="blue">Blue</lg-radio-button>
         <lg-radio-button value="invalid">Invalid</lg-radio-button>
-        <lg-validation
-          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('invalid')"
-        >
-          Please select a valid option
-        </lg-validation>
-        <lg-validation
-          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('required')"
-        >
-          Please select an option
-        </lg-validation>
+        @if (isControlInvalid(radio, validationForm) && radio.hasError('invalid')) {
+          <lg-validation> Please select a valid option </lg-validation>
+        }
+        @if (isControlInvalid(radio, validationForm) && radio.hasError('required')) {
+          <lg-validation> Please select an option </lg-validation>
+        }
       </lg-radio-group>
       <lg-segment-group formControlName="segment">
         Segment option
@@ -186,16 +173,12 @@ class FormGroupChildComponent implements OnInit {
         <lg-segment-button value="red">Red</lg-segment-button>
         <lg-segment-button value="blue">Blue</lg-segment-button>
         <lg-segment-button value="invalid">Invalid</lg-segment-button>
-        <lg-validation
-          *ngIf="isControlInvalid(segment, validationForm) && segment.hasError('invalid')"
-        >
-          Please select a valid option
-        </lg-validation>
-        <lg-validation
-          *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('required')"
-        >
-          Please select an option
-        </lg-validation>
+        @if (isControlInvalid(segment, validationForm) && segment.hasError('invalid')) {
+          <lg-validation> Please select a valid option </lg-validation>
+        }
+        @if (isControlInvalid(radio, validationForm) && radio.hasError('required')) {
+          <lg-validation> Please select an option </lg-validation>
+        }
       </lg-segment-group>
 
       <lg-checkbox-group formControlName="colors">
@@ -205,61 +188,57 @@ class FormGroupChildComponent implements OnInit {
         <lg-toggle value="yellow">Yellow</lg-toggle>
         <lg-toggle value="green">Green</lg-toggle>
         <lg-toggle value="blue">Blue</lg-toggle>
-        <lg-validation
-          *ngIf="isControlInvalid(colors, validationForm) && colors.hasError('required')"
-        >
-          Please select an option
-        </lg-validation>
+        @if (isControlInvalid(colors, validationForm) && colors.hasError('required')) {
+          <lg-validation> Please select an option </lg-validation>
+        }
       </lg-checkbox-group>
 
       <lg-toggle formControlName="checkbox" [value]="true" variant="checkbox">
         Checkbox
-        <lg-validation
-          *ngIf="
-            isControlInvalid(checkbox, validationForm) && checkbox.hasError('required')
-          "
-        >
-          You must check the checkbox
-        </lg-validation>
+        @if (
+          isControlInvalid(checkbox, validationForm) && checkbox.hasError('required')
+        ) {
+          <lg-validation> You must check the checkbox </lg-validation>
+        }
       </lg-toggle>
 
       <lg-toggle formControlName="switch" [value]="true" variant="switch">
         Switch
-        <lg-validation
-          *ngIf="isControlInvalid(switch, validationForm) && switch.hasError('required')"
-        >
-          You must toggle the switch
-        </lg-validation>
+        @if (isControlInvalid(switch, validationForm) && switch.hasError('required')) {
+          <lg-validation> You must toggle the switch </lg-validation>
+        }
       </lg-toggle>
 
       <lg-date-field formControlName="date">
         Date of birth
         <lg-hint>For example, 15 06 1983</lg-hint>
-        <lg-validation *ngIf="isControlInvalid(date, validationForm)">
-          <ng-container *ngIf="date.hasError('invalidField')">
-            Enter a valid {{ date.errors.invalidField }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('invalidFields')">
-            Enter a valid {{ date.errors.invalidFields[0] }} and
-            {{ date.errors.invalidFields[1] }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('requiredField')">
-            Date of birth must include a {{ date.errors.requiredField }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('requiredFields')">
-            Date of birth must include a {{ date.errors.requiredFields[0] }} and
-            {{ date.errors.requiredFields[1] }}
-          </ng-container>
-          <ng-container *ngIf="date.hasError('invalidDate')">
-            Enter a valid date of birth
-          </ng-container>
-          <ng-container *ngIf="date.hasError('pastDate')">
-            Date must be in the past
-          </ng-container>
-          <ng-container *ngIf="date.hasError('required')">
-            Enter a date of birth
-          </ng-container>
-        </lg-validation>
+        @if (isControlInvalid(date, validationForm)) {
+          <lg-validation>
+            @if (date.hasError('invalidField')) {
+              Enter a valid {{ date.errors.invalidField }}
+            }
+            @if (date.hasError('invalidFields')) {
+              Enter a valid {{ date.errors.invalidFields[0] }} and
+              {{ date.errors.invalidFields[1] }}
+            }
+            @if (date.hasError('requiredField')) {
+              Date of birth must include a {{ date.errors.requiredField }}
+            }
+            @if (date.hasError('requiredFields')) {
+              Date of birth must include a {{ date.errors.requiredFields[0] }} and
+              {{ date.errors.requiredFields[1] }}
+            }
+            @if (date.hasError('invalidDate')) {
+              Enter a valid date of birth
+            }
+            @if (date.hasError('pastDate')) {
+              Date must be in the past
+            }
+            @if (date.hasError('required')) {
+              Enter a date of birth
+            }
+          </lg-validation>
+        }
       </lg-date-field>
 
       <lg-form-group-child></lg-form-group-child>
@@ -268,14 +247,16 @@ class FormGroupChildComponent implements OnInit {
         Sort Code
         <lg-hint>Must be 6 digits long</lg-hint>
         <input lgInput lgSortCode formControlName="sortCode" />
-        <lg-validation *ngIf="isControlInvalid(sortCode, validationForm)">
-          <ng-container *ngIf="sortCode.hasError('required')">
-            Enter a sort code
-          </ng-container>
-          <ng-container *ngIf="sortCode.hasError('pattern')">
-            Enter a valid sort code
-          </ng-container>
-        </lg-validation>
+        @if (isControlInvalid(sortCode, validationForm)) {
+          <lg-validation>
+            @if (sortCode.hasError('required')) {
+              Enter a sort code
+            }
+            @if (sortCode.hasError('pattern')) {
+              Enter a valid sort code
+            }
+          </lg-validation>
+        }
       </lg-input-field>
 
       <button lg-button type="submit" variant="primary-dark">Submit</button>
@@ -297,7 +278,6 @@ class FormGroupChildComponent implements OnInit {
     FormGroupChildComponent,
     LgSortCodeDirective,
     LgButtonComponent,
-    NgIf,
   ],
 })
 class ReactiveFormComponent {

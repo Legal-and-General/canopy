@@ -16,7 +16,7 @@ import {
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CdkTrapFocus } from '@angular/cdk/a11y';
-import { DOCUMENT, NgIf } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 
 import { keyName } from '../utils/keyboard-keys';
 import { LgCardContentComponent } from '../card';
@@ -37,7 +37,6 @@ import { LgModalService } from './modal.service';
     class: 'lg-modal',
   },
   imports: [
-    NgIf,
     LgCardComponent,
     CdkTrapFocus,
     LgPaddingDirective,
