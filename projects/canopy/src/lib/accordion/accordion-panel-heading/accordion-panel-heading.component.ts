@@ -8,6 +8,7 @@ import {
   Input,
   Output,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import type { HeadingLevel } from '../../heading';
@@ -25,6 +26,8 @@ let nextUniqueId = 0;
   imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
+  private cdr = inject(ChangeDetectorRef);
+
   @Input() headingLevel: HeadingLevel;
   @Input()
   get isActive() {
@@ -41,8 +44,6 @@ export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _isActive = false;
-
-  constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewChecked() {
     this.cdr.detectChanges();

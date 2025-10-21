@@ -5,6 +5,7 @@ import {
   ElementRef,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { FooterNavVariant } from '../footer.interface';
@@ -22,13 +23,11 @@ import { FooterNavVariant } from '../footer.interface';
   standalone: true,
 })
 export class LgFooterNavItemComponent implements AfterContentChecked {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private currentVariant: FooterNavVariant;
   variant: FooterNavVariant;
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 
   ngAfterContentChecked(): void {
     if (this.variant && this.variant !== this.currentVariant) {

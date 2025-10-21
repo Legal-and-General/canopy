@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, inject, Input } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -44,10 +44,11 @@ const hintTestId = 'test-hint-id';
   ],
 })
 class TestRadioButtonComponent {
+  private fb = inject(UntypedFormBuilder);
   form: UntypedFormGroup;
   @Input() size: RadioSize = 'sm';
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({
       color: [ { value: '', disabled: false }, [ Validators.required ] ],
     });

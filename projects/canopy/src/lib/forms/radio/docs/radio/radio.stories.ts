@@ -3,7 +3,7 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 import { NgIf } from '@angular/common';
 
@@ -37,6 +37,8 @@ const formTemplate = `
   ],
 })
 class ReactiveFormRadioComponent {
+  fb = inject(UntypedFormBuilder);
+
   @Input() inline = false;
   @Input() size = 'sm';
   @Input() focus = false;
@@ -59,7 +61,7 @@ class ReactiveFormRadioComponent {
 
   form: UntypedFormGroup;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({ color: 'red' });
     this.form.valueChanges.subscribe(val => this.radioChange.emit(val));
   }

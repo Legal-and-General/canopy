@@ -4,15 +4,12 @@ import {
   ContentChildren,
   ElementRef,
   forwardRef,
-  Host,
   HostBinding,
   Input,
-  Optional,
   QueryList,
   Renderer2,
-  Self,
-  SkipSelf,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -37,6 +34,17 @@ let uniqueId = 0;
   imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {
+  private control = inject(NgControl, { self: true, optional: true });
+  private errorState = inject(LgErrorStateMatcher);
+  private controlContainer = inject(FormGroupDirective, {
+    optional: true,
+    host: true,
+    skipSelf: true,
+  });
+  private domService = inject(LgDomService);
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private nextUniqueId = ++uniqueId;
   private _name = `lg-checkbox-group-${this.nextUniqueId}`;
   private _value: Array<string> = [];
@@ -140,17 +148,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     this._validationElement = element;
   }
 
-  constructor(
-    @Self() @Optional() private control: NgControl,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    @Host()
-    @SkipSelf()
-    private controlContainer: FormGroupDirective,
-    private domService: LgDomService,
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = this.hostElement.nativeElement.tagName
       .split('-')[1]
       .toLowerCase() as CheckboxGroupVariant;

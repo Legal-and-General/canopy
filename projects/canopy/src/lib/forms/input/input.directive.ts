@@ -1,12 +1,4 @@
-import {
-  Directive,
-  Host,
-  HostBinding,
-  Input,
-  Optional,
-  Self,
-  SkipSelf,
-} from '@angular/core';
+import { Directive, HostBinding, Input, inject } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
 import { LgErrorStateMatcher } from '../validation';
@@ -18,6 +10,14 @@ let nextUniqueId = 0;
   standalone: true,
 })
 export class LgInputDirective {
+  private errorState = inject(LgErrorStateMatcher);
+  private controlContainer = inject(FormGroupDirective, {
+    optional: true,
+    host: true,
+    skipSelf: true,
+  });
+
+  control = inject(NgControl, { self: true, optional: true });
   uniqueId = nextUniqueId++;
 
   @HostBinding('class.lg-input') class = true;
@@ -49,13 +49,4 @@ export class LgInputDirective {
   @Input()
   @HostBinding('attr.aria-describedby')
   ariaDescribedBy: string | null = null;
-
-  constructor(
-    @Self() @Optional() public control: NgControl,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    @Host()
-    @SkipSelf()
-    private controlContainer: FormGroupDirective,
-  ) {}
 }

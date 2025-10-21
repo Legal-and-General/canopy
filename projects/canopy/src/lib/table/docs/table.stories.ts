@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, inject } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 import { NgFor } from '@angular/common';
 
@@ -140,6 +140,8 @@ const expandableTableTemplate = `
   ],
 })
 export class StoryTableDetailComponent {
+  private cd = inject(ChangeDetectorRef);
+
   @Input() books: Array<TableStoryItem> = [];
   @Input() variant: TableVariant;
   @Input() alignPublishColumn: AlignmentOptions;
@@ -151,8 +153,6 @@ export class StoryTableDetailComponent {
   get colspan() {
     return Object.keys(this.books[0]).length + 1;
   }
-
-  constructor(private cd: ChangeDetectorRef) {}
 
   toggleRow(index: number) {
     const matchIndex = this.expandedRows.findIndex(i => i === index);

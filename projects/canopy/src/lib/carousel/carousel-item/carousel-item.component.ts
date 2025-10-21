@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostBinding,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 @Component({
@@ -15,11 +16,11 @@ import {
   standalone: true,
 })
 export class LgCarouselItemComponent {
+  element = inject(ElementRef);
+
   @HostBinding('class.lg-carousel-item') class = true;
   @HostBinding('attr.role') role = 'tabpanel';
   @HostBinding('attr.aria-selected') public selected = false;
-
-  constructor(public element: ElementRef) {}
 
   get itemContent() {
     return this.element.nativeElement.innerHTML;

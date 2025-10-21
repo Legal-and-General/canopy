@@ -3,9 +3,9 @@ import {
   Component,
   ElementRef,
   HostBinding,
-  Inject,
   Input,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { LgIconRegistry } from './icon.registry';
@@ -24,6 +24,10 @@ let nextUniqueId = 0;
   host: { ngSkipHydration: 'true' },
 })
 export class LgIconComponent {
+  private hostElement = inject(ElementRef);
+  private iconRegistry = inject(LgIconRegistry);
+  private document = inject<Document>(DOCUMENT);
+
   private svgIcon: SVGElement;
   private id = nextUniqueId++;
 
@@ -45,12 +49,6 @@ export class LgIconComponent {
       }
     })();
   }
-
-  constructor(
-    private hostElement: ElementRef,
-    private iconRegistry: LgIconRegistry,
-    @Inject(DOCUMENT) private document: Document,
-  ) {}
 
   /*
    * The following code replaces the ID and the xlink:href of the SVG before adding it to the registry.

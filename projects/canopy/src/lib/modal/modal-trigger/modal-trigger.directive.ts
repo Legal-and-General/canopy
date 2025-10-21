@@ -7,6 +7,7 @@ import {
   OnDestroy,
   OnInit,
   Output,
+  inject,
 } from '@angular/core';
 import { filter, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
@@ -18,16 +19,14 @@ import { LgModalService } from '../modal.service';
   standalone: true,
 })
 export class LgModalTriggerDirective implements OnInit, OnDestroy {
+  private el = inject(ElementRef);
+  private modalService = inject(LgModalService);
+
   private allowFocusOnModalTrigger: boolean;
   private subscription: Subscription;
 
   @Input() lgModalTrigger: string;
   @Output() clicked: EventEmitter<void> = new EventEmitter();
-
-  constructor(
-    private el: ElementRef,
-    private modalService: LgModalService,
-  ) {}
 
   @HostListener('click') openModal(): void {
     this.allowFocusOnModalTrigger = true;

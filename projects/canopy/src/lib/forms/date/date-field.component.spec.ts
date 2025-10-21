@@ -2,6 +2,7 @@ import {
   Component,
   DebugElement,
   EventEmitter,
+  inject,
   Input,
   Output,
   ViewChild,
@@ -46,6 +47,7 @@ const hintId = 'test-hint-id';
   ],
 })
 class TestDateInputComponent {
+  private fb = inject(UntypedFormBuilder);
   @Input()
   set disabled(disabled: boolean) {
     if (disabled) {
@@ -67,7 +69,7 @@ class TestDateInputComponent {
   @ViewChild('testForm')
   testFormDirective: FormGroupDirective;
 
-  constructor(public fb: UntypedFormBuilder) {
+  constructor() {
     this.form = this.fb.group({
       dateOfBirth: [ '' ],
     });

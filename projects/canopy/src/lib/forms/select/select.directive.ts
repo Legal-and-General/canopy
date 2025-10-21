@@ -1,12 +1,4 @@
-import {
-  Directive,
-  Host,
-  HostBinding,
-  Input,
-  Optional,
-  Self,
-  SkipSelf,
-} from '@angular/core';
+import { Directive, HostBinding, Input, inject } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
 import { LgErrorStateMatcher } from '../validation';
@@ -18,7 +10,16 @@ let nextUniqueId = 0;
   standalone: true,
 })
 export class LgSelectDirective {
+  private errorState = inject(LgErrorStateMatcher);
   private uniqueId = nextUniqueId++;
+
+  control = inject(NgControl, { self: true, optional: true });
+  controlContainer = inject(FormGroupDirective, {
+    optional: true,
+    host: true,
+    skipSelf: true,
+  });
+
   @HostBinding('class.lg-select') class = true;
   @HostBinding('class.lg-select--block')
   public get blockClass() {
@@ -44,13 +45,4 @@ export class LgSelectDirective {
   @Input()
   @HostBinding('attr.aria-describedby')
   ariaDescribedBy = null;
-
-  constructor(
-    @Self() @Optional() public control: NgControl,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    @Host()
-    @SkipSelf()
-    public controlContainer: FormGroupDirective,
-  ) {}
 }

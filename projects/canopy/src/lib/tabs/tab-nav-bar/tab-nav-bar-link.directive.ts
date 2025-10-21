@@ -6,6 +6,7 @@ import {
   HostListener,
   Input,
   Output,
+  inject,
 } from '@angular/core';
 
 @Directive({
@@ -13,6 +14,8 @@ import {
   standalone: true,
 })
 export class LgTabNavBarLinkDirective {
+  private ref = inject(ElementRef);
+
   private _isActive = false;
   private _isFocused = false;
   private _index = 0;
@@ -70,8 +73,6 @@ export class LgTabNavBarLinkDirective {
       ? null
       : '-1';
   }
-
-  constructor(private ref: ElementRef) {}
 
   @HostListener('click') onClick(): void {
     this.isActive = true;

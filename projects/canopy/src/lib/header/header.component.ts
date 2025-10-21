@@ -9,13 +9,13 @@ import {
   EventEmitter,
   forwardRef,
   HostListener,
-  Inject,
   OnDestroy,
   Output,
   QueryList,
   Renderer2,
   ViewChild,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { DOCUMENT, NgIf } from '@angular/common';
 import { filter, merge, skipWhile, startWith, Subscription, switchMap } from 'rxjs';
@@ -56,6 +56,10 @@ import { LgAccountMenuItemDirective } from './account-menu/account-menu-item.dir
   ],
 })
 export class LgHeaderComponent implements AfterContentInit, OnDestroy {
+  private cdr = inject(ChangeDetectorRef);
+  private renderer = inject(Renderer2);
+  private document = inject<Document>(DOCUMENT);
+
   private subscriptions: Array<Subscription> = [];
   showResponsiveMenu = false;
 
@@ -76,12 +80,6 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
   accountMenuItems: QueryList<LgAccountMenuListItemComponent>;
   @ContentChildren(forwardRef(() => LgHeaderLogoComponent), { descendants: true })
   headerLogos: QueryList<LgHeaderLogoComponent>;
-
-  constructor(
-    private cdr: ChangeDetectorRef,
-    private renderer: Renderer2,
-    @Inject(DOCUMENT) private document: Document,
-  ) {}
 
   @HostListener('document:click', [ '$event' ])
   onDocumentClickout(event: MouseEvent): void {

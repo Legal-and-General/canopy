@@ -10,6 +10,7 @@ import {
   QueryList,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import { LgFooterNavItemComponent } from '../footer-nav-item/footer-nav-item.component';
@@ -28,6 +29,9 @@ import { FooterNavVariant } from '../footer.interface';
   standalone: true,
 })
 export class LgFooterNavComponent implements OnInit, AfterViewChecked {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private currentFooterNavItemLength: number;
 
   @Input() variant: FooterNavVariant;
@@ -36,11 +40,6 @@ export class LgFooterNavComponent implements OnInit, AfterViewChecked {
     descendants: true,
   })
   footerNavItemComponents: QueryList<LgFooterNavItemComponent>;
-
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {}
 
   ngOnInit(): void {
     const el = this.hostElement.nativeElement as HTMLElement;

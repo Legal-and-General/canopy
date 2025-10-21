@@ -3,18 +3,13 @@ import {
   ContentChild,
   ElementRef,
   EventEmitter,
-  forwardRef,
-  Host,
   HostBinding,
-  Inject,
   Input,
   OnInit,
-  Optional,
   Output,
   Renderer2,
-  Self,
-  SkipSelf,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
@@ -40,6 +35,18 @@ let nextUniqueId = 0;
   imports: [ NgClass, NgIf ],
 })
 export class LgRadioButtonComponent implements OnInit {
+  private radioGroup = inject(LgRadioGroupComponent);
+  private errorState = inject(LgErrorStateMatcher);
+  private controlContainer = inject(FormGroupDirective, {
+    optional: true,
+    host: true,
+    skipSelf: true,
+  });
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+  private domService = inject(LgDomService);
+
+  control = inject(NgControl, { self: true, optional: true });
   checked = false;
   hintPresent = false;
   _variant: RadioVariant;
@@ -110,20 +117,6 @@ export class LgRadioButtonComponent implements OnInit {
     this._hintElement = element;
     this.hintPresent = !!element;
   }
-
-  constructor(
-    @Self() @Optional() public control: NgControl,
-    @Inject(forwardRef(() => LgRadioGroupComponent))
-    private radioGroup: LgRadioGroupComponent,
-    private errorState: LgErrorStateMatcher,
-    @Optional()
-    @Host()
-    @SkipSelf()
-    private controlContainer: FormGroupDirective,
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-    private domService: LgDomService,
-  ) {}
 
   ngOnInit(): void {
     this.variant = this.radioGroup.variant;

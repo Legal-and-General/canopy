@@ -1,104 +1,208 @@
-import { TemplateRef, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
-import { LgFeatureToggleConfig } from './feature-toggle.interface';
 import { LgFeatureToggleDirective } from './feature-toggle.directive';
 import { LgFeatureToggleService } from './feature-toggle.service';
+import {
+  LgFeatureToggleConfig,
+  LgFeatureToggleOptions,
+  togglesOptionsInjectable,
+} from './feature-toggle.interface';
+
+@Component({
+  template: `
+    <div *lgFeatureToggle="'testFeature'" data-test="content">Test content</div>
+  `,
+  standalone: true,
+  imports: [ LgFeatureToggleDirective ],
+})
+class TestComponent {}
 
 describe('LgFeatureToggleDirective', () => {
-  let directive: LgFeatureToggleDirective;
+  let fixture: ComponentFixture<TestComponent>;
   let togglesSubject: BehaviorSubject<LgFeatureToggleConfig>;
-  let viewContainer: jest.Mocked<ViewContainerRef>;
-  let templateRef: TemplateRef<any>;
+  let mockFeatureToggleService: { toggles$: BehaviorSubject<LgFeatureToggleConfig> };
 
   beforeEach(() => {
     togglesSubject = new BehaviorSubject<LgFeatureToggleConfig>({});
 
-    const service = {
-      toggles$: togglesSubject.asObservable(),
-    } as LgFeatureToggleService;
+    mockFeatureToggleService = {
+      toggles$: togglesSubject,
+    };
 
-    viewContainer = {
-      clear: jest.fn(),
-      createEmbeddedView: jest.fn(),
-    } as any;
+    TestBed.configureTestingModule({
+      imports: [ TestComponent, LgFeatureToggleDirective ],
+      providers: [
+        { provide: LgFeatureToggleService, useValue: mockFeatureToggleService },
+      ],
+    }).compileComponents();
 
-    templateRef = {} as any;
-
-    directive = new LgFeatureToggleDirective(
-      service,
-      templateRef,
-      viewContainer,
-      undefined, // no options
-    );
+    fixture = TestBed.createComponent(TestComponent);
   });
 
-  it('should create the directive', () => {
-    expect(directive).toBeTruthy();
+  describe('when feature toggle is enabled', () => {
+    it('should render the content', () => {
+      togglesSubject.next({ testFeature: true });
+      fixture.detectChanges();
+
+      const contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
+
+      expect(contentElement).toBeTruthy();
+      expect(contentElement.nativeElement.textContent.trim()).toBe('Test content');
+    });
   });
 
-  it('should handle undefined feature toggle value', () => {
-    directive.lgFeatureToggle = 'testFeature';
-    directive.ngOnInit();
+  describe('when feature toggle is disabled', () => {
+    it('should not render the content', () => {
+      togglesSubject.next({ testFeature: false });
+      fixture.detectChanges();
 
-    // Initial state should show the template (undefined value)
-    expect(viewContainer.clear).toHaveBeenCalled();
-    expect(viewContainer.createEmbeddedView).toHaveBeenCalledWith(templateRef);
+      const contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
+
+      expect(contentElement).toBeNull();
+    });
   });
 
-  it('should show content when feature is enabled', () => {
-    directive.lgFeatureToggle = 'testFeature';
-    directive.ngOnInit();
+  describe('when feature toggle is undefined', () => {
+    it('should render the content by default', () => {
+      togglesSubject.next({});
+      fixture.detectChanges();
 
-    // Reset spy counters
-    jest.clearAllMocks();
+      const contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
 
-    // Set feature to true
-    togglesSubject.next({ testFeature: true });
+      expect(contentElement).toBeTruthy();
+      expect(contentElement.nativeElement.textContent.trim()).toBe('Test content');
+    });
 
-    expect(viewContainer.clear).toHaveBeenCalled();
-    expect(viewContainer.createEmbeddedView).toHaveBeenCalledWith(templateRef);
+    it('should not render content when defaultHide option is set', () => {
+      TestBed.resetTestingModule();
+
+      TestBed.configureTestingModule({
+        imports: [ TestComponent, LgFeatureToggleDirective ],
+        providers: [
+          { provide: LgFeatureToggleService, useValue: mockFeatureToggleService },
+          {
+            provide: togglesOptionsInjectable,
+            useValue: { defaultHide: true } as LgFeatureToggleOptions,
+          },
+        ],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestComponent);
+      togglesSubject.next({});
+      fixture.detectChanges();
+
+      const contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
+
+      expect(contentElement).toBeNull();
+    });
   });
 
-  it('should hide content when feature is disabled', () => {
-    directive.lgFeatureToggle = 'testFeature';
-    directive.ngOnInit();
+  describe('when toggle state changes', () => {
+    it('should show content when toggle changes from false to true', () => {
+      togglesSubject.next({ testFeature: false });
+      fixture.detectChanges();
 
-    // Reset spy counters
-    jest.clearAllMocks();
+      let contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
 
-    // Set feature to false
-    togglesSubject.next({ testFeature: false });
+      expect(contentElement).toBeNull();
 
-    expect(viewContainer.clear).toHaveBeenCalled();
-    expect(viewContainer.createEmbeddedView).not.toHaveBeenCalled();
+      togglesSubject.next({ testFeature: true });
+      fixture.detectChanges();
+
+      contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
+      expect(contentElement).toBeTruthy();
+    });
+
+    it('should hide content when toggle changes from true to false', () => {
+      togglesSubject.next({ testFeature: true });
+      fixture.detectChanges();
+
+      let contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
+
+      expect(contentElement).toBeTruthy();
+
+      togglesSubject.next({ testFeature: false });
+      fixture.detectChanges();
+
+      contentElement = fixture.debugElement.query(By.css('[data-test="content"]'));
+      expect(contentElement).toBeNull();
+    });
   });
 
-  it('should set defaultHide option via setOptions', () => {
-    directive.lgFeatureToggle = 'testFeature';
-    directive.setOptions({ defaultHide: true });
-    directive.ngOnInit();
+  describe('subscription cleanup', () => {
+    it('should unsubscribe on destroy', () => {
+      togglesSubject.next({ testFeature: true });
+      fixture.detectChanges();
 
-    // With defaultHide, undefined features should be hidden
-    expect(viewContainer.clear).toHaveBeenCalled();
-    expect(viewContainer.createEmbeddedView).not.toHaveBeenCalled();
+      const directiveElements = fixture.debugElement.queryAllNodes(
+        By.directive(LgFeatureToggleDirective),
+      );
+      const directive = directiveElements[0].injector.get(LgFeatureToggleDirective);
 
-    // But true features should still be shown
-    jest.clearAllMocks();
-    togglesSubject.next({ testFeature: true });
+      const unsubscribeSpy = jest.spyOn(directive.subscription, 'unsubscribe');
 
-    expect(viewContainer.clear).toHaveBeenCalled();
-    expect(viewContainer.createEmbeddedView).toHaveBeenCalledWith(templateRef);
+      fixture.destroy();
+
+      expect(unsubscribeSpy).toHaveBeenCalled();
+    });
+
+    it('should handle destroy when subscription is undefined', () => {
+      fixture.detectChanges();
+
+      const directiveElements = fixture.debugElement.queryAllNodes(
+        By.directive(LgFeatureToggleDirective),
+      );
+      const directive = directiveElements[0].injector.get(LgFeatureToggleDirective);
+
+      directive.subscription = undefined;
+
+      expect(() => {
+        fixture.destroy();
+      }).not.toThrow();
+    });
   });
 
-  it('should unsubscribe on destroy', () => {
-    directive.lgFeatureToggle = 'testFeature';
-    directive.ngOnInit();
+  describe('setOptions method', () => {
+    it('should allow setting options programmatically', () => {
+      togglesSubject.next({});
+      fixture.detectChanges();
 
-    const unsubscribeSpy = jest.spyOn(directive.subscription, 'unsubscribe');
+      const directiveElements = fixture.debugElement.queryAllNodes(
+        By.directive(LgFeatureToggleDirective),
+      );
+      const directive = directiveElements[0].injector.get(LgFeatureToggleDirective);
 
-    directive.ngOnDestroy();
+      const newOptions: LgFeatureToggleOptions = { defaultHide: true };
 
-    expect(unsubscribeSpy).toHaveBeenCalled();
+      directive.setOptions(newOptions);
+
+      expect(directive['options']).toEqual(newOptions);
+    });
+  });
+
+  describe('view container behavior', () => {
+    it('should clear view before creating embedded view when toggle changes', () => {
+      // Initialize the component first so the directive is created
+      fixture.detectChanges();
+
+      // Get the directive reference - use queryAllNodes to find structural directives
+      const directiveElements = fixture.debugElement.queryAllNodes(
+        By.directive(LgFeatureToggleDirective),
+      );
+      const directive = directiveElements[0].injector.get(LgFeatureToggleDirective);
+
+      const clearSpy = jest.spyOn(directive['viewContainer'], 'clear');
+      const createSpy = jest.spyOn(directive['viewContainer'], 'createEmbeddedView');
+
+      // Now set the toggle to true to trigger the directive logic
+      togglesSubject.next({ testFeature: true });
+      fixture.detectChanges();
+
+      expect(clearSpy).toHaveBeenCalled();
+      expect(createSpy).toHaveBeenCalled();
+    });
   });
 });

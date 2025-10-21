@@ -6,6 +6,7 @@ import {
   Input,
   Renderer2,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import {
@@ -28,6 +29,9 @@ import type { BannerVariant } from './banner-variant.interface';
   imports: [ LgGridContainerDirective, LgGridRowDirective, LgGridColDirective ],
 })
 export class LgBannerComponent {
+  private renderer = inject(Renderer2);
+  private hostElement = inject(ElementRef);
+
   private _variant: BannerVariant;
 
   @Input()
@@ -56,10 +60,7 @@ export class LgBannerComponent {
     }
   }
 
-  constructor(
-    private renderer: Renderer2,
-    private hostElement: ElementRef,
-  ) {
+  constructor() {
     this.variant = 'generic';
   }
 }

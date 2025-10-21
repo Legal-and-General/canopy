@@ -4,6 +4,7 @@ import {
   HostBinding,
   Input,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { NgIf } from '@angular/common';
@@ -18,9 +19,9 @@ import { LgIconComponent } from '../../icon';
   imports: [ NgIf, LgIconComponent ],
 })
 export class LgAutoplayComponent {
+  element = inject(ElementRef);
+
   @Input() pause: BehaviorSubject<boolean>;
 
   @HostBinding('class.lg-carousel-autoplay') class = true;
-
-  constructor(public element: ElementRef) {}
 }

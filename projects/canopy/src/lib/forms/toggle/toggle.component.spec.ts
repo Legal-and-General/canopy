@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, inject, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormGroupDirective,
@@ -52,6 +52,8 @@ const validationTestId = 'test-validation-id';
   ],
 })
 class TestToggleComponent {
+  private fb = inject(UntypedFormBuilder);
+  private errorState = inject(LgErrorStateMatcher);
   @Input() variant: ToggleVariant;
   @Input() size: CheckboxSize;
 
@@ -61,10 +63,7 @@ class TestToggleComponent {
     return this.form.get('umbrella');
   }
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private errorState: LgErrorStateMatcher,
-  ) {
+  constructor() {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },
@@ -75,6 +74,12 @@ class TestToggleComponent {
 
   isControlInvalid(control: NgControl, form: FormGroupDirective) {
     return this.errorState.isControlInvalid(control, form);
+  }
+
+  onBlur($event: Event) {}
+
+  onChange() {
+    throw new Error('Method not implemented.');
   }
 }
 
@@ -106,16 +111,15 @@ class TestToggleComponent {
   ],
 })
 class TestToggleVariantSelectorComponent {
+  private fb = inject(UntypedFormBuilder);
+  private errorState = inject(LgErrorStateMatcher);
   form: UntypedFormGroup;
 
   get umbrella() {
     return this.form.get('umbrella');
   }
 
-  constructor(
-    public fb: UntypedFormBuilder,
-    private errorState: LgErrorStateMatcher,
-  ) {
+  constructor() {
     this.form = this.fb.group({
       umbrella: [
         { value: null, disabled: false },
@@ -126,6 +130,12 @@ class TestToggleVariantSelectorComponent {
 
   isControlInvalid(control: NgControl, form: FormGroupDirective) {
     return this.errorState.isControlInvalid(control, form);
+  }
+
+  onBlur($event: Event) {}
+
+  onChange() {
+    throw new Error('Method not implemented.');
   }
 }
 
