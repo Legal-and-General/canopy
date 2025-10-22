@@ -16,7 +16,7 @@ import { ListWithIconsVariant } from './list-with-icons.interface';
 
 @Component({
   selector: '[lg-list-with-icons]',
-  template: '<ng-content select="[lg-list-with-icons-item]"></ng-content>',
+  template: '<ng-content select="[lg-list-with-icons-item]" />',
   styleUrls: [ './list-with-icons.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

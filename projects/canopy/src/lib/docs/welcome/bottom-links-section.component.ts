@@ -22,7 +22,7 @@ import { LgMarginDirective } from '../../spacing';
 
     <p>{{ text }}</p>
 
-    <lg-separator lgMarginBottom="none"></lg-separator>
+    <lg-separator lgMarginBottom="none" />
 
     <lg-link-menu>
       @for (link of links; track link) {

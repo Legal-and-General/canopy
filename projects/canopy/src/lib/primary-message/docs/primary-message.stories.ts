@@ -12,7 +12,7 @@ import { LgMarginDirective } from '../../spacing';
   selector: 'lg-primary-message-story',
   template: `
     <lg-primary-message [hasRole]="hasRole">
-      <lg-brand-icon name="calendar"></lg-brand-icon>
+      <lg-brand-icon name="calendar" />
       <lg-primary-message-title
         >This is a message with brand icon
       </lg-primary-message-title>

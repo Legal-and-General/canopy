@@ -2,12 +2,12 @@
   <lg-heading [level]="headingLevel">
     @if (externalLink) {
       <a [href]="link" (click)="linkClicked()" target="_blank">
-        <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
+        <ng-container [ngTemplateOutlet]="linkContent" />
       </a>
     }
     @if (!externalLink) {
       <a [routerLink]="[link]" [queryParams]="queryParams" [queryParamsHandling]="queryParamsHandling" (click)="linkClicked()">
-        <ng-container [ngTemplateOutlet]="linkContent"></ng-container>
+        <ng-container [ngTemplateOutlet]="linkContent" />
       </a>
     }
   </lg-heading>
@@ -15,5 +15,5 @@
 
 <ng-template #linkContent>
   {{title}}
-  <lg-icon [name]="externalLink ? 'link-external' : 'arrow-right'"></lg-icon>
+  <lg-icon [name]="externalLink ? 'link-external' : 'arrow-right'" />
 </ng-template>

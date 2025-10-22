@@ -17,7 +17,7 @@
       (keyup)="keyboardNavigation($event)"
       >
       <span class="lg-tabs__list-item-heading">
-        <ng-container *ngTemplateOutlet="tab.navItemTemplate"></ng-container>
+        <ng-container *ngTemplateOutlet="tab.navItemTemplate" />
       </span>
     </button>
   }
@@ -31,6 +31,6 @@
     [attr.aria-labelledby]="'tab-item-heading-' + id + '-' + index"
     [attr.hidden]="index !== selectedIndex ? '' : null"
     >
-    <ng-container *ngTemplateOutlet="tab.contentTemplate"></ng-container>
+    <ng-container *ngTemplateOutlet="tab.contentTemplate" />
   </div>
 }

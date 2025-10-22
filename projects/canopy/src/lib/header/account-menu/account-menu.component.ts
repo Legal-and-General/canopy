@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 
 @Component({
   selector: 'lg-account-menu',
-  template: '<ng-content></ng-content>',
+  template: '<ng-content />',
   styleUrls: [ './account-menu.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

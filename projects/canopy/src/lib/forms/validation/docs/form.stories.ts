@@ -241,7 +241,7 @@ class FormGroupChildComponent implements OnInit {
         }
       </lg-date-field>
 
-      <lg-form-group-child></lg-form-group-child>
+      <lg-form-group-child />
 
       <lg-input-field>
         Sort Code

@@ -44,13 +44,13 @@ const cardListConfig = {
   selector: 'lg-promo-card-list-story',
   template: `
     <lg-promo-card-list>
-      <lg-separator [variant]="'dotted'" lgMargin="none"></lg-separator>
+      <lg-separator [variant]="'dotted'" lgMargin="none" />
       <lg-promo-card-list-title headingLevel="1">
         {{ title }}
       </lg-promo-card-list-title>
       @for (card of cards; track card; let i = $index) {
         <lg-promo-card [variant]="variants[i]">
-          <lg-promo-card-image [imageUrl]="card.imageUrl"></lg-promo-card-image>
+          <lg-promo-card-image [imageUrl]="card.imageUrl" />
           <lg-promo-card-title headingLevel="2">
             {{ card.title }}
           </lg-promo-card-title>

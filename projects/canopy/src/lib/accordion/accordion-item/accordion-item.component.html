@@ -1,4 +1,4 @@
-<ng-content select="lg-accordion-panel-heading"></ng-content>
+<ng-content select="lg-accordion-panel-heading" />
 <div
   class="lg-accordion__panel"
   [id]="_panelId"
@@ -7,10 +7,10 @@
   [attr.role]="'region'"
   >
   @if (_showContent) {
-    <ng-container [ngTemplateOutlet]="_contentTemplate"></ng-container>
+    <ng-container [ngTemplateOutlet]="_contentTemplate" />
   }
 </div>
 
 <ng-template lgAccordionItemContent>
-  <ng-content></ng-content>
+  <ng-content />
 </ng-template>

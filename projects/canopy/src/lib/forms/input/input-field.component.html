@@ -1,7 +1,7 @@
 <label lg-label [class.lg-visually-hidden]="!showLabel">
-  <ng-content></ng-content>
+  <ng-content />
 </label>
-<ng-content select="lg-hint"></ng-content>
+<ng-content select="lg-hint" />
 <div
   class="lg-input-field__inputs"
   (focusin)="onFocusIn($event)"
@@ -11,16 +11,16 @@
   >
   @if (prefixChildren.length) {
     <div class="lg-input-field__prefix">
-      <ng-content select="[lgPrefix]"></ng-content>
+      <ng-content select="[lgPrefix]" />
     </div>
   }
 
-  <ng-content select="[lgInput]"></ng-content>
+  <ng-content select="[lgInput]" />
 
   @if (suffixChildren.length) {
     <div class="lg-input-field__suffix">
-      <ng-content select="[lgSuffix]"></ng-content>
+      <ng-content select="[lgSuffix]" />
     </div>
   }
 </div>
-<ng-content select="lg-validation"></ng-content>
+<ng-content select="lg-validation" />
