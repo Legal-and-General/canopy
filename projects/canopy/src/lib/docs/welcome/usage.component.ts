@@ -22,7 +22,7 @@ import { LgMarginDirective } from '../../spacing';
         <li>
           <a href="https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md">
             Read about how to use the Angular library
-            <lg-icon name="link-external"></lg-icon>
+            <lg-icon name="link-external" />
             <span class="lg-visually-hidden"> opens in a new tab</span>
           </a>
         </li>

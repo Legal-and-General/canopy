@@ -18,7 +18,7 @@ import { lgBrandIconsArray } from '../../brand-icons-files';
           [halfToneColour]="i === 2 ? halfToneColour : null"
           [outlinesColour]="i === 2 ? outlinesColour : null"
           [attr.style]="cssVar"
-        ></lg-brand-icon>
+        />
         <span class="swatch__name">{{ icon.name }}</span>
       </div>
     }

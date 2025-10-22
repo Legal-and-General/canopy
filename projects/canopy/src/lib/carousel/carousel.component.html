@@ -3,7 +3,7 @@
       description
     }}</lg-heading>
   @if (autoPlay) {
-    <lg-auto-play [pause]="pause"></lg-auto-play>
+    <lg-auto-play [pause]="pause" />
   }
   <div
     class="lg-carousel__active-content lg-visually-hidden"
@@ -17,7 +17,7 @@
     [style.left.%]="-100 * selectedItemIndex"
     [style.transition]="'left ' + slideDuration / 1000 + 's'"
   >
-    <ng-content></ng-content>
+    <ng-content />
   </div>
 
   <div class="lg-carousel__navigation" role="tablist">
@@ -29,7 +29,7 @@
     >
       <span class="lg-visually-hidden">Previous {{ description }} item</span>
       <span class="lg-carousel__button__disk lg-carousel--centered">
-        <lg-icon name="chevron-left"></lg-icon>
+        <lg-icon name="chevron-left" />
       </span>
     </button>
     @for (item of carouselItems; let i = $index; track item) {
@@ -84,7 +84,7 @@
     >
       <span class="lg-visually-hidden">Next {{ description }} item</span>
       <span class="lg-carousel__button__disk lg-carousel--centered">
-        <lg-icon name="chevron-right"></lg-icon>
+        <lg-icon name="chevron-right" />
       </span>
     </button>
   </div>

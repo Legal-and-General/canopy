@@ -1,34 +1,34 @@
 <!--https://github.com/angular/angular/issues/7795-->
 
-<ng-template #transclude><ng-content></ng-content></ng-template>
+<ng-template #transclude><ng-content /></ng-template>
 
 @if (+level === 1) {
   <h1>
-    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+    <ng-container *ngTemplateOutlet="transclude" />
   </h1>
 }
 @if (+level === 2) {
   <h2>
-    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+    <ng-container *ngTemplateOutlet="transclude" />
   </h2>
 }
 @if (+level === 3) {
   <h3>
-    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+    <ng-container *ngTemplateOutlet="transclude" />
   </h3>
 }
 @if (+level === 4) {
   <h4>
-    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+    <ng-container *ngTemplateOutlet="transclude" />
   </h4>
 }
 @if (+level === 5) {
   <h5>
-    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+    <ng-container *ngTemplateOutlet="transclude" />
   </h5>
 }
 @if (+level === 6) {
   <h6>
-    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+    <ng-container *ngTemplateOutlet="transclude" />
   </h6>
 }

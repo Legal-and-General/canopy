@@ -9,7 +9,7 @@
         (click)="previous()"
         [disabled]="currentPage === 1"
         >
-        <lg-icon name="chevron-left"></lg-icon>
+        <lg-icon name="chevron-left" />
       </button>
     </li>
     @for (page of pages; track page) {
@@ -35,7 +35,7 @@
         (click)="next()"
         [disabled]="currentPage === numPages"
         >
-        <lg-icon name="chevron-right"></lg-icon>
+        <lg-icon name="chevron-right" />
       </button>
     </li>
   </ul>

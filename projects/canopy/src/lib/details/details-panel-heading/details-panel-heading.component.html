@@ -14,21 +14,21 @@
         >
         @switch (variant) {
           @case ('error') {
-            <lg-icon name="crossmark-spot-fill"></lg-icon>
+            <lg-icon name="crossmark-spot-fill" />
           }
           @case ('info') {
-            <lg-icon name="information-fill"></lg-icon>
+            <lg-icon name="information-fill" />
           }
           @case ('warning') {
-            <lg-icon name="warning-fill"></lg-icon>
+            <lg-icon name="warning-fill" />
           }
           @case ('success') {
-            <lg-icon name="checkmark-spot-fill"></lg-icon>
+            <lg-icon name="checkmark-spot-fill" />
           }
         }
       </div>
     }
-    <ng-content></ng-content>
-    <lg-icon name="chevron-down" class="lg-details-panel-heading__state-icon"></lg-icon>
+    <ng-content />
+    <lg-icon name="chevron-down" class="lg-details-panel-heading__state-icon" />
   </button>
 </lg-heading>

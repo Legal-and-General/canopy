@@ -13,7 +13,7 @@ import { keyName } from '../../../utils/keyboard-keys';
 
 @Component({
   selector: 'lg-primary-nav-list-item',
-  template: '<ng-content></ng-content>',
+  template: '<ng-content />',
   styleUrls: [ './primary-navigation-list-item.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

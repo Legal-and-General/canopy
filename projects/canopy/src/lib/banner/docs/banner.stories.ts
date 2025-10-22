@@ -12,7 +12,7 @@ const variantTypes = [ 'generic', 'warning' ];
   selector: 'lg-banner-icon',
   template: `
     <lg-banner [variant]="variant">
-      <lg-icon [name]="icon"></lg-icon>
+      <lg-icon [name]="icon" />
       {{ content }} Here is some <a href="#"> link text</a>.
     </lg-banner>
   `,

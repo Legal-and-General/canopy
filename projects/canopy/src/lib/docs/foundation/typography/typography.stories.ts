@@ -50,8 +50,7 @@ class LgDisplayFontSizeComponent {
                 [remValues]="fontGroup.rem"
                 [fontClass]="'lg-font-size-' + fontGroup.size + '--' + weight"
                 [showSizeInfo]="false"
-              >
-              </lg-display-font-size>
+              />
               <!-- Add underlined version of the last weight in each group -->
               @if (last && isLastWeightInGroup(fontGroup, weight)) {
                 <lg-display-font-size
@@ -63,8 +62,7 @@ class LgDisplayFontSizeComponent {
                   "
                   [showSizeInfo]="true"
                   [ngClass]="{ 'lg-margin__bottom--none': true }"
-                >
-                </lg-display-font-size>
+                />
               }
             }
           }
@@ -99,8 +97,7 @@ class LgDisplayFontSizeComponent {
                   'lg-font--expressive'
                 "
                 [showSizeInfo]="false"
-              >
-              </lg-display-font-size>
+              />
               <!-- Add underlined version of the last weight in each group -->
               @if (i === fontGroup.weights.length - 1) {
                 <lg-display-font-size
@@ -117,8 +114,7 @@ class LgDisplayFontSizeComponent {
                   "
                   [showSizeInfo]="true"
                   [ngClass]="{ 'lg-margin__bottom--none': true }"
-                >
-                </lg-display-font-size>
+                />
               }
             }
           }

@@ -3,10 +3,10 @@
     <div lgCol="12">
       <div class="lg-header__wrapper">
         <div class="lg-header__logos-wrapper">
-          <ng-content select="lg-header-logo"></ng-content>
+          <ng-content select="lg-header-logo" />
         </div>
 
-        <ng-content></ng-content>
+        <ng-content />
 
         @if (navItems.length) {
           <button
@@ -24,10 +24,10 @@
             >
             <span class="lg-visually-hidden">Menu</span>
             @if (!showResponsiveMenu) {
-              <lg-icon name="hamburger-menu"></lg-icon>
+              <lg-icon name="hamburger-menu" />
             }
             @if (showResponsiveMenu) {
-              <lg-icon name="close"></lg-icon>
+              <lg-icon name="close" />
             }
           </button>
         }

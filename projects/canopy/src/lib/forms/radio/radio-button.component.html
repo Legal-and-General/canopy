@@ -19,11 +19,11 @@
     'lg-radio-button__label--sm': variant === 'radio' && size === 'sm',
     'lg-radio-button__label--lg': variant === 'radio' && size === 'lg'
   }">
-  <ng-content></ng-content>
+  <ng-content />
 </label>
 
 @if (hintPresent) {
   <div class="lg-radio-button__hint">
-    <ng-content select="lg-hint"></ng-content>
+    <ng-content select="lg-hint" />
   </div>
 }
