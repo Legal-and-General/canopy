@@ -10,6 +10,7 @@ import { LgHeaderComponent } from '../../header';
 
 export default {
   title: 'Components/Data point/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

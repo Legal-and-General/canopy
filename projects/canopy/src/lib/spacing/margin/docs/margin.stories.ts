@@ -24,6 +24,7 @@ const responsiveCategory = 'Responsive';
 
 export default {
   title: 'Helpers/Directives/Margin/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LgCardComponent, LgCardContentComponent, LgMarginDirective, NgIf ],

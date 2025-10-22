@@ -62,6 +62,7 @@ class ReactiveFormFilterComponent {
 
 export default {
   title: 'Components/Filter buttons/Examples',
+  tags: [ 'pending' ],
   component: LgRadioGroupComponent,
   decorators: [
     moduleMetadata({

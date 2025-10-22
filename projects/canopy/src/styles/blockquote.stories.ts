@@ -10,6 +10,7 @@ const template = `
 
 export default {
   title: 'Components/Blockquote/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ NgIf ],

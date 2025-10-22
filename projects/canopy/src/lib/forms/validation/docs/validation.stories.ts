@@ -26,6 +26,7 @@ class LgValidationExampleComponent {
 
 export default {
   title: 'Components/Forms/Form validation/Examples',
+  tags: [ 'pending' ],
   component: LgValidationComponent,
   decorators: [
     moduleMetadata({

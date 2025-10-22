@@ -4,6 +4,7 @@ import { LgProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 export default {
   title: 'Components/Progress indicator/Examples',
+  tags: [ 'pending' ],
   component: LgProgressBarComponent,
   argTypes: {
     max: {

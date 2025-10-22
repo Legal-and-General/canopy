@@ -54,6 +54,7 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Patterns/Date input/Examples',
+  tags: [ 'pending' ],
   component: LgDateFieldComponent,
   decorators: [
     moduleMetadata({

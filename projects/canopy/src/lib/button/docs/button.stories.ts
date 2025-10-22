@@ -84,6 +84,7 @@ class ButtonComponentExampleComponent {
 
 export default {
   title: 'Components/Button/Examples',
+  tags: [ 'pending' ],
   component: LgButtonComponent,
   decorators: [
     moduleMetadata({

@@ -24,6 +24,7 @@ const responsiveCategory = 'Responsive';
 
 export default {
   title: 'Helpers/Directives/Padding/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LgCardComponent, LgCardContentComponent, LgPaddingDirective, NgIf ],

@@ -84,6 +84,7 @@ export class StorySideNavComponent {
 
 export default {
   title: 'Patterns/Side nav/Examples',
+  tags: [ 'pending' ],
   excludeStories: [ 'StorySideNavComponent' ],
   component: LgSideNavComponent,
   decorators: [

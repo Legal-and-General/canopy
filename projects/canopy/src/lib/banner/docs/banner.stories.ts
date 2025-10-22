@@ -27,6 +27,7 @@ class LgBannerIconComponent {
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Banner message (WIP)/Examples',
+  tags: [ 'pending' ],
   component: LgBannerComponent,
   decorators: [
     moduleMetadata({

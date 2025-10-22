@@ -40,6 +40,7 @@ export const secondaryLinks = [
 
 export default {
   title: 'Components/Footer/Examples',
+  tags: [ 'pending' ],
   excludeStories: [ 'primaryLinks', 'secondaryLinks' ],
   component: LgFooterComponent,
   decorators: [

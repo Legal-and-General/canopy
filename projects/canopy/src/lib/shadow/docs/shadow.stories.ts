@@ -22,6 +22,7 @@ const template = `
 // This default export determines where your story goes in the story list
 export default {
   title: 'Helpers/Directives/Shadow/Examples',
+  tags: [ 'pending' ],
   component: LgShadowDirective,
   decorators: [
     moduleMetadata({

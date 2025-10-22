@@ -386,6 +386,7 @@ class GroupCardComponent {
 
 export default {
   title: 'Components/Card/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

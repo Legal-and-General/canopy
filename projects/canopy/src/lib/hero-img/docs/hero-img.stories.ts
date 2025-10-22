@@ -57,6 +57,7 @@ export const imageBackgroundHeroHTML = `
 
 export default {
   title: 'Patterns/Hero image/Examples',
+  tags: [ 'pending' ],
   excludeStories: [ 'imageBackgroundHeroHTML' ],
   decorators: [
     moduleMetadata({

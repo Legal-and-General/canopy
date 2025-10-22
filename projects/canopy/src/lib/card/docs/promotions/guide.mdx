@@ -1,10 +1,13 @@
 import {Markdown, Meta} from '@storybook/addon-docs/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
+import { CustomBadge } from 'storybook-addon-tag-badges';
 
-<Meta title="Patterns/Promotions/Guide" />
+<Meta title="Patterns/Promotions/Guide" tags={['pending']}/>
 
 # Promotions
+
+<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Promotions are containers for content and actions on a specific topic, that use the Cards component and combine the Grid functionality to obtain a Magazin layout based on how many promotions you want to display.</p>
 

@@ -8,6 +8,7 @@ import { LgTabItemContentComponent } from '../tab-item-content/tab-item-content.
 
 export default {
   title: 'Components/Tabs/Examples',
+  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

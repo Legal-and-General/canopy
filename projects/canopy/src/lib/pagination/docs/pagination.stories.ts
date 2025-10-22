@@ -105,6 +105,7 @@ class PaginationStoryComponent implements OnInit, OnChanges {
 
 export default {
   title: 'Components/Pagination (WIP)/Examples',
+  tags: [ 'pending' ],
   component: LgPaginationComponent,
   decorators: [
     moduleMetadata({
