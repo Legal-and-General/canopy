@@ -1,19 +1,13 @@
 const svgoIconsConfig = {
   plugins: [
-    {
-      name: 'preset-default',
-      params: {
-        overrides: {
-          removeViewBox: false,
-        },
-      },
-    },
+    'preset-default',
     {
       name: 'removeAttrs',
       params: {
         attrs: ['fill', 'path:fill'],
       },
     },
+    'removeDimensions',
   ],
 };
 

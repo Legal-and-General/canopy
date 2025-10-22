@@ -5,10 +5,10 @@ const svgoBrandIconsConfig = {
       params: {
         overrides: {
           cleanupIds: false,
-          removeViewBox: false,
         },
       },
     },
+    'removeDimensions',
   ],
 };
 

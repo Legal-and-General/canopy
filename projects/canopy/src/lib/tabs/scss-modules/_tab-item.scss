@@ -1,5 +1,6 @@
 @use '../../../styles/mixins';
 
+/* stylelint-disable nesting-selector-no-missing-scoping-root */
 @mixin lg-tab-item() {
   position: relative;
   padding: 0 var(--space-xxs);
@@ -56,3 +57,4 @@
     }
   }
 }
+/* stylelint-enable nesting-selector-no-missing-scoping-root */
