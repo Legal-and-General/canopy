@@ -19,7 +19,7 @@ import { LgAlertComponent } from '../../alert';
     <a href="https://www.nngroup.com/articles/design-systems-101/" target="_blank">
       What's a design system?
       <span class="lg-visually-hidden"> opens in a new tab</span>
-      <lg-icon name="link-external"></lg-icon>
+      <lg-icon name="link-external" />
     </a>
 
     <lg-alert variant="info" lgMarginTop="xl">

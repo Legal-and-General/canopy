@@ -4,9 +4,9 @@
   [lgFocus]="focus"
 >
   <legend lg-label>
-    <ng-content></ng-content>
+    <ng-content />
   </legend>
-  <ng-content select="lg-hint"></ng-content>
+  <ng-content select="lg-hint" />
   <div
     class="lg-date-field__fields"
     [formGroup]="dateFormGroup"
@@ -64,5 +64,5 @@
     </div>
   </div>
 
-  <ng-content select="lg-validation"></ng-content>
+  <ng-content select="lg-validation" />
 </fieldset>

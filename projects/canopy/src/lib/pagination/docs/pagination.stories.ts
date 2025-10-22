@@ -48,7 +48,7 @@ import {
         [itemsPerPage]="itemsPerPage"
         [currentPage]="currentPage"
         (pageChanged)="onPageChanged($event)"
-      ></lg-pagination>
+      />
     </div>
   `,
   imports: [

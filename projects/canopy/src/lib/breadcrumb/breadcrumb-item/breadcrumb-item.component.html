@@ -7,24 +7,22 @@
   >
   @if (showBackChevron) {
     <span class="lg-breadcrumb-item__icon-wrapper">
-      <lg-icon
-        [name]="'caret-left'"
+      <lg-icon [name]="'caret-left'"
         class="lg-breadcrumb-item__icon lg-breadcrumb-item__icon-backward"
-      ></lg-icon>
+       />
     </span>
   }
 
   <span class="lg-breadcrumb-item__content">
     <span class="lg-visually-hidden">{{ index + 1 }}.</span>
-    <ng-content></ng-content>
+    <ng-content />
   </span>
 
   @if (showForwardChevron) {
     <span class="lg-breadcrumb-item__icon-wrapper">
-      <lg-icon
-        [name]="'caret-right'"
+      <lg-icon [name]="'caret-right'"
         class="lg-breadcrumb-item__icon lg-breadcrumb-item__icon-forward"
-      ></lg-icon>
+       />
     </span>
   }
 </div>

@@ -10,11 +10,7 @@ import { lgIconsArray } from '../../ui-icons-files';
   template: `
     @for (icon of lgIconsArray; track icon) {
       <div class="swatch">
-        <lg-icon
-          class="swatch__svg"
-          [name]="icon.name"
-          [attr.style]="colourVar"
-        ></lg-icon>
+        <lg-icon class="swatch__svg" [name]="icon.name" [attr.style]="colourVar" />
         <span class="swatch__name">{{ icon.name }}</span>
       </div>
     }
