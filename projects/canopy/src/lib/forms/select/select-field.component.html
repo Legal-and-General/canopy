@@ -1,11 +1,11 @@
 <label lg-label>
-  <ng-content></ng-content>
+  <ng-content />
 </label>
-<ng-content select="lg-hint"></ng-content>
+<ng-content select="lg-hint" />
 <div class="lg-select-field__outer">
   <div class="lg-select-field__inner" [class.lg-select-field__inner--block]="block">
-    <ng-content select="[lgSelect]"></ng-content>
-    <lg-icon class="lg-select-field__icon" name="chevron-down"></lg-icon>
+    <ng-content select="[lgSelect]" />
+    <lg-icon class="lg-select-field__icon" name="chevron-down" />
   </div>
 </div>
-<ng-content select="lg-validation"></ng-content>
+<ng-content select="lg-validation" />

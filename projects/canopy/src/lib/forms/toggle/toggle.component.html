@@ -22,20 +22,19 @@
   >
   @if (variant === 'filter') {
     <span class="lg-toggle__icon-wrapper">
-      <lg-icon class="lg-toggle__icon-add" name="add"></lg-icon>
-      <lg-icon class="lg-toggle__icon-selected" name="checkmark"></lg-icon>
+      <lg-icon class="lg-toggle__icon-add" name="add" />
+      <lg-icon class="lg-toggle__icon-selected" name="checkmark" />
     </span>
   }
   @if (variant === 'checkbox') {
-    <lg-icon
-      class="lg-toggle__checkbox"
+    <lg-icon class="lg-toggle__checkbox"
     [ngClass]="{
       'lg-toggle__checkbox--sm': size === 'sm',
       'lg-toggle__checkbox--lg': size === 'lg'
     }"
       name="checkbox-mark"
-    ></lg-icon>
+     />
   }
-  <ng-content></ng-content>
+  <ng-content />
 </label>
-<ng-content select="lg-validation"></ng-content>
+<ng-content select="lg-validation" />

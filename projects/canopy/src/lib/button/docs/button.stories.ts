@@ -34,14 +34,14 @@ const buttonVariants = [
       [variant]="variant"
     >
       @if (icon !== 'None' && doubleIconButton) {
-        <lg-icon name="filter" first></lg-icon>
+        <lg-icon name="filter" first />
       }
       {{ content }}
       @if (icon !== 'None' && doubleIconButton) {
-        <lg-icon [name]="icon" second></lg-icon>
+        <lg-icon [name]="icon" second />
       }
       @if (icon !== 'None' && !doubleIconButton) {
-        <lg-icon [name]="icon"></lg-icon>
+        <lg-icon [name]="icon" />
       }
     </button>
     @if (variant !== 'link') {
@@ -58,14 +58,14 @@ const buttonVariants = [
         [variant]="variant"
       >
         @if (icon !== 'None' && doubleIconButton) {
-          <lg-icon name="filter" first></lg-icon>
+          <lg-icon name="filter" first />
         }
         {{ content }}
         @if (icon !== 'None' && doubleIconButton) {
-          <lg-icon [name]="icon" second></lg-icon>
+          <lg-icon [name]="icon" second />
         }
         @if (icon !== 'None' && !doubleIconButton) {
-          <lg-icon [name]="icon"></lg-icon>
+          <lg-icon [name]="icon" />
         }
       </a>
     }

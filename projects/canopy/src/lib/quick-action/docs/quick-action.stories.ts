@@ -9,7 +9,7 @@ import { lgIconsArray } from '../../ui-icons-files';
   selector: 'lg-quick-action-link',
   template: `
     <a lg-quick-action [href]="link" [target]="target">
-      <lg-icon [name]="icon"></lg-icon>
+      <lg-icon [name]="icon" />
       {{ content }}
     </a>
   `,
@@ -26,7 +26,7 @@ class LgQuickActionLinkComponent {
   selector: 'lg-quick-action-button',
   template: `
     <button lg-quick-action>
-      <lg-icon [name]="icon"></lg-icon>
+      <lg-icon [name]="icon" />
       {{ content }}
     </button>
   `,

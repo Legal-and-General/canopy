@@ -4,19 +4,19 @@
   [lgFocus]="focus"
   >
   <legend lg-label [attr.for]="id" lgMarginBottom="xs">
-    <ng-content></ng-content>
+    <ng-content />
   </legend>
-  <ng-content select="lg-hint"></ng-content>
+  <ng-content select="lg-hint" />
 
   @if (variant === 'segment') {
     <div class="lg-radio-group__segment">
-      <ng-content select="lg-segment-button"></ng-content>
+      <ng-content select="lg-segment-button" />
     </div>
   } @else {
-    <ng-content select="lg-radio-button, lg-filter-button"></ng-content>
+    <ng-content select="lg-radio-button, lg-filter-button" />
   }
 
 
-  <ng-content select="lg-validation"></ng-content>
+  <ng-content select="lg-validation" />
 </fieldset>
-<ng-content select="lg-hint"></ng-content>
+<ng-content select="lg-hint" />

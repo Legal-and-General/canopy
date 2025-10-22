@@ -1,14 +1,14 @@
 @if (iconComponent) {
   <div class="lg-link-menu-item__icon-left-container">
-    <ng-content select="lg-icon"></ng-content>
+    <ng-content select="lg-icon" />
   </div>
 }
 <div class="lg-link-menu-item__container">
-  <ng-content select="lg-link-menu-item-text"></ng-content>
-  <ng-content select="lg-link-menu-item-text"></ng-content>
+  <ng-content select="lg-link-menu-item-text" />
+  <ng-content select="lg-link-menu-item-text" />
 </div>
 <div class="lg-link-menu-item__icon-container">
-  <lg-icon [name]="!openInANewTab ? 'chevron-right' : 'link-external'" class="lg-font-size-0-8"></lg-icon>
+  <lg-icon [name]="!openInANewTab ? 'chevron-right' : 'link-external'" class="lg-font-size-0-8" />
   @if (openInANewTab) {
     <span class="lg-visually-hidden"> opens in a new tab</span>
   }

@@ -11,7 +11,7 @@ import { keyName } from '../../../utils/keyboard-keys';
 
 @Component({
   selector: 'lg-account-menu-list-item',
-  template: '<ng-content></ng-content>',
+  template: '<ng-content />',
   styleUrls: [ './account-menu-list-item.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
