@@ -6,6 +6,18 @@ import {
 } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
+// Define interfaces for tabs and side nav items
+interface TabItem {
+  path: string;
+  label: string;
+}
+
+interface SideNavItem {
+  title: string;
+  path: string;
+  description?: string;
+}
+
 import {
   LgModalBodyComponent,
   LgModalComponent,
@@ -287,7 +299,7 @@ export class AppComponent {
   form: UntypedFormGroup;
   selectedTabIndex = 0;
   selectedSideNavIndex = 1;
-  tabs: Array<unknown> = [
+  tabs: Array<TabItem> = [
     {
       path: './tab-1',
       label: 'Nav tab 1',
@@ -301,7 +313,7 @@ export class AppComponent {
       label: 'Nav tab 3',
     },
   ];
-  sideNav: Array<unknown> = [
+  sideNav: Array<SideNavItem> = [
     {
       title: 'Overview',
       path: 'side-nav-1',
