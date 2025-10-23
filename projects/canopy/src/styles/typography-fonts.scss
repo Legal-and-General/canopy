@@ -6,19 +6,40 @@ $fonts-path-nunito-sans: '../assets/fonts/nunito-sans' !default;
  */
 @font-face {
   font-family: 'Nunito Sans';
-  font-weight: 100 700;
   font-style: normal;
   font-display: swap;
-  src: url('#{$fonts-path-nunito-sans}/NunitoSans-VariableFont.ttf') format('truetype');
-  font-variation-settings:
-    'wdth' 100,
-    'YTLC' 500;
+  font-weight: 300; // Light
+  src: url('#{$fonts-path-nunito-sans}/nunito-sans-v19-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400; // Regular
+  src: url('#{$fonts-path-nunito-sans}/nunito-sans-v19-latin-regular.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500; // Medium
+  src: url('#{$fonts-path-nunito-sans}/nunito-sans-v19-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700; // Bold
+  src: url('#{$fonts-path-nunito-sans}/nunito-sans-v19-latin-700.woff2') format('woff2');
 }
 
 /*
   ABC Otto
  */
-
 /* Medium weight of Otto is the bold variant as it's the 500 weight.
  700 weight is only used by Productive font Nunito Sans */
 @font-face {
