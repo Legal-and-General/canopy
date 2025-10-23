@@ -75,7 +75,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff(2)?|ttf)$/,
+        test: /\.(woff(2)?)$/,
         type: 'asset/resource',
         generator: {
           filename: content => {
