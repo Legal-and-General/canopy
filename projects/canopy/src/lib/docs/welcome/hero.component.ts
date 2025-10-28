@@ -31,12 +31,12 @@ import { LgAlertComponent } from '../../alert';
       </p>
       <p>
         It's easy to see what's been updated already - if the menu item says 'pending'
-        then we haven't got to it yet - but we're working on it. Find our releases
+        then we haven't got to it yet - but we're working on it.
         <a
           href="https://github.com/Legal-and-General/canopy/releases?q=&expanded=true"
           target="_blank"
-          >here</a
-        >.
+          >Find our releases here.</a
+        >
       </p>
       <p>
         <strong>Need help or want to be kept in the loop?</strong> Please
@@ -48,14 +48,13 @@ import { LgAlertComponent } from '../../alert';
         get in touch.
       </p>
       <p>
-        <strong>Need to see the legacy version of Canopy?</strong> It's still available
+        <strong>Need to see the legacy version of Canopy? </strong>
         <a
           href="https://legal-and-general.github.io/canopy/lg-sb-legacy/?path=/docs/welcome--docs"
           target="_blank"
-          >here</a
-        >
-        but we won't be supporting this version from Q2 2026. If you need help to upgrade
-        to the latest version and benefit from all the brand updates please
+          >Find the legacy version here</a
+        >, but we won't be supporting this version from Q2 2026. If you need help to
+        upgrade to the latest version and benefit from all the brand updates please
         <a
           href="mailto:CanopyDesignSystem@landg.com?subject=Tell me about Canopy updates (SB)"
           >get in touch</a
