@@ -54,8 +54,8 @@ import { LgAlertComponent } from '../../alert';
           target="_blank"
           >here</a
         >
-        but we won't be supporting this version in Q2 2026. If you need help to upgrade to
-        the latest version and benefit from all the brand updates please
+        but we won't be supporting this version from Q2 2026. If you need help to upgrade
+        to the latest version and benefit from all the brand updates please
         <a
           href="mailto:CanopyDesignSystem@landg.com?subject=Tell me about Canopy updates (SB)"
           >get in touch</a
