@@ -24,6 +24,11 @@ const preview = {
     },
     docs: {
       inlineStories: true,
+      toc: {
+        contentsSelector: '.sbdocs-content',
+        headingSelector: 'h2',
+        disable: false,
+      },
       source: {
         type: 'code',
         state: 'open',
