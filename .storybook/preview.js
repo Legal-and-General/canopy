@@ -36,6 +36,19 @@ const preview = {
       theme: canopyTheme,
     }
   },
+  decorators: [
+  (Story, context) => {
+    setTimeout(() => {
+      if (context.title === 'Welcome') {
+        const toc = document.querySelector('.sbdocs');
+        const tocWrapper = document.querySelector('.css-m2duqa');
+        if (tocWrapper) tocWrapper.style.display = 'none';
+      }
+    }, 100);
+
+    return Story();
+  }
+],
   initialGlobals: {
     // Set the initial background color
     backgrounds: { value: 'light' },
