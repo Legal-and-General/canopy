@@ -4,8 +4,8 @@
   border-bottom: solid var(--border-width) var(--hero-rule-color);
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--space-xs);
-  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
 
   @include mixins.lg-breakpoint('md') {
     border-bottom: none;

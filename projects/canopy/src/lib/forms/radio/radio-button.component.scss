@@ -1,16 +1,16 @@
 @use '../../../styles/mixins';
 
 .lg-radio-button__hint {
-  margin-top: var(--space-xs);
-  padding-left: var(--space-lg);
+  margin-top: var(--space-3);
+  padding-left: var(--space-6);
 }
 
 .lg-radio-button--radio {
   display: block;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-4);
 
   &:last-of-type {
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-3);
   }
 }
 
@@ -22,7 +22,7 @@
   display: flex;
   position: relative;
   font-weight: var(--font-weight-400);
-  padding-left: calc(var(--radio-outer-lg-width) + var(--space-xxs));
+  padding-left: calc(var(--radio-outer-lg-width) + var(--space-2));
 
   .lg-radio-button__input:disabled + & {
     color: var(--disabled-color);
@@ -44,7 +44,7 @@
   background-color: var(--colour-greyscale-0);
   border-radius: 50%;
   border: var(--border-width) solid var(--radio-border-color);
-  margin: auto var(--space-sm) auto 0;
+  margin: auto var(--space-4) auto 0;
   position: absolute;
 
   .lg-radio-button__input:focus-visible + & {

@@ -256,9 +256,7 @@ describe('LgButtonComponent', () => {
       'lg-margin__left--none',
     );
 
-    expect(deFirst.nativeElement.getAttribute('class')).toContain(
-      'lg-margin__right--xxs',
-    );
+    expect(deFirst.nativeElement.getAttribute('class')).toContain('lg-margin__right--2');
 
     expect(deSecond.nativeElement.getAttribute('class')).toBeNull();
   });

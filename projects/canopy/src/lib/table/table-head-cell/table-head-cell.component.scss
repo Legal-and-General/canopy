@@ -6,7 +6,7 @@
   font-weight: var(--font-weight-500);
   background-color: transparent;
   border-bottom: solid var(--table-header-border-width) var(--table-header-border-color);
-  padding: var(--space-xs) 0;
+  padding: var(--space-3) 0;
   vertical-align: bottom;
 
   &--align-end {
@@ -18,7 +18,7 @@
   .lg-table--columns-#{$columns-breakpoint} {
     .lg-table-head-cell {
       @include mixins.lg-breakpoint($columns-breakpoint) {
-        padding: var(--space-sm);
+        padding: var(--space-4);
         display: table-cell;
       }
     }

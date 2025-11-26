@@ -1,8 +1,8 @@
 :root {
   --spinner-border-width: 0.1875rem; //3px
-  --spinner-diameter: var(--space-lg);
-  --spinner-diameter--sm: var(--space-md);
-  --spinner-diameter--xs: var(--space-sm);
+  --spinner-diameter: var(--space-6);
+  --spinner-diameter--sm: var(--space-5);
+  --spinner-diameter--xs: var(--space-4);
   --spinner-rotation-speed: 800ms;
 
   --spinner-ring-top-color: var(--colour-red-600);

@@ -3,13 +3,13 @@
 
 .lg-tabs {
   display: block;
-  margin-left: calc(-1 * var(--space-sm));
-  margin-right: calc(-1 * var(--space-sm));
+  margin-left: calc(-1 * var(--space-4));
+  margin-right: calc(-1 * var(--space-4));
   margin-bottom: var(--component-margin);
 
   @include mixins.lg-breakpoint('md') {
-    margin-left: calc(-1 * var(--space-lg));
-    margin-right: calc(-1 * var(--space-lg));
+    margin-left: calc(-1 * var(--space-6));
+    margin-right: calc(-1 * var(--space-6));
   }
 }
 
@@ -18,15 +18,15 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  padding: 0 var(--space-sm);
+  padding: 0 var(--space-4);
   margin-left: 0;
 
   @include mixins.lg-breakpoint('md') {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-5);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-6);
   }
 }
 
@@ -43,13 +43,13 @@
 }
 
 .lg-tabs__content-section {
-  padding: var(--space-sm);
+  padding: var(--space-4);
 
   @include mixins.lg-breakpoint('md') {
-    padding: var(--space-md);
+    padding: var(--space-5);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    padding: var(--space-lg);
+    padding: var(--space-6);
   }
 }

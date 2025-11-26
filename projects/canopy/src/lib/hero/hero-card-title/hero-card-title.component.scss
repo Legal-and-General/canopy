@@ -13,6 +13,6 @@
   > h6 {
     @include mixins.lg-font-size(6);
 
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-4);
   }
 }

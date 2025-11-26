@@ -2,7 +2,7 @@
 
 .lg-radio-button--filter {
   display: inline-block;
-  margin-right: var(--space-xs);
+  margin-right: var(--space-3);
 
   &:last-of-type {
     margin-right: 0;
@@ -15,12 +15,12 @@
   .lg-radio-button__label {
     display: inline-block;
     border: solid var(--border-width) var(--filter-btn-bg-color-active);
-    border-radius: var(--space-md);
-    padding: var(--space-xxxs) var(--space-sm);
+    border-radius: var(--space-5);
+    padding: var(--space-1) var(--space-4);
     background: transparent;
     font-size: var(--font-size-0-8);
     line-height: var(--filter-btn-line-height);
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-3);
     transition: all var(--animation-duration) var(--animation-fn);
     cursor: pointer;
 

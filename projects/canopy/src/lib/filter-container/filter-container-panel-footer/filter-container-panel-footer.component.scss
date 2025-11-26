@@ -3,9 +3,9 @@
 .lg-filter-container-panel-footer {
   border-top: solid var(--border-width) var(--colour-greyscale-200);
   display: block;
-  padding: var(--space-lg) var(--space-sm);
+  padding: var(--space-6) var(--space-4);
 
   @include mixins.lg-breakpoint('md') {
-    padding: var(--space-lg);
+    padding: var(--space-6);
   }
 }

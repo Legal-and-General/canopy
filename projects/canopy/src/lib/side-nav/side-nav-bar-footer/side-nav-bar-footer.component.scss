@@ -2,9 +2,9 @@
 
 .lg-side-nav-bar-footer {
   display: block;
-  padding: var(--space-xxl) var(--component-padding) var(--component-padding);
+  padding: var(--space-8) var(--component-padding) var(--component-padding);
 
   @include mixins.lg-breakpoint('lg') {
-    padding: var(--space-xxl) 0 0;
+    padding: var(--space-8) 0 0;
   }
 }

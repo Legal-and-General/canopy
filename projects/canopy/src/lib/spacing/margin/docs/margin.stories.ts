@@ -4,20 +4,7 @@ import { NgIf } from '@angular/common';
 import { LgMarginDirective } from '../margin.directive';
 import { LgCardComponent, LgCardContentComponent } from '../../../card';
 
-const spaces = [
-  'undefined',
-  'none',
-  'xxxs',
-  'xxs',
-  'xs',
-  'sm',
-  'md',
-  'lg',
-  'xl',
-  'xxl',
-  'xxxl',
-  'xxxxl',
-];
+const spaces = [ 'undefined', 'none', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ];
 
 const standardCategory = 'Standard';
 const responsiveCategory = 'Responsive';
@@ -134,7 +121,7 @@ export const Margin = {
         [lgMarginBottom]="marginBottom !== 'undefined' ? marginBottom : null"
         [lgMarginLeft]="marginLeft !== 'undefined' ? marginLeft : null">
           <lg-card-content>
-            <strong>Standard spacing variant</strong>
+            <strong>Spacing variant</strong> applied using directive
             <div *ngIf="margin"><code>margin: {{margin | json}}</code></div>
             <div *ngIf="marginTop !== 'undefined'"><code>marginTop: {{marginTop | json}}</code></div>
             <div *ngIf="marginRight !== 'undefined'"><code>marginRight: {{marginRight | json}}</code></div>
@@ -142,32 +129,17 @@ export const Margin = {
             <div *ngIf="marginLeft !== 'undefined'"><code>marginLeft: {{marginLeft | json}}</code></div>
           </lg-card-content>
       </lg-card>
-      <lg-card
-        [lgMargin]="marginResponsive"
-        [lgMarginTop]="marginTopResponsive !== 'undefined' ? marginTopResponsive : null"
-        [lgMarginRight]="marginRightResponsive !== 'undefined' ? marginRightResponsive : null"
-        [lgMarginBottom]="marginBottomResponsive !== 'undefined' ? marginBottomResponsive : null"
-        [lgMarginLeft]="marginLeftResponsive !== 'undefined' ? marginLeftResponsive : null">
-          <lg-card-content>
-            <strong>Responsive Spacing Object</strong>
-            <div *ngIf="marginResponsive"><code>marginResponsive: {{marginResponsive | json}}</code></div>
-            <div *ngIf="marginTopResponsive"><code>marginTopResponsive: {{marginTopResponsive | json}}</code></div>
-            <div *ngIf="marginRightResponsive"><code>marginRightResponsive: {{marginRightResponsive | json}}</code></div>
-            <div *ngIf="marginBottomResponsive"><code>marginBottomResponsive: {{marginBottomResponsive | json}}</code></div>
-            <div *ngIf="marginLeftResponsive"><code>marginLeftResponsive: {{marginLeftResponsive | json}}</code></div>
-          </lg-card-content>
-      </lg-card>
       <lg-card><lg-card-content>Card without directive applied</lg-card-content></lg-card>
     `,
   }),
   args: {
-    margin: 'md',
+    margin: '5',
     marginTop: 'undefined',
     marginRight: 'undefined',
     marginBottom: 'undefined',
     marginLeft: 'undefined',
 
-    marginResponsive: { xs: 'sm', sm: 'md', md: 'xxl' },
+    marginResponsive: { sm: '4', md: '8' },
     marginTopResponsive: null,
     marginRightResponsive: null,
     marginBottomResponsive: null,

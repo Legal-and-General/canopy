@@ -3,8 +3,8 @@
 .lg-btn-group {
   display: flex;
   flex-flow: row wrap;
-  column-gap: var(--space-sm);
-  row-gap: var(--space-sm);
+  column-gap: var(--space-4);
+  row-gap: var(--space-4);
 
   .lg-btn {
     margin-bottom: 0;

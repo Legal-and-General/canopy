@@ -28,7 +28,7 @@ const accordionItems = `
     ut aliquip ex ea commodo consequat. Duis aute irure dolor in
     <a href="#">reprehenderit</a> in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur.</p>
-  <button lg-button lgMarginTop="sm" variant="primary-dark">
+  <button lg-button lgMarginTop="4" variant="primary-dark">
     Test primary button
   </button>
 </lg-accordion-item>
@@ -50,7 +50,7 @@ const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=mu
     `
       :host {
         display: block;
-        padding: var(--space-sm);
+        padding: var(--space-4);
       }
     `,
   ],

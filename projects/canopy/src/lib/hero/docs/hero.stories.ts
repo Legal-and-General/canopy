@@ -124,7 +124,7 @@ export const productHeroHTML = `
                     Tax code
                   </lg-hero-card-data-point-label>
                   <lg-hero-card-data-point-value>
-                    2T <span lgMarginLeft="sm" class="lg-font-size-1">Received on 12 Mar 2019</span>
+                    2T <span lgMarginLeft="4" class="lg-font-size-1">Received on 12 Mar 2019</span>
                   </lg-hero-card-data-point-value>
                 </lg-hero-card-data-point>
               </lg-hero-card-data-point-list>

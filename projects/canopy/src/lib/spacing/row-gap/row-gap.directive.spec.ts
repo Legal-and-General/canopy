@@ -41,14 +41,14 @@ describe('LgRowGapDirective', () => {
     testElements = fixture.debugElement.queryAll(By.css('div'));
   });
 
-  it('should default to `sm` row-gap', () => {
-    expect(testElements[0].nativeElement.getAttribute('class')).toEqual('lg-row-gap--sm');
+  it('should default to `4` row-gap', () => {
+    expect(testElements[0].nativeElement.getAttribute('class')).toEqual('lg-row-gap--4');
   });
 
   it('should add row-gap class for the given value and remove any previous row-gap class', () => {
     const tests = [
-      { rowGap: 'xs', expectedPrevious: 'sm' },
-      { rowGap: 'xxxl', expectedPrevious: 'xs' },
+      { rowGap: '3', expectedPrevious: '4' },
+      { rowGap: '9', expectedPrevious: '3' },
     ];
 
     tests.forEach(t => {

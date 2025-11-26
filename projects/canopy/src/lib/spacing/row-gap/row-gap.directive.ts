@@ -11,7 +11,7 @@ export class LgRowGapDirective {
   private hostElement = inject(ElementRef);
 
   private readonly classPrefix = 'lg-row-gap--';
-  private readonly defaultGap = 'sm';
+  private readonly defaultGap = '4';
 
   lgRowGapClass = `${this.classPrefix}${this.defaultGap}`;
 

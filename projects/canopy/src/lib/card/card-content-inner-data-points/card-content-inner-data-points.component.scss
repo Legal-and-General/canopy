@@ -1,6 +1,6 @@
 .lg-card-content-inner-data-points {
   display: grid;
-  column-gap: var(--space-sm);
+  column-gap: var(--space-4);
   grid-template:
     'a a'
     'b c';
@@ -16,7 +16,7 @@
   // First data point
   > *:first-child {
     grid-area: a;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-7);
 
     .lg-data-point-value {
       font-size: var(--font-size-4);

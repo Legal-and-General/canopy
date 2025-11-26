@@ -5,12 +5,12 @@
   display: block;
   margin-top: 20rem;
   min-height: 15rem;
-  padding: var(--space-md) var(--space-md) var(--space-xxs);
+  padding: var(--space-5) var(--space-5) var(--space-2);
 
   @include mixins.lg-breakpoint('md') {
     background-color: rgba(var(--hero-img-bg-color-rgb), 0.9);
-    margin-top: var(--space-xxl);
-    margin-bottom: var(--space-xxl);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
     min-height: auto;
     width: 50%;
   }

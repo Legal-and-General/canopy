@@ -3,7 +3,7 @@
 .lg-alert {
   display: flex;
   margin-bottom: var(--component-margin);
-  padding: var(--space-sm);
+  padding: var(--space-4);
 
   h1,
   h2,
@@ -18,5 +18,5 @@
 }
 
 .lg-alert__icon {
-  margin-right: var(--space-xs);
+  margin-right: var(--space-3);
 }

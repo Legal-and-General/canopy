@@ -9,7 +9,7 @@ import { LgMarginDirective } from '../../spacing';
   template: `
     <img src="docs/welcome/builders.svg" alt="" />
 
-    <div class="usage" [lgMarginLeft]="{ xs: 'none', md: 'xxl' }">
+    <div class="usage" [lgMarginLeft]="{ xs: 'none', md: '8' }">
       <h2 class="lg-font--expressive lg-font-size-4--700">First time using Canopy?</h2>
 
       <p>
@@ -26,7 +26,7 @@ import { LgMarginDirective } from '../../spacing';
             <span class="lg-visually-hidden"> opens in a new tab</span>
           </a>
         </li>
-        <li lgMarginTop="sm">
+        <li lgMarginTop="4">
           <a
             href="mailto:CanopyDesignSystem@landg.com?subject=Request%20to%20use%20Canopy%20Figma%20library&body=My%20name%0D%0A%0D%0AMy%20email%20address%0D%0A%0D%0ATell%20us%20a%20bit%20more%20about%20the%20project%20you%20intend%20to%20use%20it%20on%20(optional)"
             >Request access to the Figma design libraries</a

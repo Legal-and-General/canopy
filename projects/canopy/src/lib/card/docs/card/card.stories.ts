@@ -52,7 +52,7 @@ const formJourneyTemplate = `
       <div lgCol="12" lgColLg="6" lgColLgOffset="3" lgColMd="10" lgColMdOffset="1">
         <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
           <lg-card lgPadding="none">
-            <lg-card-header lgPadding="sm" lgPaddingBottom="xs" lgMarginBottom="lg">
+            <lg-card-header lgPadding="4" lgPaddingBottom="3" lgMarginBottom="6">
               <lg-breadcrumb lgMarginBottom="none">
                 <lg-breadcrumb-item>
                   <a href="#">
@@ -66,7 +66,7 @@ const formJourneyTemplate = `
               <div lgContainer>
                 <div lgRow>
                   <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                    <lg-card-title headingLevel="3" lgPaddingBottom="md">{{title}}</lg-card-title>
+                    <lg-card-title headingLevel="3" lgPaddingBottom="5">{{title}}</lg-card-title>
                     <p>{{cardContent}}</p>
 
                     <lg-input-field [block]="true">
@@ -86,14 +86,14 @@ const formJourneyTemplate = `
                       lg-button
                       type="button"
                       variant="secondary-dark"
-                      lgMarginRight="sm"
+                      lgMarginRight="4"
                     >
                       Back
                     </button>
                     <button lg-button type="submit" variant="primary-dark">
                       Confirm
                     </button>
-                    <p lgPaddingBottom="md">{{policy}}</p>
+                    <p lgPaddingBottom="5">{{policy}}</p>
                   </div>
                 </div>
               </div>
@@ -174,7 +174,7 @@ const showMoreCardTemplate = `
         aliquam quaerat voluptatem.
       </lg-card-toggable-content>
 
-      <div lgMarginTop="md">
+      <div lgMarginTop="5">
         <button lg-button type="button" variant="link" lgButtonToggle (toggleActive)="toggleActive($event)"
                 lgMarginBottom="none">
           <ng-container *ngIf="isToggleActive">
@@ -336,7 +336,7 @@ const cardGroupTemplate = `
           <lg-card-content>
             {{ cardContent }} <a href="#">Test link</a>.
           </lg-card-content>
-          <lg-card-footer lgMarginTop="md" lgPaddingTop="none">
+          <lg-card-footer lgMarginTop="5" lgPaddingTop="none">
             <lg-link-menu>
               <a href="" target="_blank">
                 <lg-link-menu-item>

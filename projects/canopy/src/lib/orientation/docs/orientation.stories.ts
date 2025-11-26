@@ -19,9 +19,9 @@ const template = `
     [cover]="true"
     src="promo-card/general-promotion1.jpg">
   </lg-card-hero-img>
-  <lg-card-content lgPadding="md">
-    <h3 lgMarginBottom="xxs" class="lg-font--expressive">Card with orientation</h3>
-    <p lgMarginBottom="lg">{{ text }}</p>
+  <lg-card-content lgPadding="5">
+    <h3 lgMarginBottom="4" class="lg-font--expressive">Card with orientation</h3>
+    <p lgMarginBottom="6">{{ text }}</p>
     <a href="#">{{ linkText }}</a>
   </lg-card-content>
 </lg-card>
@@ -31,9 +31,9 @@ const template = `
     [cover]="true"
     src="promo-card/general-promotion1.jpg">
   </lg-card-hero-img>
-  <lg-card-content lgPadding="md">
-    <h3 lgMarginBottom="xxs" class="lg-font--expressive">Card without orientation</h3>
-    <p lgMarginBottom="lg">{{ text }}</p>
+  <lg-card-content lgPadding="5">
+    <h3 lgMarginBottom="4" class="lg-font--expressive">Card without orientation</h3>
+    <p lgMarginBottom="6">{{ text }}</p>
     <a href="#">{{ linkText }}</a>
   </lg-card-content>
 </lg-card>`;

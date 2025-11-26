@@ -13,7 +13,7 @@ const variants = [ 'generic', 'info', 'success', 'warning', 'error' ];
 @Component({
   selector: 'lg-variant-story',
   template: `
-    <lg-card lgShadow [lgVariant]="variant" lgPaddingLeft="lg" lgPaddingRight="lg">
+    <lg-card lgShadow [lgVariant]="variant" lgPaddingLeft="6" lgPaddingRight="6">
       <lg-card-content>
         <p><strong>The variant directive</strong></p>
         <p>

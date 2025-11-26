@@ -2,21 +2,21 @@
 
 .lg-promo-card-footer {
   display: block;
-  margin-bottom: var(--space-xxs);
-  margin-top: var(--space-md);
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-5);
 
   @include mixins.lg-breakpoint('sm') {
-    margin-bottom: var(--space-xxs);
-    margin-top: var(--space-lg);
+    margin-bottom: var(--space-2);
+    margin-top: var(--space-6);
   }
 
   @include mixins.lg-breakpoint('md') {
     margin-bottom: 0;
-    margin-top: var(--space-md);
+    margin-top: var(--space-5);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    margin-bottom: var(--space-xxs);
-    margin-top: var(--space-md);
+    margin-bottom: var(--space-2);
+    margin-top: var(--space-5);
   }
 }

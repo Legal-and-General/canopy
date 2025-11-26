@@ -12,20 +12,7 @@ import {
 } from '../../../grid';
 import { LgMarginDirective } from '../../margin';
 
-const spaces = [
-  'undefined',
-  'none',
-  'xxxs',
-  'xxs',
-  'xs',
-  'sm',
-  'md',
-  'lg',
-  'xl',
-  'xxl',
-  'xxxl',
-  'xxxxl',
-];
+const spaces = [ 'undefined', 'none', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ];
 
 @Component({
   selector: 'lg-row-gap-story',
@@ -126,7 +113,7 @@ export const RowGap = {
     template,
   }),
   args: {
-    rowGap: 'sm',
+    rowGap: '4',
   },
   parameters: {
     docs: {
