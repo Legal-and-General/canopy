@@ -11,7 +11,7 @@ import { LgMarginDirective } from '../../spacing';
     <ul lgMargin="none" class="docs-list">
       @for (benefit of benefits; track benefit) {
         <li class="docs-list-item">
-          <img class="benefits__img" lgMarginBottom="xxs" [src]="benefit.src" alt="" />
+          <img class="benefits__img" lgMarginBottom="2" [src]="benefit.src" alt="" />
           <span class="lg-font-size-3">{{ benefit.text }}</span>
         </li>
       }

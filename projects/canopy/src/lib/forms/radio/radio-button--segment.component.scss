@@ -5,8 +5,8 @@
   flex-grow: 1;
   flex-basis: auto;
   align-items: stretch;
-  padding: 0 var(--space-xxxs);
-  margin: var(--space-xxxs) 0;
+  padding: 0 var(--space-1);
+  margin: var(--space-1) 0;
 
   + .lg-radio-button--segment {
     border-left: var(--radio-segment-separator-border-width) solid
@@ -15,7 +15,7 @@
 
   .lg-radio-button__label {
     display: flex;
-    padding: var(--space-xxxs) var(--space-sm);
+    padding: var(--space-1) var(--space-4);
     border-radius: var(--border-radius-sm);
     min-width: var(--radio-segment-label-min-width);
     flex-grow: 1;
@@ -80,8 +80,8 @@
 
       .lg-radio-button__label {
         @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
-          margin: calc(var(--space-xxxs) + var(--radio-segment-separator-border-width)) 0
-            var(--space-xxxs);
+          margin: calc(var(--space-1) + var(--radio-segment-separator-border-width)) 0
+            var(--space-1);
         }
       }
 

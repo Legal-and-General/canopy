@@ -8,7 +8,7 @@ import { LgAlertComponent } from '../../alert';
   selector: 'lg-docs-welcome-hero',
   imports: [ LgMarginDirective, LgIconComponent, LgAlertComponent ],
   template: `
-    <h1 class="lg-font--expressive lg-font-size-7--700" lgMarginBottom="sm">
+    <h1 class="lg-font--expressive lg-font-size-7--700" lgMarginBottom="4">
       <span class="welcome-heading no-wrap">Welcome to Canopy,</span>
       <br />
       The digital design system
@@ -22,7 +22,7 @@ import { LgAlertComponent } from '../../alert';
       <lg-icon name="link-external" />
     </a>
 
-    <lg-alert variant="info" lgMarginTop="xl">
+    <lg-alert variant="info" lgMarginTop="7">
       <p>
         <strong
           >Good news! You're viewing the latest version of L&G's digital design language

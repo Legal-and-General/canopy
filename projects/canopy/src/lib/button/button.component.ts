@@ -101,7 +101,7 @@ export class LgButtonComponent implements AfterViewInit {
       ) as Array<HTMLElement>;
 
       this.renderer.addClass(icons[0], 'lg-margin__left--none');
-      this.renderer.addClass(icons[0], 'lg-margin__right--xxs');
+      this.renderer.addClass(icons[0], 'lg-margin__right--2');
     }
   }
 }

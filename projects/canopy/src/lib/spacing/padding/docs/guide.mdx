@@ -1,12 +1,11 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import { CustomBadge } from 'storybook-addon-tag-badges';
+import { getDefaultSpacingVariables } from '../../../docs/foundation/spacing-utils';
 
-<Meta title="Helpers/Directives/Padding/Guide" tags={['pending']}/>
+<Meta title="Helpers/Directives/Padding/Guide"/>
 
 # Padding
-
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 This directive allows for custom padding to be added without the need to write additional CSS. It's useful for overriding the default padding on Canopy components, as well as general use within your app. Using this directive ensures that your padding adheres to the predefined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in ***canopy/projects/canopy/src/styles/spacing.scss***.
 
@@ -15,108 +14,101 @@ This directive allows for custom padding to be added without the need to write a
 Import the padding directive in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgPaddingDirective ],
-});
+  imports: [ ..., LgPaddingDirective ]
 ```
 
 In your HTML, apply the directive to the relevant component. If the default `lgPadding` attribute has no value, the default padding will remain. You can also override individual padding such as `padding-top` by applying the relevant selector/input (.e.g `LgPaddingTop` - see the **inputs table** below).
 
-Pass in either a **standard spacing variant** or a **responsive spacing object** (see below).
+Pass in **Spacing variant** (see below).
 
 ```html
-Standard spacing variant
-<lg-card lgPadding="sm"></lg-card>
-
-Responsive spacing object
-<lg-card [lgPadding]="{ md: 'lg', lg: 'xxxl' }"></lg-card>
+<lg-card lgPadding="4"></lg-card>
 ```
 
-## Standard vs. responsive spacing
+## Spacing
 
-### Standard spacing variant
+### Spacing variants
 
-This is set of predefined variants which will apply the same padding at all breakpoints, as defined by the `SpacingVariant` type. These are:
+This is set of predefined variants as defined by the `SpacingVariant` type. These are:
 
-```
-'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'
-```
+<pre><code className="language-text">
+{(() => {
+  const spacingVars = getDefaultSpacingVariables();
+  const variants = Object.keys(spacingVars)
+    .filter(key => key.startsWith('--space-'))
+    .map(key => key.replace('--space-', ''))
+    .sort((a, b) => {
+      // Handle 'none' specially
+      if (a === 'none') return -1;
+      if (b === 'none') return 1;
+      // Sort numbers numerically
+      return parseInt(a) - parseInt(b);
+    })
+    .map(variant => `'${variant}'`)
+    .join(', ');
 
-### Responsive spacing object
+  return `'none', ${variants}`;
+})()}
+</code></pre>
 
-You can apply a responsive spacing object instead, which will apply different padding at the specified breakpoints, as defined by the `SpacingResponsive` type. Example:
+### Variant examples
 
-```js
-{
-  md: "lg",
-  lg: "xxxl"
-}
-```
-
-Each **key** is a mobile-first breakpoint from the standard list of available breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`.
-
-Each **value** is a Standard spacing variant.
-
-In the example above, the padding at the `md` breakpoint will be `lg`, and at the `lg` will be `xxxl`.
-
-### Standard variant examples
-
-Apply `xxl` padding to the bottom
+Apply `8` padding to the bottom
 
 ```html
 
-<lg-card lgPaddingBottom="xxl"></lg-card>
+<lg-card lgPaddingBottom="8"></lg-card>
 
 ```
 
-Apply `sm` padding to the left and right
+Apply `4` padding to the left and right
 
 ```html
 
-<lg-card lgPaddingHorizontal="sm"></lg-card>
+<lg-card lgPaddingHorizontal="4"></lg-card>
 
 ```
 
-Apply `xl` padding all round, but `xxxl` padding to the bottom
+Apply `7` padding all round, but `9` padding to the bottom
 
 ```html
 
-<lg-card lgPadding="xl" lgPaddingBottom="xxxl"></lg-card>
+<lg-card lgPadding="7" lgPaddingBottom="9"></lg-card>
 
 ```
 
-Apply `lg` padding to the top and bottom
+Apply `6` padding to the top and bottom
 
 ```html
 
-<lg-card lgPaddingVertical="lg"></lg-card>
-
-```
-
-### Responsive examples
-
-At the `sm` breakpoint apply `xl` padding, then at the `md` breakpoint apply `xxxl` padding, all around the component.
-
-```html
-
-<lg-card [lgPadding]="{ sm: 'lg', md: 'xxxl' }"></lg-card>
-
-```
-
-At the `md` breakpoint apply `md` padding, then at the `lg` breakpoint apply `sm` padding, at the bottom of the component.
-
-```html
-
-<lg-card [lgPaddingBottom]="{ md: 'md', lg: 'sm' }"></lg-card>
+<lg-card lgPaddingVertical="6"></lg-card>
 
 ```
 
 ## Inputs
 
-The current available spacing variants are `none`, `xxxs`, `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`, `xxxxxl`.
+The current available spacing variants are:
+<pre><code className="language-text">
+{(() => {
+  const spacingVars = getDefaultSpacingVariables();
+  const variants = Object.keys(spacingVars)
+    .filter(key => key.startsWith('--space-'))
+    .map(key => key.replace('--space-', ''))
+    .sort((a, b) => {
+      // Handle 'none' specially
+      if (a === 'none') return -1;
+      if (b === 'none') return 1;
+      // Sort numbers numerically
+      return parseInt(a) - parseInt(b);
+    })
+    .map(variant => `'${variant}'`)
+    .join(', ');
 
-The current available breakpoints are `xs`, `sm`, `md`, `lg`, `xl`, `xxl`
+  return `'none', ${variants}`;
+})()}
+</code></pre>
+
+The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 
 | Name                  | Description                                           |                 Type                  | Default | Required |
 |-----------------------|-------------------------------------------------------|:-------------------------------------:|:-------:|:--------:|

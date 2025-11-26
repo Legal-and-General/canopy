@@ -26,35 +26,33 @@ describe('SpacingService', () => {
   describe('createNewClasses method', () => {
     describe('when given non-responsive spacing varaints', () => {
       it('should return the correct class and add styles for padding ', () => {
-        expect(spacingService.createNewClasses('sm', 'padding')).toEqual([
-          'lg-padding--sm',
+        expect(spacingService.createNewClasses('4', 'padding')).toEqual([
+          'lg-padding--4',
         ]);
 
         expect(dynamicStyleService.addRules).toHaveBeenCalledWith([
-          { selector: 'lg-padding--sm', declaration: 'padding:1rem!important' },
+          { selector: 'lg-padding--4', declaration: 'padding:var(--space-4)!important' },
         ]);
       });
 
       it('should return the correct class and add styles for margin', () => {
-        expect(spacingService.createNewClasses('sm', 'margin')).toEqual([
-          'lg-margin--sm',
-        ]);
+        expect(spacingService.createNewClasses('4', 'margin')).toEqual([ 'lg-margin--4' ]);
 
         expect(dynamicStyleService.addRules).toHaveBeenCalledWith([
-          { selector: 'lg-margin--sm', declaration: 'margin:1rem!important' },
+          { selector: 'lg-margin--4', declaration: 'margin:var(--space-4)!important' },
         ]);
       });
 
       it('should return the correct classes and add styles for margin on specific sides', () => {
         [ 'margin-top', 'margin-right', 'margin-bottom', 'margin-left' ].forEach(side => {
-          const className = `lg-${side.replace('-', '__')}--md`;
+          const className = `lg-${side.replace('-', '__')}--5`;
 
-          expect(spacingService.createNewClasses('md', side)).toEqual([ className ]);
+          expect(spacingService.createNewClasses('5', side)).toEqual([ className ]);
 
           expect(dynamicStyleService.addRules).toHaveBeenCalledWith([
             {
-              selector: `lg-${side.replace('-', '__')}--md`,
-              declaration: `${side}:1.5rem!important`,
+              selector: `lg-${side.replace('-', '__')}--5`,
+              declaration: `${side}:var(--space-5)!important`,
             },
           ]);
         });
@@ -63,14 +61,14 @@ describe('SpacingService', () => {
       it('should return the correct class and add styles for padding on specific sides', () => {
         [ 'padding-top', 'padding-right', 'padding-bottom', 'padding-left' ].forEach(
           side => {
-            const className = `lg-${side.replace('-', '__')}--md`;
+            const className = `lg-${side.replace('-', '__')}--5`;
 
-            expect(spacingService.createNewClasses('md', side)).toEqual([ className ]);
+            expect(spacingService.createNewClasses('5', side)).toEqual([ className ]);
 
             expect(dynamicStyleService.addRules).toHaveBeenCalledWith([
               {
-                selector: `lg-${side.replace('-', '__')}--md`,
-                declaration: `${side}:1.5rem!important`,
+                selector: `lg-${side.replace('-', '__')}--5`,
+                declaration: `${side}:var(--space-5)!important`,
               },
             ]);
           },
@@ -81,28 +79,28 @@ describe('SpacingService', () => {
     describe('when given responsive spacing objects', () => {
       describe('when given a single object', () => {
         it('should return the correct class and add styles for padding', () => {
-          expect(spacingService.createNewClasses({ sm: 'md' }, 'padding')).toEqual([
-            'lg-padding--sm--md',
+          expect(spacingService.createNewClasses({ sm: '5' }, 'padding')).toEqual([
+            'lg-padding--sm--5',
           ]);
 
           expect(dynamicStyleService.addRulesToMediaQuery).toHaveBeenCalledWith([
             {
-              selector: 'lg-padding--sm--md',
-              declaration: 'padding:1.5rem!important',
+              selector: 'lg-padding--sm--5',
+              declaration: 'padding:var(--space-5)!important',
               breakpoint: BreakpointValues.sm,
             },
           ]);
         });
 
         it('should return the correct class and add styles for margin', () => {
-          expect(spacingService.createNewClasses({ sm: 'md' }, 'margin')).toEqual([
-            'lg-margin--sm--md',
+          expect(spacingService.createNewClasses({ sm: '5' }, 'margin')).toEqual([
+            'lg-margin--sm--5',
           ]);
 
           expect(dynamicStyleService.addRulesToMediaQuery).toHaveBeenCalledWith([
             {
-              selector: 'lg-margin--sm--md',
-              declaration: 'margin:1.5rem!important',
+              selector: 'lg-margin--sm--5',
+              declaration: 'margin:var(--space-5)!important',
               breakpoint: BreakpointValues.sm,
             },
           ]);
@@ -119,16 +117,16 @@ describe('SpacingService', () => {
             'padding-bottom',
             'padding-left',
           ].forEach(side => {
-            const className = `lg-${side.replace('-', '__')}--sm--md`;
+            const className = `lg-${side.replace('-', '__')}--sm--5`;
 
-            expect(spacingService.createNewClasses({ sm: 'md' }, side)).toEqual([
+            expect(spacingService.createNewClasses({ sm: '5' }, side)).toEqual([
               className,
             ]);
 
             expect(dynamicStyleService.addRulesToMediaQuery).toHaveBeenCalledWith([
               {
-                selector: `lg-${side.replace('-', '__')}--sm--md`,
-                declaration: `${side}:1.5rem!important`,
+                selector: `lg-${side.replace('-', '__')}--sm--5`,
+                declaration: `${side}:var(--space-5)!important`,
                 breakpoint: BreakpointValues.sm,
               },
             ]);
@@ -139,26 +137,23 @@ describe('SpacingService', () => {
       describe('when given multiple objects', () => {
         it('should return all the correct classes and add each style', () => {
           expect(
-            spacingService.createNewClasses(
-              { sm: 'md', md: 'xl', lg: 'xxxl' },
-              'padding',
-            ),
-          ).toEqual([ 'lg-padding--sm--md', 'lg-padding--md--xl', 'lg-padding--lg--xxxl' ]);
+            spacingService.createNewClasses({ sm: '5', md: '7', lg: '9' }, 'padding'),
+          ).toEqual([ 'lg-padding--sm--5', 'lg-padding--md--7', 'lg-padding--lg--9' ]);
 
           expect(dynamicStyleService.addRulesToMediaQuery).toHaveBeenCalledWith([
             {
-              selector: 'lg-padding--sm--md',
-              declaration: 'padding:1.5rem!important',
+              selector: 'lg-padding--sm--5',
+              declaration: 'padding:var(--space-5)!important',
               breakpoint: BreakpointValues.sm,
             },
             {
-              selector: 'lg-padding--md--xl',
-              declaration: 'padding:2.5rem!important',
+              selector: 'lg-padding--md--7',
+              declaration: 'padding:var(--space-7)!important',
               breakpoint: BreakpointValues.md,
             },
             {
-              selector: 'lg-padding--lg--xxxl',
-              declaration: 'padding:4.5rem!important',
+              selector: 'lg-padding--lg--9',
+              declaration: 'padding:var(--space-9)!important',
               breakpoint: BreakpointValues.lg,
             },
           ]);

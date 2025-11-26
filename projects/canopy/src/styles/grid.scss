@@ -3,19 +3,24 @@
 @use 'sass:math';
 
 :root {
-  --grid-margin: var(--space-sm);
-  --grid-gutter: var(--space-sm);
+  --grid-margin: var(--dimensions-small-4); // 1
+  --grid-gutter: var(--dimensions-small-6); // 1.75
 
   @include mixins.lg-breakpoint('md') {
-    --grid-margin: var(--space-lg);
+    --grid-margin: var(--dimensions-small-6); // 1.75
   }
 
   @include mixins.lg-breakpoint('lg') {
-    --grid-gutter: calc(var(--space-sm) + var(--space-xxxs));
+    --grid-margin: var(--dimensions-large-6); // 2
+    --grid-gutter: var(--dimensions-large-6); // 2
   }
 
   @include mixins.lg-breakpoint('xl') {
-    --grid-gutter: var(--space-lg);
+    --grid-margin: var(--dimensions-large-8); // 4.5
+  }
+
+  @include mixins.lg-breakpoint('xxl') {
+    --grid-margin: var(--dimensions-large-9); // 6.5
   }
 }
 
@@ -99,40 +104,6 @@ $columns: 12;
     order: 1;
   }
 }
-
-.lg-col-xs {
-  @include col-style;
-
-  flex-grow: 1;
-  flex-basis: 0;
-  max-width: 100%;
-}
-
-.lg-col-xs-offset-0 {
-  margin-left: 0;
-}
-
-@for $i from 1 through $columns {
-  .lg-col-xs-#{$i},
-  .lg-col-xs-#{$i}-offset {
-    @extend .lg-col-xs;
-  }
-}
-
-@for $i from 1 through $columns {
-  $width: math.percentage(math.div($i, $columns));
-
-  .lg-col-xs-#{$i} {
-    flex-basis: $width;
-    max-width: $width;
-  }
-
-  .lg-col-xs-offset-#{$i} {
-    margin-left: $width;
-  }
-}
-
-@include lg-grid-alignment('xs');
 
 @include mixins.lg-breakpoint('sm') {
   .lg-col-sm {

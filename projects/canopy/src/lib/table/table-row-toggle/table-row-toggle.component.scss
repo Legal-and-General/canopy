@@ -9,7 +9,7 @@
     background: transparent;
     appearance: none;
     cursor: pointer;
-    padding: 0 var(--space-xxs) 0 0;
+    padding: 0 var(--space-2) 0 0;
     min-width: var(--table-toggle-width);
     min-height: var(--table-toggle-width);
 
@@ -20,7 +20,7 @@
 
   &__heading-icon {
     transition: transform var(--animation-duration) var(--animation-fn);
-    margin-right: var(--space-xxs);
+    margin-right: var(--space-2);
 
     &--active {
       transform: rotateX(180deg);

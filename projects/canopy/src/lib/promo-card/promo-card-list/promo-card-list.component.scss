@@ -1,14 +1,14 @@
 @use '../../../styles/mixins';
 
 .lg-promo-card-list__separator {
-  margin-top: var(--space-sm);
+  margin-top: var(--space-4);
 
   @include mixins.lg-breakpoint('sm') {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-6);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    margin-top: var(--space-xxl);
+    margin-top: var(--space-8);
   }
 }
 

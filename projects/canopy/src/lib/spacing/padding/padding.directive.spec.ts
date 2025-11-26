@@ -52,41 +52,41 @@ describe('LgPadding', () => {
 
   describe('Non-responsive padding', () => {
     it('renders the same padding all round', () => {
-      component.lgPadding = 'xs';
+      component.lgPadding = '3';
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain('lg-padding--xs');
+      expect(testElement.nativeElement.getAttribute('class')).toContain('lg-padding--3');
     });
 
     it('adds paddings to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
+        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = '9';
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-padding__${side}--xxxl`,
+          `lg-padding__${side}--9`,
         );
       });
     });
 
     it('updates paddings to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
+        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = '9';
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-padding__${side}--xxxl`,
+          `lg-padding__${side}--9`,
         );
 
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = 'md';
+        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = '5';
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).not.toContain(
-          `lg-padding__${side}--xxxl`,
+          `lg-padding__${side}--9`,
         );
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-padding__${side}--md`,
+          `lg-padding__${side}--5`,
         );
       });
     });
@@ -112,69 +112,69 @@ describe('LgPadding', () => {
     });
 
     it('adds paddings to top and bottom when the vertical directive is applied', () => {
-      component.lgPaddingVertical = 'lg';
+      component.lgPaddingVertical = '6';
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-padding__top--lg');
+      expect(el).toContain('lg-padding__top--6');
 
-      expect(el).toContain('lg-padding__bottom--lg');
+      expect(el).toContain('lg-padding__bottom--6');
     });
 
     it('adds paddings to left and right when the horizontal directive is applied', () => {
-      component.lgPaddingHorizontal = 'xxl';
+      component.lgPaddingHorizontal = '8';
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-padding__left--xxl');
+      expect(el).toContain('lg-padding__left--8');
 
-      expect(el).toContain('lg-padding__right--xxl');
+      expect(el).toContain('lg-padding__right--8');
     });
   });
 
   describe('Responsive padding', () => {
     it('adds responsive padding to all of the sides', () => {
-      component.lgPadding = { sm: 'md', md: 'lg' };
+      component.lgPadding = { sm: '5', md: '6' };
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-padding--sm--md');
+      expect(el).toContain('lg-padding--sm--5');
 
-      expect(el).toContain('lg-padding--md--lg');
+      expect(el).toContain('lg-padding--md--6');
     });
 
     it('adds responsive padding to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { md: 'lg' };
+        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-padding__${side}--md--lg`,
+          `lg-padding__${side}--md--6`,
         );
       });
     });
 
     it('updates responsive padding to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { md: 'lg' };
+        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-padding__${side}--md--lg`,
+          `lg-padding__${side}--md--6`,
         );
 
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { lg: 'xxxl' };
+        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { lg: '9' };
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).not.toContain(
-          `lg-padding__${side}--md--lg`,
+          `lg-padding__${side}--md--6`,
         );
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-padding__${side}--lg--xxxl`,
+          `lg-padding__${side}--lg--9`,
         );
       });
     });
@@ -200,25 +200,25 @@ describe('LgPadding', () => {
     });
 
     it('adds respsonsive padding to top and bottom when the vertical directive is applied', () => {
-      component.lgPaddingVertical = { md: 'xxl' };
+      component.lgPaddingVertical = { md: '8' };
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-padding__top--md--xxl');
+      expect(el).toContain('lg-padding__top--md--8');
 
-      expect(el).toContain('lg-padding__bottom--md--xxl');
+      expect(el).toContain('lg-padding__bottom--md--8');
     });
 
     it('adds respsonsive padding to left and right when the horizontal directive is applied', () => {
-      component.lgPaddingHorizontal = { md: 'xxl' };
+      component.lgPaddingHorizontal = { md: '8' };
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-padding__left--md--xxl');
+      expect(el).toContain('lg-padding__left--md--8');
 
-      expect(el).toContain('lg-padding__right--md--xxl');
+      expect(el).toContain('lg-padding__right--md--8');
     });
   });
 });

@@ -29,8 +29,8 @@
   position: absolute;
   right: 0;
   top: calc(50% - var(--icon-width) / 2);
-  margin-left: var(--space-sm);
-  margin-right: var(--space-sm);
+  margin-left: var(--space-4);
+  margin-right: var(--space-4);
   pointer-events: none;
 
   .lg-select-field--error & {

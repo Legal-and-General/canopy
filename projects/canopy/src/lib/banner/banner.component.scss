@@ -38,7 +38,7 @@
 
 .lg-banner__container {
   display: flex;
-  padding: var(--space-sm) 0;
+  padding: var(--space-4) 0;
 
   h1,
   h2,
@@ -52,6 +52,6 @@
   }
 
   .lg-banner__icon {
-    margin-right: var(--space-xs);
+    margin-right: var(--space-3);
   }
 }

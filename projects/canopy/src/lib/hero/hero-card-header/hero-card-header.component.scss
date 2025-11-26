@@ -11,7 +11,7 @@
 
 .lg-hero-card-header__title {
   @include mixins.lg-breakpoint('lg') {
-    margin-right: var(--space-md);
+    margin-right: var(--space-5);
     flex: 1 1 auto;
   }
 }

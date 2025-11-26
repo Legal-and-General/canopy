@@ -3,14 +3,14 @@
 .lg-card-group {
   display: flex;
   flex-wrap: wrap;
-  row-gap: var(--space-lg);
+  row-gap: var(--space-6);
 
   @include mixins.lg-breakpoint('md') {
-    column-gap: calc(var(--space-sm) - 0.5%);
+    column-gap: calc(var(--space-4) - 0.5%);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    column-gap: calc(var(--space-md) - 0.5%);
+    column-gap: calc(var(--space-5) - 0.5%);
   }
 
   .lg-card {

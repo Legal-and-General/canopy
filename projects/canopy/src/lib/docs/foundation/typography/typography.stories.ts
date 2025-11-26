@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
-
-import typographyVariables from '../../../../../storybook/css-variables/typography';
+import typographyVariables from '@lib/storybook/css-variables/variables/typography';
 
 import { getProductiveFontSizes, getExpressiveFontSizes } from './typography-utils';
 
@@ -13,10 +12,10 @@ const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
   selector: 'lg-display-font-size',
   template: `
     <div>
-      <p [ngClass]="fontClass" class="lg-margin__bottom--xxxs">{{ textString }}</p>
+      <p [ngClass]="fontClass" class="lg-margin__bottom--1">{{ textString }}</p>
       @if (showSizeInfo) {
-        <div class="lg-margin__bottom--xl">
-          <p class="lg-font-size-0-8--400 lg-margin__top--xs">
+        <div class="lg-margin__bottom--7">
+          <p class="lg-font-size-0-8--400 lg-margin__top--4">
             SM > MD: {{ pxValues.sm }}px | {{ remValues.sm }}rem<br />
             LG > XXL: {{ pxValues.lg }}px | {{ remValues.lg }}rem
           </p>
@@ -126,16 +125,16 @@ class LgDisplayFontSizeComponent {
     `
       .font-panels {
         display: flex;
-        margin-top: var(--space-lg);
+        margin-top: var(--space-6);
         border: 4px solid #edeae8;
         border-radius: var(--border-radius-lg);
-        padding: var(--space-sm);
+        padding: var(--space-4);
       }
       .font-panels__heading {
         margin-bottom: 0;
       }
       .font-panels__subheading {
-        margin-bottom: var(--space-lg);
+        margin-bottom: var(--space-6);
       }
     `,
   ],

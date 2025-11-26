@@ -10,11 +10,11 @@ import { DocsWelcomeBottomLinksSectionComponent } from './bottom-links-section.c
 
 const pageTemplate = `
 <lg-docs-welcome-hero></lg-docs-welcome-hero>
-<lg-docs-welcome-benefits lgMarginTop="xxxl"></lg-docs-welcome-benefits>
-<lg-docs-welcome-usage lgMarginTop="xxxl" lgPaddingBottom="sm"></lg-docs-welcome-usage>
-<lg-docs-welcome-inside lgMarginTop="xxxl"></lg-docs-welcome-inside>
+<lg-docs-welcome-benefits lgMarginTop="9"></lg-docs-welcome-benefits>
+<lg-docs-welcome-usage lgMarginTop="9" lgPaddingBottom="4"></lg-docs-welcome-usage>
+<lg-docs-welcome-inside lgMarginTop="9"></lg-docs-welcome-inside>
 
-<div lgMarginTop="xxxl" class="bottom-section">
+<div lgMarginTop="9" class="bottom-section">
   <lg-docs-welcome-bottom-links-section
     heading="Contribute to Canopy"
     text="Read about how you can contribute to Canopy here:"

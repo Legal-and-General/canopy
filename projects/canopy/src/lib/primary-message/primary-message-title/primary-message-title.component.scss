@@ -2,11 +2,11 @@
 
 @mixin primary-message-title() {
   display: block;
-  margin-top: var(--space-sm);
+  margin-top: var(--space-4);
   @include mixins.lg-font-size('3');
 
   @include mixins.lg-breakpoint(md) {
-    margin-top: var(--space-md);
+    margin-top: var(--space-5);
   }
 }
 

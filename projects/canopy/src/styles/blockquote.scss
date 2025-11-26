@@ -2,12 +2,12 @@
 
 blockquote {
   border-left: var(--border-radius-lg) solid var(--blockquote-border-left-colour);
-  padding-left: var(--space-sm);
+  padding-left: var(--space-4);
   @include mixins.lg-font-size('2');
 
   cite {
     display: block;
-    margin-top: var(--space-sm);
+    margin-top: var(--space-4);
     font-style: normal;
     @include mixins.lg-font-size('1', 'strong');
   }

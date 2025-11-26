@@ -23,12 +23,12 @@ import { lgIconsArray } from '../../ui-icons-files';
       }
 
       .swatch {
-        margin: var(--space-sm);
+        margin: var(--space-4);
         flex: 1 1 225px;
       }
 
       .swatch__svg {
-        margin-right: var(--space-md);
+        margin-right: var(--space-5);
       }
     `,
   ],

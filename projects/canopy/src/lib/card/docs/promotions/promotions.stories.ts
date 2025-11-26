@@ -19,7 +19,7 @@ import { LgSeparatorComponent } from '../../../separator';
 const promotionsGeneralCardTemplate = `
 <lg-card
   lgShadow [hasHoverState]="true"
-  lgMarginBottom="lg"
+  lgMarginBottom="6"
   [lgPadding]="hasIcon ? 'lg' : 'none'"
   variant="promotion"
   [lgOrientation]="orientation">
@@ -29,8 +29,8 @@ const promotionsGeneralCardTemplate = `
     <lg-brand-icon *ngIf="hasIcon" [name]="iconName" size="xs"></lg-brand-icon>
   </lg-card-hero-img>
   <lg-card-content>
-    <h3 lgMarginBottom="xxs" class="lg-font--expressive">{{ title }}</h3>
-    <p lgMarginBottom="lg">{{ text }}</p>
+    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
+    <p lgMarginBottom="6">{{ text }}</p>
     <a href="#">{{ buttonText }}</a>
   </lg-card-content>
 </lg-card>`;

@@ -52,40 +52,40 @@ describe('LgMargin', () => {
 
   describe('Non-responsive margin', () => {
     it('renders the same margin all round', () => {
-      component.lgMargin = 'xs';
+      component.lgMargin = '3';
       fixture.detectChanges();
 
-      expect(testElement.nativeElement.getAttribute('class')).toContain('lg-margin--xs');
+      expect(testElement.nativeElement.getAttribute('class')).toContain('lg-margin--3');
     });
 
     it('adds margins to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
+        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = '9';
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-margin__${side}--xxxl`,
+          `lg-margin__${side}--9`,
         );
       });
     });
 
     it('updates margins to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'xxxl';
+        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = '9';
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-margin__${side}--xxxl`,
+          `lg-margin__${side}--9`,
         );
 
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'md';
+        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = '5';
         fixture.detectChanges();
 
         const el = testElement.nativeElement.getAttribute('class');
 
-        expect(el).not.toContain(`lg-margin__${side}--xxxl`);
+        expect(el).not.toContain(`lg-margin__${side}--9`);
 
-        expect(el).toContain(`lg-margin__${side}--md`);
+        expect(el).toContain(`lg-margin__${side}--5`);
       });
     });
 
@@ -110,68 +110,68 @@ describe('LgMargin', () => {
     });
 
     it('adds margins to top and bottom when the vertical directive is applied', () => {
-      component.lgMarginVertical = 'lg';
+      component.lgMarginVertical = '6';
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-margin__top--lg');
+      expect(el).toContain('lg-margin__top--6');
 
-      expect(el).toContain('lg-margin__bottom--lg');
+      expect(el).toContain('lg-margin__bottom--6');
     });
 
     it('adds margins to left and right when the horizontal directive is applied', () => {
-      component.lgMarginHorizontal = 'xxl';
+      component.lgMarginHorizontal = '8';
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-margin__left--xxl');
+      expect(el).toContain('lg-margin__left--8');
 
-      expect(el).toContain('lg-margin__right--xxl');
+      expect(el).toContain('lg-margin__right--8');
     });
   });
 
   describe('Responsive margin', () => {
     it('adds responsive margin to all of the sides', () => {
-      component.lgMargin = { sm: 'md', md: 'lg' };
+      component.lgMargin = { sm: '5', md: '6' };
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-margin--sm--md');
+      expect(el).toContain('lg-margin--sm--5');
 
-      expect(el).toContain('lg-margin--md--lg');
+      expect(el).toContain('lg-margin--md--6');
     });
 
     it('adds responsive margin to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { md: 'lg' };
+        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-margin__${side}--md--lg`,
+          `lg-margin__${side}--md--6`,
         );
       });
     });
 
     it('updates responsive margin to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { md: 'lg' };
+        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
-          `lg-margin__${side}--md--lg`,
+          `lg-margin__${side}--md--6`,
         );
 
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { lg: 'xxxl' };
+        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { lg: '9' };
         fixture.detectChanges();
 
         const el = testElement.nativeElement.getAttribute('class');
 
-        expect(el).not.toContain(`lg-margin__${side}--md--lg`);
+        expect(el).not.toContain(`lg-margin__${side}--md--6`);
 
-        expect(el).toContain(`lg-margin__${side}--lg--xxxl`);
+        expect(el).toContain(`lg-margin__${side}--lg--9`);
       });
     });
 
@@ -196,25 +196,25 @@ describe('LgMargin', () => {
     });
 
     it('adds respsonsive margin to top and bottom when the vertical directive is applied', () => {
-      component.lgMarginVertical = { md: 'xxl' };
+      component.lgMarginVertical = { md: '8' };
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-margin__top--md--xxl');
+      expect(el).toContain('lg-margin__top--md--8');
 
-      expect(el).toContain('lg-margin__bottom--md--xxl');
+      expect(el).toContain('lg-margin__bottom--md--8');
     });
 
     it('adds respsonsive margin to left and right when the horizontal directive is applied', () => {
-      component.lgMarginHorizontal = { md: 'xxl' };
+      component.lgMarginHorizontal = { md: '8' };
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
 
-      expect(el).toContain('lg-margin__left--md--xxl');
+      expect(el).toContain('lg-margin__left--md--8');
 
-      expect(el).toContain('lg-margin__right--md--xxl');
+      expect(el).toContain('lg-margin__right--md--8');
     });
   });
 });

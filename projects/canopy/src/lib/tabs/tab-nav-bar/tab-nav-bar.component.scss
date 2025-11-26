@@ -5,16 +5,16 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 var(--space-sm);
+  padding: 0 var(--space-4);
   font-size: var(--text-base-size);
   font-weight: var(--tabs-list-item-font-weight);
 
   @include mixins.lg-breakpoint('md') {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-5);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-6);
   }
 
   &:after {

@@ -1,12 +1,11 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import { CustomBadge } from 'storybook-addon-tag-badges';
+import { getDefaultSpacingVariables } from '../../../docs/foundation/spacing-utils';
 
-<Meta title="Helpers/Directives/Margin/Guide" tags={['pending']}/>
+<Meta title="Helpers/Directives/Margin/Guide"/>
 
 # Margin
-
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 This directive allows for a custom margin to be added without the need to write additional CSS. It's useful for overriding the default margin on Canopy components, as well as general use within your app. Using this directive ensures that your margin adheres to the predefined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in ***canopy/projects/canopy/src/styles/spacing.scss***.
 
@@ -15,108 +14,101 @@ This directive allows for a custom margin to be added without the need to write 
 Import the margin directive in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgMarginDirective ],
-});
+imports: [ ..., LgMarginDirective ]
 ```
 
 In your HTML, apply the directive to the relevant component. If the default `lgMargin` attribute has no value, the default margin will remain. You can also override individual margin such as `margin-top` by applying the relevant selector/input (.e.g `LgMarginTop` - see the **inputs table** below).
 
-Pass in either a **standard spacing variant** or a **responsive spacing object** (see below).
+Pass in **Spacing variant** (see below).
 
 ```html
-Standard spacing variant
-<lg-card lgMargin="sm"></lg-card>
-
-Responsive spacing object
-<lg-card [lgMargin]="{ md: 'lg', lg: 'xxxl' }"></lg-card>
+<lg-card lgMargin="4"></lg-card>
 ```
 
-## Standard vs. responsive spacing
+## Spacing
 
-### Standard spacing variant
+### Spacing variants
 
-This is set of predefined variants which will apply the same margin at all breakpoints, as defined by the `SpacingVariant` type. These are:
+This is set of predefined variants as defined by the `SpacingVariant` type. These are:
 
-```
-'none', 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl', 'xxxxxl'
-```
+<pre><code className="language-text">
+{(() => {
+  const spacingVars = getDefaultSpacingVariables();
+  const variants = Object.keys(spacingVars)
+    .filter(key => key.startsWith('--space-'))
+    .map(key => key.replace('--space-', ''))
+    .sort((a, b) => {
+      // Handle 'none' specially
+      if (a === 'none') return -1;
+      if (b === 'none') return 1;
+      // Sort numbers numerically
+      return parseInt(a) - parseInt(b);
+    })
+    .map(variant => `'${variant}'`)
+    .join(', ');
 
-### Responsive spacing object
+  return `'none', ${variants}`;
+})()}
+</code></pre>
 
-You can apply a responsive spacing object instead, which will apply different margin at the specified breakpoints, as defined by the `SpacingResponsive` type. Example:
+### Variant examples
 
-```js
-{
-  md: "lg",
-  lg: "xxxl"
-}
-```
-
-Each **key** is a mobile-first breakpoint from the standard list of available breakpoints: `xs`, `sm`, `md`, `lg`, `xl`, `xxl`.
-
-Each **value** is a Standard spacing variant.
-
-In the example above, the margin at the `md` breakpoint will be `lg`, and at the `lg` will be `xxxl`.
-
-### Standard variant examples
-
-Apply `xxl` margin to the bottom
+Apply `8` margin to the bottom
 
 ```html
 
-<lg-card lgMarginBottom="xxl"></lg-card>
+<lg-card lgMarginBottom="8"></lg-card>
 
 ```
 
-Apply `sm` margin to the left and right
+Apply `4` margin to the left and right
 
 ```html
 
-<lg-card lgMarginHorizontal="sm"></lg-card>
+<lg-card lgMarginHorizontal="4"></lg-card>
 
 ```
 
-Apply `xl` margin all round, but `xxxl` margin to the bottom
+Apply `7` margin all round, but `9` margin to the bottom
 
 ```html
 
-<lg-card lgMargin="xl" lgMarginBottom="xxxl"></lg-card>
+<lg-card lgMargin="7" lgMarginBottom="9"></lg-card>
 
 ```
 
-Apply `lg` margin to the top and bottom
+Apply `6` margin to the top and bottom
 
 ```html
 
-<lg-card lgMarginVertical="lg"></lg-card>
-
-```
-
-### Responsive examples
-
-At the `sm` breakpoint apply `xl` margin, then at the `md` breakpoint apply `xxxl` margin, all around the component.
-
-```html
-
-<lg-card [lgMargin]="{ sm: 'lg', md: 'xxxl' }"></lg-card>
-
-```
-
-At the `md` breakpoint apply `md` margin, then at the `lg` breakpoint apply `sm` margin, at the bottom of the component.
-
-```html
-
-<lg-card [lgMarginBottom]="{ md: 'md', lg: 'sm' }"></lg-card>
+<lg-card lgMarginVertical="6"></lg-card>
 
 ```
 
 ## Inputs
 
-The current available spacing variants are `none`, `xxxs`, `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`, `xxxxxl`.
+The current available spacing variants are:
+<pre><code className="language-text">
+{(() => {
+  const spacingVars = getDefaultSpacingVariables();
+  const variants = Object.keys(spacingVars)
+    .filter(key => key.startsWith('--space-'))
+    .map(key => key.replace('--space-', ''))
+    .sort((a, b) => {
+      // Handle 'none' specially
+      if (a === 'none') return -1;
+      if (b === 'none') return 1;
+      // Sort numbers numerically
+      return parseInt(a) - parseInt(b);
+    })
+    .map(variant => `'${variant}'`)
+    .join(', ');
 
-The current available breakpoints are `xs`, `sm`, `md`, `lg`, `xl`, `xxl`
+  return `'none', ${variants}`;
+})()}
+</code></pre>
+
+The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 
 | Name                 | Description                                          |                  Type                   | Default | Required |
 |----------------------|------------------------------------------------------|:---------------------------------------:|:-------:|:--------:|

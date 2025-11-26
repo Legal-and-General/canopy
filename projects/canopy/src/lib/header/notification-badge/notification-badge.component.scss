@@ -6,8 +6,8 @@
   display: flex;
   height: var(--notification-badge-height);
   justify-content: center;
-  margin-left: var(--space-xxs);
-  min-width: var(--space-sm);
+  margin-left: var(--space-2);
+  min-width: var(--space-4);
   white-space: nowrap;
   width: var(--notification-badge-width);
 }

@@ -2,13 +2,13 @@
 
 .lg-footer {
   background-color: var(--footer-bg-color);
-  padding: var(--space-xxl) var(--space-md) var(--space-md);
+  padding: var(--space-8) var(--space-5) var(--space-5);
   display: flex;
   flex-direction: column;
 
   @include mixins.lg-breakpoint('lg') {
     flex-direction: row;
-    padding: var(--space-lg);
+    padding: var(--space-6);
   }
 
   &__links {

@@ -4,10 +4,10 @@
   border-bottom: var(--border-width) solid var(--colour-greyscale-200);
   display: flex;
   justify-content: space-between;
-  padding: var(--space-sm);
+  padding: var(--space-4);
 
   @include mixins.lg-breakpoint(md) {
-    padding: var(--space-md);
+    padding: var(--space-5);
   }
 
   h1,
@@ -24,7 +24,7 @@
     background-color: transparent;
     border: 0;
     display: flex;
-    padding: 0 0 0 var(--space-xs);
+    padding: 0 0 0 var(--space-3);
     @include mixins.lg-font-size(3);
 
     &:hover {

@@ -12,15 +12,15 @@
     color: var(--link-menu-link-color);
     border-bottom: var(--border-width) solid var(--link-menu-link-border-color);
     display: block;
-    padding: var(--space-sm) var(--space-sm) var(--space-xs);
+    padding: var(--space-4) var(--space-4) var(--space-3);
     width: 100%;
 
     @include mixins.lg-breakpoint('md') {
-      padding: var(--space-sm);
+      padding: var(--space-4);
     }
 
     @include mixins.lg-breakpoint('lg') {
-      padding: var(--space-sm) var(--space-xs);
+      padding: var(--space-4) var(--space-3);
     }
 
     &:visited {

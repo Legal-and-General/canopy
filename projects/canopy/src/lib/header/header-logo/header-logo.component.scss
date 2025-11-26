@@ -20,11 +20,11 @@
   }
 
   &__second-img {
-    margin-left: var(--space-sm);
+    margin-left: var(--space-4);
     width: var(--header-second-logo-width);
 
     @include mixins.lg-breakpoint(lg) {
-      margin-left: var(--space-lg);
+      margin-left: var(--space-6);
       width: var(--header-second-logo-width-lg);
     }
   }

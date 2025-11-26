@@ -22,13 +22,13 @@
   border-top: solid var(--border-width) var(--accordion-border-color);
   cursor: pointer;
   display: block;
-  padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-xxl);
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-8);
   position: relative;
   text-align: left;
   width: 100%;
 
   &--with-icon {
-    padding-right: var(--space-xxl);
+    padding-right: var(--space-8);
   }
 
   &:focus-visible {
@@ -38,10 +38,10 @@
   }
 
   .lg-accordion__heading-icon {
-    margin-left: var(--space-sm);
-    margin-right: var(--space-sm);
-    width: var(--space-md);
-    height: var(--space-md);
+    margin-left: var(--space-4);
+    margin-right: var(--space-4);
+    width: var(--space-5);
+    height: var(--space-5);
     pointer-events: none;
 
     &--animated {
@@ -56,7 +56,7 @@
   lg-icon {
     position: absolute;
     left: 0;
-    top: calc(50% - var(--space-md) / 2);
+    top: calc(50% - var(--space-5) / 2);
 
     &:first-child {
       @extend .lg-accordion__heading-icon;

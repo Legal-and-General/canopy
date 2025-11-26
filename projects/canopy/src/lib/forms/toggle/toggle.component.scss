@@ -29,11 +29,11 @@
   border: var(--border-width) solid var(--toggle-border-color);
   color: transparent;
   font-size: var(--_toggle-icon-font-size);
-  margin: var(--_toggle-icon-margin-top) var(--space-sm) auto 0;
+  margin: var(--_toggle-icon-margin-top) var(--space-4) auto 0;
 
   &--sm {
     --_toggle-icon-font-size: 0.8rem;
-    --_toggle-icon-margin-top: var(--space-xxxs);
+    --_toggle-icon-margin-top: var(--space-1);
   }
 
   &--lg {

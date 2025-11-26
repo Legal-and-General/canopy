@@ -5,7 +5,7 @@
         type="button"
         class="lg-pagination__button lg-pagination__button--prevnext"
         aria-label="Go to previous page"
-        lgMarginRight="xxs"
+        lgMarginRight="4"
         (click)="previous()"
         [disabled]="currentPage === 1"
         >
@@ -17,7 +17,7 @@
         <button
           type="button"
           class="lg-pagination__button"
-          lgMarginRight="xxs"
+          lgMarginRight="4"
           [attr.aria-label]="'Go to page ' + page"
           [attr.aria-current]="currentPage === page"
           [class.lg-pagination__button--active]="currentPage === page"

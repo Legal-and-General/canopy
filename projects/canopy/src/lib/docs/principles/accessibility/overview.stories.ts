@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const mainQuoteTemplate = `
-<blockquote lgMarginVertical="md">
+<blockquote lgMarginVertical="5">
   "The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."
   <cite>Tim Berners-Lee, W3C Director and inventor of the World Wide Web</cite>
 </blockquote>
@@ -27,7 +27,7 @@ export const MainQuote = {
 };
 
 const equalityActQuoteTemplate = `
-<blockquote lgMarginVertical="md">
+<blockquote lgMarginVertical="5">
   [...] website owners have been obliged by law to ensure that their websites are accessible to all users, as it is illegal to treat those with disabilities less favourably.
   <cite>Equality Act of 2010</cite>
 </blockquote>
