@@ -4,7 +4,7 @@
   @include mixins.lg-font-size('6');
 
   @include mixins.lg-breakpoint('lg') {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-4);
     text-align: left;
   }
 }

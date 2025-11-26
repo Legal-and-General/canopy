@@ -19,7 +19,7 @@ export class LgGridColDirective {
 
   @Input()
   set lgCol(columns: number) {
-    this.lgColClass = this.toggleColumnClass(`lg-col-xs-${columns}`, this.lgColClass);
+    this.lgColClass = this.toggleColumnClass(`lg-col-sm-${columns}`, this.lgColClass);
   }
 
   @Input()
@@ -40,7 +40,7 @@ export class LgGridColDirective {
   @Input()
   set lgColOffset(columns: number) {
     this.lgColOffsetClass = this.toggleColumnClass(
-      `lg-col-xs-offset-${columns}`,
+      `lg-col-sm-offset-${columns}`,
       this.lgColOffsetClass,
     );
   }

@@ -16,7 +16,7 @@ export class SpacingService {
    * which are applied via the DynamicStyleService:
    * e.g. `.lg-padding`, `padding: 1rem`
    *
-   * @param spacing e.g. 'sm' for SpacingVariant, or {sm: 'lg', md: 'xxl'} for SpacingResponsive
+   * @param spacing e.g. 'sm' for SpacingVariant, or {sm: '6', md: '8'} for SpacingResponsive
    * @param cssProperty e.g. 'padding-top' or 'margin-right'
    * @returns an array of the created class names
    */
@@ -32,7 +32,7 @@ export class SpacingService {
     }
 
     if (typeof spacing === 'object') {
-      // Responsive e.g. spacing = {sm: "md", md: "xxl"}
+      // Responsive e.g. spacing = {sm: "5", md: "8"}
       Object.keys(spacing).forEach(key => {
         const selector = `lg-${cssProperty.replace('-', '__')}--${key}--${spacing[key]}`;
 
@@ -47,7 +47,7 @@ export class SpacingService {
 
       this.dynamicStyleService.addRulesToMediaQuery(responsiveSpacingRules);
     } else {
-      // Non-resposive e.g. spacing = "sm"
+      // Non-resposive e.g. spacing = "4"
       const selector = `lg-${cssProperty.replace('-', '__')}--${spacing}`;
 
       this.dynamicStyleService.addRules([

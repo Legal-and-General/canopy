@@ -5,8 +5,8 @@
   flex-direction: column;
 
   @include mixins.lg-breakpoint('md') {
-    margin-top: var(--space-md);
+    margin-top: var(--space-5);
     flex-direction: row;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-5);
   }
 }

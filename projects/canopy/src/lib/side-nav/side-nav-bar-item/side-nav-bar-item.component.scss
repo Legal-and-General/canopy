@@ -10,20 +10,20 @@
   flex-direction: column;
 
   @include mixins.lg-breakpoint('md') {
-    padding-right: var(--space-sm);
+    padding-right: var(--space-4);
   }
 }
 
 .lg-side-nav-bar-item__icon-container {
   position: relative;
-  padding-right: var(--space-sm);
+  padding-right: var(--space-4);
 
   @include mixins.lg-breakpoint('md') {
-    padding-right: var(--space-sm);
+    padding-right: var(--space-4);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    padding-right: var(--space-xs);
+    padding-right: var(--space-3);
   }
 
   .lg-icon {

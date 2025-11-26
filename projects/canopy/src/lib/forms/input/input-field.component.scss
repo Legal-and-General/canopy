@@ -1,7 +1,7 @@
 @use '../../../styles/mixins';
 
 :root {
-  --suffix-margin: var(--space-sm);
+  --suffix-margin: var(--space-4);
   --suffix-button-margin: 0.3125rem;
 }
 
@@ -18,14 +18,14 @@
     align-items: center;
 
     .lg-icon {
-      height: var(--space-md);
-      width: var(--space-md);
+      height: var(--space-5);
+      width: var(--space-5);
     }
   }
 
   &--focus &__prefix {
     + .lg-input {
-      padding-left: var(--space-sm);
+      padding-left: var(--space-4);
     }
   }
 
@@ -94,7 +94,7 @@
   border: none;
   line-height: var(--input-line-height);
   margin: 0;
-  padding: var(--input-vertical-padding) var(--space-sm);
+  padding: var(--input-vertical-padding) var(--space-4);
   outline: 0;
   max-width: 100%;
 

@@ -7,14 +7,14 @@
   h4,
   h5,
   h6 {
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-lg);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-6);
 
     @include mixins.lg-font-size('5', 'strong', 'expressive');
 
     @include mixins.lg-breakpoint('lg') {
-      margin-top: var(--space-lg);
-      margin-bottom: var(--space-xxl);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-8);
     }
   }
 }

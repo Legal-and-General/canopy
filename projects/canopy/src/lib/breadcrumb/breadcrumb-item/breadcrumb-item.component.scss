@@ -5,7 +5,7 @@
 
   &__container {
     display: none;
-    margin-right: var(--space-xxs);
+    margin-right: var(--space-2);
 
     @include mixins.lg-breakpoint('md') {
       display: flex;
@@ -34,7 +34,7 @@
 
   &__content {
     .lg-icon {
-      margin-right: var(--space-xxs);
+      margin-right: var(--space-2);
     }
   }
 
@@ -73,7 +73,7 @@
   }
 
   &__icon-backward {
-    margin-right: var(--space-xxs);
+    margin-right: var(--space-2);
 
     &.lg-icon {
       display: inline;
@@ -81,7 +81,7 @@
   }
 
   &__icon-forward {
-    margin-left: var(--space-xxs);
+    margin-left: var(--space-2);
   }
 
   &__icon-wrapper {

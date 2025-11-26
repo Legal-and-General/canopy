@@ -3,17 +3,17 @@
 .lg-toggle__label--filter {
   display: inline-block;
   border: solid var(--border-width) var(--filter-btn-bg-color-active);
-  border-radius: var(--space-md);
-  padding: var(--space-xxxs) var(--space-sm) var(--space-xxxs) var(--space-xxs);
+  border-radius: var(--space-5);
+  padding: var(--space-1) var(--space-4) var(--space-1) var(--space-2);
   background: transparent;
   font-size: var(--font-size-0-8);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-3);
   transition: all var(--animation-duration) var(--animation-fn);
   cursor: pointer;
 
   .lg-icon {
     vertical-align: sub;
-    margin-right: var(--space-xxxs);
+    margin-right: var(--space-1);
   }
 
   &::after {

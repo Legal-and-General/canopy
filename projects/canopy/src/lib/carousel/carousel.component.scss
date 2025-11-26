@@ -6,15 +6,15 @@
 
   &__button-timer {
     position: absolute;
-    width: var(--space-xl);
-    height: var(--space-xl);
+    width: var(--space-7);
+    height: var(--space-7);
     transform: rotateY(-180deg) rotateZ(-90deg) rotateX(180deg);
 
     &__circle {
-      stroke-dasharray: calc(7 * var(--space-unit));
+      stroke-dasharray: calc(7 * var(--space-4));
       stroke-dashoffset: 0;
       stroke-linecap: round;
-      stroke-width: calc(0.125 * var(--space-unit));
+      stroke-width: calc(0.125 * var(--space-4));
       stroke: var(--carousel-active-bullet-color);
       fill: none;
       animation-name: countdown;
@@ -41,7 +41,7 @@
   }
 
   &__navigation {
-    padding-top: var(--space-sm);
+    padding-top: var(--space-4);
     display: flex;
     justify-content: center;
   }
@@ -57,8 +57,8 @@
     border: none;
     background-color: transparent;
     margin: 0;
-    width: var(--space-xl);
-    height: var(--space-xl);
+    width: var(--space-7);
+    height: var(--space-7);
     cursor: pointer;
     position: relative;
 
@@ -67,8 +67,8 @@
     }
 
     &__disk {
-      width: var(--space-xl);
-      height: var(--space-xl);
+      width: var(--space-7);
+      height: var(--space-7);
       border-radius: 100%;
     }
 
@@ -82,15 +82,15 @@
   }
 
   &__bullet {
-    width: var(--space-xxs);
-    height: var(--space-xxs);
+    width: var(--space-2);
+    height: var(--space-2);
     background-color: var(--carousel-bullet-color);
     display: block;
     border-radius: 100%;
 
     &--active {
-      width: var(--space-xs);
-      height: var(--space-xs);
+      width: var(--space-3);
+      height: var(--space-3);
       background-color: var(--carousel-active-bullet-color);
     }
   }

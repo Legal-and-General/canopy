@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     <ul lgMargin="none" class="docs-list">
       @for (section of sections; track section) {
         <li class="docs-list-item">
-          <div class="docs-list-item__img" lgMarginBottom="xxs">
+          <div class="docs-list-item__img" lgMarginBottom="4">
             <img [src]="section.src" alt="" />
           </div>
           <h3 class="lg-font-size-2--700">{{ section.heading }}</h3>

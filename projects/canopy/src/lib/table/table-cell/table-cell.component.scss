@@ -10,12 +10,12 @@
     align-items: stretch;
 
     .lg-table-cell__label {
-      margin-bottom: var(--space-xxs);
+      margin-bottom: var(--space-2);
     }
 
     .lg-table-cell__content {
       margin-left: 0;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-5);
       text-align: start;
     }
 
@@ -62,7 +62,7 @@
 
 .lg-table-cell__label {
   font-weight: var(--font-weight-500);
-  padding-right: var(--space-md);
+  padding-right: var(--space-5);
 }
 
 @each $columns-breakpoint in table.$columns-breakpoints {
@@ -70,7 +70,7 @@
     .lg-table-cell {
       @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-cell;
-        padding: var(--space-sm);
+        padding: var(--space-4);
       }
 
       &--toggle-cell {

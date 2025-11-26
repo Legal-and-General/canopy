@@ -4,20 +4,7 @@ import { NgIf } from '@angular/common';
 import { LgPaddingDirective } from '../padding.directive';
 import { LgCardComponent, LgCardContentComponent } from '../../../card';
 
-const spaces = [
-  'undefined',
-  'none',
-  'xxxs',
-  'xxs',
-  'xs',
-  'sm',
-  'md',
-  'lg',
-  'xl',
-  'xxl',
-  'xxxl',
-  'xxxxl',
-];
+const spaces = [ 'undefined', 'none', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' ];
 
 const standardCategory = 'Standard';
 const responsiveCategory = 'Responsive';
@@ -131,35 +118,25 @@ export const Padding = {
         [lgPaddingBottom]="paddingBottom !== 'undefined' ? paddingBottom : null"
         [lgPaddingLeft]="paddingLeft !== 'undefined' ? paddingLeft : null">
           <lg-card-content>
-            <strong>Standard spacing variant</strong> applied using directive
-          </lg-card-content>
-      </lg-card>
-      <lg-card
-        [lgPadding]="paddingResponsive"
-        [lgPaddingTop]="paddingTopResponsive !== 'undefined' ? paddingTopResponsive : null"
-        [lgPaddingRight]="paddingRightResponsive !== 'undefined' ? paddingRightResponsive : null"
-        [lgPaddingBottom]="paddingBottomResponsive !== 'undefined' ? paddingBottomResponsive : null"
-        [lgPaddingLeft]="paddingLeftResponsive !== 'undefined' ? paddingLeftResponsive : null">
-          <lg-card-content>
-            <strong>Responsive Spacing Object</strong> applied using directive
-            <div *ngIf="paddingResponsive"><code>paddingResponsive: {{paddingResponsive | json}}</code></div>
-            <div *ngIf="paddingTopResponsive"><code>paddingTopResponsive: {{paddingTopResponsive | json}}</code></div>
-            <div *ngIf="paddingRightResponsive"><code>paddingRightResponsive: {{paddingRightResponsive | json}}</code></div>
-            <div *ngIf="paddingBottomResponsive"><code>paddingBottomResponsive: {{paddingBottomResponsive | json}}</code></div>
-            <div *ngIf="paddingLeftResponsive"><code>paddingLeftResponsive: {{paddingLeftResponsive | json}}</code></div>
+            <strong>Spacing variant</strong> applied using directive
+            <div *ngIf="padding"><code>padding: {{padding | json}}</code></div>
+            <div *ngIf="paddingTop !== 'undefined'"><code>paddingTop: {{paddingTop | json}}</code></div>
+            <div *ngIf="paddingRight !== 'undefined'"><code>paddingRight: {{paddingRight | json}}</code></div>
+            <div *ngIf="paddingBottom !== 'undefined'"><code>paddingBottom: {{paddingBottom | json}}</code></div>
+            <div *ngIf="paddingLeft !== 'undefined'"><code>paddingLeft: {{paddingLeft | json}}</code></div>
           </lg-card-content>
       </lg-card>
       <lg-card><lg-card-content>Card without directive applied</lg-card-content></lg-card>
     `,
   }),
   args: {
-    padding: 'md',
+    padding: '5',
     paddingTop: 'undefined',
     paddingRight: 'undefined',
     paddingBottom: 'undefined',
     paddingLeft: 'undefined',
 
-    paddingResponsive: { xs: 'sm', sm: 'md', md: 'xxl' },
+    paddingResponsive: { sm: '5', md: '8' },
     paddingTopResponsive: null,
     paddingRightResponsive: null,
     paddingBottomResponsive: null,

@@ -5,7 +5,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   border-bottom: solid var(--border-width) var(--card-title-border-color);
-  padding-bottom: var(--space-lg);
+  padding-bottom: var(--space-6);
   margin-bottom: var(--card-header-margin-bottom);
 
   @include mixins.lg-breakpoint('md') {
@@ -16,6 +16,6 @@
 .lg-card-header__title {
   @include mixins.lg-breakpoint('md') {
     flex: 1 1 0;
-    margin-right: var(--space-lg);
+    margin-right: var(--space-6);
   }
 }

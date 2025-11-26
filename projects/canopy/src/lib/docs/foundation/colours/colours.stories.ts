@@ -10,7 +10,7 @@ import {
 import { Meta } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import convert, { RGB } from 'color-convert';
-import coloursVariables from '@lib/storybook/css-variables/colours';
+import coloursVariables from '@lib/storybook/css-variables/variables/colours';
 
 interface Color {
   name: string;
@@ -49,7 +49,7 @@ interface Color {
         display: flex;
       }
       .tint-swatch__details {
-        padding: var(--space-sm);
+        padding: var(--space-4);
         flex: 1 1 50%;
       }
       .tint-swatch__color {

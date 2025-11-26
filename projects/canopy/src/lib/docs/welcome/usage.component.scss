@@ -3,7 +3,7 @@
 :host {
   display: flex;
   align-items: flex-end;
-  row-gap: var(--space-md);
+  row-gap: var(--space-5);
   flex-wrap: wrap;
 
   @include mixins.lg-breakpoint('md') {

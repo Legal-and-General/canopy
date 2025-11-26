@@ -19,7 +19,7 @@
     color: inherit;
     cursor: pointer;
     display: inline-flex;
-    padding: var(--space-sm);
+    padding: var(--space-4);
     text-align: left;
     width: 100%;
 
@@ -35,8 +35,8 @@
 
   &__state-icon {
     margin-left: auto;
-    margin-right: var(--space-xxs);
-    padding-left: var(--space-xxs);
+    margin-right: var(--space-2);
+    padding-left: var(--space-2);
     position: relative;
     top: var(--details-chevron-top-positon);
     transition: transform var(--animation-duration) var(--animation-fn);
@@ -44,5 +44,5 @@
 }
 
 .lg-details-panel-heading__icon {
-  margin-right: var(--space-xs);
+  margin-right: var(--space-3);
 }

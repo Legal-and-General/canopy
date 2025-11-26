@@ -5,14 +5,14 @@
   margin-bottom: var(--component-margin);
 
   .lg-toggle {
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-3);
   }
 }
 
 .lg-checkbox-group--inline {
   .lg-toggle {
     display: inline-block;
-    margin-right: var(--space-md);
+    margin-right: var(--space-5);
   }
 
   .lg-toggle:last-of-type {
@@ -26,13 +26,13 @@
 
   .lg-toggle {
     display: inline-block;
-    margin-right: var(--space-xs);
+    margin-right: var(--space-3);
     margin-bottom: 0;
   }
 
   &.lg-checkbox-group--filter--no-icons {
     .lg-toggle__label--filter {
-      padding-left: var(--space-sm);
+      padding-left: var(--space-4);
     }
 
     .lg-toggle__icon-wrapper {

@@ -19,15 +19,15 @@
   color: var(--side-nav-bar-link-color);
   border-bottom: var(--border-width) solid var(--side-nav-bar-link-border-color);
   display: block;
-  padding: var(--space-sm);
+  padding: var(--space-4);
   width: 100%;
 
   @include mixins.lg-breakpoint('md') {
-    padding: var(--space-sm);
+    padding: var(--space-4);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    padding: var(--space-sm) var(--space-xs);
+    padding: var(--space-4) var(--space-3);
   }
 
   &:visited {
@@ -40,7 +40,7 @@
     color: var(--side-nav-bar-link-hover-color);
     border-bottom: var(--side-nav-bar-link-border-width-lg) solid
       var(--side-nav-bar-link-hover-color);
-    padding-bottom: var(--space-xs);
+    padding-bottom: var(--space-3);
   }
 }
 
@@ -48,10 +48,10 @@
   color: var(--side-nav-bar-link-active-color);
   border-bottom: var(--side-nav-bar-link-border-width-md) solid
     var(--side-nav-bar-link-active-color);
-  padding-bottom: calc(var(--space-sm) - var(--side-nav-bar-link-border-width-md));
+  padding-bottom: calc(var(--space-4) - var(--side-nav-bar-link-border-width-md));
 
   &:hover {
-    padding-bottom: calc(var(--space-xs) - var(--border-width));
+    padding-bottom: calc(var(--space-3) - var(--border-width));
   }
 
   &:visited {

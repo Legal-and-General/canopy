@@ -7,8 +7,8 @@
     align-items: center;
     border-left: 0.063rem solid var(--colour-greyscale-200);
     height: 100%;
-    margin-left: var(--space-sm);
-    padding-left: var(--space-sm);
+    margin-left: var(--space-4);
+    padding-left: var(--space-4);
   }
 }
 
@@ -20,7 +20,7 @@ button.lg-account-menu-item {
   & {
     display: flex;
     flex-direction: column;
-    padding: var(--space-xxs);
+    padding: var(--space-2);
     position: relative;
   }
 
@@ -28,7 +28,7 @@ button.lg-account-menu-item {
     order: -1;
 
     @include mixins.lg-breakpoint(lg) {
-      margin-bottom: var(--space-xxxs);
+      margin-bottom: var(--space-1);
     }
   }
 

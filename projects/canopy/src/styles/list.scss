@@ -11,8 +11,8 @@ ol {
     & > li {
       counter-increment: custom-counter;
       position: relative;
-      padding-left: var(--space-md);
-      padding-bottom: var(--space-sm);
+      padding-left: var(--space-5);
+      padding-bottom: var(--space-4);
 
       &::before {
         color: var(--custom-list-counter-color);

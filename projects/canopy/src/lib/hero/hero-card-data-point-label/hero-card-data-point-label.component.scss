@@ -11,10 +11,10 @@
   h6 {
     @include mixins.lg-font-size('1');
 
-    margin-bottom: var(--space-xxs);
+    margin-bottom: var(--space-2);
 
     @include mixins.lg-breakpoint('md') {
-      margin-bottom: var(--space-xxxs);
+      margin-bottom: var(--space-1);
     }
   }
 }

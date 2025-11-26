@@ -2,14 +2,14 @@
 
 .lg-promo-card-title {
   display: block;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-4);
 
   @include mixins.lg-breakpoint('md') {
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-3);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-4);
   }
 
   h1,

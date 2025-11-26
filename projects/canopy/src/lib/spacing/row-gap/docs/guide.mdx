@@ -1,12 +1,11 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import { CustomBadge } from 'storybook-addon-tag-badges';
+import { getDefaultSpacingVariables } from '../../../docs/foundation/spacing-utils';
 
-<Meta title="Helpers/Directives/Row gap/Guide" tags={['pending']}/>
+<Meta title="Helpers/Directives/Row gap/Guide"/>
 
 # Row gap
-
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
 
 This directive allows you to add the `row-gap` CSS property using Canopy spacing.
 The spacing variables are also available as CSS custom properties (CSS variables)
@@ -21,33 +20,49 @@ also work with all other HTML elements that support <a href="https://developer.m
 Import the row gap directive in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgRowGapDirective ],
-});
+  imports: [ ..., LgRowGapDirective ]
 ```
 
 ### Examples
 
-Apply `xxl` row-gap.
+Apply `8` row-gap.
 
 ```html
-<div lgRowGap="xxl"></div>
+<div lgRowGap="8"></div>
 ```
 
-Use the default (`sm`) row-gap.
+Use the default (`4`) row-gap.
 
 ```html
 <div lgRowGap></div>
 ```
 
-### Inputs
+## Inputs
 
-The current available spacing variants are `none`, `xxxs`, `xxs`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`, `xxxxxl`.
+The current available spacing variants are:
+<pre><code className="language-text">
+{(() => {
+  const spacingVars = getDefaultSpacingVariables();
+  const variants = Object.keys(spacingVars)
+    .filter(key => key.startsWith('--space-'))
+    .map(key => key.replace('--space-', ''))
+    .sort((a, b) => {
+      // Handle 'none' specially
+      if (a === 'none') return -1;
+      if (b === 'none') return 1;
+      // Sort numbers numerically
+      return parseInt(a) - parseInt(b);
+    })
+    .map(variant => `'${variant}'`)
+    .join(', ');
+
+  return `'none', ${variants}`;
+})()}
+</code></pre>
 
 | Name       | Description                                |       Type       | Default | Required |
 |------------|--------------------------------------------|:----------------:|:-------:|:--------:|
-| `lgRowGap` | The row gap variant applied to the element | `SpacingVariant` |  `sm`   |   Yes    |
+| `lgRowGap` | The row gap variant applied to the element | `SpacingVariant` |  `4`    |   Yes    |
 
 ***
 

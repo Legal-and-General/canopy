@@ -2,7 +2,7 @@
  * Typography utility functions for processing CSS variables
  */
 
-import typographyVariables from '../../../../../storybook/css-variables/typography';
+import typographyVariables from '@lib/storybook/css-variables/variables/typography';
 
 // Standard font weight names based on numeric values
 const FONT_WEIGHT_NAMES: Record<number, string> = {

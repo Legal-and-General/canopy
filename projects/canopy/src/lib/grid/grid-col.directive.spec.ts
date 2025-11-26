@@ -55,7 +55,7 @@ describe('LgColDirective', () => {
     component.lgCol = '12';
     fixture.detectChanges();
 
-    expect(testElement.nativeElement.getAttribute('class')).toContain('lg-col-xs-12');
+    expect(testElement.nativeElement.getAttribute('class')).toContain('lg-col-sm-12');
   });
 
   it('adds column class for the specified screen sizes', () => {
@@ -74,7 +74,7 @@ describe('LgColDirective', () => {
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-col-xs-offset-2',
+      'lg-col-sm-offset-2',
     );
   });
 

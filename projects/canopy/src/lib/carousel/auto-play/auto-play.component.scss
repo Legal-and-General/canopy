@@ -2,8 +2,8 @@
 
 .lg-carousel-autoplay {
   position: absolute;
-  right: var(--space-sm);
-  top: var(--space-sm);
+  right: var(--space-4);
+  top: var(--space-4);
   z-index: var(--z-index-carousel-autoplay);
 
   &__btn {
@@ -12,9 +12,9 @@
     border: none;
     cursor: pointer;
     font-size: var(--font-size-3);
-    height: var(--space-xxl);
+    height: var(--space-8);
     padding: 0;
-    width: var(--space-xxl);
+    width: var(--space-8);
 
     &:focus-visible {
       @include mixins.lg-focus-outline();

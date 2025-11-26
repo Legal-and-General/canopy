@@ -187,10 +187,10 @@ const withLongCopyTableTemplate = `
         <tbody lg-table-body>
           <tr lg-table-row>
             <td lg-table-cell [stack]="stack">
-              <h1 class="lg-font-size-1--700" lgMarginVertical="xs">
+              <h1 class="lg-font-size-1--700" lgMarginVertical="3">
                 Item one: Lorem ipsum dolor sit amet
               </h1>
-              <p lgMarginBottom="xs">
+              <p lgMarginBottom="3">
                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 <a href="#">labore et dolore magna</a> aliqua. Ut enim ad minim
                 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -213,13 +213,13 @@ const withLongCopyTableTemplate = `
           </tr>
           <tr lg-table-row>
             <td lg-table-cell [stack]="stack">
-              <h1 class="lg-font-size-1--700" lgMarginVertical="xs">
+              <h1 class="lg-font-size-1--700" lgMarginVertical="3">
                 Item two: At vero eos et accusamus
               </h1>
               <p>
                 Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil.
               </p>
-              <p lgMarginBottom="xs">
+              <p lgMarginBottom="3">
                 Temporibus autem quibusdam et aut officiis debitis aut rerum
                 necessitatibus saepe eveniet ut et voluptates repudiandae sint et
                 molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente
@@ -240,11 +240,11 @@ const withLongCopyTableTemplate = `
           </tr>
           <tr lg-table-row>
             <td lg-table-cell [stack]="stack">
-              <h1 class="lg-font-size-1--700" lgMarginVertical="xs">
+              <h1 class="lg-font-size-1--700" lgMarginVertical="3">
                 Item three: Ut enim ad minima veniam
               </h1>
               <p>Proportionate final payment: Applies</p>
-              <p lgMarginBottom="xs">
+              <p lgMarginBottom="3">
                 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
                 quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
                 voluptas nulla pariatur. Tempora incidunt ut labore et dolore magnam

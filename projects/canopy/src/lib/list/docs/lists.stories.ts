@@ -30,7 +30,7 @@ const template = `
     `
       :host {
         display: block;
-        padding: var(--space-sm);
+        padding: var(--space-4);
       }
     `,
   ],

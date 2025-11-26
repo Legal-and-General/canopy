@@ -31,14 +31,14 @@ import { lgBrandIconsArray } from '../../brand-icons-files';
       }
 
       .swatch {
-        margin: var(--space-md);
+        margin: var(--space-5);
         flex: 0 0 8rem;
       }
 
       .swatch__name {
         display: block;
         text-align: center;
-        margin-top: var(--space-xxs);
+        margin-top: var(--space-2);
       }
 
       .swatch__svg {
