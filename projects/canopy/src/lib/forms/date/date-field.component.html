@@ -6,7 +6,7 @@
   <legend lg-label>
     <ng-content />
   </legend>
-  <ng-content select="lg-hint" />
+  <lg-hint>For example, 27 12 1977</lg-hint>
   <div
     class="lg-date-field__fields"
     [formGroup]="dateFormGroup"
@@ -22,7 +22,6 @@
           formControlName="date"
           inputmode="numeric"
           maxlength="2"
-          placeholder="DD"
           size="2"
           type="text"
         />
@@ -39,7 +38,6 @@
           formControlName="month"
           inputmode="numeric"
           maxlength="2"
-          placeholder="MM"
           size="3"
           type="text"
         />
@@ -56,7 +54,6 @@
           formControlName="year"
           inputmode="numeric"
           maxlength="4"
-          placeholder="YYYY"
           size="4"
           type="text"
         />

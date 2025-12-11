@@ -211,7 +211,6 @@ class FormGroupChildComponent implements OnInit {
 
       <lg-date-field formControlName="date">
         Date of birth
-        <lg-hint>For example, 15 06 1983</lg-hint>
         @if (isControlInvalid(date, validationForm)) {
           <lg-validation>
             @if (date.hasError('invalidField')) {
