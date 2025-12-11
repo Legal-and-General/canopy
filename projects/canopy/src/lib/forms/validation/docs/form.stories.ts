@@ -244,7 +244,7 @@ class FormGroupChildComponent implements OnInit {
 
       <lg-input-field>
         Sort Code
-        <lg-hint>Must be 6 digits long</lg-hint>
+        <lg-hint>Must be 6 digits long, for example 00-00-00</lg-hint>
         <input lgInput lgSortCode formControlName="sortCode" />
         @if (isControlInvalid(sortCode, validationForm)) {
           <lg-validation>

@@ -8,7 +8,6 @@ import { NgControl, Validators } from '@angular/forms';
 export class LgSortCodeDirective implements OnInit {
   private ngControl = inject(NgControl);
 
-  @HostBinding('placeholder') placeholder = '00-00-00';
   @HostBinding('required') required = true;
   @HostBinding('attr.inputmode') inputmode = 'numeric';
   // 8 because we allow for the two dashes

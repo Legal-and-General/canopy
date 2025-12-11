@@ -55,12 +55,6 @@ describe('LgSortCodeDirective', () => {
       inputDebugElement.injector.get<LgSortCodeDirective>(LgSortCodeDirective);
   }));
 
-  it('adds a placeholder', () => {
-    fixture.detectChanges();
-
-    expect(inputDebugElement.nativeElement.placeholder).toContain('00-00-00');
-  });
-
   it('adds a required attribute', () => {
     fixture.detectChanges();
 
