@@ -1,4 +1,6 @@
 import {
+  AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ContentChild,
   HostBinding,
@@ -23,7 +25,6 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { isValid, parseISO } from 'date-fns';
 
-import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
@@ -56,16 +57,18 @@ const labelFieldMap = {
     LgInputFieldComponent,
     LgMarginDirective,
     LgInputDirective,
+    LgHintComponent,
   ],
 })
-export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDestroy {
-  private domService = inject(LgDomService);
+export class LgDateFieldComponent
+implements OnInit, AfterViewInit, ControlValueAccessor, OnDestroy {
   private errorState = inject(LgErrorStateMatcher);
   private ngControl = inject(NgControl, { self: true, optional: true });
   private parentFormGroupDirective = inject(FormGroupDirective, {
     optional: true,
     skipSelf: true,
   });
+  private cdr = inject(ChangeDetectorRef);
 
   private uniqueId = nextUniqueId++;
   dateFormGroup: UntypedFormGroup;
@@ -86,25 +89,13 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
 
   @HostBinding('class.lg-date-field') class = true;
 
-  @ContentChild(LgHintComponent)
+  @ViewChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._hintElement,
-      element,
-    );
-
     this._hintElement = element;
   }
 
   @ContentChild(LgValidationComponent)
   set errorContentElement(element: LgValidationComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-
     this._validationElement = element;
   }
 
@@ -187,6 +178,29 @@ export class LgDateFieldComponent implements OnInit, ControlValueAccessor, OnDes
           this.ngControl.control.updateValueAndValidity();
         }),
     );
+  }
+
+  ngAfterViewInit(): void {
+    const ids: Array<string> = [];
+
+    // Preserve any custom ariaDescribedBy value provided via @Input
+    if (this.ariaDescribedBy) {
+      ids.push(this.ariaDescribedBy);
+    }
+
+    if (this._hintElement?.id) {
+      ids.push(this._hintElement.id);
+    }
+
+    if (this._validationElement?.id) {
+      ids.push(this._validationElement.id);
+    }
+
+    this.ariaDescribedBy = ids.length
+      ? ids.join(' ')
+      : null;
+
+    this.cdr.detectChanges();
   }
 
   isControlInvalid(control: NgControl, form: FormGroupDirective): boolean {
