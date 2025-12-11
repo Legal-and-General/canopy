@@ -57,7 +57,9 @@ and in your HTML:
 ```html
 <lg-checkbox-group [inline]="inline" [focus]="focus" formControlName="colors">
   {{ label }}
-  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+  @if (hint) {
+    <lg-hint>{{ hint }}</lg-hint>
+  }
   <lg-toggle value="red" (blur)="checkboxBlur.emit($event)">Red</lg-toggle>
   <lg-toggle value="yellow" (blur)="checkboxBlur.emit($event)">Yellow</lg-toggle>
 </lg-checkbox-group>

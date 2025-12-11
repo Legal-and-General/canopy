@@ -11,7 +11,6 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
-import { NgIf } from '@angular/common';
 
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
@@ -99,7 +98,6 @@ describe('LgCheckboxGroupComponent', () => {
         LgToggleComponent,
         LgValidationComponent,
         LgHintComponent,
-        NgIf,
         MockComponents(LgIconComponent),
       ],
       providers: [

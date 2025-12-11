@@ -1,5 +1,4 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { NgIf } from '@angular/common';
 
 import { LgPaddingDirective } from '../padding.directive';
 import { LgCardComponent, LgCardContentComponent } from '../../../card';
@@ -14,7 +13,7 @@ export default {
   tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
-      imports: [ LgCardComponent, LgCardContentComponent, LgPaddingDirective, NgIf ],
+      imports: [ LgCardComponent, LgCardContentComponent, LgPaddingDirective ],
     }),
   ],
   parameters: {
@@ -119,11 +118,21 @@ export const Padding = {
         [lgPaddingLeft]="paddingLeft !== 'undefined' ? paddingLeft : null">
           <lg-card-content>
             <strong>Spacing variant</strong> applied using directive
-            <div *ngIf="padding"><code>padding: {{padding | json}}</code></div>
-            <div *ngIf="paddingTop !== 'undefined'"><code>paddingTop: {{paddingTop | json}}</code></div>
-            <div *ngIf="paddingRight !== 'undefined'"><code>paddingRight: {{paddingRight | json}}</code></div>
-            <div *ngIf="paddingBottom !== 'undefined'"><code>paddingBottom: {{paddingBottom | json}}</code></div>
-            <div *ngIf="paddingLeft !== 'undefined'"><code>paddingLeft: {{paddingLeft | json}}</code></div>
+            @if (padding) {
+              <div><code>padding: {{padding | json}}</code></div>
+            }
+            @if (paddingTop !== 'undefined') {
+              <div><code>paddingTop: {{paddingTop | json}}</code></div>
+            }
+            @if (paddingRight !== 'undefined') {
+              <div><code>paddingRight: {{paddingRight | json}}</code></div>
+            }
+            @if (paddingBottom !== 'undefined') {
+              <div><code>paddingBottom: {{paddingBottom | json}}</code></div>
+            }
+            @if (paddingLeft !== 'undefined') {
+              <div><code>paddingLeft: {{paddingLeft | json}}</code></div>
+            }
           </lg-card-content>
       </lg-card>
       <lg-card><lg-card-content>Card without directive applied</lg-card-content></lg-card>

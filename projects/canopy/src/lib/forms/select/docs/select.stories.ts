@@ -13,9 +13,13 @@ import { LgSelectDirective } from '../select.directive';
 const template = `
 <lg-select-field [block]="block">
   {{ label }}
-  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+  @if (hint) {
+    <lg-hint>{{ hint }}</lg-hint>
+  }
   <select lgSelect formControlName="color">
-    <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+    @for (option of options; track option) {
+      <option [value]="option">{{ option }}</option>
+    }
   </select>
 </lg-select-field>
 `;

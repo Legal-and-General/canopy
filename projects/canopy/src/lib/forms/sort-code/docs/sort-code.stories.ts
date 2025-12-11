@@ -13,7 +13,9 @@ import { LgHintComponent } from '../../hint';
 const template = `
 <lg-input-field>
   {{ label }}
-  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+  @if (hint) {
+    <lg-hint>{{ hint }}</lg-hint>
+  }
   <input lgInput lgSortCode formControlName="sortCode" />
 </lg-input-field>
 `;

@@ -1,6 +1,6 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, HostBinding, Input } from '@angular/core';
-import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 
 import { ListWithIconsVariant } from '../list-with-icons.interface';
 import { LgListWithIconsComponent } from '../list-with-icons.component';
@@ -9,14 +9,20 @@ import { LgListWithExpressiveStylingDirective } from '../list-with-expressive-st
 
 const template = `
 <ul lg-list-with-icons [variant]="variant">
-  <li lg-list-with-icons-item *ngFor="let item of listItems" [iconName]="item.iconName" [iconColour]="colouredIcons ? item.iconColour : null"
-  ><ng-container [ngTemplateOutlet]="item.isLink ? linkText : text" [ngTemplateOutletContext]="{text: item.text}"></ng-container>
-    <ul lg-list-with-icons *ngIf="item.children as children">
-      <li lg-list-with-icons-item *ngFor="let child of children" [iconName]="child.iconName" [iconColour]="colouredIcons ? child.iconColour : null"
-      ><ng-container [ngTemplateOutlet]="child.isLink ? linkText : text" [ngTemplateOutletContext]="{text: child.text}"></ng-container>
-      </li>
-    </ul>
-  </li>
+  @for (item of listItems; track item.text) {
+    <li lg-list-with-icons-item [iconName]="item.iconName" [iconColour]="colouredIcons ? item.iconColour : null"
+    ><ng-container [ngTemplateOutlet]="item.isLink ? linkText : text" [ngTemplateOutletContext]="{text: item.text}"></ng-container>
+      @if (item.children as children) {
+        <ul lg-list-with-icons>
+          @for (child of children; track child.text) {
+            <li lg-list-with-icons-item [iconName]="child.iconName" [iconColour]="colouredIcons ? child.iconColour : null"
+            ><ng-container [ngTemplateOutlet]="child.isLink ? linkText : text" [ngTemplateOutletContext]="{text: child.text}"></ng-container>
+            </li>
+          }
+        </ul>
+      }
+    </li>
+  }
 </ul>
 
 <ng-template #text let-text="text">{{ text }}</ng-template>
@@ -35,13 +41,7 @@ const template = `
     `,
   ],
   standalone: true,
-  imports: [
-    LgListWithIconsComponent,
-    LgListWithIconsItemComponent,
-    NgFor,
-    NgIf,
-    NgTemplateOutlet,
-  ],
+  imports: [ LgListWithIconsComponent, LgListWithIconsItemComponent, NgTemplateOutlet ],
 })
 class ListWithIconsWrapperComponent {
   @Input() variant: ListWithIconsVariant;

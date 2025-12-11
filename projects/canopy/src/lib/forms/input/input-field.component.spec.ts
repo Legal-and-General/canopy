@@ -3,13 +3,11 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
-import { NgIf } from '@angular/common';
 
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
-import { LgValidationComponent } from '../validation';
+import { LgErrorStateMatcher, LgValidationComponent } from '../validation';
 import { LgButtonComponent } from '../../button';
-import { LgErrorStateMatcher } from '../validation';
 import { LgPrefixDirective } from '../../prefix';
 import { LgSuffixDirective } from '../../suffix';
 import { LgIconComponent } from '../../icon';
@@ -51,7 +49,6 @@ describe('LgInputFieldComponent', () => {
         LgSuffixDirective,
         LgPrefixDirective,
         LgLabelComponent,
-        NgIf,
         MockComponents(LgButtonComponent, LgIconComponent),
       ],
       providers: [
