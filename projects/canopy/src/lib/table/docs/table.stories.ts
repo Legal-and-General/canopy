@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component, Input, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
-import { NgFor } from '@angular/common';
 
 import type { TableVariant } from '../table.interface';
 import { AlignmentOptions, TableColumnLayoutBreakpoints } from '../table.interface';
@@ -98,7 +97,7 @@ const expandableTableTemplate = `
     </thead>
 
     <tbody lg-table-body>
-    <ng-container *ngFor="let book of books; index as i">
+    @for (book of books; track $index; let i = $index) {
       <tr lg-table-row>
         <td lg-table-cell>
           <lg-table-row-toggle
@@ -119,7 +118,7 @@ const expandableTableTemplate = `
           </lg-table-expanded-detail>
         </td>
       </tr>
-    </ng-container>
+    }
     </tbody>
   </table>
 `;
@@ -446,7 +445,6 @@ export default {
         LgInputDirective,
         LgMarginDirective,
         LgSuffixDirective,
-        NgFor,
       ],
     }),
   ],
@@ -464,11 +462,13 @@ const standardTableTemplate = `
   </thead>
 
   <tbody lg-table-body>
-    <tr lg-table-row *ngFor="let book of books">
-      <td lg-table-cell [stack]="stack">{{ book.author }}</td>
-      <td lg-table-cell [stack]="stack">{{ book.title }}</td>
-      <td lg-table-cell [stack]="stack">{{ book.published }}</td>
-    </tr>
+    @for (book of books; track book.title) {
+      <tr lg-table-row>
+        <td lg-table-cell [stack]="stack">{{ book.author }}</td>
+        <td lg-table-cell [stack]="stack">{{ book.title }}</td>
+        <td lg-table-cell [stack]="stack">{{ book.published }}</td>
+      </tr>
+    }
   </tbody>
 </table>
 `;
@@ -546,15 +546,17 @@ const withInputTableTemplate = `
   </thead>
 
   <tbody lg-table-body>
-    <tr lg-table-row *ngFor="let book of books">
-      <td lg-table-cell>{{ book.author }}</td>
-      <td lg-table-cell>
-        <lg-input-field lgMarginBottom="none" showLabel="false">
-          <input lgInput size="2" />
-          <span lgSuffix>%</span>
-        </lg-input-field>
-      </td>
-    </tr>
+    @for (book of books; track book.author) {
+      <tr lg-table-row>
+        <td lg-table-cell>{{ book.author }}</td>
+        <td lg-table-cell>
+          <lg-input-field lgMarginBottom="none" showLabel="false">
+            <input lgInput size="2" />
+            <span lgSuffix>%</span>
+          </lg-input-field>
+        </td>
+      </tr>
+    }
   </tbody>
 </table>
 `;

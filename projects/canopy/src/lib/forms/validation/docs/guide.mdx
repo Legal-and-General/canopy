@@ -66,12 +66,16 @@ In your HTML, add the validation components with the appropriate structural dire
       Text
       <input lgInput formControlName="username" />
       <lg-hint>This is a standard input field</lg-hint>
-    <lg-validation *ngIf="isControlInvalid(text, userForm) && text.hasError('required')">
-      Username is a required field
-    </lg-validation>
-    <lg-validation *ngIf="isControlInvalid(text, validationForm) && text.hasError('minlength')">
-      Username needs to be at least 4 characters
-    </lg-validation>
+    @if (isControlInvalid(text, userForm) && text.hasError('required')) {
+      <lg-validation>
+        Username is a required field
+      </lg-validation>
+    }
+    @if (isControlInvalid(text, validationForm) && text.hasError('minlength')) {
+      <lg-validation>
+        Username needs to be at least 4 characters
+      </lg-validation>
+    }
   </lg-input-field>
 </form>
 ```

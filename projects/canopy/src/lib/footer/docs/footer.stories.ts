@@ -1,5 +1,4 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { NgFor, NgIf } from '@angular/common';
 
 import { LgFooterComponent } from '../footer.component';
 import { LgFooterNavComponent } from '../footer-nav/footer-nav.component';
@@ -51,8 +50,6 @@ export default {
         LgFooterNavItemComponent,
         LgFooterLogoComponent,
         LgFooterCopyrightComponent,
-        NgIf,
-        NgFor,
       ],
     }),
   ],
@@ -96,19 +93,23 @@ export default {
 const template = `
 <footer lg-footer>
   <lg-footer-nav variant="primary">
-    <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
-      <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
-    </lg-footer-nav-item>
+    @for (primaryLink of primaryLinks; track primaryLink.id) {
+      <lg-footer-nav-item>
+        <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
+      </lg-footer-nav-item>
+    }
   </lg-footer-nav>
 
   <lg-footer-nav variant="secondary">
-    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
-      <a *ngIf="!secondaryLink.isButton; else button" [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
-
-      <ng-template #button>
-        <button [class]="secondaryLink.class" [id]="secondaryLink.id">{{ secondaryLink.text }}</button>
-      </ng-template>
-    </lg-footer-nav-item>
+    @for (secondaryLink of secondaryLinks; track secondaryLink.id) {
+      <lg-footer-nav-item>
+        @if (!secondaryLink.isButton) {
+          <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+        } @else {
+          <button [class]="secondaryLink.class" [id]="secondaryLink.id">{{ secondaryLink.text }}</button>
+        }
+      </lg-footer-nav-item>
+    }
   </lg-footer-nav>
 
   <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
@@ -154,9 +155,11 @@ export const StandardFooter = {
 const compactTemplate = `
 <footer lg-footer>
   <lg-footer-nav variant="secondary">
-    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
-      <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
-    </lg-footer-nav-item>
+    @for (secondaryLink of secondaryLinks; track secondaryLink.id) {
+      <lg-footer-nav-item>
+        <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+      </lg-footer-nav-item>
+    }
   </lg-footer-nav>
 
   <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
@@ -212,15 +215,19 @@ export const CompactFooter = {
 const coBrandedTemplate = `
 <footer lg-footer>
   <lg-footer-nav variant="primary">
-    <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
-      <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
-    </lg-footer-nav-item>
+    @for (primaryLink of primaryLinks; track primaryLink.id) {
+      <lg-footer-nav-item>
+        <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
+      </lg-footer-nav-item>
+    }
   </lg-footer-nav>
 
   <lg-footer-nav variant="secondary">
-    <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
-      <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
-    </lg-footer-nav-item>
+    @for (secondaryLink of secondaryLinks; track secondaryLink.id) {
+      <lg-footer-nav-item>
+        <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+      </lg-footer-nav-item>
+    }
   </lg-footer-nav>
 
   <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>

@@ -163,26 +163,27 @@ const examplePromoCardTemplate = `
   <lg-promo-card-list-title headingLevel="1">
     {{ title }}
   </lg-promo-card-list-title>
-  <lg-promo-card
-    *ngFor="let card of cards; let i = index"
-    [variant]="variant[i]">
-    <lg-promo-card-image [imageUrl]="card.imageUrl"></lg-promo-card-image>
-    <lg-promo-card-title headingLevel="2">
-      {{ card.title }}
-    </lg-promo-card-title>
-    <lg-promo-card-content>
-      <p>{{ card.content }}</p>
-    </lg-promo-card-content>
-    <lg-promo-card-footer>
-      <button
-        lgMarginBottom="none"
-        lg-button
-        type="button"
-        [variant]="buttonVariants[variants[i]]">
-        {{ card.ctaText }}
-      </button>
-    </lg-promo-card-footer>
-  </lg-promo-card>
+  @for (card of cards; track $index; let i = $index) {
+    <lg-promo-card
+      [variant]="variant[i]">
+      <lg-promo-card-image [imageUrl]="card.imageUrl"></lg-promo-card-image>
+      <lg-promo-card-title headingLevel="2">
+        {{ card.title }}
+      </lg-promo-card-title>
+      <lg-promo-card-content>
+        <p>{{ card.content }}</p>
+      </lg-promo-card-content>
+      <lg-promo-card-footer>
+        <button
+          lgMarginBottom="none"
+          lg-button
+          type="button"
+          [variant]="buttonVariants[variants[i]]">
+          {{ card.ctaText }}
+        </button>
+      </lg-promo-card-footer>
+    </lg-promo-card>
+  }
 </lg-promo-card-list>
 `;
 

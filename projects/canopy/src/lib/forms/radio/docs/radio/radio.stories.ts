@@ -14,7 +14,9 @@ const formTemplate = `
 <form [formGroup]="form">
   <lg-radio-group [inline]="inline" [focus]="focus" formControlName="color">
     {{ label }}
-    <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+    @if (hint) {
+      <lg-hint>{{ hint }}</lg-hint>
+    }
     <lg-radio-button value="red" [size]="size" (blur)="radioBlur.emit($event)">Red</lg-radio-button>
     <lg-radio-button value="yellow" [size]="size" (blur)="radioBlur.emit($event)"
       >Yellow

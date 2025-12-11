@@ -14,7 +14,9 @@ import { LgHintComponent } from '../../../hint';
 const segmentTemplate = `
 <lg-segment-group [inline]="inline" [focus]="focus" [stack]="stack" formControlName="color">
   {{ label }}
-  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
+  @if (hint) {
+    <lg-hint>{{ hint }}</lg-hint>
+  }
   <lg-segment-button value="red" (blur)="segmentBlur.emit($event)">Red</lg-segment-button>
   <lg-segment-button value="yellow" (blur)="segmentBlur.emit($event)">Yellow</lg-segment-button>
   <lg-segment-button value="green" (blur)="segmentBlur.emit($event)">Green</lg-segment-button>

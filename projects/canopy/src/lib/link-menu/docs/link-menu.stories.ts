@@ -1,6 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
 import { LgLinkMenuComponent } from '../link-menu.component';
@@ -9,15 +8,21 @@ import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-it
 
 const template = `
 <lg-link-menu>
-  <a href="#" *ngFor="let item of menuItems" [attr.target]="item.target">
-    <lg-link-menu-item>
-      <lg-icon [name]="item.icon" *ngIf="item.icon"></lg-icon>
-      <lg-link-menu-item-text isBold="true">{{ item.title }}</lg-link-menu-item-text>
-      <lg-link-menu-item-text *ngIf="item.description">
-        {{ item.description }}
-      </lg-link-menu-item-text>
-    </lg-link-menu-item>
-  </a>
+  @for (item of menuItems; track item.title) {
+    <a href="#" [attr.target]="item.target">
+      <lg-link-menu-item>
+        @if (item.icon) {
+          <lg-icon [name]="item.icon"></lg-icon>
+        }
+        <lg-link-menu-item-text isBold="true">{{ item.title }}</lg-link-menu-item-text>
+        @if (item.description) {
+          <lg-link-menu-item-text>
+            {{ item.description }}
+          </lg-link-menu-item-text>
+        }
+      </lg-link-menu-item>
+    </a>
+  }
 </lg-link-menu>`;
 
 @Component({
@@ -29,8 +34,6 @@ const template = `
     LgLinkMenuItemComponent,
     LgIconComponent,
     LgLinkMenuItemTextComponent,
-    NgFor,
-    NgIf,
   ],
 })
 class LinkMenuStoryComponent {

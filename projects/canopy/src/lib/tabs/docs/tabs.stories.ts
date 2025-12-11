@@ -103,12 +103,14 @@ const template = `
   [lgMarginBottom]="'none'"
   [lgMarginLeft]="'none'"
 >
-  <lg-tab-item *ngFor="let tab of tabs">
-    <lg-tab-item-heading>{{ tab.header }}</lg-tab-item-heading>
-    <lg-tab-item-content>
-      <div class="lg-tabs__content-section">{{ tab.content }}</div>
-    </lg-tab-item-content>
-  </lg-tab-item>
+  @for (tab of tabs; track tab.header) {
+    <lg-tab-item>
+      <lg-tab-item-heading>{{ tab.header }}</lg-tab-item-heading>
+      <lg-tab-item-content>
+        <div class="lg-tabs__content-section">{{ tab.content }}</div>
+      </lg-tab-item-content>
+    </lg-tab-item>
+  }
 </lg-tabs>
 `;
 
