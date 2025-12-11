@@ -13,9 +13,7 @@ import { LgHintComponent } from '../../hint';
 const template = `
 <lg-input-field>
   {{ label }}
-  @if (hint) {
-    <lg-hint>{{ hint }}</lg-hint>
-  }
+  <lg-hint>Must be 6 digits long, for example 00-00-00</lg-hint>
   <input lgInput lgSortCode formControlName="sortCode" />
 </lg-input-field>
 `;
@@ -84,6 +82,11 @@ export default {
       },
     },
     placeholder: {
+      table: {
+        disable: true,
+      },
+    },
+    inputmode: {
       table: {
         disable: true,
       },
