@@ -71,7 +71,9 @@ const formJourneyTemplate = `
 
                     <lg-input-field [block]="true">
                       {{label}}
-                      <lg-hint *ngIf="hint">{{hint}}</lg-hint>
+                      @if (hint) {
+                        <lg-hint>{{hint}}</lg-hint>
+                      }
                       <input lgInput formControlName="accountNumber" size="8" />
                     </lg-input-field>
                   </div>
@@ -177,12 +179,12 @@ const showMoreCardTemplate = `
       <div lgMarginTop="5">
         <button lg-button type="button" variant="link" lgButtonToggle (toggleActive)="toggleActive($event)"
                 lgMarginBottom="none">
-          <ng-container *ngIf="isToggleActive">
+          @if (isToggleActive) {
             Show less
-          </ng-container>
-          <ng-container *ngIf="!isToggleActive">
+          }
+          @if (!isToggleActive) {
             Show more
-          </ng-container>
+          }
         </button>
       </div>
     </lg-card-content>
@@ -257,14 +259,16 @@ const dataPointsCardTemplate = `
   </lg-card-header>
   <lg-card-content>
     <lg-card-content-inner-data-points>
-      <lg-data-point *ngFor="let number of [].constructor(dataPoints); let i = index;">
-        <lg-data-point-label [headingLevel]="3">
-          {{data[i].label}}
-        </lg-data-point-label>
-        <lg-data-point-value>
-          {{data[i].value}}
-        </lg-data-point-value>
-      </lg-data-point>
+      @for (number of [].constructor(dataPoints); track $index; let i = $index) {
+        <lg-data-point>
+          <lg-data-point-label [headingLevel]="3">
+            {{data[i].label}}
+          </lg-data-point-label>
+          <lg-data-point-value>
+            {{data[i].value}}
+          </lg-data-point-value>
+        </lg-data-point>
+      }
     </lg-card-content-inner-data-points>
   </lg-card-content>
   <lg-card-footer lgPaddingTop="none">
@@ -328,15 +332,16 @@ const cardGroupTemplate = `
             explicabo.
           </lg-card-content>
         </lg-card>
-        <lg-card *ngFor="let i of [].constructor(additionalCards)">
-          <lg-card-header>
-            <lg-card-navigation-title title="External link title" link="https://www.landg.com"
-                                      headingLevel="2"></lg-card-navigation-title>
-          </lg-card-header>
-          <lg-card-content>
-            {{ cardContent }} <a href="#">Test link</a>.
-          </lg-card-content>
-          <lg-card-footer lgMarginTop="5" lgPaddingTop="none">
+        @for (i of [].constructor(additionalCards); track $index) {
+          <lg-card>
+            <lg-card-header>
+              <lg-card-navigation-title title="External link title" link="https://www.landg.com"
+                                        headingLevel="2"></lg-card-navigation-title>
+            </lg-card-header>
+            <lg-card-content>
+              {{ cardContent }} <a href="#">Test link</a>.
+            </lg-card-content>
+            <lg-card-footer lgMarginTop="5" lgPaddingTop="none">
             <lg-link-menu>
               <a href="" target="_blank">
                 <lg-link-menu-item>

@@ -93,32 +93,42 @@ function setupInputStoryValues(obj, code, config?: Config) {
 const inputTemplate = `
 <lg-input-field [block]="block" [showLabel]="showLabel">
   {{ label }}
-  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
-  <span lgPrefix *ngIf="showTextPrefix">{{ prefix }}</span>
+  @if (hint) {
+    <lg-hint>{{ hint }}</lg-hint>
+  }
+  @if (showTextPrefix) {
+    <span lgPrefix>{{ prefix }}</span>
+  }
   <input lgInput formControlName="name" [size]="size" />
-  <button
-    lg-button
-    lgSuffix
-    size="sm"
-    [iconButton]="true"
-    variant="add-on"
-    *ngIf="showButtonFirstSuffix"
-  >
-    Close
-    <lg-icon name="close"></lg-icon>
-  </button>
-  <button
-    lg-button
-    lgSuffix
-    size="sm"
-    [iconButton]="iconButton"
-    [variant]="buttonVariant"
-    *ngIf="showButtonSecondSuffix"
-  >
-    {{ buttonText }}
-    <lg-icon [name]="icon" *ngIf="iconButton"></lg-icon>
-  </button>
-  <span lgSuffix *ngIf="showTextSuffix">{{ suffix }}</span>
+  @if (showButtonFirstSuffix) {
+    <button
+      lg-button
+      lgSuffix
+      size="sm"
+      [iconButton]="true"
+      variant="add-on"
+    >
+      Close
+      <lg-icon name="close"></lg-icon>
+    </button>
+  }
+  @if (showButtonSecondSuffix) {
+    <button
+      lg-button
+      lgSuffix
+      size="sm"
+      [iconButton]="iconButton"
+      [variant]="buttonVariant"
+    >
+      {{ buttonText }}
+      @if (iconButton) {
+        <lg-icon [name]="icon"></lg-icon>
+      }
+    </button>
+  }
+  @if (showTextSuffix) {
+    <span lgSuffix>{{ suffix }}</span>
+  }
 </lg-input-field>
 `;
 

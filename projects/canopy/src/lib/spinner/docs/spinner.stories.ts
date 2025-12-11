@@ -91,7 +91,9 @@ export const StandardSpinner = {
       source: {
         code: `
           # Display a spinner while loading
-          <lg-spinner *ngIf="!loaded" [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
+          @if (!loaded) {
+            <lg-spinner [size]="size" [variant]="variant" [text]="text ? text : null"></lg-spinner>
+          }
 
           # Tell screen reader to read a message when loading is finished
           <p [lgSrAlertMessage]="loaded">Loading complete</p>

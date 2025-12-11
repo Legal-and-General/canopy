@@ -1,5 +1,4 @@
 import { moduleMetadata } from '@storybook/angular';
-import { NgFor } from '@angular/common';
 
 import { LgTabsComponent } from '../tabs.component';
 import { LgTabNavBarComponent } from '../tab-nav-bar/tab-nav-bar.component';
@@ -12,12 +11,7 @@ export default {
   component: LgTabsComponent,
   decorators: [
     moduleMetadata({
-      imports: [
-        LgTabNavBarComponent,
-        LgTabNavBarLinkDirective,
-        LgTabNavContentComponent,
-        NgFor,
-      ],
+      imports: [ LgTabNavBarComponent, LgTabNavBarLinkDirective, LgTabNavContentComponent ],
     }),
   ],
   argTypes: {
@@ -103,11 +97,13 @@ export default {
 function getTemplate(preventDefault?: boolean) {
   return `
 <lg-tab-nav-bar label="Tabbed navigation demo">
-  <a *ngFor="let tab of tabs; index as i" lgTabNavBarLink href="" (click)="${
+  @for (tab of tabs; track $index; let i = $index) {
+    <a lgTabNavBarLink href="" (click)="${
   preventDefault
     ? '$event.preventDefault();'
     : ''
 }onClick($event)" id="tabbed-nav-{{i}}" [isActive]="i === selectedTabNavIndex">{{tab}}</a>
+  }
 </lg-tab-nav-bar>
 
 <lg-tab-nav-content [selectedTabId]="'tabbed-nav-' + selectedTabNavIndex">

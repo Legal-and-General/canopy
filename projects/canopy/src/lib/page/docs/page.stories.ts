@@ -1,6 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
 
 import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
@@ -71,15 +70,19 @@ const header = `
 const footer = `
   <footer lg-footer>
     <lg-footer-nav variant="primary">
-      <lg-footer-nav-item *ngFor="let primaryLink of primaryLinks">
-        <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
-      </lg-footer-nav-item>
+      @for (primaryLink of primaryLinks; track primaryLink.id) {
+        <lg-footer-nav-item>
+          <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
+        </lg-footer-nav-item>
+      }
     </lg-footer-nav>
 
     <lg-footer-nav variant="secondary">
-      <lg-footer-nav-item *ngFor="let secondaryLink of secondaryLinks">
-        <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
-      </lg-footer-nav-item>
+      @for (secondaryLink of secondaryLinks; track secondaryLink.id) {
+        <lg-footer-nav-item>
+          <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
+        </lg-footer-nav-item>
+      }
     </lg-footer-nav>
 
     <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
@@ -192,8 +195,6 @@ export default {
         LgFooterNavItemComponent,
         LgFooterLogoComponent,
         LgFooterCopyrightComponent,
-        NgIf,
-        NgFor,
       ],
     }),
   ],

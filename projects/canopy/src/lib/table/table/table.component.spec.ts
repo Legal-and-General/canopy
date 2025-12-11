@@ -1,8 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockRender, MockComponents, ngMocks } from 'ng-mocks';
-import { NgFor } from '@angular/common';
+import { MockComponents, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
@@ -45,7 +44,6 @@ describe('TableComponent', () => {
         LgTableHeadCellComponent,
         LgTableCellComponent,
         LgTableRowToggleComponent,
-        NgFor,
         MockComponents(LgIconComponent, LgTableExpandedDetailComponent),
       ],
     }).compileComponents();
@@ -64,11 +62,13 @@ describe('TableComponent', () => {
       </thead>
 
       <tbody lg-table-body>
-        <tr lg-table-row *ngFor="let book of books">
-          <td lg-table-cell>{{book.author}}</td>
-          <td lg-table-cell>{{book.title}}</td>
-          <td lg-table-cell>{{book.published}}</td>
-        </tr>
+        @for (book of books; track book.title) {
+          <tr lg-table-row>
+            <td lg-table-cell>{{book.author}}</td>
+            <td lg-table-cell>{{book.title}}</td>
+            <td lg-table-cell>{{book.published}}</td>
+          </tr>
+        }
       </tbody>
     </table>
     `,

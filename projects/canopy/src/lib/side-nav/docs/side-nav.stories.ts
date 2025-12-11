@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
-import { NgFor, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 import { SideNavBarItem } from '../side-nav.interface';
@@ -18,21 +17,24 @@ import { LgMarginDirective } from '../../spacing';
 const template = `
 <lg-side-nav>
   <lg-side-nav-bar label="Side Nav Demo">
-    <a
-      *ngFor="let item of navItems; index as i"
-      id="side-nav-{{ i }}"
-      href=""
-      (click)="onClick($event, i)"
-      [isActive]="i == selectedNavIndex"
-      lgSideBarNavLink
-    >
-      <lg-side-nav-bar-item>
-        <lg-side-nav-bar-item-heading>{{ item.title }}</lg-side-nav-bar-item-heading>
-        <lg-side-nav-bar-item-content *ngIf="item.description">{{
-          item.description
-        }}</lg-side-nav-bar-item-content>
-      </lg-side-nav-bar-item>
-    </a>
+    @for (item of navItems; track $index; let i = $index) {
+      <a
+        id="side-nav-{{ i }}"
+        href=""
+        (click)="onClick($event, i)"
+        [isActive]="i == selectedNavIndex"
+        lgSideBarNavLink
+      >
+        <lg-side-nav-bar-item>
+          <lg-side-nav-bar-item-heading>{{ item.title }}</lg-side-nav-bar-item-heading>
+          @if (item.description) {
+            <lg-side-nav-bar-item-content>{{
+              item.description
+            }}</lg-side-nav-bar-item-content>
+          }
+        </lg-side-nav-bar-item>
+      </a>
+    }
     <lg-side-nav-bar-footer>
       <a
         lg-button
@@ -66,8 +68,6 @@ const template = `
     LgMarginDirective,
     RouterOutlet,
     LgButtonComponent,
-    NgFor,
-    NgIf,
   ],
 })
 export class StorySideNavComponent {

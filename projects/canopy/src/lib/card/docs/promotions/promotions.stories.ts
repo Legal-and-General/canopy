@@ -26,7 +26,9 @@ const promotionsGeneralCardTemplate = `
   <lg-card-hero-img
     [cover]="true"
     [src]="hasIcon ? '' : imgUrl">
-    <lg-brand-icon *ngIf="hasIcon" [name]="iconName" size="xs"></lg-brand-icon>
+    @if (hasIcon) {
+      <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
+    }
   </lg-card-hero-img>
   <lg-card-content>
     <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>

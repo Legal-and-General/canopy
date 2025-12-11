@@ -29,7 +29,9 @@ This directive can be used together with the `LgSpinnerComponent` to show a spin
 
 ```html
 # Display a spinner while loading
-<lg-spinner *ngIf="!loaded"></lg-spinner>
+@if (!loaded) {
+  <lg-spinner></lg-spinner>
+}
 
 # Tell the screen reader to read a message when loading is finished
 <p [lgSrAlertMessage]="loaded">Loading complete</p>
