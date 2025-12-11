@@ -7,24 +7,21 @@ import {
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgDateFieldComponent } from '../date-field.component';
-import { LgHintComponent } from '../../hint';
 
 const template = `
 <lg-date-field [focus]="focus" formControlName="date">
   {{ label }}
-  <lg-hint *ngIf="hint">{{ hint }}</lg-hint>
 </lg-date-field>
 `;
 
 @Component({
   selector: 'lg-reactive-form',
   template: ` <form [formGroup]="form">${template}</form> `,
-  imports: [ ReactiveFormsModule, LgDateFieldComponent, LgHintComponent ],
+  imports: [ ReactiveFormsModule, LgDateFieldComponent ],
 })
 class ReactiveFormComponent {
   fb = inject(UntypedFormBuilder);
 
-  @Input() hint: string;
   @Input() label: string;
   @Input() focus: boolean;
 
@@ -156,6 +153,11 @@ export default {
         disable: true,
       },
     },
+    ngAfterViewInit: {
+      table: {
+        disable: true,
+      },
+    },
     onBlur: {
       table: {
         disable: true,
@@ -227,7 +229,6 @@ export const DateInput = {
       <lg-reactive-form
         (inputChange)="inputChange($event)"
         [disabled]="disabled"
-        [hint]="hint"
         [label]="label"
         [focus]="focus"
       ></lg-reactive-form>
@@ -236,7 +237,6 @@ export const DateInput = {
   args: {
     disabled: false,
     label: 'Date of birth',
-    hint: 'For example, 12 06 1983',
     focus: false,
   },
   parameters: {
