@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
-const fsExtra = require('fs-extra');
-const path = require('path');
+import fsExtra from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuration - now includes both directories
 const variablesDir = path.join(__dirname, '../projects/canopy/src/styles/variables');

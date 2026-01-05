@@ -161,4 +161,128 @@ describe('SpacingService', () => {
       });
     });
   });
+
+  describe('createNoneAtClass method', () => {
+    it('should return empty string when breakpoint is null', () => {
+      expect(spacingService.createNoneAtClass(null, 'margin')).toEqual('');
+    });
+
+    it('should return empty string when breakpoint is undefined', () => {
+      expect(spacingService.createNoneAtClass(undefined, 'margin')).toEqual('');
+    });
+
+    it('should create correct class for margin with all breakpoints', () => {
+      expect(spacingService.createNoneAtClass('sm', 'margin')).toEqual(
+        'lg-margin--sm--none',
+      );
+
+      expect(spacingService.createNoneAtClass('md', 'margin')).toEqual(
+        'lg-margin--md--none',
+      );
+
+      expect(spacingService.createNoneAtClass('lg', 'margin')).toEqual(
+        'lg-margin--lg--none',
+      );
+
+      expect(spacingService.createNoneAtClass('xl', 'margin')).toEqual(
+        'lg-margin--xl--none',
+      );
+
+      expect(spacingService.createNoneAtClass('xxl', 'margin')).toEqual(
+        'lg-margin--xxl--none',
+      );
+    });
+
+    it('should create correct class for padding with all breakpoints', () => {
+      expect(spacingService.createNoneAtClass('sm', 'padding')).toEqual(
+        'lg-padding--sm--none',
+      );
+
+      expect(spacingService.createNoneAtClass('md', 'padding')).toEqual(
+        'lg-padding--md--none',
+      );
+
+      expect(spacingService.createNoneAtClass('lg', 'padding')).toEqual(
+        'lg-padding--lg--none',
+      );
+
+      expect(spacingService.createNoneAtClass('xl', 'padding')).toEqual(
+        'lg-padding--xl--none',
+      );
+
+      expect(spacingService.createNoneAtClass('xxl', 'padding')).toEqual(
+        'lg-padding--xxl--none',
+      );
+    });
+
+    it('should create correct class for margin-top', () => {
+      expect(spacingService.createNoneAtClass('md', 'margin-top')).toEqual(
+        'lg-margin__top--md--none',
+      );
+    });
+
+    it('should create correct class for margin-right', () => {
+      expect(spacingService.createNoneAtClass('lg', 'margin-right')).toEqual(
+        'lg-margin__right--lg--none',
+      );
+    });
+
+    it('should create correct class for margin-bottom', () => {
+      expect(spacingService.createNoneAtClass('xl', 'margin-bottom')).toEqual(
+        'lg-margin__bottom--xl--none',
+      );
+    });
+
+    it('should create correct class for margin-left', () => {
+      expect(spacingService.createNoneAtClass('sm', 'margin-left')).toEqual(
+        'lg-margin__left--sm--none',
+      );
+    });
+
+    it('should create correct class for padding-top', () => {
+      expect(spacingService.createNoneAtClass('md', 'padding-top')).toEqual(
+        'lg-padding__top--md--none',
+      );
+    });
+
+    it('should create correct class for padding-right', () => {
+      expect(spacingService.createNoneAtClass('lg', 'padding-right')).toEqual(
+        'lg-padding__right--lg--none',
+      );
+    });
+
+    it('should create correct class for padding-bottom', () => {
+      expect(spacingService.createNoneAtClass('xl', 'padding-bottom')).toEqual(
+        'lg-padding__bottom--xl--none',
+      );
+    });
+
+    it('should create correct class for padding-left', () => {
+      expect(spacingService.createNoneAtClass('sm', 'padding-left')).toEqual(
+        'lg-padding__left--sm--none',
+      );
+    });
+
+    it('should correctly replace hyphens with double underscores for all margin sides', () => {
+      [ 'margin-top', 'margin-right', 'margin-bottom', 'margin-left' ].forEach(side => {
+        const className = spacingService.createNoneAtClass('md', side);
+
+        expect(className).toContain('__');
+        expect(className).not.toContain(`lg-${side}`);
+        expect(className).toEqual(`lg-${side.replace('-', '__')}--md--none`);
+      });
+    });
+
+    it('should correctly replace hyphens with double underscores for all padding sides', () => {
+      [ 'padding-top', 'padding-right', 'padding-bottom', 'padding-left' ].forEach(
+        side => {
+          const className = spacingService.createNoneAtClass('lg', side);
+
+          expect(className).toContain('__');
+          expect(className).not.toContain(`lg-${side}`);
+          expect(className).toEqual(`lg-${side.replace('-', '__')}--lg--none`);
+        },
+      );
+    });
+  });
 });

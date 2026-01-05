@@ -1,21 +1,25 @@
 # Note that changing the name of this workflow will affect the
-# code in gh-pages/download-branch-deploy-artifact.js
+# code in gh-pages/download-branch-deploy-artifact.cjs
 name: Pull request
 
 on:
   pull_request:
     types: [opened, synchronize]
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: 'Setup node'
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v6.1.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -52,7 +56,7 @@ jobs:
         run: npm run build:storybook -- --output-dir ./lg-sb-build
 
       - name: 'Upload storybook build'
-        uses: actions/upload-artifact@v5.0.0
+        uses: actions/upload-artifact@v6.0.0
         with:
           name: lg-sb-build
           path: ./lg-sb-build

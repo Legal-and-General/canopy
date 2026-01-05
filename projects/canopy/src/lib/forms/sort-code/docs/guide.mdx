@@ -1,13 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import * as SortCodeStories from './sort-code.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 <Meta title="Patterns/Sort code/Guide" tags={['pending']}/>
 
 # Sort code
 
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Provides a directive to apply formatting and specific validators to the input component for entering a sort code.</p>
 

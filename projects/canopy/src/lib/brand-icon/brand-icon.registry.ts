@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { LgCamelCasePipe } from '../pipes';
-
+import { ICON_LOADER } from './brand-icon-loader';
 import { BrandIconName } from './brand-icons-files.interface';
 
 @Injectable({
@@ -12,15 +11,13 @@ export class LgBrandIconRegistry {
 
   async get(name: BrandIconName): Promise<string | undefined> {
     if (!this.registry.has(name)) {
-      const str = new LgCamelCasePipe().transform(name);
+      const loader = ICON_LOADER[name];
 
-      const iconName = `lgBrandIcon${str.replace(/^./, str[0].toUpperCase())}`;
+      if (loader) {
+        const icon = await loader();
 
-      const { [iconName]: icon } = await import(
-        `../brand-icons-files/set/lgBrandIcon-${name}.icon`
-      );
-
-      this.registry.set(icon.name, icon.data);
+        this.registry.set(icon.name, icon.data);
+      }
     }
 
     return this.registry.get(name);

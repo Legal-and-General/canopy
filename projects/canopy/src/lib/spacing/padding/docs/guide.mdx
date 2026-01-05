@@ -84,6 +84,67 @@ Apply `6` padding to the top and bottom
 
 ```
 
+### None at breakpoint
+
+When using responsive spacing variables, you may need to set padding to none (zero) at a specific breakpoint. Use the `NoneAt` inputs for this:
+
+Apply `4` padding on all sides, but set to none at `sm` breakpoint
+
+```html
+
+<lg-card lgPadding="4" lgPaddingNoneAt="sm"></lg-card>
+
+```
+
+Apply `5` padding to the right, but set to none at the `md` breakpoint
+
+```html
+
+<lg-card lgPaddingRight="5" lgPaddingRightNoneAt="md"></lg-card>
+
+```
+
+Apply `6` padding on top and bottom, but set to none at the `lg` breakpoint
+
+```html
+
+<lg-card lgPaddingVertical="6" lgPaddingVerticalNoneAt="lg"></lg-card>
+
+```
+
+#### How NoneAt works with responsive spacing
+
+The `NoneAt` inputs create **breakpoint-specific overrides** that only apply within a specific breakpoint range. This is particularly useful when working with responsive spacing CSS variables (like `--space-8`) that change values at different breakpoints.
+
+**Example scenario:**
+
+```html
+<lg-card lgPadding="8" lgPaddingNoneAt="md"></lg-card>
+```
+
+This will:
+- Apply `padding: var(--space-8)` which is responsive across all breakpoints
+- Override to `padding: 0` **only at the `md` breakpoint** (48rem - 63.94rem)
+- At `lg`, `xl`, and `xxl` breakpoints, `var(--space-8)` takes effect again with the appropriate values for those breakpoints
+
+**Important:** The `NoneAt` classes use **range-based media queries** to ensure they only apply at the specified breakpoint, not at larger breakpoints. This allows the responsive spacing variables to work correctly across your design.
+
+#### Migration from SpacingResponsive
+
+If you were previously using the `SpacingResponsive` object syntax with `'none'`:
+
+**Before:**
+```html
+<lg-card [lgPaddingRight]="{ sm: 'none', md: '4' }"></lg-card>
+```
+
+**After:**
+```html
+<lg-card lgPaddingRight="4" lgPaddingRightNoneAt="sm"></lg-card>
+```
+
+The new approach is more compatible with responsive CSS variables and provides better specificity control.
+
 ## Inputs
 
 The current available spacing variants are:
@@ -109,15 +170,22 @@ The current available spacing variants are:
 
 The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 
-| Name                  | Description                                           |                 Type                  | Default | Required |
-|-----------------------|-------------------------------------------------------|:-------------------------------------:|:-------:|:--------:|
-| `lgPadding`           | The padding variant applied to all sides              | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingTop`        | The padding variant applied to the top                | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingRight`      | The padding variant applied to the right              | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingBottom`     | The padding variant applied to the bottom             | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingLeft`       | The padding variant applied to the left               | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingHorizontal` | The padding variant applied to the left and the right | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingVertical`   | The padding variant applied to the top and the bottom | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
+| Name                        | Description                                                            |                  Type                   | Default | Required |
+|-----------------------------|------------------------------------------------------------------------|:---------------------------------------:|:-------:|:--------:|
+| `lgPadding`                 | The padding variant applied to all sides                               | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingTop`              | The padding variant applied to the top                                 | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingRight`            | The padding variant applied to the right                               | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingBottom`           | The padding variant applied to the bottom                              | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingLeft`             | The padding variant applied to the left                                | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingHorizontal`       | The padding variant applied to the left and the right                  | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingVertical`         | The padding variant applied to the top and the bottom                  | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingNoneAt`           | Set padding to none at a specific breakpoint                           |              `Breakpoints`              | `null`  |    No    |
+| `lgPaddingTopNoneAt`        | Set padding-top to none at a specific breakpoint                       |              `Breakpoints`              | `null`  |    No    |
+| `lgPaddingRightNoneAt`      | Set padding-right to none at a specific breakpoint                     |              `Breakpoints`              | `null`  |    No    |
+| `lgPaddingBottomNoneAt`     | Set padding-bottom to none at a specific breakpoint                    |              `Breakpoints`              | `null`  |    No    |
+| `lgPaddingLeftNoneAt`       | Set padding-left to none at a specific breakpoint                      |              `Breakpoints`              | `null`  |    No    |
+| `lgPaddingHorizontalNoneAt` | Set padding-left and padding-right to none at a specific breakpoint    |              `Breakpoints`              | `null`  |    No    |
+| `lgPaddingVerticalNoneAt`   | Set padding-top and padding-bottom to none at a specific breakpoint    |              `Breakpoints`              | `null`  |    No    |
 
 ***
 

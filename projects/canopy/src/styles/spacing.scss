@@ -1,3 +1,5 @@
+@use 'sass:list';
+@use 'sass:map';
 @use 'mixins';
 
 :root {
@@ -133,6 +135,56 @@ $spacing-list: ('none', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
 
   .lg-padding__left--#{$val} {
     padding-left: space($val) !important;
+  }
+}
+
+// Breakpoint-specific none classes
+// Generate breakpoint list from the breakpoints map in mixins
+$breakpoint-list: map.keys(mixins.$breakpoints);
+
+// Mixin to generate none classes for a specific property and breakpoint
+// Duplicate class selector to increase specificity (0,2,0) vs regular classes (0,1,0)
+@mixin generate-none-classes($property, $breakpoint) {
+  .lg-#{$property}--#{$breakpoint}--none.lg-#{$property}--#{$breakpoint}--none {
+    #{$property}: 0 !important;
+  }
+
+  .lg-#{$property}__top--#{$breakpoint}--none.lg-#{$property}__top--#{$breakpoint}--none {
+    #{$property}-top: 0 !important;
+  }
+
+  .lg-#{$property}__right--#{$breakpoint}--none.lg-#{$property}__right--#{$breakpoint}--none {
+    #{$property}-right: 0 !important;
+  }
+
+  .lg-#{$property}__bottom--#{$breakpoint}--none.lg-#{$property}__bottom--#{$breakpoint}--none {
+    #{$property}-bottom: 0 !important;
+  }
+
+  .lg-#{$property}__left--#{$breakpoint}--none.lg-#{$property}__left--#{$breakpoint}--none {
+    #{$property}-left: 0 !important;
+  }
+}
+
+// Generate none classes for each breakpoint with proper ranges
+@each $breakpoint in $breakpoint-list {
+  $index: list.index($breakpoint-list, $breakpoint);
+
+  @if $index < list.length($breakpoint-list) {
+    // Get the next breakpoint to create a range
+    $next-breakpoint: list.nth($breakpoint-list, $index + 1);
+
+    // Use the new range functionality in lg-breakpoint
+    @include mixins.lg-breakpoint($breakpoint, 'range', $next-breakpoint) {
+      @include generate-none-classes('margin', $breakpoint);
+      @include generate-none-classes('padding', $breakpoint);
+    }
+  } @else {
+    // Last breakpoint (xxl) uses simple min-width
+    @include mixins.lg-breakpoint($breakpoint) {
+      @include generate-none-classes('margin', $breakpoint);
+      @include generate-none-classes('padding', $breakpoint);
+    }
   }
 }
 

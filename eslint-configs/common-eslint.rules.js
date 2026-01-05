@@ -1,5 +1,5 @@
 // eslint-configs/common-eslint.rules.js
-module.exports = {
+export default {
   'array-bracket-spacing': ['error', 'always'],
   'arrow-parens': ['error', 'as-needed'],
   'arrow-spacing': [

@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
 
+import type { Breakpoints } from '../../shared/breakpoints.interface';
 import type { SpacingResponsive, SpacingVariant } from '../spacing.interface';
 import { SpacingService } from '../spacing.service';
 
@@ -11,7 +12,14 @@ import { SpacingService } from '../spacing.service';
     [lgMarginTop],
     [lgMarginRight],
     [lgMarginBottom],
-    [lgMarginLeft]
+    [lgMarginLeft],
+    [lgMarginNoneAt],
+    [lgMarginVerticalNoneAt],
+    [lgMarginHorizontalNoneAt],
+    [lgMarginTopNoneAt],
+    [lgMarginRightNoneAt],
+    [lgMarginBottomNoneAt],
+    [lgMarginLeftNoneAt]
   `,
   standalone: true,
 })
@@ -25,6 +33,11 @@ export class LgMarginDirective {
   marginBottomClasses: Array<string> = [];
   marginLeftClasses: Array<string> = [];
   marginClasses: Array<string> = [];
+  marginTopNoneAtClasses: Array<string> = [];
+  marginRightNoneAtClasses: Array<string> = [];
+  marginBottomNoneAtClasses: Array<string> = [];
+  marginLeftNoneAtClasses: Array<string> = [];
+  marginNoneAtClasses: Array<string> = [];
 
   @Input()
   set lgMarginTop(margin: SpacingVariant | SpacingResponsive) {
@@ -74,6 +87,78 @@ export class LgMarginDirective {
     this.marginClasses = this.toggleClasses(
       this.spacingService.createNewClasses(margin, 'margin'),
       this.marginClasses,
+    );
+  }
+
+  @Input()
+  set lgMarginTopNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-top');
+
+    this.marginTopNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.marginTopNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgMarginRightNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-right');
+
+    this.marginRightNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.marginRightNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgMarginBottomNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-bottom');
+
+    this.marginBottomNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.marginBottomNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgMarginLeftNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-left');
+
+    this.marginLeftNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.marginLeftNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgMarginHorizontalNoneAt(breakpoint: Breakpoints) {
+    this.lgMarginLeftNoneAt = breakpoint;
+    this.lgMarginRightNoneAt = breakpoint;
+  }
+
+  @Input()
+  set lgMarginVerticalNoneAt(breakpoint: Breakpoints) {
+    this.lgMarginTopNoneAt = breakpoint;
+    this.lgMarginBottomNoneAt = breakpoint;
+  }
+
+  @Input()
+  set lgMarginNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin');
+
+    this.marginNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.marginNoneAtClasses,
     );
   }
 

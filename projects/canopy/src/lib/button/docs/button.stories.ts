@@ -8,7 +8,8 @@ import {
   ButtonVariant,
   LgButtonComponent,
 } from '../index';
-import { lgIconsArray } from '../../ui-icons-files';
+// Direct import required for Webpack compatibility - do not use barrel file
+import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
 const buttonVariants = [
   'primary-dark',

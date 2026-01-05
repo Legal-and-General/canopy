@@ -3,7 +3,8 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgIconComponent } from '../icon.component';
-import { lgIconsArray } from '../../ui-icons-files';
+// Direct import required for Webpack compatibility - do not use barrel file
+import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
 @Component({
   selector: 'lg-swatch-icon',

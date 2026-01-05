@@ -6,14 +6,21 @@ on:
         description: 'The PR number'
         required: true
 
+permissions:
+  contents: write
+  deployments: write
+  actions: read
+  pull-requests: write
+  checks: read
+
 jobs:
   # Deploys selected branch to GitHub Pages
   deploy-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v6.0.0
+      - uses: actions/setup-node@v6.1.0
         with:
           node-version-file: '.nvmrc'
 
@@ -25,7 +32,7 @@ jobs:
         id: prData
         with:
           script: |
-            const getData = require('./.github/workflow-scripts/gh-pages/get-pr-data.js');
+            const getData = require('./.github/workflow-scripts/gh-pages/get-pr-data.cjs');
             return await getData({
               pullNumber: '${{ github.event.inputs.pullNumber }}',
               github,
@@ -36,7 +43,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const downloadArtifact = require('./.github/workflow-scripts/gh-pages/download-branch-deploy-artifact.js');
+            const downloadArtifact = require('./.github/workflow-scripts/gh-pages/download-branch-deploy-artifact.cjs');
             await downloadArtifact({
               branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
               sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
@@ -62,7 +69,7 @@ jobs:
         id: deploymentId
         with:
           script: |
-            const createDeployment = require('./.github/workflow-scripts/gh-pages/create-gh-deployment.js');
+            const createDeployment = require('./.github/workflow-scripts/gh-pages/create-gh-deployment.cjs');
             return await createDeployment({
               sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
               github,
@@ -73,7 +80,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
+            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.cjs');
             await createDeploymentStatus({
               deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
               state: 'in_progress',
@@ -86,7 +93,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
+            const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.cjs');
             await deployBranch({
               branch: '${{ fromJSON(steps.prData.outputs.result).branch }}',
               sha: '${{ fromJSON(steps.prData.outputs.result).sha }}',
@@ -105,7 +112,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.js');
+            const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.cjs');
             await createDeploymentStatus({
               deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
               state: '${{ job.status }}' === 'success' ? 'success' : 'failure',
@@ -119,7 +126,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const addLabels = require('./.github/workflow-scripts/add-labels.js');
+            const addLabels = require('./.github/workflow-scripts/add-labels.cjs');
             await addLabels({
               issueNumber: ${{ fromJSON(steps.prData.outputs.result).pullNumber }},
               labels: [ 'deployed' ],

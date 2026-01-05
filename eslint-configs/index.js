@@ -1,8 +1,8 @@
-const typescriptConfig = require('./typescript.config.js');
-const templateConfig = require('./template.config.js');
-const javascriptConfig = require('./javascript.config.js');
+import typescriptConfig from './typescript.config.js';
+import templateConfig from './template.config.js';
+import javascriptConfig from './javascript.config.js';
 
-module.exports = {
+export {
   typescriptConfig,
   templateConfig,
   javascriptConfig,
