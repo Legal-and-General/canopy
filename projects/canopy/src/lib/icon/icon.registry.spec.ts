@@ -1,19 +1,29 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LgIconRegistry } from './icon.registry';
-import { Icon } from './ui-icons-files.interface';
 
-// Mock dynamic imports for this test file
-jest.mock(
-  '../ui-icons-files/set/lgIcon-chevron-right.icon',
-  () => ({
-    lgIconChevronRight: {
-      name: 'chevron-right',
-      data: 'mock-svg-data',
+// Mock auto-generated icon-loader file
+const KNOWN_ICONS = [ 'add', 'chevron-right' ];
+
+jest.mock('./icon-loader', () => ({
+  ICON_LOADER: new Proxy(
+    {},
+    {
+      get: (_target, iconName: string) => {
+        // Only return a loader for known icons, undefined for others
+        if (KNOWN_ICONS.includes(iconName)) {
+          return () =>
+            Promise.resolve({
+              name: iconName,
+              data: `<svg id="mock-${iconName}"><path/></svg>`,
+            });
+        }
+
+        return undefined;
+      },
     },
-  }),
-  { virtual: true },
-);
+  ),
+}));
 
 describe('LgIconRegistry', () => {
   let registry: LgIconRegistry;
@@ -26,27 +36,25 @@ describe('LgIconRegistry', () => {
     expect(registry).toBeTruthy();
   });
 
-  it('should get a registered icon', async () => {
-    const icon = {
-      name: 'add',
-      data: 'test',
-    } as Icon;
+  it('should get an icon from the registry', async () => {
+    const result = await registry.get('add');
 
-    registry['registry'].set(icon.name, icon.data);
-
-    expect(registry['registry'].has(icon.name)).toBe(true);
-
-    expect(await registry.get(icon.name)).toBe(icon.data);
+    expect(result).toBeDefined();
+    expect(typeof result).toBe('string');
+    expect(result).toContain('svg');
   });
 
-  it('should auto-register an icon when it\'s not in the registry', async () => {
-    const unexpectedIcon = 'chevron-right';
+  it('should cache icons after first load', async () => {
+    const firstResult = await registry.get('chevron-right');
+    const secondResult = await registry.get('chevron-right');
 
-    expect(registry['registry'].has(unexpectedIcon)).toBe(false);
+    expect(firstResult).toBe(secondResult);
+    expect(registry['registry'].has('chevron-right')).toBe(true);
+  });
 
-    const result = await registry.get(unexpectedIcon);
+  it('should return undefined for non-existent icons', async () => {
+    const result = await registry.get('non-existent-icon' as any);
 
-    expect(registry['registry'].has(unexpectedIcon)).toBe(true);
-    expect(result).toBe('mock-svg-data');
+    expect(result).toBeUndefined();
   });
 });

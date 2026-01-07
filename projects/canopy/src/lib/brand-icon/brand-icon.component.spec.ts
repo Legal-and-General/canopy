@@ -75,12 +75,13 @@ describe('LgBrandIconComponent', () => {
   });
 
   describe('the colour input', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       brandIconRegistryMock.get.mockResolvedValue(
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
       component.name = 'sun';
+      await fixture.whenStable();
     });
 
     describe('when not specified', () => {

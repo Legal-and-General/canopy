@@ -6,14 +6,12 @@ const svgToTsConfig = {
   iconsFolderName: 'set',
   typeName: 'BrandIconName',
   prefix: 'lgBrandIcon',
-  optimizeForLazyLoading: true,
+  delimiter: 'KEBAB',
   modelFileName: 'brand-icons-files.interface',
   additionalModelOutputPath: 'projects/canopy/src/lib/brand-icon',
-  compileSources: true,
   interfaceName: 'BrandIcon',
   exportCompleteIconSet: true,
   completeIconSetName: 'lgBrandIconsArray',
-  delimiter: 'KEBAB',
   svgoConfig: svgoBrandIconsConfig,
 };
 
