@@ -23,6 +23,8 @@ jobs:
 
       - name: 'Install dependencies'
         run: npm ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Build library'
         run: npm run build
@@ -47,8 +49,8 @@ jobs:
           cache: 'npm'
 
       - name: 'Install dependencies'
-        run: npm ci
-
+        run: npm ci        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Download dist folder'
         uses: actions/download-artifact@v6
         with:
@@ -78,6 +80,8 @@ jobs:
 
       - name: 'Install dependencies'
         run: npm ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Download dist folder'
         uses: actions/download-artifact@v6
