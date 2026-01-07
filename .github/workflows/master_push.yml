@@ -13,10 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: 'Setup node'
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v6.1.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: 'Upload dist folder'
-        uses: actions/upload-artifact@v5.0.0
+        uses: actions/upload-artifact@v6.0.0
         with:
           name: ${{ github.event.repository.name }}
           path: dist/canopy/
@@ -38,10 +38,10 @@ jobs:
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: 'Setup node'
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v6.1.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -50,7 +50,7 @@ jobs:
         run: npm ci
 
       - name: 'Download dist folder'
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: ${{ github.event.repository.name }}
           path: dist/canopy/
@@ -68,10 +68,10 @@ jobs:
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: 'Setup node'
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v6.1.0
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
@@ -80,7 +80,7 @@ jobs:
         run: npm ci
 
       - name: 'Download dist folder'
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: ${{ github.event.repository.name }}
           path: dist/canopy/
