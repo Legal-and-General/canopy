@@ -1,14 +1,14 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import { CustomBadge } from 'storybook-addon-tag-badges';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 import AccordionStoriesMeta, * as CSF from './accordion.stories'
 
-<Meta title="Components/Accordion" tags={['pending']}/>
+<Meta title="Components/Accordion/Guide" tags={['pending']}/>
 
 # Accordion
 
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">The accordion component reduces page clutter and cognitive load by letting users reveal sections of information as and when they need it.</p>
 

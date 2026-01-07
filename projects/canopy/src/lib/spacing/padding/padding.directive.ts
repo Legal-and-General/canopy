@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
 
+import type { Breakpoints } from '../../shared/breakpoints.interface';
 import type { SpacingResponsive, SpacingVariant } from '../spacing.interface';
 import { SpacingService } from '../spacing.service';
 
@@ -11,7 +12,14 @@ import { SpacingService } from '../spacing.service';
     [lgPaddingTop],
     [lgPaddingRight],
     [lgPaddingBottom],
-    [lgPaddingLeft]
+    [lgPaddingLeft],
+    [lgPaddingNoneAt],
+    [lgPaddingVerticalNoneAt],
+    [lgPaddingHorizontalNoneAt],
+    [lgPaddingTopNoneAt],
+    [lgPaddingRightNoneAt],
+    [lgPaddingBottomNoneAt],
+    [lgPaddingLeftNoneAt]
   `,
   standalone: true,
 })
@@ -25,6 +33,11 @@ export class LgPaddingDirective {
   paddingBottomClasses: Array<string> = [];
   paddingLeftClasses: Array<string> = [];
   paddingClasses: Array<string> = [];
+  paddingTopNoneAtClasses: Array<string> = [];
+  paddingRightNoneAtClasses: Array<string> = [];
+  paddingBottomNoneAtClasses: Array<string> = [];
+  paddingLeftNoneAtClasses: Array<string> = [];
+  paddingNoneAtClasses: Array<string> = [];
 
   @Input()
   set lgPaddingTop(padding: SpacingVariant | SpacingResponsive) {
@@ -75,6 +88,78 @@ export class LgPaddingDirective {
     this.paddingClasses = this.toggleClasses(
       this.spacingService.createNewClasses(padding, 'padding'),
       this.paddingClasses,
+    );
+  }
+
+  @Input()
+  set lgPaddingTopNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-top');
+
+    this.paddingTopNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.paddingTopNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgPaddingRightNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-right');
+
+    this.paddingRightNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.paddingRightNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgPaddingBottomNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-bottom');
+
+    this.paddingBottomNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.paddingBottomNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgPaddingLeftNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-left');
+
+    this.paddingLeftNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.paddingLeftNoneAtClasses,
+    );
+  }
+
+  @Input()
+  set lgPaddingHorizontalNoneAt(breakpoint: Breakpoints) {
+    this.lgPaddingLeftNoneAt = breakpoint;
+    this.lgPaddingRightNoneAt = breakpoint;
+  }
+
+  @Input()
+  set lgPaddingVerticalNoneAt(breakpoint: Breakpoints) {
+    this.lgPaddingTopNoneAt = breakpoint;
+    this.lgPaddingBottomNoneAt = breakpoint;
+  }
+
+  @Input()
+  set lgPaddingNoneAt(breakpoint: Breakpoints) {
+    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding');
+
+    this.paddingNoneAtClasses = this.toggleClasses(
+      className
+        ? [ className ]
+        : [],
+      this.paddingNoneAtClasses,
     );
   }
 

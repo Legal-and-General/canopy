@@ -60,7 +60,7 @@ async function evaluatePullChecks({ sha, github, repo, owner }) {
     ref: sha
   });
 
-  return listCheckRuns.every(({ conclusion }) => conclusion === 'success');
+  return listCheckRuns.every(({ conclusion }) => conclusion === 'success' || conclusion === 'skipped');
 }
 
 async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {

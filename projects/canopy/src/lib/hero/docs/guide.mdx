@@ -1,13 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeroStories from './hero.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 <Meta title="Patterns/Hero/Guide" tags={['pending']}/>
 
 # Hero
 
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">A flexible pattern that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.</p>
 

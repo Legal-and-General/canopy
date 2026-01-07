@@ -2,7 +2,7 @@
  * Typography utility functions for processing CSS variables
  */
 
-import typographyVariables from '@lib/storybook/css-variables/variables/typography';
+import designTokenVariables from '@lib/storybook/css-variables/tokens/variables';
 
 // Standard font weight names based on numeric values
 const FONT_WEIGHT_NAMES: Record<number, string> = {
@@ -178,39 +178,109 @@ export function prepareFontFamilyVars(variables: Record<string, string>) {
 
 /**
  * Filters and maps font weight variables
+ * Returns only base font weight names without -productive or -expressive suffixes
  * @param variables - Object containing all CSS variables
  * @returns Array of font weight variable objects with name, value, and description
  */
 export function prepareFontWeightVars(variables: Record<string, string>) {
-  return Object.entries(variables)
+  const uniqueWeights = new Set<string>();
+  const weightVars: Array<{ name: string; value: string; description: string }> = [];
+
+  Object.entries(variables)
     .filter(([ key ]) => key.startsWith('--font-weight-'))
-    .map(([ name, value ]) => ({
-      name,
-      value,
-      description: getFontWeightDescription(name),
-    }));
+    .forEach(([ name, value ]) => {
+      // Extract base weight name (e.g., '--font-weight-300-productive' -> '--font-weight-300')
+      const baseWeight = name.replace(/-(productive|expressive)$/, '');
+
+      // Only add if we haven't seen this base weight yet
+      if (!uniqueWeights.has(baseWeight)) {
+        uniqueWeights.add(baseWeight);
+
+        weightVars.push({
+          name: baseWeight,
+          value,
+          description: getFontWeightDescription(baseWeight),
+        });
+      }
+    });
+
+  return weightVars;
 }
 
 /**
  * Filters and sorts font size variables (reversed order)
+ * Returns only base font size names without breakpoint suffixes
  * @param variables - Object containing all CSS variables
- * @returns Array of [name, value] tuples
+ * @returns Array of [name, value] tuples for base font sizes
  */
 export function prepareFontSizeVars(variables: Record<string, string>) {
-  return Object.entries(variables)
-    .filter(([ key ]) => key.startsWith('--font-size-'))
-    .reverse();
+  const uniqueSizes = new Set<string>();
+
+  // Extract unique font sizes (without breakpoint suffixes)
+  Object.keys(variables)
+    .filter(
+      key =>
+        key.startsWith('--font-size-') &&
+        key.match(/--font-size-[\d-]+-(sm|md|lg|xl|xxl)$/),
+    )
+    .forEach(key => {
+      // Extract size part (e.g., '1' from '--font-size-1-sm')
+      const match = key.match(/--font-size-([\d-]+)-(sm|md|lg|xl|xxl)$/);
+
+      if (match) {
+        uniqueSizes.add(`--font-size-${match[1]}`);
+      }
+    });
+
+  // Convert to array and sort in reverse order
+  return Array.from(uniqueSizes)
+    .sort()
+    .reverse()
+    .map(name => {
+      // Get SM value as the default display value
+      const smKey = `${name}-sm`;
+      const value = variables[smKey] || 'N/A';
+
+      return [ name, value ] as [string, string];
+    });
 }
 
 /**
  * Filters and sorts line height variables (reversed order)
+ * Returns only base line height names without breakpoint suffixes
  * @param variables - Object containing all CSS variables
- * @returns Array of [name, value] tuples
+ * @returns Array of [name, value] tuples for base line heights
  */
 export function prepareLineHeightVars(variables: Record<string, string>) {
-  return Object.entries(variables)
-    .filter(([ key ]) => key.startsWith('--line-height-'))
-    .reverse();
+  const uniqueLineHeights = new Set<string>();
+
+  // Extract unique line heights (without breakpoint suffixes)
+  Object.keys(variables)
+    .filter(
+      key =>
+        key.startsWith('--line-height-') &&
+        key.match(/--line-height-[\d-]+-(sm|md|lg|xl|xxl)$/),
+    )
+    .forEach(key => {
+      // Extract size part (e.g., '1' from '--line-height-1-sm')
+      const match = key.match(/--line-height-([\d-]+)-(sm|md|lg|xl|xxl)$/);
+
+      if (match) {
+        uniqueLineHeights.add(`--line-height-${match[1]}`);
+      }
+    });
+
+  // Convert to array and sort in reverse order
+  return Array.from(uniqueLineHeights)
+    .sort()
+    .reverse()
+    .map(name => {
+      // Get SM value as the default display value
+      const smKey = `${name}-sm`;
+      const value = variables[smKey] || 'N/A';
+
+      return [ name, value ] as [string, string];
+    });
 }
 
 /**
@@ -246,17 +316,44 @@ export function getAvailableWeights(variables: Record<string, string>): Array<st
 }
 
 /**
- * Configuration for font sizes that have different values at LG breakpoint
- * Based on SCSS media query overrides
+ * Gets font size values for SM-MD and LG-XXL breakpoints from design tokens
+ * @param sizeKey - The size identifier (e.g., '1', '0-6', '7')
+ * @param variables - Object containing all CSS variables
+ * @returns Object with SM-MD and LG-XXL values in px and rem
  */
-const LG_BREAKPOINT_OVERRIDES: Record<string, { px: string; rem: string }> = {
-  9: { px: '96', rem: '6' },
-  8: { px: '76', rem: '4.75' },
-  7: { px: '68', rem: '4.25' },
-  6: { px: '48', rem: '3' },
-  5: { px: '40', rem: '2.5' },
-  4: { px: '32', rem: '2' },
-};
+function getFontSizeBreakpointValues(
+  sizeKey: string,
+  variables: Record<string, string>,
+): { sm: string; lg: string; smRem: string; lgRem: string } {
+  // Get SM value (SM and MD use the same value)
+  const smKey = `--font-size-${sizeKey}-sm`;
+  const smValue = variables[smKey];
+
+  // Get LG value (LG, XL, XXL typically use the same value)
+  const lgKey = `--font-size-${sizeKey}-lg`;
+  const lgValue = variables[lgKey];
+
+  if (!smValue || !lgValue) {
+    console.warn(
+      `Font size variables not found for size ${sizeKey}. smKey: ${smKey}, lgKey: ${lgKey}`,
+    );
+
+    return { sm: '0', lg: '0', smRem: '0', lgRem: '0' };
+  }
+
+  // Convert rem to px
+  const smRem = parseFloat(smValue);
+  const lgRem = parseFloat(lgValue);
+  const smPx = Math.round(smRem * 16);
+  const lgPx = Math.round(lgRem * 16);
+
+  return {
+    sm: String(smPx),
+    lg: String(lgPx),
+    smRem: String(smRem),
+    lgRem: String(lgRem),
+  };
+}
 
 /**
  * Default weights for productive font sizes
@@ -296,20 +393,13 @@ export function prepareFontSizeData(
   px: { sm: string; lg: string };
   rem: { sm: string; lg: string };
 } {
-  const variableKey = `--font-size-${sizeKey}`;
-  const value = variables[variableKey];
-
-  if (!value) {
-    throw new Error(`Font size variable ${variableKey} not found`);
-  }
-
-  // Get SM-MD values (default)
-  const { px: pxSm, rem: remSm } = convertToPxAndRem(value, variables);
-
-  // Check for LG breakpoint override
-  const lgOverride = LG_BREAKPOINT_OVERRIDES[sizeKey];
-  const pxLg = lgOverride?.px || pxSm;
-  const remLg = lgOverride?.rem || remSm;
+  // Get breakpoint values from design tokens
+  const {
+    sm: pxSm,
+    lg: pxLg,
+    smRem,
+    lgRem,
+  } = getFontSizeBreakpointValues(sizeKey, variables);
 
   // Get weights based on font type
   const weights = isExpressive
@@ -319,8 +409,8 @@ export function prepareFontSizeData(
   return {
     size: sizeKey,
     weights,
-    px: { sm: String(pxSm), lg: String(pxLg) },
-    rem: { sm: String(remSm), lg: String(remLg) },
+    px: { sm: pxSm, lg: pxLg },
+    rem: { sm: smRem, lg: lgRem },
   };
 }
 
@@ -330,7 +420,7 @@ export function prepareFontSizeData(
  * @returns Array of font size data objects for productive fonts
  */
 export function getProductiveFontSizes(variables: Record<string, string>) {
-  const productiveSizes = [ '0-6', '0-8', '1', '2', '3', '4', '5', '6', '7' ];
+  const productiveSizes = [ '0-6', '0-8', '1', '2', '3', '4', '5', '6', '7', '8', '9' ];
 
   return productiveSizes.map(size => prepareFontSizeData(size, variables, false));
 }
@@ -346,13 +436,74 @@ export function getExpressiveFontSizes(variables: Record<string, string>) {
   return expressiveSizes.map(size => prepareFontSizeData(size, variables, true));
 }
 
-// Prepare all data upfront for cleaner usage in MDX
-export const fontFamilyVars = prepareFontFamilyVars(typographyVariables);
-export const fontWeightVars = prepareFontWeightVars(typographyVariables);
-export const fontSizeVars = prepareFontSizeVars(typographyVariables);
-export const lineHeightVars = prepareLineHeightVars(typographyVariables);
-export const productiveFontSizes = getProductiveFontSizes(typographyVariables);
-export const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
+/**
+ * Gets breakpoint-specific font size values for MDX tables
+ * @param name - The font size variable name (e.g., '--font-size-1', '--font-size-4')
+ * @param variables - Object containing all CSS variables
+ * @returns Object with sm and lg values in both px and rem
+ */
+export function getFontSizeBreakpointValuesForTable(
+  name: string,
+  variables: Record<string, string>,
+): { sm: { px: string; rem: string }; lg: { px: string; rem: string } } {
+  // Extract size key from variable name (e.g., '--font-size-1' -> '1', '--font-size-0-6' -> '0-6')
+  const sizeKey = name.replace('--font-size-', '');
 
-// Export typographyVariables for use in MDX tables
-export { typographyVariables };
+  const { sm, lg, smRem, lgRem } = getFontSizeBreakpointValues(sizeKey, variables);
+
+  return {
+    sm: { px: sm, rem: smRem },
+    lg: { px: lg, rem: lgRem },
+  };
+}
+
+/**
+ * Gets breakpoint-specific line height values for MDX tables
+ * @param name - The line height variable name (e.g., '--line-height-1', '--line-height-4')
+ * @param variables - Object containing all CSS variables
+ * @returns Object with sm and lg values in both px and rem
+ */
+export function getLineHeightBreakpointValuesForTable(
+  name: string,
+  variables: Record<string, string>,
+): { sm: { px: string; rem: string }; lg: { px: string; rem: string } } {
+  // Extract size key from variable name (e.g., '--line-height-1' -> '1', '--line-height-0-6' -> '0-6')
+  const sizeKey = name.replace('--line-height-', '');
+
+  // Get SM value (SM and MD use the same value)
+  const smKey = `--line-height-${sizeKey}-sm`;
+  const smValue = variables[smKey];
+
+  // Get LG value (LG, XL, XXL typically use the same value)
+  const lgKey = `--line-height-${sizeKey}-lg`;
+  const lgValue = variables[lgKey];
+
+  if (!smValue || !lgValue) {
+    return {
+      sm: { px: '0', rem: '0' },
+      lg: { px: '0', rem: '0' },
+    };
+  }
+
+  // Convert rem to px
+  const smRem = Number.parseFloat(smValue);
+  const lgRem = Number.parseFloat(lgValue);
+  const smPx = Math.round(smRem * 16);
+  const lgPx = Math.round(lgRem * 16);
+
+  return {
+    sm: { px: String(smPx), rem: String(smRem) },
+    lg: { px: String(lgPx), rem: String(lgRem) },
+  };
+}
+
+// Prepare all data upfront for cleaner usage in MDX
+export const fontFamilyVars = prepareFontFamilyVars(designTokenVariables);
+export const fontWeightVars = prepareFontWeightVars(designTokenVariables);
+export const fontSizeVars = prepareFontSizeVars(designTokenVariables);
+export const lineHeightVars = prepareLineHeightVars(designTokenVariables);
+export const productiveFontSizes = getProductiveFontSizes(designTokenVariables);
+export const expressiveFontSizes = getExpressiveFontSizes(designTokenVariables);
+
+// Export designTokenVariables for use in MDX tables
+export { designTokenVariables as typographyVariables };

@@ -2,14 +2,13 @@ import { Markdown, Meta, Story } from '@storybook/addon-docs/blocks';
 import Feedback from '../../common/feedback.md';
 import * as TypographyStories from './typography.stories.ts';
 import {
-  convertLineHeightToPx,
-  convertToPxAndRem,
   fontFamilyVars,
   fontSizeVars,
   fontWeightVars,
   lineHeightVars,
-  resolveVarValue,
   typographyVariables,
+  getFontSizeBreakpointValuesForTable,
+  getLineHeightBreakpointValuesForTable,
 } from './typography-utils.ts';
 
 <Meta of={TypographyStories} />
@@ -117,14 +116,14 @@ The basis for the expressive scale is ABC Otto, which is our brand typeface. It 
   </thead>
   <tbody>
     {fontSizeVars.map(([name, value]) => {
-      const { px, rem } = convertToPxAndRem(value, typographyVariables);
+      const { sm, lg } = getFontSizeBreakpointValuesForTable(name, typographyVariables);
       return (
         <tr key={name}>
           <td><code>{name}</code></td>
-          <td>{px}</td>
-          <td>{rem}</td>
-          <td>{px}</td>
-          <td>{rem}</td>
+          <td>{sm.px}</td>
+          <td>{sm.rem}</td>
+          <td>{lg.px}</td>
+          <td>{lg.rem}</td>
         </tr>
       );
     })}
@@ -150,18 +149,14 @@ The basis for the expressive scale is ABC Otto, which is our brand typeface. It 
   </thead>
   <tbody>
     {lineHeightVars.map(([name, value]) => {
-      const resolved = resolveVarValue(value, typographyVariables);
-      const remValue = parseFloat(resolved);
-      const fontSizeKey = name.replace('--line-height-', '--font-size-');
-      const fontSize = typographyVariables[fontSizeKey] || '1rem';
-      const pxValue = convertLineHeightToPx(value, fontSize, typographyVariables);
+      const { sm, lg } = getLineHeightBreakpointValuesForTable(name, typographyVariables);
       return (
         <tr key={name}>
           <td><code>{name}</code></td>
-          <td>{pxValue}</td>
-          <td>{isNaN(remValue) ? 'N/A' : remValue}</td>
-          <td>{pxValue}</td>
-          <td>{isNaN(remValue) ? 'N/A' : remValue}</td>
+          <td>{sm.px}</td>
+          <td>{sm.rem}</td>
+          <td>{lg.px}</td>
+          <td>{lg.rem}</td>
         </tr>
       );
     })}

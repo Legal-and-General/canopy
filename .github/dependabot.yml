@@ -57,6 +57,7 @@ updates:
           - 'eslint-plugin-storybook'
           - 'ng-packagr'
           - 'storybook'
+          - 'storybook-addon-tag-badges'
           - 'typescript'
       npm-prod-major:
         dependency-type: production
@@ -71,6 +72,7 @@ updates:
           - '@storybook/*'
           - 'eslint-plugin-storybook'
           - 'storybook'
+          - 'storybook-addon-tag-badges'
       angular-major:
         patterns:
           - '@angular-builders/*'
@@ -123,6 +125,7 @@ updates:
       - dependency-name: 'ng-packagr'
       - dependency-name: 'rxjs'
       - dependency-name: 'storybook'
+      - dependency-name: 'storybook-addon-tag-badges'
       - dependency-name: 'typescript'
       - dependency-name: 'zone.js'
 

@@ -1,12 +1,12 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import { CustomBadge } from 'storybook-addon-tag-badges';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 <Meta title="Helpers/Directives/Variant/Guide" tags={['pending']}/>
 
 # Variant
 
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 This directive allows you to add one of the five common colour variants to any Canopy component, such as `info` and `success`.
 

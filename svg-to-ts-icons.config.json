@@ -1,0 +1,26 @@
+{
+  "srcFiles": ["./projects/canopy/src/assets/icons/**/*.svg"],
+  "outputDirectory": "./projects/canopy/src/lib/ui-icons-files",
+  "iconsFolderName": "set",
+  "typeName": "IconName",
+  "prefix": "lgIcon",
+  "optimizeForLazyLoading": true,
+  "modelFileName": "ui-icons-files.interface",
+  "additionalModelOutputPath": "projects/canopy/src/lib/icon",
+  "interfaceName": "Icon",
+  "exportCompleteIconSet": true,
+  "completeIconSetName": "lgIconsArray",
+  "delimiter": "KEBAB",
+  "svgoConfig": {
+    "plugins": [
+      "preset-default",
+      {
+        "name": "removeAttrs",
+        "params": {
+          "attrs": ["fill", "path:fill"]
+        }
+      },
+      "removeDimensions"
+    ]
+  }
+}

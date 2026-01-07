@@ -1,13 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as FilterContainerStories from './filter-container.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 <Meta title="Patterns/Filter container/Guide" tags={['pending']}/>
 
 # Filter container
 
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">An expanding panel which reveals filter controls, which filter a set of results.</p>
 

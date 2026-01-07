@@ -147,9 +147,11 @@ $breakpoints: (
 
 /*
   $breakpoint: string value for the breakpoint screen size.
+  $range: 'min-width' or 'max-width' (legacy) or 'range'
+  $max-breakpoint: optional - when $range is 'range', specify the max breakpoint name
   Creates a mixin which allows breakpoints to be added to css blocks
 */
-@mixin lg-breakpoint($breakpoint, $range: 'min-width') {
+@mixin lg-breakpoint($breakpoint, $range: 'min-width', $max-breakpoint: null) {
   @if map.has-key($breakpoints, $breakpoint) {
     $value: map.get($breakpoints, $breakpoint);
 
@@ -157,10 +159,34 @@ $breakpoints: (
       // Removes 1 pixel if using max-width so that there is no
       // overlap when used with min-width.
       $value: $value - 0.06rem;
-    }
 
-    @media ($range: $value) {
-      @content;
+      @media ($range: $value) {
+        @content;
+      }
+    } @else if $range == 'range' {
+      // New range functionality - creates combined min and max media query
+      @if $max-breakpoint and map.has-key($breakpoints, $max-breakpoint) {
+        $max-value: map.get($breakpoints, $max-breakpoint) - 0.06rem;
+
+        // Handle sm breakpoint (value 0) - only use max-width
+        @if $value == 0 {
+          @media (max-width: $max-value) {
+            @content;
+          }
+        } @else {
+          @media (min-width: $value) and (max-width: $max-value) {
+            @content;
+          }
+        }
+      } @else {
+        @warn "Range mode requires a valid max-breakpoint. "
+          + "Available breakpoints are: #{map.keys($breakpoints)}.";
+      }
+    } @else {
+      // Default min-width behavior
+      @media ($range: $value) {
+        @content;
+      }
     }
   } @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
@@ -253,8 +279,9 @@ $breakpoints: (
 
 @mixin lg-typography-default {
   font-size: var(--text-base-size);
-  font-weight: var(--font-weight-400);
+  font-weight: var(--font-weight-400-productive);
   font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing-normal-productive);
   line-height: var(--text-base-line-height);
   color: var(--text-default);
 }

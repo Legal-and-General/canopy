@@ -1,6 +1,5 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges';
 import { getDefaultSpacingVariables } from '../../../docs/foundation/spacing-utils';
 
 <Meta title="Helpers/Directives/Margin/Guide"/>
@@ -85,6 +84,67 @@ Apply `6` margin to the top and bottom
 
 ```
 
+### None at breakpoint
+
+When using responsive spacing variables, you may need to set margin to none (zero) at a specific breakpoint. Use the `NoneAt` inputs for this:
+
+Apply `4` margin on all sides, but set to none at `sm` breakpoint
+
+```html
+
+<lg-card lgMargin="4" lgMarginNoneAt="sm"></lg-card>
+
+```
+
+Apply `5` margin to the right, but set to none at the `md` breakpoint
+
+```html
+
+<lg-card lgMarginRight="5" lgMarginRightNoneAt="md"></lg-card>
+
+```
+
+Apply `6` margin on top and bottom, but set to none at the `lg` breakpoint
+
+```html
+
+<lg-card lgMarginVertical="6" lgMarginVerticalNoneAt="lg"></lg-card>
+
+```
+
+#### How NoneAt works with responsive spacing
+
+The `NoneAt` inputs create **breakpoint-specific overrides** that only apply within a specific breakpoint range. This is particularly useful when working with responsive spacing CSS variables (like `--space-8`) that change values at different breakpoints.
+
+**Example scenario:**
+
+```html
+<lg-card lgMargin="8" lgMarginNoneAt="md"></lg-card>
+```
+
+This will:
+- Apply `margin: var(--space-8)` which is responsive across all breakpoints
+- Override to `margin: 0` **only at the `md` breakpoint** (48rem - 63.94rem)
+- At `lg`, `xl`, and `xxl` breakpoints, `var(--space-8)` takes effect again with the appropriate values for those breakpoints
+
+**Important:** The `NoneAt` classes use **range-based media queries** to ensure they only apply at the specified breakpoint, not at larger breakpoints. This allows the responsive spacing variables to work correctly across your design.
+
+#### Migration from SpacingResponsive
+
+If you were previously using the `SpacingResponsive` object syntax with `'none'`:
+
+**Before:**
+```html
+<lg-card [lgMarginRight]="{ sm: 'none', md: '4' }"></lg-card>
+```
+
+**After:**
+```html
+<lg-card lgMarginRight="4" lgMarginRightNoneAt="sm"></lg-card>
+```
+
+The new approach is more compatible with responsive CSS variables and provides better specificity control.
+
 ## Inputs
 
 The current available spacing variants are:
@@ -110,15 +170,22 @@ The current available spacing variants are:
 
 The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 
-| Name                 | Description                                          |                  Type                   | Default | Required |
-|----------------------|------------------------------------------------------|:---------------------------------------:|:-------:|:--------:|
-| `lgMargin`           | The margin variant applied to all sides              | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgMarginTop`        | The margin variant applied to the top                | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgMarginRight`      | The margin variant applied to the right              | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgMarginBottom`     | The margin variant applied to the bottom             | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgMarginLeft`       | The margin variant applied to the left               | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgMarginHorizontal` | The margin variant applied to the left and the right | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
-| `lgMarginVertical`   | The margin variant applied to the top and the bottom | `SpacingVariant` | `SpacingResponsive` | `null`  |    No    |
+| Name                       | Description                                                           |                  Type                   | Default | Required |
+|----------------------------|-----------------------------------------------------------------------|:---------------------------------------:|:-------:|:--------:|
+| `lgMargin`                 | The margin variant applied to all sides                               | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgMarginTop`              | The margin variant applied to the top                                 | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgMarginRight`            | The margin variant applied to the right                               | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgMarginBottom`           | The margin variant applied to the bottom                              | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgMarginLeft`             | The margin variant applied to the left                                | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgMarginHorizontal`       | The margin variant applied to the left and the right                  | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgMarginVertical`         | The margin variant applied to the top and the bottom                  | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgMarginNoneAt`           | Set margin to none at a specific breakpoint                           |              `Breakpoints`              | `null`  |    No    |
+| `lgMarginTopNoneAt`        | Set margin-top to none at a specific breakpoint                       |              `Breakpoints`              | `null`  |    No    |
+| `lgMarginRightNoneAt`      | Set margin-right to none at a specific breakpoint                     |              `Breakpoints`              | `null`  |    No    |
+| `lgMarginBottomNoneAt`     | Set margin-bottom to none at a specific breakpoint                    |              `Breakpoints`              | `null`  |    No    |
+| `lgMarginLeftNoneAt`       | Set margin-left to none at a specific breakpoint                      |              `Breakpoints`              | `null`  |    No    |
+| `lgMarginHorizontalNoneAt` | Set margin-left and margin-right to none at a specific breakpoint     |              `Breakpoints`              | `null`  |    No    |
+| `lgMarginVerticalNoneAt`   | Set margin-top and margin-bottom to none at a specific breakpoint     |              `Breakpoints`              | `null`  |    No    |
 
 ***
 

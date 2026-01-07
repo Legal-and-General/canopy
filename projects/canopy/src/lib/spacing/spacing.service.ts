@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 
+import type { Breakpoints } from '../shared/breakpoints.interface';
 import { BreakpointValues } from '../shared/breakpoints.interface';
 import { DynamicStyleService } from '../utils/dynamic-style.service';
 
@@ -61,5 +62,22 @@ export class SpacingService {
     }
 
     return newClasses;
+  }
+
+  /**
+   * Returns the class name for setting spacing to none (zero) at a specific breakpoint
+   * The CSS classes are statically defined in spacing.scss
+   * e.g. `.lg-margin__top--md--none`
+   *
+   * @param breakpoint e.g. 'md', 'lg'
+   * @param cssProperty e.g. 'padding-top' or 'margin-right'
+   * @returns the class name
+   */
+  createNoneAtClass(breakpoint: Breakpoints, cssProperty: string): string {
+    if (!breakpoint) {
+      return '';
+    }
+
+    return `lg-${cssProperty.replace('-', '__')}--${breakpoint}--none`;
   }
 }

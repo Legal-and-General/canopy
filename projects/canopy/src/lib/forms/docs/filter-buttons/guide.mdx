@@ -2,13 +2,13 @@ import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import * as FilterSingleStories from './filter-single.stories';
 import * as FilterMultipleStories from './filter-multiple.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 <Meta title="Components/Filter buttons/Guide" tags={['pending']}/>
 
 # Filter buttons
 
-<CustomBadge text="Pending" /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Filter buttons help users to narrow down large data sets, like their documents or payments, by giving them a clear and friendly option for filtering the data. Filter buttons should usually be contained in a filter container - see the design pattern, <a href="./?path=/docs/patterns-filter-container-guide--docs">help user to filter results</a>.</p>
 

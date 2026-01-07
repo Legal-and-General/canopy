@@ -1,6 +1,6 @@
-const commonESLintRules = require('./common-eslint.rules.js');
+import commonESLintRules from './common-eslint.rules.js';
 
-module.exports = [
+export default [
   {
     name: 'JavaScript',
     files: ['./projects/**/*.js', './.eslintrc.js'],

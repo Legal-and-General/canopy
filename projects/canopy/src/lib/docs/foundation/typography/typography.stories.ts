@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
-import typographyVariables from '@lib/storybook/css-variables/variables/typography';
+import typographyVariables from '@lib/storybook/css-variables/tokens/variables';
 
 import { getProductiveFontSizes, getExpressiveFontSizes } from './typography-utils';
 
@@ -17,7 +17,9 @@ const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
         <div class="lg-margin__bottom--7">
           <p class="lg-font-size-0-8--400 lg-margin__top--4">
             SM > MD: {{ pxValues.sm }}px | {{ remValues.sm }}rem<br />
-            LG > XXL: {{ pxValues.lg }}px | {{ remValues.lg }}rem
+            @if (pxValues.lg && remValues.lg) {
+              LG > XXL: {{ pxValues.lg }}px | {{ remValues.lg }}rem
+            }
           </p>
         </div>
       }

@@ -41,7 +41,7 @@ const preview = {
     setTimeout(() => {
       if (context.title === 'Welcome') {
         const toc = document.querySelector('.sbdocs');
-        const tocWrapper = document.querySelector('.css-m2duqa');
+        const tocWrapper = document.querySelector('nav');
         if (tocWrapper) tocWrapper.style.display = 'none';
       }
     }, 100);

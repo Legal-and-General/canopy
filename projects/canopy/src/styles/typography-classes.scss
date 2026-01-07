@@ -36,7 +36,8 @@
 }
 
 .lg-font--expressive {
-  font-family: var(--font-family-expressive);
+  font-family: var(--font-family-expressive), 'Times new roman', serif;
+  letter-spacing: var(--letter-spacing-normal-expressive);
 }
 
 // Heading classes
