@@ -5,7 +5,7 @@ const path = require('path');
 
 // Configuration - now includes both directories
 const variablesDir = path.join(__dirname, '../projects/canopy/src/styles/variables');
-const tokensDir = path.join(__dirname, '../projects/canopy/src/styles/tokens');
+const tokensDir = path.join(__dirname, '../node_modules/@legal-and-general/canopy-design-tokens/build/css');
 const outputDir = path.join(__dirname, '../projects/canopy/storybook/css-variables');
 
 // Ensure output directory exists

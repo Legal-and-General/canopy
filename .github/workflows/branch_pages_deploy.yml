@@ -19,6 +19,8 @@ jobs:
 
       - name: 'Install dependencies'
         run: npm ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Save PR data'
         uses: actions/github-script@v8
