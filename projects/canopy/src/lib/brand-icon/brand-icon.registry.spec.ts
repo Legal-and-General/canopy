@@ -1,19 +1,29 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LgBrandIconRegistry } from './brand-icon.registry';
-import { BrandIcon } from './brand-icons-files.interface';
 
-// Mock dynamic imports for this test file
-jest.mock(
-  '../brand-icons-files/set/lgBrandIcon-cookies-and-arrows.icon',
-  () => ({
-    lgBrandIconCookiesAndArrows: {
-      name: 'cookies-and-arrows',
-      data: 'mock-svg-data',
+// Mock auto-generated brand-icon-loader file
+const KNOWN_BRAND_ICONS = [ 'sun', 'cookies-and-arrows' ];
+
+jest.mock('./brand-icon-loader', () => ({
+  ICON_LOADER: new Proxy(
+    {},
+    {
+      get: (_target, iconName: string) => {
+        // Only return a loader for known brand icons, undefined for others
+        if (KNOWN_BRAND_ICONS.includes(iconName)) {
+          return () =>
+            Promise.resolve({
+              name: iconName,
+              data: `<svg id="mock-${iconName}"><path/></svg>`,
+            });
+        }
+
+        return undefined;
+      },
     },
-  }),
-  { virtual: true },
-);
+  ),
+}));
 
 describe('LgBrandIconRegistry', () => {
   let registry: LgBrandIconRegistry;
@@ -26,25 +36,25 @@ describe('LgBrandIconRegistry', () => {
     expect(registry).toBeTruthy();
   });
 
-  it('should get a registered brand-icon', async () => {
-    const icon = {
-      name: 'sun',
-      data: 'test',
-    } as BrandIcon;
+  it('should get a brand icon from the registry', async () => {
+    const result = await registry.get('sun');
 
-    registry['registry'].set(icon.name, icon.data);
-    expect(registry['registry'].has(icon.name)).toBe(true);
-    expect(await registry.get(icon.name)).toBe(icon.data);
+    expect(result).toBeDefined();
+    expect(typeof result).toBe('string');
+    expect(result).toContain('svg');
   });
 
-  it('should auto-register a brand icon when it\'s not in the registry', async () => {
-    const unexpectedBrandIcon = 'cookies-and-arrows';
+  it('should cache icons after first load', async () => {
+    const firstResult = await registry.get('cookies-and-arrows');
+    const secondResult = await registry.get('cookies-and-arrows');
 
-    expect(registry['registry'].has(unexpectedBrandIcon)).toBe(false);
+    expect(firstResult).toBe(secondResult);
+    expect(registry['registry'].has('cookies-and-arrows')).toBe(true);
+  });
 
-    const result = await registry.get(unexpectedBrandIcon);
+  it('should return undefined for non-existent brand icons', async () => {
+    const result = await registry.get('non-existent-brand-icon' as any);
 
-    expect(registry['registry'].has(unexpectedBrandIcon)).toBe(true);
-    expect(result).toBe('mock-svg-data');
+    expect(result).toBeUndefined();
   });
 });

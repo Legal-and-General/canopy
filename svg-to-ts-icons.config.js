@@ -6,14 +6,12 @@ const svgToTsConfig = {
   iconsFolderName: 'set',
   typeName: 'IconName',
   prefix: 'lgIcon',
-  optimizeForLazyLoading: true,
+  delimiter: 'KEBAB',
   modelFileName: 'ui-icons-files.interface',
   additionalModelOutputPath: 'projects/canopy/src/lib/icon',
-  compileSources: true,
   interfaceName: 'Icon',
   exportCompleteIconSet: true,
   completeIconSetName: 'lgIconsArray',
-  delimiter: 'KEBAB',
   svgoConfig: svgoIconsConfig,
 };
 
