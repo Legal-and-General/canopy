@@ -1,3 +1,11 @@
+// Import design tokens
+@import '@legal-and-general/canopy-design-tokens/build/css/variables.css';
+@import '@legal-and-general/canopy-design-tokens/build/css/foundations.css';
+@import '@legal-and-general/canopy-design-tokens/build/css/colour.css';
+@import '@legal-and-general/canopy-design-tokens/build/css/component-themes.css';
+@import '@legal-and-general/canopy-design-tokens/build/css/layout.css';
+@import '@legal-and-general/canopy-design-tokens/build/css/typography.css';
+
 @use 'styles-classes';
 
 @use 'typography-elements';

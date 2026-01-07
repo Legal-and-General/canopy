@@ -1,67 +1,67 @@
 @use 'mixins';
 
 :root {
-  --space-1: var(--sm-space-1);
-  --space-2: var(--sm-space-2);
-  --space-3: var(--sm-space-3);
-  --space-4: var(--sm-space-4);
-  --space-5: var(--sm-space-5);
-  --space-6: var(--sm-space-6);
-  --space-7: var(--sm-space-7);
-  --space-8: var(--sm-space-8);
-  --space-9: var(--sm-space-9);
-  --space-10: var(--sm-space-10);
+  --space-1: var(--space-1-sm);
+  --space-2: var(--space-2-sm);
+  --space-3: var(--space-3-sm);
+  --space-4: var(--space-4-sm);
+  --space-5: var(--space-5-sm);
+  --space-6: var(--space-6-sm);
+  --space-7: var(--space-7-sm);
+  --space-8: var(--space-8-sm);
+  --space-9: var(--space-9-sm);
+  --space-10: var(--space-10-sm);
 
   @include mixins.lg-breakpoint('md') {
-    --space-1: var(--md-space-1);
-    --space-2: var(--md-space-2);
-    --space-3: var(--md-space-3);
-    --space-4: var(--md-space-4);
-    --space-5: var(--md-space-5);
-    --space-6: var(--md-space-6);
-    --space-7: var(--md-space-7);
-    --space-8: var(--md-space-8);
-    --space-9: var(--md-space-9);
-    --space-10: var(--md-space-10);
+    --space-1: var(--space-1-md);
+    --space-2: var(--space-2-md);
+    --space-3: var(--space-3-md);
+    --space-4: var(--space-4-md);
+    --space-5: var(--space-5-md);
+    --space-6: var(--space-6-md);
+    --space-7: var(--space-7-md);
+    --space-8: var(--space-8-md);
+    --space-9: var(--space-9-md);
+    --space-10: var(--space-10-md);
   }
 
   @include mixins.lg-breakpoint('lg') {
-    --space-1: var(--lg-space-1);
-    --space-2: var(--lg-space-2);
-    --space-3: var(--lg-space-3);
-    --space-4: var(--lg-space-4);
-    --space-5: var(--lg-space-5);
-    --space-6: var(--lg-space-6);
-    --space-7: var(--lg-space-7);
-    --space-8: var(--lg-space-8);
-    --space-9: var(--lg-space-9);
-    --space-10: var(--lg-space-10);
+    --space-1: var(--space-1-lg);
+    --space-2: var(--space-2-lg);
+    --space-3: var(--space-3-lg);
+    --space-4: var(--space-4-lg);
+    --space-5: var(--space-5-lg);
+    --space-6: var(--space-6-lg);
+    --space-7: var(--space-7-lg);
+    --space-8: var(--space-8-lg);
+    --space-9: var(--space-9-lg);
+    --space-10: var(--space-10-lg);
   }
 
   @include mixins.lg-breakpoint('xl') {
-    --space-1: var(--xl-space-1);
-    --space-2: var(--xl-space-2);
-    --space-3: var(--xl-space-3);
-    --space-4: var(--xl-space-4);
-    --space-5: var(--xl-space-5);
-    --space-6: var(--xl-space-6);
-    --space-7: var(--xl-space-7);
-    --space-8: var(--xl-space-8);
-    --space-9: var(--xl-space-9);
-    --space-10: var(--xl-space-10);
+    --space-1: var(--space-1-xl);
+    --space-2: var(--space-2-xl);
+    --space-3: var(--space-3-xl);
+    --space-4: var(--space-4-xl);
+    --space-5: var(--space-5-xl);
+    --space-6: var(--space-6-xl);
+    --space-7: var(--space-7-xl);
+    --space-8: var(--space-8-xl);
+    --space-9: var(--space-9-xl);
+    --space-10: var(--space-10-xl);
   }
 
   @include mixins.lg-breakpoint('xxl') {
-    --space-1: var(--xxl-space-1);
-    --space-2: var(--xxl-space-2);
-    --space-3: var(--xxl-space-3);
-    --space-4: var(--xxl-space-4);
-    --space-5: var(--xxl-space-5);
-    --space-6: var(--xxl-space-6);
-    --space-7: var(--xxl-space-7);
-    --space-8: var(--xxl-space-8);
-    --space-9: var(--xxl-space-9);
-    --space-10: var(--xxl-space-10);
+    --space-1: var(--space-1-xxl);
+    --space-2: var(--space-2-xxl);
+    --space-3: var(--space-3-xxl);
+    --space-4: var(--space-4-xxl);
+    --space-5: var(--space-5-xxl);
+    --space-6: var(--space-6-xxl);
+    --space-7: var(--space-7-xxl);
+    --space-8: var(--space-8-xxl);
+    --space-9: var(--space-9-xxl);
+    --space-10: var(--space-10-xxl);
   }
 
   --component-padding: var(--space-4);

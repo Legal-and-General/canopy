@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
-import typographyVariables from '@lib/storybook/css-variables/variables/typography';
+import typographyVariables from '@lib/storybook/css-variables/tokens/variables';
 
 import { getProductiveFontSizes, getExpressiveFontSizes } from './typography-utils';
 
@@ -27,8 +27,8 @@ const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
 })
 class LgDisplayFontSizeComponent {
   @Input() textString: string;
-  @Input() pxValues: { sm: string; lg?: string };
-  @Input() remValues: { sm: string; lg?: string };
+  @Input() pxValues: { sm: string; lg: string };
+  @Input() remValues: { sm: string; lg: string };
   @Input() fontClass: string;
   @Input() showSizeInfo = false;
 }
