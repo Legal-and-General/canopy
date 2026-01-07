@@ -1,67 +1,20 @@
 @use 'mixins';
 
 :root {
-  --space-1: var(--space-1-sm);
-  --space-2: var(--space-2-sm);
-  --space-3: var(--space-3-sm);
-  --space-4: var(--space-4-sm);
-  --space-5: var(--space-5-sm);
-  --space-6: var(--space-6-sm);
-  --space-7: var(--space-7-sm);
-  --space-8: var(--space-8-sm);
-  --space-9: var(--space-9-sm);
-  --space-10: var(--space-10-sm);
-
-  @include mixins.lg-breakpoint('md') {
-    --space-1: var(--space-1-md);
-    --space-2: var(--space-2-md);
-    --space-3: var(--space-3-md);
-    --space-4: var(--space-4-md);
-    --space-5: var(--space-5-md);
-    --space-6: var(--space-6-md);
-    --space-7: var(--space-7-md);
-    --space-8: var(--space-8-md);
-    --space-9: var(--space-9-md);
-    --space-10: var(--space-10-md);
+  // Spacing values - default to sm breakpoint
+  $space-values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+  @each $value in $space-values {
+    --space-#{$value}: var(--space-#{$value}-sm);
   }
 
-  @include mixins.lg-breakpoint('lg') {
-    --space-1: var(--space-1-lg);
-    --space-2: var(--space-2-lg);
-    --space-3: var(--space-3-lg);
-    --space-4: var(--space-4-lg);
-    --space-5: var(--space-5-lg);
-    --space-6: var(--space-6-lg);
-    --space-7: var(--space-7-lg);
-    --space-8: var(--space-8-lg);
-    --space-9: var(--space-9-lg);
-    --space-10: var(--space-10-lg);
-  }
-
-  @include mixins.lg-breakpoint('xl') {
-    --space-1: var(--space-1-xl);
-    --space-2: var(--space-2-xl);
-    --space-3: var(--space-3-xl);
-    --space-4: var(--space-4-xl);
-    --space-5: var(--space-5-xl);
-    --space-6: var(--space-6-xl);
-    --space-7: var(--space-7-xl);
-    --space-8: var(--space-8-xl);
-    --space-9: var(--space-9-xl);
-    --space-10: var(--space-10-xl);
-  }
-
-  @include mixins.lg-breakpoint('xxl') {
-    --space-1: var(--space-1-xxl);
-    --space-2: var(--space-2-xxl);
-    --space-3: var(--space-3-xxl);
-    --space-4: var(--space-4-xxl);
-    --space-5: var(--space-5-xxl);
-    --space-6: var(--space-6-xxl);
-    --space-7: var(--space-7-xxl);
-    --space-8: var(--space-8-xxl);
-    --space-9: var(--space-9-xxl);
-    --space-10: var(--space-10-xxl);
+  // Apply breakpoint-specific values
+  $breakpoints: 'md', 'lg', 'xl', 'xxl';
+  @each $breakpoint in $breakpoints {
+    @include mixins.lg-breakpoint($breakpoint) {
+      @each $value in $space-values {
+        --space-#{$value}: var(--space-#{$value}-#{$breakpoint});
+      }
+    }
   }
 
   --component-padding: var(--space-4);

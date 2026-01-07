@@ -2,7 +2,7 @@
  * Typography utility functions for processing CSS variables
  */
 
-import variablesVariables from '@lib/storybook/css-variables/tokens/variables';
+import designTokenVariables from '@lib/storybook/css-variables/tokens/variables';
 
 // Standard font weight names based on numeric values
 const FONT_WEIGHT_NAMES: Record<number, string> = {
@@ -486,8 +486,8 @@ export function getLineHeightBreakpointValuesForTable(
   }
 
   // Convert rem to px
-  const smRem = parseFloat(smValue);
-  const lgRem = parseFloat(lgValue);
+  const smRem = Number.parseFloat(smValue);
+  const lgRem = Number.parseFloat(lgValue);
   const smPx = Math.round(smRem * 16);
   const lgPx = Math.round(lgRem * 16);
 
@@ -498,12 +498,12 @@ export function getLineHeightBreakpointValuesForTable(
 }
 
 // Prepare all data upfront for cleaner usage in MDX
-export const fontFamilyVars = prepareFontFamilyVars(variablesVariables);
-export const fontWeightVars = prepareFontWeightVars(variablesVariables);
-export const fontSizeVars = prepareFontSizeVars(variablesVariables);
-export const lineHeightVars = prepareLineHeightVars(variablesVariables);
-export const productiveFontSizes = getProductiveFontSizes(variablesVariables);
-export const expressiveFontSizes = getExpressiveFontSizes(variablesVariables);
+export const fontFamilyVars = prepareFontFamilyVars(designTokenVariables);
+export const fontWeightVars = prepareFontWeightVars(designTokenVariables);
+export const fontSizeVars = prepareFontSizeVars(designTokenVariables);
+export const lineHeightVars = prepareLineHeightVars(designTokenVariables);
+export const productiveFontSizes = getProductiveFontSizes(designTokenVariables);
+export const expressiveFontSizes = getExpressiveFontSizes(designTokenVariables);
 
-// Export variablesVariables for use in MDX tables
-export { variablesVariables as typographyVariables };
+// Export designTokenVariables for use in MDX tables
+export { designTokenVariables as typographyVariables };

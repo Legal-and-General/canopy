@@ -17,7 +17,9 @@ const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
         <div class="lg-margin__bottom--7">
           <p class="lg-font-size-0-8--400 lg-margin__top--4">
             SM > MD: {{ pxValues.sm }}px | {{ remValues.sm }}rem<br />
-            LG > XXL: {{ pxValues.lg }}px | {{ remValues.lg }}rem
+            @if (pxValues.lg && remValues.lg) {
+              LG > XXL: {{ pxValues.lg }}px | {{ remValues.lg }}rem
+            }
           </p>
         </div>
       }
@@ -27,8 +29,8 @@ const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
 })
 class LgDisplayFontSizeComponent {
   @Input() textString: string;
-  @Input() pxValues: { sm: string; lg: string };
-  @Input() remValues: { sm: string; lg: string };
+  @Input() pxValues: { sm: string; lg?: string };
+  @Input() remValues: { sm: string; lg?: string };
   @Input() fontClass: string;
   @Input() showSizeInfo = false;
 }
