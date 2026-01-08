@@ -1,6 +1,6 @@
 import remarkGfm from 'remark-gfm';
 
-module.exports = {
+export default {
   stories: [
     '../projects/canopy/src/lib/docs/welcome/welcome.mdx',
     '../projects/canopy/src/lib/docs/welcome/welcome.stories.ts',

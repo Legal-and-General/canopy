@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   preset: 'jest-preset-angular',
   collectCoverage: true,
   coverageReporters: ['json-summary', 'text-summary', 'html'],
