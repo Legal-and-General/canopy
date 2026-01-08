@@ -1,15 +1,3 @@
-const svgoBrandIconsConfig = {
-  plugins: [
-    {
-      name: 'preset-default',
-      params: {
-        overrides: {
-          cleanupIds: false,
-        },
-      },
-    },
-    'removeDimensions',
-  ],
-};
+import svgToTsConfig from './svg-to-ts-brand-icons.config.json' with { type: 'json' };
 
-module.exports = svgoBrandIconsConfig;
+export default svgToTsConfig.svgoConfig;

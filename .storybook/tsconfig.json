@@ -1,6 +1,9 @@
 {
   "extends": "../tsconfig.json",
-  "exclude": ["../projects/canopy/*.spec.ts"],
+  "exclude": [
+    "../projects/canopy/*.spec.ts",
+    "../projects/canopy/storybook/css-variables/**/*.ts"
+  ],
   "include": [
     "../projects/canopy/src/**/*.stories.ts",
     "../projects/canopy/src/**/*.mdx",

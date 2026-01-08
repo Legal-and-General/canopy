@@ -1,14 +1,18 @@
-const commonESLintRules = require('./common-eslint.rules.js');
-const angularESLintPlugin = require('@angular-eslint/eslint-plugin');
-const typescriptESLintPlugin = require('@typescript-eslint/eslint-plugin');
-const jestEslint = require('eslint-plugin-jest');
+import commonESLintRules from './common-eslint.rules.js';
+import angularESLintPlugin from '@angular-eslint/eslint-plugin';
+import typescriptESLintPlugin from '@typescript-eslint/eslint-plugin';
+import jestEslint from 'eslint-plugin-jest';
+import typescriptESLintParser from '@typescript-eslint/parser';
+import stylisticESLintPlugin from '@stylistic/eslint-plugin';
+import importESLintPlugin from 'eslint-plugin-import';
+import unusedImportsESLintPlugin from 'eslint-plugin-unused-imports';
 
-module.exports = [
+export default [
   {
     name: 'Typescript',
     files: ['./projects/**/*.ts'],
     languageOptions: {
-      parser: require('@typescript-eslint/parser'),
+      parser: typescriptESLintParser,
       parserOptions: {
         ecmaVersion: 2020,
         project: './tsconfig.json',
@@ -18,9 +22,9 @@ module.exports = [
     plugins: {
       '@angular-eslint': angularESLintPlugin,
       '@typescript-eslint': typescriptESLintPlugin,
-      '@stylistic': require('@stylistic/eslint-plugin'),
-      import: require('eslint-plugin-import'),
-      'unused-imports': require('eslint-plugin-unused-imports'),
+      '@stylistic': stylisticESLintPlugin,
+      import: importESLintPlugin,
+      'unused-imports': unusedImportsESLintPlugin,
       jest: jestEslint,
     },
     rules: {

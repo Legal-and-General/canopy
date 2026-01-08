@@ -12,7 +12,7 @@ const template = `
   @for (item of listItems; track item.text) {
     <li lg-list-with-icons-item [iconName]="item.iconName" [iconColour]="colouredIcons ? item.iconColour : null"
     ><ng-container [ngTemplateOutlet]="item.isLink ? linkText : text" [ngTemplateOutletContext]="{text: item.text}"></ng-container>
-      @if (item.children as children) {
+      @if (item.children; as children) {
         <ul lg-list-with-icons>
           @for (child of children; track child.text) {
             <li lg-list-with-icons-item [iconName]="child.iconName" [iconColour]="colouredIcons ? child.iconColour : null"
