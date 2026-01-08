@@ -1,5 +1,7 @@
 {
-  "srcFiles": ["./projects/canopy/src/assets/brand-icons/**/*.svg"],
+  "srcFiles": [
+    "./projects/canopy/src/assets/brand-icons/**/*.svg"
+  ],
   "outputDirectory": "./projects/canopy/src/lib/brand-icons-files",
   "iconsFolderName": "set",
   "typeName": "BrandIconName",
@@ -11,5 +13,18 @@
   "interfaceName": "BrandIcon",
   "exportCompleteIconSet": true,
   "completeIconSetName": "lgBrandIconsArray",
-  "delimiter": "KEBAB"
+  "delimiter": "KEBAB",
+  "svgoConfig": {
+    "plugins": [
+      {
+        "name": "preset-default",
+        "params": {
+          "overrides": {
+            "cleanupIds": false
+          }
+        }
+      },
+      "removeDimensions"
+    ]
+  }
 }

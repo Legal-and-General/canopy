@@ -1,14 +1,3 @@
-const svgoIconsConfig = {
-  plugins: [
-    'preset-default',
-    {
-      name: 'removeAttrs',
-      params: {
-        attrs: ['fill', 'path:fill'],
-      },
-    },
-    'removeDimensions',
-  ],
-};
+import svgToTsConfig from './svg-to-ts-icons.config.json' with { type: 'json' };
 
-export default svgoIconsConfig;
+export default svgToTsConfig.svgoConfig;
