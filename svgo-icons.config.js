@@ -11,4 +11,4 @@ const svgoIconsConfig = {
   ],
 };
 
-module.exports = svgoIconsConfig;
+export default svgoIconsConfig;

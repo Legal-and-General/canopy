@@ -1,5 +1,4 @@
-import { Meta } from '@storybook/angular';
-import { moduleMetadata } from '@storybook/angular';
+import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgAlertComponent } from '../../../lib/alert';
 import { LgMarginDirective } from '../../../lib/spacing';

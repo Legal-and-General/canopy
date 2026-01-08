@@ -1,11 +1,12 @@
-const angularTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
+import angularTemplatePlugin from '@angular-eslint/eslint-plugin-template';
+import angularTemplateParser from '@angular-eslint/template-parser';
 
-module.exports = [
+export default [
   {
     name: 'Angular Templates',
     files: ['./projects/**/*.component.html'],
     languageOptions: {
-      parser: require('@angular-eslint/template-parser'),
+      parser: angularTemplateParser,
     },
     plugins: {
       '@angular-eslint/template': angularTemplatePlugin,

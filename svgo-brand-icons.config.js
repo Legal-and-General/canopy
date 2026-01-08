@@ -12,4 +12,4 @@ const svgoBrandIconsConfig = {
   ],
 };
 
-module.exports = svgoBrandIconsConfig;
+export default svgoBrandIconsConfig;
