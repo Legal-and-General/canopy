@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   'projects/canopy/src/**/*.json': [
     'prettier --write',
     'git add'

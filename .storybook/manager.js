@@ -1,9 +1,6 @@
 import { addons } from 'storybook/manager-api';
 import canopyTheme from './canopy-theme';
-import {
-  defaultConfig,
-  TagBadgeParameters,
-} from 'storybook-addon-tag-badges'
+import { defaultConfig } from 'storybook-addon-tag-badges/manager-helpers';
 
 addons.setConfig({
   tagBadges: [

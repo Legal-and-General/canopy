@@ -1,13 +1,13 @@
-const storybook = require('eslint-plugin-storybook');
-const globals = require('globals');
-const jestEslint = require('eslint-plugin-jest');
-const {
+import storybook from 'eslint-plugin-storybook';
+import globals from 'globals';
+import jestEslint from 'eslint-plugin-jest';
+import {
   javascriptConfig,
   templateConfig,
   typescriptConfig,
-} = require('./eslint-configs/index.js');
+} from './eslint-configs/index.js';
 
-module.exports = [
+export default [
   {
     name: 'Global - Language options',
     languageOptions: {
