@@ -356,6 +356,7 @@ const cardGroupTemplate = `
             </lg-link-menu>
           </lg-card-footer>
         </lg-card>
+        }
       </aside>
     </div>
   </div>
