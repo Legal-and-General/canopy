@@ -3,7 +3,8 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata } from '@storybook/angular';
 
 import { BrandIconSize, LgBrandIconComponent } from '../brand-icon.component';
-import { lgBrandIconsArray } from '../../brand-icons-files';
+// Direct import required for Webpack compatibility - do not use barrel file
+import { lgBrandIconsArray } from '../../brand-icons-files/set/lgBrandIconsArray';
 
 @Component({
   selector: 'lg-swatch-brand-icon',

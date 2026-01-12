@@ -6,8 +6,12 @@
  * Instead, it creates a static mapping of icon names to lazy import functions.
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function generateIconLoader(config) {
   const { sourceDir, outputFile, prefix, interfaceName } = config;
@@ -72,3 +76,4 @@ generateIconLoader({
 
 console.log('\n🎯 Icon loader files generated successfully!');
 console.log('   Each icon will be loaded as a separate lazy chunk on-demand.\n');
+

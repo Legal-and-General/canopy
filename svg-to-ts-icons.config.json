@@ -7,7 +7,6 @@
   "optimizeForLazyLoading": true,
   "modelFileName": "ui-icons-files.interface",
   "additionalModelOutputPath": "projects/canopy/src/lib/icon",
-  "compileSources": true,
   "interfaceName": "Icon",
   "exportCompleteIconSet": true,
   "completeIconSetName": "lgIconsArray",
