@@ -9,7 +9,6 @@
   "optimizeForLazyLoading": true,
   "modelFileName": "brand-icons-files.interface",
   "additionalModelOutputPath": "projects/canopy/src/lib/brand-icon",
-  "compileSources": true,
   "interfaceName": "BrandIcon",
   "exportCompleteIconSet": true,
   "completeIconSetName": "lgBrandIconsArray",

@@ -2,8 +2,9 @@ import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { IconName, LgIconComponent } from '../../icon';
-import { LgQuickActionComponent } from '../quick-action.component';
-import { lgIconsArray } from '../../ui-icons-files';
+import { LgQuickActionComponent } from '../../quick-action/quick-action.component';
+// Direct import required for Webpack compatibility - do not use barrel file
+import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
 @Component({
   selector: 'lg-quick-action-link',

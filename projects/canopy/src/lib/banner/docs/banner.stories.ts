@@ -4,7 +4,8 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 import { IconName, LgIconComponent } from '../../icon';
 import { LgBannerComponent } from '../banner.component';
 import { BannerVariant } from '../banner-variant.interface';
-import { lgIconsArray } from '../../ui-icons-files';
+// Direct import required for Webpack compatibility - do not use barrel file
+import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
 const variantTypes = [ 'generic', 'warning' ];
 
