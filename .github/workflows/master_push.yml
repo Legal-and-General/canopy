@@ -112,7 +112,7 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.js');
+            const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.cjs');
             await deployBranch({
               branch: '${{ github.ref_name }}',
               sha: '${{ github.sha }}',
