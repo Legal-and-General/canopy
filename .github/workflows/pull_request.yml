@@ -6,6 +6,10 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   verify:
     runs-on: ubuntu-latest
