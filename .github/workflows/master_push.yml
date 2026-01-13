@@ -9,6 +9,11 @@ on:
     tags-ignore:
       - '*'
 
+permissions:
+  contents: write
+  packages: write
+  deployments: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
