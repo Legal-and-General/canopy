@@ -6,6 +6,13 @@ on:
         description: 'The PR number'
         required: true
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  deployments: write
+  checks: read
+
 jobs:
   # Deploys selected branch to GitHub Pages
   deploy-branch:
