@@ -10,6 +10,7 @@ permissions:
   contents: write
   deployments: write
   actions: read
+  pull-requests: write
 
 jobs:
   # Deploys selected branch to GitHub Pages
