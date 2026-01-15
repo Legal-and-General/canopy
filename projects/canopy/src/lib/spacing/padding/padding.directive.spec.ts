@@ -14,6 +14,13 @@ import { LgPaddingDirective } from './padding.directive';
       [lgPaddingLeft]="lgPaddingLeft"
       [lgPaddingVertical]="lgPaddingVertical"
       [lgPaddingHorizontal]="lgPaddingHorizontal"
+      [lgPaddingNoneAt]="lgPaddingNoneAt"
+      [lgPaddingTopNoneAt]="lgPaddingTopNoneAt"
+      [lgPaddingRightNoneAt]="lgPaddingRightNoneAt"
+      [lgPaddingBottomNoneAt]="lgPaddingBottomNoneAt"
+      [lgPaddingLeftNoneAt]="lgPaddingLeftNoneAt"
+      [lgPaddingVerticalNoneAt]="lgPaddingVerticalNoneAt"
+      [lgPaddingHorizontalNoneAt]="lgPaddingHorizontalNoneAt"
     >
       Test feature
     </div>
@@ -28,6 +35,13 @@ class TestComponent {
   @Input() lgPaddingLeft;
   @Input() lgPaddingVertical;
   @Input() lgPaddingHorizontal;
+  @Input() lgPaddingNoneAt;
+  @Input() lgPaddingTopNoneAt;
+  @Input() lgPaddingRightNoneAt;
+  @Input() lgPaddingBottomNoneAt;
+  @Input() lgPaddingLeftNoneAt;
+  @Input() lgPaddingVerticalNoneAt;
+  @Input() lgPaddingHorizontalNoneAt;
 }
 
 describe('LgPadding', () => {
@@ -219,6 +233,107 @@ describe('LgPadding', () => {
       expect(el).toContain('lg-padding__left--md--8');
 
       expect(el).toContain('lg-padding__right--md--8');
+    });
+  });
+
+  describe('NoneAt padding', () => {
+    it('adds noneAt class for all sides', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = 'md';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding--5');
+      expect(el).toContain('lg-padding--md--none');
+    });
+
+    it('adds noneAt class for individual sides', () => {
+      [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
+        const sideCapitalized = side[0].toUpperCase() + side.slice(1);
+
+        component[`lgPadding${sideCapitalized}`] = '6';
+        component[`lgPadding${sideCapitalized}NoneAt`] = 'lg';
+        fixture.detectChanges();
+
+        const el = testElement.nativeElement.getAttribute('class');
+
+        expect(el).toContain(`lg-padding__${side}--6`);
+        expect(el).toContain(`lg-padding__${side}--lg--none`);
+      });
+    });
+
+    it('adds noneAt class for horizontal paddings', () => {
+      component.lgPaddingHorizontal = '7';
+      component.lgPaddingHorizontalNoneAt = 'xl';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__left--7');
+      expect(el).toContain('lg-padding__right--7');
+      expect(el).toContain('lg-padding__left--xl--none');
+      expect(el).toContain('lg-padding__right--xl--none');
+    });
+
+    it('adds noneAt class for vertical paddings', () => {
+      component.lgPaddingVertical = '8';
+      component.lgPaddingVerticalNoneAt = 'sm';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__top--8');
+      expect(el).toContain('lg-padding__bottom--8');
+      expect(el).toContain('lg-padding__top--sm--none');
+      expect(el).toContain('lg-padding__bottom--sm--none');
+    });
+
+    it('updates noneAt class when breakpoint changes', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-padding--md--none',
+      );
+
+      component.lgPaddingNoneAt = 'lg';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).not.toContain('lg-padding--md--none');
+      expect(el).toContain('lg-padding--lg--none');
+    });
+
+    it('removes noneAt class when set to null', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-padding--md--none',
+      );
+
+      component.lgPaddingNoneAt = null;
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-padding--md--none',
+      );
+    });
+
+    it('works with all breakpoints', () => {
+      [ 'sm', 'md', 'lg', 'xl', 'xxl' ].forEach(breakpoint => {
+        component.lgPadding = '5';
+        component.lgPaddingNoneAt = breakpoint;
+        fixture.detectChanges();
+
+        expect(testElement.nativeElement.getAttribute('class')).toContain(
+          `lg-padding--${breakpoint}--none`,
+        );
+      });
     });
   });
 });
