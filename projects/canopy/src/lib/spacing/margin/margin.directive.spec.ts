@@ -14,6 +14,13 @@ import { LgMarginDirective } from './margin.directive';
       [lgMarginLeft]="lgMarginLeft"
       [lgMarginVertical]="lgMarginVertical"
       [lgMarginHorizontal]="lgMarginHorizontal"
+      [lgMarginNoneAt]="lgMarginNoneAt"
+      [lgMarginTopNoneAt]="lgMarginTopNoneAt"
+      [lgMarginRightNoneAt]="lgMarginRightNoneAt"
+      [lgMarginBottomNoneAt]="lgMarginBottomNoneAt"
+      [lgMarginLeftNoneAt]="lgMarginLeftNoneAt"
+      [lgMarginVerticalNoneAt]="lgMarginVerticalNoneAt"
+      [lgMarginHorizontalNoneAt]="lgMarginHorizontalNoneAt"
     >
       Test feature
     </div>
@@ -28,6 +35,13 @@ class TestComponent {
   @Input() lgMarginLeft;
   @Input() lgMarginVertical;
   @Input() lgMarginHorizontal;
+  @Input() lgMarginNoneAt;
+  @Input() lgMarginTopNoneAt;
+  @Input() lgMarginRightNoneAt;
+  @Input() lgMarginBottomNoneAt;
+  @Input() lgMarginLeftNoneAt;
+  @Input() lgMarginVerticalNoneAt;
+  @Input() lgMarginHorizontalNoneAt;
 }
 
 describe('LgMargin', () => {
@@ -215,6 +229,107 @@ describe('LgMargin', () => {
       expect(el).toContain('lg-margin__left--md--8');
 
       expect(el).toContain('lg-margin__right--md--8');
+    });
+  });
+
+  describe('NoneAt margin', () => {
+    it('adds noneAt class for all sides', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = 'md';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin--5');
+      expect(el).toContain('lg-margin--md--none');
+    });
+
+    it('adds noneAt class for individual sides', () => {
+      [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
+        const sideCapitalized = side[0].toUpperCase() + side.slice(1);
+
+        component[`lgMargin${sideCapitalized}`] = '6';
+        component[`lgMargin${sideCapitalized}NoneAt`] = 'lg';
+        fixture.detectChanges();
+
+        const el = testElement.nativeElement.getAttribute('class');
+
+        expect(el).toContain(`lg-margin__${side}--6`);
+        expect(el).toContain(`lg-margin__${side}--lg--none`);
+      });
+    });
+
+    it('adds noneAt class for horizontal margins', () => {
+      component.lgMarginHorizontal = '7';
+      component.lgMarginHorizontalNoneAt = 'xl';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin__left--7');
+      expect(el).toContain('lg-margin__right--7');
+      expect(el).toContain('lg-margin__left--xl--none');
+      expect(el).toContain('lg-margin__right--xl--none');
+    });
+
+    it('adds noneAt class for vertical margins', () => {
+      component.lgMarginVertical = '8';
+      component.lgMarginVerticalNoneAt = 'sm';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin__top--8');
+      expect(el).toContain('lg-margin__bottom--8');
+      expect(el).toContain('lg-margin__top--sm--none');
+      expect(el).toContain('lg-margin__bottom--sm--none');
+    });
+
+    it('updates noneAt class when breakpoint changes', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-margin--md--none',
+      );
+
+      component.lgMarginNoneAt = 'lg';
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).not.toContain('lg-margin--md--none');
+      expect(el).toContain('lg-margin--lg--none');
+    });
+
+    it('removes noneAt class when set to null', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-margin--md--none',
+      );
+
+      component.lgMarginNoneAt = null;
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-margin--md--none',
+      );
+    });
+
+    it('works with all breakpoints', () => {
+      [ 'sm', 'md', 'lg', 'xl', 'xxl' ].forEach(breakpoint => {
+        component.lgMargin = '5';
+        component.lgMarginNoneAt = breakpoint;
+        fixture.detectChanges();
+
+        expect(testElement.nativeElement.getAttribute('class')).toContain(
+          `lg-margin--${breakpoint}--none`,
+        );
+      });
     });
   });
 });
