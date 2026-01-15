@@ -67,13 +67,46 @@ Provides styles to hide information intended only for screen readers from the la
 
 ## lg-breakpoint
 
-Allows breakpoints to be added to css blocks.
+Allows breakpoints to be added to css blocks. Supports min-width, max-width, and range-based media queries.
 
 ### Arguments
 
-| Name          | Description                                     | Default | Required |
-| ------------- | ----------------------------------------------- | :-----: | :------: |
-| `$breakpoint` | The string value for the breakpoint screen size |   n/a   |   Yes    |
+| Name              | Description                                                                                      |   Default    | Required |
+| ----------------- | ------------------------------------------------------------------------------------------------ | :----------: | :------: |
+| `$breakpoint`     | The string value for the breakpoint screen size (e.g. `'sm'`, `'md'`, `'lg'`, `'xl'`, `'xxl'`)  |     n/a      |   Yes    |
+| `$range`          | The type of media query: `'min-width'`, `'max-width'`, or `'range'`                              | `'min-width'`|    No    |
+| `$max-breakpoint` | The maximum breakpoint name when using `$range: 'range'` (e.g. `'lg'` when `$breakpoint: 'md'`) |    `null`    |    No    |
+
+### Examples
+
+```scss
+// Min-width only (default) - applies from md breakpoint onwards
+.my-class {
+  @include lg-breakpoint('md') {
+    color: 'red';
+  }
+}
+
+// Max-width only - applies up to lg breakpoint
+.my-class {
+  @include lg-breakpoint('lg', 'max-width') {
+    color: 'blue';
+  }
+}
+
+// Range - applies only between md and lg breakpoints
+.my-class {
+  @include lg-breakpoint('md', 'range', 'lg') {
+    color: 'yellow'
+  }
+}
+```
+
+### Notes
+
+- When using `'max-width'`, the mixin automatically subtracts `0.06rem` to prevent overlap with min-width queries
+- When using `'range'`, the mixin creates a combined `(min-width: X) and (max-width: Y)` media query
+- For the `sm` breakpoint with `'range'`, only `max-width` is used (since min-width would be 0)
 
 ## lg-variant
 
