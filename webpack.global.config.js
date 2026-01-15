@@ -35,7 +35,7 @@ export default {
           context: 'projects/canopy/src/lib/',
         },
         {
-          from: path.resolve(__dirname, 'projects/canopy/src/styles/**/*.scss'),
+          from: path.resolve(__dirname, 'projects/canopy/src/styles/**/*.(scss|css)'),
           to: path.resolve(__dirname, 'dist/canopy/styles'),
           context: 'projects/canopy/src/styles/',
         },
