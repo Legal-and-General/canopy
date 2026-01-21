@@ -1,0 +1,220 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Feedback from '../common/feedback.md';
+
+<Meta title="Foundations/Design tokens" />
+
+# Design tokens
+
+<p class="standfirst">Design tokens are one of the core building blocks of our visual language. All our Angular components, patterns, and templates we create are styled using our design tokens. This ensures a unified look and feel across our products, makes it easier to build and scale components, and provides a way for teams who can’t use the Canopy Angular library to style their components consistently with all of our applications.</p>
+
+Design tokens encode design decisions—such as colours, typography, spacing, and more—into a format that can be used by both designers and developers. Tokens are defined according to https://design-tokens.github.io/community-group/format/ . We currently provide tokens in CSS format, with plans to support other formats (e.g., for native apps) in the future.
+
+## Who should use design tokens?
+
+* **Designers:** Especially those working in Figma and using the Canopy Figma library.
+* **Developers:** If you’re not using the Angular components, need to add bespoke styling to your app or you’re contributing a new component to the design system, you should start with the design tokens
+* **Anyone** involved in creating or maintaining UI components, patterns, or templates.
+
+## Recommended knowledge
+
+Familiarity with Figma, the Canopy Figma library, and CSS will help you get the most out of our tokens.
+
+## Token tiers and usage order
+
+Our tokens are organised into three main tiers, each serving a specific purpose in the design system:
+
+### Foundation tokens
+The basic, raw values for colours, spacing, typography, and other atomic properties.
+
+Examples:
+* `--colour-blue-100`
+* `--font-size-small-1`
+* `--dimensions-large-6`
+
+These are **not intended** to be used directly in product code—always use component or semantic tokens where possible.
+
+### Semantic tokens
+They map foundation values to specific UI roles (e.g., containers, interactive components, inputs, and text).
+
+Examples:
+* `--container-background-colour`
+* `--interactive-border-radius`
+* `--input-background-colour`
+
+Semantic tokens may support multiple modes (colour themes, colour tones, breakpoints).
+
+### Component tokens
+Tailored for specific components and should be your first choice when styling.
+
+Examples:
+* `--button-primary-active-background-colour`
+* `--card-border-radius`
+* `--nav-button-gap`
+
+## Usage priority
+
+When styling components, follow this order of preference:
+
+1. **Component Tier Tokens** — Use these whenever possible. They are specifically designed for individual components and ensure the highest level of consistency and maintainability.
+
+2. **Semantic Tokens** — If a component tier token doesn't exist for your use case, use a semantic token. These map to UI roles and maintain consistency across the system.
+
+3. **Foundation Tokens** — Use only as a last resort, when neither a component nor semantic token is available. Direct use can lead to inconsistencies.
+
+### Why this order?
+
+Component tokens encapsulate all design decisions for a specific component, making updates and maintenance easier. Semantic tokens provide flexibility for broader UI roles but may not capture all component-specific nuances. Foundation tokens are the atomic building blocks and should only be used when absolutely necessary.
+
+**Tip:** If you find yourself needing to use a foundation token, consider whether a new component or semantic token should be created instead. This helps keep the system robust and maintainable.
+
+### Modes and colour variants
+
+Tokens support multiple modes to control typography, colour and layout properties:
+* **Colour:** Blue, Green, Red and Yellow - these allow you to set the colour theme of elements
+* **Layout:** SM, MD, LG, XL and XXL - these allow you to set breakpoint and corresponding spacings of elements
+* **Typography:** Productive and Expressive - these allow you to set the font face, weight and letter spacing of text
+* **Component themes:** Neutral, Neutral inverse, Subtle and Bold - these allow you to set the colour tone of elements
+
+For example, `--colour-surface-fill-1` has different values in “blue”, “green”, or “dark” modes, as well as in “Neutral”, “Neutral inverse”, “Subtle” and “Bold”
+
+**Examples of mode/variant tokens:**
+
+* `--colour-surface-fill-1` will show a different colour depending on which of the blue/green/yellow modes has been selected (blue is default)
+
+* `--border-radius-5` is equivalent to 20px on SM and MD modes, but 24px on LG, XL and XXL modes.
+
+## How to use design tokens in code
+
+Design tokens underpin all Canopy components, patterns, template libraries, and the Angular component library.
+
+If you're using the Canopy Angular library, the tokens are included automatically.
+Otherwise, you'll need to install the package manually:
+
+```bash
+npm install @legal-and-general/canopy-design-tokens
+```
+
+To ensure everything works correctly, follow these steps (external links):
+
+* [Setting up the GitHub registry](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#setting-up-the-github-registry)
+* [Authenticating against the GitHub registry](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#authenticating-against-the-github-registry)
+
+### Importing tokens
+
+After installing the package, you can import the tokens by adding the necessary files to your build process.
+
+The `@legal-and-general/canopy-design-tokens` package contains a `css` folder with various CSS files, each file can be imported like this:
+
+```html
+<link
+  rel="stylesheet"
+  href="node_modules/@legal-and-general/canopy-design-tokens/css/foundations.css"
+/>
+<link
+  rel="stylesheet"
+  href="node_modules/@legal-and-general/canopy-design-tokens/css/colour.css"
+/>
+<link
+  rel="stylesheet"
+  href="node_modules/@legal-and-general/canopy-design-tokens/css/component-themes.css"
+/>
+```
+
+Refer to the [Canopy Design Tokens repository](https://github.com/Legal-and-General/canopy-design-tokens/tree/master/build) to see all available tokens.
+
+### Referencing a token in CSS
+To use a design token in your CSS, reference it as a custom property. Using a button component as an example:
+
+```css
+color: var(--button-primary-default-colour);
+background-color: var(--button-primary-default-background-colour);
+border-radius: var(--button-border-radius);
+```
+
+## Using design tokens in Figma
+Design tokens are available as variables in our Canopy Figma library. Attaching these variables to your designs ensures consistency and makes it easy to update styles across your work.
+
+### Attaching tokens (variables) to elements
+For new elements or custom designs (not existing Canopy components):
+
+1. **Select the Element:** Click on the layer or group you want to style.
+
+2. **Open the Right Panel:** In Figma, the right-hand properties panel will show options for Fill, Stroke, Effects, etc.
+
+3. **Apply a Variable (Token):**
+
+For **colour:**
+* Click the variable icon (hexagonal cog icon) next to Fill or Stroke.
+* In the variable modal, search for and select the appropriate token (e.g., --colour-surface-fill-1).
+
+For **spacing/layout:**
+* For padding, margin, or gap, click the variable icon next to the value and select a spacing token (e.g., --spacing-md).
+
+For **border radius:**
+* Click the variable icon next to Corner radius and select a border radius token (e.g., --border-radius-md).
+
+## Typography: Use text styles
+> **Important:** Always use the predefined text styles from the Canopy Figma library for typography. Text styles bundle several design tokens together (font family, size, weight, line height, letter spacing, etc.) to ensure consistency and reduce manual work.
+
+To apply a text style:
+1. Select your text layer.
+2. In the right panel, under Text, click the style dropdown and choose the appropriate Canopy text style (e.g., “font-size-1/regular” or “font-size-3/bold”).
+
+**Do not manually attach individual typography tokens to text layers.**
+
+## Using Modes in Figma
+Our tokens support multiple **modes** (such as brand colours, light/dark themes, or expressive/productive typography). Figma’s variable modes let you preview and apply these variations easily.
+
+**To use modes:**
+
+1. **Switch Modes:**
+* In the right panel, click the mode dropdown (e.g., “Default”, “Blue”, “Green”, “Dark”).
+* Select the mode you want to preview or apply.
+* You can apply modes at any hierarchy level: on components, their frames, or the entire page.
+
+2. **Apply Variables:**
+* When you attach a variable to a property, Figma will automatically use the value for the currently selected mode.
+* Switching modes updates all attached variables in your design to reflect the new theme or state.
+
+### Common modes in our system:
+* Brand colour modes: Blue, Green, Yellow, etc.
+* Typography modes: Productive, Expressive
+* Breakpoints: sm, md, lg, xl, xxl
+
+> **Tip:** Use modes to quickly check how your design adapts to different themes or breakpoints, ensuring accessibility and consistency.
+
+## Best practices
+* **Don’t detach variables from existing Canopy components.** They already have the correct tokens attached.
+
+* **Always use tokens instead of hardcoded values.** This ensures your designs stay in sync with the system.
+
+* **For typography, always use the supplied text styles, not individual tokens.**
+
+* **If you can’t find a suitable token or style,** check with the design system team before using a custom value.
+
+### Need help?
+Reach out to the design system team for support - CanopyDesignSystem@landg.com
+
+## Dos and Don’ts
+### Do:
+
+* Use tokens for all styling properties instead of hardcoded values.
+
+* Reference tokens directly in your components and stylesheets.
+
+* Keep tokens up to date with the latest design decisions.
+
+### Don’t:
+
+* Override tokens with custom values unless absolutely necessary.
+
+* Duplicate token values in your codebase.
+
+* Ignore updates provided by the token repository.
+
+## Token repository
+[Canopy design token repository](https://github.com/Legal-and-General/canopy-design-tokens)
+
+<Markdown>
+  {Feedback}
+</Markdown>
