@@ -10,6 +10,7 @@ export default {
     '../projects/canopy/src/lib/docs/foundation/typography/typography.mdx',
     '../projects/canopy/src/lib/docs/foundation/typography/typography.stories.ts',
     '../projects/canopy/src/lib/docs/foundation/layout-grid-and-spacing.mdx',
+    '../projects/canopy/src/lib/docs/foundation/design-tokens.mdx',
     '../projects/canopy/src/lib/icon/docs/guide.mdx',
     '../projects/canopy/src/lib/icon/docs/icons.stories.ts',
     '../projects/canopy/src/lib/brand-icon/docs/guide.mdx',
