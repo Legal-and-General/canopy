@@ -1,70 +1,42 @@
 @use '../mixins';
 
 :root {
-  --font-family: 'Nunito Sans', 'Arial', sans-serif;
-  --font-family-expressive: 'ABC Otto', 'Times new roman', serif;
+  --font-family: var(--typeface-productive), 'Arial', sans-serif; // default font
+  --font-family-expressive: var(--typeface-expressive), 'Times new roman', serif;
   --text-default: var(--colour-greyscale-900);
 
-  --text-base-size: 16px; /* stylelint-disable-line unit-allowed-list */
-  --text-base-line-height: 1.38;
+  --text-base-size: var(--font-size-1); // base font size
+  --text-base-line-height: var(--line-height-1); // base line height
   --text-bottom-margin: 1em;
 
-  /* values are so small pixel values are used for precision */
-  /* stylelint-disable unit-allowed-list */
-  --letter-spacing-productive: 0.2px;
-  --letter-spacing-productive-condensed: -0.1px;
-  --letter-spacing-productive-ultra-condensed: -0.2px;
-  --letter-spacing-productive-expanded: 0.3px;
-  --letter-spacing-expressive: -0.5px;
-  --letter-spacing-expressive-condensed: -1.2px;
-  --letter-spacing-expressive-ultra-condensed: -1.3px;
-  --letter-spacing-expressive-expanded: 0;
-  /* stylelint-enable unit-allowed-list */
+  // mapping font weights to defaults
+  --font-weight-300: var(--font-weight-300-productive);
+  --font-weight-400: var(--font-weight-400-productive);
+  --font-weight-500: var(--font-weight-500-productive);
+  --font-weight-700: var(--font-weight-700-productive);
 
-  --font-weight-300: 300;
-  --font-weight-400: 400;
-  --font-weight-500: 500;
-  --font-weight-700: 700;
-
-  --font-size-9: 4.25rem; // 68px
-  --font-size-8: 3.5rem; // 56px
-  --font-size-7: 3rem; // 48px
-  --font-size-6: 2.75rem; // 44px
-  --font-size-5: 2rem; // 32px
-  --font-size-4: 1.75rem; // 28px
-  --font-size-3: 1.5rem; // 24px
-  --font-size-2: 1.25rem; // 20px
-  --font-size-1: var(--text-base-size); // 16px
-  --font-size-0-8: 0.75rem; // 12px
-  --font-size-0-6: 0.625rem; // 10px
-
-  --line-height-9: 1.21; // 82px
-  --line-height-8: 1.2; // 67px
-  --line-height-7: 1.21; // 58px
-  --line-height-6: 1.1; // 48px
-  --line-height-5: 1.19; // 38px
-  --line-height-4: 1.29; // 36px
-  --line-height-3: 1.42; // 34px
-  --line-height-2: 1.4; // 28px
-  --line-height-1: 1.38; // 22px
-  --line-height-0-8: 1.417; // 17px
-  --line-height-0-6: 1.4; // 14px
-
-  @include mixins.lg-breakpoint('lg') {
-    --font-size-9: 6rem; // 96px
-    --font-size-8: 4.75rem; // 76px
-    --font-size-7: 4.25rem; // 68px
-    --font-size-6: 3rem; // 48px
-    --font-size-5: 2.5rem; // 40px
-    --font-size-4: 2rem; // 32px
+  // Font sizes - default to sm breakpoint
+  $font-sizes: '0-6', '0-8', '1', '2', '3', '4', '5', '6', '7', '8', '9';
+  @each $size in $font-sizes {
+    --font-size-#{$size}: var(--font-size-#{$size}-sm);
   }
 
-  @include mixins.lg-breakpoint('lg') {
-    --line-height-9: 1.2; // 115px
-    --line-height-8: 1.2; // 91px
-    --line-height-7: 1.1; // 74px
-    --line-height-6: 1.21; // 58px
-    --line-height-5: 1.2; // 48px
-    --line-height-4: 1.3; // 42px
+  // Line heights - default to sm breakpoint
+  @each $size in $font-sizes {
+    --line-height-#{$size}: var(--line-height-#{$size}-sm);
+  }
+
+  // Apply breakpoint-specific values
+  $breakpoints: 'md', 'lg', 'xl', 'xxl';
+  @each $breakpoint in $breakpoints {
+    @include mixins.lg-breakpoint($breakpoint) {
+      @each $size in $font-sizes {
+        --font-size-#{$size}: var(--font-size-#{$size}-#{$breakpoint});
+      }
+
+      @each $size in $font-sizes {
+        --line-height-#{$size}: var(--line-height-#{$size}-#{$breakpoint});
+      }
+    }
   }
 }
