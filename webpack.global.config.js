@@ -47,6 +47,10 @@ export default {
           from: path.resolve(__dirname, 'projects/canopy/src/assets/brand-icons/*.svg'),
           to: path.resolve(__dirname, 'dist/canopy/brand-icons', '[name][ext]'),
         },
+        {
+          from: path.resolve(__dirname, 'node_modules/@legal-and-general/canopy-design-tokens/css/*.css'),
+          to: path.resolve(__dirname, 'dist/canopy/styles/tokens', '[name][ext]'),
+        },
       ],
     }),
   ],
