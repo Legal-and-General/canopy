@@ -5,15 +5,16 @@ export const getSpacingVariables = (): Record<string, string> => {
   const spacingVars: Record<string, string> = {};
 
   Object.entries(variablesVariables).forEach(([ key, value ]) => {
-    // Match variables that contain '--sm-space-' or '--lg-space-' in their name
+    // Match variables that contain '--space-' and end with '-sm' or '-lg'
     if (
-      (key.includes('--sm-space-') || key.includes('--lg-space-')) &&
+      key.includes('--space-') &&
+      (key.endsWith('-sm') || key.endsWith('-lg')) &&
       typeof value === 'string'
     ) {
-      // Transform --sm-space-X to --space-X for display
-      const displayKey = key.includes('--sm-space-')
-        ? key.replace('--sm-space-', '--space-')
-        : key; // Keep --lg-space-X as is
+      // Transform --space-X-sm to --space-X for display
+      const displayKey = key.endsWith('-sm')
+        ? key.replace(/-sm$/, '')
+        : key; // Keep --space-X-lg as is
 
       spacingVars[displayKey] = value;
     }
@@ -27,9 +28,9 @@ export const getDefaultSpacingVariables = (): Record<string, string> => {
   const spacingVars: Record<string, string> = {};
 
   Object.entries(variablesVariables).forEach(([ key, value ]) => {
-    // Only match --sm-space- variables and transform to --space-X
-    if (key.includes('--sm-space-') && typeof value === 'string') {
-      const displayKey = key.replace('--sm-space-', '--space-');
+    // Only match --space-X-sm variables and transform to --space-X
+    if (key.includes('--space-') && key.endsWith('-sm') && typeof value === 'string') {
+      const displayKey = key.replace(/-sm$/, '');
 
       spacingVars[displayKey] = value;
     }
@@ -38,13 +39,13 @@ export const getDefaultSpacingVariables = (): Record<string, string> => {
   return spacingVars;
 };
 
-// Get the lg spacing variables (--lg-space-X) from tokens
+// Get the lg spacing variables (--space-X-lg) from tokens
 export const getLgSpacingVariables = (): Record<string, string> => {
   const lgSpacingVars: Record<string, string> = {};
 
   Object.entries(variablesVariables).forEach(([ key, value ]) => {
-    // Only match --lg-space- variables
-    if (key.includes('--lg-space-') && typeof value === 'string') {
+    // Only match --space-X-lg variables
+    if (key.includes('--space-') && key.endsWith('-lg') && typeof value === 'string') {
       lgSpacingVars[key] = value;
     }
   });
@@ -141,8 +142,8 @@ export const getResponsiveSpacingValue = (
 
       // Check if varName is valid before calling replace
       if (varName && varName.includes('--space-')) {
-        // Convert --space-X to --lg-space-X
-        const lgVarName = varName.replace('--space-', '--lg-space-');
+        // Convert --space-X to --space-X-lg
+        const lgVarName = varName + '-lg';
 
         // Check if we have the lg version of this variable
         const lgVars = getLgSpacingVariables();
@@ -170,7 +171,7 @@ export const allSpacingVariables = getSpacingVariables();
 
 // Helper function to get the lg equivalent of a spacing variable
 export const getLgSpacingVariable = (spacingVarName: string): string | null => {
-  const lgVarName = spacingVarName.replace('--space-', '--lg-space-');
+  const lgVarName = spacingVarName + '-lg';
   const lgVars = getLgSpacingVariables();
 
   return lgVars[lgVarName] || null;
@@ -178,7 +179,7 @@ export const getLgSpacingVariable = (spacingVarName: string): string | null => {
 
 // Helper function to check if an lg spacing variant exists
 export const hasLgSpacingVariant = (spacingVarName: string): boolean => {
-  const lgVarName = spacingVarName.replace('--space-', '--lg-space-');
+  const lgVarName = spacingVarName + '-lg';
   const lgVars = getLgSpacingVariables();
 
   return lgVarName in lgVars;
