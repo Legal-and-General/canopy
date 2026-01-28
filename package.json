@@ -42,6 +42,9 @@
     "node": ">=14.17.0"
   },
   "private": false,
+  "overrides": {
+    "qs": "6.14.1"
+  },
   "dependencies": {
     "@angular/animations": "20.3.16",
     "@angular/cdk": "20.2.14",
