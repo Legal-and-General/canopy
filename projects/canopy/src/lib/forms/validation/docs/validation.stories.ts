@@ -3,12 +3,13 @@ import { Component, Input } from '@angular/core';
 
 import { LgValidationComponent } from '../validation.component';
 
-const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 const template = `
 <lg-validation
   [showIcon]="showIcon"
-  [variant]="variant">
+  [status]="status"
+  [statusTheme]="statusTheme">
   {{content}}
 </lg-validation>
 `;
@@ -19,7 +20,8 @@ const template = `
   imports: [ LgValidationComponent ],
 })
 class LgValidationExampleComponent {
-  @Input() variant: string;
+  @Input() status: string;
+  @Input() statusTheme: string;
   @Input() content: string;
   @Input() showIcon: boolean;
 }
@@ -39,7 +41,7 @@ export default {
     },
     showIcon: {
       description:
-        'Whether the icon should display on the warning, error or success variants.',
+        'Whether the icon should display on the warning, error or success statuses.',
       table: {
         type: {
           summary: 'boolean',
@@ -49,12 +51,12 @@ export default {
         },
       },
     },
-    variant: {
-      options: variantTypes,
-      description: 'The variant of the validation.',
+    status: {
+      options: statusTypes,
+      description: 'The status of the validation.',
       table: {
         type: {
-          summary: variantTypes.join(','),
+          summary: statusTypes.join(','),
         },
         defaultValue: {
           summary: 'error',
@@ -64,12 +66,17 @@ export default {
         type: 'select',
       },
     },
+    statusTheme: {
+      table: {
+        disable: true,
+      },
+    },
     id: {
       table: {
         disable: true,
       },
     },
-    _variant: {
+    _status: {
       table: {
         disable: true,
       },
@@ -87,14 +94,16 @@ export const Validation = {
   render: (args: LgValidationComponent) => ({
     props: args,
     template: `<lg-validation-example
-      [variant]="variant"
+      [status]="status"
+      [statusTheme]="statusTheme"
       [showIcon]="showIcon"
       [content]="content"
      ></lg-validation-example>`,
   }),
   args: {
     content: 'Please enter a valid date of birth',
-    variant: 'error',
+    status: 'error',
+    statusTheme: 'neutral',
   },
   parameters: {
     docs: {

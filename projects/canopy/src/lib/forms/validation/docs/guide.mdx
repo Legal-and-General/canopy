@@ -31,10 +31,7 @@ Error messages need to be handled by the individual applications by utilising th
 Import the validation component in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgValidationComponent ],
-});
+import { LgValidationComponent } from '@legal-and-general/canopy';
 ```
 
 In your component file set up the relevant validators:
@@ -93,7 +90,7 @@ Dynamic validation is validation that happens while the user is inputting into a
 
 | Name       | Description                                                          | Type      | Default | Required |
 |------------|----------------------------------------------------------------------|-----------|---------|----------|
-| `variant`  | The variant of the validation: `info`, `warning`, `error`, `success` | `string`  | `error` | No       |
+| `status`  | The status of the validation: `generic`, `info`, `warning`, `error`, `success` | `string`  | `error` | No       |
 | `showIcon` | Whether the icon should display                                      | `boolean` | `true`  | No       |
 
 ## Accessibility – other considerations

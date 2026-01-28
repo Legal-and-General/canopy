@@ -20,9 +20,7 @@
         $hover-color: var(--dark-foreground-link-hover-color),
         $visited-color: var(--dark-foreground-link-visited-color),
         $active-color: var(--dark-foreground-link-active-color),
-        $active-bg-color: var(--dark-foreground-link-active-bg-color),
-        $focus-color: var(--dark-foreground-link-focus-color),
-        $focus-bg-color: var(--dark-foreground-link-focus-bg-color)
+        $focus-color: var(--dark-foreground-link-focus-color)
       );
     }
   }
@@ -36,9 +34,7 @@
         $hover-color: var(--light-foreground-link-hover-color),
         $visited-color: var(--light-foreground-link-visited-color),
         $active-color: var(--light-foreground-link-active-color),
-        $active-bg-color: var(--light-foreground-link-active-bg-color),
-        $focus-color: var(--light-foreground-link-focus-color),
-        $focus-bg-color: var(--light-foreground-link-focus-bg-color)
+        $focus-color: var(--light-foreground-link-focus-color)
       );
     }
   }

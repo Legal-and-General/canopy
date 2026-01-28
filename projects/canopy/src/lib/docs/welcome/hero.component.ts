@@ -22,7 +22,7 @@ import { LgAlertComponent } from '../../alert';
       <lg-icon name="link-external" />
     </a>
 
-    <lg-alert variant="info" lgMarginTop="7">
+    <lg-alert status="info" lgMarginTop="7">
       <p>
         <strong
           >Good news! You're viewing the latest version of L&G's digital design language

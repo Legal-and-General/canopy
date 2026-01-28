@@ -4,12 +4,12 @@ import { Component, Input } from '@angular/core';
 import { LgDetailsComponent } from '../details.component';
 import { LgDetailsPanelHeadingComponent } from '../details-panel-heading/details-panel-heading.component';
 
-const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 const template = `
 <lg-details
   [isActive]="isActive"
-  [variant]="variant"
+  [status]="status"
   [showIcon]="showIcon"
   (opened)="toggle('Detail opened')"
   (closed)="toggle('Detail closed')">
@@ -25,7 +25,8 @@ const template = `
   imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
 })
 class DetailsExampleComponent {
-  @Input() variant: string;
+  @Input() status: string;
+  @Input() statusTheme: string;
   @Input() headingLevel: number;
   @Input() headingText: string;
   @Input() isActive: boolean;
@@ -50,8 +51,8 @@ export default {
     },
     showIcon: {
       description:
-        'Whether the icon should display on the warning, error or success variants.',
-      name: 'showIcon (warning, success & error variants only)',
+        'Whether the icon should display on the warning, error or success statuses.',
+      name: 'showIcon (warning, success & error statuses only)',
       table: {
         type: {
           summary: 'boolean',
@@ -61,12 +62,12 @@ export default {
         },
       },
     },
-    variant: {
-      options: variantTypes,
+    status: {
+      options: statusTypes,
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: variantTypes.join(','),
+          summary: statusTypes.join(','),
         },
         defaultValue: {
           summary: 'generic',
@@ -120,7 +121,7 @@ export default {
         disable: true,
       },
     },
-    _variant: {
+    _status: {
       table: {
         disable: true,
       },
@@ -163,7 +164,7 @@ export const StandardDetails = {
   render: (args: LgDetailsComponent) => ({
     props: args,
     template: `<lg-details-example
-      [variant]="variant"
+      [status]="status"
       [headingLevel]="headingLevel"
       [headingText]="headingText"
       [isActive]="isActive"
@@ -171,7 +172,7 @@ export const StandardDetails = {
      ></lg-details-example>`,
   }),
   args: {
-    variant: 'generic',
+    status: 'generic',
     headingLevel: 5,
     headingText: 'How do I change my payment details?',
   },
@@ -183,11 +184,11 @@ export const StandardDetails = {
     },
     percy: {
       additionalSnapshots: [
-        { suffix: ' [info]', args: { variant: 'info' } },
-        { suffix: ' [success]', args: { variant: 'success' } },
-        { suffix: ' [warning]', args: { variant: 'warning' } },
-        { suffix: ' [error]', args: { variant: 'error' } },
-        { suffix: ' [info]', args: { variant: 'info', showIcon: true } },
+        { suffix: ' [info]', args: { status: 'info' } },
+        { suffix: ' [success]', args: { status: 'success' } },
+        { suffix: ' [warning]', args: { status: 'warning' } },
+        { suffix: ' [error]', args: { status: 'error' } },
+        { suffix: ' [info]', args: { status: 'info', showIcon: true } },
       ],
     },
   },
