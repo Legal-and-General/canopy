@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 
 import { LgIconComponent } from '../icon';
-import type { Variant } from '../variant';
+import type { Status } from '../status';
 
 import { LgAlertComponent } from './alert.component';
 
@@ -18,42 +18,62 @@ describe('LgAlertComponent', () => {
 
     fixture = TestBed.createComponent(LgAlertComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // Don't call detectChanges here - let each test control it
   }));
 
   it('should create', () => {
+    fixture.detectChanges();
+
     expect(component).toBeTruthy();
   });
 
-  it('adds generic as the default variant', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain('generic');
+  it('adds status classes with neutral theme as default', () => {
+    fixture.detectChanges();
+    const classes = fixture.nativeElement.getAttribute('class');
+
+    expect(classes).toContain('lg-status-generic');
+    expect(classes).toContain('lg-theme-neutral');
   });
 
-  it('adds the variant class to the alert component', () => {
-    component.variant = 'success';
+  it('adds the status status class when status changes', () => {
+    component.status = 'success';
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.getAttribute('class')).toContain('success');
+    const classes = fixture.nativeElement.getAttribute('class');
+
+    expect(classes).toContain('lg-status-success');
+    expect(classes).toContain('lg-theme-neutral');
+  });
+
+  it('can change the theme', () => {
+    component.status = 'info';
+    component.statusTheme = 'bold';
+    fixture.detectChanges();
+
+    const classes = fixture.nativeElement.getAttribute('class');
+
+    expect(classes).toContain('lg-status-info');
+    expect(classes).toContain('lg-theme-bold');
   });
 
   describe('role', () => {
-    function testVariant(variant: Variant, expectedRole: null | 'alert' | 'status') {
-      component.variant = variant;
+    function testStatus(status: Status, expectedRole: null | 'alert' | 'status') {
+      component.status = status;
       component.ngOnChanges();
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe(expectedRole);
     }
 
-    for (const variant of [ 'info', 'generic' ]) {
-      it(`does not add a Aria role for the ${variant} variant`, () => {
-        testVariant(variant as Variant, null);
+    for (const status of [ 'info', 'generic' ]) {
+      it(`does not add a Aria role for the ${status} status`, () => {
+        testStatus(status as Status, null);
       });
     }
 
-    for (const variant of [ 'success', 'warning', 'error' ]) {
-      it(`adds the Aria role "alert" for the ${variant} variant`, () => {
-        testVariant(variant as Variant, 'alert');
+    for (const status of [ 'success', 'warning', 'error' ]) {
+      it(`adds the Aria role "alert" for the ${status} status`, () => {
+        testStatus(status as Status, 'alert');
       });
     }
 
@@ -74,7 +94,7 @@ describe('LgAlertComponent', () => {
     });
   });
 
-  it('does not renders an icon for generic variant', () => {
+  it('does not renders an icon for generic status', () => {
     const icon = fixture.debugElement.query(By.directive(LgIconComponent));
 
     expect(icon).toBeNull();
@@ -89,13 +109,13 @@ describe('LgAlertComponent', () => {
   });
 
   [
-    { variant: 'error', icon: 'crossmark-spot-fill' },
-    { variant: 'info', icon: 'information-fill' },
-    { variant: 'warning', icon: 'warning-fill' },
-    { variant: 'success', icon: 'checkmark-spot-fill' },
-  ].forEach(({ variant, icon }) => {
-    it(`renders the correct icon for the ${variant} alert`, () => {
-      component.variant = variant as Variant;
+    { status: 'error', icon: 'crossmark-spot-fill' },
+    { status: 'info', icon: 'information-fill' },
+    { status: 'warning', icon: 'warning-fill' },
+    { status: 'success', icon: 'checkmark-spot-fill' },
+  ].forEach(({ status, icon }) => {
+    it(`renders the correct icon for the ${status} alert`, () => {
+      component.status = status as Status;
       fixture.detectChanges();
 
       expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();

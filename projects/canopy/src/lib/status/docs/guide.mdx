@@ -2,9 +2,9 @@ import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Helpers/Directives/Variant/Guide" tags={['pending']}/>
+<Meta title="Helpers/Directives/Status/Guide" tags={['pending']}/>
 
-# Variant
+# Status
 
 <CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
@@ -16,19 +16,19 @@ This can be useful where you need the particular colour treatment (like the `suc
 
 ## Usage
 
-Import the variant directive in your application:
+Import the status directive in your application:
 
 ```js
 @NgModule({
   ...
-  imports: [ ..., LgVariantDirective ],
+  imports: [ ..., LgStatusDirective ],
 });
 ```
 
 and your HTML:
 
 ```html
-<lg-card lgVariant="generic">
+<lg-card lgStatus="generic">
   <lg-card-content>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </lg-card-content>
@@ -45,9 +45,9 @@ The current available variants are:
 * `warning`
 * `error`
 
-| Name        | Description                 |   Type    | Default | Required |
-|-------------|-----------------------------|:---------:|:-------:|:--------:|
-| `lgVariant` | The name of variant desired | `Variant` | `null`  |    No    |
+| Name       | Description                |   Type   | Default | Required |
+|------------|----------------------------|:--------:|:-------:|:--------:|
+| `lgStatus` | The name of status desired | `Status` | `null`  |    No    |
 
 ***
 

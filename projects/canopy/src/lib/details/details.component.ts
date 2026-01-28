@@ -16,7 +16,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import type { Variant } from '../variant';
+import type { Status } from '../status';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 
@@ -38,7 +38,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   private subscription: Subscription;
   uniqueId = nextUniqueId++;
   _showIcon = true;
-  _variant: Variant;
+  _status: Status;
 
   @Input() isActive = false;
   @Input()
@@ -54,23 +54,23 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   }
 
   @Input()
-  set variant(variant: Variant) {
-    if (this._variant) {
+  set status(status: Status) {
+    if (this._status) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-variant--${this._variant}`,
+        `lg-status--${this._status}`,
       );
     }
 
     if (this.panelHeading) {
-      this.panelHeading.variant = variant;
+      this.panelHeading.status = status;
     }
 
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
-    this._variant = variant;
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-status--${status}`);
+    this._status = status;
   }
-  get variant(): Variant {
-    return this._variant;
+  get status(): Status {
+    return this._status;
   }
 
   @Output() opened = new EventEmitter<void>();
@@ -78,7 +78,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
 
   @HostBinding('class.lg-details') class = true;
   @HostBinding('attr.role') get role(): string {
-    if (this.variant !== 'info' && this.variant !== 'generic') {
+    if (this.status !== 'info' && this.status !== 'generic') {
       return 'alert';
     }
   }
@@ -87,13 +87,13 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   panelHeading: LgDetailsPanelHeadingComponent;
 
   constructor() {
-    this.variant = 'generic';
+    this.status = 'generic';
   }
 
   ngAfterContentInit(): void {
     this.panelHeading.uniqueId = this.uniqueId;
     this.panelHeading.isActive = this.isActive;
-    this.panelHeading.variant = this.variant;
+    this.panelHeading.status = this.status;
     this.panelHeading.showIcon = this.showIcon;
 
     this.subscription = this.panelHeading.toggleActive.subscribe(isActive => {

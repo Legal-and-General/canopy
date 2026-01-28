@@ -1,21 +1,37 @@
 @use 'mixins';
 
-.lg-variant--generic {
-  @include mixins.lg-variant('generic');
+// Status classes with themes - apply mixin when both classes are present
+.lg-status-generic.lg-theme-neutral,
+.lg-status-generic.lg-theme-neutral-inverse,
+.lg-status-generic.lg-theme-subtle,
+.lg-status-generic.lg-theme-bold {
+  @include mixins.lg-status('generic');
 }
 
-.lg-variant--info {
-  @include mixins.lg-variant('info');
+.lg-status-info.lg-theme-neutral,
+.lg-status-info.lg-theme-neutral-inverse,
+.lg-status-info.lg-theme-subtle,
+.lg-status-info.lg-theme-bold {
+  @include mixins.lg-status('info');
 }
 
-.lg-variant--success {
-  @include mixins.lg-variant('success');
+.lg-status-success.lg-theme-neutral,
+.lg-status-success.lg-theme-neutral-inverse,
+.lg-status-success.lg-theme-subtle,
+.lg-status-success.lg-theme-bold {
+  @include mixins.lg-status('success');
 }
 
-.lg-variant--warning {
-  @include mixins.lg-variant('warning');
+.lg-status-warning.lg-theme-neutral,
+.lg-status-warning.lg-theme-neutral-inverse,
+.lg-status-warning.lg-theme-subtle,
+.lg-status-warning.lg-theme-bold {
+  @include mixins.lg-status('warning');
 }
 
-.lg-variant--error {
-  @include mixins.lg-variant('error');
+.lg-status-error.lg-theme-neutral,
+.lg-status-error.lg-theme-neutral-inverse,
+.lg-status-error.lg-theme-subtle,
+.lg-status-error.lg-theme-bold {
+  @include mixins.lg-status('error');
 }

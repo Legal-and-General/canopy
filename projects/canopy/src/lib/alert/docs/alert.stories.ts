@@ -2,7 +2,8 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgAlertComponent } from '../alert.component';
 
-const variantTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const themeTypes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 // This default export determines where your story goes in the story list
 export default {
@@ -20,7 +21,7 @@ export default {
     },
     showIcon: {
       description:
-        'Whether the icon should display on the warning, error or success variants.',
+        'Whether the icon should display on the warning, error or success statuses.',
       table: {
         type: {
           summary: 'boolean',
@@ -30,15 +31,30 @@ export default {
         },
       },
     },
-    variant: {
-      options: variantTypes,
+    status: {
+      options: statusTypes,
       description: 'Applies colour treatment and ARIA role if applicable.',
       table: {
         type: {
-          summary: variantTypes.join(','),
+          summary: statusTypes.join(','),
         },
         defaultValue: {
           summary: 'generic',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    statusTheme: {
+      options: themeTypes,
+      description: 'Theme for status classes. Applies design tokens from status.css.',
+      table: {
+        type: {
+          summary: themeTypes.join(','),
+        },
+        defaultValue: {
+          summary: 'neutral',
         },
       },
       control: {
@@ -60,7 +76,8 @@ export default {
 const template = `
 <lg-alert
   [showIcon]="showIcon"
-  [variant]="variant"
+  [status]="status"
+  [statusTheme]="statusTheme"
   [role]="role"
 >
   {{content}} Here is some <a href="#"> link text</a>.
@@ -75,7 +92,8 @@ export const StandardAlert = {
   }),
   args: {
     content: 'This is an inline message.',
-    variant: 'generic',
+    status: 'generic',
+    statusTheme: 'neutral',
   },
   parameters: {
     docs: {
@@ -85,11 +103,16 @@ export const StandardAlert = {
     },
     percy: {
       additionalSnapshots: [
-        { suffix: ' [info]', args: { variant: 'info' } },
-        { suffix: ' [success]', args: { variant: 'success' } },
-        { suffix: ' [warning]', args: { variant: 'warning' } },
-        { suffix: ' [error]', args: { variant: 'error' } },
-        { suffix: ' [with icon]', args: { variant: 'info', showIcon: true } },
+        { suffix: ' [info]', args: { status: 'info' } },
+        { suffix: ' [success]', args: { status: 'success' } },
+        { suffix: ' [warning]', args: { status: 'warning' } },
+        { suffix: ' [error]', args: { status: 'error' } },
+        { suffix: ' [with icon]', args: { status: 'info', showIcon: true } },
+        { suffix: ' [info-bold]', args: { status: 'info', statusTheme: 'bold' } },
+        {
+          suffix: ' [success-subtle]',
+          args: { status: 'success', statusTheme: 'subtle' },
+        },
       ],
     },
   },

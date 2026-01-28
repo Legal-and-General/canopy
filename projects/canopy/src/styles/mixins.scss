@@ -194,78 +194,50 @@ $breakpoints: (
   }
 }
 
-@mixin lg-variant($variant: 'generic') {
-  background-color: var(--#{$variant}-bg-color) !important;
-  color: var(--#{$variant}-color) !important;
+@mixin lg-status($status: 'generic') {
+  // Uses status tokens from status.css
+  background-color: var(--container-status-background-colour) !important;
+  color: var(--text-status-primary-colour) !important;
 
   a:not(.lg-btn) {
     @include lg-link(
-      $default-color: var(--#{$variant}-link-color),
-      $hover-color: var(--#{$variant}-link-hover-color),
-      $visited-color: var(--#{$variant}-link-visited-color),
-      $active-color: var(--#{$variant}-link-active-color),
-      $active-bg-color: var(--#{$variant}-link-active-bg-color),
-      $focus-color: var(--#{$variant}-link-focus-color),
-      $focus-bg-color: var(--#{$variant}-link-focus-bg-color)
+      $default-color: var(--interactive-text-status-rest),
+      $hover-color: var(--interactive-text-status-hover),
+      $visited-color: var(--interactive-text-status-visited),
+      $active-color: var(--interactive-text-status-active),
+      $active-bg-color: var(--container-status-background-colour),
+      $focus-color: var(--interactive-status-focus-colour),
+      $focus-bg-color: var(--interactive-status-focus-background-colour)
     );
   }
 
   .lg-btn--secondary-dark {
     background-color: transparent !important;
-    border-color: var(--#{$variant}-color) !important;
-    color: var(--#{$variant}-color) !important;
+    border-color: var(--text-status-primary-colour) !important;
+    color: var(--text-status-primary-colour) !important;
 
-    @if ($variant == 'generic') {
-      &:hover {
-        background-color: var(--colour-greyscale-600) !important;
-        border-color: var(--colour-greyscale-600) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:hover {
+      background-color: var(--interactive-status-hover-background-colour) !important;
+      border-color: var(--interactive-status-hover-border-colour) !important;
+      color: var(--interactive-status-hover-colour) !important;
+    }
 
-      &:active {
-        background-color: var(--colour-greyscale-900) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'info') {
-      &:hover {
-        background-color: var(--colour-blue-800) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:active {
+      background-color: var(--interactive-status-active-background-colour) !important;
+      border-color: var(--interactive-status-active-border-colour) !important;
+      color: var(--interactive-status-active-colour) !important;
+    }
 
-      &:active {
-        background-color: var(--colour-blue-900) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'success') {
-      &:hover {
-        background-color: var(--colour-green-700) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:focus-visible {
+      background-color: var(--interactive-status-focus-background-colour) !important;
+      border-color: var(--interactive-status-focus-border-colour) !important;
+      color: var(--interactive-status-focus-colour) !important;
+    }
 
-      &:active {
-        background-color: var(--colour-green-800) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'warning') {
-      &:hover {
-        background-color: var(--colour-yellow-900) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-
-      &:active {
-        background-color: var(--colour-yellow-1000) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'error') {
-      &:hover {
-        background-color: var(--colour-red-800) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-
-      &:active {
-        background-color: var(--colour-yellow-1000) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:disabled {
+      background-color: var(--interactive-status-disabled-background-colour) !important;
+      border-color: var(--interactive-status-disabled-border-colour) !important;
+      color: var(--interactive-status-disabled-colour) !important;
     }
   }
 }
