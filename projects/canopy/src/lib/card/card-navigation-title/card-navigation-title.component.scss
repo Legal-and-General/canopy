@@ -3,6 +3,7 @@
 .lg-card-navigation-title {
   --card-active-focus-border-bottom-width: var(--space-1);
 
+  text-decoration: none;
   width: 100%;
 
   h1,
@@ -20,6 +21,9 @@
     background: var(--link-color);
     border-radius: 50%;
     color: var(--colour-greyscale-0);
+    // To do: remove once updated
+    width: var(--icon-width) !important;
+    height: var(--icon-height) !important;
 
     > svg {
       padding: 0.125rem;
@@ -32,6 +36,7 @@
       $hover-color: var(--link-color)
     );
 
+    text-decoration: none;
     border-bottom: solid var(--border-width) var(--card-title-border-color);
     padding: var(--card-navigation-link-padding-top) 0
       var(--card-navigation-link-padding-bottom);
@@ -74,6 +79,10 @@
       padding-bottom: calc(
         var(--card-navigation-link-padding-bottom) + var(--border-width)
       );
+      box-shadow:
+        inset 0 -0.063rem 0 0 var(--link-color),
+        0 0.188rem 0 0 var(--link-color);
+      border-bottom: 0;
     }
 
     &:focus-visible,

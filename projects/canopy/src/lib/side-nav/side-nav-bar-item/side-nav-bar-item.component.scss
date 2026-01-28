@@ -29,5 +29,9 @@
   .lg-icon {
     position: absolute;
     right: 0;
+    margin-right: 0;
+    // To do: remove once updated
+    height: var(--icon-height) !important;
+    width: var(--icon-width) !important;
   }
 }

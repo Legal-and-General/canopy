@@ -25,8 +25,11 @@
       }
     }
   }
-
+  // To do: remove once updated
   .lg-icon {
+    height: var(--icon-height);
+    width: var(--icon-height);
+
     @include mixins.lg-breakpoint('md') {
       display: inline;
     }

@@ -26,10 +26,7 @@ Things left to do:
 Import the banner component into your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgBannerComponent ],
-});
+import { LgBannerComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -63,7 +60,7 @@ There are 2 different variants to choose from: 'generic' and 'warning'.
 
 | Name      | Description                                                                | Type     | Default   | Required |
 |-----------|----------------------------------------------------------------------------|----------|-----------|----------|
-| `variant` | Applies colour treatment and ARIA role if applicable: `generic`, `warning` | `string` | `generic` | No       |
+| `status` | Applies colour treatment and ARIA role if applicable: `generic`, `warning` | `string` | `generic` | No       |
 
 ***
 

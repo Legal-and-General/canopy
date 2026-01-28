@@ -2,33 +2,40 @@ import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../lib/docs/common/feedback.md';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Link/Guide" tags={['pending']}/>
+<Meta title="Components/Link/Guide" />
 
 # Link
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
-<p class="standfirst">Links are used in content to navigate to other resources, pages or views.</p>
+<p class="standfirst">A Link is an interactive text element that enables users to navigate from one resource, page, or view to another—either within the application or to external destinations—in a way that is accessible to all users.</p>
 
 ![example](docs/link/example.png)
 
 ## Usage
 
-Links should be used within text content only.
+Links must be used for navigation interactions—enabling users to move between resources, pages, or views, both within the application and to external destinations. Links can be used anywhere navigation is required.
 
-The links styles are applied automatically when adding the global Canopy css.
+### Basic usage
 
-## How it works
+Use the standard HTML anchor (`<a>`) element. Canopy's global CSS will automatically apply the correct styles.
 
-The user taps or clicks a link to navigate to a new page.
+```html
+<a href="https://example.com">Visit Example</a>
+```
 
-* If the page it links to is internal (i.e. hosted by the same organisation on the same domain), it should open in the same tab.
+### Links with icons
 
-* If the page it links to is external (hosted by a different organisation on a different domain), it should open in a new tab.
+Links may include any icon from the Canopy icon library to provide additional context (such as file type or navigation direction). The icon must sit before the link text.
 
-For accessibility, links that open in a new tab must be accompanied by an external link icon and text so that the user understands that a new tab will open when they interact with it:
+```html
+<a href="#" target="_blank">
+  <lg-icon name="pdf"></lg-icon>
+  This is a link with a pdf icon
+</a>
+```
 
-![external](docs/link/external.png)
+### External links
+
+External links must use the external link icon, which always sits after the link text. For accessibility, include visually hidden text to indicate the link opens in a new tab.
 
 ```html
 <a href="#" target="_blank">
@@ -38,7 +45,39 @@ For accessibility, links that open in a new tab must be accompanied by an extern
 </a>
 ```
 
-Links are blue in most cases, except when they're used in inline messages where they conform to the colour of the paragraph text in the message. For instance, a success message will have dark green paragraph text and links will also be dark green.
+### Placement
+
+* Links can be placed within the body of text to provide inline navigation.
+
+* For forward navigation or to prevent dead ends, group links at the end of content or sections where appropriate.
+
+### Guidance
+
+* Use links only for navigation. For actions (such as submitting forms or triggering UI changes), use a Button instead.
+
+* Every link must use clear, descriptive text that communicates its destination or purpose as concisely as possible, without sacrificing meaning.
+
+* There are no restrictions on where links can be used, as long as they serve a navigational purpose.
+
+## How it works
+
+The user taps or clicks a link to navigate to a new page.
+
+* Internal links (same organisation/domain) open in the same tab.
+
+* External links (different organisation/domain) open in a new tab.
+
+### Colour modes
+
+Links automatically inherit the appropriate colour based on their parent’s colour theme.
+
+* By default, links are blue.
+
+* When conveying status (such as in success or error messages), links are monochrome.
+
+* On bold backgrounds, links are white for blue, green, and red backgrounds, and black for yellow backgrounds.
+
+Read more about colour modes on the [Colour guidance page](./?path=/docs/helpers-directives-colour-guide--docs).
 
 ## Dos and Don'ts
 
@@ -46,19 +85,19 @@ Links are blue in most cases, except when they're used in inline messages where 
 
 ![do](docs/link/do.png)
 
-1. **Do** write links as meaningful phrases.
-2. **Do** use accompanying icons as appropriate, such as for files.
-3. **Do** consider grouping links at the end of content.
-4. **Do** use an icon to indicate links to external websites.
+1. **Do** use links for navigation—if the element takes the user to a new page, view, or resource, aim to use a link, not a button.
+2. **Do** write links as concise, meaningful phrases that describe their destination or purpose.
+3. **Do** use icons to provide additional context when appropriate (for example, file type or external links).
+4. **Do** group related links at the end of content or sections where it helps users navigate.
+5. **Do** use the external link icon and visually hidden text for links that open in a new tab.
 
 ### Don't
 
 ![dont](docs/link/dont.png)
 
-1. **Don't** use a link for a specific primary action; Use a quick action or button instead.
-2. **Don't** use single words or unclear phrases, such as "click here".
-3. **Don't** split links across several lines where possible.
-4. **Don't** use more than 4-5 words.
+1. **Don't** use links for primary actions—use a button or quick action instead.
+2. **Don't** use vague or generic phrases like “click here” or “read more” without context.
+3. **Don't** use unnecessarily long or wordy link text—keep it concise without sacrificing clarity.
 
 ## Additional development details
 
@@ -86,7 +125,7 @@ This is based on best practice, and from the sources listed below.
 ## Related
 
 * [Button](./?path=/docs/components-button-guide--docs)
-* [Quick action](./?path=/docs/components-button-guide--docs)
+* [Link menu](./?path=/docs/components-link-menu-guide--docs)
 
 <Markdown>
   {Feedback}
