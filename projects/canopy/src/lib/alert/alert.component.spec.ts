@@ -36,7 +36,7 @@ describe('LgAlertComponent', () => {
   });
 
   it('adds the status class when status changes', () => {
-    component.status = 'success';
+    fixture.componentRef.setInput('status', 'success');
     fixture.detectChanges();
 
     const classes = fixture.nativeElement.getAttribute('class');
@@ -46,8 +46,8 @@ describe('LgAlertComponent', () => {
   });
 
   it('can change the theme', () => {
-    component.status = 'info';
-    component.statusTheme = 'bold';
+    fixture.componentRef.setInput('status', 'info');
+    fixture.componentRef.setInput('statusTheme', 'bold');
     fixture.detectChanges();
 
     const classes = fixture.nativeElement.getAttribute('class');
@@ -58,8 +58,8 @@ describe('LgAlertComponent', () => {
 
   describe('role', () => {
     function testStatus(status: Status, expectedRole: null | 'alert' | 'status') {
-      component.status = status;
-      component.ngOnChanges();
+      fixture.componentRef.setInput('status', status);
+      component.ngOnChanges({});
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe(expectedRole);
@@ -79,7 +79,7 @@ describe('LgAlertComponent', () => {
 
     it('overrides the role attribute when role input is set', () => {
       component.role = 'status';
-      component.ngOnChanges();
+      component.ngOnChanges({});
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe('status');
@@ -87,7 +87,7 @@ describe('LgAlertComponent', () => {
 
     it('sets no role attribute when role input is set to "none"', () => {
       component.role = 'none';
-      component.ngOnChanges();
+      component.ngOnChanges({});
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe(null);
@@ -115,7 +115,7 @@ describe('LgAlertComponent', () => {
     { status: 'success', icon: 'checkmark-spot-fill' },
   ].forEach(({ status, icon }) => {
     it(`renders the correct icon for the ${status} alert`, () => {
-      component.status = status as Status;
+      fixture.componentRef.setInput('status', status);
       fixture.detectChanges();
 
       expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();

@@ -9,36 +9,44 @@ import { StatusClassService } from './status-class.service';
   providers: [ StatusClassService ],
 })
 export class LgStatusDirective {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
-  private statusClassService = inject(StatusClassService);
+  private readonly renderer = inject(Renderer2);
+  private readonly hostElement = inject(ElementRef);
+  private readonly statusClassService = inject(StatusClassService);
 
-  private currentStatus: Status = 'generic';
-  private currentTheme: Theme = 'neutral';
+  private _status: Status = 'generic';
+  private _statusTheme: Theme = 'neutral';
   private appliedClasses: Array<string> = [];
 
   @Input()
   set lgStatus(status: Status) {
-    this.currentStatus = status;
+    this._status = status;
     this.applyClasses();
   }
 
   @Input()
   set lgStatusTheme(theme: Theme) {
-    this.currentTheme = theme;
+    this._statusTheme = theme;
     this.applyClasses();
   }
 
+  get status(): Status {
+    return this._status;
+  }
+
+  get statusTheme(): Theme {
+    return this._statusTheme;
+  }
+
   private applyClasses(): void {
-    if (!this.currentStatus) {
+    if (!this._status) {
       return;
     }
 
     this.appliedClasses = this.statusClassService.applyStatusClasses(
       this.renderer,
       this.hostElement.nativeElement,
-      this.currentStatus,
-      this.currentTheme,
+      this._status,
+      this._statusTheme,
       this.appliedClasses,
     );
   }

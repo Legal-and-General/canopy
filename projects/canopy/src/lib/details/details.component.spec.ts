@@ -72,7 +72,9 @@ describe('LgDetailsComponent', () => {
   describe('Aria roles', () => {
     beforeEach(() => {
       ngMocks.flushTestBed();
+    });
 
+    it('does not add an Aria role for the generic status', () => {
       fixture = MockRender(`
         <lg-details>
           <lg-details-panel-heading></lg-details-panel-heading>
@@ -81,36 +83,62 @@ describe('LgDetailsComponent', () => {
 
       detailsDebugElement = fixture.debugElement;
       detailsEl = detailsDebugElement.children[0].nativeElement;
-      component = fixture.point.componentInstance;
       fixture.detectChanges();
-    });
 
-    it('does not add an Aria role for the generic status', () => {
       expect(detailsEl.getAttribute('role')).toBeNull();
     });
 
     it('does not add an Aria role for the info status', () => {
-      component.status = 'info';
+      fixture = MockRender(`
+        <lg-details status="info">
+          <lg-details-panel-heading></lg-details-panel-heading>
+        </lg-details>
+      `);
+
+      detailsDebugElement = fixture.debugElement;
+      detailsEl = detailsDebugElement.children[0].nativeElement;
+      fixture.detectChanges();
 
       expect(detailsEl.getAttribute('role')).toBeNull();
     });
 
     it('adds an Aria role "alert" for the warning status', () => {
-      component.status = 'warning';
+      fixture = MockRender(`
+        <lg-details status="warning">
+          <lg-details-panel-heading></lg-details-panel-heading>
+        </lg-details>
+      `);
+
+      detailsDebugElement = fixture.debugElement;
+      detailsEl = detailsDebugElement.children[0].nativeElement;
       fixture.detectChanges();
 
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
     it('adds an Aria role "alert" for the error status', () => {
-      component.status = 'error';
+      fixture = MockRender(`
+        <lg-details status="error">
+          <lg-details-panel-heading></lg-details-panel-heading>
+        </lg-details>
+      `);
+
+      detailsDebugElement = fixture.debugElement;
+      detailsEl = detailsDebugElement.children[0].nativeElement;
       fixture.detectChanges();
 
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
     it('adds an Aria role "success" for the error status', () => {
-      component.status = 'success';
+      fixture = MockRender(`
+        <lg-details status="success">
+          <lg-details-panel-heading></lg-details-panel-heading>
+        </lg-details>
+      `);
+
+      detailsDebugElement = fixture.debugElement;
+      detailsEl = detailsDebugElement.children[0].nativeElement;
       fixture.detectChanges();
 
       expect(detailsEl.getAttribute('role')).toBe('alert');

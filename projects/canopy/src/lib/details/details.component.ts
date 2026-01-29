@@ -4,19 +4,19 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
+  OnInit,
   Output,
-  Renderer2,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import type { Status } from '../status';
+import { LgStatusDirective } from '../status';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 
@@ -29,16 +29,20 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  hostDirectives: [
+    {
+      directive: LgStatusDirective,
+      inputs: [ 'lgStatus:status' ],
+    },
+  ],
 })
-export class LgDetailsComponent implements AfterContentInit, OnDestroy {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
-  private cdr = inject(ChangeDetectorRef);
+export class LgDetailsComponent implements OnInit, AfterContentInit, OnDestroy {
+  private readonly cdr = inject(ChangeDetectorRef);
+  private statusDirective = inject(LgStatusDirective);
 
   private subscription: Subscription;
   uniqueId = nextUniqueId++;
   _showIcon = true;
-  _status: Status;
 
   @Input() isActive = false;
   @Input()
@@ -53,24 +57,8 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     return this._showIcon;
   }
 
-  @Input()
-  set status(status: Status) {
-    if (this._status) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-status-${this._status}`,
-      );
-    }
-
-    if (this.panelHeading) {
-      this.panelHeading.status = status;
-    }
-
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-status-${status}`);
-    this._status = status;
-  }
   get status(): Status {
-    return this._status;
+    return this.statusDirective.status;
   }
 
   @Output() opened = new EventEmitter<void>();
@@ -86,8 +74,8 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   @ContentChild(LgDetailsPanelHeadingComponent)
   panelHeading: LgDetailsPanelHeadingComponent;
 
-  constructor() {
-    this.status = 'generic';
+  ngOnInit() {
+    this.statusDirective.lgStatus = this.statusDirective.status || 'generic';
   }
 
   ngAfterContentInit(): void {

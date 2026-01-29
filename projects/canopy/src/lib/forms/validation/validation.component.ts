@@ -1,14 +1,14 @@
 import {
   Component,
-  ElementRef,
   HostBinding,
   Input,
-  Renderer2,
+  OnInit,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
 
 import type { Status } from '../../status';
+import { LgStatusDirective } from '../../status';
 import { LgIconComponent } from '../../icon';
 
 let nextUniqueId = 0;
@@ -19,28 +19,20 @@ let nextUniqueId = 0;
   styleUrls: [ './validation.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgIconComponent ],
+  hostDirectives: [
+    {
+      directive: LgStatusDirective,
+      inputs: [ 'lgStatus:status' ],
+    },
+  ],
 })
-export class LgValidationComponent {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
-
-  private _status: Status;
+export class LgValidationComponent implements OnInit {
+  private statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
-  @Input()
-  set status(status: Status) {
-    if (this._status) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-status-${this._status}`,
-      );
-    }
 
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-status-${status}`);
-    this._status = status;
-  }
-  get status() {
-    return this._status;
+  get status(): Status {
+    return this.statusDirective.status;
   }
 
   @HostBinding('id')
@@ -49,7 +41,9 @@ export class LgValidationComponent {
 
   @HostBinding('class.lg-validation') class = true;
 
-  constructor() {
-    this.status = 'error';
+  ngOnInit() {
+    if (this.statusDirective.status === 'generic') {
+      this.statusDirective.lgStatus = 'error';
+    }
   }
 }
