@@ -35,7 +35,7 @@ describe('LgAlertComponent', () => {
     expect(classes).toContain('lg-theme-neutral');
   });
 
-  it('adds the status status class when status changes', () => {
+  it('adds the status class when status changes', () => {
     component.status = 'success';
     fixture.detectChanges();
 

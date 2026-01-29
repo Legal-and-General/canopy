@@ -194,7 +194,7 @@ $breakpoints: (
   }
 }
 
-@mixin lg-status($status: 'generic') {
+@mixin lg-status() {
   // Uses status tokens from status.css
   background-color: var(--container-status-background-colour) !important;
   color: var(--text-status-primary-colour) !important;

@@ -13,7 +13,7 @@ export class LgStatusDirective {
   private hostElement = inject(ElementRef);
   private statusClassService = inject(StatusClassService);
 
-  private currentStatus: Status;
+  private currentStatus: Status = 'generic';
   private currentTheme: Theme = 'neutral';
   private appliedClasses: Array<string> = [];
 

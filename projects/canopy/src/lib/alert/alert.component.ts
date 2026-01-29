@@ -1,11 +1,10 @@
 import {
-  AfterViewInit,
   Component,
   HostBinding,
   Input,
   OnChanges,
+  SimpleChanges,
   ViewEncapsulation,
-  inject,
 } from '@angular/core';
 
 import type { Status, Theme } from '../status';
@@ -25,8 +24,7 @@ import { LgIconComponent } from '../icon';
     },
   ],
 })
-export class LgAlertComponent implements OnChanges, AfterViewInit {
-  private statusDirective = inject(LgStatusDirective);
+export class LgAlertComponent implements OnChanges {
   private explicitRole: string;
 
   @Input() showIcon = true;
@@ -36,13 +34,7 @@ export class LgAlertComponent implements OnChanges, AfterViewInit {
   @HostBinding('class.lg-alert') class = true;
   @HostBinding('attr.role') roleAttr: string;
 
-  ngAfterViewInit() {
-    // Ensure the directive has the initial values
-    this.statusDirective.lgStatus = this.status;
-    this.statusDirective.lgStatusTheme = this.statusTheme;
-  }
-
-  ngOnChanges() {
+  ngOnChanges(_changes: SimpleChanges) {
     this.initRole();
   }
 

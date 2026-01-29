@@ -58,7 +58,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     if (this._status) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-status--${this._status}`,
+        `lg-status-${this._status}`,
       );
     }
 
@@ -66,7 +66,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
       this.panelHeading.status = status;
     }
 
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-status--${status}`);
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-status-${status}`);
     this._status = status;
   }
   get status(): Status {

@@ -70,7 +70,7 @@ class LgStatusStoryComponent {
       lgPaddingRight="6"
     >
       <lg-card-content>
-        <p><strong>Status Status with Theme</strong></p>
+        <p><strong>Status with Theme</strong></p>
         <p>
           This card uses the <strong>{{ status }}</strong> status with
           <strong>{{ theme }}</strong> theme, applying status classes:
@@ -190,7 +190,7 @@ export const StandardStatus = {
 };
 
 export const StatusStatus = {
-  name: 'Status Status with Theme',
+  name: 'Status with Theme',
   render: (args: { status: Status; theme: Theme }) => ({
     props: args,
     template: statusTemplate,

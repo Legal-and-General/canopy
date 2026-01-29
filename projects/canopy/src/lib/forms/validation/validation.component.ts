@@ -32,11 +32,11 @@ export class LgValidationComponent {
     if (this._status) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-status--${this._status}`,
+        `lg-status-${this._status}`,
       );
     }
 
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-status--${status}`);
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-status-${status}`);
     this._status = status;
   }
   get status() {
