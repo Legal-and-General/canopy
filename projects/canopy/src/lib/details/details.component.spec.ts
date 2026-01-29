@@ -51,7 +51,7 @@ describe('LgDetailsComponent', () => {
       expect(detailsEl.getAttribute('class')).toContain('lg-details');
     });
 
-    it('adds generic as the default variant', () => {
+    it('adds generic as the default status', () => {
       expect(detailsEl.getAttribute('class')).toContain('generic');
     });
 
@@ -85,32 +85,32 @@ describe('LgDetailsComponent', () => {
       fixture.detectChanges();
     });
 
-    it('does not add an Aria role for the generic variant', () => {
+    it('does not add an Aria role for the generic status', () => {
       expect(detailsEl.getAttribute('role')).toBeNull();
     });
 
-    it('does not add an Aria role for the info variant', () => {
-      component.variant = 'info';
+    it('does not add an Aria role for the info status', () => {
+      component.status = 'info';
 
       expect(detailsEl.getAttribute('role')).toBeNull();
     });
 
-    it('adds an Aria role "alert" for the warning variant', () => {
-      component.variant = 'warning';
+    it('adds an Aria role "alert" for the warning status', () => {
+      component.status = 'warning';
       fixture.detectChanges();
 
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
-    it('adds an Aria role "alert" for the error variant', () => {
-      component.variant = 'error';
+    it('adds an Aria role "alert" for the error status', () => {
+      component.status = 'error';
       fixture.detectChanges();
 
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
-    it('adds an Aria role "success" for the error variant', () => {
-      component.variant = 'success';
+    it('adds an Aria role "success" for the error status', () => {
+      component.status = 'success';
       fixture.detectChanges();
 
       expect(detailsEl.getAttribute('role')).toBe('alert');
