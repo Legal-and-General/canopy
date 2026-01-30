@@ -38,13 +38,9 @@ export class LgStatusDirective {
   }
 
   private applyClasses(): void {
-    if (!this._status) {
-      return;
-    }
-
     this.appliedClasses = this.statusClassService.applyStatusClasses(
       this.renderer,
-      this.hostElement.nativeElement,
+      this.hostElement.nativeElement as HTMLElement,
       this._status,
       this._statusTheme,
       this.appliedClasses,

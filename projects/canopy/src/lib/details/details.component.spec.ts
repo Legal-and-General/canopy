@@ -51,10 +51,6 @@ describe('LgDetailsComponent', () => {
       expect(detailsEl.getAttribute('class')).toContain('lg-details');
     });
 
-    it('adds generic as the default status', () => {
-      expect(detailsEl.getAttribute('class')).toContain('generic');
-    });
-
     it('should add an id and aria-labelledby attribute to the panel that matches the values of the attributes of the toggle', () => {
       const panelEl = detailsEl.getElementsByClassName('lg-details__panel')[0];
       const toggleEl = detailsEl.getElementsByClassName(

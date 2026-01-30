@@ -27,7 +27,7 @@ let nextUniqueId = 0;
   ],
 })
 export class LgValidationComponent implements OnInit {
-  private statusDirective = inject(LgStatusDirective);
+  private readonly statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
 
@@ -42,8 +42,6 @@ export class LgValidationComponent implements OnInit {
   @HostBinding('class.lg-validation') class = true;
 
   ngOnInit() {
-    if (this.statusDirective.status === 'generic') {
-      this.statusDirective.lgStatus = 'error';
-    }
+    this.statusDirective.lgStatus = 'error';
   }
 }

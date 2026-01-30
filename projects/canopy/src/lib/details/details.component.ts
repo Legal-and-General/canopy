@@ -8,7 +8,6 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  OnInit,
   Output,
   ViewEncapsulation,
   inject,
@@ -36,9 +35,9 @@ let nextUniqueId = 0;
     },
   ],
 })
-export class LgDetailsComponent implements OnInit, AfterContentInit, OnDestroy {
+export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
-  private statusDirective = inject(LgStatusDirective);
+  private readonly statusDirective = inject(LgStatusDirective);
 
   private subscription: Subscription;
   uniqueId = nextUniqueId++;
@@ -73,10 +72,6 @@ export class LgDetailsComponent implements OnInit, AfterContentInit, OnDestroy {
 
   @ContentChild(LgDetailsPanelHeadingComponent)
   panelHeading: LgDetailsPanelHeadingComponent;
-
-  ngOnInit() {
-    this.statusDirective.lgStatus = this.statusDirective.status || 'generic';
-  }
 
   ngAfterContentInit(): void {
     this.panelHeading.uniqueId = this.uniqueId;

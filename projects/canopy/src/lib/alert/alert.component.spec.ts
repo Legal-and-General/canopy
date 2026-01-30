@@ -26,14 +26,6 @@ describe('LgAlertComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('adds status classes with neutral theme as default', () => {
-    fixture.detectChanges();
-    const classes = fixture.nativeElement.getAttribute('class');
-
-    expect(classes).toContain('lg-status-generic');
-    expect(classes).toContain('lg-theme-neutral');
-  });
-
   it('adds the status class when status changes', () => {
     fixture.componentRef.setInput('status', 'success');
     fixture.detectChanges();

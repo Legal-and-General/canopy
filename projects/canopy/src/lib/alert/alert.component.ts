@@ -3,7 +3,6 @@ import {
   HostBinding,
   Input,
   OnChanges,
-  OnInit,
   SimpleChanges,
   ViewEncapsulation,
   inject,
@@ -26,7 +25,7 @@ import { LgIconComponent } from '../icon';
     },
   ],
 })
-export class LgAlertComponent implements OnInit, OnChanges {
+export class LgAlertComponent implements OnChanges {
   private explicitRole: string;
   private statusDirective = inject(LgStatusDirective);
 
@@ -41,11 +40,6 @@ export class LgAlertComponent implements OnInit, OnChanges {
 
   get statusTheme(): Theme {
     return this.statusDirective.statusTheme;
-  }
-
-  ngOnInit() {
-    this.statusDirective.lgStatus = this.statusDirective.status || 'generic';
-    this.statusDirective.lgStatusTheme = this.statusDirective.statusTheme || 'neutral';
   }
 
   ngOnChanges(_changes: SimpleChanges) {
