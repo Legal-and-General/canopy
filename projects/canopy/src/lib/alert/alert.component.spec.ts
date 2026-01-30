@@ -18,7 +18,6 @@ describe('LgAlertComponent', () => {
 
     fixture = TestBed.createComponent(LgAlertComponent);
     component = fixture.componentInstance;
-    // Don't call detectChanges here - let each test control it
   }));
 
   it('should create', () => {
