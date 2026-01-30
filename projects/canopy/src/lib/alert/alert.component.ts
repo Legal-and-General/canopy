@@ -1,15 +1,15 @@
 import {
   Component,
-  ElementRef,
   HostBinding,
   Input,
   OnChanges,
-  Renderer2,
+  SimpleChanges,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
 
-import type { Variant } from '../variant';
+import type { Status, Theme } from '../status';
+import { LgStatusDirective } from '../status';
 import { LgIconComponent } from '../icon';
 
 @Component({
@@ -18,52 +18,45 @@ import { LgIconComponent } from '../icon';
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgIconComponent ],
+  hostDirectives: [
+    {
+      directive: LgStatusDirective,
+      inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
+    },
+  ],
 })
 export class LgAlertComponent implements OnChanges {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
-
-  private _variant: Variant;
   private explicitRole: string;
+  private statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
-  @Input()
-  set variant(variant: Variant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-variant--${this._variant}`,
-      );
-    }
-
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
-    this._variant = variant;
-  }
-  get variant() {
-    return this._variant;
-  }
 
   @HostBinding('class.lg-alert') class = true;
   @HostBinding('attr.role') roleAttr: string;
 
-  constructor() {
-    this.variant = 'generic';
+  get status(): Status {
+    return this.statusDirective.status;
   }
 
-  ngOnChanges() {
+  get statusTheme(): Theme {
+    return this.statusDirective.statusTheme;
+  }
+
+  ngOnChanges(_changes: SimpleChanges) {
     this.initRole();
   }
 
   @Input() set role(role: string) {
     this.explicitRole = role;
   }
+
   private initRole() {
     if (this.explicitRole) {
       if (this.explicitRole !== 'none') {
         this.roleAttr = this.explicitRole;
       }
     } else {
-      switch (this.variant) {
+      switch (this.status) {
         case 'error':
         case 'warning':
         case 'success':
