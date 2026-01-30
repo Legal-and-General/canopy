@@ -10,7 +10,7 @@ import {
 import { Meta } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import convert, { RGB } from 'color-convert';
-import coloursVariables from '@lib/storybook/css-variables/variables/colours';
+import coloursVariables from '@lib/storybook/css-variables/tokens/variables';
 
 interface Color {
   name: string;

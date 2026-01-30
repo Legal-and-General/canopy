@@ -1,4 +1,3 @@
-@use 'variables/colours';
 @use 'variables/variants';
 @use 'variables/components/accordion';
 @use 'variables/components/banner';
@@ -32,6 +31,3 @@
 @use 'variables/typography';
 
 @use 'variables/main' as main2;
-
-@use 'tokens/variables';
-@use 'tokens/layout';
