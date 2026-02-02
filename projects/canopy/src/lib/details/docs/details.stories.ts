@@ -10,6 +10,7 @@ const template = `
 <lg-details
   [isActive]="isActive"
   [status]="status"
+  [statusTheme]="statusTheme"
   [showIcon]="showIcon"
   (opened)="toggle('Detail opened')"
   (closed)="toggle('Detail closed')">

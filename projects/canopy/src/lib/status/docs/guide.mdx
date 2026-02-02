@@ -1,12 +1,9 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Helpers/Directives/Status/Guide" tags={['pending']}/>
+<Meta title="Helpers/Directives/Status/Guide"/>
 
 # Status
-
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 This directive allows you to add one of the five common colour variants to any Canopy component, such as `info` and `success`.
 
@@ -19,16 +16,13 @@ This can be useful where you need the particular colour treatment (like the `suc
 Import the status directive in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgStatusDirective ],
-});
+import { LgStatusDirective } from '@legal-and-general/canopy';
 ```
 
 and your HTML:
 
 ```html
-<lg-card lgStatus="generic">
+<lg-card lgStatus="generic" statusTheme="neutral">
   <lg-card-content>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </lg-card-content>
@@ -37,7 +31,7 @@ and your HTML:
 
 ### Inputs
 
-The current available variants are:
+The current available statuses are:
 
 * `generic`
 * `info`
@@ -45,9 +39,17 @@ The current available variants are:
 * `warning`
 * `error`
 
+The current available status themes are:
+
+* `neutral`
+* `neutral-inverse`
+* `subtle`
+* `bold`
+
 | Name       | Description                |   Type   | Default | Required |
 |------------|----------------------------|:--------:|:-------:|:--------:|
-| `lgStatus` | The name of status desired | `Status` | `null`  |    No    |
+| `status` | The name of status desired | `status` | `default`  |    No    |
+| `statusTheme` | The name of theme desired | `theme` | `neutral`  |    No    |
 
 ***
 

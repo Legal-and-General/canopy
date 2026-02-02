@@ -33,7 +33,7 @@ export default {
     },
     status: {
       options: statusTypes,
-      description: 'Applies colour treatment and ARIA role if applicable.',
+      description: 'Applies status treatment and ARIA role if applicable.',
       table: {
         type: {
           summary: statusTypes.join(','),
