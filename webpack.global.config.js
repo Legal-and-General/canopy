@@ -48,12 +48,8 @@ export default {
           to: path.resolve(__dirname, 'dist/canopy/brand-icons', '[name][ext]'),
         },
         {
-          from: path.resolve(__dirname, 'node_modules/@legal-and-general/canopy-design-tokens/css/variables.css'),
-          to: path.resolve(__dirname, 'dist/canopy/tokens/variables.css'),
-        },
-        {
-          from: path.resolve(__dirname, 'node_modules/@legal-and-general/canopy-design-tokens/css/layout.css'),
-          to: path.resolve(__dirname, 'dist/canopy/tokens/layout.css'),
+          from: path.resolve(__dirname, 'node_modules/@legal-and-general/canopy-design-tokens/css/*.css'),
+          to: path.resolve(__dirname, 'dist/canopy/styles/tokens', '[name][ext]'),
         },
       ],
     }),
