@@ -34,4 +34,13 @@
       border-bottom: none;
     }
   }
+
+  &-content,
+  &-footer {
+    .lg-container {
+      @include mixins.lg-breakpoint('xxl') {
+        --grid-margin: var(--dimensions-large-6);
+      }
+    }
+  }
 }
