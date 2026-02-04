@@ -14,6 +14,12 @@
     "at-rule-no-unknown": null,
     "media-query-no-invalid": null,
     "no-descending-specificity": null,
+    "no-invalid-position-at-import-rule": [
+      true,
+      {
+        "ignoreAtRules": ["use"]
+      }
+    ],
     "unit-allowed-list": ["rem", "em", "%", "ms", "s", "deg", "vh", "vw", "fr"],
     "declaration-empty-line-before": [
       "always",
