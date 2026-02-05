@@ -1,0 +1,524 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+.lg-status-info.lg-theme-neutral {
+  --container-status-background-colour: #aee1f7;
+  --interactive-status-active-background-colour: #000a52;
+  --interactive-status-active-border-colour: #000a52;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #005dba;
+  --interactive-status-focus-border-colour: #005dba;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #001d6e;
+  --interactive-status-hover-border-colour: #001d6e;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #005dba;
+  --interactive-status-rest-border-colour: #005dba;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #000a52;
+  --interactive-text-status-focus: #005dba;
+  --interactive-text-status-hover: #001d6e;
+  --interactive-text-status-rest: #005dba;
+  --interactive-text-status-visited: #005dba;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-info.lg-theme-neutral-inverse {
+  --container-status-background-colour: #aee1f7;
+  --interactive-status-active-background-colour: #000a52;
+  --interactive-status-active-border-colour: #000a52;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #005dba;
+  --interactive-status-focus-border-colour: #005dba;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #001d6e;
+  --interactive-status-hover-border-colour: #001d6e;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #005dba;
+  --interactive-status-rest-border-colour: #005dba;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #000a52;
+  --interactive-text-status-focus: #005dba;
+  --interactive-text-status-hover: #001d6e;
+  --interactive-text-status-rest: #005dba;
+  --interactive-text-status-visited: #005dba;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-info.lg-theme-subtle {
+  --container-status-background-colour: #aee1f7;
+  --interactive-status-active-background-colour: #000a52;
+  --interactive-status-active-border-colour: #000a52;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #005dba;
+  --interactive-status-focus-border-colour: #005dba;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #001d6e;
+  --interactive-status-hover-border-colour: #001d6e;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #005dba;
+  --interactive-status-rest-border-colour: #005dba;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #000a52;
+  --interactive-text-status-focus: #005dba;
+  --interactive-text-status-hover: #001d6e;
+  --interactive-text-status-rest: #005dba;
+  --interactive-text-status-visited: #005dba;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-info.lg-theme-bold {
+  --container-status-background-colour: #005dba;
+  --interactive-status-active-background-colour: #000a52;
+  --interactive-status-active-border-colour: #ffffff;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #ffffff;
+  --interactive-status-focus-border-colour: #ffffff;
+  --interactive-status-focus-colour: #1d1d1b;
+  --interactive-status-hover-background-colour: #001d6e;
+  --interactive-status-hover-border-colour: #ffffff;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #ffffff;
+  --interactive-status-rest-border-colour: #ffffff;
+  --interactive-status-rest-colour: #1d1d1b;
+  --interactive-text-status-active: #f4f4f4;
+  --interactive-text-status-focus: #f4f4f4;
+  --interactive-text-status-hover: #f4f4f4;
+  --interactive-text-status-rest: #f4f4f4;
+  --interactive-text-status-visited: #f4f4f4;
+  --text-status-primary-colour: #ffffff;
+  --text-status-secondary-colour: #ffffff;
+}
+
+.lg-status-success.lg-theme-neutral {
+  --container-status-background-colour: #caeedd;
+  --interactive-status-active-background-colour: #012425;
+  --interactive-status-active-border-colour: #012425;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #00633d;
+  --interactive-status-focus-border-colour: #00633d;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #01312e;
+  --interactive-status-hover-border-colour: #01312e;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #00633d;
+  --interactive-status-rest-border-colour: #00633d;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #012425;
+  --interactive-text-status-focus: #00633d;
+  --interactive-text-status-hover: #01312e;
+  --interactive-text-status-rest: #00633d;
+  --interactive-text-status-visited: #00633d;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-success.lg-theme-neutral-inverse {
+  --container-status-background-colour: #caeedd;
+  --interactive-status-active-background-colour: #012425;
+  --interactive-status-active-border-colour: #012425;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #00633d;
+  --interactive-status-focus-border-colour: #00633d;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #01312e;
+  --interactive-status-hover-border-colour: #01312e;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #00633d;
+  --interactive-status-rest-border-colour: #00633d;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #012425;
+  --interactive-text-status-focus: #00633d;
+  --interactive-text-status-hover: #01312e;
+  --interactive-text-status-rest: #00633d;
+  --interactive-text-status-visited: #00633d;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-success.lg-theme-subtle {
+  --container-status-background-colour: #caeedd;
+  --interactive-status-active-background-colour: #012425;
+  --interactive-status-active-border-colour: #012425;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #00633d;
+  --interactive-status-focus-border-colour: #00633d;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #01312e;
+  --interactive-status-hover-border-colour: #01312e;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #00633d;
+  --interactive-status-rest-border-colour: #00633d;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #012425;
+  --interactive-text-status-focus: #00633d;
+  --interactive-text-status-hover: #01312e;
+  --interactive-text-status-rest: #00633d;
+  --interactive-text-status-visited: #00633d;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-success.lg-theme-bold {
+  --container-status-background-colour: #00633d;
+  --interactive-status-active-background-colour: #012425;
+  --interactive-status-active-border-colour: #ffffff;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #ffffff;
+  --interactive-status-focus-border-colour: #ffffff;
+  --interactive-status-focus-colour: #1d1d1b;
+  --interactive-status-hover-background-colour: #01312e;
+  --interactive-status-hover-border-colour: #ffffff;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #ffffff;
+  --interactive-status-rest-border-colour: #ffffff;
+  --interactive-status-rest-colour: #1d1d1b;
+  --interactive-text-status-active: #f4f4f4;
+  --interactive-text-status-focus: #f4f4f4;
+  --interactive-text-status-hover: #f4f4f4;
+  --interactive-text-status-rest: #f4f4f4;
+  --interactive-text-status-visited: #f4f4f4;
+  --text-status-primary-colour: #ffffff;
+  --text-status-secondary-colour: #ffffff;
+}
+
+.lg-status-warning.lg-theme-neutral {
+  --container-status-background-colour: #fff9c7;
+  --interactive-status-active-background-colour: #572722;
+  --interactive-status-active-border-colour: #572722;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #ffb600;
+  --interactive-status-focus-border-colour: #ffb600;
+  --interactive-status-focus-colour: #1d1d1b;
+  --interactive-status-hover-background-colour: #904029;
+  --interactive-status-hover-border-colour: #904029;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #ffb600;
+  --interactive-status-rest-border-colour: #ffb600;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #1d1d1b;
+  --interactive-text-status-focus: #1d1d1b;
+  --interactive-text-status-hover: #1d1d1b;
+  --interactive-text-status-rest: #1d1d1b;
+  --interactive-text-status-visited: #1d1d1b;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-warning.lg-theme-neutral-inverse {
+  --container-status-background-colour: #fff9c7;
+  --interactive-status-active-background-colour: #572722;
+  --interactive-status-active-border-colour: #572722;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #ffb600;
+  --interactive-status-focus-border-colour: #ffb600;
+  --interactive-status-focus-colour: #1d1d1b;
+  --interactive-status-hover-background-colour: #904029;
+  --interactive-status-hover-border-colour: #904029;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #ffb600;
+  --interactive-status-rest-border-colour: #ffb600;
+  --interactive-status-rest-colour: #1d1d1b;
+  --interactive-text-status-active: #1d1d1b;
+  --interactive-text-status-focus: #1d1d1b;
+  --interactive-text-status-hover: #1d1d1b;
+  --interactive-text-status-rest: #1d1d1b;
+  --interactive-text-status-visited: #1d1d1b;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-warning.lg-theme-subtle {
+  --container-status-background-colour: #fff9c7;
+  --interactive-status-active-background-colour: #572722;
+  --interactive-status-active-border-colour: #572722;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #ffb600;
+  --interactive-status-focus-border-colour: #ffb600;
+  --interactive-status-focus-colour: #1d1d1b;
+  --interactive-status-hover-background-colour: #904029;
+  --interactive-status-hover-border-colour: #904029;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #ffb600;
+  --interactive-status-rest-border-colour: #ffb600;
+  --interactive-status-rest-colour: #1d1d1b;
+  --interactive-text-status-active: #1d1d1b;
+  --interactive-text-status-focus: #1d1d1b;
+  --interactive-text-status-hover: #1d1d1b;
+  --interactive-text-status-rest: #1d1d1b;
+  --interactive-text-status-visited: #1d1d1b;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-warning.lg-theme-bold {
+  --container-status-background-colour: #ffb600;
+  --interactive-status-active-background-colour: #572722;
+  --interactive-status-active-border-colour: #1d1d1b;
+  --interactive-status-active-colour: #1d1d1b;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #1d1d1b;
+  --interactive-status-focus-border-colour: #1d1d1b;
+  --interactive-status-focus-colour: #1d1d1b;
+  --interactive-status-hover-background-colour: #904029;
+  --interactive-status-hover-border-colour: #1d1d1b;
+  --interactive-status-hover-colour: #1d1d1b;
+  --interactive-status-rest-background-colour: #1d1d1b;
+  --interactive-status-rest-border-colour: #1d1d1b;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #1d1d1b;
+  --interactive-text-status-focus: #1d1d1b;
+  --interactive-text-status-hover: #1d1d1b;
+  --interactive-text-status-rest: #1d1d1b;
+  --interactive-text-status-visited: #1d1d1b;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #1d1d1b;
+}
+
+.lg-status-error.lg-theme-neutral {
+  --container-status-background-colour: #ffc2bd;
+  --interactive-status-active-background-colour: #6e061b;
+  --interactive-status-active-border-colour: #6e061b;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #c50b30;
+  --interactive-status-focus-border-colour: #c50b30;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #940824;
+  --interactive-status-hover-border-colour: #940824;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #c50b30;
+  --interactive-status-rest-border-colour: #c50b30;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #6e061b;
+  --interactive-text-status-focus: #c50b30;
+  --interactive-text-status-hover: #940824;
+  --interactive-text-status-rest: #c50b30;
+  --interactive-text-status-visited: #c50b30;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-error.lg-theme-neutral-inverse {
+  --container-status-background-colour: #ffc2bd;
+  --interactive-status-active-background-colour: #6e061b;
+  --interactive-status-active-border-colour: #6e061b;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #c50b30;
+  --interactive-status-focus-border-colour: #c50b30;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #940824;
+  --interactive-status-hover-border-colour: #940824;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #c50b30;
+  --interactive-status-rest-border-colour: #c50b30;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #6e061b;
+  --interactive-text-status-focus: #c50b30;
+  --interactive-text-status-hover: #940824;
+  --interactive-text-status-rest: #c50b30;
+  --interactive-text-status-visited: #c50b30;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-error.lg-theme-subtle {
+  --container-status-background-colour: #ffc2bd;
+  --interactive-status-active-background-colour: #6e061b;
+  --interactive-status-active-border-colour: #6e061b;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #c50b30;
+  --interactive-status-focus-border-colour: #c50b30;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #940824;
+  --interactive-status-hover-border-colour: #940824;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #c50b30;
+  --interactive-status-rest-border-colour: #c50b30;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #6e061b;
+  --interactive-text-status-focus: #c50b30;
+  --interactive-text-status-hover: #940824;
+  --interactive-text-status-rest: #c50b30;
+  --interactive-text-status-visited: #c50b30;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-error.lg-theme-bold {
+  --container-status-background-colour: #c50b30;
+  --interactive-status-active-background-colour: #6e061b;
+  --interactive-status-active-border-colour: #ffffff;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #ffffff;
+  --interactive-status-focus-border-colour: #ffffff;
+  --interactive-status-focus-colour: #f4f4f4;
+  --interactive-status-hover-background-colour: #940824;
+  --interactive-status-hover-border-colour: #ffffff;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #ffffff;
+  --interactive-status-rest-border-colour: #ffffff;
+  --interactive-status-rest-colour: #000000;
+  --interactive-text-status-active: #f4f4f4;
+  --interactive-text-status-focus: #f4f4f4;
+  --interactive-text-status-hover: #f4f4f4;
+  --interactive-text-status-rest: #f4f4f4;
+  --interactive-text-status-visited: #f4f4f4;
+  --text-status-primary-colour: #ffffff;
+  --text-status-secondary-colour: #ffffff;
+}
+
+.lg-status-generic.lg-theme-neutral {
+  --container-status-background-colour: #f4f4f4;
+  --interactive-status-active-background-colour: #1d1d1b;
+  --interactive-status-active-border-colour: #1d1d1b;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #4d4f4f;
+  --interactive-status-focus-border-colour: #4d4f4f;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #343634;
+  --interactive-status-hover-border-colour: #343634;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #4d4f4f;
+  --interactive-status-rest-border-colour: #4d4f4f;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #1d1d1b;
+  --interactive-text-status-focus: #1d1d1b;
+  --interactive-text-status-hover: #1d1d1b;
+  --interactive-text-status-rest: #1d1d1b;
+  --interactive-text-status-visited: #1d1d1b;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-generic.lg-theme-neutral-inverse {
+  --container-status-background-colour: #f4f4f4;
+  --interactive-status-active-background-colour: #1d1d1b;
+  --interactive-status-active-border-colour: #1d1d1b;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #4d4f4f;
+  --interactive-status-focus-border-colour: #4d4f4f;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #343634;
+  --interactive-status-hover-border-colour: #343634;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #4d4f4f;
+  --interactive-status-rest-border-colour: #4d4f4f;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #1d1d1b;
+  --interactive-text-status-focus: #1d1d1b;
+  --interactive-text-status-hover: #1d1d1b;
+  --interactive-text-status-rest: #1d1d1b;
+  --interactive-text-status-visited: #1d1d1b;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-generic.lg-theme-subtle {
+  --container-status-background-colour: #f4f4f4;
+  --interactive-status-active-background-colour: #1d1d1b;
+  --interactive-status-active-border-colour: #1d1d1b;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #4d4f4f;
+  --interactive-status-focus-border-colour: #4d4f4f;
+  --interactive-status-focus-colour: #ffffff;
+  --interactive-status-hover-background-colour: #343634;
+  --interactive-status-hover-border-colour: #343634;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #4d4f4f;
+  --interactive-status-rest-border-colour: #4d4f4f;
+  --interactive-status-rest-colour: #ffffff;
+  --interactive-text-status-active: #1d1d1b;
+  --interactive-text-status-focus: #1d1d1b;
+  --interactive-text-status-hover: #1d1d1b;
+  --interactive-text-status-rest: #1d1d1b;
+  --interactive-text-status-visited: #1d1d1b;
+  --text-status-primary-colour: #1d1d1b;
+  --text-status-secondary-colour: #4d4f4f;
+}
+
+.lg-status-generic.lg-theme-bold {
+  --container-status-background-colour: #4d4f4f;
+  --interactive-status-active-background-colour: #1d1d1b;
+  --interactive-status-active-border-colour: #ffffff;
+  --interactive-status-active-colour: #ffffff;
+  --interactive-status-disabled-background-colour: #d3d3d3;
+  --interactive-status-disabled-border-colour: #d3d3d3;
+  --interactive-status-disabled-colour: #7a7b7b;
+  --interactive-status-focus-background-colour: #ffffff;
+  --interactive-status-focus-border-colour: #ffffff;
+  --interactive-status-focus-colour: #f4f4f4;
+  --interactive-status-hover-background-colour: #343634;
+  --interactive-status-hover-border-colour: #ffffff;
+  --interactive-status-hover-colour: #ffffff;
+  --interactive-status-rest-background-colour: #ffffff;
+  --interactive-status-rest-border-colour: #ffffff;
+  --interactive-status-rest-colour: #000000;
+  --interactive-text-status-active: #f4f4f4;
+  --interactive-text-status-focus: #f4f4f4;
+  --interactive-text-status-hover: #f4f4f4;
+  --interactive-text-status-rest: #f4f4f4;
+  --interactive-text-status-visited: #f4f4f4;
+  --text-status-primary-colour: #ffffff;
+  --text-status-secondary-colour: #ffffff;
+}
+

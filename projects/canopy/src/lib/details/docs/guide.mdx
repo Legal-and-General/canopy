@@ -20,10 +20,7 @@ Use the details component to hide secondary information like FAQs and supporting
 Import the details components into your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgDetailsComponent, etc. ],
-});
+import { LgDetailsComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -36,9 +33,9 @@ The component has **not** been designed for large amounts of information or rich
 
 ![Details component usage examples](docs/details/usage.png)
 
-The Details component can also be styled to match the [inline message component](./?path=/docs/components-inline-message-alert-guide--docs) with `warning`, `info`, `success` and `error` colouring. This lets you highlight information in different ways depending on severity. In the above example, we've used the `info` variation to highlight a message telling the user they triggered a Money Purchase Annual Allowance.
+The Details component can also be styled to match the [inline message component](./?path=/docs/components-inline-message-alert-guide--docs) with `warning`, `info`, `success` and `error` colouring. This lets you highlight information in different ways depending on severity. In the above example, we've used the `info` status to highlight a message telling the user they triggered a Money Purchase Annual Allowance.
 
-**These colours should be used sparingly; the generic variation should suitable for most situations.**
+**These statuses should be used sparingly; the generic status should suitable for most situations.**
 
 ![Details components - types](docs/details/types.png)
 
@@ -46,9 +43,9 @@ The Details component can also be styled to match the [inline message component]
 
 The details component combines an icon, label and chevron within a container. Clicking anywhere within the container will expand or collapse the content within. Content should be collapsed by default.
 
-The "alert" ARIA role is automatically added to the component if it's one of these variants: `warning`, `error`, `success`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
+The "alert" ARIA role is automatically added to the component if it's one of these statuses: `warning`, `error`, `success`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
 
-A decorative icon is also added next to the heading if it's one of the these variants: `info`, `warning`, `error`, `success`.
+A decorative icon is also added next to the heading if it's one of the these statuses: `info`, `warning`, `error`, `success`.
 
 ## Dos and Don'ts
 
@@ -76,8 +73,9 @@ A decorative icon is also added next to the heading if it's one of the these var
 |----------------|--------------------------------------------------------------------------------------------------------|-----------|-----------|----------|
 | `isActive`     | Expand the details                                                                                     | `boolean` | `false`   | no       |
 | `headingLevel` | The level of the details heading: `1`, `2`, `3`, `4`, `5`, `6`                                         | `number`  | n/a       | Yes      |
-| `variant`      | Applies colour treatment and ARIA role if applicable: `generic`, `info`, `warning`, `error`, `success` | `string`  | `generic` | No       |
-| `showIcon`     | Whether the icon should display on the warning, error or success variants                              | `boolean` | `true`    | No       |
+| `status`       | Applies status treatment and ARIA role if applicable: `generic`, `info`, `warning`, `error`, `success` | `string`  | `generic` | No       |
+| `statusTheme`  | Applies status theme if applicable: `neutral`, `neutral-inverse`, `subtle`, `bold` | `string`  | `neutral` | No       |
+| `showIcon`     | Whether the icon should display on the warning, error or success statuses                              | `boolean` | `true`    | No       |
 
 ### Outputs
 

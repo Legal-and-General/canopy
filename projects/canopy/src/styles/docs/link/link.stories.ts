@@ -1,14 +1,43 @@
+import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
+import type { Colour, ColourTheme } from '../../../lib/colour/colour.interface';
 import { LgAlertComponent } from '../../../lib/alert';
 import { LgMarginDirective } from '../../../lib/spacing';
+import { LgColourDirective } from '../../../lib/colour';
+
+const colours = [ 'blue', 'green', 'red', 'yellow' ];
+const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
+
+@Component({
+  selector: 'lg-link-colour-story',
+  template: `
+    <div [lgColour]="colour" [lgColourTheme]="theme" lgMarginTop="6">
+      <p>
+        This is a <a href="#">link with {{ colour }} colour mode</a> and
+        {{ theme }} theme.
+      </p>
+    </div>
+  `,
+  standalone: true,
+  imports: [ LgColourDirective, LgMarginDirective ],
+})
+class LgLinkColourStoryComponent {
+  @Input() colour: Colour;
+  @Input() theme: ColourTheme;
+}
 
 export default {
   title: 'Components/Link/Examples',
   tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
-      imports: [ LgAlertComponent, LgMarginDirective ],
+      imports: [
+        LgAlertComponent,
+        LgMarginDirective,
+        LgColourDirective,
+        LgLinkColourStoryComponent,
+      ],
     }),
   ],
 } as Meta;
@@ -50,6 +79,57 @@ export const LinksInlineMessages = {
     docs: {
       source: {
         code: linksInlineMessagesTemplate,
+      },
+    },
+  },
+};
+
+const linksWithColourTemplate = `
+<lg-link-colour-story [colour]="colour" [theme]="theme"></lg-link-colour-story>
+`;
+
+export const LinksWithColour = {
+  name: 'With colour modes',
+  render: (args: { colour: Colour; theme: ColourTheme }) => ({
+    props: args,
+    template: linksWithColourTemplate,
+  }),
+  args: {
+    colour: 'blue',
+    theme: 'neutral',
+  },
+  argTypes: {
+    colour: {
+      options: colours,
+      description: 'The colour mode to apply to the link.',
+      table: {
+        type: {
+          summary: colours,
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    theme: {
+      options: themes,
+      description: 'The theme to apply to the link.',
+      table: {
+        type: {
+          summary: themes,
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<div lgColour="blue" lgColourTheme="neutral">
+  <p>This is a <a href="#">link with colour mode</a> and theme.</p>
+</div>`,
       },
     },
   },
