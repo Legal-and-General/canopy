@@ -118,7 +118,7 @@ jobs:
             const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.cjs');
             await createDeploymentStatus({
               deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
-              state: '${{ job.status }}' === 'success' ? 'success' : 'failure',
+              state: '${{ job.status == 'success' && 'success' || 'failure' }}',
               environmentUrl: '${{ fromJSON(steps.prData.outputs.result).environmentUrl }}',
               github,
               context,
