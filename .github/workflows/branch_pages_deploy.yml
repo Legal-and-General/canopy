@@ -60,10 +60,10 @@ jobs:
           rm lg-sb-build.zip
 
       - name: 'Visual comparison'
-        run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }} --config=.percy.yml
+        run: npx percy storybook ./docs/lg-sb-${{ fromJson(steps.prData.outputs.result).branch }} --config=.percy.yml
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'
+          PERCY_BRANCH: ${{ fromJson(steps.prData.outputs.result).branch }}
           PERCY_STORYBOOK_DOC_CAPTURE: true
           NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
@@ -117,9 +117,9 @@ jobs:
           script: |
             const createDeploymentStatus = require('./.github/workflow-scripts/gh-pages/create-gh-deployment-status.cjs');
             await createDeploymentStatus({
-              deploymentId: ${{ fromJSON(steps.deploymentId.outputs.result) }},
-              state: '${{ job.status == 'success' && 'success' || 'failure' }}',
-              environmentUrl: '${{ fromJSON(steps.prData.outputs.result).environmentUrl }}',
+              deploymentId: ${{ fromJson(steps.deploymentId.outputs.result) }},
+              state: "${{ job.status == 'success' && 'success' || 'failure' }}",
+              environmentUrl: "${{ fromJson(steps.prData.outputs.result).environmentUrl }}",
               github,
               context,
             });
