@@ -5,6 +5,7 @@ import { LgDetailsComponent } from '../details.component';
 import { LgDetailsPanelHeadingComponent } from '../details-panel-heading/details-panel-heading.component';
 
 const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 const template = `
 <lg-details
@@ -27,6 +28,7 @@ const template = `
 })
 class DetailsExampleComponent {
   @Input() status: string;
+  @Input() statusTheme: string;
   @Input() headingLevel: number;
   @Input() headingText: string;
   @Input() isActive: boolean;
@@ -71,6 +73,21 @@ export default {
         },
         defaultValue: {
           summary: 'generic',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    statusTheme: {
+      options: themes,
+      description: 'The theme to apply to the status.',
+      table: {
+        type: {
+          summary: themes.join(','),
+        },
+        defaultValue: {
+          summary: 'neutral',
         },
       },
       control: {
@@ -165,6 +182,7 @@ export const StandardDetails = {
     props: args,
     template: `<lg-details-example
       [status]="status"
+      [statusTheme]="statusTheme"
       [headingLevel]="headingLevel"
       [headingText]="headingText"
       [isActive]="isActive"
@@ -173,6 +191,7 @@ export const StandardDetails = {
   }),
   args: {
     status: 'generic',
+    statusTheme: 'neutral',
     headingLevel: 5,
     headingText: 'How do I change my payment details?',
   },

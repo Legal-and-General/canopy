@@ -27,13 +27,13 @@
 }
 
 @mixin lg-link(
-  $default-color: var(--link-color),
-  $hover-color: var(--link-hover-color),
-  $visited-color: var(--link-visited-color),
-  $active-color: var(--link-active-color),
-  $active-bg-color: var(--link-active-bg-color),
-  $focus-color: var(--link-focus-color),
-  $focus-bg-color: var(--link-focus-bg-color)
+  $default-color: var(--interactive-text-default-rest),
+  $hover-color: var(--interactive-text-default-hover),
+  $visited-color: var(--interactive-text-default-visited),
+  $active-color: var(--interactive-text-default-active),
+  $active-bg-color: var(--body-default-background-colour),
+  $focus-color: var(--interactive-text-default-focus),
+  $focus-bg-color: var(--body-default-background-colour)
 ) {
   $box-shadow-inset-width: -0.063rem;
 
@@ -195,7 +195,6 @@ $breakpoints: (
 }
 
 @mixin lg-status() {
-  // Uses status tokens from status.css
   background-color: var(--container-status-background-colour) !important;
   color: var(--text-status-primary-colour) !important;
 
@@ -211,10 +210,10 @@ $breakpoints: (
     );
   }
 
-  .lg-btn--secondary-dark {
-    background-color: transparent !important;
-    border-color: var(--text-status-primary-colour) !important;
-    color: var(--text-status-primary-colour) !important;
+  .lg-btn--primary-dark {
+    background-color: var(--interactive-status-rest-background-colour) !important;
+    border-color: var(--interactive-status-rest-border-colour) !important;
+    color: var(--interactive-status-rest-colour) !important;
 
     &:hover {
       background-color: var(--interactive-status-hover-background-colour) !important;
@@ -238,6 +237,132 @@ $breakpoints: (
       background-color: var(--interactive-status-disabled-background-colour) !important;
       border-color: var(--interactive-status-disabled-border-colour) !important;
       color: var(--interactive-status-disabled-colour) !important;
+    }
+  }
+
+  .lg-btn--secondary-dark {
+    background-color: var(--interactive-status-rest-background-colour) !important;
+    border-color: var(--interactive-status-rest-border-colour) !important;
+    color: var(--interactive-status-rest-colour) !important;
+
+    &:hover {
+      background-color: var(--interactive-status-hover-background-colour) !important;
+      border-color: var(--interactive-status-hover-border-colour) !important;
+      color: var(--interactive-status-hover-colour) !important;
+    }
+
+    &:active {
+      background-color: var(--interactive-status-active-background-colour) !important;
+      border-color: var(--interactive-status-active-border-colour) !important;
+      color: var(--interactive-status-active-colour) !important;
+    }
+
+    &:focus-visible {
+      background-color: var(--interactive-status-focus-background-colour) !important;
+      border-color: var(--interactive-status-focus-border-colour) !important;
+      color: var(--interactive-status-focus-colour) !important;
+    }
+
+    &:disabled {
+      background-color: var(--interactive-status-disabled-background-colour) !important;
+      border-color: var(--interactive-status-disabled-border-colour) !important;
+      color: var(--interactive-status-disabled-colour) !important;
+    }
+  }
+}
+
+@mixin lg-colour() {
+  background-color: var(--container-default-background-colour) !important;
+  color: var(--colour-text-static-1) !important; // what should this be?
+
+  a:not(.lg-btn) {
+    @include lg-link(
+      $default-color: var(--interactive-text-default-rest),
+      $hover-color: var(--interactive-text-default-hover),
+      $visited-color: var(--interactive-text-default-visited),
+      $active-color: var(--interactive-text-default-active),
+      $active-bg-color: var(--body-default-background-colour),
+      $focus-color: var(--interactive-text-default-focus)
+    );
+  }
+
+  .lg-btn--primary-dark {
+    background-color: var(--interactive-primary-rest-background-colour) !important;
+    border: var(--interactive-border-width) solid
+      var(--interactive-primary-rest-border-colour) !important;
+    color: var(--interactive-primary-rest-colour) !important;
+    border-radius: var(--interactive-border-radius-default);
+
+    &:hover {
+      border: var(--interactive-border-width) solid
+        var(--interactive-primary-hover-border-colour) !important;
+      color: var(--interactive-primary-hover-colour) !important;
+      background-color: var(--interactive-primary-hover-background-colour) !important;
+    }
+
+    &:active {
+      border: var(--interactive-border-width) solid
+        var(--interactive-primary-active-border-colour) !important;
+      background: var(--interactive-primary-active-background-colour) !important;
+      color: var(--interactive-primary-active-colour) !important;
+    }
+
+    &:focus-visible {
+      border: var(--interactive-border-width-focus) solid
+        var(--interactive-primary-hover-border-colour) !important;
+      background: var(--interactive-primary-focus-background-colour) !important;
+      box-shadow: 0 0 0 var(--interactive-border-width)
+        var(--interactive-primary-focus-background-colour) !important;
+      color: var(--interactive-primary-focus-colour) !important;
+    }
+
+    &:disabled {
+      border: var(--interactive-border-width) solid
+        var(--interactive-primary-disabled-border-colour) !important;
+      background: var(--interactive-primary-disabled-background-colour) !important;
+      color: var(--interactive-primary-disabled-colour) !important;
+    }
+  }
+
+  .lg-btn--secondary-dark {
+    border-radius: var(--interactive-border-radius-default) !important;
+    border: var(--interactive-border-width) solid
+      var(--interactive-secondary-rest-border-colour) !important;
+    color: var(--interactive-secondary-rest-colour) !important;
+    background-color: var(
+      --interactive-secondary-rest-background-colour
+    ) !important; // check if this is right
+
+    &:hover {
+      border: var(--interactive-border-width) solid
+        var(--interactive-secondary-hover-border-colour) !important;
+      background: var(--interactive-secondary-hover-background-colour) !important;
+      color: var(--interactive-secondary-hover-colour) !important;
+    }
+
+    &:active {
+      border: var(--interactive-border-width) solid
+        var(--interactive-secondary-active-border-colour) !important;
+      background: var(--interactive-secondary-active-background-colour) !important;
+      color: var(--interactive-secondary-active-colour) !important;
+    }
+
+    &:focus-visible {
+      background-color: var(--interactive-secondary-focus-border-colour) !important;
+      color: var(-interactive-secondary-focus-colour) !important;
+      border: var(--interactive-border-width-focus) solid
+        var(--interactive-secondary-focus-border-colour) !important;
+      box-shadow: 0 0 0 var(--space-1)
+        var(--interactive-secondary-focus-background-colour) !important;
+    }
+
+    &:disabled {
+      color: var(--interactive-secondary-disabled-color) !important;
+      border: var(--interactive-border-width) solid
+        var(--interactive-secondary-disabled-border-color) !important;
+      background-color: var(
+        --interactive-secondary-disabled-background-colour
+      ) !important;
     }
   }
 }

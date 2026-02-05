@@ -4,11 +4,13 @@ import { Component, Input } from '@angular/core';
 import { LgValidationComponent } from '../validation.component';
 
 const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 const template = `
 <lg-validation
   [showIcon]="showIcon"
-  [status]="status">
+  [status]="status"
+  [statusTheme]="statusTheme">
   {{content}}
 </lg-validation>
 `;
@@ -20,6 +22,7 @@ const template = `
 })
 class LgValidationExampleComponent {
   @Input() status: string;
+  @Input() statusTheme: string;
   @Input() content: string;
   @Input() showIcon: boolean;
 }
@@ -64,6 +67,21 @@ export default {
         type: 'select',
       },
     },
+    statusTheme: {
+      options: themes,
+      description: 'The theme to apply to the validation status.',
+      table: {
+        type: {
+          summary: themes.join(','),
+        },
+        defaultValue: {
+          summary: 'neutral',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
     id: {
       table: {
         disable: true,
@@ -88,6 +106,7 @@ export const Validation = {
     props: args,
     template: `<lg-validation-example
       [status]="status"
+      [statusTheme]="statusTheme"
       [showIcon]="showIcon"
       [content]="content"
      ></lg-validation-example>`,
@@ -95,6 +114,7 @@ export const Validation = {
   args: {
     content: 'Please enter a valid date of birth',
     status: 'error',
+    statusTheme: 'neutral',
   },
   parameters: {
     docs: {

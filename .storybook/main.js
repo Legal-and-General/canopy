@@ -139,6 +139,8 @@ export default {
     '../projects/canopy/src/lib/sr-alert-message/docs/sr-alert-message.stories.ts',
     '../projects/canopy/src/lib/status/docs/guide.mdx',
     '../projects/canopy/src/lib/status/docs/status.stories.ts',
+    '../projects/canopy/src/lib/colour/docs/guide.mdx',
+    '../projects/canopy/src/lib/colour/docs/colour.stories.ts',
     //  Pipes
     '../projects/canopy/src/lib/pipes/camel-case/docs/guide.mdx',
     '../projects/canopy/src/lib/pipes/camel-case/docs/camel-case.stories.ts',

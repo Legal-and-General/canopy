@@ -46,6 +46,7 @@ export * from './lib/suffix/index';
 export * from './lib/table/index';
 export * from './lib/tabs/index';
 export * from './lib/status/index';
+export * from './lib/colour/index';
 export * from './lib/modal/index';
 export * from './lib/primary-message/index';
 export * from './lib/orientation/index';

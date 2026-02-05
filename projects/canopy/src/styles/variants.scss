@@ -1,6 +1,26 @@
 @use 'mixins';
 
-// Status classes with themes - apply mixin when both classes are present
+// Colour classes with themes
+.lg-mode-blue.lg-theme-neutral,
+.lg-mode-blue.lg-theme-neutral-inverse,
+.lg-mode-blue.lg-theme-subtle,
+.lg-mode-blue.lg-theme-bold,
+.lg-mode-green.lg-theme-neutral,
+.lg-mode-green.lg-theme-neutral-inverse,
+.lg-mode-green.lg-theme-subtle,
+.lg-mode-green.lg-theme-bold,
+.lg-mode-red.lg-theme-neutral,
+.lg-mode-red.lg-theme-neutral-inverse,
+.lg-mode-red.lg-theme-subtle,
+.lg-mode-red.lg-theme-bold,
+.lg-mode-yellow.lg-theme-neutral,
+.lg-mode-yellow.lg-theme-neutral-inverse,
+.lg-mode-yellow.lg-theme-subtle,
+.lg-mode-yellow.lg-theme-bold {
+  @include mixins.lg-colour();
+}
+
+// Status classes with themes
 .lg-status-generic.lg-theme-neutral,
 .lg-status-generic.lg-theme-neutral-inverse,
 .lg-status-generic.lg-theme-subtle,

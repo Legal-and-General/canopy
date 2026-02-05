@@ -1,30 +1,30 @@
 import { Component, Input } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
-import type { Status, Theme } from '../status.interface';
-import { LgStatusDirective } from '..';
+import type { Colour, ColourTheme } from '../colour.interface';
+import { LgColourDirective } from '..';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
 import { LgButtonComponent } from '../../button';
 import { LgShadowDirective } from '../../shadow';
 import { LgMarginDirective, LgPaddingDirective } from '../../spacing';
 
-const statuses = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const colours = [ 'blue', 'green', 'red', 'yellow' ];
 const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 @Component({
-  selector: 'lg-status-story',
+  selector: 'lg-colour-story',
   template: `
     <lg-card
       lgShadow
-      [lgStatus]="status"
-      [lgStatusTheme]="theme"
+      [lgColour]="colour"
+      [lgColourTheme]="theme"
       lgPaddingLeft="6"
       lgPaddingRight="6"
     >
       <lg-card-content>
-        <p><strong>The status directive</strong></p>
+        <p><strong>The colour directive</strong></p>
         <p>
-          This card has the <strong>{{ status }}</strong> status
+          This card has the <strong>{{ colour }}</strong> colour
           @if (theme) {
             with <strong>{{ theme }}</strong> theme
           }
@@ -34,41 +34,44 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
         <br />
         <button lg-button variant="secondary-dark">Secondary button</button>
         <br />
-        <a href="#" lg-button variant="primary-dark" lgMarginBottom="none">
-          Primary link styled as button
+        <a href="#" lg-button variant="secondary-dark" lgMarginBottom="none">
+          Secondary link styled as button
         </a>
       </lg-card-content>
     </lg-card>
+    <div [lgColour]="colour" [lgColourTheme]="theme">
+      <a href="#">This is a standalone link with colour styling applied</a>
+    </div>
   `,
   imports: [
     LgCardComponent,
     LgCardContentComponent,
-    LgStatusDirective,
+    LgColourDirective,
     LgButtonComponent,
     LgShadowDirective,
     LgMarginDirective,
     LgPaddingDirective,
   ],
 })
-class LgStatusStoryComponent {
-  @Input() status: Status;
-  @Input() theme?: Theme;
+class LgColourStoryComponent {
+  @Input() colour: Colour;
+  @Input() theme?: ColourTheme;
 }
 
 export default {
-  title: 'Helpers/Directives/Status/Examples',
+  title: 'Helpers/Directives/Colour/Examples',
   decorators: [
     moduleMetadata({
-      imports: [ LgStatusStoryComponent ],
+      imports: [ LgColourStoryComponent ],
     }),
   ],
   argTypes: {
-    status: {
-      options: statuses,
-      description: 'The status to apply to the component.',
+    colour: {
+      options: colours,
+      description: 'The colour to apply to the component.',
       table: {
         type: {
-          summary: statuses,
+          summary: colours,
         },
       },
       control: {
@@ -78,7 +81,7 @@ export default {
     theme: {
       options: [ undefined, ...themes ],
       description:
-        'Optional theme for status classes. When provided, applies lg-status-{status} and lg-theme-{theme} classes.',
+        'Optional theme for colour classes. When provided, applies lg-colour-{colour} and lg-theme-{theme} classes.',
       table: {
         type: {
           summary: themes,
@@ -92,29 +95,29 @@ export default {
 };
 
 const template = `
-<lg-status-story [status]="status" [theme]="theme"></lg-status-story>
+<lg-colour-story [colour]="colour" [theme]="theme"></lg-colour-story>
 `;
 const exampleTemplate = `
-<lg-card lgStatus="success">
+<lg-card lgColour="blue">
   <lg-card-content>
     <p>
-      This card has the <strong>success</strong> status applied. Here is some
+      This card has the <strong>blue</strong> colour applied. Here is some
       <a href="#">link text</a>.
     </p>
-    <button lg-button variant="secondary-dark" lgMarginBottom="none">Primary button</button>
+    <button lg-button variant="primary-dark" lgMarginBottom="none">Primary button</button>
     <button lg-button variant="secondary-dark">Secondary button</button>
   </lg-card-content>
 </lg-card>
 `;
 
-export const StandardStatus = {
-  name: 'Status with Theme',
-  render: (args: LgStatusDirective) => ({
+export const StandardColour = {
+  name: 'Colour with Theme',
+  render: (args: LgColourDirective) => ({
     props: args,
     template,
   }),
   args: {
-    status: 'success',
+    colour: 'green',
     theme: undefined,
   },
   parameters: {
@@ -125,10 +128,10 @@ export const StandardStatus = {
     },
     percy: {
       additionalSnapshots: [
-        { suffix: ' [info]', args: { status: 'info' } },
-        { suffix: ' [success]', args: { status: 'success' } },
-        { suffix: ' [warning]', args: { status: 'warning' } },
-        { suffix: ' [error]', args: { status: 'error' } },
+        { suffix: ' [blue]', args: { colour: 'blue' } },
+        { suffix: ' [green]', args: { colour: 'green' } },
+        { suffix: ' [red]', args: { colour: 'red' } },
+        { suffix: ' [yellow]', args: { colour: 'yellow' } },
       ],
     },
   },

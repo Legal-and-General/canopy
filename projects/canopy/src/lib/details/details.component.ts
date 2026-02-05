@@ -31,7 +31,7 @@ let nextUniqueId = 0;
   hostDirectives: [
     {
       directive: LgStatusDirective,
-      inputs: [ 'lgStatus:status' ],
+      inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
     },
   ],
 })
