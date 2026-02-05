@@ -12,6 +12,7 @@ permissions:
   actions: read
   pull-requests: write
   checks: read
+  packages: read
 
 jobs:
   # Deploys selected branch to GitHub Pages
