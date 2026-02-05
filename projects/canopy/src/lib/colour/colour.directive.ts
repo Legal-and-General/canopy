@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2, inject } from '@angular/core';
 
 import type { Colour, ColourTheme } from './colour.interface';
 import { ColourClassService } from './colour-class.service';
@@ -8,7 +8,7 @@ import { ColourClassService } from './colour-class.service';
   standalone: true,
   providers: [ ColourClassService ],
 })
-export class LgColourDirective {
+export class LgColourDirective implements OnInit {
   private readonly renderer = inject(Renderer2);
   private readonly hostElement = inject(ElementRef);
   private readonly colourClassService = inject(ColourClassService);
@@ -35,6 +35,12 @@ export class LgColourDirective {
 
   get colourTheme(): ColourTheme {
     return this._colourTheme;
+  }
+
+  ngOnInit(): void {
+    if (this.appliedClasses.length === 0) {
+      this.applyClasses();
+    }
   }
 
   private applyClasses(): void {
