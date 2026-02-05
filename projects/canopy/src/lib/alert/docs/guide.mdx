@@ -23,19 +23,16 @@ Use an inline message to provide information or feedback that directly relates t
 Import the inline message (alert) component into your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgAlertComponent ],
-});
+import { LgAlertComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 <Source of={AlertStories.StandardAlert} />
 
-### Variants
+### Statuses
 
-There are 5 different variants to choose from:
+There are 5 different statuses to choose from:
 
 ![variants](docs/inline-message/variants.png)
 
@@ -69,15 +66,15 @@ A basic inline message that should only be used if the others are unsuitable. Th
 
 ## Role
 
-It can be manually set through property binding or by passing the "none" value, preventing it from being set altogether. Otherwise, the role attribute is automatically assigned as 'alert' for anything other than `info` and `generic` variants.
+It can be manually set through property binding or by passing the "none" value, preventing it from being set altogether. Otherwise, the role attribute is automatically assigned as 'alert' for anything other than `info` and `generic` statuses.
 
 ## How it works
 
 The inline message works best when placed in close proximity to another element, so that the user can clearly understand the context of the message.
 
-The "alert" ARIA role is automatically added to the component if it's one of these variants: warning, error, success. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
+The "alert" ARIA role is automatically added to the component if it's one of these statuses: warning, error, success. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
 
-A decorative icon is also added next to the heading if it's one of the these variants: info, warning, error, success.
+A decorative icon is also added next to the heading if it's one of the these statuses: info, warning, error, success.
 
 ## Dos and Don'ts
 
@@ -102,8 +99,9 @@ A decorative icon is also added next to the heading if it's one of the these var
 
 | Name       | Description                                                                                            | Type      | Default   | Required |
 |------------|--------------------------------------------------------------------------------------------------------|-----------|-----------|----------|
-| `variant`  | Applies colour treatment and ARIA role if applicable: `generic`, `info`, `warning`, `error`, `success` | `string`  | `generic` | No       |
-| `showIcon` | Whether the icon should display on the warning, error or success variants                              | `boolean` | `true`    | No       |
+| `status`  | Applies status treatment and ARIA role if applicable: `generic`, `info`, `warning`, `error`, `success` | `string`  | `generic` | No       |
+| `statusTheme`  | Applies status theme if applicable: `neutral`, `neutral-inverse`, `subtle`, `bold` | `string`  | `neutral` | No       |
+| `showIcon` | Whether the icon should display on the warning, error or success statuses                              | `boolean` | `true`    | No       |
 
 ***
 

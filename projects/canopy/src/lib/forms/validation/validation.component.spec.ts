@@ -3,7 +3,6 @@ import { By } from '@angular/platform-browser';
 import { MockComponent } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon';
-import type { Variant } from '../../variant';
 
 import { LgValidationComponent } from './validation.component';
 
@@ -43,14 +42,14 @@ describe('LgValidationComponent', () => {
     expect(icon).toBeNull();
   });
 
-  it('renders the correct icon for the variant', () => {
+  it('renders the correct icon for the status', () => {
     [
-      { variant: 'error', icon: 'crossmark-spot-fill' },
-      { variant: 'info', icon: 'information-fill' },
-      { variant: 'warning', icon: 'warning-fill' },
-      { variant: 'success', icon: 'checkmark-spot-fill' },
-    ].forEach(({ variant, icon }) => {
-      component.variant = variant as Variant;
+      { status: 'error', icon: 'crossmark-spot-fill' },
+      { status: 'info', icon: 'information-fill' },
+      { status: 'warning', icon: 'warning-fill' },
+      { status: 'success', icon: 'checkmark-spot-fill' },
+    ].forEach(({ status, icon }) => {
+      fixture.componentRef.setInput('status', status);
       fixture.detectChanges();
 
       expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();

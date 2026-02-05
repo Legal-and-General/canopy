@@ -1,0 +1,55 @@
+import { Directive, ElementRef, Input, OnInit, Renderer2, inject } from '@angular/core';
+
+import type { Status, Theme } from './status.interface';
+import { StatusClassService } from './status-class.service';
+
+@Directive({
+  selector: '[lgStatus]',
+  standalone: true,
+  providers: [ StatusClassService ],
+})
+export class LgStatusDirective implements OnInit {
+  private readonly renderer = inject(Renderer2);
+  private readonly hostElement = inject(ElementRef);
+  private readonly statusClassService = inject(StatusClassService);
+
+  private _status: Status = 'generic';
+  private _statusTheme: Theme = 'neutral';
+  private appliedClasses: Array<string> = [];
+
+  @Input()
+  set lgStatus(status: Status) {
+    this._status = status;
+    this.applyClasses();
+  }
+
+  @Input()
+  set lgStatusTheme(theme: Theme) {
+    this._statusTheme = theme;
+    this.applyClasses();
+  }
+
+  get status(): Status {
+    return this._status;
+  }
+
+  get statusTheme(): Theme {
+    return this._statusTheme;
+  }
+
+  ngOnInit(): void {
+    if (this.appliedClasses.length === 0) {
+      this.applyClasses();
+    }
+  }
+
+  private applyClasses(): void {
+    this.appliedClasses = this.statusClassService.applyStatusClasses(
+      this.renderer,
+      this.hostElement.nativeElement as HTMLElement,
+      this._status,
+      this._statusTheme,
+      this.appliedClasses,
+    );
+  }
+}
