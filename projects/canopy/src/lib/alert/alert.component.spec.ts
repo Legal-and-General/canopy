@@ -50,7 +50,6 @@ describe('LgAlertComponent', () => {
   describe('role', () => {
     function testStatus(status: Status, expectedRole: null | 'alert' | 'status') {
       fixture.componentRef.setInput('status', status);
-      component.ngOnChanges({});
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe(expectedRole);
@@ -70,7 +69,6 @@ describe('LgAlertComponent', () => {
 
     it('overrides the role attribute when role input is set', () => {
       component.role = 'status';
-      component.ngOnChanges({});
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe('status');
@@ -78,7 +76,6 @@ describe('LgAlertComponent', () => {
 
     it('sets no role attribute when role input is set to "none"', () => {
       component.role = 'none';
-      component.ngOnChanges({});
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe(null);

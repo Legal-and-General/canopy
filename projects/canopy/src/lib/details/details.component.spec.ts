@@ -126,7 +126,7 @@ describe('LgDetailsComponent', () => {
       expect(detailsEl.getAttribute('role')).toBe('alert');
     });
 
-    it('adds an Aria role "success" for the error status', () => {
+    it('adds an Aria role "alert" for the success status', () => {
       fixture = MockRender(`
         <lg-details status="success">
           <lg-details-panel-heading></lg-details-panel-heading>

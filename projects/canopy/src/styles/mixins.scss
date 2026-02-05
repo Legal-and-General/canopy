@@ -349,7 +349,7 @@ $breakpoints: (
 
     &:focus-visible {
       background-color: var(--interactive-secondary-focus-border-colour) !important;
-      color: var(-interactive-secondary-focus-colour) !important;
+      color: var(--interactive-secondary-focus-colour) !important;
       border: var(--interactive-border-width-focus) solid
         var(--interactive-secondary-focus-border-colour) !important;
       box-shadow: 0 0 0 var(--space-1)
@@ -357,9 +357,9 @@ $breakpoints: (
     }
 
     &:disabled {
-      color: var(--interactive-secondary-disabled-color) !important;
+      color: var(--interactive-secondary-disabled-colour) !important;
       border: var(--interactive-border-width) solid
-        var(--interactive-secondary-disabled-border-color) !important;
+        var(--interactive-secondary-disabled-border-colour) !important;
       background-color: var(
         --interactive-secondary-disabled-background-colour
       ) !important;

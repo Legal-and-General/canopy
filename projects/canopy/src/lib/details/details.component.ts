@@ -57,7 +57,13 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   }
 
   get status(): Status {
-    return this.statusDirective.status;
+    const currentStatus = this.statusDirective.status;
+
+    if (this.panelHeading && this.panelHeading.status !== currentStatus) {
+      this.panelHeading.status = currentStatus;
+    }
+
+    return currentStatus;
   }
 
   @Output() opened = new EventEmitter<void>();

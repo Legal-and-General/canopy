@@ -1,12 +1,4 @@
-import {
-  Component,
-  HostBinding,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  ViewEncapsulation,
-  inject,
-} from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
 
 import type { Status, Theme } from '../status';
 import { LgStatusDirective } from '../status';
@@ -25,14 +17,27 @@ import { LgIconComponent } from '../icon';
     },
   ],
 })
-export class LgAlertComponent implements OnChanges {
+export class LgAlertComponent {
   private explicitRole: string;
   private statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
 
   @HostBinding('class.lg-alert') class = true;
-  @HostBinding('attr.role') roleAttr: string;
+  @HostBinding('attr.role') get roleAttr(): string {
+    if (this.explicitRole) {
+      if (this.explicitRole !== 'none') {
+        return this.explicitRole;
+      }
+    } else {
+      switch (this.status) {
+        case 'error':
+        case 'warning':
+        case 'success':
+          return 'alert';
+      }
+    }
+  }
 
   get status(): Status {
     return this.statusDirective.status;
@@ -42,26 +47,7 @@ export class LgAlertComponent implements OnChanges {
     return this.statusDirective.statusTheme;
   }
 
-  ngOnChanges(_changes: SimpleChanges) {
-    this.initRole();
-  }
-
   @Input() set role(role: string) {
     this.explicitRole = role;
-  }
-
-  private initRole() {
-    if (this.explicitRole) {
-      if (this.explicitRole !== 'none') {
-        this.roleAttr = this.explicitRole;
-      }
-    } else {
-      switch (this.status) {
-        case 'error':
-        case 'warning':
-        case 'success':
-          this.roleAttr = 'alert';
-      }
-    }
   }
 }
