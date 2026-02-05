@@ -2,9 +2,11 @@ import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../lib/docs/common/feedback.md';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Link/Guide"/>
+<Meta title="Components/Link/Guide" tags={['pending']}/>
 
 # Link
+
+<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Links are used in content to navigate to other resources, pages or views.</p>
 
@@ -37,57 +39,6 @@ For accessibility, links that open in a new tab must be accompanied by an extern
 ```
 
 Links are blue in most cases, except when they're used in inline messages where they conform to the colour of the paragraph text in the message. For instance, a success message will have dark green paragraph text and links will also be dark green.
-
-## Using links with colour modes
-
-Links can be customized to match different colour modes by applying the `lgColour` directive to a parent element. This is useful when you want links to adapt to themed sections of your application.
-
-### Basic usage with colour modes
-
-To apply a colour mode to links, wrap the content containing the links in an element with the `lgColour` directive:
-
-```html
-<div lgColour="green">
-  <p>This content uses the green colour mode. <a href="#">This link</a> will adapt to the green colour tokens.</p>
-</div>
-```
-
-### Combining colour modes with themes
-
-For more control over the visual style, combine a colour mode with a theme using the `lgColourTheme` directive:
-
-```html
-<!-- Neutral theme (default) -->
-<div lgColour="blue" lgColourTheme="neutral">
-  <p>Standard blue link: <a href="#">Read more</a></p>
-</div>
-
-<!-- Subtle theme -->
-<div lgColour="green" lgColourTheme="subtle">
-  <p>Subtle green link: <a href="#">Learn more</a></p>
-</div>
-
-<!-- Bold theme -->
-<div lgColour="red" lgColourTheme="bold">
-  <p>Bold red link: <a href="#">View details</a></p>
-</div>
-```
-
-### Available colour modes and themes
-
-**Colour modes:**
-* `blue` - Primary brand colour (default)
-* `green` - Success or positive messaging
-* `red` - Errors or critical information
-* `yellow` - Warnings or cautions
-
-**Themes:**
-* `neutral` - Light background with coloured accents (default)
-* `neutral-inverse` - Inverted contrast
-* `subtle` - Very light, tinted backgrounds
-* `bold` - Strong, high-contrast appearance
-
-When a colour mode is applied, links automatically inherit the appropriate interactive text colours for all states (rest, hover, visited, active, and focus) to ensure proper contrast and accessibility.
 
 ## Dos and Don'ts
 
