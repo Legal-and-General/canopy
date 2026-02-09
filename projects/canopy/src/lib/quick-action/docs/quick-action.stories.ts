@@ -40,7 +40,7 @@ class LgQuickActionButtonComponent {
 
 export default {
   title: 'Components/Quick action/Examples',
-  tags: [ 'pending' ],
+  tags: [ 'awaiting-deprecation' ],
   decorators: [
     moduleMetadata({
       imports: [ LgQuickActionButtonComponent, LgQuickActionLinkComponent ],

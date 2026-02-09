@@ -99,7 +99,7 @@ const variants = [ 'solid-white', 'solid-green', 'solid-yellow' ];
 
 export default {
   title: 'Components/Promo cards/Examples',
-  tags: [ 'pending' ],
+  tags: [ 'awaiting-deprecation' ],
   decorators: [
     moduleMetadata({
       imports: [ PromoCardListStoryComponent ],
