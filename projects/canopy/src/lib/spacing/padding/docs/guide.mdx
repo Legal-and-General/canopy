@@ -112,6 +112,14 @@ Apply `6` padding on top and bottom, but set to none at the `lg` breakpoint
 
 ```
 
+Each directive applies only within a specific range:
+
+> `lgPaddingRightNoneAt="sm"` applies from `sm` to just before `md`
+>
+> `lgPaddingRightNoneAt="md"` applies from `md` to just before `lg`
+>
+> `lgPaddingRightNoneAt="xxl"` applies from `xxl` and up (no upper limit)
+
 #### How NoneAt works with responsive spacing
 
 The `NoneAt` inputs create **breakpoint-specific overrides** that only apply within a specific breakpoint range. This is particularly useful when working with responsive spacing CSS variables (like `--space-8`) that change values at different breakpoints.
