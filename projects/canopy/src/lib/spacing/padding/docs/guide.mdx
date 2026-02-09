@@ -135,12 +135,12 @@ If you were previously using the `SpacingResponsive` object syntax with `'none'`
 
 **Before:**
 ```html
-<lg-card [lgPaddingRight]="{ sm: 'none', md: '4' }"></lg-card>
+<lg-card [lgPaddingRight]="{ sm: 'none', lg: '4' }"></lg-card>
 ```
 
 **After:**
 ```html
-<lg-card lgPaddingRight="4" lgPaddingRightNoneAt="sm"></lg-card>
+<lg-card lgPaddingRight="4" lgPaddingRightNoneAt="sm" lgPaddingRightNoneAt="md"></lg-card>
 ```
 
 The new approach is more compatible with responsive CSS variables and provides better specificity control.
