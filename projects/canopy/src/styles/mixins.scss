@@ -27,13 +27,14 @@
 }
 
 @mixin lg-link(
+  // The link tokens need to map to the component themes collections
   $default-color: var(--interactive-text-default-rest),
   $hover-color: var(--interactive-text-default-hover),
   $visited-color: var(--interactive-text-default-visited),
   $active-color: var(--interactive-text-default-active),
   $active-bg-color: var(--body-default-background-colour),
   $focus-color: var(--interactive-text-default-focus),
-  $focus-bg-color: var(--body-default-background-colour)
+  $focus-bg-color: var(--interactive-primary-focus-background-colour)
 ) {
   $box-shadow-inset-width: -0.063rem;
 

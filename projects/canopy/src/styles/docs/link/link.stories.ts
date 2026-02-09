@@ -63,10 +63,10 @@ export const Links = {
 };
 
 const linksInlineMessagesTemplate = `
-<lg-alert variant="generic" lgMarginTop="6">Example of <a href="#">link text</a> within an alert.</lg-alert>
-<lg-alert variant="info">Example of <a href="#">link text</a> within an alert.</lg-alert>
-<lg-alert variant="success">Example of <a href="#">link text</a> within an alert.</lg-alert>
-<lg-alert variant="error">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="generic" lgMarginTop="6">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="info">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="success">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="error">Example of <a href="#">link text</a> within an alert.</lg-alert>
 `;
 
 export const LinksInlineMessages = {

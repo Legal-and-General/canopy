@@ -39,9 +39,6 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
         </a>
       </lg-card-content>
     </lg-card>
-    <div [lgColour]="colour" [lgColourTheme]="theme">
-      <a href="#">This is a standalone link with colour styling applied</a>
-    </div>
   `,
   imports: [
     LgCardComponent,
