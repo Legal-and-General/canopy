@@ -274,7 +274,7 @@ $breakpoints: (
 
 @mixin lg-colour() {
   background-color: var(--container-default-background-colour) !important;
-  color: var(--colour-text-static-1) !important; // what should this be?
+  color: var(--text-default-primary-colour) !important;
 
   a:not(.lg-btn) {
     @include lg-link(
