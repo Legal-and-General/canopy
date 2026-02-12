@@ -1,4 +1,12 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2, inject } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  inject,
+} from '@angular/core';
 
 import type { Status, Theme } from './status.interface';
 import { StatusClassService } from './status-class.service';
@@ -8,14 +16,16 @@ import { StatusClassService } from './status-class.service';
   standalone: true,
   providers: [ StatusClassService ],
 })
-export class LgStatusDirective implements OnInit {
+export class LgStatusDirective implements OnInit, OnDestroy {
   private readonly renderer = inject(Renderer2);
   private readonly hostElement = inject(ElementRef);
   private readonly statusClassService = inject(StatusClassService);
 
   private _status: Status = 'generic';
-  private _statusTheme: Theme = 'neutral';
+  private _statusTheme: Theme | null = null;
   private appliedClasses: Array<string> = [];
+  private mutationObserver: MutationObserver | null = null;
+  private colourModeContainer: Element | null = null;
 
   @Input()
   set lgStatus(status: Status) {
@@ -26,6 +36,13 @@ export class LgStatusDirective implements OnInit {
   @Input()
   set lgStatusTheme(theme: Theme) {
     this._statusTheme = theme;
+
+    // Disconnect observer when explicit theme is set
+    if (this.mutationObserver) {
+      this.mutationObserver.disconnect();
+      this.mutationObserver = null;
+    }
+
     this.applyClasses();
   }
 
@@ -34,13 +51,83 @@ export class LgStatusDirective implements OnInit {
   }
 
   get statusTheme(): Theme {
-    return this._statusTheme;
+    return this._statusTheme ?? this.getInheritedTheme() ?? 'neutral';
   }
 
   ngOnInit(): void {
     if (this.appliedClasses.length === 0) {
       this.applyClasses();
     }
+
+    this.setupMutationObserver();
+  }
+
+  ngOnDestroy(): void {
+    if (this.mutationObserver) {
+      this.mutationObserver.disconnect();
+    }
+  }
+
+  private setupMutationObserver(): void {
+    // Only setup observer if we don't have an explicit theme
+    if (this._statusTheme !== null) {
+      return;
+    }
+
+    const element = this.hostElement.nativeElement as HTMLElement;
+
+    this.colourModeContainer = this.findColourModeContainer(element);
+
+    if (this.colourModeContainer) {
+      this.mutationObserver = new MutationObserver(() => {
+        // Only reapply if we're still inheriting (no explicit theme set)
+        if (this._statusTheme === null) {
+          this.applyClasses();
+        }
+      });
+
+      this.mutationObserver.observe(this.colourModeContainer, {
+        attributes: true,
+        attributeFilter: [ 'class' ],
+      });
+    }
+  }
+
+  private getInheritedTheme(): Theme | null {
+    const element = this.hostElement.nativeElement as HTMLElement;
+    const colourModeContainer = this.findColourModeContainer(element);
+
+    if (colourModeContainer) {
+      const classList = Array.from(colourModeContainer.classList);
+      const themeClass = classList.find(className => className.startsWith('lg-theme-'));
+
+      if (themeClass) {
+        const theme = themeClass.replace('lg-theme-', '') as Theme;
+
+        return theme;
+      }
+    }
+
+    return null;
+  }
+
+  private findColourModeContainer(element: HTMLElement): Element | null {
+    let current: Element | null = element.parentElement;
+
+    while (current) {
+      const classList = Array.from(current.classList);
+      const hasColourMode = classList.some(className =>
+        className.startsWith('lg-mode-'),
+      );
+
+      if (hasColourMode) {
+        return current;
+      }
+
+      current = current.parentElement;
+    }
+
+    return null;
   }
 
   private applyClasses(): void {
@@ -48,7 +135,7 @@ export class LgStatusDirective implements OnInit {
       this.renderer,
       this.hostElement.nativeElement as HTMLElement,
       this._status,
-      this._statusTheme,
+      this.statusTheme,
       this.appliedClasses,
     );
   }

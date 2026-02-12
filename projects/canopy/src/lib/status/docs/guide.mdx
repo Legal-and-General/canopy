@@ -7,7 +7,7 @@ import Feedback from '../../docs/common/feedback.md?raw';
 
 This directive allows you to add one of the five common colour variants to any Canopy component, such as `info` and `success`.
 
-They are already applied to existing Canopy components which use these variants out of the box, such as [alert](./?path=/docs/components-inline-message-alert-guide--docs), [details](./?path=/docs/components-details-guide--docs) and [form validation](./?path=/docs/components-forms-form-validation-guide--docs), but this directive allows you to use them anywhere where required.
+They are already applied to existing Canopy components which use these variants out of the box, such as [alert](./?path=/docs/components-inline-message-alert-guide--docs), [details](./?path=/docs/components-details-guide--docs), [banner](./?path=/docs/components-banner-guide--docs), and [form validation](./?path=/docs/components-forms-form-validation-guide--docs), but this directive allows you to use them anywhere where required.
 
 This can be useful where you need the particular colour treatment (like the `success` variant for example), but your use-case does not fit one of the existing components.
 
@@ -27,6 +27,34 @@ and your HTML:
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </lg-card-content>
 </lg-card>
+```
+
+## Theme Inheritance from Colour Mode
+
+When the status directive is used within a colour mode container (using `lgColour` directive), it will automatically inherit the theme from the parent container unless explicitly overridden with `lgStatusTheme`.
+
+```html
+<div lgColour="blue" lgColourTheme="bold">
+  <lg-card lgStatus="success">
+    <!-- This card automatically inherits the "bold" theme from the parent -->
+    <lg-card-content>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </lg-card-content>
+  </lg-card>
+</div>
+```
+
+To override the inherited theme, explicitly set `lgStatusTheme`:
+
+```html
+<div lgColour="blue" lgColourTheme="bold">
+  <lg-card lgStatus="success" lgStatusTheme="neutral">
+    <!-- This card uses the "neutral" theme instead of inheriting "bold" -->
+    <lg-card-content>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </lg-card-content>
+  </lg-card>
+</div>
 ```
 
 ### Inputs

@@ -27,50 +27,47 @@
 }
 
 @mixin lg-link(
-  // The link tokens need to map to the component themes collections
-  $default-color: var(--interactive-text-default-rest),
-  $hover-color: var(--interactive-text-default-hover),
-  $visited-color: var(--interactive-text-default-visited),
-  $active-color: var(--interactive-text-default-active),
-  $active-bg-color: var(--body-default-background-colour),
-  $focus-color: var(--interactive-text-default-focus),
-  $focus-bg-color: var(--interactive-primary-focus-background-colour)
+  $default-color: var(--link-primary-rest-colour),
+  $hover-color: var(--link-primary-hover-colour),
+  $visited-color: var(--link-primary-visited-colour),
+  $active-color: var(--link-primary-active-colour),
+  $focus-color: var(--link-primary-focus-colour),
+  $focus-border-width: var(--link-primary-focus-border-width),
+  $focus-border-radius: var(--link-primary-focus-border-radius)
 ) {
   $box-shadow-inset-width: -0.063rem;
 
-  border-bottom: 0.125rem solid $default-color;
   color: $default-color;
   line-height: initial;
-  padding: 0 0.125rem;
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 6%;
+  text-underline-offset: 13%;
+  text-underline-position: from-font;
 
   &:hover,
   &:hover:visited {
     color: $hover-color;
-    border-bottom: 0;
-    box-shadow:
-      inset 0 $box-shadow-inset-width 0 0 $hover-color,
-      0 0.188rem 0 0 $hover-color;
   }
 
   &:visited {
     color: $visited-color;
-    border-color: $visited-color;
   }
 
   &:active {
-    background-color: $active-bg-color;
-    border-bottom-color: $active-color;
     color: $active-color;
     outline: 0;
+    text-decoration-thickness: 12%;
+    text-underline-offset: 13%;
   }
 
   &:focus-visible,
   &:focus-visible:hover {
-    background-color: $focus-bg-color;
     border-bottom: 0;
+    border-radius: $focus-border-radius;
     color: $focus-color;
-    outline: 0.063rem solid $focus-bg-color;
+    outline: $focus-border-width solid $focus-color;
     outline-offset: 0;
   }
 }
@@ -195,19 +192,94 @@ $breakpoints: (
   }
 }
 
-@mixin lg-status() {
-  background-color: var(--container-status-background-colour) !important;
-  color: var(--text-status-primary-colour) !important;
+// Mixin for components using subtle token names (Alert, Banner)
+@mixin lg-status-subtle() {
+  background-color: var(--container-status-subtle-background-colour);
+  color: var(--text-status-subtle-primary-colour);
 
   a:not(.lg-btn) {
     @include lg-link(
-      $default-color: var(--interactive-text-status-rest),
-      $hover-color: var(--interactive-text-status-hover),
-      $visited-color: var(--interactive-text-status-visited),
-      $active-color: var(--interactive-text-status-active),
-      $active-bg-color: var(--container-status-background-colour),
-      $focus-color: var(--interactive-status-focus-colour),
-      $focus-bg-color: var(--interactive-status-focus-background-colour)
+      $default-color: var(--interactive-text-status-subtle-rest),
+      $hover-color: var(--interactive-text-status-subtle-hover),
+      $visited-color: var(--interactive-text-status-subtle-visited),
+      $active-color: var(--interactive-text-status-subtle-active),
+      $focus-color: var(--interactive-text-status-subtle-focus)
+    );
+  }
+
+  .lg-btn--primary-dark {
+    background-color: var(--interactive-status-rest-background-colour) !important;
+    border-color: var(--interactive-status-rest-border-colour) !important;
+    color: var(--interactive-status-rest-colour) !important;
+
+    &:hover {
+      background-color: var(--interactive-status-hover-background-colour) !important;
+      border-color: var(--interactive-status-hover-border-colour) !important;
+      color: var(--interactive-status-hover-colour) !important;
+    }
+
+    &:active {
+      background-color: var(--interactive-status-active-background-colour) !important;
+      border-color: var(--interactive-status-active-border-colour) !important;
+      color: var(--interactive-status-active-colour) !important;
+    }
+
+    &:focus-visible {
+      background-color: var(--interactive-status-focus-background-colour) !important;
+      border-color: var(--interactive-status-focus-border-colour) !important;
+      color: var(--interactive-status-focus-colour) !important;
+    }
+
+    &:disabled {
+      background-color: var(--interactive-status-disabled-background-colour) !important;
+      border-color: var(--interactive-status-disabled-border-colour) !important;
+      color: var(--interactive-status-disabled-colour) !important;
+    }
+  }
+
+  .lg-btn--secondary-dark {
+    background-color: var(--interactive-status-rest-background-colour) !important;
+    border-color: var(--interactive-status-rest-border-colour) !important;
+    color: var(--interactive-status-rest-colour) !important;
+
+    &:hover {
+      background-color: var(--interactive-status-hover-background-colour) !important;
+      border-color: var(--interactive-status-hover-border-colour) !important;
+      color: var(--interactive-status-hover-colour) !important;
+    }
+
+    &:active {
+      background-color: var(--interactive-status-active-background-colour) !important;
+      border-color: var(--interactive-status-active-border-colour) !important;
+      color: var(--interactive-status-active-colour) !important;
+    }
+
+    &:focus-visible {
+      background-color: var(--interactive-status-focus-background-colour) !important;
+      border-color: var(--interactive-status-focus-border-colour) !important;
+      color: var(--interactive-status-focus-colour) !important;
+    }
+
+    &:disabled {
+      background-color: var(--interactive-status-disabled-background-colour) !important;
+      border-color: var(--interactive-status-disabled-border-colour) !important;
+      color: var(--interactive-status-disabled-colour) !important;
+    }
+  }
+}
+
+// Mixin for components using bold token names (Details, Validation)
+@mixin lg-status-bold() {
+  background-color: var(--container-status-bold-background-colour);
+  color: var(--text-status-bold-primary-colour);
+
+  a:not(.lg-btn) {
+    @include lg-link(
+      $default-color: var(--interactive-text-status-bold-rest),
+      $hover-color: var(--interactive-text-status-bold-hover),
+      $visited-color: var(--interactive-text-status-bold-visited),
+      $active-color: var(--interactive-text-status-bold-active),
+      $focus-color: var(--interactive-text-status-bold-focus)
     );
   }
 
@@ -282,7 +354,6 @@ $breakpoints: (
       $hover-color: var(--interactive-text-default-hover),
       $visited-color: var(--interactive-text-default-visited),
       $active-color: var(--interactive-text-default-active),
-      $active-bg-color: var(--body-default-background-colour),
       $focus-color: var(--interactive-text-default-focus)
     );
   }

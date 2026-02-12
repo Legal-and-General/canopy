@@ -1,10 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   HostBinding,
   Input,
-  Renderer2,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
@@ -14,8 +12,8 @@ import {
   LgGridRowDirective,
   LgGridContainerDirective,
 } from '../grid';
-
-import type { BannerVariant } from './banner-variant.interface';
+import type { Status } from '../status';
+import { LgStatusDirective } from '../status';
 
 @Component({
   selector: 'lg-banner',
@@ -27,40 +25,39 @@ import type { BannerVariant } from './banner-variant.interface';
     class: 'lg-banner',
   },
   imports: [ LgGridContainerDirective, LgGridRowDirective, LgGridColDirective ],
+  hostDirectives: [
+    {
+      directive: LgStatusDirective,
+      inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
+    },
+  ],
 })
 export class LgBannerComponent {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
+  private readonly statusDirective = inject(LgStatusDirective);
 
-  private _variant: BannerVariant;
-
+  /**
+   * @deprecated Use `status` instead
+   */
   @Input()
-  set variant(variant: BannerVariant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-banner-variant--${this._variant}`,
-      );
-    }
-
-    this.renderer.addClass(
-      this.hostElement.nativeElement,
-      `lg-banner-variant--${variant}`,
-    );
-
-    this._variant = variant;
+  set variant(variant: 'generic' | 'warning') {
+    this.statusDirective.lgStatus = variant as Status;
   }
-  get variant() {
-    return this._variant;
+
+  get variant(): 'generic' | 'warning' {
+    return this.statusDirective.status as 'generic' | 'warning';
+  }
+
+  get status(): Status {
+    return this.statusDirective.status;
   }
 
   @HostBinding('attr.role') get role(): string {
-    if (this.variant !== 'generic') {
+    if (this.status !== 'generic') {
       return 'alert';
     }
   }
 
   constructor() {
-    this.variant = 'generic';
+    this.statusDirective.lgStatus = 'generic';
   }
 }

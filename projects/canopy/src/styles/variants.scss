@@ -19,27 +19,3 @@
 .lg-mode-yellow.lg-theme-bold {
   @include mixins.lg-colour();
 }
-
-// Status classes with themes
-.lg-status-generic.lg-theme-neutral,
-.lg-status-generic.lg-theme-neutral-inverse,
-.lg-status-generic.lg-theme-subtle,
-.lg-status-generic.lg-theme-bold,
-.lg-status-info.lg-theme-neutral,
-.lg-status-info.lg-theme-neutral-inverse,
-.lg-status-info.lg-theme-subtle,
-.lg-status-info.lg-theme-bold,
-.lg-status-success.lg-theme-neutral,
-.lg-status-success.lg-theme-neutral-inverse,
-.lg-status-success.lg-theme-subtle,
-.lg-status-success.lg-theme-bold,
-.lg-status-warning.lg-theme-neutral,
-.lg-status-warning.lg-theme-neutral-inverse,
-.lg-status-warning.lg-theme-subtle,
-.lg-status-warning.lg-theme-bold,
-.lg-status-error.lg-theme-neutral,
-.lg-status-error.lg-theme-neutral-inverse,
-.lg-status-error.lg-theme-subtle,
-.lg-status-error.lg-theme-bold {
-  @include mixins.lg-status();
-}

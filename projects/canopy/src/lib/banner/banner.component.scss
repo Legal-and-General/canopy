@@ -2,38 +2,8 @@
 
 .lg-banner {
   display: block;
-  background-color: var(--banner-generic-bg-color);
-  color: var(--banner-generic-color);
   box-shadow: 0 0.25rem 0 0 rgba(0, 0, 0, 0.03);
-
-  a:not(.lg-btn) {
-    @include mixins.lg-link(
-      $default-color: var(--light-foreground-link-color),
-      $hover-color: var(--light-foreground-link-hover-color),
-      $visited-color: var(--light-foreground-link-visited-color),
-      $active-color: var(--light-foreground-link-active-color),
-      $active-bg-color: var(--light-foreground-link-active-bg-color),
-      $focus-color: var(--light-foreground-link-focus-color),
-      $focus-bg-color: var(--light-foreground-link-focus-bg-color)
-    );
-  }
-}
-
-.lg-banner-variant--warning {
-  background-color: var(--banner-warning-bg-color);
-  color: var(--banner-warning-color);
-
-  a:not(.lg-btn) {
-    @include mixins.lg-link(
-      $default-color: var(--dark-foreground-link-color),
-      $hover-color: var(--dark-foreground-link-hover-color),
-      $visited-color: var(--dark-foreground-link-visited-color),
-      $active-color: var(--dark-foreground-link-active-color),
-      $active-bg-color: var(--dark-foreground-link-active-bg-color),
-      $focus-color: var(--dark-foreground-link-focus-color),
-      $focus-bg-color: var(--dark-foreground-link-focus-bg-color)
-    );
-  }
+  @include mixins.lg-status-bold();
 }
 
 .lg-banner__container {

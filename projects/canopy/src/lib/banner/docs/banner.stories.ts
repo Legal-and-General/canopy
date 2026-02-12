@@ -3,16 +3,16 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { IconName, LgIconComponent } from '../../icon';
 import { LgBannerComponent } from '../banner.component';
-import { BannerVariant } from '../banner-variant.interface';
+import type { Status } from '../../status';
 // Direct import required for Webpack compatibility - do not use barrel file
 import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
-const variantTypes = [ 'generic', 'warning' ];
+const statuses: Array<Status> = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
 @Component({
   selector: 'lg-banner-icon',
   template: `
-    <lg-banner [variant]="variant">
+    <lg-banner [status]="status" [statusTheme]="statusTheme">
       <lg-icon [name]="icon" />
       {{ content }} Here is some <a href="#"> link text</a>.
     </lg-banner>
@@ -21,7 +21,8 @@ const variantTypes = [ 'generic', 'warning' ];
 })
 class LgBannerIconComponent {
   @Input() content: string;
-  @Input() variant: BannerVariant;
+  @Input() status: Status;
+  @Input() statusTheme: string;
   @Input() icon: IconName;
 }
 
@@ -46,12 +47,12 @@ export default {
     content: {
       description: 'The projected content.',
     },
-    variant: {
-      options: variantTypes,
-      description: 'Applies colour treatment and ARIA role if applicable.',
+    status: {
+      options: statuses,
+      description: 'The status to apply to the banner.',
       table: {
         type: {
-          summary: variantTypes.join(','),
+          summary: statuses.join(', '),
         },
         defaultValue: {
           summary: 'generic',
@@ -59,6 +60,16 @@ export default {
       },
       control: {
         type: 'select',
+      },
+    },
+    statusTheme: {
+      table: {
+        disable: true,
+      },
+    },
+    variant: {
+      table: {
+        disable: true,
       },
     },
     class: {
@@ -70,7 +81,7 @@ export default {
 } as Meta;
 
 const template = `
-<lg-banner [variant]="variant">
+<lg-banner [status]="status">
   <lg-icon [name]="icon"></lg-icon>
   {{content}}
 </lg-banner>
@@ -84,13 +95,15 @@ export const StandardBanner = {
       <lg-banner-icon
         [content]="content"
         [icon]="icon"
-        [variant]="variant">
+        [status]="status"
+        [statusTheme]="statusTheme">
       </lg-banner-icon>
     `,
   }),
   args: {
     content: 'This is a banner message.',
-    variant: 'generic',
+    status: 'generic',
+    statusTheme: 'neutral',
     icon: 'warning',
   },
   parameters: {
@@ -100,7 +113,12 @@ export const StandardBanner = {
       },
     },
     percy: {
-      additionalSnapshots: [ { suffix: ' [warning]', args: { variant: 'warning' } } ],
+      additionalSnapshots: [
+        { suffix: ' [warning]', args: { status: 'warning' } },
+        { suffix: ' [error]', args: { status: 'error' } },
+        { suffix: ' [success]', args: { status: 'success' } },
+        { suffix: ' [info]', args: { status: 'info' } },
+      ],
     },
   },
 };

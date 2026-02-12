@@ -3,7 +3,6 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 import { LgAlertComponent } from '../alert.component';
 
 const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
-const themeTypes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 // This default export determines where your story goes in the story list
 export default {
@@ -47,18 +46,8 @@ export default {
       },
     },
     statusTheme: {
-      options: themeTypes,
-      description: 'Theme for status classes. Applies design tokens from status.css.',
       table: {
-        type: {
-          summary: themeTypes.join(','),
-        },
-        defaultValue: {
-          summary: 'neutral',
-        },
-      },
-      control: {
-        type: 'select',
+        disable: true,
       },
     },
     role: {
@@ -77,7 +66,6 @@ const template = `
 <lg-alert
   [showIcon]="showIcon"
   [status]="status"
-  [statusTheme]="statusTheme"
   [role]="role"
 >
   {{content}} Here is some <a href="#"> link text</a>.
@@ -88,7 +76,16 @@ export const StandardAlert = {
   name: 'Inline message',
   render: (args: LgAlertComponent) => ({
     props: args,
-    template,
+    template: `
+<lg-alert
+  [showIcon]="showIcon"
+  [status]="status"
+  [statusTheme]="statusTheme"
+  [role]="role"
+>
+  {{content}} Here is some <a href="#"> link text</a>.
+</lg-alert>
+`,
   }),
   args: {
     content: 'This is an inline message.',
