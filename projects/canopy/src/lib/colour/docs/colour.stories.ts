@@ -78,7 +78,7 @@ export default {
     theme: {
       options: [ undefined, ...themes ],
       description:
-        'Optional theme for colour classes. When provided, applies lg-colour-{colour} and lg-theme-{theme} classes.',
+        'Optional theme for colour classes. When provided, applies lg-mode-{colour} and lg-theme-{theme} classes.',
       table: {
         type: {
           summary: themes,

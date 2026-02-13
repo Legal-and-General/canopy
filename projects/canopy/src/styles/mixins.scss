@@ -45,10 +45,13 @@
   text-decoration-thickness: 6%;
   text-underline-offset: 13%;
   text-underline-position: from-font;
+  padding: 0 0.125rem;
 
   &:hover,
   &:hover:visited {
     color: $hover-color;
+    text-decoration-thickness: 12%;
+    text-underline-offset: 13%;
   }
 
   &:visited {
@@ -73,8 +76,6 @@
 }
 
 @mixin lg-unstyled-link() {
-  text-decoration: underline;
-  border-bottom: 0;
   padding: 0;
 
   &:hover {
@@ -401,9 +402,7 @@ $breakpoints: (
     border: var(--interactive-border-width) solid
       var(--interactive-secondary-rest-border-colour) !important;
     color: var(--interactive-secondary-rest-colour) !important;
-    background-color: var(
-      --interactive-secondary-rest-background-colour
-    ) !important; // check if this is right
+    background-color: var(--interactive-secondary-rest-background-colour) !important;
 
     &:hover {
       border: var(--interactive-border-width) solid
@@ -429,7 +428,7 @@ $breakpoints: (
     }
 
     &:disabled {
-      color: var(--interactive-secondary-disabled-colour) !important;
+      color: var(--interactive-secondary-disabled-color) !important;
       border: var(--interactive-border-width) solid
         var(--interactive-secondary-disabled-border-colour) !important;
       background-color: var(

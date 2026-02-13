@@ -6,10 +6,13 @@ import {
   OnInit,
   Renderer2,
   inject,
+  isDevMode,
 } from '@angular/core';
 
 import type { Status, Theme } from './status.interface';
 import { StatusClassService } from './status-class.service';
+
+const SUPPORTED_SELECTORS = [ 'lg-alert', 'lg-banner', 'lg-validation', 'lg-details' ];
 
 @Directive({
   selector: '[lgStatus]',
@@ -55,6 +58,8 @@ export class LgStatusDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.validateSupportedComponent();
+
     if (this.appliedClasses.length === 0) {
       this.applyClasses();
     }
@@ -65,6 +70,24 @@ export class LgStatusDirective implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.mutationObserver) {
       this.mutationObserver.disconnect();
+    }
+  }
+
+  private validateSupportedComponent(): void {
+    if (!isDevMode()) {
+      return;
+    }
+
+    const element = this.hostElement.nativeElement as HTMLElement;
+    const tagName = element.tagName.toLowerCase();
+    const isSupported = SUPPORTED_SELECTORS.includes(tagName);
+
+    if (!isSupported) {
+      console.error(
+        `[lgStatus] The status directive is not supported on <${tagName}>. ` +
+          `It can only be used on the following components: ${SUPPORTED_SELECTORS.join(', ')}. ` +
+          'Please remove the lgStatus directive from this element.',
+      );
     }
   }
 
