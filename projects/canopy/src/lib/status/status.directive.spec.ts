@@ -2,12 +2,15 @@ import { Component, DebugElement, ElementRef, Input, ViewChild } from '@angular/
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
+import { LgBannerComponent } from '../banner/banner.component';
+
 import { LgStatusDirective } from './status.directive';
 import type { Status, Theme } from './status.interface';
 
 @Component({
-  template: ' <div [lgStatus]="lgStatus" [lgStatusTheme]="lgStatusTheme">Test</div> ',
-  imports: [ LgStatusDirective ],
+  template:
+    ' <lg-banner [status]="lgStatus" [statusTheme]="lgStatusTheme">Test</lg-banner> ',
+  imports: [ LgBannerComponent ],
 })
 class TestComponent {
   @Input() lgStatus: Status = 'generic';
@@ -17,10 +20,10 @@ class TestComponent {
 @Component({
   template: `
     <div class="lg-mode-blue lg-theme-bold">
-      <div [lgStatus]="lgStatus">Test</div>
+      <lg-banner [status]="lgStatus">Test</lg-banner>
     </div>
   `,
-  imports: [ LgStatusDirective ],
+  imports: [ LgBannerComponent ],
 })
 class TestComponentWithColourMode {
   @Input() lgStatus: Status = 'generic';
@@ -33,7 +36,7 @@ describe('LgStatus', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ TestComponent, LgStatusDirective ],
+      imports: [ TestComponent ],
     }).compileComponents();
   }));
 
@@ -42,7 +45,7 @@ describe('LgStatus', () => {
     fixture.detectChanges();
     component = fixture.componentInstance;
 
-    testElement = fixture.debugElement.query(By.css('div'));
+    testElement = fixture.debugElement.query(By.css('lg-banner'));
 
     fixture.detectChanges();
   }));
@@ -240,16 +243,16 @@ describe('LgStatus', () => {
       TestBed.resetTestingModule();
 
       TestBed.configureTestingModule({
-        imports: [ LgStatusDirective ],
+        imports: [],
       });
 
       @Component({
         template: `
           <div class="lg-mode-blue lg-theme-bold">
-            <div [lgStatus]="'info'" [lgStatusTheme]="'neutral'">Test</div>
+            <lg-banner [status]="'info'" [statusTheme]="'neutral'">Test</lg-banner>
           </div>
         `,
-        imports: [ LgStatusDirective ],
+        imports: [ LgBannerComponent ],
       })
       class TestOverrideComponent {}
 
@@ -272,16 +275,16 @@ describe('LgStatus', () => {
       TestBed.resetTestingModule();
 
       TestBed.configureTestingModule({
-        imports: [ LgStatusDirective ],
+        imports: [],
       });
 
       @Component({
         template: `
           <div #container class="lg-mode-blue lg-theme-bold">
-            <div lgStatus="generic">Test</div>
+            <lg-banner status="generic">Test</lg-banner>
           </div>
         `,
-        imports: [ LgStatusDirective ],
+        imports: [ LgBannerComponent ],
       })
       class DynamicThemeTestComponent {
         @ViewChild('container', { read: ElementRef }) container!: ElementRef;
