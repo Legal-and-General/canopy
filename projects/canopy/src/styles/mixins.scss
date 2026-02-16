@@ -33,7 +33,9 @@
   $active-color: var(--link-primary-active-colour),
   $focus-color: var(--link-primary-focus-colour),
   $focus-border-width: var(--link-primary-focus-border-width),
-  $focus-border-radius: var(--link-primary-focus-border-radius)
+  $focus-border-radius: var(--link-primary-focus-border-radius),
+  $link-height: var(--dimensions-small-5),
+  $link-width: var(--dimensions-small-5)
 ) {
   $box-shadow-inset-width: -0.063rem;
 
@@ -72,6 +74,20 @@
     color: $focus-color;
     outline: $focus-border-width solid $focus-color;
     outline-offset: 0;
+  }
+
+  .lg-icon {
+    height: $link-height;
+    width: $link-width;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    margin-right: var(--link-gap);
+  }
+
+  .lg-icon[name='link-external'] {
+    margin-right: 0;
+    margin-left: var(--link-gap);
   }
 }
 

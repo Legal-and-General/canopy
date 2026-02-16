@@ -21,6 +21,8 @@
     background: var(--link-color);
     border-radius: 50%;
     color: var(--colour-greyscale-0);
+    width: var(--icon-width) !important;
+    height: var(--icon-height) !important;
 
     > svg {
       padding: 0.125rem;

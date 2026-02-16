@@ -25,7 +25,7 @@ export class LgColourDirective implements OnInit {
 
   @Input()
   set lgColourTheme(theme: ColourTheme) {
-    this._colourTheme = theme;
+    this._colourTheme = theme || 'neutral';
     this.applyClasses();
   }
 

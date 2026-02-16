@@ -19,7 +19,7 @@ import { LgIconComponent } from '../icon';
 })
 export class LgAlertComponent {
   private explicitRole: string;
-  private statusDirective = inject(LgStatusDirective);
+  private readonly statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
 

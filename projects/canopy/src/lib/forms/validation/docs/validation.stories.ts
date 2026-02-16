@@ -4,7 +4,6 @@ import { Component, Input } from '@angular/core';
 import { LgValidationComponent } from '../validation.component';
 
 const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
-const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 const template = `
 <lg-validation
@@ -68,18 +67,8 @@ export default {
       },
     },
     statusTheme: {
-      options: themes,
-      description: 'The theme to apply to the validation status.',
       table: {
-        type: {
-          summary: themes.join(','),
-        },
-        defaultValue: {
-          summary: 'neutral',
-        },
-      },
-      control: {
-        type: 'select',
+        disable: true,
       },
     },
     id: {

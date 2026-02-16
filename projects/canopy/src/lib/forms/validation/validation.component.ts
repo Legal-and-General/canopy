@@ -1,11 +1,4 @@
-import {
-  Component,
-  HostBinding,
-  Input,
-  OnInit,
-  ViewEncapsulation,
-  inject,
-} from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
 
 import type { Status } from '../../status';
 import { LgStatusDirective } from '../../status';
@@ -26,7 +19,7 @@ let nextUniqueId = 0;
     },
   ],
 })
-export class LgValidationComponent implements OnInit {
+export class LgValidationComponent {
   private readonly statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
@@ -41,7 +34,7 @@ export class LgValidationComponent implements OnInit {
 
   @HostBinding('class.lg-validation') class = true;
 
-  ngOnInit() {
+  constructor() {
     this.statusDirective.lgStatus = 'error';
   }
 }

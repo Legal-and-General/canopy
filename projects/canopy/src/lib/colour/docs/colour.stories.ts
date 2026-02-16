@@ -76,12 +76,15 @@ export default {
       },
     },
     theme: {
-      options: [ undefined, ...themes ],
+      options: themes,
       description:
-        'Optional theme for colour classes. When provided, applies lg-mode-{colour} and lg-theme-{theme} classes.',
+        'Optional theme for colour classes. When provided, applies lg-mode-{colour} and lg-theme-{theme} classes. Defaults to neutral.',
       table: {
         type: {
           summary: themes,
+        },
+        defaultValue: {
+          summary: 'neutral',
         },
       },
       control: {
@@ -115,7 +118,6 @@ export const StandardColour = {
   }),
   args: {
     colour: 'green',
-    theme: undefined,
   },
   parameters: {
     docs: {

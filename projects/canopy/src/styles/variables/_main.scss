@@ -37,13 +37,11 @@
   --icon-line-height: 1em;
 
   /* Links */
-  --link-color: var(--colour-blue-600);
-  --link-hover-color: var(--colour-blue-700);
-  --link-visited-color: var(--colour-greyscale-900);
-  --link-active-color: var(--colour-blue-700);
-  --link-active-bg-color: var(--colour-blue-100);
-  --link-focus-color: var(--colour-greyscale-0);
-  --link-focus-bg-color: var(--colour-blue-900);
+  --link-color: var(--link-primary-rest-colour);
+  --link-hover-color: var(--link-primary-hover-colour);
+  --link-visited-color: var(--link-primary-visited-colour);
+  --link-active-color: var(--link-primary-active-colour);
+  --link-focus-color: var(--link-primary-focus-colour);
 
   --disabled-color: var(--colour-greyscale-600);
 

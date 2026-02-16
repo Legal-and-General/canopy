@@ -321,5 +321,42 @@ describe('LgStatus', () => {
         done();
       }, 50);
     });
+
+    it('should disconnect MutationObserver when directive is destroyed', () => {
+      const directiveInstance = statusElement.injector.get(LgStatusDirective);
+      const disconnectSpy = jest.spyOn(
+        directiveInstance['mutationObserver'],
+        'disconnect',
+      );
+
+      colourModeFixture.destroy();
+
+      expect(disconnectSpy).toHaveBeenCalled();
+    });
+
+    it('should not throw error on destroy if no MutationObserver exists', () => {
+      TestBed.resetTestingModule();
+
+      TestBed.configureTestingModule({
+        imports: [],
+      });
+
+      @Component({
+        template:
+          '<lg-banner [status]="status" [statusTheme]="statusTheme">Test</lg-banner>',
+        imports: [ LgBannerComponent ],
+      })
+      class NoObserverComponent {
+        status = 'info';
+        statusTheme = 'neutral';
+      }
+
+      const noObserverFixture = TestBed.createComponent(NoObserverComponent);
+
+      noObserverFixture.detectChanges();
+
+      // Should not throw when destroying a directive with explicit theme (no observer)
+      expect(() => noObserverFixture.destroy()).not.toThrow();
+    });
   });
 });
