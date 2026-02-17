@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 
 import { LgAlertComponent } from '../alert/alert.component';
 import { LgBannerComponent } from '../banner/banner.component';
+import { LgCardComponent } from '../card/card.component';
 import { LgDetailsComponent } from '../details/details.component';
 import { LgDetailsPanelHeadingComponent } from '../details/details-panel-heading/details-panel-heading.component';
 import { LgValidationComponent } from '../forms/validation/validation.component';
@@ -424,6 +425,42 @@ describe('LgStatus', () => {
 
         validationFixture.detectChanges();
       }).not.toThrow();
+    });
+
+    it('should throw error when used on a div', () => {
+      @Component({
+        template: '<div lgStatus="info">Test</div>',
+        imports: [ LgStatusDirective ],
+      })
+      class TestDivComponent {}
+
+      expect(() => {
+        const divFixture = TestBed.createComponent(TestDivComponent);
+
+        divFixture.detectChanges();
+      }).toThrow(
+        new Error(
+          'lgStatus directive can only be used on the following components: lg-banner, lg-alert, lg-details, lg-validation. Current element: div',
+        ),
+      );
+    });
+
+    it('should throw error when used on lg-card', () => {
+      @Component({
+        template: '<lg-card lgStatus="info">Test</lg-card>',
+        imports: [ LgCardComponent, LgStatusDirective ],
+      })
+      class TestCardComponent {}
+
+      expect(() => {
+        const cardFixture = TestBed.createComponent(TestCardComponent);
+
+        cardFixture.detectChanges();
+      }).toThrow(
+        new Error(
+          'lgStatus directive can only be used on the following components: lg-banner, lg-alert, lg-details, lg-validation. Current element: lg-card',
+        ),
+      );
     });
   });
 });

@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Directive,
   ElementRef,
   Input,
@@ -16,7 +17,7 @@ import { StatusClassService } from './status-class.service';
   standalone: true,
   providers: [ StatusClassService ],
 })
-export class LgStatusDirective implements OnInit, OnDestroy {
+export class LgStatusDirective implements OnInit, AfterViewInit, OnDestroy {
   private readonly renderer = inject(Renderer2);
   private readonly hostElement = inject(ElementRef);
   private readonly statusClassService = inject(StatusClassService);
@@ -37,7 +38,6 @@ export class LgStatusDirective implements OnInit, OnDestroy {
   set lgStatusTheme(theme: Theme) {
     this._statusTheme = theme;
 
-    // Disconnect observer when explicit theme is set
     if (this.mutationObserver) {
       this.mutationObserver.disconnect();
       this.mutationObserver = null;
@@ -55,13 +55,15 @@ export class LgStatusDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.validateHostElement();
-
     if (this.appliedClasses.length === 0) {
       this.applyClasses();
     }
 
     this.setupMutationObserver();
+  }
+
+  ngAfterViewInit(): void {
+    this.validateHostElement();
   }
 
   ngOnDestroy(): void {
@@ -82,7 +84,6 @@ export class LgStatusDirective implements OnInit, OnDestroy {
 
     if (this.colourModeContainer) {
       this.mutationObserver = new MutationObserver(() => {
-        // Only reapply if we're still inheriting (no explicit theme set)
         if (this._statusTheme === null) {
           this.applyClasses();
         }
@@ -139,11 +140,6 @@ export class LgStatusDirective implements OnInit, OnDestroy {
       return;
     }
 
-    // Skip validation in test environments where TestBed may wrap components in divs
-    if (typeof jest !== 'undefined' || typeof jasmine !== 'undefined') {
-      return;
-    }
-
     const element = this.hostElement.nativeElement as HTMLElement;
     const tagName = element.tagName.toLowerCase();
     const classList = element.classList;
@@ -151,7 +147,6 @@ export class LgStatusDirective implements OnInit, OnDestroy {
     const allowedComponents = [ 'lg-banner', 'lg-alert', 'lg-details', 'lg-validation' ];
     const allowedClasses = [ 'lg-banner', 'lg-alert', 'lg-details', 'lg-validation' ];
 
-    // Check if element has the tag name OR the class name of an allowed component
     const isValidTag = allowedComponents.includes(tagName);
     const isValidClass = allowedClasses.some(className =>
       classList.contains(className),
