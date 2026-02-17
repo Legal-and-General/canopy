@@ -83,6 +83,7 @@ describe('LgAlertComponent', () => {
   });
 
   it('does not renders an icon for generic status', () => {
+    fixture.detectChanges();
     const icon = fixture.debugElement.query(By.directive(LgIconComponent));
 
     expect(icon).toBeNull();

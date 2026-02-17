@@ -24,18 +24,22 @@ export class LgAlertComponent {
   @Input() showIcon = true;
 
   @HostBinding('class.lg-alert') class = true;
-  @HostBinding('attr.role') get roleAttr(): string {
+  @HostBinding('attr.role') get roleAttr(): string | null {
     if (this.explicitRole) {
       if (this.explicitRole !== 'none') {
         return this.explicitRole;
       }
-    } else {
-      switch (this.status) {
-        case 'error':
-        case 'warning':
-        case 'success':
-          return 'alert';
-      }
+
+      return null;
+    }
+
+    switch (this.status) {
+      case 'error':
+      case 'warning':
+      case 'success':
+        return 'alert';
+      default:
+        return null;
     }
   }
 

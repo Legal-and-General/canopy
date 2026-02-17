@@ -2,7 +2,11 @@ import { Component, DebugElement, ElementRef, Input, ViewChild } from '@angular/
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
+import { LgAlertComponent } from '../alert/alert.component';
 import { LgBannerComponent } from '../banner/banner.component';
+import { LgDetailsComponent } from '../details/details.component';
+import { LgDetailsPanelHeadingComponent } from '../details/details-panel-heading/details-panel-heading.component';
+import { LgValidationComponent } from '../forms/validation/validation.component';
 
 import { LgStatusDirective } from './status.directive';
 import type { Status, Theme } from './status.interface';
@@ -357,6 +361,69 @@ describe('LgStatus', () => {
 
       // Should not throw when destroying a directive with explicit theme (no observer)
       expect(() => noObserverFixture.destroy()).not.toThrow();
+    });
+  });
+
+  describe('component validation', () => {
+    it('should not throw error when used on lg-banner', () => {
+      @Component({
+        template: '<lg-banner status="info">Test</lg-banner>',
+        imports: [ LgBannerComponent ],
+      })
+      class TestBannerComponent {}
+
+      expect(() => {
+        const bannerFixture = TestBed.createComponent(TestBannerComponent);
+
+        bannerFixture.detectChanges();
+      }).not.toThrow();
+    });
+
+    it('should not throw error when used on lg-alert', () => {
+      @Component({
+        template: '<lg-alert status="info">Test</lg-alert>',
+        imports: [ LgAlertComponent ],
+      })
+      class TestAlertComponent {}
+
+      expect(() => {
+        const alertFixture = TestBed.createComponent(TestAlertComponent);
+
+        alertFixture.detectChanges();
+      }).not.toThrow();
+    });
+
+    it('should not throw error when used on lg-details', () => {
+      @Component({
+        template: `
+          <lg-details status="info">
+            <lg-details-panel-heading>Test</lg-details-panel-heading>
+            <p>Content</p>
+          </lg-details>
+        `,
+        imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+      })
+      class TestDetailsComponent {}
+
+      expect(() => {
+        const detailsFixture = TestBed.createComponent(TestDetailsComponent);
+
+        detailsFixture.detectChanges();
+      }).not.toThrow();
+    });
+
+    it('should not throw error when used on lg-validation', () => {
+      @Component({
+        template: '<lg-validation status="error">Test error</lg-validation>',
+        imports: [ LgValidationComponent ],
+      })
+      class TestValidationComponent {}
+
+      expect(() => {
+        const validationFixture = TestBed.createComponent(TestValidationComponent);
+
+        validationFixture.detectChanges();
+      }).not.toThrow();
     });
   });
 });

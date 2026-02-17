@@ -4,7 +4,6 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  DoCheck,
   EventEmitter,
   HostBinding,
   Input,
@@ -36,12 +35,11 @@ let nextUniqueId = 0;
     },
   ],
 })
-export class LgDetailsComponent implements AfterContentInit, DoCheck, OnDestroy {
+export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly statusDirective = inject(LgStatusDirective);
 
   private subscription: Subscription;
-  private previousStatus: Status | null = null;
   uniqueId = nextUniqueId++;
   _showIcon = true;
 
@@ -78,9 +76,8 @@ export class LgDetailsComponent implements AfterContentInit, DoCheck, OnDestroy 
   ngAfterContentInit(): void {
     this.panelHeading.uniqueId = this.uniqueId;
     this.panelHeading.isActive = this.isActive;
-    this.panelHeading.status = this.status;
+    this.panelHeading.statusDirective = this.statusDirective;
     this.panelHeading.showIcon = this.showIcon;
-    this.previousStatus = this.status;
 
     this.subscription = this.panelHeading.toggleActive.subscribe(isActive => {
       this.isActive = isActive;
@@ -93,13 +90,6 @@ export class LgDetailsComponent implements AfterContentInit, DoCheck, OnDestroy 
 
       this.cdr.markForCheck();
     });
-  }
-
-  ngDoCheck(): void {
-    if (this.panelHeading && this.previousStatus !== this.status) {
-      this.panelHeading.status = this.status;
-      this.previousStatus = this.status;
-    }
   }
 
   ngOnDestroy(): void {

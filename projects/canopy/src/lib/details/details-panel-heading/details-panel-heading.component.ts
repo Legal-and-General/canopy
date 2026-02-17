@@ -11,6 +11,7 @@ import {
 
 import { LgIconComponent } from '../../icon';
 import type { Status } from '../../status';
+import { LgStatusDirective } from '../../status';
 import { LgHeadingComponent } from '../../heading';
 
 @Component({
@@ -44,8 +45,10 @@ export class LgDetailsPanelHeadingComponent {
     this.cdr.detectChanges();
   }
   get status(): Status {
-    return this._status;
+    return this.statusDirective?.status ?? this._status;
   }
+
+  statusDirective: LgStatusDirective;
 
   @Output() toggleActive = new EventEmitter<boolean>();
 

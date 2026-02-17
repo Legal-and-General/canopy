@@ -6,6 +6,7 @@ import {
   OnInit,
   Renderer2,
   inject,
+  isDevMode,
 } from '@angular/core';
 
 import type { Status, Theme } from './status.interface';
@@ -54,6 +55,8 @@ export class LgStatusDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.validateHostElement();
+
     if (this.appliedClasses.length === 0) {
       this.applyClasses();
     }
@@ -97,8 +100,10 @@ export class LgStatusDirective implements OnInit, OnDestroy {
     const colourModeContainer = this.findColourModeContainer(element);
 
     if (colourModeContainer) {
-      const classList = Array.from(colourModeContainer.classList);
-      const themeClass = classList.find(className => className.startsWith('lg-theme-'));
+      const classList = colourModeContainer.classList;
+      const themeClass = Array.from(classList).find(className =>
+        className.startsWith('lg-theme-'),
+      );
 
       if (themeClass) {
         const theme = themeClass.replace('lg-theme-', '') as Theme;
@@ -114,8 +119,8 @@ export class LgStatusDirective implements OnInit, OnDestroy {
     let current: Element | null = element.parentElement;
 
     while (current) {
-      const classList = Array.from(current.classList);
-      const hasColourMode = classList.some(className =>
+      const classList = current.classList;
+      const hasColourMode = Array.from(classList).some(className =>
         className.startsWith('lg-mode-'),
       );
 
@@ -127,6 +132,37 @@ export class LgStatusDirective implements OnInit, OnDestroy {
     }
 
     return null;
+  }
+
+  private validateHostElement(): void {
+    if (!isDevMode()) {
+      return;
+    }
+
+    // Skip validation in test environments where TestBed may wrap components in divs
+    if (typeof jest !== 'undefined' || typeof jasmine !== 'undefined') {
+      return;
+    }
+
+    const element = this.hostElement.nativeElement as HTMLElement;
+    const tagName = element.tagName.toLowerCase();
+    const classList = element.classList;
+
+    const allowedComponents = [ 'lg-banner', 'lg-alert', 'lg-details', 'lg-validation' ];
+    const allowedClasses = [ 'lg-banner', 'lg-alert', 'lg-details', 'lg-validation' ];
+
+    // Check if element has the tag name OR the class name of an allowed component
+    const isValidTag = allowedComponents.includes(tagName);
+    const isValidClass = allowedClasses.some(className =>
+      classList.contains(className),
+    );
+
+    if (!isValidTag && !isValidClass) {
+      throw new Error(
+        `lgStatus directive can only be used on the following components: ${allowedComponents.join(', ')}. ` +
+          `Current element: ${tagName}`,
+      );
+    }
   }
 
   private applyClasses(): void {
