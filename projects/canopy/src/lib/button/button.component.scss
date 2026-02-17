@@ -70,6 +70,10 @@
     }
   }
 
+  &:is(a) .lg-icon {
+    margin-right: 0;
+  }
+
   // Always full width on 'sm', above 'sm' only when --block is applied`
   @include mixins.lg-breakpoint('md') {
     display: inline-flex;
