@@ -55,10 +55,7 @@ export class LgStatusDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.appliedClasses.length === 0) {
-      this.applyClasses();
-    }
-
+    this.applyClasses();
     this.setupMutationObserver();
   }
 
@@ -145,10 +142,9 @@ export class LgStatusDirective implements OnInit, AfterViewInit, OnDestroy {
     const classList = element.classList;
 
     const allowedComponents = [ 'lg-banner', 'lg-alert', 'lg-details', 'lg-validation' ];
-    const allowedClasses = [ 'lg-banner', 'lg-alert', 'lg-details', 'lg-validation' ];
 
     const isValidTag = allowedComponents.includes(tagName);
-    const isValidClass = allowedClasses.some(className =>
+    const isValidClass = allowedComponents.some(className =>
       classList.contains(className),
     );
 

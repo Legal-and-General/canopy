@@ -22,11 +22,9 @@ import { LgStatusDirective } from '@legal-and-general/canopy';
 and your HTML:
 
 ```html
-<lg-card lgStatus="generic" lgStatusTheme="neutral">
-  <lg-card-content>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  </lg-card-content>
-</lg-card>
+<lg-alert lgStatus="generic" lgStatusTheme="neutral">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</lg-alert>
 ```
 
 ## Theme Inheritance from Colour Mode
@@ -35,12 +33,10 @@ When the status directive is used within a colour mode container (using `lgColou
 
 ```html
 <div lgColour="blue" lgColourTheme="bold">
-  <lg-card lgStatus="success">
-    <!-- This card automatically inherits the "bold" theme from the parent -->
-    <lg-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </lg-card-content>
-  </lg-card>
+  <lg-alert lgStatus="success">
+    <!-- This alert automatically inherits the "bold" theme from the parent -->
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </lg-alert>
 </div>
 ```
 
@@ -48,12 +44,10 @@ To override the inherited theme, explicitly set `lgStatusTheme`:
 
 ```html
 <div lgColour="blue" lgColourTheme="bold">
-  <lg-card lgStatus="success" lgStatusTheme="neutral">
-    <!-- This card uses the "neutral" theme instead of inheriting "bold" -->
-    <lg-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </lg-card-content>
-  </lg-card>
+  <lg-alert lgStatus="success" lgStatusTheme="neutral">
+    <!-- This alert uses the "neutral" theme instead of inheriting "bold" -->
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </lg-alert>
 </div>
 ```
 
