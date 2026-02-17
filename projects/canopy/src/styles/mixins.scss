@@ -34,8 +34,8 @@
   $focus-color: var(--link-primary-focus-colour),
   $focus-border-width: var(--link-primary-focus-border-width),
   $focus-border-radius: var(--link-primary-focus-border-radius),
-  $link-height: var(--dimensions-small-5),
-  $link-width: var(--dimensions-small-5)
+  $icon-height: var(--dimensions-small-5),
+  $icon-width: var(--dimensions-small-5)
 ) {
   $box-shadow-inset-width: -0.063rem;
 
@@ -77,8 +77,8 @@
   }
 
   .lg-icon {
-    height: $link-height;
-    width: $link-width;
+    height: $icon-height;
+    width: $icon-width;
     display: inline-block;
     vertical-align: middle;
     text-decoration: none;
@@ -224,36 +224,7 @@ $breakpoints: (
     );
   }
 
-  .lg-btn--primary-dark {
-    background-color: var(--interactive-status-rest-background-colour) !important;
-    border-color: var(--interactive-status-rest-border-colour) !important;
-    color: var(--interactive-status-rest-colour) !important;
-
-    &:hover {
-      background-color: var(--interactive-status-hover-background-colour) !important;
-      border-color: var(--interactive-status-hover-border-colour) !important;
-      color: var(--interactive-status-hover-colour) !important;
-    }
-
-    &:active {
-      background-color: var(--interactive-status-active-background-colour) !important;
-      border-color: var(--interactive-status-active-border-colour) !important;
-      color: var(--interactive-status-active-colour) !important;
-    }
-
-    &:focus-visible {
-      background-color: var(--interactive-status-focus-background-colour) !important;
-      border-color: var(--interactive-status-focus-border-colour) !important;
-      color: var(--interactive-status-focus-colour) !important;
-    }
-
-    &:disabled {
-      background-color: var(--interactive-status-disabled-background-colour) !important;
-      border-color: var(--interactive-status-disabled-border-colour) !important;
-      color: var(--interactive-status-disabled-colour) !important;
-    }
-  }
-
+  .lg-btn--primary-dark,
   .lg-btn--secondary-dark {
     background-color: var(--interactive-status-rest-background-colour) !important;
     border-color: var(--interactive-status-rest-border-colour) !important;
@@ -300,36 +271,7 @@ $breakpoints: (
     );
   }
 
-  .lg-btn--primary-dark {
-    background-color: var(--interactive-status-rest-background-colour) !important;
-    border-color: var(--interactive-status-rest-border-colour) !important;
-    color: var(--interactive-status-rest-colour) !important;
-
-    &:hover {
-      background-color: var(--interactive-status-hover-background-colour) !important;
-      border-color: var(--interactive-status-hover-border-colour) !important;
-      color: var(--interactive-status-hover-colour) !important;
-    }
-
-    &:active {
-      background-color: var(--interactive-status-active-background-colour) !important;
-      border-color: var(--interactive-status-active-border-colour) !important;
-      color: var(--interactive-status-active-colour) !important;
-    }
-
-    &:focus-visible {
-      background-color: var(--interactive-status-focus-background-colour) !important;
-      border-color: var(--interactive-status-focus-border-colour) !important;
-      color: var(--interactive-status-focus-colour) !important;
-    }
-
-    &:disabled {
-      background-color: var(--interactive-status-disabled-background-colour) !important;
-      border-color: var(--interactive-status-disabled-border-colour) !important;
-      color: var(--interactive-status-disabled-colour) !important;
-    }
-  }
-
+  .lg-btn--primary-dark,
   .lg-btn--secondary-dark {
     background-color: var(--interactive-status-rest-background-colour) !important;
     border-color: var(--interactive-status-rest-border-colour) !important;

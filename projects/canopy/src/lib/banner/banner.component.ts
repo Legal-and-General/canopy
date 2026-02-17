@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
-  Input,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
@@ -34,18 +33,6 @@ import { LgStatusDirective } from '../status';
 })
 export class LgBannerComponent {
   private readonly statusDirective = inject(LgStatusDirective);
-
-  /**
-   * @deprecated Use `status` instead
-   */
-  @Input()
-  set variant(variant: 'generic' | 'warning') {
-    this.statusDirective.lgStatus = variant as Status;
-  }
-
-  get variant(): 'generic' | 'warning' {
-    return this.statusDirective.status as 'generic' | 'warning';
-  }
 
   get status(): Status {
     return this.statusDirective.status;

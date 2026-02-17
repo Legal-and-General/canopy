@@ -20,26 +20,26 @@ describe('LgBannerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('adds generic as the default variant', () => {
+  it('adds generic as the default status', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('generic');
   });
 
-  it('adds the variant class to the alert component', () => {
-    component.variant = 'warning';
+  it('adds the status class to the banner component', () => {
+    fixture.componentRef.setInput('status', 'warning');
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).toContain('warning');
   });
 
-  it('does not add a Aria role for the generic variant', () => {
-    component.variant = 'generic';
+  it('does not add a Aria role for the generic status', () => {
+    fixture.componentRef.setInput('status', 'generic');
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('role')).toBeNull();
   });
 
-  it('adds the Aria role "alert" for the warning variant', () => {
-    component.variant = 'warning';
+  it('adds the Aria role "alert" for the warning status', () => {
+    fixture.componentRef.setInput('status', 'warning');
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('role')).toBe('alert');
