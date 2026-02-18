@@ -37,12 +37,6 @@ export class LgStatusDirective implements OnInit, AfterViewInit, OnDestroy {
   @Input()
   set lgStatusTheme(theme: Theme) {
     this._statusTheme = theme;
-
-    if (this.mutationObserver) {
-      this.mutationObserver.disconnect();
-      this.mutationObserver = null;
-    }
-
     this.applyClasses();
   }
 
@@ -51,7 +45,7 @@ export class LgStatusDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   get statusTheme(): Theme {
-    return this._statusTheme ?? this.getInheritedTheme() ?? 'neutral';
+    return this.getInheritedTheme() ?? this._statusTheme ?? 'neutral';
   }
 
   ngOnInit(): void {
@@ -70,20 +64,13 @@ export class LgStatusDirective implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private setupMutationObserver(): void {
-    // Only setup observer if we don't have an explicit theme
-    if (this._statusTheme !== null) {
-      return;
-    }
-
     const element = this.hostElement.nativeElement as HTMLElement;
 
     this.colourModeContainer = this.findColourModeContainer(element);
 
     if (this.colourModeContainer) {
       this.mutationObserver = new MutationObserver(() => {
-        if (this._statusTheme === null) {
-          this.applyClasses();
-        }
+        this.applyClasses();
       });
 
       this.mutationObserver.observe(this.colourModeContainer, {

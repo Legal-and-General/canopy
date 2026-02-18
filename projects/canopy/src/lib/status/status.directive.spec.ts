@@ -243,7 +243,7 @@ describe('LgStatus', () => {
       expect(classes).toContain('lg-theme-bold');
     });
 
-    it('should allow explicit theme to override inherited theme', () => {
+    it('should not allow explicit theme to override inherited theme', () => {
       // Update the template to include explicit theme
       TestBed.resetTestingModule();
 
@@ -272,8 +272,8 @@ describe('LgStatus', () => {
       const classes = overrideElement.nativeElement.getAttribute('class');
 
       expect(classes).toContain('lg-status-info');
-      expect(classes).toContain('lg-theme-neutral');
-      expect(classes).not.toContain('lg-theme-bold');
+      expect(classes).toContain('lg-theme-bold');
+      expect(classes).not.toContain('lg-theme-neutral');
     });
 
     it('should update inherited theme when parent container theme changes', done => {
