@@ -16,6 +16,15 @@
   }
 }
 
+// To do: remove once updated
+.lg-link-menu-item__icon-left-container,
+.lg-link-menu-item__icon-container {
+  .lg-icon {
+    height: var(--icon-height) !important;
+    width: var(--icon-width) !important;
+  }
+}
+
 .lg-link-menu-item__icon-container {
   position: relative;
   padding-right: var(--space-4);
@@ -31,5 +40,6 @@
   .lg-icon {
     position: absolute;
     right: 0;
+    margin-right: 0;
   }
 }

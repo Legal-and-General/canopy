@@ -97,10 +97,27 @@
   .sbdocs.sbdocs-a {
     color: var(--colour-blue-600);
     white-space: nowrap;
+    text-decoration: underline !important;
+    text-decoration-thickness: 6% !important;
+    text-underline-offset: 13% !important;
   }
 
-  .sbdocs.sbdocs-a:focus {
-    color: var(--colour-greyscale-0);
+  .css-1n7svl5 :where(a:not(.sb-anchor, .sb-unstyled, .sb-unstyled a)) {
+    text-decoration: underline !important;
+  }
+
+  .sbdocs.sbdocs-a:hover {
+    color: var(--colour-blue-800) !important;
+    text-decoration-thickness: 13% !important;
+  }
+
+  .css-14xdp33 .toc-list-item.is-active-li > a,
+  .sbdocs.sbdocs-a:active {
+    text-decoration: underline !important;
+    text-decoration-thickness: 12% !important;
+    text-underline-offset: 13% !important;
+    color: var(--colour-blue-800) !important;
+    font-weight: 400 !important;
   }
 
   .sbdocs.sbdocs-a, .sbdocs p:not([class*="lg-font-size-"]), .sbdocs li {
@@ -129,5 +146,8 @@
 
   .sbdocs-toc--custom > nav .toc-list-item > a {
     color: var(--colour-blue-600) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 6% !important;
   }
+
 </style>

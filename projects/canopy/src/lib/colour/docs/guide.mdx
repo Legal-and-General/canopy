@@ -1,0 +1,121 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+
+<Meta title="Helpers/Directives/Colour/Guide"/>
+
+# Colour
+
+The `lgColour` directive allows you to apply one of four colour modes to any Canopy component. When combined with a theme, it sets design tokens that control the appearance of interactive elements, backgrounds, borders, and text within the component.
+
+## What are Colour Modes?
+
+Colour modes define the overall colour palette for a component by setting CSS custom properties (design tokens). Each mode is associated with a brand colour and provides a complete set of design tokens that control the visual appearance of components, including:
+
+* **Interactive elements** - Buttons, links, and other interactive components adapt their colours based on the mode
+* **Backgrounds and surfaces** - The component's background and surface colours are defined by the mode
+* **Text colours** - Body text, headings, and interactive text adjust to maintain proper contrast
+* **Borders and accents** - Border colours and accent elements reflect the chosen colour mode
+
+### Available Colour Modes
+
+* **`blue`** - The primary brand colour (default). Used for standard components and general purpose content
+* **`green`** - Typically used for success, positive messaging, or environmentally-focused content
+* **`red`** - Typically used for errors, critical information, or urgent messaging
+* **`yellow`** - Typically used for warnings, cautions, or content requiring attention
+
+When you apply a colour mode, the directive adds a class like `lg-mode-blue` to the element, which activates a comprehensive set of design tokens specific to that colour. These tokens ensure that all nested components automatically adapt to the colour mode while maintaining accessibility and visual consistency.
+
+## Understanding Themes
+
+Themes modify how the colour mode is expressed visually. They control the intensity and contrast of the colours:
+
+* **`neutral`** (default) - Light background with coloured accents
+* **`neutral-inverse`** - Similar to neutral but with inverted contrast
+* **`subtle`** - Very light, tinted backgrounds with minimal contrast
+* **`bold`** - Strong, high-contrast appearance with solid colour backgrounds
+
+The directive applies both a mode class (e.g., `lg-mode-blue`) and a theme class (e.g., `lg-theme-neutral`) to the element. Together, these classes activate the appropriate design tokens.
+
+## Usage
+
+Import the colour directive in your application:
+
+```js
+import { LgColourDirective } from '@legal-and-general/canopy';
+```
+
+### Basic Example
+
+Apply a colour mode without specifying a theme (uses `neutral` by default):
+
+```html
+<lg-card lgColour="blue">
+  <lg-card-content>
+    This card uses the blue colour mode with the default neutral theme.
+  </lg-card-content>
+</lg-card>
+```
+
+### Using Colour Modes with Themes
+
+Combine a colour mode with a specific theme for different visual effects:
+
+```html
+<!-- Bold theme with green colour -->
+<lg-card lgColour="green" lgColourTheme="bold">
+  <lg-card-content>
+    <p>This card has a strong green background with high contrast.</p>
+    <button lg-button variant="secondary-dark">Action</button>
+  </lg-card-content>
+</lg-card>
+
+<!-- Subtle theme with yellow colour -->
+<lg-card lgColour="yellow" lgColourTheme="subtle">
+  <lg-card-content>
+    <p>This card has a light yellow tint, ideal for gentle warnings.</p>
+  </lg-card-content>
+</lg-card>
+
+<!-- Red colour for errors -->
+<lg-card lgColour="red" lgColourTheme="neutral">
+  <lg-card-content>
+    <p>This card uses red to indicate an error or critical information.</p>
+  </lg-card-content>
+</lg-card>
+```
+
+## Directive Inputs
+
+| Name       | Description                | Type   | Default | Required |
+|------------|----------------------------|:------:|:-------:|:--------:|
+| `lgColour` | The colour mode to apply | `string` | `blue`  |    No    |
+| `lgColourTheme` | The theme variation to apply | `string` | `neutral`  |    No    |
+
+### Available Values
+
+**Colour modes:**
+* `blue`
+* `green`
+* `red`
+* `yellow`
+
+**Themes:**
+* `neutral`
+* `neutral-inverse`
+* `subtle`
+* `bold`
+
+## How It Works
+
+When you use the `lgColour` directive, it:
+
+1. Applies a class in the format `lg-mode-{colour}` (e.g., `lg-mode-blue`)
+2. Applies a class in the format `lg-theme-{theme}` (e.g., `lg-theme-neutral`)
+3. These classes activate CSS custom properties (design tokens) that components use for their styling
+4. Child components inherit and respond to these design tokens automatically
+
+***
+
+<Markdown>
+  {Feedback}
+</Markdown>

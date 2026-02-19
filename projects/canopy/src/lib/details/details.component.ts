@@ -4,19 +4,18 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
   Output,
-  Renderer2,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import type { Variant } from '../variant';
+import type { Status } from '../status';
+import { LgStatusDirective } from '../status';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
 
@@ -29,16 +28,20 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  hostDirectives: [
+    {
+      directive: LgStatusDirective,
+      inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
+    },
+  ],
 })
 export class LgDetailsComponent implements AfterContentInit, OnDestroy {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
-  private cdr = inject(ChangeDetectorRef);
+  private readonly cdr = inject(ChangeDetectorRef);
+  private readonly statusDirective = inject(LgStatusDirective);
 
   private subscription: Subscription;
   uniqueId = nextUniqueId++;
   _showIcon = true;
-  _variant: Variant;
 
   @Input() isActive = false;
   @Input()
@@ -53,24 +56,8 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     return this._showIcon;
   }
 
-  @Input()
-  set variant(variant: Variant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-variant--${this._variant}`,
-      );
-    }
-
-    if (this.panelHeading) {
-      this.panelHeading.variant = variant;
-    }
-
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
-    this._variant = variant;
-  }
-  get variant(): Variant {
-    return this._variant;
+  get status(): Status {
+    return this.statusDirective.status;
   }
 
   @Output() opened = new EventEmitter<void>();
@@ -78,7 +65,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
 
   @HostBinding('class.lg-details') class = true;
   @HostBinding('attr.role') get role(): string {
-    if (this.variant !== 'info' && this.variant !== 'generic') {
+    if (this.status !== 'info' && this.status !== 'generic') {
       return 'alert';
     }
   }
@@ -86,14 +73,10 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   @ContentChild(LgDetailsPanelHeadingComponent)
   panelHeading: LgDetailsPanelHeadingComponent;
 
-  constructor() {
-    this.variant = 'generic';
-  }
-
   ngAfterContentInit(): void {
     this.panelHeading.uniqueId = this.uniqueId;
     this.panelHeading.isActive = this.isActive;
-    this.panelHeading.variant = this.variant;
+    this.panelHeading.statusDirective = this.statusDirective;
     this.panelHeading.showIcon = this.showIcon;
 
     this.subscription = this.panelHeading.toggleActive.subscribe(isActive => {

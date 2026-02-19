@@ -10,7 +10,8 @@ import {
 } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
-import type { Variant } from '../../variant';
+import type { Status } from '../../status';
+import { LgStatusDirective } from '../../status';
 import { LgHeadingComponent } from '../../heading';
 
 @Component({
@@ -37,15 +38,17 @@ export class LgDetailsPanelHeadingComponent {
     return this._showIcon;
   }
 
-  _variant: Variant = 'generic';
+  _status: Status = 'generic';
   @Input()
-  set variant(variant: Variant) {
-    this._variant = variant;
+  set status(status: Status) {
+    this._status = status;
     this.cdr.detectChanges();
   }
-  get variant(): Variant {
-    return this._variant;
+  get status(): Status {
+    return this.statusDirective?.status ?? this._status;
   }
+
+  statusDirective: LgStatusDirective;
 
   @Output() toggleActive = new EventEmitter<boolean>();
 

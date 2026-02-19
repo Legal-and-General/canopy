@@ -1,14 +1,7 @@
-import {
-  Component,
-  ElementRef,
-  HostBinding,
-  Input,
-  Renderer2,
-  ViewEncapsulation,
-  inject,
-} from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
 
-import type { Variant } from '../../variant';
+import type { Status } from '../../status';
+import { LgStatusDirective } from '../../status';
 import { LgIconComponent } from '../../icon';
 
 let nextUniqueId = 0;
@@ -19,28 +12,20 @@ let nextUniqueId = 0;
   styleUrls: [ './validation.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgIconComponent ],
+  hostDirectives: [
+    {
+      directive: LgStatusDirective,
+      inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
+    },
+  ],
 })
 export class LgValidationComponent {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
-
-  private _variant: Variant;
+  private readonly statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
-  @Input()
-  set variant(variant: Variant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-variant--${this._variant}`,
-      );
-    }
 
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
-    this._variant = variant;
-  }
-  get variant() {
-    return this._variant;
+  get status(): Status {
+    return this.statusDirective.status;
   }
 
   @HostBinding('id')
@@ -50,6 +35,6 @@ export class LgValidationComponent {
   @HostBinding('class.lg-validation') class = true;
 
   constructor() {
-    this.variant = 'error';
+    this.statusDirective.lgStatus = 'error';
   }
 }

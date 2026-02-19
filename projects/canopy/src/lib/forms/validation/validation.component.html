@@ -1,8 +1,8 @@
-@if (showIcon && variant !== 'generic') {
+@if (showIcon && status !== 'generic') {
   <div
     class="lg-validation__icon"
     >
-    @switch (variant) {
+    @switch (status) {
       @case ('error') {
         <lg-icon name="crossmark-spot-fill" />
       }

@@ -1,15 +1,7 @@
-import {
-  Component,
-  ElementRef,
-  HostBinding,
-  Input,
-  OnChanges,
-  Renderer2,
-  ViewEncapsulation,
-  inject,
-} from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
 
-import type { Variant } from '../variant';
+import type { Status, Theme } from '../status';
+import { LgStatusDirective } from '../status';
 import { LgIconComponent } from '../icon';
 
 @Component({
@@ -18,57 +10,48 @@ import { LgIconComponent } from '../icon';
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgIconComponent ],
+  hostDirectives: [
+    {
+      directive: LgStatusDirective,
+      inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
+    },
+  ],
 })
-export class LgAlertComponent implements OnChanges {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
-
-  private _variant: Variant;
+export class LgAlertComponent {
   private explicitRole: string;
+  private readonly statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
-  @Input()
-  set variant(variant: Variant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-variant--${this._variant}`,
-      );
-    }
-
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-variant--${variant}`);
-    this._variant = variant;
-  }
-  get variant() {
-    return this._variant;
-  }
 
   @HostBinding('class.lg-alert') class = true;
-  @HostBinding('attr.role') roleAttr: string;
+  @HostBinding('attr.role') get roleAttr(): string | null {
+    if (this.explicitRole) {
+      if (this.explicitRole !== 'none') {
+        return this.explicitRole;
+      }
 
-  constructor() {
-    this.variant = 'generic';
+      return null;
+    }
+
+    switch (this.status) {
+      case 'error':
+      case 'warning':
+      case 'success':
+        return 'alert';
+      default:
+        return null;
+    }
   }
 
-  ngOnChanges() {
-    this.initRole();
+  get status(): Status {
+    return this.statusDirective.status;
+  }
+
+  get statusTheme(): Theme {
+    return this.statusDirective.statusTheme;
   }
 
   @Input() set role(role: string) {
     this.explicitRole = role;
-  }
-  private initRole() {
-    if (this.explicitRole) {
-      if (this.explicitRole !== 'none') {
-        this.roleAttr = this.explicitRole;
-      }
-    } else {
-      switch (this.variant) {
-        case 'error':
-        case 'warning':
-        case 'success':
-          this.roleAttr = 'alert';
-      }
-    }
   }
 }

@@ -70,6 +70,10 @@
     }
   }
 
+  &:is(a) .lg-icon {
+    margin-right: 0;
+  }
+
   // Always full width on 'sm', above 'sm' only when --block is applied`
   @include mixins.lg-breakpoint('md') {
     display: inline-flex;
@@ -111,18 +115,6 @@
   text-align: start;
 
   @include mixins.lg-link();
-
-  &:focus-visible,
-  &:hover:focus-visible {
-    box-shadow: none;
-  }
-
-  &:hover,
-  &:hover:visited,
-  &:focus-visible,
-  &:focus-visible:hover {
-    padding-bottom: 0.125rem;
-  }
 }
 
 .lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
