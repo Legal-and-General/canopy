@@ -216,11 +216,13 @@ $breakpoints: (
 
   a:not(.lg-btn) {
     @include lg-link(
-      $default-color: var(--interactive-text-status-subtle-rest),
-      $hover-color: var(--interactive-text-status-subtle-hover),
-      $visited-color: var(--interactive-text-status-subtle-visited),
-      $active-color: var(--interactive-text-status-subtle-active),
-      $focus-color: var(--interactive-text-status-subtle-focus)
+      $default-color: var(--link-status-subtle-rest-colour),
+      $hover-color: var(--link-status-subtle-hover-colour),
+      $visited-color: var(--link-status-subtle-visited-colour),
+      $active-color: var(--link-status-subtle-active-colour),
+      $focus-color: var(--link-status-subtle-focus-colour),
+      $focus-border-width: var(--link-status-subtle-focus-border-width),
+      $focus-border-radius: var(--link-status-subtle-focus-border-radius)
     );
   }
 
@@ -244,8 +246,9 @@ $breakpoints: (
 
     &:focus-visible {
       background-color: var(--interactive-status-focus-background-colour) !important;
-      border-color: var(--interactive-status-focus-border-colour) !important;
+      border-color: var(--interactive-status-focus-colour) !important;
       color: var(--interactive-status-focus-colour) !important;
+      box-shadow: 0 0 0 var(--space-1) var(--interactive-status-focus-background-colour) !important;
     }
 
     &:disabled {
@@ -263,11 +266,13 @@ $breakpoints: (
 
   a:not(.lg-btn) {
     @include lg-link(
-      $default-color: var(--interactive-text-status-bold-rest),
-      $hover-color: var(--interactive-text-status-bold-hover),
-      $visited-color: var(--interactive-text-status-bold-visited),
-      $active-color: var(--interactive-text-status-bold-active),
-      $focus-color: var(--interactive-text-status-bold-focus)
+      $default-color: var(--link-status-bold-rest-colour),
+      $hover-color: var(--link-status-bold-hover-colour),
+      $visited-color: var(--link-status-bold-visited-colour),
+      $active-color: var(--link-status-bold-active-colour),
+      $focus-color: var(--link-status-bold-focus-colour),
+      $focus-border-width: var(--link-status-bold-focus-border-width),
+      $focus-border-radius: var(--link-status-bold-focus-border-radius)
     );
   }
 
@@ -291,8 +296,10 @@ $breakpoints: (
 
     &:focus-visible {
       background-color: var(--interactive-status-focus-background-colour) !important;
-      border-color: var(--interactive-status-focus-border-colour) !important;
+      border-color: var(--interactive-status-focus-colour) !important;
       color: var(--interactive-status-focus-colour) !important;
+      box-shadow: 0 0 0 var(--interactive-border-width-focus)
+        var(--interactive-status-focus-background-colour) !important;
     }
 
     &:disabled {
@@ -340,9 +347,9 @@ $breakpoints: (
 
     &:focus-visible {
       border: var(--interactive-border-width-focus) solid
-        var(--interactive-primary-hover-border-colour) !important;
+        var(--interactive-primary-focus-colour) !important;
       background: var(--interactive-primary-focus-background-colour) !important;
-      box-shadow: 0 0 0 var(--interactive-border-width)
+      box-shadow: 0 0 0 var(--interactive-border-width-focus)
         var(--interactive-primary-focus-background-colour) !important;
       color: var(--interactive-primary-focus-colour) !important;
     }
@@ -377,7 +384,7 @@ $breakpoints: (
     }
 
     &:focus-visible {
-      background-color: var(--interactive-secondary-focus-border-colour) !important;
+      background-color: var(--interactive-secondary-focus-background-colour) !important;
       color: var(--interactive-secondary-focus-colour) !important;
       border: var(--interactive-border-width-focus) solid
         var(--interactive-secondary-focus-border-colour) !important;
@@ -386,7 +393,7 @@ $breakpoints: (
     }
 
     &:disabled {
-      color: var(--interactive-secondary-disabled-color) !important;
+      color: var(--interactive-secondary-disabled-colour) !important;
       border: var(--interactive-border-width) solid
         var(--interactive-secondary-disabled-border-colour) !important;
       background-color: var(

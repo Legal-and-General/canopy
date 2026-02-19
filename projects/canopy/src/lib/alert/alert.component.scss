@@ -43,6 +43,15 @@
   border-color: var(--interactive-status-active-border-colour) !important;
   color: var(--interactive-status-active-colour) !important;
 }
+
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark:focus-visible {
+  background-color: var(--interactive-status-focus-background-colour) !important;
+  border-color: var(--interactive-status-focus-colour) !important;
+  color: var(--interactive-status-focus-colour) !important;
+  outline-color: var(--interactive-status-focus-border-colour) !important;
+  box-shadow: 0 0 0 var(--interactive-border-width-focus)
+    var(--interactive-status-focus-background-colour) !important;
+}
 // Ensure links use status tokens
 [class*='lg-status-'].lg-alert a:not(.lg-btn),
 [class*='lg-status-'].lg-alert a:not(.lg-btn):link {
@@ -65,6 +74,7 @@
 [class*='lg-status-'].lg-alert a:not(.lg-btn):focus-visible {
   color: var(--interactive-text-status-subtle-focus) !important;
   background-color: var(--container-status-subtle-background-colour) !important;
+  outline-color: var(--interactive-text-status-subtle-focus) !important;
 }
 
 [class*='lg-status-'].lg-alert .lg-btn--secondary-dark,
@@ -86,4 +96,13 @@
   background-color: var(--interactive-status-active-background-colour) !important;
   border-color: var(--interactive-status-active-border-colour) !important;
   color: var(--interactive-status-active-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:focus-visible {
+  background-color: var(--interactive-status-focus-background-colour) !important;
+  border-color: var(--interactive-status-focus-colour) !important;
+  color: var(--interactive-status-focus-colour) !important;
+  outline-color: var(--interactive-status-focus-colour) !important;
+  box-shadow: 0 0 0 var(--interactive-border-width-focus)
+    var(--interactive-status-focus-background-colour) !important;
 }
