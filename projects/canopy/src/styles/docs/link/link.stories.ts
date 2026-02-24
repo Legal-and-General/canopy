@@ -1,14 +1,14 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgAlertComponent } from '../../../lib/alert';
+import { LgIconComponent } from '../../../lib/icon';
 import { LgMarginDirective } from '../../../lib/spacing';
 
 export default {
   title: 'Components/Link/Examples',
-  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
-      imports: [ LgAlertComponent, LgMarginDirective ],
+      imports: [ LgAlertComponent, LgIconComponent, LgMarginDirective ],
     }),
   ],
 } as Meta;
@@ -34,10 +34,10 @@ export const Links = {
 };
 
 const linksInlineMessagesTemplate = `
-<lg-alert variant="generic" lgMarginTop="6">Example of <a href="#">link text</a> within an alert.</lg-alert>
-<lg-alert variant="info">Example of <a href="#">link text</a> within an alert.</lg-alert>
-<lg-alert variant="success">Example of <a href="#">link text</a> within an alert.</lg-alert>
-<lg-alert variant="error">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="generic" lgMarginTop="6">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="info">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="success">Example of <a href="#">link text</a> within an alert.</lg-alert>
+<lg-alert status="error">Example of <a href="#">link text</a> within an alert.</lg-alert>
 `;
 
 export const LinksInlineMessages = {
@@ -50,6 +50,45 @@ export const LinksInlineMessages = {
     docs: {
       source: {
         code: linksInlineMessagesTemplate,
+      },
+    },
+  },
+};
+
+const linkWithIconTemplate = `
+<a href="#"><lg-icon name="email" />Link with icon</a>`;
+
+export const LinkWithIcon = {
+  name: 'With icon',
+  render: (args: unknown) => ({
+    props: args,
+    template: linkWithIconTemplate,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: linkWithIconTemplate,
+      },
+    },
+  },
+};
+
+const externalLinkTemplate = `
+<a href="#" target="_blank">Read more about accessibility<lg-icon name="link-external"></lg-icon>
+  <span class="lg-visually-hidden">opens in a new tab</span>
+</a>
+`;
+
+export const ExternalLink = {
+  name: 'External link',
+  render: (args: unknown) => ({
+    props: args,
+    template: externalLinkTemplate,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: externalLinkTemplate,
       },
     },
   },

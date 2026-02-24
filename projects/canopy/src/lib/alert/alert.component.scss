@@ -4,6 +4,7 @@
   display: flex;
   margin-bottom: var(--component-margin);
   padding: var(--space-4);
+  @include mixins.lg-status-subtle();
 
   h1,
   h2,
@@ -19,4 +20,89 @@
 
 .lg-alert__icon {
   margin-right: var(--space-3);
+}
+// Additional high-specificity rules to ensure status tokens override colour mode and button defaults
+// These are defined outside .lg-alert to come later in CSS cascade
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark,
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark:visited,
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark:link {
+  background-color: var(--interactive-status-rest-background-colour) !important;
+  border-color: var(--interactive-status-rest-border-colour) !important;
+  color: var(--interactive-status-rest-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark:not(:disabled):hover {
+  background-color: var(--interactive-status-hover-background-colour) !important;
+  border-color: var(--interactive-status-hover-border-colour) !important;
+  color: var(--interactive-status-hover-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark:not(:disabled):active,
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark:not(:disabled):active:hover {
+  background-color: var(--interactive-status-active-background-colour) !important;
+  border-color: var(--interactive-status-active-border-colour) !important;
+  color: var(--interactive-status-active-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--primary-dark:focus-visible {
+  background-color: var(--interactive-status-focus-background-colour) !important;
+  border-color: var(--interactive-status-focus-colour) !important;
+  color: var(--interactive-status-focus-colour) !important;
+  outline-color: var(--interactive-status-focus-border-colour) !important;
+  box-shadow: 0 0 0 var(--interactive-border-width)
+    var(--interactive-status-focus-background-colour) !important;
+}
+// Ensure links use status tokens
+[class*='lg-status-'].lg-alert a:not(.lg-btn),
+[class*='lg-status-'].lg-alert a:not(.lg-btn):link {
+  color: var(--interactive-text-status-subtle-rest) !important;
+}
+
+[class*='lg-status-'].lg-alert a:not(.lg-btn):visited {
+  color: var(--interactive-text-status-subtle-visited) !important;
+}
+
+[class*='lg-status-'].lg-alert a:not(.lg-btn):hover {
+  color: var(--interactive-text-status-subtle-hover) !important;
+}
+
+[class*='lg-status-'].lg-alert a:not(.lg-btn):active {
+  color: var(--interactive-text-status-subtle-active) !important;
+  background-color: var(--container-status-subtle-background-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert a:not(.lg-btn):focus-visible {
+  color: var(--interactive-text-status-subtle-focus) !important;
+  background-color: var(--container-status-subtle-background-colour) !important;
+  outline-color: var(--interactive-text-status-subtle-focus) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark,
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:visited,
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:link {
+  background-color: var(--interactive-status-rest-background-colour) !important;
+  border-color: var(--interactive-status-rest-border-colour) !important;
+  color: var(--interactive-status-rest-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:not(:disabled):hover {
+  background-color: var(--interactive-status-hover-background-colour) !important;
+  border-color: var(--interactive-status-hover-border-colour) !important;
+  color: var(--interactive-status-hover-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:not(:disabled):active,
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:not(:disabled):active:hover {
+  background-color: var(--interactive-status-active-background-colour) !important;
+  border-color: var(--interactive-status-active-border-colour) !important;
+  color: var(--interactive-status-active-colour) !important;
+}
+
+[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:focus-visible {
+  background-color: var(--interactive-status-focus-background-colour) !important;
+  border-color: var(--interactive-status-focus-colour) !important;
+  color: var(--interactive-status-focus-colour) !important;
+  outline-color: var(--interactive-status-focus-colour) !important;
+  box-shadow: 0 0 0 var(--interactive-border-width)
+    var(--interactive-status-focus-background-colour) !important;
 }

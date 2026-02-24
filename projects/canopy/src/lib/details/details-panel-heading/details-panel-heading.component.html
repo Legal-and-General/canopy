@@ -8,11 +8,11 @@
     [attr.aria-controls]="'lg-details-content-' + uniqueId"
     (click)="toggle()"
     >
-    @if (showIcon && variant !== 'generic') {
+    @if (showIcon && status !== 'generic') {
       <div
         class="lg-details-panel-heading__icon"
         >
-        @switch (variant) {
+        @switch (status) {
           @case ('error') {
             <lg-icon name="crossmark-spot-fill" />
           }

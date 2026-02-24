@@ -27,56 +27,71 @@
 }
 
 @mixin lg-link(
-  $default-color: var(--link-color),
-  $hover-color: var(--link-hover-color),
-  $visited-color: var(--link-visited-color),
-  $active-color: var(--link-active-color),
-  $active-bg-color: var(--link-active-bg-color),
-  $focus-color: var(--link-focus-color),
-  $focus-bg-color: var(--link-focus-bg-color)
+  $default-color: var(--link-primary-rest-colour),
+  $hover-color: var(--link-primary-hover-colour),
+  $visited-color: var(--link-primary-visited-colour),
+  $active-color: var(--link-primary-active-colour),
+  $focus-color: var(--link-primary-focus-colour),
+  $focus-border-width: var(--link-primary-focus-border-width),
+  $focus-border-radius: var(--link-primary-focus-border-radius),
+  $icon-height: var(--dimensions-small-5),
+  $icon-width: var(--dimensions-small-5)
 ) {
   $box-shadow-inset-width: -0.063rem;
 
-  border-bottom: 0.125rem solid $default-color;
   color: $default-color;
   line-height: initial;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 6%;
+  text-underline-offset: 13%;
+  text-underline-position: from-font;
   padding: 0 0.125rem;
-  text-decoration: none;
 
   &:hover,
   &:hover:visited {
     color: $hover-color;
-    border-bottom: 0;
-    box-shadow:
-      inset 0 $box-shadow-inset-width 0 0 $hover-color,
-      0 0.188rem 0 0 $hover-color;
+    text-decoration-thickness: 12%;
+    text-underline-offset: 13%;
   }
 
   &:visited {
     color: $visited-color;
-    border-color: $visited-color;
   }
 
   &:active {
-    background-color: $active-bg-color;
-    border-bottom-color: $active-color;
     color: $active-color;
     outline: 0;
+    text-decoration-thickness: 12%;
+    text-underline-offset: 13%;
   }
 
   &:focus-visible,
   &:focus-visible:hover {
-    background-color: $focus-bg-color;
     border-bottom: 0;
+    border-radius: $focus-border-radius;
     color: $focus-color;
-    outline: 0.063rem solid $focus-bg-color;
+    outline: $focus-border-width solid $focus-color;
     outline-offset: 0;
+  }
+
+  .lg-icon {
+    height: $icon-height;
+    width: $icon-width;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    margin-right: var(--link-gap);
+  }
+
+  .lg-icon[name='link-external'] {
+    margin-right: 0;
+    margin-left: var(--link-gap);
   }
 }
 
 @mixin lg-unstyled-link() {
-  text-decoration: underline;
-  border-bottom: 0;
   padding: 0;
 
   &:hover {
@@ -194,78 +209,197 @@ $breakpoints: (
   }
 }
 
-@mixin lg-variant($variant: 'generic') {
-  background-color: var(--#{$variant}-bg-color) !important;
-  color: var(--#{$variant}-color) !important;
+// Mixin for components using subtle token names (Alert, Banner)
+@mixin lg-status-subtle() {
+  background-color: var(--container-status-subtle-background-colour);
+  color: var(--text-status-subtle-primary-colour);
 
   a:not(.lg-btn) {
     @include lg-link(
-      $default-color: var(--#{$variant}-link-color),
-      $hover-color: var(--#{$variant}-link-hover-color),
-      $visited-color: var(--#{$variant}-link-visited-color),
-      $active-color: var(--#{$variant}-link-active-color),
-      $active-bg-color: var(--#{$variant}-link-active-bg-color),
-      $focus-color: var(--#{$variant}-link-focus-color),
-      $focus-bg-color: var(--#{$variant}-link-focus-bg-color)
+      $default-color: var(--link-status-subtle-rest-colour),
+      $hover-color: var(--link-status-subtle-hover-colour),
+      $visited-color: var(--link-status-subtle-visited-colour),
+      $active-color: var(--link-status-subtle-active-colour),
+      $focus-color: var(--link-status-subtle-focus-colour),
+      $focus-border-width: var(--link-status-subtle-focus-border-width),
+      $focus-border-radius: var(--link-status-subtle-focus-border-radius)
     );
   }
 
+  .lg-btn--primary-dark,
   .lg-btn--secondary-dark {
-    background-color: transparent !important;
-    border-color: var(--#{$variant}-color) !important;
-    color: var(--#{$variant}-color) !important;
+    background-color: var(--interactive-status-rest-background-colour) !important;
+    border-color: var(--interactive-status-rest-border-colour) !important;
+    color: var(--interactive-status-rest-colour) !important;
 
-    @if ($variant == 'generic') {
-      &:hover {
-        background-color: var(--colour-greyscale-600) !important;
-        border-color: var(--colour-greyscale-600) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:hover {
+      background-color: var(--interactive-status-hover-background-colour) !important;
+      border-color: var(--interactive-status-hover-border-colour) !important;
+      color: var(--interactive-status-hover-colour) !important;
+    }
 
-      &:active {
-        background-color: var(--colour-greyscale-900) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'info') {
-      &:hover {
-        background-color: var(--colour-blue-800) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:active {
+      background-color: var(--interactive-status-active-background-colour) !important;
+      border-color: var(--interactive-status-active-border-colour) !important;
+      color: var(--interactive-status-active-colour) !important;
+    }
 
-      &:active {
-        background-color: var(--colour-blue-900) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'success') {
-      &:hover {
-        background-color: var(--colour-green-700) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:focus-visible {
+      background-color: var(--interactive-status-focus-background-colour) !important;
+      border-color: var(--interactive-status-focus-colour) !important;
+      color: var(--interactive-status-focus-colour) !important;
+      box-shadow: 0 0 0 var(--interactive-border-width)
+        var(--interactive-status-focus-background-colour) !important;
+    }
 
-      &:active {
-        background-color: var(--colour-green-800) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'warning') {
-      &:hover {
-        background-color: var(--colour-yellow-900) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+    &:disabled {
+      background-color: var(--interactive-status-disabled-background-colour) !important;
+      border-color: var(--interactive-status-disabled-border-colour) !important;
+      color: var(--interactive-status-disabled-colour) !important;
+    }
+  }
+}
 
-      &:active {
-        background-color: var(--colour-yellow-1000) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
-    } @else if ($variant == 'error') {
-      &:hover {
-        background-color: var(--colour-red-800) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+// Mixin for components using bold token names (Details, Validation)
+@mixin lg-status-bold() {
+  background-color: var(--container-status-bold-background-colour);
+  color: var(--text-status-bold-primary-colour);
 
-      &:active {
-        background-color: var(--colour-yellow-1000) !important;
-        color: var(--colour-greyscale-0) !important;
-      }
+  a:not(.lg-btn) {
+    @include lg-link(
+      $default-color: var(--link-status-bold-rest-colour),
+      $hover-color: var(--link-status-bold-hover-colour),
+      $visited-color: var(--link-status-bold-visited-colour),
+      $active-color: var(--link-status-bold-active-colour),
+      $focus-color: var(--link-status-bold-focus-colour),
+      $focus-border-width: var(--link-status-bold-focus-border-width),
+      $focus-border-radius: var(--link-status-bold-focus-border-radius)
+    );
+  }
+
+  .lg-btn--primary-dark,
+  .lg-btn--secondary-dark {
+    background-color: var(--interactive-status-rest-background-colour) !important;
+    border-color: var(--interactive-status-rest-border-colour) !important;
+    color: var(--interactive-status-rest-colour) !important;
+
+    &:hover {
+      background-color: var(--interactive-status-hover-background-colour) !important;
+      border-color: var(--interactive-status-hover-border-colour) !important;
+      color: var(--interactive-status-hover-colour) !important;
+    }
+
+    &:active {
+      background-color: var(--interactive-status-active-background-colour) !important;
+      border-color: var(--interactive-status-active-border-colour) !important;
+      color: var(--interactive-status-active-colour) !important;
+    }
+
+    &:focus-visible {
+      background-color: var(--interactive-status-focus-background-colour) !important;
+      border-color: var(--interactive-status-focus-colour) !important;
+      color: var(--interactive-status-focus-colour) !important;
+      box-shadow: 0 0 0 var(--interactive-border-width)
+        var(--interactive-status-focus-background-colour) !important;
+    }
+
+    &:disabled {
+      background-color: var(--interactive-status-disabled-background-colour) !important;
+      border-color: var(--interactive-status-disabled-border-colour) !important;
+      color: var(--interactive-status-disabled-colour) !important;
+    }
+  }
+}
+
+@mixin lg-colour() {
+  background-color: var(--container-default-background-colour) !important;
+  color: var(--text-default-primary-colour) !important;
+
+  a:not(.lg-btn) {
+    @include lg-link(
+      $default-color: var(--interactive-text-default-rest),
+      $hover-color: var(--interactive-text-default-hover),
+      $visited-color: var(--interactive-text-default-visited),
+      $active-color: var(--interactive-text-default-active),
+      $focus-color: var(--interactive-text-default-focus)
+    );
+  }
+
+  .lg-btn--primary-dark {
+    background-color: var(--interactive-primary-rest-background-colour) !important;
+    border: var(--interactive-border-width) solid
+      var(--interactive-primary-rest-border-colour) !important;
+    color: var(--interactive-primary-rest-colour) !important;
+    border-radius: var(--interactive-border-radius-default);
+
+    &:hover {
+      border: var(--interactive-border-width) solid
+        var(--interactive-primary-hover-border-colour) !important;
+      color: var(--interactive-primary-hover-colour) !important;
+      background-color: var(--interactive-primary-hover-background-colour) !important;
+    }
+
+    &:active {
+      border: var(--interactive-border-width) solid
+        var(--interactive-primary-active-border-colour) !important;
+      background: var(--interactive-primary-active-background-colour) !important;
+      color: var(--interactive-primary-active-colour) !important;
+    }
+
+    &:focus-visible {
+      border: var(--interactive-border-width-focus) solid
+        var(--interactive-primary-focus-colour) !important;
+      background: var(--interactive-primary-focus-background-colour) !important;
+      box-shadow: 0 0 0 var(--interactive-border-width)
+        var(--interactive-primary-focus-background-colour) !important;
+      color: var(--interactive-primary-focus-colour) !important;
+    }
+
+    &:disabled {
+      border: var(--interactive-border-width) solid
+        var(--interactive-primary-disabled-border-colour) !important;
+      background: var(--interactive-primary-disabled-background-colour) !important;
+      color: var(--interactive-primary-disabled-colour) !important;
+    }
+  }
+
+  .lg-btn--secondary-dark {
+    border-radius: var(--interactive-border-radius-default) !important;
+    border: var(--interactive-border-width) solid
+      var(--interactive-secondary-rest-border-colour) !important;
+    color: var(--interactive-secondary-rest-colour) !important;
+    background-color: var(--interactive-secondary-rest-background-colour) !important;
+
+    &:hover {
+      border: var(--interactive-border-width) solid
+        var(--interactive-secondary-hover-border-colour) !important;
+      background: var(--interactive-secondary-hover-background-colour) !important;
+      color: var(--interactive-secondary-hover-colour) !important;
+    }
+
+    &:active {
+      border: var(--interactive-border-width) solid
+        var(--interactive-secondary-active-border-colour) !important;
+      background: var(--interactive-secondary-active-background-colour) !important;
+      color: var(--interactive-secondary-active-colour) !important;
+    }
+
+    &:focus-visible {
+      background-color: var(--interactive-secondary-focus-background-colour) !important;
+      color: var(--interactive-secondary-focus-colour) !important;
+      border: var(--interactive-border-width-focus) solid
+        var(--interactive-secondary-focus-border-colour) !important;
+      box-shadow: 0 0 0 var(--space-1)
+        var(--interactive-secondary-focus-background-colour) !important;
+    }
+
+    &:disabled {
+      color: var(--interactive-secondary-disabled-colour) !important;
+      border: var(--interactive-border-width) solid
+        var(--interactive-secondary-disabled-border-colour) !important;
+      background-color: var(
+        --interactive-secondary-disabled-background-colour
+      ) !important;
     }
   }
 }
