@@ -70,7 +70,7 @@
     "@angular-eslint/eslint-plugin-template": "20.7.0",
     "@angular-eslint/schematics": "20.7.0",
     "@angular-eslint/template-parser": "20.7.0",
-    "@angular/cli": "20.3.14",
+    "@angular/cli": "20.3.17",
     "@angular/compiler-cli": "20.3.16",
     "@angular/language-service": "20.3.16",
     "@commitlint/cli": "20.3.0",
