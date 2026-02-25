@@ -1,12 +1,21 @@
-<div
+<svg
   class="lg-spinner__ring"
   [ngClass]="{
     'lg-spinner__ring--color': variant === 'color',
     'lg-spinner__ring--light': variant === 'light',
     'lg-spinner__ring--inherit': variant === 'inherit'
   }"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
   aria-busy="true"
-></div>
+>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M12 0C12.4734 0 12.8571 0.383756 12.8571 0.857143V11.1429H23.1429C23.6162 11.1429 24 11.5266 24 12C24 18.6274 18.6274 24 12 24C11.5266 24 11.1429 23.6162 11.1429 23.1429V12.8571H0.857143C0.383756 12.8571 0 12.4734 0 12C0 5.37258 5.37258 0 12 0ZM12.8571 22.2506C17.8541 21.8383 21.8375 17.8541 22.2497 12.8571H12.8571V22.2506Z"
+  />
+</svg>
 
 @if (text) {
   <p

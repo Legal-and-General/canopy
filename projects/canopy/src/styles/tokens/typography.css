@@ -1,0 +1,23 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --font-weight-300-productive: 300;
+  --font-weight-300-expressive: 300;
+  --font-weight-400-productive: 400;
+  --font-weight-400-expressive: 400;
+  --font-weight-500-productive: 500;
+  --font-weight-500-expressive: 500;
+  --font-weight-700-productive: 700;
+  --font-weight-700-expressive: 700;
+  --letter-spacing-ultra-condensed-productive: -0.01250rem;
+  --letter-spacing-ultra-condensed-expressive: -0.08125rem;
+  --letter-spacing-condensed-productive: -0.00625rem;
+  --letter-spacing-condensed-expressive: -0.07500rem;
+  --letter-spacing-normal-productive: 0.01250rem;
+  --letter-spacing-normal-expressive: -0.03125rem;
+  --letter-spacing-expanded-productive: 0.01875rem;
+  --typeface-productive: 'Nunito Sans';
+  --typeface-expressive: 'ABC Otto';
+}

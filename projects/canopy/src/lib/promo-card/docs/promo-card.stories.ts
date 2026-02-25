@@ -89,9 +89,8 @@ class PromoCardListStoryComponent {
   title = cardListConfig.title;
   cards = cardListConfig.cards;
   buttonVariants: { [key: string]: ButtonVariant } = {
-    'solid-white': 'primary-dark',
-    'solid-green': 'primary-light',
-    'solid-yellow': 'secondary-dark',
+    'solid-white': 'primary',
+    'solid-yellow': 'secondary',
   };
 }
 

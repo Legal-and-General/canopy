@@ -39,7 +39,7 @@ const template = `
       <a
         lg-button
         lgMarginBottom="none"
-        variant="secondary-dark"
+        variant="secondary"
         [fullWidth]="false"
         href="#"
         >Logout</a

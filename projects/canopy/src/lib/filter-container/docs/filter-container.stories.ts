@@ -21,7 +21,7 @@ class StoryToggleDirective {
   @Input() variant: ButtonVariant;
 }
 
-const buttonVariants = [ 'primary-dark', 'secondary-dark' ];
+const buttonVariants = [ 'primary', 'secondary' ];
 
 // This default export determines where your story goes in the story list
 export default {
@@ -46,7 +46,7 @@ export default {
     variant: {
       options: [ ...buttonVariants ],
       table: {
-        defaultValue: 'primary-dark',
+        defaultValue: 'primary',
         type: {
           summary: 'ButtonVariant',
         },
@@ -71,11 +71,11 @@ function setComponentCode(toggleCode: string) {
       <lg-button-group>
         <button
           lg-button
-          variant="primary-dark"
+          variant="primary"
         >Apply</button>
         <button
           lg-button
-          variant="secondary-dark"
+          variant="secondary"
         >Cancel</button>
       </lg-button-group>
     </lg-filter-container-panel-footer>
@@ -89,10 +89,8 @@ export const StandardFilterContainer = {
   render: (args: LgFilterContainerComponent) => ({
     props: args,
     template: setComponentCode(`
-      <button lg-button [variant]="variant" lgButtonToggle lgStoryToggle>
-        <lg-icon name="filter" first></lg-icon>
+      <button lg-button [variant]="variant" lgButtonToggle lgStoryToggle [rightIcon]="'chevron-down'">
         Filters
-        <lg-icon name="chevron-down" second></lg-icon>
       </button>
     `),
   }),
@@ -100,16 +98,14 @@ export const StandardFilterContainer = {
     await userEvent.click(canvas.getByRole('button', { name: 'Filters' }));
   },
   args: {
-    variant: 'secondary-dark',
+    variant: 'secondary',
   },
   parameters: {
     docs: {
       source: {
         code: setComponentCode(`
-          <button lg-button [variant]="variant" lgButtonToggle>
-            <lg-icon name="filter" first></lg-icon>
+          <button lg-button [variant]="variant" lgButtonToggle [rightIcon]="'chevron-down'">
             Filters
-            <lg-icon name="chevron-down" second></lg-icon>
           </button>
         `),
       },

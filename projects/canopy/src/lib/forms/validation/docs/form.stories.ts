@@ -258,7 +258,7 @@ class FormGroupChildComponent implements OnInit {
         }
       </lg-input-field>
 
-      <button lg-button type="submit" variant="primary-dark">Submit</button>
+      <button lg-button type="submit" variant="primary">Submit</button>
     </form>
   `,
   imports: [

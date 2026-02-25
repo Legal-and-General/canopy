@@ -10,7 +10,7 @@ import { LgModalBodyTimerComponent } from '../modal-body-timer/modal-body-timer.
 import { LgButtonComponent, LgButtonGroupComponent } from '../../button';
 
 const template = `
-<button lgModalTrigger="modal-story" lg-button type="button" variant="secondary-dark">Open modal</button>
+<button lgModalTrigger="modal-story" lg-button type="button" variant="secondary">Open modal</button>
 <lg-modal id="modal-story" closeOnOverlayClick="closeOnOverlayClick">
   <lg-modal-header [headingLevel]="headingLevel">Lorem ipsum</lg-modal-header>
   <lg-modal-body>
@@ -19,8 +19,8 @@ const template = `
   </lg-modal-body>
   <lg-modal-footer>
     <lg-button-group>
-      <button lg-button lgMarginBottom="none" variant="primary-dark" type="button">Button</button>
-      <button lg-button lgMarginBottom="none" variant="secondary-dark" type="button">Close</button>
+      <button lg-button lgMarginBottom="none" variant="primary" type="button">Button</button>
+      <button lg-button lgMarginBottom="none" variant="secondary" type="button">Close</button>
     </lg-button-group>
   </lg-modal-footer>
 </lg-modal>

@@ -2,30 +2,40 @@
 
 .lg-btn {
   appearance: none;
-
   @include mixins.lg-unstyled-link;
 
-  display: flex;
-  position: relative;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--btn-border-radius);
-  font-size: var(--btn-font-size);
-  font-weight: var(--font-weight-500);
-  cursor: pointer;
-  min-width: var(--btn-min-width);
-  line-height: var(--btn-line-height);
-  padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
-  text-align: center;
   transition: background-color var(--animation-duration) var(--animation-fn);
+  display: flex;
+  min-width: var(--button-content-labelled-min-width);
+  min-height: var(--button-content-labelled-min-height);
+  padding: var(--button-content-labelled-padding-y)
+    var(--button-content-labelled-padding-x);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--button-primary-rest-colour);
+  font-feature-settings: 'case' on;
+  font-family: var(--typeface-productive);
+  font-size: var(--font-size-1);
+  font-style: normal;
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-normal-productive);
+  border-radius: var(--button-border-radius);
+  border: var(--button-border-width) solid var(--button-primary-rest-border-colour);
+  background: var(--button-primary-rest-background-colour);
+
+  // OLD STYLES - CHECK
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
   margin-bottom: var(--component-margin);
   text-decoration: none;
 
-  &:focus-visible,
-  &:focus-visible:hover {
-    @include mixins.lg-focus-outline;
-  }
+  // &:focus-visible,
+  // &:focus-visible:hover {
+  //   @include mixins.lg-focus-outline;
+  // }
 
   &:not(&--loading):disabled {
     background-color: var(--btn-disabled-bg-color);
@@ -62,7 +72,7 @@
   }
 
   &--icon-left {
-    flex-direction: row-reverse;
+    justify-content: flex-start;
 
     .lg-icon {
       margin-left: 0;
@@ -105,14 +115,20 @@
 }
 
 .lg-btn--link {
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  min-width: initial;
-  border-radius: 0;
-  width: initial;
-  font-weight: var(--font-weight-400);
-  text-align: start;
+  // border: 0;
+  // background-color: transparent;
+  // cursor: pointer;
+  // min-width: initial;
+  // border-radius: 0;
+  // width: initial;
+  // font-weight: var(--font-weight-400);
+  // text-align: start;
+
+  // Can this be done better?
+  border: none;
+  background: none;
+  min-height: 0;
+  min-width: 0;
 
   @include mixins.lg-link();
 }
@@ -121,40 +137,58 @@
   transform: rotateX(180deg);
 }
 
-$variants:
-  'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light', 'add-on' !default;
+$variants: 'primary', 'secondary', 'add-on' !default;
 
 @each $variant in $variants {
   .lg-btn--#{$variant},
-  .lg-btn--#{$variant}:focus-visible:not(.lg-btn-toggle),
   .lg-btn--#{$variant}:visited {
-    background-color: var(--btn-#{$variant}-bg-color);
-    border: var(--btn-#{$variant}-border-color) solid var(--border-width);
-    color: var(--btn-#{$variant}-color);
+    background-color: var(--button-#{$variant}-rest-background-colour);
+    border: var(--button-border-width) solid var(--button-#{$variant}-rest-border-colour);
+    color: var(--button-#{$variant}-rest-colour);
 
     &:hover {
-      border: var(--btn-#{$variant}-active-border-color) solid var(--border-width);
+      border-radius: var(--button-border-radius);
+      border: var(--button-border-width)
+        solid
+        var(--button-#{$variant}-hover-border-colour);
+      background: var(--button-primary-hover-background-colour);
+      color: var(--button-#{$variant}-hover-colour);
     }
 
     &:not(:disabled) {
       &:active:not(.lg-btn-toggle--active),
       &:active:hover:not(.lg-btn-toggle--active),
       &.lg-btn-toggle--active {
-        background-color: var(--btn-#{$variant}-active-bg-color);
-        border: var(--btn-#{$variant}-active-border-color) solid var(--border-width);
-        color: var(--btn-#{$variant}-active-color);
+        border-radius: var(--button-border-radius);
+        border: var(--button-border-width)
+          solid
+          var(--button-#{$variant}-active-border-colour);
+        background: var(--button-#{$variant}-active-background-colour);
+        color: var(--button-#{$variant}-active-colour);
       }
 
       &:hover {
-        background-color: var(--btn-#{$variant}-hover-bg-color);
-        border: var(--btn-#{$variant}-hover-border-color) solid var(--border-width);
-        color: var(--btn-#{$variant}-hover-color);
+        border-radius: var(--button-border-radius);
+        border: var(--button-border-width)
+          solid
+          var(--button-#{$variant}-hover-border-colour);
+        background: var(--button-primary-hover-background-colour);
+        color: var(--button-#{$variant}-hover-colour);
       }
     }
   }
 
-  .lg-btn--#{$variant}:focus-visible {
-    border-color: transparent;
+  .lg-btn--#{$variant}:focus-visible:not(.lg-btn-toggle) {
+    color: var(--button-#{$variant}-focus-colour);
+    border: var(--button-border-width-focus) solid var(--button-#{$variant}-focus-colour);
+    background: var(--button-#{$variant}-focus-background-colour);
+    box-shadow: 0
+      0
+      0
+      var(--button-border-width)
+      var(--button-#{$variant}-focus-background-colour);
+    border-radius: var(--button-border-radius);
+    outline: 0 !important;
 
     &:not(:disabled) {
       &:active,

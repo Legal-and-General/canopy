@@ -8,7 +8,6 @@ const sizes = [ 'xs', 'sm', 'md' ];
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Spinner/Examples',
-  tags: [ 'pending' ],
   component: LgSpinnerComponent,
   decorators: [
     moduleMetadata({

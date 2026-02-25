@@ -1,12 +1,9 @@
 import {
-  AfterViewInit,
   Component,
-  ContentChildren,
   ElementRef,
-  forwardRef,
   HostBinding,
   Input,
-  QueryList,
+  OnInit,
   Renderer2,
   ViewEncapsulation,
   inject,
@@ -14,28 +11,26 @@ import {
 import { NgTemplateOutlet } from '@angular/common';
 
 import { LgIconComponent } from '../icon';
+import type { IconName } from '../icon/ui-icons-files.interface';
 import { LgMarginDirective } from '../spacing';
 import { LgSpinnerComponent } from '../spinner';
 
-import type { ButtonIconPosition, ButtonSize, ButtonVariant } from './button.interface';
+import type { ButtonSize, ButtonVariant } from './button.interface';
 
 @Component({
   selector: '[lg-button]',
   templateUrl: './button.component.html',
   styleUrls: [ './button.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective ],
+  imports: [ NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective, LgIconComponent ],
 })
-export class LgButtonComponent implements AfterViewInit {
+export class LgButtonComponent implements OnInit {
   private renderer = inject(Renderer2);
-  hostElement = inject(ElementRef);
+  private readonly hostElement = inject(ElementRef);
+  private _leftIcon = false;
+  private _rightIcon: IconName | null = null;
 
   @HostBinding('class.lg-btn') class = true;
-
-  @ContentChildren(forwardRef(() => LgIconComponent), {
-    descendants: true,
-  })
-  icons: QueryList<LgIconComponent>;
 
   _variant: ButtonVariant;
   @Input()
@@ -73,9 +68,28 @@ export class LgButtonComponent implements AfterViewInit {
     return this.fullWidth;
   }
 
-  @Input() iconPosition: ButtonIconPosition;
+  @Input()
+  set leftIcon(value: boolean) {
+    this._leftIcon = value;
+  }
+  get leftIcon(): boolean {
+    return this._leftIcon;
+  }
+
   @HostBinding('class.lg-btn--icon-left') get leftIconClass(): boolean {
-    return this.iconPosition === 'left';
+    return this._leftIcon;
+  }
+
+  @Input()
+  set rightIcon(value: IconName | null) {
+    this._rightIcon = value;
+  }
+  get rightIcon(): IconName | null {
+    return this._rightIcon;
+  }
+
+  get hasIcon(): boolean {
+    return this._leftIcon || this._rightIcon !== null;
   }
 
   @Input() iconButton = false;
@@ -89,19 +103,19 @@ export class LgButtonComponent implements AfterViewInit {
   }
 
   constructor() {
-    this.variant = 'primary-dark';
-    this.iconPosition = 'right';
+    this.variant = 'primary';
     this.size = 'md';
   }
 
-  ngAfterViewInit(): void {
-    if (this.icons.length === 2) {
-      const icons = this.hostElement.nativeElement.getElementsByTagName(
-        'lg-icon',
-      ) as Array<HTMLElement>;
+  ngOnInit(): void {
+    // Validate that both leftIcon and rightIcon are not set at the same time
+    if (this._leftIcon && this._rightIcon) {
+      console.error(
+        'Button component error: Cannot have both leftIcon and rightIcon set at the same time. Left icon takes precedence.',
+      );
 
-      this.renderer.addClass(icons[0], 'lg-margin__left--none');
-      this.renderer.addClass(icons[0], 'lg-margin__right--2');
+      // Left icon takes precedence, so clear the right icon
+      this._rightIcon = null;
     }
   }
 }

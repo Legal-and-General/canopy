@@ -63,7 +63,7 @@ function setupInputStoryValues(obj, code, config?: Config) {
   obj.args = {
     block: false,
     buttonText: 'search',
-    buttonVariant: 'primary-dark',
+    buttonVariant: 'primary',
     disabled: false,
     hint: config?.hint === null
       ? ''

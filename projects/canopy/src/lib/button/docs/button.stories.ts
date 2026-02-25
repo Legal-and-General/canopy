@@ -2,23 +2,11 @@ import { Component, Input } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { IconName, LgIconComponent } from '../../icon';
-import {
-  ButtonIconPosition,
-  ButtonSize,
-  ButtonVariant,
-  LgButtonComponent,
-} from '../index';
+import { ButtonSize, ButtonVariant, LgButtonComponent } from '../index';
 // Direct import required for Webpack compatibility - do not use barrel file
 import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
-const buttonVariants = [
-  'primary-dark',
-  'primary-light',
-  'secondary-dark',
-  'secondary-light',
-  'link',
-  'add-on',
-];
+const buttonVariants = [ 'primary', 'secondary', 'link', 'add-on' ];
 
 @Component({
   selector: 'lg-button-component-example',
@@ -29,21 +17,13 @@ const buttonVariants = [
       [disabled]="disabled"
       [fullWidth]="fullWidth"
       [iconButton]="iconButton"
-      [iconPosition]="iconPosition"
+      [leftIcon]="leftIcon"
+      [rightIcon]="rightIcon"
       [loading]="loading"
       [size]="size"
       [variant]="variant"
     >
-      @if (icon !== 'None' && doubleIconButton) {
-        <lg-icon name="filter" first />
-      }
       {{ content }}
-      @if (icon !== 'None' && doubleIconButton) {
-        <lg-icon [name]="icon" second />
-      }
-      @if (icon !== 'None' && !doubleIconButton) {
-        <lg-icon [name]="icon" />
-      }
     </button>
     @if (variant !== 'link') {
       <p>Used on a <strong>link</strong> element</p>
@@ -53,21 +33,13 @@ const buttonVariants = [
         [disabled]="disabled"
         [fullWidth]="fullWidth"
         [iconButton]="iconButton"
-        [iconPosition]="iconPosition"
+        [leftIcon]="leftIcon"
+        [rightIcon]="rightIcon"
         [loading]="loading"
         [size]="size"
         [variant]="variant"
       >
-        @if (icon !== 'None' && doubleIconButton) {
-          <lg-icon name="filter" first />
-        }
         {{ content }}
-        @if (icon !== 'None' && doubleIconButton) {
-          <lg-icon [name]="icon" second />
-        }
-        @if (icon !== 'None' && !doubleIconButton) {
-          <lg-icon [name]="icon" />
-        }
       </a>
     }
   `,
@@ -76,10 +48,9 @@ const buttonVariants = [
 class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
   @Input() fullWidth: boolean;
-  @Input() icon: IconName;
+  @Input() leftIcon: boolean;
+  @Input() rightIcon: IconName | null;
   @Input() iconButton: boolean;
-  @Input() doubleIconButton: boolean;
-  @Input() iconPosition: ButtonIconPosition;
   @Input() loading: boolean;
   @Input() size: ButtonSize;
   @Input() variant: ButtonVariant;
@@ -88,7 +59,6 @@ class ButtonComponentExampleComponent {
 
 export default {
   title: 'Components/Button/Examples',
-  tags: [ 'pending' ],
   component: LgButtonComponent,
   decorators: [
     moduleMetadata({
@@ -99,7 +69,7 @@ export default {
     variant: {
       options: [ ...buttonVariants ],
       table: {
-        defaultValue: 'primary-dark',
+        defaultValue: 'primary',
         type: {
           summary: 'ButtonVariant',
         },
@@ -111,12 +81,18 @@ export default {
     content: {
       description: 'Text content within the button',
     },
-    icon: {
-      description: 'Icon to display',
-      options: [ 'None', ...lgIconsArray.map(i => i.name) ],
+    leftIcon: {
+      description: 'Display arrow-left icon on the left side of the button',
+      control: {
+        type: 'boolean',
+      },
+    },
+    rightIcon: {
+      description: 'Icon name to display on the right side of the button',
+      options: [ null, ...lgIconsArray.map(i => i.name) ],
       table: {
         type: {
-          type: { summary: 'string' },
+          summary: 'IconName | null',
         },
       },
       control: {
@@ -132,26 +108,9 @@ export default {
     hostElement: {
       table: { disable: true },
     },
-    ngAfterViewInit: {
+    ngOnInit: {
       table: { disable: true },
     },
-    icons: {
-      table: { disable: true },
-    },
-  },
-};
-
-const iconArgType = {
-  description: 'Icon to display',
-  options: lgIconsArray.map(i => i.name),
-  table: {
-    defaultValue: lgIconsArray[0].name,
-    type: {
-      type: { summary: 'string' },
-    },
-  },
-  control: {
-    type: 'select',
   },
 };
 
@@ -160,9 +119,9 @@ const defaultArgValues = {
   disabled: false,
   fullWidth: false,
   iconButton: false,
-  doubleIconButton: false,
   loading: false,
-  icon: 'None',
+  leftIcon: false,
+  rightIcon: null,
   size: 'md',
 };
 
@@ -171,112 +130,75 @@ const buttonTemplate = `
     [disabled]="disabled"
     [fullWidth]="fullWidth"
     [iconButton]="iconButton"
-    [doubleIconButton]="doubleIconButton"
-    [iconPosition]="iconPosition"
+    [leftIcon]="leftIcon"
+    [rightIcon]="rightIcon"
     [loading]="loading"
     [size]="size"
     [variant]="variant"
-    [content]="content"
-    [icon]="icon">
+    [content]="content">
   </lg-button-component-example>
 `;
 
-export const PrimaryDark = {
-  name: 'Primary dark',
+export const Primary = {
+  name: 'Primary',
   render: (args: LgButtonComponent) => ({
     props: args,
     template: buttonTemplate,
   }),
   args: {
     ...defaultArgValues,
-    variant: 'primary-dark',
+    variant: 'primary',
   },
   globals: {
-    backgrounds: { value: setBackground('primary-dark') },
+    backgrounds: { value: setBackground('primary') },
   },
 };
 
-export const PrimaryLight = {
-  name: 'Primary light',
+export const Secondary = {
+  name: 'Secondary',
   render: (args: LgButtonComponent) => ({
     props: args,
     template: buttonTemplate,
   }),
   args: {
     ...defaultArgValues,
-    variant: 'primary-light',
+    variant: 'secondary',
   },
   globals: {
-    backgrounds: { value: setBackground('primary-light') },
+    backgrounds: { value: setBackground('secondary') },
   },
 };
 
-export const SecondaryDark = {
-  name: 'Secondary dark',
+export const TextWithRightIcon = {
+  name: 'Text with right icon',
   render: (args: LgButtonComponent) => ({
     props: args,
     template: buttonTemplate,
   }),
   args: {
     ...defaultArgValues,
-    variant: 'secondary-dark',
+    variant: 'primary',
+    rightIcon: 'chevron-right',
   },
   globals: {
-    backgrounds: { value: setBackground('secondary-dark') },
+    backgrounds: { value: setBackground('primary') },
   },
 };
 
-export const SecondaryLight = {
-  name: 'Secondary light',
+export const TextWithLeftIcon = {
+  name: 'Text with left arrow icon',
   render: (args: LgButtonComponent) => ({
     props: args,
     template: buttonTemplate,
   }),
   args: {
     ...defaultArgValues,
-    variant: 'secondary-light',
+    variant: 'primary',
+    content: 'Back',
+    leftIcon: true,
   },
   globals: {
-    backgrounds: { value: setBackground('secondary-light') },
-  },
-};
-
-export const TextWithIcon = {
-  name: 'Single icon with text',
-  render: (args: LgButtonComponent) => ({
-    props: args,
-    template: buttonTemplate,
-  }),
-  argTypes: {
-    icon: iconArgType,
-  },
-  args: {
-    ...defaultArgValues,
-    variant: 'primary-dark',
-    icon: lgIconsArray[0].name,
-  },
-  globals: {
-    backgrounds: { value: setBackground('primary-dark') },
-  },
-};
-
-export const TextWithDoubleIcon = {
-  name: 'Double icon with text',
-  render: (args: LgButtonComponent) => ({
-    props: args,
-    template: buttonTemplate,
-  }),
-  argTypes: {
-    icon: iconArgType,
-  },
-  args: {
-    ...defaultArgValues,
-    variant: 'primary-dark',
-    icon: lgIconsArray[0].name,
-    doubleIconButton: true,
-  },
-  globals: {
-    backgrounds: { value: setBackground('primary-dark') },
+    backgrounds: { value: setBackground('primary') },
   },
 };
 
@@ -288,21 +210,20 @@ export const IconOnly = {
   }),
   args: {
     ...defaultArgValues,
-    variant: 'primary-dark',
+    variant: 'primary',
     iconButton: true,
-    icon: lgIconsArray[0].name,
+    content: '',
+    rightIcon: 'add',
   },
   globals: {
-    backgrounds: { value: setBackground('primary-dark') },
+    backgrounds: { value: setBackground('primary') },
   },
 };
 
 function setBackground(variant: string) {
   const bgs = {
-    'primary-dark': 'light',
-    'primary-light': 'breezy-blue',
-    'secondary-dark': 'light',
-    'secondary-light': 'breezy-blue',
+    primary: 'light',
+    secondary: 'light',
     link: 'light',
     'add-on': 'light',
   };

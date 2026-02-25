@@ -108,10 +108,10 @@
     color: inherit;
   }
 
-  &:focus-visible,
-  &:focus-visible:hover {
-    @include lg-focus-outline();
-  }
+  // &:focus-visible,
+  // &:focus-visible:hover {
+  //   @include lg-focus-outline();
+  // }
 }
 
 @mixin lg-font-size($size, $modifier: null, $type: null) {
@@ -226,8 +226,8 @@ $breakpoints: (
     );
   }
 
-  .lg-btn--primary-dark,
-  .lg-btn--secondary-dark {
+  .lg-btn--primary,
+  .lg-btn--secondary {
     background-color: var(--interactive-status-rest-background-colour) !important;
     border-color: var(--interactive-status-rest-border-colour) !important;
     color: var(--interactive-status-rest-colour) !important;
@@ -277,8 +277,8 @@ $breakpoints: (
     );
   }
 
-  .lg-btn--primary-dark,
-  .lg-btn--secondary-dark {
+  .lg-btn--primary,
+  .lg-btn--secondary {
     background-color: var(--interactive-status-rest-background-colour) !important;
     border-color: var(--interactive-status-rest-border-colour) !important;
     color: var(--interactive-status-rest-colour) !important;
@@ -325,7 +325,7 @@ $breakpoints: (
     );
   }
 
-  .lg-btn--primary-dark {
+  .lg-btn--primary {
     background-color: var(--interactive-primary-rest-background-colour) !important;
     border: var(--interactive-border-width) solid
       var(--interactive-primary-rest-border-colour) !important;
@@ -363,7 +363,7 @@ $breakpoints: (
     }
   }
 
-  .lg-btn--secondary-dark {
+  .lg-btn--secondary {
     border-radius: var(--interactive-border-radius-default) !important;
     border: var(--interactive-border-width) solid
       var(--interactive-secondary-rest-border-colour) !important;
@@ -406,9 +406,16 @@ $breakpoints: (
 
 @mixin lg-card {
   background-color: var(--card-bg-color);
-  border-radius: var(--border-radius-lg);
+  border-radius: var(--container-border-radius-sm);
   margin-bottom: var(--grid-gutter);
   padding: var(--component-padding);
+
+  @include lg-breakpoint('md') {
+    border-radius: var(--container-border-radius-md);
+  }
+  @include lg-breakpoint('lg') {
+    border-radius: var(--container-border-radius-lg);
+  }
 }
 
 @mixin lg-typography-default {

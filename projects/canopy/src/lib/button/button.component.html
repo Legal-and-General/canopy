@@ -1,19 +1,16 @@
 <ng-template #standard>
-  @if (icons.length === 2) {
-    <ng-content select="lg-icon[first]" />
+  @if (leftIcon) {
+    <lg-icon
+      name="arrow-left"
+      class="lg-margin__left--none lg-margin__right--2" />
   }
 
   <span class="lg-btn__text">
     <ng-content />
   </span>
 
-  @for (icon of icons; track icon; let i = $index) {
-    @if (icons.length === 2) {
-      <ng-content select="lg-icon[second]" />
-    }
-    @if (icons.length === 1) {
-      <ng-content select="lg-icon" />
-    }
+  @if (rightIcon && !leftIcon) {
+    <lg-icon [name]="rightIcon" />
   }
 </ng-template>
 

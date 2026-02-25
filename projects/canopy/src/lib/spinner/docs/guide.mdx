@@ -1,13 +1,10 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as SpinnerStories from './spinner.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Spinner/Guide" tags={['pending']}/>
+<Meta title="Components/Spinner/Guide"/>
 
 # Spinner
-
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">A spinner lets the user know that something is happening. They are normally used on form submissions or loading pages when the data retrieval is typically slow.</p>
 
@@ -20,10 +17,7 @@ This component should be used in instances where the duration of a process can't
 Import the spinner component in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgSpinnerComponent ],
-});
+import { LgSpinnerComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:

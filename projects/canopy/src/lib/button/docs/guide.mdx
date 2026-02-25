@@ -1,9 +1,8 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as ButtonsGroupStories from './button-group.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Button/Guide" tags={['pending']}/>
+<Meta title="Components/Button/Guide"/>
 
 # Button
 
@@ -20,22 +19,19 @@ Use a button when you want to give the user a clear signpost as to what to do ne
 Import the button component in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgButtonComponent ],
-});
+import { LgButtonComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 ```html
-<button lg-button type="button" variant="primary-dark">Button</button>
+<button lg-button type="button" variant="primary">Button</button>
 ```
 
 or
 
 ```html
-<a lg-button href="#" variant="primary-dark">Link</a>
+<a lg-button href="#" variant="primary">Link</a>
 ```
 
 ## Variants
@@ -51,17 +47,7 @@ Primary buttons should only be used once per page. Use them to clearly signpost 
 A blue primary button can be used on a light background.
 
 ```html
-<button lg-button variant="primary-dark">
-  Click me
-</button>
-```
-
-#### Dark backgrounds
-
-A white primary button can be used on dark colour backgrounds (e.g. Super Blue, Leafy Green or Charcoal) shown above.
-
-```html
-<button lg-button variant="primary-light">
+<button lg-button variant="primary">
   Click me
 </button>
 ```
@@ -75,17 +61,7 @@ Secondary buttons can be used many times per page. Use them for secondary action
 A charcoal secondary button can be used on light backgrounds.
 
 ```html
-<button lg-button variant="secondary-dark">
-  Click me
-</button>
-```
-
-#### Dark backgrounds
-
-A white secondary button can be used on vibrant colour backgrounds shown below.
-
-```html
-<button lg-button variant="secondary-light">
+<button lg-button variant="secondary">
   Click me
 </button>
 ```
@@ -168,7 +144,7 @@ An important requirement is the need to add first and second attributes to the i
 
 |                | Description                                                                                                                                     | Type                      | Default        | Required |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|----------------|----------|
-| `variant`      | The variant of button: `primary-dark`, `primary-light`,`secondary-dark`, `secondary-light`, `link`, `add-on`.                                   | `string`                  | `primary-dark` | No       |
+| `variant`      | The variant of button: `primary`,`secondary`, `link`, `add-on`.                                   | `string`                  | `primary` | No       |
 | `size`         | The size of the button                                                                                                                          | `ButtonSize` (`sm`, `md`) | `md`           | No       |
 | `fullWidth`    | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | `boolean`                 | `false`        | No       |
 | `disabled`     | Programmatically disable the button via this property                                                                                           | `boolean`                 | `false`        | No       |
@@ -191,7 +167,7 @@ A button can be used specifically as a toggle, for example when opening and clos
 *This feature should only be used as part of a pattern. E.g. toggling the visibility of a filter panel.*
 
 ```html
-<button lg-button lgButtonToggle type="button" variant="primary-dark">Button</button>
+<button lg-button lgButtonToggle type="button" variant="primary">Button</button>
 ```
 
 then in the wrapper component set the `id` and `ariaControls` of the toggle and use the `toggleActive` output of the directive to set the panel state:

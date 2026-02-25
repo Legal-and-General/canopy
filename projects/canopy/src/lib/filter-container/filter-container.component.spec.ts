@@ -34,7 +34,7 @@ describe('LgFilterContainerComponent', () => {
 
     fixture = MockRender(`
       <lg-filter-container>
-        <button id="test" lg-button variant="secondary-dark" lgButtonToggle>Filters</button>
+        <button id="test" lg-button variant="secondary" lgButtonToggle>Filters</button>
         <lg-filter-container-panel></lg-filter-container-panel>
       </lg-filter-container>
     `);
