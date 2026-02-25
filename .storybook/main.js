@@ -23,7 +23,6 @@ export default {
     // Components
     '../projects/canopy/src/lib/accordion/docs/guide.mdx',
     '../projects/canopy/src/lib/accordion/docs/accordion.stories.ts',
-    '../projects/canopy/src/lib/carousel/docs/carousel.stories.ts',
     '../projects/canopy/src/lib/alert/docs/guide.mdx',
     '../projects/canopy/src/lib/alert/docs/alert.stories.ts',
     '../projects/canopy/src/lib/banner/docs/guide.mdx',
