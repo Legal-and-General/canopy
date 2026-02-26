@@ -326,80 +326,71 @@ $breakpoints: (
   }
 
   .lg-btn--primary {
-    background-color: var(--interactive-primary-rest-background-colour) !important;
-    border: var(--interactive-border-width) solid
-      var(--interactive-primary-rest-border-colour) !important;
-    color: var(--interactive-primary-rest-colour) !important;
-    border-radius: var(--interactive-border-radius-default);
+    background-color: var(--button-primary-rest-background-colour) !important;
+    border: var(--button-border-width) solid var(--button-primary-rest-border-colour) !important;
+    color: var(--button-primary-rest-colour) !important;
+    border-radius: var(--button-border-radius);
 
     &:hover {
-      border: var(--interactive-border-width) solid
-        var(--interactive-primary-hover-border-colour) !important;
-      color: var(--interactive-primary-hover-colour) !important;
-      background-color: var(--interactive-primary-hover-background-colour) !important;
+      border: var(--button-border-width) solid var(--button-primary-hover-border-colour) !important;
+      color: var(--button-primary-hover-colour) !important;
+      background-color: var(--button-primary-hover-background-colour) !important;
     }
 
     &:active {
-      border: var(--interactive-border-width) solid
-        var(--interactive-primary-active-border-colour) !important;
-      background: var(--interactive-primary-active-background-colour) !important;
-      color: var(--interactive-primary-active-colour) !important;
+      border: var(--button-border-width) solid var(--button-primary-active-border-colour) !important;
+      background: var(--button-primary-active-background-colour) !important;
+      color: var(--button-primary-active-colour) !important;
     }
 
     &:focus-visible {
-      border: var(--interactive-border-width-focus) solid
-        var(--interactive-primary-focus-colour) !important;
-      background: var(--interactive-primary-focus-background-colour) !important;
-      box-shadow: 0 0 0 var(--interactive-border-width)
-        var(--interactive-primary-focus-background-colour) !important;
-      color: var(--interactive-primary-focus-colour) !important;
+      border: var(--button-border-width-focus) solid var(--button-primary-focus-colour) !important;
+      background: var(--button-primary-focus-background-colour) !important;
+      box-shadow: 0 0 0 var(--button-border-width)
+        var(--button-primary-focus-background-colour) !important;
+      color: var(--button-primary-focus-colour) !important;
     }
 
     &:disabled {
-      border: var(--interactive-border-width) solid
-        var(--interactive-primary-disabled-border-colour) !important;
-      background: var(--interactive-primary-disabled-background-colour) !important;
-      color: var(--interactive-primary-disabled-colour) !important;
+      border: var(--button-border-width) solid
+        var(--button-primary-disabled-border-colour) !important;
+      background: var(--button-primary-disabled-background-colour) !important;
+      color: var(--button-primary-disabled-colour) !important;
     }
   }
 
   .lg-btn--secondary {
-    border-radius: var(--interactive-border-radius-default) !important;
-    border: var(--interactive-border-width) solid
-      var(--interactive-secondary-rest-border-colour) !important;
-    color: var(--interactive-secondary-rest-colour) !important;
-    background-color: var(--interactive-secondary-rest-background-colour) !important;
+    border-radius: var(--button-border-radius) !important;
+    border: var(--button-border-width) solid var(--button-secondary-rest-border-colour) !important;
+    color: var(--button-secondary-rest-colour) !important;
+    background-color: var(--button-secondary-rest-background-colour) !important;
 
     &:hover {
-      border: var(--interactive-border-width) solid
-        var(--interactive-secondary-hover-border-colour) !important;
-      background: var(--interactive-secondary-hover-background-colour) !important;
-      color: var(--interactive-secondary-hover-colour) !important;
+      border: var(--button-border-width) solid var(--button-secondary-hover-border-colour) !important;
+      background: var(--button-secondary-hover-background-colour) !important;
+      color: var(--button-secondary-hover-colour) !important;
     }
 
     &:active {
-      border: var(--interactive-border-width) solid
-        var(--interactive-secondary-active-border-colour) !important;
-      background: var(--interactive-secondary-active-background-colour) !important;
-      color: var(--interactive-secondary-active-colour) !important;
+      border: var(--button-border-width) solid
+        var(--button-secondary-active-border-colour) !important;
+      background: var(--button-secondary-active-background-colour) !important;
+      color: var(--button-secondary-active-colour) !important;
     }
 
     &:focus-visible {
-      background-color: var(--interactive-secondary-focus-background-colour) !important;
-      color: var(--interactive-secondary-focus-colour) !important;
-      border: var(--interactive-border-width-focus) solid
-        var(--interactive-secondary-focus-border-colour) !important;
-      box-shadow: 0 0 0 var(--space-1)
-        var(--interactive-secondary-focus-background-colour) !important;
+      background-color: var(--button-secondary-focus-background-colour) !important;
+      color: var(--button-secondary-focus-colour) !important;
+      border: var(--button-border-width-focus) solid
+        var(--button-secondary-focus-border-colour) !important;
+      box-shadow: 0 0 0 var(--space-1) var(--button-secondary-focus-background-colour) !important;
     }
 
     &:disabled {
-      color: var(--interactive-secondary-disabled-colour) !important;
-      border: var(--interactive-border-width) solid
-        var(--interactive-secondary-disabled-border-colour) !important;
-      background-color: var(
-        --interactive-secondary-disabled-background-colour
-      ) !important;
+      color: var(--button-secondary-disabled-colour) !important;
+      border: var(--button-border-width) solid
+        var(--button-secondary-disabled-border-colour) !important;
+      background-color: var(--button-secondary-disabled-background-colour) !important;
     }
   }
 }
