@@ -15,7 +15,7 @@ import type { IconName } from '../icon/ui-icons-files.interface';
 import { LgMarginDirective } from '../spacing';
 import { LgSpinnerComponent } from '../spinner';
 
-import type { ButtonSize, ButtonVariant } from './button.interface';
+import type { ButtonPriority } from './button.interface';
 
 @Component({
   selector: '[lg-button]',
@@ -32,9 +32,9 @@ export class LgButtonComponent implements OnInit {
 
   @HostBinding('class.lg-btn') class = true;
 
-  _variant: ButtonVariant;
+  _variant: ButtonPriority;
   @Input()
-  set variant(variant: ButtonVariant) {
+  set variant(variant: ButtonPriority) {
     if (this._variant) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
@@ -45,7 +45,7 @@ export class LgButtonComponent implements OnInit {
     this.renderer.addClass(this.hostElement.nativeElement, `lg-btn--${variant}`);
     this._variant = variant;
   }
-  get variant(): ButtonVariant {
+  get variant(): ButtonPriority {
     return this._variant;
   }
 
@@ -97,14 +97,8 @@ export class LgButtonComponent implements OnInit {
     return this.iconButton;
   }
 
-  @Input() size: ButtonSize;
-  @HostBinding('class.lg-btn--sm') get sizeClass(): boolean {
-    return this.size === 'sm';
-  }
-
   constructor() {
     this.variant = 'primary';
-    this.size = 'md';
   }
 
   ngOnInit(): void {

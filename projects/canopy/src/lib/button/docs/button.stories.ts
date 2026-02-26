@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { IconName, LgIconComponent } from '../../icon';
-import { ButtonSize, ButtonVariant, LgButtonComponent } from '../index';
+import { ButtonPriority, LgButtonComponent } from '../index';
 // Direct import required for Webpack compatibility - do not use barrel file
 import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
-const buttonVariants = [ 'primary', 'secondary', 'link', 'add-on' ];
+const buttonVariants = [ 'primary', 'secondary', 'link' ];
 
 @Component({
   selector: 'lg-button-component-example',
@@ -20,7 +20,6 @@ const buttonVariants = [ 'primary', 'secondary', 'link', 'add-on' ];
       [leftIcon]="leftIcon"
       [rightIcon]="rightIcon"
       [loading]="loading"
-      [size]="size"
       [variant]="variant"
     >
       {{ content }}
@@ -36,7 +35,6 @@ const buttonVariants = [ 'primary', 'secondary', 'link', 'add-on' ];
         [leftIcon]="leftIcon"
         [rightIcon]="rightIcon"
         [loading]="loading"
-        [size]="size"
         [variant]="variant"
       >
         {{ content }}
@@ -52,8 +50,7 @@ class ButtonComponentExampleComponent {
   @Input() rightIcon: IconName | null;
   @Input() iconButton: boolean;
   @Input() loading: boolean;
-  @Input() size: ButtonSize;
-  @Input() variant: ButtonVariant;
+  @Input() variant: ButtonPriority;
   @Input() content: string;
 }
 
@@ -71,7 +68,7 @@ export default {
       table: {
         defaultValue: 'primary',
         type: {
-          summary: 'ButtonVariant',
+          summary: 'ButtonPriority',
         },
       },
       control: {
@@ -122,7 +119,6 @@ const defaultArgValues = {
   loading: false,
   leftIcon: false,
   rightIcon: null,
-  size: 'md',
 };
 
 const buttonTemplate = `
@@ -133,7 +129,6 @@ const buttonTemplate = `
     [leftIcon]="leftIcon"
     [rightIcon]="rightIcon"
     [loading]="loading"
-    [size]="size"
     [variant]="variant"
     [content]="content">
   </lg-button-component-example>
@@ -225,7 +220,6 @@ function setBackground(variant: string) {
     primary: 'light',
     secondary: 'light',
     link: 'light',
-    'add-on': 'light',
   };
 
   return bgs[variant];

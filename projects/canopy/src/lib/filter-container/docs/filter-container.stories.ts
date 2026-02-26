@@ -2,7 +2,7 @@ import { Directive, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import {
-  ButtonVariant,
+  ButtonPriority,
   LgButtonComponent,
   LgButtonGroupComponent,
   LgButtonToggleDirective,
@@ -18,7 +18,7 @@ import { LgIconComponent } from '../../icon';
   standalone: true,
 })
 class StoryToggleDirective {
-  @Input() variant: ButtonVariant;
+  @Input() variant: ButtonPriority;
 }
 
 const buttonVariants = [ 'primary', 'secondary' ];
@@ -48,7 +48,7 @@ export default {
       table: {
         defaultValue: 'primary',
         type: {
-          summary: 'ButtonVariant',
+          summary: 'ButtonPriority',
         },
       },
       control: {

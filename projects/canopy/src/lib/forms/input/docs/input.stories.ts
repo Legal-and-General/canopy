@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
 
-import { ButtonVariant, LgButtonComponent } from '../../../button';
+import { ButtonPriority, LgButtonComponent } from '../../../button';
 import { LgInputFieldComponent } from '../input-field.component';
 import { LgPrefixDirective } from '../../../prefix';
 import { LgInputDirective } from '../input.directive';
@@ -164,8 +164,8 @@ class ReactiveFormComponent {
   }
 
   @Input() block: boolean;
-  @Input() buttonText: ButtonVariant;
-  @Input() buttonVariant: ButtonVariant;
+  @Input() buttonText: ButtonPriority;
+  @Input() buttonVariant: ButtonPriority;
   @Input() hint: string;
   @Input() icon: string;
   @Input() iconButton: boolean;
