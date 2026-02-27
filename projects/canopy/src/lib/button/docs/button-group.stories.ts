@@ -22,12 +22,12 @@ const template = `
 <lg-button-group>
   <button
     lg-button
-    variant="primary"
+    priority="primary"
   >Button</button>
   <a
     lg-button
     href="#"
-    variant="secondary"
+    priority="secondary"
   >Link</a>
 </lg-button-group>
 `;

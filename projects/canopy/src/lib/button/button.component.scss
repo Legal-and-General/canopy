@@ -24,18 +24,11 @@
   border-radius: var(--button-border-radius);
   border: var(--button-border-width) solid var(--button-primary-rest-border-colour);
   background: var(--button-primary-rest-background-colour);
-
-  // OLD STYLES - CHECK
   width: 100%;
   cursor: pointer;
   text-align: center;
   margin-bottom: var(--component-margin);
   text-decoration: none;
-
-  // &:focus-visible,
-  // &:focus-visible:hover {
-  //   @include mixins.lg-focus-outline;
-  // }
 
   &:not(&--loading):disabled {
     background-color: var(--button-primary-disabled-background-colour);
@@ -55,20 +48,14 @@
     inset: 0;
   }
 
-  // &--sm {
-  //   padding: var(--btn-vertical-padding--sm) var(--btn-horizontal-padding--sm);
-  // }
-
-  // &--sm#{&}--icon-only {
-  //   padding: var(--btn-icon-only-padding--sm);
-  // }
-
   &--loading {
     cursor: not-allowed;
   }
 
   .lg-icon {
     margin-left: var(--button-gap);
+    height: var(--space-4);
+    width: var(--space-4);
   }
 
   &--icon-left {
@@ -116,16 +103,6 @@
 }
 
 .lg-btn--link {
-  // border: 0;
-  // background-color: transparent;
-  // cursor: pointer;
-  // min-width: initial;
-  // border-radius: 0;
-  // width: initial;
-  // font-weight: var(--font-weight-400);
-  // text-align: start;
-
-  // Can this be done better?
   border: none;
   background: none;
   min-height: 0;
