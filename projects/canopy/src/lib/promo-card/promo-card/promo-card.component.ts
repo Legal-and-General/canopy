@@ -1,10 +1,12 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   HostBinding,
   Input,
   Renderer2,
   ViewEncapsulation,
+  ViewChild,
   inject,
 } from '@angular/core';
 
@@ -17,11 +19,12 @@ import type { PromoCardVariant } from '../promo-card.interface';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
 })
-export class LgPromoCardComponent {
+export class LgPromoCardComponent implements AfterViewInit {
   private renderer = inject(Renderer2);
   private _variant: PromoCardVariant;
 
   hostElement = inject(ElementRef);
+  @ViewChild('contentInner', { read: ElementRef }) contentInner: ElementRef;
 
   @HostBinding('class.lg-promo-card') class = true;
 
@@ -32,10 +35,18 @@ export class LgPromoCardComponent {
         this.hostElement.nativeElement,
         `lg-promo-card--${this.variant}`,
       );
+
+      if (this._variant === 'solid-green' && this.contentInner) {
+        this.renderer.removeClass(this.contentInner.nativeElement, 'lg-mode-green');
+        this.renderer.removeClass(this.contentInner.nativeElement, 'lg-theme-bold');
+      }
     }
 
     this.renderer.addClass(this.hostElement.nativeElement, `lg-promo-card--${variant}`);
     this._variant = variant;
+
+    // Apply green classes if view has been initialized
+    this.applyGreenClasses();
   }
   get variant() {
     return this._variant;
@@ -43,5 +54,17 @@ export class LgPromoCardComponent {
 
   constructor() {
     this.variant = 'solid-white';
+  }
+
+  ngAfterViewInit() {
+    // Apply green classes after view initialization
+    this.applyGreenClasses();
+  }
+
+  private applyGreenClasses() {
+    if (this._variant === 'solid-green' && this.contentInner) {
+      this.renderer.addClass(this.contentInner.nativeElement, 'lg-mode-green');
+      this.renderer.addClass(this.contentInner.nativeElement, 'lg-theme-bold');
+    }
   }
 }

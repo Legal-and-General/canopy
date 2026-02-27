@@ -91,6 +91,7 @@ class PromoCardListStoryComponent {
   buttonVariants: { [key: string]: ButtonPriority } = {
     'solid-white': 'primary',
     'solid-yellow': 'secondary',
+    'solid-green': 'primary',
   };
 }
 
