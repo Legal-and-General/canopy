@@ -162,7 +162,7 @@
                       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                       voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     </p>
-                    <button lg-button lgMarginTop="4" variant="primary">
+                    <button lg-button lgMarginTop="4" priority="primary">
                       Test primary dark button
                     </button>
                   </lg-accordion-item>
@@ -220,7 +220,7 @@
                 </button>
                 <br />
 
-                <button lg-button priority="secondary" iconPosition="left">
+                <button lg-button priority="secondary" [leftIcon]="true">
                   Button with left aligned icon
                   <lg-icon name="arrow-down" />
                 </button>
@@ -244,18 +244,18 @@
 
                 <div>
                   <div class="light-buttons-container" lgPadding="5" lgMarginBottom="6">
-                    <button lg-button priority="primary-light" lgMarginRight="4">
+                    <button lg-button priority="primary" lgMarginRight="4">
                       Primary Light
                     </button>
-                    <button lg-button priority="secondary-light">
+                    <button lg-button priority="secondary">
                       Secondary Light
                     </button>
                   </div>
                   <div class="light-buttons-container" lgPadding="4">
-                    <button lg-button priority="primary-light" lgMarginRight="4">
+                    <button lg-button priority="primary" lgMarginRight="4">
                       Primary Light
                     </button>
-                    <button lg-button priority="secondary-light">
+                    <button lg-button priority="secondary">
                       Secondary Light
                     </button>
                   </div>
@@ -267,12 +267,12 @@
                 <lg-button-group>
                   <button
                     lg-button
-                    variant="primary"
+                    priority="primary"
                   >Button</button>
                   <a
                     lg-button
                     href="#"
-                    variant="secondary"
+                    priority="secondary"
                   >Link</a>
                 </lg-button-group>
 
@@ -281,7 +281,7 @@
                   <button
                     type="button"
                     lg-button
-                    variant="primary"
+                    priority="primary"
                   >I think you got the wrong car, McFly.</button>
                 </lg-button-group>
 
@@ -290,12 +290,12 @@
                   <button
                     type="button"
                     lg-button
-                    variant="primary"
+                    priority="primary"
                   >Doc, I'm from the future. I came here in a time machine that you invented.</button>
                   <button
                     type="button"
                     lg-button
-                    variant="secondary"
+                    priority="secondary"
                   >Now, I need your help to get back to the year 1985.</button>
                 </lg-button-group>
 
@@ -304,17 +304,17 @@
                   <button
                     type="button"
                     lg-button
-                    variant="primary"
+                    priority="primary"
                   >Marty, don't be such a square. Everybody who's anybody drinks.</button>
                   <button
                     type="button"
                     lg-button
-                    variant="secondary"
+                    priority="secondary"
                   >What the hell is a gigawatt?</button>
                   <button
                     type="button"
                     lg-button
-                    variant="secondary"
+                    priority="secondary"
                   >Let him go, Biff, you're drunk.</button>
                 </lg-button-group>
 
@@ -419,11 +419,11 @@
                       <lg-button-group>
                         <button
                           lg-button
-                          variant="primary"
+                          priority="primary"
                         >Apply</button>
                         <button
                           lg-button
-                          variant="secondary"
+                          priority="secondary"
                         >Cancel</button>
                       </lg-button-group>
                     </lg-filter-container-panel-footer>
@@ -555,20 +555,20 @@
                     <input lgInput lgSortCode formControlName="sortCode" />
                   </lg-input-field>
 
-                  <button lg-button type="submit" variant="primary">Submit</button>
+                  <button lg-button type="submit" priority="primary">Submit</button>
                 </form>
 
                 <lg-separator />
                 <lg-heading level="3">Modal</lg-heading>
 
-                <button lgModalTrigger="modal" lg-button type="button" variant="secondary">Open modal</button>
+                <button lgModalTrigger="modal" lg-button type="button" priority="secondary">Open modal</button>
                 <lg-modal id="modal">
                   <lg-modal-header [headingLevel]="3">Lorem ipsum</lg-modal-header>
                   <lg-modal-body>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lg-modal-body>
                   <lg-modal-footer>
                     <lg-button-group>
-                      <button lg-button lgMarginBottom="none" variant="primary" type="button">Primary CTA</button>
-                      <button lg-button lgMarginBottom="none" variant="secondary" type="button">Cancel</button>
+                      <button lg-button lgMarginBottom="none" priority="primary" type="button">Primary CTA</button>
+                      <button lg-button lgMarginBottom="none" priority="secondary" type="button">Cancel</button>
                     </lg-button-group>
                   </lg-modal-footer>
                 </lg-modal>
@@ -654,7 +654,7 @@
                         lgMarginBottom="none"
                         lg-button
                         type="button"
-                        variant="secondary-light">
+                        priority="secondary">
                         Start consolidating
                       </button>
                     </lg-promo-card-footer>
@@ -938,8 +938,8 @@
                             <div lgContainer>
                               <div lgRow>
                                 <div lgCol="12" lgColMd="10" lgColMdOffset="1">
-                                  <button lg-button type="button" variant="secondary" lgMarginRight="4">Back</button>
-                                  <button lg-button type="submit" variant="primary">Confirm</button>
+                                  <button lg-button type="button" priority="secondary" lgMarginRight="4">Back</button>
+                                  <button lg-button type="submit" priority="primary">Confirm</button>
                                 </div>
                               </div>
                             </div>

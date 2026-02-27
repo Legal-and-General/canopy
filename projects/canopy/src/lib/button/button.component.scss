@@ -128,7 +128,7 @@ $variants: 'primary', 'secondary', 'add-on' !default;
       border: var(--button-border-width)
         solid
         var(--button-#{$variant}-hover-border-colour);
-      background: var(--button-primary-hover-background-colour);
+      background: var(--button-#{$variant}-hover-background-colour);
       color: var(--button-#{$variant}-hover-colour);
     }
 
@@ -149,7 +149,7 @@ $variants: 'primary', 'secondary', 'add-on' !default;
         border: var(--button-border-width)
           solid
           var(--button-#{$variant}-hover-border-colour);
-        background: var(--button-primary-hover-background-colour);
+        background: var(--button-#{$variant}-hover-background-colour);
         color: var(--button-#{$variant}-hover-colour);
       }
     }

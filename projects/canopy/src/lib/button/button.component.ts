@@ -28,7 +28,7 @@ export class LgButtonComponent implements OnInit {
   private renderer = inject(Renderer2);
   private readonly hostElement = inject(ElementRef);
   private _leftIcon = false;
-  private _rightIcon: IconName | null = null;
+  private _rightIcon: IconName = null;
 
   @HostBinding('class.lg-btn') class = true;
 
@@ -81,10 +81,10 @@ export class LgButtonComponent implements OnInit {
   }
 
   @Input()
-  set rightIcon(value: IconName | null) {
+  set rightIcon(value: IconName) {
     this._rightIcon = value;
   }
-  get rightIcon(): IconName | null {
+  get rightIcon(): IconName {
     return this._rightIcon;
   }
 

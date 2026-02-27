@@ -47,7 +47,7 @@ class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
   @Input() fullWidth: boolean;
   @Input() leftIcon: boolean;
-  @Input() rightIcon: IconName | null;
+  @Input() rightIcon: IconName;
   @Input() iconButton: boolean;
   @Input() loading: boolean;
   @Input() priority: ButtonPriority;

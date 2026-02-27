@@ -108,10 +108,12 @@
     color: inherit;
   }
 
-  // &:focus-visible,
-  // &:focus-visible:hover {
-  //   @include lg-focus-outline();
-  // }
+  &:not(.lg-btn) {
+    &:focus-visible,
+    &:focus-visible:hover {
+      @include lg-focus-outline();
+    }
+  }
 }
 
 @mixin lg-font-size($size, $modifier: null, $type: null) {

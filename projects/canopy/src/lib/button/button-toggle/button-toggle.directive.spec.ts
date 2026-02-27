@@ -7,14 +7,14 @@ import { LgButtonComponent } from '../button.component';
 import { LgButtonToggleDirective } from './button-toggle.directive';
 
 @Component({
-  template: '<a lg-button lgButtonToggle variant="secondary">This is a link</a>',
+  template: '<a lg-button lgButtonToggle priority="secondary">This is a link</a>',
   imports: [ LgButtonComponent, LgButtonToggleDirective ],
 })
 class LinkTestComponent {}
 
 @Component({
   template: `
-    <button id="test" lg-button lgButtonToggle variant="secondary">
+    <button id="test" lg-button lgButtonToggle priority="secondary">
       This is a button
     </button>
   `,
