@@ -18,7 +18,7 @@ import { LgIconComponent } from '../../icon';
   standalone: true,
 })
 class StoryToggleDirective {
-  @Input() variant: ButtonPriority;
+  @Input() priority: ButtonPriority;
 }
 
 const buttonVariants = [ 'primary', 'secondary' ];
@@ -43,7 +43,7 @@ export default {
     }),
   ],
   argTypes: {
-    variant: {
+    priority: {
       options: [ ...buttonVariants ],
       table: {
         defaultValue: 'primary',
@@ -89,7 +89,7 @@ export const StandardFilterContainer = {
   render: (args: LgFilterContainerComponent) => ({
     props: args,
     template: setComponentCode(`
-      <button lg-button [variant]="variant" lgButtonToggle lgStoryToggle [rightIcon]="'chevron-down'">
+      <button lg-button [priority]="priority" lgButtonToggle lgStoryToggle [rightIcon]="'chevron-down'">
         Filters
       </button>
     `),
@@ -98,13 +98,13 @@ export const StandardFilterContainer = {
     await userEvent.click(canvas.getByRole('button', { name: 'Filters' }));
   },
   args: {
-    variant: 'secondary',
+    priority: 'secondary',
   },
   parameters: {
     docs: {
       source: {
         code: setComponentCode(`
-          <button lg-button [variant]="variant" lgButtonToggle [rightIcon]="'chevron-down'">
+          <button lg-button [priority]="priority" lgButtonToggle [rightIcon]="'chevron-down'">
             Filters
           </button>
         `),

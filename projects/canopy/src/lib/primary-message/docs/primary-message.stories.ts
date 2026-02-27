@@ -21,7 +21,7 @@ import { LgMarginDirective } from '../../spacing';
         <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
       </lg-primary-message-description>
       <lg-primary-message-description>
-        <button lg-button variant="primary" lgMarginTop="4" type="button">
+        <button lg-button priority="primary" lgMarginTop="4" type="button">
           Call to action
         </button>
       </lg-primary-message-description>
@@ -84,7 +84,7 @@ const exampleTemplate = `
     <a href="#">eiusmod tempor</a> incididunt ut labore et dolore magna aliqua.
   </lg-primary-message-description>
   <lg-primary-message-description>
-    <button lg-button variant="primary" lgMarginTop="4" type="button">
+    <button lg-button priority="primary" lgMarginTop="4" type="button">
       Call to action
     </button>
   </lg-primary-message-description>

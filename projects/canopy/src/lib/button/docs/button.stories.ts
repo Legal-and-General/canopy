@@ -20,11 +20,11 @@ const buttonVariants = [ 'primary', 'secondary', 'link' ];
       [leftIcon]="leftIcon"
       [rightIcon]="rightIcon"
       [loading]="loading"
-      [variant]="variant"
+      [priority]="priority"
     >
       {{ content }}
     </button>
-    @if (variant !== 'link') {
+    @if (priority !== 'link') {
       <p>Used on a <strong>link</strong> element</p>
       <a
         lg-button
@@ -35,7 +35,7 @@ const buttonVariants = [ 'primary', 'secondary', 'link' ];
         [leftIcon]="leftIcon"
         [rightIcon]="rightIcon"
         [loading]="loading"
-        [variant]="variant"
+        [priority]="priority"
       >
         {{ content }}
       </a>
@@ -50,7 +50,7 @@ class ButtonComponentExampleComponent {
   @Input() rightIcon: IconName | null;
   @Input() iconButton: boolean;
   @Input() loading: boolean;
-  @Input() variant: ButtonPriority;
+  @Input() priority: ButtonPriority;
   @Input() content: string;
 }
 
@@ -63,20 +63,32 @@ export default {
     }),
   ],
   argTypes: {
-    variant: {
-      options: [ ...buttonVariants ],
-      table: {
-        defaultValue: 'primary',
-        type: {
-          summary: 'ButtonPriority',
-        },
-      },
-      control: {
-        type: 'select',
-      },
-    },
     content: {
       description: 'Text content within the button',
+    },
+    disabled: {
+      description: 'Programmatically disable the button',
+      control: {
+        type: 'boolean',
+      },
+    },
+    fullWidth: {
+      description: 'If the button has to span full width',
+      control: {
+        type: 'boolean',
+      },
+    },
+    iconButton: {
+      description: 'The button displays an icon only',
+      control: {
+        type: 'boolean',
+      },
+    },
+    loading: {
+      description: 'If the button shows a loading spinner',
+      control: {
+        type: 'boolean',
+      },
     },
     leftIcon: {
       description: 'Display arrow-left icon on the left side of the button',
@@ -96,7 +108,20 @@ export default {
         type: 'select',
       },
     },
-    _variant: {
+    priority: {
+      description: 'The priority level of the button',
+      options: [ ...buttonVariants ],
+      table: {
+        defaultValue: 'primary',
+        type: {
+          summary: 'ButtonPriority',
+        },
+      },
+      control: {
+        type: 'select',
+      },
+    },
+    _priority: {
       table: { disable: true },
     },
     class: {
@@ -106,6 +131,27 @@ export default {
       table: { disable: true },
     },
     ngOnInit: {
+      table: { disable: true },
+    },
+    leftIconClass: {
+      table: { disable: true },
+    },
+    rightIconClass: {
+      table: { disable: true },
+    },
+    hasIcon: {
+      table: { disable: true },
+    },
+    disabledAttr: {
+      table: { disable: true },
+    },
+    loadingClass: {
+      table: { disable: true },
+    },
+    fullWidthClass: {
+      table: { disable: true },
+    },
+    iconButtonClass: {
       table: { disable: true },
     },
   },
@@ -129,7 +175,7 @@ const buttonTemplate = `
     [leftIcon]="leftIcon"
     [rightIcon]="rightIcon"
     [loading]="loading"
-    [variant]="variant"
+    [priority]="priority"
     [content]="content">
   </lg-button-component-example>
 `;
@@ -142,7 +188,7 @@ export const Primary = {
   }),
   args: {
     ...defaultArgValues,
-    variant: 'primary',
+    priority: 'primary',
   },
   globals: {
     backgrounds: { value: setBackground('primary') },
@@ -157,7 +203,7 @@ export const Secondary = {
   }),
   args: {
     ...defaultArgValues,
-    variant: 'secondary',
+    priority: 'secondary',
   },
   globals: {
     backgrounds: { value: setBackground('secondary') },
@@ -172,7 +218,7 @@ export const TextWithRightIcon = {
   }),
   args: {
     ...defaultArgValues,
-    variant: 'primary',
+    priority: 'primary',
     rightIcon: 'chevron-right',
   },
   globals: {
@@ -188,7 +234,7 @@ export const TextWithLeftIcon = {
   }),
   args: {
     ...defaultArgValues,
-    variant: 'primary',
+    priority: 'primary',
     content: 'Back',
     leftIcon: true,
   },
@@ -205,7 +251,7 @@ export const IconOnly = {
   }),
   args: {
     ...defaultArgValues,
-    variant: 'primary',
+    priority: 'primary',
     iconButton: true,
     content: '',
     rightIcon: 'add',
@@ -233,7 +279,7 @@ export const Link = {
   }),
   args: {
     ...defaultArgValues,
-    variant: 'link',
+    priority: 'link',
   },
   globals: {
     backgrounds: { value: setBackground('link') },

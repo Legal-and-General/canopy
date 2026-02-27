@@ -62,7 +62,7 @@ const cardListConfig = {
               lgMarginBottom="none"
               lg-button
               type="button"
-              [variant]="buttonVariants[variants[i]]"
+              [priority]="buttonVariants[variants[i]]"
             >
               {{ card.ctaText }}
             </button>
@@ -177,7 +177,7 @@ const examplePromoCardTemplate = `
           lgMarginBottom="none"
           lg-button
           type="button"
-          [variant]="buttonVariants[variants[i]]">
+          [priority]="buttonVariants[variants[i]]">
           {{ card.ctaText }}
         </button>
       </lg-promo-card-footer>

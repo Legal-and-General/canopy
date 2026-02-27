@@ -30,11 +30,11 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
           }
           applied. Here is some <a href="#">link text</a>.
         </p>
-        <button lg-button variant="primary">Primary button</button>
+        <button lg-button priority="primary">Primary button</button>
         <br />
-        <button lg-button variant="secondary">Secondary button</button>
+        <button lg-button priority="secondary">Secondary button</button>
         <br />
-        <a href="#" lg-button variant="secondary" lgMarginBottom="none">
+        <a href="#" lg-button priority="secondary" lgMarginBottom="none">
           Secondary link styled as button
         </a>
       </lg-card-content>
@@ -104,8 +104,8 @@ const exampleTemplate = `
       This card has the <strong>blue</strong> colour applied. Here is some
       <a href="#">link text</a>.
     </p>
-    <button lg-button variant="primary" lgMarginBottom="none">Primary button</button>
-    <button lg-button variant="secondary">Secondary button</button>
+    <button lg-button priority="primary" lgMarginBottom="none">Primary button</button>
+    <button lg-button priority="secondary">Secondary button</button>
   </lg-card-content>
 </lg-card>
 `;

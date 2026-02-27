@@ -106,7 +106,7 @@ const inputTemplate = `
       lgSuffix
       size="sm"
       [iconButton]="true"
-      variant="add-on"
+      priority="add-on"
     >
       Close
       <lg-icon name="close"></lg-icon>
@@ -118,7 +118,7 @@ const inputTemplate = `
       lgSuffix
       size="sm"
       [iconButton]="iconButton"
-      [variant]="buttonVariant"
+      [priority]="buttonVariant"
     >
       {{ buttonText }}
       @if (iconButton) {

@@ -10,11 +10,13 @@
   display: inline-block;
   width: var(--spinner-diameter);
   height: var(--spinner-diameter);
+  border: solid var(--spinner-border-width);
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: var(--spinner-dark-color);
+  border-bottom-color: var(--spinner-dark-color);
   animation: spin var(--spinner-rotation-speed) infinite linear;
-
-  path {
-    fill: var(--spinner-dark-color);
-  }
 
   .lg-spinner--sm & {
     width: var(--spinner-diameter--sm);
@@ -28,21 +30,20 @@
 }
 
 .lg-spinner__ring--color {
-  path {
-    fill: var(--spinner-ring-top-color);
-  }
+  border-top-color: var(--spinner-ring-top-color);
+  border-bottom-color: var(--spinner-ring-bottom-color);
+  border-left-color: var(--spinner-ring-left-color);
+  border-right-color: var(--spinner-ring-right-color);
 }
 
 .lg-spinner__ring--light {
-  path {
-    fill: var(--spinner-light-color);
-  }
+  border-top-color: var(--spinner-light-color);
+  border-bottom-color: var(--spinner-light-color);
 }
 
 .lg-spinner__ring--inherit {
-  path {
-    fill: currentColor;
-  }
+  border-top-color: inherit;
+  border-bottom-color: inherit;
 }
 
 .lg-spinner__content {

@@ -32,21 +32,21 @@ export class LgButtonComponent implements OnInit {
 
   @HostBinding('class.lg-btn') class = true;
 
-  _variant: ButtonPriority;
+  _priority: ButtonPriority;
   @Input()
-  set variant(variant: ButtonPriority) {
-    if (this._variant) {
+  set priority(priority: ButtonPriority) {
+    if (this._priority) {
       this.renderer.removeClass(
         this.hostElement.nativeElement,
-        `lg-btn--${this.variant}`,
+        `lg-btn--${this.priority}`,
       );
     }
 
-    this.renderer.addClass(this.hostElement.nativeElement, `lg-btn--${variant}`);
-    this._variant = variant;
+    this.renderer.addClass(this.hostElement.nativeElement, `lg-btn--${priority}`);
+    this._priority = priority;
   }
-  get variant(): ButtonPriority {
-    return this._variant;
+  get priority(): ButtonPriority {
+    return this._priority;
   }
 
   @Input() loading = false;
@@ -98,7 +98,7 @@ export class LgButtonComponent implements OnInit {
   }
 
   constructor() {
-    this.variant = 'primary';
+    this.priority = 'primary';
   }
 
   ngOnInit(): void {

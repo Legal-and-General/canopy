@@ -40,7 +40,7 @@ describe('LgButtonComponent', () => {
 
     describe('when specified', () => {
       it('should set the correct class modifier', () => {
-        component.variant = 'secondary';
+        component.priority = 'secondary';
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
