@@ -6,10 +6,9 @@
 
   transition: background-color var(--animation-duration) var(--animation-fn);
   display: flex;
-  min-width: var(--button-content-labelled-min-width);
-  min-height: var(--button-content-labelled-min-height);
-  padding: var(--button-content-labelled-padding-y)
-    var(--button-content-labelled-padding-x);
+  min-width: var(--button-common-labelled-min-width);
+  min-height: var(--button-common-labelled-min-height);
+  padding: var(--button-common-labelled-padding-y) var(--button-common-labelled-padding-x);
   justify-content: center;
   align-items: center;
   position: relative;
