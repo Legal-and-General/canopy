@@ -23,28 +23,28 @@
 }
 // Additional high-specificity rules to ensure status tokens override colour mode and button defaults
 // These are defined outside .lg-alert to come later in CSS cascade
-[class*='lg-status-'].lg-alert .lg-btn--primary-dark,
-[class*='lg-status-'].lg-alert .lg-btn--primary-dark:visited,
-[class*='lg-status-'].lg-alert .lg-btn--primary-dark:link {
+[class*='lg-status-'].lg-alert .lg-btn--primary,
+[class*='lg-status-'].lg-alert .lg-btn--primary:visited,
+[class*='lg-status-'].lg-alert .lg-btn--primary:link {
   background-color: var(--interactive-status-rest-background-colour) !important;
   border-color: var(--interactive-status-rest-border-colour) !important;
   color: var(--interactive-status-rest-colour) !important;
 }
 
-[class*='lg-status-'].lg-alert .lg-btn--primary-dark:not(:disabled):hover {
+[class*='lg-status-'].lg-alert .lg-btn--primary:not(:disabled):hover {
   background-color: var(--interactive-status-hover-background-colour) !important;
   border-color: var(--interactive-status-hover-border-colour) !important;
   color: var(--interactive-status-hover-colour) !important;
 }
 
-[class*='lg-status-'].lg-alert .lg-btn--primary-dark:not(:disabled):active,
-[class*='lg-status-'].lg-alert .lg-btn--primary-dark:not(:disabled):active:hover {
+[class*='lg-status-'].lg-alert .lg-btn--primary:not(:disabled):active,
+[class*='lg-status-'].lg-alert .lg-btn--primary:not(:disabled):active:hover {
   background-color: var(--interactive-status-active-background-colour) !important;
   border-color: var(--interactive-status-active-border-colour) !important;
   color: var(--interactive-status-active-colour) !important;
 }
 
-[class*='lg-status-'].lg-alert .lg-btn--primary-dark:focus-visible {
+[class*='lg-status-'].lg-alert .lg-btn--primary:focus-visible {
   background-color: var(--interactive-status-focus-background-colour) !important;
   border-color: var(--interactive-status-focus-colour) !important;
   color: var(--interactive-status-focus-colour) !important;
@@ -77,28 +77,28 @@
   outline-color: var(--interactive-text-status-subtle-focus) !important;
 }
 
-[class*='lg-status-'].lg-alert .lg-btn--secondary-dark,
-[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:visited,
-[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:link {
+[class*='lg-status-'].lg-alert .lg-btn--secondary,
+[class*='lg-status-'].lg-alert .lg-btn--secondary:visited,
+[class*='lg-status-'].lg-alert .lg-btn--secondary:link {
   background-color: var(--interactive-status-rest-background-colour) !important;
   border-color: var(--interactive-status-rest-border-colour) !important;
   color: var(--interactive-status-rest-colour) !important;
 }
 
-[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:not(:disabled):hover {
+[class*='lg-status-'].lg-alert .lg-btn--secondary:not(:disabled):hover {
   background-color: var(--interactive-status-hover-background-colour) !important;
   border-color: var(--interactive-status-hover-border-colour) !important;
   color: var(--interactive-status-hover-colour) !important;
 }
 
-[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:not(:disabled):active,
-[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:not(:disabled):active:hover {
+[class*='lg-status-'].lg-alert .lg-btn--secondary:not(:disabled):active,
+[class*='lg-status-'].lg-alert .lg-btn--secondary:not(:disabled):active:hover {
   background-color: var(--interactive-status-active-background-colour) !important;
   border-color: var(--interactive-status-active-border-colour) !important;
   color: var(--interactive-status-active-colour) !important;
 }
 
-[class*='lg-status-'].lg-alert .lg-btn--secondary-dark:focus-visible {
+[class*='lg-status-'].lg-alert .lg-btn--secondary:focus-visible {
   background-color: var(--interactive-status-focus-background-colour) !important;
   border-color: var(--interactive-status-focus-colour) !important;
   color: var(--interactive-status-focus-colour) !important;
