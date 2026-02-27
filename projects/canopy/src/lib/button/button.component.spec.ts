@@ -105,7 +105,7 @@ describe('LgButtonComponent', () => {
 
   describe('icon validation', () => {
     it('should log an error and clear rightIcon when both leftIcon and rightIcon are set', () => {
-      spyOn(console, 'error');
+      jest.spyOn(console, 'error').mockImplementation();
       component.leftIcon = true;
       component.rightIcon = 'chevron-right';
       component.ngOnInit();
