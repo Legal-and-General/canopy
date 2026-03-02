@@ -92,75 +92,65 @@ export class LgPaddingDirective {
   }
 
   @Input()
-  set lgPaddingTopNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-top');
+  set lgPaddingTopNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'padding-top');
 
     this.paddingTopNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.paddingTopNoneAtClasses,
     );
   }
 
   @Input()
-  set lgPaddingRightNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-right');
+  set lgPaddingRightNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'padding-right');
 
     this.paddingRightNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.paddingRightNoneAtClasses,
     );
   }
 
   @Input()
-  set lgPaddingBottomNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-bottom');
+  set lgPaddingBottomNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(
+      breakpoint,
+      'padding-bottom',
+    );
 
     this.paddingBottomNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.paddingBottomNoneAtClasses,
     );
   }
 
   @Input()
-  set lgPaddingLeftNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding-left');
+  set lgPaddingLeftNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'padding-left');
 
     this.paddingLeftNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.paddingLeftNoneAtClasses,
     );
   }
 
   @Input()
-  set lgPaddingHorizontalNoneAt(breakpoint: Breakpoints) {
+  set lgPaddingHorizontalNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
     this.lgPaddingLeftNoneAt = breakpoint;
     this.lgPaddingRightNoneAt = breakpoint;
   }
 
   @Input()
-  set lgPaddingVerticalNoneAt(breakpoint: Breakpoints) {
+  set lgPaddingVerticalNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
     this.lgPaddingTopNoneAt = breakpoint;
     this.lgPaddingBottomNoneAt = breakpoint;
   }
 
   @Input()
-  set lgPaddingNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'padding');
+  set lgPaddingNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'padding');
 
-    this.paddingNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
-      this.paddingNoneAtClasses,
-    );
+    this.paddingNoneAtClasses = this.toggleClasses(classNames, this.paddingNoneAtClasses);
   }
 
   toggleClasses(newClasses: Array<string>, oldClasses: Array<string>) {

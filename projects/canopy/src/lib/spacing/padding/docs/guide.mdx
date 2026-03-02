@@ -2,11 +2,11 @@ import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import { getDefaultSpacingVariables } from '../../../docs/foundation/spacing-utils';
 
-<Meta title="Helpers/Directives/Padding/Guide"/>
+<Meta title="Helpers/Directives/Padding/Guide" />
 
 # Padding
 
-This directive allows for custom padding to be added without the need to write additional CSS. It's useful for overriding the default padding on Canopy components, as well as general use within your app. Using this directive ensures that your padding adheres to the predefined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in ***canopy/projects/canopy/src/styles/spacing.scss***.
+This directive allows for custom padding to be added without the need to write additional CSS. It's useful for overriding the default padding on Canopy components, as well as general use within your app. Using this directive ensures that your padding adheres to the predefined spacing variables and breakpoints in Canopy. The spacing variables are also available as CSS custom properties (CSS variables) which can be viewed in **_canopy/projects/canopy/src/styles/spacing.scss_**.
 
 ## Usage
 
@@ -30,58 +30,52 @@ Pass in **Spacing variant** (see below).
 
 This is set of predefined variants as defined by the `SpacingVariant` type. These are:
 
-<pre><code className="language-text">
-{(() => {
-  const spacingVars = getDefaultSpacingVariables();
-  const variants = Object.keys(spacingVars)
-    .filter(key => key.startsWith('--space-'))
-    .map(key => key.replace('--space-', ''))
-    .sort((a, b) => {
-      // Handle 'none' specially
-      if (a === 'none') return -1;
-      if (b === 'none') return 1;
-      // Sort numbers numerically
-      return parseInt(a) - parseInt(b);
-    })
-    .map(variant => `'${variant}'`)
-    .join(', ');
+<pre>
+  <code className="language-text">
+    {(() => {
+      const spacingVars = getDefaultSpacingVariables();
+      const variants = Object.keys(spacingVars)
+        .filter((key) => key.startsWith('--space-'))
+        .map((key) => key.replace('--space-', ''))
+        .sort((a, b) => {
+          // Handle 'none' specially
+          if (a === 'none') return -1;
+          if (b === 'none') return 1;
+          // Sort numbers numerically
+          return parseInt(a) - parseInt(b);
+        })
+        .map((variant) => `'${variant}'`)
+        .join(', ');
 
-  return `'none', ${variants}`;
-})()}
-</code></pre>
+      return `'none', ${variants}`;
+    })()}
+  </code>
+</pre>
 
 ### Variant examples
 
 Apply `8` padding to the bottom
 
 ```html
-
 <lg-card lgPaddingBottom="8"></lg-card>
-
 ```
 
 Apply `4` padding to the left and right
 
 ```html
-
 <lg-card lgPaddingHorizontal="4"></lg-card>
-
 ```
 
 Apply `7` padding all round, but `9` padding to the bottom
 
 ```html
-
 <lg-card lgPadding="7" lgPaddingBottom="9"></lg-card>
-
 ```
 
 Apply `6` padding to the top and bottom
 
 ```html
-
 <lg-card lgPaddingVertical="6"></lg-card>
-
 ```
 
 ### None at breakpoint
@@ -91,26 +85,44 @@ When using responsive spacing variables, you may need to set padding to none (ze
 Apply `4` padding on all sides, but set to none at `sm` breakpoint
 
 ```html
-
 <lg-card lgPadding="4" lgPaddingNoneAt="sm"></lg-card>
-
 ```
 
 Apply `5` padding to the right, but set to none at the `md` breakpoint
 
 ```html
-
 <lg-card lgPaddingRight="5" lgPaddingRightNoneAt="md"></lg-card>
-
 ```
 
 Apply `6` padding on top and bottom, but set to none at the `lg` breakpoint
 
 ```html
-
 <lg-card lgPaddingVertical="6" lgPaddingVerticalNoneAt="lg"></lg-card>
-
 ```
+
+#### Multiple breakpoints with arrays
+
+You can also pass an **array of breakpoints** to apply none at multiple specific breakpoints:
+
+Apply `7` padding on all sides, but set to none at both `sm` and `lg` breakpoints
+
+```html
+<lg-card lgPadding="7" [lgPaddingNoneAt]="['sm', 'lg']"></lg-card>
+```
+
+Apply `5` padding to the top, but set to none at `md`, `xl`, and `xxl` breakpoints
+
+```html
+<lg-card lgPaddingTop="5" [lgPaddingTopNoneAt]="['md', 'xl', 'xxl']"></lg-card>
+```
+
+Apply `6` padding horizontally, but set to none at `sm` and `xxl` breakpoints
+
+```html
+<lg-card lgPaddingHorizontal="6" [lgPaddingHorizontalNoneAt]="['sm', 'xxl']"></lg-card>
+```
+
+**Note:** Duplicate breakpoints in the array are automatically filtered out.
 
 #### How NoneAt works with responsive spacing
 
@@ -123,6 +135,7 @@ The `NoneAt` inputs create **breakpoint-specific overrides** that only apply wit
 ```
 
 This will:
+
 - Apply `padding: var(--space-8)` which is responsive across all breakpoints
 - Override to `padding: 0` **only at the `md` breakpoint** (48rem - 63.94rem)
 - At `lg`, `xl`, and `xxl` breakpoints, `var(--space-8)` takes effect again with the appropriate values for those breakpoints
@@ -134,13 +147,29 @@ This will:
 If you were previously using the `SpacingResponsive` object syntax with `'none'`:
 
 **Before:**
+
 ```html
 <lg-card [lgPaddingRight]="{ sm: 'none', md: '4' }"></lg-card>
 ```
 
 **After:**
+
 ```html
 <lg-card lgPaddingRight="4" lgPaddingRightNoneAt="sm"></lg-card>
+```
+
+For scenarios with multiple "none" breakpoints:
+
+**Before:**
+
+```html
+<lg-card [lgPaddingRight]="{ sm: 'md', md: 'none'}"></lg-card>
+```
+
+**After:**
+
+```html
+<lg-card lgPaddingRight="5" [lgPaddingRightNoneAt]="['md', 'lg']"></lg-card>
 ```
 
 The new approach is more compatible with responsive CSS variables and provides better specificity control.
@@ -148,52 +177,53 @@ The new approach is more compatible with responsive CSS variables and provides b
 ## Inputs
 
 The current available spacing variants are:
-<pre><code className="language-text">
-{(() => {
-  const spacingVars = getDefaultSpacingVariables();
-  const variants = Object.keys(spacingVars)
-    .filter(key => key.startsWith('--space-'))
-    .map(key => key.replace('--space-', ''))
-    .sort((a, b) => {
-      // Handle 'none' specially
-      if (a === 'none') return -1;
-      if (b === 'none') return 1;
-      // Sort numbers numerically
-      return parseInt(a) - parseInt(b);
-    })
-    .map(variant => `'${variant}'`)
-    .join(', ');
 
-  return `'none', ${variants}`;
-})()}
-</code></pre>
+<pre>
+  <code className="language-text">
+    {(() => {
+      const spacingVars = getDefaultSpacingVariables();
+      const variants = Object.keys(spacingVars)
+        .filter((key) => key.startsWith('--space-'))
+        .map((key) => key.replace('--space-', ''))
+        .sort((a, b) => {
+          // Handle 'none' specially
+          if (a === 'none') return -1;
+          if (b === 'none') return 1;
+          // Sort numbers numerically
+          return parseInt(a) - parseInt(b);
+        })
+        .map((variant) => `'${variant}'`)
+        .join(', ');
+
+      return `'none', ${variants}`;
+    })()}
+  </code>
+</pre>
 
 The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 
-| Name                        | Description                                                            |                  Type                   | Default | Required |
-|-----------------------------|------------------------------------------------------------------------|:---------------------------------------:|:-------:|:--------:|
-| `lgPadding`                 | The padding variant applied to all sides                               | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingTop`              | The padding variant applied to the top                                 | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingRight`            | The padding variant applied to the right                               | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingBottom`           | The padding variant applied to the bottom                              | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingLeft`             | The padding variant applied to the left                                | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingHorizontal`       | The padding variant applied to the left and the right                  | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingVertical`         | The padding variant applied to the top and the bottom                  | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
-| `lgPaddingNoneAt`           | Set padding to none at a specific breakpoint                           |              `Breakpoints`              | `null`  |    No    |
-| `lgPaddingTopNoneAt`        | Set padding-top to none at a specific breakpoint                       |              `Breakpoints`              | `null`  |    No    |
-| `lgPaddingRightNoneAt`      | Set padding-right to none at a specific breakpoint                     |              `Breakpoints`              | `null`  |    No    |
-| `lgPaddingBottomNoneAt`     | Set padding-bottom to none at a specific breakpoint                    |              `Breakpoints`              | `null`  |    No    |
-| `lgPaddingLeftNoneAt`       | Set padding-left to none at a specific breakpoint                      |              `Breakpoints`              | `null`  |    No    |
-| `lgPaddingHorizontalNoneAt` | Set padding-left and padding-right to none at a specific breakpoint    |              `Breakpoints`              | `null`  |    No    |
-| `lgPaddingVerticalNoneAt`   | Set padding-top and padding-bottom to none at a specific breakpoint    |              `Breakpoints`              | `null`  |    No    |
+| Name                        | Description                                                          |                  Type                   | Default | Required |
+| --------------------------- | -------------------------------------------------------------------- | :-------------------------------------: | :-----: | :------: |
+| `lgPadding`                 | The padding variant applied to all sides                             | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingTop`              | The padding variant applied to the top                               | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingRight`            | The padding variant applied to the right                             | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingBottom`           | The padding variant applied to the bottom                            | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingLeft`             | The padding variant applied to the left                              | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingHorizontal`       | The padding variant applied to the left and the right                | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingVertical`         | The padding variant applied to the top and the bottom                | `SpacingVariant` \| `SpacingResponsive` | `null`  |    No    |
+| `lgPaddingNoneAt`           | Set padding to none at specific breakpoint(s)                        |  `Breakpoints` \| `Array<Breakpoints>`  | `null`  |    No    |
+| `lgPaddingTopNoneAt`        | Set padding-top to none at specific breakpoint(s)                    |  `Breakpoints` \| `Array<Breakpoints>`  | `null`  |    No    |
+| `lgPaddingRightNoneAt`      | Set padding-right to none at specific breakpoint(s)                  |  `Breakpoints` \| `Array<Breakpoints>`  | `null`  |    No    |
+| `lgPaddingBottomNoneAt`     | Set padding-bottom to none at specific breakpoint(s)                 |  `Breakpoints` \| `Array<Breakpoints>`  | `null`  |    No    |
+| `lgPaddingLeftNoneAt`       | Set padding-left to none at specific breakpoint(s)                   |  `Breakpoints` \| `Array<Breakpoints>`  | `null`  |    No    |
+| `lgPaddingHorizontalNoneAt` | Set padding-left and padding-right to none at specific breakpoint(s) |  `Breakpoints` \| `Array<Breakpoints>`  | `null`  |    No    |
+| `lgPaddingVerticalNoneAt`   | Set padding-top and padding-bottom to none at specific breakpoint(s) |  `Breakpoints` \| `Array<Breakpoints>`  | `null`  |    No    |
 
-***
+---
 
 ## Related
 
-* [Margin directive](./?path=/docs/helpers-directives-margin-guide--docs)
-* [Row gap directive](./?path=/docs/helpers-directives-row-gap-guide--docs)
+- [Margin directive](./?path=/docs/helpers-directives-margin-guide--docs)
+- [Row gap directive](./?path=/docs/helpers-directives-row-gap-guide--docs)
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>
