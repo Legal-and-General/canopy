@@ -71,11 +71,11 @@ function setComponentCode(toggleCode: string) {
       <lg-button-group>
         <button
           lg-button
-          variant="primary"
+          priority="primary"
         >Apply</button>
         <button
           lg-button
-          variant="secondary"
+          priority="secondary"
         >Cancel</button>
       </lg-button-group>
     </lg-filter-container-panel-footer>

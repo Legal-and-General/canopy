@@ -177,7 +177,7 @@ const showMoreCardTemplate = `
       </lg-card-toggable-content>
 
       <div lgMarginTop="5">
-        <button lg-button type="button" variant="link" lgButtonToggle (toggleActive)="toggleActive($event)"
+        <button lg-button type="button" priority="link" lgButtonToggle (toggleActive)="toggleActive($event)"
                 lgMarginBottom="none">
           @if (isToggleActive) {
             Show less

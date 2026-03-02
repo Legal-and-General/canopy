@@ -110,11 +110,34 @@
   @include mixins.lg-link();
 }
 
-.lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
+.lg-btn-toggle--active > .lg-icon {
   transform: rotateX(180deg);
 }
 
-$variants: 'primary', 'secondary', 'add-on' !default;
+//To do: remove with form input updates
+.lg-btn--add-on {
+  background-color: var(--btn-add-on-bg-color);
+  border: var(--btn-add-on-border-color) solid var(--border-width);
+  color: var(--btn-add-on-color);
+  border-bottom: 0;
+}
+
+.lg-input-field__suffix .lg-btn {
+  border-radius: 0;
+  padding: var(--btn-icon-only-padding--sm);
+  min-height: 0;
+  min-width: 0;
+
+  &:hover {
+    border-radius: 0 !important;
+  }
+}
+
+.lg-btn.lg-btn--icon-only {
+  padding: var(--btn-icon-only-padding--sm);
+}
+
+$variants: 'primary', 'secondary' !default;
 
 @each $variant in $variants {
   .lg-btn--#{$variant},

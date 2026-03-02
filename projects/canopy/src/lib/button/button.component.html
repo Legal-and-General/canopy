@@ -12,6 +12,8 @@
   @if (rightIcon && !leftIcon) {
     <lg-icon [name]="rightIcon" />
   }
+
+  <ng-content select="lg-icon" />
 </ng-template>
 
 @if (loading) {
