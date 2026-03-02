@@ -331,5 +331,124 @@ describe('LgMargin', () => {
         );
       });
     });
+
+    it('works with array of breakpoints', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = [ 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin--sm--none');
+      expect(el).toContain('lg-margin--lg--none');
+      expect(el).not.toContain('lg-margin--md--none');
+    });
+
+    it('works with array of breakpoints for individual sides', () => {
+      component.lgMarginTop = '6';
+      component.lgMarginTopNoneAt = [ 'md', 'xl' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin__top--6');
+      expect(el).toContain('lg-margin__top--md--none');
+      expect(el).toContain('lg-margin__top--xl--none');
+      expect(el).not.toContain('lg-margin__top--sm--none');
+    });
+
+    it('works with array of breakpoints for horizontal margin', () => {
+      component.lgMarginHorizontal = '7';
+      component.lgMarginHorizontalNoneAt = [ 'sm', 'xxl' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin__left--sm--none');
+      expect(el).toContain('lg-margin__left--xxl--none');
+      expect(el).toContain('lg-margin__right--sm--none');
+      expect(el).toContain('lg-margin__right--xxl--none');
+    });
+
+    it('works with array of breakpoints for vertical margin', () => {
+      component.lgMarginVertical = '8';
+      component.lgMarginVerticalNoneAt = [ 'md', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin__top--md--none');
+      expect(el).toContain('lg-margin__top--lg--none');
+      expect(el).toContain('lg-margin__bottom--md--none');
+      expect(el).toContain('lg-margin__bottom--lg--none');
+    });
+
+    it('filters duplicate breakpoints in arrays', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = [ 'sm', 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+      const smMatches = (el.match(/lg-margin--sm--none/g) || []).length;
+
+      expect(smMatches).toBe(1);
+      expect(el).toContain('lg-margin--lg--none');
+    });
+
+    it('handles empty array by removing all noneAt classes', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-margin--md--none',
+      );
+
+      component.lgMarginNoneAt = [];
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-margin--md--none',
+      );
+    });
+
+    it('updates classes when switching from single to array breakpoint', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-margin--md--none',
+      );
+
+      component.lgMarginNoneAt = [ 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).not.toContain('lg-margin--md--none');
+      expect(el).toContain('lg-margin--sm--none');
+      expect(el).toContain('lg-margin--lg--none');
+    });
+
+    it('updates classes when switching from array to single breakpoint', () => {
+      component.lgMargin = '5';
+      component.lgMarginNoneAt = [ 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      let el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-margin--sm--none');
+      expect(el).toContain('lg-margin--lg--none');
+
+      component.lgMarginNoneAt = 'xl';
+      fixture.detectChanges();
+
+      el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).not.toContain('lg-margin--sm--none');
+      expect(el).not.toContain('lg-margin--lg--none');
+      expect(el).toContain('lg-margin--xl--none');
+    });
   });
 });
