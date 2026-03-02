@@ -2,13 +2,13 @@ import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import { getDefaultSpacingVariables } from '../../../docs/foundation/spacing-utils';
 
-<Meta title="Helpers/Directives/Row gap/Guide"/>
+<Meta title="Helpers/Directives/Row gap/Guide" />
 
 # Row gap
 
 This directive allows you to add the `row-gap` CSS property using Canopy spacing.
 The spacing variables are also available as CSS custom properties (CSS variables)
-which can be viewed in ***canopy/projects/canopy/src/styles/spacing.scss***.
+which can be viewed in **_canopy/projects/canopy/src/styles/spacing.scss_**.
 
 This directive and accompanying CSS classes, work great with our
 [Canopy grid](./?path=/docs/helpers-directives-grid-guide--docs) but will
@@ -39,37 +39,38 @@ Use the default (`4`) row-gap.
 ## Inputs
 
 The current available spacing variants are:
-<pre><code className="language-text">
-{(() => {
-  const spacingVars = getDefaultSpacingVariables();
-  const variants = Object.keys(spacingVars)
-    .filter(key => key.startsWith('--space-'))
-    .map(key => key.replace('--space-', ''))
-    .sort((a, b) => {
-      // Handle 'none' specially
-      if (a === 'none') return -1;
-      if (b === 'none') return 1;
-      // Sort numbers numerically
-      return parseInt(a) - parseInt(b);
-    })
-    .map(variant => `'${variant}'`)
-    .join(', ');
 
-  return `'none', ${variants}`;
-})()}
-</code></pre>
+<pre>
+  <code className="language-text">
+    {(() => {
+      const spacingVars = getDefaultSpacingVariables();
+      const variants = Object.keys(spacingVars)
+        .filter((key) => key.startsWith('--space-'))
+        .map((key) => key.replace('--space-', ''))
+        .sort((a, b) => {
+          // Handle 'none' specially
+          if (a === 'none') return -1;
+          if (b === 'none') return 1;
+          // Sort numbers numerically
+          return parseInt(a) - parseInt(b);
+        })
+        .map((variant) => `'${variant}'`)
+        .join(', ');
+
+      return `'none', ${variants}`;
+    })()}
+  </code>
+</pre>
 
 | Name       | Description                                |       Type       | Default | Required |
-|------------|--------------------------------------------|:----------------:|:-------:|:--------:|
-| `lgRowGap` | The row gap variant applied to the element | `SpacingVariant` |  `4`    |   Yes    |
+| ---------- | ------------------------------------------ | :--------------: | :-----: | :------: |
+| `lgRowGap` | The row gap variant applied to the element | `SpacingVariant` |   `4`   |   Yes    |
 
-***
+---
 
 ## Related
 
-* [Margin directive](./?path=/docs/helpers-directives-margin-guide--docs)
-* [Padding directive](./?path=/docs/helpers-directives-padding-guide--docs)
+- [Margin directive](./?path=/docs/helpers-directives-margin-guide--docs)
+- [Padding directive](./?path=/docs/helpers-directives-padding-guide--docs)
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>
