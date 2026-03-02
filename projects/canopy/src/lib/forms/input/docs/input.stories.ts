@@ -104,7 +104,6 @@ const inputTemplate = `
     <button
       lg-button
       lgSuffix
-      size="sm"
       [iconButton]="true"
       priority="add-on"
     >
@@ -116,7 +115,6 @@ const inputTemplate = `
     <button
       lg-button
       lgSuffix
-      size="sm"
       [iconButton]="iconButton"
       [priority]="buttonVariant"
     >

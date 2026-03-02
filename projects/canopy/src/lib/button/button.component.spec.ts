@@ -31,7 +31,7 @@ describe('LgButtonComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn');
   });
 
-  describe('the variant input', () => {
+  describe('the priority input', () => {
     describe('when not specified', () => {
       it('should set the primary class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--primary');

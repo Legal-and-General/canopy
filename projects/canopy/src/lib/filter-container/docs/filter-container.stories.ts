@@ -89,8 +89,9 @@ export const StandardFilterContainer = {
   render: (args: LgFilterContainerComponent) => ({
     props: args,
     template: setComponentCode(`
-      <button lg-button [priority]="priority" lgButtonToggle lgStoryToggle [rightIcon]="'chevron-down'">
+      <button lg-button [priority]="priority" lgButtonToggle lgStoryToggle>
         Filters
+        <lg-icon name="chevron-down" second></lg-icon>
       </button>
     `),
   }),
@@ -104,8 +105,9 @@ export const StandardFilterContainer = {
     docs: {
       source: {
         code: setComponentCode(`
-          <button lg-button [priority]="priority" lgButtonToggle [rightIcon]="'chevron-down'">
+          <button lg-button [priority]="priority" lgButtonToggle lgStoryToggle>
             Filters
+            <lg-icon name="chevron-down" second></lg-icon>
           </button>
         `),
       },

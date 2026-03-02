@@ -29,13 +29,6 @@
   margin-bottom: var(--component-margin);
   text-decoration: none;
 
-  &:not(&--loading):disabled {
-    background-color: var(--button-primary-disabled-background-colour);
-    border: var(--button-primary-disabled-border-colour) solid var(--button-border-width);
-    color: var(--button-primary-disabled-colour);
-    cursor: not-allowed;
-  }
-
   &__hidden-content {
     display: flex;
     position: relative;
@@ -110,7 +103,7 @@
   @include mixins.lg-link();
 }
 
-.lg-btn-toggle--active > .lg-icon {
+.lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
   transform: rotateX(180deg);
 }
 
@@ -145,6 +138,15 @@ $variants: 'primary', 'secondary' !default;
     background-color: var(--button-#{$variant}-rest-background-colour);
     border: var(--button-border-width) solid var(--button-#{$variant}-rest-border-colour);
     color: var(--button-#{$variant}-rest-colour);
+
+    &:not(.lg-btn--loading):disabled {
+      background-color: var(--button-#{$variant}-disabled-background-colour);
+      border: var(--button-#{$variant}-disabled-border-colour)
+        solid
+        var(--button-border-width);
+      color: var(--button-#{$variant}-disabled-colour);
+      cursor: not-allowed;
+    }
 
     &:hover {
       border-radius: var(--button-border-radius);
