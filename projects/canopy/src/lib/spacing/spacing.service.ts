@@ -65,19 +65,33 @@ export class SpacingService {
   }
 
   /**
-   * Returns the class name for setting spacing to none (zero) at a specific breakpoint
+   * Returns the class names for setting spacing to none (zero) at specific breakpoint(s)
    * The CSS classes are statically defined in spacing.scss
    * e.g. `.lg-margin__top--md--none`
    *
-   * @param breakpoint e.g. 'md', 'lg'
+   * @param breakpoint e.g. 'md', 'lg', or ['sm', 'lg'] for multiple breakpoints
    * @param cssProperty e.g. 'padding-top' or 'margin-right'
-   * @returns the class name
+   * @returns an array of class names
    */
-  createNoneAtClass(breakpoint: Breakpoints, cssProperty: string): string {
+  createNoneAtClass(
+    breakpoint: Breakpoints | Array<Breakpoints> | null,
+    cssProperty: string,
+  ): Array<string> {
     if (!breakpoint) {
-      return '';
+      return [];
     }
 
-    return `lg-${cssProperty.replace('-', '__')}--${breakpoint}--none`;
+    // Handle both single breakpoint and array of breakpoints
+    const breakpoints = Array.isArray(breakpoint)
+      ? breakpoint
+      : [ breakpoint ];
+
+    // Filter duplicates
+    const uniqueBreakpoints = Array.from(new Set(breakpoints));
+
+    // Generate class names for each unique breakpoint
+    return uniqueBreakpoints.map(
+      bp => `lg-${cssProperty.replace('-', '__')}--${bp}--none`,
+    );
   }
 }
