@@ -103,6 +103,7 @@
     background: none;
     min-height: 0;
     min-width: 0;
+    width: initial;
 
     @include mixins.lg-link();
   }
