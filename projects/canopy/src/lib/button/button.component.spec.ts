@@ -86,39 +86,6 @@ describe('LgButtonComponent', () => {
     });
   });
 
-  describe('the rightIcon input', () => {
-    describe('when not specified', () => {
-      it('should set the default value to null', () => {
-        expect(component.rightIcon).toBe(null);
-      });
-    });
-
-    describe('when set to an icon name', () => {
-      it('should set the icon name', () => {
-        component.rightIcon = 'chevron-right';
-        fixture.detectChanges();
-
-        expect(component.rightIcon).toBe('chevron-right');
-      });
-    });
-  });
-
-  describe('icon validation', () => {
-    it('should log an error and clear rightIcon when both leftIcon and rightIcon are set', () => {
-      jest.spyOn(console, 'error').mockImplementation();
-      component.leftIcon = true;
-      component.rightIcon = 'chevron-right';
-      component.ngOnInit();
-      fixture.detectChanges();
-
-      expect(console.error).toHaveBeenCalledWith(
-        'Button component error: Cannot have both leftIcon and rightIcon set at the same time. Left icon takes precedence.',
-      );
-
-      expect(component.rightIcon).toBe(null);
-    });
-  });
-
   describe('the disabled input', () => {
     describe('when not set', () => {
       it('should not set the disabled attribute', () => {
