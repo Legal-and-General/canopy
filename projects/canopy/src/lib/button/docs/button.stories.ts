@@ -135,13 +135,10 @@ export default {
     hostElement: {
       table: { disable: true },
     },
-    ngOnInit: {
+    ngAfterViewInit: {
       table: { disable: true },
     },
     leftIconClass: {
-      table: { disable: true },
-    },
-    rightIcon: {
       table: { disable: true },
     },
     disabledAttr: {

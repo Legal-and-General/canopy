@@ -97,42 +97,19 @@
       margin-right: 0;
     }
   }
-}
 
-.lg-btn--link {
-  border: none;
-  background: none;
-  min-height: 0;
-  min-width: 0;
+  &--link {
+    border: none;
+    background: none;
+    min-height: 0;
+    min-width: 0;
 
-  @include mixins.lg-link();
+    @include mixins.lg-link();
+  }
 }
 
 .lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
   transform: rotateX(180deg);
-}
-
-//To do: update tokens with form input updates
-.lg-btn--add-on {
-  background-color: var(--btn-add-on-bg-color);
-  border: var(--btn-add-on-border-color) solid var(--border-width);
-  color: var(--btn-add-on-color);
-  border-bottom: 0;
-}
-
-.lg-input-field__suffix .lg-btn {
-  border-radius: 0;
-  padding: var(--btn-icon-only-padding--sm);
-  min-height: 0;
-  min-width: 0;
-
-  &:hover {
-    border-radius: 0 !important;
-  }
-}
-
-.lg-btn.lg-btn--icon-only {
-  padding: var(--btn-icon-only-padding--sm);
 }
 
 $priorities: 'primary', 'secondary' !default;
@@ -208,5 +185,59 @@ $priorities: 'primary', 'secondary' !default;
         border-color: transparent;
       }
     }
+  }
+}
+
+.lg-btn--add-on,
+.lg-btn--add-on:visited {
+  background-color: transparent;
+  border: none;
+  color: var(--interactive-add-on-rest-colour);
+  box-shadow: none !important;
+
+  &:disabled {
+    color: var(--interactive-add-on-disabled-colour);
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    color: var(--interactive-add-on-hover-colour);
+  }
+
+  &:not(:disabled) {
+    &:active,
+    &:active:hover {
+      color: var(--interactive-add-on-active-colour);
+    }
+
+    &:hover {
+      color: var(--interactive-add-on-hover-colour);
+    }
+  }
+}
+
+.lg-btn--add-on:focus-visible {
+  color: var(--interactive-add-on-focus-colour);
+  border: var(--button-border-width-focus) solid
+    var(--interactive-add-on-focus-border-colour);
+  outline: 0 !important;
+
+  &:not(:disabled) {
+    &:active,
+    &:active:hover,
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}
+
+.lg-input-field__suffix .lg-btn {
+  border-radius: 0;
+  padding: var(--btn-icon-only-padding--sm);
+  min-height: 0;
+  min-width: 0;
+
+  &:hover {
+    border-radius: 0 !important;
   }
 }

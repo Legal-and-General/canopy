@@ -162,7 +162,7 @@ class ReactiveFormComponent {
   }
 
   @Input() block: boolean;
-  @Input() buttonText: ButtonPriority;
+  @Input() buttonText: string;
   @Input() buttonVariant: ButtonPriority;
   @Input() hint: string;
   @Input() icon: string;
