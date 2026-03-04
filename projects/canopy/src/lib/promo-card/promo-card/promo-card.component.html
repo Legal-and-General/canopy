@@ -4,8 +4,8 @@
 <div class="lg-promo-card__content-wrapper">
   <div
     class="lg-promo-card__content-inner"
-    [class.lg-mode-green]="isGreenVariant"
-    [class.lg-theme-bold]="isGreenVariant">
+    [class.lg-mode-green]="variant === 'solid-green'"
+    [class.lg-theme-bold]="variant === 'solid-green'">
     <ng-content select="lg-promo-card-title" />
     <ng-content select="lg-promo-card-content" />
     <ng-content select="lg-promo-card-footer" />

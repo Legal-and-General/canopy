@@ -41,10 +41,6 @@ export class LgPromoCardComponent {
     return this._variant;
   }
 
-  get isGreenVariant(): boolean {
-    return this._variant === 'solid-green';
-  }
-
   constructor() {
     this.variant = 'solid-white';
   }

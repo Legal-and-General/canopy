@@ -9,11 +9,9 @@
     <ng-content />
   </span>
 
-  @if (rightIcon && !leftIcon) {
-    <lg-icon [name]="rightIcon" />
+  @if (!leftIcon) {
+    <ng-content select="lg-icon" />
   }
-
-  <ng-content select="lg-icon" />
 </ng-template>
 
 @if (loading) {

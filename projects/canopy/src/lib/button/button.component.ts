@@ -1,9 +1,9 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   HostBinding,
   Input,
-  OnInit,
   Renderer2,
   ViewEncapsulation,
   inject,
@@ -11,7 +11,6 @@ import {
 import { NgTemplateOutlet } from '@angular/common';
 
 import { LgIconComponent } from '../icon';
-import type { IconName } from '../icon/ui-icons-files.interface';
 import { LgMarginDirective } from '../spacing';
 import { LgSpinnerComponent } from '../spinner';
 
@@ -24,11 +23,10 @@ import type { ButtonPriority } from './button.interface';
   encapsulation: ViewEncapsulation.None,
   imports: [ NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective, LgIconComponent ],
 })
-export class LgButtonComponent implements OnInit {
+export class LgButtonComponent implements AfterViewInit {
   private renderer = inject(Renderer2);
   private readonly hostElement = inject(ElementRef);
   private _leftIcon = false;
-  private _rightIcon: IconName = null;
 
   @HostBinding('class.lg-btn') class = true;
 
@@ -80,18 +78,6 @@ export class LgButtonComponent implements OnInit {
     return this._leftIcon;
   }
 
-  @Input()
-  set rightIcon(value: IconName) {
-    this._rightIcon = value;
-  }
-  get rightIcon(): IconName {
-    return this._rightIcon;
-  }
-
-  get hasIcon(): boolean {
-    return this._leftIcon || this._rightIcon !== null;
-  }
-
   @Input() iconButton = false;
   @HostBinding('class.lg-btn--icon-only') get iconButtonClass(): boolean {
     return this.iconButton;
@@ -101,15 +87,20 @@ export class LgButtonComponent implements OnInit {
     this.priority = 'primary';
   }
 
-  ngOnInit(): void {
-    // Validate that both leftIcon and rightIcon are not set at the same time
-    if (this._leftIcon && this._rightIcon) {
+  ngAfterViewInit(): void {
+    const icons = this.hostElement.nativeElement.getElementsByTagName(
+      'lg-icon',
+    ) as HTMLCollectionOf<HTMLElement>;
+
+    if (icons.length === 2) {
       console.error(
-        'Button component error: Cannot have both leftIcon and rightIcon set at the same time. Left icon takes precedence.',
+        'Button component error: Cannot have both leftIcon and a right icon set at the same time. Left icon takes precedence.',
       );
 
-      // Left icon takes precedence, so clear the right icon
-      this._rightIcon = null;
+      // Left icon takes precedence, so remove the right icon
+      if (icons[1]) {
+        icons[1].remove();
+      }
     }
   }
 }

@@ -18,11 +18,13 @@ const buttonVariants = [ 'primary', 'secondary', 'link' ];
       [fullWidth]="fullWidth"
       [iconButton]="iconButton"
       [leftIcon]="leftIcon"
-      [rightIcon]="rightIcon"
       [loading]="loading"
       [priority]="priority"
     >
       {{ content }}
+      @if (icon) {
+        <lg-icon [name]="icon"></lg-icon>
+      }
     </button>
     @if (priority !== 'link') {
       <p>Used on a <strong>link</strong> element</p>
@@ -33,11 +35,13 @@ const buttonVariants = [ 'primary', 'secondary', 'link' ];
         [fullWidth]="fullWidth"
         [iconButton]="iconButton"
         [leftIcon]="leftIcon"
-        [rightIcon]="rightIcon"
         [loading]="loading"
         [priority]="priority"
       >
         {{ content }}
+        @if (icon) {
+          <lg-icon [name]="icon"></lg-icon>
+        }
       </a>
     }
   `,
@@ -47,7 +51,7 @@ class ButtonComponentExampleComponent {
   @Input() disabled: boolean;
   @Input() fullWidth: boolean;
   @Input() leftIcon: boolean;
-  @Input() rightIcon: IconName;
+  @Input() icon: IconName;
   @Input() iconButton: boolean;
   @Input() loading: boolean;
   @Input() priority: ButtonPriority;
@@ -96,12 +100,13 @@ export default {
         type: 'boolean',
       },
     },
-    rightIcon: {
-      description: 'Icon name to display on the right side of the button',
+    icon: {
+      description:
+        'Icon name to display on the right side of the button (added via content projection)',
       options: [ null, ...lgIconsArray.map(i => i.name) ],
       table: {
         type: {
-          summary: 'IconName | null',
+          summary: 'IconName',
         },
       },
       control: {
@@ -136,10 +141,7 @@ export default {
     leftIconClass: {
       table: { disable: true },
     },
-    rightIconClass: {
-      table: { disable: true },
-    },
-    hasIcon: {
+    rightIcon: {
       table: { disable: true },
     },
     disabledAttr: {
@@ -164,7 +166,7 @@ const defaultArgValues = {
   iconButton: false,
   loading: false,
   leftIcon: false,
-  rightIcon: null,
+  icon: null,
 };
 
 const buttonTemplate = `
@@ -173,7 +175,7 @@ const buttonTemplate = `
     [fullWidth]="fullWidth"
     [iconButton]="iconButton"
     [leftIcon]="leftIcon"
-    [rightIcon]="rightIcon"
+    [icon]="icon"
     [loading]="loading"
     [priority]="priority"
     [content]="content">
@@ -210,8 +212,8 @@ export const Secondary = {
   },
 };
 
-export const TextWithRightIcon = {
-  name: 'Text with right icon',
+export const TextWithIcon = {
+  name: 'Text with icon',
   render: (args: LgButtonComponent) => ({
     props: args,
     template: buttonTemplate,
@@ -219,24 +221,7 @@ export const TextWithRightIcon = {
   args: {
     ...defaultArgValues,
     priority: 'primary',
-    rightIcon: 'chevron-right',
-  },
-  globals: {
-    backgrounds: { value: setBackground('primary') },
-  },
-};
-
-export const TextWithLeftIcon = {
-  name: 'Text with left arrow icon',
-  render: (args: LgButtonComponent) => ({
-    props: args,
-    template: buttonTemplate,
-  }),
-  args: {
-    ...defaultArgValues,
-    priority: 'primary',
-    content: 'Back',
-    leftIcon: true,
+    icon: 'chevron-right',
   },
   globals: {
     backgrounds: { value: setBackground('primary') },
@@ -254,7 +239,7 @@ export const IconOnly = {
     priority: 'primary',
     iconButton: true,
     content: '',
-    rightIcon: 'add',
+    icon: 'add',
   },
   globals: {
     backgrounds: { value: setBackground('primary') },
