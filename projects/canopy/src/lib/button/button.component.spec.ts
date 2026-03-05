@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { Component, Input } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MockComponent } from 'ng-mocks';
 
@@ -8,32 +7,13 @@ import { LgIconComponent } from '../icon';
 
 import { LgButtonComponent } from './button.component';
 
-@Component({
-  template: `
-    <button lg-button variant="primary-dark" [iconPosition]="iconPosition">
-      <lg-icon name="filter" first></lg-icon>
-      Test
-      <lg-icon name="add" second></lg-icon>
-    </button>
-  `,
-  imports: [ LgIconComponent, LgButtonComponent ],
-})
-class ButtonDoubleIconTestComponent {
-  @Input() iconPosition = null;
-}
-
 describe('LgButtonComponent', () => {
   let component: LgButtonComponent;
   let fixture: ComponentFixture<LgButtonComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        LgButtonComponent,
-        ButtonDoubleIconTestComponent,
-        LgSpinnerComponent,
-        MockComponent(LgIconComponent),
-      ],
+      imports: [ LgButtonComponent, LgSpinnerComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
   }));
 
@@ -51,39 +31,41 @@ describe('LgButtonComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn');
   });
 
-  describe('the variant input', () => {
+  describe('the priority input', () => {
     describe('when not specified', () => {
-      it('should set the primary dark class modifier', () => {
-        expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--primary-dark',
-        );
+      it('should set the primary class modifier', () => {
+        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--primary');
       });
     });
 
     describe('when specified', () => {
       it('should set the correct class modifier', () => {
-        component.variant = 'secondary-dark';
+        component.priority = 'secondary';
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
-          'lg-btn--secondary-dark',
+          'lg-btn--secondary',
         );
       });
     });
   });
 
-  describe('the icon position input', () => {
+  describe('the leftIcon input', () => {
     describe('when not specified', () => {
-      it('should not set an icon class modifier', () => {
+      it('should set the default value to false', () => {
+        expect(component.leftIcon).toBe(false);
+      });
+
+      it('should not set the icon-left class modifier', () => {
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-btn--icon-',
+          'lg-btn--icon-left',
         );
       });
     });
 
-    describe('when specified as left', () => {
+    describe('when set to true', () => {
       it('should set the correct class modifier', () => {
-        component.iconPosition = 'left';
+        component.leftIcon = true;
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
@@ -92,13 +74,13 @@ describe('LgButtonComponent', () => {
       });
     });
 
-    describe('when specified as right', () => {
-      it('uses the default styles without a modifier', () => {
-        component.iconPosition = 'right';
+    describe('when set to false', () => {
+      it('should not set the icon-left class modifier', () => {
+        component.leftIcon = false;
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
-          'lg-btn--icon-',
+          'lg-btn--icon-left',
         );
       });
     });
@@ -168,23 +150,6 @@ describe('LgButtonComponent', () => {
     });
   });
 
-  describe('the size input', () => {
-    describe('when not set', () => {
-      it('should set the default value to medium', () => {
-        expect(component.size).toBe('md');
-      });
-    });
-
-    describe('when set to "sm"', () => {
-      it('should set the small size modifier', () => {
-        component.size = 'sm';
-        fixture.detectChanges();
-
-        expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--sm');
-      });
-    });
-  });
-
   describe('the fullWidth input', () => {
     describe('when not set', () => {
       it('should set the default value to false', () => {
@@ -238,26 +203,5 @@ describe('LgButtonComponent', () => {
         );
       });
     });
-  });
-
-  it('should add the correct margin to the first icon when two icons are added to the button', () => {
-    const fixtureButtonDoubleIcon = TestBed.createComponent(
-      ButtonDoubleIconTestComponent,
-    );
-
-    fixtureButtonDoubleIcon.detectChanges();
-
-    const deFirst = fixtureButtonDoubleIcon.debugElement.query(By.css('lg-icon[first]'));
-    const deSecond = fixtureButtonDoubleIcon.debugElement.query(
-      By.css('lg-icon[second]'),
-    );
-
-    expect(deFirst.nativeElement.getAttribute('class')).toContain(
-      'lg-margin__left--none',
-    );
-
-    expect(deFirst.nativeElement.getAttribute('class')).toContain('lg-margin__right--2');
-
-    expect(deSecond.nativeElement.getAttribute('class')).toBeNull();
   });
 });

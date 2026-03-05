@@ -57,8 +57,14 @@
   position: relative;
   padding: var(--space-4);
   background: var(--colour-greyscale-0);
+  border-radius: var(--container-border-radius-sm);
 
   @include mixins.lg-breakpoint('md') {
     padding: var(--space-5);
+    border-radius: var(--container-border-radius-md);
+  }
+
+  @include mixins.lg-breakpoint('lg') {
+    border-radius: var(--container-border-radius-lg);
   }
 }

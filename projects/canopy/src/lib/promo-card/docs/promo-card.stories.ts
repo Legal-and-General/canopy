@@ -10,7 +10,7 @@ import { LgPromoCardTitleComponent } from '../promo-card/promo-card-title/promo-
 import { LgPromoCardContentComponent } from '../promo-card/promo-card-content/promo-card-content.component';
 import { LgPromoCardFooterComponent } from '../promo-card/promo-card-footer/promo-card-footer.component';
 import { LgMarginDirective } from '../../spacing';
-import { ButtonVariant, LgButtonComponent } from '../../button';
+import { ButtonPriority, LgButtonComponent } from '../../button';
 import { LgPromoCardListTitleComponent } from '../promo-card-list/promo-card-list-title/promo-card-list-title.component';
 
 const cardListConfig = {
@@ -62,7 +62,7 @@ const cardListConfig = {
               lgMarginBottom="none"
               lg-button
               type="button"
-              [variant]="buttonVariants[variants[i]]"
+              [priority]="buttonVariants[variants[i]]"
             >
               {{ card.ctaText }}
             </button>
@@ -88,10 +88,10 @@ class PromoCardListStoryComponent {
   @Input() variants: Array<PromoCardVariant> = [];
   title = cardListConfig.title;
   cards = cardListConfig.cards;
-  buttonVariants: { [key: string]: ButtonVariant } = {
-    'solid-white': 'primary-dark',
-    'solid-green': 'primary-light',
-    'solid-yellow': 'secondary-dark',
+  buttonVariants: { [key: string]: ButtonPriority } = {
+    'solid-white': 'primary',
+    'solid-yellow': 'secondary',
+    'solid-green': 'primary',
   };
 }
 
@@ -178,7 +178,7 @@ const examplePromoCardTemplate = `
           lgMarginBottom="none"
           lg-button
           type="button"
-          [variant]="buttonVariants[variants[i]]">
+          [priority]="buttonVariants[variants[i]]">
           {{ card.ctaText }}
         </button>
       </lg-promo-card-footer>
