@@ -11,7 +11,7 @@
   --toggle-outer-height: 1rem;
   --toggle-outer-width: var(--toggle-outer-height);
 
-  --toggle-switch-height: 1.5rem;
+  --toggle-switch-height: var(--space-5);
   --toggle-switch-width: calc(var(--toggle-switch-height) * 1.85);
   --toggle-switch-dot-offset: var(--space-1);
 
