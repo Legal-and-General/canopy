@@ -1,9 +1,12 @@
 import {
+  AfterContentInit,
   AfterViewInit,
   Component,
+  ContentChildren,
   ElementRef,
   HostBinding,
   Input,
+  QueryList,
   Renderer2,
   ViewEncapsulation,
   inject,
@@ -23,10 +26,12 @@ import type { ButtonPriority } from './button.interface';
   encapsulation: ViewEncapsulation.None,
   imports: [ NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective, LgIconComponent ],
 })
-export class LgButtonComponent implements AfterViewInit {
+export class LgButtonComponent implements AfterContentInit, AfterViewInit {
   private renderer = inject(Renderer2);
   private readonly hostElement = inject(ElementRef);
   private _leftIcon = false;
+
+  @ContentChildren(LgIconComponent) projectedIcons: QueryList<LgIconComponent>;
 
   @HostBinding('class.lg-btn') class = true;
 
@@ -87,19 +92,24 @@ export class LgButtonComponent implements AfterViewInit {
     this.priority = 'primary';
   }
 
+  ngAfterContentInit(): void {
+    // Check if leftIcon is set and there are projected lg-icon components
+    if (this._leftIcon && this.projectedIcons && this.projectedIcons.length > 0) {
+      console.error(
+        'Button component error: Cannot have both leftIcon and a right icon set at the same time. Left icon takes precedence.',
+      );
+    }
+  }
+
   ngAfterViewInit(): void {
     const icons = this.hostElement.nativeElement.getElementsByTagName(
       'lg-icon',
     ) as HTMLCollectionOf<HTMLElement>;
 
-    if (icons.length === 2) {
-      console.error(
-        'Button component error: Cannot have both leftIcon and a right icon set at the same time. Left icon takes precedence.',
-      );
-
-      // Left icon takes precedence, so remove the right icon
-      if (icons[1]) {
-        icons[1].remove();
+    if (this._leftIcon && icons.length > 1) {
+      // Left icon takes precedence, so remove any other icons
+      for (let i = icons.length - 1; i > 0; i--) {
+        icons[i].remove();
       }
     }
   }
