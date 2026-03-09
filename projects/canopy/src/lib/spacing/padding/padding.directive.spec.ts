@@ -335,5 +335,124 @@ describe('LgPadding', () => {
         );
       });
     });
+
+    it('works with array of breakpoints', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = [ 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding--sm--none');
+      expect(el).toContain('lg-padding--lg--none');
+      expect(el).not.toContain('lg-padding--md--none');
+    });
+
+    it('works with array of breakpoints for individual sides', () => {
+      component.lgPaddingTop = '6';
+      component.lgPaddingTopNoneAt = [ 'md', 'xl' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__top--6');
+      expect(el).toContain('lg-padding__top--md--none');
+      expect(el).toContain('lg-padding__top--xl--none');
+      expect(el).not.toContain('lg-padding__top--sm--none');
+    });
+
+    it('works with array of breakpoints for horizontal padding', () => {
+      component.lgPaddingHorizontal = '7';
+      component.lgPaddingHorizontalNoneAt = [ 'sm', 'xxl' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__left--sm--none');
+      expect(el).toContain('lg-padding__left--xxl--none');
+      expect(el).toContain('lg-padding__right--sm--none');
+      expect(el).toContain('lg-padding__right--xxl--none');
+    });
+
+    it('works with array of breakpoints for vertical padding', () => {
+      component.lgPaddingVertical = '8';
+      component.lgPaddingVerticalNoneAt = [ 'md', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding__top--md--none');
+      expect(el).toContain('lg-padding__top--lg--none');
+      expect(el).toContain('lg-padding__bottom--md--none');
+      expect(el).toContain('lg-padding__bottom--lg--none');
+    });
+
+    it('filters duplicate breakpoints in arrays', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = [ 'sm', 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+      const smMatches = (el.match(/lg-padding--sm--none/g) || []).length;
+
+      expect(smMatches).toBe(1);
+      expect(el).toContain('lg-padding--lg--none');
+    });
+
+    it('handles empty array by removing all noneAt classes', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-padding--md--none',
+      );
+
+      component.lgPaddingNoneAt = [];
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-padding--md--none',
+      );
+    });
+
+    it('updates classes when switching from single to array breakpoint', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = 'md';
+      fixture.detectChanges();
+
+      expect(testElement.nativeElement.getAttribute('class')).toContain(
+        'lg-padding--md--none',
+      );
+
+      component.lgPaddingNoneAt = [ 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      const el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).not.toContain('lg-padding--md--none');
+      expect(el).toContain('lg-padding--sm--none');
+      expect(el).toContain('lg-padding--lg--none');
+    });
+
+    it('updates classes when switching from array to single breakpoint', () => {
+      component.lgPadding = '5';
+      component.lgPaddingNoneAt = [ 'sm', 'lg' ];
+      fixture.detectChanges();
+
+      let el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).toContain('lg-padding--sm--none');
+      expect(el).toContain('lg-padding--lg--none');
+
+      component.lgPaddingNoneAt = 'xl';
+      fixture.detectChanges();
+
+      el = testElement.nativeElement.getAttribute('class');
+
+      expect(el).not.toContain('lg-padding--sm--none');
+      expect(el).not.toContain('lg-padding--lg--none');
+      expect(el).toContain('lg-padding--xl--none');
+    });
   });
 });
