@@ -91,75 +91,62 @@ export class LgMarginDirective {
   }
 
   @Input()
-  set lgMarginTopNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-top');
+  set lgMarginTopNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'margin-top');
 
     this.marginTopNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.marginTopNoneAtClasses,
     );
   }
 
   @Input()
-  set lgMarginRightNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-right');
+  set lgMarginRightNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'margin-right');
 
     this.marginRightNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.marginRightNoneAtClasses,
     );
   }
 
   @Input()
-  set lgMarginBottomNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-bottom');
+  set lgMarginBottomNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'margin-bottom');
 
     this.marginBottomNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.marginBottomNoneAtClasses,
     );
   }
 
   @Input()
-  set lgMarginLeftNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin-left');
+  set lgMarginLeftNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'margin-left');
 
     this.marginLeftNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
+      classNames,
       this.marginLeftNoneAtClasses,
     );
   }
 
   @Input()
-  set lgMarginHorizontalNoneAt(breakpoint: Breakpoints) {
+  set lgMarginHorizontalNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
     this.lgMarginLeftNoneAt = breakpoint;
     this.lgMarginRightNoneAt = breakpoint;
   }
 
   @Input()
-  set lgMarginVerticalNoneAt(breakpoint: Breakpoints) {
+  set lgMarginVerticalNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
     this.lgMarginTopNoneAt = breakpoint;
     this.lgMarginBottomNoneAt = breakpoint;
   }
 
   @Input()
-  set lgMarginNoneAt(breakpoint: Breakpoints) {
-    const className = this.spacingService.createNoneAtClass(breakpoint, 'margin');
+  set lgMarginNoneAt(breakpoint: Breakpoints | Array<Breakpoints> | null) {
+    const classNames = this.spacingService.createNoneAtClass(breakpoint, 'margin');
 
-    this.marginNoneAtClasses = this.toggleClasses(
-      className
-        ? [ className ]
-        : [],
-      this.marginNoneAtClasses,
-    );
+    this.marginNoneAtClasses = this.toggleClasses(classNames, this.marginNoneAtClasses);
   }
 
   toggleClasses(newClasses: Array<string>, oldClasses: Array<string>) {
