@@ -1,3 +1,3 @@
-# Branch names must be kebab-case
+# Branch names must be kebab-case or maintenance branch format (e.g., 20.x, 1.0.x)
 
-npx enforce-branch-name@v1.0.1 '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$|^dependabot-.*'
+npx enforce-branch-name@v1.0.1 '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$|^dependabot-.*|^[0-9]+(\.[0-9]+)?\.x$'
