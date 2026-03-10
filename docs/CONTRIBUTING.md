@@ -84,6 +84,10 @@ The format for breaking changes is outlined on the [convention commit docs](http
 
 Whenever introducing a breaking change consider using the `next` branch. Refer to the [next docs](./NEXT_BRANCH.md).
 
+### Maintenance Releases
+
+To create bug fixes or security patches for older versions, use maintenance branches. Refer to the [maintenance releases docs](./MAINTENANCE_RELEASES.md).
+
 ### Commit message examples
 
 Fix
