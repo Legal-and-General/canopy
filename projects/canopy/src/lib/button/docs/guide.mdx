@@ -40,10 +40,6 @@ or
 
 Primary buttons should only be used once per page. Use them to clearly signpost the action the customer should take next.
 
-#### Light backgrounds
-
-A blue primary button can be used on a light background.
-
 ```html
 <button lg-button priority="primary">
   Click me
@@ -54,15 +50,25 @@ A blue primary button can be used on a light background.
 
 Secondary buttons can be used many times per page. Use them for secondary actions where you wouldn't use a link.
 
-#### Light backgrounds
-
-A charcoal secondary button can be used on light backgrounds.
-
 ```html
 <button lg-button priority="secondary">
   Click me
 </button>
 ```
+
+### Button styling with colour modes
+
+Button styles automatically adapt to the colour mode and theme set by their container element using the `lgColour` directive. This ensures buttons display appropriately for different background colors.
+
+```html
+<lg-card lgColour="green" lgColourTheme="bold">
+  <lg-card-content>
+    <button lg-button priority="primary">Action</button>
+  </lg-card-content>
+</lg-card>
+```
+
+The button will automatically apply the appropriate style based on the container's colour mode and theme, without needing separate variant inputs.
 
 ### Button content
 
@@ -78,14 +84,28 @@ Buttons can contain the following content types:
 
 #### Buttons with labels and icons
 
-An **icon component** can be projected into the button. Use the iconPosition input to position the icon on the left or right (default) of the text.
+##### Icon on the right
+
+An **icon component** can be projected into the button. By default, icons are positioned on the right side of the text.
 
 ```html
-<button lg-button type="button" iconPosition="left" >
-  Add item
-  <lg-icon name="add" />
+<button lg-button type="button">
+  Click me
+  <lg-icon name="chevron-right" />
 </button>
 ```
+
+##### Icon on the left
+
+Use the `leftIcon` boolean input to display an arrow-left icon on the left side of the button. When `leftIcon` is set to `true`, it takes precedence and will display the arrow-left icon regardless of any other icons in the markup.
+
+```html
+<button lg-button type="button" leftIcon="true">
+  Back
+</button>
+```
+
+**Note:** The `leftIcon` input specifically displays an arrow-left icon and is intended for navigation purposes. You cannot use a custom icon with this input.
 
 #### Icon-only buttons
 
@@ -98,33 +118,82 @@ You can create an **icon only** button by setting iconButton to true. You must s
 </button>
 ```
 
-#### Left and right icons
+## Migration notes
 
-A button can also have two **icon components** in it. In this case the `iconPosition` input is **not applicable**, because the icons will be positioned automatically on each side of the text.
+### Removal of `iconPosition` input
 
-An important requirement is the need to add first and second attributes to the icons as per the example below. This determines the position of the icon, either as the first icon before the text, or the second icon after the text.
+The `iconPosition` input has been removed. The button now uses a `leftIcon` boolean input which displays an arrow-left icon on the left side of the button for navigation purposes.
 
+**Before:**
 ```html
-<button lg-button type="button">
-  <lg-icon name="filter" first />
-  Filter
-  <lg-icon name="chevron-down" second />
+<button lg-button iconPosition="left">
+  Back
+  <lg-icon name="arrow-left" />
 </button>
 ```
 
-## Dos and Don'ts
+**After:**
 
-### Do
+For navigation with arrow-left icon:
+```html
+<button lg-button leftIcon="true">
+  Back
+</button>
+```
 
-![Button component - what you should do](docs/button/do.png)
+For custom icons on the right (default behavior):
+```html
+<button lg-button>
+  Add item
+  <lg-icon name="add" />
+</button>
+```
 
-1. **Do** make sure you choose a button that has sufficient contrast with the background.
-2. **Do** use concise labels that are descriptive and help set the user's expectations.
-3. **Do** distinguish between functional purposes.
-4. **Do** use full-width buttons on mobile breakpoints.
+**Important:** The `leftIcon` input specifically displays an arrow-left icon. Buttons can no longer have two icons simultaneously (e.g., icons on both left and right sides). If you were using the `first` and `second` attributes with two icons, you'll need to choose which single icon to display.
 
-### Don't
+### Removal of `buttonSize` input
 
+The `buttonSize` input has been removed. Buttons now have a single, consistent size across all implementations. This simplifies the button API and ensures a more uniform visual appearance.
+
+**Before:**
+```html
+<button lg-button buttonSize="sm">
+  Small button
+</button>
+```
+
+**After:**
+```html
+<button lg-button>
+  Button
+</button>
+```
+
+If you require custom sizing for specific use cases, consider using CSS utilities or custom styling.
+
+### Removal of `primary-light` and `secondary-light` variants
+
+The `primary-light` and `secondary-light` button priority variants have been removed. Button styling now automatically adapts based on the colour mode and theme set by the container element using the `lgColour` directive.
+
+**Before:**
+```html
+<button lg-button priority="primary-light">
+  Click me
+</button>
+```
+
+**After:**
+```html
+<lg-card lgColour="green" lgColourTheme="bold">
+  <lg-card-content>
+    <button lg-button priority="primary">
+      Click me
+    </button>
+  </lg-card-content>
+</lg-card>
+```
+
+The button will automatically apply the appropriate style based on the container's colour mode and theme. Simply use `priority="primary"` or `priority="secondary"` and the button will adapt to its context.
 ![Button component - what you shouldn't do](docs/button/dont.png)
 
 1. **Don't** use a button priority that contrasts poorly with the background.
