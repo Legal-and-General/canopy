@@ -1,0 +1,120 @@
+import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+import * as ContentAreaStories from './content-area.stories';
+
+<Meta title="Components/Content Area/Guide" />
+
+# Content Area
+
+<p class="standfirst">Content areas are flexible containers for organizing and structuring content within a page.</p>
+
+## Usage
+
+Content areas provide a semantic way to structure and organize content on your pages. They can be used as simple containers or with child components for more structured layouts.
+
+Import the content area components in your application:
+
+```js
+import {
+  LgContentAreaComponent,
+  LgContentAreaHeaderComponent,
+  LgContentAreaContentComponent,
+  LgContentAreaTitleComponent
+}
+from '@legal-and-general/canopy';
+```
+
+and in your HTML, for a basic content area:
+
+```html
+<lg-content-area>
+  <p>Your content here</p>
+</lg-content-area>
+```
+
+## How it works
+
+Content areas provide a flexible container that can be used in multiple ways:
+
+1. **Standard**: A simple container for any content
+2. **With child components**: Using header and content sections for structured layouts
+
+The component automatically applies consistent styling and spacing, helping maintain visual consistency across your application.
+
+## Examples
+
+### Standard
+
+The most basic form is a simple container for content.
+
+<Source of={ContentAreaStories.Standard} />
+
+### With Header and Content
+
+For more structured layouts, you can use the header and content child components to clearly separate different sections.
+
+<Source of={ContentAreaStories.ContentAreaChild} />
+
+### With Expressive Type
+
+You can add the `lg-font--expressive` class to the title component.
+
+<Source of={ContentAreaStories.WithExpressiveType} />
+
+## Do
+
+1. **Do** use content areas to create clear visual groupings of related content.
+2. **Do** use the header component when you need a distinct heading section.
+3. **Do** nest content appropriately within the content component for better structure.
+
+## Don't
+
+1. **Don't** nest content areas within other content areas unnecessarily.
+2. **Don't** use content areas when a simpler container would suffice.
+
+## Additional development details
+
+### LgContentAreaComponent
+
+The main container component. It accepts projection of the following components:
+
+* `LgContentAreaHeaderComponent`
+* `LgContentAreaContentComponent`
+* Or any custom content via `ng-content`
+
+### LgContentAreaTitleComponent
+
+This component provides a semantic heading within the content area header. It wraps the LgHeadingComponent and allows you to specify the heading level.
+
+**Selector:** `lg-content-area-title`
+
+#### Inputs
+
+| Name           | Description                    | Type           | Default | Required |
+|----------------|--------------------------------|----------------|---------|----------|
+| `headingLevel` | The semantic heading level     | `HeadingLevel` | -       | Yes      |
+
+### LgContentAreaHeaderComponent
+
+This component is used to contain header content within a content area. It should be placed inside the content area component and typically contains headings or introductory text.
+
+**Selector:** `lg-content-area-header`
+
+### LgContentAreaContentComponent
+
+This component is used to contain the main content within a content area. It should be placed inside the content area component and contains the primary content.
+
+**Selector:** `lg-content-area-content`
+
+---
+
+## Related
+
+Components and patterns which may perform a similar task:
+
+* [Card](./?path=/docs/components-card-guide--docs)
+* [Separator](./?path=/docs/components-separator-guide--docs)
+
+<Markdown>
+  {Feedback}
+</Markdown>
