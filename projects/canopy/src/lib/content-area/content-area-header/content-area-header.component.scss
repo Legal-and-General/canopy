@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border-bottom: var(--container-border-width) solid var(--content-area-border-colour);
+  border-bottom: var(--content-area-border-width) solid var(--content-area-border-colour);
   padding: var(--content-area-padding-y) var(--content-area-padding-x);
 
   @include mixins.lg-breakpoint('md') {
