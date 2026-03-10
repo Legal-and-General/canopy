@@ -1,13 +1,10 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as ButtonsGroupStories from './button-group.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Button/Guide" tags={['pending']}/>
+<Meta title="Components/Button/Guide"/>
 
 # Button
-
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Buttons are interactive components that let a user initiate an action.</p>
 
@@ -20,25 +17,22 @@ Use a button when you want to give the user a clear signpost as to what to do ne
 Import the button component in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgButtonComponent ],
-});
+import { LgButtonComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 ```html
-<button lg-button type="button" variant="primary-dark">Button</button>
+<button lg-button type="button" priority="primary">Button</button>
 ```
 
 or
 
 ```html
-<a lg-button href="#" variant="primary-dark">Link</a>
+<a lg-button href="#" priority="primary">Link</a>
 ```
 
-## Variants
+## Priority
 
 ![Button component - button styles](docs/button/styles.png)
 
@@ -46,49 +40,35 @@ or
 
 Primary buttons should only be used once per page. Use them to clearly signpost the action the customer should take next.
 
-#### Light backgrounds
-
-A blue primary button can be used on a light background.
-
 ```html
-<button lg-button variant="primary-dark">
-  Click me
-</button>
-```
-
-#### Dark backgrounds
-
-A white primary button can be used on dark colour backgrounds (e.g. Super Blue, Leafy Green or Charcoal) shown above.
-
-```html
-<button lg-button variant="primary-light">
+<button lg-button priority="primary">
   Click me
 </button>
 ```
 
 ### Secondary
 
-Secondary buttons can be used many times per page. Use them for secondary actions where you wouldn't use a Quick Action or Link.
-
-#### Light backgrounds
-
-A charcoal secondary button can be used on light backgrounds.
+Secondary buttons can be used many times per page. Use them for secondary actions where you wouldn't use a link.
 
 ```html
-<button lg-button variant="secondary-dark">
+<button lg-button priority="secondary">
   Click me
 </button>
 ```
 
-#### Dark backgrounds
+### Button styling with colour modes
 
-A white secondary button can be used on vibrant colour backgrounds shown below.
+Button styles automatically adapt to the colour mode and theme set by their container element using the `lgColour` directive. This ensures buttons display appropriately for different background colors.
 
 ```html
-<button lg-button variant="secondary-light">
-  Click me
-</button>
+<lg-card lgColour="green" lgColourTheme="bold">
+  <lg-card-content>
+    <button lg-button priority="primary">Action</button>
+  </lg-card-content>
+</lg-card>
 ```
+
+The button will automatically apply the appropriate style based on the container's colour mode and theme, without needing separate variant inputs.
 
 ### Button content
 
@@ -104,14 +84,28 @@ Buttons can contain the following content types:
 
 #### Buttons with labels and icons
 
-An **icon component** can be projected into the button. Use the iconPosition input to position the icon on the left or right (default) of the text.
+##### Icon on the right
+
+An **icon component** can be projected into the button. By default, icons are positioned on the right side of the text.
 
 ```html
-<button lg-button type="button" iconPosition="left" >
-  Add item
-  <lg-icon name="add" />
+<button lg-button type="button">
+  Click me
+  <lg-icon name="chevron-right" />
 </button>
 ```
+
+##### Icon on the left
+
+Use the `leftIcon` boolean input to display an arrow-left icon on the left side of the button. When `leftIcon` is set to `true`, it takes precedence and will display the arrow-left icon regardless of any other icons in the markup.
+
+```html
+<button lg-button type="button" leftIcon="true">
+  Back
+</button>
+```
+
+**Note:** The `leftIcon` input specifically displays an arrow-left icon and is intended for navigation purposes. You cannot use a custom icon with this input.
 
 #### Icon-only buttons
 
@@ -124,36 +118,85 @@ You can create an **icon only** button by setting iconButton to true. You must s
 </button>
 ```
 
-#### Left and right icons
+## Migration notes
 
-A button can also have two **icon components** in it. In this case the `iconPosition` input is **not applicable**, because the icons will be positioned automatically on each side of the text.
+### Removal of `iconPosition` input
 
-An important requirement is the need to add first and second attributes to the icons as per the example below. This determines the position of the icon, either as the first icon before the text, or the second icon after the text.
+The `iconPosition` input has been removed. The button now uses a `leftIcon` boolean input which displays an arrow-left icon on the left side of the button for navigation purposes.
 
+**Before:**
 ```html
-<button lg-button type="button">
-  <lg-icon name="filter" first />
-  Filter
-  <lg-icon name="chevron-down" second />
+<button lg-button iconPosition="left">
+  Back
+  <lg-icon name="arrow-left" />
 </button>
 ```
 
-## Dos and Don'ts
+**After:**
 
-### Do
+For navigation with arrow-left icon:
+```html
+<button lg-button leftIcon="true">
+  Back
+</button>
+```
 
-![Button component - what you should do](docs/button/do.png)
+For custom icons on the right (default behavior):
+```html
+<button lg-button>
+  Add item
+  <lg-icon name="add" />
+</button>
+```
 
-1. **Do** make sure you choose a button that has sufficient contrast with the background.
-2. **Do** use concise labels that are descriptive and help set the user's expectations.
-3. **Do** distinguish between functional purposes.
-4. **Do** use full-width buttons on mobile breakpoints.
+**Important:** The `leftIcon` input specifically displays an arrow-left icon. Buttons can no longer have two icons simultaneously (e.g., icons on both left and right sides). If you were using the `first` and `second` attributes with two icons, you'll need to choose which single icon to display.
 
-### Don't
+### Removal of `buttonSize` input
 
+The `buttonSize` input has been removed. Buttons now have a single, consistent size across all implementations. This simplifies the button API and ensures a more uniform visual appearance.
+
+**Before:**
+```html
+<button lg-button buttonSize="sm">
+  Small button
+</button>
+```
+
+**After:**
+```html
+<button lg-button>
+  Button
+</button>
+```
+
+If you require custom sizing for specific use cases, consider using CSS utilities or custom styling.
+
+### Removal of `primary-light` and `secondary-light` variants
+
+The `primary-light` and `secondary-light` button priority variants have been removed. Button styling now automatically adapts based on the colour mode and theme set by the container element using the `lgColour` directive.
+
+**Before:**
+```html
+<button lg-button priority="primary-light">
+  Click me
+</button>
+```
+
+**After:**
+```html
+<lg-card lgColour="green" lgColourTheme="bold">
+  <lg-card-content>
+    <button lg-button priority="primary">
+      Click me
+    </button>
+  </lg-card-content>
+</lg-card>
+```
+
+The button will automatically apply the appropriate style based on the container's colour mode and theme. Simply use `priority="primary"` or `priority="secondary"` and the button will adapt to its context.
 ![Button component - what you shouldn't do](docs/button/dont.png)
 
-1. **Don't** use a button variant that contrasts poorly with the background.
+1. **Don't** use a button priority that contrasts poorly with the background.
 2. **Don't** use more than one primary button per page and don't use too many buttons in close proximity.
 3. **Don't** wrap text labels.
 4. **Don't** confuse priorities by using multiple primary CTA's at the same time.
@@ -168,12 +211,12 @@ An important requirement is the need to add first and second attributes to the i
 
 |                | Description                                                                                                                                     | Type                      | Default        | Required |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|----------------|----------|
-| `variant`      | The variant of button: `primary-dark`, `primary-light`,`secondary-dark`, `secondary-light`, `link`, `add-on`.                                   | `string`                  | `primary-dark` | No       |
-| `size`         | The size of the button                                                                                                                          | `ButtonSize` (`sm`, `md`) | `md`           | No       |
+| `priority`      | The priority of button: `primary`,`secondary`, `link`.                                   | `string`                  | `primary` | No       |
 | `fullWidth`    | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | `boolean`                 | `false`        | No       |
 | `disabled`     | Programmatically disable the button via this property                                                                                           | `boolean`                 | `false`        | No       |
 | `loading`      | If the button shows a loading spinner and is also disabled                                                                                      | `boolean`                 | `false`        | No       |
-| `iconPosition` | The position of a single icon in the button, not used when including two icons                                                                  | `string`                  | `right`        | No       |
+| `leftIcon`     | Display arrow-left icon on the left side of the button                                                                                          | `boolean`                 | `false`        | No       |
+| `rightIcon`    | Icon name to display on the right side of the button. Only one icon can be displayed at a time                                                 | `IconName \| null`        | `null`         | No       |
 | `iconButton`   | The button displays an icon only                                                                                                                | `boolean`                 | `false`        | No       |
 
 ### Button group
@@ -191,7 +234,7 @@ A button can be used specifically as a toggle, for example when opening and clos
 *This feature should only be used as part of a pattern. E.g. toggling the visibility of a filter panel.*
 
 ```html
-<button lg-button lgButtonToggle type="button" variant="primary-dark">Button</button>
+<button lg-button lgButtonToggle type="button" priority="primary">Button</button>
 ```
 
 then in the wrapper component set the `id` and `ariaControls` of the toggle and use the `toggleActive` output of the directive to set the panel state:

@@ -21,5 +21,7 @@
     padding: 0 var(--component-margin) var(--component-margin) 0;
     border-right: var(--border-width) solid var(--colour-greyscale-200);
     flex: 1;
+    // To do: Remove after temporary card rounded corners
+    border-radius: 0 !important;
   }
 }

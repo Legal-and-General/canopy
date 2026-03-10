@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import { moduleMetadata } from '@storybook/angular';
 
-import { ButtonVariant, LgButtonComponent } from '../../../button';
+import { ButtonPriority, LgButtonComponent } from '../../../button';
 import { LgInputFieldComponent } from '../input-field.component';
 import { LgPrefixDirective } from '../../../prefix';
 import { LgInputDirective } from '../input.directive';
@@ -63,7 +63,7 @@ function setupInputStoryValues(obj, code, config?: Config) {
   obj.args = {
     block: false,
     buttonText: 'search',
-    buttonVariant: 'primary-dark',
+    buttonVariant: 'primary',
     disabled: false,
     hint: config?.hint === null
       ? ''
@@ -104,9 +104,8 @@ const inputTemplate = `
     <button
       lg-button
       lgSuffix
-      size="sm"
       [iconButton]="true"
-      variant="add-on"
+      priority="add-on"
     >
       Close
       <lg-icon name="close"></lg-icon>
@@ -116,9 +115,8 @@ const inputTemplate = `
     <button
       lg-button
       lgSuffix
-      size="sm"
       [iconButton]="iconButton"
-      [variant]="buttonVariant"
+      [priority]="buttonVariant"
     >
       {{ buttonText }}
       @if (iconButton) {
@@ -164,8 +162,8 @@ class ReactiveFormComponent {
   }
 
   @Input() block: boolean;
-  @Input() buttonText: ButtonVariant;
-  @Input() buttonVariant: ButtonVariant;
+  @Input() buttonText: string;
+  @Input() buttonVariant: ButtonPriority;
   @Input() hint: string;
   @Input() icon: string;
   @Input() iconButton: boolean;

@@ -2,36 +2,38 @@
 
 .lg-btn {
   appearance: none;
-
   @include mixins.lg-unstyled-link;
 
-  display: flex;
-  position: relative;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--btn-border-radius);
-  font-size: var(--btn-font-size);
-  font-weight: var(--font-weight-500);
-  cursor: pointer;
-  min-width: var(--btn-min-width);
-  line-height: var(--btn-line-height);
-  padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
-  text-align: center;
   transition: background-color var(--animation-duration) var(--animation-fn);
+  display: flex;
+  min-width: var(--button-common-labelled-min-width);
+  min-height: var(--button-common-labelled-min-height);
+  padding: var(--button-common-labelled-padding-y) var(--button-common-labelled-padding-x);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--button-primary-rest-colour);
+  font-feature-settings: 'case' on;
+  font-family: var(--typeface-productive);
+  font-size: var(--font-size-1);
+  font-style: normal;
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-normal-productive);
+  border-radius: var(--button-border-radius);
+  border: var(--button-border-width) solid var(--button-primary-rest-border-colour);
+  background: var(--button-primary-rest-background-colour);
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
   margin-bottom: var(--component-margin);
   text-decoration: none;
 
-  &:focus-visible,
-  &:focus-visible:hover {
-    @include mixins.lg-focus-outline;
-  }
-
-  &:not(&--loading):disabled {
-    background-color: var(--btn-disabled-bg-color);
-    border: var(--btn-disabled-border-color) solid var(--border-width);
-    color: var(--btn-disabled-color);
-    cursor: not-allowed;
+  &:not(.lg-btn--link) {
+    &:focus-visible,
+    &:focus-visible:hover {
+      @include mixins.lg-focus-outline;
+    }
   }
 
   &__hidden-content {
@@ -45,28 +47,22 @@
     inset: 0;
   }
 
-  &--sm {
-    padding: var(--btn-vertical-padding--sm) var(--btn-horizontal-padding--sm);
-  }
-
-  &--sm#{&}--icon-only {
-    padding: var(--btn-icon-only-padding--sm);
-  }
-
   &--loading {
     cursor: not-allowed;
   }
 
   .lg-icon {
-    margin-left: var(--space-2);
+    margin-left: var(--button-gap);
+    height: var(--button-icon-width);
+    width: var(--button-icon-width);
   }
 
   &--icon-left {
-    flex-direction: row-reverse;
+    justify-content: flex-start;
 
     .lg-icon {
       margin-left: 0;
-      margin-right: var(--space-2);
+      margin-right: var(--button-gap);
     }
   }
 
@@ -89,7 +85,8 @@
     min-width: auto;
     width: auto;
     display: inline-flex;
-    padding: var(--btn-icon-only-padding);
+    padding: var(--button-common-icon-only-padding-y)
+      var(--button-common-icon-only-padding-x);
 
     .lg-btn__text {
       @include mixins.lg-visually-hidden;
@@ -98,63 +95,89 @@
     .lg-icon {
       margin-left: 0;
       margin-right: 0;
-      height: var(--space-5);
-      width: var(--space-5);
     }
   }
-}
 
-.lg-btn--link {
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  min-width: initial;
-  border-radius: 0;
-  width: initial;
-  font-weight: var(--font-weight-400);
-  text-align: start;
+  &--link {
+    border: none;
+    background: none;
+    min-height: 0;
+    min-width: 0;
+    width: initial;
 
-  @include mixins.lg-link();
+    @include mixins.lg-link();
+  }
 }
 
 .lg-btn-toggle--active > .lg-icon[name='chevron-down'] {
   transform: rotateX(180deg);
 }
 
-$variants:
-  'primary-dark', 'primary-light', 'secondary-dark', 'secondary-light', 'add-on' !default;
+$priorities: 'primary', 'secondary' !default;
 
-@each $variant in $variants {
-  .lg-btn--#{$variant},
-  .lg-btn--#{$variant}:focus-visible:not(.lg-btn-toggle),
-  .lg-btn--#{$variant}:visited {
-    background-color: var(--btn-#{$variant}-bg-color);
-    border: var(--btn-#{$variant}-border-color) solid var(--border-width);
-    color: var(--btn-#{$variant}-color);
+@each $priority in $priorities {
+  .lg-btn--#{$priority},
+  .lg-btn--#{$priority}:visited {
+    background-color: var(--button-#{$priority}-rest-background-colour);
+    border: var(--button-border-width)
+      solid
+      var(--button-#{$priority}-rest-border-colour);
+    color: var(--button-#{$priority}-rest-colour);
+
+    &:not(.lg-btn--loading):disabled {
+      background-color: var(--button-#{$priority}-disabled-background-colour);
+      border: var(--button-#{$priority}-disabled-border-colour)
+        solid
+        var(--button-border-width);
+      color: var(--button-#{$priority}-disabled-colour);
+      cursor: not-allowed;
+    }
 
     &:hover {
-      border: var(--btn-#{$variant}-active-border-color) solid var(--border-width);
+      border-radius: var(--button-border-radius);
+      border: var(--button-border-width)
+        solid
+        var(--button-#{$priority}-hover-border-colour);
+      background: var(--button-#{$priority}-hover-background-colour);
+      color: var(--button-#{$priority}-hover-colour);
     }
 
     &:not(:disabled) {
       &:active:not(.lg-btn-toggle--active),
       &:active:hover:not(.lg-btn-toggle--active),
       &.lg-btn-toggle--active {
-        background-color: var(--btn-#{$variant}-active-bg-color);
-        border: var(--btn-#{$variant}-active-border-color) solid var(--border-width);
-        color: var(--btn-#{$variant}-active-color);
+        border-radius: var(--button-border-radius);
+        border: var(--button-border-width)
+          solid
+          var(--button-#{$priority}-active-border-colour);
+        background: var(--button-#{$priority}-active-background-colour);
+        color: var(--button-#{$priority}-active-colour);
       }
 
       &:hover {
-        background-color: var(--btn-#{$variant}-hover-bg-color);
-        border: var(--btn-#{$variant}-hover-border-color) solid var(--border-width);
-        color: var(--btn-#{$variant}-hover-color);
+        border-radius: var(--button-border-radius);
+        border: var(--button-border-width)
+          solid
+          var(--button-#{$priority}-hover-border-colour);
+        background: var(--button-#{$priority}-hover-background-colour);
+        color: var(--button-#{$priority}-hover-colour);
       }
     }
   }
 
-  .lg-btn--#{$variant}:focus-visible {
-    border-color: transparent;
+  .lg-btn--#{$priority}:focus-visible:not(.lg-btn-toggle) {
+    color: var(--button-#{$priority}-focus-colour);
+    border: var(--button-border-width-focus)
+      solid
+      var(--button-#{$priority}-focus-colour);
+    background: var(--button-#{$priority}-focus-background-colour);
+    box-shadow: 0
+      0
+      0
+      var(--button-border-width)
+      var(--button-#{$priority}-focus-background-colour);
+    border-radius: var(--button-border-radius);
+    outline: 0 !important;
 
     &:not(:disabled) {
       &:active,
@@ -163,5 +186,59 @@ $variants:
         border-color: transparent;
       }
     }
+  }
+}
+
+.lg-btn--add-on,
+.lg-btn--add-on:visited {
+  background-color: transparent;
+  border: none;
+  color: var(--interactive-add-on-rest-colour);
+  box-shadow: none !important;
+
+  &:disabled {
+    color: var(--interactive-add-on-disabled-colour);
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    color: var(--interactive-add-on-hover-colour);
+  }
+
+  &:not(:disabled) {
+    &:active,
+    &:active:hover {
+      color: var(--interactive-add-on-active-colour);
+    }
+
+    &:hover {
+      color: var(--interactive-add-on-hover-colour);
+    }
+  }
+}
+
+.lg-btn--add-on:focus-visible {
+  color: var(--interactive-add-on-focus-colour);
+  border: var(--button-border-width-focus) solid
+    var(--interactive-add-on-focus-border-colour);
+  outline: 0 !important;
+
+  &:not(:disabled) {
+    &:active,
+    &:active:hover,
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}
+
+.lg-input-field__suffix .lg-btn {
+  border-radius: 0;
+  padding: var(--btn-icon-only-padding--sm);
+  min-height: 0;
+  min-width: 0;
+
+  &:hover {
+    border-radius: 0 !important;
   }
 }
