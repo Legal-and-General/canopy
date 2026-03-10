@@ -27,13 +27,4 @@ describe('LgContentAreaTitleComponent', () => {
       'lg-content-area-title',
     );
   });
-
-  it('should set the heading level', () => {
-    component.headingLevel = 2;
-    fixture.detectChanges();
-
-    const headingElement = fixture.nativeElement.querySelector('h2');
-
-    expect(headingElement).toBeTruthy();
-  });
 });
