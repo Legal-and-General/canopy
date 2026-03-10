@@ -189,6 +189,11 @@ export const Primary = {
     ...defaultArgValues,
     priority: 'primary',
   },
+  argTypes: {
+    iconButton: {
+      table: { disable: true },
+    },
+  },
   globals: {
     backgrounds: { value: setBackground('primary') },
   },
@@ -203,6 +208,11 @@ export const Secondary = {
   args: {
     ...defaultArgValues,
     priority: 'secondary',
+  },
+  argTypes: {
+    iconButton: {
+      table: { disable: true },
+    },
   },
   globals: {
     backgrounds: { value: setBackground('secondary') },
