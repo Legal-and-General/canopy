@@ -411,6 +411,18 @@ $breakpoints: (
   padding: var(--component-padding);
 }
 
+@mixin lg-content-area {
+  border-radius: var(--container-border-radius-sm);
+  background: var(--content-area-background-colour);
+
+  @include lg-breakpoint('md') {
+    border-radius: var(--container-border-radius-md);
+  }
+  @include lg-breakpoint('lg') {
+    border-radius: var(--container-border-radius-lg);
+  }
+}
+
 @mixin lg-typography-default {
   font-size: var(--text-base-size);
   font-weight: var(--font-weight-400-productive);

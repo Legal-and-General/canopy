@@ -1,0 +1,9 @@
+@use '../../styles/mixins.scss';
+
+.lg-content-area {
+  display: flex;
+  flex-direction: column;
+  color: var(--content-area-colour);
+
+  @include mixins.lg-content-area;
+}

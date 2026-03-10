@@ -37,6 +37,8 @@ export default {
     '../projects/canopy/src/lib/button/docs/button-group.stories.ts',
     '../projects/canopy/src/lib/card/docs/card/guide.mdx',
     '../projects/canopy/src/lib/card/docs/card/card.stories.ts',
+    '../projects/canopy/src/lib/content-area/docs/guide.mdx',
+    '../projects/canopy/src/lib/content-area/docs/content-area.stories.ts',
     '../projects/canopy/src/lib/data-point/docs/guide.mdx',
     '../projects/canopy/src/lib/data-point/docs/data-point.stories.ts',
     '../projects/canopy/src/lib/details/docs/guide.mdx',
