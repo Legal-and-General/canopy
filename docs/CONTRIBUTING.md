@@ -6,6 +6,23 @@ Before you start Contributing to Canopy it is worth familiarising yourself with 
 
 Please do raise an [issue](https://github.com/Legal-and-General/canopy/issues) or [discussion](https://github.com/Legal-and-General/canopy/discussions) before starting a piece of work. Our contributors can help provide guidance to make sure your effort isn't wasted. It is important that the development and design implementations stay in sync and that the codebase remains consistent. This will help to give the codebase a long life and remain intuitive for those using it.
 
+## Table of contents
+
+- [Storybook](#storybook)
+- [Build](#build)
+- [Running unit tests](#running-unit-tests)
+- [Running lint](#running-lint)
+- [Running visual tests](#running-visual-tests)
+- [Conventional commits](#conventional-commits)
+- [Commit Signing](#commit-signing)
+- [Branch naming convention](#branch-naming-convention)
+- [Review Process](#review-process)
+- [Github Actions](#github-actions)
+- [SVG Icons](#svg-icons)
+- [Angular Material CDK](#angular-material-cdk)
+- [Dependabot](#dependabot)
+- [Agentic AI](#agentic-ai)
+
 ## Storybook
 
 Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed.
@@ -145,3 +162,7 @@ The `@angular/cdk` can be used as long as only the necessary functionality is im
 ## Dependabot
 
 The dependency updates are currently handled by [Dependabot](./DEPENDABOT.md).
+
+## Agentic AI
+
+Canopy uses GitHub Copilot coding agents to automate specific development tasks such as dependency updates. For details on the available agents, skills, and how to add new ones, see [AGENTIC_AI.md](./AGENTIC_AI.md).
