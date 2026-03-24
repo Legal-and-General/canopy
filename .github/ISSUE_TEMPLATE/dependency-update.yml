@@ -1,0 +1,56 @@
+name: Dependency Update
+description: Request a dependency update via the Dependency Updater Copilot agent.
+title: "chore(deps): "
+labels: ["dependencies", "copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be picked up by the **Dependency Updater** Copilot coding agent.
+        Once assigned, the agent will open a pull request with the requested updates.
+
+        > **Note:** after creating this issue, assign it to `@copilot` and select the **Dependency Updater** agent to trigger it. GitHub does not currently support auto-assigning the Copilot agent from issue templates.
+
+        > **Preview mode:** if you tick _Preview only_ below, the agent will post the available updates as a comment on this issue and stop without making any changes. To then apply the updates, reply to the agent's comment with something like "@copilot go ahead and make the changes".
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Update scope
+      description: Which dependencies should be updated?
+      options:
+        - Production patch
+        - Production minor
+        - Production major
+        - Development patch
+        - Development minor
+        - Development major
+        - All patch
+        - All minor
+        - All major
+        - Specific package
+    validations:
+      required: true
+
+  - type: input
+    id: package
+    attributes:
+      label: Package name (specific package only)
+      description: Required if "Specific package" is selected above. Include the target version if known.
+      placeholder: "e.g. jest@30.0.0 or jest@latest"
+
+  - type: textarea
+    id: exclusions
+    attributes:
+      label: Packages to exclude
+      description: List any packages that should NOT be updated, one per line.
+      placeholder: |
+        @angular/core
+        typescript
+
+  - type: checkboxes
+    id: options
+    attributes:
+      label: Options
+      options:
+        - label: Preview only (dry run — list available updates without applying them. Reply "@copilot go ahead and make the changes" to proceed.)
