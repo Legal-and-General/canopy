@@ -29,9 +29,7 @@ jobs:
           cache: 'npm'
 
       - name: 'Install dependencies'
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> ~/.npmrc
-          npm ci
+        run: npm ci
 
       - name: 'Build library'
         run: npm run build
@@ -56,9 +54,7 @@ jobs:
           cache: 'npm'
 
       - name: 'Install dependencies'
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> ~/.npmrc
-          npm ci
+        run: npm ci
 
       - name: 'Download dist folder'
         uses: actions/download-artifact@v7
@@ -89,9 +85,7 @@ jobs:
           cache: 'npm'
 
       - name: 'Install dependencies'
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> ~/.npmrc
-          npm ci
+        run: npm ci
 
       - name: 'Download dist folder'
         uses: actions/download-artifact@v7

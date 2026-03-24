@@ -26,9 +26,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: 'Install dependencies'
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> ~/.npmrc
-          npm ci
+        run: npm ci
 
       - name: 'Save PR data'
         uses: actions/github-script@v8

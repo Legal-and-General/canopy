@@ -26,9 +26,7 @@ jobs:
           cache: 'npm'
 
       - name: 'Install dependencies'
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> ~/.npmrc
-          npm ci
+        run: npm ci
 
       - name: 'Lint commit'
         if: ${{ !startsWith(github.head_ref, 'dependabot-')  }}
