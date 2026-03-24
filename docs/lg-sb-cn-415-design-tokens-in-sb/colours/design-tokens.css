@@ -1,0 +1,76 @@
+/**
+ * Design tokens for Storybook design token addon
+ * This file defines the actual token values for display
+ */
+
+:root {
+  /**
+   * @tokens Colors
+   * @presenter Color
+   */
+
+  /* Blue */
+  --colour-blue-0: #ffffff; /* Blue 0 */
+  --colour-blue-100: #d2effb; /* Blue 100 */
+  --colour-blue-200: #aee1f7; /* Blue 200 */
+  --colour-blue-300: #76c8f1; /* Blue 300 */
+  --colour-blue-400: #42aeea; /* Blue 400 */
+  --colour-blue-500: #1e84d2; /* Blue 500 */
+  --colour-blue-600: #005dba; /* Blue 600 */
+  --colour-blue-700: #003894; /* Blue 700 */
+  --colour-blue-800: #001d6e; /* Blue 800 */
+  --colour-blue-900: #000a52; /* Blue 900 */
+  --colour-blue-1000: #000039; /* Blue 1000 */
+
+  /* Green */
+  --colour-green-0: #ffffff; /* Green 0 */
+  --colour-green-100: #dff6eb; /* Green 100 */
+  --colour-green-200: #caeedd; /* Green 200 */
+  --colour-green-300: #7fce9f; /* Green 300 */
+  --colour-green-400: #43af6e; /* Green 400 */
+  --colour-green-500: #1a8952; /* Green 500 */
+  --colour-green-600: #00633d; /* Green 600 */
+  --colour-green-700: #014a39; /* Green 700 */
+  --colour-green-800: #01312e; /* Green 800 */
+  --colour-green-900: #012425; /* Green 900 */
+  --colour-green-1000: #011b1f; /* Green 1000 */
+
+  /* Red */
+  --colour-red-0: #ffffff; /* Red 0 */
+  --colour-red-100: #ffd5d2; /* Red 100 */
+  --colour-red-200: #ffc2bd; /* Red 200 */
+  --colour-red-300: #ff7e7e; /* Red 300 */
+  --colour-red-400: #ff3e51; /* Red 400 */
+  --colour-red-500: #e2223e; /* Red 500 */
+  --colour-red-600: #c50b30; /* Red 600 */
+  --colour-red-700: #ad092a; /* Red 700 */
+  --colour-red-800: #940824; /* Red 800 */
+  --colour-red-900: #6e061b; /* Red 900 */
+  --colour-red-1000: #480411; /* Red 1000 */
+
+  /* Yellow */
+  --colour-yellow-0: #ffffff; /* Yellow 0 */
+  --colour-yellow-100: #fffbdc; /* Yellow 100 */
+  --colour-yellow-200: #fff9c7; /* Yellow 200 */
+  --colour-yellow-300: #fff298; /* Yellow 300 */
+  --colour-yellow-400: #ffe969; /* Yellow 400 */
+  --colour-yellow-500: #ffd335; /* Yellow 500 */
+  --colour-yellow-600: #ffb600; /* Yellow 600 */
+  --colour-yellow-700: #e48616; /* Yellow 700 */
+  --colour-yellow-800: #c86426; /* Yellow 800 */
+  --colour-yellow-900: #904029; /* Yellow 900 */
+  --colour-yellow-1000: #572722; /* Yellow 1000 */
+
+  /* Greyscale */
+  --colour-greyscale-0: #ffffff; /* Greyscale 0 */
+  --colour-greyscale-100: #f4f4f4; /* Greyscale 100 */
+  --colour-greyscale-200: #d3d3d3; /* Greyscale 200 */
+  --colour-greyscale-300: #bcbdbd; /* Greyscale 300 */
+  --colour-greyscale-400: #a6a7a7; /* Greyscale 400 */
+  --colour-greyscale-500: #858686; /* Greyscale 500 */
+  --colour-greyscale-600: #7a7b7b; /* Greyscale 600 */
+  --colour-greyscale-700: #4d4f4f; /* Greyscale 700 */
+  --colour-greyscale-800: #343634; /* Greyscale 800 */
+  --colour-greyscale-900: #1d1d1b; /* Greyscale 900 */
+  --colour-greyscale-1000: #000000; /* Greyscale 1000 */
+}

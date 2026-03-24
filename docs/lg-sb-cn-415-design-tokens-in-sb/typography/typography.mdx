@@ -1,0 +1,112 @@
+import { Markdown, Meta, Story } from '@storybook/addon-docs/blocks';
+import Feedback from '../../common/feedback.md';
+import * as TypographyStories from './typography.stories.ts';
+import { DesignTokenDocBlock } from 'storybook-design-token';
+import {
+  fontFamilyVars,
+  fontSizeVars,
+  fontWeightVars,
+  lineHeightVars,
+  typographyVariables,
+  getFontSizeBreakpointValuesForTable,
+  getLineHeightBreakpointValuesForTable,
+} from './typography-utils.ts';
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+<p class="standfirst">Effective use of typography is one of the most important ways we can convey the hierarchy of a page and help the customer understand the nature of the content within. We have two flavours of our type system; Productive and Expressive.</p>
+
+Productive type is our default system and should be used in the majority of cases. The Expressive system should be used in cases where it's necessary to imbue the design with a greater degree of brand personality, such as on the home page or other marketing pages. Adding more brand personality can make designs feel richer, but should be used judiciously and never at the expense of usability or accessibility.
+
+## Productive text
+
+The basis for the productive text scale is Nunito Sans, chosen for its legibility and suitability for communicating key information to the user. It should be used for all instances of paragraph text, tabular text and interactive elements such as buttons. Nunito Sans is available from <a href="https://fonts.google.com/specimen/Nunito+Sans" target="_blank">Google Fonts</a>.
+
+We have created a flexible scale (based on our 4px grid) that allows you to apply any size to any text element while maintaining semantic hierarchy:
+
+<Story of={TypographyStories.Productive} />
+
+## Expressive text
+
+The basis for the expressive scale is ABC Otto, which is our brand typeface. It should only be used in display settings at larger sizes where a greater degree of brand identity needs to be applied. You can find out more about ABC Otto, and where to get it on the <a href="https://www.legalandgeneralbrandhub.com/b/www/c/en-GB/BrandKnowledge/Guideline/2?Page=6" target="_blank">L\&G Brand Hub</a>.
+
+<Story of={TypographyStories.Expressive} />
+
+## Design Tokens
+
+### Font Family
+
+<DesignTokenDocBlock categoryName="Font Family" maxHeight={600} viewType="card" />
+
+### Font Weight
+
+<DesignTokenDocBlock categoryName="Font Weight" maxHeight={600} viewType="table" />
+
+### Font Size
+
+<DesignTokenDocBlock categoryName="Font Size" maxHeight={600} viewType="table" />
+
+### Line Height
+
+<DesignTokenDocBlock categoryName="Line Height" maxHeight={600} viewType="table" />
+
+### Letter Spacing
+
+<DesignTokenDocBlock categoryName="Letter Spacing" maxHeight={600} viewType="table" />
+
+
+## Dos and Don'ts
+
+### Do
+
+* **Do** use consistent headings to indicate hierarchy.
+* **Do** use a minimum of 16px text (`.lg-font-size-1`) for paragraph text or data points. Smaller type may be used for non-essential supporting information.
+* **Do** use bold text to emphasise information.
+* **Do** check colour contrast of text on backgrounds (see [colours](./?path=/docs/foundations-colours--docs)).
+* **Do** centre align text for empty or loading states.
+
+### Don't
+
+* **Don't** use any sizes other than those specified.
+* **Don't** use any weights other than those specified.
+* **Don't** use italic text to emphasise information.
+* **Don't** use expressive text for paragraphs, or anything below `.lg-font-size-4` (32px) in size.
+* **Don't** use centre alignment for large passages of copy.
+
+
+### Mixin
+
+Use the lg-font-size mixin to automatically apply the appropriate font size, weight, and line height across breakpoints.
+
+```scss
+@use "canopy/styles/mixins";
+
+...
+
+.class-name {
+  @include mixins.lg-font-size($size, $modifier: null, $type: null);
+  ...
+}
+```
+
+#### Inputs
+
+| Name        | Description                         |       Default        | Required |
+|-------------|-------------------------------------|:--------------------:|:--------:|
+| `$size` | The font size: `1`, `2`, `3` etc. |         n/a          |   Yes    |
+| `$modifier`    | The font weight: `300`, `400`, `500` etc.          | `300` |    No    |
+| `$type`    | The font family type if expressive: `expressive`  | `productive` |    No    |
+
+## Accessibility
+
+It's important that we use typography in a way that provides an accessible experience to every user. Ensure typography is legible with enough contrast to ensure accessibility. If you're not sure, use <a href="https://webaim.org/resources/contrastchecker/" target="_blank">Colour Contrast Checker</a> or similar.
+
+## Further information
+
+For further guidance on the use of Type please visit our <a href="https://brandportal.landg.com/point/en/legal-and-general/component/default/210862" target="_blank">L\&G Brand Hub</a>.
+
+<Markdown>
+  {Feedback}
+</Markdown>
