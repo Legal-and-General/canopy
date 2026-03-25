@@ -371,7 +371,30 @@ N/A — dependency update only.
 - [ ] I have added any new public feature modules to public-api.ts _(N/A)_
 ```
 
-**Cloud agent:** create the PR directly once all changes are committed:
+**Before pushing**, squash all commits on the branch into a single GPG-signed commit:
+
+```bash
+# Count commits ahead of master
+COMMIT_COUNT=$(git log --oneline master..HEAD | wc -l | tr -d ' ')
+
+# Soft-reset to collapse all commits, then re-commit
+git reset --soft HEAD~$COMMIT_COUNT
+git commit -S -m "ci(npm): <final commit message following the Commit Message Convention below>"
+```
+
+The final commit message must follow the project's commitlint convention (see _Commit Message Convention_ section). Verify the squash succeeded before pushing:
+
+```bash
+git log --oneline master..HEAD
+```
+
+This should show exactly one commit. Then push the branch:
+
+```bash
+git push origin HEAD
+```
+
+**Cloud agent:** create the PR directly once the branch is pushed:
 
 ```bash
 gh pr create \
