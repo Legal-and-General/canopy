@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const { kebabCase } = require('./utils.cjs');
 
 const DEFAULT_BRANCH = 'master';
 const LEGACY_BRANCH = 'legacy';
@@ -28,7 +29,7 @@ module.exports = async ({
 
   console.info(`ℹ️ Branch to deploy: ${branch}`);
 
-  docsPath = `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`;
+  docsPath = `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${kebabCase(branch)}`;
 
   if (branch === LEGACY_BRANCH || branch === NEXT_BRANCH) {
     await deploy({ branch, sha, repo, owner, docsPath, github, exec });
@@ -171,12 +172,15 @@ async function undeploy({ branch, repo, owner, github, exec }) {
     const prefixRegex = new RegExp(`^${STORYBOOK_BUILD_PREFIX}`);
 
     // get the existing deployed branches from the docs folder (removing the prefix)
-    const branches = fs.readdirSync(ROOT_DOCS_PATH, { withFileTypes: true })
-      .filter(item => item.isDirectory() &&
-        item.name.startsWith(STORYBOOK_BUILD_PREFIX) &&
-        item.name !== `${STORYBOOK_BUILD_PREFIX}${branch}` &&
-        item.name !== `${STORYBOOK_BUILD_PREFIX}${LEGACY_BRANCH}` &&
-        item.name !== `${STORYBOOK_BUILD_PREFIX}${NEXT_BRANCH}`
+    const branches = fs
+      .readdirSync(ROOT_DOCS_PATH, { withFileTypes: true })
+      .filter(
+        (item) =>
+          item.isDirectory() &&
+          item.name.startsWith(STORYBOOK_BUILD_PREFIX) &&
+          item.name !== `${STORYBOOK_BUILD_PREFIX}${kebabCase(branch)}` &&
+          item.name !== `${STORYBOOK_BUILD_PREFIX}${LEGACY_BRANCH}` &&
+          item.name !== `${STORYBOOK_BUILD_PREFIX}${NEXT_BRANCH}`,
       )
       .map(({ name }) => name.replace(prefixRegex, ''));
 
@@ -202,8 +206,8 @@ async function undeploy({ branch, repo, owner, github, exec }) {
 
     for (const branch of branchesToUndeploy) {
       console.info(`ℹ️ Removing storybook static files for branch ${branch}`);
-      await exec.exec('rm', ['-rf', `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`]);
-      await exec.exec('git', ['add', `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${branch}`]);
+      await exec.exec('rm', ['-rf', `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${kebabCase(branch)}`]);
+      await exec.exec('git', ['add', `${ROOT_DOCS_PATH}/${STORYBOOK_BUILD_PREFIX}${kebabCase(branch)}`]);
 
       try {
         console.info('ℹ️ Committing changes');
@@ -221,3 +225,4 @@ async function undeploy({ branch, repo, owner, github, exec }) {
     throw `🚫 Error: something went wrong during the un-deployment`;
   }
 }
+
