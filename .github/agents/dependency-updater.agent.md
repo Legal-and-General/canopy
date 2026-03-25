@@ -63,11 +63,9 @@ The update scope is one of the following:
 | **All major** | Major updates for both `dependencies` and `devDependencies` |
 | **Specific package** | Update a single named package to a specified or latest version |
 
-**Cloud agent:** read the assigned issue's title and body to determine the scope, any packages to exclude, and whether a preview (dry-run) is requested. If the issue body is ambiguous or missing required detail, make a reasonable inference and proceed — document your interpretation in the PR description.
+**Cloud agent:** read the assigned issue's title and body to determine the scope and any packages to exclude. If the issue body is ambiguous or missing required detail, make a reasonable inference and proceed — document your interpretation in the PR description.
 
-**IDE:** ask the user which scope they want. Also ask:
-- Whether they want to **preview** (dry-run list only) or **apply** the updates.
-- Whether any packages should be **excluded** from the update.
+**IDE:** ask the user which scope they want and whether any packages should be **excluded** from the update.
 
 ## Step 2 — Check Open Dependabot PRs
 
@@ -163,10 +161,7 @@ Some relationships are not expressed as peer dependencies. Check the following k
 
 Present the combined results to the user in a clear table showing: package name, current version, target version, whether it is a patch/minor/major bump, whether a Dependabot PR exists for it, and whether it was **pulled in** as a companion (with the reason, e.g. "*required by @angular/core@21*").
 
-If a preview was requested:
-
-- **Cloud agent:** post the update list as a comment on the issue, then stop. Do not make any changes. The user can reply to the comment (e.g. "@copilot go ahead and make the changes") to proceed with the actual update.
-- **IDE:** present the update list and ask the user to confirm before proceeding.
+Proceed to apply the updates after presenting the update list.
 
 ## Step 4 — Research Breaking Changes (Major Updates)
 
