@@ -4,7 +4,7 @@ on:
 
 jobs:
   copilot-setup-steps:
-    runs-on: fixed-ip-runner-2core-24.04
+    runs-on: ubuntu-latest
     environment: copilot
     steps:
       - name: 'Checkout Repo'
