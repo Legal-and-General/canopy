@@ -42,6 +42,11 @@ jobs:
               context
             });
 
+      - name: 'Set kebab-case branch name'
+        id: kebabBranch
+        run: |
+          echo "kebab_branch=$(echo '${{ fromJSON(steps.prData.outputs.result).branch }}' | tr '/' '-')" >> $GITHUB_OUTPUT
+
       - name: 'Download artifacts from PR'
         uses: actions/github-script@v8
         with:
@@ -56,11 +61,11 @@ jobs:
 
       - name: 'Unzip storybook build'
         run: |
-          unzip lg-sb-build.zip -d ./docs/lg-sb-'${{ fromJSON(steps.prData.outputs.result).branch }}'
+          unzip lg-sb-build.zip -d ./docs/lg-sb-${{ steps.kebabBranch.outputs.kebab_branch }}
           rm lg-sb-build.zip
 
       - name: 'Visual comparison'
-        run: npx percy storybook ./docs/lg-sb-${{ fromJSON(steps.prData.outputs.result).branch }} --config=.percy.yml
+        run: npx percy storybook ./docs/lg-sb-${{ steps.kebabBranch.outputs.kebab_branch }} --config=.percy.yml
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           PERCY_BRANCH: '${{ fromJSON(steps.prData.outputs.result).branch }}'

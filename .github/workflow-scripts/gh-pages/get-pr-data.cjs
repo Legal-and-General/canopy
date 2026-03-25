@@ -1,3 +1,7 @@
+'use strict';
+
+const { kebabCase } = require('./utils.cjs');
+
 module.exports = async ({
   pullNumber,
   github,
@@ -16,7 +20,7 @@ module.exports = async ({
       sha,
       branch,
       pullNumber,
-      environmentUrl: `https://legal-and-general.github.io/canopy/lg-sb-${branch}`
+      environmentUrl: `https://legal-and-general.github.io/canopy/lg-sb-${kebabCase(branch)}`
     };
   } catch {
     throw `🚫 Error: PR #${pullNumber} was not found`;
