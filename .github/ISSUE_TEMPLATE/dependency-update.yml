@@ -47,10 +47,3 @@ body:
       placeholder: |
         @angular/core
         typescript
-
-  - type: checkboxes
-    id: options
-    attributes:
-      label: Options
-      options:
-        - label: Preview only (dry run — list available updates without applying them. Reply "@copilot go ahead and make the changes" to proceed.)
