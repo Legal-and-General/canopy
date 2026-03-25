@@ -1,0 +1,22 @@
+name: "Copilot Setup Steps"
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: fixed-ip-runner-2core-24.04
+    environment: copilot
+    steps:
+      - name: 'Checkout Repo'
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.COPILOT_PAT }}
+
+      - name: 'Pre-authenticate npm'
+        # This writes the token to the workspace .npmrc
+        # When the agent runs 'npm install' later, it will find this file
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{secrets.COPILOT_PAT}}" >> ~/.npmrc
+        env:
+          COPILOT_PACKAGES: ${{ secrets.COPILOT_PAT }} # Stored in the 'copilot' environment
