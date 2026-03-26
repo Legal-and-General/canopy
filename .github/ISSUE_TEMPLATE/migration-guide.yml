@@ -1,0 +1,28 @@
+name: Migration Guide
+description: Request a migration guide comment to be generated for a pull request containing breaking changes.
+title: "docs: generate migration guide for PR #"
+labels: ["documentation", "copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be picked up by the **Migration Guide Writer** Copilot coding agent.
+        Once assigned, the agent will analyse the pull request's code diff to identify all breaking changes and output a structured migration guide for you to post as a comment on the PR.
+
+        > **Note:** after creating this issue, assign it to `@copilot` and select the **Migration Guide Writer** agent to trigger it. GitHub does not currently support auto-assigning the Copilot agent from issue templates.
+
+  - type: input
+    id: pr_number
+    attributes:
+      label: Pull request number
+      description: The number of the PR that contains the breaking changes.
+      placeholder: "e.g. 1234"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context (optional)
+      description: Any notes to help the agent — for example, known breaking changes not obvious from the diff, or areas to pay particular attention to.
+      placeholder: "e.g. The variant input on LgButtonComponent has been renamed to priority."

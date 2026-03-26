@@ -9,7 +9,7 @@ Agents are specialised Copilot personas with tailored expertise and instructions
 | Agent | File | Purpose | How to trigger |
 |-------|------|---------|----------------|
 | **Dependency Updater** | `.github/agents/dependency-updater.agent.md` | Manages npm dependency updates — patch, minor, and major — including breaking-change research, Angular and Storybook migration tooling, and PR creation. | Create an issue using the **Dependency Update** template, then assign it to `@copilot` |
-| **Migration Guide Writer** | `.github/agents/migration-guide-writer.agent.md` | Generates a formatted migration guide comment on a pull request by analysing the code diff and build output to identify breaking changes. | Run via the [Copilot agents tab](https://github.com/copilot/agents) on GitHub, or select the agent in the IDE Copilot Chat panel and provide the PR number |
+| **Migration Guide Writer** | `.github/agents/migration-guide-writer.agent.md` | Generates a formatted migration guide comment on a pull request by analysing the code diff and build output to identify breaking changes. | Create an issue using the **Migration Guide** template, run via the [Copilot agents tab](https://github.com/copilot/agents), or select the agent in the IDE Copilot Chat panel |
 | **Migration Skill Generator** | `.github/agents/migration-skill-generator.agent.md` | Generates an installable Copilot skill for a published major release, so consumers can apply breaking-change migrations with AI assistance. Also updates `docs/COPILOT_SKILLS.md`. | Create an issue using the **Migration Skill** template, then assign it to `@copilot` |
 
 ### Using an agent
@@ -23,13 +23,18 @@ How you trigger an agent depends on whether it is designed for cloud or local us
 2. Once the issue is created, assign it to `@copilot` and select the **Dependency Updater** agent.
 3. The agent will run automatically and open a pull request when done.
 
+**Migration Guide Writer — via a GitHub issue:**
+1. Create a new issue using the [Migration Guide](../.github/ISSUE_TEMPLATE/migration-guide.yml) issue template, providing the PR number that contains the breaking changes.
+2. Once the issue is created, assign it to `@copilot` and select the **Migration Guide Writer** agent.
+3. The agent will analyse the PR's code diff and output a formatted migration guide in the issue conversation for you to copy and paste into the PR.
+
 **Migration Guide Writer — via the Copilot agents tab (cloud):**
 1. Navigate to the [Copilot agents tab](https://github.com/copilot/agents) on GitHub.com.
 2. Use the repository dropdown to select `Legal-and-General/canopy`.
 3. Select the **Migration Guide Writer** agent from the agent dropdown.
 4. Provide the PR number in your prompt, e.g.:
    > "Create the migration guide for PR #1234"
-5. The agent will analyse the PR's code diff and post a formatted migration guide comment directly on the PR.
+5. The agent will analyse the PR's code diff and output a formatted migration guide in the conversation for you to copy and paste into the PR.
 
 **Migration Guide Writer — IDE / local:**
 Open Copilot Chat in your IDE, select the **Migration Guide Writer** agent from the dropdown, and provide the PR number:
