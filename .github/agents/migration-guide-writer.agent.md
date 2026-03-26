@@ -203,9 +203,11 @@ For each identified breaking change, record:
 
 ## Step 4 — Validate Against the Build Output
 
+> **IMPORTANT — local/IDE only.** This step involves checking out the PR branch locally. **Do not run this step in the cloud agent** — it risks creating unintended commits or PRs. In the cloud, skip directly to Step 5 and rely solely on the source diff from Step 3.
+
 The source diff alone may miss breaking changes that only manifest in the compiled output — for example, a SCSS file that is deleted from source but whose path consumers reference directly, or a CSS token file that is no longer emitted.
 
-Check out the PR branch and run the build:
+Check out the PR branch **for read-only inspection only** — do not make any changes, commits, or pushes:
 
 ```bash
 gh pr checkout <PR_NUMBER> --repo Legal-and-General/canopy
@@ -337,7 +339,10 @@ Provide a brief summary to the user (or the issue) covering:
 
 ## Safety Rules
 
-- **Never modify source files** — this agent reads PRs and posts comments only. It does not check out code, edit files, or push commits.
+- **Never create a pull request** — this agent posts a comment on an existing PR only. It must never open a new PR, regardless of what it has checked out or built.
+- **Never commit or push** — do not stage, commit, or push any files at any point. The only write operation permitted is posting a PR comment.
+- **Never modify source files** — this agent reads PRs and posts comments only. It does not edit files.
+- **Do not check out code in the cloud agent** — Step 4 (build validation) must only be run locally. In the cloud agent, skip it entirely.
 - **Post only one comment** — check whether a migration guide comment from `@github-actions` or `@copilot` already exists on the PR before posting. If one exists, update it rather than creating a duplicate (use `gh pr comment --edit-last` or the comment ID).
 - **Do not invent breaking changes** — only surface changes that are evidenced by the actual code diff. If no breaking changes are found in the diff, report this clearly and do not post a comment.
 - **Confirm before posting (IDE only)** — always show the user the full generated comment and ask for confirmation before posting it via `gh`.
