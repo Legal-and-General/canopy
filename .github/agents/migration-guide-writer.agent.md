@@ -301,7 +301,9 @@ Using the breaking changes identified from the code diff in Steps 3 and 4 (suppl
 
 ## Step 8 — Post the Comment on the PR
 
-**Cloud agent** and **IDE with `gh` available:**
+**Important: attempt to post, but expect failure for EMU accounts (both cloud and IDE).** The Copilot coding agent runs in the context of the authenticated user's session. If that account is an Enterprise Managed User (EMU), GitHub will block comment posting with a 403 or `Unauthorized: As an Enterprise Managed User, you cannot access this content` error. This applies equally to local `gh` use and to the cloud agent. Do not retry on this error — fall back immediately to the output approach below.
+
+**Attempt (cloud agent and IDE with `gh` available):**
 
 Always write the comment body to a file using the `create_file` tool and post it with `--body-file`. Do **not** use heredocs (`<<'COMMENT'`) or shell substitution (`$(cat ...)`) — these are unreliable in agentic terminal environments and will mangle the content.
 
@@ -309,15 +311,20 @@ Always write the comment body to a file using the `create_file` tool and post it
 # 1. Write the comment body to a file using the create_file tool
 #    (filePath: /tmp/migration-guide-comment.md)
 
-# 2. Post it
-gh pr comment <PR_NUMBER> \
+# 2. Post it — use COPILOT_PAT (set as a Copilot environment secret) to bypass the EMU restriction
+GH_TOKEN=${COPILOT_PAT} gh pr comment <PR_NUMBER> \
   --repo Legal-and-General/canopy \
   --body-file /tmp/migration-guide-comment.md
 ```
 
-**Enterprise Managed Users (EMU):** GitHub blocks EMU accounts from posting comments via the API (`addComment` GraphQL mutation). If you see `Unauthorized: As an Enterprise Managed User, you cannot access this content`, fall back immediately to presenting the guide for manual posting — retrying will not help. Advise the user to either post manually or re-run with a non-EMU PAT: `GH_TOKEN=<non-emu-pat> gh pr comment ...`
+**Fallback (EMU error, `gh` unavailable, or any posting failure):**
 
-**IDE with `gh` unavailable:** display the full migration guide comment in the chat so the user can copy and paste it into the PR manually.
+Output the full migration guide comment directly in the chat or issue conversation, clearly formatted so the user can copy and paste it into the PR manually. Include a direct link to the PR: `https://github.com/Legal-and-General/canopy/pull/<PR_NUMBER>`
+
+Also copy the file to the clipboard if in an IDE context:
+```bash
+cat /tmp/migration-guide-comment.md | pbcopy
+```
 
 After posting, confirm success by sharing a link to the PR comment:
 `https://github.com/Legal-and-General/canopy/pull/<PR_NUMBER>`
