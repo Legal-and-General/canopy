@@ -1,0 +1,32 @@
+name: Migration Skill
+description: Request an installable Copilot migration skill to be generated for a published Canopy major release.
+title: "feat(skills): generate migration skill for v"
+labels: ["documentation", "copilot"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be picked up by the **Migration Skill Generator** Copilot coding agent.
+        Once assigned, the agent will fetch the release notes for the specified version, extract all breaking changes, and generate an installable `SKILL.md` that consumers can apply to their own projects using:
+
+        ```bash
+        npx skills add Legal-and-General/canopy --skill canopy-v{N}-migration
+        ```
+
+        > **Note:** after creating this issue, assign it to `@copilot` and select the **Migration Skill Generator** agent to trigger it. GitHub does not currently support auto-assigning the Copilot agent from issue templates.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The Canopy major version to generate a migration skill for. Accepts 21, v21, or v21.0.0.
+      placeholder: "e.g. 21"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context (optional)
+      description: Any notes to help the agent — for example, if the release tag differs from the expected pattern, or if you want to highlight specific breaking changes.
+      placeholder: "e.g. The stable release tag is v21.1.0 rather than v21.0.0 as v21.0.0 was a pre-release."

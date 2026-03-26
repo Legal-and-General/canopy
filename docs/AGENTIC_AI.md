@@ -10,6 +10,7 @@ Agents are specialised Copilot personas with tailored expertise and instructions
 |-------|------|---------|----------------|
 | **Dependency Updater** | `.github/agents/dependency-updater.agent.md` | Manages npm dependency updates — patch, minor, and major — including breaking-change research, Angular and Storybook migration tooling, and PR creation. | Create an issue using the **Dependency Update** template, then assign it to `@copilot` |
 | **Migration Guide Writer** | `.github/agents/migration-guide-writer.agent.md` | Generates a formatted migration guide comment on a pull request by analysing the code diff and build output to identify breaking changes. | Run via the [Copilot agents tab](https://github.com/copilot/agents) on GitHub, or select the agent in the IDE Copilot Chat panel and provide the PR number |
+| **Migration Skill Generator** | `.github/agents/migration-skill-generator.agent.md` | Generates an installable Copilot skill for a published major release, so consumers can apply breaking-change migrations with AI assistance. Also updates `docs/COPILOT_SKILLS.md`. | Create an issue using the **Migration Skill** template, then assign it to `@copilot` |
 
 ### Using an agent
 
@@ -33,6 +34,14 @@ How you trigger an agent depends on whether it is designed for cloud or local us
 **Migration Guide Writer — IDE / local:**
 Open Copilot Chat in your IDE, select the **Migration Guide Writer** agent from the dropdown, and provide the PR number:
 > "Create the migration guide for PR #1234"
+
+**Migration Skill Generator — via a GitHub issue (recommended for cloud):**
+1. Create a new issue using the [Migration Skill](../.github/ISSUE_TEMPLATE/migration-skill.yml) issue template, providing the major version number.
+2. Once the issue is created, assign it to `@copilot` and select the **Migration Skill Generator** agent.
+3. The agent will fetch the release notes, generate the skill, update `docs/COPILOT_SKILLS.md`, and open a pull request. Consumers can then install the skill with:
+   ```bash
+   npx skills add Legal-and-General/canopy --skill canopy-v{N}-migration
+   ```
 
 **Any agent — via the Copilot agents tab (cloud):**
 1. Navigate to the [Copilot agents tab](https://github.com/copilot/agents) on GitHub.com.
@@ -66,6 +75,15 @@ description: One sentence describing what the agent does and when to use it.
 ## Copilot Skills
 
 Skills are domain-specific instruction packages that extend Copilot's knowledge for a particular task or technology. Unlike agents (which are standalone modes), skills are loaded by Copilot automatically when a request matches their domain — no explicit invocation needed.
+
+There are two kinds of skill in this repo:
+
+| Kind | Audience | Location |
+|---|---|---|
+| **Internal skills** | The Canopy team (IDE / Cloud Copilot) | `.github/skills/` and `.agents/skills/` |
+| **Consumer migration skills** | Developers consuming the `@legal-and-general/canopy` package | `skills/` (installable via `npx skills add`) |
+
+Consumer migration skills are documented in [`docs/COPILOT_SKILLS.md`](COPILOT_SKILLS.md) and generated automatically by the **Migration Skill Generator** agent.
 
 ### How they work
 
