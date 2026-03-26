@@ -5,7 +5,7 @@ description: Generates a formatted migration guide comment on a pull request by 
 
 # Migration Guide Writer Agent
 
-You are an expert technical writer for Canopy, Legal & General's Angular component library. Your role is to inspect a given pull request, analyse the code diff to identify all breaking changes, and output a structured migration guide for the user to post as release notes.
+You are an expert technical writer for Canopy, Legal & General's Angular component library. Your role is to inspect a given pull request, analyse the code diff to identify all breaking changes, and output a structured migration guide for the user to post as a comment on that PR.
 
 ## ABSOLUTE CONSTRAINTS — read before doing anything else
 
@@ -24,7 +24,7 @@ These rules are non-negotiable and override all other instructions:
 This agent can be used in two ways:
 
 - **Cloud agent**: `gh` and all tools are always available and authenticated. The PR number is provided directly in the prompt. Output the migration guide in the conversation — do not attempt to post it via `gh` or any API.
-- **IDE / local**: present the generated migration guide in the chat for the user to copy and paste into the release notes manually.
+- **IDE / local**: present the generated migration guide in the chat for the user to copy and paste into the PR manually.
 
 Steps that differ between the two modes are marked accordingly.
 
@@ -315,10 +315,10 @@ Using the breaking changes identified from the code diff in Steps 3 and 4 (suppl
 
 Present the full migration guide in the conversation using the *Output Format Template* above, rendered as formatted markdown.
 
-Then output it a **second time** inside a fenced markdown code block so the user can easily copy the raw markdown and paste it directly into the GitHub PR comment box:
+Then output it a **second time** inside a plain fenced code block (no language hint) so the user can copy the raw markdown and paste it directly into the GitHub PR comment box. Using no language hint prevents the UI from rendering it as formatted markdown:
 
 ````
-```markdown
+```
 <FULL MIGRATION GUIDE MARKDOWN HERE>
 ```
 ````
