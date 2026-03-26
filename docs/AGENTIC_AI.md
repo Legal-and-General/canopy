@@ -48,6 +48,11 @@ Open Copilot Chat in your IDE, select the **Migration Guide Writer** agent from 
    npx skills add Legal-and-General/canopy --skill canopy-v{N}-migration
    ```
 
+> **Note:** once your application has been fully migrated to the new version, uninstall the skill to keep your Copilot context clean:
+> ```bash
+> npx skills remove Legal-and-General/canopy --skill canopy-v{N}-migration
+> ```
+
 **Any agent — via the Copilot agents tab (cloud):**
 1. Navigate to the [Copilot agents tab](https://github.com/copilot/agents) on GitHub.com.
 2. Use the repository dropdown to select `Legal-and-General/canopy`.
