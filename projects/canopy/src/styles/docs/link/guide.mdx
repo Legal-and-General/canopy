@@ -1,6 +1,7 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../lib/docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
+import { DesignTokenDocBlock } from 'storybook-design-token';
 
 <Meta title="Components/Link/Guide" />
 
@@ -98,6 +99,32 @@ Read more about colour modes on the [Colour guidance page](./?path=/docs/helpers
 1. **Don't** use links for primary actions—use a button or quick action instead.
 2. **Don't** use vague or generic phrases like “click here” or “read more” without context.
 3. **Don't** use unnecessarily long or wordy link text—keep it concise without sacrificing clarity.
+
+## Design Tokens
+
+### Link Primary Tokens
+
+<DesignTokenDocBlock viewType="table" categoryName="Link Primary" />
+
+### Link Base Tokens
+
+<DesignTokenDocBlock viewType="table" categoryName="Link Base" />
+
+### Link Dark Foreground Tokens
+
+<DesignTokenDocBlock viewType="table" categoryName="Link Dark Foreground" />
+
+### Link Light Foreground Tokens
+
+<DesignTokenDocBlock viewType="table" categoryName="Link Light Foreground" />
+
+### Link Status Subtle Tokens
+
+<DesignTokenDocBlock viewType="table" categoryName="Link Status Subtle" />
+
+### Link Status Bold Tokens
+
+<DesignTokenDocBlock viewType="table" categoryName="Link Status Bold" />
 
 ## Additional development details
 

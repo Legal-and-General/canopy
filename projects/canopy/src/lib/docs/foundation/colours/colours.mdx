@@ -1,6 +1,7 @@
 import { Meta, Markdown, Story } from '@storybook/addon-docs/blocks';
 import Feedback from '../../common/feedback.md';
 import * as ColoursStories from './colours.stories.ts';
+import { DesignTokenDocBlock } from 'storybook-design-token';
 
 <Meta of={ColoursStories} />
 
@@ -28,9 +29,9 @@ Normal text is defined as 16px regular, while Large text is defined as 18.66px i
 
 Custom gradients should not be used anywhere in your project.
 
-## Palette
+## Palette and design tokens
 
-<Story of={ColoursStories.TintsColours} />
+<DesignTokenDocBlock categoryName="Colors" maxHeight={600} viewType="table" />
 
 ## Further information
 

@@ -164,10 +164,20 @@ export default {
         },
       },
     },
-    'storybook-addon-tag-badges'
+    'storybook-addon-tag-badges',
+    {
+      name: 'storybook-design-token',
+      options: {
+        designTokenGlob: '**/design-tokens.css',
+      },
+    }
   ],
   staticDirs: [
     '../assets/',
+    '../projects/canopy/src/lib/docs/foundation/colours',
+    '../projects/canopy/src/lib/docs/foundation/typography',
+    '../projects/canopy/src/lib/docs/foundation',
+    '../projects/canopy/src/styles/docs/link',
   ],
   core: {
     fsCache: true,

@@ -1,6 +1,7 @@
 import { Markdown, Meta, Story } from '@storybook/addon-docs/blocks';
 import Feedback from '../../common/feedback.md';
 import * as TypographyStories from './typography.stories.ts';
+import { DesignTokenDocBlock } from 'storybook-design-token';
 import {
   fontFamilyVars,
   fontSizeVars,
@@ -33,6 +34,29 @@ The basis for the expressive scale is ABC Otto, which is our brand typeface. It 
 
 <Story of={TypographyStories.Expressive} />
 
+## Design Tokens
+
+### Font Family
+
+<DesignTokenDocBlock categoryName="Font Family" maxHeight={600} viewType="card" />
+
+### Font Weight
+
+<DesignTokenDocBlock categoryName="Font Weight" maxHeight={600} viewType="table" />
+
+### Font Size
+
+<DesignTokenDocBlock categoryName="Font Size" maxHeight={600} viewType="table" />
+
+### Line Height
+
+<DesignTokenDocBlock categoryName="Line Height" maxHeight={600} viewType="table" />
+
+### Letter Spacing
+
+<DesignTokenDocBlock categoryName="Letter Spacing" maxHeight={600} viewType="table" />
+
+
 ## Dos and Don'ts
 
 ### Do
@@ -51,117 +75,6 @@ The basis for the expressive scale is ABC Otto, which is our brand typeface. It 
 * **Don't** use expressive text for paragraphs, or anything below `.lg-font-size-4` (32px) in size.
 * **Don't** use centre alignment for large passages of copy.
 
-## Additional development details
-
-### Typography Variables
-
-#### Font Families
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Value</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    {fontFamilyVars.map(({ name, value, description }) => (
-      <tr key={name}>
-        <td><code>{name}</code></td>
-        <td><code>{value}</code></td>
-        <td>{description}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
-#### Font Weights
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Value</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    {fontWeightVars.map(({ name, value, description }) => (
-      <tr key={name}>
-        <td><code>{name}</code></td>
-        <td>{value}</td>
-        <td>{description}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
-#### Font Sizes
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colSpan={2}>SM-MD</th>
-      <th colSpan={2}>LG upwards</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>px</th>
-      <th>Rem</th>
-      <th>px</th>
-      <th>Rem</th>
-    </tr>
-  </thead>
-  <tbody>
-    {fontSizeVars.map(([name, value]) => {
-      const { sm, lg } = getFontSizeBreakpointValuesForTable(name, typographyVariables);
-      return (
-        <tr key={name}>
-          <td><code>{name}</code></td>
-          <td>{sm.px}</td>
-          <td>{sm.rem}</td>
-          <td>{lg.px}</td>
-          <td>{lg.rem}</td>
-        </tr>
-      );
-    })}
-  </tbody>
-</table>
-
-#### Line Heights
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colSpan={2}>SM-MD</th>
-      <th colSpan={2}>LG upwards</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>px</th>
-      <th>Rem</th>
-      <th>px</th>
-      <th>Rem</th>
-    </tr>
-  </thead>
-  <tbody>
-    {lineHeightVars.map(([name, value]) => {
-      const { sm, lg } = getLineHeightBreakpointValuesForTable(name, typographyVariables);
-      return (
-        <tr key={name}>
-          <td><code>{name}</code></td>
-          <td>{sm.px}</td>
-          <td>{sm.rem}</td>
-          <td>{lg.px}</td>
-          <td>{lg.rem}</td>
-        </tr>
-      );
-    })}
-  </tbody>
-</table>
 
 ### Mixin
 

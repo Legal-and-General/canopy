@@ -1,0 +1,103 @@
+/**
+ * Typography design tokens for Storybook design token addon
+ * This file defines the actual token values for display
+ */
+
+:root {
+  /**
+   * @tokens Font Size
+   * @presenter FontSize
+   */
+
+  /* Font Size Small */
+  --font-size-small-0-6: 0.75rem; /* Font Size Small 0.6 */
+  --font-size-small-0-8: 0.875rem; /* Font Size Small 0.8 */
+  --font-size-small-1: 1rem; /* Font Size Small 1 */
+  --font-size-small-2: 1.25rem; /* Font Size Small 2 */
+  --font-size-small-3: 1.5rem; /* Font Size Small 3 */
+  --font-size-small-4: 1.75rem; /* Font Size Small 4 */
+  --font-size-small-5: 2rem; /* Font Size Small 5 */
+  --font-size-small-6: 2.5rem; /* Font Size Small 6 */
+  --font-size-small-7: 3rem; /* Font Size Small 7 */
+  --font-size-small-8: 3.5rem; /* Font Size Small 8 */
+  --font-size-small-9: 4.25rem; /* Font Size Small 9 */
+
+  /* Font Size Large */
+  --font-size-large-0-6: 0.75rem; /* Font Size Large 0.6 */
+  --font-size-large-0-8: 0.875rem; /* Font Size Large 0.8 */
+  --font-size-large-1: 1rem; /* Font Size Large 1 */
+  --font-size-large-2: 1.25rem; /* Font Size Large 2 */
+  --font-size-large-3: 1.5rem; /* Font Size Large 3 */
+  --font-size-large-4: 2rem; /* Font Size Large 4 */
+  --font-size-large-5: 2.5rem; /* Font Size Large 5 */
+  --font-size-large-6: 3rem; /* Font Size Large 6 */
+  --font-size-large-7: 3.875rem; /* Font Size Large 7 */
+  --font-size-large-8: 4.75rem; /* Font Size Large 8 */
+  --font-size-large-9: 7.1875rem; /* Font Size Large 9 */
+
+  /**
+   * @tokens Line Height
+   * @presenter LineHeight
+   */
+
+  /* Line Height Small */
+  --line-height-small-0-6: 0.875rem; /* Line Height Small 0.6 */
+  --line-height-small-0-8: 1.0625rem; /* Line Height Small 0.8 */
+  --line-height-small-1: 1.375rem; /* Line Height Small 1 */
+  --line-height-small-2: 1.75rem; /* Line Height Small 2 */
+  --line-height-small-3: 2.125rem; /* Line Height Small 3 */
+  --line-height-small-4: 2.25rem; /* Line Height Small 4 */
+  --line-height-small-5: 2.375rem; /* Line Height Small 5 */
+  --line-height-small-6: 3rem; /* Line Height Small 6 */
+  --line-height-small-7: 3.625rem; /* Line Height Small 7 */
+  --line-height-small-8: 4.1875rem; /* Line Height Small 8 */
+  --line-height-small-9: 4.8125rem; /* Line Height Small 9 */
+
+  /* Line Height Large */
+  --line-height-large-0-6: 0.875rem; /* Line Height Large 0.6 */
+  --line-height-large-0-8: 1.0625rem; /* Line Height Large 0.8 */
+  --line-height-large-1: 1.375rem; /* Line Height Large 1 */
+  --line-height-large-2: 1.75rem; /* Line Height Large 2 */
+  --line-height-large-3: 2.125rem; /* Line Height Large 3 */
+  --line-height-large-4: 2.625rem; /* Line Height Large 4 */
+  --line-height-large-5: 3rem; /* Line Height Large 5 */
+  --line-height-large-6: 3.625rem; /* Line Height Large 6 */
+  --line-height-large-7: 4.625rem; /* Line Height Large 7 */
+  --line-height-large-8: 5.6875rem; /* Line Height Large 8 */
+  --line-height-large-9: 7.1875rem; /* Line Height Large 9 */
+
+  /**
+   * @tokens Font Weight
+   * @presenter FontWeight
+   */
+
+  --font-weight-300-productive: 300; /* Font Weight 300 Productive */
+  --font-weight-300-expressive: 300; /* Font Weight 300 Expressive */
+  --font-weight-400-productive: 400; /* Font Weight 400 Productive */
+  --font-weight-400-expressive: 400; /* Font Weight 400 Expressive */
+  --font-weight-500-productive: 500; /* Font Weight 500 Productive */
+  --font-weight-500-expressive: 500; /* Font Weight 500 Expressive */
+  --font-weight-700-productive: 700; /* Font Weight 700 Productive */
+  --font-weight-700-expressive: 700; /* Font Weight 700 Expressive */
+
+  /**
+   * @tokens Font Family
+   * @presenter FontFamily
+   */
+
+  --typeface-productive: Nunito Sans; /* Productive Typeface */
+  --typeface-expressive: ABC Otto; /* Expressive Typeface */
+
+  /**
+   * @tokens Letter Spacing
+   * @presenter LetterSpacing
+   */
+
+  --letter-spacing-ultra-condensed-productive: -0.012500000186264515rem; /* Ultra Condensed Productive */
+  --letter-spacing-ultra-condensed-expressive: -0.08124999701976776rem; /* Ultra Condensed Expressive */
+  --letter-spacing-condensed-productive: -0.0062500000931322575rem; /* Condensed Productive */
+  --letter-spacing-condensed-expressive: -0.07500000298023224rem; /* Condensed Expressive */
+  --letter-spacing-normal-productive: 0.012500000186264515rem; /* Normal Productive */
+  --letter-spacing-normal-expressive: -0.03125rem; /* Normal Expressive */
+  --letter-spacing-expanded-productive: 0.01875000074505806rem; /* Expanded Productive */
+}

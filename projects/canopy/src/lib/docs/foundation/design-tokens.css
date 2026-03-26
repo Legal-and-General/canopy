@@ -1,0 +1,35 @@
+/**
+ * Spacing design tokens for Storybook design token addon
+ * This file defines the actual token values for display
+ */
+
+:root {
+  /**
+   * @tokens Spacing
+   * @presenter Spacing
+   */
+
+  /* Dimensions Small */
+  --dimensions-small-1: 0.25rem; /* Spacing Small 1 - 4px */
+  --dimensions-small-2: 0.5rem; /* Spacing Small 2 - 8px */
+  --dimensions-small-3: 0.75rem; /* Spacing Small 3 - 12px */
+  --dimensions-small-4: 1rem; /* Spacing Small 4 - 16px */
+  --dimensions-small-5: 1.25rem; /* Spacing Small 5 - 20px */
+  --dimensions-small-6: 1.75rem; /* Spacing Small 6 - 28px */
+  --dimensions-small-7: 2.25rem; /* Spacing Small 7 - 36px */
+  --dimensions-small-8: 3rem; /* Spacing Small 8 - 48px */
+  --dimensions-small-9: 3.75rem; /* Spacing Small 9 - 60px */
+  --dimensions-small-10: 5.25rem; /* Spacing Small 10 - 84px */
+
+  /* Dimensions Large */
+  --dimensions-large-1: 0.25rem; /* Spacing Large 1 - 4px */
+  --dimensions-large-2: 0.5rem; /* Spacing Large 2 - 8px */
+  --dimensions-large-3: 0.75rem; /* Spacing Large 3 - 12px */
+  --dimensions-large-4: 1rem; /* Spacing Large 4 - 16px */
+  --dimensions-large-5: 1.5rem; /* Spacing Large 5 - 24px */
+  --dimensions-large-6: 2rem; /* Spacing Large 6 - 32px */
+  --dimensions-large-7: 3rem; /* Spacing Large 7 - 48px */
+  --dimensions-large-8: 4.5rem; /* Spacing Large 8 - 72px */
+  --dimensions-large-9: 6.5rem; /* Spacing Large 9 - 104px */
+  --dimensions-large-10: 9.75rem; /* Spacing Large 10 - 156px */
+}
