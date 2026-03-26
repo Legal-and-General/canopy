@@ -40,7 +40,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=14.17.0"
+    "node": ">=20.9.0"
   },
   "private": false,
   "overrides": {
