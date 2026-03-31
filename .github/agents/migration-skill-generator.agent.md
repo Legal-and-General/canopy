@@ -1,6 +1,6 @@
 ---
 name: Migration Skill Generator
-description: Generates an installable Copilot skill for a published Canopy major release. Given a version number, fetches the release notes, extracts breaking changes, and produces a SKILL.md under .agents/skills/canopy-v{N}-migration/ that consumers can install with npx skills add Legal-and-General/canopy.
+description: Generates an installable Copilot skill for a published Canopy major release. Given a version number, fetches the release notes, extracts breaking changes, and produces a SKILL.md under skills/canopy-v{N}-migration/ that consumers can install with npx skills add Legal-and-General/canopy.
 ---
 
 # Migration Skill Generator Agent
@@ -13,7 +13,7 @@ This agent produces **consumer-facing, installable skills** — not PR comments 
 
 This agent can be used in two ways:
 
-- **Cloud agent** (assigned to a GitHub issue, or used via the [Copilot agents tab](https://github.com/copilot/agents)): `gh` and all tools are always available and authenticated. When triggered from an issue, derive the target version from the issue title and body (see Step 1). When triggered from the agents tab, the version will be provided directly in the prompt. At the end, commit the generated files, push a branch, and open a PR directly using `gh pr create` (see Step 7).
+- **Cloud agent** (assigned to a GitHub issue, or used via the [Copilot agents tab](https://github.com/copilot/agents)): `gh` and all tools are always available and authenticated. When triggered from an issue, derive the target version from the issue title and body (see Step 1). When triggered from the agents tab, the version will be provided directly in the prompt. At the end, commit the generated files to the existing `copilot/*` branch and open a PR directly using `gh pr create` (see Step 7).
 - **IDE / local**: `gh` may or may not be available (see Step 0). Present the generated file contents and any README/docs changes for the user to apply and commit manually.
 
 Steps that differ between the two modes are marked accordingly.
@@ -29,8 +29,8 @@ Release notes can be long and contain large rename tables. To avoid exhausting t
 ## Critical References
 
 1. **Repository standards**: `.github/copilot-instructions.md`
-2. **Skills discovery path**: `.agents/skills/` — this is the directory the `npx skills add` CLI discovers when pointing at `Legal-and-General/canopy`
-3. **Existing skills**: check `.agents/skills/` for any previously generated migration skills to use as reference and to include in the docs update
+2. **Skills discovery path**: `skills/` — this is the directory the `npx skills add` CLI discovers when pointing at `Legal-and-General/canopy`
+3. **Existing skills**: check `skills/` for any previously generated migration skills to use as reference and to include in the docs update
 4. **Consumer docs**: `docs/COPILOT_SKILLS.md` — create on first run, update on every subsequent run
 
 ---
@@ -99,7 +99,7 @@ If the release does not exist or has no body, report this to the user and stop �
 Before generating, check whether a skill for this version already exists:
 
 ```bash
-gh api repos/Legal-and-General/canopy/contents/.agents/skills/canopy-v{N}-migration \
+gh api repos/Legal-and-General/canopy/contents/skills/canopy-v{N}-migration \
   --jq '.name' 2>/dev/null || echo "not found"
 ```
 
@@ -126,7 +126,7 @@ For each breaking change, extract:
 
 ## Step 5 — Generate the SKILL.md
 
-Using the extracted breaking changes, generate the skill file following the **Skill Format Template** below. Write it to `.agents/skills/canopy-v{N}-migration/SKILL.md`.
+Using the extracted breaking changes, generate the skill file following the **Skill Format Template** below. Write it to `skills/canopy-v{N}-migration/SKILL.md`.
 
 ### Skill Format Template
 
@@ -205,14 +205,14 @@ After completing all sections, follow the **Verification** steps at the end.
 
 ### 6a — Discover all existing skills
 
-List all directories under `.agents/skills/` to build an up-to-date inventory:
+List all directories under `skills/` to build an up-to-date inventory:
 
 ```bash
-gh api repos/Legal-and-General/canopy/contents/.agents/skills \
+gh api repos/Legal-and-General/canopy/contents/skills \
   --jq '[.[] | select(.type == "dir") | {name: .name, path: .path}]'
 ```
 
-For each found skill directory, read its `SKILL.md` frontmatter to extract `name`, `description`, and `metadata.version`. If the `.agents/skills/` directory does not yet exist, the newly generated skill will be the only entry in the table.
+For each found skill directory, read its `SKILL.md` frontmatter to extract `name`, `description`, and `metadata.version`. If the `skills/` directory does not yet exist, the newly generated skill will be the only entry in the table.
 
 ### 6b — Upsert `docs/COPILOT_SKILLS.md`
 
@@ -261,14 +261,31 @@ Want to [apply a migration with AI assistance?](docs/COPILOT_SKILLS.md)
 
 ## Step 7 — Commit and Open a PR
 
-### 7a — Create a branch and commit
+### 7a — Commit to the existing branch _(cloud agent)_
+
+> **Cloud agent**: GitHub automatically creates a `copilot/*` branch when an issue is assigned to the agent. **Do not create a new branch.** Commit directly to the current branch.
+
+Verify you are on the correct branch before committing:
 
 ```bash
-git checkout -b canopy-v{N}-migration-skill
-git add .agents/skills/canopy-v{N}-migration/SKILL.md docs/COPILOT_SKILLS.md README.md
-git commit -S -m "ci(skills): add canopy-v{N}-migration skill"
-git push origin HEAD
+git branch --show-current
 ```
+
+The output must start with `copilot/`. If it does not, stop and report the unexpected branch name before proceeding.
+
+Stage all generated files, then squash every commit on the branch (including any placeholder commits created automatically by GitHub) into a single signed commit before pushing:
+
+```bash
+git add skills/canopy-v{N}-migration/SKILL.md docs/COPILOT_SKILLS.md README.md
+
+# Count commits ahead of master and squash them all into one
+COMMITS=$(git rev-list --count origin/master..HEAD)
+git reset --soft HEAD~$COMMITS
+git commit -S -m "ci(skills): add v{N} migration skill"
+git push --force-with-lease origin HEAD
+```
+
+> **Commit message limit**: the project enforces a 72-character header limit (Angular commitlint rules). Keep the message short — `ci(skills): add v{N} migration skill` is 38 characters.
 
 ### 7b — Open the PR _(cloud agent)_
 
@@ -290,7 +307,7 @@ Once installed, they can ask their AI agent: _"Apply the Canopy v{N} migration t
 
 ### Files added / changed
 
-- `.agents/skills/canopy-v{N}-migration/SKILL.md` — the installable migration skill
+- `skills/canopy-v{N}-migration/SKILL.md` — the installable migration skill
 - `docs/COPILOT_SKILLS.md` — updated skills catalogue (all available skills listed)
 - `README.md` — link added to skills docs (if not already present)
 
@@ -315,11 +332,11 @@ BODY
 gh pr create \
   --repo Legal-and-General/canopy \
   --base master \
-  --title "ci(skills): add canopy-v{N}-migration skill" \
+  --title "ci(skills): add v{N} migration skill" \
   --body-file /tmp/pr-body.md
 ```
 
-**IDE:** present the full contents of all three files (`.agents/skills/canopy-v{N}-migration/SKILL.md`, `docs/COPILOT_SKILLS.md`, and the `README.md` diff) in the chat for the user to apply and commit manually.
+**IDE:** present the full contents of all three files (`skills/canopy-v{N}-migration/SKILL.md`, `docs/COPILOT_SKILLS.md`, and the `README.md` diff) in the chat for the user to apply and commit manually.
 
 ---
 
@@ -342,8 +359,8 @@ Provide a brief summary covering:
 
 ## Safety Rules
 
-- **Never modify library source files** — this agent only creates/updates files under `.agents/skills/`, `docs/COPILOT_SKILLS.md`, and `README.md`.
+- **Never modify library source files** — this agent only creates/updates files under `skills/`, `docs/COPILOT_SKILLS.md`, and `README.md`.
 - **Never invent breaking changes** — only generate skill sections from real content in the release notes. If no breaking changes are found, report this and do not generate a skill.
 - **One skill per major version** — skill names follow `canopy-v{N}-migration` where `{N}` is the major version number only. Do not create skills for patch or minor releases unless they contain unusual breaking changes explicitly flagged as such.
 - **Confirm before overwriting (IDE only)** — if a skill for this version already exists, show the diff and ask for confirmation before replacing it.
-- **Always regenerate `docs/COPILOT_SKILLS.md` from the full inventory** — read all existing skill directories first so no previously generated skills are accidentally dropped from the table.
+- **Always regenerate `docs/COPILOT_SKILLS.md` from the full inventory** — read all existing skill directories in `skills/` first so no previously generated skills are accidentally dropped from the table.
