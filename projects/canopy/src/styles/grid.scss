@@ -5,22 +5,27 @@
 :root {
   --grid-margin: var(--dimensions-small-4); // 1
   --grid-gutter: var(--dimensions-small-6); // 1.75
+  --page-max-width: var(--page-max-width-sm); // 47.9375rem
 
   @include mixins.lg-breakpoint('md') {
     --grid-margin: var(--dimensions-small-6); // 1.75
+    --page-max-width: var(--page-max-width-md); // 63.9375rem
   }
 
   @include mixins.lg-breakpoint('lg') {
     --grid-margin: var(--dimensions-large-6); // 2
     --grid-gutter: var(--dimensions-large-6); // 2
+    --page-max-width: var(--page-max-width-lg); // 79.9375rem
   }
 
   @include mixins.lg-breakpoint('xl') {
     --grid-margin: var(--dimensions-large-8); // 4.5
+    --page-max-width: var(--page-max-width-xl); // 89.9375rem
   }
 
   @include mixins.lg-breakpoint('xxl') {
     --grid-margin: var(--dimensions-large-9); // 6.5
+    --page-max-width: var(--page-max-width-xxl); // 105rem
   }
 }
 
@@ -31,7 +36,7 @@ $columns: 12;
   margin-right: auto;
   padding-right: var(--grid-margin);
   padding-left: var(--grid-margin);
-  max-width: 86rem;
+  max-width: calc(var(--page-max-width) + (var(--grid-margin) * 2));
 }
 
 .lg-row {
