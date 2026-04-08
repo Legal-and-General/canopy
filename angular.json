@@ -139,18 +139,6 @@
           "options": {
             "buildTarget": "canopy-test-app:build"
           }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/canopy-test-app/e2e/protractor.conf.js",
-            "devServerTarget": "canopy-test-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "canopy-test-app:serve:production"
-            }
-          }
         }
       }
     }

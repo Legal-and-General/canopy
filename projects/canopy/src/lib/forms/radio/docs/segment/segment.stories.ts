@@ -102,11 +102,11 @@ export default {
       },
     },
     stack: {
-      options: [ 'sm', 'md', 'lg' ],
+      options: [ 'md', 'lg' ],
       description: 'Stack the segment buttons at a given breakpoint.',
       table: {
         type: {
-          summary: [ 'sm', 'md', 'lg' ],
+          summary: [ 'md', 'lg' ],
         },
       },
       control: {

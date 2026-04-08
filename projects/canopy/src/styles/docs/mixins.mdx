@@ -15,7 +15,7 @@ Sets the focus outline inside the element, by using multiple box shadows.
 
 | Name        | Description                         |           Default           | Required |
 | ----------- | ----------------------------------- | :-------------------------: | :------: |
-| `$bg-color` | The background color of the element |             n/a             |   Yes    |
+| `$bg-color` | The background colour of the element |             n/a             |   Yes    |
 | `$color`    | The colour of the outline           | `var(--colour-greyscale-0)` |    No    |
 
 ## lg-focus-outline
@@ -117,3 +117,22 @@ Styles components and native child elements to the specified status.
 | Name       | Description                                                              |  Default  | Required |
 | ---------- | ------------------------------------------------------------------------ | :-------: | :------: |
 | `$status` | The status type (e.g. `generic`, `info`, `success`, `warning`, `error`) | `generic` |    No    |
+
+## lg-content-area
+
+Applies content area styling with responsive border radius. The border radius increases at medium and large breakpoints.
+
+### Example
+
+```scss
+.my-content-area {
+  @include lg-content-area;
+}
+```
+
+### Notes
+
+- Uses `--container-border-radius-sm` by default
+- Applies `--container-border-radius-md` at `md` breakpoint
+- Applies `--container-border-radius-lg` at `lg` breakpoint
+- Includes background color from `--content-area-background-colour`

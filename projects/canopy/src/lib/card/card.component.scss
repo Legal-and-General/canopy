@@ -38,7 +38,7 @@
   &-content,
   &-footer {
     .lg-container {
-      @include mixins.lg-breakpoint('xxl') {
+      @include mixins.lg-breakpoint('xl') {
         --grid-margin: var(--dimensions-large-6);
       }
     }

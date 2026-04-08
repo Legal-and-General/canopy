@@ -10,7 +10,7 @@
   }
 }
 
-$stack-breakpoints: 'sm', 'md', 'lg' !default;
+$stack-breakpoints: 'md', 'lg' !default;
 
 @each $stack-breakpoint in $stack-breakpoints {
   .lg-radio-group--stack-#{$stack-breakpoint} .lg-radio-group__segment {

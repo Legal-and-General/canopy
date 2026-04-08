@@ -1,121 +1,109 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as ButtonsGroupStories from './button-group.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Button/Guide" tags={['pending']}/>
+<Meta title="Components/Button/Guide"/>
 
 # Button
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<p class="standfirst">A Button is an interactive component that allows users to initiate actions within an interface.</p>
 
-<p class="standfirst">Buttons are interactive components that let a user initiate an action.</p>
-
-![Button component example](docs/button/example.png)
+![Button component example](docs/button/hero.png)
 
 ## Usage
 
-Use a button when you want to give the user a clear signpost as to what to do next. Examples of this are initiating a journey, submitting a form, or getting help.
+Use a Button to clearly indicate the primary action a user should take on a page or within a component. Buttons must be used for actions such as submitting forms, confirming choices, or progressing through a journey. Always ensure the action is clear and unambiguous to the user.
 
-Import the button component in your application:
+**How to import:**
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgButtonComponent ],
-});
+import { LgButtonComponent } from '@legal-and-general/canopy';
 ```
 
-and in your HTML:
+**Basic usage:**
 
 ```html
-<button lg-button type="button" variant="primary-dark">Button</button>
+<button lg-button type="button" priority="primary">Button</button>
 ```
 
-or
+## Priorities
+
+![Button component - button styles](docs/button/priorities.png)
+
+Buttons come in two main priorities - Primary and Secondary. Button colours are governed by the parent’s colour mode and always inherit the appropriate theme automatically.
+
+### Primary button
+
+* Use for the main action on a page or within a section.
+
+* There must only be one primary button per page or view.
+
+**Example:**
 
 ```html
-<a lg-button href="#" variant="primary-dark">Link</a>
+<button lg-button priority="primary">Primary action</button>
 ```
 
-## Variants
+### Secondary button
 
-![Button component - button styles](docs/button/styles.png)
+* Use for secondary or less prominent actions.
 
-### Primary
+* Multiple secondary buttons are allowed per page.
 
-Primary buttons should only be used once per page. Use them to clearly signpost the action the customer should take next.
-
-#### Light backgrounds
-
-A blue primary button can be used on a light background.
+**Example:**
 
 ```html
-<button lg-button variant="primary-dark">
-  Click me
+<button lg-button priority="secondary">Secondary action</button>
+```
+
+## Anatomy
+
+Buttons support several content and icon configurations:
+
+**Label-only**
+
+![Button - button priorities](docs/button/label-only.png)
+
+The default button with text only. Button labels must be concise, action-oriented, and clearly describe the outcome. Avoid vague terms like “Click here” or “Submit.” Use specific verbs that set expectations, such as “Save changes” or “Download report,” and keep labels short - ideally no more than three words.
+
+```html
+<button lg-button>Label</button>
+```
+
+**Back icon button**
+
+![Button component - back icon button](docs/button/back-icon-button.png)
+
+A button with a back icon followed by a label.
+
+Use the `backIcon` boolean input to display an `arrow-left` icon on the left side of the button. When `backIcon` is set to `true`, it takes precedence and will display the arrow-left icon regardless of any other icons in the markup.
+
+```html
+<button lg-button type="button" backIcon="true">
+  Back
 </button>
 ```
 
-#### Dark backgrounds
+**Note:** The `backIcon` input specifically displays an arrow-left icon and is intended for navigation purposes. You cannot use a custom icon with this input.
 
-A white primary button can be used on dark colour backgrounds (e.g. Super Blue, Leafy Green or Charcoal) shown above.
+**Right icon button**
+
+![Button component - right icon button](docs/button/right-icon-button.png)
+
+A button with a label followed by an icon to the right, supporting custom icons.
 
 ```html
-<button lg-button variant="primary-light">
-  Click me
+<button lg-button type="button">
+  Label
+  <lg-icon name="chevron-right" />
 </button>
 ```
 
-### Secondary
+**Icon-only button**
 
-Secondary buttons can be used many times per page. Use them for secondary actions where you wouldn't use a Quick Action or Link.
+![Button component - icon only button](docs/button/icon-only-button.png)
 
-#### Light backgrounds
-
-A charcoal secondary button can be used on light backgrounds.
-
-```html
-<button lg-button variant="secondary-dark">
-  Click me
-</button>
-```
-
-#### Dark backgrounds
-
-A white secondary button can be used on vibrant colour backgrounds shown below.
-
-```html
-<button lg-button variant="secondary-light">
-  Click me
-</button>
-```
-
-### Button content
-
-Buttons can contain the following content types:
-
-![Button component - types of button](docs/button/types.png)
-
-1. Label only
-2. Icon + label
-3. Label + icon
-4. Icon-only
-5. Loading
-
-#### Buttons with labels and icons
-
-An **icon component** can be projected into the button. Use the iconPosition input to position the icon on the left or right (default) of the text.
-
-```html
-<button lg-button type="button" iconPosition="left" >
-  Add item
-  <lg-icon name="add" />
-</button>
-```
-
-#### Icon-only buttons
-
-You can create an **icon only** button by setting iconButton to true. You must still include text content, which will be visually hidden, but detectable by screen readers.
+A button with only an icon. You must include visually hidden text for accessibility.
 
 ```html
 <button lg-button type="button" iconButton="true" >
@@ -124,43 +112,40 @@ You can create an **icon only** button by setting iconButton to true. You must s
 </button>
 ```
 
-#### Left and right icons
+**Loading state**
 
-A button can also have two **icon components** in it. In this case the `iconPosition` input is **not applicable**, because the icons will be positioned automatically on each side of the text.
+![Button component - loading state](docs/button/loading-state.png)
 
-An important requirement is the need to add first and second attributes to the icons as per the example below. This determines the position of the icon, either as the first icon before the text, or the second icon after the text.
+Shows a loading spinner and disables the button.
 
 ```html
-<button lg-button type="button">
-  <lg-icon name="filter" first />
-  Filter
-  <lg-icon name="chevron-down" second />
-</button>
+<button lg-button [loading]="true">Loading…</button>
 ```
 
 ## Dos and Don'ts
 
 ### Do
 
-![Button component - what you should do](docs/button/do.png)
+![Button component - dos](docs/button/do.png)
 
-1. **Do** make sure you choose a button that has sufficient contrast with the background.
-2. **Do** use concise labels that are descriptive and help set the user's expectations.
-3. **Do** distinguish between functional purposes.
-4. **Do** use full-width buttons on mobile breakpoints.
+1. **Do** use concise, descriptive labels that clearly communicate the button’s action.
+2. **Do** use buttons only for clear, actionable tasks—such as submitting forms, confirming choices, or progressing journeys.
+3. **Do** use a single primary button per page or view to indicate the main action.
+4. **Do** use full-width buttons on mobile breakpoints for easier tapping.
+5. **Do** provide visually hidden text for icon-only buttons to support screen readers.
+6. **Do** group related buttons using the Button Group component for consistent alignment and spacing.
 
 ### Don't
 
-![Button component - what you shouldn't do](docs/button/dont.png)
+![Button component - don'ts](docs/button/dont.png)
 
-1. **Don't** use a button variant that contrasts poorly with the background.
-2. **Don't** use more than one primary button per page and don't use too many buttons in close proximity.
-3. **Don't** wrap text labels.
-4. **Don't** confuse priorities by using multiple primary CTA's at the same time.
-5. **Don't** use overly wordy labels.
-6. **Don't** centre align buttons.
-7. **Don't** right align buttons.
-8. **Don't** use uninformative labels.
+1. **Don't** place more than one primary button on a page or in a single view.
+2. **Don't** use too many buttons in close proximity, which can overwhelm users.
+3. **Don't** use labels that are wordy, vague, uninformative, or generic - for example “Click here,” “Submit,” or similar.
+4. **Don't** wrap button text labels onto multiple lines.
+5. **Don't** centre or right-align buttons unless the layout specifically requires it—left alignment is preferred for consistency.
+6. **Don't** use a button for navigation if a link is more appropriate (e.g., for moving between pages).
+7. **Don't** use full-width buttons at large (LG) or wider breakpoints—full-width is only appropriate on mobile or small screens.
 
 ## Additional development details
 
@@ -168,13 +153,22 @@ An important requirement is the need to add first and second attributes to the i
 
 |                | Description                                                                                                                                     | Type                      | Default        | Required |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|----------------|----------|
-| `variant`      | The variant of button: `primary-dark`, `primary-light`,`secondary-dark`, `secondary-light`, `link`, `add-on`.                                   | `string`                  | `primary-dark` | No       |
-| `size`         | The size of the button                                                                                                                          | `ButtonSize` (`sm`, `md`) | `md`           | No       |
+| `priority`      | The variant of button: `primary`,`secondary`, `link`, `add-on`.                                   | `string`                  | `primary` | No       |
 | `fullWidth`    | If the button has to span full width or not. For 'sm' and 'md' sized screens, the button will always be full width and this input has no affect | `boolean`                 | `false`        | No       |
 | `disabled`     | Programmatically disable the button via this property                                                                                           | `boolean`                 | `false`        | No       |
 | `loading`      | If the button shows a loading spinner and is also disabled                                                                                      | `boolean`                 | `false`        | No       |
-| `iconPosition` | The position of a single icon in the button, not used when including two icons                                                                  | `string`                  | `right`        | No       |
+| `backIcon`     | Display arrow-left icon on the left side of the button                                                                                          | `boolean`                 | `false`        | No       |
 | `iconButton`   | The button displays an icon only                                                                                                                | `boolean`                 | `false`        | No       |
+
+### Styling links as buttons
+
+In almost all cases, use a standard `<button>` element for actions. Only use an `<a>` element styled as a button when a link is required for semantic or technical reasons—such as when the action must navigate to a new page or route, and cannot be achieved with a button.
+
+If you must style a link as a button, use the implementation shown in the example below. For accessibility and best practice, refer to the [Link component documentation](./?path=/docs/components-link-guide--docs).
+
+```html
+<a lg-button href="#" priority="primary">Link</a>
+```
 
 ### Button group
 
@@ -186,15 +180,17 @@ Useful for forms where a 'Submit' and 'Cancel' button are placed side by side, f
 
 ### Button toggle directive
 
-A button can be used specifically as a toggle, for example when opening and closing a filter panel. In this case the applied styles are slightly different from a regular button and you **must** use a button tag for accessibility reasons - if you add it to a link or any other element, it will throw an error.
+A button toggle is a button used to show or hide content, such as opening and closing a filter panel. Toggle buttons use distinct styles from regular buttons and must use a `<button>` element for accessibility. Using any other element (such as a link or div) will throw an error.
 
-*This feature should only be used as part of a pattern. E.g. toggling the visibility of a filter panel.*
+> **Note:** The button toggle directive should only be used as part of a pattern, such as toggling the visibility of a filter panel.
+
+Add the `lgButtonToggle` directive to a `<button>` element alongside the standard `lg-button` directive:
 
 ```html
-<button lg-button lgButtonToggle type="button" variant="primary-dark">Button</button>
+<button lg-button lgButtonToggle type="button" priority="primary">Button</button>
 ```
 
-then in the wrapper component set the `id` and `ariaControls` of the toggle and use the `toggleActive` output of the directive to set the panel state:
+In your wrapper component, set the `id` and `ariaControls` properties on the toggle button. Use the `toggleActive` output to update the state of the panel you want to show or hide:
 
 ```js
 @ContentChild(forwardRef(() => LgButtonToggleDirective)) buttonToggle: LgButtonToggleDirective;
@@ -213,7 +209,7 @@ ngAfterContentInit(): void {
 }
 ```
 
-To see an example of the toggle button set up correctly inside a container, and toggling the visibility of a panel, see the [filter container story](./?path=/docs/patterns-filter-container-guide--docs).
+For a complete example of a toggle button controlling a panel inside a container, see the [filter container story](./?path=/docs/patterns-filter-container-guide--docs).
 
 ***
 
@@ -226,7 +222,7 @@ States have been updated to be more accessible based on external accessibility t
 ## Related
 
 * [Quick action](./?path=/docs/components-quick-action-guide--docs)
-* [Link](./?path=/docs/components-quick-action-guide--docs)
+* [Link](./?path=/docs/components-link-guide--docs)
 
 <Markdown>
   {Feedback}

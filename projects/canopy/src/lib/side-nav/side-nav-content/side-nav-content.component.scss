@@ -1,11 +1,11 @@
 @use '../../../styles/mixins';
 
 .lg-side-nav-content {
-  @include mixins.lg-card;
-
   display: block;
   width: 100%;
   margin: 0;
+
+  @include mixins.lg-card;
 
   &:focus-visible {
     @include mixins.lg-inner-focus-outline();

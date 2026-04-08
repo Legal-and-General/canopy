@@ -68,7 +68,7 @@
     }
   }
 
-  $stack-breakpoints: 'sm', 'md', 'lg' !default;
+  $stack-breakpoints: 'md', 'lg' !default;
 
   @each $stack-breakpoint in $stack-breakpoints {
     &.lg-radio-button--stacked-#{$stack-breakpoint} {

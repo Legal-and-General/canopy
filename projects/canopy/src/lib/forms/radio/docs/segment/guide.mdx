@@ -46,7 +46,7 @@ The segment control is made up of a segment group and segment buttons. A segment
 * In the default state, nothing is selected.
 * Only one option can be selected and active at any one time. Selecting one option deselects any other.
 * There must be a clear colour contrast between the selected and the unselected options.
-* If there's not enough space to display the segment in a horizontal layout, a vertical layout may be used up to tablet breakpoint. A choice on which breakpoint the segment changes from vertical to horizontal should be made at design time (vertical stacking up to SM, MD or LG breakpoints).
+* If there's not enough space to display the segment in a horizontal layout, a vertical layout may be used up to tablet breakpoint. A choice on which breakpoint the segment changes from vertical to horizontal should be made at design time (vertical stacking up to MD or LG breakpoints).
 * Use a hint to provide extra context to the user.
 
 ## Dos and Don'ts
@@ -81,9 +81,9 @@ Segment buttons are displayed inline, unless given a `RadioStackBreakpoint`, whi
 |---------|--------------------------------------------------------------------------------|-----------------------|---------------------------------------|----------|
 | `id`    | HTML ID attribute, auto generated if not provided                              | `string`              | `lg-radio-group-id-${nextUniqueId++}` | No       |
 | `name`  | Set the name value for all inputs in the group, auto-generated if not provided | `string`              | `lg-radio-group-${nextUniqueId++}`    | No       |
-| `value` | Set the default checked radio button, must match the value of the radio button | `boolean` | `string` | `null`                                | No       |
+| `value` | Set the default checked radio button, must match the value of the radio button | `boolean` \| `string` | `null`                                | No       |
 | `focus` | Set the focus on the fieldset                                                  | `boolean`             | `null`                                | No       |
-| `stack` | Stack the segment buttons at a given breakpoint                                | `sm` | `md` | `lg`  | `false`                               | No       |
+| `stack` | Stack the segment buttons at a given breakpoint                                | `'md'` \| `'lg'`      | `false`                               | No       |
 
 ### LgRadioButtonComponent
 

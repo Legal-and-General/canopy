@@ -1,0 +1,134 @@
+import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+import * as ContentAreaStories from './content-area.stories';
+
+<Meta title="Components/Content area/Guide" />
+
+# Content area
+
+<p class="standfirst">A content area is a layout container used to structure and group main content sections within a page.</p>
+
+![Content area component hero](docs/content-area/hero.png)
+
+## Usage
+
+Use a content area whenever you need to create a clear, consistent section for primary content. Content areas are best for structuring main sections of a page that require alignment, spacing, and visual hierarchy.
+
+If you only need to group smaller pieces of content or interactive elements - such as cards in a dashboard or summary tiles - use a Card instead. Cards are not intended for main page structure.
+
+Import and use the component using:
+
+```js
+import {
+  LgContentAreaComponent,
+  LgContentAreaHeaderComponent,
+  LgContentAreaContentComponent,
+  LgContentAreaTitleComponent
+} from '@legal-and-general/canopy';
+```
+
+## How it works
+
+Content areas provide a flexible container that aligns with Canopy’s 12-column grid. They ensure consistent spacing, alignment, and visual hierarchy across pages. Users interact with the content inside the area, not the container itself. Content areas can contain any content - not limited to Canopy components - but must not contain cards or other content areas.
+
+You must use the variant that best matches your content and layout requirements. Content areas are designed for composition with other Canopy components, such as forms, tables, or navigation elements.
+
+## Variants
+
+Content areas support several variants to suit different layout needs:
+
+### Default
+
+![Content area component default variant](docs/content-area/variant-default.png)
+
+A flexible container for any content.
+
+<Source of={ContentAreaStories.Standard} />
+
+### Child variant
+
+![Content area component child variant](docs/content-area/variant-child.png)
+
+Includes a header section for titles or section headings. This variant is typically used for self-service product child pages or similar sub-sections within a larger flow.
+
+<Source of={ContentAreaStories.ContentAreaChild} />
+
+You can add the `lg-font--expressive` class to the title component.
+
+<Source of={ContentAreaStories.WithExpressiveType} />
+
+### Form journey variant (coming soon)
+
+![Content area component form variant](docs/content-area/variant-form.png)
+
+Includes an optional header and breadcrumb, and always provides a footer containing buttons. You must always use the form journey variant when guiding users through forms.
+
+A directive or class is also available, allowing you to apply Content area styling to custom elements when needed.
+
+```html
+Coming soon
+```
+## Do's and don'ts
+
+### Do
+
+![Content area component dos](docs/content-area/do.png)
+
+1. **Do** use content areas as parent-level containers for all main page content.
+2. **Do** align content areas to Canopy’s 12-column grid, spanning at least 4 columns on MD layouts and above.
+3. **Do** use the appropriate variant for your use case (e.g. form journey for forms, child variant for sub-pages).
+4. **Do** include any content within a Content area, except Cards.
+
+### Don't
+
+![Content area component donts](docs/content-area/dont.png)
+
+1. **Don't** nest content areas or cards inside content areas.
+2. **Don't** use the default variant for form journeys - always use the form journey variant.
+3. **Don’t** use fewer than 4 columns for content areas on MD layouts and above.
+
+## Development reference
+
+### LgContentAreaComponent
+
+The main container component. It accepts projection of the following components:
+
+* `LgContentAreaHeaderComponent`
+* `LgContentAreaContentComponent`
+
+### LgContentAreaTitleComponent
+
+This component provides a semantic heading within the content area header. It wraps the LgHeadingComponent and allows you to specify the heading level.
+
+**Selector:** `lg-content-area-title`
+
+#### Inputs
+
+| Name           | Description                    | Type           | Default | Required |
+|----------------|--------------------------------|----------------|---------|----------|
+| `headingLevel` | The semantic heading level     | `HeadingLevel` | -       | Yes      |
+
+### LgContentAreaHeaderComponent
+
+This component is used to contain header content within a content area. It should be placed inside the content area component and typically contains headings or introductory text.
+
+**Selector:** `lg-content-area-header`
+
+### LgContentAreaContentComponent
+
+This component is used to contain the main content within a content area. It should be placed inside the content area component and contains the primary content.
+
+**Selector:** `lg-content-area-content`
+
+---
+
+## Related reading
+
+Components and patterns which may perform a similar task:
+
+* [Card](./?path=/docs/components-card-guide--docs): Use for grouping smaller pieces of content or interactive elements. Cards are suitable when you don’t need the full structure or prominence of a content area.
+* [Grid](./?path=/docs/helpers-directives-grid-guide--docs): Content areas must align with Canopy’s 12-column grid for consistent and responsive layouts.
+
+<Markdown>
+  {Feedback}
+</Markdown>

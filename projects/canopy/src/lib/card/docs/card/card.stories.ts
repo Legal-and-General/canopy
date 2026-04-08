@@ -87,12 +87,12 @@ const formJourneyTemplate = `
                     <button
                       lg-button
                       type="button"
-                      variant="secondary-dark"
+                      priority="secondary"
                       lgMarginRight="4"
                     >
                       Back
                     </button>
-                    <button lg-button type="submit" variant="primary-dark">
+                    <button lg-button type="submit" priority="primary">
                       Confirm
                     </button>
                     <p lgPaddingBottom="5">{{policy}}</p>
@@ -177,7 +177,7 @@ const showMoreCardTemplate = `
       </lg-card-toggable-content>
 
       <div lgMarginTop="5">
-        <button lg-button type="button" variant="link" lgButtonToggle (toggleActive)="toggleActive($event)"
+        <button lg-button type="button" priority="link" lgButtonToggle (toggleActive)="toggleActive($event)"
                 lgMarginBottom="none">
           @if (isToggleActive) {
             Show less

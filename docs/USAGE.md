@@ -32,6 +32,10 @@ You should now be able to install the module.
 
 `npm install @legal-and-general/canopy`
 
+### Requirements
+
+ Your project should already have `@angular/common` and `@angular/core` installed with a compatible Angular version (Canopy currently supports Angular 20.x; using other major versions may lead to incompatibilities).
+
 ## Import the Library
 
 In your angular `app.module.ts' file you can choose to import all of the component modules or just the specific ones that you are using in your application.

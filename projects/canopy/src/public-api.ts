@@ -9,6 +9,7 @@ export * from './lib/banner/index';
 export * from './lib/breadcrumb/index';
 export * from './lib/button/index';
 export * from './lib/card/index';
+export * from './lib/content-area/index';
 export * from './lib/carousel/index';
 export * from './lib/data-point/index';
 export * from './lib/details/index';

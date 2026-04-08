@@ -71,6 +71,12 @@ import {
   LgCardTitleComponent,
 } from '../../../canopy/src/lib/card';
 import {
+  LgContentAreaComponent,
+  LgContentAreaContentComponent,
+  LgContentAreaHeaderComponent,
+  LgContentAreaTitleComponent,
+} from '../../../canopy/src/lib/content-area';
+import {
   LgLinkMenuComponent,
   LgLinkMenuItemComponent,
   LgLinkMenuItemTextComponent,
@@ -207,6 +213,10 @@ import {
     LgLinkMenuItemTextComponent,
     LgPaddingDirective,
     LgCardComponent,
+    LgContentAreaComponent,
+    LgContentAreaHeaderComponent,
+    LgContentAreaContentComponent,
+    LgContentAreaTitleComponent,
     LgHeadingComponent,
     LgAccordionComponent,
     LgAccordionItemComponent,

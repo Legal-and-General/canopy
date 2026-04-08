@@ -5,7 +5,6 @@ import { LgButtonComponent } from '../button.component';
 
 export default {
   title: 'Components/Button/Examples',
-  tags: [ 'pending' ],
   component: LgButtonGroupComponent,
   decorators: [
     moduleMetadata({
@@ -21,15 +20,8 @@ export default {
 
 const template = `
 <lg-button-group>
-  <button
-    lg-button
-    variant="primary-dark"
-  >Button</button>
-  <a
-    lg-button
-    href="#"
-    variant="secondary-dark"
-  >Link</a>
+  <button lg-button priority="primary" >Submit</button>
+  <a lg-button href="#" priority="secondary">Cancel</a>
 </lg-button-group>
 `;
 

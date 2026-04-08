@@ -7,15 +7,21 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  border-radius: var(--container-border-radius-sm);
 
   @media (min-width: promo-card.$promo-card-inline-breakpoint) {
     width: var(--promo-card-image-dimension);
     height: var(--promo-card-image-dimension);
   }
 
+  @include mixins.lg-breakpoint('md') {
+    border-radius: var(--container-border-radius-md);
+  }
+
   @include mixins.lg-breakpoint('lg') {
     width: 100%;
     height: 20rem;
+    border-radius: var(--container-border-radius-lg);
   }
 
   @include mixins.lg-breakpoint('xl') {

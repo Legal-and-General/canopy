@@ -281,18 +281,18 @@ describe('LgRadioGroupComponent', () => {
 
   describe('stack', () => {
     it('adds or removes a class based on its value', () => {
-      groupInstance.stack = 'sm';
+      groupInstance.stack = 'md';
       fixture.detectChanges();
 
       expect(groupDebugElement.nativeElement.className).toContain(
-        'lg-radio-group--stack-sm',
+        'lg-radio-group--stack-md',
       );
 
       groupInstance.stack = undefined;
       fixture.detectChanges();
 
       expect(groupDebugElement.nativeElement.className).not.toContain(
-        'lg-radio-group--stack-sm',
+        'lg-radio-group--stack-md',
       );
     });
   });
