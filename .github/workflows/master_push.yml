@@ -118,7 +118,7 @@ jobs:
           NETWORK_IDLE_WAIT_TIMEOUT: 5000
 
       - name: 'Deployment to GitHub Pages'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const deployBranch = require('./.github/workflow-scripts/gh-pages/deploy.cjs');
