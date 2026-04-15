@@ -217,27 +217,32 @@ Refer to the [link component colour modes documentation](https://legal-and-gener
 
 ---
 
-## 4. SCSS imports: replace `styles/variants` path with new token paths
+## 4. SCSS imports: remove old paths and add new token paths
 
-**What changed:** The SCSS module path `@legal-and-general/canopy/styles/variants` has been removed. It must be replaced with three new paths that supersede it: one for status tokens, one for component themes, and one for colour modes.
+**What changed:** Two SCSS paths have been removed and must be replaced with three new paths. If your project uses SCSS modules, remove any `@use` or `@import` references to `@legal-and-general/canopy/styles/variables/variants` and `@legal-and-general/canopy/styles/tokens/colour`, and add the three new paths listed below.
 
 **Search for** (in `*.scss` files and any global stylesheet configuration, e.g. `angular.json`):
 ```
-@legal-and-general/canopy/styles/variants
+@legal-and-general/canopy/styles/variables/variants
+```
+and:
+```
+@legal-and-general/canopy/styles/tokens/colour
 ```
 
-**Replace with** (all three lines are required):
+**Remove** both of the above and **add** (all three lines are required):
 ```scss
 @legal-and-general/canopy/styles/tokens/status.css
 @legal-and-general/canopy/styles/tokens/component-themes.css
 @legal-and-general/canopy/styles/colour-modes
 ```
 
-Also check `angular.json` for any `styles` array entries referencing this path, and update them to include all three new paths.
+Also check `angular.json` for any `styles` array entries referencing either removed path, and update them to include all three new paths instead.
 
 **Before:**
 ```scss
-@use '@legal-and-general/canopy/styles/variants';
+@use '@legal-and-general/canopy/styles/variables/variants';
+@use '@legal-and-general/canopy/styles/tokens/colour';
 ```
 
 **After:**
@@ -247,7 +252,7 @@ Also check `angular.json` for any `styles` array entries referencing this path, 
 @use '@legal-and-general/canopy/styles/colour-modes';
 ```
 
-> **Automated?** No — you will need to apply this change manually to each SCSS file (and to `angular.json` if the path is referenced there).
+> **Automated?** No — you will need to apply this change manually to each SCSS file (and to `angular.json` if either path is referenced there).
 
 ---
 
