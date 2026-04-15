@@ -236,8 +236,8 @@ and:
 **Remove** both of the above and **add** all three of the following:
 
 ```
-@legal-and-general/canopy/styles/tokens/status.css
-@legal-and-general/canopy/styles/tokens/component-themes.css
+@legal-and-general/canopy/styles/tokens/status
+@legal-and-general/canopy/styles/tokens/component-themes
 @legal-and-general/canopy/styles/colour-modes
 ```
 
@@ -251,8 +251,8 @@ Also check `angular.json` for any `styles` array entries referencing either remo
 
 **After:**
 ```scss
-@use '@legal-and-general/canopy/styles/tokens/status.css';
-@use '@legal-and-general/canopy/styles/tokens/component-themes.css';
+@use '@legal-and-general/canopy/styles/tokens/status';
+@use '@legal-and-general/canopy/styles/tokens/component-themes';
 @use '@legal-and-general/canopy/styles/colour-modes';
 ```
 
