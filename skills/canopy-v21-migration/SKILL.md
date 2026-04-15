@@ -219,19 +219,23 @@ Refer to the [link component colour modes documentation](https://legal-and-gener
 
 ## 4. SCSS imports: remove old paths and add new token paths
 
-**What changed:** Two SCSS paths have been removed and must be replaced with three new paths. If your project uses SCSS modules, remove any `@use` or `@import` references to `@legal-and-general/canopy/styles/variables/variants` and `@legal-and-general/canopy/styles/tokens/colour`, and add the three new paths listed below.
+**What changed:** Two SCSS paths are no longer required and must be replaced with three new paths. If your project uses SCSS modules, remove any `@use` or `@import` references to `@legal-and-general/canopy/styles/variants` and `@legal-and-general/canopy/styles/tokens/colour`, and add the three new paths listed below.
 
 **Search for** (in `*.scss` files and any global stylesheet configuration, e.g. `angular.json`):
+
 ```
-@legal-and-general/canopy/styles/variables/variants
+@legal-and-general/canopy/styles/variants
 ```
+
 and:
+
 ```
 @legal-and-general/canopy/styles/tokens/colour
 ```
 
-**Remove** both of the above and **add** (all three lines are required):
-```scss
+**Remove** both of the above and **add** all three of the following:
+
+```
 @legal-and-general/canopy/styles/tokens/status.css
 @legal-and-general/canopy/styles/tokens/component-themes.css
 @legal-and-general/canopy/styles/colour-modes
@@ -241,7 +245,7 @@ Also check `angular.json` for any `styles` array entries referencing either remo
 
 **Before:**
 ```scss
-@use '@legal-and-general/canopy/styles/variables/variants';
+@use '@legal-and-general/canopy/styles/variants';
 @use '@legal-and-general/canopy/styles/tokens/colour';
 ```
 
