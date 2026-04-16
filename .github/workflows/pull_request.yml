@@ -59,7 +59,7 @@ jobs:
         run: npm run build:storybook -- --output-dir ./lg-sb-build
 
       - name: 'Upload storybook build'
-        uses: actions/upload-artifact@v7.0.0
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: lg-sb-build
           path: ./lg-sb-build
