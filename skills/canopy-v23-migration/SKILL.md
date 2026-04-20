@@ -158,8 +158,8 @@ For each `lg-link-menu-item` that contains **two** `lg-link-menu-item-text` elem
 **Before:**
 ```html
 <lg-link-menu-item>
-  <lg-link-menu-item-text isBold="true">Primary label</lg-link-menu-item-text>
-  <lg-link-menu-item-text isBold="true">Secondary label (was bold)</lg-link-menu-item-text>
+  <lg-link-menu-item-text [isBold]="true">Primary label</lg-link-menu-item-text>
+  <lg-link-menu-item-text [isBold]="true">Secondary label (was bold)</lg-link-menu-item-text>
 </lg-link-menu-item>
 ```
 
