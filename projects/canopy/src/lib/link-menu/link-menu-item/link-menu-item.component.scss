@@ -3,43 +3,64 @@
 .lg-link-menu-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .lg-link-menu-item__container {
   display: flex;
   flex-direction: column;
+  gap: var(--space-1);
   margin-right: auto;
-  margin-left: var(--space-3);
 
-  @include mixins.lg-breakpoint('md') {
-    padding-right: var(--space-4);
+  lg-link-menu-item-text:nth-child(2) {
+    font-weight: var(--font-weight-400);
+    color: var(--link-menu-item-rest-colour-muted);
+
+    a:hover & {
+      color: var(--link-menu-item-hover-colour-muted);
+    }
+
+    a:focus-visible & {
+      color: var(--link-menu-item-focus-colour-muted);
+    }
+
+    a:active & {
+      color: var(--link-menu-item-active-colour-muted);
+    }
   }
 }
 
-// To do: remove once updated
 .lg-link-menu-item__icon-left-container,
 .lg-link-menu-item__icon-container {
   .lg-icon {
-    height: var(--icon-height) !important;
-    width: var(--icon-width) !important;
+    height: var(--button-icon-width) !important;
+    width: var(--button-icon-width) !important;
+    margin-right: var(--link-menu-item-gap);
+    color: var(--link-menu-item-rest-colour);
+  }
+
+  a:hover & .lg-icon {
+    color: var(--link-menu-item-hover-colour);
+  }
+
+  a:focus-visible & .lg-icon {
+    color: var(--link-menu-item-focus-colour);
+  }
+
+  a:active & .lg-icon {
+    color: var(--link-menu-item-active-colour);
   }
 }
 
 .lg-link-menu-item__icon-container {
   position: relative;
-  padding-right: var(--space-4);
-
-  @include mixins.lg-breakpoint('md') {
-    padding-right: var(--space-4);
-  }
-
-  @include mixins.lg-breakpoint('lg') {
-    padding-right: var(--space-3);
-  }
 
   .lg-icon {
-    position: absolute;
-    right: 0;
     margin-right: 0;
+    transition: transform var(--animation-duration) var(--animation-fn);
   }
+}
+
+a:hover .lg-link-menu-item__icon-container .lg-icon {
+  transform: translateX(0.25rem);
 }

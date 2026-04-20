@@ -2,8 +2,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
+
+import { ContentAreaVariant } from './content-area.interface';
 
 @Component({
   selector: 'lg-content-area',
@@ -15,4 +18,10 @@ import {
 })
 export class LgContentAreaComponent {
   @HostBinding('class.lg-content-area') class = true;
+
+  @Input() variant: ContentAreaVariant = 'default';
+
+  @HostBinding('class') get variantClass(): string {
+    return `lg-content-area--${this.variant}`;
+  }
 }

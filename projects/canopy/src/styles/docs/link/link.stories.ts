@@ -11,6 +11,9 @@ export default {
       imports: [ LgAlertComponent, LgIconComponent, LgMarginDirective ],
     }),
   ],
+  parameters: {
+    backgrounds: { disable: true },
+  },
 } as Meta;
 
 const standardTemplate = `

@@ -23,6 +23,7 @@ import {
   LgContentAreaComponent,
   LgContentAreaHeaderComponent,
   LgContentAreaContentComponent,
+  LgContentAreaFooterComponent,
   LgContentAreaTitleComponent
 } from '@legal-and-general/canopy';
 ```
@@ -33,11 +34,11 @@ Content areas provide a flexible container that aligns with Canopy’s 12-column
 
 You must use the variant that best matches your content and layout requirements. Content areas are designed for composition with other Canopy components, such as forms, tables, or navigation elements.
 
-## Variants
+### Variants
 
 Content areas support several variants to suit different layout needs:
 
-### Default
+#### Default
 
 ![Content area component default variant](docs/content-area/variant-default.png)
 
@@ -45,7 +46,7 @@ A flexible container for any content.
 
 <Source of={ContentAreaStories.Standard} />
 
-### Child variant
+#### Child variant
 
 ![Content area component child variant](docs/content-area/variant-child.png)
 
@@ -57,7 +58,7 @@ You can add the `lg-font--expressive` class to the title component.
 
 <Source of={ContentAreaStories.WithExpressiveType} />
 
-### Form journey variant (coming soon)
+#### Form journey variant
 
 ![Content area component form variant](docs/content-area/variant-form.png)
 
@@ -65,9 +66,9 @@ Includes an optional header and breadcrumb, and always provides a footer contain
 
 A directive or class is also available, allowing you to apply Content area styling to custom elements when needed.
 
-```html
-Coming soon
-```
+
+<Source of={ContentAreaStories.FormJourney} />
+
 ## Do's and don'ts
 
 ### Do
@@ -95,6 +96,13 @@ The main container component. It accepts projection of the following components:
 
 * `LgContentAreaHeaderComponent`
 * `LgContentAreaContentComponent`
+* `LgContentAreaFooterComponent`
+
+#### Inputs
+
+| Name      | Description                                        | Type                  | Default     | Required |
+|-----------|----------------------------------------------------|-----------------------|-------------|----------|
+| `variant` | The variant of the content area                    | `'default' \| 'form-journey'` | `'default'` | No       |
 
 ### LgContentAreaTitleComponent
 
@@ -119,6 +127,14 @@ This component is used to contain header content within a content area. It shoul
 This component is used to contain the main content within a content area. It should be placed inside the content area component and contains the primary content.
 
 **Selector:** `lg-content-area-content`
+
+### LgContentAreaFooterComponent
+
+This component is used to contain footer content within a content area, typically containing a button group for form navigation. It should be placed inside the content area component. Required for the form journey variant.
+
+**Selector:** `lg-content-area-footer`
+
+**Note:** The footer expects a `lg-button-group` component to be projected into it.
 
 ---
 

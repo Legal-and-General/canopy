@@ -6,4 +6,19 @@
   color: var(--content-area-colour);
 
   @include mixins.lg-content-area;
+
+  &--form-journey {
+    .lg-content-area-content {
+      display: flex;
+      flex-direction: column;
+      row-gap: var(--space-6);
+      padding-left: var(--content-area-padding-x);
+      padding-right: var(--content-area-padding-x);
+    }
+
+    .lg-content-area-footer {
+      padding-left: var(--content-area-padding-x);
+      padding-right: var(--content-area-padding-x);
+    }
+  }
 }

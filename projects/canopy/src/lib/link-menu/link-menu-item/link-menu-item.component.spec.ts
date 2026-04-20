@@ -18,6 +18,7 @@ import { LgLinkMenuItemComponent } from './link-menu-item.component';
 })
 class TestComponent {
   @Input() target: string = undefined;
+  @Input() rightIcon: string | null | undefined;
 }
 
 describe('LgLinkMenuItemComponent', () => {
@@ -69,8 +70,8 @@ describe('LgLinkMenuItemComponent', () => {
       ).toBeTruthy();
     });
 
-    it('should render the "chevron-right" icon if the parent is not an anchor element', () => {
-      expect(fixture.debugElement.query(By.css('[name="chevron-right"]'))).toBeDefined();
+    it('should render the "arrow-right" icon if the parent is not an anchor element', () => {
+      expect(fixture.debugElement.query(By.css('[name="arrow-right"]'))).toBeDefined();
       expect(fixture.debugElement.query(By.css('[name="link-external"]'))).toBeNull();
     });
 
@@ -111,9 +112,9 @@ describe('LgLinkMenuItemComponent', () => {
     };
 
     describe('opens in a new tab text', () => {
-      const getTextOfElementUnderTest = () =>
+      const getTextOfElementUnderTest = (): string =>
         fixture.debugElement.query(By.css('.lg-link-menu-item__icon-container'))
-          .nativeElement.textContent;
+          ?.nativeElement.textContent || '';
 
       it('should not render the text when the parent anchor target attribute is not "_blank"', () => {
         createComponentWithTarget('_parent');
@@ -129,12 +130,10 @@ describe('LgLinkMenuItemComponent', () => {
     });
 
     describe('icon displayed', () => {
-      it('should render the "chevron-right" icon when the parent anchor target attribute is not "_blank"', () => {
+      it('should render the "arrow-right" icon when the parent anchor target attribute is not "_blank"', () => {
         createComponentWithTarget('_parent');
 
-        expect(
-          fixture.debugElement.query(By.css('[name="chevron-right"]')),
-        ).toBeDefined();
+        expect(fixture.debugElement.query(By.css('[name="arrow-right"]'))).toBeDefined();
 
         expect(fixture.debugElement.query(By.css('[name="link-external"]'))).toBeNull();
       });
@@ -146,7 +145,45 @@ describe('LgLinkMenuItemComponent', () => {
           fixture.debugElement.query(By.css('[name="link-external"]')),
         ).toBeDefined();
 
-        expect(fixture.debugElement.query(By.css('[name="chevron-right"]'))).toBeNull();
+        expect(fixture.debugElement.query(By.css('[name="arrow-right"]'))).toBeNull();
+      });
+    });
+
+    describe('custom rightIcon', () => {
+      const createComponentWithRightIcon = (rightIcon: string | null) => {
+        const template = `
+          <a href="#">
+            <lg-link-menu-item [rightIcon]="rightIcon">
+              <lg-icon [name]="'account'"></lg-icon>
+              <lg-link-menu-item-text [isBold]="true">Menu item</lg-link-menu-item-text>
+            </lg-link-menu-item>
+          </a>
+        `;
+
+        fixture = TestBed.overrideTemplate(TestComponent, template).createComponent(
+          TestComponent,
+        );
+
+        component = fixture.componentInstance;
+        component.rightIcon = rightIcon;
+
+        fixture.detectChanges();
+      };
+
+      it('should render a custom icon when rightIcon is set', () => {
+        createComponentWithRightIcon('information');
+
+        expect(fixture.debugElement.query(By.css('[name="information"]'))).toBeDefined();
+
+        expect(fixture.debugElement.query(By.css('[name="arrow-right"]'))).toBeNull();
+      });
+
+      it('should not render any icon when rightIcon is null', () => {
+        createComponentWithRightIcon(null);
+
+        expect(
+          fixture.debugElement.query(By.css('.lg-link-menu-item__icon-container')),
+        ).toBeNull();
       });
     });
   });

@@ -5,24 +5,13 @@ import {
   LgLinkMenuItemComponent,
   LgLinkMenuItemTextComponent,
 } from '../../link-menu';
-import { LgSeparatorComponent } from '../../separator';
-import { LgMarginDirective } from '../../spacing';
-
 @Component({
   selector: 'lg-docs-welcome-bottom-links-section',
-  imports: [
-    LgLinkMenuComponent,
-    LgLinkMenuItemTextComponent,
-    LgSeparatorComponent,
-    LgMarginDirective,
-    LgLinkMenuItemComponent,
-  ],
+  imports: [ LgLinkMenuComponent, LgLinkMenuItemTextComponent, LgLinkMenuItemComponent ],
   template: `
     <h2 class="lg-font--expressive lg-font-size-4--700">{{ heading }}</h2>
 
     <p>{{ text }}</p>
-
-    <lg-separator lgMarginBottom="none" />
 
     <lg-link-menu>
       @for (link of links; track link) {

@@ -3,51 +3,87 @@
 .lg-link-menu {
   display: flex;
   flex-direction: column;
+  border: var(--link-menu-border-width) solid var(--link-menu-border-colour);
+  border-radius: var(--link-menu-border-radius);
+  overflow: hidden;
+  background: transparent;
 
   a {
     flex: 1;
-    @include mixins.lg-unstyled-link();
-
-    text-decoration: none;
-    color: var(--link-menu-link-color);
-    border-bottom: var(--border-width) solid var(--link-menu-link-border-color);
+    border-radius: 0;
+    text-decoration: none !important;
+    color: var(--link-menu-item-rest-colour);
+    border-bottom: var(--link-menu-item-rest-border-width-bottom) solid
+      var(--link-menu-item-rest-border-colour);
     display: block;
-    padding: var(--space-4) var(--space-4) var(--space-3);
+    padding: var(--link-menu-item-padding-top) var(--link-menu-item-padding-right)
+      var(--link-menu-item-padding-bottom) var(--link-menu-item-padding-left) !important;
     width: 100%;
 
-    @include mixins.lg-breakpoint('md') {
-      padding: var(--space-4);
+    &:first-child {
+      border-top-left-radius: var(--link-menu-border-radius);
+      border-top-right-radius: var(--link-menu-border-radius);
     }
 
-    @include mixins.lg-breakpoint('lg') {
-      padding: var(--space-4) var(--space-3);
+    &:last-child {
+      border-bottom-left-radius: var(--link-menu-border-radius);
+      border-bottom-right-radius: var(--link-menu-border-radius);
+      border-bottom-color: transparent;
+
+      &:hover,
+      &:active {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:hover {
+        box-shadow: inset 0 calc(-1 * var(--link-menu-item-hover-border-width-bottom)) 0 0
+          var(--link-menu-item-hover-border-colour);
+      }
+
+      &:active {
+        box-shadow: inset 0 calc(-1 * var(--link-menu-item-active-border-width-bottom)) 0
+          0 var(--link-menu-item-active-border-colour);
+      }
     }
 
     &:visited {
-      color: var(--link-menu-link-color);
-      border-bottom: var(--border-width) solid var(--link-menu-link-border-color);
+      color: var(--link-menu-item-rest-colour);
+      border-bottom: var(--link-menu-item-rest-border-width-bottom) solid
+        var(--link-menu-item-rest-border-colour);
       text-decoration: none;
     }
 
-    &:active,
-    &:hover,
-    &:focus-visible {
+    &:hover {
+      color: var(--link-menu-item-hover-colour);
+      background-color: var(--link-menu-item-hover-background-colour);
+      border-bottom: var(--link-menu-item-hover-border-width-bottom) solid
+        var(--link-menu-item-hover-border-colour);
+      padding-right: var(--link-menu-item-hover-padding-right) !important;
       margin-bottom: calc(
-        var(--border-width) - var(--link-menu-link-border-width-lg)
+        var(--link-menu-item-rest-border-width-bottom) - var(
+            --link-menu-item-hover-border-width-bottom
+          )
       ); // prevent bouncing effect caused by border
     }
 
-    &:active,
     &:focus-visible {
-      color: var(--link-menu-link-active-color);
-      border-bottom: var(--link-menu-link-border-width-lg) solid
-        var(--link-menu-link-active-color);
+      color: var(--link-menu-item-focus-colour);
+      box-shadow: inset 0 0 0 var(--link-menu-item-focus-border-width)
+        var(--link-menu-item-focus-border-colour);
+      outline: none !important;
     }
 
-    &:hover {
-      color: var(--link-menu-link-hover-color);
-      border-bottom: var(--link-menu-link-border-width-lg) solid
-        var(--link-menu-link-hover-color);
+    &:active {
+      color: var(--link-menu-item-active-colour);
+      background-color: var(--link-menu-item-active-background-colour);
+      border-bottom: var(--link-menu-item-active-border-width-bottom) solid
+        var(--link-menu-item-active-border-colour);
+      margin-bottom: calc(
+        var(--link-menu-item-rest-border-width-bottom) - var(
+            --link-menu-item-active-border-width-bottom
+          )
+      ); // prevent bouncing effect caused by border
     }
   }
 }

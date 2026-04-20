@@ -10,11 +10,11 @@ const template = `
 <lg-link-menu>
   @for (item of menuItems; track item.title) {
     <a href="#" [attr.target]="item.target">
-      <lg-link-menu-item>
-        @if (item.icon) {
-          <lg-icon [name]="item.icon"></lg-icon>
+      <lg-link-menu-item [rightIcon]="item.rightIcon">
+        @if (item.leftIcon) {
+          <lg-icon [name]="item.leftIcon"></lg-icon>
         }
-        <lg-link-menu-item-text isBold="true">{{ item.title }}</lg-link-menu-item-text>
+        <lg-link-menu-item-text [isBold]="item.isBold">{{ item.title }}</lg-link-menu-item-text>
         @if (item.description) {
           <lg-link-menu-item-text>
             {{ item.description }}
@@ -43,17 +43,31 @@ class LinkMenuStoryComponent {
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Link menu/Examples',
-  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ LinkMenuStoryComponent ],
     }),
   ],
+  parameters: {
+    backgrounds: { disable: true },
+  },
   argTypes: {
     class: {
       table: {
         disable: true,
       },
+    },
+    showLeftIcons: {
+      control: 'boolean',
+      description: 'Show left icons on menu items',
+    },
+    showRightIcons: {
+      control: 'boolean',
+      description: 'Show right icons on menu items',
+    },
+    isBold: {
+      control: 'boolean',
+      description: 'Make primary label text bold',
     },
   },
 } as Meta;
@@ -62,62 +76,100 @@ interface MenuItems {
   title: string;
   description: string;
   target: '_blank' | null;
-  icon: string;
+  leftIcon: string;
+  rightIcon: string | null | undefined;
+  isBold: boolean;
 }
 
-function getDefaultMenuItems(withIcons = true): Array<MenuItems> {
+function getDefaultMenuItems(
+  showLeftIcons = true,
+  showRightIcons = false,
+  isBold = true,
+): Array<MenuItems> {
   return [
     {
       title: 'Overview',
       description: '',
       target: null,
-      icon: withIcons
+      leftIcon: showLeftIcons
         ? 'information'
         : '',
+      rightIcon: showRightIcons
+        ? undefined
+        : null,
+      isBold,
     },
     {
       title: 'Personal Details',
       description: 'Name, date of birth, marital status',
       target: '_blank',
-      icon: withIcons
+      leftIcon: showLeftIcons
         ? 'profile'
         : '',
+      rightIcon: showRightIcons
+        ? undefined
+        : null,
+      isBold,
     },
     {
       title: 'Contact',
       description: 'Email, address and phone numbers',
       target: null,
-      icon: withIcons
+      leftIcon: showLeftIcons
         ? 'mail'
         : '',
+      rightIcon: showRightIcons
+        ? undefined
+        : null,
+      isBold,
     },
     {
       title: 'Login and security',
       description: 'Reset your password and get a User ID reminder',
       target: null,
-      icon: withIcons
+      leftIcon: showLeftIcons
         ? 'security'
         : '',
+      rightIcon: showRightIcons
+        ? undefined
+        : null,
+      isBold,
     },
     {
       title: 'Preferences',
       description: 'How we send you documents and marketing',
       target: null,
-      icon: withIcons
+      leftIcon: showLeftIcons
         ? 'console'
         : '',
+      rightIcon: showRightIcons
+        ? undefined
+        : null,
+      isBold,
     },
   ];
 }
 
 export const StandardLinkMenu = {
   name: 'Link menu',
-  render: (args: LinkMenuStoryComponent) => ({
-    props: args,
+  render: (args: {
+    showLeftIcons: boolean;
+    showRightIcons: boolean;
+    isBold: boolean;
+  }) => ({
+    props: {
+      menuItems: getDefaultMenuItems(
+        args.showLeftIcons,
+        args.showRightIcons,
+        args.isBold,
+      ),
+    },
     template: '<lg-link-menu-story [menuItems]="menuItems"></lg-link-menu-story>',
   }),
   args: {
-    menuItems: getDefaultMenuItems(),
+    showLeftIcons: true,
+    showRightIcons: true,
+    isBold: true,
   },
   parameters: {
     docs: {
@@ -126,7 +178,10 @@ export const StandardLinkMenu = {
       },
     },
     additionalSnapshots: [
-      { suffix: ' [without icons]', args: { menuItems: getDefaultMenuItems(false) } },
+      {
+        suffix: ' [without icons]',
+        args: { showLeftIcons: false, showRightIcons: false, isBold: true },
+      },
     ],
   },
 };

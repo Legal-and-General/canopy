@@ -1,13 +1,38 @@
 .lg-link-menu-item-text {
-  padding-top: var(--space-2);
-  font-size: var(--font-size-0-8);
-  line-height: var(--text-base-line-height);
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-1);
+  color: var(--link-menu-item-rest-colour);
+  font-weight: var(--font-weight-500);
+  font-feature-settings: 'case' on;
+
+  a:hover & {
+    color: var(--link-menu-item-hover-colour);
+  }
+
+  a:focus-visible & {
+    color: var(--link-menu-item-focus-colour);
+  }
+
+  a:active & {
+    color: var(--link-menu-item-active-colour);
+  }
 
   &--bold {
-    padding-top: 0;
     line-height: initial;
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-700);
-    padding-right: var(--space-1);
+    color: var(--link-menu-item-rest-colour);
+
+    a:hover & {
+      color: var(--link-menu-item-hover-colour);
+    }
+
+    a:focus-visible & {
+      color: var(--link-menu-item-focus-colour);
+    }
+
+    a:active & {
+      color: var(--link-menu-item-active-colour);
+    }
   }
 }

@@ -6,35 +6,410 @@ import * as ColoursStories from './colours.stories.ts';
 
 # Colours
 
-<p class="standfirst">We are a bright and colourful brand, and don't shy away from it. Our palette draws its colours from our umbrella, and defines our core colours.</p>
+<p class="standfirst">The Canopy colour palette is built on L&G’s brand colours and colour architecture, providing a clear, structured foundation for colour across all digital products. This palette ensures that every interface feels consistent, accessible, and unmistakably L&G, regardless of platform or product.</p>
+
+## Principles
+
+The Canopy colour system is governed by these principles:
+
+1. **Use only approved tokens**
+You must use only the tokens specified on the relevant component guidance pages. Do not create or use custom tokens. If you are contributing a new component to Canopy, consult the Canopy team for guidance on which tokens to use.
+
+2. **Clarity and accessibility**
+Colours must support clear communication and legibility. All colour combinations are designed to meet or exceed WCAG 2.2 AA standards for contrast.
+
+3. **Consistency**
+Colour usage must be consistent across all products and platforms. Design tokens and modes ensure the same colour roles are applied everywhere, reinforcing brand identity. You must not mix colour modes within a single view—each card, panel, content area, or page must use only one mode.
+
+4. **Favour neutral backgrounds and embrace white space**
+Off-white and pure white are the default backgrounds, supporting clarity and accessibility. White space is a key brand device and should not be shied away from. Limit the use of bold backgrounds to avoid visual fatigue and accessibility issues.
+
+5. **Flat design language**
+Gradients and shadows are not permitted in the overall design language.
+
+6. **Consult brand guidelines for complex use cases**
+For illustrations, photography, and charts/graphs, refer to the colour guidelines in the Brand Hub for advice on appropriate combinations.
+
+## Palette
+
+The colours shown below represent Canopy’s core palette and are provided for reference and illustration only.
+
+### Signature colours
+
+<table style={{ width: '100%' }}>
+  <tr>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-blue-600)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-green-600)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-red-600)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-yellow-600)', borderRadius: '50%' }}></div>
+    </td>
+  </tr>
+  <tr>
+    <td style={{ width: '25%', textAlign: 'center' }}>Breezy Blue</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Plush Green</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Crimson Blaze</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Golden Sun</td>
+  </tr>
+</table>
+
+### Light colours
+
+<table style={{ width: '100%' }}>
+  <tr>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-blue-200)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-green-200)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-red-200)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-yellow-200)', borderRadius: '50%' }}></div>
+    </td>
+  </tr>
+  <tr>
+    <td style={{ width: '25%', textAlign: 'center' }}>Light blue</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Light green</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Light red</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Light yellow</td>
+  </tr>
+</table>
+
+### Regal colours
+
+<table style={{ width: '100%' }}>
+  <tr>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-blue-800)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-green-800)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-red-800)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-yellow-800)', borderRadius: '50%' }}></div>
+    </td>
+  </tr>
+  <tr>
+    <td style={{ width: '25%', textAlign: 'center' }}>Regal blue</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Regal green</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Regal red</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Regal yellow</td>
+  </tr>
+</table>
+
+### Accent colours
+
+<table style={{ width: '100%' }}>
+  <tr>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-blue-400)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-green-400)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-red-400)', borderRadius: '50%' }}></div>
+    </td>
+    <td style={{ width: '25%', padding: '1rem' }}>
+      <div style={{ width: '100%', paddingBottom: '100%', background: 'var(--colour-yellow-400)', borderRadius: '50%' }}></div>
+    </td>
+  </tr>
+  <tr>
+    <td style={{ width: '25%', textAlign: 'center' }}>Accent blue</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Accent green</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Accent red</td>
+    <td style={{ width: '25%', textAlign: 'center' }}>Accent yellow</td>
+  </tr>
+</table>
+
+**Do not use these colours directly in your code or designs.**
+
+To ensure consistency and maintainability, always use the design tokens described throughout the Canopy documentation.
+
+Continue reading to learn how to use Canopy’s tokens to implement colour correctly.
 
 ## Usage
 
-Import the css into the `angular.json` file of your application:
+Canopy’s colour palette is managed through design tokens, which define specific colour roles and ensure consistent usage across all digital products. You must always use these tokens—never choose colours arbitrarily. Select modes in Figma using the <a href="https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables" target="_blank">Modes functionality</a>.
 
-```json
+### Colour modes
+Colour modes define the overall theme for a product or experience. Blue is the default and preferred colour mode for all Canopy products and experiences. We recommend that you lead with blue and most experiences should use blue as the primary mode. Green, Yellow, and Red colour modes may be used sparingly to inject additional brand personality, but must never be mixed within the same view. Always default to blue unless there is a clear, approved reason to use another colour mode. Each mode provides a complete set of colours for backgrounds, text, accents, and interactive elements. Modes are applied at the parent level - never mix modes within a single card, panel, content area, or page.
+
+* **Blue** (default)
+
+* **Green**
+
+* **Red**
+
+* **Yellow**
+
+### Colour tones
+Within each mode, Canopy provides four tonal themes to support different UI needs:
+
+* **Neutral:** The default, calm tone for most use cases.
+
+* **Neutral inverse:** A reversed version, typically for dark-on-light or light-on-dark scenarios.
+
+* **Subtle:** Light variants for gentle brand expression.
+
+* **Bold:** Strong, signature colours for emphasis or branding moments.
+
+Tones must be applied purposefully to ensure clarity, hierarchy, and accessibility across backgrounds, containers, text, and interactive elements.
+
+**Example usage**
+
+* Use **Neutral** tones in productive environments, such as dashboards, product pages, or forms, where clarity is essential.
+
+* Use **Subtle** tones to gently apply brand colours and highlight key messages or promotions.
+
+* Use **Bold** tones for strong brand presence—such as marketing pages, onboarding flows, or branded apps.
+
+*Note: Refer to the Canopy documentation or Figma library for the exact palette.*
+
+![Colours - button styles](docs/colours/modes.png)
+
+### Status modes
+
+Status modes are a dedicated set of colours used to communicate key states and feedback in the interface - such as information, success, warning, error, and generic messages. These colours are only used on specific components, including inline message, details, and banner.
+
+**How status modes work**
+
+* **Consistent across modes:**
+Status colours remain the same regardless of the parent container’s colour mode (blue, green, red, yellow). This ensures that users always recognise status messages, no matter the parent container’s colour.
+
+* **Always paired with icons:**
+Statuses are always accompanied by an appropriate icon, so colour is never the sole indicator of status. This is essential for accessibility and ensures that users who cannot perceive colour differences can still understand the message.
+
+* **Tone-aware:**
+Status colours adapt to the selected colour tone (neutral, neutral inverse, subtle, bold) to maintain brand consistency and meet accessibility requirements. For example, a warning message will use a different shade on a bold background than on a neutral one, but it will always be recognisably “warning”.
+
+* **Accessibility first:**
+All status colours are designed to meet or exceed WCAG 2.2 AA contrast requirements in every tone.
+
+### Status types
+
+* **Info:** Used for general information and guidance.
+
+* **Success:** Indicates successful actions or positive outcomes.
+
+* **Warning:** Draws attention to cautionary or potentially risky situations.
+
+* **Error:** Signals problems, failures, or required user action.
+
+* **Generic:** For messages that don’t fit the above categories but still require user attention.
+
+![Colours - status examples](docs/colours/status-examples.png)
+
+*Note: These are illustrative examples. Refer to the Canopy documentation or Figma library for the exact palette and usage.*
+
+**Guidance:**
+
+* Always use the provided status colours for their intended purpose - never substitute with brand or accent colours.
+
+* Status colours must be applied using the correct tone for the context to ensure both brand alignment and accessibility.
+
+* Statuses must always be paired with an appropriate icon.
+
+* If you’re unsure about which status colour or tone to use, consult the Canopy team.
+
+### Implementation
+
+To use Canopy colours in your Angular application, import the CSS in your `angular.json` file:
+
+```html
 "styles": [
   "node_modules/@legal-and-general/canopy/canopy.css"
 ],
 ```
 
+### Guidance
+* Select a single colour mode for your product or experience.
+
+* Apply tones according to the context and hierarchy of your UI.
+
+* Never mix colour modes within a single view.
+
+* If you’re unsure which mode or tone to use, consult the Canopy team.
+
 ## Accessibility
 
-It's important we use colours that provide an accessible experience to every user.
+All Canopy components and colour combinations are designed to meet or exceed WCAG 2.2 AA standards for colour contrast. This means:
 
-This means that all colour combinations must adhere to WCAG 2.2 level AA standards, and have a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. We recommend using <a href="https://webaim.org/resources/contrastchecker/" target="_blank">Colour Contrast Checker</a>, but there are many similar tools available.
+* **Normal text** must have a contrast ratio of at least 4.5:1 against its background.
 
-Normal text is defined as 16px regular, while Large text is defined as 18.66px if bold or 24px regular.
+* **Large text** (18pt/24px and above, or 14pt/18.66px and above if bold) must have a contrast ratio of at least 3:1.
 
-Custom gradients should not be used anywhere in your project.
+* **UI components** and graphical objects (such as icons, borders, and interactive elements) also meet the required contrast ratios for accessibility.
 
-## Palette
+Using Canopy’s colour modes and tokens correctly will ensure these standards are maintained across all products and platforms.
 
-<Story of={ColoursStories.TintsColours} />
+It is your responsibility to check that colours are used appropriately in your designs, especially when combining elements or creating custom layouts. Always verify that your colour choices maintain sufficient contrast for readability and usability.
 
 ## Further information
 
-For guidance on the use of colours for marketing and print, visit the <a href="https://brandportal.landg.com/point/en/legal-and-general/component/default/209796" target="_blank">L\&G Brand Hub</a>.
+<a href="https://brandportal.landg.com/point/en/legal-and-general/component/default/209796" target="_blank">L\&G Brand Portal</a>
+
+## Dos and Don'ts
+
+### Do
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/colours/do-1.png" alt="Colours - dos" />
+    </td>
+    <td width="50%">
+      <img src="docs/colours/do-2.png" alt="Colours - dos" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Do lead with Blue</strong><br />
+      Blue is the default colour mode for all Canopy products and experiences. Only use Green, Red, or Yellow modes when there is a clear, approved branding requirement.
+    </td>
+    <td>
+      <strong>Do use only approved Canopy colour tokens</strong><br />
+      Always apply the tokens specified in the relevant component guidance pages or Figma library - never invent your own or use raw colour values.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="docs/colours/do-3.png" alt="Colours - dos" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Do use only one colour mode per view</strong><br />
+      Mixing modes within the same view is not permitted.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="docs/colours/do-4.png" alt="Colours - dos" />
+    </td>
+  </tr>
+   <tr>
+    <td colspan="2">
+      <strong>Do apply tones purposefully</strong><br />
+      Use neutral tones for productivity-focused UIs, and bold tones for brand-led moments or marketing experiences.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="docs/colours/do-5.png" alt="Colours - dos" />
+    </td>
+    <td>
+      <img src="docs/colours/do-6.png" alt="Colours - dos" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Do check colour contrast</strong><br />
+      Ensure all colour combinations meet or exceed WCAG 2.2 AA standards for text, UI elements, and icons.
+    </td>
+    <td>
+      <strong>Do favour neutral backgrounds and embrace white space</strong><br />
+      Use off-white or white as the default background to support clarity and accessibility.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="docs/colours/do-7.png" alt="Colours - dos" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Do pair statuses with appropriate icons</strong><br />
+      Never rely on colour alone to communicate status - always include a meaningful icon alongside the colour for accessibility.
+    </td>
+  </tr>
+</table>
+
+### Don't
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/colours/dont-1.png" alt="Colours - dont" />
+    </td>
+    <td width="50%">
+      <img src="docs/colours/dont-2.png" alt="Colours - dont" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Don’t use Green, Red, or Yellow modes unless there’s a clear, approved branding need</strong><br />
+      Blue must be the default mode for all products and experiences.
+    </td>
+    <td>
+      <strong>Don't reference or use raw brand colours directly</strong><br />
+      Always use the tokens specified in the component guidance pages or Figma library - never hard-code colour values.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="docs/colours/dont-3.png" alt="Colours - dont" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Don’t mix colour modes within a single view</strong><br />
+      Consistency within each view is essential for brand recognition and accessibility.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="docs/colours/dont-4.png" alt="Colours - dont" />
+    </td>
+  </tr>
+   <tr>
+    <td colspan="2">
+      <strong>Don’t use gradients or shadows</strong><br />
+      The Canopy design language is flat - avoid decorative effects that undermine clarity and accessibility.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <img src="docs/colours/dont-5.png" alt="Colours - dont" />
+    </td>
+  </tr>
+   <tr>
+    <td colspan="2">
+      <strong>Don’t override or customise tokens without consulting the Canopy team</strong><br />
+      Unapproved changes risk breaking consistency and accessibility.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="docs/colours/dont-6.png" alt="Colours - dont" />
+    </td>
+    <td>
+      <img src="docs/colours/dont-7.png" alt="Colours - dont" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Don’t use bold or signature brand colours excessively</strong><br />
+      Reserve them for emphasis or key brand moments, not as default backgrounds or for large areas.
+    </td>
+    <td>
+      <strong>Don’t ignore accessibility requirements</strong><br />
+      Never use colour combinations that fail to meet WCAG 2.2 AA contrast ratios.
+    </td>
+  </tr>
+</table>
 
 <Markdown>
   {Feedback}

@@ -989,7 +989,8 @@
                             <lg-link-menu>
                               <a href="#">
                                 <lg-link-menu-item>
-                                  <lg-link-menu-item-text isBold="true">An internal link (default)</lg-link-menu-item-text>
+                                  <lg-icon name="information"></lg-icon>
+                                  <lg-link-menu-item-text [isBold]="true">An internal link (default)</lg-link-menu-item-text>
                                   <lg-link-menu-item-text>
                                     This links to an internal page
                                   </lg-link-menu-item-text>
@@ -997,10 +998,34 @@
                               </a>
                               <a href="#" target="_blank">
                                 <lg-link-menu-item>
-                                  <lg-link-menu-item-text isBold="true">An external link</lg-link-menu-item-text>
+                                  <lg-icon name="profile"></lg-icon>
+                                  <lg-link-menu-item-text [isBold]="true">An external link</lg-link-menu-item-text>
                                   <lg-link-menu-item-text>
                                     This links to an external page opening in a <em>new</em> tab
                                   </lg-link-menu-item-text>
+                                </lg-link-menu-item>
+                              </a>
+                              <a href="#">
+                                <lg-link-menu-item [rightIcon]="'chevron-right'">
+                                  <lg-icon name="home"></lg-icon>
+                                  <lg-link-menu-item-text [isBold]="true">Custom right icon</lg-link-menu-item-text>
+                                  <lg-link-menu-item-text>
+                                    This item has a custom chevron-right icon
+                                  </lg-link-menu-item-text>
+                                </lg-link-menu-item>
+                              </a>
+                              <a href="#">
+                                <lg-link-menu-item [rightIcon]="null">
+                                  <lg-icon name="download"></lg-icon>
+                                  <lg-link-menu-item-text [isBold]="true">No right icon</lg-link-menu-item-text>
+                                  <lg-link-menu-item-text>
+                                    This item has no right icon
+                                  </lg-link-menu-item-text>
+                                </lg-link-menu-item>
+                              </a>
+                              <a href="#">
+                                <lg-link-menu-item>
+                                  <lg-link-menu-item-text [isBold]="false">Regular font weight</lg-link-menu-item-text>
                                 </lg-link-menu-item>
                               </a>
                             </lg-link-menu>

@@ -1,13 +1,10 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as LinkMenuStories from './link-menu.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Link menu/Guide" tags={['pending']}/>
+<Meta title="Components/Link menu/Guide"/>
 
 # Link menu
-
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Link menu is used to list an array of links.</p>
 
@@ -16,10 +13,7 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 Import the link menu components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgLinkMenuComponent, etc. ],
-});
+import { LgLinkMenuComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -34,17 +28,36 @@ This is where the links are projected.
 
 ### LgLinkMenuItemComponent
 
-This is where the `LgLinkMenuItemTextComponent`s of the link are projected and positioned.
+This is where the `LgLinkMenuItemTextComponent`s and optional left icon are projected and positioned.
 
-This accepts either 1 or 2 `LgLinkMenuItemTextComponent`s, of which either 1 or both can be made bold, by using `isBold`.
+This accepts either 1 or 2 `LgLinkMenuItemTextComponent`s. The first text component represents the primary label, and an optional second text component represents the secondary descriptive text. The secondary text automatically uses regular font weight (400) and muted colour tokens.
 
-Depending on whether the parent, `<a>` element has `target="_blank"`, i.e. attempts to open in a new tab, the icon displayed will
-differ.
+#### Icon behaviour
+
+**Right icon (automatic):**
+- By default, the component automatically displays an icon on the right side
+- If the parent `<a>` element has `target="_blank"`, it shows the `link-external` icon with accessible text "opens in a new tab"
+- Otherwise, it shows the `arrow-right` icon
+- On hover, the icon translates 0.25rem to the right
+
+**Custom icons:**
+- **Left icon**: Project an `<lg-icon>` component as content to display a custom icon on the left
+- **Right icon**: Use the `rightIcon` input to override the default right icon with a custom icon name, or set it to `null` to hide the right icon completely
+
+#### Inputs
+
+| Name        | Description                                                          |    Type                    |   Default     | Required |
+|-------------|----------------------------------------------------------------------|:--------------------------:|:-------------:|:--------:|
+| `rightIcon` | Custom icon name for the right icon, or `null` to hide it completely | `string \| null \| undefined` | `undefined` |    No    |
 
 ### LgLinkMenuItemTextComponent
 
 The text sub-component for the menu item.
 Accepts a `isBold` attribute input that changes its style to make the text of the menu item bold.
+
+When two `LgLinkMenuItemTextComponent`s are used, the second one automatically:
+- Uses font weight 400 (regular) instead of 500
+- Uses muted colour tokens (`--link-menu-item-rest-colour-muted`, etc.)
 
 #### Inputs
 
