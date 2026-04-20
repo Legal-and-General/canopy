@@ -124,7 +124,7 @@
     "semantic-release": "25.0.3",
     "storybook": "10.3.5",
     "storybook-addon-tag-badges": "3.1.0",
-    "stylelint": "17.7.0",
+    "stylelint": "17.8.0",
     "stylelint-config-recommended": "18.0.0",
     "stylelint-selector-bem-pattern": "4.0.1",
     "svg-to-ts": "12.0.0",
