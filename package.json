@@ -44,7 +44,67 @@
   "private": false,
   "overrides": {
     "qs": "6.15.0",
-    "vite": "7.3.2"
+    "vite": "7.3.2",
+    "@isaacs/brace-expansion": "5.0.1",
+    "basic-ftp": "5.3.0",
+    "diff": "4.0.4",
+    "express-rate-limit": "8.3.2",
+    "follow-redirects": "1.16.0",
+    "hono": "4.12.14",
+    "@jest/reporters": {
+      "brace-expansion": "2.1.0"
+    },
+    "@tufjs/models": {
+      "brace-expansion": "5.0.5"
+    },
+    "svg-to-ts": {
+      "svgo": "3.3.3"
+    },
+    "@ts-morph/common": {
+      "minimatch": "10.2.5"
+    },
+    "express": {
+      "path-to-regexp": "0.1.13"
+    },
+    "router": {
+      "path-to-regexp": "8.4.2"
+    },
+    "anymatch": {
+      "picomatch": "2.3.2"
+    },
+    "micromatch": {
+      "picomatch": "2.3.2"
+    },
+    "@rollup/pluginutils": {
+      "picomatch": "2.3.2"
+    },
+    "readdirp": {
+      "picomatch": "2.3.2"
+    },
+    "@compodoc/compodoc": {
+      "picomatch": "4.0.4"
+    },
+    "@stylistic/eslint-plugin": {
+      "picomatch": "4.0.4"
+    },
+    "jest-util": {
+      "picomatch": "4.0.4"
+    },
+    "tinyglobby": {
+      "picomatch": "4.0.4"
+    },
+    "minimatch": {
+      "brace-expansion": "1.1.14"
+    },
+    "ignore-walk": {
+      "brace-expansion": "5.0.5"
+    },
+    "jest-config": {
+      "brace-expansion": "2.1.0"
+    },
+    "jest-runtime": {
+      "brace-expansion": "2.1.0"
+    }
   },
   "dependencies": {
     "@angular/animations": "20.3.18",
