@@ -214,7 +214,8 @@ $breakpoints: (
   background-color: var(--container-status-subtle-background-colour);
   color: var(--text-status-subtle-primary-colour);
 
-  a:not(.lg-btn) {
+  a:not(.lg-btn),
+  .lg-btn--link {
     @include lg-link(
       $default-color: var(--link-status-subtle-rest-colour),
       $hover-color: var(--link-status-subtle-hover-colour),
@@ -265,7 +266,8 @@ $breakpoints: (
   background-color: var(--container-status-bold-background-colour);
   color: var(--text-status-bold-primary-colour);
 
-  a:not(.lg-btn) {
+  a:not(.lg-btn),
+  .lg-btn--link {
     @include lg-link(
       $default-color: var(--link-status-bold-rest-colour),
       $hover-color: var(--link-status-bold-hover-colour),
@@ -315,7 +317,8 @@ $breakpoints: (
   background-color: var(--container-default-background-colour) !important;
   color: var(--text-default-primary-colour) !important;
 
-  a:not(.lg-btn) {
+  a:not(.lg-btn),
+  .lg-btn--link {
     @include lg-link(
       $default-color: var(--interactive-text-default-rest),
       $hover-color: var(--interactive-text-default-hover),

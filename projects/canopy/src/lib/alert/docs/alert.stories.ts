@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgAlertComponent } from '../alert.component';
+import { LgButtonComponent } from '../../button';
 
 const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
@@ -11,7 +12,7 @@ export default {
   component: LgAlertComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgAlertComponent ],
+      imports: [ LgAlertComponent, LgButtonComponent ],
     }),
   ],
   argTypes: {
@@ -68,7 +69,7 @@ const template = `
   [status]="status"
   [role]="role"
 >
-  {{content}} Here is some <a href="#"> link text</a>.
+  {{content}} Here is some <a href="#"> link text</a> or a <button lg-button variant="link">button link</button>.
 </lg-alert>
 `;
 
@@ -83,7 +84,7 @@ export const StandardAlert = {
   [statusTheme]="statusTheme"
   [role]="role"
 >
-  {{content}} Here is some <a href="#"> link text</a>.
+  {{content}} Here is some <a href="#"> link text</a> or a <button lg-button variant="link">button link</button>.
 </lg-alert>
 `,
   }),
