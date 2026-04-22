@@ -60,24 +60,29 @@
 
 // Ensure links use status tokens
 [class*='lg-status-'].lg-banner a:not(.lg-btn),
-[class*='lg-status-'].lg-banner a:not(.lg-btn):link {
+[class*='lg-status-'].lg-banner a:not(.lg-btn):link,
+[class*='lg-status-'].lg-banner .lg-btn--link {
   color: var(--interactive-text-status-bold-rest) !important;
 }
 
-[class*='lg-status-'].lg-banner a:not(.lg-btn):visited {
+[class*='lg-status-'].lg-banner a:not(.lg-btn):visited,
+[class*='lg-status-'].lg-banner .lg-btn--link:visited {
   color: var(--interactive-text-status-bold-visited) !important;
 }
 
-[class*='lg-status-'].lg-banner a:not(.lg-btn):hover {
+[class*='lg-status-'].lg-banner a:not(.lg-btn):hover,
+[class*='lg-status-'].lg-banner .lg-btn--link:hover {
   color: var(--interactive-text-status-bold-hover) !important;
 }
 
-[class*='lg-status-'].lg-banner a:not(.lg-btn):active {
+[class*='lg-status-'].lg-banner a:not(.lg-btn):active,
+[class*='lg-status-'].lg-banner .lg-btn--link:active {
   color: var(--interactive-text-status-bold-active) !important;
   background-color: var(--container-status-bold-background-colour) !important;
 }
 
-[class*='lg-status-'].lg-banner a:not(.lg-btn):focus-visible {
+[class*='lg-status-'].lg-banner a:not(.lg-btn):focus-visible,
+[class*='lg-status-'].lg-banner .lg-btn--link:focus-visible {
   color: var(--interactive-text-status-bold-focus) !important;
   background-color: var(--container-status-bold-background-colour) !important;
   outline-color: var(--interactive-text-status-bold-focus) !important;

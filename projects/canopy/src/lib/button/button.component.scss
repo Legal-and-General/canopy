@@ -113,6 +113,7 @@
   width: initial;
   font-weight: var(--font-weight-400);
   text-align: start;
+  margin-bottom: 0;
 
   @include mixins.lg-link();
 }

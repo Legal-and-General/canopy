@@ -4,6 +4,7 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 import { IconName, LgIconComponent } from '../../icon';
 import { LgBannerComponent } from '../banner.component';
 import type { Status } from '../../status';
+import { LgButtonComponent } from '../../button';
 // Direct import required for Webpack compatibility - do not use barrel file
 import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
@@ -14,10 +15,11 @@ const statuses: Array<Status> = [ 'generic', 'info', 'success', 'warning', 'erro
   template: `
     <lg-banner [status]="status" [statusTheme]="statusTheme">
       <lg-icon [name]="icon" />
-      {{ content }} Here is some <a href="#"> link text</a>.
+      {{ content }} Here is some <a href="#"> link text</a> or a
+      <button lg-button variant="link">button link</button>.
     </lg-banner>
   `,
-  imports: [ LgBannerComponent, LgIconComponent ],
+  imports: [ LgBannerComponent, LgIconComponent, LgButtonComponent ],
 })
 class LgBannerIconComponent {
   @Input() content: string;
