@@ -79,7 +79,7 @@ A button with a back icon followed by a label.
 Use the `backIcon` boolean input to display an `arrow-left` icon on the left side of the button. When `backIcon` is set to `true`, it takes precedence and will display the arrow-left icon regardless of any other icons in the markup.
 
 ```html
-<button lg-button type="button" backIcon="true">
+<button lg-button type="button" [backIcon]="true">
   Back
 </button>
 ```
@@ -106,7 +106,7 @@ A button with a label followed by an icon to the right, supporting custom icons.
 A button with only an icon. You must include visually hidden text for accessibility.
 
 ```html
-<button lg-button type="button" iconButton="true" >
+<button lg-button type="button" [iconButton]="true" >
   Add item
   <lg-icon name="add" />
 </button>

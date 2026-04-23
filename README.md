@@ -22,4 +22,29 @@ Have an [issue you would like to raise?](../../issues)
 
 Want to [request a modification or a new feature?](../../discussions)
 
-Want to [apply a migration with AI assistance?](docs/COPILOT_SKILLS.md)
+Want to [apply a migration with AI assistance?](docs/COPILOT_SKILLS.md#migration-skills)
+
+Want to [use Canopy components correctly with AI assistance?](docs/COPILOT_SKILLS.md#best-practice-skills)
+
+## Copilot Skills
+
+Canopy publishes installable [skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) that work with GitHub Copilot.
+
+```bash
+# List all available skills
+npx skills add Legal-and-General/canopy --list
+
+# Install a migration skill (guides your agent through a major version upgrade)
+npx skills add Legal-and-General/canopy --skill canopy-v23-migration
+
+# Install a single best practice skill — pin to the Canopy version in your package.json
+npx skills add Legal-and-General/canopy#v23.0.0 --skill best-practice/button
+
+# Install all best practice skills — pinned to a specific version
+npx skills add Legal-and-General/canopy#v23.0.0 --skill 'best-practice/*'
+
+# Install all available skills
+npx skills add Legal-and-General/canopy --skill '*'
+```
+
+See [docs/COPILOT_SKILLS.md](docs/COPILOT_SKILLS.md) for the full list of available skills.
