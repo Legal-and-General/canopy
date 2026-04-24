@@ -190,7 +190,7 @@ export const AccordionWithIcons = {
   args: {
     iconForFirstAccordionItem: 'notes',
     iconForSecondAccordionItem: 'news',
-    iconForThirdAccordionItem: 'idea',
+    iconForThirdAccordionItem: 'light-bulb',
     headingLevel: 2,
     itemOneActive: false,
     itemTwoActive: true,
@@ -199,7 +199,7 @@ export const AccordionWithIcons = {
   },
   argTypes: {
     iconForFirstAccordionItem: {
-      options: [ 'news', 'notes', 'idea' ],
+      options: [ 'news', 'notes', 'light-bulb' ],
       description:
         'The icon to display in the left side of the heading of the first accordion item.',
       control: {
@@ -207,7 +207,7 @@ export const AccordionWithIcons = {
       },
     },
     iconForSecondAccordionItem: {
-      options: [ 'news', 'notes', 'idea' ],
+      options: [ 'news', 'notes', 'light-bulb' ],
       description:
         'The icon to display in the left side of the heading of the second accordion item.',
       control: {
@@ -215,7 +215,7 @@ export const AccordionWithIcons = {
       },
     },
     iconForThirdAccordionItem: {
-      options: [ 'news', 'notes', 'idea' ],
+      options: [ 'news', 'notes', 'light-bulb' ],
       description:
         'The icon to display in the left side of the heading of the third accordion item.',
       control: {

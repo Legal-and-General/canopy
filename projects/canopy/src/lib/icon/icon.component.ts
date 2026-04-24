@@ -46,6 +46,12 @@ export class LgIconComponent {
       if (svgData) {
         this.svgIcon = this.svgElementFromString(svgData);
         this.hostElement.nativeElement.appendChild(this.svgIcon);
+      } else {
+        console.error(
+          `[Canopy] Icon "${name}" cannot be found. ` +
+            'Please check the icon catalog for the full list of available icons: ' +
+            'https://legal-and-general.github.io/canopy/?path=/story/foundations-ui-icon-catalog--catalog',
+        );
       }
     })();
   }

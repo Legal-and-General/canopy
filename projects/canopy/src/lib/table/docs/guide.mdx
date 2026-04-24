@@ -1,12 +1,16 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Table/Guide" tags={['pending']}/>
+<Meta title="Components/Table/Guide" tags={['pending']} />
 
 # Table
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge
+  text="Pending"
+  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
+/>
+<span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Tables display large amounts of structured information in a format that's easy to scan and read.</p>
 
@@ -86,15 +90,13 @@ This table adds the `LgTableRowToggleComponent`, and then an expandable detail r
         >
         </lg-table-row-toggle>
       </td>
-    <td lg-table-cell>Orhan Pamuk</td>
+      <td lg-table-cell>Orhan Pamuk</td>
       <td lg-table-cell>Strangeness in my Mind</td>
       <td lg-table-cell>2016</td>
     </tr>
     <tr lg-table-row [isHidden]="<logic-to-handle-row>">
       <td lg-table-cell>
-        <lg-table-expanded-detail>
-          Detail content goes here
-        </lg-table-expanded-detail>
+        <lg-table-expanded-detail> Detail content goes here </lg-table-expanded-detail>
       </td>
     </tr>
   </tbody>
@@ -128,12 +130,22 @@ Also note the use of the [margin directive](./?path=/docs/helpers-directives-mar
     <tr lg-table-row>
       <td lg-table-cell [stack]="true">
         <h3 lgMarginVertical="3">Item one: Lorem ipsum dolor sit amet</h3>
-        <p lgMarginBottom="3">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+        <p lgMarginBottom="3">
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit.
+        </p>
       </td>
       <td lg-table-cell [showLabel]="false" [stack]="true">
         <p>Sed ut perspiciatis</p>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button lg-quick-action><lg-icon name="information-fill"></lg-icon>Find out more</button>
+        <p>
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
+        </p>
+        <button lg-quick-action>
+          <lg-icon name="information-filled"></lg-icon>Find out more
+        </button>
       </td>
     </tr>
   </tbody>
@@ -169,7 +181,7 @@ A component that acts as a standard table.
 #### Inputs
 
 | Name            | Description                                                                                         | Type     | Default   | Required |
-|-----------------|-----------------------------------------------------------------------------------------------------|----------|-----------|----------|
+| --------------- | --------------------------------------------------------------------------------------------------- | -------- | --------- | -------- |
 | `showColumnsAt` | Sets the minimum screen width from which the column layout is displayed. Accepts `sm`, `md` or `lg` | `string` | `md`      | No       |
 | `variant`       | The variant of table. Accepts `striped` or `bordered`                                               | `string` | `striped` | No       |
 
@@ -184,7 +196,7 @@ A component that acts as a standard table cell.
 #### Inputs
 
 | Name      | Description                                                                                     | Type      | Default     | Required |
-|-----------|-------------------------------------------------------------------------------------------------|-----------|-------------|----------|
+| --------- | ----------------------------------------------------------------------------------------------- | --------- | ----------- | -------- |
 | `stack`   | On small screens, stack the label and the content on top of each other, instead of side by side | `boolean` | `false`     | No       |
 | `colspan` | Sets the colspan attribute on the column when specified                                         | `number`  | `undefined` | No       |
 
@@ -203,8 +215,8 @@ A component that acts as a standard table header cell.
 #### Inputs
 
 | Name        | Description                                                            | Type             | Default | Required |
-|-------------|------------------------------------------------------------------------|------------------|---------|----------|
-| `align`     | Alignment option for the header and its respective column              | `start` | `end` | n/a     | No       |
+| ----------- | ---------------------------------------------------------------------- | ---------------- | ------- | -------- |
+| `align`     | Alignment option for the header and its respective column              | `start` or `end` | `start` | No       |
 | `showLabel` | Whether to show label for this header in each row in non-column layout | `boolean`        | `true`  | No       |
 
 #### LgTableRowComponent
@@ -214,7 +226,7 @@ A component that acts as a standard table row.
 #### Inputs
 
 | Name       | Description                     | Type      | Default | Required |
-|------------|---------------------------------|-----------|---------|----------|
+| ---------- | ------------------------------- | --------- | ------- | -------- |
 | `isHidden` | Determines if the row is hidden | `boolean` | `false` | No       |
 
 #### LgTableRowToggleComponent
@@ -222,10 +234,10 @@ A component that acts as a standard table row.
 A component that creates an icon for toggling the expanded state.
 
 | Name       | Description                                           | Type      | Default | Required |
-|------------|-------------------------------------------------------|-----------|---------|----------|
+| ---------- | ----------------------------------------------------- | --------- | ------- | -------- |
 | `isActive` | Determines if the toggle displays in the active state | `boolean` | `false` | No       |
 
-***
+---
 
 ## Research on this component
 
@@ -233,9 +245,7 @@ This is based on research and best practice.
 
 ## Related
 
-* [Accordion](./?path=/docs/components-accordion-guide--docs)
-* [Card](./?path=/docs/components-card-guide--docs)
+- [Accordion](./?path=/docs/components-accordion-guide--docs)
+- [Card](./?path=/docs/components-card-guide--docs)
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>

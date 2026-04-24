@@ -92,7 +92,7 @@ function getDefaultMenuItems(
       description: '',
       target: null,
       leftIcon: showLeftIcons
-        ? 'information'
+        ? 'information-outline'
         : '',
       rightIcon: showRightIcons
         ? undefined
@@ -128,7 +128,7 @@ function getDefaultMenuItems(
       description: 'Reset your password and get a User ID reminder',
       target: null,
       leftIcon: showLeftIcons
-        ? 'security'
+        ? 'protection'
         : '',
       rightIcon: showRightIcons
         ? undefined

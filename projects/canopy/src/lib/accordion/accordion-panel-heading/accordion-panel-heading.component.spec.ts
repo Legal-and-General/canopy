@@ -11,7 +11,7 @@ import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.comp
 @Component({
   template: `
     <lg-accordion-panel-heading>
-      <lg-icon name="idea"></lg-icon>Panel heading
+      <lg-icon name="light-bulb"></lg-icon>Panel heading
     </lg-accordion-panel-heading>
   `,
   standalone: false,
@@ -152,7 +152,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
         By.css('lg-icon'),
       );
 
-      expect(icons[0].attributes.name).toBe('idea');
+      expect(icons[0].attributes.name).toBe('light-bulb');
     });
 
     it('should still render the chevron icon', () => {

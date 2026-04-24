@@ -98,10 +98,10 @@ describe('LgAlertComponent', () => {
   });
 
   [
-    { status: 'error', icon: 'crossmark-spot-fill' },
-    { status: 'info', icon: 'information-fill' },
-    { status: 'warning', icon: 'warning-fill' },
-    { status: 'success', icon: 'checkmark-spot-fill' },
+    { status: 'error', icon: 'crossmark-spot-filled' },
+    { status: 'info', icon: 'information-filled' },
+    { status: 'warning', icon: 'warning-filled' },
+    { status: 'success', icon: 'checkmark-spot-filled' },
   ].forEach(({ status, icon }) => {
     it(`renders the correct icon for the ${status} alert`, () => {
       fixture.componentRef.setInput('status', status);

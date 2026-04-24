@@ -11,15 +11,15 @@
   [lgFocus]="focus"
   class="lg-toggle__input"
   type="checkbox"
-  />
+/>
 <label
   [attr.for]="id"
   class="lg-toggle__label"
   [ngClass]="{
     'lg-toggle__label--switch': variant === 'switch',
-    'lg-toggle__label--filter': variant === 'filter'
+    'lg-toggle__label--filter': variant === 'filter',
   }"
-  >
+>
   @if (variant === 'filter') {
     <span class="lg-toggle__icon-wrapper">
       <lg-icon class="lg-toggle__icon-add" name="add" />
@@ -27,13 +27,14 @@
     </span>
   }
   @if (variant === 'checkbox') {
-    <lg-icon class="lg-toggle__checkbox"
-    [ngClass]="{
-      'lg-toggle__checkbox--sm': size === 'sm',
-      'lg-toggle__checkbox--lg': size === 'lg'
-    }"
-      name="checkbox-mark"
-     />
+    <lg-icon
+      class="lg-toggle__checkbox"
+      [ngClass]="{
+        'lg-toggle__checkbox--sm': size === 'sm',
+        'lg-toggle__checkbox--lg': size === 'lg',
+      }"
+      name="checkmark-heavy"
+    />
   }
   <ng-content />
 </label>

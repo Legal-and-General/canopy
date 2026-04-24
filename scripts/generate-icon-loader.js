@@ -22,7 +22,12 @@ function generateIconLoader(config) {
     .filter(file => file.endsWith('.icon.ts') && !file.includes('Array'));
 
   // Determine the interface file name
-  const interfaceFile = prefix === 'lgIcon' ? 'ui-icons-files' : 'brand-icons-files';
+  const interfaceFileMap = {
+    'lgIcon': 'ui-icons-files',
+    'lgBrandIcon': 'brand-icons-files',
+    'lgFlagIcon': 'flag-icons-files',
+  };
+  const interfaceFile = interfaceFileMap[prefix] ?? `${path.basename(sourceDir)}`;
 
   // Generate the lazy loader entries
   const loaderEntries = files
@@ -59,7 +64,7 @@ ${loaderEntries}
   console.log(`✅ Generated ${outputFile} with ${files.length} lazy icon loaders`);
 }
 
-// Generate for both icon sets
+// Generate for all icon sets
 generateIconLoader({
   sourceDir: 'projects/canopy/src/lib/ui-icons-files',
   outputFile: 'projects/canopy/src/lib/icon/icon-loader.ts',
@@ -72,6 +77,13 @@ generateIconLoader({
   outputFile: 'projects/canopy/src/lib/brand-icon/brand-icon-loader.ts',
   prefix: 'lgBrandIcon',
   interfaceName: 'BrandIcon',
+});
+
+generateIconLoader({
+  sourceDir: 'projects/canopy/src/lib/flag-icons-files',
+  outputFile: 'projects/canopy/src/lib/flag-icon/flag-icon-loader.ts',
+  prefix: 'lgFlagIcon',
+  interfaceName: 'FlagIcon',
 });
 
 console.log('\n🎯 Icon loader files generated successfully!');

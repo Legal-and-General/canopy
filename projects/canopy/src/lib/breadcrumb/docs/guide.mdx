@@ -1,13 +1,17 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as BreadcrumbStories from './breadcrumb.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Breadcrumb/Guide" tags={['pending']}/>
+<Meta title="Components/Breadcrumb/Guide" tags={['pending']} />
 
 # Breadcrumb
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge
+  text="Pending"
+  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
+/>
+<span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Breadcrumbs help users to understand a site's hierarchical structure and allow them to move between levels.</p>
 
@@ -34,16 +38,14 @@ and in your HTML:
 <lg-breadcrumb>
   <lg-breadcrumb-item>
     <a href="#">
-      <lg-icon [name]="'home'"></lg-icon>
+      <lg-icon [name]="'home-outline'"></lg-icon>
       Home
     </a>
   </lg-breadcrumb-item>
   <lg-breadcrumb-item>
     <a href="#">Products</a>
   </lg-breadcrumb-item>
-  <lg-breadcrumb-item>
-    Pension
-  </lg-breadcrumb-item>
+  <lg-breadcrumb-item> Pension </lg-breadcrumb-item>
 </lg-breadcrumb>
 ```
 
@@ -69,7 +71,7 @@ This is achieved by using `LgBreadcrumbItemEllipsisComponent`:
 <lg-breadcrumb-item-ellipsis></lg-breadcrumb-item-ellipsis>
 ```
 
-Note: *This is not automatically added and should be implemented in your app as per example below.*
+Note: _This is not automatically added and should be implemented in your app as per example below._
 
 **A sensible website structure and page naming convention should mean this treatment is rarely used.**
 
@@ -101,10 +103,10 @@ Note: *This is not automatically added and should be implemented in your app as 
 ### LgBreadcrumbComponent inputs
 
 | Name      | Description                                    | Type     | Default | Required |
-|-----------|------------------------------------------------|----------|---------|----------|
+| --------- | ---------------------------------------------- | -------- | ------- | -------- |
 | `variant` | The colour variants available: `light`, `dark` | `string` | `dark`  | No       |
 
-***
+---
 
 ## Research on this pattern
 
@@ -112,8 +114,8 @@ This component is based on best practice and has not had specific usability test
 
 ## Further reading
 
-<a href="https://www.nngroup.com/articles/breadcrumbs/" target="_blank">Breadcrumbs: 11 Design Guidelines for Desktop and Mobile</a>
+<a href="https://www.nngroup.com/articles/breadcrumbs/" target="_blank">
+  Breadcrumbs: 11 Design Guidelines for Desktop and Mobile
+</a>
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>

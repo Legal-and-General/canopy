@@ -41,7 +41,7 @@ export default {
   argTypes: {
     icon: {
       description: 'Icon to display',
-      options: [ 'None', ...lgIconsArray.map(i => i.name) ],
+      options: [ 'None', ...lgIconsArray.map(icon => icon.name) ],
       control: {
         type: 'select',
       },
@@ -106,7 +106,7 @@ export const StandardBanner = {
     content: 'This is a banner message.',
     status: 'generic',
     statusTheme: 'neutral',
-    icon: 'warning',
+    icon: 'warning-outline',
   },
   parameters: {
     docs: {

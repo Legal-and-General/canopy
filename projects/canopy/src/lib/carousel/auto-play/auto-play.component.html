@@ -3,9 +3,9 @@
     class="lg-carousel-autoplay__btn lg-carousel-autoplay__btn--pause"
     (click)="pause.next(true)"
     type="button"
-    >
+  >
     <span class="lg-visually-hidden">Stop Animation</span>
-    <lg-icon name="pause-spot" />
+    <lg-icon name="pause" />
   </button>
 }
 @if (pause.value) {
@@ -13,8 +13,8 @@
     class="lg-carousel-autoplay__btn lg-carousel-autoplay__btn--play"
     (click)="pause.next(false)"
     type="button"
-    >
+  >
     <span class="lg-visually-hidden">Start Animation</span>
-    <lg-icon name="play-spot" />
+    <lg-icon name="play-circle" />
   </button>
 }

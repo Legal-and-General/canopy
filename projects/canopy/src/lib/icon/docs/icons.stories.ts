@@ -25,7 +25,7 @@ import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
       .swatch {
         margin: var(--space-4);
-        flex: 1 1 225px;
+        flex: 0 1 225px;
       }
 
       .swatch__svg {
@@ -62,7 +62,6 @@ const colours = [
 
 export default {
   title: 'Foundations/UI icon/Catalog',
-  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ SwatchIconComponent, LgIconComponent ],

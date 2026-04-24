@@ -43,10 +43,10 @@ describe('LgValidationComponent', () => {
 
   it('renders the correct icon for the status', () => {
     [
-      { status: 'error', icon: 'crossmark-spot-fill' },
-      { status: 'info', icon: 'information-fill' },
-      { status: 'warning', icon: 'warning-fill' },
-      { status: 'success', icon: 'checkmark-spot-fill' },
+      { status: 'error', icon: 'crossmark-spot-filled' },
+      { status: 'info', icon: 'information-filled' },
+      { status: 'warning', icon: 'warning-filled' },
+      { status: 'success', icon: 'checkmark-spot-filled' },
     ].forEach(({ status, icon }) => {
       fixture.componentRef.setInput('status', status);
       fixture.detectChanges();

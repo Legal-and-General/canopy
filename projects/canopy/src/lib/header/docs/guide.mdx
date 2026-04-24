@@ -1,13 +1,17 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeaderStories from './header.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Header/Guide" tags={['pending']}/>
+<Meta title="Components/Header/Guide" tags={['pending']} />
 
 # Header
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge
+  text="Pending"
+  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
+/>
+<span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Provides a generic header for display at the top of the page.</p>
 
@@ -35,18 +39,18 @@ The component uses an attribute selector which allows you to use the html <a hre
 #### Outputs
 
 | Name          | Description                                                                  |          Type           | Default | Required |
-|---------------|------------------------------------------------------------------------------|:-----------------------:|:-------:|:--------:|
+| ------------- | ---------------------------------------------------------------------------- | :---------------------: | :-----: | :------: |
 | `menuToggled` | An event emitted with a boolean value when the menu toggle button is clicked | `EventEmitter<boolean>` |   n/a   |   Yes    |
 
 ### LgHeaderLogoComponent inputs
 
 | Name   | Description                            |   Type   |   Default   | Required |
-|--------|----------------------------------------|:--------:|:-----------:|:--------:|
+| ------ | -------------------------------------- | :------: | :---------: | :------: |
 | `src`  | A url src for the logo                 | `string` | `undefined` |   Yes    |
 | `alt`  | alt text to display alongside the logo | `string` |    `''`     |   Yes    |
 | `href` | Url link if the logo is clickable      | `string` | `undefined` |    No    |
 
-***
+---
 
 ### Changing the width of the logos
 
@@ -59,7 +63,7 @@ The width of the logos can be changed by overriding the values of the below css 
 --header-second-logo-width-lg
 ```
 
-***
+---
 
 ### Co-branding
 
@@ -67,7 +71,7 @@ Co-branding can be achieved by adding two logos side by side using the `LgHeadin
 
 <Source of={HeaderStories.CoBrandedHeader} />
 
-***
+---
 
 ### Navigation
 
@@ -84,7 +88,10 @@ To add the primary navigation and account menu to your header, use the following
     <lg-primary-nav-list-item>
       <a href="/" lgPrimaryNavItem>
         Link 2
-        <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
+        <lg-notification-badge
+          count="3"
+          accessText="You have 3 unread messages"
+        ></lg-notification-badge>
       </a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item [alignRight]="true">
@@ -96,8 +103,11 @@ To add the primary navigation and account menu to your header, use the following
     <lg-account-menu-list-item>
       <button type="button" lgAccountMenuItem>
         <lg-account-menu-item-label>Button</lg-account-menu-item-label>
-        <lg-icon name="notification-on"></lg-icon>
-        <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
+        <lg-icon name="notification"></lg-icon>
+        <lg-notification-badge
+          count="3"
+          accessText="You have 3 unread messages"
+        ></lg-notification-badge>
       </button>
     </lg-account-menu-list-item>
     <lg-account-menu-list-item>
@@ -123,7 +133,7 @@ Provides the responsive menu which can be populated with navigation items.
 #### Inputs
 
 | Name                 | Description                                            |          Type           | Default | Required |
-|----------------------|--------------------------------------------------------|:-----------------------:|:-------:|:--------:|
+| -------------------- | ------------------------------------------------------ | :---------------------: | :-----: | :------: |
 | `showResponsiveMenu` | Determines whether to show or hide the responsive menu | `EventEmitter<boolean>` |   n/a   |   Yes    |
 
 ### LgPrimaryNavListItemComponent
@@ -133,13 +143,13 @@ Used to ensure navigation items are wrapped in an element marked up as a list it
 #### Inputs
 
 | Name         | Description                                               |   Type    | Default | Required |
-|--------------|-----------------------------------------------------------|:---------:|:-------:|:--------:|
+| ------------ | --------------------------------------------------------- | :-------: | :-----: | :------: |
 | `alignRight` | Aligns an item to the right-hand side on `lg` breakpoints | `boolean` | `true`  |    No    |
 
 #### Outputs
 
 | Name        | Description                                                     |             Type              | Default | Required |
-|-------------|-----------------------------------------------------------------|:-----------------------------:|:-------:|:--------:|
+| ----------- | --------------------------------------------------------------- | :---------------------------: | :-----: | :------: |
 | `tabbedOut` | An event emitted when the tab key bubbles up to the list item   | `EventEmitter<KeyboardEvent>` |   n/a   |   Yes    |
 | `clicked`   | An event emitted when a click event bubbles up to the list item |     `EventEmitter<Event>`     |   n/a   |   Yes    |
 
@@ -150,7 +160,7 @@ Adds styles and common behaviour to navigation items.
 #### Inputs
 
 | Name       | Description                          |   Type    | Default | Required |
-|------------|--------------------------------------|:---------:|:-------:|:--------:|
+| ---------- | ------------------------------------ | :-------: | :-----: | :------: |
 | `isActive` | Sets active state of navigation item | `boolean` | `false` |    No    |
 
 ### LgNotificationBadgeComponent
@@ -160,7 +170,7 @@ Provides a notification badge for a navigation item.
 #### Inputs
 
 | Name         | Description                                                                                         |   Type   |   Default   | Required |
-|--------------|-----------------------------------------------------------------------------------------------------|:--------:|:-----------:|:--------:|
+| ------------ | --------------------------------------------------------------------------------------------------- | :------: | :---------: | :------: |
 | `count`      | The value to appear in the notification badge                                                       | `string` | `undefined` |   Yes    |
 | `accessText` | Accessible text used by assistive technologies to give context to the count value that is displayed | `string` | `undefined` |   Yes    |
 
@@ -175,7 +185,7 @@ Adds styles and common behaviour to account menu items.
 #### Inputs
 
 | Name       | Description                    |   Type    | Default | Required |
-|------------|--------------------------------|:---------:|:-------:|:--------:|
+| ---------- | ------------------------------ | :-------: | :-----: | :------: |
 | `isActive` | Sets active state of menu item | `boolean` | `false` |    No    |
 
 ### LgAccountMenuListItemComponent
@@ -185,15 +195,13 @@ Used to ensure account menu items are wrapped in an element marked up as a list 
 #### Outputs
 
 | Name      | Description                                                     |         Type          | Default | Required |
-|-----------|-----------------------------------------------------------------|:---------------------:|:-------:|:--------:|
+| --------- | --------------------------------------------------------------- | :-------------------: | :-----: | :------: |
 | `clicked` | An event emitted when a click event bubbles up to the list item | `EventEmitter<Event>` |   n/a   |   Yes    |
 
 ### LgAccountMenuItemLabelComponent
 
 Used to ensure correct styling is applied to the menu item label at different breakpoints.
 
-***
+---
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>

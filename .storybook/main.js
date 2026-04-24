@@ -15,6 +15,8 @@ export default {
     '../projects/canopy/src/lib/icon/docs/icons.stories.ts',
     '../projects/canopy/src/lib/brand-icon/docs/guide.mdx',
     '../projects/canopy/src/lib/brand-icon/docs/brand-icons.stories.ts',
+    '../projects/canopy/src/lib/flag-icon/docs/guide.mdx',
+    '../projects/canopy/src/lib/flag-icon/docs/flag-icons.stories.ts',
     // Principles
     '../projects/canopy/src/lib/docs/principles/writing.mdx',
     '../projects/canopy/src/lib/docs/principles/accessibility/overview.mdx',

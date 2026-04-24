@@ -62,5 +62,25 @@ describe('LgIconComponent', () => {
         component.name = 'add';
       }).not.toThrow();
     });
+
+    it('should log a console error when an icon cannot be found', async () => {
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+
+      iconRegistryMock.get.mockResolvedValue(undefined);
+
+      component.name = 'add';
+      fixture.detectChanges();
+      await fixture.whenStable();
+
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining('[Canopy] Icon "add" cannot be found.'),
+      );
+
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining('https://legal-and-general.github.io/canopy/'),
+      );
+
+      consoleSpy.mockRestore();
+    });
   });
 });

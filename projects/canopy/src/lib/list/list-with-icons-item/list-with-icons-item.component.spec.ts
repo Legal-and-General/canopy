@@ -17,7 +17,7 @@ describe('LgListWithIconsItemComponent', () => {
     fixture = TestBed.createComponent(LgListWithIconsItemComponent);
     component = fixture.componentInstance;
 
-    component.iconName = 'doc';
+    component.iconName = 'document';
 
     fixture.detectChanges();
   }));

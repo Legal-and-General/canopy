@@ -40,7 +40,6 @@ class SwatchFlagIconComponent {
 
 export default {
   title: 'Foundations/Flag icon/Catalog',
-  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ SwatchFlagIconComponent, LgFlagIconComponent ],

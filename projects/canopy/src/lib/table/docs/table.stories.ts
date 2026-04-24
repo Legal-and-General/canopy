@@ -205,7 +205,7 @@ const withLongCopyTableTemplate = `
                 fugit, sed quia consequuntur.
               </p>
               <button lg-quick-action>
-                <lg-icon name="information-fill"></lg-icon>
+                <lg-icon name="information-filled"></lg-icon>
                 More information
               </button>
             </td>

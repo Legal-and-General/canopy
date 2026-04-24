@@ -36,14 +36,14 @@ const navigationTemplate = `
     <lg-account-menu-list-item>
       <button type="button" lgAccountMenuItem>
         <lg-account-menu-item-label>Button</lg-account-menu-item-label>
-        <lg-icon name="radio-button-unselected"></lg-icon>
+        <lg-icon name="progress-to-do"></lg-icon>
         <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </button>
     </lg-account-menu-list-item>
     <lg-account-menu-list-item>
       <a href="" lgAccountMenuItem>
         <lg-account-menu-item-label>Link</lg-account-menu-item-label>
-        <lg-icon name="radio-button-unselected"></lg-icon>
+        <lg-icon name="progress-to-do"></lg-icon>
       </a>
     </lg-account-menu-list-item>
   </lg-account-menu>

@@ -75,7 +75,7 @@ const template = `
 <lg-breadcrumb [variant]="variant">
   <lg-breadcrumb-item>
     <a href="#">
-      <lg-icon [name]="'home'"></lg-icon>
+      <lg-icon [name]="'home-outline'"></lg-icon>
       Home
     </a>
   </lg-breadcrumb-item>
@@ -121,7 +121,7 @@ const ellipisTemplate = `
 <lg-breadcrumb [variant]="variant">
   <lg-breadcrumb-item>
     <a href="#">
-      <lg-icon [name]="'home'"></lg-icon>
+      <lg-icon [name]="'home-outline'"></lg-icon>
       Home
     </a>
   </lg-breadcrumb-item>

@@ -49,7 +49,7 @@ export default {
   argTypes: {
     icon: {
       description: 'Icon to display',
-      options: [ 'None', ...lgIconsArray.map(i => i.name) ],
+      options: [ 'None', ...lgIconsArray.map(icon => icon.name) ],
       control: {
         type: 'select',
       },
@@ -110,7 +110,7 @@ export const QuickActionLink = {
   args: {
     link: 'https://google.com',
     target: '_blank',
-    icon: 'secure-messaging',
+    icon: 'mail',
     content: 'Send us a message',
   },
   argTypes: {

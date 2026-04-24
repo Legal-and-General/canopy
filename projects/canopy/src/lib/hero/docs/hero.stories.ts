@@ -61,7 +61,7 @@ export const productHeroHTML = `
           <lg-breadcrumb variant="light" lgMarginBottom="none">
             <lg-breadcrumb-item>
               <a href="#">
-                <lg-icon name="home"></lg-icon>
+                <lg-icon name="home-outline"></lg-icon>
                 Home
               </a>
             </lg-breadcrumb-item>
@@ -89,7 +89,7 @@ export const productHeroHTML = `
                 Payroll Reference Number P23456
               </lg-hero-card-subtitle>
               <lg-hero-card-notification>
-                <lg-icon name="information-fill"></lg-icon>
+                <lg-icon name="information-filled"></lg-icon>
                 <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
               </lg-hero-card-notification>
               <lg-hero-card-principle-data-point>

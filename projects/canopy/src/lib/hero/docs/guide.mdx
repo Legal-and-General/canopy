@@ -1,13 +1,17 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeroStories from './hero.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Patterns/Hero/Guide" tags={['pending']}/>
+<Meta title="Patterns/Hero/Guide" tags={['pending']} />
 
 # Hero
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<CustomBadge
+  text="Pending"
+  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
+/>
+<span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">A flexible pattern that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.</p>
 
@@ -42,7 +46,7 @@ Using the `LgHeroCardHeaderComponent` together with `LgBreadcrumbComponent`, som
         <div lgCol="12">
           <lg-breadcrumb lgMarginBottom="none">
             <lg-breadcrumb-item>
-              <a href="#"><lg-icon name="home"></lg-icon>Home</a>
+              <a href="#"><lg-icon name="home-outline"></lg-icon>Home</a>
             </lg-breadcrumb-item>
             <lg-breadcrumb-item>
               <a href="#" aria-current="page">Product Details</a>
@@ -74,8 +78,11 @@ This component can used to display product data, for example on a product detail
                 Payroll Reference Number P23456
               </lg-hero-card-subtitle>
               <lg-hero-card-notification>
-                <lg-icon name="information-fill"></lg-icon>
-                <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
+                <lg-icon name="information-filled"></lg-icon>
+                <p>
+                  Your payments have been suspended, please <a href="#">contact us</a> to
+                  learn more.
+                </p>
               </lg-hero-card-notification>
               <lg-hero-card-principle-data-point>
                 <lg-hero-card-principle-data-point-label headingLevel="5">
@@ -100,22 +107,25 @@ This component can used to display product data, for example on a product detail
                   <lg-hero-card-data-point-label [headingLevel]="6">
                     Payment frequency
                   </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    Monthly
-                  </lg-hero-card-data-point-value>
+                  <lg-hero-card-data-point-value> Monthly </lg-hero-card-data-point-value>
                 </lg-hero-card-data-point>
                 <lg-hero-card-data-point>
                   <lg-hero-card-data-point-label [headingLevel]="6">
                     Tax code
                   </lg-hero-card-data-point-label>
                   <lg-hero-card-data-point-value>
-                    2T <span lgMarginLeft="4" class="lg-font-size-1">Received on 12 Mar 2019</span>
+                    2T
+                    <span lgMarginLeft="4" class="lg-font-size-1"
+                      >Received on 12 Mar 2019</span
+                    >
                   </lg-hero-card-data-point-value>
                 </lg-hero-card-data-point>
               </lg-hero-card-data-point-list>
             </lg-hero-card-content>
             <lg-hero-card-footer>
-              <small class="lg-font-size-0-6">* This is not a guaranteed amount and could be subject to change.</small>
+              <small class="lg-font-size-0-6"
+                >* This is not a guaranteed amount and could be subject to change.</small
+              >
             </lg-hero-card-footer>
           </lg-hero-card>
         </div>
@@ -135,7 +145,7 @@ the top of the page. It also controls the functionality to create the 'overlap' 
 #### Inputs
 
 | Name      | Description                                                        |   Type   | Default | Required |
-|-----------|--------------------------------------------------------------------|:--------:|:-------:|:--------:|
+| --------- | ------------------------------------------------------------------ | :------: | :-----: | :------: |
 | `overlap` | The amount that the page content overlaps the hero component (rem) | `number` |   `2`   |    No    |
 
 ### LgHeroContentComponent
@@ -150,9 +160,7 @@ This is the main section of the hero bar, it stretches the full width and is agn
     <div lgContainer>
       <div lgRow>
         <div [lgCol]="12">
-          <lg-hero-card>
-            ...
-          </lg-hero-card>
+          <lg-hero-card> ... </lg-hero-card>
         </div>
       </div>
     </div>
@@ -179,7 +187,7 @@ This is where the main hero title should be provided. It should be located insid
 #### Inputs
 
 | Name           | Description                                                      |   Type   | Default | Required |
-|----------------|------------------------------------------------------------------|:--------:|:-------:|:--------:|
+| -------------- | ---------------------------------------------------------------- | :------: | :-----: | :------: |
 | `headingLevel` | The level of the hero card heading: `1`, `2`, `3`, `4`, `5`, `6` | `number` |   n/a   |   Yes    |
 
 ### LgHeroCardSubtitleComponent
@@ -205,7 +213,7 @@ This is where the label for the data point should be projected. A data point sho
 #### Inputs
 
 | Name           | Description                                                         |   Type   | Default | Required |
-|----------------|---------------------------------------------------------------------|:--------:|:-------:|:--------:|
+| -------------- | ------------------------------------------------------------------- | :------: | :-----: | :------: |
 | `headingLevel` | The level of the heading in the label: `1`, `2`, `3`, `4`, `5`, `6` | `number` |   n/a   |   Yes    |
 
 ### LgHeroCardContentComponent
@@ -231,15 +239,13 @@ This is where the label for the data point should be projected. A data point sho
 #### Inputs
 
 | Name           | Description                                                         |   Type   | Default | Required |
-|----------------|---------------------------------------------------------------------|:--------:|:-------:|:--------:|
+| -------------- | ------------------------------------------------------------------- | :------: | :-----: | :------: |
 | `headingLevel` | The level of the heading in the label: `1`, `2`, `3`, `4`, `5`, `6` | `number` |   n/a   |   Yes    |
 
 ### LgHeroCardFooterComponent
 
 This where any extra text related to the hero card can be displayed, such as a small print.
 
-***
+---
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>

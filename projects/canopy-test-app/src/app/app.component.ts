@@ -54,6 +54,7 @@ import {
   LgBreadcrumbItemComponent,
 } from '../../../canopy/src/lib/breadcrumb';
 import { LgIconComponent } from '../../../canopy/src/lib/icon';
+import { LgFlagIconComponent } from '../../../canopy/src/lib/flag-icon';
 import { LgMarginDirective, LgPaddingDirective } from '../../../canopy/src/lib/spacing';
 import {
   LgCardComponent,
@@ -191,6 +192,7 @@ import {
     LgBreadcrumbComponent,
     LgBreadcrumbItemComponent,
     LgIconComponent,
+    LgFlagIconComponent,
     LgHeroCardComponent,
     LgHeroCardHeaderComponent,
     LgHeroCardTitleComponent,

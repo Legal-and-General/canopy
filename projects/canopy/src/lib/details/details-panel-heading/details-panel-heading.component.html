@@ -7,23 +7,21 @@
     [attr.aria-expanded]="isActive"
     [attr.aria-controls]="'lg-details-content-' + uniqueId"
     (click)="toggle()"
-    >
+  >
     @if (showIcon && status !== 'generic') {
-      <div
-        class="lg-details-panel-heading__icon"
-        >
+      <div class="lg-details-panel-heading__icon">
         @switch (status) {
           @case ('error') {
-            <lg-icon name="crossmark-spot-fill" />
+            <lg-icon name="crossmark-spot-filled" />
           }
           @case ('info') {
-            <lg-icon name="information-fill" />
+            <lg-icon name="information-filled" />
           }
           @case ('warning') {
-            <lg-icon name="warning-fill" />
+            <lg-icon name="warning-filled" />
           }
           @case ('success') {
-            <lg-icon name="checkmark-spot-fill" />
+            <lg-icon name="checkmark-spot-filled" />
           }
         }
       </div>
