@@ -16,6 +16,9 @@ documentation.json
 /projects/canopy/src/lib/brand-icon/brand-icons-files.interface.ts
 /projects/canopy/src/lib/icon/icon-loader.ts
 /projects/canopy/src/lib/brand-icon/brand-icon-loader.ts
+/projects/canopy/src/lib/flag-icons-files
+/projects/canopy/src/lib/flag-icon/flag-icons-files.interface.ts
+/projects/canopy/src/lib/flag-icon/flag-icon-loader.ts
 
 # Only exists if Bazel was run
 /bazel-out

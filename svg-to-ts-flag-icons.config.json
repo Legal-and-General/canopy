@@ -1,0 +1,27 @@
+{
+  "srcFiles": ["./projects/canopy/src/assets/flag-icons/**/*.svg"],
+  "outputDirectory": "./projects/canopy/src/lib/flag-icons-files",
+  "iconsFolderName": "set",
+  "typeName": "FlagIconName",
+  "prefix": "lgFlagIcon",
+  "optimizeForLazyLoading": true,
+  "modelFileName": "flag-icons-files.interface",
+  "additionalModelOutputPath": "projects/canopy/src/lib/flag-icon",
+  "interfaceName": "FlagIcon",
+  "exportCompleteIconSet": true,
+  "completeIconSetName": "lgFlagIconsArray",
+  "delimiter": "KEBAB",
+  "svgoConfig": {
+    "plugins": [
+      {
+        "name": "preset-default",
+        "params": {
+          "overrides": {
+            "cleanupIds": false
+          }
+        }
+      },
+      "removeDimensions"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+import * as FlagIconStories from './flag-icons.stories';
+
+<Meta title="Foundations/Flag icon/Guide" />
+
+# Flag icon
+
+<p class="standfirst">
+  Flag icons are coloured country flags typically used to support location toggle.
+</p>
+
+## Usage
+
+Use flag icons when a country or region needs clear visual identification alongside text.
+
+Import the flag icon component into your application:
+
+```js
+import { LgFlagIconComponent } from '@legal-and-general/canopy';
+```
+
+and in your HTML:
+
+<Source of={FlagIconStories.FlagIcons} />
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** use the `global` flag for regions, e.g. "Middle East".
+2. **Do** pair the flag icon with the country name.
+3. **Do** keep sufficient contrast between the flag and its surrounding background.
+
+### Don't
+
+1. **Don't** use flag icons as a replacement for language labels where ambiguity is possible.
+
+## Additional developer details
+
+### Inputs
+
+| Name   | Description               | Type     | Default     | Required |
+| ------ | ------------------------- | -------- | ----------- | -------- |
+| `name` | The name of the flag icon | `string` | `undefined` | Yes      |
+
+---
+
+## Related
+
+- [UI icon](./?path=/docs/foundations-ui-icon-guide--docs)
+- [Brand icon](./?path=/docs/foundations-brand-icon-guide--docs)
+
+<Markdown>{Feedback}</Markdown>
