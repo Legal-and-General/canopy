@@ -1,5 +1,5 @@
 ---
-name: show-at
+name: canopy-show-at
 description: Best practices for the Canopy Show At directive. Trigger when using lgShowAt or LgShowAtDirective to show elements at specific breakpoints in an Angular project using Canopy.
 license: MIT
 metadata:

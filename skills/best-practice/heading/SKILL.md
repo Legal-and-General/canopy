@@ -1,5 +1,5 @@
 ---
-name: heading
+name: canopy-heading
 description: Best practices for the Canopy Heading component. Trigger when setting a dynamic heading level inside a custom component in an Angular project using Canopy.
 license: MIT
 metadata:

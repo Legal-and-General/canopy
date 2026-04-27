@@ -1,5 +1,5 @@
 ---
-name: spinner
+name: canopy-spinner
 description: Best practices for the Canopy Spinner component. Trigger when adding loading spinners, indeterminate loading states, or loading buttons in an Angular project using Canopy.
 license: MIT
 metadata:

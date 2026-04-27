@@ -1,5 +1,5 @@
 ---
-name: card
+name: canopy-card
 description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or any card sub-components in an Angular project using Canopy.
 license: MIT
 metadata:

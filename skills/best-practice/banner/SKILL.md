@@ -1,5 +1,5 @@
 ---
-name: banner
+name: canopy-banner
 description: Best practices for the Canopy Banner Message component. Trigger when adding full-width page banners, site-wide notifications, or top-of-page warning messages in an Angular project using Canopy.
 license: MIT
 metadata:

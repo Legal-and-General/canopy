@@ -1,5 +1,5 @@
 ---
-name: table
+name: canopy-table
 description: Best practices for the Canopy Table component. Trigger when displaying tabular data, comparison tables, expandable detail rows, or structured data grids in an Angular project using Canopy.
 license: MIT
 metadata:

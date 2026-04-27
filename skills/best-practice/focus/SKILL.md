@@ -1,5 +1,5 @@
 ---
-name: focus
+name: canopy-focus
 description: Best practices for the Canopy Focus directive. Trigger when using lgFocus or LgFocusDirective to programmatically control keyboard focus in an Angular project using Canopy.
 license: MIT
 metadata:

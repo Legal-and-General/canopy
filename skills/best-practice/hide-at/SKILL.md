@@ -1,5 +1,5 @@
 ---
-name: hide-at
+name: canopy-hide-at
 description: Best practices for the Canopy Hide At directive. Trigger when using lgHideAt or LgHideAtDirective to hide elements at specific breakpoints in an Angular project using Canopy.
 license: MIT
 metadata:

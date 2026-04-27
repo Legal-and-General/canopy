@@ -1,5 +1,5 @@
 ---
-name: separator
+name: canopy-separator
 description: Best practices for the Canopy Separator component. Trigger when visually dividing content sections or grouping items in an Angular project using Canopy.
 license: MIT
 metadata:

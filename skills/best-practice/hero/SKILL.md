@@ -1,5 +1,5 @@
 ---
-name: hero
+name: canopy-hero
 description: Best practices for the Canopy Hero component. Trigger when adding a page hero banner, product details hero, or conversational hero section in an Angular project using Canopy.
 license: MIT
 metadata:

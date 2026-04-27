@@ -1,5 +1,5 @@
 ---
-name: list
+name: canopy-list
 description: Best practices for Canopy list styles. Trigger when rendering styled lists, ordered or unordered lists, or icon lists in an Angular project using Canopy.
 license: MIT
 metadata:

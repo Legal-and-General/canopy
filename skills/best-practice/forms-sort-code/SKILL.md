@@ -1,5 +1,5 @@
 ---
-name: forms-sort-code
+name: canopy-forms-sort-code
 description: Best practices for the Canopy Sort Code directive. Trigger when capturing and validating UK bank sort codes in a form in an Angular project using Canopy.
 license: MIT
 metadata:

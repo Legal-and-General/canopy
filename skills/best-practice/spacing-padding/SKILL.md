@@ -1,5 +1,5 @@
 ---
-name: spacing-padding
+name: canopy-spacing-padding
 description: Best practices for the Canopy Padding directive. Trigger when applying padding to Canopy components or HTML elements using the Canopy spacing scale in an Angular project.
 license: MIT
 metadata:

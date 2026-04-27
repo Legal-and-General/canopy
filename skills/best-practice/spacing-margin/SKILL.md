@@ -1,5 +1,5 @@
 ---
-name: spacing-margin
+name: canopy-spacing-margin
 description: Best practices for the Canopy Margin directive. Trigger when applying margin spacing to Canopy components or HTML elements using the Canopy spacing scale in an Angular project.
 license: MIT
 metadata:

@@ -1,5 +1,5 @@
 ---
-name: quick-action
+name: canopy-quick-action
 description: Best practices for the Canopy Quick Action component. Trigger when adding quick actions, contextual action buttons, or icon-with-label action elements in an Angular project using Canopy.
 license: MIT
 metadata:

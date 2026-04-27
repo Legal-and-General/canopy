@@ -1,5 +1,5 @@
 ---
-name: sr-alert-message
+name: canopy-sr-alert-message
 description: Best practices for the Canopy Screen Reader Alert Message directive. Trigger when notifying screen reader users of dynamic content changes, loading completion, or status updates in an Angular project using Canopy.
 license: MIT
 metadata:

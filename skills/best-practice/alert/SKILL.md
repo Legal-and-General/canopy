@@ -1,5 +1,5 @@
 ---
-name: alert
+name: canopy-alert
 description: Best practices for the Canopy Inline Message (Alert) component. Trigger when adding inline messages, status alerts, info/warning/error/success notifications, or feedback messages in an Angular project using Canopy.
 license: MIT
 metadata:

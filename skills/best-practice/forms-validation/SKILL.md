@@ -1,5 +1,5 @@
 ---
-name: forms-validation
+name: canopy-forms-validation
 description: Best practices for Canopy form validation. Trigger when displaying inline form errors, setting up error state matching, or implementing form-level validation in an Angular project using Canopy.
 license: MIT
 metadata:

@@ -1,5 +1,5 @@
 ---
-name: forms-switch
+name: canopy-forms-switch
 description: Best practices for the Canopy Switch component. Trigger when adding toggle switches for immediate settings, on/off controls, or binary preferences in a form in an Angular project using Canopy.
 license: MIT
 metadata:

@@ -1,5 +1,5 @@
 ---
-name: carousel
+name: canopy-carousel
 description: Deprecation notice for the Canopy Carousel component. Trigger whenever lg-carousel, LgCarouselComponent, LgCarouselItemComponent, or LgAutoplayComponent appear in an Angular project using Canopy.
 license: MIT
 metadata:

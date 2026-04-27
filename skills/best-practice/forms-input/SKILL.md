@@ -1,5 +1,5 @@
 ---
-name: forms-input
+name: canopy-forms-input
 description: Best practices for the Canopy Text Input component. Trigger when adding text input fields, single-line form inputs, prefixes, suffixes, or input buttons in an Angular project using Canopy.
 license: MIT
 metadata:

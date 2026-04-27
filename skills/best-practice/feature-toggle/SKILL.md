@@ -1,5 +1,5 @@
 ---
-name: feature-toggle
+name: canopy-feature-toggle
 description: Best practices for the Canopy Feature Toggle module. Trigger when using LgFeatureToggleModule, the lgFeatureToggle directive, or FeatureToggleGuard in an Angular project using Canopy.
 license: MIT
 metadata:

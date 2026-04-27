@@ -1,5 +1,5 @@
 ---
-name: spacing-row-gap
+name: canopy-spacing-row-gap
 description: Best practices for the Canopy Row Gap directive. Trigger when applying row-gap spacing to flex or grid containers using the Canopy spacing scale in an Angular project.
 license: MIT
 metadata:

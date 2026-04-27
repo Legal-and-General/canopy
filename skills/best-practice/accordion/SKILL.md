@@ -1,5 +1,5 @@
 ---
-name: accordion
+name: canopy-accordion
 description: Best practices for the Canopy Accordion component. Trigger when adding expandable/collapsible content sections, progressive disclosure panels, or FAQ layouts in an Angular project using Canopy.
 license: MIT
 metadata:

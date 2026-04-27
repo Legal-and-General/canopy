@@ -1,5 +1,5 @@
 ---
-name: side-nav
+name: canopy-side-nav
 description: Best practices for the Canopy Side Nav component. Trigger when building sidebar navigation, account section navigation, or multi-page navigation panels in an Angular project using Canopy.
 license: MIT
 metadata:

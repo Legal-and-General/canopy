@@ -1,5 +1,5 @@
 ---
-name: progress-indicator
+name: canopy-progress-indicator
 description: Best practices for the Canopy Progress Indicator component. Trigger when adding progress bars, multi-step form journey progress, step counters, or percentage indicators in an Angular project using Canopy.
 license: MIT
 metadata:

@@ -1,5 +1,5 @@
 ---
-name: link
+name: canopy-link
 description: Best practices for Canopy link styles. Trigger when using anchor tags, links with icons, external links, or the lg-unstyled-link class in an Angular project using Canopy.
 license: MIT
 metadata:

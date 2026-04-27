@@ -1,5 +1,5 @@
 ---
-name: orientation
+name: canopy-orientation
 description: Best practices for the Canopy Orientation directive. Trigger when using lgOrientation or LgOrientationDirective to create responsive vertical/horizontal layouts in an Angular project using Canopy.
 license: MIT
 metadata:

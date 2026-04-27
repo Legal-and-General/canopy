@@ -1,5 +1,5 @@
 ---
-name: details
+name: canopy-details
 description: Best practices for the Canopy Details component. Trigger when adding a single collapsible section, an expandable FAQ item, or a status-coloured disclosure in an Angular project using Canopy.
 license: MIT
 metadata:

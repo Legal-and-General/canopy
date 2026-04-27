@@ -1,5 +1,5 @@
 ---
-name: shadow
+name: canopy-shadow
 description: Best practices for the Canopy Shadow directive. Trigger when using lgShadow or LgShadowDirective to apply box shadows in an Angular project using Canopy.
 license: MIT
 metadata:

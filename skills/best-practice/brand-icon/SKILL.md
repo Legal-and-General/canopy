@@ -1,5 +1,5 @@
 ---
-name: brand-icon
+name: canopy-brand-icon
 description: Best practices for the Canopy Brand Icon component. Trigger when using lg-brand-icon, LgBrandIconComponent, or adding illustrative brand icons in an Angular project using Canopy.
 license: MIT
 metadata:

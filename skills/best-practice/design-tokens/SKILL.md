@@ -1,5 +1,5 @@
 ---
-name: design-tokens
+name: canopy-design-tokens
 description: Foundation guidance for Canopy design tokens. Trigger when applying CSS custom properties for colour, typography, spacing, or component styling in an Angular project using Canopy.
 license: MIT
 metadata:

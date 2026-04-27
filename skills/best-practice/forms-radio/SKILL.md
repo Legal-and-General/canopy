@@ -1,5 +1,5 @@
 ---
-name: forms-radio
+name: canopy-forms-radio
 description: Best practices for the Canopy Radio component. Trigger when adding single-choice radio button groups to a form in an Angular project using Canopy.
 license: MIT
 metadata:

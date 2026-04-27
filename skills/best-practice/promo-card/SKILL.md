@@ -1,5 +1,5 @@
 ---
-name: promo-card
+name: canopy-promo-card
 description: Best practices for the Canopy Promo Card component. Trigger when creating promotional content cards, product showcase cards, or feature highlight sections in an Angular project using Canopy.
 license: MIT
 metadata:

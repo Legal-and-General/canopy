@@ -1,5 +1,5 @@
 ---
-name: skeleton
+name: canopy-skeleton
 description: Best practices for the Canopy Skeleton Loading directive. Trigger when adding skeleton loading states, placeholder content while data loads, or shimmer effects in an Angular project using Canopy.
 license: MIT
 metadata:

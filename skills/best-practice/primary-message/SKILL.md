@@ -1,5 +1,5 @@
 ---
-name: primary-message
+name: canopy-primary-message
 description: Best practices for the Canopy Primary Message component. Trigger when adding full-page confirmation messages, empty states, error pages, or success completion screens in an Angular project using Canopy.
 license: MIT
 metadata:

@@ -1,5 +1,5 @@
 ---
-name: footer
+name: canopy-footer
 description: Best practices for the Canopy Footer component. Trigger when adding a site footer, footer navigation, or footer logos in an Angular project using Canopy.
 license: MIT
 metadata:

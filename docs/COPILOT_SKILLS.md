@@ -10,25 +10,28 @@ Canopy publishes installable [Copilot skills](https://docs.github.com/en/copilot
 Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills) and work with GitHub Copilot, Claude Code, Cursor, and [40+ other coding agents](https://www.npmjs.com/package/skills#supported-agents).
 
 ```bash
-# List all available Canopy skills without installing
+# List all available migration skills
 npx skills add Legal-and-General/canopy --list
 
-# Install a specific skill (will install the latest)
-npx skills add Legal-and-General/canopy --skill best-practice/button
+# Install a specific migration skill
+npx skills add Legal-and-General/canopy --skill canopy-v23-migration
 
-# Install a specific skill and pin to the Canopy version in your package.json
-npx skills add Legal-and-General/canopy#v23.0.0 --skill best-practice/button
+# List all available best practice skills
+npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --list
 
-# Install all available Canopy skills
-npx skills add Legal-and-General/canopy --skill '*'
+# Install a specific best practice skill
+npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill canopy-button
+
+# Install all best practice skills
+npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
 ```
 
 > **Important — best practice skills:** Always pin the install to the git tag that matches the version of Canopy installed in your project. This ensures the skill content reflects the API and behaviour of that release rather than the latest code on `main`, which may contain unreleased changes.
 >
 > ```bash
 > # Replace v23.0.0 with the Canopy version in your package.json
-> npx skills add Legal-and-General/canopy#v23.0.0 --skill best-practice/button
-> npx skills add Legal-and-General/canopy#v23.0.0 --skill '*'
+> npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill canopy-button
+> npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
 > ```
 
 ---
@@ -74,78 +77,78 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | Skill | Covers | Notes |
 |---|---|---|
 | **Foundations** | | |
-| `colour-foundation` | Colour palette, design tokens, modes, tones, accessibility principles | — |
-| `colour-directive` | `lgColour` directive, applying colour modes and themes to components | — |
-| `typography` | Productive vs expressive type, font sizes, weights, CSS variables | — |
-| `design-tokens` | Token tiers, semantic vs component tokens, usage priority | — |
-| `layout-grid-and-spacing` | Breakpoints, responsive grid, spacing variables | — |
-| `heading` | `LgHeadingComponent`, heading levels, usage restrictions | — |
-| `separator` | `LgSeparatorComponent`, variants, `hasRole` input | — |
-| `spacing-margin` | `LgMarginDirective`, all margin inputs, breakpoint overrides | — |
-| `spacing-padding` | `LgPaddingDirective`, all padding inputs, breakpoint overrides | — |
-| `spacing-row-gap` | `LgRowGapDirective`, row-gap with grid containers | — |
+| `canopy-colour-foundation` | Colour palette, design tokens, modes, tones, accessibility principles | — |
+| `canopy-colour-directive` | `lgColour` directive, applying colour modes and themes to components | — |
+| `canopy-typography` | Productive vs expressive type, font sizes, weights, CSS variables | — |
+| `canopy-design-tokens` | Token tiers, semantic vs component tokens, usage priority | — |
+| `canopy-layout-grid-and-spacing` | Breakpoints, responsive grid, spacing variables | — |
+| `canopy-heading` | `LgHeadingComponent`, heading levels, usage restrictions | — |
+| `canopy-separator` | `LgSeparatorComponent`, variants, `hasRole` input | — |
+| `canopy-spacing-margin` | `LgMarginDirective`, all margin inputs, breakpoint overrides | — |
+| `canopy-spacing-padding` | `LgPaddingDirective`, all padding inputs, breakpoint overrides | — |
+| `canopy-spacing-row-gap` | `LgRowGapDirective`, row-gap with grid containers | — |
 | **Principles** | | |
-| `accessibility` | lang attribute, skip link, alt text, form a11y, ARIA, landmarks | — |
-| `writing` | Tone of voice, content principles, button/link/error message copy | — |
+| `canopy-accessibility` | lang attribute, skip link, alt text, form a11y, ARIA, landmarks | — |
+| `canopy-writing` | Tone of voice, content principles, button/link/error message copy | — |
 | **Layout** | | |
-| `page` | `LgPageComponent`, skip link, slot projection | — |
-| `grid` | `lgContainer`, `lgRow`, `lgCol`, responsive columns, offsets | — |
-| `content-area` | `LgContentAreaComponent`, variants, heading level, nesting rules | — |
-| `header` | `lg-header`, logo, primary nav, account menu, co-branding | — |
-| `footer` | `lg-footer`, nav variants, logo, `rel="noopener"` | — |
-| `hero` | `LgHeroComponent`, overlap, breadcrumb light variant | — |
-| `hero-img` | `LgHeroImgComponent`, imageUrl, overlap, grid requirements | — |
+| `canopy-page` | `LgPageComponent`, skip link, slot projection | — |
+| `canopy-grid` | `lgContainer`, `lgRow`, `lgCol`, responsive columns, offsets | — |
+| `canopy-content-area` | `LgContentAreaComponent`, variants, heading level, nesting rules | — |
+| `canopy-header` | `lg-header`, logo, primary nav, account menu, co-branding | — |
+| `canopy-footer` | `lg-footer`, nav variants, logo, `rel="noopener"` | — |
+| `canopy-hero` | `LgHeroComponent`, overlap, breadcrumb light variant | — |
+| `canopy-hero-img` | `LgHeroImgComponent`, imageUrl, overlap, grid requirements | — |
 | **Actions** | | |
-| `button` | Button variants, priorities, sizes, icon usage, dos and don'ts | — |
-| `quick-action` | `LgQuickActionComponent`, icon, label, disabled state | — |
-| `filter-container` | `LgFilterContainerComponent`, filter button group pattern | — |
+| `canopy-button` | Button variants, priorities, sizes, icon usage, dos and don'ts | — |
+| `canopy-quick-action` | `LgQuickActionComponent`, icon, label, disabled state | — |
+| `canopy-filter-container` | `LgFilterContainerComponent`, filter button group pattern | — |
 | **Feedback** | | |
-| `alert` | `LgAlertComponent`, variants, icon usage, dos and don'ts | — |
-| `banner` | `LgBannerComponent`, variants, dismissal, dos and don'ts | — |
-| `spinner` | `LgSpinnerComponent`, sizes, accessible usage | — |
-| `skeleton` | `LgSkeletonDirective` (`[lgSkeleton]`), animation, screen reader behaviour | — |
-| `progress-indicator` | `LgProgressIndicatorComponent`, steps, current step | — |
-| `sr-alert-message` | `LgSrAlertMessageDirective`, `[lgSrAlertMessage]`, live region, screen reader only | — |
-| `primary-message` | `LgPrimaryMessageComponent`, title, description, icon | — |
+| `canopy-alert` | `LgAlertComponent`, variants, icon usage, dos and don'ts | — |
+| `canopy-banner` | `LgBannerComponent`, variants, dismissal, dos and don'ts | — |
+| `canopy-spinner` | `LgSpinnerComponent`, sizes, accessible usage | — |
+| `canopy-skeleton` | `LgSkeletonDirective` (`[lgSkeleton]`), animation, screen reader behaviour | — |
+| `canopy-progress-indicator` | `LgProgressIndicatorComponent`, steps, current step | — |
+| `canopy-sr-alert-message` | `LgSrAlertMessageDirective`, `[lgSrAlertMessage]`, live region, screen reader only | — |
+| `canopy-primary-message` | `LgPrimaryMessageComponent`, title, description, icon | — |
 | **Data Display** | | |
-| `data-point` | `LgDataPointComponent`, label/value/list, heading level | — |
-| `accordion` | `LgAccordionComponent`, multi, lazy content, outputs | — |
-| `details` | `LgDetailsComponent`, status, role="alert" variants, outputs | — |
-| `table` | `lg-table` directives, variants, expandable rows, accessibility | — |
-| `list` | `LgListWithIconsComponent`, icon colour, expressive styling | — |
-| `card` | `LgCardComponent`, templates, navigation card, card group | — |
-| `promo-card` | `LgPromoCardComponent`, content limits, image requirements | — |
+| `canopy-data-point` | `LgDataPointComponent`, label/value/list, heading level | — |
+| `canopy-accordion` | `LgAccordionComponent`, multi, lazy content, outputs | — |
+| `canopy-details` | `LgDetailsComponent`, status, role="alert" variants, outputs | — |
+| `canopy-table` | `lg-table` directives, variants, expandable rows, accessibility | — |
+| `canopy-list` | `LgListWithIconsComponent`, icon colour, expressive styling | — |
+| `canopy-card` | `LgCardComponent`, templates, navigation card, card group | — |
+| `canopy-promo-card` | `LgPromoCardComponent`, content limits, image requirements | — |
 | **Navigation** | | |
-| `breadcrumb` | `LgBreadcrumbComponent`, current page, ellipsis, variants | — |
-| `tabs` | Tabbed content vs tabbed navigation, inputs, outputs | — |
-| `pagination` | `LgPaginationComponent`, totalItems, currentPage, PageData | — |
-| `link-menu` | `LgLinkMenuComponent`, item text, right icon behaviour | — |
-| `side-nav` | Side nav full component set, mobile behaviour, router-outlet | — |
+| `canopy-breadcrumb` | `LgBreadcrumbComponent`, current page, ellipsis, variants | — |
+| `canopy-tabs` | Tabbed content vs tabbed navigation, inputs, outputs | — |
+| `canopy-pagination` | `LgPaginationComponent`, totalItems, currentPage, PageData | — |
+| `canopy-link-menu` | `LgLinkMenuComponent`, item text, right icon behaviour | — |
+| `canopy-side-nav` | Side nav full component set, mobile behaviour, router-outlet | — |
 | **Forms** | | |
-| `forms-input` | `LgInputFieldComponent`, prefix/suffix, block, showLabel | — |
-| `forms-select` | `LgSelectFieldComponent`, when to use vs other controls | — |
-| `forms-date` | `LgDateFieldComponent`, ISO 8601 output, validation priority | — |
-| `forms-sort-code` | `lgSortCode` directive, auto-format, hint text requirement | — |
-| `forms-validation` | `LgValidationComponent`, error state matcher, dynamic rules | — |
-| `forms-radio` | `LgRadioGroupComponent`, inline, value, max 5 options | — |
-| `forms-segment` | Segment group/button, stack input, 2–5 buttons | — |
-| `forms-checkbox` | `LgToggleComponent` (checkbox), group, size, inline | — |
-| `forms-switch` | `LgToggleComponent` (switch), immediate effect, fieldset | — |
-| `forms-filter-buttons` | Filter radio/checkbox, max 10 options, default deselected | — |
+| `canopy-forms-input` | `LgInputFieldComponent`, prefix/suffix, block, showLabel | — |
+| `canopy-forms-select` | `LgSelectFieldComponent`, when to use vs other controls | — |
+| `canopy-forms-date` | `LgDateFieldComponent`, ISO 8601 output, validation priority | — |
+| `canopy-forms-sort-code` | `lgSortCode` directive, auto-format, hint text requirement | — |
+| `canopy-forms-validation` | `LgValidationComponent`, error state matcher, dynamic rules | — |
+| `canopy-forms-radio` | `LgRadioGroupComponent`, inline, value, max 5 options | — |
+| `canopy-forms-segment` | Segment group/button, stack input, 2–5 buttons | — |
+| `canopy-forms-checkbox` | `LgToggleComponent` (checkbox), group, size, inline | — |
+| `canopy-forms-switch` | `LgToggleComponent` (switch), immediate effect, fieldset | — |
+| `canopy-forms-filter-buttons` | Filter radio/checkbox, max 10 options, default deselected | — |
 | **Utilities** | | |
-| `brand-icon` | `LgBrandIconComponent`, sizes, colour inputs, global branding | — |
-| `icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
-| `focus` | `LgFocusDirective`, programmatic focus | — |
-| `shadow` | `LgShadowDirective`, hover state | — |
-| `show-at` | `LgShowAtDirective`, breakpoint-based visibility | — |
-| `hide-at` | `LgHideAtDirective`, breakpoint-based hiding | — |
-| `orientation` | `LgOrientationDirective`, responsive vertical/horizontal layout | — |
-| `feature-toggle` | `LgFeatureToggleModule`, directive, route guard | — |
-| `pipes-camel-case` | `LgCamelCasePipe` | — |
-| `pipes-kebab-case` | `LgKebabCasePipe` | — |
+| `canopy-brand-icon` | `LgBrandIconComponent`, sizes, colour inputs, global branding | — |
+| `canopy-icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
+| `canopy-focus` | `LgFocusDirective`, programmatic focus | — |
+| `canopy-shadow` | `LgShadowDirective`, hover state | — |
+| `canopy-show-at` | `LgShowAtDirective`, breakpoint-based visibility | — |
+| `canopy-hide-at` | `LgHideAtDirective`, breakpoint-based hiding | — |
+| `canopy-orientation` | `LgOrientationDirective`, responsive vertical/horizontal layout | — |
+| `canopy-feature-toggle` | `LgFeatureToggleModule`, directive, route guard | — |
+| `canopy-pipes-camel-case` | `LgCamelCasePipe` | — |
+| `canopy-pipes-kebab-case` | `LgKebabCasePipe` | — |
 | **Deprecated** | | |
-| `carousel` | Deprecation notice for `LgCarouselComponent` | Deprecated |
+| `canopy-carousel` | Deprecation notice for `LgCarouselComponent` | Deprecated |
 | **Styles** | | |
-| `link` | Anchor styles, external links, icons in links, colour modes | — |
-| `utils` | `lg-visually-hidden`, `lg-unstyled-link` CSS utility classes | — |
-| `mixins` | `lg-breakpoint`, `lg-font-size`, `lg-focus-outline`, `lg-link`, `lg-status`, and other SCSS mixins | — |
+| `canopy-link` | Anchor styles, external links, icons in links, colour modes | — |
+| `canopy-utils` | `lg-visually-hidden`, `lg-unstyled-link` CSS utility classes | — |
+| `canopy-mixins` | `lg-breakpoint`, `lg-font-size`, `lg-focus-outline`, `lg-link`, `lg-status`, and other SCSS mixins | — |

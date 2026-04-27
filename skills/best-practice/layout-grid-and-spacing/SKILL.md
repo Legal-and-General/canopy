@@ -1,5 +1,5 @@
 ---
-name: layout-grid-and-spacing
+name: canopy-layout-grid-and-spacing
 description: Foundation guidance for Canopy layout, responsive grid, and spacing. Trigger when setting up responsive layouts, choosing breakpoints, or understanding the grid and spacing system in an Angular project using Canopy.
 license: MIT
 metadata:

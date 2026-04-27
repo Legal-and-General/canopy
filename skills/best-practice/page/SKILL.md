@@ -1,5 +1,5 @@
 ---
-name: page
+name: canopy-page
 description: Best practices for the Canopy Page component. Trigger when setting up a full-page layout with a header and footer in an Angular project using Canopy.
 license: MIT
 metadata:

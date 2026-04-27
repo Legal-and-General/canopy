@@ -1,5 +1,5 @@
 ---
-name: hero-img
+name: canopy-hero-img
 description: Best practices for the Canopy Hero Image component. Trigger when adding a hero banner with a background image, hero card overlay, or image-led hero section in an Angular project using Canopy.
 license: MIT
 metadata:

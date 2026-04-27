@@ -1,5 +1,5 @@
 ---
-name: icon
+name: canopy-icon
 description: Best practices for the Canopy UI Icon component. Trigger when using lg-icon, LgIconComponent, or adding functional UI icons in an Angular project using Canopy.
 license: MIT
 metadata:

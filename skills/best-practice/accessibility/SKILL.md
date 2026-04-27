@@ -1,5 +1,5 @@
 ---
-name: accessibility
+name: canopy-accessibility
 description: Accessibility guidance for Canopy applications. Trigger when implementing accessible HTML, ARIA attributes, keyboard navigation, skip links, screen reader support, or form accessibility in an Angular project using Canopy.
 license: MIT
 metadata:

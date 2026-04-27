@@ -1,5 +1,5 @@
 ---
-name: link-menu
+name: canopy-link-menu
 description: Best practices for the Canopy Link Menu component. Trigger when building link lists, navigation menus, or card-style link collections in an Angular project using Canopy.
 license: MIT
 metadata:

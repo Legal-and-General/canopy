@@ -1,5 +1,5 @@
 ---
-name: pipes-camel-case
+name: canopy-pipes-camel-case
 description: Best practices for the Canopy Camel Case pipe. Trigger when using LgCamelCasePipe or transforming strings to camelCase in an Angular project using Canopy.
 license: MIT
 metadata:

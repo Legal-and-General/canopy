@@ -1,5 +1,5 @@
 ---
-name: modal
+name: canopy-modal
 description: Best practices for the Canopy Modal component. Trigger when using lg-modal, LgModalComponent, LgModalService, or lgModalTrigger in an Angular project using Canopy.
 license: MIT
 metadata:

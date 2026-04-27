@@ -1,5 +1,5 @@
 ---
-name: pipes-kebab-case
+name: canopy-pipes-kebab-case
 description: Best practices for the Canopy Kebab Case pipe. Trigger when using LgKebabCasePipe or transforming strings to kebab-case in an Angular project using Canopy.
 license: MIT
 metadata:
