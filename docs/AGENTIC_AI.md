@@ -60,7 +60,7 @@ Open Copilot Chat in your IDE, select the **Best Practice Skill Generator** agen
 > "Generate best practice skills for all forms components."
 > "Generate best practice skills for all components."
 
-The agent reads the `guide.mdx`, stories, and documentation images for each component and writes a `SKILL.md` to `skills/best-practice/<name>/`. It also updates `docs/COPILOT_SKILLS.md`.
+The agent reads the `.mdx`, stories, and documentation images for each component and writes a `SKILL.md` to `skills/best-practice/<name>/`. It also updates `docs/COPILOT_SKILLS.md`.
 
 **Any agent — via the Copilot agents tab (cloud):**
 1. Navigate to the [Copilot agents tab](https://github.com/copilot/agents) on GitHub.com.

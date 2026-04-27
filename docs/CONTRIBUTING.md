@@ -165,4 +165,4 @@ The dependency updates are currently handled by [Dependabot](./DEPENDABOT.md).
 
 ## Agentic AI
 
-Canopy uses GitHub Copilot coding agents to automate specific development tasks such as dependency updates. For details on the available agents, skills, and how to add new ones, see [AGENTIC_AI.md](./AGENTIC_AI.md).
+Canopy uses GitHub Copilot coding agents to automate specific development tasks such as dependency updates. For details on the available agents, skills, and how to add new ones, see [AGENTIC_AI.md](./AGENTIC_AI.md). Canopy also publishes installable Copilot skills for consumers — see [COPILOT_SKILLS.md](./COPILOT_SKILLS.md).
