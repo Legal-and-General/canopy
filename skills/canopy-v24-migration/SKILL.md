@@ -81,7 +81,7 @@ The following icons have been remapped. Apply each rename in your templates and 
 
 ### Icons removed with no direct equivalent
 
-The following icon names have been removed entirely. Review the [icon catalogue](https://legal-and-general.github.io/canopy/?path=/story/foundations-ui-icon-catalog--catalog) and choose the closest alternative for each:
+The following icon names have been removed entirely. Review the [icon catalogue](https://legal-and-general.github.io/canopy/?path=/story/foundations-ui-icon-catalog--standard-icons) and choose the closest alternative for each:
 
 > `align-centre`, `align-left`, `align-right`, `business`, `camera`, `checkbox-checked`, `checkbox-empty`, `checkbox-indeterminate`, `cloud`, `code`, `connect`, `count`, `csv`, `data`, `database`, `diagram`, `digg`, `document-subtract`, `document-tasks`, `drag-handle`, `drilldown`, `face-dissatisfied`, `face-dissatisfied-fill`, `face-happy`, `face-happy-fill`, `face-neutral`, `face-neutral-fill`, `face-satisfied`, `face-satisfied-fill`, `face-unhappy-fill`, `folder-add`, `forum`, `gender-female`, `gender-male`, `github`, `google`, `hd`, `hdr`, `highlight`, `insert`, `landlord`, `like-fill`, `location-arrow`, `ma-lgi`, `map`, `microphone-off`, `minimise`, `misuse`, `misuse-fill`, `module`, `move`, `notification-off`, `overlay`, `partnership`, `password`, `pet`, `phone-off`, `pop-up`, `reward`, `rss`, `scan`, `share`, `skip-back`, `skip-forward`, `slack`, `star-half-fill`, `stop`, `tag`, `time-delay`, `unhappy`, `user-online`, `volume-down`, `volume-mute`, `volume-up`
 
