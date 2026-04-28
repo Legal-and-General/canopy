@@ -20,17 +20,13 @@ Register the module with `forRoot` once in your root module, providing an observ
 
 ```ts
 import { LgFeatureToggleModule } from '@legal-and-general/canopy';
-import { Store } from '@ngrx/store';
 
-@NgModule({
-  imports: [
-    LgFeatureToggleModule.forRoot({
-      deps: [Store],
-      useFactory: (store: Store) => store.select(getFeatureToggles),
-    }),
-  ],
-})
-export class AppModule {}
+imports: [
+  LgFeatureToggleModule.forRoot({
+    deps: [Store],
+    useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+  })
+]
 ```
 
 The factory must return an `Observable` of a config object:
@@ -47,10 +43,17 @@ The factory must return an `Observable` of a config object:
 By default, features are **shown** if the flag is `undefined`. To hide features that are not explicitly configured:
 
 ```ts
-LgFeatureToggleModule.forRoot(
-  { deps: [Store], useFactory: (store) => store.select(getFeatureToggles) },
-  { defaultHide: true }
-)
+imports: [
+  LgFeatureToggleModule.forRoot(
+    {
+      deps: [Store],
+      useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+    },
+    {
+      defaultHide: true
+    }
+  )
+]
 ```
 
 ---
@@ -60,10 +63,7 @@ LgFeatureToggleModule.forRoot(
 Import `LgFeatureToggleModule` (without `forRoot`) in each feature module:
 
 ```ts
-@NgModule({
-  imports: [LgFeatureToggleModule],
-})
-export class FeatureModule {}
+imports: [ LgFeatureToggleModule ]
 ```
 
 ---

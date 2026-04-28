@@ -53,6 +53,16 @@ External links must open in a new tab, use the `link-external` icon after the te
 
 ---
 
+## Accessibility
+
+- All images in documentation or UI must have meaningful `alt` text (or `alt=""` for decorative images).
+- Always provide visually hidden text for external links to indicate they open in a new tab.
+- Link text must always be descriptive of the destination or purpose.
+- If using icons, provide accessible text or `aria-label` for screen readers as needed.
+- Keyboard users must be able to tab through all links in order.
+
+---
+
 ## Accessible Link Text
 
 When the visible link text lacks sufficient context, add visually hidden supplementary text:

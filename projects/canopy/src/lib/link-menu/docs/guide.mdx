@@ -6,9 +6,13 @@ import * as LinkMenuStories from './link-menu.stories';
 
 # Link menu
 
-<p class="standfirst">Link menu is used to list an array of links.</p>
+<p class="standfirst">A link menu displays a grouped list of navigation links, each with optional icons and descriptive text.</p>
+
+![Link menu component example](docs/link-menu/hero.png)
 
 ## Usage
+
+Use a link menu to present a set of related navigation options, typically in a sidebar, footer, or within a card.  It is best suited for grouped navigation rather than inline links or single actions.
 
 Import the link menu components in your application:
 
@@ -20,29 +24,90 @@ and in your HTML:
 
 <Source of={LinkMenuStories.StandardLinkMenu} />
 
-## Additional development details
+## How it works
+
+A link menu displays a vertical stack of menu links within a visually contained area, making it clear to users that the links form a menu. Links are visually separated for clarity and ease of scanning. Link menus work best when they contain between 2 and 10 links - fewer may not justify a menu, and more can overwhelm users.
+
+Link menus must present navigation in a clear, purposeful structure. Group related links under meaningful section headings - especially in complex menus like footers - to help users scan and find what they need. Every link should be relevant to its group so avoid including unrelated or miscellaneous links. Link menus are not a replacement for contextual links within page content, and should only be used for grouped navigation, not as a catch-all for every possible destination.
+
+### Variants
+
+![Link menu component standard](docs/link-menu/variant-standard-link-menu.png)
+
+#### Standard link menu
+
+A vertical list of navigation links, each with optional icons and secondary text.
+
+![Link menu component left icons](docs/link-menu/variant-with-left-icon.png)
+
+#### With left icon
+
+Use a custom icon on the left of each menu item.
+
+![Link menu component right icons](docs/link-menu/variant-right-icon-override.png)
+
+#### With right icon override
+
+Use the rightIcon input to change or remove the default right icon.
+
+![Link menu component right icons](docs/link-menu/variant-with-secondary-text.png)
+
+#### With secondary text
+
+Add a second `LgLinkMenuItemTextComponent` for additional description beneath the primary label. You can also make the primary label bold for extra clarity by setting the isBold input.
+
+Combine with other navigation or container components as needed.
+
+## Do and don’t
+
+### Do
+
+![Link menu component dos](docs/link-menu/do.png)
+
+1. **Do** organise links into logical, related groups with clear, descriptive section headings - especially in complex menus like sidebars, navs or footers.
+2. **Do** provide clear, concise labels for each link.
+3. **Do** use secondary text for additional context if needed.
+4. **Do** ensure icons are meaningful and support the link’s purpose.
+
+### Don't
+
+![Link menu component donts](docs/link-menu/dont.png)
+
+1. **Don't** use link menus for single actions - use a link or button instead.
+2. **Don't** include unrelated or miscellaneous links, or present a long, unstructured list—menus must group related links and use clear hierarchy to avoid overwhelming users with “walls of links.”
+3. **Don’t** use link menus as a substitute for contextual links within page content.
+4. **Don’t** overload menus with too many links or excessive secondary text.
+
+## Related components
+
+* [Buttons](./?path=/docs/components-button-guide--docs) - Use when the primary purpose is to trigger an action, not navigation.
+* [Links](./?path=/docs/components-link-guide--docs) - Use for inline navigation within content, rather than grouped menus.
+
+## Developer reference
 
 ### LgLinkMenuComponent
 
-This is where the links are projected.
+* Projects the set of links for the menu.
 
 ### LgLinkMenuItemComponent
 
-This is where the `LgLinkMenuItemTextComponent`s and optional left icon are projected and positioned.
+Projects `LgLinkMenuItemTextComponent` elements and an optional left icon.
 
-This accepts either 1 or 2 `LgLinkMenuItemTextComponent`s. The first text component represents the primary label, and an optional second text component represents the secondary descriptive text. The secondary text automatically uses regular font weight (400) and muted colour tokens.
+Accepts one or two `LgLinkMenuItemTextComponents`:
+* The first is the primary label.
+* The second, if present, is the secondary descriptive text (always regular weight and uses muted colour tokens).
 
-#### Icon behaviour
+### Icon behaviour
 
-**Right icon (automatic):**
-- By default, the component automatically displays an icon on the right side
-- If the parent `<a>` element has `target="_blank"`, it shows the `link-external` icon with accessible text "opens in a new tab"
-- Otherwise, it shows the `arrow-right` icon
-- On hover, the icon translates 0.25rem to the right
+#### Right icon (automatic):
+- By default, a right-side icon is shown.
+- If the parent `<a>` element has `target="_blank"`, it shows the `link-external` icon with accessible text "opens in a new tab".
+- Otherwise, the `arrow-right` icon is shown.
+- On hover, the icon translates 0.25rem to the right.
 
-**Custom icons:**
-- **Left icon**: Project an `<lg-icon>` component as content to display a custom icon on the left
-- **Right icon**: Use the `rightIcon` input to override the default right icon with a custom icon name, or set it to `null` to hide the right icon completely
+#### Custom icons:
+- **Left icon**: Project an `<lg-icon>` component as content to display a custom icon on the left.
+- **Right icon**: Use the `rightIcon` input to override the default right icon with a custom icon name, or set it to `null` to hide the right icon completely.
 
 #### Inputs
 

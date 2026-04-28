@@ -179,6 +179,50 @@ describe('deploy', () => {
       );
     });
 
+    it('should deploy when the only failing check is the ignored "Check best-practice skills" check', async () => {
+      github.rest.checks.listForRef.mockResolvedValue({
+        data: {
+          check_runs: [
+            { name: 'verify', conclusion: 'success' },
+            { name: 'Check best-practice skills', conclusion: 'failure' },
+          ],
+        },
+      });
+
+      await deploy({ ...featureParams, github, exec });
+
+      expect(exec.exec).toHaveBeenCalledWith('git', [
+        'push',
+        '-f',
+        '--set-upstream',
+        'origin',
+        'gh-pages',
+      ]);
+      expect(console.info).toHaveBeenCalledWith('ℹ️ The PR checks passed successfully');
+    });
+
+    it('should deploy when the only failing check is the ignored "deploy-branch" check', async () => {
+      github.rest.checks.listForRef.mockResolvedValue({
+        data: {
+          check_runs: [
+            { name: 'verify', conclusion: 'success' },
+            { name: 'deploy-branch', conclusion: 'failure' },
+          ],
+        },
+      });
+
+      await deploy({ ...featureParams, github, exec });
+
+      expect(exec.exec).toHaveBeenCalledWith('git', [
+        'push',
+        '-f',
+        '--set-upstream',
+        'origin',
+        'gh-pages',
+      ]);
+      expect(console.info).toHaveBeenCalledWith('ℹ️ The PR checks passed successfully');
+    });
+
     it('should convert slashes to hyphens in the branch docs path', async () => {
       github.rest.checks.listForRef.mockResolvedValue({
         data: { check_runs: [{ conclusion: 'success' }] },

@@ -14,7 +14,6 @@ const options: LgFeatureToggleOptions = {
 // This default export determines where your story goes in the story list
 export default {
   title: 'Helpers/Directives/Feature toggle/Examples',
-  tags: [ 'pending' ],
   component: LgFeatureToggleDirective,
   decorators: [
     moduleMetadata({

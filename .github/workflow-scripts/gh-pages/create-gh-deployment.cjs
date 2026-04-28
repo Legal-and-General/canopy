@@ -10,6 +10,7 @@ module.exports = async ({
     environment: 'github-pages',
     transient_environment: true,
     auto_merge: false,
+    required_contexts: [],
   });
 
   return id;

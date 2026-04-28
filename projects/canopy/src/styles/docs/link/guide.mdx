@@ -8,7 +8,7 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 <p class="standfirst">A Link is an interactive text element that enables users to navigate from one resource, page, or view to another—either within the application or to external destinations—in a way that is accessible to all users.</p>
 
-![example](docs/link/example.png)
+![Link component example](docs/link/hero.png)
 
 ## Usage
 
@@ -22,7 +22,7 @@ Use the standard HTML anchor (`<a>`) element. Canopy's global CSS will automatic
 <a href="https://example.com">Visit Example</a>
 ```
 
-### Links with icons
+#### Links with icons
 
 Links may include any icon from the Canopy icon library to provide additional context (such as file type or navigation direction). The icon must sit before the link text.
 
@@ -33,7 +33,7 @@ Links may include any icon from the Canopy icon library to provide additional co
 </a>
 ```
 
-### External links
+#### External links
 
 External links must use the external link icon, which always sits after the link text. For accessibility, include visually hidden text to indicate the link opens in a new tab.
 
@@ -77,13 +77,15 @@ Links automatically inherit the appropriate colour based on their parent’s col
 
 * On bold backgrounds, links are white for blue, green, and red backgrounds, and black for yellow backgrounds.
 
+![Link component colour modes](docs/link/colour-modes.png)
+
 Read more about colour modes on the [Colour guidance page](./?path=/docs/helpers-directives-colour-guide--docs).
 
 ## Dos and Don'ts
 
 ### Do
 
-![do](docs/link/do.png)
+![Link do](docs/link/do.png)
 
 1. **Do** use links for navigation—if the element takes the user to a new page, view, or resource, aim to use a link, not a button.
 2. **Do** write links as concise, meaningful phrases that describe their destination or purpose.
@@ -93,7 +95,7 @@ Read more about colour modes on the [Colour guidance page](./?path=/docs/helpers
 
 ### Don't
 
-![dont](docs/link/dont.png)
+![Link dont](docs/link/dont.png)
 
 1. **Don't** use links for primary actions—use a button or quick action instead.
 2. **Don't** use vague or generic phrases like “click here” or “read more” without context.

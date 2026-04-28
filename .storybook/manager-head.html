@@ -26,3 +26,16 @@
     padding: 10px 0 11px;
   }
 </style>
+
+<script>
+  document.title = "L&G Canopy Design System";
+
+  // Optional: Keep the title from being overwritten by story changes
+  const observer = new MutationObserver(() => {
+    if (document.title !== "L&G Canopy Design System") {
+      document.title = "L&G Canopy Design System";
+    }
+  });
+
+  observer.observe(document.querySelector('title'), { childList: true });
+</script>

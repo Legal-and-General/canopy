@@ -1,12 +1,9 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Helpers/Directives/Feature toggle/Guide" tags={['pending']}/>
+<Meta title="Helpers/Directives/Feature toggle/Guide"/>
 
 # Feature toggle
-
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 This module allows you to enable and disable features by using the `lgFeatureToggle` directive and passing an observable of the toggle's configuration to the module.
 
@@ -15,16 +12,12 @@ This module allows you to enable and disable features by using the `lgFeatureTog
 Import the feature toggle module in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [
-    ...,
-    LgFeatureToggleModule.forRoot({
-      deps: [Store],
-      useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
-    }),
-  ],
-});
+imports: [
+  LgFeatureToggleModule.forRoot({
+    deps: [Store],
+    useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+  })
+]
 ```
 
 `useFactory` returns an observable of a config file structured as below:
@@ -39,23 +32,23 @@ Import the feature toggle module in your application:
 The default behaviour is to show a feature if it's undefined, but we can override it by passing an optional object with defaultHide set to true like this:
 
 ```js
-LgFeatureToggleModule.forRoot({
-  deps: [Store],
-  useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
-  },
-  {
-    defaultHide: true
-  }
-)
+imports: [
+  LgFeatureToggleModule.forRoot(
+    {
+      deps: [Store],
+      useFactory: (store: Store<CoreState>) => store.select(getFeatureToggles)
+    },
+    {
+      defaultHide: true
+    }
+  )
+]
 ```
 
 Import `LgFeatureToggleModule` (without the `forRoot`) in the modules that need it:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgFeatureToggleModule ],
-});
+imports: [ LgFeatureToggleModule ]
 ```
 
 and in your component(s) add the structural directive:

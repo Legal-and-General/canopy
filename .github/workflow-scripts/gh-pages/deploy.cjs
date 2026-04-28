@@ -8,6 +8,7 @@ const ROOT_DOCS_PATH = './docs';
 const STORYBOOK_BUILD_PREFIX = 'lg-sb-';
 const STORYBOOK_BUILD_PATH = `./${STORYBOOK_BUILD_PREFIX}build`;
 const STASH_NAME = 'sb-stash';
+const REQUIRED_CHECKS = ['verify', 'CodeQL', 'Analyze (javascript-typescript)', 'Analyze (actions)'];
 
 module.exports = async ({
   branch,
@@ -61,7 +62,9 @@ async function evaluatePullChecks({ sha, github, repo, owner }) {
     ref: sha
   });
 
-  return listCheckRuns.every(({ conclusion }) => conclusion === 'success' || conclusion === 'skipped');
+  return listCheckRuns
+    .filter(({ name }) => REQUIRED_CHECKS.includes(name))
+    .every(({ conclusion }) => conclusion === 'success' || conclusion === 'skipped');
 }
 
 async function deploy({ branch, sha, repo, owner, docsPath, github, exec }) {

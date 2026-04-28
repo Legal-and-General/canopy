@@ -29,6 +29,7 @@ describe('create-gh-deployment', () => {
       environment: 'github-pages',
       transient_environment: true,
       auto_merge: false,
+      required_contexts: [],
     });
   });
 
