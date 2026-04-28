@@ -1,6 +1,6 @@
 ---
 name: canopy-v23-migration
-description: Apply the Canopy v22→v23 breaking changes to an Angular project. Trigger when the user asks to migrate to Canopy v23, upgrade @legal-and-general/canopy from v22, or fix errors after upgrading to v23.
+description: Apply the Canopy v22→v23 breaking changes to an Angular project. Trigger when the user asks to migrate to Canopy v23, upgrade @legal-and-general/canopy from v22, or fix errors after upgrading to v23. Also covers the brand-modernisation UI icon rename and deprecation mapping.
 license: MIT
 metadata:
   version: '23.0.0'
