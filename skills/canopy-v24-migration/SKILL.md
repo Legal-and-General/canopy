@@ -81,7 +81,7 @@ The following icons have been remapped. Apply each rename in your templates and 
 
 ### Icons removed with no direct equivalent
 
-The following icon names have been removed entirely. Review the [icon catalogue](https://legal-and-general.github.io/canopy/?path=/story/foundations-ui-icon-catalog--standard-icons) and choose the closest alternative for each:
+The following icon names have been removed entirely. Review the [icon catalogue](https://legal-and-general.github.io/canopy/?path=/story/foundations-ui-icon-catalog--catalog) and choose the closest alternative for each:
 
 > `align-centre`, `align-left`, `align-right`, `business`, `camera`, `checkbox-checked`, `checkbox-empty`, `checkbox-indeterminate`, `cloud`, `code`, `connect`, `count`, `csv`, `data`, `database`, `diagram`, `digg`, `document-subtract`, `document-tasks`, `drag-handle`, `drilldown`, `face-dissatisfied`, `face-dissatisfied-fill`, `face-happy`, `face-happy-fill`, `face-neutral`, `face-neutral-fill`, `face-satisfied`, `face-satisfied-fill`, `face-unhappy-fill`, `folder-add`, `forum`, `gender-female`, `gender-male`, `github`, `google`, `hd`, `hdr`, `highlight`, `insert`, `landlord`, `like-fill`, `location-arrow`, `ma-lgi`, `map`, `microphone-off`, `minimise`, `misuse`, `misuse-fill`, `module`, `move`, `notification-off`, `overlay`, `partnership`, `password`, `pet`, `phone-off`, `pop-up`, `reward`, `rss`, `scan`, `share`, `skip-back`, `skip-forward`, `slack`, `star-half-fill`, `stop`, `tag`, `time-delay`, `unhappy`, `user-online`, `volume-down`, `volume-mute`, `volume-up`
 
@@ -107,10 +107,17 @@ The following icon names have been removed entirely. Review the [icon catalogue]
 
 **What changed:** The auto-generated `IconName` union type (exported from `@legal-and-general/canopy`) now reflects only the icons present in the new set. Any TypeScript source that references a removed icon name by string will produce a compile error.
 
-**Search for** (in `*.ts` files) string literals that contain removed icon names, for example:
-```
-IconName
-```
+**Search in `*.ts` files for both of the following:**
+
+1. `IconName` usages, to find typed icon variables, inputs, and annotations, for example:
+   ```
+   IconName
+   ```
+2. Removed or renamed icon-name string literals, to find invalid values that now need updating, for example:
+   ```
+   'arrow-right-circle'
+   'exit-fill'
+   ```
 
 After updating all icon names in your templates (section 1 above), run TypeScript compilation with `--noEmit` to catch any remaining type errors:
 
