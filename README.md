@@ -26,7 +26,7 @@ Want to [apply a migration with AI assistance?](docs/COPILOT_SKILLS.md#migration
 
 Want to [use Canopy components correctly with AI assistance?](docs/COPILOT_SKILLS.md#best-practice-skills)
 
-## Copilot Skills
+## AI Skills
 
 Canopy publishes installable [skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) that work with GitHub Copilot.
 
