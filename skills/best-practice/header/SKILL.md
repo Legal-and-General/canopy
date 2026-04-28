@@ -121,3 +121,4 @@ Override logo widths via CSS custom properties:
 --header-second-logo-width: 80px;
 --header-second-logo-width-lg: 100px;
 ```
+

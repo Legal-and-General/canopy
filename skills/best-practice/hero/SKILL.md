@@ -128,3 +128,4 @@ Use the `light` variant of `lg-breadcrumb` inside the hero — the hero renders 
 - Always wrap hero card content with the grid directives (`lgContainer`, `lgRow`, `lgCol`).
 - The hero renders against a dark blue background — use `variant="light"` on any breadcrumb inside the hero.
 - This component is pending brand modernisation.
+

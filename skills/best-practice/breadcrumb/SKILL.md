@@ -97,3 +97,4 @@ When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` to repre
 
 - On mobile, only the one level above the current page is shown — the current page itself is hidden.
 - Breadcrumbs are pending brand modernisation.
+

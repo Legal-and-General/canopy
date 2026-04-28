@@ -96,3 +96,4 @@ Use `lg-list-with-icons` to display a list where each item has a Canopy icon.
 ### Don't
 
 1. **Don't** use coloured icons (`iconColour`) on dark backgrounds — only use on neutral or light backgrounds.
+

@@ -111,3 +111,4 @@ import {
 - Numeric comparison columns must be right-aligned.
 - Column headers align to match their column data.
 - At mobile breakpoints the table switches to a 2-column layout (header | value) per row.
+
