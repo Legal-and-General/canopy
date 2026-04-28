@@ -17,21 +17,21 @@ npx skills add Legal-and-General/canopy --list
 npx skills add Legal-and-General/canopy --skill canopy-v23-migration
 
 # List all available best practice skills
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --list
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --list
 
 # Install a specific best practice skill
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill canopy-button
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill canopy-button
 
 # Install all best practice skills
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 ```
 
 > **Important — best practice skills:** Always pin the install to the git tag that matches the version of Canopy installed in your project. This ensures the skill content reflects the API and behaviour of that release rather than the latest code on `main`, which may contain unreleased changes.
 >
 > ```bash
-> # Replace v23.0.0 with the Canopy version in your package.json
-> npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill canopy-button
-> npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
+> # Replace vx.x.x with the Canopy version in your package.json
+> npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill canopy-button
+> npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 > ```
 
 ---
@@ -54,6 +54,8 @@ Once installed, ask your agent:
 ## Best Practice Skills
 
 These skills guide your AI coding agent to use Canopy components and foundations correctly — covering imports, inputs, dos and don'ts, accessibility, and design constraints.
+
+> **Note:** Best practice skills are available from tag `v24.0.0` onwards.
 
 Once installed, your agent will automatically apply the best practices whenever it works with the relevant component. For example, after installing `canopy-button` you can ask:
 > "Add a primary button that submits the form."

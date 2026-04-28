@@ -37,11 +37,11 @@ npx skills add Legal-and-General/canopy --list
 # Install a migration skill (guides your agent through a major version upgrade)
 npx skills add Legal-and-General/canopy --skill canopy-v23-migration
 
-# Install a single best practice skill — pin to the Canopy version in your package.json
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill canopy-button
+# Install a single best practice skill — pin to the Canopy version in your package.json (available from v24.0.0)
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill canopy-button
 
-# Install all best practice skills — pinned to a specific version
-npx skills add Legal-and-General/canopy/skills/best-practice#v23.0.0 --skill '*'
+# Install all best practice skills — pinned to a specific version (available from v24.0.0)
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 
 # Install all available skills
 npx skills add Legal-and-General/canopy --skill '*'
