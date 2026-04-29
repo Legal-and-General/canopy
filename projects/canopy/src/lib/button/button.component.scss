@@ -105,6 +105,11 @@
     margin-bottom: 0;
 
     @include mixins.lg-link();
+
+    .lg-icon {
+      margin-left: 0;
+      margin-right: var(--button-gap);
+    }
   }
 }
 
