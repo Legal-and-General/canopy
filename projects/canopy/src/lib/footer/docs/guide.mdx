@@ -1,14 +1,10 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as FooterStories from './footer.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Footer/Guide" tags={['pending']}/>
+<Meta title="Components/Footer/Guide"/>
 
 # Footer
-
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">Provides a generic footer to display at the bottom of the page.</p>
 
 ## Usage
@@ -16,74 +12,106 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 Import the footer components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgFooterComponent, etc. ],
-});
+import {
+    LgFooterComponent,
+    LgFooterNavComponent,
+    LgFooterNavItemComponent,
+    LgFooterLogoComponent,
+    LgFooterCopyrightComponent,
+    LgFooterSocialComponent,
+    LgFooterStickersComponent,
+    LgFooterFootnoteComponent,
+  } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 <Source of={FooterStories.StandardFooter} />
 
+## Variants
+
+### With social icons
+
+Social icons can be added using the `lg-footer-social` component. Maximum of 8 icons supported.
+
+<Source of={FooterStories.FooterWithSocial} />
+
+### With stickers
+
+Award badges and co-branding logos can be added using `lg-footer-stickers`. These appear alongside the logo.
+
+<Source of={FooterStories.FooterWithStickers} />
+
+### Full featured
+
+All features combined, including footnote area for disclaimers:
+
+<Source of={FooterStories.FullFeaturedFooter} />
+
+### Co-branding
+
+Co-branding can be achieved by adding two `lg-footer-logo` components. The logos will display side by side on both mobile and desktop, with the L&G logo (primary) on the left and the partner logo (secondary) on the right.
+
+<Source of={FooterStories.CoBrandedFooter} />
+
 ## Additional development details
 
 ### LgFooterComponent
 
-This component uses an attribute selector which allows to use the html <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer" target="_blank">footer</a> element as the host.
+This component uses an attribute selector which allows the use of the HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer" target="_blank">footer</a> element as the host.
 
 ### LgFooterNavComponent
 
-This is where the navigation items are put.
+This is where the navigation items are placed. The component now accepts a single merged list of all footer links (previously separated into primary and secondary variants).
 
-When an **anchor** tag is projected the `rel="noopener"` attribute will be automatically added.
+When an **anchor** tag is projected, the `rel="noopener"` attribute will be automatically added.
 
-When a **button** tag is projected the `type="button"` attribute will be automatically added.
-
-#### Inputs
-
-| Name      | Description            |           Type           | Default | Required |
-|-----------|------------------------|:------------------------:|:-------:|:--------:|
-| `variant` | The navigation variant | `primary` | `secondary` | `null`  |   Yes    |
+When a **button** tag is projected, the `type="button"` attribute will be automatically added.
 
 ### LgFooterNavItemComponent
 
-This is where a navigation item should be projected.
+This is where a navigation item should be projected. Supports both `<a>` and `<button>` elements.
+
+### LgFooterSocialComponent
+
+Container for social media icon links. Maximum of 8 icons recommended for optimal display.
+
+Icons should be wrapped in anchor or button elements with appropriate `aria-label` attributes.
+
+```html
+<lg-footer-social>
+  <a href="https://facebook.com/company" aria-label="Facebook">
+    <lg-icon name="facebook" size="sm"></lg-icon>
+  </a>
+</lg-footer-social>
+```
+
+### LgFooterStickersComponent
+
+Container for award badges, certifications, or co-branding partner logos. Renders alongside the logo inside the footer's organisation area.
+
+```html
+<lg-footer-stickers>
+  <img src="award-badge.svg" alt="Best Company Award 2024" />
+  <img src="certification.svg" alt="ISO Certified" />
+</lg-footer-stickers>
+```
+
+### LgFooterFootnoteComponent
+
+Container for disclaimer text or additional information. Displays at the top of the footer with a separator line.
+
+```html
+<lg-footer-footnote>
+  Footnote
+</lg-footer-footnote>
+```
 
 ### LgFooterLogoComponent inputs
 
 | Name  | Description                            |   Type   |   Default   | Required |
 |-------|----------------------------------------|:--------:|:-----------:|:--------:|
-| `src` | A url src for the logo                 | `string` | `undefined` |   Yes    |
-| `alt` | alt text to display alongside the logo | `string` |    `''`     |   Yes    |
+| `src` | A URL src for the logo                 | `string` | `undefined` |   Yes    |
+| `alt` | Alt text to display alongside the logo | `string` |    `''`     |   Yes    |
 
-***
-
-### Co-branding
-
-Co-branding can be achieved by adding two logos side by side using the `LgFooterLogoComponent`:
-
-<Source of={FooterStories.CoBrandedFooter} />
-
-### Compact
-
-A compact layout can be achieved by using the below structure:
-
-<Source of={FooterStories.CompactFooter} />
-
-### Changing the width of the logos
-
-The logo height is set internally with different heights for different screen sizes, it can not currently be modified to ensure consistency.
-
-The width of the logos can be changed by overriding the values of the below css variables:
-
-```css
---footer-logo-width
---footer-logo-width-lg
---footer-second-logo-width
---footer-second-logo-width-lg
-```
-
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>
