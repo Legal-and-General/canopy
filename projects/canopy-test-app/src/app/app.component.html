@@ -474,22 +474,24 @@
 
 
                   <lg-input-field>
-                    Text input with icon
+                    Text input with icon button
                     <input lgInput formControlName="textSearch" />
-                    <button
-                      lg-button
-                      lgSuffix
-                      [iconButton]="true"
-                      >
-                      Search
-                      <lg-icon name="search" />
-                    </button>
                   </lg-input-field>
+                  <button
+                    type="button"
+                    lg-button
+                    [iconButton]="true"
+                    lgMarginTop="2"
+                    >
+                    Search
+                    <lg-icon name="search" />
+                  </button>
 
                   <lg-input-field>
-                    Text input with add-on icon
+                    Text input with add-on and icon buttons
                     <input lgInput formControlName="textSearch" />
                     <button
+                      type="button"
                       lg-button
                       lgSuffix
                       [iconButton]="true"
@@ -498,15 +500,16 @@
                       Cancel
                       <lg-icon name="close" />
                     </button>
-                    <button
-                      lg-button
-                      lgSuffix
-                      [iconButton]="true"
-                      >
-                      Search
-                      <lg-icon name="search" />
-                    </button>
                   </lg-input-field>
+                  <button
+                    type="button"
+                    lg-button
+                    [iconButton]="true"
+                    lgMarginTop="2"
+                    >
+                    Search
+                    <lg-icon name="search" />
+                  </button>
 
                   <lg-input-field>
                     Text input with prefix
@@ -1664,6 +1667,50 @@
 <!--    </div>-->
 <!--  </div>-->
 <footer lg-footer>
-  <lg-footer-logo src="assets/legal-and-general-logo.svg" />
+  <lg-footer-footnote>
+    All products and services are subject to terms and conditions. Legal &amp; General is a registered trademark.
+  </lg-footer-footnote>
+
+  <lg-footer-social>
+    <a href="https://facebook.com/legalandgeneral" target="_blank" aria-label="Facebook">
+      <lg-icon name="facebook" size="sm"></lg-icon>
+    </a>
+    <a href="https://linkedin.com/company/legal-and-general" target="_blank" aria-label="LinkedIn">
+      <lg-icon name="linkedin" size="sm"></lg-icon>
+    </a>
+    <a href="https://youtube.com/legalandgeneral" target="_blank" aria-label="YouTube">
+      <lg-icon name="youtube" size="sm"></lg-icon>
+    </a>
+  </lg-footer-social>
+
+  <lg-footer-nav>
+    <lg-footer-nav-item>
+      <a href="#" target="_blank">My account</a>
+    </lg-footer-nav-item>
+    <lg-footer-nav-item>
+      <a href="#" target="_blank">Support centre</a>
+    </lg-footer-nav-item>
+    <lg-footer-nav-item>
+      <a href="#" target="_blank">Contact</a>
+    </lg-footer-nav-item>
+    <lg-footer-nav-item>
+      <a href="#" target="_blank">Accessibility</a>
+    </lg-footer-nav-item>
+    <lg-footer-nav-item>
+      <a href="#" target="_blank">Security</a>
+    </lg-footer-nav-item>
+    <lg-footer-nav-item>
+      <a href="#" target="_blank">Legal and regulatory</a>
+    </lg-footer-nav-item>
+    <lg-footer-nav-item>
+      <a href="#" target="_blank">Privacy</a>
+    </lg-footer-nav-item>
+    <lg-footer-nav-item>
+      <button class="cookie-settings-button">Cookie settings</button>
+    </lg-footer-nav-item>
+  </lg-footer-nav>
+
+  <lg-footer-logo src="assets/legal-and-general-logo.svg" alt="Legal and General" />
+  <lg-footer-copyright>© Legal &amp; General Group plc 2026</lg-footer-copyright>
 </footer>
 </lg-page>

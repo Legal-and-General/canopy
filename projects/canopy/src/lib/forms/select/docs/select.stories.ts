@@ -13,6 +13,9 @@ import { LgSelectDirective } from '../select.directive';
 const template = `
 <lg-select-field [block]="block">
   {{ label }}
+  @if (optional) {
+    <span class="lg-label--optional">(optional)</span>
+  }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>
   }
@@ -39,6 +42,7 @@ class ReactiveFormComponent {
 
   @Input() block: boolean;
   @Input() hint: string;
+  @Input() optional: boolean;
   @Input() label: string;
   @Input() options: Array<string>;
 
@@ -69,7 +73,6 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Forms/Select/Examples',
-  tags: [ 'pending' ],
   component: LgSelectFieldComponent,
   decorators: [
     moduleMetadata({
@@ -98,6 +101,11 @@ export default {
       },
     },
     _hintElement: {
+      table: {
+        disable: true,
+      },
+    },
+    _optionalElement: {
       table: {
         disable: true,
       },
@@ -134,6 +142,7 @@ export const Select = {
         (selectChange)="selectChange($event)"
         [block]="block"
         [disabled]="disabled"
+        [optional]="optional"
         [hint]="hint"
         [label]="label"
         [options]="options"
@@ -141,8 +150,9 @@ export const Select = {
     `,
   }),
   args: {
-    label: 'Color',
-    hint: 'Please select a color',
+    label: 'Colour',
+    hint: 'Please select a colour',
+    optional: false,
     block: false,
     options: [ 'Red', 'Blue', 'Green', 'Yellow' ],
     disabled: false,

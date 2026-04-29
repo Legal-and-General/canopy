@@ -1,16 +1,11 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Forms/Text input/Guide" tags={['pending']}/>
+<Meta title="Components/Forms/Text input/Guide"/>
 
 # Text input
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">Text input allows the user to enter a single line of text into a form.</p>
-
-![example](docs/text-input/example.png)
 
 ## Usage
 
@@ -27,10 +22,7 @@ The component contains a `<label>` and an `<input>` element. The `lgInput` direc
 Import the text input component in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgInputComponent ],
-});
+import { LgInputFieldComponent, LgInputDirective } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -40,6 +32,19 @@ and in your HTML:
   Name
   <lg-hint>Please enter your name</lg-hint>
   <input lgInput size="12" formControlName="name" />
+</lg-input-field>
+```
+
+### Optional fields
+
+For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
+
+```html
+<lg-input-field>
+  Name
+  <span class="lg-label--optional">(optional)</span>
+  <lg-hint>Please enter your name</lg-hint>
+  <input lgInput formControlName="name" />
 </lg-input-field>
 ```
 
@@ -54,8 +59,6 @@ The user can navigate between inputs using the tab key on desktop, and forward /
 ### Prefixes and suffixes
 
 You can add prefixes (i.e. currency symbols), suffixes (i.e. percentage) using the `lgSuffix` and `lgPrefix` directives.
-
-![prefix-suffix](docs/text-input/prefix-suffix.png)
 
 #### Text prefix
 
@@ -77,24 +80,6 @@ You can add prefixes (i.e. currency symbols), suffixes (i.e. percentage) using t
 </lg-input-field>
 ```
 
-### Input buttons
-
-Buttons can be added within input fields to provide functionality linked to the input. The `lgSuffix` directive needs to be added to the button to place it in the correct place. Only small size buttons should be placed in the input field.
-
-![button](docs/text-input/button.png)
-
-#### Button suffix
-
-```html
-<lg-input-field>
-  Name
-  <input lgInput formControlName="name" />
-  <button lg-button lgSuffix>
-    Search
-  </button>
-</lg-input-field>
-```
-
 #### Icon Button suffix with add-on class
 
 There is an additional add-on button variant for adding a button to the input field which inherits the button spacing but no background or border colours.
@@ -104,7 +89,38 @@ There is an additional add-on button variant for adding a button to the input fi
   Name
   <input lgInput formControlName="name" />
   <button lg-button lgSuffix [iconButton]="true" priority="add-on">
-    <lg-icon name="search" />
+    Close
+    <lg-icon name="close-spot-outline" />
+  </button>
+</lg-input-field>
+```
+
+#### External button
+
+You can add a button that sits outside the input border using the `lgInputFieldExternalButton` directive. This is useful for actions like search or submit buttons.
+
+```html
+<lg-input-field>
+  Name
+  <input lgInput formControlName="name" />
+  <button lg-button lgInputFieldExternalButton priority="primary">
+  </button>
+</lg-input-field>
+```
+
+You can combine multiple suffixes with an external button:
+
+```html
+<lg-input-field>
+  Name
+  <input lgInput formControlName="name" />
+  <span lgSuffix>%</span>
+  <button lg-button lgSuffix [iconButton]="true" priority="add-on">
+    Close
+    <lg-icon name="close-spot-outline" />
+  </button>
+  <button lg-button lgInputFieldExternalButton priority="primary">
+    Submit
   </button>
 </lg-input-field>
 ```
@@ -113,8 +129,6 @@ There is an additional add-on button variant for adding a button to the input fi
 
 ### Do
 
-![do](docs/text-input/do.png)
-
 1. **Do** use labels and supporting text to help provide context.
 2. **Do** keep labels clear, concise and relevant.
 3. **Do** use a textarea for multi-line content (Angular component to be built).
@@ -122,8 +136,6 @@ There is an additional add-on button variant for adding a button to the input fi
 5. **Do** keep input widths relative to the information requested.
 
 ### Don't
-
-![dont](docs/text-input/dont.png)
 
 1. **Don't** truncate label text.
 2. **Don't** use text inputs when a pre-defined response is required, use the select component instead.

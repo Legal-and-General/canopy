@@ -20,6 +20,7 @@ import { LgValidationComponent } from '../validation';
 import { LgButtonComponent } from '../../button';
 import { LgSuffixDirective } from '../../suffix';
 import { LgPrefixDirective } from '../../prefix';
+import { LgInputFieldExternalButtonDirective } from '../input-field-external-button';
 
 import { LgInputDirective } from './input.directive';
 
@@ -38,6 +39,7 @@ let nextUniqueId = 0;
     LgSuffixDirective,
     LgPrefixDirective,
     LgInputDirective,
+    LgInputFieldExternalButtonDirective,
   ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
@@ -50,6 +52,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _validationElement: LgValidationComponent;
   private _suffixChildren: QueryList<LgSuffixDirective>;
   private _prefixChildren: QueryList<LgPrefixDirective>;
+  private _externalButtonChildren: QueryList<LgInputFieldExternalButtonDirective>;
   /*
   The input field control element mimics the border of the input field.
   This allows us to add buttons and icons inside the input field.
@@ -135,7 +138,8 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
     this._validationElement = element;
   }
 
-  @ContentChild(LgButtonComponent) buttonElement: LgButtonComponent;
+  @ContentChildren(LgButtonComponent, { descendants: true })
+  allButtonElements: QueryList<LgButtonComponent>;
 
   @ContentChildren(LgSuffixDirective)
   set suffixChildren(elements: QueryList<LgSuffixDirective>) {
@@ -169,11 +173,28 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
     return this._prefixChildren;
   }
 
+  @ContentChildren(LgInputFieldExternalButtonDirective)
+  set externalButtonChildren(elements: QueryList<LgInputFieldExternalButtonDirective>) {
+    this._externalButtonChildren = elements;
+  }
+  get externalButtonChildren() {
+    return this._externalButtonChildren;
+  }
+
   ngAfterContentInit(): void {
-    if (this.inputElement && this.buttonElement) {
-      this.inputElement.control.statusChanges.subscribe(status => {
-        this.buttonElement.disabled = status === 'DISABLED';
-      });
+    if (this.inputElement?.control && this.allButtonElements) {
+      const updateDisabledState = (status: string) => {
+        const isDisabled = status === 'DISABLED';
+
+        this.allButtonElements.forEach(button => {
+          button.disabled = isDisabled;
+        });
+      };
+
+      updateDisabledState(this.inputElement.control.status);
+
+      this.disabledStateChanges =
+        this.inputElement.control.statusChanges.subscribe(updateDisabledState);
     }
   }
 

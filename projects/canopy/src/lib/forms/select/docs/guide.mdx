@@ -1,17 +1,12 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
 import * as SelectStories from './select.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Forms/Select/Guide" tags={['pending']}/>
+<Meta title="Components/Forms/Select/Guide" />
 
 # Select
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">A drop down list that enables the user to choose between several options.</p>
-
-![example](docs/select/example.png)
 
 ## Usage
 
@@ -20,15 +15,27 @@ Use this component when users need to make a single selection from a list of opt
 Import the select component and directive in your application:
 
 ```js
-@NgModule({
-  ...,
-  imports: [ ..., LgSelectFieldComponent, LgSelectDirective ],
-});
+import { LgSelectFieldComponent, LgSelectDirective } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 <Source of={SelectStories.Select} />
+
+### Optional fields
+
+For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
+
+```html
+<lg-select-field>
+  Country
+  <span class="lg-label--optional">(optional)</span>
+  <select lgSelect formControlName="country">
+    <option value="">Select</option>
+    <option value="uk">United Kingdom</option>
+  </select>
+</lg-select-field>
+```
 
 ## How it works
 
@@ -48,14 +55,10 @@ While the select box is styled by Canopy, the select menu styling is handled by 
 
 ### Do
 
-![do](docs/select/do.png)
-
 1. **Do** use a select component when the preset options is a long list (more than five) and space is limited.
 2. **Do** list options in a predictable format, such as alphabetical, chronological, or most frequently used.
 
 ### Don't
-
-![dont](docs/select/dont.png)
 
 1. **Don't** use a select component when typing may be faster, such as date of birth or postcode; use text input instead.
 2. **Don't** use a select component as a way of presenting a single selection; use a checkbox instead.

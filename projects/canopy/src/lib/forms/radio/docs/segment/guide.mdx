@@ -1,16 +1,11 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../../docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Forms/Segment/Guide" tags={['pending']}/>
+<Meta title="Components/Forms/Segment/Guide" />
 
 # Segment
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">The segment control can be used on forms where the user is required to make a conscious decision between several choices (min 2, max 5) and vertical space on desktop is limited.</p>
-
-![example](docs/segment/example.png)
 
 ## Usage
 
@@ -23,10 +18,10 @@ The segment component is a variant of the radio component.
 Import the radio components into your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgRadioComponent, etc. ],
-});
+import {
+   LgRadioGroupComponent,
+   LgRadioButtonComponent,
+ } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -53,14 +48,10 @@ The segment control is made up of a segment group and segment buttons. A segment
 
 ### Do
 
-![do](docs/segment/do.png)
-
 1. **Do** use when only one option can be selected from multiple options and where vertical space is limited.
 2. **Do** use the vertical variant on mobile, when space may not permit use of the horizontal variant.
 
 ### Don't
-
-![dont](docs/segment/dont.png)
 
 1. **Don't** use when multiple items from a list can be selected, instead use checkboxes.
 2. **Don't** use when the preset options is a long list (more than five), use the select component instead.

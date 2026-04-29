@@ -121,7 +121,6 @@ class FormGroupChildComponent implements OnInit {
 
       <lg-input-field>
         Text
-        <input lgInput formControlName="text" />
         <lg-hint>This is a standard input field</lg-hint>
         @if (isControlInvalid(text, validationForm) && text.hasError('required')) {
           <lg-validation> Text is a required field </lg-validation>
@@ -132,11 +131,18 @@ class FormGroupChildComponent implements OnInit {
         @if (isControlInvalid(text, validationForm) && text.hasError('invalid')) {
           <lg-validation> Please enter a valid value </lg-validation>
         }
+        <input lgInput formControlName="text" />
       </lg-input-field>
 
       <lg-select-field>
         Select field
         <lg-hint>This is a standard single option select field</lg-hint>
+        @if (isControlInvalid(select, validationForm) && select.hasError('invalid')) {
+          <lg-validation> Please select a valid option </lg-validation>
+        }
+        @if (isControlInvalid(select, validationForm) && select.hasError('required')) {
+          <lg-validation> Select is a required field </lg-validation>
+        }
         <select lgSelect formControlName="select">
           <option value="blue">Blue</option>
           <option value="red">Red</option>
@@ -144,53 +150,47 @@ class FormGroupChildComponent implements OnInit {
           <option value="yellow">Yellow</option>
           <option value="invalid">Invalid</option>
         </select>
-        @if (isControlInvalid(select, validationForm) && select.hasError('invalid')) {
-          <lg-validation> Please select a valid option </lg-validation>
-        }
-        @if (isControlInvalid(select, validationForm) && select.hasError('required')) {
-          <lg-validation> Select is a required field </lg-validation>
-        }
       </lg-select-field>
 
       <lg-radio-group formControlName="radio">
         Radio option
         <lg-hint>This is a standard radio group</lg-hint>
-        <lg-radio-button value="yellow">Yellow</lg-radio-button>
-        <lg-radio-button value="red">Red</lg-radio-button>
-        <lg-radio-button value="blue">Blue</lg-radio-button>
-        <lg-radio-button value="invalid">Invalid</lg-radio-button>
         @if (isControlInvalid(radio, validationForm) && radio.hasError('invalid')) {
           <lg-validation> Please select a valid option </lg-validation>
         }
         @if (isControlInvalid(radio, validationForm) && radio.hasError('required')) {
           <lg-validation> Please select an option </lg-validation>
         }
+        <lg-radio-button value="yellow">Yellow</lg-radio-button>
+        <lg-radio-button value="red">Red</lg-radio-button>
+        <lg-radio-button value="blue">Blue</lg-radio-button>
+        <lg-radio-button value="invalid">Invalid</lg-radio-button>
       </lg-radio-group>
       <lg-segment-group formControlName="segment">
         Segment option
         <lg-hint>This is a standard segment group</lg-hint>
-        <lg-segment-button value="yellow">Yellow</lg-segment-button>
-        <lg-segment-button value="red">Red</lg-segment-button>
-        <lg-segment-button value="blue">Blue</lg-segment-button>
-        <lg-segment-button value="invalid">Invalid</lg-segment-button>
         @if (isControlInvalid(segment, validationForm) && segment.hasError('invalid')) {
           <lg-validation> Please select a valid option </lg-validation>
         }
         @if (isControlInvalid(radio, validationForm) && radio.hasError('required')) {
           <lg-validation> Please select an option </lg-validation>
         }
+        <lg-segment-button value="yellow">Yellow</lg-segment-button>
+        <lg-segment-button value="red">Red</lg-segment-button>
+        <lg-segment-button value="blue">Blue</lg-segment-button>
+        <lg-segment-button value="invalid">Invalid</lg-segment-button>
       </lg-segment-group>
 
       <lg-checkbox-group formControlName="colors">
         Checkbox group
         <lg-hint>This is a standard checkbox group</lg-hint>
+        @if (isControlInvalid(colors, validationForm) && colors.hasError('required')) {
+          <lg-validation> Please select an option </lg-validation>
+        }
         <lg-toggle value="red">Red</lg-toggle>
         <lg-toggle value="yellow">Yellow</lg-toggle>
         <lg-toggle value="green">Green</lg-toggle>
         <lg-toggle value="blue">Blue</lg-toggle>
-        @if (isControlInvalid(colors, validationForm) && colors.hasError('required')) {
-          <lg-validation> Please select an option </lg-validation>
-        }
       </lg-checkbox-group>
 
       <lg-toggle formControlName="checkbox" [value]="true" variant="checkbox">
@@ -245,7 +245,6 @@ class FormGroupChildComponent implements OnInit {
       <lg-input-field>
         Sort Code
         <lg-hint>Must be 6 digits long, for example 00-00-00</lg-hint>
-        <input lgInput lgSortCode formControlName="sortCode" />
         @if (isControlInvalid(sortCode, validationForm)) {
           <lg-validation>
             @if (sortCode.hasError('required')) {
@@ -256,6 +255,7 @@ class FormGroupChildComponent implements OnInit {
             }
           </lg-validation>
         }
+        <input lgInput lgSortCode formControlName="sortCode" />
       </lg-input-field>
 
       <button lg-button type="submit" priority="primary">Submit</button>
@@ -360,7 +360,6 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Forms/Form validation/Examples',
-  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [ ReactiveFormsModule, ReactiveFormComponent ],

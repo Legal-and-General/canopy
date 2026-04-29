@@ -3,11 +3,12 @@
   [attr.tabindex]="focus ? '-1' : null"
   [lgFocus]="focus"
 >
-  <legend lg-label [attr.for]="id" lgMarginBottom="3">
+  <legend lg-label [attr.for]="id">
     <ng-content />
   </legend>
+  <ng-content select=".lg-label--optional" />
   <ng-content select="lg-hint" />
-  <ng-content select="lg-toggle, lg-checkbox, lg-filter-checkbox" />
   <ng-content select="lg-validation" />
+  <ng-content select="lg-toggle, lg-checkbox, lg-filter-checkbox" />
 </fieldset>
 <ng-content select="lg-hint" />

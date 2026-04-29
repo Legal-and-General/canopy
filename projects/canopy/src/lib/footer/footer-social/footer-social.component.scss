@@ -1,0 +1,16 @@
+.lg-footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: var(--footer-gap);
+  gap: var(--footer-link-group-social-gap);
+
+  .social-link {
+    color: var(--link-mono-rest-colour);
+    padding: 0;
+
+    .lg-icon {
+      width: var(--button-icon-width);
+      height: var(--button-icon-width);
+    }
+  }
+}

@@ -63,11 +63,11 @@ describe('LgSelectFieldComponent', () => {
     fixture = MockRender(`
       <lg-select-field [block]="${block}">
         Label
+        <lg-hint id="${hintId}">Hint</lg-hint>
+        <lg-validation id="${errorId}">Error</lg-validation>
         <select lgSelect>
           <option value="red">Red</option>
         </select>
-        <lg-hint id="${hintId}">Hint</lg-hint>
-        <lg-validation id="${errorId}">Error</lg-validation>
       </lg-select-field>
     `);
 

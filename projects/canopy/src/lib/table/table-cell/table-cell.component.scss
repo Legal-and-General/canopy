@@ -43,6 +43,10 @@
 .lg-table-cell__content {
   text-align: end;
   margin-left: auto;
+
+  .lg-label {
+    margin-bottom: var(--space-2);
+  }
 }
 
 .lg-table-cell__content--hidden-label {

@@ -64,7 +64,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   @Input() focus: boolean;
   @Input() ariaDescribedBy: string;
   @Input() variant: ToggleVariant = 'checkbox';
-  @Input() size: CheckboxSize = 'sm';
+  @Input() size: CheckboxSize = 'lg';
   @Input()
   _disabled = false;
   get disabled(): boolean {
@@ -79,6 +79,12 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   @HostBinding('class.lg-toggle') class = true;
   @HostBinding('class.lg-toggle--error') get errorClass() {
     return this.errorState.isControlInvalid(this.control, this.controlContainer);
+  }
+  @HostBinding('class.lg-toggle--sm') get sizeSmClass() {
+    return this.size === 'sm';
+  }
+  @HostBinding('class.lg-toggle--lg') get sizeLgClass() {
+    return this.size === 'lg';
   }
 
   @ViewChild('input', { static: true }) inputRef: ElementRef;

@@ -64,22 +64,48 @@ Use Angular reactive forms. The `lgInput` directive goes on the `<input>` elemen
 
 ## Button Suffix
 
-Only use `size="sm"` buttons inside an input field.
+Use the `lgSuffix` directive for buttons inside the input border (add-on variant).
 
 ```html
-<!-- Standard button suffix -->
-<lg-input-field>
-  Search
-  <input lgInput formControlName="query" />
-  <button lg-button lgSuffix size="sm">Go</button>
-</lg-input-field>
-
 <!-- Icon-only add-on button -->
 <lg-input-field>
   Search
   <input lgInput formControlName="query" />
   <button lg-button lgSuffix [iconButton]="true" priority="add-on">
-    <lg-icon name="search"></lg-icon>
+    Clear
+    <lg-icon name="close"></lg-icon>
+  </button>
+</lg-input-field>
+```
+
+---
+
+## External Button
+
+Use the `lgInputFieldExternalButton` directive for buttons outside the input border (e.g., search or submit).
+
+```html
+<lg-input-field>
+  Search
+  <input lgInput formControlName="query" />
+  <button lg-button lgInputFieldExternalButton priority="primary">
+  </button>
+</lg-input-field>
+```
+
+You can combine multiple suffixes with an external button:
+
+```html
+<lg-input-field>
+  Amount
+  <input lgInput formControlName="amount" />
+  <span lgSuffix>%</span>
+  <button lg-button lgSuffix [iconButton]="true" priority="add-on">
+    Clear
+    <lg-icon name="close" />
+  </button>
+  <button lg-button lgInputFieldExternalButton priority="primary">
+    Submit
   </button>
 </lg-input-field>
 ```

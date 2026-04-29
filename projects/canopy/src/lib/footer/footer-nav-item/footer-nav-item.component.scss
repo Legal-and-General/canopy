@@ -1,63 +1,27 @@
 @use '../../../styles/mixins';
 
-.lg-footer-nav-item {
-  display: block;
-
-  &--primary {
-    margin-bottom: var(--space-3);
-    list-style-type: none;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    @include mixins.lg-breakpoint('lg') {
-      margin-top: var(--space-4);
-      margin-bottom: 0;
-      flex: 0 0 50%;
-    }
-  }
-
-  &--secondary {
-    margin-bottom: var(--space-4);
-    list-style-type: none;
-
-    @include mixins.lg-font-size('0-6');
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    @include mixins.lg-breakpoint('lg') {
-      display: inline-block;
-      margin-right: var(--space-3);
-      margin-bottom: 0;
-
-      &:not(:first-child):before {
-        content: '';
-        display: inline-block;
-        width: var(--border-width);
-        height: var(--space-2);
-        background-color: var(--footer-text-color);
-        margin-right: var(--space-3);
-      }
-    }
-  }
-}
-
 .lg-footer-action {
-  @include mixins.lg-unstyled-link;
-
-  text-decoration: none;
-  color: var(--footer-text-color);
+  gap: var(--link-gap);
+  color: var(--link-mono-rest-colour);
+  display: inline-flex;
 
   &:hover {
-    text-decoration: underline;
+    color: var(--link-mono-hover-colour);
+  }
 
-    &:focus-visible {
-      text-decoration: none;
-      @include mixins.lg-focus-outline();
-    }
+  &:focus-visible {
+    color: var(--link-mono-focus-colour);
+    border-radius: var(--link-mono-focus-border-radius);
+    outline: var(--link-mono-focus-border-width) solid currentColor;
+    outline-offset: 0;
+  }
+
+  &:active {
+    color: var(--link-mono-active-colour);
+  }
+
+  &:visited {
+    color: var(--link-mono-visited-colour);
   }
 
   &--button {
@@ -65,5 +29,6 @@
     border: 0;
     cursor: pointer;
     font-size: inherit;
+    padding: 0;
   }
 }

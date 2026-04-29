@@ -14,13 +14,8 @@
   &__prefix,
   &__suffix {
     display: flex;
-    font-weight: var(--font-weight-500);
+    font-weight: var(--font-weight-700);
     align-items: center;
-
-    .lg-icon {
-      height: var(--space-5);
-      width: var(--space-5);
-    }
   }
 
   &--focus &__prefix {
@@ -30,50 +25,76 @@
   }
 
   &__prefix {
-    margin-left: var(--suffix-margin);
+    margin-left: var(--text-input-common-padding-x);
   }
 
   &__suffix {
-    margin-right: var(--suffix-margin);
+    margin-right: var(--text-input-common-padding-x);
 
     > .lg-btn {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__external-btn {
+    display: inline-flex;
+    margin-left: var(--button-gap);
+    margin-top: 0;
+    align-self: flex-end;
+
+    .lg-btn {
       margin-bottom: 0;
       margin-top: 0;
-      margin-right: var(--suffix-button-margin);
-    }
-
-    > .lg-btn:last-child {
-      margin-right: calc((-1 * var(--suffix-margin)) + var(--suffix-button-margin));
+      display: inline-block;
     }
   }
 
   &__inputs {
     display: inline-flex;
     align-items: center;
-    background-color: var(--colour-greyscale-0);
-    border: solid var(--border-width) var(--border-color);
-    border-radius: var(--border-radius-sm);
+    border-radius: var(--text-input-common-border-radius);
+    border: var(--text-input-rest-border-width) solid var(--text-input-rest-border-colour);
+    background: var(--text-input-rest-background-colour);
+    min-height: var(--input-common-scale-xxl);
+    max-height: var(--input-common-scale-xxl);
 
     #{$block}--hover & {
-      border-color: var(--border-hover-color);
+      border-color: var(--text-input-hover-border-colour);
+    }
+
+    #{$block}--focus & {
+      color: var(--text-input-focus-colour);
+      border: var(--text-input-rest-border-width) solid
+        var(--text-input-focus-border-colour);
+      background: var(--text-input-focus-background-colour);
+      box-shadow:
+        0 0 0 var(--text-input-rest-border-width) var(--text-input-focus-border-colour),
+        0 0 0 var(--text-input-focus-border-width)
+          var(--text-input-focus-background-colour);
+    }
+
+    #{$block}--disabled & {
+      color: var(--text-input-disabled-colour);
+      border: var(--text-input-disabled-border-width) solid
+        var(--text-input-disabled-border-colour);
+      background: var(--text-input-disabled-background-colour);
+      pointer-events: none;
     }
 
     #{$block}--error & {
-      border-color: var(--form-error-border-color);
+      color: var(--text-input-error-colour);
+      border: var(--text-input-rest-border-width) solid
+        var(--text-input-error-border-colour);
+      background: var(--text-input-error-background-colour);
+      box-shadow:
+        0 0 0 var(--text-input-rest-border-width) var(--text-input-error-border-colour),
+        0 0 0 var(--text-input-error-border-width)
+          var(--text-input-error-background-colour);
     }
 
     #{$block}--error#{$block}--hover#{$block}--focus & {
       color: inherit;
-    }
-
-    #{$block}--disabled & {
-      color: var(--disabled-color);
-      background-color: var(--background-disabled-color);
-      border-color: var(--border-disabled-color);
-    }
-
-    #{$block}--focus & {
-      @include mixins.lg-focus-outline;
     }
 
     #{$block}--block & {
@@ -92,11 +113,13 @@
   flex: 1 0 auto;
   display: block;
   border: none;
-  line-height: var(--input-line-height);
   margin: 0;
-  padding: var(--input-vertical-padding) var(--space-4);
   outline: 0;
   max-width: 100%;
+  background: none;
+  padding: var(--text-input-common-padding-y) var(--text-input-common-padding-x);
+  min-height: var(--input-common-scale-xxl);
+  max-height: var(--input-common-scale-xxl);
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -106,9 +129,5 @@
 
   &:-webkit-autofill {
     -webkit-background-clip: text;
-  }
-
-  &--error {
-    color: var(--form-error-color);
   }
 }

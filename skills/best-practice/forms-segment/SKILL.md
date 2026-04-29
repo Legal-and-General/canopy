@@ -74,6 +74,17 @@ import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-genera
 
 ---
 
+## Accessibility
+
+- Always use `lg-segment-group` to group related segment buttons with a clear label.
+- Use `lg-hint` to provide extra context where needed.
+- Ensure all segment buttons have clear, descriptive labels.
+- There must be clear colour contrast between selected and unselected states.
+- Keyboard users use Tab to move into/out of the segment group, and arrow keys to navigate between options and select them (segment buttons are implemented as radios).
+- Only one segment button can be selected at a time within a group.
+
+---
+
 ## Design Constraints
 
 - In the default state, nothing is pre-selected (unlike radio buttons, where one is always selected).

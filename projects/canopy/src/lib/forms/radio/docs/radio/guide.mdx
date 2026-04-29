@@ -1,17 +1,12 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../../docs/common/feedback.md';
 import * as RadioStories from './radio.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Forms/Radio/Guide" tags={['pending']}/>
+<Meta title="Components/Forms/Radio/Guide"/>
 
 # Radio
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">Selection control for choosing from a predefined set of options.</p>
-
-![example](docs/forms/radio/example.png)
 
 ## Usage
 
@@ -24,15 +19,25 @@ Use a radio group when you want the user to make a single selection from 2 or mo
 Import the radio components into your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgRadioComponent, etc. ],
-});
+import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 <Source of={RadioStories.Radio} />
+
+### Optional fields
+
+For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
+
+```html
+<lg-radio-group formControlName="colour">
+  Favourite colour
+  <span class="lg-label--optional">(optional)</span>
+  <lg-radio-button value="red">Red</lg-radio-button>
+  <lg-radio-button value="blue">Blue</lg-radio-button>
+</lg-radio-group>
+```
 
 ## How it works
 
@@ -46,14 +51,10 @@ A radio button contains a circular toggle and a label, and will always appear in
 
 ### Do
 
-![do](docs/forms/radio/do.png)
-
 1. **Do** use when only one item can be selected from a list.
 2. **Do** lay out the options vertically, with one choice per line.
 
 ### Don't
-
-![dont](docs/forms/radio/dont.png)
 
 1. **Don't** use when multiple items from a list can be selected, instead use checkboxes.
 2. **Don't** use radio buttons when the preset options is a long list (more than 5) and space is limited, use the select component instead.
@@ -79,8 +80,8 @@ A radio button contains a circular toggle and a label, and will always appear in
 | `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`    | `lg-radio-button-${++nextUniqueId}` | No       |
 | `name`            | HTML name attribute                                                                                                           | `string`    | `null`                              | Yes      |
 | `value`           | HTML value attribute                                                                                                          | `string`    | `null`                              | Yes      |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate  | `boolean`   | `null`                              | No       |
-| `size`            | The size of the radio button                                                                                                  | `RadioSize` | `sm`                                | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate  | `string`    | `null`                              | No       |
+| `size`            | The size of the radio button                                                                                                  | `RadioSize` | `lg`                                | No       |
 
 #### Outputs
 

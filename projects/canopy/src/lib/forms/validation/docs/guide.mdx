@@ -1,23 +1,18 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Forms/Form validation/Guide" tags={['pending']}/>
+<Meta title="Components/Forms/Form validation/Guide" />
 
 # Form validation
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">Form validation is the process of checking the inputs of a form against expected results, allowing those inputs to be submitted or otherwise returning an error. This page describes our recommended methods of implementing form validation in your application.</p>
-
-![validation](docs/forms/validation/validation.png)
 
 ## How errors should display
 
 When the user submits a form and it is validated as having errors, the following things should happen:
 
 1. All fields with errors are highlighted as having errors.
-2. Inline messages display beneath each field telling the user how to fix the problem. [Read the writing guide](./?path=/docs/principles-writing--docs) to find out how to write good error messages.
+2. Inline messages display above each field telling the user how to fix the problem. [Read the writing guide](./?path=/docs/principles-writing--docs) to find out how to write good error messages.
 3. The first field with an error automatically gets focus so the user knows where to begin.
 
 ## Usage
@@ -61,7 +56,6 @@ In your HTML, add the validation components with the appropriate structural dire
   #userForm="ngForm">
     <lg-input-field>
       Text
-      <input lgInput formControlName="username" />
       <lg-hint>This is a standard input field</lg-hint>
     @if (isControlInvalid(text, userForm) && text.hasError('required')) {
       <lg-validation>
@@ -73,6 +67,7 @@ In your HTML, add the validation components with the appropriate structural dire
         Username needs to be at least 4 characters
       </lg-validation>
     }
+      <input lgInput formControlName="username" />
   </lg-input-field>
 </form>
 ```

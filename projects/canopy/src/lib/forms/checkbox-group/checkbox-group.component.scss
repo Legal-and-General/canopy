@@ -5,14 +5,27 @@
   margin-bottom: var(--component-margin);
 
   .lg-toggle {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--checkbox-group-lg-gap);
+  }
+
+  .lg-toggle--sm {
+    margin-bottom: var(--checkbox-group-sm-gap);
+  }
+
+  .lg-toggle:last-of-type {
+    margin-bottom: 0;
   }
 }
 
 .lg-checkbox-group--inline {
   .lg-toggle {
     display: inline-block;
-    margin-right: var(--space-5);
+    margin-right: var(--checkbox-group-lg-gap);
+    margin-bottom: 0;
+  }
+
+  .lg-toggle--sm {
+    margin-right: var(--checkbox-group-sm-gap);
   }
 
   .lg-toggle:last-of-type {

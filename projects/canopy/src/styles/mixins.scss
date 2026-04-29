@@ -402,27 +402,27 @@ $breakpoints: (
 
 @mixin lg-card {
   background-color: var(--card-bg-color);
-  border-radius: var(--container-border-radius-sm);
+  border-radius: var(--container-common-border-radius-sm);
   margin-bottom: var(--grid-gutter);
   padding: var(--component-padding);
 
   @include lg-breakpoint('md') {
-    border-radius: var(--container-border-radius-md);
+    border-radius: var(--container-common-border-radius-md);
   }
   @include lg-breakpoint('lg') {
-    border-radius: var(--container-border-radius-lg);
+    border-radius: var(--container-common-border-radius-lg);
   }
 }
 
 @mixin lg-content-area {
-  border-radius: var(--container-border-radius-sm);
+  border-radius: var(--container-common-border-radius-sm);
   background: var(--content-area-background-colour);
 
   @include lg-breakpoint('md') {
-    border-radius: var(--container-border-radius-md);
+    border-radius: var(--container-common-border-radius-md);
   }
   @include lg-breakpoint('lg') {
-    border-radius: var(--container-border-radius-lg);
+    border-radius: var(--container-common-border-radius-lg);
   }
 }
 

@@ -13,18 +13,20 @@ import { LgInputDirective } from '../input.directive';
 import { LgSuffixDirective } from '../../../suffix';
 import { LgHintComponent } from '../../hint';
 import { LgIconComponent } from '../../../icon';
+import { LgInputFieldExternalButtonDirective } from '../../input-field-external-button';
 
 interface Config {
   block?: boolean;
   buttonText?: boolean;
   disabled?: boolean;
   hint?: string | null;
+  optional?: boolean;
   icon?: string;
   iconButton?: boolean;
   label?: string;
   showLabel?: boolean;
   showButtonFirstSuffix?: boolean;
-  showButtonSecondSuffix?: boolean;
+  showExternalButton?: boolean;
   showTextPrefix?: boolean;
   showTextSuffix?: boolean;
   size?: number;
@@ -43,6 +45,7 @@ function createInputStory(args: LgInputFieldComponent) {
         [buttonVariant]="buttonVariant"
         [disabled]="disabled"
         [hint]="hint"
+        [optional]="optional"
         [icon]="icon"
         [iconButton]="iconButton"
         [label]="label"
@@ -51,7 +54,7 @@ function createInputStory(args: LgInputFieldComponent) {
         [size]="size"
         [suffix]="suffix"
         [showButtonFirstSuffix]="showButtonFirstSuffix"
-        [showButtonSecondSuffix]="showButtonSecondSuffix"
+        [showExternalButton]="showExternalButton"
         [showTextPrefix]="showTextPrefix"
         [showTextSuffix]="showTextSuffix"
       ></lg-reactive-form>
@@ -68,12 +71,13 @@ function setupInputStoryValues(obj, code, config?: Config) {
     hint: config?.hint === null
       ? ''
       : 'Please enter your name',
+    optional: config?.optional || false,
     icon: 'search',
     label: config?.label || 'Name',
     showLabel: true,
     prefix: '£',
     showButtonFirstSuffix: config?.showButtonFirstSuffix,
-    showButtonSecondSuffix: config?.showButtonSecondSuffix,
+    showExternalButton: config?.showExternalButton,
     iconButton: true,
     showTextPrefix: config?.showTextPrefix,
     showTextSuffix: config?.showTextSuffix,
@@ -93,6 +97,9 @@ function setupInputStoryValues(obj, code, config?: Config) {
 const inputTemplate = `
 <lg-input-field [block]="block" [showLabel]="showLabel">
   {{ label }}
+  @if (optional) {
+    <span class="lg-label--optional">(optional)</span>
+  }
   @if (hint) {
     <lg-hint>{{ hint }}</lg-hint>
   }
@@ -108,13 +115,13 @@ const inputTemplate = `
       priority="add-on"
     >
       Close
-      <lg-icon name="close"></lg-icon>
+      <lg-icon name="close-spot-outline"></lg-icon>
     </button>
   }
-  @if (showButtonSecondSuffix) {
+  @if (showExternalButton) {
     <button
       lg-button
-      lgSuffix
+      lgInputFieldExternalButton
       [iconButton]="iconButton"
       [priority]="buttonVariant"
     >
@@ -144,6 +151,7 @@ const inputTemplate = `
     LgButtonComponent,
     LgIconComponent,
     LgHintComponent,
+    LgInputFieldExternalButtonDirective,
   ],
 })
 class ReactiveFormComponent {
@@ -165,13 +173,14 @@ class ReactiveFormComponent {
   @Input() buttonText: string;
   @Input() buttonVariant: ButtonPriority;
   @Input() hint: string;
+  @Input() optional: boolean;
   @Input() icon: string;
   @Input() iconButton: boolean;
   @Input() label: string;
   @Input() showLabel: boolean;
   @Input() prefix: string;
   @Input() showButtonFirstSuffix: boolean;
-  @Input() showButtonSecondSuffix: boolean;
+  @Input() showExternalButton: boolean;
   @Input() showTextPrefix: boolean;
   @Input() showTextSuffix: boolean;
   @Input() size: number;
@@ -194,7 +203,6 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Forms/Text input/Examples',
-  tags: [ 'pending' ],
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({
@@ -265,7 +273,7 @@ export default {
         disable: true,
       },
     },
-    showButtonSecondSuffix: {
+    showExternalButton: {
       table: {
         disable: true,
       },
@@ -344,7 +352,7 @@ setupInputStoryValues(WithButtonSuffix, inputTemplate, {
 });
 
 export const WithTextSuffix = {
-  name: 'With test suffix',
+  name: 'With text suffix',
   render: (args: LgInputFieldComponent) => createInputStory(args),
 };
 
@@ -361,7 +369,7 @@ export const WithMultipleButtonSuffixes = {
 
 setupInputStoryValues(WithMultipleButtonSuffixes, inputTemplate, {
   showButtonFirstSuffix: true,
-  showButtonSecondSuffix: true,
+  showExternalButton: true,
 });
 
 export const WithTextPrefix = {

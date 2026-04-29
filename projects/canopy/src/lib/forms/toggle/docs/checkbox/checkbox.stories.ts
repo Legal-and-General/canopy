@@ -6,7 +6,6 @@ import { createToggleStory, ReactiveToggleFormComponent } from '../toggle.storie
 
 export default {
   title: 'Components/Forms/Checkbox/Examples',
-  tags: [ 'pending' ],
   component: LgToggleComponent,
   decorators: [
     moduleMetadata({
@@ -177,7 +176,7 @@ const code = `
 <lg-checkbox
   formControlName="umbrella"
   [value]="true"
-  [size]="sm"
+  [size]="'lg'"
   [checked]="umbrella.value"
   [focus]="focus"
   (blur)="toggleBlur.emit($event)"
@@ -193,7 +192,7 @@ export const Checkbox = {
     disabled: false,
     inline: false,
     focus: false,
-    size: 'sm',
+    size: 'lg',
     label: 'I will bring my Umbrella if it is raining',
     variant: 'checkbox',
   },

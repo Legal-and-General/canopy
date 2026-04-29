@@ -2,22 +2,23 @@
 
 .lg-radio-button--segment {
   display: flex;
-  flex-grow: 1;
-  flex-basis: auto;
-  align-items: stretch;
-  padding: 0 var(--space-1);
-  margin: var(--space-1) 0;
+  min-height: var(--segment-button-common-min-height);
+  padding: var(--segment-button-common-padding-y) var(--segment-button-common-padding-x);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--segment-button-common-border-radius);
+  background: var(--segment-button-rest-background-colour);
+  transition: all var(--animation-duration) var(--animation-fn);
 
-  + .lg-radio-button--segment {
-    border-left: var(--radio-segment-separator-border-width) solid
-      var(--radio-segment-separator-border-color);
+  @include mixins.lg-breakpoint('md', 'max-width') {
+    margin-bottom: var(--segment-control-common-gap);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .lg-radio-button__label {
-    display: flex;
-    padding: var(--space-1) var(--space-4);
-    border-radius: var(--border-radius-sm);
-    min-width: var(--radio-segment-label-min-width);
     flex-grow: 1;
     text-align: center;
     align-items: center;
@@ -30,42 +31,42 @@
     }
   }
 
-  &.lg-radio-button--error .lg-radio-button__input:checked + .lg-radio-button__label {
-    background-color: var(--form-error-color);
-    color: var(--radio-color);
+  &:has(.lg-radio-button__input:checked) {
+    background: var(--segment-button-active-background-colour);
+    color: var(--segment-button-active-colour);
+    transition: all var(--animation-duration) var(--animation-fn);
   }
 
-  .lg-radio-button__input {
-    &:checked + .lg-radio-button__label {
-      background-color: var(--radio-bg-color);
-      color: var(--radio-color);
-      transition: all var(--animation-duration) var(--animation-fn);
-    }
+  &:has(.lg-radio-button__input:disabled:checked) {
+    background: var(--segment-button-active-background-colour);
+    color: var(--segment-button-active-colour);
+  }
 
-    &:disabled:checked + .lg-radio-button__label {
-      background-color: var(--radio-disabled-color);
-      color: var(--radio-color);
-    }
+  &:has(.lg-radio-button__input:disabled) {
+    background: var(--segment-button-disabled-background-colour);
+    color: var(--segment-button-disabled-colour);
+    cursor: not-allowed;
+  }
 
-    &:disabled + .lg-radio-button__label {
-      color: var(--disabled-color);
-      cursor: not-allowed;
-    }
+  &:has(.lg-radio-button__input:hover:not(:checked)) {
+    color: var(--segment-button-hover-colour);
+    border-radius: var(--segment-button-common-border-radius);
+    background: var(--segment-button-hover-background-colour);
+    transition: all var(--animation-duration) var(--animation-fn);
+  }
 
-    &:hover + .lg-radio-button__label {
-      background-color: var(--radio-segment-hover-bg-color);
-      color: var(--radio-color);
-      transition: all var(--animation-duration) var(--animation-fn);
-    }
+  &:has(.lg-radio-button__input:focus-visible) {
+    color: var(--segment-button-focus-colour);
+    border-radius: var(--segment-button-common-border-radius);
+    box-shadow: inset 0 0 0 var(--segment-button-focus-border-width)
+      var(--segment-control-focus-border-colour);
+    background: var(--segment-button-focus-background-colour);
+  }
 
-    &:focus-visible + .lg-radio-button__label {
-      @include mixins.lg-focus-outline;
-    }
-
-    &:focus-visible:hover + .lg-radio-button__label {
-      background-color: var(--radio-bg-color);
-      @include mixins.lg-focus-outline;
-    }
+  &:has(.lg-radio-button__input:focus-visible:hover) {
+    color: var(--segment-button-hover-colour);
+    border-radius: var(--segment-button-common-border-radius);
+    background: var(--segment-button-hover-background-colour);
   }
 
   $stack-breakpoints: 'md', 'lg' !default;
@@ -88,16 +89,6 @@
       + .lg-radio-button--segment {
         @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
           border-left: 0;
-        }
-
-        &::before {
-          @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
-            content: '';
-            display: inline-block;
-            width: 100%;
-            height: var(--radio-segment-separator-border-width);
-            background-color: var(--radio-segment-separator-border-color);
-          }
         }
       }
     }

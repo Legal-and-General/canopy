@@ -54,13 +54,13 @@ Always add `#userForm="ngForm"` to the `<form>` element and ensure the submit bu
 <form [formGroup]="form" (ngSubmit)="onSubmit(form)" #userForm="ngForm">
   <lg-input-field>
     Username
-    <input lgInput formControlName="username" />
     @if (isControlInvalid(form.get('username'), userForm) && form.get('username').hasError('required')) {
       <lg-validation>Username is required</lg-validation>
     }
     @if (isControlInvalid(form.get('username'), userForm) && form.get('username').hasError('minlength')) {
       <lg-validation>Username must be at least 4 characters</lg-validation>
     }
+    <input lgInput formControlName="username" />
   </lg-input-field>
   <button type="submit">Submit</button>
 </form>
@@ -80,7 +80,7 @@ Always add `#userForm="ngForm"` to the `<form>` element and ensure the submit bu
 ## Error Display Rules
 
 1. All fields with errors are highlighted when the form is submitted.
-2. Inline messages appear beneath each field describing how to fix the problem.
+2. Inline messages appear above each field describing how to fix the problem.
 3. The first field with an error automatically receives focus.
 
 ---

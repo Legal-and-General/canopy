@@ -1,6 +1,26 @@
 .lg-label {
   display: block;
-  margin-bottom: var(--space-2);
+  color: var(--label-and-hint-label-colour);
   font-weight: var(--font-weight-700);
   width: 100%;
+  margin-bottom: var(--form-field-gap);
+}
+
+.lg-label + .lg-label--optional {
+  margin-top: calc(var(--label-and-hint-gap) - var(--form-field-gap));
+}
+
+.lg-label + .lg-hint {
+  margin-top: calc(var(--label-and-hint-gap) - var(--form-field-gap));
+}
+
+.lg-label--optional {
+  display: block;
+  color: var(--label-and-hint-hint-colour);
+  margin-bottom: var(--form-field-gap);
+  font-weight: var(--font-weight-400);
+}
+
+.lg-label--optional + .lg-hint {
+  margin-top: calc(var(--label-and-hint-gap) - var(--form-field-gap));
 }

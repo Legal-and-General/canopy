@@ -2,12 +2,16 @@
 
 .lg-validation {
   display: flex;
-  align-items: flex-start;
-  padding: var(--space-3);
-  margin-top: var(--space-2);
-  @include mixins.lg-status-subtle();
+  align-items: center;
+  color: var(--label-and-hint-validation-message-colour);
+  margin-bottom: var(--form-field-gap);
+
+  .lg-icon {
+    width: var(--content-icon-size-sm);
+    height: var(--content-icon-size-sm);
+  }
 }
 
 .lg-validation__icon {
-  margin-right: var(--space-3);
+  margin-right: var(--content-gap-inside-md);
 }
