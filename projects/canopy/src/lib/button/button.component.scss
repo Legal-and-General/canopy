@@ -64,6 +64,12 @@
     }
   }
 
+  &--link#{&}--icon-left {
+    .lg-icon {
+      order: -1;
+    }
+  }
+
   &:is(a):not(&--icon-left) .lg-icon {
     margin-right: 0;
   }
