@@ -51,9 +51,16 @@ Button colours are inherited from the parent colour mode — never set button co
 
 ## Anatomy variants
 
-**Back icon button** — navigation back; use `[backIcon]="true"`. The arrow-left icon is fixed; you cannot substitute a custom icon.
+**Back icon button** — navigation back; use `[backIcon]="true"`. For non-link priorities, the arrow-left icon is fixed and you cannot substitute a custom icon. For `priority="link"`, a projected `<lg-icon>` is displayed instead of the fixed arrow-left, allowing a custom icon on the left.
 ```html
+<!-- Non-link: fixed arrow-left icon, no custom icon permitted -->
 <button lg-button type="button" [backIcon]="true">Back</button>
+
+<!-- Link priority: custom icon on the left via backIcon -->
+<button lg-button priority="link" [backIcon]="true">
+  Back
+  <lg-icon name="chevron-left" />
+</button>
 ```
 
 **Right icon button** — action with icon to the right:
@@ -75,6 +82,21 @@ Button colours are inherited from the parent colour mode — never set button co
 **Loading state** — shows a spinner and disables the button:
 ```html
 <button lg-button [loading]="true">Saving…</button>
+```
+
+**Button as link** — a button styled as a link (`priority="link"`). Supports a custom icon on either side:
+```html
+<!-- Icon on the right (default) -->
+<button lg-button priority="link">
+  Label
+  <lg-icon name="chevron-right" />
+</button>
+
+<!-- Icon on the left using backIcon -->
+<button lg-button priority="link" [backIcon]="true">
+  Label
+  <lg-icon name="chevron-left" />
+</button>
 ```
 
 ---
