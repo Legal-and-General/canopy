@@ -121,6 +121,23 @@ Shows a loading spinner and disables the button.
 ```html
 <button lg-button [loading]="true">Loading…</button>
 ```
+**Button as link**
+
+A button styled as a link. Buttons styled as links support a custom icon on either left or right, including when `[backIcon]="true"` is used. The earlier `backIcon` limitation applies to non-link button priorities only.
+
+```html
+<!-- Icon on the right (default) -->
+<button lg-button priority="link">
+  Label
+  <lg-icon name="chevron-right" />
+</button>
+
+<!-- Icon on the left -->
+<button lg-button priority="link" [backIcon]="true">
+  Label
+  <lg-icon name="chevron-left" />
+</button>
+```
 
 ## Dos and Don'ts
 
