@@ -93,8 +93,14 @@ export class LgButtonComponent implements AfterContentInit, AfterViewInit {
   }
 
   ngAfterContentInit(): void {
-    // Check if backIcon is set and there are projected lg-icon components
-    if (this._backIcon && this.projectedIcons && this.projectedIcons.length > 0) {
+    // Check if backIcon is set and there are projected lg-icon components.
+    // When priority is 'link', backIcon + a projected icon is a valid combination.
+    if (
+      this._backIcon &&
+      this.priority !== 'link' &&
+      this.projectedIcons &&
+      this.projectedIcons.length > 0
+    ) {
       console.error(
         'Button component error: Cannot have both backIcon and a right icon set at the same time. Back icon takes precedence.',
       );
@@ -106,7 +112,8 @@ export class LgButtonComponent implements AfterContentInit, AfterViewInit {
       'lg-icon',
     ) as HTMLCollectionOf<HTMLElement>;
 
-    if (this._backIcon && icons.length > 1) {
+    // When priority is 'link', backIcon + a projected icon is valid, so skip cleanup.
+    if (this._backIcon && this.priority !== 'link' && icons.length > 1) {
       // Back icon takes precedence, so remove any other icons
       for (let i = icons.length - 1; i > 0; i--) {
         icons[i].remove();
