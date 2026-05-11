@@ -121,6 +121,8 @@ Use the following mapping table to determine the correct replacement:
 
 **What changed:** `@Input() iconPosition` and the `ButtonIconPosition` type have been removed. The icon now appears on the right by default. To position an icon on the left (e.g. a back/previous button), use the new `@Input() backIcon: boolean`. Remove any `iconPosition="right"` bindings entirely — right is now the default and requires no input.
 
+> **Note — `priority="link"` buttons:** When `[backIcon]="true"` is combined with `priority="link"`, the projected `<lg-icon>` is displayed on the left rather than a fixed `arrow-left` icon. This means you can use a custom icon on the left for link-priority buttons. The fixed `arrow-left` limitation and the removal of any projected icon applies to all other priorities (`primary`, `secondary`, `add-on`) only.  
+
 **Search for** (in `*.html` files):
 ```
 iconPosition
