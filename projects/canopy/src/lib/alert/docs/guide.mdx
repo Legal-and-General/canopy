@@ -1,17 +1,15 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as AlertStories from './alert.stories.ts';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Inline message (Alert)/Guide" tags={['pending']}/>
+<Meta title="Components/Inline message (Alert)/Guide" />
 
 # Inline message
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">An inline message provides an eye-catching way to notify the user in-page of an important alert or message, such as a success or error message.</p>
 
-![example](docs/inline-message/example.png)
+### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
 
 ## Usage
 
@@ -32,9 +30,8 @@ and in your HTML:
 
 ### Statuses
 
-There are 5 different statuses to choose from:
+There are 5 different variants to choose from:
 
-![variants](docs/inline-message/variants.png)
 
 #### Information
 
@@ -64,6 +61,18 @@ e.g. You must confirm the terms & conditions before we can send your umbrella
 
 A basic inline message that should only be used if the others are unsuitable. The icon in this instance is editable and should be tailored to align with the message.
 
+## Customising icons
+
+For `generic` and `info` statuses, you can provide a custom icon via the `icon` input:
+
+```html
+<lg-alert status="generic" [icon]="'help'">
+  This is helpful information
+</lg-alert>
+```
+
+Success, warning, and error statuses use fixed icons that cannot be overridden.
+
 ## Role
 
 It can be manually set through property binding or by passing the "none" value, preventing it from being set altogether. Otherwise, the role attribute is automatically assigned as 'alert' for anything other than `info` and `generic` statuses.
@@ -74,13 +83,9 @@ The inline message works best when placed in close proximity to another element,
 
 The "alert" ARIA role is automatically added to the component if it's one of these statuses: warning, error, success. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
 
-A decorative icon is also added next to the heading if it's one of the these statuses: info, warning, error, success.
-
 ## Dos and Don'ts
 
 ### Do
-
-![do](docs/inline-message/do.png)
 
 1. **Do** display Inline messages in a timely manner so that users can resolve the issue immediately when required.
 2. **Do** keep the message succinct.
@@ -88,19 +93,21 @@ A decorative icon is also added next to the heading if it's one of the these sta
 
 ## Don't
 
-![dont](docs/inline-message/dont.png)
-
 1. **Don't** use Inline messages when space is not an issue. Consider using Message with Brand Icon instead.
 2. **Don't** overload with the messages.
 
 ## Additional development details
 
+Heading/title, bold/strong text or inline links are not built-in but can be added by users via HTML.
+
 ### Inputs
 
-| Name       | Description                                                                                            | Type      | Default   | Required |
-|------------|--------------------------------------------------------------------------------------------------------|-----------|-----------|----------|
-| `status`  | Applies status treatment and ARIA role if applicable: `generic`, `info`, `warning`, `error`, `success` | `string`  | `generic` | No       |
-| `showIcon` | Whether the icon should display on the warning, error or success statuses                              | `boolean` | `true`    | No       |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|----------|
+| `status` | Applies status treatment and ARIA role if applicable: `generic`, `info`, `success`, `warning`, `error` | `Status` | `'generic'` | No |
+| `showIcon` | Whether the icon should display | `boolean` | `true` | No |
+| `showLink` | Whether the action link under the text should display | `boolean` | `true` | No |
+| `icon` | Custom icon to display for generic or info statuses. Other statuses use fixed icons | `IconName` | `undefined` | No |
 
 ***
 

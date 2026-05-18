@@ -35,15 +35,27 @@ import { LgAlertComponent } from '@legal-and-general/canopy';
 
 ## Statuses
 
-| Status | When to use |
-|--------|-------------|
-| `generic` | Basic message; no semantic role assigned. Icon is customisable. |
-| `info` | Calmly highlight information; no action required. |
-| `success` | Confirm a completed action; no further user action needed. |
-| `warning` | Elevated alert; interrupted service or something that may affect the user's holding. |
-| `error` | Error that stops the user completing their journey; include steps to resolve. |
+| Status | Default icon | When to use |
+|--------|-------------|-------------|
+| `generic` | `globe` (customisable) | Basic message; no semantic role assigned. Icon can be overridden. |
+| `info` | `information-filled` (customisable) | Calmly highlight information; no action required. |
+| `success` | `checkmark-spot-filled` | Confirm a completed action; no further user action needed. |
+| `warning` | `warning-filled` | Elevated alert; interrupted service or something that may affect the user's holding. |
+| `error` | `crossmark-spot-filled` | Error that stops the user completing their journey; include steps to resolve. |
 
 The `alert` ARIA role is automatically applied for `warning`, `error`, and `success` statuses, sending an accessible event to assistive technologies.
+
+---
+
+## Customising Icons
+
+For `generic` and `info` statuses, you can provide a custom icon via the `icon` input. All other statuses use fixed icons that cannot be overridden.
+
+```html
+<lg-alert status="generic" [icon]="'help'">
+  This is helpful information.
+</lg-alert>
+```
 
 ---
 
@@ -51,8 +63,10 @@ The `alert` ARIA role is automatically applied for `warning`, `error`, and `succ
 
 | Input | Type | Default | Description |
 |-------|------|---------|-------------|
-| `status` | `'generic' \| 'info' \| 'warning' \| 'error' \| 'success'` | `'generic'` | Applies colour treatment and ARIA role. |
-| `showIcon` | `boolean` | `true` | Whether to show the status icon (applies to `warning`, `error`, `success`, `info`). |
+| `status` | `'generic' \| 'info' \| 'success' \| 'warning' \| 'error'` | `'generic'` | Applies colour treatment and ARIA role. |
+| `statusTheme` | `'neutral' \| 'bold'` | `'neutral'` | The theme variant applied alongside the status. |
+| `showIcon` | `boolean` | `true` | Whether to show the status icon. Applies to all statuses. |
+| `icon` | `IconName \| null` | `null` | Custom icon for `generic` or `info` statuses. Ignored for other statuses. |
 | `role` | `string` | auto | Override the ARIA role, or pass `'none'` to suppress it. |
 
 ---

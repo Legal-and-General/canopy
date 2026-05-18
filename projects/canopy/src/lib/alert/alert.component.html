@@ -1,22 +1,9 @@
-@if (showIcon && status !== 'generic') {
+@if (showIcon) {
   <div class="lg-alert__icon">
-    @switch (status) {
-      @case ('error') {
-        <lg-icon name="crossmark-spot-filled" />
-      }
-      @case ('info') {
-        <lg-icon name="information-filled" />
-      }
-      @case ('warning') {
-        <lg-icon name="warning-filled" />
-      }
-      @case ('success') {
-        <lg-icon name="checkmark-spot-filled" />
-      }
-    }
+    <lg-icon [name]="statusIcon" />
   </div>
 }
 
-<div>
+<div class="lg-alert__body">
   <ng-content />
 </div>
