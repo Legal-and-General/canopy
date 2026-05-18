@@ -5,10 +5,10 @@ Provides a set of components to implement ${name} groups in a form. The ${name} 
 Import the CheckboxGroup and Toggle components into your application:
 
 ~~~js
-@NgModule({
-  ...
-  imports: [ ..., LgCheckboxGroupComponent, LgToggleComponent ],
-})
+import {
+  LgCheckboxGroupComponent,
+  LgToggleComponent,
+} from '@legal-and-general/canopy';
 ~~~
 
 ## Inputs
@@ -27,7 +27,6 @@ ${
     ? '| ``inline`` | If true, displays the buttons inline rather than stacked | boolean | false | No |'
     : ''
 }
-
 ### LgToggleComponent
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|

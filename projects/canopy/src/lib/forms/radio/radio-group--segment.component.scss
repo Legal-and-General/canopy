@@ -1,21 +1,57 @@
 @use '../../../styles/mixins';
 
 .lg-radio-group__segment {
-  display: inline-flex;
-  border: var(--border-width) solid var(--radio-border-color);
-  border-radius: var(--border-radius-sm);
+  display: block;
+  padding: var(--segment-control-common-padding-y) var(--segment-control-common-padding-x);
+  align-items: center;
+  gap: var(--segment-control-common-gap);
+  border-radius: var(--segment-control-common-border-radius);
+  border: var(--segment-control-common-border-width) solid
+    var(--segment-control-common-border-colour);
+  background: var(--segment-control-common-background-colour);
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
+
+  @include mixins.lg-breakpoint('md') {
+    display: inline-grid;
+    grid-auto-flow: column;
+  }
 
   .lg-radio-group--error & {
-    border-color: var(--form-error-color);
+    box-shadow:
+      inset 0 0 0 var(--segment-control-error-border-width)
+        var(--segment-control-error-border-colour),
+      0 0 0 var(--text-input-rest-border-width)
+        var(--segment-control-common-background-colour);
+    border: var(--text-input-rest-border-width) solid
+      var(--segment-control-common-background-colour);
+    outline: 0;
+  }
+
+  &:has(.lg-radio-button__input:disabled) {
+    border: none;
   }
 }
 
-$stack-breakpoints: 'md', 'lg' !default;
+$stack-breakpoints: (
+  'md': 'lg',
+  'lg': 'xl',
+) !default;
 
-@each $stack-breakpoint in $stack-breakpoints {
+@each $stack-breakpoint, $max-breakpoint in $stack-breakpoints {
   .lg-radio-group--stack-#{$stack-breakpoint} .lg-radio-group__segment {
-    @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
+    @include mixins.lg-breakpoint($stack-breakpoint, 'range', $max-breakpoint) {
       display: block;
+    }
+
+    .lg-radio-button--segment {
+      @include mixins.lg-breakpoint($stack-breakpoint, 'range', $max-breakpoint) {
+        margin-bottom: var(--segment-control-common-gap);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

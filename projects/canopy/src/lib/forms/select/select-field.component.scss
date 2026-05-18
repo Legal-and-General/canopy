@@ -12,7 +12,6 @@
 
 .lg-select-field__inner {
   display: inline-block;
-  background-color: var(--colour-greyscale-0);
   max-width: 100%;
   position: relative;
 
@@ -29,8 +28,8 @@
   position: absolute;
   right: 0;
   top: calc(50% - var(--icon-width) / 2);
-  margin-left: var(--space-4);
-  margin-right: var(--space-4);
+  margin-left: var(--text-input-common-addon-button-gap);
+  margin-right: var(--text-input-common-addon-button-gap);
   pointer-events: none;
 
   .lg-select-field--error & {

@@ -71,9 +71,9 @@ describe('LgInputFieldComponent', () => {
     fixture = MockRender(`
       <lg-input-field [block]="${block}" [showLabel]="${showLabel}">
         Label
-        <input lgInput />
         <lg-hint id="${hintId}">Hint</lg-hint>
         <lg-validation id="${errorId}">Error</lg-validation>
+        <input lgInput />
         ${hasPrefix && `<span lgPrefix id="${prefixId}">${prefixText}</span>`}
         ${hasSuffix && `<span lgSuffix id="${suffixId}">${suffixText}</span>`}
       </lg-input-field>

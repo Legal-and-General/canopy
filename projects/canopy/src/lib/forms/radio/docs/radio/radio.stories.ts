@@ -14,6 +14,9 @@ const formTemplate = `
 <form [formGroup]="form">
   <lg-radio-group [inline]="inline" [focus]="focus" formControlName="color">
     {{ label }}
+    @if (optional) {
+      <span class="lg-label--optional">(optional)</span>
+    }
     @if (hint) {
       <lg-hint>{{ hint }}</lg-hint>
     }
@@ -44,6 +47,7 @@ class ReactiveFormRadioComponent {
   @Input() focus = false;
   @Input() label: string;
   @Input() hint: string;
+  @Input() optional: boolean;
   @Input()
   set disabled(isDisabled: boolean) {
     if (isDisabled === true) {
@@ -248,6 +252,7 @@ export const Radio = {
       <lg-reactive-form-radio
         [disabled]="disabled"
         [hint]="hint"
+        [optional]="optional"
         [inline]="inline"
         [size]="size"
         [label]="label"
@@ -260,10 +265,11 @@ export const Radio = {
   args: {
     disabled: false,
     inline: false,
-    size: 'sm',
+    size: 'lg',
     focus: false,
-    label: 'Color',
-    hint: 'Please select a color',
+    label: 'Colour',
+    hint: 'Please select a colour',
+    optional: false,
   },
   parameters: {
     docs: {

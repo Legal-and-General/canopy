@@ -46,7 +46,7 @@ const hintTestId = 'test-hint-id';
 class TestRadioButtonComponent {
   private fb = inject(UntypedFormBuilder);
   form: UntypedFormGroup;
-  @Input() size: RadioSize = 'sm';
+  @Input() size: RadioSize = 'lg';
 
   constructor() {
     this.form = this.fb.group({

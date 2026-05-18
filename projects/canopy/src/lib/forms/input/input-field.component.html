@@ -1,7 +1,9 @@
 <label lg-label [class.lg-visually-hidden]="!showLabel">
   <ng-content />
 </label>
+<ng-content select=".lg-label--optional" />
 <ng-content select="lg-hint" />
+<ng-content select="lg-validation" />
 <div
   class="lg-input-field__inputs"
   (focusin)="onFocusIn($event)"
@@ -23,4 +25,8 @@
     </div>
   }
 </div>
-<ng-content select="lg-validation" />
+@if (externalButtonChildren.length) {
+  <div class="lg-input-field__external-btn">
+    <ng-content select="[lgInputFieldExternalButton]" />
+  </div>
+}

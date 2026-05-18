@@ -62,7 +62,7 @@ Use `lg-checkbox-group` when presenting two or more related options.
 | `name` | `string` | `null` | Yes | HTML `name` attribute. |
 | `value` | `string` | `null` | Yes | HTML `value` attribute. |
 | `focus` | `boolean` | `null` | No | Sets focus on the checkbox. |
-| `size` | `'sm' \| 'lg'` | `'sm'` | No | Size of the checkbox. |
+| `size` | `'sm' \| 'lg'` | `'lg'` | No | Size of the checkbox. |
 | `ariaDescribedBy` | `string` | `null` | No | ID of element that describes the checkbox. |
 
 ## LgToggleComponent Outputs
@@ -79,6 +79,16 @@ Use `lg-checkbox-group` when presenting two or more related options.
 | `name` | `string` | auto-generated | Sets `name` on all checkboxes in the group. |
 | `inline` | `boolean` | `false` | Displays checkboxes inline. |
 | `focus` | `boolean` | `null` | Sets focus on the fieldset. |
+
+---
+
+## Accessibility
+
+- Always group related checkboxes using `lg-checkbox-group` with a clear label.
+- Use `lg-hint` to provide extra context where needed.
+- Ensure all checkboxes have clear, descriptive labels.
+- Set `ariaDescribedBy` to link checkboxes to hint or validation messages.
+- Keyboard users must be able to tab through all checkboxes and toggle them with Space.
 
 ---
 

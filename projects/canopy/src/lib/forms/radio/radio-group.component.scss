@@ -6,8 +6,13 @@
 .lg-radio-group--inline {
   .lg-radio-button {
     display: inline-block;
-    margin-right: var(--space-5);
+    margin-right: var(--radio-group-lg-gap);
+    margin-bottom: 0;
     vertical-align: top;
+  }
+
+  .lg-radio-button--sm {
+    margin-right: var(--radio-group-sm-gap);
   }
 
   .lg-radio-button:last-of-type {

@@ -68,7 +68,7 @@ export class LgRadioButtonComponent implements OnInit {
   @Input() id = `lg-radio-button-${++nextUniqueId}`;
   @Input() name: string;
   @Input() value: boolean | string;
-  @Input() size: RadioSize = 'sm';
+  @Input() size: RadioSize = 'lg';
   @Input() ariaDescribedBy: string;
 
   _stacked: RadioStackBreakpoint;
@@ -103,6 +103,12 @@ export class LgRadioButtonComponent implements OnInit {
   @HostBinding('class.lg-radio-button--error')
   public get errorClass() {
     return this.errorState.isControlInvalid(this.control, this.controlContainer);
+  }
+  @HostBinding('class.lg-radio-button--sm') get sizeSmClass() {
+    return this.size === 'sm';
+  }
+  @HostBinding('class.lg-radio-button--lg') get sizeLgClass() {
+    return this.size === 'lg';
   }
 
   _hintElement: LgHintComponent;

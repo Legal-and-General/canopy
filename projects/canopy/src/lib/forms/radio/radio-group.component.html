@@ -3,10 +3,13 @@
   [attr.tabindex]="focus ? '-1' : null"
   [lgFocus]="focus"
   >
-  <legend lg-label [attr.for]="id" lgMarginBottom="3">
+  <legend lg-label [attr.for]="id">
     <ng-content />
   </legend>
+  <ng-content select=".lg-label--optional" />
   <ng-content select="lg-hint" />
+
+  <ng-content select="lg-validation" />
 
   @if (variant === 'segment') {
     <div class="lg-radio-group__segment">
@@ -15,8 +18,5 @@
   } @else {
     <ng-content select="lg-radio-button, lg-filter-button" />
   }
-
-
-  <ng-content select="lg-validation" />
 </fieldset>
 <ng-content select="lg-hint" />

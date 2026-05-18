@@ -1,0 +1,8 @@
+.lg-footer-footnote {
+  display: flex;
+  padding-bottom: var(--footer-gap);
+  align-items: center;
+  align-self: stretch;
+  margin-bottom: var(--footer-gap);
+  border-bottom: var(--footer-border-width) solid var(--footer-border-colour);
+}

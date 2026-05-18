@@ -7,6 +7,7 @@
     <ng-content />
   </legend>
   <lg-hint>For example, 27 12 1977</lg-hint>
+  <ng-content select="lg-validation" />
   <div
     class="lg-date-field__fields"
     [formGroup]="dateFormGroup"
@@ -60,6 +61,4 @@
       </lg-input-field>
     </div>
   </div>
-
-  <ng-content select="lg-validation" />
 </fieldset>

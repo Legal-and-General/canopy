@@ -1,3 +1,4 @@
+<ng-content select="lg-validation" />
 <input
   (click)="onCheck()"
   (blur)="onBlur($event)"
@@ -33,9 +34,8 @@
         'lg-toggle__checkbox--sm': size === 'sm',
         'lg-toggle__checkbox--lg': size === 'lg',
       }"
-      name="checkmark-heavy"
+      [name]="size === 'sm' ? 'checkmark-heavy' : 'checkmark'"
     />
   }
   <ng-content />
 </label>
-<ng-content select="lg-validation" />

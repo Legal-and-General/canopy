@@ -58,7 +58,7 @@ describe('FooterComponent', () => {
 
       logoDebugElements.forEach((el, i) => {
         expect(el.nativeElement.getAttribute('class')).toContain(
-          i === 0
+          i === logoDebugElements.length - 1
             ? 'lg-footer-logo__img'
             : 'lg-footer-logo__second-img',
         );

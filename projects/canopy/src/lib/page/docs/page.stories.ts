@@ -1,7 +1,7 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
-import { primaryLinks, secondaryLinks } from '../../footer/docs/footer.stories';
+import { primaryLinks, socialLinks } from '../../footer/docs/footer.stories';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
 import { LgPageComponent } from '../page.component';
 import { LgHeaderComponent, LgHeaderLogoComponent } from '../../header';
@@ -44,7 +44,7 @@ import { LgIconComponent } from '../../icon';
 const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
   logoAlt: 'Company name',
-  copyright: '© Some Company plc 2019',
+  copyright: '© Some Company plc',
   card1: `Leverage agile frameworks to provide a robust synopsis for high level
     overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall
     value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity
@@ -58,7 +58,7 @@ const createArgs = () => ({
     customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art
     customer service.`,
   primaryLinks,
-  secondaryLinks,
+  socialLinks,
 });
 
 const header = `
@@ -68,27 +68,31 @@ const header = `
 `;
 
 const footer = `
-  <footer lg-footer>
-    <lg-footer-nav variant="primary">
-      @for (primaryLink of primaryLinks; track primaryLink.id) {
-        <lg-footer-nav-item>
-          <a [href]="primaryLink.href" [id]="primaryLink.id" target="_blank">{{ primaryLink.text }}</a>
-        </lg-footer-nav-item>
-      }
-    </lg-footer-nav>
+<footer lg-footer>
+  <lg-footer-nav>
+    @for (link of primaryLinks; track link.id) {
+      <lg-footer-nav-item>
+        @if (!link.isButton) {
+          <a [href]="link.href" [id]="link.id" target="_blank">{{ link.text }}</a>
+        } @else {
+          <button [class]="link.class" [id]="link.id">{{ link.text }}</button>
+        }
+      </lg-footer-nav-item>
+    }
+  </lg-footer-nav>
 
-    <lg-footer-nav variant="secondary">
-      @for (secondaryLink of secondaryLinks; track secondaryLink.id) {
-        <lg-footer-nav-item>
-          <a [href]="secondaryLink.href" [id]="secondaryLink.id" target="_blank">{{ secondaryLink.text }}</a>
-        </lg-footer-nav-item>
-      }
-    </lg-footer-nav>
+  <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
 
-    <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
+  <lg-footer-social>
+    @for (social of socialLinks; track social.id) {
+      <a class="social-link" [href]="social.href" [id]="social.id" target="_blank" [attr.aria-label]="social.label">
+        <lg-icon [name]="social.icon" size="sm"></lg-icon>
+      </a>
+    }
+  </lg-footer-social>
 
-    <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
-  </footer>
+  <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
+</footer>
 `;
 
 const headerCategory = 'header';

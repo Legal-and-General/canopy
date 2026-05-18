@@ -1,16 +1,11 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../../docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Forms/Checkbox/Guide" tags={['pending']}/>
+<Meta title="Components/Forms/Checkbox/Guide" />
 
 # Checkbox
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">A checkbox lets the user select or deselect an option.</p>
-
-![example](docs/forms/checkbox/example.png)
 
 ## Usage
 
@@ -27,10 +22,7 @@ The checkbox component is a variant of the toggle component.
 Import the toggle component in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgToggleComponent ],
-});
+import { LgToggleComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -46,10 +38,7 @@ The checkbox group component is a container which displays the label with an opt
 Import the toggle and checkbox group components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgCheckboxGroupComponent, LgToggleComponent ],
-});
+import { LgCheckboxGroupComponent, LgToggleComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -65,6 +54,19 @@ and in your HTML:
 </lg-checkbox-group>
 ```
 
+### Optional fields
+
+For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
+
+```html
+<lg-checkbox-group formControlName="colors">
+  Select your colours
+  <span class="lg-label--optional">(optional)</span>
+  <lg-toggle value="red">Red</lg-toggle>
+  <lg-toggle value="yellow">Yellow</lg-toggle>
+</lg-checkbox-group>
+```
+
 ## How it works
 
 On click, the checkbox is filled with a 'tick' to indicate a state of confirmation. The checkbox can also be un-checked by clicking again to remove the 'tick'.
@@ -73,15 +75,11 @@ On click, the checkbox is filled with a 'tick' to indicate a state of confirmati
 
 ### Do
 
-![do](docs/forms/checkbox/do.png)
-
 1. **Do** use to confirm a response.
 2. **Do** use to help highlight that an action or task is required.
 3. **Do** use to allow the user to choose from multiple options.
 
 ### Don't
-
-![dont](docs/forms/checkbox/dont.png)
 
 1. **Don't** use negative labels.
 2. **Don't** use as part of a dark pattern.
@@ -101,8 +99,8 @@ On click, the checkbox is filled with a 'tick' to indicate a state of confirmati
 | `name`            | HTML name attribute                                                                                                             | `string`                      | `null`                        | Yes      |
 | `value`           | HTML value attribute                                                                                                            | `string`                      | `null`                        | Yes      |
 | `focus`           | Set the focus on the checkbox                                                                                                   | `boolean`                     | `null`                        | No       |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the checkbox, if not provided it will use the hint field where appropriate | `boolean`                     | `null`                        | No       |
-| `size`            | The size of the checkbox                                                                                                        | `CheckboxSize` (`sm` | `lg`) | `sm`                          | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the checkbox, if not provided it will use the hint field where appropriate | `string`                      | `null`                        | No       |
+| `size`            | The size of the checkbox                                                                                                        | `'sm'` \| `'lg'`              | `'lg'`                        | No       |
 
 #### Outputs
 
@@ -121,7 +119,7 @@ On click, the checkbox is filled with a 'tick' to indicate a state of confirmati
 | `value`           | HTML value attribute. Sets the default checked checkbox buttons, must match the values of the checkbox buttons                    | `Array<string>` | `null`                                      | No       |
 | `focus`           | Set the focus on the fieldset                                                                                                     | `boolean`       | `null`                                      | No       |
 | `disabled`        | Set the inner checkboxes to disabled                                                                                              | `boolean`       | `false`                                     | No       |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the checkboxes, if not provided it will use the hint field where appropriate | `boolean`       | `null`                                      | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the checkboxes, if not provided it will use the hint field where appropriate | `string`        | `null`                                      | No       |
 | `inline`          | If true, displays the checkboxes inline rather than stacked                                                                       | `boolean`       | `false`                                     | No       |
 
 ## Research on this component

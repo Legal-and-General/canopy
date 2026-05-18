@@ -36,6 +36,7 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
         <br />
         <button lg-button priority="link">Button link</button>
         <br />
+        <br />
         <a href="#" lg-button priority="secondary" lgMarginBottom="none">
           Secondary link styled as button
         </a>
