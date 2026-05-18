@@ -3,6 +3,15 @@ import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angul
 import type { Status, Theme } from '../status';
 import { LgStatusDirective } from '../status';
 import { LgIconComponent } from '../icon';
+import type { IconName } from '../icon/ui-icons-files.interface';
+
+const statusIcons: Record<Status, IconName> = {
+  generic: 'globe',
+  info: 'information-filled',
+  success: 'checkmark-spot-filled',
+  warning: 'warning-filled',
+  error: 'crossmark-spot-filled',
+};
 
 @Component({
   selector: 'lg-alert',
@@ -22,6 +31,7 @@ export class LgAlertComponent {
   private readonly statusDirective = inject(LgStatusDirective);
 
   @Input() showIcon = true;
+  @Input() icon?: IconName;
 
   @HostBinding('class.lg-alert') class = true;
   @HostBinding('attr.role') get roleAttr(): string | null {
@@ -41,6 +51,14 @@ export class LgAlertComponent {
       default:
         return null;
     }
+  }
+
+  get statusIcon(): IconName {
+    if ((this.status === 'generic' || this.status === 'info') && this.icon) {
+      return this.icon;
+    }
+
+    return statusIcons[this.status];
   }
 
   get status(): Status {

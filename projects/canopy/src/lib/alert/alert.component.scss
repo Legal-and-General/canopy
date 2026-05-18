@@ -1,10 +1,15 @@
 @use '../../styles/mixins';
 
 .lg-alert {
-  display: flex;
-  margin-bottom: var(--component-margin);
-  padding: var(--space-4);
   @include mixins.lg-status-subtle();
+
+  display: flex;
+  border-radius: var(--inline-message-border-radius);
+  color: var(--inline-message-text-colour);
+  padding: var(--inline-message-padding-y) var(--inline-message-padding-x);
+  align-items: flex-start;
+  gap: var(--inline-message-gap);
+  align-self: stretch;
 
   h1,
   h2,
@@ -12,15 +17,36 @@
   h4,
   h5,
   h6 {
+    margin-bottom: var(--text-input-common-text-gap);
     font-size: var(--font-size-1);
-    font-weight: var(--font-weight-500);
     line-height: var(--text-base-line-height);
+    font-weight: var(--font-weight-700);
   }
 }
 
 .lg-alert__icon {
-  margin-right: var(--space-3);
+  flex-shrink: 0;
+
+  .lg-icon {
+    width: var(--content-icon-size-sm);
+    height: var(--content-icon-size-sm);
+    color: var(--inline-message-icon-colour);
+  }
 }
+
+.lg-alert__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  --text-bottom-margin: var(--inline-message-gap);
+}
+
+// Remove padding from links within alert
+.lg-alert a:not(.lg-btn),
+.lg-alert .lg-btn--link {
+  padding: 0;
+}
+
 // Additional high-specificity rules to ensure status tokens override colour mode and button defaults
 // These are defined outside .lg-alert to come later in CSS cascade
 [class*='lg-status-'].lg-alert .lg-btn--primary,
