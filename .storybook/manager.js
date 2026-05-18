@@ -27,7 +27,7 @@ addons.setConfig({
         mdx: true,
       },
     },
-     {
+    {
       tags: 'awaiting-deprecation',
       badge: {
         text: 'Awaiting deprecation',
@@ -37,7 +37,7 @@ addons.setConfig({
           fontWeight: 'normal',
           fontSize: '10px !important',
         },
-         tooltip: 'This component will be deprecated in a future major release (date/version TBC).',
+        tooltip: 'This component will be deprecated in a future major release (date/version TBC).',
       },
       display: {
         sidebar: [
