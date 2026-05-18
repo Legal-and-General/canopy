@@ -1,25 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as BannerStories from './banner.stories.ts';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Banner message (WIP)/Guide" tags={['pending']}/>
+<Meta title="Components/Banner message/Guide" />
 
 # Banner message
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">Full-width banner to display at the top of a page, beneath the header but before the hero or other page content.</p>
 
-## Warning: Work in progress
-
-This component is still in development and will be enhanced with more features in the near future.
-
-Things left to do:
-
-* Add ability to optionally dismiss the banner
-* Add the error variant once the design has been finalised
-* Add styling to control links and buttons in the projected content
 
 ## Usage
 
@@ -33,22 +21,50 @@ and in your HTML:
 
 <Source of={BannerStories.StandardBanner} />
 
+Banner message is intended for parent-level placement at the top of the page, edge-to-edge, directly beneath the navigation.
+
+### Optional link below content
+
+You can add an optional link below the main banner content, for example to provide a call to action or further information. This is controlled via the `showLink` and `linkText` args in Storybook, and can be implemented in your app by projecting an anchor element after the main content:
+
+```html
+<lg-banner status="generic">
+  <p>
+    This is a banner message. Here is some <a href="#">link text</a> or a
+    <button lg-button priority="link">button link</button>.
+  </p>
+  <a *ngIf="showLink" href="#">{{ linkText }}</a>
+</lg-banner>
+```
+
+The link will appear below the main content when `showLink` is true. This pattern matches the inline message implementation for consistency.
+
 ### Variants
 
-There are 2 different variants to choose from: 'generic' and 'warning'.
+There are five variants to choose from: `generic`, `info`, `success`, `warning`, and `error`.
+
+Banner message uses status tokens for colour and icon selection. The component maps each status to the correct icon and uses `--banner-background-colour`, `--banner-text-colour`, and `--banner-icon-colour` for visual styling.
+
+## Customising the icon
+
+For `generic` and `info` statuses, override the default icon using the `[icon]` input:
+
+```html
+<lg-banner status="generic" [icon]="'calendar'">
+  Your appointment is confirmed.
+</lg-banner>
+```
+
+For `success`, `warning`, and `error`, the icon is fixed and cannot be overridden.
 
 ## Dos and Don'ts
 
 ### Do
 
-![do](docs/banner/do.png)
-
 1. **Do** keep the message succinct.
-2. **Do** include a link to take an action or get more detailed information, when appropriate.
+2. **Do** include a link to take an action or get more detailed information, when appropriate, using the new optional link feature below the content.
 
 ### Don't
-
-![dont](docs/banner/dont.png)
 
 1. **Don't** use Banner message as a feedback mechanism. Consider using inline Message, Pop-up Notification or Modal Dialog instead.
 2. **Don't** use warning or error colours for the wrong purposes.
@@ -60,7 +76,11 @@ There are 2 different variants to choose from: 'generic' and 'warning'.
 
 | Name      | Description                                                                | Type     | Default   | Required |
 |-----------|----------------------------------------------------------------------------|----------|-----------|----------|
-| `status` | Applies colour treatment and ARIA role if applicable: `generic`, `warning` | `string` | `generic` | No       |
+| `status` | Applies colour treatment and ARIA role if applicable: `generic`, `info`, `success`, `warning`, `error` | `string` | `generic` | No       |
+| `showIcon` | Displays the status icon selected automatically by status | `boolean` | `true` | No       |
+| `icon` | Optional custom icon for `generic` and `info`. `success`, `warning`, and `error` always use fixed icons. | `IconName` | `globe` (`generic`) / `information-filled` (`info`) | No |
+| `showLink` | Whether to show an optional link below the main content | `boolean` | `false` | No |
+| `linkText` | The text for the optional link shown beneath the content | `string` | — | No |
 
 ***
 

@@ -30,22 +30,33 @@ export class LgIconComponent {
 
   private svgIcon: SVGElement;
   private id = nextUniqueId++;
+  private requestId = 0;
 
   @HostBinding('class.lg-icon') class = true;
   @HostBinding('attr.aria-hidden') hidden = true;
 
   @Input()
   set name(name: Name) {
+    const requestId = ++this.requestId;
+
     (async () => {
-      if (this.svgIcon) {
+      if (this.svgIcon?.parentNode === this.hostElement.nativeElement) {
         this.hostElement.nativeElement.removeChild(this.svgIcon);
       }
 
       const svgData = this.setSVGAttributes(await this.iconRegistry.get(name));
 
+      // Ignore stale async responses when the icon input changes quickly
+      if (requestId !== this.requestId) {
+        return;
+      }
+
       if (svgData) {
         this.svgIcon = this.svgElementFromString(svgData);
-        this.hostElement.nativeElement.appendChild(this.svgIcon);
+
+        if (this.svgIcon) {
+          this.hostElement.nativeElement.appendChild(this.svgIcon);
+        }
       } else {
         console.error(
           `[Canopy] Icon "${name}" cannot be found. ` +

@@ -2,13 +2,18 @@
 
 .lg-banner {
   display: block;
-  box-shadow: 0 0.25rem 0 0 rgba(0, 0, 0, 0.03);
-  @include mixins.lg-status-bold();
+  background-color: var(
+    --banner-background-colour,
+    var(--container-status-bold-background-colour)
+  );
+  color: var(--banner-text-colour, var(--text-status-bold-primary-colour));
 }
 
 .lg-banner__container {
   display: flex;
-  padding: var(--space-4) 0;
+  align-items: flex-start;
+  gap: var(--banner-gap, var(--space-3));
+  padding: var(--banner-padding-y, var(--space-3)) 0;
 
   h1,
   h2,
@@ -19,11 +24,32 @@
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-700);
     line-height: var(--text-base-line-height);
+    margin-bottom: var(--text-input-common-text-gap);
   }
 
   .lg-banner__icon {
-    margin-right: var(--space-3);
+    .lg-icon {
+      color: var(--banner-icon-colour, var(--text-status-bold-primary-colour));
+      width: var(--content-icon-size-sm);
+      height: var(--content-icon-size-sm);
+    }
   }
+
+  .lg-banner__text {
+    @include mixins.lg-typography-default();
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: var(--banner-text-colour, var(--text-status-bold-primary-colour));
+    --text-bottom-margin: var(--banner-gap);
+  }
+}
+
+// Remove padding from links within banner
+.lg-banner a:not(.lg-btn),
+.lg-banner .lg-btn--link {
+  padding: 0;
 }
 
 // Additional high-specificity rules to ensure status tokens override colour mode and button defaults
