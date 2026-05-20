@@ -38,16 +38,20 @@ export class LgDataPointValueComponent {
     return this.size === 'lg';
   }
 
+  @HostBinding('class.lg-data-point-value--form')
+  get isFormVariant() {
+    return this.dataPoint?.variant === 'form';
+  }
+
+  @HostBinding('class.lg-data-point-value--card')
+  get isCardVariant() {
+    return this.dataPoint?.variant === 'card';
+  }
+
   @HostBinding('class.lg-data-point-value--card-principle')
-  get isCardPrinciple() {
+  get isCardPrincipleVariant() {
     return this.dataPoint?.variant === 'card-principle';
   }
 
-  @HostBinding('class.lg-data-point-value--bold')
-  get boldClass() {
-    return this.isBold;
-  }
-
   @Input() size: DataPointSize = 'sm';
-  @Input() isBold = false;
 }

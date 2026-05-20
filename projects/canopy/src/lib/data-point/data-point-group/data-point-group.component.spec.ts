@@ -5,11 +5,11 @@ import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgDataPointComponent } from '../data-point/data-point.component';
 
-import { LgDataPointListComponent } from './data-point-list.component';
+import { LgDataPointGroupComponent } from './data-point-group.component';
 
-describe('LgDataPointListComponent', () => {
-  let component: LgDataPointListComponent;
-  let fixture: ComponentFixture<LgDataPointListComponent>;
+describe('LgDataPointGroupComponent', () => {
+  let component: LgDataPointGroupComponent;
+  let fixture: ComponentFixture<LgDataPointGroupComponent>;
   let debugElement: DebugElement;
   let el: HTMLElement;
   let dataPointDebugElements: Array<DebugElement>;
@@ -17,7 +17,7 @@ describe('LgDataPointListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgDataPointListComponent, MockComponent(LgDataPointComponent) ],
+      imports: [ LgDataPointGroupComponent, MockComponent(LgDataPointComponent) ],
     }).compileComponents();
   }));
 
@@ -25,8 +25,8 @@ describe('LgDataPointListComponent', () => {
     ngMocks.flushTestBed();
 
     fixture = MockRender(`
-      <lg-data-point-list>
-      </lg-data-point-list>
+      <lg-data-point-group>
+      </lg-data-point-group>
     `);
 
     debugElement = fixture.debugElement;
@@ -40,27 +40,30 @@ describe('LgDataPointListComponent', () => {
   });
 
   it('should have the default class', () => {
-    expect(el.getAttribute('class')).toContain('lg-data-point-list');
+    expect(el.getAttribute('class')).toContain('lg-data-point-group');
   });
 
   it('should apply horizontal orientation by default', () => {
-    expect(el.getAttribute('class')).toContain('lg-data-point-list--horizontal');
-    expect(el.getAttribute('class')).not.toContain('lg-data-point-list--vertical');
+    expect(el.getAttribute('class')).toContain('lg-data-point-group--horizontal');
+    expect(el.getAttribute('class')).not.toContain('lg-data-point-group--vertical');
   });
 
   it('should apply vertical orientation when orientation is vertical', () => {
     ngMocks.flushTestBed();
 
     const localFixture = MockRender(`
-      <lg-data-point-list orientation="vertical">
-      </lg-data-point-list>
+      <lg-data-point-group orientation="vertical">
+      </lg-data-point-group>
     `);
     const localEl = localFixture.debugElement.children[0].nativeElement;
 
     localFixture.detectChanges();
 
-    expect(localEl.getAttribute('class')).toContain('lg-data-point-list--vertical');
-    expect(localEl.getAttribute('class')).not.toContain('lg-data-point-list--horizontal');
+    expect(localEl.getAttribute('class')).toContain('lg-data-point-group--vertical');
+
+    expect(localEl.getAttribute('class')).not.toContain(
+      'lg-data-point-group--horizontal',
+    );
   });
 
   it('should not apply role when there are no data points', () => {
@@ -72,9 +75,9 @@ describe('LgDataPointListComponent', () => {
       ngMocks.flushTestBed();
 
       fixture = MockRender(`
-        <lg-data-point-list>
+        <lg-data-point-group>
           <lg-data-point></lg-data-point>
-        </lg-data-point-list>
+        </lg-data-point-group>
       `);
 
       debugElement = fixture.debugElement;
@@ -100,11 +103,11 @@ describe('LgDataPointListComponent', () => {
       ngMocks.flushTestBed();
 
       fixture = MockRender(`
-        <lg-data-point-list>
+        <lg-data-point-group>
           <lg-data-point></lg-data-point>
           <lg-data-point></lg-data-point>
           <lg-data-point></lg-data-point>
-        </lg-data-point-list>
+        </lg-data-point-group>
       `);
 
       debugElement = fixture.debugElement;
@@ -141,18 +144,20 @@ describe('LgDataPointListComponent', () => {
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
 
       MockRender(`
-        <lg-data-point-list>
+        <lg-data-point-group>
           <lg-data-point></lg-data-point>
           <lg-data-point></lg-data-point>
           <lg-data-point></lg-data-point>
           <lg-data-point></lg-data-point>
           <lg-data-point></lg-data-point>
-        </lg-data-point-list>
+        </lg-data-point-group>
       `);
 
       expect(consoleSpy).toHaveBeenCalledWith(
-        'LgDataPointListComponent: a maximum of 4 data points are allowed, but 5 were provided.',
+        'LgDataPointGroupComponent: a maximum of 4 data points are allowed, but 5 were provided.',
       );
+
+      consoleSpy.mockRestore();
     });
   });
 });

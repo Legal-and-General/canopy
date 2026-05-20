@@ -19,8 +19,13 @@ import type { DataPointVariant } from '../data-point.interface';
 export class LgDataPointComponent {
   @HostBinding('class.lg-data-point') class = true;
 
+  @HostBinding('class.lg-data-point--card')
+  get isCardVariant() {
+    return this.variant === 'card';
+  }
+
   @HostBinding('class.lg-data-point--card-principle')
-  get isCardPrinciple() {
+  get isCardPrincipleVariant() {
     return this.variant === 'card-principle';
   }
 
@@ -32,5 +37,5 @@ export class LgDataPointComponent {
   }
 
   @Input() isListItem: boolean;
-  @Input() variant: DataPointVariant = 'default';
+  @Input() variant: DataPointVariant = 'form';
 }

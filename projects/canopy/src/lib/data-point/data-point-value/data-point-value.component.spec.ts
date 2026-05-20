@@ -2,6 +2,8 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockRender, MockedComponentFixture } from 'ng-mocks';
 
+import { LgDataPointComponent } from '../data-point/data-point.component';
+
 import { LgDataPointValueComponent } from './data-point-value.component';
 
 describe('LgDataPointValueComponent', () => {
@@ -12,7 +14,7 @@ describe('LgDataPointValueComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [ LgDataPointValueComponent ],
+      imports: [ LgDataPointValueComponent, LgDataPointComponent ],
     }).compileComponents();
   }));
 
@@ -37,8 +39,12 @@ describe('LgDataPointValueComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-data-point-value');
   });
 
-  it('should not apply the card-principle modifier class by default', () => {
-    expect(el.getAttribute('class')).not.toContain('lg-data-point-value--card-principle');
+  it('should not apply the card modifier class by default', () => {
+    expect(el.getAttribute('class')).not.toContain('lg-data-point-value--card');
+  });
+
+  it('should not apply the form modifier class by default', () => {
+    expect(el.getAttribute('class')).not.toContain('lg-data-point-value--form');
   });
 
   it('should render the heading', () => {
@@ -70,6 +76,38 @@ describe('LgDataPointValueComponent', () => {
       localFixture.detectChanges();
 
       expect(localEl.getAttribute('class')).toContain('lg-data-point-value--lg');
+    });
+  });
+
+  describe('variant', () => {
+    it('should apply the form modifier class when the parent data point has the form variant', () => {
+      const localFixture = MockRender(`
+        <lg-data-point variant="form">
+          <lg-data-point-value size="lg">Value</lg-data-point-value>
+        </lg-data-point>
+      `);
+      const valueEl = localFixture.debugElement.query(
+        dbEl => dbEl.nativeElement.tagName.toLowerCase() === 'lg-data-point-value',
+      ).nativeElement;
+
+      localFixture.detectChanges();
+
+      expect(valueEl.getAttribute('class')).toContain('lg-data-point-value--form');
+    });
+
+    it('should not apply the form modifier class when the parent data point has the card variant', () => {
+      const localFixture = MockRender(`
+        <lg-data-point variant="card">
+          <lg-data-point-value size="lg">Value</lg-data-point-value>
+        </lg-data-point>
+      `);
+      const valueEl = localFixture.debugElement.query(
+        dbEl => dbEl.nativeElement.tagName.toLowerCase() === 'lg-data-point-value',
+      ).nativeElement;
+
+      localFixture.detectChanges();
+
+      expect(valueEl.getAttribute('class')).not.toContain('lg-data-point-value--form');
     });
   });
 });
