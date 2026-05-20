@@ -1,5 +1,8 @@
+@use '../../../styles/mixins';
+
 .lg-data-point-label {
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--data-point-gap);
+  color: var(--data-point-label-colour);
 
   h1,
   h2,
@@ -7,10 +10,25 @@
   h4,
   h5,
   h6 {
-    font-size: var(--text-base-size);
-    font-weight: var(--font-weight-700);
-    line-height: var(--line-height-0-6);
-    color: var(--data-point-label-color);
+    @include mixins.lg-font-size('1');
+
     margin-bottom: 0;
   }
+}
+
+.lg-data-point-label--bold {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--font-weight-700);
+  }
+}
+
+.lg-data-point-label--card-principle {
+  display: block;
+  color: var(--label-and-hint-label-colour);
+  font-weight: var(--font-weight-400);
 }

@@ -196,7 +196,7 @@
                       aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                       voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     </p>
-                    <button lg-button lgMarginTop="4" priority="primary">
+                    <button lg-button type="button" lgMarginTop="4" priority="primary">
                       Test primary dark button
                     </button>
                   </lg-accordion-item>
@@ -243,52 +243,52 @@
                 <a href="#" lg-button priority="secondary">Secondary button</a>
                 <br />
 
-                <button lg-button priority="primary" [loading]="true">
+                <button lg-button type="button" priority="primary" [loading]="true">
                   Loading button
                 </button>
                 <br />
 
-                <button lg-button priority="primary">
+                <button lg-button type="button" priority="primary">
                   Button with icon
                   <lg-icon name="add" />
                 </button>
                 <br />
 
-                <button lg-button priority="secondary" [backIcon]="true">
+                <button lg-button type="button" priority="secondary" [backIcon]="true">
                   Button with back arrow icon
                 </button>
                 <br />
 
-                <button lg-button priority="primary" [iconButton]="true">
+                <button lg-button type="button" priority="primary" [iconButton]="true">
                   Icon Button
                   <lg-icon name="close" />
                 </button>
                 <br />
 
-                <button lg-button priority="primary">
+                <button lg-button type="button" priority="primary">
                   Small button
                 </button>
                 <br />
 
-                <button lg-button priority="primary" [loading]="true">
+                <button lg-button type="button" priority="primary" [loading]="true">
                   Small button
                 </button>
                 <br />
 
                 <div>
                   <div class="light-buttons-container" lgPadding="5" lgMarginBottom="6">
-                    <button lg-button priority="primary" lgMarginRight="4">
+                    <button lg-button type="button" priority="primary" lgMarginRight="4">
                       Primary Light
                     </button>
-                    <button lg-button priority="secondary">
+                    <button lg-button type="button" priority="secondary">
                       Secondary Light
                     </button>
                   </div>
                   <div class="light-buttons-container" lgPadding="4">
-                    <button lg-button priority="primary" lgMarginRight="4">
+                    <button lg-button type="button" priority="primary" lgMarginRight="4">
                       Primary Light
                     </button>
-                    <button lg-button priority="secondary">
+                    <button lg-button type="button" priority="secondary">
                       Secondary Light
                     </button>
                   </div>
@@ -300,6 +300,7 @@
                 <lg-button-group>
                   <button
                     lg-button
+                    type="button"
                     priority="primary"
                   >Button</button>
                   <a
@@ -451,10 +452,12 @@
                       <lg-button-group>
                         <button
                           lg-button
+                          type="button"
                           priority="primary"
                         >Apply</button>
                         <button
                           lg-button
+                          type="button"
                           priority="secondary"
                         >Cancel</button>
                       </lg-button-group>
@@ -718,7 +721,7 @@
                 <lg-heading level="3">Quick Action</lg-heading>
 
                 <lg-heading level="4">Button</lg-heading>
-                <button lg-quick-action lgMarginBottom="5">
+                <button lg-quick-action type="button" lgMarginBottom="5">
                   <lg-icon name="repeat" />
                   Load more
                 </button>
@@ -926,13 +929,13 @@
                           </lg-card-title>
                           <lg-card-subtitle class="lg-card-subtitle"> Payroll Reference Number P23456 </lg-card-subtitle>
                         </div>
-                        <lg-card-principle-data-point lgCol="12" lgColMd="6">
-                          <lg-card-principle-data-point-label> Last payment (after tax and deductions) </lg-card-principle-data-point-label>
-                          <lg-card-principle-data-point-value>
+                        <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
+                          <lg-data-point-label [headingLevel]="4"> Last payment (after tax and deductions) </lg-data-point-label>
+                          <lg-data-point-value>
                             <span><span class="lg-font-size-3">£</span>230.20</span>
-                          </lg-card-principle-data-point-value>
-                          <lg-card-principle-data-point-date> as of 01 Jan 2020 </lg-card-principle-data-point-date>
-                        </lg-card-principle-data-point>
+                          </lg-data-point-value>
+                          <lg-data-point-secondary-label> as of 01 Jan 2020 </lg-data-point-secondary-label>
+                        </lg-data-point>
                       </div>
                     </lg-card-content>
                   </lg-card>
@@ -1247,17 +1250,17 @@
 <!--                  <a href="#">Product card title</a>-->
 <!--                </lg-card-title>-->
 <!--                <lg-card-subtitle> Payroll Reference Number P23456 </lg-card-subtitle>-->
-<!--                <lg-card-principle-data-point>-->
-<!--                  <lg-card-principle-data-point-label>-->
+<!--                <lg-data-point variant="card-principle">-->
+<!--                  <lg-data-point-label>-->
 <!--                    Last payment (after tax and deductions)-->
-<!--                  </lg-card-principle-data-point-label>-->
-<!--                  <lg-card-principle-data-point-value>-->
+<!--                  </lg-data-point-label>-->
+<!--                  <lg-data-point-value>-->
 <!--                    <span><span class="lg-font-size-3">£</span>230.20</span>-->
-<!--                  </lg-card-principle-data-point-value>-->
-<!--                  <lg-card-principle-data-point-date>-->
+<!--                  </lg-data-point-value>-->
+<!--                  <lg-data-point-date>-->
 <!--                    as of 01 Jan 2020-->
-<!--                  </lg-card-principle-data-point-date>-->
-<!--                </lg-card-principle-data-point>-->
+<!--                  </lg-data-point-date>-->
+<!--                </lg-data-point>-->
 <!--              </lg-card-header>-->
 <!--            </lg-card>-->
 
@@ -1706,7 +1709,7 @@
       <a href="#" target="_blank">Privacy</a>
     </lg-footer-nav-item>
     <lg-footer-nav-item>
-      <button class="cookie-settings-button">Cookie settings</button>
+      <button type="button" class="cookie-settings-button">Cookie settings</button>
     </lg-footer-nav-item>
   </lg-footer-nav>
 
