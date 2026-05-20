@@ -6,21 +6,22 @@ import * as DataPointStories from './data-point.stories';
 
 # Data point
 
-<p class="standfirst">Display data organised by a label and value. A data point can be used on its own, or grouped into a data point list where items are arranged horizontally or vertically.</p>
+<p class="standfirst">Display data organised by a label and value. A data point can be used on its own, or grouped into a data point group where items are arranged horizontally or vertically.</p>
 
-**Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.**
+### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
 
 ## Usage
 
 Import the data point components in your application:
 
-```js
+```ts
 import {
   LgDataPointComponent,
   LgDataPointLabelComponent,
   LgDataPointValueComponent,
   LgDataPointSecondaryLabelComponent,
-  LgDataPointListComponent,
+  LgDataPointAddOnComponent,
+  LgDataPointGroupComponent,
 } from '@legal-and-general/canopy';
 ```
 
@@ -28,9 +29,9 @@ In your HTML, for a single data point:
 
 <Source of={DataPointStories.SingleDataPoint} />
 
-and for a data point list:
+and for a data point group:
 
-<Source of={DataPointStories.DataPointsListStory} />
+<Source of={DataPointStories.DataPointsGroupStory} />
 
 Data point groups support up to four data points and can be arranged horizontally or vertically.
 
@@ -40,8 +41,8 @@ Data point groups support up to four data points and can be arranged horizontall
 
 | Name         | Description                                                                    | Type                        | Default     | Required |
 |--------------|--------------------------------------------------------------------------------|-----------------------------|-------------|----------|
-| `variant`    | Sets the visual variant of the data point                                      | `'default' \| 'card-principle'` | `'default'` | No       |
-| `isListItem` | When `true`, applies `role="listitem"` — used when inside a data point list    | `boolean`                   | `false`     | No       |
+| `variant`    | Sets the visual variant of the data point                                      | `'form' \| 'card' \| 'card-principle'` | `'form'` | No       |
+| `isListItem` | When `true`, applies `role="listitem"` — used when inside a data point group    | `boolean`                   | `false`     | No       |
 
 ### LgDataPointLabelComponent inputs
 
@@ -54,8 +55,7 @@ Data point groups support up to four data points and can be arranged horizontall
 
 | Name     | Description                                                                    | Type                  | Default | Required |
 |----------|--------------------------------------------------------------------------------|-----------------------|---------|----------|
-| `size`   | Controls the font size of the value: `sm` = size 1, `md` = size 3, `lg` = size 5 | `'sm' \| 'md' \| 'lg'` | `'sm'`  | No       |
-| `isBold` | When `true`, renders the value text at `font-weight: 700`; when `false`, uses `font-weight: 400` | `boolean` | `false` | No |
+| `size`   | Controls the font size of the value: `sm` = size 1, `md` = size 3, `lg` = size 5. When used with `variant="card"`, `sm` is bold (`font-weight-700`) and `md`/`lg` are regular (`font-weight-400`). | `'sm' \| 'md' \| 'lg'` | `'sm'`  | No       |
 
 ### LgDataPointSecondaryLabelComponent
 
@@ -69,7 +69,20 @@ An optional secondary label displayed below the value, useful for supplementary 
 </lg-data-point>
 ```
 
-### LgDataPointListComponent inputs
+### LgDataPointAddOnComponent
+
+An optional add-on displayed below the secondary label (or below the value if no secondary label is present). Use it to project a link or other inline content. It requires no inputs.
+
+```html
+<lg-data-point>
+  <lg-data-point-label [headingLevel]="3">Label</lg-data-point-label>
+  <lg-data-point-value>Value</lg-data-point-value>
+  <lg-data-point-secondary-label>as of 01 Jan 2026</lg-data-point-secondary-label>
+  <lg-data-point-add-on><a href="#">View details</a></lg-data-point-add-on>
+</lg-data-point>
+```
+
+### LgDataPointGroupComponent inputs
 
 | Name          | Description                                                                 | Type                         | Default        | Required |
 |---------------|-----------------------------------------------------------------------------|------------------------------|----------------|----------|

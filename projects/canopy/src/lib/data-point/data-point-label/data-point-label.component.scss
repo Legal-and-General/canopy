@@ -2,7 +2,7 @@
 
 .lg-data-point-label {
   margin-bottom: var(--data-point-gap);
-  color: var(--data-point-label-colour);
+  color: var(--label-and-hint-label-colour);
 
   h1,
   h2,
@@ -27,8 +27,14 @@
   }
 }
 
+.lg-data-point-label--card {
+  display: block;
+  color: var(--data-point-label-colour);
+  font-weight: var(--font-weight-400);
+}
+
 .lg-data-point-label--card-principle {
   display: block;
-  color: var(--label-and-hint-label-colour);
+  color: var(--data-point-label-colour);
   font-weight: var(--font-weight-400);
 }

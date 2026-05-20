@@ -257,24 +257,24 @@ const dataPointsCardTemplate = `
   </lg-card-header>
   <lg-card-content>
     <lg-card-content-inner-data-points>
-      <lg-data-point>
-        <lg-data-point-label [headingLevel]="3" [isBold]="true">
+      <lg-data-point variant="card">
+        <lg-data-point-label [headingLevel]="3">
           Data key 1
         </lg-data-point-label>
         <lg-data-point-value size="md">
           Data value 1
         </lg-data-point-value>
       </lg-data-point>
-      <lg-data-point>
-        <lg-data-point-label [headingLevel]="3" [isBold]="true">
+      <lg-data-point variant="card">
+        <lg-data-point-label [headingLevel]="3">
           Data key 2
         </lg-data-point-label>
         <lg-data-point-value size="sm">
           Data value 2
         </lg-data-point-value>
       </lg-data-point>
-      <lg-data-point>
-        <lg-data-point-label [headingLevel]="3" [isBold]="true">
+      <lg-data-point variant="card">
+        <lg-data-point-label [headingLevel]="3">
           Data key 3
         </lg-data-point-label>
         <lg-data-point-value size="sm">
@@ -513,7 +513,7 @@ const productCardTemplate = `
         </lg-card-subtitle>
       </div>
       <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
-        <lg-data-point-label [headingLevel]="5" [isBold]="true">
+        <lg-data-point-label [headingLevel]="5">
           Last payment (after tax and deductions)
         </lg-data-point-label>
         <lg-data-point-value [size]="size">

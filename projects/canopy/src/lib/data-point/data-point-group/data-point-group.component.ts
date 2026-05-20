@@ -14,21 +14,21 @@ import { LgDataPointComponent } from '../data-point/data-point.component';
 import type { DataPointOrientation } from '../data-point.interface';
 
 @Component({
-  selector: 'lg-data-point-list',
-  templateUrl: './data-point-list.component.html',
-  styleUrls: [ './data-point-list.component.scss' ],
+  selector: 'lg-data-point-group',
+  templateUrl: './data-point-group.component.html',
+  styleUrls: [ './data-point-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class LgDataPointListComponent implements AfterContentInit {
-  @HostBinding('class.lg-data-point-list') class = true;
-  @HostBinding('class.lg-data-point-list--horizontal')
+export class LgDataPointGroupComponent implements AfterContentInit {
+  @HostBinding('class.lg-data-point-group') class = true;
+  @HostBinding('class.lg-data-point-group--horizontal')
   get isHorizontal() {
     return this.orientation === 'horizontal';
   }
 
-  @HostBinding('class.lg-data-point-list--vertical')
+  @HostBinding('class.lg-data-point-group--vertical')
   get isVertical() {
     return this.orientation === 'vertical';
   }
@@ -50,7 +50,7 @@ export class LgDataPointListComponent implements AfterContentInit {
   ngAfterContentInit() {
     if (this.dataPoints.length > 4) {
       console.error(
-        `LgDataPointListComponent: a maximum of 4 data points are allowed, but ${this.dataPoints.length} were provided.`,
+        `LgDataPointGroupComponent: a maximum of 4 data points are allowed, but ${this.dataPoints.length} were provided.`,
       );
     }
 

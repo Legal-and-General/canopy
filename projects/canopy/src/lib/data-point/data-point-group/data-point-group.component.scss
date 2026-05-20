@@ -1,6 +1,6 @@
 @use '../../../styles/mixins';
 
-.lg-data-point-list {
+.lg-data-point-group {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -9,13 +9,13 @@
   gap: var(--data-point-group-row-gap);
 }
 
-.lg-data-point-list--horizontal {
+.lg-data-point-group--horizontal {
   @include mixins.lg-breakpoint('md') {
     flex-direction: row;
   }
 }
 
-.lg-data-point-list--vertical {
+.lg-data-point-group--vertical {
   flex-direction: column;
 
   .lg-data-point {

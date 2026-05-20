@@ -25,8 +25,13 @@ export class LgDataPointLabelComponent {
 
   @HostBinding('class.lg-data-point-label') class = true;
 
+  @HostBinding('class.lg-data-point-label--card')
+  get isCardVariant() {
+    return this.dataPoint?.variant === 'card';
+  }
+
   @HostBinding('class.lg-data-point-label--card-principle')
-  get isCardPrinciple() {
+  get isCardPrincipleVariant() {
     return this.dataPoint?.variant === 'card-principle';
   }
 

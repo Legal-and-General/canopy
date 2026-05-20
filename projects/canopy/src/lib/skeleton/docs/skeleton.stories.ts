@@ -86,7 +86,6 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
               lgSkeletonWidth="20"
               lgSkeletonRightAlign="true"
               [headingLevel]="5"
-              [isBold]="true"
             >
               {{ data?.datapoint.label }}
             </lg-data-point-label>
@@ -152,11 +151,11 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
   template: `
     <lg-card>
       <lg-card-content>
-        <lg-data-point>
+        <lg-data-point variant="card">
           <lg-data-point-label [headingLevel]="4">
             <span lgSkeleton lgSkeletonWidth="10">{{ data?.datapoint?.label }}</span>
           </lg-data-point-label>
-          <lg-data-point-value lgSkeleton lgSkeletonWidth="8" [isBold]="true">
+          <lg-data-point-value lgSkeleton lgSkeletonWidth="8">
             {{ data?.datapoint?.value }}
           </lg-data-point-value>
         </lg-data-point>
