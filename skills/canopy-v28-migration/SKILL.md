@@ -14,41 +14,41 @@ After completing all sections, follow the **Verification** steps at the end.
 
 ---
 
-## 1. inline-message: `generic` status now renders a `globe` icon by default
+## 1. alert: `generic` status now renders a `globe` icon by default
 
-**What changed:** The `generic` status variant of `<lg-inline-message>` previously rendered no icon. It now renders a `globe` icon by default. If your design intentionally shows no icon for a `generic` inline message, you must explicitly opt out.
+**What changed:** The `generic` status variant of `<lg-alert>` previously rendered no icon. It now renders a `globe` icon by default. If your design intentionally shows no icon for a `generic` alert, you must explicitly opt out.
 
 **Search for** (in `*.html` files):
 ```
-lg-inline-message
+lg-alert
 ```
 Then inspect each occurrence where `status="generic"` is set (or where `status` is bound to a value that may be `"generic"` at runtime).
 
-**Replace with:** If you need to suppress the icon for a `generic` inline message, add the `[showIcon]="false"` input. If the default `globe` icon is acceptable, no change is required.
+**Replace with:** If you need to suppress the icon for a `generic` alert, add the `[showIcon]="false"` input. If the default `globe` icon is acceptable, no change is required.
 
 **Before:**
 ```html
 <!-- Rendered with no icon under v27 -->
-<lg-inline-message status="generic">
+<lg-alert status="generic">
   Your session will expire in 5 minutes.
-</lg-inline-message>
+</lg-alert>
 ```
 
 **After (icon suppressed):**
 ```html
-<lg-inline-message status="generic" [showIcon]="false">
+<lg-alert status="generic" [showIcon]="false">
   Your session will expire in 5 minutes.
-</lg-inline-message>
+</lg-alert>
 ```
 
 **After (default globe icon accepted — no change needed):**
 ```html
-<lg-inline-message status="generic">
+<lg-alert status="generic">
   Your session will expire in 5 minutes.
-</lg-inline-message>
+</lg-alert>
 ```
 
-> **Automated?** No — review each `<lg-inline-message status="generic">` (and any dynamic bindings where `status` may resolve to `"generic"`) and decide whether the new `globe` icon is appropriate for the context.
+> **Automated?** No — review each `<lg-alert status="generic">` (and any dynamic bindings where `status` may resolve to `"generic"`) and decide whether the new `globe` icon is appropriate for the context.
 
 ---
 
