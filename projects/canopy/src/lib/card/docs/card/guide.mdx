@@ -70,7 +70,7 @@ As the card component is just a container for content, you can add whatever cont
 
 ### Product card
 
-This component uses some extra card components, such as `LgCardPrincipleDataPoint`, `LgCardPrincipleDataPointLabel` and `LgCardPrincipleDataPointValue` to display data points.
+This component uses some extra card components, such as `LgDataPointComponent` with `variant="card-principle"`, `LgDataPointLabelComponent`, `LgDataPointValueComponent`, and `LgDataPointSecondaryLabelComponent` to display data points.
 
 <Source of={CardStories.ProductCard} />
 
@@ -197,22 +197,6 @@ toggleActive(state: boolean): void {
   this.isToggleActive = state;
 }
 ```
-
-### LgCardPrincipleDataPoint
-
-Sometimes the card will be displaying a principle data point. In that case this layout component should be used. It should be located inside the card content which will control its layout.
-
-### LgCardPrincipleDataPointValue
-
-This is where the value for the data point should be projected. It should be located inside the card principle data point.
-
-### LgCardPrincipleDataPointLabel
-
-This is where the label for the data point should be projected. A data point should always have a value, but it may not have a label. It should be located inside the card principle data point.
-
-### LgCardPrincipleDataPointDate
-
-This is where the date for the data point should be projected. It should be located inside the card principle data point.
 
 ### LgCardFooter
 

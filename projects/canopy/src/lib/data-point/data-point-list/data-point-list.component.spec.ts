@@ -43,8 +43,56 @@ describe('LgDataPointListComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-data-point-list');
   });
 
-  it('should have the role list', () => {
-    expect(el.getAttribute('role')).toEqual('list');
+  it('should apply horizontal orientation by default', () => {
+    expect(el.getAttribute('class')).toContain('lg-data-point-list--horizontal');
+    expect(el.getAttribute('class')).not.toContain('lg-data-point-list--vertical');
+  });
+
+  it('should apply vertical orientation when orientation is vertical', () => {
+    ngMocks.flushTestBed();
+
+    const localFixture = MockRender(`
+      <lg-data-point-list orientation="vertical">
+      </lg-data-point-list>
+    `);
+    const localEl = localFixture.debugElement.children[0].nativeElement;
+
+    localFixture.detectChanges();
+
+    expect(localEl.getAttribute('class')).toContain('lg-data-point-list--vertical');
+    expect(localEl.getAttribute('class')).not.toContain('lg-data-point-list--horizontal');
+  });
+
+  it('should not apply role when there are no data points', () => {
+    expect(el.getAttribute('role')).toBeNull();
+  });
+
+  describe('when there is only 1 data point', () => {
+    beforeEach(() => {
+      ngMocks.flushTestBed();
+
+      fixture = MockRender(`
+        <lg-data-point-list>
+          <lg-data-point></lg-data-point>
+        </lg-data-point-list>
+      `);
+
+      debugElement = fixture.debugElement;
+      el = debugElement.children[0].nativeElement;
+      fixture.detectChanges();
+
+      dataPointInstances = fixture.debugElement
+        .queryAll(By.css('lg-data-point'))
+        .map(debugEl => debugEl.componentInstance);
+    });
+
+    it('should not apply role="list" to the wrapper', () => {
+      expect(el.getAttribute('role')).toBeNull();
+    });
+
+    it('should not set isListItem on the single data point', () => {
+      expect(dataPointInstances[0].isListItem).not.toBe(true);
+    });
   });
 
   describe('when there are 3 items', () => {
@@ -75,10 +123,36 @@ describe('LgDataPointListComponent', () => {
       expect(el.children.length).toEqual(3);
     });
 
+    it('should apply role="list" to the wrapper', () => {
+      expect(el.getAttribute('role')).toEqual('list');
+    });
+
     it('should set isListItem to true on all data points', () => {
       dataPointInstances.forEach(dataPoint => {
         expect(dataPoint.isListItem).toBe(true);
       });
+    });
+  });
+
+  describe('when there are more than 4 data points', () => {
+    it('should log a console error', () => {
+      ngMocks.flushTestBed();
+
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+
+      MockRender(`
+        <lg-data-point-list>
+          <lg-data-point></lg-data-point>
+          <lg-data-point></lg-data-point>
+          <lg-data-point></lg-data-point>
+          <lg-data-point></lg-data-point>
+          <lg-data-point></lg-data-point>
+        </lg-data-point-list>
+      `);
+
+      expect(consoleSpy).toHaveBeenCalledWith(
+        'LgDataPointListComponent: a maximum of 4 data points are allowed, but 5 were provided.',
+      );
     });
   });
 });

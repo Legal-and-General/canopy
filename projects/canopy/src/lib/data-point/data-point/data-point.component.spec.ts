@@ -53,6 +53,22 @@ describe('LgDataPointComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-data-point');
   });
 
+  describe('variant input', () => {
+    it('should not apply the card-principle modifier class by default', () => {
+      expect(el.getAttribute('class')).not.toContain('lg-data-point--card-principle');
+    });
+
+    it('should apply the card-principle modifier class when variant is card-principle', () => {
+      ngMocks.flushTestBed();
+
+      fixture = MockRender('<lg-data-point variant="card-principle"></lg-data-point>');
+      el = fixture.debugElement.children[0].nativeElement;
+      fixture.detectChanges();
+
+      expect(el.getAttribute('class')).toContain('lg-data-point--card-principle');
+    });
+  });
+
   it('should render the heading', () => {
     const headingElement = fixture.debugElement.query(By.css('lg-data-point-label'));
 

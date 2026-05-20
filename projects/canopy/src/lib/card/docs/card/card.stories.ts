@@ -25,16 +25,14 @@ import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../../bread
 import { LgHeadingComponent } from '../../../heading';
 import { LgCardToggableContentComponent } from '../../card-toggable-content/card-toggable-content.component';
 import { LgCardSubheadingComponent } from '../../card-subheading/card-subheading.component';
-import { LgCardNavigationTitleComponent } from '../../card-navigation-title/card-navigation-title.component';
-import { LgCardPrincipleDataPointLabelComponent } from '../../card-principle-data-point-label/card-principle-data-point-label.component';
-import { LgCardPrincipleDataPointComponent } from '../../card-principle-data-point/card-principle-data-point.component';
-import { LgCardPrincipleDataPointValueComponent } from '../../card-principle-data-point-value/card-principle-data-point-value.component';
 import { LgCardSubtitleComponent } from '../../card-subtitle/card-subtitle.component';
 import { LgCardContentInnerDataPointsComponent } from '../../card-content-inner-data-points/card-content-inner-data-points.component';
+import { LgCardNavigationTitleComponent } from '../../card-navigation-title/card-navigation-title.component';
 import {
   LgDataPointComponent,
   LgDataPointLabelComponent,
   LgDataPointValueComponent,
+  LgDataPointSecondaryLabelComponent,
 } from '../../../data-point';
 import {
   LgLinkMenuComponent,
@@ -259,16 +257,30 @@ const dataPointsCardTemplate = `
   </lg-card-header>
   <lg-card-content>
     <lg-card-content-inner-data-points>
-      @for (number of [].constructor(dataPoints); track $index; let i = $index) {
-        <lg-data-point>
-          <lg-data-point-label [headingLevel]="3">
-            {{data[i].label}}
-          </lg-data-point-label>
-          <lg-data-point-value>
-            {{data[i].value}}
-          </lg-data-point-value>
-        </lg-data-point>
-      }
+      <lg-data-point>
+        <lg-data-point-label [headingLevel]="3" [isBold]="true">
+          Data key 1
+        </lg-data-point-label>
+        <lg-data-point-value size="md">
+          Data value 1
+        </lg-data-point-value>
+      </lg-data-point>
+      <lg-data-point>
+        <lg-data-point-label [headingLevel]="3" [isBold]="true">
+          Data key 2
+        </lg-data-point-label>
+        <lg-data-point-value size="sm">
+          Data value 2
+        </lg-data-point-value>
+      </lg-data-point>
+      <lg-data-point>
+        <lg-data-point-label [headingLevel]="3" [isBold]="true">
+          Data key 3
+        </lg-data-point-label>
+        <lg-data-point-value size="sm">
+          Data value 3
+        </lg-data-point-value>
+      </lg-data-point>
     </lg-card-content-inner-data-points>
   </lg-card-content>
   <lg-card-footer lgPaddingTop="none">
@@ -308,10 +320,7 @@ const dataPointsCardTemplate = `
     RouterTestingModule,
   ],
 })
-class DataPointsCardComponent {
-  @Input() dataPoints: number;
-  @Input() data: Array<never>;
-}
+class DataPointsCardComponent {}
 
 const cardGroupTemplate = `
 <div lgContainer>
@@ -404,9 +413,10 @@ export default {
         LgCardSubtitleComponent,
         LgCardSubheadingComponent,
         LgCardContentComponent,
-        LgCardPrincipleDataPointComponent,
-        LgCardPrincipleDataPointLabelComponent,
-        LgCardPrincipleDataPointValueComponent,
+        LgDataPointComponent,
+        LgDataPointLabelComponent,
+        LgDataPointValueComponent,
+        LgDataPointSecondaryLabelComponent,
         LgCardNavigationTitleComponent,
         LgCardContentInnerDataPointsComponent,
         LgGridContainerDirective,
@@ -502,17 +512,17 @@ const productCardTemplate = `
           Payroll Reference Number P23456
         </lg-card-subtitle>
       </div>
-      <lg-card-principle-data-point lgCol="12" lgColMd="6">
-        <lg-card-principle-data-point-label>
+      <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
+        <lg-data-point-label [headingLevel]="5" [isBold]="true">
           Last payment (after tax and deductions)
-        </lg-card-principle-data-point-label>
-        <lg-card-principle-data-point-value>
+        </lg-data-point-label>
+        <lg-data-point-value [size]="size">
           <span><span class="lg-font-size-3">£</span>230.20</span>
-        </lg-card-principle-data-point-value>
-        <lg-card-principle-data-point-date>
+        </lg-data-point-value>
+        <lg-data-point-secondary-label>
           as of 01 Jan 2020
-        </lg-card-principle-data-point-date>
-      </lg-card-principle-data-point>
+        </lg-data-point-secondary-label>
+      </lg-data-point>
     </div>
   </lg-card-content>
 </lg-card>
@@ -522,6 +532,18 @@ export const ProductCard = {
   name: 'Product',
   args: {
     title: 'Standard Lifetime Annuity Joint Life Full',
+    size: 'lg',
+  },
+  argTypes: {
+    size: {
+      options: [ 'sm', 'md', 'lg' ],
+      description: 'The size variant applied to the `<lg-data-point-value>` component',
+      table: {
+        type: { summary: [ 'sm', 'md', 'lg' ] },
+        defaultValue: { summary: 'lg' },
+      },
+      control: { type: 'select' },
+    },
   },
   parameters: {
     docs: {
@@ -581,28 +603,6 @@ export const ShowMoreCard = {
 
 export const DataPointsCard = {
   name: 'Data points',
-  args: {
-    dataPoints: 3,
-    data: [
-      {
-        label: 'Data key 1',
-        value: 'Data value 1',
-      },
-      {
-        label: 'Data key 2',
-        value: 'Data value 2',
-      },
-      {
-        label: 'Data key 3',
-        value: 'Data value 3',
-      },
-    ],
-  },
-  argTypes: {
-    dataPoints: {
-      control: { type: 'number', min: 1, max: 3, step: 1 },
-    },
-  },
   parameters: {
     docs: {
       source: {
@@ -612,8 +612,7 @@ export const DataPointsCard = {
   },
   render: (args: LgCardComponent) => ({
     props: args,
-    template:
-      '<lg-card-data-points [dataPoints]="dataPoints" [data]="data"></lg-card-data-points>',
+    template: '<lg-card-data-points></lg-card-data-points>',
   }),
 };
 

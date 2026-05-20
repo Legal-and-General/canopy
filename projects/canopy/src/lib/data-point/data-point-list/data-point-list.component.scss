@@ -6,8 +6,19 @@
   flex-direction: column;
   margin-left: 0;
   margin-right: 0;
+  gap: var(--data-point-group-row-gap);
+}
 
+.lg-data-point-list--horizontal {
   @include mixins.lg-breakpoint('md') {
     flex-direction: row;
+  }
+}
+
+.lg-data-point-list--vertical {
+  flex-direction: column;
+
+  .lg-data-point {
+    margin-bottom: 0;
   }
 }

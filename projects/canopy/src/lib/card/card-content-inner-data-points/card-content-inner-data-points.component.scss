@@ -5,31 +5,10 @@
     'a a'
     'b c';
 
-  .lg-data-point-label {
-    font-weight: var(--font-weight-700);
-  }
-
-  .lg-data-point-value {
-    font-weight: var(--font-weight-300);
-  }
-
   // First data point
   > *:first-child {
     grid-area: a;
     margin-bottom: var(--space-7);
-
-    .lg-data-point-value {
-      font-size: var(--font-size-4);
-      line-height: var(--line-height-4);
-    }
-  }
-
-  // 2 data points, second data point
-  > *:nth-child(2):nth-last-child(1) {
-    .lg-data-point-value {
-      font-size: var(--font-size-3);
-      line-height: var(--line-height-2);
-    }
   }
 
   // 3 data points, second and third data point
@@ -38,10 +17,5 @@
     display: inline-flex;
     margin-right: 0;
     grid-area: 2;
-
-    .lg-data-point-value {
-      font-size: var(--font-size-3);
-      line-height: var(--line-height-2);
-    }
   }
 }
