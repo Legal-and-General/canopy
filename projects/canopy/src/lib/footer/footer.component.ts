@@ -8,6 +8,12 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+} from '../grid';
+
 import { LgFooterLogoComponent } from './footer-logo/footer-logo.component';
 
 @Component({
@@ -20,6 +26,7 @@ import { LgFooterLogoComponent } from './footer-logo/footer-logo.component';
     class: 'lg-footer',
     role: 'contentinfo',
   },
+  imports: [ LgGridContainerDirective, LgGridRowDirective, LgGridColDirective ],
   standalone: true,
 })
 export class LgFooterComponent implements AfterContentInit {
@@ -29,10 +36,13 @@ export class LgFooterComponent implements AfterContentInit {
   footerLogos: QueryList<LgFooterLogoComponent>;
 
   ngAfterContentInit(): void {
+    const totalLogos = this.footerLogos.length;
+
     this.footerLogos.forEach((footerLogo, i) => {
-      footerLogo.class = i === 0
-        ? 'lg-footer-logo__img'
-        : 'lg-footer-logo__second-img';
+      footerLogo.class =
+        i === totalLogos - 1
+          ? 'lg-footer-logo__img'
+          : 'lg-footer-logo__second-img';
     });
   }
 }

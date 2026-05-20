@@ -14,7 +14,7 @@ Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills
 npx skills add Legal-and-General/canopy --list
 
 # Install a specific migration skill
-npx skills add Legal-and-General/canopy --skill canopy-v24-migration
+npx skills add Legal-and-General/canopy --skill canopy-v27-migration
 
 # List all available best practice skills
 npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --list
@@ -41,10 +41,13 @@ npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
 
 Once installed, ask your agent:
-> "Apply the Canopy v24 migration to my project."
+> "Apply the Canopy v27 migration to my project."
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v27-migration` | v26 → v27 | [v27.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v27.0.0) |
+| `canopy-v26-migration` | v25 → v26 | [v26.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v26.0.0) |
+| `canopy-v25-migration` | v24 → v25 | [v25.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v25.0.0) |
 | `canopy-v24-migration` | v23 → v24 | [v24.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v24.0.0) |
 | `canopy-v23-migration` | v22 → v23 | [v23.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v23.0.0) |
 | `canopy-v22-migration` | v21 → v22 | [v22.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v22.0.0) |

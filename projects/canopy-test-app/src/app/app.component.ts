@@ -168,7 +168,15 @@ import {
   LgSideNavContentComponent,
 } from '../../../canopy/src/lib/side-nav';
 import { LgPaginationComponent } from '../../../canopy/src/lib/pagination';
-import { LgFooterComponent, LgFooterLogoComponent } from '../../../canopy/src/lib/footer';
+import {
+  LgFooterComponent,
+  LgFooterLogoComponent,
+  LgFooterCopyrightComponent,
+  LgFooterNavComponent,
+  LgFooterNavItemComponent,
+  LgFooterSocialComponent,
+  LgFooterFootnoteComponent,
+} from '../../../canopy/src/lib/footer';
 import {
   LgProgressBarComponent,
   LgProgressHeaderComponent,
@@ -285,6 +293,11 @@ import {
     LgCardPrincipleDataPointDateComponent,
     LgFooterComponent,
     LgFooterLogoComponent,
+    LgFooterCopyrightComponent,
+    LgFooterNavComponent,
+    LgFooterNavItemComponent,
+    LgFooterSocialComponent,
+    LgFooterFootnoteComponent,
     LgPromoCardContentComponent,
     LgFilterContainerPanelComponent,
     LgAccordionPanelHeadingComponent,

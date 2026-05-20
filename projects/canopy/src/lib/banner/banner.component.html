@@ -2,10 +2,12 @@
   <div lgRow>
     <div [lgCol]="12">
       <div class="lg-banner__container">
-        <span class="lg-banner__icon">
-          <ng-content select="lg-icon" />
-        </span>
-        <div><ng-content /></div>
+        @if (showIcon) {
+          <span class="lg-banner__icon">
+            <lg-icon [name]="statusIcon" />
+          </span>
+        }
+        <div class="lg-banner__text"><ng-content /></div>
       </div>
     </div>
   </div>

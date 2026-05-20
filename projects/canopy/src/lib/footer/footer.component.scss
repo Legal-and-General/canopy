@@ -1,39 +1,40 @@
 @use '../../styles/mixins';
 
 .lg-footer {
-  background-color: var(--footer-bg-color);
-  padding: var(--space-8) var(--space-5) var(--space-5);
-  display: flex;
-  flex-direction: column;
+  background-color: var(--footer-background-colour);
 
-  @include mixins.lg-breakpoint('lg') {
-    flex-direction: row;
-    padding: var(--space-6);
+  &__wrapper {
+    padding: var(--footer-padding-y) var(--footer-padding-x);
+    display: flex;
+    flex-direction: column;
   }
 
   &__links {
-    @include mixins.lg-breakpoint('lg') {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      flex: 1 0 auto;
-      margin-bottom: 0;
-    }
+    margin-bottom: var(--footer-gap);
   }
 
   &__logos-wrapper {
     display: flex;
-    align-items: center;
-    margin-bottom: var(--component-margin);
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    gap: var(--footer-logo-gap);
+    justify-content: flex-end;
+
+    @include mixins.lg-breakpoint('lg') {
+      flex-wrap: nowrap;
+    }
   }
 
   &__org {
+    display: flex;
+    flex-direction: column;
+
     @include mixins.lg-breakpoint('lg') {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
       flex: 0 1 auto;
-      align-items: flex-end;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
     }
   }
 }

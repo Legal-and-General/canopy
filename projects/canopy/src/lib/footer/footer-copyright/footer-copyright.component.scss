@@ -1,11 +1,12 @@
 @use '../../../styles/mixins';
 
 .lg-footer-copyright {
-  display: block;
-
   @include mixins.lg-font-size('0-6');
 
+  display: block;
+  margin-top: var(--footer-gap);
+
   @include mixins.lg-breakpoint('lg') {
-    text-align: right;
+    text-align: left;
   }
 }

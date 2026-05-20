@@ -1,0 +1,14 @@
+@use '../../../styles/mixins';
+
+.lg-footer-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--footer-link-group-link-gap);
+  align-self: flex-start;
+  width: 100%;
+
+  @include mixins.lg-breakpoint('lg') {
+    align-self: flex-end;
+    width: auto;
+  }
+}
