@@ -117,7 +117,7 @@
     "ng-mocks": "14.15.2",
     "ng-packagr": "20.3.2",
     "npm": "11.14.1",
-    "postcss": "8.5.9",
+    "postcss": "8.5.10",
     "postcss-scss": "4.0.9",
     "prettier": "3.8.2",
     "remark-gfm": "4.0.1",
