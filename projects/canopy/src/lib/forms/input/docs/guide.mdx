@@ -7,17 +7,15 @@ import Feedback from '../../../docs/common/feedback.md';
 
 <p class="standfirst">Text input allows the user to enter a single line of text into a form.</p>
 
+![Text input hero](docs/text-input/hero.png)
+
 ## Usage
 
-A text input (`<lg-input-field>`) should be used to let the user enter or amend information such as:
+Use Text input when a user needs to enter a short, single-line value. For example:
 
-• **Personal information** - Name, date of birth, address, bank details, etc.
-
-• **Communications** - Messaging, providing feedback, etc.
-
-• **Data** - Numeric values
-
-The component contains a `<label>` and an `<input>` element. The `lgInput` directive should be added to the `<input>` element.
+1. **Contact details** – name, email address, phone number, postcode
+2. **Product or account details** – reference/policy number, amounts (numeric)
+3. **Search**
 
 Import the text input component in your application:
 
@@ -50,39 +48,49 @@ For optional fields, use a `<span>` element with the `lg-label--optional` class 
 
 ## How it works
 
-A text input should always use the `<label>` and `<input>` contained in the component.
+The text input consists of a label and an interactive field. When a user selects the field, it becomes active, allowing them to enter or edit a single line of text using a keyboard or other input method. Users should be able to move between inputs using standard keyboard navigation (for example, Tab and Shift + Tab).
 
-The text input consists of an interactive container which upon selection becomes active allowing the user to enter text via the keyboard or other input device. Labelling above the text input gives context as to the information required and all inputs must include a label.
+A text input **must always** have a label. The label gives the user context about what information is required and must remain available when the user is entering a value.
 
-The user can navigate between inputs using the tab key on desktop, and forward / back icons on mobile (OS dependent). Once finished, the user can exit the input by clicking outside of the container on desktop, or by tapping the done button on mobile (OS dependent).
+Hint text is optional. Use hint text only when the user needs extra guidance to complete the field (for example, a format requirement). Do not use placeholder text as a replacement for a label.
 
-### Prefixes and suffixes
+Text inputs should be set to a specific size when the expected length of the input is known (for example, a postcode). Use full width for inputs where the length is variable (for example, a name).
 
-You can add prefixes (i.e. currency symbols), suffixes (i.e. percentage) using the `lgSuffix` and `lgPrefix` directives.
+### Variants
 
 #### Text prefix
 
+![Text input prefix](docs/text-input/variant-prefix.png)
+
+Use prefixes (for example, currency symbols) to give extra context to the input value. Add a prefix using the `lgPrefix` directive:
+
 ```html
 <lg-input-field>
-  Name
-  <input lgInput formControlName="name" />
+  Amount
+  <input lgInput formControlName="amount" />
   <span lgPrefix>£</span>
 </lg-input-field>
 ```
 
 #### Text suffix
 
+![Text input suffix](docs/text-input/variant-suffix.png)
+
+Use suffixes (for example, percentages) to give extra context to the input value. Add a suffix using the `lgSuffix` directive:
+
 ```html
 <lg-input-field>
-  Name
-  <input lgInput formControlName="name" />
+  Percentage
+  <input lgInput formControlName="percentage" />
   <span lgSuffix>%</span>
 </lg-input-field>
 ```
 
-#### Icon Button suffix with add-on class
+#### Input buttons (Add-on)
 
-There is an additional add-on button variant for adding a button to the input field which inherits the button spacing but no background or border colours.
+![Text input add-on](docs/text-input/variant-add-on-button.png)
+
+Buttons can be added within the input field when the action relates directly to the value, such as clearing the field or revealing a password. Use the add-on priority for icon-only buttons to inherit correct spacing without adding background or border styling.
 
 ```html
 <lg-input-field>
@@ -90,57 +98,68 @@ There is an additional add-on button variant for adding a button to the input fi
   <input lgInput formControlName="name" />
   <button lg-button lgSuffix [iconButton]="true" priority="add-on">
     Close
-    <lg-icon name="close-spot-outline" />
+    <lg-icon name="close" />
   </button>
 </lg-input-field>
 ```
 
-#### External button
+#### External buttons
 
-You can add a button that sits outside the input border using the `lgInputFieldExternalButton` directive. This is useful for actions like search or submit buttons.
+![Text input external button](docs/text-input/variant-external-button.png)
+
+Use the `lgInputFieldExternalButton` directive to place a button outside the input border. This should be used for actions that trigger a process related to the input, such as a search or submit action.
 
 ```html
 <lg-input-field>
-  Name
-  <input lgInput formControlName="name" />
+  Search
+  <input lgInput formControlName="search" />
   <button lg-button lgInputFieldExternalButton priority="primary">
+    Search
   </button>
 </lg-input-field>
 ```
 
-You can combine multiple suffixes with an external button:
+#### Combining elements
+
+![Text input combining elements](docs/text-input/variant-combining-elements.png)
+
+You can combine multiple suffixes with an external button when complex interactions are required.
 
 ```html
 <lg-input-field>
-  Name
-  <input lgInput formControlName="name" />
+  Discount
+  <input lgInput formControlName="discount" />
   <span lgSuffix>%</span>
   <button lg-button lgSuffix [iconButton]="true" priority="add-on">
     Close
-    <lg-icon name="close-spot-outline" />
+    <lg-icon name="close" />
   </button>
-  <button lg-button lgInputFieldExternalButton priority="primary">
+  <button lg-button lgExternalButton priority="primary">
     Submit
   </button>
 </lg-input-field>
 ```
 
-## Dos and Don'ts
+## Do and don't
 
 ### Do
 
-1. **Do** use labels and supporting text to help provide context.
-2. **Do** keep labels clear, concise and relevant.
-3. **Do** use a textarea for multi-line content (Angular component to be built).
-4. **Do** use prefix, suffix or action variants to aid the user as to the input type or information required.
-5. **Do** keep input widths relative to the information requested.
+![Text input do](docs/text-input/do.png)
+
+1. **Do** place labels above the input. This ensures the best scannability and accessibility across all device sizes.
+2. **Do** match the width of the input to the expected content. Use a width that gives a visual cue to the user (for example, a shorter field for a postcode).
+3. **Do** use clear and concise labels. Labels must describe exactly what information is required.
+4. **Do** use hint text for format requirements. Use it to provide extra guidance (for example, "Case sensitive") rather than relying on placeholder text.
+5. **Do** use the correct input type. Ensure the appropriate keyboard is triggered on mobile devices (for example, `type="tel"` for phone numbers).
 
 ### Don't
 
-1. **Don't** truncate label text.
-2. **Don't** use text inputs when a pre-defined response is required, use the select component instead.
-3. **Don't** use text inputs for simple responses (such as yes/no), use checkboxes or radio buttons instead.
-4. **Don't** use placeholder text instead of a label.
+![Text input dont](docs/text-input/dont.png)
+
+1. **Don’t** use placeholder text as a label. Placeholders disappear when the user starts typing, which creates a high cognitive load and is an accessibility failure.
+2. **Don’t** truncate label text. If a label is too long, wrap it to a new line or rewrite it for conciseness.
+3. **Don’t** use a text input for pre-defined responses. If a user needs to choose from a list or make a binary choice (like Yes/No), use a select component, radio buttons, or checkboxes instead.
+4. **Don’t** use "Clear" buttons for short inputs. Only use the "clear" button variant when the input is likely to be long or frequently edited (for example, a search field). Avoid them on standard fields like "Name" or "Postcode" to prevent accidental deletion.
 
 ## Additional development information
 
@@ -163,13 +182,14 @@ You can combine multiple suffixes with an external button:
 
 ***
 
-## Research on this component
+## References
 
-This component is based on best practice and has not had specific usability testing.
+Nielsen Norman Group(NN/g)
+- <a href="https://www.nngroup.com/articles/form-design-placeholders/ " target="_blank">https://www.nngroup.com/articles/form-design-placeholders/</a>
+- <a href="https://www.nngroup.com/articles/web-form-design/" target="_blank">https://www.nngroup.com/articles/web-form-design/</a>
 
-## Related
-
-If you need to present a list of options, consider a [select component](./?path=/docs/components-forms-select-guide--docs).
+GOV.UK Design System - Text input
+- <a href="https://design-system.service.gov.uk/components/text-input/" target="_blank">https://design-system.service.gov.uk/components/text-input/</a>
 
 <Markdown>
   {Feedback}

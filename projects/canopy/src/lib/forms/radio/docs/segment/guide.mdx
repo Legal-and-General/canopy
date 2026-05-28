@@ -5,15 +5,16 @@ import Feedback from '../../../../docs/common/feedback.md';
 
 # Segment
 
-<p class="standfirst">The segment control can be used on forms where the user is required to make a conscious decision between several choices (min 2, max 5) and vertical space on desktop is limited.</p>
+<p class="standfirst">A segment allows users to select a single option from a small set of mutually exclusive choices, typically used as a more prominent alternative to radio buttons.</p>
+
+![Segment hero](docs/segment/hero.png)
 
 ## Usage
 
-Use a segment control when users need to make one selection from multiple options and where vertical space is limited.
+Use segments in forms when a user must make a single, mutually exclusive selection from a small list of options (between 2 and 5). They are particularly effective when:
 
-It's also intended as an alternative to radio buttons when the user needs to make a conscious choice i.e. unlike a radio button which always has one option selected by default.
-
-The segment component is a variant of the radio component.
+- You want to provide a more prominent visual alternative to standard radio buttons.
+- You want to ensure the user makes a conscious choice (starting with no default selection).
 
 Import the radio components into your application:
 
@@ -36,27 +37,43 @@ and in your HTML:
 
 ## How it works
 
-The segment control is made up of a segment group and segment buttons. A segment group is a container which displays a label, optional hint and two or more segment buttons. Under the hood, segment buttons are restyled radio buttons.
+The segment component consists of a label, an optional hint, and a series of interactive buttons. To ensure users make an intentional choice, the component should start with no option selected. Once a selection is made, the component allows only one active state at a time, so choosing a new option automatically replaces the previous selection.
 
-* In the default state, nothing is selected.
-* Only one option can be selected and active at any one time. Selecting one option deselects any other.
-* There must be a clear colour contrast between the selected and the unselected options.
-* If there's not enough space to display the segment in a horizontal layout, a vertical layout may be used up to tablet breakpoint. A choice on which breakpoint the segment changes from vertical to horizontal should be made at design time (vertical stacking up to MD or LG breakpoints).
-* Use a hint to provide extra context to the user.
+To maintain clarity and usability, a segment group must contain at least two options but no more than five. If more than five choices are required, a different component like a radio group or select must be used instead.
 
-## Dos and Don'ts
+### Variants
+
+#### Inline
+
+![Segment inline](docs/segment/variant-inline.png)
+
+Segments usually sit side-by-side on larger screens. This layout is preferred when horizontal space is available and labels are short.
+
+#### Stacked
+
+![Segment inline](docs/segment/variant-stacked.png)
+
+Segments should stack vertically on mobile to ensure each button remains easy to tap. The specific point at which the layout switches from inline to stacked must be determined by the length of the text labels and the available screen width.
+
+## Do and don't
 
 ### Do
 
-1. **Do** use when only one option can be selected from multiple options and where vertical space is limited.
-2. **Do** use the vertical variant on mobile, when space may not permit use of the horizontal variant.
+![Segment do](docs/segment/do.png)
+
+1. **Do** use segments for mutually exclusive options where only one selection is permitted.
+2. **Do** stack segments vertically on mobile devices to ensure touch targets are large enough for all users.
+3. **Do** keep labels short and concise to ensure they fit within the buttons without wrapping.
 
 ### Don't
 
-1. **Don't** use when multiple items from a list can be selected, instead use checkboxes.
-2. **Don't** use when the preset options is a long list (more than five), use the select component instead.
+![Segment dont](docs/segment/dont.png)
 
-## Additional development details
+1. **Don't** use segments for more than five options; use a radio group or select component instead.
+2. **Don't** use segments if the user needs to select multiple items; use checkboxes instead.
+3. **Don't** use segments for navigation; use tabs or a button group to move between different pages or views.
+
+## Developer reference
 
 **We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
 
@@ -93,20 +110,9 @@ Segment buttons are displayed inline, unless given a `RadioStackBreakpoint`, whi
 |--------|-----------------------------------------|-----------------------|---------|----------|
 | `blur` | Event emitted on blur of a radio button | `EventEmitter<Event>` | n/a     | No       |
 
-***
-
-## Research on this component
-
-This is based on best practice.
-
 ## Related
 
-Patterns which may perform a similar task, or which should be considered instead:
-
-* [Radio buttons](./?path=/docs/components-forms-radio-guide--docs)
-* [Select](./?path=/docs/components-forms-select-guide--docs)
-* [Switch](./?path=/docs/components-forms-switch-guide--docs)
-* [Checkbox](./?path=/docs/components-forms-checkbox-guide--docs)
+* [Radio](./?path=/docs/components-forms-radio-guide--docs)
 
 <Markdown>
   {Feedback}
