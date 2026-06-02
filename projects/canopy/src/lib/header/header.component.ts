@@ -101,6 +101,11 @@ export class LgHeaderComponent implements AfterContentInit, OnDestroy {
     }
   }
 
+  skipToMain(event: Event): void {
+    event.preventDefault();
+    (this.document.getElementById('main'))?.focus();
+  }
+
   ngAfterContentInit(): void {
     this.headerLogos.forEach((headerLogo, i) => {
       headerLogo.class = i === 0
