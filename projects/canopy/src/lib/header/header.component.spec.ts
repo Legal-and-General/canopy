@@ -96,6 +96,16 @@ describe('HeaderComponent', () => {
     document.body.removeChild(mainEl);
   });
 
+  it('should not throw when the main element is absent from the DOM', () => {
+    const event = new MouseEvent('click');
+
+    expect(() => {
+      fixture.debugElement
+        .query(By.css('.lg-page__skip-link'))
+        .triggerEventHandler('click', event);
+    }).not.toThrow();
+  });
+
   it('adds a class to the logo', () => {
     expect(logoDebugElements[0].nativeElement.getAttribute('class')).toContain(
       'lg-header-logo__img',
