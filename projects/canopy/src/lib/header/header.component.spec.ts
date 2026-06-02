@@ -71,9 +71,12 @@ describe('HeaderComponent', () => {
 
   it('should render a skip link as the first child', () => {
     const skipLink = fixture.debugElement.query(By.css('.lg-page__skip-link'));
+    const headerEl = fixture.debugElement.query(By.css('header.lg-header'))
+      .nativeElement as HTMLElement;
 
     expect(skipLink).toBeTruthy();
     expect(skipLink.nativeElement.getAttribute('href')).toBe('#main');
+    expect(headerEl.firstElementChild).toBe(skipLink.nativeElement);
   });
 
   it('should focus the main element and prevent default when the skip link is clicked', () => {
