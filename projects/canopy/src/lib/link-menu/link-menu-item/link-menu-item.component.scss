@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--link-menu-item-gap);
 }
 
 .lg-link-menu-item__container {
@@ -56,6 +55,7 @@
 .lg-link-menu-item__badge-container {
   display: flex;
   align-items: center;
+  margin-right: var(--link-menu-item-gap);
 
   &:empty {
     display: none;
