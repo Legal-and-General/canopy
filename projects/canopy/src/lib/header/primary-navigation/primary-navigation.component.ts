@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 
 import { LgHideAtDirective } from '../../hide-at';
+import { LgLinkMenuComponent } from '../../link-menu';
+import { LgShowAtDirective } from '../../show-at';
 
 @Component({
   selector: 'lg-primary-nav',
@@ -23,11 +25,10 @@ import { LgHideAtDirective } from '../../hide-at';
     id: 'primary-nav',
     'aria-label': 'Main navigation',
   },
-  imports: [ LgHideAtDirective ],
+  imports: [ LgHideAtDirective, LgShowAtDirective, LgLinkMenuComponent ],
 })
 export class LgPrimaryNavComponent {
   private cdr = inject(ChangeDetectorRef);
-
   private _showResponsiveMenu = false;
 
   @Input() set showResponsiveMenu(show: boolean) {

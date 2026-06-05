@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--link-menu-item-gap);
 }
 
 .lg-link-menu-item__container {
@@ -50,6 +51,11 @@
   a:active & .lg-icon {
     color: var(--link-menu-item-active-colour);
   }
+}
+
+.lg-link-menu-item__badge-container {
+  display: flex;
+  align-items: center;
 }
 
 .lg-link-menu-item__icon-container {

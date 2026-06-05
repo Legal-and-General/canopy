@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
+import { LgNotificationBadgeComponent } from '../../header/notification-badge/notification-badge.component';
 
 @Component({
   selector: 'lg-link-menu-item',
@@ -26,6 +27,8 @@ export class LgLinkMenuItemComponent implements OnInit {
   @HostBinding('class.lg-link-menu-item') class = true;
 
   @ContentChild(LgIconComponent) iconComponent: LgIconComponent;
+  @ContentChild(LgNotificationBadgeComponent)
+  notificationBadge: LgNotificationBadgeComponent;
 
   @Input() rightIcon: string | null | undefined = undefined;
 

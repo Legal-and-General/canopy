@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  HostBinding,
   Input,
   ViewEncapsulation,
 } from '@angular/core';
@@ -19,4 +20,9 @@ import {
 export class LgNotificationBadgeComponent {
   @Input() count: number;
   @Input() accessText: string;
+  @Input() variant: 'count' | 'dot' = 'count';
+
+  @HostBinding('class.lg-notification-badge--dot') get isDot(): boolean {
+    return this.variant === 'dot';
+  }
 }
