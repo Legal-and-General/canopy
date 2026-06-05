@@ -449,7 +449,7 @@ export const CoBrandedNavHeader = {
   render: (args: LgHeaderComponent) => ({
     props: args,
     template:
-      '<lg-co-branded-navigation [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref" [secondaryLogo]="secondaryLogo" [secondaryLogoAlt]="secondaryLogoAlt" [secondaryLogoHref]="secondaryLogoHref"></ lg-co-branded-navigation>',
+      '<lg-co-branded-navigation [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref" [secondaryLogo]="secondaryLogo" [secondaryLogoAlt]="secondaryLogoAlt" [secondaryLogoHref]="secondaryLogoHref"></lg-co-branded-navigation>',
     styles: [
       `
         :host {

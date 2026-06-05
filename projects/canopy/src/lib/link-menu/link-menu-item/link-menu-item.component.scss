@@ -56,6 +56,10 @@
 .lg-link-menu-item__badge-container {
   display: flex;
   align-items: center;
+
+  &:empty {
+    display: none;
+  }
 }
 
 .lg-link-menu-item__icon-container {
