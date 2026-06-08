@@ -24,15 +24,21 @@ import {
 } from '@legal-and-general/canopy';
 ```
 
+No need to import grid directives separately — `LgBreadcrumbComponent` handles the grid wrapper internally for the `page` variant.
+
 ---
 
-## Basic Usage
+## Variants
+
+### `page` (default)
+
+Use for top-level, full-page contexts. The breadcrumb internally wraps its content in an `lgContainer` → `lgRow` → `lgCol="12"` grid structure, aligning it consistently with the page grid. Do **not** wrap a `page` variant in an additional `lgContainer` — the grid wrapper is already included.
 
 ```html
-<lg-breadcrumb>
+<lg-breadcrumb variant="page">
   <lg-breadcrumb-item>
     <a href="#">
-      <lg-icon name="home"></lg-icon>
+      <lg-icon name="home-outline"></lg-icon>
       Home
     </a>
   </lg-breadcrumb-item>
@@ -45,13 +51,26 @@ import {
 </lg-breadcrumb>
 ```
 
-> The **current page** (last item) must be plain text, not a link.
+### `embedded`
+
+Use when the breadcrumb is placed within another component that already provides grid structure. No container wrapper is added.
+
+```html
+<lg-breadcrumb variant="embedded">
+  <lg-breadcrumb-item>
+    <a href="#">Home</a>
+  </lg-breadcrumb-item>
+  <lg-breadcrumb-item>
+    Current page
+  </lg-breadcrumb-item>
+</lg-breadcrumb>
+```
 
 ---
 
-## Collapsing Long Trails (Desktop)
+## Collapsing Long Trails
 
-When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` to represent collapsed middle levels:
+When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` manually between items:
 
 ```html
 <lg-breadcrumb>
@@ -62,17 +81,42 @@ When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` to repre
 </lg-breadcrumb>
 ```
 
-> This must be added manually — it is not added automatically. Use it sparingly; a sensible site structure should rarely need it.
+> This must be added manually — it is not added automatically. Use it sparingly.
 
 ---
 
 ## Inputs
 
-### LgBreadcrumbComponent
+### `LgBreadcrumbComponent`
 
 | Input | Type | Default | Required | Description |
-|-------|------|---------|----------|-------------|
-| `variant` | `'light' \| 'dark'` | `'dark'` | No | Colour variant. Use `light` on dark backgrounds. |
+|-------|------|---------|----------|-----------|
+| `variant` | `'page' \| 'embedded'` | `'page'` | No | Layout variant. `page` includes the grid container wrapper; `embedded` does not. |
+
+---
+
+## Layout Tokens
+
+| Token | Description |
+|-------|-------------|
+| `--breadcrumb-gap` | Gap between breadcrumb items |
+| `--breadcrumb-min-width` | Minimum width of the breadcrumb list |
+| `--breadcrumb-padding-x` | Horizontal padding on the breadcrumb list |
+| `--breadcrumb-padding-y` | Vertical padding on the breadcrumb list |
+
+These are defined in `tokens.css` and applied automatically.
+
+## Link Colour Tokens
+
+Breadcrumb links use the `link-mono` token set:
+
+| Token | State |
+|-------|-------|
+| `--link-mono-rest-colour` | Default/rest state |
+| `--link-mono-hover-colour` | Hover state |
+| `--link-mono-focus-colour` | Focus-visible state |
+| `--link-mono-active-colour` | Active/pressed state |
+| `--link-mono-visited-colour` | Visited state |
 
 ---
 
@@ -83,6 +127,7 @@ When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` to repre
 1. **Do** make the first breadcrumb a link to the homepage.
 2. **Do** reflect the user's position in the site's hierarchical structure.
 3. **Do** include the current page label in the breadcrumb trail.
+4. **Do** use `embedded` when placing the breadcrumb inside a component that already has grid structure.
 
 ### Don't
 
@@ -90,6 +135,7 @@ When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` to repre
 2. **Don't** make the current page's breadcrumb a link.
 3. **Don't** use on websites with a shallow or flat structure.
 4. **Don't** duplicate main menu or secondary navigation options.
+5. **Don't** wrap a `page` variant breadcrumb in an additional `lgContainer` — the grid wrapper is already included.
 
 ---
 

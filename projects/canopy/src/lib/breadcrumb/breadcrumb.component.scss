@@ -1,7 +1,18 @@
 @use '../../styles/mixins';
 
 .lg-breadcrumb {
-  list-style-type: none;
   display: flex;
+  gap: var(--breadcrumb-gap);
+  list-style-type: none;
   margin-bottom: var(--component-margin);
+  min-width: var(--breadcrumb-min-width);
+
+  &--page {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-bottom: var(--breadcrumb-border-width) solid var(--breadcrumb-border-colour);
+    padding: var(--breadcrumb-padding-y) var(--breadcrumb-padding-x);
+  }
 }

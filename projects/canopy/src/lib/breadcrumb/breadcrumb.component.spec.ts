@@ -76,13 +76,6 @@ describe('LgBreadcrumbComponent', () => {
     it('the first item should be the isSmScreenFeaturedItem', () => {
       expect(component.crumbs.first.isSmScreenFeaturedItem).toBe(true);
     });
-
-    it('the breadcrumb item variant should be dark', () => {
-      component.variant = BreadcrumbVariant.dark;
-      fixture.detectChanges();
-
-      expect(component.crumbs.first.variant).toEqual(BreadcrumbVariant.dark);
-    });
   });
 
   describe('where there are 2 breadcrumb items', () => {
@@ -173,12 +166,25 @@ describe('LgBreadcrumbComponent', () => {
     it('the third item should not be the isSmScreenFeaturedItem', () => {
       expect(component.crumbs.toArray()[2].isSmScreenFeaturedItem).toBe(false);
     });
+  });
 
-    it('the breadcrumb item ellipsis variant should be dark', () => {
-      component.variant = BreadcrumbVariant.dark;
+  describe('when the variant is page', () => {
+    it('should apply the page class to the host', () => {
+      component.variant = BreadcrumbVariant.page;
       fixture.detectChanges();
 
-      expect(component.ellipsis.first.variant).toEqual(BreadcrumbVariant.dark);
+      expect(breadcrumbEl.getAttribute('class')).toContain('lg-breadcrumb--page');
+      expect(breadcrumbEl.getAttribute('class')).not.toContain('lg-breadcrumb--embedded');
+    });
+  });
+
+  describe('when the variant is embedded', () => {
+    it('should apply the embedded class to the host', () => {
+      component.variant = BreadcrumbVariant.embedded;
+      fixture.detectChanges();
+
+      expect(breadcrumbEl.getAttribute('class')).toContain('lg-breadcrumb--embedded');
+      expect(breadcrumbEl.getAttribute('class')).not.toContain('lg-breadcrumb--page');
     });
   });
 });

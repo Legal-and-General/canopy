@@ -5,7 +5,6 @@
 
   &__container {
     display: none;
-    margin-right: var(--space-2);
 
     @include mixins.lg-breakpoint('md') {
       display: flex;
@@ -25,7 +24,7 @@
       }
     }
   }
-  // To do: remove once updated
+
   .lg-icon {
     height: var(--icon-height);
     width: var(--icon-height);
@@ -42,49 +41,42 @@
   }
 
   a {
-    @include mixins.lg-unstyled-link;
+    margin-right: var(--breadcrumb-gap);
   }
 
   a,
   span {
     display: flex;
     align-items: center;
+    color: var(--link-mono-rest-colour);
   }
 
-  &--light {
-    color: var(--breadcrumb-light-color);
-
-    a,
-    span {
-      color: var(--breadcrumb-light-color);
-    }
+  a:hover,
+  a:hover span {
+    color: var(--link-mono-hover-colour);
   }
 
-  &--dark {
-    color: var(--breadcrumb-dark-color);
+  a:visited,
+  a:visited span {
+    color: var(--link-mono-visited-colour);
+  }
 
-    a,
-    span {
-      color: var(--breadcrumb-dark-color);
-    }
+  a:active,
+  a:active span {
+    color: var(--link-mono-active-colour);
+  }
 
-    a:focus-visible {
-      @include mixins.lg-focus-outline();
+  a:focus-visible {
+    @include mixins.lg-focus-outline();
 
-      background-color: transparent;
-    }
+    background-color: transparent;
+    color: var(--link-mono-focus-colour);
   }
 
   &__icon-backward {
-    margin-right: var(--space-2);
-
     &.lg-icon {
       display: inline;
     }
-  }
-
-  &__icon-forward {
-    margin-left: var(--space-2);
   }
 
   &__icon-wrapper {
