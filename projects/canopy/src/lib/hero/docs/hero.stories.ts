@@ -58,7 +58,7 @@ export const productHeroHTML = `
     <div lgContainer>
       <div lgRow>
         <div [lgCol]="12">
-          <lg-breadcrumb variant="light" lgMarginBottom="none">
+          <lg-breadcrumb variant="embedded" lgMarginBottom="none">
             <lg-breadcrumb-item>
               <a href="#">
                 <lg-icon name="home-outline"></lg-icon>
@@ -69,7 +69,7 @@ export const productHeroHTML = `
               <a href="#">Products</a>
             </lg-breadcrumb-item>
             <lg-breadcrumb-item>
-              <a href="#" aria-current="page">Pension Annuity</a>
+              Pension Annuity
             </lg-breadcrumb-item>
           </lg-breadcrumb>
         </div>

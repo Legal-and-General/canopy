@@ -6,7 +6,6 @@ import { MockComponent } from 'ng-mocks';
 import { LgIconComponent } from '../../icon';
 
 import { LgBreadcrumbItemComponent } from './breadcrumb-item.component';
-import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
 describe('LgBreadcrumbItemComponent', () => {
   let component: LgBreadcrumbItemComponent;
@@ -34,42 +33,6 @@ describe('LgBreadcrumbItemComponent', () => {
 
   it('the class should contain \'lg-breadcrumb-item\'', () => {
     expect(breadcrumbItemEl.getAttribute('class')).toContain('lg-breadcrumb-item');
-  });
-
-  describe('when the variant is set to light', () => {
-    beforeEach(() => {
-      component.variant = BreadcrumbVariant.light;
-    });
-
-    it('the class should contain \'lg-breadcrumb-item--light\'', () => {
-      expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--light',
-      );
-    });
-
-    it('the class should not contain \'lg-breadcrumb-item--dark\'', () => {
-      expect(breadcrumbItemEl.getAttribute('class')).not.toContain(
-        'lg-breadcrumb-item--dark',
-      );
-    });
-  });
-
-  describe('when the variant is set to dark', () => {
-    beforeEach(() => {
-      component.variant = BreadcrumbVariant.dark;
-    });
-
-    it('the class should contain \'lg-breadcrumb-item--dark\'', () => {
-      expect(breadcrumbItemEl.getAttribute('class')).toContain(
-        'lg-breadcrumb-item--dark',
-      );
-    });
-
-    it('the class should not contain \'lg-breadcrumb-item--light\'', () => {
-      expect(breadcrumbItemEl.getAttribute('class')).not.toContain(
-        'lg-breadcrumb-item--light',
-      );
-    });
   });
 
   describe('when isSmScreenFeaturedItem is true', () => {
@@ -103,6 +66,28 @@ describe('LgBreadcrumbItemComponent', () => {
       expect(containerEL.nativeElement.getAttribute('class')).toContain(
         'lg-breadcrumb-item__container--hide-icons',
       );
+    });
+  });
+
+  describe('when isCurrentPage is true', () => {
+    beforeEach(() => {
+      component.isCurrentPage = true;
+      fixture.detectChanges();
+    });
+
+    it('should set aria-current to page on the host element', () => {
+      expect(breadcrumbItemEl.getAttribute('aria-current')).toBe('page');
+    });
+  });
+
+  describe('when isCurrentPage is false', () => {
+    beforeEach(() => {
+      component.isCurrentPage = false;
+      fixture.detectChanges();
+    });
+
+    it('should not set aria-current on the host element', () => {
+      expect(breadcrumbItemEl.getAttribute('aria-current')).toBeNull();
     });
   });
 });

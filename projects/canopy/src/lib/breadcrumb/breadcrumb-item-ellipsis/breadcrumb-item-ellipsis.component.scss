@@ -1,25 +1,23 @@
 @use '../../../styles/mixins';
 
 .lg-breadcrumb-item-ellipsis {
-  margin-right: var(--space-4);
   display: none;
   align-items: center;
+  color: var(--link-mono-rest-colour);
 
   &__wrapper,
   &__caret-wrapper {
     align-items: center;
     display: flex;
-  }
-
-  &--light {
-    color: var(--breadcrumb-light-color);
-  }
-
-  &--dark {
-    color: var(--breadcrumb-dark-color);
+    margin-right: var(--breadcrumb-gap);
   }
 
   @include mixins.lg-breakpoint('md') {
     display: flex;
   }
+}
+
+// Ensure breadcrumb ellipsis uses --link-mono-* tokens when inside a colour mode container
+[class*='lg-mode-'] .lg-breadcrumb-item-ellipsis {
+  color: var(--link-mono-rest-colour) !important;
 }
