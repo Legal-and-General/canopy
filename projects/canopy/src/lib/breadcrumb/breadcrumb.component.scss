@@ -1,7 +1,26 @@
 @use '../../styles/mixins';
 
 .lg-breadcrumb {
-  list-style-type: none;
   display: flex;
+  gap: var(--breadcrumb-gap);
+  list-style-type: none;
   margin-bottom: var(--component-margin);
+  min-width: var(--breadcrumb-min-width);
+
+  &--page {
+    position: relative;
+    padding: var(--breadcrumb-padding-y) 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline: calc(50% - 50vw);
+      border-bottom: var(--breadcrumb-border-width) solid var(--breadcrumb-border-colour);
+      pointer-events: none;
+    }
+  }
 }

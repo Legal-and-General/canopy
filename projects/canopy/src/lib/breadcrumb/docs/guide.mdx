@@ -1,21 +1,14 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as BreadcrumbStories from './breadcrumb.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Breadcrumb/Guide" tags={['pending']} />
+<Meta title="Components/Breadcrumb/Guide" />
 
 # Breadcrumb
 
-<CustomBadge
-  text="Pending"
-  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
-/>
-<span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">Breadcrumbs help users to understand a site's hierarchical structure and allow them to move between levels.</p>
 
-![Breadcrumb component example](docs/breadcrumb/example.png)
+### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
 
 ## Usage
 
@@ -26,10 +19,7 @@ You won't need breadcrumbs if your site has a shallow or flat structure, and the
 Import the breadcrumb components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgBreadcrumbComponent, etc. ],
-});
+import { LgBreadcrumbComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -45,7 +35,9 @@ and in your HTML:
   <lg-breadcrumb-item>
     <a href="#">Products</a>
   </lg-breadcrumb-item>
-  <lg-breadcrumb-item> Pension </lg-breadcrumb-item>
+  <lg-breadcrumb-item>
+    <span aria-current="page">Pension</span>
+  </lg-breadcrumb-item>
 </lg-breadcrumb>
 ```
 
@@ -53,13 +45,9 @@ and in your HTML:
 
 The breadcrumbs component should display the user's current page as text, not a clickable link.
 
-There are two themes (light and dark) that can be applied depending on the background colour of the page.
-
-![Breadcrumb component - desktop examples](docs/breadcrumb/desktop.png)
+There are two layout variants (`page` and `embedded`) that control whether the breadcrumb is used full-width on a page or embedded within another component.
 
 On mobile breakpoints the current page will not be shown, only the next level up in the hierarchy.
-
-![Breadcrumb component - mobile examples](docs/breadcrumb/mobile.png)
 
 ### Showing more than 3 breadcrumbs on desktop
 
@@ -83,15 +71,11 @@ Note: _This is not automatically added and should be implemented in your app as 
 
 ### Do
 
-![Breadcrumb component - what you should do](docs/breadcrumb/do.png)
-
 1. **Do** make the first breadcrumb a link to the homepage.
 2. **Do** reflect the user's position in the hierarchical structure.
 3. **Do** include the current page in the breadcrumb trail.
 
 ### Don't
-
-![Breadcrumb component - what you shouldn't do](docs/breadcrumb/dont.png)
 
 1. **Don't** reflect the user's session history.
 2. **Don't** make the current page's breadcrumb a link.
@@ -104,7 +88,7 @@ Note: _This is not automatically added and should be implemented in your app as 
 
 | Name      | Description                                    | Type     | Default | Required |
 | --------- | ---------------------------------------------- | -------- | ------- | -------- |
-| `variant` | The colour variants available: `light`, `dark` | `string` | `dark`  | No       |
+| `variant` | The layout variants available: `page`, `embedded` | `string` | `page`  | No       |
 
 ---
 

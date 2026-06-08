@@ -12,12 +12,14 @@ import {
   LgFooterLogoComponent,
   LgFooterNavComponent,
   LgFooterNavItemComponent,
+  LgFooterSocialComponent,
 } from '../../footer';
 import {
   LgGridColDirective,
   LgGridContainerDirective,
   LgGridRowDirective,
 } from '../../grid';
+import { LgHideAtDirective } from '../../hide-at';
 import { LgMarginDirective } from '../../spacing';
 import {
   LgHeroCardComponent,
@@ -40,6 +42,7 @@ import {
 } from '../../hero';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
 import { LgIconComponent } from '../../icon';
+import { LgShowAtDirective } from '../../show-at';
 
 const createArgs = () => ({
   logo: 'legal-and-general-logo.svg',
@@ -65,6 +68,57 @@ const header = `
   <header lg-header>
     <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
   </header>
+`;
+
+const breadcrumbs = `
+  <div
+    ngProjectAs="[lg-header]"
+    lgHideAt="lg"
+    style="margin-top: var(--header-height);"
+  >
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-breadcrumb variant="page">
+            <lg-breadcrumb-item>
+              <a href="#">
+                <lg-icon [name]="'home-outline'"></lg-icon>
+                Home
+              </a>
+            </lg-breadcrumb-item>
+            <lg-breadcrumb-item>
+              <a href="#">Templates</a>
+            </lg-breadcrumb-item>
+            <lg-breadcrumb-item>
+              <span aria-current="page">Page</span>
+            </lg-breadcrumb-item>
+          </lg-breadcrumb>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ngProjectAs="[lg-header]" lgShowAt="lg">
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-breadcrumb variant="page">
+            <lg-breadcrumb-item>
+              <a href="#">
+                <lg-icon [name]="'home-outline'"></lg-icon>
+                Home
+              </a>
+            </lg-breadcrumb-item>
+            <lg-breadcrumb-item>
+              <a href="#">Templates</a>
+            </lg-breadcrumb-item>
+            <lg-breadcrumb-item>
+              <span aria-current="page">Page</span>
+            </lg-breadcrumb-item>
+          </lg-breadcrumb>
+        </div>
+      </div>
+    </div>
+  </div>
 `;
 
 const footer = `
@@ -150,6 +204,7 @@ const fullWidthWithHeroTemplate = `
     LgGridContainerDirective,
     LgGridRowDirective,
     LgGridColDirective,
+    LgHideAtDirective,
     LgCardComponent,
     LgCardContentComponent,
     LgHeaderComponent,
@@ -159,7 +214,9 @@ const fullWidthWithHeroTemplate = `
     LgFooterNavComponent,
     LgFooterNavItemComponent,
     LgFooterLogoComponent,
+    LgFooterSocialComponent,
     LgFooterCopyrightComponent,
+    LgShowAtDirective,
     LgMarginDirective,
   ],
 })
@@ -185,9 +242,14 @@ export default {
         LgHeaderComponent,
         LgFooterComponent,
         LgPageComponent,
+        LgBreadcrumbComponent,
+        LgBreadcrumbItemComponent,
+        LgIconComponent,
         LgGridContainerDirective,
         LgGridRowDirective,
         LgGridColDirective,
+        LgHideAtDirective,
+        LgShowAtDirective,
         LgMarginDirective,
         FullWidthWithHeaderComponent,
         LgHeaderLogoComponent,
@@ -198,6 +260,7 @@ export default {
         LgFooterNavComponent,
         LgFooterNavItemComponent,
         LgFooterLogoComponent,
+        LgFooterSocialComponent,
         LgFooterCopyrightComponent,
       ],
     }),
@@ -262,6 +325,7 @@ export default {
 const oneColumnTemplate = `
   <lg-page>
     ${header}
+    ${breadcrumbs}
     <div lgContainer>
       <div lgRow>
         <div
@@ -301,6 +365,7 @@ export const OneColumn = {
 const twoColumnsTemplate = `
   <lg-page>
     ${header}
+    ${breadcrumbs}
     <div lgContainer>
       <div lgRow>
         <div lgCol="12" lgColMd="8" lgColLg="5" lgColLgOffset="2">
@@ -339,6 +404,7 @@ export const TwoColumns = {
 const fullWidthTemplate = `
   <lg-page>
     ${header}
+    ${breadcrumbs}
     <div lgContainer>
       <div lgRow>
         <div lgCol="12">

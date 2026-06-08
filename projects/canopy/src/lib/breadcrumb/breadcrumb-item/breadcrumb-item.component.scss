@@ -5,7 +5,6 @@
 
   &__container {
     display: none;
-    margin-right: var(--space-2);
 
     @include mixins.lg-breakpoint('md') {
       display: flex;
@@ -25,7 +24,7 @@
       }
     }
   }
-  // To do: remove once updated
+
   .lg-icon {
     height: var(--icon-height);
     width: var(--icon-height);
@@ -39,52 +38,53 @@
     .lg-icon {
       margin-right: var(--space-2);
     }
+
+    .lg-breadcrumb-item__label:not(:has(a)) {
+      display: block;
+      max-width: 30em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
 
   a {
-    @include mixins.lg-unstyled-link;
+    margin-right: var(--breadcrumb-gap);
   }
 
   a,
   span {
     display: flex;
     align-items: center;
+    color: var(--link-mono-rest-colour);
   }
 
-  &--light {
-    color: var(--breadcrumb-light-color);
-
-    a,
-    span {
-      color: var(--breadcrumb-light-color);
-    }
+  a:hover,
+  a:hover span {
+    color: var(--link-mono-hover-colour);
   }
 
-  &--dark {
-    color: var(--breadcrumb-dark-color);
+  a:visited,
+  a:visited span {
+    color: var(--link-mono-visited-colour);
+  }
 
-    a,
-    span {
-      color: var(--breadcrumb-dark-color);
-    }
+  a:active,
+  a:active span {
+    color: var(--link-mono-active-colour);
+  }
 
-    a:focus-visible {
-      @include mixins.lg-focus-outline();
-
-      background-color: transparent;
-    }
+  a:focus-visible {
+    background-color: transparent;
+    border-radius: var(--link-mono-focus-border-radius);
+    outline: var(--link-mono-focus-border-width) solid var(--link-mono-focus-colour);
   }
 
   &__icon-backward {
-    margin-right: var(--space-2);
-
     &.lg-icon {
       display: inline;
+      margin-right: var(--breadcrumb-gap);
     }
-  }
-
-  &__icon-forward {
-    margin-left: var(--space-2);
   }
 
   &__icon-wrapper {
@@ -102,4 +102,30 @@
       }
     }
   }
+}
+
+// Ensure breadcrumb links use --link-mono-* tokens when inside a colour mode container
+[class*='lg-mode-'] .lg-breadcrumb-item a,
+[class*='lg-mode-'] .lg-breadcrumb-item span {
+  color: var(--link-mono-rest-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:hover,
+[class*='lg-mode-'] .lg-breadcrumb-item a:hover span {
+  color: var(--link-mono-hover-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:visited,
+[class*='lg-mode-'] .lg-breadcrumb-item a:visited span {
+  color: var(--link-mono-visited-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:active,
+[class*='lg-mode-'] .lg-breadcrumb-item a:active span {
+  color: var(--link-mono-active-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:focus-visible {
+  background-color: transparent !important;
+  outline-color: var(--link-mono-focus-colour) !important;
 }

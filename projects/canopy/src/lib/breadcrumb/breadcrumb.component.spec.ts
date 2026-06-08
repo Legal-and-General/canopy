@@ -77,11 +77,8 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.first.isSmScreenFeaturedItem).toBe(true);
     });
 
-    it('the breadcrumb item variant should be dark', () => {
-      component.variant = BreadcrumbVariant.dark;
-      fixture.detectChanges();
-
-      expect(component.crumbs.first.variant).toEqual(BreadcrumbVariant.dark);
+    it('the first item should be the isCurrentPage', () => {
+      expect(component.crumbs.first.isCurrentPage).toBe(true);
     });
   });
 
@@ -114,6 +111,14 @@ describe('LgBreadcrumbComponent', () => {
 
     it('the first item should be the isSmScreenFeaturedItem', () => {
       expect(component.crumbs.first.isSmScreenFeaturedItem).toBe(true);
+    });
+
+    it('the first item should not be the isCurrentPage', () => {
+      expect(component.crumbs.first.isCurrentPage).toBe(false);
+    });
+
+    it('the second item should be the isCurrentPage', () => {
+      expect(component.crumbs.last.isCurrentPage).toBe(true);
     });
   });
 
@@ -174,11 +179,30 @@ describe('LgBreadcrumbComponent', () => {
       expect(component.crumbs.toArray()[2].isSmScreenFeaturedItem).toBe(false);
     });
 
-    it('the breadcrumb item ellipsis variant should be dark', () => {
-      component.variant = BreadcrumbVariant.dark;
+    it('only the last item should be the isCurrentPage', () => {
+      expect(component.crumbs.toArray()[0].isCurrentPage).toBe(false);
+      expect(component.crumbs.toArray()[1].isCurrentPage).toBe(false);
+      expect(component.crumbs.toArray()[2].isCurrentPage).toBe(true);
+    });
+  });
+
+  describe('when the variant is page', () => {
+    it('should apply the page class to the host', () => {
+      component.variant = BreadcrumbVariant.page;
       fixture.detectChanges();
 
-      expect(component.ellipsis.first.variant).toEqual(BreadcrumbVariant.dark);
+      expect(breadcrumbEl.getAttribute('class')).toContain('lg-breadcrumb--page');
+      expect(breadcrumbEl.getAttribute('class')).not.toContain('lg-breadcrumb--embedded');
+    });
+  });
+
+  describe('when the variant is embedded', () => {
+    it('should apply the embedded class to the host', () => {
+      component.variant = BreadcrumbVariant.embedded;
+      fixture.detectChanges();
+
+      expect(breadcrumbEl.getAttribute('class')).toContain('lg-breadcrumb--embedded');
+      expect(breadcrumbEl.getAttribute('class')).not.toContain('lg-breadcrumb--page');
     });
   });
 });

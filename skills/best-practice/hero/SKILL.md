@@ -65,26 +65,36 @@ import {
 
 ---
 
-## With Breadcrumbs
+### Breadcrumb inside `lg-hero-header`
 
-Use the `light` variant of `lg-breadcrumb` inside the hero — the hero renders against a dark background.
+Use `variant="embedded"` when the breadcrumb is inside a hero header that is already wrapped with grid directives (`lgContainer`, `lgRow`, `lgCol`), so the breadcrumb must not apply its own container alignment.
+
+The `.lg-hero-header` component automatically overrides the `--link-mono-*` colour tokens so breadcrumb links render in white (`--colour-greyscale-0`) without any additional consumer styling required.
 
 ```html
-<lg-hero [overlap]="2">
-  <lg-hero-header>
-    <div lgContainer>
-      <div lgRow>
-        <div [lgCol]="12">
-          <lg-breadcrumb variant="light" lgMarginBottom="none">
-            <lg-breadcrumb-item><a href="/"><lg-icon name="home"></lg-icon>Home</a></lg-breadcrumb-item>
-            <lg-breadcrumb-item>Product Details</lg-breadcrumb-item>
-          </lg-breadcrumb>
-        </div>
+<lg-hero-header>
+  <div lgContainer>
+    <div lgRow>
+      <div [lgCol]="12">
+        <lg-breadcrumb variant="embedded">
+          <lg-breadcrumb-item>
+            <a href="#"><lg-icon name="home-outline"></lg-icon> Home</a>
+          </lg-breadcrumb-item>
+          <lg-breadcrumb-item>
+            <a href="#">Products</a>
+          </lg-breadcrumb-item>
+          <lg-breadcrumb-item>
+            Pension Annuity
+          </lg-breadcrumb-item>
+        </lg-breadcrumb>
       </div>
     </div>
-  </lg-hero-header>
-</lg-hero>
+  </div>
+</lg-hero-header>
 ```
+
+> ❌ Do not use `variant="page"` inside `lg-hero-header` — it will double up on container alignment.  
+> ❌ Do not manually override breadcrumb link colours inside the hero — this is handled automatically.
 
 ---
 

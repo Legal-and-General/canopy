@@ -2,17 +2,13 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   HostBinding,
-  Renderer2,
   ViewEncapsulation,
   inject,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 import { LgIconComponent } from '../../icon';
-
-import { BreadcrumbVariant } from './breadcrumb-item.interface';
 
 @Component({
   selector: 'lg-breadcrumb-item',
@@ -23,15 +19,13 @@ import { BreadcrumbVariant } from './breadcrumb-item.interface';
   imports: [ NgClass, LgIconComponent ],
 })
 export class LgBreadcrumbItemComponent {
-  private renderer = inject(Renderer2);
-  private hostElement = inject(ElementRef);
   private cd = inject(ChangeDetectorRef);
 
-  private _variant: BreadcrumbVariant;
   private _showBackChevron = false;
   private _showForwardChevron = false;
   private _isSmScreenFeaturedItem = false;
   private _hideIcons = false;
+  private _isCurrentPage = false;
   index: number;
 
   @HostBinding('class.lg-breadcrumb-item') class = true;
@@ -54,25 +48,6 @@ export class LgBreadcrumbItemComponent {
     return this._isSmScreenFeaturedItem;
   }
 
-  set variant(variant: BreadcrumbVariant) {
-    if (this._variant) {
-      this.renderer.removeClass(
-        this.hostElement.nativeElement,
-        `lg-breadcrumb-item--${this.variant}`,
-      );
-    }
-
-    this.renderer.addClass(
-      this.hostElement.nativeElement,
-      `lg-breadcrumb-item--${variant}`,
-    );
-
-    this._variant = variant;
-  }
-  get variant() {
-    return this._variant;
-  }
-
   set showBackChevron(showBackChevron: boolean) {
     this._showBackChevron = showBackChevron;
 
@@ -89,5 +64,20 @@ export class LgBreadcrumbItemComponent {
   }
   get showForwardChevron() {
     return this._showForwardChevron;
+  }
+
+  @HostBinding('attr.aria-current') get ariaCurrent(): string | null {
+    return this._isCurrentPage
+      ? 'page'
+      : null;
+  }
+
+  set isCurrentPage(isCurrentPage: boolean) {
+    this._isCurrentPage = isCurrentPage;
+
+    this.cd.detectChanges();
+  }
+  get isCurrentPage() {
+    return this._isCurrentPage;
   }
 }

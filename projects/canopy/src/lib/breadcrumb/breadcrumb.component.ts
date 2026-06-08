@@ -10,7 +10,6 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 
-import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
 import { LgBreadcrumbItemComponent } from './breadcrumb-item/breadcrumb-item.component';
 import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
 
@@ -23,21 +22,15 @@ import { BreadcrumbVariant } from './breadcrumb-item/breadcrumb-item.interface';
   standalone: true,
 })
 export class LgBreadcrumbComponent implements AfterContentChecked {
-  private _variant = BreadcrumbVariant.dark;
-  private contentHasInit = false;
-
-  @Input() set variant(variant: BreadcrumbVariant) {
-    this._variant = variant;
-
-    if (this.contentHasInit) {
-      this.setVariantOnChildren();
-    }
-  }
-  get variant(): BreadcrumbVariant {
-    return this._variant;
-  }
+  @Input() variant: BreadcrumbVariant = BreadcrumbVariant.page;
 
   @HostBinding('class.lg-breadcrumb') class = true;
+  @HostBinding('class.lg-breadcrumb--page') get isPage() {
+    return this.variant === BreadcrumbVariant.page;
+  }
+  @HostBinding('class.lg-breadcrumb--embedded') get isEmbedded() {
+    return this.variant === BreadcrumbVariant.embedded;
+  }
   @HostBinding('attr.aria-label') attr = 'breadcrumb';
   @HostBinding('attr.role') role = 'navigation';
 
@@ -46,21 +39,8 @@ export class LgBreadcrumbComponent implements AfterContentChecked {
   })
   crumbs: QueryList<LgBreadcrumbItemComponent>;
 
-  @ContentChildren(forwardRef(() => LgBreadcrumbItemEllipsisComponent), {
-    descendants: true,
-  })
-  ellipsis: QueryList<LgBreadcrumbItemEllipsisComponent>;
-
   ngAfterContentChecked(): void {
-    this.setVariantOnChildren();
     this.setCrumbProperties();
-
-    this.contentHasInit = true;
-  }
-
-  private setVariantOnChildren(): void {
-    this.crumbs.forEach(crumb => (crumb.variant = this.variant));
-    this.ellipsis.forEach(ellipsisItem => (ellipsisItem.variant = this.variant));
   }
 
   private setCrumbProperties(): void {
@@ -77,6 +57,8 @@ export class LgBreadcrumbComponent implements AfterContentChecked {
 
       crumb.isSmScreenFeaturedItem =
         (!index && totalCrumbCount === 1) || index + 2 === totalCrumbCount;
+
+      crumb.isCurrentPage = index + 1 === totalCrumbCount;
     });
   }
 }
