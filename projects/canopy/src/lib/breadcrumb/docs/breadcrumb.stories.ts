@@ -176,9 +176,7 @@ const embeddedTemplate = `
 <div lgContainer>
   <div lgRow>
     <div lgCol="10" lgColLg="6" lgColMd="10">
-      <lg-content-area [variant]="contentAreaVariant">
-        <lg-content-area-header>
-        </lg-content-area-header>
+      <lg-content-area variant="default">
         <lg-content-area-content>
               <lg-breadcrumb variant="embedded">
             <lg-breadcrumb-item>

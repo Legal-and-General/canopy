@@ -67,10 +67,8 @@
   }
 
   a:focus-visible {
-    @include mixins.lg-focus-outline();
-
     background-color: transparent;
-    color: var(--link-mono-focus-colour);
+    outline-color: var(--link-mono-focus-colour);
   }
 
   &__icon-backward {

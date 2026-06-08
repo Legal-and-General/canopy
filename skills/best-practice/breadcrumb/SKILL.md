@@ -24,15 +24,13 @@ import {
 } from '@legal-and-general/canopy';
 ```
 
-No need to import grid directives separately — `LgBreadcrumbComponent` handles the grid wrapper internally for the `page` variant.
-
 ---
 
 ## Variants
 
 ### `page` (default)
 
-Use for top-level, full-page contexts. The breadcrumb internally wraps its content in an `lgContainer` → `lgRow` → `lgCol="12"` grid structure, aligning it consistently with the page grid. Do **not** wrap a `page` variant in an additional `lgContainer` — the grid wrapper is already included.
+Use for top-level, full-page contexts. The `page` variant applies container alignment directly to the host element via CSS (`max-width`, `margin: auto`, container padding), aligning it consistently with the page grid. No DOM grid wrapper is added — `<ng-content />` is rendered directly.
 
 ```html
 <lg-breadcrumb variant="page">
@@ -91,7 +89,7 @@ When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` manually
 
 | Input | Type | Default | Required | Description |
 |-------|------|---------|----------|-----------|
-| `variant` | `'page' \| 'embedded'` | `'page'` | No | Layout variant. `page` includes the grid container wrapper; `embedded` does not. |
+| `variant` | `'page' \| 'embedded'` | `'page'` | No | Layout variant. `page` applies container alignment via CSS on the host; `embedded` renders without any container alignment for use inside other components. |
 
 ---
 
@@ -104,7 +102,7 @@ When there are more than 3 levels, insert `lg-breadcrumb-item-ellipsis` manually
 | `--breadcrumb-padding-x` | Horizontal padding on the breadcrumb list |
 | `--breadcrumb-padding-y` | Vertical padding on the breadcrumb list |
 
-These are defined in `tokens.css` and applied automatically.
+These are defined by Canopy design tokens and applied automatically.
 
 ## Link Colour Tokens
 
@@ -135,7 +133,6 @@ Breadcrumb links use the `link-mono` token set:
 2. **Don't** make the current page's breadcrumb a link.
 3. **Don't** use on websites with a shallow or flat structure.
 4. **Don't** duplicate main menu or secondary navigation options.
-5. **Don't** wrap a `page` variant breadcrumb in an additional `lgContainer` — the grid wrapper is already included.
 
 ---
 
