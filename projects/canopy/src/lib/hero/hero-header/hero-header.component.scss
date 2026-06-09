@@ -3,6 +3,7 @@
   position: relative;
   background-color: var(--hero-overlay-bg-color);
 
+  // Temporary fix for breadcrumbs in hero
   lg-breadcrumb {
     --link-mono-rest-colour: var(--colour-greyscale-0);
     --link-mono-hover-colour: var(--colour-greyscale-0);

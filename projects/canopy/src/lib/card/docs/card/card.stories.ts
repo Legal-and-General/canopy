@@ -51,7 +51,7 @@ const formJourneyTemplate = `
         <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
           <lg-card lgPadding="none">
             <lg-card-header lgPadding="4" lgPaddingBottom="3" lgMarginBottom="6">
-              <lg-breadcrumb lgMarginBottom="none">
+              <lg-breadcrumb variant="embedded" lgMarginBottom="none">
                 <lg-breadcrumb-item>
                   <a href="#">
                     <lg-icon name="chevron-left"></lg-icon>
