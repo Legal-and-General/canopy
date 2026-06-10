@@ -77,9 +77,6 @@ export default {
       },
     },
   },
-  globals: {
-    backgrounds: { value: 'off-white' },
-  },
 } as Meta;
 
 const template = `
@@ -176,7 +173,10 @@ const embeddedTemplate = `
 <div lgContainer>
   <div lgRow>
     <div lgCol="10" lgColLg="6" lgColMd="10">
-      <lg-content-area variant="default">
+      <lg-content-area
+      variant="default"
+      [lgColour]="colour"
+      [lgColourTheme]="theme">
         <lg-content-area-content>
               <lg-breadcrumb variant="embedded">
             <lg-breadcrumb-item>

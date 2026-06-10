@@ -93,3 +93,29 @@
     }
   }
 }
+
+// Ensure breadcrumb links use --link-mono-* tokens when inside a colour mode container
+[class*='lg-mode-'] .lg-breadcrumb-item a,
+[class*='lg-mode-'] .lg-breadcrumb-item span {
+  color: var(--link-mono-rest-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:hover,
+[class*='lg-mode-'] .lg-breadcrumb-item a:hover span {
+  color: var(--link-mono-hover-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:visited,
+[class*='lg-mode-'] .lg-breadcrumb-item a:visited span {
+  color: var(--link-mono-visited-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:active,
+[class*='lg-mode-'] .lg-breadcrumb-item a:active span {
+  color: var(--link-mono-active-colour) !important;
+}
+
+[class*='lg-mode-'] .lg-breadcrumb-item a:focus-visible {
+  background-color: transparent !important;
+  outline-color: var(--link-mono-focus-colour) !important;
+}

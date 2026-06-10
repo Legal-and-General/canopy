@@ -16,3 +16,8 @@
     display: flex;
   }
 }
+
+// Ensure breadcrumb ellipsis uses --link-mono-* tokens when inside a colour mode container
+[class*='lg-mode-'] .lg-breadcrumb-item-ellipsis {
+  color: var(--link-mono-rest-colour) !important;
+}
