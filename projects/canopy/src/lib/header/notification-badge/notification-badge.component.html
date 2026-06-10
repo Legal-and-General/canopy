@@ -1,2 +1,7 @@
-<span aria-hidden="true">{{count}}</span>
+@if (variant === 'count') {
+  <span aria-hidden="true">{{count}}</span>
+}
+@if (variant === 'dot') {
+  <span class="lg-notification-badge__dot" aria-hidden="true"></span>
+}
 <span class="lg-visually-hidden">{{accessText}}</span>

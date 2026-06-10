@@ -7,6 +7,9 @@
   <ng-content select="lg-link-menu-item-text" />
   <ng-content select="lg-link-menu-item-text" />
 </div>
+<div class="lg-link-menu-item__badge-container">
+  <ng-content select="lg-notification-badge" />
+</div>
 @if (rightIconName) {
   <div class="lg-link-menu-item__icon-container">
     <lg-icon [name]="rightIconName" class="lg-font-size-0-8" />

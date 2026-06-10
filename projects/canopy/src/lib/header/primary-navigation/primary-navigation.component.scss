@@ -1,6 +1,6 @@
 @use '../../../styles/mixins';
 
-$primary-nav-border-bottom-height: 0.25rem;
+$primary-nav-border-bottom-height: 0.125rem;
 
 .lg-primary-nav {
   bottom: 0;
@@ -11,6 +11,7 @@ $primary-nav-border-bottom-height: 0.25rem;
   position: fixed;
   right: 0;
   top: var(--header-height);
+  padding: 0 var(--nav-container-padding-x) var(--nav-container-padding-y);
 
   &--active {
     display: block;
@@ -25,8 +26,20 @@ $primary-nav-border-bottom-height: 0.25rem;
   }
 }
 
+.lg-primary-nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nav-container-gap);
+  padding: 0 var(--nav-container-padding-x) var(--nav-container-padding-y);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: calc(var(--z-index-header) - 1);
+  overflow-y: auto;
+}
+
 .lg-primary-nav-overlay {
-  background: var(--overlay-bg-color);
+  background-color: var(--nav-container-background-colour);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -57,85 +70,50 @@ $primary-nav-border-bottom-height: 0.25rem;
   @include mixins.lg-breakpoint(lg) {
     align-items: center;
     flex-direction: row;
-    margin-left: var(--space-6);
+    margin-left: var(--nav-container-gap);
     padding: 0;
+    gap: var(--dimensions-small-2);
   }
 }
 
 a.lg-primary-nav-item,
 button.lg-primary-nav-item {
-  @include mixins.lg-unstyled-link();
+  color: var(--nav-button-rest-colour);
+  text-decoration: none;
+  position: relative;
+  padding: var(--nav-button-padding-y) var(--nav-button-padding-default-x);
 
   /* stylelint-disable no-duplicate-selectors */
   & {
     align-items: center;
     appearance: none;
     background: var(--colour-greyscale-0);
-    border: 0;
-    border-bottom: $primary-nav-border-bottom-height solid transparent;
-    color: var(--text-default);
     cursor: pointer;
-    display: flex;
-    line-height: 1.5;
     margin-bottom: 0;
-    padding: var(--space-3) var(--space-4);
-    text-align: left;
-    text-decoration: none;
-    width: 100%;
   }
 
-  &:focus-visible:hover,
-  &:focus-visible {
-    border-bottom: $primary-nav-border-bottom-height solid
-      var(--primary-nav-item-border-color-hover);
+  &:hover {
+    color: var(--nav-button-hover-colour);
 
-    @include mixins.lg-focus-outline;
-  }
-
-  &:visited {
-    background: var(--colour-greyscale-0);
-    border-color: transparent;
-    color: var(--primary-nav-item-color);
-  }
-
-  &:hover,
-  &:hover:visited {
-    border-bottom: $primary-nav-border-bottom-height solid
-      var(--primary-nav-item-border-color-hover);
-    box-shadow: none;
-    color: var(--primary-nav-item-color-hover);
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: $primary-nav-border-bottom-height;
+      background: var(--nav-button-hover-hover-indicator);
+      border-radius: var(--border-radius-1-lg);
+    }
   }
 
   &--active,
   &--active:visited,
   &--active:hover,
   &--active:visited:hover {
-    border-color: var(--primary-nav-item-border-color-active);
-    color: var(--primary-nav-item-color-active);
-  }
-
-  &--active:focus-visible,
-  &--active:hover:focus-visible {
-    border-color: var(--primary-nav-item-border-color-active);
-    color: var(--primary-nav-item-color-active);
-  }
-
-  @include mixins.lg-breakpoint(lg) {
-    border: 0;
-
-    @include mixins.lg-nav-item();
-
-    &:hover,
-    &:hover:visited {
-      color: var(--primary-nav-item-color-hover-lg);
-    }
-
-    &--active,
-    &--active:visited,
-    &--active:hover,
-    &--active:visited:hover {
-      color: var(--primary-nav-item-color-active-lg);
-    }
+    border-radius: var(--nav-button-border-radius);
+    background: var(--nav-button-active-background-colour);
+    color: var(--nav-button-active-colour);
 
     &--active:focus-visible,
     &--active:hover:focus-visible {
@@ -143,8 +121,27 @@ button.lg-primary-nav-item {
     }
 
     &:focus-visible,
-    &:focus-visible:hover {
-      border: 0;
+    &:hover:focus-visible {
+      color: var(--nav-button-active-colour);
+      background: var(--nav-button-active-background-colour);
+    }
+
+    &:hover::after {
+      content: none;
+    }
+  }
+
+  &:focus-visible:hover,
+  &:focus-visible {
+    border-radius: var(--nav-button-border-radius);
+    box-shadow: inset 0 0 0 var(--nav-button-border-width-focus)
+      var(--nav-button-focus-colour);
+    background: var(--nav-button-focus-background-colour);
+    outline: 0;
+    color: var(--nav-button-focus-colour);
+
+    &:hover::after {
+      content: none;
     }
   }
 }

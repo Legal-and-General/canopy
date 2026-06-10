@@ -1,28 +1,17 @@
 @use '../../styles/mixins';
 
 .lg-header {
-  background-color: var(--header-bg-color);
-  height: var(--header-height);
+  background-color: var(--nav-container-background-colour);
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
   z-index: var(--z-index-header);
+  min-width: var(--nav-container-min-width);
+  gap: var(--nav-container-gap);
 
   @include mixins.lg-breakpoint(lg) {
-    height: var(--header-height-lg);
     position: static;
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    height: var(--header-shadow-height);
-    margin-top: calc(var(--header-shadow-height) * -1);
-    background-color: transparent;
-    box-shadow: var(--header-shadow);
-    position: relative;
-    width: 100%;
   }
 }
 
@@ -30,24 +19,45 @@
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  height: var(--header-height);
+  height: 4rem;
+  padding: var(--nav-container-padding-y) var(--nav-container-padding-x) 0;
 
   @include mixins.lg-breakpoint(lg) {
-    height: var(--header-height-lg);
+    height: 5.56rem;
+    padding: var(--nav-container-padding-y) var(--nav-container-padding-x);
   }
 }
 
 .lg-header__logos-wrapper {
-  align-items: center;
-  display: flex;
-  padding: var(--space-2) 0;
   margin-right: auto;
+  display: flex;
+  max-width: var(--nav-container-logo-max-width-sm);
+  padding-bottom: var(--nav-logo-padding-bottom-sm);
+  align-items: baseline;
+  gap: var(--nav-container-logo-gap-sm);
+
+  @include mixins.lg-breakpoint(lg) {
+    gap: var(--nav-container-logo-gap-lg);
+    max-width: var(--nav-container-logo-max-width-lg);
+    padding-bottom: var(--nav-logo-padding-bottom-lg);
+  }
 }
 
 .primary-nav-toggle {
+  position: relative;
   transition: background-color var(--animation-duration) var(--animation-fn);
 
   * {
     pointer-events: none;
+  }
+
+  lg-notification-badge {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+
+  &[aria-expanded='true'] lg-notification-badge {
+    display: none;
   }
 }

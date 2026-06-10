@@ -1,12 +1,6 @@
-@use '../../../../styles/mixins';
-
 .lg-account-menu-list-item {
-  display: flex;
-  flex-direction: column;
-  margin-right: var(--space-4);
-
-  @include mixins.lg-breakpoint(lg) {
-    margin-left: var(--space-4);
-    margin-right: 0;
+  .lg-icon {
+    height: var(--button-icon-width);
+    width: var(--button-icon-width);
   }
 }
