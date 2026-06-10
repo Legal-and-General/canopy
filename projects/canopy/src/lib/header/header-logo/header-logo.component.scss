@@ -22,22 +22,28 @@
   }
 
   &__second-img {
-    padding-left: var(--nav-container-logo-gap-sm);
-    max-width: 5.25rem;
+    width: auto;
+    max-width: 4.25rem;
     max-height: 1.56rem;
+
+    @include mixins.lg-breakpoint(lg) {
+      max-width: 6.25rem;
+      max-height: 2.25rem;
+    }
+  }
+
+  &__link:has(.lg-header-logo__second-img) {
+    padding-left: var(--nav-container-logo-gap-sm);
     border-left: var(--content-seperator-border-width-xs) solid
       var(--content-seperator-colour);
 
     @include mixins.lg-breakpoint(lg) {
       padding-left: var(--nav-container-logo-gap-lg);
-      max-width: 7.5rem;
-      max-height: 2.25rem;
     }
   }
 
   &__link {
-    display: inline-block;
-    @include mixins.lg-unstyled-link;
+    display: inline-flex;
 
     &:focus-visible {
       background-color: transparent;
