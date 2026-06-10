@@ -38,6 +38,19 @@
     .lg-icon {
       margin-right: var(--space-2);
     }
+
+    .lg-breadcrumb-item__label {
+      display: block;
+      /* stylelint-disable-next-line unit-allowed-list */
+      max-width: 60ch;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      a {
+        display: inline-flex;
+      }
+    }
   }
 
   a {

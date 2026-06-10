@@ -9,20 +9,22 @@
     <span class="lg-breadcrumb-item__icon-wrapper">
       <lg-icon [name]="'caret-left'"
         class="lg-breadcrumb-item__icon lg-breadcrumb-item__icon-backward"
-       />
+      />
     </span>
   }
 
   <span class="lg-breadcrumb-item__content">
     <span class="lg-visually-hidden">{{ index + 1 }}.</span>
-    <ng-content />
+    <span class="lg-breadcrumb-item__label">
+      <ng-content />
+    </span>
   </span>
 
   @if (showForwardChevron) {
     <span class="lg-breadcrumb-item__icon-wrapper">
       <lg-icon [name]="'caret-right'"
         class="lg-breadcrumb-item__icon lg-breadcrumb-item__icon-forward"
-       />
+      />
     </span>
   }
 </div>
