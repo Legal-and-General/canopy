@@ -58,7 +58,7 @@ export const productHeroHTML = `
     <div lgContainer>
       <div lgRow>
         <div [lgCol]="12">
-          <lg-breadcrumb variant="light" lgMarginBottom="none">
+          <lg-breadcrumb variant="embedded" lgMarginBottom="none">
             <lg-breadcrumb-item>
               <a href="#">
                 <lg-icon name="home-outline"></lg-icon>
