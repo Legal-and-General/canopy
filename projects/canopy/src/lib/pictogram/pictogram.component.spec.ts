@@ -54,7 +54,6 @@ describe('LgPictogramComponent', () => {
   });
 
   it('should remove fill when hasFill is false', () => {
-    component.hasFill = true;
     component.hasFill = false;
     fixture.detectChanges();
 
@@ -142,6 +141,28 @@ describe('LgPictogramComponent', () => {
       expect(fixture.nativeElement.style.getPropertyValue('--lg-pictogram-colour')).toBe(
         '#005dba',
       );
+    });
+  });
+
+  describe('hasFill input', () => {
+    it('should remove the fill style when set to false', () => {
+      component.hasFill = false;
+      fixture.detectChanges();
+
+      expect(
+        fixture.nativeElement.style.getPropertyValue('--lg-pictogram-fill-colour'),
+      ).toBe('none');
+    });
+
+    it('should restore default when set to true', () => {
+      component.hasFill = false;
+      fixture.detectChanges();
+      component.hasFill = true;
+      fixture.detectChanges();
+
+      expect(
+        fixture.nativeElement.style.getPropertyValue('--lg-pictogram-fill-colour'),
+      ).toBe('');
     });
   });
 });

@@ -25,7 +25,7 @@ const promotionsGeneralCardTemplate = `
     [cover]="true"
     [src]="hasIcon ? '' : imgUrl">
     @if (hasIcon) {
-      <lg-pictogram [name]="iconName" size="lg"></lg-pictogram>
+      <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
     }
   </lg-card-hero-img>
   <lg-card-content>

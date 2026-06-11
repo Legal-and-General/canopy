@@ -34,10 +34,28 @@ export class LgPictogramComponent {
 
   private svgElement?: SVGElement;
   private id = nextUniqueId++;
+  private _hasFill = false;
 
   @HostBinding('class.lg-pictogram') class = true;
   @HostBinding('attr.aria-hidden') hidden = true;
-  @HostBinding('attr.data-has-fill') dataHasFill = 'false';
+  @HostBinding('attr.data-has-fill') dataHasFill = false;
+  @Input()
+  set hasFill(value: boolean) {
+    this._hasFill = value;
+
+    this.dataHasFill = value;
+
+    const host = this.hostElement.nativeElement;
+
+    if (this.dataHasFill) {
+      host.style.removeProperty('--lg-pictogram-fill-colour');
+    } else {
+      host.style.setProperty('--lg-pictogram-fill-colour', 'none');
+    }
+  }
+  get hasFill(): boolean {
+    return this._hasFill;
+  }
 
   _size: PictogramSize = 'sm';
   @Input()
@@ -68,13 +86,6 @@ export class LgPictogramComponent {
   }
 
   @Input()
-  set hasFill(hasFill: boolean | string | null | undefined) {
-    this.dataHasFill = hasFill != null && `${hasFill}` !== 'false'
-      ? 'true'
-      : 'false';
-  }
-
-  @Input()
   set name(name: Name) {
     (async () => {
       if (this.svgElement) {
@@ -102,6 +113,11 @@ export class LgPictogramComponent {
 
   constructor() {
     this.renderer.addClass(this.hostElement.nativeElement, `lg-pictogram--${this._size}`);
+
+    this.hostElement.nativeElement.style.setProperty(
+      '--lg-pictogram-fill-colour',
+      'none',
+    );
   }
 
   /*
@@ -110,16 +126,14 @@ export class LgPictogramComponent {
    * have the same ID causing multiple SVGs on a page to link to that same ID and displaying an
    * incorrect pictogram.
    *
-   * Also replaces inline fill attributes with data attributes to enable CSS-based theme control.
+   * Also converts named Figma layer IDs to data attributes to enable CSS-based theme control.
    */
   private setSVGAttributes(svgData: string | undefined): string | undefined {
     let idCount = 0;
     let xlinkCount = 0;
 
     return svgData
-      ?.replace(/fill="#42aeea"/g, 'data-colour="content-pictogram-fill"')
-      .replace(/fill="#1d1d1b"/gi, 'data-colour="content-pictogram-outline"')
-      .replace(
+      ?.replace(
         /id="(?:lg-icon-fill-primary|content-pictogram-fill)"/g,
         () => 'data-colour="content-pictogram-fill"',
       )

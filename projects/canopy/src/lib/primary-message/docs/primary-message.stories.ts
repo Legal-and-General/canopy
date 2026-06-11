@@ -12,7 +12,7 @@ import { LgMarginDirective } from '../../spacing';
   selector: 'lg-primary-message-story',
   template: `
     <lg-primary-message [hasRole]="hasRole">
-      <lg-pictogram name="calendar" />
+      <lg-pictogram name="calendar" [hasFill]="false" />
       <lg-primary-message-title
         >This is a message with pictogram
       </lg-primary-message-title>
@@ -75,7 +75,7 @@ const template = `
 
 const exampleTemplate = `
 <lg-primary-message [hasRole]="hasRole">
-  <lg-pictogram name="calendar"></lg-pictogram>
+  <lg-pictogram name="calendar" [hasFill]="false"></lg-pictogram>
   <lg-primary-message-title
     >This is a message with pictogram
   </lg-primary-message-title>

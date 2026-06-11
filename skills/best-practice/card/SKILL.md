@@ -3,7 +3,7 @@ name: canopy-card
 description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or any card sub-components (including promotion cards) in an Angular project using Canopy.
 license: MIT
 metadata:
-  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/card/guide.mdx
+  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/guide.mdx
 ---
 
 # Canopy Card — Best Practices
@@ -28,15 +28,6 @@ import {
   LgCardNavigationTitleComponent,
   LgCardGroupComponent,
   LgCardToggableContentComponent,
-  LgCardContentInnerDataPointsComponent,
-} from '@legal-and-general/canopy';
-
-import {
-  LgDataPointComponent,
-  LgDataPointLabelComponent,
-  LgDataPointValueComponent,
-  LgDataPointSecondaryLabelComponent,
-  LgDataPointGroupComponent,
   LgCardHeroImageComponent,
 } from '@legal-and-general/canopy';
 ```
@@ -206,56 +197,43 @@ Always use `size="sm"` (160px) for pictograms in promotion cards to maintain con
 
 For magazine-style layouts with a separator, combine image and pictogram promotions:
 
-Use `LgDataPointComponent` with `variant="card-principle"` alongside `LgDataPointLabelComponent`, `LgDataPointValueComponent`, and optionally `LgDataPointSecondaryLabelComponent` to display a prominent principle data point inside a product card.
-
 ```html
-<lg-card>
-  <lg-card-content>
-    <div lgRow>
-      <div lgCol="12" lgColMd="6">
-        <lg-card-title headingLevel="4">
-          <a href="#">Card title</a>
-        </lg-card-title>
-        <lg-card-subtitle>Payroll Reference Number P23456</lg-card-subtitle>
-      </div>
-      <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
-        <lg-data-point-label [headingLevel]="5" [isBold]="true">
-          Last payment (after tax and deductions)
-        </lg-data-point-label>
-        <lg-data-point-value size="lg">
-          £230.20
-        </lg-data-point-value>
-        <lg-data-point-secondary-label>
-          as of 01 Jan 2020
-        </lg-data-point-secondary-label>
-      </lg-data-point>
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="12">
+      <lg-separator variant="dotted" lgMarginTop="none"></lg-separator>
     </div>
-  </lg-card-content>
-</lg-card>
+    <!-- Three cards with images -->
+    <div lgColSm="12" lgColLg="4">
+      <!-- Card with hero image -->
+    </div>
+    <!-- Continue with 2 more image cards -->
+  </div>
+  <div lgRow>
+    <div lgCol="12">
+      <lg-separator variant="dotted" lgMarginTop="none"></lg-separator>
+    </div>
+    <!-- Two cards with pictograms -->
+    <div lgColSm="12" lgColLg="6">
+      <lg-card
+        lgShadow
+        [hasHoverState]="true"
+        lgMarginBottom="6"
+        variant="promotion"
+        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
+        <lg-card-hero-img>
+          <lg-pictogram [name]="iconName" size="sm"></lg-pictogram>
+        </lg-card-hero-img>
+        <lg-card-content>
+          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
+          <p lgMarginBottom="6">{{ description }}</p>
+          <a href="#">{{ linkText }}</a>
+        </lg-card-content>
+      </lg-card>
+    </div>
+  </div>
+</div>
 ```
-
-> **Note:** `LgCardPrincipleDataPointComponent`, `LgCardPrincipleDataPointLabelComponent`, and `LgCardPrincipleDataPointValueComponent` have been removed from the library. Use `LgDataPointComponent` with `variant="card-principle"` for a prominent hero data point in a product card, or `variant="card"` for standard data points inside a card content area.
-
-### Promotion Card and Shadow Removal
-
-`lgShadow` has been removed and must not be used with promotion cards.
-
-Use the promotion variant directly, without shadow inputs or directives:
-
-```html
-<lg-card variant="promotion" lgMarginBottom="6">
-  <lg-card-content>
-    <lg-card-title [headingLevel]="3">Promotion title</lg-card-title>
-    <p>Promotion summary content.</p>
-  </lg-card-content>
-</lg-card>
-```
-
-Migration note:
-
-1. Remove `LgShadowDirective` from component imports.
-2. Remove `lgShadow` and `[hasHoverState]` from templates.
-3. Keep spacing and hierarchy using existing card, grid, margin, and typography patterns.
 
 ### Form Journey Card
 
