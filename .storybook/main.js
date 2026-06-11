@@ -13,8 +13,8 @@ export default {
     '../projects/canopy/src/lib/docs/foundation/design-tokens.mdx',
     '../projects/canopy/src/lib/icon/docs/guide.mdx',
     '../projects/canopy/src/lib/icon/docs/icons.stories.ts',
-    '../projects/canopy/src/lib/brand-icon/docs/guide.mdx',
-    '../projects/canopy/src/lib/brand-icon/docs/brand-icons.stories.ts',
+    '../projects/canopy/src/lib/pictogram/docs/guide.mdx',
+    '../projects/canopy/src/lib/pictogram/docs/pictogram.stories.ts',
     '../projects/canopy/src/lib/flag-icon/docs/guide.mdx',
     '../projects/canopy/src/lib/flag-icon/docs/flag-icons.stories.ts',
     // Principles

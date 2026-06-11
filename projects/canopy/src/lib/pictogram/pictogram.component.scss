@@ -1,0 +1,52 @@
+.lg-pictogram {
+  height: auto;
+  --lg-pictogram-fill-colour: var(--content-pictogram-fill);
+  --lg-pictogram-outline-colour: var(--content-pictogram-outline);
+
+  > svg {
+    width: inherit;
+    height: inherit;
+  }
+
+  [data-colour='content-pictogram-fill'] {
+    fill: var(--lg-pictogram-fill-colour);
+  }
+
+  [data-colour='content-pictogram-outline'] {
+    fill: var(--lg-pictogram-outline-colour);
+  }
+
+  &[style*='--lg-pictogram-colour'] {
+    [data-colour='content-pictogram-fill'],
+    [data-colour='content-pictogram-outline'] {
+      fill: var(--lg-pictogram-colour);
+    }
+  }
+}
+
+.lg-pictogram.lg-theme-bold,
+.lg-pictogram.lg-theme-subtle,
+.lg-theme-bold
+  .lg-pictogram:not(.lg-theme-bold):not(.lg-theme-subtle):not(.lg-theme-neutral):not(
+    .lg-theme-neutral-inverse
+  ),
+.lg-theme-subtle
+  .lg-pictogram:not(.lg-theme-bold):not(.lg-theme-subtle):not(.lg-theme-neutral):not(
+    .lg-theme-neutral-inverse
+  ) {
+  --lg-pictogram-fill-colour: none;
+}
+
+$sizes: (
+  'sm': var(--content-pictogram-size-sm),
+  'md': var(--content-pictogram-size-md),
+  'lg': var(--content-pictogram-size-lg),
+  'xl': var(--content-pictogram-size-xl),
+  'xxl': var(--content-pictogram-size-xxl),
+);
+
+@each $size, $value in $sizes {
+  .lg-pictogram--#{$size} {
+    width: #{$value};
+  }
+}

@@ -24,7 +24,7 @@ export default [
   {
     name: 'Global - Ignores',
     ignores: [
-      '**/brand-icons.interface.ts',
+      '**/pictogram.interface.ts',
       '**/icons.interface.ts',
       '!.github',
       '**/*.d.ts',
