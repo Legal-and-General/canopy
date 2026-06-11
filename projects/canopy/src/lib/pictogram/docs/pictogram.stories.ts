@@ -71,7 +71,7 @@ export default {
   ],
   argTypes: {
     hasFill: {
-      description: 'Applies the default blue fill accents to supported pictograms',
+      description: 'Applies a fill to pictograms',
       table: {
         type: {
           summary: 'boolean',
