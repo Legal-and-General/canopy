@@ -29,7 +29,7 @@ In your HTML:
 <!-- with default size and no fill -->
 <lg-pictogram name="sun"></lg-pictogram>
 
-<!-- with blue fill enabled -->
+<!-- with fill enabled -->
 <lg-pictogram name="sun" [hasFill]="true"></lg-pictogram>
 
 <!-- with a size set -->
@@ -54,13 +54,13 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 
 
 * **Do** scale pictograms according to the sizing chart above.
-* **Do** enable `hasFill` when you need the default blue highlight in the artwork.
+* **Do** enable `hasFill` when using a pictogram in a self-service application only, to make the fill visible on neutral backgrounds.
 
 ### Don't
 
 
 * **Don't** use a pictogram in place of a UI icon, or at a size less than 160px.
-* **Don't** rely on fill being present by default; opt in explicitly when the artwork needs it.
+* **Don't** set `hasFill` to `true` to fill pictograms when using them in highly-branded scenarios such as in the Dotcom CMS.
 
 ## Additional development details
 
@@ -70,7 +70,7 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 |--------|----------------------|-----------------|-------------|----------|
 | `name` | The name of the icon | `string`          | `undefined` | yes      |
 | `size` | The size of the icon | `sm,md,lg,xl,xxl` | `sm`        | no       |
-| `hasFill` | Applies the default blue fill accents to supported pictograms | `boolean` | `false` | no |
+| `hasFill` | Applies a fill | `boolean` | `false` | no |
 
 
 ## Related

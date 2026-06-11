@@ -33,10 +33,7 @@ To use this component with a pictogram, the following is needed:
 Import the pictogram component in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgPictogramComponent ],
-});
+import {  LgPictogramComponent } from '@legal-and-general/canopy';
 ```
 
 and in the HTML
@@ -44,6 +41,7 @@ and in the HTML
 ```html
 <lg-card-hero-img>
   <lg-pictogram [name]="iconName" size="sm"></lg-pictogram>
+  <lg-pictogram [name]="iconName" size="sm" [hasFill]="false"></lg-pictogram>
 </lg-card-hero-img>
 ```
 
