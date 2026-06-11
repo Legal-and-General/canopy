@@ -57,4 +57,4 @@ Add to your standalone component's `imports` array or Angular module.
 ## Related
 
 - Use `lg-icon` for UI icons — see the UI icon skill.
-- Use `lg-brand-icon` for illustrative brand icons.
+- Use `lg-pictogram` for illustrative pictograms.

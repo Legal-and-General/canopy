@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
@@ -6,6 +7,17 @@ import { LgIconComponent } from '../icon';
 import type { Status } from '../status';
 
 import { LgAlertComponent } from './alert.component';
+
+@Component({
+  standalone: true,
+  template: `
+    <lg-alert>
+      <p>Alert content</p>
+    </lg-alert>
+  `,
+  imports: [ LgAlertComponent ],
+})
+class TestHostComponent {}
 
 describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
@@ -82,13 +94,6 @@ describe('LgAlertComponent', () => {
     });
   });
 
-  it('does not renders an icon for generic status', () => {
-    fixture.detectChanges();
-    const icon = fixture.debugElement.query(By.directive(LgIconComponent));
-
-    expect(icon).toBeNull();
-  });
-
   it('does not render an icon when showIcon is set to false', () => {
     component.showIcon = false;
     fixture.detectChanges();
@@ -97,17 +102,52 @@ describe('LgAlertComponent', () => {
     expect(icon).toBeNull();
   });
 
+  it('projects content into the body', () => {
+    const hostFixture = TestBed.createComponent(TestHostComponent);
+
+    hostFixture.detectChanges();
+
+    const body = hostFixture.nativeElement.querySelector('.lg-alert__body');
+
+    expect(body.textContent).toContain('Alert content');
+  });
+
   [
     { status: 'error', icon: 'crossmark-spot-filled' },
     { status: 'info', icon: 'information-filled' },
     { status: 'warning', icon: 'warning-filled' },
     { status: 'success', icon: 'checkmark-spot-filled' },
+    { status: 'generic', icon: 'globe' },
   ].forEach(({ status, icon }) => {
     it(`renders the correct icon for the ${status} alert`, () => {
       fixture.componentRef.setInput('status', status);
       fixture.detectChanges();
 
-      expect(fixture.debugElement.query(By.css(`[name="${icon}"]`))).not.toBeNull();
+      expect(component.statusIcon).toBe(icon);
     });
+  });
+
+  it('renders a custom icon for generic status', () => {
+    fixture.componentRef.setInput('status', 'generic');
+    component.icon = 'settings';
+    fixture.detectChanges();
+
+    expect(component.statusIcon).toBe('settings');
+  });
+
+  it('renders a custom icon for info status', () => {
+    fixture.componentRef.setInput('status', 'info');
+    component.icon = 'help';
+    fixture.detectChanges();
+
+    expect(component.statusIcon).toBe('help');
+  });
+
+  it('does not render a custom icon for success status', () => {
+    fixture.componentRef.setInput('status', 'success');
+    component.icon = 'settings';
+    fixture.detectChanges();
+
+    expect(component.statusIcon).toBe('checkmark-spot-filled');
   });
 });

@@ -1,42 +1,38 @@
 ---
 name: canopy-shadow
-description: Best practices for the Canopy Shadow directive. Trigger when using lgShadow or LgShadowDirective to apply box shadows in an Angular project using Canopy.
+description: Deprecation notice for the Canopy Shadow directive. Trigger whenever lgShadow, LgShadowDirective, or related imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/shadow/docs/guide.mdx
 ---
 
-# Canopy Shadow — Best Practices
+# Canopy Shadow Directive — DEPRECATED
 
-This skill provides usage guidance for the Canopy `lgShadow` directive from `@legal-and-general/canopy`.
-
-Apply this skill when adding box shadows to elements.
+> **`LgShadowDirective` is deprecated and will be removed in a future version of Canopy as part of brand modernisation.**
+> Do not use this directive in new work, and migrate away from it in existing code.
 
 ---
 
-## Import
+## What to Remove
+
+Remove the following imports:
 
 ```ts
+// Remove:
 import { LgShadowDirective } from '@legal-and-general/canopy';
 ```
 
----
-
-## Basic Usage
+Remove any `lgShadow` directive attributes from your templates:
 
 ```html
-<!-- Apply shadow -->
-<lg-card [lgShadow]="true"></lg-card>
-
-<!-- Apply shadow with hover state (deeper shadow on hover) -->
-<lg-card [lgShadow]="true" [hasHoverState]="true"></lg-card>
+<!-- Remove: -->
+<div [lgShadow]="true"></div>
+<div [lgShadow]="true" [hasHoverState]="true"></div>
 ```
 
 ---
 
-## Inputs
+## Don't
 
-| Input | Type | Default | Required | Description |
-|-------|------|---------|----------|-------------|
-| `lgShadow` | `boolean` | `null` | Yes | Whether to apply a box shadow. |
-| `hasHoverState` | `boolean` | `false` | No | Whether to apply a deeper shadow on hover. |
+1. **Don't** use `lgShadow` in new feature work.
+2. **Don't** add `LgShadowDirective` to any new standalone component's `imports` array.
