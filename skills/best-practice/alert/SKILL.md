@@ -35,13 +35,13 @@ import { LgAlertComponent } from '@legal-and-general/canopy';
 
 ## Statuses
 
-| Status | When to use | Example |
-|--------|-------------|----------|
-| `generic` | Basic message; no semantic role assigned. Icon is customisable. | `<lg-alert status="generic">Check out our new feature</lg-alert>` |
-| `info` | Calmly highlight information; no action required. | This product comes with a free umbrella. |
-| `success` | Confirm a completed action; no further user action needed. | Your umbrella has been dispatched successfully. |
-| `warning` | Elevated alert; interrupted service or something that may affect the user's holding. | We can't get details of your umbrella right now. |
-| `error` | Error that stops the user completing their journey; include steps to resolve. | You must confirm the terms and conditions before proceeding. |
+| Status | Default icon | When to use |
+|--------|-------------|-------------|
+| `generic` | `globe` (customisable) | Basic message; no semantic role assigned. Icon can be overridden. |
+| `info` | `information-filled` (customisable) | Calmly highlight information; no action required. |
+| `success` | `checkmark-spot-filled` | Confirm a completed action; no further user action needed. |
+| `warning` | `warning-filled` | Elevated alert; interrupted service or something that may affect the user's holding. |
+| `error` | `crossmark-spot-filled` | Error that stops the user completing their journey; include steps to resolve. |
 
 The `alert` ARIA role is automatically applied for `warning`, `error`, and `success` statuses, sending an accessible event to assistive technologies.
 

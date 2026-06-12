@@ -53,6 +53,22 @@ describe('LgDataPointComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-data-point');
   });
 
+  describe('variant input', () => {
+    it('should not apply the card modifier class by default', () => {
+      expect(el.getAttribute('class')).not.toContain('lg-data-point--card');
+    });
+
+    it('should apply the card modifier class when variant is card', () => {
+      ngMocks.flushTestBed();
+
+      fixture = MockRender('<lg-data-point variant="card"></lg-data-point>');
+      el = fixture.debugElement.children[0].nativeElement;
+      fixture.detectChanges();
+
+      expect(el.getAttribute('class')).toContain('lg-data-point--card');
+    });
+  });
+
   it('should render the heading', () => {
     const headingElement = fixture.debugElement.query(By.css('lg-data-point-label'));
 

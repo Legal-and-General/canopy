@@ -1,11 +1,25 @@
+@use '../../../styles/mixins';
+
 .lg-data-point {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   margin-bottom: var(--component-margin);
-  margin-right: var(--space-4);
 
   &:last-of-type {
     margin-right: 0;
+  }
+}
+
+.lg-data-point--card-principle {
+  display: block;
+  margin-right: 0;
+  margin-bottom: 0;
+
+  @include mixins.lg-breakpoint('md') {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: flex-start;
   }
 }

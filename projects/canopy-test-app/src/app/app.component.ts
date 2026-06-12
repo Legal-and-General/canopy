@@ -62,10 +62,6 @@ import {
   LgCardGroupComponent,
   LgCardHeaderComponent,
   LgCardNavigationTitleComponent,
-  LgCardPrincipleDataPointComponent,
-  LgCardPrincipleDataPointDateComponent,
-  LgCardPrincipleDataPointLabelComponent,
-  LgCardPrincipleDataPointValueComponent,
   LgCardSubheadingComponent,
   LgCardSubtitleComponent,
   LgCardTitleComponent,
@@ -100,6 +96,7 @@ import {
 } from '../../../canopy/src/lib/carousel';
 import {
   LgDataPointComponent,
+  LgDataPointSecondaryLabelComponent,
   LgDataPointLabelComponent,
   LgDataPointValueComponent,
 } from '../../../canopy/src/lib/data-point';
@@ -235,6 +232,7 @@ import {
     LgCarouselComponent,
     LgCarouselItemComponent,
     LgDataPointComponent,
+    LgDataPointSecondaryLabelComponent,
     LgDataPointLabelComponent,
     LgDataPointValueComponent,
     LgDetailsComponent,
@@ -285,10 +283,6 @@ import {
     LgCardTitleComponent,
     LgCardSubheadingComponent,
     LgCardSubtitleComponent,
-    LgCardPrincipleDataPointComponent,
-    LgCardPrincipleDataPointLabelComponent,
-    LgCardPrincipleDataPointValueComponent,
-    LgCardPrincipleDataPointDateComponent,
     LgFooterComponent,
     LgFooterLogoComponent,
     LgFooterCopyrightComponent,
