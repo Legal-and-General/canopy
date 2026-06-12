@@ -45,6 +45,9 @@ export default {
       imports: [ SwatchFlagIconComponent, LgFlagIconComponent ],
     }),
   ],
+  globals: {
+    backgrounds: { value: 'light' },
+  },
 };
 
 const exampleTemplate = `

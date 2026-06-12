@@ -12,7 +12,7 @@ This skill provides usage guidance and input reference for the Canopy `lg-icon` 
 
 Apply this skill whenever you use `lg-icon` or `LgIconComponent`.
 
-> See also: the `brand-icon` skill for brand/illustrative icons.
+> See also: the `pictogram` skill for brand/illustrative icons.
 
 ---
 

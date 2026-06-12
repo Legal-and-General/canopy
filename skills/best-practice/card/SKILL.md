@@ -1,14 +1,14 @@
 ---
 name: canopy-card
-description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or any card sub-components in an Angular project using Canopy.
+description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or any card sub-components (including promotion cards) in an Angular project using Canopy.
 license: MIT
 metadata:
-  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/card/guide.mdx
+  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/guide.mdx
 ---
 
 # Canopy Card — Best Practices
 
-This skill provides usage guidance and input reference for the Canopy `lg-card` component from `@legal-and-general/canopy`.
+This skill provides usage guidance and input reference for the Canopy `lg-card` component and related patterns from `@legal-and-general/canopy`.
 
 Apply this skill whenever you use `lg-card` or any `LgCard*` component.
 
@@ -67,9 +67,9 @@ import {
 
 ---
 
-## Card Templates
+## Card Patterns
 
-### Product Card
+### Promotion Card
 
 Use `LgDataPointComponent` with `variant="card-principle"` alongside `LgDataPointLabelComponent`, `LgDataPointValueComponent`, and optionally `LgDataPointSecondaryLabelComponent` to display a prominent principle data point inside a product card.
 
@@ -120,7 +120,19 @@ Place the `<form>` element as a parent of `<lg-card>`. Form inputs go in `<lg-ca
 
 ### Navigation Card
 
-Use `LgCardNavigationTitleComponent` for cards that act as navigation links. The link's `target` attribute and icon are automatically determined from the `link` input.
+Use `LgCardNavigationTitleComponent` for cards that act as navigation links:
+
+```html
+<lg-card>
+  <lg-card-content>
+    <lg-card-navigation-title
+      [headingLevel]="3"
+      title="Go to next page"
+      link="/next-page">
+    </lg-card-navigation-title>
+  </lg-card-content>
+</lg-card>
+```
 
 ### Card with Data Points
 
@@ -173,33 +185,9 @@ Use `LgCardToggableContentComponent` with the `lgButtonToggle` directive:
 
 ## Inputs
 
-### LgCardComponent
-
 | Input | Type | Default | Description |
 |-------|------|---------|-------------|
-| `variant` | `'default' \| 'promotion'` | `'default'` | Card variant. |
-
-### LgCardTitleComponent
-
-| Input | Type | Default | Required | Description |
-|-------|------|---------|----------|-------------|
-| `headingLevel` | `1 \| 2 \| 3 \| 4 \| 5 \| 6` | n/a | Yes | Heading level. |
-
-### LgCardNavigationTitleComponent
-
-| Input | Type | Default | Required | Description |
-|-------|------|---------|----------|-------------|
-| `headingLevel` | `1 \| 2 \| 3 \| 4 \| 5 \| 6` | n/a | Yes | Heading level. |
-| `title` | `string` | `''` | Yes | Title text. |
-| `link` | `string` | `''` | Yes | URL or route path. |
-| `queryParams` | `Params` | `null` | No | Query params for internal links. |
-| `queryParamsHandling` | `QueryParamsHandling` | `null` | No | Query params handling strategy. |
-
-### LgCardSubheadingComponent
-
-| Input | Type | Default | Required | Description |
-|-------|------|---------|----------|-------------|
-| `headingLevel` | `1 \| 2 \| 3 \| 4 \| 5 \| 6` | n/a | Yes | Heading level. |
+| `variant` | `string` | `'default'` | The card variant — `default` or `promotion`. |
 
 ---
 
@@ -207,15 +195,55 @@ Use `LgCardToggableContentComponent` with the `lgButtonToggle` directive:
 
 ### Do
 
-1. **Do** ensure card content relates to a single idea or concept.
+1. **Do** ensure that content relates to a single idea or concept.
 2. **Do** summarise content and provide links to expanded content on child pages.
 3. **Do** use when each card will contain different types of content.
 4. **Do** place cards directly on the page background.
-5. **Do** create layouts that make the page hierarchy clearly understood.
+5. **Do** create layouts that make the hierarchy of the page clearly understood.
+6. **Do** keep promotional message content succinct — follow content guidelines (title max 33 chars, description max 140 chars, link max 20 chars).
+7. **Do** use equal amounts of content across all promotion cards in a layout for consistent visual alignment.
+8. **Do** use `size="sm"` when adding pictograms to promotion cards.
+9. **Do** set `[hasHoverState]="true"` on promotion cards to provide interactive feedback.
 
 ### Don't
 
 1. **Don't** overfill or cover more than one subject within a card.
-2. **Don't** use cards as a replacement for full pages.
-3. **Don't** place cards on top of other cards.
-4. **Don't** build complex, cluttered layouts that make the structure difficult to understand.
+2. **Don't** use cards as a replacement for standard pages.
+3. **Don't** place cards on top of cards.
+4. **Don't** use to build complex, cluttered layouts that obscure page structure.
+5. **Don't** mix image and pictogram promotions within the same card layout section — group similar card types together for visual consistency.
+6. **Don't** exceed the content guidelines for promotion cards (e.g. titles over 33 characters).
+
+---
+
+## Component Reference
+
+### LgCardComponent
+The main card container. Accepts projection of header, content, footer, and hero image components.
+
+### LgCardContentComponent
+The secondary layout section containing the card's main content and padding.
+
+### LgCardContentInnerDataPoints
+Tertiary layout section specifically for data points with correct spacing.
+
+### LgCardTitleComponent
+Main title container. Should be located inside `lg-card-content`.
+
+Inputs: `headingLevel` (required, `1`–`6`)
+
+### LgCardNavigationTitleComponent
+Title and link container for navigation cards. Link target and icon are automatically determined.
+
+Inputs: `headingLevel` (required), `title` (required), `link` (required), `queryParams`, `queryParamsHandling`
+
+Outputs: `linkClickedEvent`
+
+### LgCardHeaderComponent
+Primary layout section for breadcrumbs or similar content.
+
+### LgCardFooterComponent
+Section for form buttons or actions.
+
+### LgCardGroupComponent
+Container to group 2+ cards with equal heights across breakpoints. Wrap in `lgCol="12"`.

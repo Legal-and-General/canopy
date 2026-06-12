@@ -76,6 +76,9 @@ export default {
       },
     },
   },
+  globals: {
+    backgrounds: { value: 'light' },
+  },
 };
 
 const exampleTemplate = `

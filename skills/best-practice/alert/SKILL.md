@@ -82,13 +82,17 @@ For `generic` and `info` statuses, you can provide a custom icon via the `icon` 
 
 ### Don't
 
-1. **Don't** use inline messages when space is not an issue — consider using Primary Message with Brand Icon instead.
+1. **Don't** use inline messages when space is not an issue — consider using Primary Message with Pictogram instead.
 2. **Don't** overload the page with multiple inline messages simultaneously.
+3. **Don't** use error status without providing clear steps to resolve the issue.
+4. **Don't** use inline messages to hide important information; place them where users will see them in context.
 
 ---
 
 ## Accessibility
 
 - `warning`, `error`, and `success` statuses automatically add `role="alert"`, which triggers an accessible alert event in assistive technologies.
-- To suppress the role, pass `[role]="'none'"`.
+- `info` and `generic` statuses do not receive an ARIA role by default.
+- To suppress the role on any status, pass `[role]="'none'`.
 - Always include meaningful, actionable text in error messages — explain the problem and how to fix it.
+- Error messages should include a link to detailed help or next steps when appropriate.
