@@ -28,7 +28,15 @@ import {
   LgCardNavigationTitleComponent,
   LgCardGroupComponent,
   LgCardToggableContentComponent,
-  LgCardHeroImageComponent,
+  LgCardContentInnerDataPointsComponent,
+} from '@legal-and-general/canopy';
+
+import {
+  LgDataPointComponent,
+  LgDataPointLabelComponent,
+  LgDataPointValueComponent,
+  LgDataPointSecondaryLabelComponent,
+  LgDataPointGroupComponent,
 } from '@legal-and-general/canopy';
 ```
 
@@ -63,177 +71,35 @@ import {
 
 ### Promotion Card
 
-Use the `promotion` variant to display promotional content with a hero image or pictogram. Promotion cards should have consistent content length across multiple cards for better visual alignment.
-
-#### Promotion Card with Hero Image
+Use `LgDataPointComponent` with `variant="card-principle"` alongside `LgDataPointLabelComponent`, `LgDataPointValueComponent`, and optionally `LgDataPointSecondaryLabelComponent` to display a prominent principle data point inside a product card.
 
 ```html
-<lg-card
-  lgShadow
-  [hasHoverState]="true"
-  lgMarginBottom="6"
-  lgPadding="none"
-  variant="promotion"
-  [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
-  <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
+<lg-card>
   <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-    <p lgMarginBottom="6">{{ description }}</p>
-    <a href="#">{{ linkText }}</a>
+    <div lgRow>
+      <div lgCol="12" lgColMd="6">
+        <lg-card-title headingLevel="4">
+          <a href="#">Card title</a>
+        </lg-card-title>
+        <lg-card-subtitle>Payroll Reference Number P23456</lg-card-subtitle>
+      </div>
+      <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
+        <lg-data-point-label [headingLevel]="5" [isBold]="true">
+          Last payment (after tax and deductions)
+        </lg-data-point-label>
+        <lg-data-point-value size="lg">
+          £230.20
+        </lg-data-point-value>
+        <lg-data-point-secondary-label>
+          as of 01 Jan 2020
+        </lg-data-point-secondary-label>
+      </lg-data-point>
+    </div>
   </lg-card-content>
 </lg-card>
 ```
 
-Content guidelines for hero image promotions:
-- Title: max 33 characters
-- Description: max 140 characters
-- Link text: max 20 characters
-- Image: max 620px × 620px
-
-#### Promotion Card with Pictogram (size="sm")
-
-Use a pictogram instead of an image for smaller, simpler promotional content:
-
-```html
-<lg-card
-  lgShadow
-  [hasHoverState]="true"
-  lgMarginBottom="6"
-  variant="promotion"
-  [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-  <lg-card-hero-img>
-    <lg-pictogram [name]="iconName" size="sm"></lg-pictogram>
-  </lg-card-hero-img>
-  <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-    <p lgMarginBottom="6">{{ description }}</p>
-    <a href="#">{{ linkText }}</a>
-  </lg-card-content>
-</lg-card>
-```
-
-Always use `size="sm"` (160px) for pictograms in promotion cards to maintain consistent visual hierarchy.
-
-#### Promotion Layout: Single Card
-
-```html
-<div lgContainer>
-  <div lgRow>
-    <div lgColSm="12">
-      <lg-card
-        lgShadow
-        [hasHoverState]="true"
-        lgMarginBottom="6"
-        lgPadding="none"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
-        <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="6">{{ description }}</p>
-          <a href="#">{{ linkText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-  </div>
-</div>
-```
-
-#### Promotion Layout: Two Cards
-
-```html
-<div lgContainer>
-  <div lgRow>
-    <div lgColSm="12" lgColLg="6">
-      <lg-card
-        lgShadow
-        [hasHoverState]="true"
-        lgMarginBottom="6"
-        lgPadding="none"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="6">{{ description }}</p>
-          <a href="#">{{ linkText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-    <div lgColSm="12" lgColLg="6">
-      <!-- Second card with same structure -->
-    </div>
-  </div>
-</div>
-```
-
-#### Promotion Layout: Three Cards
-
-```html
-<div lgContainer>
-  <div lgRow>
-    <div lgColSm="12" lgColLg="4">
-      <lg-card
-        lgShadow
-        [hasHoverState]="true"
-        lgMarginBottom="6"
-        lgPadding="none"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="6">{{ description }}</p>
-          <a href="#">{{ linkText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-    <!-- Repeat for remaining cards -->
-  </div>
-</div>
-```
-
-#### Promotion Layout: Magazine (Mixed Image and Pictogram)
-
-For magazine-style layouts with a separator, combine image and pictogram promotions:
-
-```html
-<div lgContainer>
-  <div lgRow>
-    <div lgCol="12">
-      <lg-separator variant="dotted" lgMarginTop="none"></lg-separator>
-    </div>
-    <!-- Three cards with images -->
-    <div lgColSm="12" lgColLg="4">
-      <!-- Card with hero image -->
-    </div>
-    <!-- Continue with 2 more image cards -->
-  </div>
-  <div lgRow>
-    <div lgCol="12">
-      <lg-separator variant="dotted" lgMarginTop="none"></lg-separator>
-    </div>
-    <!-- Two cards with pictograms -->
-    <div lgColSm="12" lgColLg="6">
-      <lg-card
-        lgShadow
-        [hasHoverState]="true"
-        lgMarginBottom="6"
-        variant="promotion"
-        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
-        <lg-card-hero-img>
-          <lg-pictogram [name]="iconName" size="sm"></lg-pictogram>
-        </lg-card-hero-img>
-        <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-          <p lgMarginBottom="6">{{ description }}</p>
-          <a href="#">{{ linkText }}</a>
-        </lg-card-content>
-      </lg-card>
-    </div>
-  </div>
-</div>
-```
+> **Note:** `LgCardPrincipleDataPointComponent`, `LgCardPrincipleDataPointLabelComponent`, and `LgCardPrincipleDataPointValueComponent` have been removed from the library. Use `LgDataPointComponent` with `variant="card-principle"` for a prominent hero data point in a product card, or `variant="card"` for standard data points inside a card content area.
 
 ### Form Journey Card
 

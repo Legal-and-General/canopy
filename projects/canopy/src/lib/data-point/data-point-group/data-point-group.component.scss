@@ -1,0 +1,24 @@
+@use '../../../styles/mixins';
+
+.lg-data-point-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 0;
+  margin-right: 0;
+  gap: var(--data-point-group-row-gap);
+}
+
+.lg-data-point-group--horizontal {
+  @include mixins.lg-breakpoint('md') {
+    flex-direction: row;
+  }
+}
+
+.lg-data-point-group--vertical {
+  flex-direction: column;
+
+  .lg-data-point {
+    margin-bottom: 0;
+  }
+}

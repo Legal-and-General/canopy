@@ -6,15 +6,12 @@ import {
   LgCardComponent,
   LgCardContentComponent,
   LgCardHeaderComponent,
-  LgCardPrincipleDataPointComponent,
-  LgCardPrincipleDataPointDateComponent,
-  LgCardPrincipleDataPointLabelComponent,
-  LgCardPrincipleDataPointValueComponent,
   LgCardSubtitleComponent,
   LgCardTitleComponent,
 } from '../../card';
 import {
   LgDataPointComponent,
+  LgDataPointSecondaryLabelComponent,
   LgDataPointLabelComponent,
   LgDataPointValueComponent,
 } from '../../data-point';
@@ -83,42 +80,44 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
               {{ data?.subTitle }}
             </lg-card-subtitle>
           </div>
-          <lg-card-principle-data-point lgCol="12" lgColMd="6">
-            <lg-card-principle-data-point-label
+          <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
+            <lg-data-point-label
               lgSkeleton
               lgSkeletonWidth="20"
               lgSkeletonRightAlign="true"
+              [headingLevel]="5"
             >
               {{ data?.datapoint.label }}
-            </lg-card-principle-data-point-label>
-            <lg-card-principle-data-point-value
+            </lg-data-point-label>
+            <lg-data-point-value
               lgSkeleton
               lgSkeletonWidth="5"
               lgSkeletonRightAlign="true"
+              size="lg"
             >
               <span
                 ><span class="lg-font-size-3">{{ data?.datapoint.prefix }}</span
                 >{{ data?.datapoint.value }}</span
               >
-            </lg-card-principle-data-point-value>
-            <lg-card-principle-data-point-date
+            </lg-data-point-value>
+            <lg-data-point-secondary-label
               lgSkeleton
               lgSkeletonWidth="10"
               lgSkeletonRightAlign="true"
             >
               {{ data?.datapoint.suffix }}
-            </lg-card-principle-data-point-date>
-          </lg-card-principle-data-point>
+            </lg-data-point-secondary-label>
+          </lg-data-point>
         </div>
       </lg-card-content>
     </lg-card>
   `,
   imports: [
-    LgCardPrincipleDataPointDateComponent,
+    LgDataPointSecondaryLabelComponent,
     LgSkeletonDirective,
-    LgCardPrincipleDataPointValueComponent,
-    LgCardPrincipleDataPointLabelComponent,
-    LgCardPrincipleDataPointComponent,
+    LgDataPointValueComponent,
+    LgDataPointLabelComponent,
+    LgDataPointComponent,
     LgCardSubtitleComponent,
     LgCardTitleComponent,
     LgCardContentComponent,
@@ -152,7 +151,7 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
   template: `
     <lg-card>
       <lg-card-content>
-        <lg-data-point>
+        <lg-data-point variant="card">
           <lg-data-point-label [headingLevel]="4">
             <span lgSkeleton lgSkeletonWidth="10">{{ data?.datapoint?.label }}</span>
           </lg-data-point-label>

@@ -1,3 +1,39 @@
+@use '../../../styles/mixins';
+
 .lg-data-point-value {
-  color: var(--data-point-color);
+  color: var(--label-and-hint-label-colour);
+  margin-bottom: var(--data-point-gap);
+
+  &.lg-data-point-value--card,
+  &.lg-data-point-value--card-principle {
+    color: var(--data-point-value-colour);
+  }
+}
+
+.lg-data-point-value--sm {
+  @include mixins.lg-font-size('1');
+
+  font-weight: var(--font-weight-400);
+
+  &.lg-data-point-value--card {
+    font-weight: var(--font-weight-700);
+  }
+}
+
+.lg-data-point-value--md {
+  @include mixins.lg-font-size('3', '400');
+}
+
+.lg-data-point-value--lg {
+  @include mixins.lg-font-size('5');
+
+  font-weight: var(--font-weight-400);
+
+  &.lg-data-point-value--form {
+    font-weight: var(--font-weight-300);
+  }
+
+  &.lg-data-point-value--card {
+    font-weight: var(--font-weight-400);
+  }
 }
