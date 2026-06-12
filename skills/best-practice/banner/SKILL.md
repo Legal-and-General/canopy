@@ -69,10 +69,9 @@ The link will appear below the main content when rendered. Use `@if` (Angular 17
 
 | Input | Type | Default | Description |
 |-------|------|---------|-------------|
-| `status` | `'generic' \| 'info' \| 'success' \| 'warning' \| 'error'` | `'generic'` | Applies colour treatment and ARIA role. |
-| `statusTheme` | `string` | — | Theme override passed to `LgStatusDirective`. |
-| `showIcon` | `boolean` | `true` | Whether the status icon is displayed. |
-| `icon` | `IconName \| null` | `null` | Custom icon override. Only applies for `generic` and `info` statuses; ignored for `success`, `warning`, and `error`. |
+| `status` | `'generic' \| 'info' \| 'success' \| 'warning' \| 'error'` | `'generic'` | Applies colour treatment and ARIA role if applicable. |
+| `showIcon` | `boolean` | `true` | Displays the status icon selected automatically by status. |
+| `icon` | `IconName` | `'globe'` (generic) / `'information-filled'` (info) | Optional custom icon for `generic` and `info`. `success`, `warning`, and `error` always use fixed icons. |
 | `showLink` | `boolean` | `false` | Whether to show an optional link below the main content. |
 | `linkText` | `string` | — | The text for the optional link shown beneath the content. |
 
