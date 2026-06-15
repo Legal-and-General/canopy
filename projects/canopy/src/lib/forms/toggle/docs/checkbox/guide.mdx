@@ -5,35 +5,37 @@ import Feedback from '../../../../docs/common/feedback.md';
 
 # Checkbox
 
-<p class="standfirst">A checkbox lets the user select or deselect an option.</p>
+<p class="standfirst">A checkbox lets the user select one or more options from a set, with a clear visual indicator showing which options are selected.</p>
+
+![Checkbox hero](docs/forms/checkbox/hero.png)
 
 ## Usage
 
-Checkboxes should be used when allowing the user to select multiple options, when asking users for confirmation of agreement, or that an action has been performed. For instance:
+Use a checkbox when you want to let the user choose multiple options. Each checkbox is either checked or unchecked.
 
-* When asking the user to select all options that apply to them.
-* When asking the user to confirm they've read terms & conditions.
-* In the form of a checklist.
+This checkbox component is implemented by `LgToggleComponent`. While `<lg-toggle>` is an available (generic) selector and is used in some existing products, **we recommend using** `<lg-checkbox>`.
 
-### Checkbox
+Checkboxes can be used in the following ways:
 
-The checkbox component is a variant of the toggle component.
+- **Multi-select** – selecting any combination from a set of options.
+- **Agreement** or confirmation – confirming a statement before continuing.
+- **Checklist items** – marking tasks or steps as complete.
+
+### Single checkbox
 
 Import the toggle component in your application:
-
 ```js
-import { LgToggleComponent } from '@legal-and-general/canopy';
+import { LgToggleComponent } from '@landg/angular-components';
 ```
 
-and in your HTML:
-
+And in HTML:
 ```html
 <lg-checkbox formControlName="confirm" value="yes">Do you agree?</lg-checkbox>
 ```
 
-### Checkbox group
+### Checkbox group (multi-select)
 
-The checkbox group component is a container which displays the label with an optional hint and should contain two or more toggle components. The hint component may be used to provide extra context to the user.
+Use a checkbox group when the user is choosing from a related set of options and you want shared labelling and layout.
 
 Import the toggle and checkbox group components in your application:
 
@@ -54,38 +56,63 @@ and in your HTML:
 </lg-checkbox-group>
 ```
 
-### Optional fields
-
-For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
-
-```html
-<lg-checkbox-group formControlName="colors">
-  Select your colours
-  <span class="lg-label--optional">(optional)</span>
-  <lg-toggle value="red">Red</lg-toggle>
-  <lg-toggle value="yellow">Yellow</lg-toggle>
-</lg-checkbox-group>
-```
-
 ## How it works
 
-On click, the checkbox is filled with a 'tick' to indicate a state of confirmation. The checkbox can also be un-checked by clicking again to remove the 'tick'.
+A checkbox has two states – selected and unselected. Selecting a checkbox shows a tick to confirm the option is included. Selecting it again clears the tick and removes the option from the selection.
 
-## Dos and Don'ts
+Most of the time, a checkbox must be accompanied by a clear, descriptive label. The label ensures users understand the purpose of the checkbox and improves accessibility for assistive technologies.
+
+- **Label** (required): Clearly describes the checkbox’s purpose. The label must be visible and associated with the checkbox input.
+- **Hint text** (optional): Provides additional guidance or context. Place the hint directly below the label.
+- **“Optional” indicator** (optional): If the checkbox is not required, display an “optional” label next to the main label to clarify that selection is not mandatory.
+- **Validation message** (optional): Communicates errors or required actions. Display the validation message below the hint or “optional” indicator, using clear language to explain what’s wrong and how to fix it.
+
+All elements - label, hint, “optional” indicator, and validation message - must be consistently styled and positioned according to Canopy’s design guidelines.
+
+For more information on best practice, consult the introduction to the form design guide.
+
+### Variants
+
+#### Stacked
+
+![Checkbox stacked](docs/forms/checkbox/variant-stacked.png)
+
+Use stacked checkboxes by default. Stacked layouts are easier to scan, work better with long labels, and reduce awkward wrapping.
+
+#### Inline
+
+![Checkbox inline](docs/forms/checkbox/variant-inline.png)
+
+Use inline checkboxes only when all labels are short and the options are closely related. If the layout wraps onto multiple lines or the spacing becomes uneven, switch to stacked.
+
+#### Size
+
+![Checkbox size](docs/forms/checkbox/variant-size.png)
+
+- **Default** – Use in the majority of cases.
+- **Small** – Use only in very dense layouts where space is limited.
+
+## Do and don't
 
 ### Do
 
-1. **Do** use to confirm a response.
-2. **Do** use to help highlight that an action or task is required.
-3. **Do** use to allow the user to choose from multiple options.
+![Checkbox do](docs/forms/checkbox/do.png)
+
+1. **Do** always provide a clear, descriptive label for every checkbox.
+2. **Do** use a checkbox to allow the user to choose from multiple options.
+3. **Do** use a single checkbox to capture acknowledgement or consent (for example, “I have read and understood the terms and conditions”).
+4. **Do** use a checkbox to confirm an action has been completed (for example, in a checklist).
 
 ### Don't
 
-1. **Don't** use negative labels.
-2. **Don't** use as part of a dark pattern.
-3. **Don't** use when a single response is required.
+![Checkbox dont](docs/forms/checkbox/dont.png)
 
-## Additional developer details
+1. **Don't** rely on placeholder text or tooltips as a substitute for a label.
+2. **Don't** use negative labels.
+3. **Don't** use as part of a dark pattern.
+4. **Don't** use a checkbox when the user must choose one option from a set (for example, Yes/No). Use radios instead.
+
+## Developer reference
 
 **We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
 
@@ -122,13 +149,9 @@ On click, the checkbox is filled with a 'tick' to indicate a state of confirmati
 | `ariaDescribedBy` | HTML ID for the corresponding element that describes the checkboxes, if not provided it will use the hint field where appropriate | `string`        | `null`                                      | No       |
 | `inline`          | If true, displays the checkboxes inline rather than stacked                                                                       | `boolean`       | `false`                                     | No       |
 
-## Research on this component
-
-This is based on best practice.
-
 ## Related
 
-Where a definitive positive or negative response is required from the user then maybe the [radio button component](./?path=/docs/components-forms-radio-guide--docs) would be more suitable.
+- [Radio](./?path=/docs/components-forms-radio-guide--docs)
 
 <Markdown>
   {Feedback}

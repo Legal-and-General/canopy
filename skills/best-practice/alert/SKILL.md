@@ -63,11 +63,9 @@ For `generic` and `info` statuses, you can provide a custom icon via the `icon` 
 
 | Input | Type | Default | Description |
 |-------|------|---------|-------------|
-| `status` | `'generic' \| 'info' \| 'success' \| 'warning' \| 'error'` | `'generic'` | Applies colour treatment and ARIA role. |
-| `statusTheme` | `'neutral' \| 'bold'` | `'neutral'` | The theme variant applied alongside the status. |
-| `showIcon` | `boolean` | `true` | Whether to show the status icon. Applies to all statuses. |
-| `icon` | `IconName \| null` | `null` | Custom icon for `generic` or `info` statuses. Ignored for other statuses. |
-| `role` | `string` | auto | Override the ARIA role, or pass `'none'` to suppress it. |
+| `status` | `'generic' \| 'info' \| 'success' \| 'warning' \| 'error'` | `'generic'` | Applies status treatment and ARIA role if applicable. |
+| `showIcon` | `boolean` | `true` | Whether the icon should display. |
+| `icon` | `IconName` | `undefined` | Custom icon to display for generic or info statuses. Other statuses use fixed icons. |
 
 ---
 

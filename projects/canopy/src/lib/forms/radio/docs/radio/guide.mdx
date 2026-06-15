@@ -6,15 +6,13 @@ import * as RadioStories from './radio.stories';
 
 # Radio
 
-<p class="standfirst">Selection control for choosing from a predefined set of options.</p>
+<p class="standfirst">A radio button lets a user choose one option from a set of mutually exclusive choices.</p>
+
+![Radio hero](docs/forms/radio/hero-radio.png)
 
 ## Usage
 
-Use a radio group when you want the user to make a single selection from 2 or more options.
-
-* For a question and answer journey, for instance in an application form, consider using a segment instead.
-* If you want to allow the user to select multiple options, use a checkbox instead.
-* Use a select as a last resort if a radio group is unsuitable.
+Use a radio group when you want the user to make a single selection from **2 or more** options.
 
 Import the radio components into your application:
 
@@ -26,40 +24,59 @@ and in your HTML:
 
 <Source of={RadioStories.Radio} />
 
-### Optional fields
-
-For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
-
-```html
-<lg-radio-group formControlName="colour">
-  Favourite colour
-  <span class="lg-label--optional">(optional)</span>
-  <lg-radio-button value="red">Red</lg-radio-button>
-  <lg-radio-button value="blue">Blue</lg-radio-button>
-</lg-radio-group>
-```
-
 ## How it works
 
-A radio button contains a circular toggle and a label, and will always appear in a radio group with a minimum of 2 buttons.
+Radio groups must have a label. The label must describe the question the user is answering. Like other inputs, they can also include hint text when users need extra context to choose confidently.
 
-* When one radio button is selected, all other buttons in the group will be deselected.
-* Only one radio button can be selected at any one time.
-* Try to limit radio buttons to a maximum of 5 in a group.
+Each radio button contains a toggle control and a label, and must always appear in a radio group with a minimum of 2 buttons. Radio button labels can also include optional hint text.
+
+- Selecting one radio button deselects all other buttons in the group.
+- Only one option can be selected at a time.
+- **Keep the list short** – radio groups should usually have **2 – 5** options. Avoid more than **7** unless you have strong evidence it’s the best pattern.
+- **If you go beyond 7** – only do it when research shows users benefit from scanning all options at once, and when switching to another control would add more cognitive or interaction cost.
+
+## Variants
+
+#### Stacked
+
+![Radio stacked](docs/forms/radio/variant-stacked.png)
+
+Use stacked radio buttons by default. They are easier to scan, work better with long labels, and reduce awkward wrapping.
+
+#### Inline
+
+![Radio inline](docs/forms/radio/variant-inline.png)
+
+Use inline radio buttons sparingly, only when space is lacking and all labels are short and closely related. **Inline groups must have a maximum of 3 options.** If the layout wraps onto multiple lines or spacing becomes uneven, switch to stacked.
+
+#### Size
+
+![Radio size](docs/forms/radio/variant-size.png)
+
+- **Default** – Use in the majority of cases.
+- **Small** – Use only in very dense layouts where space is limited.
 
 ## Dos and Don'ts
 
 ### Do
 
-1. **Do** use when only one item can be selected from a list.
-2. **Do** lay out the options vertically, with one choice per line.
+![Radio do](docs/forms/radio/do.png)
+
+1. **Do** use radio buttons when the user must choose exactly one option from a set.
+2. **Do** use stacked radio buttons by default. They are easier to scan, work better with long labels, and reduce awkward wrapping.
+3. **Do** keep radio groups to 2 – 5 options where possible. Avoid more than 7 unless you have strong evidence it’s the best pattern.
+4. **Do** write clear, descriptive labels. Use hint text when users need extra context to choose confidently.
+5. **Do** use inline radio buttons sparingly when space is lacking – and only for up to 3 short, closely related options.
 
 ### Don't
 
-1. **Don't** use when multiple items from a list can be selected, instead use checkboxes.
-2. **Don't** use radio buttons when the preset options is a long list (more than 5) and space is limited, use the select component instead.
+![Radio dont](docs/forms/radio/dont.png)
 
-## Additional developer details
+1. **Don’t** use radio buttons when the user can select multiple options – use Checkbox instead.
+2. **Don’t** use negative, misleading, or ambiguous labels.
+3. **Don’t** use inline radio buttons for more than 3 options, or when labels wrap onto multiple lines – switch to stacked.
+
+## Developer reference
 
 ### LgRadioGroupComponent inputs
 
@@ -88,22 +105,6 @@ A radio button contains a circular toggle and a label, and will always appear in
 | Name   | Description                             | Type                  | Default | Required |
 |--------|-----------------------------------------|-----------------------|---------|----------|
 | `blur` | Event emitted on blur of a radio button | `EventEmitter<Event>` | n/a     | No       |
-
-***
-
-## Research on this component
-
-This component is based on best practice and reference from the following articles:
-
-* UX Planet: <a href="https://uxplanet.org/radio-buttons-ux-design-588e5c0a50dc" target="_blank">Radio Buttons UX Design</a>
-* Nielsen Norman Group: <a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/" target="_blank">Checkboxes vs. Radio Buttons</a>
-
-## Related
-
-* [Checkbox](./?path=/docs/components-forms-checkbox-guide--docs)
-* [Segment](./?path=/docs/components-forms-segment-guide--docs)
-* [Select](./?path=/docs/components-forms-select-guide--docs)
-* [Switch](./?path=/docs/components-forms-switch-guide--docs)
 
 <Markdown>
   {Feedback}
