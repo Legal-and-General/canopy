@@ -35,7 +35,7 @@ export class LgSelectDirective {
   @Input() block = false;
 
   @Input()
-  @HostBinding('name')
+  @HostBinding('attr.name')
   name = `lg-select-${this.uniqueId}`;
 
   @Input()
