@@ -8,7 +8,6 @@ import { LgCardContentComponent } from '../../card-content/card-content.componen
 import { IconName } from '../../../icon';
 import { LgCardHeroImageComponent } from '../../card-hero-img/card-hero-img.component';
 import { LgOrientationDirective, OrientationResponsive } from '../../../orientation';
-import { LgShadowDirective } from '../../../shadow';
 import {
   LgGridColDirective,
   LgGridContainerDirective,
@@ -18,7 +17,6 @@ import { LgSeparatorComponent } from '../../../separator';
 
 const promotionsGeneralCardTemplate = `
 <lg-card
-  lgShadow [hasHoverState]="true"
   lgMarginBottom="6"
   [lgPadding]="hasIcon ? 'lg' : 'none'"
   variant="promotion"
@@ -47,7 +45,6 @@ const promotionsGeneralCardTemplate = `
     LgCardHeroImageComponent,
     LgOrientationDirective,
     LgPaddingDirective,
-    LgShadowDirective,
     LgCardComponent,
   ],
 })
