@@ -137,8 +137,6 @@ export default {
     '../projects/canopy/src/lib/spacing/row-gap/docs/row-gap.stories.ts',
     '../projects/canopy/src/lib/sr-alert-message/docs/guide.mdx',
     '../projects/canopy/src/lib/sr-alert-message/docs/sr-alert-message.stories.ts',
-    '../projects/canopy/src/lib/shadow/docs/guide.mdx',
-    '../projects/canopy/src/lib/shadow/docs/shadow.stories.ts',
     '../projects/canopy/src/lib/show-at/docs/guide.mdx',
     '../projects/canopy/src/lib/show-at/docs/show-at.stories.ts',
     '../projects/canopy/src/lib/skeleton/docs/guide.mdx',

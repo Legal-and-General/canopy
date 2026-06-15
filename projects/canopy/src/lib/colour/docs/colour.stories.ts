@@ -5,7 +5,6 @@ import type { Colour, ColourTheme } from '../colour.interface';
 import { LgColourDirective } from '..';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
 import { LgButtonComponent } from '../../button';
-import { LgShadowDirective } from '../../shadow';
 import { LgMarginDirective, LgPaddingDirective } from '../../spacing';
 
 const colours = [ 'blue', 'green', 'red', 'yellow' ];
@@ -15,7 +14,6 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
   selector: 'lg-colour-story',
   template: `
     <lg-card
-      lgShadow
       [lgColour]="colour"
       [lgColourTheme]="theme"
       lgPaddingLeft="6"
@@ -48,7 +46,6 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
     LgCardContentComponent,
     LgColourDirective,
     LgButtonComponent,
-    LgShadowDirective,
     LgMarginDirective,
     LgPaddingDirective,
   ],

@@ -6,14 +6,12 @@ import {
   LgCardContentComponent,
   LgCardHeroImageComponent,
 } from '../../card';
-import { LgShadowDirective } from '../../shadow';
 import { LgMarginDirective, LgPaddingDirective } from '../../spacing';
 
 const responsiveCategory = 'Responsive';
 
 const template = `
 <lg-card
-  lgShadow
   [lgOrientation]="orientation">
   <lg-card-hero-img
     [cover]="true"
@@ -25,8 +23,7 @@ const template = `
     <a href="#">{{ linkText }}</a>
   </lg-card-content>
 </lg-card>
-<lg-card
-  lgShadow>
+<lg-card>
   <lg-card-hero-img
     [cover]="true"
     src="promo-card/general-promotion1.jpg">
@@ -46,7 +43,6 @@ export default {
       imports: [
         LgCardComponent,
         LgCardHeroImageComponent,
-        LgShadowDirective,
         LgOrientationDirective,
         LgCardContentComponent,
         LgMarginDirective,

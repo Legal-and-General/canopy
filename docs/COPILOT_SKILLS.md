@@ -148,7 +148,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-flag-icon` | `LgFlagIconComponent`, country flags, usage with country names | — |
 | `canopy-icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
 | `canopy-focus` | `LgFocusDirective`, programmatic focus | — |
-| `canopy-shadow` | `LgShadowDirective`, hover state | — |
+| `canopy-shadow` | `LgShadowDirective` deprecation/removal migration guidance | Deprecated/Removed |
 | `canopy-show-at` | `LgShowAtDirective`, breakpoint-based visibility | — |
 | `canopy-hide-at` | `LgHideAtDirective`, breakpoint-based hiding | — |
 | `canopy-orientation` | `LgOrientationDirective`, responsive vertical/horizontal layout | — |
