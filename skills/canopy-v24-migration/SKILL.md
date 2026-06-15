@@ -43,6 +43,7 @@ The following icons have been remapped. Apply each rename in your templates and 
 | `at` | `email` |
 | `chart-donut` | `chart-pie` |
 | `checkbox-mark` | `checkmark-heavy` |
+| `checkmark-spot` | `checkmark-spot-outline` |
 | `chevron-down-filled` | `chevron-down` |
 | `chevron-down-slim` | `chevron-down` |
 | `chevron-left-slim` | `chevron-left` |
@@ -60,11 +61,13 @@ The following icons have been remapped. Apply each rename in your templates and 
 | `group` | `family` |
 | `hedging` | `funds` |
 | `hedging-currency` | `funds` |
+| `home` | `home-outline` |
 | `home-fill` | `home-outline` |
 | `idea` | `light-bulb` |
 | `list` | `list-bullet` |
 | `list-checked` | `list-bullet` |
 | `locked-fill` | `locked-outline` |
+| `misuse` | `prohibited` |
 | `need-help` | `help` |
 | `new-tab` | `open-in-new-window` |
 | `phone-on` | `call` |
