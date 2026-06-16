@@ -84,7 +84,8 @@
     margin-right: var(--link-gap);
   }
 
-  .lg-icon[name='link-external'] {
+  .lg-icon[name='link-external'],
+  .lg-icon[name='open-in-new-window'] {
     margin-right: 0;
     margin-left: var(--link-gap);
   }
