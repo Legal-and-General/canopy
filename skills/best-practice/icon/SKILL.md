@@ -52,11 +52,11 @@ By default, icons use `currentColor` for their `fill`, so they inherit the text 
 
 ```html
 <span style="color: var(--colour-green-700)">
-  <lg-icon name="check"></lg-icon>
+  <lg-icon name="email"></lg-icon>
 </span>
 ```
 
-**Note:** The `need-help` and `question-mark` icons cannot change colour.
+**Note:** The `help` and `query-outline` icons cannot change colour.
 
 ---
 
