@@ -60,14 +60,10 @@ Use two `lg-header-logo` components side by side for a co-branded header:
 </header>
 ```
 
-Override logo widths via CSS custom properties:
+Legacy `--header-*` logo width variables are no longer used by the header/logo styles.
 
-```css
---header-logo-width: 120px;
---header-logo-width-lg: 160px;
---header-second-logo-width: 80px;
---header-second-logo-width-lg: 100px;
-```
+Use the default Canopy header/logo sizing behaviour and provide appropriately sized
+logo assets for your brand.
 
 ---
 
@@ -204,7 +200,7 @@ Combine two `lg-header-logo` elements with the full navigation structure:
 
 | Input | Type | Default | Required | Description |
 |-------|------|---------|----------|-------------|
-| `showResponsiveMenu` | `boolean` | — | Yes | Shows or hides the responsive mobile menu. |
+| `showResponsiveMenu` | `boolean` | `false` | No | Shows or hides the responsive mobile menu. |
 
 ### `LgPrimaryNavListItemComponent`
 
@@ -239,9 +235,9 @@ Combine two `lg-header-logo` elements with the full navigation structure:
 
 | Input | Type | Default | Required | Description |
 |-------|------|---------|----------|-------------|
-| `count` | `string` | — | Yes (number badge) | The value to display in the badge. |
+| `count` | `number` | — | Yes (count) | The value to display in the badge when `variant` is `'count'`. |
 | `accessText` | `string` | — | Yes | Accessible text for assistive technologies. |
-| `variant` | `'dot'` | — | No | Use `'dot'` for an indeterminate dot indicator instead of a count. |
+ | `variant` | `'count' \| 'dot'` | `'count'` | No | Badge variant. Use `'dot'` for an indeterminate indicator instead of a count. |
 
 Apply `lgMenuBadge` to the `lg-notification-badge` element to display it on the mobile menu toggle button.
 

@@ -59,11 +59,6 @@ button.lg-account-menu-item {
     background: var(--nav-button-active-background-colour);
     color: var(--nav-button-active-colour);
 
-    &--active:focus-visible,
-    &--active:hover:focus-visible {
-      color: var(--primary-nav-item-color-active-lg);
-    }
-
     &:focus-visible,
     &:hover:focus-visible {
       color: var(--nav-button-active-colour);

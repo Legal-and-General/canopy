@@ -335,14 +335,6 @@ export const CoBrandedHeader = {
   render: (args: LgHeaderComponent) => ({
     props: args,
     template: coBrandedTemplate,
-    styles: [
-      `
-        :host {
-          --header-second-logo-width: 100px;
-          --header-second-logo-width-lg: 300px;
-        }
-      `,
-    ],
   }),
   args: {
     logo: 'legal-and-general-logo.svg',
@@ -405,14 +397,6 @@ export const CoBrandedNavHeader = {
     props: args,
     template:
       '<lg-co-branded-navigation [logo]="logo" [logoAlt]="logoAlt" [logoHref]="logoHref" [secondaryLogo]="secondaryLogo" [secondaryLogoAlt]="secondaryLogoAlt" [secondaryLogoHref]="secondaryLogoHref"></lg-co-branded-navigation>',
-    styles: [
-      `
-        :host {
-          --header-second-logo-width: 100px;
-          --header-second-logo-width-lg: 300px;
-        }
-      `,
-    ],
   }),
   args: {
     logo: 'legal-and-general-logo.svg',

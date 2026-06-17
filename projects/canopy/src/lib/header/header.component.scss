@@ -21,11 +21,9 @@
   justify-content: flex-end;
   height: 4rem;
   max-height: var(--nav-container-max-height);
-  // padding: var(--nav-container-padding-y) var(--nav-container-padding-x) 0;
 
   @include mixins.lg-breakpoint(lg) {
     height: var(--nav-container-max-height);
-    // padding: var(--nav-container-padding-y) var(--nav-container-padding-x);
   }
 }
 
