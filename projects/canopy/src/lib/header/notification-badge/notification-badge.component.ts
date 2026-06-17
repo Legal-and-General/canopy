@@ -13,7 +13,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'lg-notification-badge',
+    class: 'lg-notification-badge lg-mode-red lg-theme-neutral',
   },
   standalone: true,
 })

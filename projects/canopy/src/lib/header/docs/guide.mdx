@@ -28,7 +28,13 @@ Import the header components in your application:
 
 and in your HTML:
 
-<Source of={HeaderStories.StandardHeader} />
+```html
+<header lg-header>
+  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
+
+    <!--  Additional code can be inserted here  -->
+</header>
+```
 
 ## Additional development details
 

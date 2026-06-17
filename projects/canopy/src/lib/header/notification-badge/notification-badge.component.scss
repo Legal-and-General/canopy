@@ -4,12 +4,13 @@
   @include mixins.lg-font-size('0-8', '700');
 
   height: var(--notification-badge-height);
-  width: var(--notification-badge-min-width);
+  min-width: var(--notification-badge-min-width);
   padding: 0 var(--notification-badge-padding);
   border-radius: var(--notification-badge-border-radius);
-  background: var(--notification-badge-background-colour);
-  color: var(--notification-badge-colour);
+  background: var(--notification-badge-background-colour) !important;
+  color: var(--notification-badge-colour) !important;
   text-align: center;
+  align-items: center;
   display: inline-flex;
 
   &--dot {
@@ -20,6 +21,7 @@
     border-radius: 50%;
     align-items: center;
     justify-content: center;
+    background: var(--notification-badge-colour);
   }
 }
 

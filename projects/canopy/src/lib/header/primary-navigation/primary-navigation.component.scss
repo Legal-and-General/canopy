@@ -10,8 +10,9 @@ $primary-nav-border-bottom-height: 0.125rem;
   overflow: visible;
   position: fixed;
   right: 0;
-  top: var(--header-height);
-  padding: 0 var(--nav-container-padding-x) var(--nav-container-padding-y);
+  top: 4rem;
+  padding: var(--nav-container-gap) var(--nav-container-padding-x)
+    var(--nav-container-padding-y);
 
   &--active {
     display: block;
@@ -30,7 +31,7 @@ $primary-nav-border-bottom-height: 0.125rem;
   display: flex;
   flex-direction: column;
   gap: var(--nav-container-gap);
-  padding: 0 var(--nav-container-padding-x) var(--nav-container-padding-y);
+  // padding: 0 var(--nav-container-padding-x) var(--nav-container-padding-y);
   position: relative;
   width: 100%;
   height: 100%;
@@ -92,18 +93,24 @@ button.lg-primary-nav-item {
     margin-bottom: 0;
   }
 
+  &::after {
+    content: '';
+    position: absolute;
+    left: var(--nav-button-padding-default-x);
+    right: auto;
+    bottom: 0;
+    height: $primary-nav-border-bottom-height;
+    width: 0;
+    background: var(--nav-button-hover-hover-indicator);
+    border-radius: var(--border-radius-1-lg);
+    transition: width var(--animation-duration) var(--animation-fn);
+  }
+
   &:hover {
     color: var(--nav-button-hover-colour);
 
     &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: $primary-nav-border-bottom-height;
-      background: var(--nav-button-hover-hover-indicator);
-      border-radius: var(--border-radius-1-lg);
+      width: calc(100% - (var(--nav-button-padding-default-x) * 2));
     }
   }
 

@@ -321,51 +321,6 @@ export default {
   },
 } as Meta;
 
-const template = `
-<header lg-header>
-  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
-
-  <!--  Additional code can be inserted here  -->
-</header>
-`;
-
-export const StandardHeader = {
-  name: 'Standard',
-  render: (args: LgHeaderComponent) => ({
-    props: args,
-    template,
-  }),
-  args: {
-    logo: 'legal-and-general-logo.svg',
-    logoAlt: 'Company name',
-    logoHref: 'https://storybook.js.org',
-  },
-  argTypes: {
-    secondaryLogo: {
-      table: {
-        disable: true,
-      },
-    },
-    secondaryLogoAlt: {
-      table: {
-        disable: true,
-      },
-    },
-    secondaryLogoHref: {
-      table: {
-        disable: true,
-      },
-    },
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: template,
-      },
-    },
-  },
-};
-
 const coBrandedTemplate = `
 <header lg-header>
   <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
@@ -407,7 +362,7 @@ export const CoBrandedHeader = {
 };
 
 export const NavHeader = {
-  name: 'Navigation',
+  name: 'Standard with navigation',
   render: (args: LgHeaderComponent) => ({
     props: args,
     template:
