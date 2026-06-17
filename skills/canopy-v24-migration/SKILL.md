@@ -50,10 +50,13 @@ The following icons have been remapped. Apply each rename in your templates and 
 | `chevron-right-slim` | `chevron-right` |
 | `chevron-up-filled` | `chevron-up` |
 | `chevron-up-slim` | `chevron-up` |
+| `close-spot` | `close-spot-outline` |
 | `couple` | `collaborate` |
 | `delete` | `crossmark-spot-filled` |
 | `doc` | `docx` |
 | `edit-note` | `edit` |
+| `error` | `error-outline` |
+| `error-fill` | `error-filled` |
 | `event` | `calendar` |
 | `exit` | `sign-out` |
 | `exit-fill` | `sign-out` |
@@ -61,20 +64,23 @@ The following icons have been remapped. Apply each rename in your templates and 
 | `group` | `family` |
 | `hedging` | `funds` |
 | `hedging-currency` | `funds` |
-| `home` | `home-outline` |
 | `home-fill` | `home-outline` |
 | `idea` | `light-bulb` |
-| `list` | `list-bullet` |
+| `information` | `information-outline` |
 | `list-checked` | `list-bullet` |
 | `locked-fill` | `locked-outline` |
-| `misuse` | `prohibited` |
 | `need-help` | `help` |
 | `new-tab` | `open-in-new-window` |
+| `notification-on` | `notification` |
 | `phone-on` | `call` |
 | `png` | `image` |
+| `query` | `query-outline` |
+| `query-fill` | `query-filled` |
 | `question-mark` | `query-outline` |
 | `radio-button-selected` | `checkmark-spot-filled` |
 | `radio-button-unselected` | `progress-to-do` |
+| `security` | `protection` |
+| `star-fill` | `star-filled` |
 | `svg` | `image` |
 | `subtract` | `minus` |
 | `twitter-x` | `x` |
@@ -82,6 +88,7 @@ The following icons have been remapped. Apply each rename in your templates and 
 | `users` | `family` |
 | `view-mode-off` | `view-off` |
 | `view-mode-on` | `view-on` |
+| `warning` | `warning-outline` |
 | `zoom-in-fill` | `zoom-in` |
 | `zoom-out-fill` | `zoom-out` |
 
@@ -89,7 +96,13 @@ The following icons have been remapped. Apply each rename in your templates and 
 
 The following icon names have been removed entirely. Review the [icon catalogue](https://legal-and-general.github.io/canopy/?path=/story/foundations-ui-icon-catalog--standard-icons) and choose the closest alternative for each:
 
-> `align-centre`, `align-left`, `align-right`, `business`, `camera`, `checkbox-checked`, `checkbox-empty`, `checkbox-indeterminate`, `cloud`, `code`, `connect`, `count`, `csv`, `data`, `database`, `diagram`, `digg`, `document-subtract`, `document-tasks`, `drag-handle`, `drilldown`, `face-dissatisfied`, `face-dissatisfied-fill`, `face-happy`, `face-happy-fill`, `face-neutral`, `face-neutral-fill`, `face-satisfied`, `face-satisfied-fill`, `face-unhappy`, `face-unhappy-fill`, `folder-add`, `forum`, `gender-female`, `gender-male`, `github`, `google`, `hd`, `hdr`, `highlight`, `insert`, `landlord`, `like-fill`, `location-arrow`, `ma-lgi`, `map`, `microphone-off`, `minimise`, `misuse-fill`, `module`, `move`, `notification-off`, `overlay`, `partnership`, `password`, `pet`, `phone-off`, `pop-up`, `reward`, `rss`, `scan`, `share`, `skip-back`, `skip-forward`, `slack`, `star-half-fill`, `stop`, `tag`, `time-delay`, `twitter`, `unhappy`, `user-online`, `volume-down`, `volume-mute`, `volume-up`
+> `align-centre`, `align-left`, `align-right`, `business`, `camera`, `checkbox-checked`, `checkbox-empty`, `checkbox-indeterminate`, `cloud`, `code`, `connect`, `count`, `csv`, `data`, `database`, `diagram`, `digg`, `document-subtract`, `document-tasks`, `drag-handle`, `drilldown`, `face-dissatisfied`, `face-dissatisfied-fill`, `face-happy`, `face-happy-fill`, `face-neutral`, `face-neutral-fill`, `face-satisfied`, `face-satisfied-fill`, `face-unhappy`, `face-unhappy-fill`, `folder-add`, `forum`, `gender-female`, `gender-male`, `github`, `hd`, `hdr`, `highlight`, `insert`, `landlord`, `like-fill`, `map`, `microphone-off`, `minimise`, `misuse`, `misuse-fill`, `module`, `move`, `notification-off`, `overlay`, `partnership`, `password`, `pet`, `phone-off`, `pop-up`, `reward`, `rss`, `scan`, `share`, `skip-back`, `skip-forward`, `slack`, `star-half-fill`, `stop`, `tag`, `time-delay`, `twitter`, `unhappy`, `user-online`, `volume-down`, `volume-mute`, `volume-up`
+
+### Newly added icons
+
+The following icons are new in this release and are available for use immediately:
+
+> `accidental-damage`, `balance`, `bookmark-filled`, `bullet-circle`, `bullet-feature`, `bullet-square`, `care`, `checkmark-heavy`, `coffee`, `crossmark-spot-outline`, `docx`, `droplets`, `focus`, `furniture`, `heart-filled`, `heart-outline`, `offer`, `pagination-on`, `presentation`, `progress-doing`, `progress-to-do`, `protection`, `quotes-closed`, `quotes-open`, `request`, `spinner`, `step-1`, `step-2`, `step-3`, `switched-funds`, `unlocked-outline`, `withdrawal`, `xls`
 
 **Before:**
 ```html
