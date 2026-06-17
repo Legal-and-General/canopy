@@ -4,6 +4,7 @@ import {
   HostBinding,
   Input,
   ViewEncapsulation,
+  numberAttribute,
 } from '@angular/core';
 
 @Component({
@@ -18,7 +19,7 @@ import {
   standalone: true,
 })
 export class LgNotificationBadgeComponent {
-  @Input() count: number;
+  @Input({ transform: numberAttribute }) count: number;
   @Input() accessText: string;
   @Input() variant: 'count' | 'dot' = 'count';
 

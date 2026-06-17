@@ -69,7 +69,6 @@ $primary-nav-border-bottom-height: 0.125rem;
   }
 
   @include mixins.lg-breakpoint(lg) {
-    align-items: center;
     flex-direction: row;
     margin-left: var(--nav-container-gap);
     padding: 0;
@@ -121,11 +120,6 @@ button.lg-primary-nav-item {
     border-radius: var(--nav-button-border-radius);
     background: var(--nav-button-active-background-colour);
     color: var(--nav-button-active-colour);
-
-    &--active:focus-visible,
-    &--active:hover:focus-visible {
-      color: var(--primary-nav-item-color-active-lg);
-    }
 
     &:focus-visible,
     &:hover:focus-visible {

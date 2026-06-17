@@ -15,6 +15,7 @@ a.lg-account-menu-item,
 button.lg-account-menu-item {
   @include mixins.lg-font-size('0-6', '500');
 
+  color: var(--nav-button-rest-colour);
   text-decoration: none;
   align-items: center;
   border: 0;
@@ -105,8 +106,6 @@ button.lg-account-menu-item {
     height: 1rem;
     margin-left: 0;
     position: absolute;
-    right: 0;
-    top: 0;
     width: 1rem;
 
     @include mixins.lg-breakpoint(lg) {
