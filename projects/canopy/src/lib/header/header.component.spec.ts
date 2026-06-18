@@ -69,6 +69,46 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should render a skip link as the first child', () => {
+    const skipLink = fixture.debugElement.query(By.css('.lg-page__skip-link'));
+    const headerEl = fixture.debugElement.query(By.css('header.lg-header'))
+      .nativeElement as HTMLElement;
+
+    expect(skipLink).toBeTruthy();
+    expect(skipLink.nativeElement.getAttribute('href')).toBe('#main');
+    expect(headerEl.firstElementChild).toBe(skipLink.nativeElement);
+  });
+
+  it('should focus the main element and prevent default when the skip link is clicked', () => {
+    const mainEl = document.createElement('main');
+
+    mainEl.id = 'main';
+    document.body.appendChild(mainEl);
+
+    const focusSpy = jest.spyOn(mainEl, 'focus');
+    const event = new MouseEvent('click');
+    const preventDefaultSpy = jest.spyOn(event, 'preventDefault');
+
+    fixture.debugElement
+      .query(By.css('.lg-page__skip-link'))
+      .triggerEventHandler('click', event);
+
+    expect(preventDefaultSpy).toHaveBeenCalled();
+    expect(focusSpy).toHaveBeenCalled();
+
+    document.body.removeChild(mainEl);
+  });
+
+  it('should not throw when the main element is absent from the DOM', () => {
+    const event = new MouseEvent('click');
+
+    expect(() => {
+      fixture.debugElement
+        .query(By.css('.lg-page__skip-link'))
+        .triggerEventHandler('click', event);
+    }).not.toThrow();
+  });
+
   it('adds a class to the logo', () => {
     expect(logoDebugElements[0].nativeElement.getAttribute('class')).toContain(
       'lg-header-logo__img',
