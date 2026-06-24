@@ -76,7 +76,7 @@ The target can be any of the following:
 - **feedback**: `alert`, `banner`, `spinner`, `skeleton`, `progress-indicator`, `sr-alert-message`, `primary-message`
 - **data-display**: `data-point`, `table`, `list`, `accordion`, `details`, `card`, `promo-card`
 - **actions**: `button`, `quick-action`, `filter-container`
-- **utilities**: `brand-icon`, `icon`, `focus`, `shadow`, `show-at`, `hide-at`, `orientation`, `feature-toggle`, `pipes/camel-case`, `pipes/kebab-case`
+- **utilities**: `pictogram`, `icon`, `focus`, `shadow`, `show-at`, `hide-at`, `orientation`, `feature-toggle`, `pipes/camel-case`, `pipes/kebab-case`
 
 If no target is provided, ask the user to specify one before proceeding.
 

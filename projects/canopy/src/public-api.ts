@@ -31,7 +31,7 @@ export * from './lib/flag-icon/index';
 export * from './lib/link-menu/index';
 export * from './lib/list/index';
 export * from './lib/page/index';
-export * from './lib/brand-icon/index';
+export * from './lib/pictogram/index';
 export * from './lib/pagination/index';
 export * from './lib/pipes/index';
 export * from './lib/prefix/index';

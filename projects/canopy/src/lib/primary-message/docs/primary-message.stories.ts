@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
-import { LgBrandIconComponent } from '../../brand-icon';
+import { LgPictogramComponent } from '../../pictogram';
 import { LgPrimaryMessageComponent } from '../primary-message.component';
 import { LgPrimaryMessageTitleComponent } from '../primary-message-title/primary-message-title.component';
 import { LgPrimaryMessageDescriptionComponent } from '../primary-message-description/primary-message-description.component';
@@ -12,9 +12,9 @@ import { LgMarginDirective } from '../../spacing';
   selector: 'lg-primary-message-story',
   template: `
     <lg-primary-message [hasRole]="hasRole">
-      <lg-brand-icon name="calendar" />
+      <lg-pictogram name="calendar" />
       <lg-primary-message-title
-        >This is a message with brand icon
+        >This is a message with pictogram
       </lg-primary-message-title>
       <lg-primary-message-description>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -29,7 +29,7 @@ import { LgMarginDirective } from '../../spacing';
   `,
   imports: [
     LgPrimaryMessageComponent,
-    LgBrandIconComponent,
+    LgPictogramComponent,
     LgPrimaryMessageTitleComponent,
     LgPrimaryMessageDescriptionComponent,
     LgButtonComponent,
@@ -75,9 +75,9 @@ const template = `
 
 const exampleTemplate = `
 <lg-primary-message [hasRole]="hasRole">
-  <lg-brand-icon name="calendar"></lg-brand-icon>
+  <lg-pictogram name="calendar"></lg-pictogram>
   <lg-primary-message-title
-    >This is a message with brand icon
+    >This is a message with pictogram
   </lg-primary-message-title>
   <lg-primary-message-description>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

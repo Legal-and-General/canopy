@@ -1,0 +1,83 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+
+<Meta title="Foundations/Pictogram/Guide"/>
+
+# Pictogram
+
+<p class="standfirst">A pictogram allows you to add supporting illustration to messages or journeys.</p>
+
+Adding a pictogram can provide extra affordance and help users in making decisions or understanding the outcome of a journey.
+
+More illustrative and colourful than UI icons, pictograms draw attention, create narratives and help to visualise data.
+
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
+## Usage
+
+Consider using the message with illustration pattern for the end of journeys and for empty states.
+
+Import the pictogram component in your application:
+
+```js
+import { LgPictogramComponent } from '@legal-and-general/canopy';
+```
+
+In your HTML:
+
+```html
+<!-- with default size and no fill -->
+<lg-pictogram name="sun"></lg-pictogram>
+
+<!-- with blue fill enabled -->
+<lg-pictogram name="sun" [hasFill]="true"></lg-pictogram>
+
+<!-- with a size set -->
+<lg-pictogram name="sun" size="sm"></lg-pictogram>
+```
+
+### Sizes
+
+Pictograms should be scaled according to the following sizes to ensure outlines look clean and crisp.
+
+|                    | **rem** | **px** |
+|--------------------|---------|--------|
+| `--lg-pictogram-sm`  | 10      | 160    |
+| `--lg-pictogram-md`  | 12.5    | 200    |
+| `--lg-pictogram-lg`  | 15      | 240    |
+| `--lg-pictogram-xl`  | 17.5    | 280    |
+| `--lg-pictogram-xxl` | 20      | 320    |
+
+## Dos and Don'ts
+
+### Do
+
+
+* **Do** scale pictograms according to the sizing chart above.
+* **Do** enable `hasFill` when you need the default blue highlight in the artwork.
+
+### Don't
+
+
+* **Don't** use a pictogram in place of a UI icon, or at a size less than 160px.
+* **Don't** rely on fill being present by default; opt in explicitly when the artwork needs it.
+
+## Additional development details
+
+### Inputs
+
+| Name   | Description          | Type            | Default     | Required |
+|--------|----------------------|-----------------|-------------|----------|
+| `name` | The name of the icon | `string`          | `undefined` | yes      |
+| `size` | The size of the icon | `sm,md,lg,xl,xxl` | `sm`        | no       |
+| `hasFill` | Applies the default blue fill accents to supported pictograms | `boolean` | `false` | no |
+
+
+## Related
+
+* [UI icon](./?path=/docs/foundations-ui-icon-guide--docs)
+* [Flag icon](./?path=/docs/foundations-flag-icon-guide--docs)
+
+<Markdown>
+  {Feedback}
+</Markdown>

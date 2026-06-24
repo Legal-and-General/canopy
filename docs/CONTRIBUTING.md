@@ -153,7 +153,7 @@ The build is currently handled by [Github Actions](https://help.github.com/en/ac
 
 ## SVG Icons
 
-To add a new SVG icon to Canopy simply add the file to either the `icons` or `brand-icons` folder within `assets`.
+To add a new SVG icon to Canopy simply add the file to either the `icons` or `pictograms` folder within `assets`.
 
 ## Angular Material CDK
 

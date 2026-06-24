@@ -235,7 +235,7 @@ Once the build succeeds, compare the `dist/canopy` output against what was prese
 | `dist/canopy/canopy.css` / `dist/canopy/canopy-classes.css` | CSS custom properties or classes that no longer appear in the compiled output |
 | `dist/canopy/index.d.ts` | The root type declaration — removals indicate a broken public type export |
 | `dist/canopy/fesm2022/` | Compiled JS bundles — check if any previously exported symbols are absent |
-| `dist/canopy/brand-icons/` / `dist/canopy/icons/` | Removed SVG assets that consumers may reference by path |
+| `dist/canopy/pictogram/` / `dist/canopy/icons/` | Removed SVG assets that consumers may reference by path |
 | `dist/canopy/fonts/` | Removed font files |
 
 To list what files exist in the dist and compare against a known baseline (e.g. the latest published version on npm):

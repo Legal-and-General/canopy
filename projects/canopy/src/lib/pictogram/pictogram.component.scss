@@ -1,0 +1,43 @@
+.lg-pictogram {
+  height: auto;
+  --lg-pictogram-fill-colour: none;
+  --lg-pictogram-outline-colour: var(--content-pictogram-outline);
+
+  > svg {
+    width: inherit;
+    height: inherit;
+  }
+
+  [data-colour='content-pictogram-fill'] {
+    fill: var(--lg-pictogram-fill-colour);
+  }
+
+  [data-colour='content-pictogram-outline'] {
+    fill: var(--lg-pictogram-outline-colour);
+  }
+
+  &[data-has-fill='true'] {
+    --lg-pictogram-fill-colour: var(--content-pictogram-fill);
+  }
+
+  &[style*='--lg-pictogram-colour'] {
+    [data-colour='content-pictogram-fill'],
+    [data-colour='content-pictogram-outline'] {
+      fill: var(--lg-pictogram-colour);
+    }
+  }
+}
+
+$sizes: (
+  'sm': var(--content-pictogram-size-sm),
+  'md': var(--content-pictogram-size-md),
+  'lg': var(--content-pictogram-size-lg),
+  'xl': var(--content-pictogram-size-xl),
+  'xxl': var(--content-pictogram-size-xxl),
+);
+
+@each $size, $value in $sizes {
+  .lg-pictogram--#{$size} {
+    width: #{$value};
+  }
+}

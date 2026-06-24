@@ -30,7 +30,7 @@ import {
 
 ```html
 <lg-primary-message>
-  <lg-brand-icon name="calendar"></lg-brand-icon>
+  <lg-pictogram name="calendar"></lg-pictogram>
   <lg-primary-message-title>All done!</lg-primary-message-title>
   <lg-primary-message-description>
     Your application has been submitted successfully.
@@ -70,8 +70,8 @@ import {
 
 1. **Do** use when there is no other functionality or content on the page.
 2. **Do** use when space is not limited.
-3. **Do** choose an appropriate brand icon from the brand icon catalogue to reinforce the message.
-4. **Do** tint the brand icon to match the status — for example `--colour-green-400` for a success state.
+3. **Do** choose an appropriate pictogram from the pictogram catalogue to reinforce the message.
+4. **Do** tint the pictogram to match the status — for example `--colour-green-400` for a success state.
 5. **Do** add a button as a call to action at the end of a journey to guide users to the next step.
 
 ### Don't
