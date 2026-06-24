@@ -1,0 +1,29 @@
+{
+  "srcFiles": [
+    "./projects/canopy/src/assets/pictograms/**/*.svg"
+  ],
+  "outputDirectory": "./projects/canopy/src/lib/pictogram-files",
+  "iconsFolderName": "set",
+  "typeName": "PictogramName",
+  "prefix": "lgPictogram",
+  "optimizeForLazyLoading": true,
+  "modelFileName": "pictogram-files.interface",
+  "additionalModelOutputPath": "projects/canopy/src/lib/pictogram",
+  "interfaceName": "Pictogram",
+  "exportCompleteIconSet": true,
+  "completeIconSetName": "lgPictogramsArray",
+  "delimiter": "KEBAB",
+  "svgoConfig": {
+    "plugins": [
+      {
+        "name": "preset-default",
+        "params": {
+          "overrides": {
+            "cleanupIds": false
+          }
+        }
+      },
+      "removeDimensions"
+    ]
+  }
+}

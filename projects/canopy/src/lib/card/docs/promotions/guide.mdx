@@ -48,7 +48,7 @@ and in your HTML, for a general promotion card with icon:
   variant="promotion"
   [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
   <lg-card-hero-img>
-    <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
+    <lg-pictogram [name]="iconName" size="lg"></lg-pictogram>
   </lg-card-hero-img>
   <lg-card-content>
     <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
@@ -78,7 +78,7 @@ Canopy provides a number of patterns for a range of common scenarios, and we rec
 ## Promotions content and templates
 
 As the promotion card is just a container for content, you can add whatever content you like.
-In the examples bellow, we use the Canopy Grid System to get the desired layout, together with the Orientation directive, and the component `LgCardHeroImageComponent` uses an image but it can be used with either an Image or a Brand Icon.
+In the examples bellow, we use the Canopy Grid System to get the desired layout, together with the Orientation directive, and the component `LgCardHeroImageComponent` uses an image but it can be used with either an image or a pictogram.
 
 ### Stand-alone card layout
 
@@ -263,7 +263,7 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
         variant="promotion"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img>
-          <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
+          <lg-pictogram [name]="iconName" size="lg"></lg-pictogram>
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
@@ -278,7 +278,7 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
         variant="promotion"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img>
-          <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
+          <lg-pictogram [name]="iconName" size="lg"></lg-pictogram>
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>

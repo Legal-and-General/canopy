@@ -2,7 +2,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { Component, Input } from '@angular/core';
 
 import { LgCardComponent } from '../../card.component';
-import { LgBrandIconComponent } from '../../../brand-icon';
+import { LgPictogramComponent } from '../../../pictogram';
 import { LgMarginDirective, LgPaddingDirective } from '../../../spacing';
 import { LgCardContentComponent } from '../../card-content/card-content.component';
 import { IconName } from '../../../icon';
@@ -25,7 +25,7 @@ const promotionsGeneralCardTemplate = `
     [cover]="true"
     [src]="hasIcon ? '' : imgUrl">
     @if (hasIcon) {
-      <lg-brand-icon [name]="iconName" size="xs"></lg-brand-icon>
+      <lg-pictogram [name]="iconName" size="lg"></lg-pictogram>
     }
   </lg-card-hero-img>
   <lg-card-content>
@@ -41,7 +41,7 @@ const promotionsGeneralCardTemplate = `
   imports: [
     LgMarginDirective,
     LgCardContentComponent,
-    LgBrandIconComponent,
+    LgPictogramComponent,
     LgCardHeroImageComponent,
     LgOrientationDirective,
     LgPaddingDirective,
@@ -160,7 +160,7 @@ const promotionsGeneralCardThreeCardsTemplate = `
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion3.jpg"
       [hasIcon]="hasIcon"
-      iconName="calendar-appointment"
+      iconName="calendar-confirm"
       [orientation]="orientation">
     </lg-card-general-promotion>
   </div>
@@ -203,7 +203,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion3.jpg"
       [hasIcon]="false"
-      iconName="calendar-appointment"
+      iconName="calendar-confirm"
       [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
     </lg-card-general-promotion>
   </div>
@@ -268,7 +268,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion3.jpg"
       [hasIcon]="true"
-      iconName="calendar-appointment"
+      iconName="calendar-confirm"
       [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
     </lg-card-general-promotion>
   </div>

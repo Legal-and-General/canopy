@@ -113,3 +113,4 @@ Always use this variant when guiding users through a form. Includes an optional 
 2. **Don't** place Cards inside a content area.
 3. **Don't** use the default variant for form journeys — always use `variant="form-journey"`.
 4. **Don't** use fewer than 4 columns for a content area on MD layouts and above.
+

@@ -11,11 +11,11 @@ documentation.json
 /tmp
 /out-tsc
 /projects/canopy/src/lib/ui-icons-files
-/projects/canopy/src/lib/brand-icons-files
+/projects/canopy/src/lib/pictogram-files
 /projects/canopy/src/lib/icon/ui-icons-files.interface.ts
-/projects/canopy/src/lib/brand-icon/brand-icons-files.interface.ts
+/projects/canopy/src/lib/pictogram/pictogram-files.interface.ts
 /projects/canopy/src/lib/icon/icon-loader.ts
-/projects/canopy/src/lib/brand-icon/brand-icon-loader.ts
+/projects/canopy/src/lib/pictogram/pictogram-loader.ts
 /projects/canopy/src/lib/flag-icons-files
 /projects/canopy/src/lib/flag-icon/flag-icons-files.interface.ts
 /projects/canopy/src/lib/flag-icon/flag-icon-loader.ts
@@ -53,6 +53,7 @@ speed-measure-plugin.json
 /.sass-cache
 /connect.lock
 /coverage
+/storybook-start.log
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log

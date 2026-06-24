@@ -6,11 +6,11 @@
   align-items: center;
   text-align: center;
 
-  .lg-brand-icon {
-    width: var(--brand-icon-xxs);
+  .lg-pictogram {
+    width: var(--content-pictogram-size-md);
 
     @include mixins.lg-breakpoint(md) {
-      width: var(--brand-icon-xs);
+      width: var(--content-pictogram-size-lg);
     }
   }
 }

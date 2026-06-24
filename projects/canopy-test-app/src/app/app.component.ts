@@ -54,7 +54,6 @@ import {
   LgBreadcrumbItemComponent,
 } from '../../../canopy/src/lib/breadcrumb';
 import { LgIconComponent } from '../../../canopy/src/lib/icon';
-import { LgFlagIconComponent } from '../../../canopy/src/lib/flag-icon';
 import { LgMarginDirective, LgPaddingDirective } from '../../../canopy/src/lib/spacing';
 import {
   LgCardComponent,
@@ -133,7 +132,7 @@ import {
   LgPrimaryMessageDescriptionComponent,
   LgPrimaryMessageTitleComponent,
 } from '../../../canopy/src/lib/primary-message';
-import { LgBrandIconComponent } from '../../../canopy/src/lib/brand-icon';
+import { LgPictogramComponent } from '../../../canopy/src/lib/pictogram';
 import {
   LgPromoCardComponent,
   LgPromoCardContentComponent,
@@ -197,7 +196,6 @@ import {
     LgBreadcrumbComponent,
     LgBreadcrumbItemComponent,
     LgIconComponent,
-    LgFlagIconComponent,
     LgHeroCardComponent,
     LgHeroCardHeaderComponent,
     LgHeroCardTitleComponent,
@@ -255,7 +253,7 @@ import {
     LgListWithIconsComponent,
     LgListWithIconsItemComponent,
     LgPrimaryMessageComponent,
-    LgBrandIconComponent,
+    LgPictogramComponent,
     LgPrimaryMessageTitleComponent,
     LgPrimaryMessageDescriptionComponent,
     LgPromoCardListComponent,

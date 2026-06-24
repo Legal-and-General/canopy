@@ -2,7 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
-import { LgBrandIconComponent } from '../brand-icon';
+import { LgPictogramComponent } from '../pictogram';
 
 import {
   LgPrimaryMessageComponent,
@@ -19,7 +19,7 @@ describe('LgPrimaryMessageComponent', () => {
       imports: [
         LgPrimaryMessageComponent,
         MockComponents(
-          LgBrandIconComponent,
+          LgPictogramComponent,
           LgPrimaryMessageTitleComponent,
           LgPrimaryMessageDescriptionComponent,
         ),
@@ -33,7 +33,7 @@ describe('LgPrimaryMessageComponent', () => {
     fixture = MockRender(`
       <lg-primary-message>
         <lg-primary-message-title
-          >This is a message with brand icon</lg-primary-message-title
+          >This is a message with pictogram</lg-primary-message-title
         >
         <lg-primary-message-description>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

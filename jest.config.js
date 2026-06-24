@@ -6,10 +6,10 @@ export default {
     '/node_modules/',
     // Exclude auto-generated icon loader files from coverage
     'icon-loader\\.ts$',
-    'brand-icon-loader\\.ts$',
+    'pictogram-loader\\.ts$',
     // Exclude auto-generated icon files from coverage
     '/ui-icons-files/',
-    '/brand-icons-files/',
+    '/pictogram-files/',
   ],
   globals: {},
   moduleDirectories: ['node_modules', '<rootDir>/projects/canopy'],
