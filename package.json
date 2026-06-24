@@ -40,7 +40,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=22.14.0"
+    "node": ">=24.18.0"
   },
   "private": false,
   "overrides": {
@@ -79,7 +79,7 @@
     "@commitlint/config-conventional": "21.0.1",
     "@commitlint/prompt": "21.0.1",
     "@compodoc/compodoc": "1.2.1",
-    "@percy/cli": "1.31.11",
+    "@percy/cli": "1.32.2",
     "@percy/storybook": "10.0.0",
     "@semantic-release/github": "12.0.6",
     "@semantic-release/npm": "13.1.5",
