@@ -1,14 +1,14 @@
 @use '../../styles/mixins';
 
 .lg-header {
-  background-color: var(--nav-container-background-colour);
+  background-color: var(--header-container-background-colour);
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
   z-index: var(--z-index-header);
-  min-width: var(--nav-container-min-width);
-  gap: var(--nav-container-gap);
+  min-width: var(--header-container-min-width);
+  gap: var(--header-container-gap);
 
   @include mixins.lg-breakpoint(lg) {
     position: static;
@@ -20,27 +20,27 @@
   display: flex;
   justify-content: flex-end;
   height: 4rem;
-  max-height: var(--nav-container-max-height);
+  max-height: var(--header-container-max-height);
 
   @include mixins.lg-breakpoint(lg) {
-    height: var(--nav-container-max-height);
+    height: var(--header-container-max-height);
   }
 }
 
 .lg-header__logos-wrapper {
   margin-right: auto;
   display: flex;
-  padding-bottom: var(--nav-logo-padding-bottom-sm);
+  padding-bottom: var(--header-logo-container-padding-bottom-sm);
   align-items: baseline;
-  gap: var(--nav-container-logo-gap-sm);
-  max-width: var(--nav-logo-container-max-width-sm, 10.3125rem);
-  max-height: var(--nav-logo-container-max-height-sm, 2.75rem);
+  gap: var(--header-container-logo-gap-sm);
+  max-width: var(--header-logo-container-max-width-sm, 10.3125rem);
+  max-height: var(--header-logo-container-max-height-sm, 2.75rem);
 
   @include mixins.lg-breakpoint(lg) {
-    gap: var(--nav-container-logo-gap-lg);
-    padding-bottom: var(--nav-logo-padding-bottom-lg);
-    max-width: var(--nav-logo-container-max-width-lg);
-    max-height: var(--nav-logo-container-max-height-lg);
+    gap: var(--header-container-logo-gap-lg);
+    padding-bottom: var(--header-logo-container-padding-bottom-lg);
+    max-width: var(--header-logo-container-max-width-lg);
+    max-height: var(--header-logo-container-max-height-lg);
   }
 }
 

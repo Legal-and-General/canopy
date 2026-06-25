@@ -7,11 +7,11 @@
   @include mixins.lg-breakpoint(lg) {
     width: auto;
     display: inline-flex;
-    padding: var(--nav-button-padding-y) var(--nav-button-padding-default-x);
+    padding: var(--header-button-padding-y) var(--header-button-padding-default-x);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--nav-button-gap);
+    gap: var(--header-button-gap);
   }
 
   &--right {

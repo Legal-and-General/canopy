@@ -11,8 +11,8 @@ $primary-nav-border-bottom-height: 0.125rem;
   position: fixed;
   right: 0;
   top: 4rem;
-  padding: var(--nav-container-gap) var(--nav-container-padding-x)
-    var(--nav-container-padding-y);
+  padding: var(--header-container-gap) var(--header-container-padding-x)
+    var(--header-container-padding-y);
 
   &--active {
     display: block;
@@ -30,7 +30,7 @@ $primary-nav-border-bottom-height: 0.125rem;
 .lg-primary-nav-mobile {
   display: flex;
   flex-direction: column;
-  gap: var(--nav-container-gap);
+  gap: var(--header-container-gap);
   position: relative;
   width: 100%;
   height: 100%;
@@ -39,7 +39,7 @@ $primary-nav-border-bottom-height: 0.125rem;
 }
 
 .lg-primary-nav-overlay {
-  background-color: var(--nav-container-background-colour);
+  background-color: var(--header-container-background-colour);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -69,7 +69,7 @@ $primary-nav-border-bottom-height: 0.125rem;
 
   @include mixins.lg-breakpoint(lg) {
     flex-direction: row;
-    margin-left: var(--nav-container-gap);
+    margin-left: var(--header-container-gap);
     padding: 0;
     gap: var(--dimensions-small-2);
   }
@@ -77,10 +77,10 @@ $primary-nav-border-bottom-height: 0.125rem;
 
 a.lg-primary-nav-item,
 button.lg-primary-nav-item {
-  color: var(--nav-button-rest-colour);
+  color: var(--header-button-rest-colour);
   text-decoration: none;
   position: relative;
-  padding: var(--nav-button-padding-y) var(--nav-button-padding-default-x);
+  padding: var(--header-button-padding-y) var(--header-button-padding-default-x);
 
   /* stylelint-disable no-duplicate-selectors */
   & {
@@ -94,21 +94,21 @@ button.lg-primary-nav-item {
   &::after {
     content: '';
     position: absolute;
-    left: var(--nav-button-padding-default-x);
+    left: var(--header-button-padding-default-x);
     right: auto;
     bottom: 0;
     height: $primary-nav-border-bottom-height;
     width: 0;
-    background: var(--nav-button-hover-hover-indicator);
+    background: var(--header-button-hover-hover-indicator);
     border-radius: var(--border-radius-1-lg);
     transition: width var(--animation-duration) var(--animation-fn);
   }
 
   &:hover {
-    color: var(--nav-button-hover-colour);
+    color: var(--header-button-hover-colour);
 
     &::after {
-      width: calc(100% - (var(--nav-button-padding-default-x) * 2));
+      width: calc(100% - (var(--header-button-padding-default-x) * 2));
     }
   }
 
@@ -116,14 +116,14 @@ button.lg-primary-nav-item {
   &--active:visited,
   &--active:hover,
   &--active:visited:hover {
-    border-radius: var(--nav-button-border-radius);
-    background: var(--nav-button-active-background-colour);
-    color: var(--nav-button-active-colour);
+    border-radius: var(--header-button-border-radius);
+    background: var(--header-button-active-background-colour);
+    color: var(--header-button-active-colour);
 
     &:focus-visible,
     &:hover:focus-visible {
-      color: var(--nav-button-active-colour);
-      background: var(--nav-button-active-background-colour);
+      color: var(--header-button-active-colour);
+      background: var(--header-button-active-background-colour);
     }
 
     &:hover::after {
@@ -133,12 +133,12 @@ button.lg-primary-nav-item {
 
   &:focus-visible:hover,
   &:focus-visible {
-    border-radius: var(--nav-button-border-radius);
-    box-shadow: inset 0 0 0 var(--nav-button-border-width-focus)
-      var(--nav-button-focus-colour);
-    background: var(--nav-button-focus-background-colour);
+    border-radius: var(--header-button-border-radius);
+    box-shadow: inset 0 0 0 var(--header-button-border-width-focus)
+      var(--header-button-focus-colour);
+    background: var(--header-button-focus-background-colour);
     outline: 0;
-    color: var(--nav-button-focus-colour);
+    color: var(--header-button-focus-colour);
 
     &:hover::after {
       content: none;

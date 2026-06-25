@@ -13,11 +13,11 @@
     margin-left: 0;
     display: block;
     width: 3rem;
-    height: var(--nav-logo-primary-max-height-sm);
+    height: var(--header-logo-primary-max-height-sm);
 
     @include mixins.lg-breakpoint(lg) {
       width: 4.5rem;
-      height: var(--nav-logo-primary-max-height-lg);
+      height: var(--header-logo-primary-max-height-lg);
     }
   }
 
@@ -27,18 +27,18 @@
     max-height: 1.56rem;
 
     @include mixins.lg-breakpoint(lg) {
-      max-width: var(--nav-logo-secondary-max-width-lg);
-      max-height: var(--nav-logo-secondary-max-height-lg);
+      max-width: var(--header-logo-secondary-max-width-lg);
+      max-height: var(--header-logo-secondary-max-height-lg);
     }
   }
 
   &__link:has(.lg-header-logo__second-img) {
-    padding-left: var(--nav-container-logo-gap-sm);
+    padding-left: var(--header-container-logo-gap-sm);
     border-left: var(--content-seperator-border-width-xs) solid
       var(--content-seperator-colour);
 
     @include mixins.lg-breakpoint(lg) {
-      padding-left: var(--nav-container-logo-gap-lg);
+      padding-left: var(--header-container-logo-gap-lg);
     }
   }
 
