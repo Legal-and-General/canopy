@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
@@ -33,6 +33,7 @@ import { LgAccordionItemComponent } from './accordion-item.component';
     LgAccordionPanelHeadingComponent,
     LgAccordionItemContentDirective,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestAccordionWrapperItemComponent {
   isActive: boolean;

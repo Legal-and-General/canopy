@@ -6,6 +6,7 @@ import {
   Input,
   Output,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
@@ -44,6 +45,7 @@ const customAriaDescribedById = 'custom-aria-described-by-id';
     LgValidationComponent,
     LgDateFieldComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestDateInputComponent {
   private fb = inject(UntypedFormBuilder);
@@ -101,6 +103,7 @@ class TestDateInputComponent {
     LgValidationComponent,
     LgDateFieldComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestDateInputWithCustomAriaComponent {
   private fb = inject(UntypedFormBuilder);

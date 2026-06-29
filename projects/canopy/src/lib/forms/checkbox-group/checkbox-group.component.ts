@@ -10,6 +10,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -32,6 +33,7 @@ let uniqueId = 0;
   styleUrls: [ './checkbox-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private control = inject(NgControl, { self: true, optional: true });

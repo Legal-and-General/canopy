@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, inject, Input } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  inject,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -42,6 +48,7 @@ const hintTestId = 'test-hint-id';
     LgRadioGroupComponent,
     LgHintComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestRadioButtonComponent {
   private fb = inject(UntypedFormBuilder);

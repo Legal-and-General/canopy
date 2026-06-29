@@ -6,6 +6,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { LgDomService } from '../../utils';
@@ -25,6 +26,7 @@ let nextUniqueId = 0;
   styleUrls: [ './select-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgLabelComponent, LgIconComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgSelectFieldComponent {
   private errorState = inject(LgErrorStateMatcher);

@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -10,6 +10,7 @@ import { LgInputFieldExternalButtonDirective } from './input-field-external-butt
     <button lgInputFieldExternalButton [id]="customId">Button 3</button>`,
   standalone: true,
   imports: [ LgInputFieldExternalButtonDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   customId = 'custom-id';

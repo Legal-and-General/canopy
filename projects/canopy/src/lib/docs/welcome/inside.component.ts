@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'lg-docs-welcome-inside',
@@ -19,6 +19,7 @@ import { Component } from '@angular/core';
     </ul>
   `,
   styleUrls: [ './docs-list.scss' ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DocsWelcomeInsideComponent {
   sections = [

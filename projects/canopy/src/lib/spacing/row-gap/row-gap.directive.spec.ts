@@ -1,5 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, DebugElement, Input, Renderer2 } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  Input,
+  Renderer2,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { SpacingVariant } from '../spacing.interface';
@@ -12,6 +18,7 @@ import { LgRowGapDirective } from './row-gap.directive';
     <div id="test-1" [lgRowGap]="rowGap">Test 1</div>
   `,
   imports: [ LgRowGapDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() rowGap: SpacingVariant;

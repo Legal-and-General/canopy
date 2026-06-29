@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
@@ -17,6 +17,7 @@ import {
   `,
   standalone: true,
   imports: [ LgFeatureToggleDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {}
 

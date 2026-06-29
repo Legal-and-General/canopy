@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
@@ -15,6 +15,7 @@ import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.comp
     </lg-accordion-panel-heading>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class LgAccordionPanelHeadingWithDecorativeIconComponent {}
 

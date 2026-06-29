@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -41,6 +42,7 @@ let nextUniqueId = 0;
   ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgFocusDirective, NgClass, LgIconComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {
   private checkboxGroup = inject(LgCheckboxGroupComponent, { optional: true });

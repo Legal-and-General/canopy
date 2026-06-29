@@ -11,6 +11,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -32,6 +33,7 @@ let uniqueId = 0;
   styleUrls: [ './radio-group.component.scss', './radio-group--segment.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgFocusDirective, LgLabelComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgRadioGroupComponent implements ControlValueAccessor, AfterContentInit {
   private control = inject(NgControl, { self: true, optional: true });

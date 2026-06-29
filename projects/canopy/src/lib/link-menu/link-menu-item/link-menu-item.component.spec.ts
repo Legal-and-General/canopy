@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockProvider } from 'ng-mocks';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
 import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-item-text.component';
@@ -15,6 +15,7 @@ import { LgLinkMenuItemComponent } from './link-menu-item.component';
     <lg-link-menu-item-text>Do it online</lg-link-menu-item-text>
   </lg-link-menu-item>`,
   imports: [ LgLinkMenuItemTextComponent, LgLinkMenuItemComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() target: string = undefined;

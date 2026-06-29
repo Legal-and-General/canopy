@@ -1,4 +1,11 @@
-import { Component, DebugElement, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  ElementRef,
+  Input,
+  ViewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -16,6 +23,7 @@ import type { Status, Theme } from './status.interface';
   template:
     ' <lg-banner [status]="lgStatus" [statusTheme]="lgStatusTheme">Test</lg-banner> ',
   imports: [ LgBannerComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgStatus: Status = 'generic';
@@ -29,6 +37,7 @@ class TestComponent {
     </div>
   `,
   imports: [ LgBannerComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponentWithColourMode {
   @Input() lgStatus: Status = 'generic';
@@ -258,6 +267,7 @@ describe('LgStatus', () => {
           </div>
         `,
         imports: [ LgBannerComponent ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class TestOverrideComponent {}
 
@@ -290,6 +300,7 @@ describe('LgStatus', () => {
           </div>
         `,
         imports: [ LgBannerComponent ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class DynamicThemeTestComponent {
         @ViewChild('container', { read: ElementRef }) container!: ElementRef;
@@ -350,6 +361,7 @@ describe('LgStatus', () => {
         template:
           '<lg-banner [status]="status" [statusTheme]="statusTheme">Test</lg-banner>',
         imports: [ LgBannerComponent ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class NoObserverComponent {
         status = 'info';
@@ -370,6 +382,7 @@ describe('LgStatus', () => {
       @Component({
         template: '<lg-banner status="info">Test</lg-banner>',
         imports: [ LgBannerComponent ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class TestBannerComponent {}
 
@@ -384,6 +397,7 @@ describe('LgStatus', () => {
       @Component({
         template: '<lg-alert status="info">Test</lg-alert>',
         imports: [ LgAlertComponent ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class TestAlertComponent {}
 
@@ -403,6 +417,7 @@ describe('LgStatus', () => {
           </lg-details>
         `,
         imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class TestDetailsComponent {}
 
@@ -417,6 +432,7 @@ describe('LgStatus', () => {
       @Component({
         template: '<lg-validation status="error">Test error</lg-validation>',
         imports: [ LgValidationComponent ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class TestValidationComponent {}
 
@@ -431,6 +447,7 @@ describe('LgStatus', () => {
       @Component({
         template: '<div lgStatus="info">Test</div>',
         imports: [ LgStatusDirective ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class TestDivComponent {}
 
@@ -449,6 +466,7 @@ describe('LgStatus', () => {
       @Component({
         template: '<lg-card lgStatus="info">Test</lg-card>',
         imports: [ LgCardComponent, LgStatusDirective ],
+        changeDetection: ChangeDetectionStrategy.Default,
       })
       class TestCardComponent {}
 

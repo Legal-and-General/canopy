@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
@@ -16,6 +16,7 @@ import { LgAlertComponent } from './alert.component';
     </lg-alert>
   `,
   imports: [ LgAlertComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestHostComponent {}
 

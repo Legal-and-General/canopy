@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { LgButtonComponent } from '../button.component';
@@ -9,6 +9,7 @@ import { LgButtonToggleDirective } from './button-toggle.directive';
 @Component({
   template: '<a lg-button lgButtonToggle priority="secondary">This is a link</a>',
   imports: [ LgButtonComponent, LgButtonToggleDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class LinkTestComponent {}
 
@@ -19,6 +20,7 @@ class LinkTestComponent {}
     </button>
   `,
   imports: [ LgButtonComponent, LgButtonToggleDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class ButtonTestComponent {}
 

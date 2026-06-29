@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -20,6 +20,7 @@ import { LgGridColDirective } from './grid-col.directive';
     </div>
   `,
   imports: [ LgGridColDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgCol;

@@ -1,4 +1,11 @@
-import { Directive, ElementRef, Input, Renderer2, inject } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  Renderer2,
+  inject,
+  numberAttribute,
+} from '@angular/core';
 
 @Directive({
   selector: '[lgCol],[lgColSm],[lgColMd],[lgColLg]',
@@ -17,27 +24,27 @@ export class LgGridColDirective {
   lgColMdOffsetClass: string;
   lgColLgOffsetClass: string;
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgCol(columns: number) {
     this.lgColClass = this.toggleColumnClass(`lg-col-sm-${columns}`, this.lgColClass);
   }
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgColSm(columns: number) {
     this.lgColSmClass = this.toggleColumnClass(`lg-col-sm-${columns}`, this.lgColSmClass);
   }
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgColMd(columns: number) {
     this.lgColMdClass = this.toggleColumnClass(`lg-col-md-${columns}`, this.lgColMdClass);
   }
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgColLg(columns: number) {
     this.lgColLgClass = this.toggleColumnClass(`lg-col-lg-${columns}`, this.lgColLgClass);
   }
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgColOffset(columns: number) {
     this.lgColOffsetClass = this.toggleColumnClass(
       `lg-col-sm-offset-${columns}`,
@@ -45,7 +52,7 @@ export class LgGridColDirective {
     );
   }
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgColSmOffset(columns: number) {
     this.lgColSmOffsetClass = this.toggleColumnClass(
       `lg-col-sm-offset-${columns}`,
@@ -53,7 +60,7 @@ export class LgGridColDirective {
     );
   }
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgColMdOffset(columns: number) {
     this.lgColMdOffsetClass = this.toggleColumnClass(
       `lg-col-md-offset-${columns}`,
@@ -61,7 +68,7 @@ export class LgGridColDirective {
     );
   }
 
-  @Input()
+  @Input({ transform: numberAttribute })
   set lgColLgOffset(columns: number) {
     this.lgColLgOffsetClass = this.toggleColumnClass(
       `lg-col-lg-offset-${columns}`,

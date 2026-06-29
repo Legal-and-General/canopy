@@ -7,6 +7,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { LgBrandIconRegistry } from './brand-icon.registry';
@@ -25,6 +26,7 @@ export type BrandIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   host: { ngSkipHydration: 'true' },
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgBrandIconComponent {
   private iconRegistry = inject(LgBrandIconRegistry);

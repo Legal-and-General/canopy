@@ -1,4 +1,9 @@
-import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'lg-hero-card',
@@ -6,6 +11,7 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
   styleUrls: [ './hero-card.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgHeroCardComponent {
   @HostBinding('class.lg-hero-card') class = true;

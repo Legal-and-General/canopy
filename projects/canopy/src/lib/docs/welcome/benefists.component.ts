@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgMarginDirective } from '../../spacing';
 
@@ -25,6 +25,7 @@ import { LgMarginDirective } from '../../spacing';
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DocsWelcomeBenefitsComponent {
   benefits = [

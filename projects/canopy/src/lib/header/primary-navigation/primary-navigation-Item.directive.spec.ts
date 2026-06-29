@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { LgPrimaryNavItemDirective } from './primary-navigation-item.directive';
@@ -9,6 +9,7 @@ import { LgPrimaryNavItemDirective } from './primary-navigation-item.directive';
     <button id="test" type="button" lgPrimaryNavItem>Primary nav button</button>
   `,
   imports: [ LgPrimaryNavItemDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class PrimaryNavTestItemComponent {}
 

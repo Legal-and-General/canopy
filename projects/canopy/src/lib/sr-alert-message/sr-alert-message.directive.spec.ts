@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, DebugElement, Input } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  DebugElement,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   ComponentFixture,
   fakeAsync,
@@ -13,6 +19,7 @@ import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
 @Component({
   template: ' <p [lgSrAlertMessage]="lgSrAlertMessage">Test feature</p> ',
   imports: [ LgSrAlertMessageDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgSrAlertMessage;

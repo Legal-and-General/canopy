@@ -6,6 +6,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import type { SeparatorVariant } from './separator.interface';
@@ -16,6 +17,7 @@ import type { SeparatorVariant } from './separator.interface';
   styleUrls: [ './separator.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgSeparatorComponent {
   private renderer = inject(Renderer2);

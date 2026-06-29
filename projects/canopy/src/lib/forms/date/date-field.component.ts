@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -59,6 +60,7 @@ const labelFieldMap = {
     LgInputDirective,
     LgHintComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgDateFieldComponent
 implements OnInit, AfterViewInit, ControlValueAccessor, OnDestroy {

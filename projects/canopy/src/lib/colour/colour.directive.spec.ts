@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -8,6 +8,7 @@ import type { Colour, ColourTheme } from './colour.interface';
 @Component({
   template: ' <div [lgColour]="lgColour" [lgColourTheme]="lgColourTheme">Test</div> ',
   imports: [ LgColourDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgColour: Colour = 'blue';

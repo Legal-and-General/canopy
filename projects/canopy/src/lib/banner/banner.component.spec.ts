@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LgBannerComponent } from './banner.component';
@@ -8,6 +8,7 @@ import { LgBannerComponent } from './banner.component';
     <lg-banner> Banner <strong class="projected-content">message</strong> </lg-banner>
   `,
   imports: [ LgBannerComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestHostComponent {}
 

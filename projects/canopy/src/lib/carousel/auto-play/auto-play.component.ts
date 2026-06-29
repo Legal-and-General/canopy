@@ -5,6 +5,7 @@ import {
   Input,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -16,6 +17,7 @@ import { LgIconComponent } from '../../icon';
   styleUrls: [ './auto-play.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgIconComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgAutoplayComponent {
   element = inject(ElementRef);

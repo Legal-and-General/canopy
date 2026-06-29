@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import {
   ComponentFixture,
   discardPeriodicTasks,
@@ -40,6 +40,7 @@ import { LgCarouselComponent } from './carousel.component';
     </lg-carousel>
   `,
   imports: [ LgCarouselComponent, LgCarouselItemComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestCarouselComponent {
   carouselComponentRef: LgCarouselComponent;
@@ -53,6 +54,7 @@ class TestCarouselComponent {
   selector: 'lg-test-wrapper-component',
   template: '<lg-test-carousel></lg-test-carousel>',
   imports: [ TestCarouselComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestWrapperComponent {}
 

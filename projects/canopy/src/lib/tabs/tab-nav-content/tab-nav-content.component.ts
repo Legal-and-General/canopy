@@ -1,4 +1,10 @@
-import { Component, Input, ViewEncapsulation, HostBinding } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewEncapsulation,
+  HostBinding,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'lg-tab-nav-content',
@@ -6,6 +12,7 @@ import { Component, Input, ViewEncapsulation, HostBinding } from '@angular/core'
   styleUrls: [ './tab-nav-content.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgTabNavContentComponent {
   @Input() selectedTabId: string;

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { LgAccountMenuItemDirective } from './account-menu-item.directive';
@@ -9,6 +9,7 @@ import { LgAccountMenuItemDirective } from './account-menu-item.directive';
     <button id="test" type="button" lgAccountMenuItem>Menu nav button</button>
   `,
   imports: [ LgAccountMenuItemDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class AccountMenuTestItemComponent {}
 

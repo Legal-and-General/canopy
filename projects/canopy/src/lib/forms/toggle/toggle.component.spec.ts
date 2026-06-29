@@ -1,4 +1,10 @@
-import { Component, DebugElement, inject, Input } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  inject,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   FormGroupDirective,
@@ -42,6 +48,7 @@ const validationTestId = 'test-validation-id';
     </form>
   `,
   imports: [ FormsModule, ReactiveFormsModule, LgToggleComponent, LgValidationComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestToggleComponent {
   private fb = inject(UntypedFormBuilder);
@@ -94,6 +101,7 @@ class TestToggleComponent {
     </form>
   `,
   imports: [ FormsModule, ReactiveFormsModule, LgToggleComponent, LgValidationComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestToggleVariantSelectorComponent {
   private fb = inject(UntypedFormBuilder);
