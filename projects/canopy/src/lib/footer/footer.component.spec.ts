@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MockRender, ngMocks } from 'ng-mocks';
@@ -11,11 +11,11 @@ describe('FooterComponent', () => {
   let fixture: ComponentFixture<LgFooterComponent>;
   let logoDebugElements: Array<DebugElement>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgFooterComponent, LgFooterLogoComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();

@@ -53,7 +53,7 @@ describe('LgColDirective', () => {
   });
 
   it('adds column class for the default screen size', () => {
-    component.lgCol = '12';
+    fixture.componentRef.setInput('lgCol', '12');
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toContain('lg-col-sm-12');
@@ -71,7 +71,7 @@ describe('LgColDirective', () => {
   });
 
   it('adds column offset class for the default screen size', () => {
-    component.lgColOffset = 2;
+    fixture.componentRef.setInput('lgColOffset', 2);
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toContain(

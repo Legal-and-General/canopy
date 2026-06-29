@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective, MockRender, ngMocks } from 'ng-mocks';
@@ -20,7 +20,7 @@ describe('LgCardComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgCardComponent,
@@ -35,7 +35,7 @@ describe('LgCardComponent', () => {
         MockDirective(LgButtonToggleDirective),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardComponent);
@@ -54,7 +54,7 @@ describe('LgCardComponent', () => {
   });
 
   it('should have the promotion class if variant is promotion', () => {
-    component.variant = 'promotion';
+    fixture.componentRef.setInput('variant', 'promotion');
     fixture.detectChanges();
 
     expect(el.getAttribute('class')).toContain('lg-card--promotion');

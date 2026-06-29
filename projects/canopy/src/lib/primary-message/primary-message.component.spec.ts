@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
@@ -14,7 +14,7 @@ describe('LgPrimaryMessageComponent', () => {
   let component: LgPrimaryMessageComponent;
   let fixture: MockedComponentFixture<LgPrimaryMessageComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgPrimaryMessageComponent,
@@ -25,7 +25,7 @@ describe('LgPrimaryMessageComponent', () => {
         ),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();
@@ -60,7 +60,7 @@ describe('LgPrimaryMessageComponent', () => {
 
   describe('the hasRole input', () => {
     it('should add the role "alert" when set to true', () => {
-      component.hasRole = true;
+      fixture.componentRef.setInput('hasRole', true);
       fixture.detectChanges();
 
       expect(
@@ -71,7 +71,7 @@ describe('LgPrimaryMessageComponent', () => {
     });
 
     it('should remove the role "alert" when set to false', () => {
-      component.hasRole = false;
+      fixture.componentRef.setInput('hasRole', false);
       fixture.detectChanges();
 
       expect(

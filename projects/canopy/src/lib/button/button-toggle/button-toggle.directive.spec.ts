@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -29,13 +29,13 @@ describe('LgButtonToggleDirective', () => {
   let testButtonElement: DebugElement;
   let directive: LgButtonToggleDirective;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ ButtonTestComponent, LinkTestComponent, LgButtonToggleDirective ],
     }).compileComponents();
-  }));
+  });
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     fixtureButton = TestBed.createComponent(ButtonTestComponent);
 
     testButtonElement = fixtureButton.debugElement.query(
@@ -44,7 +44,7 @@ describe('LgButtonToggleDirective', () => {
 
     directive = testButtonElement.injector.get(LgButtonToggleDirective);
     fixtureButton.detectChanges();
-  }));
+  });
 
   it('should have the default class, role and aria-expanded set to false', () => {
     expect(testButtonElement.nativeElement.getAttribute('class')).toContain(

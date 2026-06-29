@@ -1,5 +1,5 @@
 import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { take } from 'rxjs/operators';
@@ -47,7 +47,7 @@ describe('LgAccordionItemComponent', () => {
   let selectionDispatcher: UniqueSelectionDispatcher;
   let accordionMock: { id: string; multi?: boolean };
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     accordionMock = { id: 'lgAccordion123' };
 
     TestBed.configureTestingModule({
@@ -60,7 +60,7 @@ describe('LgAccordionItemComponent', () => {
       ],
       providers: [ { provide: LG_ACCORDION, useFactory: () => accordionMock } ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     selectionDispatcher = TestBed.inject(UniqueSelectionDispatcher);

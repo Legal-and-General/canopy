@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgFooterCopyrightComponent } from './footer-copyright.component';
 
@@ -6,11 +6,11 @@ describe('LgFooterCopyrightComponent', () => {
   let component: LgFooterCopyrightComponent;
   let fixture: ComponentFixture<LgFooterCopyrightComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgFooterCopyrightComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgFooterCopyrightComponent);

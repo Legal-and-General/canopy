@@ -5,13 +5,7 @@ import {
   Input,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import {
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick,
-  waitForAsync,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgSrAlertMessageDirective } from './sr-alert-message.directive';
@@ -29,10 +23,9 @@ describe('lgSrAlertMessage', () => {
   let fixture: ComponentFixture<TestComponent>;
   let directive: LgSrAlertMessageDirective;
   let testElement: DebugElement;
-  let component: TestComponent;
   let cdrMock: jest.Mocked<ChangeDetectorRef>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     cdrMock = {
       detectChanges: jest.fn(),
       markForCheck: jest.fn(),
@@ -42,17 +35,16 @@ describe('lgSrAlertMessage', () => {
       imports: [ TestComponent, LgSrAlertMessageDirective ],
       providers: [ { provide: ChangeDetectorRef, useValue: cdrMock } ],
     }).compileComponents();
-  }));
+  });
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(TestComponent);
-    component = fixture.componentInstance;
     testElement = fixture.debugElement.query(By.directive(LgSrAlertMessageDirective));
     directive = testElement.injector.get(LgSrAlertMessageDirective);
-  }));
+  });
 
   it('should have the class to visually hide the element', () => {
-    component.lgSrAlertMessage = true;
+    fixture.componentRef.setInput('lgSrAlertMessage', true);
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -62,7 +54,7 @@ describe('lgSrAlertMessage', () => {
 
   describe('when lgSrAlertMessage is set to false', () => {
     beforeEach(() => {
-      component.lgSrAlertMessage = false;
+      fixture.componentRef.setInput('lgSrAlertMessage', false);
       fixture.detectChanges();
     });
 
@@ -78,7 +70,7 @@ describe('lgSrAlertMessage', () => {
 
   describe('when lgSrAlertMessage is set to true', () => {
     beforeEach(() => {
-      component.lgSrAlertMessage = true;
+      fixture.componentRef.setInput('lgSrAlertMessage', true);
       fixture.detectChanges();
     });
 
@@ -93,27 +85,31 @@ describe('lgSrAlertMessage', () => {
   });
 
   describe('on init', () => {
-    it('should set lgSrAlertMessage to false after the default amount of time', fakeAsync(() => {
-      component.lgSrAlertMessage = true;
+    it('should set lgSrAlertMessage to false after the default amount of time', () => {
+      jest.useFakeTimers();
+      fixture.componentRef.setInput('lgSrAlertMessage', true);
       fixture.detectChanges();
-      tick(7000);
+      jest.advanceTimersByTime(7000);
 
       expect(directive.lgSrAlertMessage).toBe(true);
-      tick(8000);
+      jest.advanceTimersByTime(8000);
 
       expect(directive.lgSrAlertMessage).toBe(false);
-    }));
+      jest.useRealTimers();
+    });
 
-    it('should set lgSrAlertMessage to false after the amount of time specified with the timer input', fakeAsync(() => {
-      component.lgSrAlertMessage = true;
-      directive.timer = 5000;
+    it('should set lgSrAlertMessage to false after the amount of time specified with the timer input', () => {
+      jest.useFakeTimers();
+      fixture.componentRef.setInput('lgSrAlertMessage', true);
+      fixture.componentRef.setInput('timer', 5000);
       fixture.detectChanges();
-      tick(4000);
+      jest.advanceTimersByTime(4000);
 
       expect(directive.lgSrAlertMessage).toBe(true);
-      tick(5000);
+      jest.advanceTimersByTime(5000);
 
       expect(directive.lgSrAlertMessage).toBe(false);
-    }));
+      jest.useRealTimers();
+    });
   });
 });

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgHeaderLogoComponent } from './header-logo.component';
@@ -9,11 +9,11 @@ describe('LgHeaderLogosComponent', () => {
   const src = 'http://a.b/logo.png';
   const href = 'http://a.b';
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgHeaderLogoComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeaderLogoComponent);
@@ -40,7 +40,7 @@ describe('LgHeaderLogosComponent', () => {
   });
 
   it('renders a link if an href is provided', () => {
-    component.href = href;
+    fixture.componentRef.setInput('href', href);
     fixture.detectChanges();
 
     expect(fixture.debugElement.query(By.css(`a[href="${href}"]`))).toBeTruthy();
@@ -57,7 +57,7 @@ describe('LgHeaderLogosComponent', () => {
   });
 
   it('focuses the logo link', () => {
-    component.href = href;
+    fixture.componentRef.setInput('href', href);
     fixture.detectChanges();
 
     const link = fixture.debugElement.query(By.css(`a[href="${href}"]`));

@@ -36,7 +36,7 @@ describe('CardSubheadingComponent', () => {
 
   it('should not log an error if the heading level is set', () => {
     consoleErrorSpy.mockClear();
-    component.headingLevel = 2;
+    fixture.componentRef.setInput('headingLevel', 2);
     fixture.detectChanges();
 
     expect(consoleErrorSpy).not.toHaveBeenCalled();

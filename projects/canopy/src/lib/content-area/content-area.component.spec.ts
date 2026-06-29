@@ -38,7 +38,7 @@ describe('LgContentAreaComponent', () => {
   });
 
   it('should apply the form-journey variant class when variant is set', () => {
-    component.variant = 'form-journey';
+    fixture.componentRef.setInput('variant', 'form-journey');
     fixture.detectChanges();
 
     expect(

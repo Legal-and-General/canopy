@@ -5,7 +5,7 @@ import {
   Input,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   FormGroupDirective,
   FormsModule,
@@ -144,7 +144,7 @@ describe('LgToggleComponent', () => {
 
   jest.spyOn(console, 'error').mockImplementation();
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -179,7 +179,7 @@ describe('LgToggleComponent', () => {
     inputDebugElement = fixture.debugElement.query(By.css('.lg-toggle__input'));
     inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
     fixture.detectChanges();
-  }));
+  });
 
   it('sets a unique name for the toggle button', () => {
     expect(
@@ -200,7 +200,7 @@ describe('LgToggleComponent', () => {
       inputLabelElement.nativeElement.classList.contains('lg-toggle__label--switch'),
     ).toBe(false);
 
-    component.variant = 'switch';
+    fixture.componentRef.setInput('variant', 'switch');
     fixture.detectChanges();
 
     expect(
@@ -213,7 +213,7 @@ describe('LgToggleComponent', () => {
 
     expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox'))).toBeNull();
 
-    component.variant = 'checkbox';
+    fixture.componentRef.setInput('variant', 'checkbox');
     fixture.detectChanges();
 
     expect(
@@ -227,7 +227,7 @@ describe('LgToggleComponent', () => {
     expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox--sm'))).toBeNull();
 
     component.variant = 'checkbox';
-    component.size = 'sm';
+    fixture.componentRef.setInput('size', 'sm');
     fixture.detectChanges();
 
     expect(
@@ -236,7 +236,7 @@ describe('LgToggleComponent', () => {
 
     expect(fixture.debugElement.query(By.css('.lg-toggle__checkbox--lg'))).toBeNull();
 
-    component.size = 'lg';
+    fixture.componentRef.setInput('size', 'lg');
     fixture.detectChanges();
 
     expect(
@@ -336,7 +336,7 @@ describe('LgToggleComponent selector variant', () => {
 
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -368,7 +368,7 @@ describe('LgToggleComponent selector variant', () => {
 
     inputLabelElement = fixture.debugElement.query(By.css('.lg-toggle__label'));
     fixture.detectChanges();
-  }));
+  });
 
   it('sets the correct variant based on the selector', () => {
     expect(toggleInstance.variant).toBe('switch');

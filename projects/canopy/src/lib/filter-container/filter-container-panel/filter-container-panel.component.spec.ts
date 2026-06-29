@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import {
   lgFilterContainerPanelIdPrefix,
@@ -12,11 +12,11 @@ describe('LgFilterContainerPanelComponent', () => {
   let fixture: ComponentFixture<LgFilterContainerPanelComponent>;
   let el: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgFilterContainerPanelComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgFilterContainerPanelComponent);

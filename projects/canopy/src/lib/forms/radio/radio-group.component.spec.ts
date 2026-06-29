@@ -1,5 +1,5 @@
 import { Component, DebugElement, inject, ChangeDetectionStrategy } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -81,7 +81,7 @@ describe('LgRadioGroupComponent', () => {
   let component: TestRadioGroupComponent;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -121,7 +121,7 @@ describe('LgRadioGroupComponent', () => {
     radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
 
     radioInstances = radioDebugElements.map(debugEl => debugEl.componentInstance);
-  }));
+  });
 
   it('sets all radio buttons to the same name', () => {
     expect(groupInstance.name.length > 0).toBe(true);
@@ -188,7 +188,7 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('marks the selected radio when the value is changed', () => {
-    groupInstance.value = 'red';
+    fixture.componentRef.setInput('value', 'red');
     fixture.detectChanges();
     const selected = radioInstances.find(radio => radio.value === 'red');
 
@@ -249,7 +249,7 @@ describe('LgRadioGroupComponent', () => {
   it('adds the tabindex attribute to the fieldset element', () => {
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBeNull();
 
-    groupInstance.focus = true;
+    fixture.componentRef.setInput('focus', true);
     fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBe('-1');
@@ -282,14 +282,14 @@ describe('LgRadioGroupComponent', () => {
 
   describe('stack', () => {
     it('adds or removes a class based on its value', () => {
-      groupInstance.stack = 'md';
+      fixture.componentRef.setInput('stack', 'md');
       fixture.detectChanges();
 
       expect(groupDebugElement.nativeElement.className).toContain(
         'lg-radio-group--stack-md',
       );
 
-      groupInstance.stack = undefined;
+      fixture.componentRef.setInput('stack', undefined);
       fixture.detectChanges();
 
       expect(groupDebugElement.nativeElement.className).not.toContain(

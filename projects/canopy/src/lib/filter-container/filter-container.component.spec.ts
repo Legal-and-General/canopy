@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 import { DebugElement, EventEmitter } from '@angular/core';
 
@@ -19,7 +19,7 @@ describe('LgFilterContainerComponent', () => {
   let el: HTMLElement;
   let toggleActiveClassSpy: jest.SpyInstance;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgFilterContainerComponent,
@@ -27,7 +27,7 @@ describe('LgFilterContainerComponent', () => {
         MockComponents(LgFilterContainerPanelComponent, LgButtonComponent),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();

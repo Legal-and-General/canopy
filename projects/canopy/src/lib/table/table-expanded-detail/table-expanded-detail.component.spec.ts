@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponents } from 'ng-mocks';
 
 import { LgTableCellComponent } from '../table-cell/table-cell.component';
@@ -9,11 +9,11 @@ describe('LgTableExpandedDetailComponent', () => {
   let component: LgTableExpandedDetailComponent;
   let fixture: ComponentFixture<LgTableExpandedDetailComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgTableExpandedDetailComponent, MockComponents(LgTableCellComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableExpandedDetailComponent);

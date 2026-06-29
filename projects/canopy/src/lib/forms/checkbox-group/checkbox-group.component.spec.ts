@@ -1,5 +1,5 @@
 import { Component, DebugElement, inject, ChangeDetectionStrategy } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -85,7 +85,7 @@ describe('LgCheckboxGroupComponent', () => {
   let component: TestCheckboxGroupComponent;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -129,7 +129,7 @@ describe('LgCheckboxGroupComponent', () => {
     checkboxInstances = checkboxDebugElements.map(debugEl => debugEl.componentInstance);
 
     fixture.detectChanges();
-  }));
+  });
 
   it('sets the correct variant based on the selector', () => {
     fixture.detectChanges();
@@ -148,7 +148,7 @@ describe('LgCheckboxGroupComponent', () => {
   it('adds the tabindex attribute to the fieldset element', () => {
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBeNull();
 
-    groupInstance.focus = true;
+    fixture.componentRef.setInput('focus', true);
     fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBe('-1');
@@ -164,7 +164,7 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('checks the selected checkbox button when a value is provided', () => {
-    groupInstance.value = [ 'red' ];
+    fixture.componentRef.setInput('value', [ 'red' ]);
     fixture.detectChanges();
     const checkedOption: DebugElement = checkboxDebugElements.find(
       checkboxDebugElement => checkboxDebugElement.componentInstance.checked === true,
@@ -174,9 +174,9 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('unchecks the selected checkbox buttons when an empty array value is provided', () => {
-    groupInstance.value = [ 'red' ];
+    fixture.componentRef.setInput('value', [ 'red' ]);
     fixture.detectChanges();
-    groupInstance.value = [];
+    fixture.componentRef.setInput('value', []);
     fixture.detectChanges();
     const checkedOptions: DebugElement = checkboxDebugElements.find(
       checkboxDebugElement => checkboxDebugElement.componentInstance.checked === true,
@@ -250,7 +250,7 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('updates the model value when selected checkbox options are unselected', () => {
-    groupInstance.value = [ 'red', 'blue' ];
+    fixture.componentRef.setInput('value', [ 'red', 'blue' ]);
     fixture.detectChanges();
 
     expect(component.form.controls.color.value.length).toBe(2);

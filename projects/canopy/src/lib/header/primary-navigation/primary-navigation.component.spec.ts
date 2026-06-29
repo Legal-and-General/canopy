@@ -62,7 +62,7 @@ describe('PrimaryNavigationComponent', () => {
 
     describe('toggled state', () => {
       beforeEach(() => {
-        component.showResponsiveMenu = true;
+        fixture.componentRef.setInput('showResponsiveMenu', true);
         fixture.detectChanges();
       });
 

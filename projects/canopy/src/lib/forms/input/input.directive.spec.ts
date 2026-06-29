@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormControl,
   UntypedFormGroup,
@@ -32,10 +32,9 @@ describe('LgInputDirective', () => {
   let fixture: ComponentFixture<TestInputComponent>;
   let component: TestInputComponent;
   let inputDebugElement: DebugElement;
-  let inputInstance: LgInputDirective;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -55,8 +54,7 @@ describe('LgInputDirective', () => {
 
     inputDebugElement = fixture.debugElement.query(By.directive(LgInputDirective));
 
-    inputInstance = inputDebugElement.injector.get<LgInputDirective>(LgInputDirective);
-  }));
+  });
 
   it('adds a unique name', () => {
     fixture.detectChanges();
@@ -71,7 +69,7 @@ describe('LgInputDirective', () => {
   });
 
   it('adds a block class when the block property is set', () => {
-    inputInstance.block = true;
+    fixture.componentRef.setInput('block', true);
     fixture.detectChanges();
 
     expect(inputDebugElement.nativeElement.className).toContain('lg-input--block');

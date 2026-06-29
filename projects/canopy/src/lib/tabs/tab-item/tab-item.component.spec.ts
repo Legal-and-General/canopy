@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockRender, ngMocks } from 'ng-mocks';
@@ -13,14 +13,14 @@ describe('LgTabItemComponent', () => {
   let fixture: ComponentFixture<LgTabItemComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgTabItemComponent,
         MockComponents(LgTabItemHeadingComponent, LgTabItemContentComponent),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();

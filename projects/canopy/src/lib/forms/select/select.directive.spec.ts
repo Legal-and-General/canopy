@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormControl,
   UntypedFormGroup,
@@ -37,7 +37,7 @@ describe('LgSelectDirective', () => {
   let selectDebugElement: DebugElement;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -56,7 +56,7 @@ describe('LgSelectDirective', () => {
     component = fixture.componentInstance;
 
     selectDebugElement = fixture.debugElement.query(By.directive(LgSelectDirective));
-  }));
+  });
 
   it('adds a unique name', () => {
     fixture.detectChanges();

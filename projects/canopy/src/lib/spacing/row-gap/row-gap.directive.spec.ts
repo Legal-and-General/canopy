@@ -27,7 +27,6 @@ class TestComponent {
 describe('LgRowGapDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElements: Array<DebugElement>;
-  let component: TestComponent;
   let renderer: Renderer2;
   let rendererRemoveClassSpy: jest.SpyInstance;
 
@@ -43,7 +42,6 @@ describe('LgRowGapDirective', () => {
     rendererRemoveClassSpy = jest.spyOn(renderer, 'removeClass');
 
     fixture.detectChanges();
-    component = fixture.componentInstance;
 
     testElements = fixture.debugElement.queryAll(By.css('div'));
   });
@@ -59,7 +57,7 @@ describe('LgRowGapDirective', () => {
     ];
 
     tests.forEach(t => {
-      component.rowGap = t.rowGap as SpacingVariant;
+      fixture.componentRef.setInput('rowGap', t.rowGap as SpacingVariant);
       fixture.detectChanges();
 
       const el = testElements[1].nativeElement;

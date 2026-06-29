@@ -1,6 +1,6 @@
 import { By } from '@angular/platform-browser';
 import { MockComponent, ngMocks } from 'ng-mocks';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgIconComponent } from '../icon';
 
@@ -22,14 +22,14 @@ describe('LgPaginationComponent', () => {
   let component: LgPaginationComponent;
   let fixture: ComponentFixture<LgPaginationComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgPaginationComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgPaginationComponent);
     component = fixture.componentInstance;
-  }));
+  });
 
   afterEach(() => ngMocks.flushTestBed());
 
@@ -72,7 +72,7 @@ describe('LgPaginationComponent', () => {
   describe('buttons', () => {
     beforeEach(() => {
       component.totalItems = 30;
-      component.itemsPerPage = 10;
+      fixture.componentRef.setInput('itemsPerPage', 10);
       fixture.detectChanges();
     });
 

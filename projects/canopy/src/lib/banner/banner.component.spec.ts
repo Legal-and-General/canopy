@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgBannerComponent } from './banner.component';
 
@@ -16,7 +16,7 @@ describe('LgBannerComponent', () => {
   let component: LgBannerComponent;
   let fixture: ComponentFixture<LgBannerComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgBannerComponent, TestHostComponent ],
     }).compileComponents();
@@ -24,7 +24,7 @@ describe('LgBannerComponent', () => {
     fixture = TestBed.createComponent(LgBannerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -121,7 +121,7 @@ describe('LgBannerComponent', () => {
     expect(dismissButton).toBeNull();
   });
 
-  it('renders projected HTML content without altering structure', waitForAsync(() => {
+  it('renders projected HTML content without altering structure', async () => {
     const hostFixture = TestBed.createComponent(TestHostComponent);
 
     hostFixture.detectChanges();
@@ -132,5 +132,5 @@ describe('LgBannerComponent', () => {
     expect(projectedStrongElement).toBeTruthy();
     expect(projectedStrongElement.tagName).toBe('STRONG');
     expect(projectedStrongElement.textContent.trim()).toBe('message');
-  }));
+  });
 });

@@ -107,7 +107,7 @@ describe('LgLinkMenuItemComponent', () => {
       );
 
       component = fixture.componentInstance;
-      component.target = target;
+      fixture.componentRef.setInput('target', target);
 
       fixture.detectChanges();
     };
@@ -166,7 +166,7 @@ describe('LgLinkMenuItemComponent', () => {
         );
 
         component = fixture.componentInstance;
-        component.rightIcon = rightIcon;
+        fixture.componentRef.setInput('rightIcon', rightIcon);
 
         fixture.detectChanges();
       };

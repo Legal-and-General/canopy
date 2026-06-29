@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { Subscription } from 'rxjs';
 
 import { LgModalService } from './';
@@ -8,9 +8,9 @@ describe('LgModalService', () => {
   let service: LgModalService;
   let subscription: Subscription;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     service = TestBed.inject(LgModalService);
-  }));
+  });
 
   beforeEach(() => {
     service.add(id);

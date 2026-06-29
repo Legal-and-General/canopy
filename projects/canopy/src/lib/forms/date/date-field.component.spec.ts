@@ -8,7 +8,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -135,7 +135,7 @@ describe('LgDateFieldComponent', () => {
   let component: TestDateInputComponent;
   let errorStateMatcherMock: LgErrorStateMatcher;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as LgErrorStateMatcher;
@@ -170,7 +170,7 @@ describe('LgDateFieldComponent', () => {
     dateInput = fixture.debugElement.query(By.css('[formcontrolname="date"]'));
     monthInput = fixture.debugElement.query(By.css('[formcontrolname="month"]'));
     yearInput = fixture.debugElement.query(By.css('[formcontrolname="year"]'));
-  }));
+  });
 
   describe('markup', () => {
     beforeEach(() => {
@@ -306,7 +306,7 @@ describe('LgDateFieldComponent', () => {
   it('adds the tabindex attribute to the fieldset element', () => {
     expect(fieldsetElement.nativeElement.getAttribute('tabindex')).toBeNull();
 
-    dateFieldInstance.focus = true;
+    fixture.componentRef.setInput('focus', true);
     fixture.detectChanges();
 
     expect(fieldsetElement.nativeElement.getAttribute('tabindex')).toBe('-1');
@@ -348,7 +348,7 @@ describe('LgDateFieldComponent', () => {
 
     it('disables the year input field when the disabled property is set', () => {
       expect(yearInput.nativeElement.disabled).toEqual(false);
-      component.disabled = true;
+      fixture.componentRef.setInput('disabled', true);
       fixture.detectChanges();
 
       expect(yearInput.nativeElement.disabled).toEqual(true);
@@ -356,7 +356,7 @@ describe('LgDateFieldComponent', () => {
 
     it('disables the month input field when the disabled property is set', () => {
       expect(monthInput.nativeElement.disabled).toEqual(false);
-      component.disabled = true;
+      fixture.componentRef.setInput('disabled', true);
       fixture.detectChanges();
 
       expect(monthInput.nativeElement.disabled).toEqual(true);
@@ -364,7 +364,7 @@ describe('LgDateFieldComponent', () => {
 
     it('disables the date input field when the disabled property is set', () => {
       expect(dateInput.nativeElement.disabled).toEqual(false);
-      component.disabled = true;
+      fixture.componentRef.setInput('disabled', true);
       fixture.detectChanges();
 
       expect(dateInput.nativeElement.disabled).toEqual(true);
@@ -553,7 +553,7 @@ describe('LgDateFieldComponent with custom ariaDescribedBy', () => {
   let component: TestDateInputWithCustomAriaComponent;
   let errorStateMatcherMock: LgErrorStateMatcher;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as LgErrorStateMatcher;
@@ -579,7 +579,7 @@ describe('LgDateFieldComponent with custom ariaDescribedBy', () => {
     component = fixture.componentInstance;
 
     fieldsetElement = fixture.debugElement.query(By.css('fieldset'));
-  }));
+  });
 
   it('should create component with custom ariaDescribedBy', () => {
     expect(component).toBeTruthy();

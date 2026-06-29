@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponents } from 'ng-mocks';
 
@@ -12,14 +12,14 @@ describe('LgTableRowComponent', () => {
   let fixture: ComponentFixture<LgTableRowComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgTableRowComponent,
         MockComponents(LgTableCellComponent, LgTableRowToggleComponent),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableRowComponent);
@@ -89,7 +89,7 @@ describe('LgTableRowComponent', () => {
 
   describe('when the row is not hidden', () => {
     beforeEach(() => {
-      component.isHidden = false;
+      fixture.componentRef.setInput('isHidden', false);
       fixture.detectChanges();
     });
 
@@ -100,7 +100,7 @@ describe('LgTableRowComponent', () => {
 
   describe('when the row is hidden', () => {
     beforeEach(() => {
-      component.isHidden = true;
+      fixture.componentRef.setInput('isHidden', true);
       fixture.detectChanges();
     });
 

@@ -6,7 +6,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgAlertComponent } from '../alert/alert.component';
@@ -48,13 +48,13 @@ describe('LgStatus', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ TestComponent ],
     }).compileComponents();
-  }));
+  });
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
     component = fixture.componentInstance;
@@ -62,7 +62,7 @@ describe('LgStatus', () => {
     testElement = fixture.debugElement.query(By.css('lg-banner'));
 
     fixture.detectChanges();
-  }));
+  });
 
   describe('status classes with default neutral theme', () => {
     it('adds the generic status class', () => {
@@ -73,7 +73,7 @@ describe('LgStatus', () => {
     });
 
     it('adds the info status class', () => {
-      component.lgStatus = 'info';
+      fixture.componentRef.setInput('lgStatus', 'info');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -83,7 +83,7 @@ describe('LgStatus', () => {
     });
 
     it('adds the success status class', () => {
-      component.lgStatus = 'success';
+      fixture.componentRef.setInput('lgStatus', 'success');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -93,7 +93,7 @@ describe('LgStatus', () => {
     });
 
     it('adds the warning status class', () => {
-      component.lgStatus = 'warning';
+      fixture.componentRef.setInput('lgStatus', 'warning');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -103,7 +103,7 @@ describe('LgStatus', () => {
     });
 
     it('adds the error status class', () => {
-      component.lgStatus = 'error';
+      fixture.componentRef.setInput('lgStatus', 'error');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -113,14 +113,14 @@ describe('LgStatus', () => {
     });
 
     it('removes the old status class when status changes', () => {
-      component.lgStatus = 'info';
+      fixture.componentRef.setInput('lgStatus', 'info');
       fixture.detectChanges();
 
       let classes = testElement.nativeElement.getAttribute('class');
 
       expect(classes).toContain('lg-status-info');
 
-      component.lgStatus = 'success';
+      fixture.componentRef.setInput('lgStatus', 'success');
       fixture.detectChanges();
 
       classes = testElement.nativeElement.getAttribute('class');
@@ -133,7 +133,7 @@ describe('LgStatus', () => {
   describe('status classes (with different themes)', () => {
     it('adds status and theme classes when theme is provided', () => {
       component.lgStatus = 'info';
-      component.lgStatusTheme = 'bold';
+      fixture.componentRef.setInput('lgStatusTheme', 'bold');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -147,7 +147,7 @@ describe('LgStatus', () => {
 
       statuses.forEach(status => {
         component.lgStatus = status;
-        component.lgStatusTheme = 'neutral';
+        fixture.componentRef.setInput('lgStatusTheme', 'neutral');
         fixture.detectChanges();
 
         const classes = testElement.nativeElement.getAttribute('class');
@@ -162,7 +162,7 @@ describe('LgStatus', () => {
 
       themes.forEach(theme => {
         component.lgStatus = 'info';
-        component.lgStatusTheme = theme;
+        fixture.componentRef.setInput('lgStatusTheme', theme);
         fixture.detectChanges();
 
         const classes = testElement.nativeElement.getAttribute('class');
@@ -174,7 +174,7 @@ describe('LgStatus', () => {
 
     it('updates theme while keeping status', () => {
       component.lgStatus = 'success';
-      component.lgStatusTheme = 'neutral';
+      fixture.componentRef.setInput('lgStatusTheme', 'neutral');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -186,7 +186,7 @@ describe('LgStatus', () => {
       );
 
       // Change theme
-      component.lgStatusTheme = 'bold';
+      fixture.componentRef.setInput('lgStatusTheme', 'bold');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -198,7 +198,7 @@ describe('LgStatus', () => {
 
     it('updates status while keeping theme', () => {
       component.lgStatus = 'info';
-      component.lgStatusTheme = 'subtle';
+      fixture.componentRef.setInput('lgStatusTheme', 'subtle');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain('lg-status-info');
@@ -208,7 +208,7 @@ describe('LgStatus', () => {
       );
 
       // Change status
-      component.lgStatus = 'warning';
+      fixture.componentRef.setInput('lgStatus', 'warning');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -221,19 +221,17 @@ describe('LgStatus', () => {
 
   describe('theme inheritance from colour mode container', () => {
     let colourModeFixture: ComponentFixture<TestComponentWithColourMode>;
-    let colourModeComponent: TestComponentWithColourMode;
     let statusElement: DebugElement;
 
-    beforeEach(waitForAsync(() => {
+    beforeEach(async () => {
       colourModeFixture = TestBed.createComponent(TestComponentWithColourMode);
-      colourModeComponent = colourModeFixture.componentInstance;
 
       statusElement = colourModeFixture.debugElement.query(
         By.directive(LgStatusDirective),
       );
 
       colourModeFixture.detectChanges();
-    }));
+    });
 
     it('should inherit theme from parent colour mode container', () => {
       const classes = statusElement.nativeElement.getAttribute('class');
@@ -243,7 +241,7 @@ describe('LgStatus', () => {
     });
 
     it('should inherit theme for different status types', () => {
-      colourModeComponent.lgStatus = 'info';
+      colourModeFixture.componentRef.setInput('lgStatus', 'info');
       colourModeFixture.detectChanges();
 
       const classes = statusElement.nativeElement.getAttribute('class');

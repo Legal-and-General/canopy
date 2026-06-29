@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
@@ -24,7 +24,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
   let fixture: ComponentFixture<LgAccordionPanelHeadingComponent>;
   let triggerElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgAccordionPanelHeadingComponent,
@@ -32,12 +32,12 @@ describe('LgAccordionPanelHeadingComponent', () => {
         MockComponents(LgHeadingComponent, LgIconComponent),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgAccordionPanelHeadingComponent);
     component = fixture.componentInstance;
-    component.headingLevel = 2;
+    fixture.componentRef.setInput('headingLevel', 2);
     fixture.detectChanges();
   });
 

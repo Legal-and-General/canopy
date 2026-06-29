@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -18,7 +18,7 @@ describe('LgCardNavigationTitleComponent', () => {
   >;
   let debugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgCardNavigationTitleComponent,
@@ -29,7 +29,7 @@ describe('LgCardNavigationTitleComponent', () => {
     }).compileComponents();
 
     jest.spyOn(console, 'error').mockImplementation();
-  }));
+  });
 
   afterEach(() => {
     ngMocks.flushTestBed();

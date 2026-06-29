@@ -1,5 +1,5 @@
 import { ChangeDetectorRef } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import {
   MockComponents,
   MockDirective,
@@ -34,7 +34,7 @@ describe('LgModalComponent', () => {
   };
   const id = 'test-1';
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     cdrMock = MockProvider(ChangeDetectorRef) as unknown as ChangeDetectorRef;
 
     TestBed.configureTestingModule({
@@ -62,7 +62,7 @@ describe('LgModalComponent', () => {
     jest.spyOn(component.open, 'emit').mockImplementation(() => {});
     jest.spyOn(component.closedEscKey, 'emit').mockImplementation(() => {});
     jest.spyOn(component.closedOverlayClick, 'emit').mockImplementation(() => {});
-  }));
+  });
 
   afterEach(() => {
     jest.clearAllMocks();

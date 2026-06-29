@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockRender, MockedComponentFixture } from 'ng-mocks';
 
@@ -12,11 +12,11 @@ describe('LgDataPointValueComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgDataPointValueComponent, LgDataPointComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = MockRender(`

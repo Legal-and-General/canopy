@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgProgressBarComponent } from './progress-bar.component';
 
@@ -6,11 +6,11 @@ describe('LgProgressBarComponent', () => {
   let component: LgProgressBarComponent;
   let fixture: ComponentFixture<LgProgressBarComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgProgressBarComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgProgressBarComponent);
@@ -38,7 +38,7 @@ describe('LgProgressBarComponent', () => {
   it('should set aria-label correctly', () => {
     const ariaLabel = 'Aria label for progress bar';
 
-    component.ariaLabel = ariaLabel;
+    fixture.componentRef.setInput('ariaLabel', ariaLabel);
     fixture.detectChanges();
     const progressBarElement: HTMLElement =
       fixture.nativeElement.querySelector('.lg-progress-bar');
@@ -49,7 +49,7 @@ describe('LgProgressBarComponent', () => {
   it('should set aria-labelledby correctly', () => {
     const ariaLabelledBy = 'ariaLabelledBy';
 
-    component.ariaLabelledBy = ariaLabelledBy;
+    fixture.componentRef.setInput('ariaLabelledBy', ariaLabelledBy);
     fixture.detectChanges();
     const progressBarElement: HTMLElement =
       fixture.nativeElement.querySelector('.lg-progress-bar');
@@ -60,7 +60,7 @@ describe('LgProgressBarComponent', () => {
   it('should set aria-valuemax correctly', () => {
     const max = 4;
 
-    component.max = max;
+    fixture.componentRef.setInput('max', max);
     fixture.detectChanges();
 
     const progressBarElement: HTMLElement =
@@ -79,7 +79,7 @@ describe('LgProgressBarComponent', () => {
   it('should set aria-valuenow correctly', () => {
     const value = 3;
 
-    component.value = value;
+    fixture.componentRef.setInput('value', value);
     fixture.detectChanges();
     const progressBarElement: HTMLElement =
       fixture.nativeElement.querySelector('.lg-progress-bar');
@@ -90,7 +90,7 @@ describe('LgProgressBarComponent', () => {
   it('should set aria-live correctly', () => {
     const isAriaLiveRegion = true;
 
-    component.isAriaLiveRegion = isAriaLiveRegion;
+    fixture.componentRef.setInput('isAriaLiveRegion', isAriaLiveRegion);
     fixture.detectChanges();
     const progressBarElement: HTMLElement =
       fixture.nativeElement.querySelector('.lg-progress-bar');
@@ -103,7 +103,7 @@ describe('LgProgressBarComponent', () => {
     const max = 100;
 
     component.value = value;
-    component.max = max;
+    fixture.componentRef.setInput('max', max);
     fixture.detectChanges();
 
     const progressBarBarElement: HTMLElement = fixture.nativeElement.querySelector(

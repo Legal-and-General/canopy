@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgCarouselItemComponent } from './carousel-item.component';
 
@@ -6,11 +6,11 @@ describe('LgCarouselItemComponent', () => {
   let component: LgCarouselItemComponent;
   let fixture: ComponentFixture<LgCarouselItemComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgCarouselItemComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCarouselItemComponent);

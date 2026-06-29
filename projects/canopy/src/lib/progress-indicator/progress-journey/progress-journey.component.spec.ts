@@ -42,7 +42,7 @@ describe('LgProgressJourneyComponent', () => {
   });
 
   it('should display steps when displayAs variable is step', () => {
-    component.displayAs = 'step';
+    fixture.componentRef.setInput('displayAs', 'step');
     fixture.detectChanges();
     const stepsElement = fixture.debugElement.query(
       By.css('.lg-progress-journey__stepper'),
@@ -57,7 +57,7 @@ describe('LgProgressJourneyComponent', () => {
     component.max = 4;
     component.value = 3;
 
-    component.displayAs = 'percentage';
+    fixture.componentRef.setInput('displayAs', 'percentage');
     fixture.detectChanges();
 
     const stepsElement = fixture.debugElement.query(

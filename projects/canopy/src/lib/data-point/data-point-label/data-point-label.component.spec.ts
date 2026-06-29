@@ -1,5 +1,5 @@
 import { By } from '@angular/platform-browser';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgHeadingComponent } from '../../heading';
@@ -9,11 +9,11 @@ import { LgDataPointLabelComponent } from './data-point-label.component';
 describe('LgDataPointLabelComponent', () => {
   let el: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgDataPointLabelComponent, MockComponent(LgHeadingComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();

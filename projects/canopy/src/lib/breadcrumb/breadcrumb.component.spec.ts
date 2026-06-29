@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component';
@@ -13,7 +13,7 @@ describe('LgBreadcrumbComponent', () => {
   let breadcrumbDebugElement: DebugElement;
   let breadcrumbEl: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgBreadcrumbComponent,
@@ -21,7 +21,7 @@ describe('LgBreadcrumbComponent', () => {
         MockComponent(LgBreadcrumbItemEllipsisComponent),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBreadcrumbComponent);
@@ -78,7 +78,7 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('the breadcrumb item variant should be dark', () => {
-      component.variant = BreadcrumbVariant.dark;
+      fixture.componentRef.setInput('variant', BreadcrumbVariant.dark);
       fixture.detectChanges();
 
       expect(component.crumbs.first.variant).toEqual(BreadcrumbVariant.dark);
@@ -175,7 +175,7 @@ describe('LgBreadcrumbComponent', () => {
     });
 
     it('the breadcrumb item ellipsis variant should be dark', () => {
-      component.variant = BreadcrumbVariant.dark;
+      fixture.componentRef.setInput('variant', BreadcrumbVariant.dark);
       fixture.detectChanges();
 
       expect(component.ellipsis.first.variant).toEqual(BreadcrumbVariant.dark);

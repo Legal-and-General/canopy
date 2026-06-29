@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponents } from 'ng-mocks';
 
 import { LgProgressBarComponent } from './progress-bar/progress-bar.component';
@@ -10,14 +10,14 @@ describe('LgProgressIndicatorComponent', () => {
   let component: LgProgressIndicatorComponent;
   let fixture: ComponentFixture<LgProgressIndicatorComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgProgressIndicatorComponent,
         MockComponents(LgProgressBarComponent, LgProgressJourneyComponent),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgProgressIndicatorComponent);
@@ -229,7 +229,7 @@ describe('LgProgressIndicatorComponent', () => {
 
   describe('Progress bar visibility', () => {
     it('should render lg-progress-bar when showProgressBar is true', () => {
-      component.showProgressBar = true;
+      fixture.componentRef.setInput('showProgressBar', true);
       fixture.detectChanges();
 
       const progressBar = fixture.nativeElement.querySelector('lg-progress-bar');
@@ -238,7 +238,7 @@ describe('LgProgressIndicatorComponent', () => {
     });
 
     it('should not render lg-progress-bar when showProgressBar is false', () => {
-      component.showProgressBar = false;
+      fixture.componentRef.setInput('showProgressBar', false);
       fixture.detectChanges();
 
       const progressBars = fixture.nativeElement.querySelectorAll('lg-progress-bar');
@@ -251,7 +251,7 @@ describe('LgProgressIndicatorComponent', () => {
     });
 
     it('should always render lg-progress-journey regardless of showProgressBar', () => {
-      component.showProgressBar = false;
+      fixture.componentRef.setInput('showProgressBar', false);
       fixture.detectChanges();
 
       const progressJourney = fixture.nativeElement.querySelector('lg-progress-journey');

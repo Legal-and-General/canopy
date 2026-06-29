@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgSeparatorComponent } from './separator.component';
 
@@ -6,11 +6,11 @@ describe('LgSeparatorComponent', () => {
   let component: LgSeparatorComponent;
   let fixture: ComponentFixture<LgSeparatorComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgSeparatorComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgSeparatorComponent);
@@ -42,7 +42,7 @@ describe('LgSeparatorComponent', () => {
 
   describe('when the role input is set to true', () => {
     beforeEach(() => {
-      component.hasRole = true;
+      fixture.componentRef.setInput('hasRole', true);
       fixture.detectChanges();
     });
 

@@ -27,7 +27,7 @@ describe('LgHeroImgComponent', () => {
 
   describe('when the overlap is set to -2', () => {
     beforeEach(() => {
-      component.overlap = -2;
+      fixture.componentRef.setInput('overlap', -2);
       fixture.detectChanges();
       fixture.detectChanges();
     });
@@ -43,7 +43,7 @@ describe('LgHeroImgComponent', () => {
 
   describe('when the overlap is set to 10', () => {
     beforeEach(() => {
-      component.overlap = 10;
+      fixture.componentRef.setInput('overlap', 10);
       fixture.detectChanges();
     });
 
@@ -58,7 +58,7 @@ describe('LgHeroImgComponent', () => {
 
   describe('when the overlap is set to null', () => {
     beforeEach(() => {
-      component.overlap = null;
+      fixture.componentRef.setInput('overlap', null);
       fixture.detectChanges();
     });
 
@@ -73,7 +73,7 @@ describe('LgHeroImgComponent', () => {
 
   describe('when the overlap is set to undefined', () => {
     beforeEach(() => {
-      component.overlap = undefined;
+      fixture.componentRef.setInput('overlap', undefined);
       fixture.detectChanges();
     });
 
@@ -87,7 +87,7 @@ describe('LgHeroImgComponent', () => {
   });
 
   it('should set correct background', () => {
-    component.imageUrl = 'test';
+    fixture.componentRef.setInput('imageUrl', 'test');
     fixture.detectChanges();
 
     expect(componentElement.style.backgroundImage).toEqual('url("test")');

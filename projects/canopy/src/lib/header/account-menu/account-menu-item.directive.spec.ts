@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -16,24 +16,22 @@ class AccountMenuTestItemComponent {}
 describe('PrimaryNavigationLinkDirective', () => {
   let fixtureButton: ComponentFixture<AccountMenuTestItemComponent>;
   let testButtonElement: DebugElement;
-  let directive: LgAccountMenuItemDirective;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ AccountMenuTestItemComponent, LgAccountMenuItemDirective ],
     }).compileComponents();
-  }));
+  });
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     fixtureButton = TestBed.createComponent(AccountMenuTestItemComponent);
 
     testButtonElement = fixtureButton.debugElement.query(
       By.directive(LgAccountMenuItemDirective),
     );
 
-    directive = testButtonElement.injector.get(LgAccountMenuItemDirective);
     fixtureButton.detectChanges();
-  }));
+  });
 
   it('should set the default class', () => {
     expect(testButtonElement.nativeElement.getAttribute('class')).toContain(
@@ -42,7 +40,7 @@ describe('PrimaryNavigationLinkDirective', () => {
   });
 
   it('should set the active class', () => {
-    directive.isActive = true;
+    fixtureButton.componentRef.setInput('isActive', true);
     fixtureButton.detectChanges();
 
     expect(testButtonElement.nativeElement.getAttribute('class')).toContain(

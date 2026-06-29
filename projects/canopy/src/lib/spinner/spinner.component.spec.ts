@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ChangeDetectorRef } from '@angular/core';
 import { MockProvider } from 'ng-mocks';
@@ -9,12 +9,12 @@ describe('LgSpinnerComponent', () => {
   let component: LgSpinnerComponent;
   let fixture: ComponentFixture<LgSpinnerComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgSpinnerComponent ],
       providers: [ MockProvider(ChangeDetectorRef) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgSpinnerComponent);
@@ -33,7 +33,7 @@ describe('LgSpinnerComponent', () => {
     let link = fixture.debugElement.query(By.css('.lg-spinner__ring--color'));
 
     expect(link).toBeFalsy();
-    component.variant = 'color';
+    fixture.componentRef.setInput('variant', 'color');
     fixture.detectChanges();
     link = fixture.debugElement.query(By.css('.lg-spinner__ring--color'));
 
@@ -47,7 +47,7 @@ describe('LgSpinnerComponent', () => {
       'lg-spinner--sm',
     );
 
-    component.size = 'sm';
+    fixture.componentRef.setInput('size', 'sm');
     fixture.detectChanges();
 
     expect(fixture.debugElement.nativeElement.getAttribute('class')).toContain(
@@ -62,7 +62,7 @@ describe('LgSpinnerComponent', () => {
       'lg-spinner--xs',
     );
 
-    component.size = 'xs';
+    fixture.componentRef.setInput('size', 'xs');
     fixture.detectChanges();
 
     expect(fixture.debugElement.nativeElement.getAttribute('class')).toContain(
@@ -86,7 +86,7 @@ describe('LgSpinnerComponent', () => {
 
     describe('when specified', () => {
       it('should add an element with the specified text', () => {
-        component.text = 'Test text';
+        fixture.componentRef.setInput('text', 'Test text');
         fixture.detectChanges();
 
         const hiddenEl = fixture.nativeElement.querySelector('.lg-visually-hidden');

@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import {
@@ -30,7 +30,7 @@ describe('LgSelectFieldComponent', () => {
 
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -55,7 +55,7 @@ describe('LgSelectFieldComponent', () => {
         },
       ],
     }).compileComponents();
-  }));
+  });
 
   function renderComponent({ block } = { block: false }) {
     ngMocks.flushTestBed();

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponents } from 'ng-mocks';
 
 import { LgIconComponent } from '../icon';
@@ -9,7 +9,7 @@ describe('LgQuickActionComponent', () => {
   let component: LgQuickActionComponent;
   let fixture: ComponentFixture<LgQuickActionComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgQuickActionComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
@@ -17,7 +17,7 @@ describe('LgQuickActionComponent', () => {
     fixture = TestBed.createComponent(LgQuickActionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponent } from 'ng-mocks';
 
@@ -14,7 +14,7 @@ describe('LgBreadcrumbItemEllipsisComponent', () => {
   let breadcrumbEllipsisDebugElement: DebugElement;
   let breadcrumbEllipsisEl: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     iconRegistryMock = {
       get: jest.fn(),
     } as unknown as jest.Mocked<LgIconRegistry>;
@@ -22,7 +22,7 @@ describe('LgBreadcrumbItemEllipsisComponent', () => {
     TestBed.configureTestingModule({
       imports: [ LgBreadcrumbItemEllipsisComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBreadcrumbItemEllipsisComponent);

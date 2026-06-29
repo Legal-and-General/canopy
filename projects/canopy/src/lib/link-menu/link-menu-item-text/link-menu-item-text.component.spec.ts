@@ -33,7 +33,7 @@ describe('LgLinkMenuItemTextComponent', () => {
     });
 
     it('should contain the bold class', () => {
-      component.isBold = true;
+      fixture.componentRef.setInput('isBold', true);
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('class')).toContain(
@@ -42,7 +42,7 @@ describe('LgLinkMenuItemTextComponent', () => {
     });
 
     it('should not contain the bold class if isBold is false', () => {
-      component.isBold = false;
+      fixture.componentRef.setInput('isBold', false);
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('class')).not.toContain(

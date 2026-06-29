@@ -1,8 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app-routing';
 
 export const appConfig: ApplicationConfig = {
-  providers: [ provideRouter(routes), provideZoneChangeDetection() ],
+  providers: [ provideRouter(routes), provideZonelessChangeDetection() ],
 };

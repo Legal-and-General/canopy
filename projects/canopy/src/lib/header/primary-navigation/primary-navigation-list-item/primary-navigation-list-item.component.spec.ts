@@ -34,7 +34,7 @@ describe('PrimaryNavigationListItemComponent', () => {
   });
 
   it('should align the item right', () => {
-    component.alignRight = true;
+    fixture.componentRef.setInput('alignRight', true);
     fixture.detectChanges();
 
     expect(el.getAttribute('class')).toContain('lg-primary-nav-list-item--right');

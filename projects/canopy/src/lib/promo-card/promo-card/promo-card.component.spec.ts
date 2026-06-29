@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgPromoCardComponent } from './promo-card.component';
 
@@ -6,11 +6,11 @@ describe('LgPromoCardComponent', () => {
   let component: LgPromoCardComponent;
   let fixture: ComponentFixture<LgPromoCardComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgPromoCardComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgPromoCardComponent);
@@ -33,7 +33,7 @@ describe('LgPromoCardComponent', () => {
   });
 
   it('should set the variant to the provided value', () => {
-    component.variant = 'solid-green';
+    fixture.componentRef.setInput('variant', 'solid-green');
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).toContain(

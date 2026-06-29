@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 import { BehaviorSubject } from 'rxjs';
@@ -14,16 +14,16 @@ describe('LgButtonComponent', () => {
   let pause: DebugElement;
   let play: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgAutoplayComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgAutoplayComponent);
     component = fixture.componentInstance;
-    component.pause = new BehaviorSubject<boolean>(false);
+    fixture.componentRef.setInput('pause', new BehaviorSubject<boolean>(false));
     fixture.detectChanges();
   });
 
@@ -50,7 +50,7 @@ describe('LgButtonComponent', () => {
   });
 
   it('should play autoPlay functionality', () => {
-    component.pause = new BehaviorSubject<boolean>(true);
+    fixture.componentRef.setInput('pause', new BehaviorSubject<boolean>(true));
     fixture.detectChanges();
 
     play = fixture.debugElement.query(

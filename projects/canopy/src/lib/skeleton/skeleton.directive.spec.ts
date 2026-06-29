@@ -1,5 +1,5 @@
 import { Component, DebugElement, Input, ChangeDetectionStrategy } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgSkeletonDirective } from './skeleton.directive';
@@ -32,7 +32,7 @@ describe('LgSkeletonDirective', () => {
   let testElement: DebugElement;
   let directive: LgSkeletonDirective;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ TestComponent, LgSkeletonDirective ],
     }).compileComponents();
@@ -40,7 +40,7 @@ describe('LgSkeletonDirective', () => {
     fixture = TestBed.createComponent(TestComponent);
     testElement = fixture.debugElement.query(By.directive(LgSkeletonDirective));
     directive = testElement.injector.get(LgSkeletonDirective);
-  }));
+  });
 
   it('adds default skeleton class if data is null', () => {
     fixture.detectChanges();

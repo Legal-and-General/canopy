@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgHeroContentComponent } from './hero-content.component';
 
@@ -6,11 +6,11 @@ describe('LgHeroContentComponent', () => {
   let component: LgHeroContentComponent;
   let fixture: ComponentFixture<LgHeroContentComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgHeroContentComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroContentComponent);
