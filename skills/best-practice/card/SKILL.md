@@ -3,7 +3,7 @@ name: canopy-card
 description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or any card sub-components in an Angular project using Canopy.
 license: MIT
 metadata:
-  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/card/guide.mdx
+  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/promotions/guide.mdx
 ---
 
 # Canopy Card — Best Practices
@@ -100,6 +100,27 @@ Use `LgDataPointComponent` with `variant="card-principle"` alongside `LgDataPoin
 ```
 
 > **Note:** `LgCardPrincipleDataPointComponent`, `LgCardPrincipleDataPointLabelComponent`, and `LgCardPrincipleDataPointValueComponent` have been removed from the library. Use `LgDataPointComponent` with `variant="card-principle"` for a prominent hero data point in a product card, or `variant="card"` for standard data points inside a card content area.
+
+### Promotion Card and Shadow Removal
+
+`lgShadow` has been removed and must not be used with promotion cards.
+
+Use the promotion variant directly, without shadow inputs or directives:
+
+```html
+<lg-card variant="promotion" lgMarginBottom="6">
+  <lg-card-content>
+    <lg-card-title [headingLevel]="3">Promotion title</lg-card-title>
+    <p>Promotion summary content.</p>
+  </lg-card-content>
+</lg-card>
+```
+
+Migration note:
+
+1. Remove `LgShadowDirective` from component imports.
+2. Remove `lgShadow` and `[hasHoverState]` from templates.
+3. Keep spacing and hierarchy using existing card, grid, margin, and typography patterns.
 
 ### Form Journey Card
 

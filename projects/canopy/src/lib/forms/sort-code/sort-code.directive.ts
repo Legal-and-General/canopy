@@ -8,7 +8,7 @@ import { NgControl, Validators } from '@angular/forms';
 export class LgSortCodeDirective implements OnInit {
   private ngControl = inject(NgControl);
 
-  @HostBinding('required') required = true;
+  @HostBinding('attr.required') required = '';
   @HostBinding('attr.inputmode') inputmode = 'numeric';
   // 8 because we allow for the two dashes
   @HostBinding('attr.maxlength') maxlength = '8';
