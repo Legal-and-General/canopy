@@ -29,13 +29,13 @@ describe('LgButtonToggleDirective', () => {
   let testButtonElement: DebugElement;
   let directive: LgButtonToggleDirective;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ ButtonTestComponent, LinkTestComponent, LgButtonToggleDirective ],
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixtureButton = TestBed.createComponent(ButtonTestComponent);
 
     testButtonElement = fixtureButton.debugElement.query(
@@ -58,6 +58,7 @@ describe('LgButtonToggleDirective', () => {
 
   it('should have the active class and aria-expanded set to true when active', () => {
     directive['_isActive'] = true;
+    fixtureButton.changeDetectorRef.markForCheck();
     fixtureButton.detectChanges();
 
     expect(testButtonElement.nativeElement.getAttribute('aria-expanded')).toBe('true');
@@ -66,6 +67,7 @@ describe('LgButtonToggleDirective', () => {
   it('should set the id and the aria-controls when set', () => {
     directive.id = 'test';
     directive.ariaControls = 'testControl';
+    fixtureButton.changeDetectorRef.markForCheck();
     fixtureButton.detectChanges();
 
     expect(testButtonElement.nativeElement.getAttribute('id')).toBe('test');
@@ -105,6 +107,7 @@ describe('LgButtonToggleDirective', () => {
       expect(directive.isActive).toBe(false);
 
       directive['_isActive'] = true;
+      fixtureButton.changeDetectorRef.markForCheck();
       fixtureButton.detectChanges();
 
       expect(directive.isActive).toBe(true);

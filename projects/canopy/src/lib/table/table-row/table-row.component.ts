@@ -35,9 +35,27 @@ export class LgTableRowComponent {
     return this._isHeadRow;
   }
 
+  private _ariaLabelledBy: string = null;
+  private _ariaId: string = null;
+
   isDetailRow = false;
-  ariaLabelledBy: string = null;
-  ariaId: string = null;
+
+  get ariaLabelledBy(): string {
+    return this._ariaLabelledBy;
+  }
+  set ariaLabelledBy(value: string) {
+    this._ariaLabelledBy = value;
+    this.cd.markForCheck();
+  }
+
+  get ariaId(): string {
+    return this._ariaId;
+  }
+  set ariaId(value: string) {
+    this._ariaId = value;
+    this.cd.markForCheck();
+  }
+
   @Input() isHidden = false;
 
   @HostBinding('class') class = 'lg-table-row';

@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostBinding,
@@ -16,11 +17,21 @@ import {
   standalone: true,
 })
 export class LgCarouselItemComponent {
+  private cdr = inject(ChangeDetectorRef);
+  private _selected = false;
+
   element = inject(ElementRef);
 
   @HostBinding('class.lg-carousel-item') class = true;
   @HostBinding('attr.role') role = 'tabpanel';
-  @HostBinding('attr.aria-selected') public selected = false;
+
+  @HostBinding('attr.aria-selected') get selected(): boolean {
+    return this._selected;
+  }
+  set selected(value: boolean) {
+    this._selected = value;
+    this.cdr.markForCheck();
+  }
 
   get itemContent() {
     return this.element.nativeElement.innerHTML;

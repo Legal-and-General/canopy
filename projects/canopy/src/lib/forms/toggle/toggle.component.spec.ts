@@ -144,7 +144,7 @@ describe('LgToggleComponent', () => {
 
   jest.spyOn(console, 'error').mockImplementation();
 
-  beforeEach(async () => {
+  beforeEach(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -168,6 +168,8 @@ describe('LgToggleComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestToggleComponent);
+    fixture.detectChanges();
+    await Promise.resolve();
     fixture.detectChanges();
     component = fixture.componentInstance;
 
@@ -336,7 +338,7 @@ describe('LgToggleComponent selector variant', () => {
 
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;

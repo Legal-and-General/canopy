@@ -1,4 +1,10 @@
-import { Component, DebugElement, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  inject,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormBuilder,
@@ -108,6 +114,8 @@ describe('LgRadioGroupComponent', () => {
     fixture = TestBed.createComponent(TestRadioGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    await Promise.resolve();
+    fixture.detectChanges();
 
     groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
 
@@ -136,6 +144,7 @@ describe('LgRadioGroupComponent', () => {
     expect(fixture.debugElement.query(By.css('.lg-radio-group__segment'))).toBeNull();
 
     groupInstance.variant = 'segment';
+    groupDebugElement.injector.get(ChangeDetectorRef).markForCheck();
     fixture.detectChanges();
 
     expect(
@@ -188,7 +197,7 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('marks the selected radio when the value is changed', () => {
-    fixture.componentRef.setInput('value', 'red');
+    component.form.controls.color.setValue('red');
     fixture.detectChanges();
     const selected = radioInstances.find(radio => radio.value === 'red');
 
@@ -219,8 +228,10 @@ describe('LgRadioGroupComponent', () => {
     );
   });
 
-  it('links the error to the fieldset with the correct aria attributes', () => {
+  it('links the error to the fieldset with the correct aria attributes', async () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
+    fixture.detectChanges();
+    await Promise.resolve();
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
@@ -231,15 +242,15 @@ describe('LgRadioGroupComponent', () => {
     );
   });
 
-  it('combines both the hint and error ids to create the aria described attribute', () => {
+  it('combines both the hint and error ids to create the aria described attribute', async () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
+    fixture.detectChanges();
+    await Promise.resolve();
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
     const errorId = errorDebugElement.nativeElement.getAttribute('id');
     const hintId = hintDebugElement.nativeElement.getAttribute('id');
-
-    fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedby')).toBe(
       `${hintId} ${errorId}`,
@@ -249,7 +260,8 @@ describe('LgRadioGroupComponent', () => {
   it('adds the tabindex attribute to the fieldset element', () => {
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBeNull();
 
-    fixture.componentRef.setInput('focus', true);
+    groupInstance.focus = true;
+    groupDebugElement.injector.get(ChangeDetectorRef).markForCheck();
     fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBe('-1');
@@ -266,6 +278,7 @@ describe('LgRadioGroupComponent', () => {
 
   it('adds the error class if the form field is invalid', () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
+    fixture.changeDetectorRef.markForCheck();
     fixture.detectChanges();
 
     expect(groupDebugElement.nativeElement.className).toContain('lg-radio-group--error');
@@ -273,6 +286,7 @@ describe('LgRadioGroupComponent', () => {
 
   it('removes the error class if the form field is valid', () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(false);
+    fixture.changeDetectorRef.markForCheck();
     fixture.detectChanges();
 
     expect(groupDebugElement.nativeElement.className).not.toContain(
@@ -282,14 +296,16 @@ describe('LgRadioGroupComponent', () => {
 
   describe('stack', () => {
     it('adds or removes a class based on its value', () => {
-      fixture.componentRef.setInput('stack', 'md');
+      groupInstance.stack = 'md';
+      groupDebugElement.injector.get(ChangeDetectorRef).markForCheck();
       fixture.detectChanges();
 
       expect(groupDebugElement.nativeElement.className).toContain(
         'lg-radio-group--stack-md',
       );
 
-      fixture.componentRef.setInput('stack', undefined);
+      groupInstance.stack = undefined;
+      groupDebugElement.injector.get(ChangeDetectorRef).markForCheck();
       fixture.detectChanges();
 
       expect(groupDebugElement.nativeElement.className).not.toContain(

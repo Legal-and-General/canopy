@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ContentChild,
   ContentChildren,
@@ -46,6 +47,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private domService = inject(LgDomService);
   private renderer = inject(Renderer2);
   private hostElement = inject(ElementRef);
+  private cdr = inject(ChangeDetectorRef);
 
   private nextUniqueId = ++uniqueId;
   private _name = `lg-checkbox-group-${this.nextUniqueId}`;
@@ -130,22 +132,30 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
 
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
+    queueMicrotask(() => {
+      this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+        this.ariaDescribedBy,
+        this._validationElement,
+        element,
+      );
+
+      this.cdr.markForCheck();
+    });
 
     this._hintElement = element;
   }
 
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
+    queueMicrotask(() => {
+      this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+        this.ariaDescribedBy,
+        this._validationElement,
+        element,
+      );
+
+      this.cdr.markForCheck();
+    });
 
     this._validationElement = element;
   }

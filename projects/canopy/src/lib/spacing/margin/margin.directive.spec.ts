@@ -48,17 +48,15 @@ class TestComponent {
 describe('LgMargin', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElement: DebugElement;
-  let component: TestComponent;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ TestComponent, LgMarginDirective ],
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(TestComponent);
-    component = fixture.componentInstance;
 
     testElement = fixture.debugElement.query(By.css('div'));
 
@@ -75,7 +73,11 @@ describe('LgMargin', () => {
 
     it('adds margins to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = '9';
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          '9',
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -86,14 +88,22 @@ describe('LgMargin', () => {
 
     it('updates margins to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = '9';
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          '9',
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
           `lg-margin__${side}--9`,
         );
 
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = '5';
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          '5',
+        );
+
         fixture.detectChanges();
 
         const el = testElement.nativeElement.getAttribute('class');
@@ -115,7 +125,11 @@ describe('LgMargin', () => {
 
     it('adds margins of none to specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = 'none';
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          'none',
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -161,7 +175,11 @@ describe('LgMargin', () => {
 
     it('adds responsive margin to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          { md: '6' },
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -172,14 +190,22 @@ describe('LgMargin', () => {
 
     it('updates responsive margin to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          { md: '6' },
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
           `lg-margin__${side}--md--6`,
         );
 
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { lg: '9' };
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          { lg: '9' },
+        );
+
         fixture.detectChanges();
 
         const el = testElement.nativeElement.getAttribute('class');
@@ -201,7 +227,11 @@ describe('LgMargin', () => {
 
     it('adds responsive margin of none to specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgMargin${side[0].toUpperCase()}${side.slice(1)}`] = { md: 'none' };
+        fixture.componentRef.setInput(
+          `lgMargin${side[0].toUpperCase()}${side.slice(1)}`,
+          { md: 'none' },
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -235,7 +265,7 @@ describe('LgMargin', () => {
 
   describe('NoneAt margin', () => {
     it('adds noneAt class for all sides', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', 'md');
       fixture.detectChanges();
 
@@ -249,8 +279,8 @@ describe('LgMargin', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
         const sideCapitalized = side[0].toUpperCase() + side.slice(1);
 
-        component[`lgMargin${sideCapitalized}`] = '6';
-        component[`lgMargin${sideCapitalized}NoneAt`] = 'lg';
+        fixture.componentRef.setInput(`lgMargin${sideCapitalized}`, '6');
+        fixture.componentRef.setInput(`lgMargin${sideCapitalized}NoneAt`, 'lg');
         fixture.detectChanges();
 
         const el = testElement.nativeElement.getAttribute('class');
@@ -261,7 +291,7 @@ describe('LgMargin', () => {
     });
 
     it('adds noneAt class for horizontal margins', () => {
-      component.lgMarginHorizontal = '7';
+      fixture.componentRef.setInput('lgMarginHorizontal', '7');
       fixture.componentRef.setInput('lgMarginHorizontalNoneAt', 'xl');
       fixture.detectChanges();
 
@@ -274,7 +304,7 @@ describe('LgMargin', () => {
     });
 
     it('adds noneAt class for vertical margins', () => {
-      component.lgMarginVertical = '8';
+      fixture.componentRef.setInput('lgMarginVertical', '8');
       fixture.componentRef.setInput('lgMarginVerticalNoneAt', 'sm');
       fixture.detectChanges();
 
@@ -287,7 +317,7 @@ describe('LgMargin', () => {
     });
 
     it('updates noneAt class when breakpoint changes', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', 'md');
       fixture.detectChanges();
 
@@ -305,7 +335,7 @@ describe('LgMargin', () => {
     });
 
     it('removes noneAt class when set to null', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', 'md');
       fixture.detectChanges();
 
@@ -323,7 +353,7 @@ describe('LgMargin', () => {
 
     it('works with all breakpoints', () => {
       [ 'sm', 'md', 'lg', 'xl', 'xxl' ].forEach(breakpoint => {
-        component.lgMargin = '5';
+        fixture.componentRef.setInput('lgMargin', '5');
         fixture.componentRef.setInput('lgMarginNoneAt', breakpoint);
         fixture.detectChanges();
 
@@ -334,7 +364,7 @@ describe('LgMargin', () => {
     });
 
     it('works with array of breakpoints', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', [ 'sm', 'lg' ]);
       fixture.detectChanges();
 
@@ -346,7 +376,7 @@ describe('LgMargin', () => {
     });
 
     it('works with array of breakpoints for individual sides', () => {
-      component.lgMarginTop = '6';
+      fixture.componentRef.setInput('lgMarginTop', '6');
       fixture.componentRef.setInput('lgMarginTopNoneAt', [ 'md', 'xl' ]);
       fixture.detectChanges();
 
@@ -359,7 +389,7 @@ describe('LgMargin', () => {
     });
 
     it('works with array of breakpoints for horizontal margin', () => {
-      component.lgMarginHorizontal = '7';
+      fixture.componentRef.setInput('lgMarginHorizontal', '7');
       fixture.componentRef.setInput('lgMarginHorizontalNoneAt', [ 'sm', 'xxl' ]);
       fixture.detectChanges();
 
@@ -372,7 +402,7 @@ describe('LgMargin', () => {
     });
 
     it('works with array of breakpoints for vertical margin', () => {
-      component.lgMarginVertical = '8';
+      fixture.componentRef.setInput('lgMarginVertical', '8');
       fixture.componentRef.setInput('lgMarginVerticalNoneAt', [ 'md', 'lg' ]);
       fixture.detectChanges();
 
@@ -385,7 +415,7 @@ describe('LgMargin', () => {
     });
 
     it('filters duplicate breakpoints in arrays', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', [ 'sm', 'sm', 'lg' ]);
       fixture.detectChanges();
 
@@ -397,7 +427,7 @@ describe('LgMargin', () => {
     });
 
     it('handles empty array by removing all noneAt classes', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', 'md');
       fixture.detectChanges();
 
@@ -414,7 +444,7 @@ describe('LgMargin', () => {
     });
 
     it('updates classes when switching from single to array breakpoint', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', 'md');
       fixture.detectChanges();
 
@@ -433,7 +463,7 @@ describe('LgMargin', () => {
     });
 
     it('updates classes when switching from array to single breakpoint', () => {
-      component.lgMargin = '5';
+      fixture.componentRef.setInput('lgMargin', '5');
       fixture.componentRef.setInput('lgMarginNoneAt', [ 'sm', 'lg' ]);
       fixture.detectChanges();
 

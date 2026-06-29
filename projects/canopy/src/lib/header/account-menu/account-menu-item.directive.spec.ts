@@ -3,7 +3,6 @@ import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core'
 import { By } from '@angular/platform-browser';
 
 import { LgAccountMenuItemDirective } from './account-menu-item.directive';
-
 @Component({
   template: `
     <button id="test" type="button" lgAccountMenuItem>Menu nav button</button>
@@ -17,13 +16,13 @@ describe('PrimaryNavigationLinkDirective', () => {
   let fixtureButton: ComponentFixture<AccountMenuTestItemComponent>;
   let testButtonElement: DebugElement;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ AccountMenuTestItemComponent, LgAccountMenuItemDirective ],
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixtureButton = TestBed.createComponent(AccountMenuTestItemComponent);
 
     testButtonElement = fixtureButton.debugElement.query(
@@ -40,7 +39,10 @@ describe('PrimaryNavigationLinkDirective', () => {
   });
 
   it('should set the active class', () => {
-    fixtureButton.componentRef.setInput('isActive', true);
+    const directive = testButtonElement.injector.get(LgAccountMenuItemDirective);
+
+    directive.isActive = true;
+    fixtureButton.changeDetectorRef.markForCheck();
     fixtureButton.detectChanges();
 
     expect(testButtonElement.nativeElement.getAttribute('class')).toContain(

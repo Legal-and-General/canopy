@@ -46,18 +46,16 @@ class TestComponentWithColourMode {
 describe('LgStatus', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElement: DebugElement;
-  let component: TestComponent;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ TestComponent ],
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
-    component = fixture.componentInstance;
 
     testElement = fixture.debugElement.query(By.css('lg-banner'));
 
@@ -132,7 +130,7 @@ describe('LgStatus', () => {
 
   describe('status classes (with different themes)', () => {
     it('adds status and theme classes when theme is provided', () => {
-      component.lgStatus = 'info';
+      fixture.componentRef.setInput('lgStatus', 'info');
       fixture.componentRef.setInput('lgStatusTheme', 'bold');
       fixture.detectChanges();
 
@@ -146,7 +144,7 @@ describe('LgStatus', () => {
       const statuses: Array<Status> = [ 'generic', 'info', 'success', 'warning', 'error' ];
 
       statuses.forEach(status => {
-        component.lgStatus = status;
+        fixture.componentRef.setInput('lgStatus', status);
         fixture.componentRef.setInput('lgStatusTheme', 'neutral');
         fixture.detectChanges();
 
@@ -161,7 +159,7 @@ describe('LgStatus', () => {
       const themes: Array<Theme> = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
       themes.forEach(theme => {
-        component.lgStatus = 'info';
+        fixture.componentRef.setInput('lgStatus', 'info');
         fixture.componentRef.setInput('lgStatusTheme', theme);
         fixture.detectChanges();
 
@@ -173,7 +171,7 @@ describe('LgStatus', () => {
     });
 
     it('updates theme while keeping status', () => {
-      component.lgStatus = 'success';
+      fixture.componentRef.setInput('lgStatus', 'success');
       fixture.componentRef.setInput('lgStatusTheme', 'neutral');
       fixture.detectChanges();
 
@@ -197,7 +195,7 @@ describe('LgStatus', () => {
     });
 
     it('updates status while keeping theme', () => {
-      component.lgStatus = 'info';
+      fixture.componentRef.setInput('lgStatus', 'info');
       fixture.componentRef.setInput('lgStatusTheme', 'subtle');
       fixture.detectChanges();
 
@@ -223,7 +221,7 @@ describe('LgStatus', () => {
     let colourModeFixture: ComponentFixture<TestComponentWithColourMode>;
     let statusElement: DebugElement;
 
-    beforeEach(async () => {
+    beforeEach(() => {
       colourModeFixture = TestBed.createComponent(TestComponentWithColourMode);
 
       statusElement = colourModeFixture.debugElement.query(

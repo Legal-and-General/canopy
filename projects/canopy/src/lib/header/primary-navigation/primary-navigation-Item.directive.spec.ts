@@ -18,13 +18,13 @@ describe('PrimaryNavigationLinkDirective', () => {
   let testButtonElement: DebugElement;
   let directive: LgPrimaryNavItemDirective;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ PrimaryNavTestItemComponent, LgPrimaryNavItemDirective ],
     }).compileComponents();
   });
 
-  beforeEach(async () => {
+  beforeEach(() => {
     fixtureButton = TestBed.createComponent(PrimaryNavTestItemComponent);
 
     testButtonElement = fixtureButton.debugElement.query(
@@ -43,6 +43,7 @@ describe('PrimaryNavigationLinkDirective', () => {
 
   it('should set the active class', () => {
     directive.isActive = true;
+    fixtureButton.changeDetectorRef.markForCheck();
     fixtureButton.detectChanges();
 
     expect(testButtonElement.nativeElement.getAttribute('class')).toContain(

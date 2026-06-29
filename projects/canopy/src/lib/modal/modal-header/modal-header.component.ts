@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   HostBinding,
@@ -27,12 +28,21 @@ import { LgIconComponent } from '../../icon';
 })
 export class LgModalHeaderComponent {
   private modalService = inject(LgModalService);
+  private cdr = inject(ChangeDetectorRef);
+
+  private _id: string;
 
   @Input() headingLevel: HeadingLevel = 2;
   @Output() closed: EventEmitter<void> = new EventEmitter();
   modalId: string;
 
-  @HostBinding('id') id: string;
+  @HostBinding('id') get id(): string {
+    return this._id;
+  }
+  set id(value: string) {
+    this._id = value;
+    this.cdr.markForCheck();
+  }
 
   close(): void {
     this.closed.emit();

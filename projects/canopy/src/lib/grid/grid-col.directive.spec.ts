@@ -36,7 +36,6 @@ class TestComponent {
 describe('LgColDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElement: DebugElement;
-  let component: TestComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -45,7 +44,6 @@ describe('LgColDirective', () => {
 
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
-    component = fixture.componentInstance;
 
     testElement = fixture.debugElement.query(By.css('div'));
 
@@ -61,7 +59,7 @@ describe('LgColDirective', () => {
 
   it('adds column class for the specified screen sizes', () => {
     [ 'sm', 'md', 'lg' ].forEach(size => {
-      component[`lgCol${size[0].toUpperCase()}${size.slice(1)}`] = '4';
+      fixture.componentRef.setInput(`lgCol${size[0].toUpperCase()}${size.slice(1)}`, '4');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -81,7 +79,11 @@ describe('LgColDirective', () => {
 
   it('adds column offset class for the specified screen sizes', () => {
     [ 'sm', 'md', 'lg' ].forEach(size => {
-      component[`lgCol${size[0].toUpperCase()}${size.slice(1)}Offset`] = '2';
+      fixture.componentRef.setInput(
+        `lgCol${size[0].toUpperCase()}${size.slice(1)}Offset`,
+        '2',
+      );
+
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(

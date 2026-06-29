@@ -1,4 +1,10 @@
-import { Component, DebugElement, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  inject,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormBuilder,
@@ -129,6 +135,8 @@ describe('LgCheckboxGroupComponent', () => {
     checkboxInstances = checkboxDebugElements.map(debugEl => debugEl.componentInstance);
 
     fixture.detectChanges();
+    await Promise.resolve();
+    fixture.detectChanges();
   });
 
   it('sets the correct variant based on the selector', () => {
@@ -148,7 +156,8 @@ describe('LgCheckboxGroupComponent', () => {
   it('adds the tabindex attribute to the fieldset element', () => {
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBeNull();
 
-    fixture.componentRef.setInput('focus', true);
+    groupInstance.focus = true;
+    groupDebugElement.injector.get(ChangeDetectorRef).markForCheck();
     fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBe('-1');
@@ -164,7 +173,7 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('checks the selected checkbox button when a value is provided', () => {
-    fixture.componentRef.setInput('value', [ 'red' ]);
+    component.form.controls.color.setValue([ 'red' ]);
     fixture.detectChanges();
     const checkedOption: DebugElement = checkboxDebugElements.find(
       checkboxDebugElement => checkboxDebugElement.componentInstance.checked === true,
@@ -174,9 +183,9 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('unchecks the selected checkbox buttons when an empty array value is provided', () => {
-    fixture.componentRef.setInput('value', [ 'red' ]);
+    component.form.controls.color.setValue([ 'red' ]);
     fixture.detectChanges();
-    fixture.componentRef.setInput('value', []);
+    component.form.controls.color.setValue([]);
     fixture.detectChanges();
     const checkedOptions: DebugElement = checkboxDebugElements.find(
       checkboxDebugElement => checkboxDebugElement.componentInstance.checked === true,
@@ -250,7 +259,7 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('updates the model value when selected checkbox options are unselected', () => {
-    fixture.componentRef.setInput('value', [ 'red', 'blue' ]);
+    component.form.controls.color.setValue([ 'red', 'blue' ]);
     fixture.detectChanges();
 
     expect(component.form.controls.color.value.length).toBe(2);
@@ -276,8 +285,10 @@ describe('LgCheckboxGroupComponent', () => {
     );
   });
 
-  it('links the error to the fieldset with the correct aria attributes', () => {
+  it('links the error to the fieldset with the correct aria attributes', async () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
+    fixture.detectChanges();
+    await Promise.resolve();
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
@@ -288,15 +299,15 @@ describe('LgCheckboxGroupComponent', () => {
     );
   });
 
-  it('combines both the hint and error ids to create the aria described attribute', () => {
+  it('combines both the hint and error ids to create the aria described attribute', async () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
+    fixture.detectChanges();
+    await Promise.resolve();
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
     const errorId = errorDebugElement.nativeElement.getAttribute('id');
     const hintId = hintDebugElement.nativeElement.getAttribute('id');
-
-    fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedby')).toBe(
       `${hintId} ${errorId}`,

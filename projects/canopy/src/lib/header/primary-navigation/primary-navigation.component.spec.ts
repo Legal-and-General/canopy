@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ChangeDetectorRef } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import {
@@ -62,7 +62,16 @@ describe('PrimaryNavigationComponent', () => {
 
     describe('toggled state', () => {
       beforeEach(() => {
-        fixture.componentRef.setInput('showResponsiveMenu', true);
+        const navComponent = debugElement.query(By.directive(LgPrimaryNavComponent))
+          .componentInstance as LgPrimaryNavComponent;
+
+        navComponent.showResponsiveMenu = true;
+
+        debugElement
+          .query(By.directive(LgPrimaryNavComponent))
+          .injector.get(ChangeDetectorRef)
+          .markForCheck();
+
         fixture.detectChanges();
       });
 

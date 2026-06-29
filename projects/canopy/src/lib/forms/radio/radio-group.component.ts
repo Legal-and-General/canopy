@@ -1,5 +1,6 @@
 import {
   AfterContentInit,
+  ChangeDetectorRef,
   Component,
   ContentChild,
   ContentChildren,
@@ -46,6 +47,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
   private domService = inject(LgDomService);
   private hostElement = inject(ElementRef);
   private renderer = inject(Renderer2);
+  private cdr = inject(ChangeDetectorRef);
 
   private nextUniqueId = ++uniqueId;
   private _name = `lg-radio-group-${this.nextUniqueId}`;
@@ -107,22 +109,30 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
 
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
+    queueMicrotask(() => {
+      this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+        this.ariaDescribedBy,
+        this._validationElement,
+        element,
+      );
+
+      this.cdr.markForCheck();
+    });
 
     this._hintElement = element;
   }
 
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
+    queueMicrotask(() => {
+      this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+        this.ariaDescribedBy,
+        this._validationElement,
+        element,
+      );
+
+      this.cdr.markForCheck();
+    });
 
     this._validationElement = element;
   }

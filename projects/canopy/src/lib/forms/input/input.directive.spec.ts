@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormControl,
@@ -16,13 +16,14 @@ import { LgInputDirective } from './input.directive';
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form">
-      <input lgInput formControlName="name" />
+      <input lgInput formControlName="name" [block]="block" />
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ FormsModule, ReactiveFormsModule, LgInputDirective ],
 })
 class TestInputComponent {
+  @Input() block = false;
   form = new UntypedFormGroup({
     name: new UntypedFormControl('', [ Validators.required ]),
   });
@@ -34,7 +35,7 @@ describe('LgInputDirective', () => {
   let inputDebugElement: DebugElement;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -53,7 +54,6 @@ describe('LgInputDirective', () => {
     component = fixture.componentInstance;
 
     inputDebugElement = fixture.debugElement.query(By.directive(LgInputDirective));
-
   });
 
   it('adds a unique name', () => {

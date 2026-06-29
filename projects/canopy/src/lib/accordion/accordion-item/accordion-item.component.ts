@@ -108,7 +108,11 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
     if (this.accordionPanelHeading && changes.isActive) {
       const isActive = changes.isActive.currentValue || false;
 
-      this.accordionPanelHeading.isActive = isActive;
+      queueMicrotask(() => {
+        this.accordionPanelHeading.isActive = isActive;
+        this.cdr.markForCheck();
+      });
+
       this.toggleActiveState(isActive);
     }
   }
