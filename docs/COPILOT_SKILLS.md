@@ -149,15 +149,16 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-flag-icon` | `LgFlagIconComponent`, country flags, usage with country names | — |
 | `canopy-icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
 | `canopy-focus` | `LgFocusDirective`, programmatic focus | — |
-| `canopy-shadow` | `LgShadowDirective` deprecation/removal migration guidance | Deprecated/Removed |
+| `canopy-shadow` | `LgShadowDirective` — removed in v30, migration guidance | Removed |
 | `canopy-show-at` | `LgShowAtDirective`, breakpoint-based visibility | — |
 | `canopy-hide-at` | `LgHideAtDirective`, breakpoint-based hiding | — |
 | `canopy-orientation` | `LgOrientationDirective`, responsive vertical/horizontal layout | — |
 | `canopy-feature-toggle` | `LgFeatureToggleModule`, directive, route guard | — |
 | `canopy-pipes-camel-case` | `LgCamelCasePipe` | — |
 | `canopy-pipes-kebab-case` | `LgKebabCasePipe` | — |
-| **Deprecated** | | |
+| **Deprecated/Removed** | | |
 | `canopy-carousel` | Deprecation notice for `LgCarouselComponent` | Deprecated |
+| `canopy-brand-icon` | Removal notice for `LgBrandIconComponent` | Removed |
 | **Styles** | | |
 | `canopy-link` | Anchor styles, external links, icons in links, colour modes | — |
 | `canopy-utils` | `lg-visually-hidden`, `lg-unstyled-link` CSS utility classes | — |
