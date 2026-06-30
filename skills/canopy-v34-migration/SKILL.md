@@ -20,8 +20,8 @@ After completing all sections, follow the **Verification** steps at the end.
 
 | Old value | New value |
 |---|---|
-| `BreadcrumbVariant.light` | `BreadcrumbVariant.page` |
-| `BreadcrumbVariant.dark` | `BreadcrumbVariant.embedded` |
+| `BreadcrumbVariant.light` | `BreadcrumbVariant.embedded` |
+| `BreadcrumbVariant.dark` | `BreadcrumbVariant.page` |
 
 **Search for** (in `*.ts` files):
 ```ts
