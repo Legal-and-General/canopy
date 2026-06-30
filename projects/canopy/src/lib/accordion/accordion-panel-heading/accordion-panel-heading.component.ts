@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -25,7 +24,7 @@ let nextUniqueId = 0;
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ LgHeadingComponent, LgIconComponent ],
 })
-export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
+export class LgAccordionPanelHeadingComponent {
   private cdr = inject(ChangeDetectorRef);
 
   @Input() headingLevel: HeadingLevel;
@@ -44,10 +43,6 @@ export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _isActive = false;
-
-  ngAfterViewChecked() {
-    this.cdr.detectChanges();
-  }
 
   toggle() {
     this.isActive = !this.isActive;

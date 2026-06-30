@@ -43,7 +43,7 @@ describe('LgAccordionComponent', () => {
   let fixture: ComponentFixture<TestAccordionComponent>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       imports: [
         TestAccordionComponent,
         LgAccordionComponent,
@@ -81,8 +81,11 @@ describe('LgAccordionComponent', () => {
     let itemOne: DebugElement;
     let itemTwo: DebugElement;
 
-    beforeEach(() => {
+    beforeEach(async () => {
       component.isMulti = false;
+      fixture.changeDetectorRef.markForCheck();
+      fixture.detectChanges();
+      await Promise.resolve();
       fixture.detectChanges();
 
       const items = fixture.debugElement.queryAll(By.css('lg-accordion-item'));
