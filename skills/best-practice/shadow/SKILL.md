@@ -1,15 +1,15 @@
 ---
 name: canopy-shadow
-description: Deprecation notice for the Canopy Shadow directive. Trigger whenever lgShadow, LgShadowDirective, or related imports appear in an Angular project using Canopy.
+description: Removal notice for the Canopy Shadow directive. Trigger whenever lgShadow, LgShadowDirective, hasHoverState, or related imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/shadow/docs/guide.mdx
 ---
 
-# Canopy Shadow Directive — DEPRECATED
+# Canopy Shadow Directive — REMOVED
 
-> **`LgShadowDirective` is deprecated and will be removed in a future version of Canopy as part of brand modernisation.**
-> Do not use this directive in new work, and migrate away from it in existing code.
+> **`LgShadowDirective` was removed from Canopy's public API in v30** as part of brand modernisation.
+> Any code that still references it will fail at compile time.
 
 ---
 

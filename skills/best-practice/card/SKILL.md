@@ -3,7 +3,7 @@ name: canopy-card
 description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or any card sub-components (including promotion cards) in an Angular project using Canopy.
 license: MIT
 metadata:
-  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/guide.mdx
+  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/promotions/guide.mdx
 ---
 
 # Canopy Card — Best Practices
@@ -69,8 +69,6 @@ Use the `promotion` variant to display promotional content with a hero image or 
 
 ```html
 <lg-card
-  lgShadow
-  [hasHoverState]="true"
   lgMarginBottom="6"
   lgPadding="none"
   variant="promotion"
@@ -84,25 +82,17 @@ Use the `promotion` variant to display promotional content with a hero image or 
 </lg-card>
 ```
 
-Content guidelines for hero image promotions:
-- Title: max 33 characters
-- Description: max 140 characters
-- Link text: max 20 characters
-- Image: max 620px × 620px
+#### Promotion Card with Pictogram
 
-#### Promotion Card with Pictogram (size="sm")
-
-Use a pictogram instead of an image for smaller, simpler promotional content:
+Use a pictogram instead of an image for promotional content:
 
 ```html
 <lg-card
-  lgShadow
-  [hasHoverState]="true"
   lgMarginBottom="6"
   variant="promotion"
-  [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
+  [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
   <lg-card-hero-img>
-    <lg-pictogram [name]="iconName" size="sm"></lg-pictogram>
+    <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
   </lg-card-hero-img>
   <lg-card-content>
     <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
@@ -112,7 +102,6 @@ Use a pictogram instead of an image for smaller, simpler promotional content:
 </lg-card>
 ```
 
-Always use `size="sm"` (160px) for pictograms in promotion cards to maintain consistent visual hierarchy.
 
 #### Promotion Layout: Single Card
 
@@ -121,8 +110,6 @@ Always use `size="sm"` (160px) for pictograms in promotion cards to maintain con
   <div lgRow>
     <div lgColSm="12">
       <lg-card
-        lgShadow
-        [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -146,8 +133,6 @@ Always use `size="sm"` (160px) for pictograms in promotion cards to maintain con
   <div lgRow>
     <div lgColSm="12" lgColLg="6">
       <lg-card
-        lgShadow
-        [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -174,8 +159,6 @@ Always use `size="sm"` (160px) for pictograms in promotion cards to maintain con
   <div lgRow>
     <div lgColSm="12" lgColLg="4">
       <lg-card
-        lgShadow
-        [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -216,13 +199,11 @@ For magazine-style layouts with a separator, combine image and pictogram promoti
     <!-- Two cards with pictograms -->
     <div lgColSm="12" lgColLg="6">
       <lg-card
-        lgShadow
-        [hasHoverState]="true"
         lgMarginBottom="6"
         variant="promotion"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img>
-          <lg-pictogram [name]="iconName" size="sm"></lg-pictogram>
+          <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
         </lg-card-hero-img>
         <lg-card-content>
           <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
@@ -336,8 +317,6 @@ Use `LgCardToggableContentComponent` with the `lgButtonToggle` directive:
 5. **Do** create layouts that make the hierarchy of the page clearly understood.
 6. **Do** keep promotional message content succinct — follow content guidelines (title max 33 chars, description max 140 chars, link max 20 chars).
 7. **Do** use equal amounts of content across all promotion cards in a layout for consistent visual alignment.
-8. **Do** use `size="sm"` when adding pictograms to promotion cards.
-9. **Do** set `[hasHoverState]="true"` on promotion cards to provide interactive feedback.
 
 ### Don't
 
