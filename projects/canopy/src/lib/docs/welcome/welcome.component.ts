@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgMarginDirective } from '../../spacing';
 
@@ -41,6 +41,7 @@ const pageTemplate = `
   ],
   template: pageTemplate,
   styleUrls: [ './welcome.component.scss' ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DocsWelcomePageComponent {
   contributeLinks: Array<{ href: string; text: string }> = [

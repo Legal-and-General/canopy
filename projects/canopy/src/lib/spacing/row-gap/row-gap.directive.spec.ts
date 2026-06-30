@@ -1,5 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, DebugElement, Input, Renderer2 } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  Input,
+  Renderer2,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { SpacingVariant } from '../spacing.interface';
@@ -12,6 +18,7 @@ import { LgRowGapDirective } from './row-gap.directive';
     <div id="test-1" [lgRowGap]="rowGap">Test 1</div>
   `,
   imports: [ LgRowGapDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() rowGap: SpacingVariant;
@@ -20,7 +27,6 @@ class TestComponent {
 describe('LgRowGapDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElements: Array<DebugElement>;
-  let component: TestComponent;
   let renderer: Renderer2;
   let rendererRemoveClassSpy: jest.SpyInstance;
 
@@ -36,7 +42,6 @@ describe('LgRowGapDirective', () => {
     rendererRemoveClassSpy = jest.spyOn(renderer, 'removeClass');
 
     fixture.detectChanges();
-    component = fixture.componentInstance;
 
     testElements = fixture.debugElement.queryAll(By.css('div'));
   });
@@ -52,7 +57,7 @@ describe('LgRowGapDirective', () => {
     ];
 
     tests.forEach(t => {
-      component.rowGap = t.rowGap as SpacingVariant;
+      fixture.componentRef.setInput('rowGap', t.rowGap as SpacingVariant);
       fixture.detectChanges();
 
       const el = testElements[1].nativeElement;

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgHeroCardDataPointComponent } from './hero-card-data-point.component';
 
@@ -6,11 +6,11 @@ describe('HeroCardDataPointComponent', () => {
   let component: LgHeroCardDataPointComponent;
   let fixture: ComponentFixture<LgHeroCardDataPointComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgHeroCardDataPointComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroCardDataPointComponent);

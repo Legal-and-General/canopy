@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgContentAreaTitleComponent } from '../content-area-title/content-area-title.component';
 
@@ -36,6 +36,7 @@ describe('LgContentAreaHeaderComponent', () => {
       `,
       standalone: true,
       imports: [ LgContentAreaHeaderComponent, LgContentAreaTitleComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestContentComponent {}
 
@@ -59,6 +60,7 @@ describe('LgContentAreaHeaderComponent', () => {
       template: ' <lg-content-area-header></lg-content-area-header> ',
       standalone: true,
       imports: [ LgContentAreaHeaderComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestEmptyContentComponent {}
 
@@ -84,6 +86,7 @@ describe('LgContentAreaHeaderComponent', () => {
       `,
       standalone: true,
       imports: [ LgContentAreaHeaderComponent, LgContentAreaTitleComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestSelectiveProjectionComponent {}
 
@@ -111,6 +114,7 @@ describe('LgContentAreaHeaderComponent', () => {
       `,
       standalone: true,
       imports: [ LgContentAreaHeaderComponent, LgContentAreaTitleComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestAnchorProjectionComponent {}
 

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgCardHeroImageComponent } from './card-hero-img.component';
 
@@ -6,11 +6,11 @@ describe('LgCardHeroImageComponent', () => {
   let component: LgCardHeroImageComponent;
   let fixture: ComponentFixture<LgCardHeroImageComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgCardHeroImageComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardHeroImageComponent);
@@ -23,7 +23,7 @@ describe('LgCardHeroImageComponent', () => {
 
   it('should render the correct element if it has cover true', () => {
     component.src = 'test';
-    component.cover = true;
+    fixture.componentRef.setInput('cover', true);
 
     fixture.detectChanges();
 
@@ -35,7 +35,7 @@ describe('LgCardHeroImageComponent', () => {
 
   it('should render the correct element if it has cover false', () => {
     component.src = 'test';
-    component.cover = false;
+    fixture.componentRef.setInput('cover', false);
 
     fixture.detectChanges();
 
@@ -46,7 +46,7 @@ describe('LgCardHeroImageComponent', () => {
   });
 
   it('should set the correct class if it has an image Src', () => {
-    component.src = 'test';
+    fixture.componentRef.setInput('src', 'test');
 
     fixture.detectChanges();
 
@@ -57,7 +57,7 @@ describe('LgCardHeroImageComponent', () => {
 
   it('should set the correct alt text if it has an image Src and a image Alt', () => {
     component.src = 'test';
-    component.alt = 'alt-test';
+    fixture.componentRef.setInput('alt', 'alt-test');
 
     fixture.detectChanges();
 
@@ -68,7 +68,7 @@ describe('LgCardHeroImageComponent', () => {
 
   it('should set the correct backgroundImage if it has a cover image URL', () => {
     component.cover = true;
-    component.src = 'test';
+    fixture.componentRef.setInput('src', 'test');
 
     fixture.detectChanges();
 
@@ -79,7 +79,7 @@ describe('LgCardHeroImageComponent', () => {
   });
 
   it('should set the correct class if it does not have a Image src', () => {
-    component.src = undefined;
+    fixture.componentRef.setInput('src', undefined);
 
     fixture.detectChanges();
 

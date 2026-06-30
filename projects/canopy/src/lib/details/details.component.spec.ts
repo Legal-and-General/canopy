@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
@@ -14,7 +14,7 @@ describe('LgDetailsComponent', () => {
   let detailsDebugElement: DebugElement;
   let detailsEl: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         LgDetailsComponent,
@@ -22,7 +22,7 @@ describe('LgDetailsComponent', () => {
         MockComponents(LgIconComponent, LgHeadingComponent),
       ],
     }).compileComponents();
-  }));
+  });
 
   describe('component', () => {
     beforeEach(() => {

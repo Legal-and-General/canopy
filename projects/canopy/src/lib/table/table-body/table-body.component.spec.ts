@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgTableBodyComponent } from './table-body.component';
 
@@ -6,11 +6,11 @@ describe('LgTableBodyComponent', () => {
   let component: LgTableBodyComponent;
   let fixture: ComponentFixture<LgTableBodyComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgTableBodyComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableBodyComponent);

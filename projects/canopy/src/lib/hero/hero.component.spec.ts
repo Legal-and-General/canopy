@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgHeroComponent } from './hero.component';
 
@@ -9,11 +9,11 @@ describe('LgHeroComponent', () => {
   let debugElement: DebugElement;
   let componentElement: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgHeroComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroComponent);
@@ -33,7 +33,7 @@ describe('LgHeroComponent', () => {
 
   describe('when the overlap is set to -2', () => {
     beforeEach(() => {
-      component.overlap = -2;
+      fixture.componentRef.setInput('overlap', -2);
       fixture.detectChanges();
       fixture.detectChanges();
     });
@@ -49,7 +49,7 @@ describe('LgHeroComponent', () => {
 
   describe('when the overlap is set to 10', () => {
     beforeEach(() => {
-      component.overlap = 10;
+      fixture.componentRef.setInput('overlap', 10);
       fixture.detectChanges();
     });
 
@@ -64,7 +64,7 @@ describe('LgHeroComponent', () => {
 
   describe('when the overlap is set to null', () => {
     beforeEach(() => {
-      component.overlap = null;
+      fixture.componentRef.setInput('overlap', null);
       fixture.detectChanges();
     });
 
@@ -79,7 +79,7 @@ describe('LgHeroComponent', () => {
 
   describe('when the overlap is set to undefined', () => {
     beforeEach(() => {
-      component.overlap = undefined;
+      fixture.componentRef.setInput('overlap', undefined);
       fixture.detectChanges();
     });
 

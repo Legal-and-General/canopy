@@ -1,4 +1,11 @@
-import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  ViewEncapsulation,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import type { Status } from '../../status';
 import { LgStatusDirective } from '../../status';
@@ -18,6 +25,7 @@ let nextUniqueId = 0;
       inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
     },
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgValidationComponent {
   private readonly statusDirective = inject(LgStatusDirective);

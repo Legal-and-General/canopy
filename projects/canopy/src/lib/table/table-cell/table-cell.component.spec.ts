@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponent, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
@@ -15,11 +15,11 @@ describe('LgTableCellComponent', () => {
     | MockedComponentFixture<LgTableCellComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgTableCellComponent, MockComponent(LgTableExpandedDetailComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTableCellComponent);
@@ -74,7 +74,7 @@ describe('LgTableCellComponent', () => {
 
   describe('when stack is set to true', () => {
     beforeEach(() => {
-      component.stack = true;
+      fixture.componentRef.setInput('stack', true);
       fixture.detectChanges();
     });
 
@@ -87,7 +87,7 @@ describe('LgTableCellComponent', () => {
 
   describe('when stack is set to false', () => {
     beforeEach(() => {
-      component.stack = false;
+      fixture.componentRef.setInput('stack', false);
       fixture.detectChanges();
     });
 

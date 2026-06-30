@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { UniqueSelectionDispatcher } from './unique-selection-dispatcher';
 
@@ -17,14 +17,14 @@ describe('SingleItemDispatcherService', () => {
     expect(dispatcher).toBeTruthy();
   });
 
-  it('should add listener', waitForAsync(() => {
+  it('should add listener', async () => {
     dispatcher.listen((_id: string, _context: string) => {
       expect(_id).toBe(id);
       expect(_context).toBe(context);
     });
 
     dispatcher.notify(id, context);
-  }));
+  });
 
   it('should remove listener', () => {
     const spy = jest.fn();

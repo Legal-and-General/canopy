@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgFlagIconComponent } from './flag-icon.component';
 import { LgFlagIconRegistry } from './flag-icon.registry';
@@ -8,7 +8,7 @@ describe('LgFlagIconComponent', () => {
   let fixture: ComponentFixture<LgFlagIconComponent>;
   let flagIconRegistryMock: jest.Mocked<LgFlagIconRegistry>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     flagIconRegistryMock = {
       get: jest.fn(),
     } as unknown as jest.Mocked<LgFlagIconRegistry>;
@@ -22,7 +22,7 @@ describe('LgFlagIconComponent', () => {
         },
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgFlagIconComponent);
@@ -49,7 +49,7 @@ describe('LgFlagIconComponent', () => {
 
       flagIconRegistryMock.get.mockResolvedValue('<svg id="test">test-svg</svg>');
 
-      component.name = 'united-kingdom';
+      fixture.componentRef.setInput('name', 'united-kingdom');
       fixture.detectChanges();
       await fixture.whenStable();
 

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
@@ -15,11 +15,11 @@ describe('LgDataPointGroupComponent', () => {
   let dataPointDebugElements: Array<DebugElement>;
   let dataPointInstances: Array<LgDataPointComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgDataPointGroupComponent, MockComponent(LgDataPointComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();

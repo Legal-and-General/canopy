@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -20,6 +20,7 @@ import { LgGridColDirective } from './grid-col.directive';
     </div>
   `,
   imports: [ LgGridColDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgCol;
@@ -35,7 +36,6 @@ class TestComponent {
 describe('LgColDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElement: DebugElement;
-  let component: TestComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -44,7 +44,6 @@ describe('LgColDirective', () => {
 
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
-    component = fixture.componentInstance;
 
     testElement = fixture.debugElement.query(By.css('div'));
 
@@ -52,7 +51,7 @@ describe('LgColDirective', () => {
   });
 
   it('adds column class for the default screen size', () => {
-    component.lgCol = '12';
+    fixture.componentRef.setInput('lgCol', '12');
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toContain('lg-col-sm-12');
@@ -60,7 +59,7 @@ describe('LgColDirective', () => {
 
   it('adds column class for the specified screen sizes', () => {
     [ 'sm', 'md', 'lg' ].forEach(size => {
-      component[`lgCol${size[0].toUpperCase()}${size.slice(1)}`] = '4';
+      fixture.componentRef.setInput(`lgCol${size[0].toUpperCase()}${size.slice(1)}`, '4');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -70,7 +69,7 @@ describe('LgColDirective', () => {
   });
 
   it('adds column offset class for the default screen size', () => {
-    component.lgColOffset = 2;
+    fixture.componentRef.setInput('lgColOffset', 2);
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -80,7 +79,11 @@ describe('LgColDirective', () => {
 
   it('adds column offset class for the specified screen sizes', () => {
     [ 'sm', 'md', 'lg' ].forEach(size => {
-      component[`lgCol${size[0].toUpperCase()}${size.slice(1)}Offset`] = '2';
+      fixture.componentRef.setInput(
+        `lgCol${size[0].toUpperCase()}${size.slice(1)}Offset`,
+        '2',
+      );
+
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(

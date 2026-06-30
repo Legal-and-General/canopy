@@ -1,5 +1,5 @@
-import { Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockDirective } from 'ng-mocks';
 
@@ -32,6 +32,7 @@ import { LgAccordionComponent } from './accordion.component';
     LgAccordionComponent,
     LgAccordionPanelHeadingComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestAccordionComponent {
   isMulti = true;
@@ -41,8 +42,8 @@ describe('LgAccordionComponent', () => {
   let component: TestAccordionComponent;
   let fixture: ComponentFixture<TestAccordionComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         TestAccordionComponent,
         LgAccordionComponent,
@@ -52,7 +53,7 @@ describe('LgAccordionComponent', () => {
         MockDirective(LgAccordionItemContentDirective),
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestAccordionComponent);
@@ -80,8 +81,11 @@ describe('LgAccordionComponent', () => {
     let itemOne: DebugElement;
     let itemTwo: DebugElement;
 
-    beforeEach(() => {
+    beforeEach(async () => {
       component.isMulti = false;
+      fixture.changeDetectorRef.markForCheck();
+      fixture.detectChanges();
+      await Promise.resolve();
       fixture.detectChanges();
 
       const items = fixture.debugElement.queryAll(By.css('lg-accordion-item'));

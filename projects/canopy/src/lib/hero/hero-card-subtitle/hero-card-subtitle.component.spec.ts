@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgHeroCardSubtitleComponent } from './hero-card-subtitle.component';
 
@@ -6,11 +6,11 @@ describe('HeroCardSubtitleComponent', () => {
   let component: LgHeroCardSubtitleComponent;
   let fixture: ComponentFixture<LgHeroCardSubtitleComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgHeroCardSubtitleComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeroCardSubtitleComponent);

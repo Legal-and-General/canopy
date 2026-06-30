@@ -32,6 +32,8 @@
         "projects/canopy/storybook/*"
       ],
     },
+    "ignoreDeprecations": "6.0",
+    "strict": false,
     "useDefineForClassFields": false
   }
 }

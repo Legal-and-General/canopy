@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgCardContentInnerDataPointsComponent } from './card-content-inner-data-points.component';
 
@@ -6,11 +6,11 @@ describe('LgCardContentInnerDataPointsComponent', () => {
   let component: LgCardContentInnerDataPointsComponent;
   let fixture: ComponentFixture<LgCardContentInnerDataPointsComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgCardContentInnerDataPointsComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardContentInnerDataPointsComponent);

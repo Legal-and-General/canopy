@@ -1,4 +1,9 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 import type { HeadingLevel } from './heading.interface';
@@ -12,6 +17,7 @@ import type { HeadingLevel } from './heading.interface';
     class: 'lg-heading',
   },
   imports: [ NgTemplateOutlet ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgHeadingComponent {
   @Input() level: HeadingLevel;

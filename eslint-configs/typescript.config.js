@@ -28,8 +28,23 @@ export default [
       jest: jestEslint,
     },
     rules: {
-      // Include recommended rules from each plugin
-      ...angularESLintPlugin.configs.recommended.rules,
+      // Angular ESLint recommended rules
+      '@angular-eslint/contextual-lifecycle': 'error',
+      '@angular-eslint/no-empty-lifecycle-method': 'error',
+      '@angular-eslint/no-input-rename': 'error',
+      '@angular-eslint/no-inputs-metadata-property': 'error',
+      '@angular-eslint/no-output-native': 'error',
+      '@angular-eslint/no-output-on-prefix': 'error',
+      '@angular-eslint/no-output-rename': 'error',
+      '@angular-eslint/no-outputs-metadata-property': 'error',
+      '@angular-eslint/prefer-inject': 'error',
+      // Disabled: many components still use ChangeDetectionStrategy.Default;
+      // migrate to OnPush incrementally as a separate task.
+      '@angular-eslint/prefer-on-push-component-change-detection': 'off',
+      '@angular-eslint/prefer-standalone': 'error',
+      '@angular-eslint/use-pipe-transform-interface': 'error',
+
+      // TypeScript ESLint recommended rules
       ...typescriptESLintPlugin.configs.recommended.rules,
       ...typescriptESLintPlugin.configs['recommended-requiring-type-checking'].rules,
 

@@ -1,5 +1,5 @@
-import { Component, DebugElement, Input } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Component, DebugElement, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgPaddingDirective } from './padding.directive';
@@ -26,6 +26,7 @@ import { LgPaddingDirective } from './padding.directive';
     </div>
   `,
   imports: [ LgPaddingDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgPadding;
@@ -47,26 +48,24 @@ class TestComponent {
 describe('LgPadding', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElement: DebugElement;
-  let component: TestComponent;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ TestComponent, LgPaddingDirective ],
     }).compileComponents();
-  }));
+  });
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(TestComponent);
-    component = fixture.componentInstance;
 
     testElement = fixture.debugElement.query(By.css('div'));
 
     fixture.detectChanges();
-  }));
+  });
 
   describe('Non-responsive padding', () => {
     it('renders the same padding all round', () => {
-      component.lgPadding = '3';
+      fixture.componentRef.setInput('lgPadding', '3');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain('lg-padding--3');
@@ -74,7 +73,11 @@ describe('LgPadding', () => {
 
     it('adds paddings to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = '9';
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          '9',
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -85,14 +88,22 @@ describe('LgPadding', () => {
 
     it('updates paddings to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = '9';
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          '9',
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
           `lg-padding__${side}--9`,
         );
 
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = '5';
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          '5',
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).not.toContain(
@@ -106,7 +117,7 @@ describe('LgPadding', () => {
     });
 
     it('adds paddings of none to all sides', () => {
-      component.lgPadding = 'none';
+      fixture.componentRef.setInput('lgPadding', 'none');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -116,7 +127,11 @@ describe('LgPadding', () => {
 
     it('adds paddings of none to specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = 'none';
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          'none',
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -126,7 +141,7 @@ describe('LgPadding', () => {
     });
 
     it('adds paddings to top and bottom when the vertical directive is applied', () => {
-      component.lgPaddingVertical = '6';
+      fixture.componentRef.setInput('lgPaddingVertical', '6');
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -137,7 +152,7 @@ describe('LgPadding', () => {
     });
 
     it('adds paddings to left and right when the horizontal directive is applied', () => {
-      component.lgPaddingHorizontal = '8';
+      fixture.componentRef.setInput('lgPaddingHorizontal', '8');
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -150,7 +165,7 @@ describe('LgPadding', () => {
 
   describe('Responsive padding', () => {
     it('adds responsive padding to all of the sides', () => {
-      component.lgPadding = { sm: '5', md: '6' };
+      fixture.componentRef.setInput('lgPadding', { sm: '5', md: '6' });
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -162,7 +177,11 @@ describe('LgPadding', () => {
 
     it('adds responsive padding to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          { md: '6' },
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -173,14 +192,22 @@ describe('LgPadding', () => {
 
     it('updates responsive padding to the specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { md: '6' };
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          { md: '6' },
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
           `lg-padding__${side}--md--6`,
         );
 
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { lg: '9' };
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          { lg: '9' },
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).not.toContain(
@@ -194,7 +221,7 @@ describe('LgPadding', () => {
     });
 
     it('adds paddings of none to all sides', () => {
-      component.lgPadding = { sm: 'none' };
+      fixture.componentRef.setInput('lgPadding', { sm: 'none' });
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -204,7 +231,11 @@ describe('LgPadding', () => {
 
     it('adds responsive padding of none to specified sides', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
-        component[`lgPadding${side[0].toUpperCase()}${side.slice(1)}`] = { md: 'none' };
+        fixture.componentRef.setInput(
+          `lgPadding${side[0].toUpperCase()}${side.slice(1)}`,
+          { md: 'none' },
+        );
+
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -214,7 +245,7 @@ describe('LgPadding', () => {
     });
 
     it('adds respsonsive padding to top and bottom when the vertical directive is applied', () => {
-      component.lgPaddingVertical = { md: '8' };
+      fixture.componentRef.setInput('lgPaddingVertical', { md: '8' });
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -225,7 +256,7 @@ describe('LgPadding', () => {
     });
 
     it('adds respsonsive padding to left and right when the horizontal directive is applied', () => {
-      component.lgPaddingHorizontal = { md: '8' };
+      fixture.componentRef.setInput('lgPaddingHorizontal', { md: '8' });
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -238,8 +269,8 @@ describe('LgPadding', () => {
 
   describe('NoneAt padding', () => {
     it('adds noneAt class for all sides', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = 'md';
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', 'md');
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -252,8 +283,8 @@ describe('LgPadding', () => {
       [ 'top', 'right', 'bottom', 'left' ].forEach(side => {
         const sideCapitalized = side[0].toUpperCase() + side.slice(1);
 
-        component[`lgPadding${sideCapitalized}`] = '6';
-        component[`lgPadding${sideCapitalized}NoneAt`] = 'lg';
+        fixture.componentRef.setInput(`lgPadding${sideCapitalized}`, '6');
+        fixture.componentRef.setInput(`lgPadding${sideCapitalized}NoneAt`, 'lg');
         fixture.detectChanges();
 
         const el = testElement.nativeElement.getAttribute('class');
@@ -264,8 +295,8 @@ describe('LgPadding', () => {
     });
 
     it('adds noneAt class for horizontal paddings', () => {
-      component.lgPaddingHorizontal = '7';
-      component.lgPaddingHorizontalNoneAt = 'xl';
+      fixture.componentRef.setInput('lgPaddingHorizontal', '7');
+      fixture.componentRef.setInput('lgPaddingHorizontalNoneAt', 'xl');
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -277,8 +308,8 @@ describe('LgPadding', () => {
     });
 
     it('adds noneAt class for vertical paddings', () => {
-      component.lgPaddingVertical = '8';
-      component.lgPaddingVerticalNoneAt = 'sm';
+      fixture.componentRef.setInput('lgPaddingVertical', '8');
+      fixture.componentRef.setInput('lgPaddingVerticalNoneAt', 'sm');
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -290,15 +321,15 @@ describe('LgPadding', () => {
     });
 
     it('updates noneAt class when breakpoint changes', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = 'md';
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', 'md');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
         'lg-padding--md--none',
       );
 
-      component.lgPaddingNoneAt = 'lg';
+      fixture.componentRef.setInput('lgPaddingNoneAt', 'lg');
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -308,15 +339,15 @@ describe('LgPadding', () => {
     });
 
     it('removes noneAt class when set to null', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = 'md';
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', 'md');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
         'lg-padding--md--none',
       );
 
-      component.lgPaddingNoneAt = null;
+      fixture.componentRef.setInput('lgPaddingNoneAt', null);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).not.toContain(
@@ -326,8 +357,8 @@ describe('LgPadding', () => {
 
     it('works with all breakpoints', () => {
       [ 'sm', 'md', 'lg', 'xl', 'xxl' ].forEach(breakpoint => {
-        component.lgPadding = '5';
-        component.lgPaddingNoneAt = breakpoint;
+        fixture.componentRef.setInput('lgPadding', '5');
+        fixture.componentRef.setInput('lgPaddingNoneAt', breakpoint);
         fixture.detectChanges();
 
         expect(testElement.nativeElement.getAttribute('class')).toContain(
@@ -337,8 +368,8 @@ describe('LgPadding', () => {
     });
 
     it('works with array of breakpoints', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = [ 'sm', 'lg' ];
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', [ 'sm', 'lg' ]);
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -349,8 +380,8 @@ describe('LgPadding', () => {
     });
 
     it('works with array of breakpoints for individual sides', () => {
-      component.lgPaddingTop = '6';
-      component.lgPaddingTopNoneAt = [ 'md', 'xl' ];
+      fixture.componentRef.setInput('lgPaddingTop', '6');
+      fixture.componentRef.setInput('lgPaddingTopNoneAt', [ 'md', 'xl' ]);
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -362,8 +393,8 @@ describe('LgPadding', () => {
     });
 
     it('works with array of breakpoints for horizontal padding', () => {
-      component.lgPaddingHorizontal = '7';
-      component.lgPaddingHorizontalNoneAt = [ 'sm', 'xxl' ];
+      fixture.componentRef.setInput('lgPaddingHorizontal', '7');
+      fixture.componentRef.setInput('lgPaddingHorizontalNoneAt', [ 'sm', 'xxl' ]);
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -375,8 +406,8 @@ describe('LgPadding', () => {
     });
 
     it('works with array of breakpoints for vertical padding', () => {
-      component.lgPaddingVertical = '8';
-      component.lgPaddingVerticalNoneAt = [ 'md', 'lg' ];
+      fixture.componentRef.setInput('lgPaddingVertical', '8');
+      fixture.componentRef.setInput('lgPaddingVerticalNoneAt', [ 'md', 'lg' ]);
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -388,8 +419,8 @@ describe('LgPadding', () => {
     });
 
     it('filters duplicate breakpoints in arrays', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = [ 'sm', 'sm', 'lg' ];
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', [ 'sm', 'sm', 'lg' ]);
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -400,15 +431,15 @@ describe('LgPadding', () => {
     });
 
     it('handles empty array by removing all noneAt classes', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = 'md';
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', 'md');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
         'lg-padding--md--none',
       );
 
-      component.lgPaddingNoneAt = [];
+      fixture.componentRef.setInput('lgPaddingNoneAt', []);
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).not.toContain(
@@ -417,15 +448,15 @@ describe('LgPadding', () => {
     });
 
     it('updates classes when switching from single to array breakpoint', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = 'md';
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', 'md');
       fixture.detectChanges();
 
       expect(testElement.nativeElement.getAttribute('class')).toContain(
         'lg-padding--md--none',
       );
 
-      component.lgPaddingNoneAt = [ 'sm', 'lg' ];
+      fixture.componentRef.setInput('lgPaddingNoneAt', [ 'sm', 'lg' ]);
       fixture.detectChanges();
 
       const el = testElement.nativeElement.getAttribute('class');
@@ -436,8 +467,8 @@ describe('LgPadding', () => {
     });
 
     it('updates classes when switching from array to single breakpoint', () => {
-      component.lgPadding = '5';
-      component.lgPaddingNoneAt = [ 'sm', 'lg' ];
+      fixture.componentRef.setInput('lgPadding', '5');
+      fixture.componentRef.setInput('lgPaddingNoneAt', [ 'sm', 'lg' ]);
       fixture.detectChanges();
 
       let el = testElement.nativeElement.getAttribute('class');
@@ -445,7 +476,7 @@ describe('LgPadding', () => {
       expect(el).toContain('lg-padding--sm--none');
       expect(el).toContain('lg-padding--lg--none');
 
-      component.lgPaddingNoneAt = 'xl';
+      fixture.componentRef.setInput('lgPaddingNoneAt', 'xl');
       fixture.detectChanges();
 
       el = testElement.nativeElement.getAttribute('class');

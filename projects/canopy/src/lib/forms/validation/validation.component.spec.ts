@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgIconComponent } from '../../icon';
@@ -9,7 +9,7 @@ describe('LgValidationComponent', () => {
   let component: LgValidationComponent;
   let fixture: ComponentFixture<LgValidationComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgValidationComponent ],
     }).compileComponents();
@@ -17,7 +17,7 @@ describe('LgValidationComponent', () => {
     fixture = TestBed.createComponent(LgValidationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -34,7 +34,7 @@ describe('LgValidationComponent', () => {
   });
 
   it('does not render an icon when showIcon is set to false', () => {
-    component.showIcon = false;
+    fixture.componentRef.setInput('showIcon', false);
     fixture.detectChanges();
     const icon = fixture.debugElement.query(By.directive(LgIconComponent));
 

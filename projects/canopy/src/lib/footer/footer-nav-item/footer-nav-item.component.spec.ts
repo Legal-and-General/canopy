@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgFooterNavItemComponent } from './footer-nav-item.component';
@@ -8,11 +8,11 @@ describe('LgFooterNavComponent', () => {
   let fixture: MockedComponentFixture<LgFooterNavItemComponent>;
   let footerNavItemNativeEl: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgFooterNavItemComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();

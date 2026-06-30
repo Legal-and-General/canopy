@@ -6,6 +6,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import type { PromoCardVariant } from '../promo-card.interface';
@@ -19,6 +20,7 @@ import type { PromoCardVariant } from '../promo-card.interface';
   styleUrls: [ './promo-card.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgPromoCardComponent {
   private renderer = inject(Renderer2);

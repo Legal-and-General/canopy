@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponents } from 'ng-mocks';
 
 import { LgIconComponent } from '../icon';
@@ -9,7 +9,7 @@ describe('LgLinkMenuComponent', () => {
   let component: LgLinkMenuComponent;
   let fixture: ComponentFixture<LgLinkMenuComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgLinkMenuComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
@@ -17,7 +17,7 @@ describe('LgLinkMenuComponent', () => {
     fixture = TestBed.createComponent(LgLinkMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

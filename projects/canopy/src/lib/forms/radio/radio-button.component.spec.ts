@@ -1,6 +1,12 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, inject, Input } from '@angular/core';
+import {
+  Component,
+  DebugElement,
+  inject,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -42,6 +48,7 @@ const hintTestId = 'test-hint-id';
     LgRadioGroupComponent,
     LgHintComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestRadioButtonComponent {
   private fb = inject(UntypedFormBuilder);
@@ -71,7 +78,7 @@ describe('LgRadioButtonComponent', () => {
   let hintDebugElement: DebugElement;
   let inputDebugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     };
@@ -109,7 +116,7 @@ describe('LgRadioButtonComponent', () => {
 
     inputDebugElement = testFixture.debugElement.queryAll(By.css('input'))[1];
     hintDebugElement = testFixture.debugElement.query(By.directive(LgHintComponent));
-  }));
+  });
 
   it('sets its name from the radio group name', () => {
     expect(component.name).toBe('color');
@@ -143,7 +150,7 @@ describe('LgRadioButtonComponent', () => {
     radioGroupMock.variant = 'radio';
     fixture = TestBed.createComponent(LgRadioButtonComponent);
     component = fixture.componentInstance;
-    component.size = 'sm';
+    fixture.componentRef.setInput('size', 'sm');
     fixture.detectChanges();
 
     expect(
@@ -152,7 +159,7 @@ describe('LgRadioButtonComponent', () => {
 
     expect(fixture.debugElement.query(By.css('.lg-radio-button__label--lg'))).toBeNull();
 
-    component.size = 'lg';
+    fixture.componentRef.setInput('size', 'lg');
     fixture.detectChanges();
 
     expect(

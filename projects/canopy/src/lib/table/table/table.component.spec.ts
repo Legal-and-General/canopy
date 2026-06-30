@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed, ChangeDetectorRef } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockRender, ngMocks } from 'ng-mocks';
 
@@ -34,7 +34,7 @@ describe('TableComponent', () => {
   let debugElement: DebugElement;
   let tableDebugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         LgTableComponent,
@@ -82,7 +82,7 @@ describe('TableComponent', () => {
     component = fixture.debugElement.children[0].componentInstance;
     tableDebugElement = debugElement.query(By.directive(LgTableComponent));
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -101,6 +101,7 @@ describe('TableComponent', () => {
   describe('when a variant is specified', () => {
     it('should set the correct class modifier', () => {
       component.variant = 'bordered';
+      tableDebugElement.injector.get(ChangeDetectorRef).markForCheck();
       fixture.detectChanges();
 
       expect(tableDebugElement.nativeElement.getAttribute('class')).toContain(

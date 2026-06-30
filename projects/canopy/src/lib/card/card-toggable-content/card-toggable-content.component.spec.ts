@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from '../card.interface';
 
@@ -9,11 +9,11 @@ describe('LgCardToggableContentComponent', () => {
   let fixture: ComponentFixture<LgCardToggableContentComponent>;
   let el: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgCardToggableContentComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgCardToggableContentComponent);

@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
@@ -33,7 +33,7 @@ describe('LgInputFieldComponent', () => {
   const suffixText = 'suffix';
   const prefixText = 'prefix';
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -58,7 +58,7 @@ describe('LgInputFieldComponent', () => {
         },
       ],
     }).compileComponents();
-  }));
+  });
 
   function renderComponent({
     block = false,

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgIconComponent } from './icon.component';
 import { LgIconRegistry } from './icon.registry';
@@ -8,7 +8,7 @@ describe('LgIconComponent', () => {
   let fixture: ComponentFixture<LgIconComponent>;
   let iconRegistryMock: jest.Mocked<LgIconRegistry>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     iconRegistryMock = {
       get: jest.fn(),
     } as unknown as jest.Mocked<LgIconRegistry>;
@@ -22,7 +22,7 @@ describe('LgIconComponent', () => {
         },
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgIconComponent);
@@ -49,7 +49,7 @@ describe('LgIconComponent', () => {
 
       iconRegistryMock.get.mockResolvedValue('<svg id="test">test-svg</svg>');
 
-      component.name = 'add';
+      fixture.componentRef.setInput('name', 'add');
       fixture.detectChanges();
       await fixture.whenStable();
 
@@ -68,7 +68,7 @@ describe('LgIconComponent', () => {
 
       iconRegistryMock.get.mockResolvedValue(undefined);
 
-      component.name = 'add';
+      fixture.componentRef.setInput('name', 'add');
       fixture.detectChanges();
       await fixture.whenStable();
 

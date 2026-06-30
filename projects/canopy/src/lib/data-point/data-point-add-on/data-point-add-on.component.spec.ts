@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MockRender } from 'ng-mocks';
 
@@ -10,11 +10,11 @@ describe('LgDataPointAddOnComponent', () => {
   let debugElement: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgDataPointAddOnComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = MockRender(`

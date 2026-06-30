@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
+import { IconName } from '../../icon/ui-icons-files.interface';
 
 @Component({
   selector: 'lg-link-menu-item',
@@ -31,9 +32,9 @@ export class LgLinkMenuItemComponent implements OnInit {
 
   openInANewTab = false;
 
-  get rightIconName(): string | null {
+  get rightIconName(): IconName | null {
     if (this.rightIcon !== undefined) {
-      return this.rightIcon;
+      return this.rightIcon as IconName;
     }
 
     return this.openInANewTab

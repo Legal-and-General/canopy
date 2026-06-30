@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgHeadingComponent } from './heading.component';
@@ -7,11 +7,11 @@ describe('LgHeadingComponent', () => {
   let component: LgHeadingComponent;
   let fixture: ComponentFixture<LgHeadingComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgHeadingComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgHeadingComponent);
@@ -33,7 +33,7 @@ describe('LgHeadingComponent', () => {
     });
 
     it('should show the correct heading level based on the input specified', () => {
-      component.level = 4;
+      fixture.componentRef.setInput('level', 4);
       fixture.detectChanges();
 
       expect(fixture.debugElement.query(By.css('h4'))).toBeDefined();

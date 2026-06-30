@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ChangeDetectionStrategy, Component, DebugElement, Input } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormControl,
   UntypedFormGroup,
@@ -16,13 +16,14 @@ import { LgInputDirective } from './input.directive';
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form">
-      <input lgInput formControlName="name" />
+      <input lgInput formControlName="name" [block]="block" />
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ FormsModule, ReactiveFormsModule, LgInputDirective ],
 })
 class TestInputComponent {
+  @Input() block = false;
   form = new UntypedFormGroup({
     name: new UntypedFormControl('', [ Validators.required ]),
   });
@@ -32,10 +33,9 @@ describe('LgInputDirective', () => {
   let fixture: ComponentFixture<TestInputComponent>;
   let component: TestInputComponent;
   let inputDebugElement: DebugElement;
-  let inputInstance: LgInputDirective;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -54,9 +54,7 @@ describe('LgInputDirective', () => {
     component = fixture.componentInstance;
 
     inputDebugElement = fixture.debugElement.query(By.directive(LgInputDirective));
-
-    inputInstance = inputDebugElement.injector.get<LgInputDirective>(LgInputDirective);
-  }));
+  });
 
   it('adds a unique name', () => {
     fixture.detectChanges();
@@ -71,7 +69,7 @@ describe('LgInputDirective', () => {
   });
 
   it('adds a block class when the block property is set', () => {
-    inputInstance.block = true;
+    fixture.componentRef.setInput('block', true);
     fixture.detectChanges();
 
     expect(inputDebugElement.nativeElement.className).toContain('lg-input--block');

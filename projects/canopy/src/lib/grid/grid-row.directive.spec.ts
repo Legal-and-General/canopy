@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -7,6 +7,7 @@ import { LgGridRowDirective } from './grid-row.directive';
 @Component({
   template: ' <div lgRow>Test feature</div> ',
   imports: [ LgGridRowDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {}
 

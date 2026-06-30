@@ -1,4 +1,11 @@
-import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  ViewEncapsulation,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import type { Status, Theme } from '../status';
 import { LgStatusDirective } from '../status';
@@ -25,6 +32,7 @@ const statusIcons: Record<Status, IconName> = {
       inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
     },
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgAlertComponent {
   private explicitRole: string;

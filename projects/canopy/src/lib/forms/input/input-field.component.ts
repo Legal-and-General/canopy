@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -41,6 +42,7 @@ let nextUniqueId = 0;
     LgInputDirective,
     LgInputFieldExternalButtonDirective,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private domService = inject(LgDomService);

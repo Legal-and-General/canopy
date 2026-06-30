@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
@@ -22,7 +22,7 @@ describe('LgModalTriggerComponent', () => {
   let focusSpy: jest.SpyInstance;
   const isOpen$ = new BehaviorSubject(true);
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     modalServiceMock = {
       isOpen$: jest.fn(),
       open: jest.fn(),
@@ -48,7 +48,7 @@ describe('LgModalTriggerComponent', () => {
     focusSpy = jest.spyOn(triggerDebugElement.nativeElement, 'focus');
 
     fixture.detectChanges();
-  }));
+  });
 
   it('should open the modal on click of the trigger element', () => {
     const clickedSpy = jest.spyOn(triggerInstance.clicked, 'emit');

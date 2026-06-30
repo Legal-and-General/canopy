@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgBrandIconComponent } from './brand-icon.component';
 import { LgBrandIconRegistry } from './brand-icon.registry';
@@ -8,7 +8,7 @@ describe('LgBrandIconComponent', () => {
   let fixture: ComponentFixture<LgBrandIconComponent>;
   let brandIconRegistryMock: jest.Mocked<LgBrandIconRegistry>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     brandIconRegistryMock = {
       get: jest.fn(),
     } as unknown as jest.Mocked<LgBrandIconRegistry>;
@@ -22,7 +22,7 @@ describe('LgBrandIconComponent', () => {
         },
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgBrandIconComponent);
@@ -51,7 +51,7 @@ describe('LgBrandIconComponent', () => {
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
-      component.name = 'sun';
+      fixture.componentRef.setInput('name', 'sun');
       fixture.detectChanges();
       await fixture.whenStable();
 
@@ -97,7 +97,7 @@ describe('LgBrandIconComponent', () => {
 
     describe('when specified', () => {
       it('should apply the specific colour', () => {
-        component.colour = '--colour-css-variable';
+        fixture.componentRef.setInput('colour', '--colour-css-variable');
         fixture.detectChanges();
         const el = fixture.nativeElement.querySelector(
           '[data-colour="lg-icon-fill-primary"]',
@@ -112,7 +112,7 @@ describe('LgBrandIconComponent', () => {
         '<svg id="test">test-svg<path id="no-color"></path></svg>',
       );
 
-      component.name = 'sun';
+      fixture.componentRef.setInput('name', 'sun');
       fixture.detectChanges();
       await fixture.whenStable();
 
@@ -130,7 +130,7 @@ describe('LgBrandIconComponent', () => {
       );
 
       component.name = 'sun';
-      component.halfToneColour = '--colour-css-variable';
+      fixture.componentRef.setInput('halfToneColour', '--colour-css-variable');
       fixture.detectChanges();
       await fixture.whenStable();
 
@@ -149,7 +149,7 @@ describe('LgBrandIconComponent', () => {
       );
 
       component.name = 'sun';
-      component.outlinesColour = 'rgb(102, 102, 102)';
+      fixture.componentRef.setInput('outlinesColour', 'rgb(102, 102, 102)');
       fixture.detectChanges();
       await fixture.whenStable();
 
@@ -172,7 +172,7 @@ describe('LgBrandIconComponent', () => {
 
     describe('when specified', () => {
       it('should set the correct class modifier', () => {
-        component.size = 'md';
+        fixture.componentRef.setInput('size', 'md');
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(

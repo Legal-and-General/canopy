@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponent } from 'ng-mocks';
 
@@ -11,11 +11,11 @@ describe('LgButtonComponent', () => {
   let component: LgButtonComponent;
   let fixture: ComponentFixture<LgButtonComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgButtonComponent, LgSpinnerComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgButtonComponent);
@@ -40,7 +40,7 @@ describe('LgButtonComponent', () => {
 
     describe('when specified', () => {
       it('should set the correct class modifier', () => {
-        component.priority = 'secondary';
+        fixture.componentRef.setInput('priority', 'secondary');
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
@@ -65,7 +65,7 @@ describe('LgButtonComponent', () => {
 
     describe('when set to true', () => {
       it('should set the correct class modifier', () => {
-        component.backIcon = true;
+        fixture.componentRef.setInput('backIcon', true);
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
@@ -76,7 +76,7 @@ describe('LgButtonComponent', () => {
 
     describe('when set to false', () => {
       it('should not set the icon-left class modifier', () => {
-        component.backIcon = false;
+        fixture.componentRef.setInput('backIcon', false);
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(
@@ -95,7 +95,7 @@ describe('LgButtonComponent', () => {
 
     describe('when set to true', () => {
       it('should set the disabled attribute', () => {
-        component.disabled = true;
+        fixture.componentRef.setInput('disabled', true);
         fixture.detectChanges();
 
         expect(fixture.nativeElement.hasAttribute('disabled')).toBe(true);
@@ -112,7 +112,7 @@ describe('LgButtonComponent', () => {
 
     describe('when set to true', () => {
       beforeEach(() => {
-        component.loading = true;
+        fixture.componentRef.setInput('loading', true);
         fixture.detectChanges();
       });
 
@@ -159,7 +159,7 @@ describe('LgButtonComponent', () => {
 
     describe('when set to true', () => {
       it('should set the block class modifier', () => {
-        component.fullWidth = true;
+        fixture.componentRef.setInput('fullWidth', true);
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain('lg-btn--block');
@@ -184,7 +184,7 @@ describe('LgButtonComponent', () => {
 
     describe('when set to true', () => {
       it('should set the icon button class modifier', () => {
-        component.iconButton = true;
+        fixture.componentRef.setInput('iconButton', true);
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).toContain(
@@ -195,7 +195,7 @@ describe('LgButtonComponent', () => {
 
     describe('when set to false', () => {
       it('should not set the icon button modifier', () => {
-        component.iconButton = false;
+        fixture.componentRef.setInput('iconButton', false);
         fixture.detectChanges();
 
         expect(fixture.nativeElement.getAttribute('class')).not.toContain(

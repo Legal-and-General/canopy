@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ContentChild,
   ElementRef,
@@ -10,6 +11,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -41,6 +43,7 @@ let nextUniqueId = 0;
   ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgFocusDirective, NgClass, LgIconComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {
   private checkboxGroup = inject(LgCheckboxGroupComponent, { optional: true });
@@ -51,6 +54,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
     host: true,
     skipSelf: true,
   });
+  private cdr = inject(ChangeDetectorRef);
   private hostElement = inject(ElementRef);
   control = inject(NgControl, { self: true, optional: true });
 
@@ -92,11 +96,15 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   _validationElement: LgValidationComponent;
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
+    queueMicrotask(() => {
+      this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+        this.ariaDescribedBy,
+        this._validationElement,
+        element,
+      );
+
+      this.cdr.markForCheck();
+    });
 
     this._validationElement = element;
   }

@@ -6,6 +6,7 @@ import {
   Input,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { LgIconRegistry } from './icon.registry';
@@ -22,6 +23,7 @@ let nextUniqueId = 0;
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   host: { ngSkipHydration: 'true' },
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgIconComponent {
   private hostElement = inject(ElementRef);

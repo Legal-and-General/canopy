@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgFooterLogoComponent } from './footer-logo.component';
 
@@ -6,11 +6,11 @@ describe('LgFooterLogoComponent', () => {
   let component: LgFooterLogoComponent;
   let fixture: ComponentFixture<LgFooterLogoComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgFooterLogoComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgFooterLogoComponent);

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgButtonComponent, LgButtonGroupComponent } from '../button';
 
@@ -38,7 +38,7 @@ describe('LgContentAreaComponent', () => {
   });
 
   it('should apply the form-journey variant class when variant is set', () => {
-    component.variant = 'form-journey';
+    fixture.componentRef.setInput('variant', 'form-journey');
     fixture.detectChanges();
 
     expect(
@@ -65,6 +65,7 @@ describe('LgContentAreaComponent', () => {
         LgContentAreaContentComponent,
         LgContentAreaTitleComponent,
       ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestHeaderContentComponent {}
 
@@ -104,6 +105,7 @@ describe('LgContentAreaComponent', () => {
         LgContentAreaContentComponent,
         LgContentAreaTitleComponent,
       ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestMixedContentComponent {}
 
@@ -138,6 +140,7 @@ describe('LgContentAreaComponent', () => {
       `,
       standalone: true,
       imports: [ LgContentAreaComponent, LgContentAreaContentComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestContentOnlyComponent {}
 
@@ -184,6 +187,7 @@ describe('LgContentAreaComponent', () => {
         LgButtonComponent,
         LgButtonGroupComponent,
       ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestWithFooterComponent {}
 
@@ -232,6 +236,7 @@ describe('LgContentAreaComponent', () => {
         LgContentAreaFooterComponent,
         LgContentAreaTitleComponent,
       ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestFormJourneyComponent {}
 

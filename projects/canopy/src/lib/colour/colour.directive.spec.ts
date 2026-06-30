@@ -1,5 +1,5 @@
-import { Component, DebugElement, Input } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Component, DebugElement, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgColourDirective } from './colour.directive';
@@ -8,6 +8,7 @@ import type { Colour, ColourTheme } from './colour.interface';
 @Component({
   template: ' <div [lgColour]="lgColour" [lgColourTheme]="lgColourTheme">Test</div> ',
   imports: [ LgColourDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgColour: Colour = 'blue';
@@ -17,23 +18,21 @@ class TestComponent {
 describe('LgColour', () => {
   let fixture: ComponentFixture<TestComponent>;
   let testElement: DebugElement;
-  let component: TestComponent;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ TestComponent, LgColourDirective ],
     }).compileComponents();
-  }));
+  });
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(TestComponent);
     fixture.detectChanges();
-    component = fixture.componentInstance;
 
     testElement = fixture.debugElement.query(By.css('div'));
 
     fixture.detectChanges();
-  }));
+  });
 
   describe('colour classes with default neutral theme', () => {
     it('adds the blue colour class', () => {
@@ -44,7 +43,7 @@ describe('LgColour', () => {
     });
 
     it('adds the green colour class', () => {
-      component.lgColour = 'green';
+      fixture.componentRef.setInput('lgColour', 'green');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -54,7 +53,7 @@ describe('LgColour', () => {
     });
 
     it('adds the red colour class', () => {
-      component.lgColour = 'red';
+      fixture.componentRef.setInput('lgColour', 'red');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -64,7 +63,7 @@ describe('LgColour', () => {
     });
 
     it('adds the yellow colour class', () => {
-      component.lgColour = 'yellow';
+      fixture.componentRef.setInput('lgColour', 'yellow');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -76,7 +75,7 @@ describe('LgColour', () => {
 
   describe('colour classes with bold theme', () => {
     beforeEach(() => {
-      component.lgColourTheme = 'bold';
+      fixture.componentRef.setInput('lgColourTheme', 'bold');
       fixture.detectChanges();
     });
 
@@ -88,7 +87,7 @@ describe('LgColour', () => {
     });
 
     it('adds the green colour class with bold theme', () => {
-      component.lgColour = 'green';
+      fixture.componentRef.setInput('lgColour', 'green');
       fixture.detectChanges();
 
       const classes = testElement.nativeElement.getAttribute('class');
@@ -100,7 +99,7 @@ describe('LgColour', () => {
 
   describe('changing colour and theme', () => {
     it('removes old classes and applies new ones when colour changes', () => {
-      component.lgColour = 'green';
+      fixture.componentRef.setInput('lgColour', 'green');
       fixture.detectChanges();
 
       let classes = testElement.nativeElement.getAttribute('class');
@@ -108,7 +107,7 @@ describe('LgColour', () => {
       expect(classes).toContain('lg-mode-green');
       expect(classes).not.toContain('lg-mode-blue');
 
-      component.lgColour = 'red';
+      fixture.componentRef.setInput('lgColour', 'red');
       fixture.detectChanges();
 
       classes = testElement.nativeElement.getAttribute('class');
@@ -118,7 +117,7 @@ describe('LgColour', () => {
     });
 
     it('removes old classes and applies new ones when theme changes', () => {
-      component.lgColourTheme = 'bold';
+      fixture.componentRef.setInput('lgColourTheme', 'bold');
       fixture.detectChanges();
 
       let classes = testElement.nativeElement.getAttribute('class');
@@ -126,7 +125,7 @@ describe('LgColour', () => {
       expect(classes).toContain('lg-theme-bold');
       expect(classes).not.toContain('lg-theme-neutral');
 
-      component.lgColourTheme = 'neutral';
+      fixture.componentRef.setInput('lgColourTheme', 'neutral');
       fixture.detectChanges();
 
       classes = testElement.nativeElement.getAttribute('class');

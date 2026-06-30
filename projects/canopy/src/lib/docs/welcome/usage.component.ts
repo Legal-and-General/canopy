@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
 import { LgMarginDirective } from '../../spacing';
@@ -36,5 +36,6 @@ import { LgMarginDirective } from '../../spacing';
     </div>
   `,
   styleUrls: [ './usage.component.scss' ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DocsWelcomeUsageComponent {}

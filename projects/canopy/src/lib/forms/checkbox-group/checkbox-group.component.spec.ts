@@ -1,5 +1,11 @@
-import { Component, DebugElement, inject } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {
+  Component,
+  DebugElement,
+  inject,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+} from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -46,6 +52,7 @@ const hintTestId = 'test-hint-id';
     LgValidationComponent,
     LgHintComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestCheckboxGroupComponent {
   private fb = inject(UntypedFormBuilder);
@@ -84,7 +91,7 @@ describe('LgCheckboxGroupComponent', () => {
   let component: TestCheckboxGroupComponent;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
     } as unknown as jest.Mocked<LgErrorStateMatcher>;
@@ -128,7 +135,9 @@ describe('LgCheckboxGroupComponent', () => {
     checkboxInstances = checkboxDebugElements.map(debugEl => debugEl.componentInstance);
 
     fixture.detectChanges();
-  }));
+    await Promise.resolve();
+    fixture.detectChanges();
+  });
 
   it('sets the correct variant based on the selector', () => {
     fixture.detectChanges();
@@ -148,6 +157,7 @@ describe('LgCheckboxGroupComponent', () => {
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBeNull();
 
     groupInstance.focus = true;
+    groupDebugElement.injector.get(ChangeDetectorRef).markForCheck();
     fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('tabindex')).toBe('-1');
@@ -163,7 +173,7 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('checks the selected checkbox button when a value is provided', () => {
-    groupInstance.value = [ 'red' ];
+    component.form.controls.color.setValue([ 'red' ]);
     fixture.detectChanges();
     const checkedOption: DebugElement = checkboxDebugElements.find(
       checkboxDebugElement => checkboxDebugElement.componentInstance.checked === true,
@@ -173,9 +183,9 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('unchecks the selected checkbox buttons when an empty array value is provided', () => {
-    groupInstance.value = [ 'red' ];
+    component.form.controls.color.setValue([ 'red' ]);
     fixture.detectChanges();
-    groupInstance.value = [];
+    component.form.controls.color.setValue([]);
     fixture.detectChanges();
     const checkedOptions: DebugElement = checkboxDebugElements.find(
       checkboxDebugElement => checkboxDebugElement.componentInstance.checked === true,
@@ -249,7 +259,7 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('updates the model value when selected checkbox options are unselected', () => {
-    groupInstance.value = [ 'red', 'blue' ];
+    component.form.controls.color.setValue([ 'red', 'blue' ]);
     fixture.detectChanges();
 
     expect(component.form.controls.color.value.length).toBe(2);
@@ -275,8 +285,10 @@ describe('LgCheckboxGroupComponent', () => {
     );
   });
 
-  it('links the error to the fieldset with the correct aria attributes', () => {
+  it('links the error to the fieldset with the correct aria attributes', async () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
+    fixture.detectChanges();
+    await Promise.resolve();
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
@@ -287,15 +299,15 @@ describe('LgCheckboxGroupComponent', () => {
     );
   });
 
-  it('combines both the hint and error ids to create the aria described attribute', () => {
+  it('combines both the hint and error ids to create the aria described attribute', async () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
+    fixture.detectChanges();
+    await Promise.resolve();
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
     const errorId = errorDebugElement.nativeElement.getAttribute('id');
     const hintId = hintDebugElement.nativeElement.getAttribute('id');
-
-    fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedby')).toBe(
       `${hintId} ${errorId}`,

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgPromoCardListTitleComponent } from './promo-card-list-title.component';
 
@@ -6,11 +6,11 @@ describe('PromoCardListTitleComponent', () => {
   let component: LgPromoCardListTitleComponent;
   let fixture: ComponentFixture<LgPromoCardListTitleComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgPromoCardListTitleComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgPromoCardListTitleComponent);

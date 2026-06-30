@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -7,6 +7,7 @@ import { LgFocusDirective } from './focus.directive';
 @Component({
   template: ' <button type="button" [lgFocus]="testVar">Test button</button> ',
   imports: [ LgFocusDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestFocusComponent {
   testVar = false;

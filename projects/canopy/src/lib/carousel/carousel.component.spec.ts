@@ -1,11 +1,5 @@
-import { Component, DebugElement } from '@angular/core';
-import {
-  ComponentFixture,
-  discardPeriodicTasks,
-  fakeAsync,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { Component, DebugElement, ChangeDetectionStrategy } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockProviders } from 'ng-mocks';
 import { Subscription } from 'rxjs';
@@ -40,6 +34,7 @@ import { LgCarouselComponent } from './carousel.component';
     </lg-carousel>
   `,
   imports: [ LgCarouselComponent, LgCarouselItemComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestCarouselComponent {
   carouselComponentRef: LgCarouselComponent;
@@ -53,6 +48,7 @@ class TestCarouselComponent {
   selector: 'lg-test-wrapper-component',
   template: '<lg-test-carousel></lg-test-carousel>',
   imports: [ TestCarouselComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestWrapperComponent {}
 
@@ -66,11 +62,11 @@ describe('LgCarouselComponent', () => {
 
     expect(component.selectedItemIndex).toBe(0);
     component['pause'].next(true);
-    tick(100);
+    jest.advanceTimersByTime(100);
     fixture.detectChanges();
 
     expect(component.selectedItemIndex).toBe(0);
-    tick(100);
+    jest.advanceTimersByTime(100);
     fixture.detectChanges();
 
     expect(component.selectedItemIndex).toBe(0);
@@ -104,7 +100,7 @@ describe('LgCarouselComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set the pause to true when pauseCarousel is invoked', fakeAsync(() => {
+  it('should set the pause to true when pauseCarousel is invoked', () => {
     component.pauseCarousel();
     fixture.detectChanges();
 
@@ -112,9 +108,9 @@ describe('LgCarouselComponent', () => {
       expect(pause).toBeDefined();
       expect(pause).toBeTruthy();
     });
-  }));
+  });
 
-  it('should set the pause to false when playCarousel is invoked', fakeAsync(() => {
+  it('should set the pause to false when playCarousel is invoked', () => {
     component.playCarousel();
     fixture.detectChanges();
 
@@ -122,7 +118,7 @@ describe('LgCarouselComponent', () => {
       expect(pause).toBeDefined();
       expect(pause).toBeFalsy();
     });
-  }));
+  });
 
   xit('should detect the amount of carousel item components are nested in order to build the navigation and apply styles to the carousel wrapper', () => {
     const wrapperElement = fixture.debugElement.query(By.css('.lg-carousel__wrapper'));
@@ -260,7 +256,7 @@ describe('LgCarouselComponent', () => {
 
     describe('loop mode enabled', () => {
       beforeEach(() => {
-        component.loopMode = true;
+        fixture.componentRef.setInput('loopMode', true);
         fixture.detectChanges();
       });
 
@@ -284,19 +280,24 @@ describe('LgCarouselComponent', () => {
 
     describe('auto play', () => {
       beforeEach(() => {
+        jest.useFakeTimers();
         component.autoPlay = true;
         component.autoPlayDelay = 100;
         fixture.detectChanges();
       });
 
-      it('should set the timer correctly', fakeAsync(() => {
+      afterEach(() => {
+        jest.useRealTimers();
+      });
+
+      it('should set the timer correctly', () => {
         const checkSelectedItemIndex = () => {
           expect(component.selectedItemIndex).toBe(0);
-          tick(100);
+          jest.advanceTimersByTime(100);
           fixture.detectChanges();
 
           expect(component.selectedItemIndex).toBe(1);
-          tick(100);
+          jest.advanceTimersByTime(100);
           fixture.detectChanges();
 
           expect(component.selectedItemIndex).toBe(2);
@@ -305,30 +306,30 @@ describe('LgCarouselComponent', () => {
         component.ngAfterContentInit();
 
         checkSelectedItemIndex();
-        tick(100);
+        jest.advanceTimersByTime(100);
         fixture.detectChanges();
         checkSelectedItemIndex();
-        discardPeriodicTasks();
-      }));
+        jest.clearAllTimers();
+      });
 
-      it('should pause the timer', fakeAsync(() => {
+      it('should pause the timer', () => {
         timerSelectionCheck();
-        discardPeriodicTasks();
-      }));
+        jest.clearAllTimers();
+      });
 
-      it('should restart a paused timer', fakeAsync(() => {
+      it('should restart a paused timer', () => {
         timerSelectionCheck();
         component['pause'].next(false);
-        tick(100);
+        jest.advanceTimersByTime(100);
         fixture.detectChanges();
 
         expect(component.selectedItemIndex).toBe(1);
-        tick(100);
+        jest.advanceTimersByTime(100);
         fixture.detectChanges();
 
         expect(component.selectedItemIndex).toBe(2);
-        discardPeriodicTasks();
-      }));
+        jest.clearAllTimers();
+      });
     });
   });
 });

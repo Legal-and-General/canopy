@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgPromoCardImageComponent } from './promo-card-image.component';
 
@@ -6,11 +6,11 @@ describe('LgPromoCardImageComponent', () => {
   let component: LgPromoCardImageComponent;
   let fixture: ComponentFixture<LgPromoCardImageComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgPromoCardImageComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgPromoCardImageComponent);
@@ -27,7 +27,7 @@ describe('LgPromoCardImageComponent', () => {
   });
 
   it('should set correct background', () => {
-    component.imageUrl = 'test';
+    fixture.componentRef.setInput('imageUrl', 'test');
 
     fixture.detectChanges();
 

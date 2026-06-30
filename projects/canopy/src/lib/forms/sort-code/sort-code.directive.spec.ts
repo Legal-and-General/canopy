@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
   UntypedFormControl,
   UntypedFormGroup,
@@ -35,7 +35,7 @@ describe('LgSortCodeDirective', () => {
   let inputDebugElement: DebugElement;
   let inputInstance: LgSortCodeDirective;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -53,7 +53,7 @@ describe('LgSortCodeDirective', () => {
 
     inputInstance =
       inputDebugElement.injector.get<LgSortCodeDirective>(LgSortCodeDirective);
-  }));
+  });
 
   it('adds a required attribute', () => {
     fixture.detectChanges();

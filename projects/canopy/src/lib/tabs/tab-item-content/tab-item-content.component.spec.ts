@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LgTabItemContentComponent } from './tab-item-content.component';
 
@@ -6,11 +6,11 @@ describe('LgTabItemContentComponent', () => {
   let component: LgTabItemContentComponent;
   let fixture: ComponentFixture<LgTabItemContentComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgTabItemContentComponent ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LgTabItemContentComponent);

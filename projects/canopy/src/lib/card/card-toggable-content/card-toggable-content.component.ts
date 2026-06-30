@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostBinding,
@@ -20,9 +21,18 @@ import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from '../card.interface';
 })
 export class LgCardToggableContentComponent {
   private host = inject(ElementRef);
+  private cdr = inject(ChangeDetectorRef);
+
+  private _isActive: boolean;
 
   uniqueId: number;
-  isActive: boolean;
+  get isActive(): boolean {
+    return this._isActive;
+  }
+  set isActive(value: boolean) {
+    this._isActive = value;
+    this.cdr.markForCheck();
+  }
 
   @HostBinding('class.lg-card-toggable-content') class = true;
   @HostBinding('attr.role') role = 'region';

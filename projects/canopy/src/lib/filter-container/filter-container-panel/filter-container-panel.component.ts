@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostBinding,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 import {
@@ -22,7 +24,16 @@ import {
   standalone: true,
 })
 export class LgFilterContainerPanelComponent {
-  isActive: boolean;
+  private cdr = inject(ChangeDetectorRef);
+
+  private _isActive: boolean;
+  get isActive(): boolean {
+    return this._isActive;
+  }
+  set isActive(value: boolean) {
+    this._isActive = value;
+    this.cdr.markForCheck();
+  }
   uniqueId: number;
 
   @HostBinding('class.lg-filter-container-panel--active') get activeClass(): boolean {

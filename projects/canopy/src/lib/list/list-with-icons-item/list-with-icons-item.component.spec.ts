@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockComponent } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon';
@@ -9,7 +9,7 @@ describe('LgListWithIconsItemComponent', () => {
   let component: LgListWithIconsItemComponent;
   let fixture: ComponentFixture<LgListWithIconsItemComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgListWithIconsItemComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
@@ -17,10 +17,10 @@ describe('LgListWithIconsItemComponent', () => {
     fixture = TestBed.createComponent(LgListWithIconsItemComponent);
     component = fixture.componentInstance;
 
-    component.iconName = 'document';
+    fixture.componentRef.setInput('iconName', 'document');
 
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

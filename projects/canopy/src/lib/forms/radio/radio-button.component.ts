@@ -10,6 +10,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -33,6 +34,7 @@ let nextUniqueId = 0;
   ],
   encapsulation: ViewEncapsulation.None,
   imports: [ NgClass ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgRadioButtonComponent implements OnInit {
   private radioGroup = inject(LgRadioGroupComponent);

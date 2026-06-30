@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
@@ -12,11 +12,11 @@ describe('LgSideNavLinkDirective', () => {
   let el: HTMLElement;
   let eventSpy: jest.SpyInstance;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgSideNavBarLinkDirective ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();
@@ -40,7 +40,7 @@ describe('LgSideNavLinkDirective', () => {
   });
 
   it('should have selected class if isActive is true', () => {
-    directive.isActive = true;
+    fixture.componentRef.setInput('isActive', true);
     fixture.detectChanges();
 
     expect(el.classList.contains('lg-side-nav-bar-link--selected')).toBeTruthy();

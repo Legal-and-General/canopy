@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { MockComponent, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
@@ -13,11 +13,11 @@ describe('LgTableRowToggleComponent', () => {
   let fixture: MockedComponentFixture<LgTableRowToggleComponent, any>;
   let debugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgTableRowToggleComponent, MockComponent(LgIconComponent) ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     ngMocks.flushTestBed();

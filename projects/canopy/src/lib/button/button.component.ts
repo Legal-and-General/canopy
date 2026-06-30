@@ -10,6 +10,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
@@ -25,6 +26,7 @@ import type { ButtonPriority } from './button.interface';
   styleUrls: [ './button.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ NgTemplateOutlet, LgSpinnerComponent, LgMarginDirective, LgIconComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgButtonComponent implements AfterContentInit, AfterViewInit {
   private renderer = inject(Renderer2);

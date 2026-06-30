@@ -1,5 +1,5 @@
-import { Component, DebugElement, Input } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Component, DebugElement, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgOrientationDirective } from './orientation.directive';
@@ -7,6 +7,7 @@ import { LgOrientationDirective } from './orientation.directive';
 @Component({
   template: ' <div [lgOrientation]="lgOrientation">Test feature</div> ',
   imports: [ LgOrientationDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
   @Input() lgOrientation;
@@ -17,28 +18,28 @@ describe('lgOrientation', () => {
   let testElement: DebugElement;
   let component: TestComponent;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ TestComponent, LgOrientationDirective ],
     }).compileComponents();
-  }));
+  });
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
 
     testElement = fixture.debugElement.query(By.css('div'));
-  }));
+  });
 
   it('should not set the class lg-orientation on the component if orientation is undefined', () => {
-    component.lgOrientation = undefined;
+    fixture.componentRef.setInput('lgOrientation', undefined);
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toBeNull();
   });
 
   it('should set the class lg-orientation on the component', () => {
-    component.lgOrientation = { sm: 'vertical', md: 'horizontal' };
+    fixture.componentRef.setInput('lgOrientation', { sm: 'vertical', md: 'horizontal' });
     fixture.detectChanges();
 
     expect(testElement.nativeElement.getAttribute('class')).toContain('lg-orientation');

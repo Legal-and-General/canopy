@@ -1,4 +1,10 @@
-import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 let nextUniqueId = 0;
 
@@ -8,6 +14,7 @@ let nextUniqueId = 0;
   styleUrls: [ './hint.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LgHintComponent {
   @HostBinding('id')

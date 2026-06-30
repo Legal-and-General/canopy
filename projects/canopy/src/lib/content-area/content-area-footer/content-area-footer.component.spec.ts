@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgButtonComponent, LgButtonGroupComponent } from '../../button';
 
@@ -40,6 +40,7 @@ describe('LgContentAreaFooterComponent', () => {
       `,
       standalone: true,
       imports: [ LgContentAreaFooterComponent, LgButtonComponent, LgButtonGroupComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestWithButtonGroupComponent {}
 
@@ -67,6 +68,7 @@ describe('LgContentAreaFooterComponent', () => {
       `,
       standalone: true,
       imports: [ LgContentAreaFooterComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestInvalidContentComponent {}
 
@@ -87,6 +89,7 @@ describe('LgContentAreaFooterComponent', () => {
       template: ' <lg-content-area-footer></lg-content-area-footer> ',
       standalone: true,
       imports: [ LgContentAreaFooterComponent ],
+      changeDetection: ChangeDetectionStrategy.Default,
     })
     class TestEmptyFooterComponent {}
 

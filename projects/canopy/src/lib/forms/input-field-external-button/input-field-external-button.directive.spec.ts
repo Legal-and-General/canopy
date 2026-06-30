@@ -1,4 +1,4 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, DebugElement, ChangeDetectionStrategy, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -10,9 +10,10 @@ import { LgInputFieldExternalButtonDirective } from './input-field-external-butt
     <button lgInputFieldExternalButton [id]="customId">Button 3</button>`,
   standalone: true,
   imports: [ LgInputFieldExternalButtonDirective ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestComponent {
-  customId = 'custom-id';
+  @Input() customId = 'custom-id';
 }
 
 describe('LgInputFieldExternalButtonDirective', () => {
@@ -56,7 +57,7 @@ describe('LgInputFieldExternalButtonDirective', () => {
 
     expect(button3.id).toBe('custom-id');
 
-    fixture.componentInstance.customId = 'new-custom-id';
+    fixture.componentRef.setInput('customId', 'new-custom-id');
     fixture.detectChanges();
 
     expect(button3.id).toBe('new-custom-id');

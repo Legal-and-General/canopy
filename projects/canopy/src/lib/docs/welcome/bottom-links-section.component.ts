@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import {
   LgLinkMenuComponent,
@@ -24,6 +24,7 @@ import {
     </lg-link-menu>
   `,
   styleUrls: [ './bottom-links-section.component.scss' ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DocsWelcomeBottomLinksSectionComponent {
   @Input() heading: string;

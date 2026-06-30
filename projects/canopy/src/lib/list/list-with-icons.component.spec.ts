@@ -1,4 +1,4 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed, ChangeDetectorRef } from '@angular/core/testing';
 import { MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
 import { LgListWithIconsComponent } from './list-with-icons.component';
@@ -8,7 +8,7 @@ describe('LgListWithIconsComponent', () => {
   let fixture: MockedComponentFixture<LgListWithIconsComponent, {}>;
   let listWithIconsEl: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ LgListWithIconsComponent ],
     }).compileComponents();
@@ -36,7 +36,7 @@ describe('LgListWithIconsComponent', () => {
     component = fixture.debugElement.children[0].componentInstance;
     listWithIconsEl = fixture.debugElement.children[0].nativeElement;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -52,6 +52,7 @@ describe('LgListWithIconsComponent', () => {
 
   it('should add the variant class to the component', () => {
     component.variant = 'light-foreground';
+    fixture.debugElement.children[0].injector.get(ChangeDetectorRef).markForCheck();
     fixture.detectChanges();
 
     expect(listWithIconsEl.getAttribute('class')).toContain('light');

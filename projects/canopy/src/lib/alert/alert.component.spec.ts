@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
 
@@ -16,6 +16,7 @@ import { LgAlertComponent } from './alert.component';
     </lg-alert>
   `,
   imports: [ LgAlertComponent ],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 class TestHostComponent {}
 
@@ -23,14 +24,14 @@ describe('LgAlertComponent', () => {
   let component: LgAlertComponent;
   let fixture: ComponentFixture<LgAlertComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [ LgAlertComponent, MockComponents(LgIconComponent) ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LgAlertComponent);
     component = fixture.componentInstance;
-  }));
+  });
 
   it('should create', () => {
     fixture.detectChanges();
@@ -80,14 +81,14 @@ describe('LgAlertComponent', () => {
     }
 
     it('overrides the role attribute when role input is set', () => {
-      component.role = 'status';
+      fixture.componentRef.setInput('role', 'status');
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe('status');
     });
 
     it('sets no role attribute when role input is set to "none"', () => {
-      component.role = 'none';
+      fixture.componentRef.setInput('role', 'none');
       fixture.detectChanges();
 
       expect(fixture.nativeElement.getAttribute('role')).toBe(null);
@@ -95,7 +96,7 @@ describe('LgAlertComponent', () => {
   });
 
   it('does not render an icon when showIcon is set to false', () => {
-    component.showIcon = false;
+    fixture.componentRef.setInput('showIcon', false);
     fixture.detectChanges();
     const icon = fixture.debugElement.query(By.directive(LgIconComponent));
 

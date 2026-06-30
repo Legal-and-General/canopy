@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   HostBinding,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 
 @Component({
@@ -17,5 +19,14 @@ import {
   standalone: true,
 })
 export class LgModalBodyComponent {
-  @HostBinding('id') id: string;
+  private cdr = inject(ChangeDetectorRef);
+
+  private _id: string;
+  @HostBinding('id') get id(): string {
+    return this._id;
+  }
+  set id(value: string) {
+    this._id = value;
+    this.cdr.markForCheck();
+  }
 }
