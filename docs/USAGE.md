@@ -34,7 +34,7 @@ You should now be able to install the module.
 
 ### Requirements
 
- Your project should already have `@angular/common` and `@angular/core` installed with a compatible Angular version (Canopy currently supports Angular 20.x; using other major versions may lead to incompatibilities).
+ Your project should already have `@angular/common` and `@angular/core` installed with a compatible Angular version (Canopy currently supports Angular 21.x; using other major versions may lead to incompatibilities).
 
 ## Import the Library
 

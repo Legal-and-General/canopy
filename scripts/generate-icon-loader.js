@@ -37,6 +37,10 @@ function generateIconLoader(config) {
   const resolvedInterfaceFile =
     interfaceFile ?? interfaceFileMap[prefix] ?? `${path.basename(sourceDir)}`;
 
+  const formatPropertyKey = iconKey => (/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(iconKey)
+    ? iconKey
+    : `'${iconKey}'`);
+
   // Generate the lazy loader entries
   const loaderEntries = files
     .map(file => {
@@ -52,7 +56,7 @@ function generateIconLoader(config) {
 
       const exportName = exportMatch[1];
 
-      return `  '${iconKey}': () => import('../${path.basename(sourceDir)}/set/${iconFileName}.icon').then(m => m.${exportName}),`;
+      return `  ${formatPropertyKey(iconKey)}: () => import('../${path.basename(sourceDir)}/set/${iconFileName}.icon').then(m => m.${exportName}),`;
     })
     .join('\n');
 
@@ -104,4 +108,3 @@ generateIconLoader({
 
 console.log('\n🎯 Icon loader files generated successfully!');
 console.log('   Each icon will be loaded as a separate lazy chunk on-demand.\n');
-

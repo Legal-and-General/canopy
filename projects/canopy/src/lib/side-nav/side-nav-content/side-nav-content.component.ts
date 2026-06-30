@@ -15,5 +15,5 @@ import {
 })
 export class LgSideNavContentComponent {
   @HostBinding('class.lg-side-nav-content') class = true;
-  @HostBinding('tabindex') tabindex = -1;
+  @HostBinding('attr.tabindex') tabindex = -1;
 }

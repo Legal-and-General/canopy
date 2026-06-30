@@ -43,7 +43,7 @@ describe('LgCardToggableContentComponent', () => {
     fixture.detectChanges();
 
     expect(el.getAttribute('class')).toContain('lg-card-toggable-content--hidden');
-    expect(el.getAttribute('tabindex')).not.toContain('-1');
+    expect(el.getAttribute('tabindex')).not.toBe('-1');
   });
 
   it('should have the correct id', () => {
@@ -61,7 +61,7 @@ describe('LgCardToggableContentComponent', () => {
   it('should unset the tabindex on blur', () => {
     el.blur();
 
-    expect(el.getAttribute('tabindex')).not.toContain('-1');
+    expect(el.getAttribute('tabindex')).not.toBe('-1');
   });
 
   it('should set the focus on the panel when active', () => {

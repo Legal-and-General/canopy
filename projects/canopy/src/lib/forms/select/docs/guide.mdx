@@ -8,9 +8,22 @@ import * as SelectStories from './select.stories';
 
 <p class="standfirst">A drop down list that enables the user to choose between several options.</p>
 
+![Select hero](docs/select/hero.png)
+
 ## Usage
 
-Use this component when users need to make a single selection from a list of options within a limited space.
+Selects should only be used when space constraints or the number of options make **Radio buttons**, **Segmented controls**, or **Checkboxes** impractical. These alternative inputs typically provide a superior experience by keeping options visible and scannable.
+
+#### When to use
+
+- **More than 5 options:** Use a select only when there are more than five options. For five or fewer, use radio buttons to reduce the interaction cost.
+- **Unpredictable data:** Use a select when options cannot be easily typed. For data users know by heart (like Date of Birth or Postcodes), use a text input instead.
+
+#### When to avoid
+
+- Do not use a select for binary (Yes/No) choices.
+- Avoid using a select if the list is extremely long (e.g., over 20 items); consider a combobox with autocomplete instead.
+
 
 Import the select component and directive in your application:
 
@@ -22,52 +35,46 @@ and in your HTML:
 
 <Source of={SelectStories.Select} />
 
-### Optional fields
-
-For optional fields, use a `<span>` element with the `lg-label--optional` class to indicate that the field is not required:
-
-```html
-<lg-select-field>
-  Country
-  <span class="lg-label--optional">(optional)</span>
-  <select lgSelect formControlName="country">
-    <option value="">Select</option>
-    <option value="uk">United Kingdom</option>
-  </select>
-</lg-select-field>
-```
-
 ## How it works
 
-The select component controls custom select box styling and linking the label and field.
+The select component must always be used with a visible label. You should also include a hint if the user needs additional context to make the correct selection.
 
-A default value can be pre-selected from the list, otherwise display an empty value of 'Select'.
+Do not pre-select an option by default. The only exception is when pre-populating a form with values the user has previously selected. Use a neutral placeholder, such as "Select an option", to force an intentional choice and prevent accidental submissions.
 
-The entries in the list should follow a predictable format, such as alphabetical, chronological, or most frequently used.
+While the input field follows Canopy styling, the dropdown menu itself is rendered by the browser or operating system. This ensures the menu is optimised for the user's specific device – such as using the native picker on iOS or Android – and maintains high levels of accessibility.
 
-Like all form inputs, the width of select should match the maximum length of expected content.
+The component must support standard keyboard navigation: arrow keys to navigate, **Enter** or **Space** to select, and **Esc** to close. It should also support "type-ahead", allowing users to jump to an option by typing its first letter.
 
-When the user interacts with the select input, the select is opened and a list of options is revealed. The user can select an option by clicking on it with the mouse or using the keyboard, or tapping. The user can also scroll through the options using the up arrow or down arrow keys, or swiping.
+List options in a predictable order – such as alphabetical, chronological, or by frequency of use – to help users scan the list quickly. Like all form inputs, the width of the select must match the maximum expected length of the content to provide a visual cue about the data required.
 
-While the select box is styled by Canopy, the select menu styling is handled by the browser being used or according to the native OS styling if on mobile or tablet.
+#### Grouping
 
-## Dos and Don'ts
+The `optgroup` element must be used to semantically group related options within a select menu, particularly when lists are long enough to cause high cognitive load. It provides a visual and programmatic hierarchy that helps users skim categories, but `optgroup` should never be used for nesting as HTML only supports a single level of grouping. While `optgroup` improves organisation, screen reader support for group labels can be inconsistent; therefore, option labels should remain descriptive enough to be understood out of context, or supplemented with `aria-label` if the group context is critical for selection.
+
+## Do and don't
 
 ### Do
 
-1. **Do** use a select component when the preset options is a long list (more than five) and space is limited.
-2. **Do** list options in a predictable format, such as alphabetical, chronological, or most frequently used.
+![Select do](docs/select/do.png)
+
+1. **Do** use a visible label and, where necessary, a hint to provide context.
+2. **Do** use a select when there are more than five options.
+3. **Do** use a neutral placeholder like "Select an option" to ensure the user makes an intentional choice.
+4. **Do** order options logically – such as alphabetically or by frequency of use – to aid scannability.
+5. **Do** match the width of the select to the expected length of the options.
 
 ### Don't
 
-1. **Don't** use a select component when typing may be faster, such as date of birth or postcode; use text input instead.
-2. **Don't** use a select component as a way of presenting a single selection; use a checkbox instead.
-3. **Don't** use a select component when there are a large number of options; use autocomplete instead.
-4. **Don't** use capitalised text, it's better to keep entries in sentence case for easy reading.
+![Select dont](docs/select/dont.png)
 
-## Additional development details
+1. **Don't** use a select for five or fewer options; use Radio buttons or Segmented controls instead.
+2. **Don't** use a select for binary choices (e.g. Yes/No).
+3. **Don't** use a select for data users know by heart, such as Date of Birth; use a Text input instead.
+4. **Don't** use a select if the list is excessively long (e.g. over 20 items); consider a Combobox with autocomplete.
+5. **Don't** pre-select an option by default unless you are pre-populating the form with the user's previously saved data.
+6. **Don't** use disabled options within the list; if an option is unavailable. It is better to remove it or explain why it cannot be selected via an error message.
 
-**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
+## Developer reference
 
 ### LgSelectDirective inputs
 
@@ -83,24 +90,20 @@ While the select box is styled by Canopy, the select menu styling is handled by 
 | `id`    | HTML ID attribute, auto generated if not provided. This will also propagate to the input `id` and form `for` attribute | `string`  | `lg-select-${nextUniqueId++}` | No       |
 | `block` | Property to make the select field full width (for small screens only)                                                  | `boolean` | `false`                       | No       |
 
-***
+## References
 
-## Research on this component
-
-This is based on best practice.
-
-## Helpful articles
-
-Alice Bartlett: <a href="https://www.youtube.com/watch?v=CUkMCQR4TpY" target="_blank">Burn your select tags</a>
-
-Nielsen Norman Group : <a href="https://www.nngroup.com/articles/drop-down-menus" target="_blank">Dropdown menus</a>
+- Nielsen Norman Group (NN/g): <a href="https://www.nngroup.com/articles/drop-down-menus/" target="_blank">Select-Down Menus: 10 Guidelines for Best Usability</a>
+- GOV.UK Design System: <a href="https://design-system.service.gov.uk/components/select/" target="_blank">Select component guidance</a>
+- Adam Silver: <a href="https://formdesignpatterns.com/" target="_blank">Form Design Patterns</a>
+- Design Systems Surf: <a href="https://designsystems.surf/" target="_blank">Select component patterns</a>
+- W3C WAI: <a href="https://www.w3.org/WAI/ARIA/apg/patterns/combobox/" target="_blank">ARIA Authoring Practices Guide (APG)</a>
+- W3C WCAG – <a href="https://www.w3.org/TR/WCAG20-TECHS/H85.html" target="_blank">H85: Using OPTGROUP to group OPTION elements inside a SELECT | Techniques for WCAG 2.0</a>
+- Steve Faulkner (HTML5 Accessibility) – <a href="https://html5accessibility.com/stuff/2024/01/12/options-for-optgroup-labeling-of-options/" target="_blank">options for optgroup labeling of options</a>
+- WebAxe – <a href="https://www.webaxe.org/podcast-51-option-groups-optgroup/" target="_blank">Podcast #51: Option Groups (OptGroup)</a>
 
 ## Related
 
-Patterns which may perform a similar task, or which should be considered instead:
-
-* [Checkbox](./?path=/docs/components-forms-checkbox--checkbox)
-* [Radio buttons](./?path=/docs/components-forms-radio-guide--docs)
+* [Text input](./?path=/docs/components-forms-text-input-guide--docs)
 
 <Markdown>
   {Feedback}

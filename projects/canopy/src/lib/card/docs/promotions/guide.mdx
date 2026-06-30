@@ -19,14 +19,13 @@ Import the following components in your application:
 
 ```js
   ...
-  imports: [ ..., LgCardComponent, etc., LgMarginComponent, LgPaddingComponent, LgOrientationComponent, LgShadowComponent ],
+  imports: [ ..., LgCardComponent, etc., LgMarginComponent, LgPaddingComponent, LgOrientationComponent ],
 ```
 
 and in your HTML, for a general promotion card with image:
 
 ```html
 <lg-card
-  lgShadow [hasHoverState]="true"
   lgMarginBottom="6"
   lgPadding="none"
   variant="promotion"
@@ -45,7 +44,6 @@ and in your HTML, for a general promotion card with icon:
 
 ```html
 <lg-card
-  lgShadow [hasHoverState]="true"
   lgMarginBottom="6"
   variant="promotion"
   [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
@@ -89,7 +87,6 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
   <div lgRow>
     <div lgColSm="12">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -114,7 +111,6 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
   <div lgRow>
     <div lgColSm="12" lgColLg="6">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -130,7 +126,6 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
     </div>
     <div lgColSm="12" lgColLg="6">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -155,7 +150,6 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
   <div lgRow>
     <div lgColSm="12" lgColLg="4">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -171,7 +165,6 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
     </div>
     <div lgColSm="12" lgColLg="4">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -187,7 +180,6 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
     </div>
     <div lgColSm="12" lgColLg="4">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -217,7 +209,6 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
     </div>
     <div lgColSm="12" lgColLg="4">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -233,7 +224,6 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
     </div>
     <div lgColSm="12" lgColLg="4">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -249,7 +239,6 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
     </div>
     <div lgColSm="12" lgColLg="4">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         lgPadding="none"
         variant="promotion"
@@ -270,7 +259,6 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
     </div>
     <div lgColSm="12" lgColLg="6">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         variant="promotion"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
@@ -286,7 +274,6 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
     </div>
     <div lgColSm="12" lgColLg="6">
       <lg-card
-        lgShadow [hasHoverState]="true"
         lgMarginBottom="6"
         variant="promotion"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">

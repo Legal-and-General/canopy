@@ -45,6 +45,7 @@ Once installed, ask your agent:
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v30-migration` | v29 → v30 | [v30.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v30.0.0) |
 | `canopy-v29-migration` | v28 → v29 | [v29.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v29.0.0) |
 | `canopy-v28-migration` | v27 → v28 | [v28.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v28.0.0) |
 | `canopy-v27-migration` | v26 → v27 | [v27.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v27.0.0) |
@@ -148,7 +149,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-flag-icon` | `LgFlagIconComponent`, country flags, usage with country names | — |
 | `canopy-icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
 | `canopy-focus` | `LgFocusDirective`, programmatic focus | — |
-| `canopy-shadow` | `LgShadowDirective`, hover state | — |
+| `canopy-shadow` | `LgShadowDirective` deprecation/removal migration guidance | Deprecated/Removed |
 | `canopy-show-at` | `LgShowAtDirective`, breakpoint-based visibility | — |
 | `canopy-hide-at` | `LgHideAtDirective`, breakpoint-based hiding | — |
 | `canopy-orientation` | `LgOrientationDirective`, responsive vertical/horizontal layout | — |
