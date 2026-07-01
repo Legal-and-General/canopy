@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  HostBinding,
   Input,
   ViewEncapsulation,
+  numberAttribute,
 } from '@angular/core';
 
 @Component({
@@ -12,11 +14,16 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    class: 'lg-notification-badge',
+    class: 'lg-notification-badge lg-mode-red lg-theme-neutral',
   },
   standalone: true,
 })
 export class LgNotificationBadgeComponent {
-  @Input() count: number;
+  @Input({ transform: numberAttribute }) count: number;
   @Input() accessText: string;
+  @Input() variant: 'count' | 'dot' = 'count';
+
+  @HostBinding('class.lg-notification-badge--dot') get isDot(): boolean {
+    return this.variant === 'dot';
+  }
 }

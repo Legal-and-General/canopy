@@ -1,28 +1,17 @@
 @use '../../styles/mixins';
 
 .lg-header {
-  background-color: var(--header-bg-color);
-  height: var(--header-height);
+  background-color: var(--header-container-background-colour);
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
   z-index: var(--z-index-header);
+  min-width: var(--header-container-min-width);
+  gap: var(--header-container-gap);
 
   @include mixins.lg-breakpoint(lg) {
-    height: var(--header-height-lg);
     position: static;
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    height: var(--header-shadow-height);
-    margin-top: calc(var(--header-shadow-height) * -1);
-    background-color: transparent;
-    box-shadow: var(--header-shadow);
-    position: relative;
-    width: 100%;
   }
 }
 
@@ -30,24 +19,46 @@
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  height: var(--header-height);
+  height: 4rem;
+  max-height: var(--header-container-max-height);
 
   @include mixins.lg-breakpoint(lg) {
-    height: var(--header-height-lg);
+    height: var(--header-container-max-height);
   }
 }
 
 .lg-header__logos-wrapper {
-  align-items: center;
-  display: flex;
-  padding: var(--space-2) 0;
   margin-right: auto;
+  display: flex;
+  padding-bottom: var(--header-logo-container-padding-bottom-sm);
+  align-items: baseline;
+  gap: var(--header-container-logo-gap-sm);
+  max-width: var(--header-logo-container-max-width-sm, 10.3125rem);
+  max-height: var(--header-logo-container-max-height-sm, 2.75rem);
+
+  @include mixins.lg-breakpoint(lg) {
+    gap: var(--header-container-logo-gap-lg);
+    padding-bottom: var(--header-logo-container-padding-bottom-lg);
+    max-width: var(--header-logo-container-max-width-lg);
+    max-height: var(--header-logo-container-max-height-lg);
+  }
 }
 
 .primary-nav-toggle {
+  position: relative;
   transition: background-color var(--animation-duration) var(--animation-fn);
 
   * {
     pointer-events: none;
+  }
+
+  lg-notification-badge {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+
+  &[aria-expanded='true'] lg-notification-badge {
+    display: none;
   }
 }

@@ -2,30 +2,93 @@
 
 .lg-account-menu {
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-1);
 
   @include mixins.lg-breakpoint(lg) {
-    align-items: center;
-    border-left: 0.063rem solid var(--colour-greyscale-200);
-    height: 100%;
-    margin-left: var(--space-4);
-    padding-left: var(--space-4);
+    gap: var(--space-3);
   }
 }
 
 a.lg-account-menu-item,
 button.lg-account-menu-item {
-  @include mixins.lg-nav-item();
+  @include mixins.lg-font-size('0-6', '500');
+
+  color: var(--header-button-rest-colour);
+  text-decoration: none;
+  align-items: center;
+  border: 0;
+  gap: var(--header-button-gap);
+  background: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: var(--header-button-padding-small-x);
+    right: 0;
+    bottom: 0;
+    height: 0.125rem;
+    width: 0;
+    background: var(--header-button-hover-hover-indicator);
+    border-radius: var(--border-radius-1-lg);
+    transition: width var(--animation-duration) var(--animation-fn);
+  }
+
+  &:hover {
+    color: var(--header-button-hover-colour);
+
+    &::after {
+      width: calc(100% - (var(--header-button-padding-small-x) * 2));
+    }
+  }
 
   /* stylelint-disable no-duplicate-selectors */
   & {
     display: flex;
     flex-direction: column;
-    padding: var(--space-2);
+    padding: var(--header-button-padding-y) var(--header-button-padding-small-x);
     position: relative;
+  }
+
+  &--active,
+  &--active:visited,
+  &--active:hover,
+  &--active:visited:hover {
+    border-radius: var(--header-button-border-radius);
+    background: var(--header-button-active-background-colour);
+    color: var(--header-button-active-colour);
+
+    &:focus-visible,
+    &:hover:focus-visible {
+      color: var(--header-button-active-colour);
+      background: var(--header-button-active-background-colour);
+    }
+
+    &:hover::after {
+      content: none;
+    }
+  }
+
+  &:focus-visible:hover,
+  &:focus-visible {
+    border-radius: var(--header-button-border-radius);
+    box-shadow: inset 0 0 0 var(--header-button-border-width-focus)
+      var(--header-button-focus-colour);
+    background: var(--header-button-focus-background-colour);
+    color: var(--header-button-focus-colour);
+    outline: 0;
+
+    &:hover::after {
+      content: none;
+    }
   }
 
   .lg-icon {
     order: -1;
+    height: var(--button-icon-width);
+    width: var(--button-icon-width);
+    margin-right: 0;
 
     @include mixins.lg-breakpoint(lg) {
       margin-bottom: var(--space-1);
@@ -34,12 +97,11 @@ button.lg-account-menu-item {
 
   .lg-notification-badge {
     font-size: var(--font-size-0-8);
-    height: 1.25rem;
+    background: var(--notification-badge-background-colour);
+    height: 1rem;
     margin-left: 0;
     position: absolute;
-    right: 0;
-    top: 0;
-    width: 1.25rem;
+    width: 1rem;
 
     @include mixins.lg-breakpoint(lg) {
       left: 50%;

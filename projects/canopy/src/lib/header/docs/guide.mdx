@@ -1,21 +1,21 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeaderStories from './header.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 <Meta title="Components/Header/Guide" tags={['pending']} />
 
 # Header
-
-<CustomBadge
-  text="Pending"
-  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
-/>
-<span class="small-text">Due for brand modernisation</span>
-
 <p class="standfirst">Provides a generic header for display at the top of the page.</p>
 
+### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
+
 ## Usage
+
+The header navigation supports two navigation variants: a condensed mobile/tablet version and an expanded desktop version, using show/hide logic to adapt to different screen sizes.
+
+All text menu items are left-aligned, with dividers removed to simplify the layout. On mobile, navigation uses link menu components, with left and right items treated as separate link menus.
+
+The navigation component has been rebuilt with a slot-based structure, moving away from rigid navigation groups. This allows flexible content placement on both the left and right sides of the navigation bar. The left side is intended for buttons, while the right side can accommodate items like share price widgets or contact numbers, provided they fit design constraints.
 
 Import the header components in your application:
 
@@ -28,7 +28,13 @@ Import the header components in your application:
 
 and in your HTML:
 
-<Source of={HeaderStories.StandardHeader} />
+```html
+<header lg-header>
+  <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
+
+    <!--  Additional code can be inserted here  -->
+</header>
+```
 
 ## Additional development details
 
@@ -77,11 +83,44 @@ Co-branding can be achieved by adding two logos side by side using the `LgHeadin
 
 To add the primary navigation and account menu to your header, use the following markup, which makes use of some components and directives to achieve the desired behaviour. A summary of these is outlined below.
 
+#### Mobile navigation
+
+On mobile and tablet, the navigation is displayed within a dropdown menu triggered by the burger menu icon. The dropdown contains two link menus:
+
+1. **Primary nav link menu** — contains the main navigation items
+2. **Account menu link menu** — contains the account menu items
+
+These mobile items are projected into the `lg-primary-nav` component using the `lgPrimaryNavMobileItem` and `lgAccountMenuMobileItem` attribute directives. Each mobile item must use the standard `lg-link-menu-item` structure.
+
+The account menu items visible in the header bar on mobile (next to the burger menu) remain as standard account menu items and are not wrapped in a link menu.
+
+#### Desktop navigation
+
+On desktop (lg breakpoint and above), the navigation displays inline with the standard `lg-primary-nav-list-item` and `lg-account-menu-list-item` components.
+
+#### Button Variants
+
+The navigation supports three button variants:
+- **Text only** – Button with text label only
+- **Icon above label** – Icon positioned above the button label
+- **Icon only (mobile)** – Icon-only buttons optimised for mobile layouts
+
+Each variant supports rest, hover, active, and focused states for clear user interaction feedback.
+
+#### Navigation Items
+
+While there is no strict limit on the number of navigation items, it is recommended to keep the count to around six items maximum, depending on layout and available space. This ensures optimal usability and prevents overcrowding.
+
+#### Notification Badge in Link Menu
+
+The `lg-link-menu-item` component supports an optional `lg-notification-badge` which displays between the text and the right arrow icon. This can show a numeric count or a dot indicator.
+
 ```html
 <header lg-header>
   <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
 
   <lg-primary-nav>
+    <!-- Desktop navigation items (visible at lg+) -->
     <lg-primary-nav-list-item>
       <a href="/" [isActive]="true" lgPrimaryNavItem>Link 1</a>
     </lg-primary-nav-list-item>
@@ -94,47 +133,118 @@ To add the primary navigation and account menu to your header, use the following
         ></lg-notification-badge>
       </a>
     </lg-primary-nav-list-item>
-    <lg-primary-nav-list-item [alignRight]="true">
-      <button type="button" lgPrimaryNavItem>Button</button>
+    <lg-primary-nav-list-item>
+      <a href="/" lgPrimaryNavItem>Link 3</a>
     </lg-primary-nav-list-item>
-  </lg-primary-nav>
 
-  <lg-account-menu>
-    <lg-account-menu-list-item>
-      <button type="button" lgAccountMenuItem>
-        <lg-account-menu-item-label>Button</lg-account-menu-item-label>
-        <lg-icon name="notification"></lg-icon>
+    <!-- Mobile primary nav link menu items (visible below lg) -->
+    <a lgPrimaryNavMobileItem href="/">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Link 1</lg-link-menu-item-text>
+      </lg-link-menu-item>
+    </a>
+    <a lgPrimaryNavMobileItem href="/">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Link 2</lg-link-menu-item-text>
         <lg-notification-badge
           count="3"
           accessText="You have 3 unread messages"
         ></lg-notification-badge>
-      </button>
-    </lg-account-menu-list-item>
+      </lg-link-menu-item>
+    </a>
+    <a lgPrimaryNavMobileItem href="/">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Link 3</lg-link-menu-item-text>
+      </lg-link-menu-item>
+    </a>
+
+    <!-- Mobile account menu link menu items (visible below lg) -->
+    <a lgAccountMenuMobileItem href="/">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Account</lg-link-menu-item-text>
+      </lg-link-menu-item>
+    </a>
+    <a lgAccountMenuMobileItem href="/">
+      <lg-link-menu-item>
+        <lg-link-menu-item-text>Sign out</lg-link-menu-item-text>
+      </lg-link-menu-item>
+    </a>
+  </lg-primary-nav>
+
+  <!-- Account menu items visible in header bar on mobile and desktop -->
+  <lg-account-menu>
     <lg-account-menu-list-item>
       <a href="" lgAccountMenuItem>
-        <lg-account-menu-item-label>Link</lg-account-menu-item-label>
+        <lg-account-menu-item-label>Account</lg-account-menu-item-label>
         <lg-icon name="profile"></lg-icon>
       </a>
     </lg-account-menu-list-item>
     <lg-account-menu-list-item>
-      <button type="button" lgAccountMenuItem>
-        <lg-account-menu-item-label>Signout</lg-account-menu-item-label>
+      <a href="" lgAccountMenuItem>
+        <lg-account-menu-item-label>Sign out</lg-account-menu-item-label>
         <lg-icon name="sign-in"></lg-icon>
-      </button>
+      </a>
     </lg-account-menu-list-item>
   </lg-account-menu>
 </header>
 ```
 
+---
+
+### Migration from previous header navigation
+
+The header navigation has been restructured to support independent mobile and desktop content. The key changes are:
+
+#### 1. Mobile items are now explicitly defined
+
+Previously, the mobile navigation was automatically derived from the desktop navigation items. Now, mobile items must be explicitly provided using the `lgPrimaryNavMobileItem` and `lgAccountMenuMobileItem` attribute directives with proper `lg-link-menu-item` structure.
+
+#### 2. Account menu mobile items are projected into `lg-primary-nav`
+
+The mobile link menu for account items is now rendered inside the primary nav dropdown. Use the `lgAccountMenuMobileItem` directive on anchors inside `lg-primary-nav`:
+
+```html
+<!-- Before: account menu mobile items were auto-generated -->
+<lg-account-menu>
+  <lg-account-menu-list-item>...</lg-account-menu-list-item>
+</lg-account-menu>
+
+<!-- After: mobile items explicitly placed in lg-primary-nav -->
+<lg-primary-nav>
+  <!-- ...desktop items... -->
+  <!-- ...mobile primary nav items... -->
+
+  <a lgAccountMenuMobileItem href="/account">
+    <lg-link-menu-item>
+      <lg-link-menu-item-text>Account</lg-link-menu-item-text>
+    </lg-link-menu-item>
+  </a>
+</lg-primary-nav>
+```
+
+#### 3. Account menu now renders items directly
+
+The `lg-account-menu` component no longer wraps items in separate mobile/desktop containers. Items are rendered directly and are always visible in the header bar (next to the burger menu on mobile, inline on desktop).
+
+#### 4. New directives to import
+
+Add the following to your component imports:
+- `LgPrimaryNavMobileItemDirective` — marks anchors for the mobile primary nav link menu
+- `LgAccountMenuMobileItemDirective` — marks anchors for the mobile account menu link menu
+- `LgLinkMenuItemComponent` — the link menu item wrapper
+- `LgLinkMenuItemTextComponent` — the text content within a link menu item
+
+---
+
 ### LgPrimaryNavComponent
 
-Provides the responsive menu which can be populated with navigation items.
+Provides the responsive menu which can be populated with navigation items. This is typically controlled by `LgHeaderComponent`.
 
 #### Inputs
 
 | Name                 | Description                                            |          Type           | Default | Required |
 | -------------------- | ------------------------------------------------------ | :---------------------: | :-----: | :------: |
-| `showResponsiveMenu` | Determines whether to show or hide the responsive menu | `EventEmitter<boolean>` |   n/a   |   Yes    |
+| `showResponsiveMenu` | Determines whether to show or hide the responsive menu |       `boolean`         | `false` |    No    |
 
 ### LgPrimaryNavListItemComponent
 
@@ -163,9 +273,23 @@ Adds styles and common behaviour to navigation items.
 | ---------- | ------------------------------------ | :-------: | :-----: | :------: |
 | `isActive` | Sets active state of navigation item | `boolean` | `false` |    No    |
 
+### LgPrimaryNavMobileItemDirective
+
+Attribute directive used to mark anchor elements as mobile primary navigation items. These are projected into the first link menu within the mobile dropdown.
+
+### LgAccountMenuMobileItemDirective
+
+Attribute directive used to mark anchor elements as mobile account menu items. These are projected into the second link menu within the mobile dropdown.
+
 ### LgNotificationBadgeComponent
 
-Provides a notification badge for a navigation item.
+Provides a notification badge for navigation items. The badge component is hidden within the navigation and only intended for specific contexts.
+
+#### Badge Variants
+
+Two badge variants are available:
+- **Number badge** – Displays a specific count (e.g., "3" for three notifications)
+- **Dot badge** – Shows a dot indicator for indeterminate notifications
 
 #### Inputs
 

@@ -52,6 +52,16 @@
   }
 }
 
+.lg-link-menu-item__badge-container {
+  display: flex;
+  align-items: center;
+  margin-right: var(--link-menu-item-gap);
+
+  &:empty {
+    display: none;
+  }
+}
+
 .lg-link-menu-item__icon-container {
   position: relative;
 

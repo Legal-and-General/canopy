@@ -1,4 +1,13 @@
-<ul class="lg-primary-nav-list">
+<div class="lg-primary-nav-mobile" lgHideAt="lg">
+  <lg-link-menu>
+    <ng-content select="[lgPrimaryNavMobileItem]" />
+  </lg-link-menu>
+  <lg-link-menu>
+    <ng-content select="[lgAccountMenuMobileItem]" />
+  </lg-link-menu>
+</div>
+
+<ul class="lg-primary-nav-list" lgShowAt="lg">
   <ng-content />
 </ul>
 
