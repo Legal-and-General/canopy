@@ -30,9 +30,9 @@ import { LgPaginationComponent, PageData } from '@legal-and-general/canopy';
 <lg-pagination
   [totalItems]="allItems.length"
   [itemsPerPage]="itemsPerPage"
+  [currentPage]="currentPage"
   (pageChanged)="onPageChanged($event)"
->
-</lg-pagination>
+/>
 ```
 
 **Component:**
@@ -44,6 +44,7 @@ export class MyListComponent implements OnInit {
   allItems: Item[] = [];
   pagedItems: Item[] = [];
   itemsPerPage = 10;
+  currentPage = 1;
 
   ngOnInit(): void {
     this.allItems = this.dataService.getData();
@@ -51,6 +52,7 @@ export class MyListComponent implements OnInit {
   }
 
   onPageChanged(pageData: PageData): void {
+    this.currentPage = pageData.pageNumber;
     this.pagedItems = this.getPagedData(pageData.startIndex, pageData.endIndex);
   }
 
@@ -61,6 +63,8 @@ export class MyListComponent implements OnInit {
 ```
 
 > Use `Array.prototype.slice`, **not** `splice`. `slice(startIndex, endIndex + 1)` returns items up to and including `endIndex`.
+
+> If you previously used `pageData.page`, update handlers to use `pageData.pageNumber`.
 
 ---
 
@@ -94,6 +98,6 @@ interface PageData {
 ## Design Constraints
 
 - The component **hides itself automatically** when `totalItems <= itemsPerPage` (i.e. there is only one page).
-- The results label ("Showing x–y of n results") positions itself automatically — right of buttons when space permits, below otherwise.
-- On mobile, a maximum of 4 page buttons are shown before overflow occurs. Your data handling must account for this.
-- This component is pending brand modernisation and additional features (overflow button, page jumper) are still in development.
+- Desktop and tablet controls show previous/next plus page buttons, capped to a maximum of 9 controls in total (including ellipses). The first page, last page, current page, and nearby neighbours are preserved.
+- Mobile controls use a sliding window of 3 page buttons with no ellipses.
+- The results label ("Showing x-y of n results") is rendered in an `aria-live` region, with the range and total emphasised using semantic `<strong>` text.

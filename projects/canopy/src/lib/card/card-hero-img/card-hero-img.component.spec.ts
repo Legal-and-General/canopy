@@ -75,7 +75,7 @@ describe('LgCardHeroImageComponent', () => {
     const el: HTMLElement = fixture.nativeElement;
     const innerEl: HTMLElement = el.querySelector('.lg-card-hero-image__cover-image');
 
-    expect(innerEl.style.backgroundImage).toEqual('url("test")');
+    expect(innerEl.style.backgroundImage.replaceAll('"', '')).toEqual('url(test)');
   });
 
   it('should set the correct class if it does not have a Image src', () => {

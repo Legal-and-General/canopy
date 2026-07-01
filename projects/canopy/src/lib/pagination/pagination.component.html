@@ -1,32 +1,38 @@
 @if (pages.length > 1) {
-  <ul>
+  <ul class="lg-pagination__controls lg-pagination__controls--desktop">
     <li>
       <button
         type="button"
         class="lg-pagination__button lg-pagination__button--prevnext"
         aria-label="Go to previous page"
-        lgMarginRight="4"
         (click)="previous()"
         [disabled]="currentPage === 1"
         >
-        <lg-icon name="chevron-left" />
+        <span class="lg-pagination__button-content">
+          <lg-icon name="arrow-left" />
+        </span>
       </button>
     </li>
-    @for (page of pages; track page) {
+
+    @for (control of desktopControls; track control.type === 'page' ? control.page : 'desktop-ellipsis-' + $index) {
       <li>
-        <button
-          type="button"
-          class="lg-pagination__button"
-          lgMarginRight="4"
-          [attr.aria-label]="'Go to page ' + page"
-          [attr.aria-current]="currentPage === page"
-          [class.lg-pagination__button--active]="currentPage === page"
-          (click)="goTo(page)"
-          >
-          {{ page }}
-        </button>
+        @if (control.type === 'page') {
+          <button
+            type="button"
+            class="lg-pagination__button"
+            [attr.aria-label]="'Go to page ' + control.page"
+            [attr.aria-current]="currentPage === control.page"
+            [class.lg-pagination__button--active]="currentPage === control.page"
+            (click)="goTo(control.page)"
+            >
+            <span class="lg-pagination__button-content">{{ control.page }}</span>
+          </button>
+        } @else {
+          <span class="lg-pagination__ellipsis" aria-hidden="true">&hellip;</span>
+        }
       </li>
     }
+
     <li>
       <button
         type="button"
@@ -35,16 +41,113 @@
         (click)="next()"
         [disabled]="currentPage === numPages"
         >
-        <lg-icon name="chevron-right" />
+        <span class="lg-pagination__button-content">
+          <lg-icon name="arrow-right" />
+        </span>
       </button>
     </li>
   </ul>
+
+  <ul class="lg-pagination__controls lg-pagination__controls--mobile">
+    <li>
+      <button
+        type="button"
+        class="lg-pagination__button lg-pagination__button--prevnext"
+        aria-label="Go to previous page"
+        (click)="previous()"
+        [disabled]="currentPage === 1"
+        >
+        <span class="lg-pagination__button-content">
+          <lg-icon name="arrow-left" />
+        </span>
+      </button>
+    </li>
+
+    @for (control of mobileControls; track control.type === 'page' ? control.page : 'mobile-ellipsis-' + $index) {
+      @if (control.type === 'page') {
+        <li>
+          <button
+            type="button"
+            class="lg-pagination__button"
+            [attr.aria-label]="'Go to page ' + control.page"
+            [attr.aria-current]="currentPage === control.page"
+            [class.lg-pagination__button--active]="currentPage === control.page"
+            (click)="goTo(control.page)"
+            >
+            <span class="lg-pagination__button-content">{{ control.page }}</span>
+          </button>
+        </li>
+      }
+    }
+
+    <li>
+      <button
+        type="button"
+        class="lg-pagination__button lg-pagination__button--prevnext"
+        aria-label="Go to next page"
+        (click)="next()"
+        [disabled]="currentPage === numPages"
+        >
+        <span class="lg-pagination__button-content">
+          <lg-icon name="arrow-right" />
+        </span>
+      </button>
+    </li>
+  </ul>
+
+  <ul class="lg-pagination__controls lg-pagination__controls--tablet">
+    <li>
+      <button
+        type="button"
+        class="lg-pagination__button lg-pagination__button--prevnext"
+        aria-label="Go to previous page"
+        (click)="previous()"
+        [disabled]="currentPage === 1"
+        >
+        <span class="lg-pagination__button-content">
+          <lg-icon name="arrow-left" />
+        </span>
+      </button>
+    </li>
+
+    @for (control of tabletControls; track control.type === 'page' ? control.page : 'tablet-ellipsis-' + $index) {
+      @if (control.type === 'page') {
+        <li>
+          <button
+            type="button"
+            class="lg-pagination__button"
+            [attr.aria-label]="'Go to page ' + control.page"
+            [attr.aria-current]="currentPage === control.page"
+            [class.lg-pagination__button--active]="currentPage === control.page"
+            (click)="goTo(control.page)"
+            >
+            <span class="lg-pagination__button-content">{{ control.page }}</span>
+          </button>
+        </li>
+      }
+    }
+
+    <li>
+      <button
+        type="button"
+        class="lg-pagination__button lg-pagination__button--prevnext"
+        aria-label="Go to next page"
+        (click)="next()"
+        [disabled]="currentPage === numPages"
+        >
+        <span class="lg-pagination__button-content">
+          <lg-icon name="arrow-right" />
+        </span>
+      </button>
+    </li>
+  </ul>
+
   <div
     aria-live="polite"
     aria-atomic="true"
     [attr.aria-label]="label"
     class="lg-pagination__label lg-font-size-0-8"
     >
-    {{label}}
+    Showing <strong>{{ startItem }}-{{ endItem }}</strong> of <strong>{{ totalItems }}</strong> results
   </div>
 }

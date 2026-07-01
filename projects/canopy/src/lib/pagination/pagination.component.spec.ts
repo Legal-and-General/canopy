@@ -8,9 +8,33 @@ import { LgPaginationComponent as LgPaginationComponent } from './pagination.com
 
 describe('LgPaginationComponent', () => {
   const getButtons = () =>
-    fixture.debugElement.queryAll(By.css('.lg-pagination__button'));
+    fixture.debugElement.queryAll(
+      By.css('.lg-pagination__controls--desktop .lg-pagination__button'),
+    );
   const getActiveButton = () =>
-    fixture.debugElement.query(By.css('.lg-pagination__button--active'));
+    fixture.debugElement.query(
+      By.css('.lg-pagination__controls--desktop .lg-pagination__button--active'),
+    );
+  const getPageButtons = () =>
+    fixture.debugElement.queryAll(
+      By.css(
+        '.lg-pagination__controls--desktop .lg-pagination__button:not(.lg-pagination__button--prevnext)',
+      ),
+    );
+  const getMobileButtons = () =>
+    fixture.debugElement.queryAll(
+      By.css('.lg-pagination__controls--mobile .lg-pagination__button'),
+    );
+  const getMobilePageButtons = () =>
+    fixture.debugElement.queryAll(
+      By.css(
+        '.lg-pagination__controls--mobile .lg-pagination__button:not(.lg-pagination__button--prevnext)',
+      ),
+    );
+  const getEllipses = () =>
+    fixture.debugElement.queryAll(
+      By.css('.lg-pagination__controls--desktop .lg-pagination__ellipsis'),
+    );
   const getPreviousButton = () => getButtons()[0];
 
   const getNextButton = () => {
@@ -77,7 +101,22 @@ describe('LgPaginationComponent', () => {
     });
 
     it('should create buttons for each page', () => {
-      expect(getButtons().length).toBe(5); // 3 pages plus previous and next buttons
+      expect(getButtons().length).toBe(5); // 3 desktop page buttons plus previous and next buttons
+    });
+
+    it('should create 5 mobile controls when more than 3 pages exist', () => {
+      fixture.componentRef.setInput('totalItems', 70);
+      fixture.componentRef.setInput('itemsPerPage', 10);
+      fixture.componentRef.setInput('currentPage', 4);
+      fixture.detectChanges();
+
+      expect(getMobileButtons().length).toBe(5);
+
+      expect(
+        getMobilePageButtons().map(button =>
+          Number((button.nativeElement as HTMLButtonElement).textContent?.trim()),
+        ),
+      ).toEqual([ 3, 4, 5 ]);
     });
 
     it('should disable the previous button when the current page is the first', () => {
@@ -115,6 +154,97 @@ describe('LgPaginationComponent', () => {
       expect(component.pages.length).toBe(1);
       expect(nav).toBeNull();
       expect(label).toBeNull();
+    });
+  });
+
+  describe('desktop truncation', () => {
+    const getPageNumbers = () =>
+      getPageButtons().map(button =>
+        Number((button.nativeElement as HTMLButtonElement).textContent?.trim()),
+      );
+
+    beforeEach(() => {
+      fixture.componentRef.setInput('totalItems', 200);
+      fixture.componentRef.setInput('itemsPerPage', 10);
+    });
+
+    it('keeps total controls to 9 including prev/next and ellipses', () => {
+      fixture.componentRef.setInput('currentPage', 10);
+      fixture.detectChanges();
+
+      const controls = fixture.debugElement.queryAll(
+        By.css('.lg-pagination__controls--desktop > li'),
+      );
+
+      expect(controls.length).toBeLessThanOrEqual(9);
+    });
+
+    it('shows first, last, current and closest neighbours in the middle', () => {
+      fixture.componentRef.setInput('currentPage', 10);
+      fixture.detectChanges();
+
+      expect(getPageNumbers()).toEqual([ 1, 9, 10, 11, 20 ]);
+      expect(getEllipses().length).toBe(2);
+    });
+
+    it('shows first, last and available neighbours near the start', () => {
+      fixture.componentRef.setInput('currentPage', 2);
+      fixture.detectChanges();
+
+      expect(getPageNumbers()).toEqual([ 1, 2, 3, 4, 20 ]);
+      expect(getEllipses().length).toBe(1);
+    });
+
+    it('shows first, last and available neighbours near the end', () => {
+      fixture.componentRef.setInput('currentPage', 19);
+      fixture.detectChanges();
+
+      expect(getPageNumbers()).toEqual([ 1, 17, 18, 19, 20 ]);
+      expect(getEllipses().length).toBe(1);
+    });
+  });
+
+  describe('mobile controls', () => {
+    const getMobilePages = () =>
+      component.mobileControls
+        .filter(control => control.type === 'page')
+        .map(control => (control.type === 'page'
+          ? control.page
+          : -1));
+    const getMobileEllipses = () =>
+      fixture.debugElement.queryAll(
+        By.css('.lg-pagination__controls--mobile .lg-pagination__ellipsis'),
+      );
+
+    beforeEach(() => {
+      fixture.componentRef.setInput('totalItems', 200);
+      fixture.componentRef.setInput('itemsPerPage', 10);
+    });
+
+    it('shows first 3 pages when current page is near start', () => {
+      fixture.componentRef.setInput('currentPage', 1);
+
+      expect(getMobilePages()).toEqual([ 1, 2, 3 ]);
+    });
+
+    it('shows a sliding window of 3 pages around the current page', () => {
+      fixture.componentRef.setInput('currentPage', 10);
+
+      expect(getMobilePages()).toEqual([ 9, 10, 11 ]);
+    });
+
+    it('shows last 3 pages when current page is near end', () => {
+      fixture.componentRef.setInput('currentPage', 20);
+
+      expect(getMobilePages()).toEqual([ 18, 19, 20 ]);
+    });
+
+    it('renders 5 mobile controls in total with no truncation ellipses', () => {
+      fixture.componentRef.setInput('currentPage', 10);
+      fixture.detectChanges();
+
+      expect(getMobileButtons().length).toBe(5);
+      expect(getMobileEllipses().length).toBe(0);
     });
   });
 
