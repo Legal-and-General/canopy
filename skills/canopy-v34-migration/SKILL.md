@@ -55,7 +55,7 @@ variant="dark"
 </lg-breadcrumb>
 ```
 
-**After:**
+**After (with section 2 applied as well):**
 ```html
 <lg-breadcrumb variant="embedded" lgMarginBottom="none">
   <lg-breadcrumb-item><a href="#">Home</a></lg-breadcrumb-item>
@@ -165,10 +165,10 @@ shipped, and `styles/variables.scss` no longer imports it.
 ## 4. breadcrumb: replace removed breadcrumb colour tokens
 
 **What changed:** The legacy `--breadcrumb-light-color` and
-`--breadcrumb-dark-color` tokens have been removed. Keep those removed token
-names exactly as written when searching for them; the American spelling is part
-of the literal token name. Use `--link-mono-rest-colour` and the related
-`--link-mono-*` tokens from the new breadcrumb implementation instead.
+`--breadcrumb-dark-color` tokens have been removed. Search using those removed
+American-spelling token names exactly as written, then replace them with the
+current British-spelling `--link-mono-rest-colour` and related
+`--link-mono-*` tokens from the new breadcrumb implementation.
 
 **Search for** (in `*.scss`, `*.css`, and inline `style=""` attributes in
 `*.html` files):
