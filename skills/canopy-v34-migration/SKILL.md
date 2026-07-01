@@ -14,12 +14,14 @@ After completing all sections, follow the **Verification** steps at the end.
 
 ---
 
-## 1. breadcrumb: rename `variant` values to `embedded` and `page`
+## 1. breadcrumb: replace removed `variant` values with supported variants
 
 **What changed:** The `light` and `dark` breadcrumb variants have been removed.
-Use `embedded` where you previously used `light`, and use `page` where you
-previously used `dark`. The default variant is now `page`, so explicit
-`variant="page"` usage is optional in many cases.
+The supported variants are now `page` and `embedded`, and they are used
+differently from the removed variants. Use `page` for full-page use within the
+grid container, and use `embedded` when the breadcrumb sits within another
+component. The default variant is now `page`, so explicit `variant="page"`
+usage is optional in many cases.
 
 **Search for** (in `*.html` and `*.ts` files):
 ```html
@@ -35,10 +37,13 @@ variant="dark"
 
 **Replace with:**
 
-- Replace `light` with `embedded`.
-- Replace `dark` with `page`.
-- If a breadcrumb is meant to use the default page styling, you may remove an
-  explicit `variant="page"` after the rename.
+- Do not apply a blind `light` → `embedded` or `dark` → `page` rename.
+- Review each breadcrumb in context and choose the supported variant that fits
+  its new layout:
+  - use `page` for a page-level breadcrumb aligned to the grid;
+  - use `embedded` for a breadcrumb placed inside another component.
+- If a breadcrumb should use the default page styling, you may remove an
+  explicit `variant="page"` after updating it.
 
 **Before:**
 ```html
@@ -55,7 +60,7 @@ variant="dark"
 </lg-breadcrumb>
 ```
 
-**After (with section 2 applied as well):**
+**After (examples, with section 2 applied as well):**
 ```html
 <lg-breadcrumb variant="embedded" lgMarginBottom="none">
   <lg-breadcrumb-item><a href="#">Home</a></lg-breadcrumb-item>
@@ -70,11 +75,11 @@ variant="dark"
 
 The final breadcrumb item is plain text in this example because v34 also
 changes current-page handling; apply section 2 at the same time as the variant
-rename.
+update.
 
-> **Automated?** Yes — this is a direct rename from `light` → `embedded` and
-> `dark` → `page`, then optionally remove `variant="page"` where it only
-> restates the new default.
+> **Automated?** Partly — searching for the removed values is mechanical, but
+> choosing between `page` and `embedded` requires a layout review in each
+> affected context.
 
 ---
 
