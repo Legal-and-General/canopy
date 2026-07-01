@@ -2,57 +2,195 @@
 
 .lg-pagination {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  padding: var(--content-area-padding-y) var(--content-area-padding-x);
   justify-content: center;
-  flex-wrap: wrap;
-  column-gap: var(--space-2);
-  row-gap: var(--space-4);
+  gap: var(--pagination-vertical-gap);
 
   ul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    gap: var(--pagination-horizontal-gap);
     margin: 0;
+    align-items: center;
+    padding: 0;
   }
 
-  --button-size: 2.75rem;
+  .lg-pagination__controls--mobile {
+    display: flex;
+  }
+
+  .lg-pagination__controls--tablet,
+  .lg-pagination__controls--desktop {
+    display: none;
+  }
 
   .lg-pagination__button {
-    width: var(--button-size);
-    height: var(--button-size);
-    border-width: 0;
-    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-common-icon-only-min-width);
+    height: var(--button-common-icon-only-min-height);
+    border: 0 none;
+    border-radius: var(--interactive-border-radius-pill);
+    background: var(--pagination-page-rest-background-colour);
+    color: var(--pagination-page-rest-colour);
     font-size: var(--font-size-0-8);
-    background-color: transparent;
-
-    &:hover:not(:disabled) {
-      cursor: pointer;
-      background-color: var(--pagination-button-hover-bg-color);
-      color: var(--pagination-button-hover-color);
-    }
 
     &:focus-visible,
     &:focus-visible:hover {
-      @include mixins.lg-focus-outline();
+      border: var(--pagination-page-focus-border-width) solid
+        var(--pagination-page-focus-border-colour);
+      background: var(--pagination-page-focus-background-colour);
+      color: var(--pagination-page-focus-colour);
+      outline: none;
+      box-shadow: none;
     }
 
-    &.lg-pagination__button--prevnext {
-      &:hover:not(:disabled) {
-        border-width: var(--border-width);
-        background-color: inherit;
-        border-color: var(--pagination-button-prevnext-hover-border-color);
-        color: var(--pagination-button-prevnext-hover-color);
-      }
-    }
-
-    &.lg-pagination__button--active {
-      background-color: var(--pagination-button-active-bg-color);
-      color: var(--pagination-button-active-color);
+    &:disabled {
+      background: transparent;
+      color: var(--pagination-page-disabled-colour);
+      cursor: default;
+      opacity: 1;
     }
   }
 
+  .lg-pagination__button--prevnext:disabled {
+    background: transparent;
+    color: var(--pagination-page-disabled-colour);
+  }
+
+  .lg-pagination__button .lg-pagination__button-content::after {
+    display: none;
+  }
+
+  .lg-pagination__button:hover:not(:disabled)
+    .lg-pagination__button-content::after,
+  .lg-pagination__button:active:not(:disabled)
+    .lg-pagination__button-content::after,
+  .lg-pagination__button:focus-visible .lg-pagination__button-content::after,
+  .lg-pagination__button:focus-visible:hover .lg-pagination__button-content::after,
+  .lg-pagination__button--active .lg-pagination__button-content::after {
+    display: block;
+  }
+
+  .lg-pagination__button:hover:not(:disabled) {
+    background: var(--pagination-page-hover-background-colour);
+    color: var(--pagination-page-hover-colour);
+    cursor: pointer;
+  }
+
+  &.lg-theme-bold .lg-pagination__button:hover:not(:disabled) {
+    color: var(--link-menu-item-hover-colour, var(--pagination-page-hover-colour));
+  }
+
+  .lg-pagination__button:active:not(:disabled) {
+    background: var(--pagination-page-active-background-colour);
+    color: var(--pagination-page-active-colour);
+  }
+
+  .lg-pagination__button-content {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: calc(var(--pagination-page-common-hover-indicator-width) * -1);
+      width: 100%;
+      height: var(--pagination-page-common-hover-indicator-width);
+      transform: translateX(-50%);
+      background-color: var(--pagination-page-rest-hover-indicator-colour);
+    }
+  }
+
+  .lg-pagination__button:hover:not(:disabled) .lg-pagination__button-content::after {
+    background-color: var(--pagination-page-hover-hover-indicator-colour);
+  }
+
+  .lg-pagination__button:active:not(:disabled) .lg-pagination__button-content::after {
+    background-color: var(--pagination-page-active-hover-indicator-colour);
+  }
+
+  .lg-pagination__button:focus-visible .lg-pagination__button-content::after,
+  .lg-pagination__button:focus-visible:hover .lg-pagination__button-content::after {
+    background-color: var(--pagination-page-focus-hover-indicator-colour);
+  }
+
+  .lg-pagination__button:disabled .lg-pagination__button-content::after {
+    background-color: var(--pagination-page-disabled-hover-indicator-colour);
+  }
+
+  .lg-pagination__button--active,
+  .lg-pagination__button--active:hover:not(:disabled),
+  .lg-pagination__button--active:active:not(:disabled) {
+    background: var(--pagination-page-active-background-colour);
+    color: var(--pagination-page-active-colour);
+  }
+
+  .lg-pagination__button--active .lg-pagination__button-content::after,
+  .lg-pagination__button--active:hover:not(:disabled)
+    .lg-pagination__button-content::after,
+  .lg-pagination__button--active:active:not(:disabled)
+    .lg-pagination__button-content::after {
+    background-color: var(--pagination-page-active-hover-indicator-colour);
+  }
+
+  .lg-pagination__ellipsis {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-700);
+    width: var(--content-icon-size-sm);
+    height: var(--content-icon-size-sm);
+    color: var(--pagination-page-rest-colour);
+  }
+
   .lg-pagination__label {
-    width: 12.5rem;
+    text-align: center;
+    font-feature-settings: 'case' on;
+    font-size: var(--font-size-1);
+    font-style: normal;
+    line-height: var(--line-height-1);
+    letter-spacing: var(--letter-spacing-normal);
+  }
+
+  @include mixins.lg-breakpoint('sm') {
+    flex-direction: column;
+  }
+
+  @include mixins.lg-breakpoint('md') {
+    flex-direction: row;
+
+    .lg-pagination__controls--mobile {
+      display: none;
+    }
+
+    .lg-pagination__controls--tablet {
+      display: flex;
+    }
+  }
+
+  @include mixins.lg-breakpoint('lg') {
+    flex-direction: row;
+    display: inline-flex;
+
+    .lg-pagination__controls--tablet {
+      display: none;
+    }
+
+    .lg-pagination__controls--desktop {
+      display: flex;
+    }
+
+    .lg-pagination__ellipsis {
+      display: inline-flex;
+    }
   }
 }

@@ -104,9 +104,11 @@ class PaginationStoryComponent implements OnInit, OnChanges {
 }
 
 export default {
-  title: 'Components/Pagination (WIP)/Examples',
-  tags: [ 'pending' ],
+  title: 'Components/Pagination/Examples',
   component: LgPaginationComponent,
+  globals: {
+    backgrounds: { value: 'light' },
+  },
   decorators: [
     moduleMetadata({
       imports: [ PaginationStoryComponent ],
@@ -115,21 +117,21 @@ export default {
   argTypes: {
     id: {
       description:
-        'Optional id for the component. If none is specified then a unique id will be automatically generated',
+        'Optional HTML id attribute. If none is provided, a unique id is generated automatically.',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'lg-pagination-[nextUniqueId]' },
       },
     },
     totalItems: {
-      description: 'The total number of items in the array being paged.',
+      description: 'The total number of items being paged.',
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: '0' },
       },
     },
     itemsPerPage: {
-      description: 'The maximum number of items to show in each page.',
+      description: 'The maximum number of items shown per page.',
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: '10' },
@@ -137,7 +139,7 @@ export default {
     },
     currentPage: {
       description:
-        'The current page. This is usually controlled internally by the componment itself,  but can also be set externally.',
+        'The current page. This is usually controlled internally by the component, but can also be set externally.',
       table: {
         type: { summary: 'number' },
         defaultValue: { summary: '1' },
@@ -156,6 +158,27 @@ export default {
       table: { disable: true },
     },
     ngOnChanges: {
+      table: { disable: true },
+    },
+    label: {
+      table: { disable: true },
+    },
+    pages: {
+      table: { disable: true },
+    },
+    numPages: {
+      table: { disable: true },
+    },
+    startItem: {
+      table: { disable: true },
+    },
+    endItem: {
+      table: { disable: true },
+    },
+    desktopControls: {
+      table: { disable: true },
+    },
+    mobileControls: {
       table: { disable: true },
     },
     ariaLabel: {
