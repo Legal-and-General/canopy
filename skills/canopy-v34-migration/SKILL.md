@@ -185,6 +185,8 @@ current British-spelling `--link-mono-rest-colour` and related
 | `--breadcrumb-dark-color` | `--link-mono-rest-colour` or the relevant `--link-mono-*` token for the state you are styling |
 
 - Remove references to the deleted breadcrumb colour tokens.
+- Search for the removed American-spelling `color` token names, then replace
+  them with the current British-spelling `colour` tokens.
 - Update each override to the matching `--link-mono-*` token used by your theme
   layer for the same breadcrumb state.
 
