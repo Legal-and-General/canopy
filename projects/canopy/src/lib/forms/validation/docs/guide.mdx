@@ -5,19 +5,58 @@ import Feedback from '../../../docs/common/feedback.md';
 
 # Form validation
 
-<p class="standfirst">Form validation is the process of checking the inputs of a form against expected results, allowing those inputs to be submitted or otherwise returning an error. This page describes our recommended methods of implementing form validation in your application.</p>
+<p class="standfirst">Form validation provides real-time or post-submission feedback to help users identify and correct errors in their input.</p>
 
-### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
+![Form Validation Hero](docs/forms/validation/form-validation-hero.png)
 
-## How errors should display
-
-When the user submits a form and it is validated as having errors, the following things should happen:
-
-1. All fields with errors are highlighted as having errors.
-2. Inline messages display above each field telling the user how to fix the problem. [Read the writing guide](./?path=/docs/principles-writing--docs) to find out how to write good error messages.
-3. The first field with an error automatically gets focus so the user knows where to begin.
 
 ## Usage
+
+Use form validation to guide users through data entry and ensure submitted information is accurate. Validation must be clear, timely, and accessible.
+
+### When a user submits a form with errors
+
+![Form Validation Examples](docs/forms/validation/form-validation-examples.png)
+
+1. **Use an error summary for long forms**  
+  For forms with multiple errors or those that span beyond the viewport, you must include an inline message at the top of the form. This summary must:
+   - Summarise all errors on the page.
+   - Provide anchor links to each field requiring attention.
+   - Receive focus automatically so it is announced to screen readers.
+2. **Highlight all fields with errors**  
+   Use error state tokens to provide a clear visual cue.
+3. **Display inline messages between the label and hint, and the field**  
+   Messages must be placed directly above the input they relate to so they are not missed.
+4. **Focus the first error**  
+   If an error summary is not used, the first field with an error must automatically receive focus.
+5. **Keep the submit button active**  
+   Do not disable the submit button. Users must be able to click it to trigger validation and receive feedback on what needs fixing.
+
+**Writing error messages**
+
+Error messages must be clear, concise, and tell the user how to fix the problem. Follow these L&G microcopy standards:
+
+  - **State the problem and the fix** – explain what is wrong and what to do next (e.g., "Enter a valid email address").
+
+  - **Use imperatives** – start with a verb like "Enter", "Select", or "Use" to keep messages actionable and consistent with buttons.
+
+  - **Keep it short** – aim for under 10 words. Use one concise sentence that is easy to scan.
+
+  - **No end punctuation** – do not use full stops or exclamation marks for single-sentence inline errors. This keeps the UI visually light.
+
+  - **Use plain English** – write for low digital and financial literacy. Avoid technical terms, system language, or internal jargon.
+
+  - **Be neutral and supportive** – use a factual, calm tone. Do not blame the user, apologise, or use filler words like "Please" or "Sorry."
+
+  - **Stay consistent** – use the same wording for the same rule across the entire journey.
+
+**When to validate**
+
+  - **On submit**: Validate the entire form when the user attempts to proceed. This is the primary method for catching errors.
+
+  - **On blur**: Validate individual fields only after a user has finished interacting with them and moved away. Do not validate a field before a user has touched it.
+
+  - **Dynamically**: Only use real-time validation (as the user types) for specific cases like password strength or character counts. Use a debounce of 500 – 1000ms to avoid flickering.
 
 The rules to display the error states are incorporated into the individual Canopy form components. When used in conjunction with standard Angular form validation the error styles will be displayed automatically.
 
@@ -74,29 +113,53 @@ In your HTML, add the validation components with the appropriate structural dire
 </form>
 ```
 
-## Dynamic validation
+## Dos and don’ts
+**Do**
 
-Dynamic validation is validation that happens while the user is inputting into a field. It's fine to use dynamic validation for certain uses such as in a password field but:
+  - **Do** be specific and actionable – explain exactly what is wrong and how to fix it (e.g., "Enter a date in the format DD/MM/YYYY").
 
-* **Don't show inline validation on focus.** Don't make the user feel like they've made a mistake before they've even entered their information.
-* **Don't validate immediately after each character is entered.** Wait 500 to 1000 milliseconds after the user has stopped typing.
+  - **Do** use plain English – maintain a helpful, professional tone and avoid technical jargon or error codes.
 
-## Additional development details
+  - **Do** keep the submit button enabled – allow users to click submit so they can receive feedback on what needs fixing.
 
-### LgValidationComponent inputs
+  - **Do** use anchor links in summaries – for long forms, provide links in the error summary that jump the user directly to the erroneous field.
 
-| Name       | Description                                                          | Type      | Default | Required |
+  - **Do** ensure visual clarity – always use the error icon alongside red text to support users with colour vision deficiencies.
+
+**Don’t**
+
+  - **Don’t** blame the user – avoid accusatory language like "You entered the wrong date."
+
+  - **Don’t** validate on focus – do not show an error message before a user has had a chance to enter any information.
+
+  - **Don’t** rely on colour alone – never use colour as the only indicator of an error state.
+
+  - **Don’t** hide the solution – don't just say "Invalid input"; always provide the requirement or an example of the correct format.
+
+## Developer reference
+ 
+**LgValidationComponent inputs**
+
+| Name       | Description                                                        | Type      | Default | Required |
 |------------|----------------------------------------------------------------------|-----------|---------|----------|
 | `status`  | The status of the validation: `generic`, `info`, `warning`, `error`, `success` | `string`  | `error` | No       |
-| `showIcon` | Whether the icon should display                                      | `boolean` | `true`  | No       |
+| `showIcon` | Whether the icon should display | `boolean` | `true` | No |
 
 ## Accessibility – other considerations
 
 Style error messages in red and use a warning icon to provide a <a href="https://developer.paciellogroup.com/blog/2018/01/inclusive-design-principle-provide-a-comparable-experience/" target="_blank">comparable experience for colour-blind users</a>.
 
-## Tone of voice and copy
+## References
 
-[Read our writing guide](./?path=/docs/principles-writing--docs).
+   - **GOV.UK Design System** – <a href="https://design-system.service.gov.uk/components/error-message/" target="_blank">Error message guidance</a> and <a href="https://design-system.service.gov.uk/components/error-summary/" target="_blank">Error summary pattern</a>.
+
+   - **Nielsen Norman Group (NN/g)** – <a href="https://www.nngroup.com/articles/slips/" target="_blank">Preventing User Errors: Avoid Unnecessary Constraints</a> and <a href="https://www.nngroup.com/articles/web-form-design/" target="_blank">Form Design Best Practices</a>.
+
+   - **Adam Silver** – <a href="https://formdesignpatterns.com/" target="_blank">Form Design Patterns</a>.
+
+   - **W3C WAI** –  <a href="https://www.w3.org/WAI/tutorials/forms/" target="_blank">Forms Concepts</a> and WCAG 3.3.1:  <a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html" target="_blank">Error Identification</a>.
+
+   - **Inclusive Design Principles** – <a href="https://vispero.com/resources/inclusive-design-principle-provide-a-comparable-experience/" target="_blank">Provide a comparable experience</a> (for colour-blind users).
 
 ***
 
