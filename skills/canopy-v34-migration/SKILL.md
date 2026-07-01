@@ -68,6 +68,10 @@ variant="dark"
 </lg-breadcrumb>
 ```
 
+The final breadcrumb item is plain text in this example because v34 also
+changes current-page handling; apply section 2 at the same time as the variant
+rename.
+
 > **Automated?** Yes — this is a direct rename from `light` → `embedded` and
 > `dark` → `page`, then optionally remove `variant="page"` where it only
 > restates the new default.
@@ -161,9 +165,10 @@ shipped, and `styles/variables.scss` no longer imports it.
 ## 4. breadcrumb: replace removed breadcrumb colour tokens
 
 **What changed:** The legacy `--breadcrumb-light-color` and
-`--breadcrumb-dark-color` tokens have been removed. Use
-`--link-mono-rest-colour` and the related `--link-mono-*` tokens from the new
-breadcrumb implementation instead.
+`--breadcrumb-dark-color` tokens have been removed. Keep those removed token
+names exactly as written when searching for them; the American spelling is part
+of the literal token name. Use `--link-mono-rest-colour` and the related
+`--link-mono-*` tokens from the new breadcrumb implementation instead.
 
 **Search for** (in `*.scss`, `*.css`, and inline `style=""` attributes in
 `*.html` files):
