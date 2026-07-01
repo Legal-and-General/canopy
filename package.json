@@ -118,7 +118,7 @@
     "mini-css-extract-plugin": "2.10.2",
     "ng-mocks": "14.15.3",
     "ng-packagr": "21.2.5",
-    "npm": "11.14.1",
+    "npm": "11.18.0",
     "postcss": "8.5.9",
     "postcss-scss": "4.0.9",
     "prettier": "3.8.2",
