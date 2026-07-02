@@ -122,7 +122,7 @@ Use inline checkboxes only when all labels are short and the options are closely
 
 | Name              | Description                                                                                                                     | Type                          | Default                       | Required |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------|-------------------------------|-------------------------------|----------|
-| `id`              | HTML ID attribute, auto generated if not provided                                                                               | `string`                      | `lg-toggle-${++nextUniqueId}` | No       |
+| `id`              | HTML ID attribute, auto generated if not provided                                                                               | `string`                      | auto-generated | No       |
 | `name`            | HTML name attribute                                                                                                             | `string`                      | `null`                        | Yes      |
 | `value`           | HTML value attribute                                                                                                            | `string`                      | `null`                        | Yes      |
 | `focus`           | Set the focus on the checkbox                                                                                                   | `boolean`                     | `null`                        | No       |
@@ -133,7 +133,7 @@ Use inline checkboxes only when all labels are short and the options are closely
 
 | Name   | Description                         | Type                  | Default                       | Required |
 |--------|-------------------------------------|-----------------------|-------------------------------|----------|
-| `blur` | Event emitted on blur of a checkbox | `EventEmitter<Event>` | `lg-toggle-${++nextUniqueId}` | No       |
+| `blur` | Event emitted on blur of a checkbox | `EventEmitter<Event>` | n/a | No       |
 
 ### LgCheckboxGroupComponent
 
@@ -141,8 +141,8 @@ Use inline checkboxes only when all labels are short and the options are closely
 
 | Name              | Description                                                                                                                       | Type            | Default                                     | Required |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------------------------------------|----------|
-| `id`              | HTML ID attribute, auto generated if not provided                                                                                 | `string`        | `lg-checkbox-group-id-${this.nextUniqueId}` | No       |
-| `name`            | Set the name value for all checkboxes in the group, auto-generated if not provided                                                | `string`        | `lg-checkbox-group-${this.nextUniqueId}`    | No       |
+| `id`              | HTML ID attribute, auto generated if not provided                                                                                 | `string`        | auto-generated | No       |
+| `name`            | Set the name value for all checkboxes in the group, auto-generated if not provided                                                | `string`        | auto-generated    | No       |
 | `value`           | HTML value attribute. Sets the default checked checkbox buttons, must match the values of the checkbox buttons                    | `Array<string>` | `null`                                      | No       |
 | `focus`           | Set the focus on the fieldset                                                                                                     | `boolean`       | `null`                                      | No       |
 | `disabled`        | Set the inner checkboxes to disabled                                                                                              | `boolean`       | `false`                                     | No       |

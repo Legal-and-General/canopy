@@ -182,8 +182,8 @@ describe('LgDateFieldComponent', () => {
       const ariaDescribedBy =
         fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
-      // The hardcoded hint gets an auto-generated ID like 'lg-hint-1'
-      expect(ariaDescribedBy).toMatch(/lg-hint-\d+/);
+      // The hardcoded hint gets an auto-generated ID like 'lg-hint-a1b2c3d'
+      expect(ariaDescribedBy).toMatch(/lg-hint-[a-z0-9]{7}/);
     });
 
     it('links custom error messages to the input field with the correct aria attributes', () => {
@@ -196,8 +196,8 @@ describe('LgDateFieldComponent', () => {
       const ariaDescribedBy =
         fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
-      // Should match pattern: 'lg-hint-{number} test-error-id'
-      expect(ariaDescribedBy).toMatch(/^lg-hint-\d+ test-error-id$/);
+      // Should match pattern: 'lg-hint-{random} test-error-id'
+      expect(ariaDescribedBy).toMatch(/^lg-hint-[a-z0-9]{7} test-error-id$/);
     });
   });
 
@@ -226,7 +226,7 @@ describe('LgDateFieldComponent', () => {
         fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
       expect(ariaDescribedBy).toContain(customId);
-      expect(ariaDescribedBy).toMatch(/lg-hint-\d+/);
+      expect(ariaDescribedBy).toMatch(/lg-hint-[a-z0-9]{7}/);
     });
 
     it('should merge custom ariaDescribedBy with error ID', () => {
@@ -253,9 +253,9 @@ describe('LgDateFieldComponent', () => {
       const ariaDescribedBy =
         fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
-      // Should match pattern: 'custom-description-id lg-hint-{number} test-error-id'
+      // Should match pattern: 'custom-description-id lg-hint-{random} test-error-id'
       expect(ariaDescribedBy).toMatch(
-        new RegExp(`^${customId} lg-hint-\\d+ ${errorId}$`),
+        new RegExp(`^${customId} lg-hint-[a-z0-9]{7} ${errorId}$`),
       );
     });
 
@@ -283,7 +283,7 @@ describe('LgDateFieldComponent', () => {
         fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
       expect(ariaDescribedBy).toContain(customIds);
-      expect(ariaDescribedBy).toMatch(/lg-hint-\d+/);
+      expect(ariaDescribedBy).toMatch(/lg-hint-[a-z0-9]{7}/);
       expect(ariaDescribedBy).toContain(errorId);
     });
 
@@ -296,7 +296,7 @@ describe('LgDateFieldComponent', () => {
         fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
       // Should only have hint and error IDs
-      expect(ariaDescribedBy).toMatch(/^lg-hint-\d+ test-error-id$/);
+      expect(ariaDescribedBy).toMatch(/^lg-hint-[a-z0-9]{7} test-error-id$/);
     });
   });
 
@@ -598,7 +598,7 @@ describe('LgDateFieldComponent with custom ariaDescribedBy', () => {
       fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
     expect(ariaDescribedBy).toContain(customAriaDescribedById);
-    expect(ariaDescribedBy).toMatch(/lg-hint-\d+/);
+    expect(ariaDescribedBy).toMatch(/lg-hint-[a-z0-9]{7}/);
     expect(ariaDescribedBy).toContain(errorId);
   });
 
@@ -618,9 +618,9 @@ describe('LgDateFieldComponent with custom ariaDescribedBy', () => {
     const ariaDescribedBy =
       fieldsetElement.nativeElement.getAttribute('aria-describedby');
 
-    // Should match pattern: 'custom-aria-described-by-id lg-hint-{number} test-error-id'
+    // Should match pattern: 'custom-aria-described-by-id lg-hint-{random} test-error-id'
     expect(ariaDescribedBy).toMatch(
-      new RegExp(`^${customAriaDescribedById} lg-hint-\\d+ ${errorId}$`),
+      new RegExp(`^${customAriaDescribedById} lg-hint-[a-z0-9]{7} ${errorId}$`),
     );
   });
 });

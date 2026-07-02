@@ -3,8 +3,7 @@ import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angul
 import type { Status } from '../../status';
 import { LgStatusDirective } from '../../status';
 import { LgIconComponent } from '../../icon';
-
-let nextUniqueId = 0;
+import { randomUniqueId } from '../../utils';
 
 @Component({
   selector: 'lg-validation',
@@ -30,7 +29,7 @@ export class LgValidationComponent {
 
   @HostBinding('id')
   @Input()
-  id = `lg-validation-${nextUniqueId++}`;
+  id = `lg-validation-${randomUniqueId()}`;
 
   @HostBinding('class.lg-validation') class = true;
 

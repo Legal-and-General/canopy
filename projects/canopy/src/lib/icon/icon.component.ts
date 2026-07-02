@@ -8,12 +8,12 @@ import {
   inject,
 } from '@angular/core';
 
+import { randomUniqueId } from '../utils';
+
 import { LgIconRegistry } from './icon.registry';
 import { IconName } from './ui-icons-files.interface';
 
 type Name = IconName;
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-icon',
@@ -29,7 +29,7 @@ export class LgIconComponent {
   private document = inject<Document>(DOCUMENT);
 
   private svgIcon: SVGElement;
-  private id = nextUniqueId++;
+  private id = randomUniqueId();
   private requestId = 0;
 
   @HostBinding('class.lg-icon') class = true;

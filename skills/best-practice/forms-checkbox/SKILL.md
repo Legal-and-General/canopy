@@ -77,8 +77,11 @@ Use `lg-checkbox-group` when presenting two or more related options.
 |-------|------|---------|-------------|
 | `id` | `string` | auto-generated | HTML `id` attribute. |
 | `name` | `string` | auto-generated | Sets `name` on all checkboxes in the group. |
-| `inline` | `boolean` | `false` | Displays checkboxes inline. |
+| `value` | `Array<string>` | `null` | Sets the default checked checkboxes; must match the `value` of the toggle buttons. |
 | `focus` | `boolean` | `null` | Sets focus on the fieldset. |
+| `disabled` | `boolean` | `false` | Disables all inner checkboxes. |
+| `inline` | `boolean` | `false` | Displays checkboxes inline. |
+| `ariaDescribedBy` | `string` | `null` | ID of element that describes the checkboxes. |
 
 ---
 
@@ -96,11 +99,14 @@ Use `lg-checkbox-group` when presenting two or more related options.
 
 ### Do
 
-1. **Do** use to confirm a response (e.g. agreement to terms).
+1. **Do** always provide a clear, descriptive label for every checkbox.
 2. **Do** use to allow the user to choose from multiple options.
+3. **Do** use a single checkbox to capture acknowledgement or consent (e.g. "I agree to the terms and conditions").
+4. **Do** use a checkbox to confirm an action has been completed (e.g. in a checklist).
 
 ### Don't
 
-1. **Don't** use negative labels.
-2. **Don't** use as part of a dark pattern.
-3. **Don't** use when a single exclusive response is required — use radio buttons instead.
+1. **Don't** rely on placeholder text or tooltips as a substitute for a label.
+2. **Don't** use negative labels.
+3. **Don't** use as part of a dark pattern.
+4. **Don't** use when a single exclusive response is required — use radio buttons instead.

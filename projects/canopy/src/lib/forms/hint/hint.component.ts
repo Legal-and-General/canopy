@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 
-let nextUniqueId = 0;
+import { randomUniqueId } from '../../utils';
 
 @Component({
   selector: 'lg-hint',
@@ -12,7 +12,7 @@ let nextUniqueId = 0;
 export class LgHintComponent {
   @HostBinding('id')
   @Input()
-  id = `lg-hint-${nextUniqueId++}`;
+  id = `lg-hint-${randomUniqueId()}`;
 
   @HostBinding('class.lg-hint') class = true;
 }

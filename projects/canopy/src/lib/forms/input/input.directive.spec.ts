@@ -70,6 +70,27 @@ describe('LgInputDirective', () => {
     expect(inputDebugElement.nativeElement.id).toContain('lg-input-');
   });
 
+  it('name matches id by default', () => {
+    fixture.detectChanges();
+
+    expect(inputDebugElement.nativeElement.name).toBe(inputDebugElement.nativeElement.id);
+  });
+
+  it('name follows id when id is overridden', () => {
+    inputInstance.id = 'custom-id';
+    fixture.detectChanges();
+
+    expect(inputDebugElement.nativeElement.name).toBe('custom-id');
+  });
+
+  it('name can be set independently of id', () => {
+    inputInstance.id = 'custom-id';
+    inputInstance.name = 'custom-name';
+    fixture.detectChanges();
+
+    expect(inputDebugElement.nativeElement.name).toBe('custom-name');
+  });
+
   it('adds a block class when the block property is set', () => {
     inputInstance.block = true;
     fixture.detectChanges();

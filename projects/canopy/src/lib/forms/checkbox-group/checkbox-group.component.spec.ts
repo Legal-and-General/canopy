@@ -185,7 +185,7 @@ describe('LgCheckboxGroupComponent', () => {
   });
 
   it('uses same unique id when setting the group id and the group name', () => {
-    const checkboxGroupNextUniqueId = groupInstance['nextUniqueId'];
+    const checkboxGroupNextUniqueId = groupInstance['uniqueId'];
     const checkboxGroupId = groupInstance.id;
     const checkboxGroupName = groupInstance.name;
 
@@ -199,7 +199,7 @@ describe('LgCheckboxGroupComponent', () => {
     expect(new Set(checkboxIds).size).toBe(checkboxIds.length);
 
     for (const id of checkboxIds) {
-      expect(/lg-toggle-\d{1,3}/.test(id)).toBe(true);
+      expect(/^lg-toggle-[a-z0-9]{7}$/.test(id)).toBe(true);
     }
   });
 

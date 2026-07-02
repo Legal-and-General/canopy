@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
-import { LgDomService } from '../../utils';
+import { LgDomService, randomUniqueId } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
@@ -23,8 +23,6 @@ import { LgFocusDirective } from '../../focus';
 
 import type { RadioStackBreakpoint, RadioVariant } from './radio.interface';
 import { LgRadioButtonComponent } from './radio-button.component';
-
-let uniqueId = 0;
 
 @Component({
   selector: 'lg-radio-group, lg-filter-group, lg-segment-group',
@@ -45,8 +43,8 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
   private hostElement = inject(ElementRef);
   private renderer = inject(Renderer2);
 
-  private nextUniqueId = ++uniqueId;
-  private _name = `lg-radio-group-${this.nextUniqueId}`;
+  private uniqueId = randomUniqueId();
+  private _name = `lg-radio-group-${this.uniqueId}`;
   variant: RadioVariant;
   _stack: RadioStackBreakpoint;
   _radios: QueryList<LgRadioButtonComponent>;
@@ -54,7 +52,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
   _validationElement: LgValidationComponent;
   _value: boolean | string = null;
 
-  @Input() id = `lg-radio-group-id-${this.nextUniqueId}`;
+  @Input() id = `lg-radio-group-id-${this.uniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
   @Input() focus = false;

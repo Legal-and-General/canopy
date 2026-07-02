@@ -12,12 +12,11 @@ import {
 import { Subscription } from 'rxjs';
 
 import { LgButtonToggleDirective } from '../button';
+import { randomUniqueId } from '../utils';
 
 import { CardVariant, lgCardPanelIdPrefix, lgCardToggleIdPrefix } from './card.interface';
 import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
 import { LgCardNavigationTitleComponent } from './card-navigation-title/card-navigation-title.component';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-card',
@@ -32,7 +31,7 @@ let nextUniqueId = 0;
 })
 export class LgCardComponent implements AfterContentInit, OnDestroy {
   private subscription: Subscription;
-  private uniqueId = nextUniqueId++;
+  private uniqueId = randomUniqueId();
 
   @ContentChild(forwardRef(() => LgButtonToggleDirective))
   buttonToggle: LgButtonToggleDirective;

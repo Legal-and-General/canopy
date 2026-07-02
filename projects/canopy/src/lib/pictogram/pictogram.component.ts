@@ -9,12 +9,12 @@ import {
   inject,
 } from '@angular/core';
 
+import { randomUniqueId } from '../utils';
+
 import { LgPictogramRegistry } from './pictogram.registry';
 import { PictogramName } from './pictogram-files.interface';
 
 type Name = PictogramName;
-
-let nextUniqueId = 0;
 
 export type PictogramSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
@@ -33,7 +33,7 @@ export class LgPictogramComponent {
   private hostElement = inject<ElementRef<HTMLElement>>(ElementRef);
 
   private svgElement?: SVGElement;
-  private id = nextUniqueId++;
+  private id = randomUniqueId();
   private _hasFill = false;
 
   @HostBinding('class.lg-pictogram') class = true;

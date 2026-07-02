@@ -54,6 +54,7 @@ import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-genera
 
 | Input | Type | Default | Required | Description |
 |-------|------|---------|----------|-------------|
+| `id` | `string` | auto-generated | No | HTML `id` attribute. |
 | `name` | `string` | `null` | Yes | HTML `name` attribute. |
 | `value` | `string` | `null` | Yes | HTML `value` attribute. |
 | `ariaDescribedBy` | `string` | `null` | No | ID of describing element. |
@@ -66,11 +67,13 @@ import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-genera
 
 1. **Do** use when only one option can be selected from 2–5 choices and vertical space is limited.
 2. **Do** use the vertical (`stack`) variant on mobile when horizontal space is insufficient.
+3. **Do** keep labels short and concise to ensure they fit within the buttons without wrapping.
 
 ### Don't
 
 1. **Don't** use when multiple items can be selected — use checkboxes instead.
 2. **Don't** use when there are more than 5 options — use the select component instead.
+3. **Don't** use for navigation — use tabs or a button group instead.
 
 ---
 

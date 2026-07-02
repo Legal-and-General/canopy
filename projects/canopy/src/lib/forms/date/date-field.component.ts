@@ -29,6 +29,7 @@ import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
 import omit from '../../utils/omit';
+import { randomUniqueId } from '../../utils';
 import { LgInputDirective } from '../input';
 import { LgMarginDirective } from '../../spacing';
 import { LgInputFieldComponent } from '../input';
@@ -36,8 +37,6 @@ import { LgLabelComponent } from '../label';
 import { LgFocusDirective } from '../../focus';
 
 import { DateField } from './date-field.interface';
-
-let nextUniqueId = 0;
 
 const labelFieldMap = {
   date: 'day',
@@ -70,7 +69,6 @@ implements OnInit, AfterViewInit, ControlValueAccessor, OnDestroy {
   });
   private cdr = inject(ChangeDetectorRef);
 
-  private uniqueId = nextUniqueId++;
   dateFormGroup: UntypedFormGroup;
   date: UntypedFormControl;
   month: UntypedFormControl;
@@ -82,9 +80,9 @@ implements OnInit, AfterViewInit, ControlValueAccessor, OnDestroy {
   @Input() value: string;
   @Input() disabled = false;
   @Input() focus: boolean;
-  @Input() dateId = `lg-input-date-${this.uniqueId++}`;
-  @Input() monthId = `lg-input-month-${this.uniqueId++}`;
-  @Input() yearId = `lg-input-year-${this.uniqueId++}`;
+  @Input() dateId = `lg-input-date-${randomUniqueId()}`;
+  @Input() monthId = `lg-input-month-${randomUniqueId()}`;
+  @Input() yearId = `lg-input-year-${randomUniqueId()}`;
   @Input() ariaDescribedBy: string;
 
   @HostBinding('class.lg-date-field') class = true;

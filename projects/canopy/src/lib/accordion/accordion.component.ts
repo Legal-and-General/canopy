@@ -12,12 +12,11 @@ import {
 } from '@angular/core';
 
 import type { HeadingLevel } from '../heading';
+import { randomUniqueId } from '../utils';
 
 import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading/accordion-panel-heading.component';
 
 export const LG_ACCORDION = new InjectionToken<LgAccordionComponent>('LG_ACCORDION');
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-accordion',
@@ -30,7 +29,7 @@ let nextUniqueId = 0;
 })
 export class LgAccordionComponent implements AfterContentInit {
   @HostBinding('class.lg-accordion') class = true;
-  @HostBinding('id') @Input() id = `lg-accordion-${nextUniqueId++}`;
+  @HostBinding('id') @Input() id = `lg-accordion-${randomUniqueId()}`;
   @Input() headingLevel: HeadingLevel;
   @Input() multi = true;
 

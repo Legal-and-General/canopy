@@ -46,7 +46,7 @@ Use Angular reactive forms. The `lgSelect` directive goes on the `<select>` elem
 | Input | Type | Default | Description |
 |-------|------|---------|-------------|
 | `id` | `string` | auto-generated | HTML `id` attribute. |
-| `name` | `string` | auto-generated | HTML `name` attribute. |
+| `name` | `string` | auto-generated, matches `id` | HTML `name` attribute. Auto-generated if not provided; defaults to match `id`. |
 
 ## LgSelectFieldComponent Inputs
 

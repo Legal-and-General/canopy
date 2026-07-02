@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 
 import { LgIconComponent } from '../icon';
+import { randomUniqueId } from '../utils';
 
 export interface PageData {
   pageNumber: number;
@@ -19,8 +20,6 @@ export interface PageData {
 }
 
 type PageControl = { type: 'page'; page: number } | { type: 'ellipsis' };
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-pagination',
@@ -42,7 +41,7 @@ export class LgPaginationComponent implements OnChanges {
   @HostBinding('class') class = 'lg-pagination';
   @HostBinding('attr.role') role = 'navigation';
   @HostBinding('attr.aria-label') ariaLabel = 'Pagination Navigation';
-  @HostBinding('id') @Input() id = `lg-pagination-${nextUniqueId++}`;
+  @HostBinding('id') @Input() id = `lg-pagination-${randomUniqueId()}`;
   @Input()
   get totalItems() {
     return this._totalItems;

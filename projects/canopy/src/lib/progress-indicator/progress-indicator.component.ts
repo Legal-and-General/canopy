@@ -6,11 +6,11 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+import { randomUniqueId } from '../utils';
+
 import { ProgressDisplayAs } from './progress-indicator.interface';
 import { LgProgressBarComponent } from './progress-bar/progress-bar.component';
 import { LgProgressJourneyComponent } from './progress-journey/progress-journey.component';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-progress-indicator',
@@ -28,7 +28,7 @@ export class LgProgressIndicatorComponent {
   @Input() displayAs: ProgressDisplayAs = 'step';
   @Input() stepsPrefix = 'Step';
 
-  _id = nextUniqueId++;
+  _id = randomUniqueId();
   _ariaLabelledByIds: string;
   _journeyTitleId = `lg-progress-bar-journey-${this._id}`;
   _stepsTextId = `lg-progress-bar-step-${this._id}`;

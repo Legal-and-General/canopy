@@ -21,10 +21,9 @@ import { NgTemplateOutlet } from '@angular/common';
 import { UniqueSelectionDispatcher } from '../../utils/unique-selection-dispatcher';
 import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/accordion-panel-heading.component';
 import { LG_ACCORDION, LgAccordionComponent } from '../accordion.component';
+import { randomUniqueId } from '../../utils';
 
 import { LgAccordionItemContentDirective } from './accordion-item-content.directive';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-accordion-item',
@@ -44,7 +43,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
     optional: true,
     skipSelf: true,
   });
-  _id = `${nextUniqueId++}`;
+  _id = `${randomUniqueId()}`;
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _showContent = false;
@@ -86,6 +85,10 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
 
   ngAfterContentInit() {
     this.accordionPanelHeading.isActive = this.isActive;
+    /* eslint-disable no-underscore-dangle */
+    this.accordionPanelHeading._toggleId = this._toggleId;
+    this.accordionPanelHeading._panelId = this._panelId;
+    /* eslint-enable no-underscore-dangle */
     this._showContent = this.isActive || !this.lazyContent;
     /* eslint-disable-next-line no-underscore-dangle */
     this._contentTemplate = (this.lazyContent || this.defaultContent)._template;

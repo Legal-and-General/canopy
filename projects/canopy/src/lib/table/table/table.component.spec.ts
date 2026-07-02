@@ -315,7 +315,7 @@ describe('TableComponent', () => {
 
     it('should set the aria id on the detail body row', () => {
       expect(detailBodyRow.nativeElement.getAttribute('id')).toMatch(
-        /lg-table-[0-9]+-detail-row-0/,
+        /lg-table-[a-z0-9]{7}-detail-row-0/,
       );
     });
 
@@ -329,13 +329,13 @@ describe('TableComponent', () => {
 
     it('should set the aria labelled by attribute on the detail body row', () => {
       expect(detailBodyRow.nativeElement.getAttribute('aria-labelledby')).toMatch(
-        /lg-table-[0-9]+-toggle-row-0/,
+        /lg-table-[a-z0-9]{7}-toggle-row-0/,
       );
     });
 
     it('should set the id on the toggle', () => {
       expect(rowToggle.nativeElement.getAttribute('id')).toMatch(
-        /lg-table-[0-9]+-toggle-row-0/,
+        /lg-table-[a-z0-9]{7}-toggle-row-0/,
       );
     });
 

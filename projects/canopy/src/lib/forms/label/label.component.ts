@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
 
-let nextUniqueId = 0;
+import { randomUniqueId } from '../../utils';
 
 @Component({
   selector: '[lg-label]',
@@ -16,7 +16,7 @@ export class LgLabelComponent {
 
   @Input()
   @HostBinding('attr.id')
-  id = `lg-label-${nextUniqueId++}`;
+  id = `lg-label-${randomUniqueId()}`;
 
   @Input()
   @HostBinding('attr.for')

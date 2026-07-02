@@ -22,7 +22,7 @@ import { LgIconComponent } from '../../icon';
 export class LgTableRowToggleComponent {
   private cd = inject(ChangeDetectorRef);
 
-  private _tableId: number;
+  private _tableId: string;
   private _rowId: number;
   context = '';
 
@@ -30,7 +30,7 @@ export class LgTableRowToggleComponent {
 
   @HostBinding('class') class = 'lg-table-row-toggle';
 
-  set tableId(tableId: number) {
+  set tableId(tableId: string) {
     this._tableId = tableId;
 
     this.cd.detectChanges();

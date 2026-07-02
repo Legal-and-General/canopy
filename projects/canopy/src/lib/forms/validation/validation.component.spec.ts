@@ -24,7 +24,9 @@ describe('LgValidationComponent', () => {
   });
 
   it('adds a unique identifier', () => {
-    expect(/lg-validation-\d/.test(fixture.nativeElement.getAttribute('id'))).toBe(true);
+    expect(
+      /^lg-validation-[a-z0-9]{7}$/.test(fixture.nativeElement.getAttribute('id')),
+    ).toBe(true);
   });
 
   it('renders an icon by default', () => {

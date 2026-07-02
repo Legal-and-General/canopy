@@ -120,7 +120,7 @@ export default {
         'Optional HTML id attribute. If none is provided, a unique id is generated automatically.',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'lg-pagination-[nextUniqueId]' },
+        defaultValue: { summary: 'auto-generated' },
       },
     },
     totalItems: {

@@ -80,14 +80,14 @@ The `optgroup` element must be used to semantically group related options within
 
 | Name   | Description                                         | Type     | Default                       | Required |
 |--------|-----------------------------------------------------|----------|-------------------------------|----------|
-| `id`   | HTML ID attribute, auto generated if not provided   | `string` | `lg-select-${nextUniqueId++}` | No       |
-| `name` | HTML Name attribute, auto generated if not provided | `string` | `lg-select-${nextUniqueId++}` | No       |
+| `id`   | HTML ID attribute, auto generated if not provided   | `string` | auto-generated                | No       |
+| `name` | HTML Name attribute, auto generated if not provided; defaults to match `id` | `string` | auto-generated, matches `id` | No       |
 
 ### LgSelectFieldComponent inputs
 
-| Name    | Description                                                                                                            | Type      | Default                       | Required |
-|---------|------------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------|----------|
-| `id`    | HTML ID attribute, auto generated if not provided. This will also propagate to the input `id` and form `for` attribute | `string`  | `lg-select-${nextUniqueId++}` | No       |
+| Name    | Description                                                                                                            | Type      | Default        | Required |
+|---------|------------------------------------------------------------------------------------------------------------------------|-----------|----------------|----------|
+| `id`    | HTML ID attribute, auto generated if not provided. This will also propagate to the input `id` and form `for` attribute | `string`  | auto-generated | No       |
 | `block` | Property to make the select field full width (for small screens only)                                                  | `boolean` | `false`                       | No       |
 
 ## References

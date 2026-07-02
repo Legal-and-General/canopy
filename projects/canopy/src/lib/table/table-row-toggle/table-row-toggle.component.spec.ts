@@ -40,7 +40,7 @@ describe('LgTableRowToggleComponent', () => {
         </lg-table-row-toggle>`,
       );
 
-      fixture.debugElement.children[0].componentInstance.tableId = 0;
+      fixture.debugElement.children[0].componentInstance.tableId = 'abc1234';
       fixture.debugElement.children[0].componentInstance.rowId = 0;
       fixture.detectChanges();
       debugElement = fixture.debugElement.query(By.css('.lg-table-row-toggle__btn'));
@@ -48,13 +48,13 @@ describe('LgTableRowToggleComponent', () => {
 
     it('should set aria controls', () => {
       expect(debugElement.nativeElement.getAttribute('aria-controls')).toEqual(
-        'lg-table-0-detail-row-0',
+        'lg-table-abc1234-detail-row-0',
       );
     });
 
     it('should set the id', () => {
       expect(debugElement.nativeElement.getAttribute('id')).toEqual(
-        'lg-table-0-toggle-row-0',
+        'lg-table-abc1234-toggle-row-0',
       );
     });
   });

@@ -22,7 +22,7 @@ describe('LgFilterContainerPanelComponent', () => {
     fixture = TestBed.createComponent(LgFilterContainerPanelComponent);
     component = fixture.componentInstance;
     el = fixture.debugElement.nativeElement;
-    component.uniqueId = 0;
+    component.uniqueId = 'test-id';
     fixture.detectChanges();
   });
 
@@ -43,7 +43,7 @@ describe('LgFilterContainerPanelComponent', () => {
   });
 
   it('should have the correct id', () => {
-    expect(el.getAttribute('id')).toContain(`${lgFilterContainerPanelIdPrefix}0`);
+    expect(el.getAttribute('id')).toContain(`${lgFilterContainerPanelIdPrefix}test-id`);
   });
 
   it('should have role region', () => {
@@ -52,7 +52,7 @@ describe('LgFilterContainerPanelComponent', () => {
 
   it('should have the correct aria-labelledby attribute', () => {
     expect(el.getAttribute('aria-labelledby')).toBe(
-      `${lgFilterContainerToggleIdPrefix}0`,
+      `${lgFilterContainerToggleIdPrefix}test-id`,
     );
   });
 });

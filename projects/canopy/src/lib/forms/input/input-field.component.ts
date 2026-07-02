@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { LgDomService } from '../../utils';
+import { LgDomService, randomUniqueId } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
 import { LgValidationComponent } from '../validation';
@@ -23,8 +23,6 @@ import { LgPrefixDirective } from '../../prefix';
 import { LgInputFieldExternalButtonDirective } from '../input-field-external-button';
 
 import { LgInputDirective } from './input.directive';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-input-field',
@@ -45,7 +43,7 @@ let nextUniqueId = 0;
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private domService = inject(LgDomService);
 
-  private _id = nextUniqueId++;
+  private _id = randomUniqueId();
   private _labelElement: LgLabelComponent;
   private _inputElement: LgInputDirective;
   private _hintElement: LgHintComponent;
@@ -62,7 +60,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private hasHover = false;
   private disabledStateChanges: Subscription;
 
-  @Input() id = `lg-input-${this._id++}`;
+  @Input() id = `lg-input-${this._id}`;
   @Input() showLabel = true;
   @Input() public set block(block: boolean) {
     if (this._inputElement) {

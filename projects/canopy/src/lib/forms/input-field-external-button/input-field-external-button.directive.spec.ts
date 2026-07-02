@@ -40,8 +40,8 @@ describe('LgInputFieldExternalButtonDirective', () => {
     const button1 = buttonElements[0].nativeElement;
     const button2 = buttonElements[1].nativeElement;
 
-    expect(button1.id).toMatch(/^lg-input-field-external-button-\d+$/);
-    expect(button2.id).toMatch(/^lg-input-field-external-button-\d+$/);
+    expect(button1.id).toMatch(/^lg-input-field-external-button-[a-z0-9]{7}$/);
+    expect(button2.id).toMatch(/^lg-input-field-external-button-[a-z0-9]{7}$/);
     expect(button1.id).not.toBe(button2.id);
   });
 

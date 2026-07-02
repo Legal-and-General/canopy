@@ -23,7 +23,7 @@ import {
 })
 export class LgFilterContainerPanelComponent {
   isActive: boolean;
-  uniqueId: number;
+  uniqueId: string;
 
   @HostBinding('class.lg-filter-container-panel--active') get activeClass(): boolean {
     return this.isActive;

@@ -1,6 +1,6 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
-let nextUniqueId = 0;
+import { randomUniqueId } from '../utils';
 
 @Directive({
   selector: '[lgSuffix]',
@@ -9,5 +9,5 @@ let nextUniqueId = 0;
 export class LgSuffixDirective {
   @Input()
   @HostBinding('attr.id')
-  id = `lg-suffix-${nextUniqueId++}`;
+  id = `lg-suffix-${randomUniqueId()}`;
 }

@@ -15,8 +15,7 @@ import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
 import type { TableColumn, TableVariant } from '../table.interface';
 import { TableColumnLayoutBreakpoints } from '../table.interface';
-
-let nextUniqueId = 0;
+import { randomUniqueId } from '../../utils';
 
 @Component({
   selector: '[lg-table]',
@@ -32,7 +31,7 @@ export class LgTableComponent implements AfterContentChecked {
 
   private _showColumnsAt: TableColumnLayoutBreakpoints;
   isExpandable = false;
-  id = nextUniqueId++;
+  id = randomUniqueId();
   columns = new Map<number, TableColumn>();
   _variant: TableVariant;
 

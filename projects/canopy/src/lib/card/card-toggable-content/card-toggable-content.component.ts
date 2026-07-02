@@ -21,7 +21,7 @@ import { lgCardPanelIdPrefix, lgCardToggleIdPrefix } from '../card.interface';
 export class LgCardToggableContentComponent {
   private host = inject(ElementRef);
 
-  uniqueId: number;
+  uniqueId: string;
   isActive: boolean;
 
   @HostBinding('class.lg-card-toggable-content') class = true;

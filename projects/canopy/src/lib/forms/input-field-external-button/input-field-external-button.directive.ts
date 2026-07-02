@@ -1,6 +1,6 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
-let nextUniqueId = 0;
+import { randomUniqueId } from '../../utils';
 
 @Directive({
   selector: '[lgInputFieldExternalButton]',
@@ -9,5 +9,5 @@ let nextUniqueId = 0;
 export class LgInputFieldExternalButtonDirective {
   @Input()
   @HostBinding('attr.id')
-  id = `lg-input-field-external-button-${nextUniqueId++}`;
+  id = `lg-input-field-external-button-${randomUniqueId()}`;
 }

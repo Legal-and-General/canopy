@@ -184,7 +184,7 @@ export default {
         disable: true,
       },
     },
-    nextUniqueId: {
+    uniqueId: {
       table: {
         disable: true,
       },

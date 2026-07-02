@@ -168,7 +168,7 @@ describe('LgRadioGroupComponent', () => {
   });
 
   it('uses the same unique id when setting the group id and the group name', () => {
-    const checkboxGroupNextUniqueId = groupInstance['nextUniqueId'];
+    const checkboxGroupNextUniqueId = groupInstance['uniqueId'];
     const checkboxGroupId = groupInstance.id;
     const checkboxGroupName = groupInstance.name;
 
@@ -182,7 +182,7 @@ describe('LgRadioGroupComponent', () => {
     expect(new Set(radioIds).size).toBe(radioIds.length);
 
     for (const id of radioIds) {
-      expect(/lg-radio-button-\d{1,3}/.test(id)).toBe(true);
+      expect(/^lg-radio-button-[a-z0-9]{7}$/.test(id)).toBe(true);
     }
   });
 

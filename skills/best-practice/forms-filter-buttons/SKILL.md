@@ -72,3 +72,47 @@ Use checkbox group to allow multiple simultaneous selections:
 ### Don't
 
 1. **Don't** use filter buttons for more than 10 filter options — use radio buttons or checkboxes in a filter panel instead.
+2. **Don't** centre or right-align the filter buttons.
+3. **Don't** mix 'Select one' and 'Select multiple' filters in the same group.
+
+---
+
+## Inputs
+
+### Select One — LgRadioGroupComponent
+
+| Input | Type | Default | Required | Description |
+|-------|------|---------|----------|-------------|
+| `id` | `string` | auto-generated | No | HTML `id` attribute. |
+| `name` | `string` | auto-generated | No | Sets `name` on all buttons in the group. |
+| `value` | `boolean \| string` | `null` | No | Default selected value. |
+| `focus` | `boolean` | `null` | No | Sets focus on the fieldset. |
+
+### Select One — LgRadioButtonComponent
+
+| Input | Type | Default | Required | Description |
+|-------|------|---------|----------|-------------|
+| `id` | `string` | auto-generated | No | HTML `id` attribute. |
+| `name` | `string` | `null` | Yes | HTML `name` attribute. |
+| `value` | `string` | `null` | Yes | HTML `value` attribute. |
+| `ariaDescribedBy` | `string` | `null` | No | ID of the element that describes the radio button. |
+
+### Select Multiple — LgCheckboxGroupComponent
+
+| Input | Type | Default | Required | Description |
+|-------|------|---------|----------|-------------|
+| `id` | `string` | auto-generated | No | HTML `id` attribute. |
+| `name` | `string` | auto-generated | No | Sets `name` on all toggles in the group. |
+| `value` | `Array<string>` | `null` | No | Default checked values. |
+| `focus` | `boolean` | `null` | No | Sets focus on the fieldset. |
+| `disabled` | `boolean` | `false` | No | Disables all inner filter buttons. |
+| `ariaDescribedBy` | `string` | `null` | No | ID of the element that describes the group. |
+
+### Select Multiple — LgToggleComponent
+
+| Input | Type | Default | Required | Description |
+|-------|------|---------|----------|-------------|
+| `id` | `string` | auto-generated | No | HTML `id` attribute. |
+| `name` | `string` | auto-generated | No | HTML `name` attribute. |
+| `value` | `string` | `null` | Yes | HTML `value` attribute. |
+| `checked` | `boolean` | `false` | No | Default checked state. |

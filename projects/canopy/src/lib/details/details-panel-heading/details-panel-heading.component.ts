@@ -52,7 +52,7 @@ export class LgDetailsPanelHeadingComponent {
 
   @Output() toggleActive = new EventEmitter<boolean>();
 
-  uniqueId: number;
+  uniqueId: string;
 
   toggle(): void {
     this.isActive = !this.isActive;

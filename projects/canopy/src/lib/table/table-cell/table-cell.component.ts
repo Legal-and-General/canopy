@@ -32,7 +32,7 @@ export class LgTableCellComponent {
   private _showLabel = true;
   private _columnLabel = '';
   private _rowIndex: number;
-  private _tableId: number;
+  private _tableId: string;
   alignOptions = AlignmentOptions;
 
   @Input() colspan: number;
@@ -80,7 +80,7 @@ export class LgTableCellComponent {
     return this._rowIndex;
   }
 
-  set tableId(tableId: number) {
+  set tableId(tableId: string) {
     this._tableId = tableId;
   }
 

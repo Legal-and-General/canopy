@@ -91,9 +91,9 @@ When a user selects a Select Multiple filter button, they can click to deselect 
 
 | Name    | Description                                                                    | Type                  | Default                               | Required |
 |---------|--------------------------------------------------------------------------------|-----------------------|---------------------------------------|----------|
-| `id`    | HTML ID attribute, auto generated if not provided                              | `string`              | `lg-radio-group-id-${nextUniqueId++}` | No       |
-| `name`  | Set the name value for all inputs in the group, auto-generated if not provided | `string`              | `lg-radio-group-${nextUniqueId++}`    | No       |
-| `value` | Set the default checked radio button, must match the value of the radio button | `boolean` | `string` | `null`                                | No       |
+| `id`    | HTML ID attribute, auto generated if not provided                              | `string`              | auto-generated | No       |
+| `name`  | Set the name value for all inputs in the group, auto-generated if not provided | `string`              | auto-generated    | No       |
+| `value` | Set the default checked radio button, must match the value of the radio button | `boolean \| string` | `null`                                | No       |
 | `focus` | Set the focus on the fieldset                                                  | `boolean`             | `null`                                | No       |
 
 #### LgRadioButtonComponent
@@ -102,10 +102,10 @@ When a user selects a Select Multiple filter button, they can click to deselect 
 
 | Name              | Description                                                                                                                   | Type      | Default                             | Required |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------|-------------------------------------|----------|
-| `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`  | `lg-radio-button-${++nextUniqueId}` | No       |
+| `id`              | HTML ID attribute, auto generated if not provided                                                                             | `string`  | auto-generated | No       |
 | `name`            | HTML name attribute                                                                                                           | `string`  | `null`                              | Yes      |
 | `value`           | HTML value attribute                                                                                                          | `string`  | `null`                              | Yes      |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate  | `boolean` | `null`                              | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the radio, if not provided it will use the hint field where appropriate  | `string`  | `null`                              | No       |
 
 ##### Outputs
 
@@ -123,19 +123,19 @@ When a user selects a Select Multiple filter button, they can click to deselect 
 
 | Name              | Description                                                                                                                    | Type            | Default                                     | Required |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------|---------------------------------------------|----------|
-| `id`              | HTML ID attribute, auto generated if not provided                                                                              | `string`        | `lg-checkbox-group-id-${this.nextUniqueId}` | No       |
-| `name`            | Set the name value for all inputs in the group, auto-generated if not provided                                                 | `string`        | `lg-checkbox-group-${this.nextUniqueId}`    | No       |
+| `id`              | HTML ID attribute, auto generated if not provided                                                                              | `string`        | auto-generated | No       |
+| `name`            | Set the name value for all inputs in the group, auto-generated if not provided                                                 | `string`        | auto-generated    | No       |
 | `value`           | HTML value attribute. Sets the default checked filter buttons, must match the values of the filter buttons                     | `Array<string>` | `null`                                      | No       |
 | `focus`           | Set the focus on the fieldset                                                                                                  | `boolean`       | `null`                                      | No       |
 | `disabled`        | Set the inner filters to disabled                                                                                              | `boolean`       | `false`                                     | No       |
-| `ariaDescribedBy` | HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate | `boolean`       | `null`                                      | No       |
+| `ariaDescribedBy` | HTML ID for the corresponding element that describes the filters, if not provided it will use the hint field where appropriate | `string`        | `null`                                      | No       |
 
 #### LgToggleComponent inputs
 
 | Name      | Description                                                        | Type      | Default                       | Required |
 |-----------|--------------------------------------------------------------------|-----------|-------------------------------|----------|
-| `id`      | HTML ID attribute, auto generated if not provided                  | `string`  | `lg-toggle-${++nextUniqueId}` | No       |
-| `name`    | HTML Name attribute, auto generated if not provided                | `string`  | `lg-toggle-${++nextUniqueId}` | No       |
+| `id`      | HTML ID attribute, auto generated if not provided                  | `string`  | auto-generated | No       |
+| `name`    | HTML Name attribute, auto generated if not provided                | `string`  | auto-generated | No       |
 | `value`   | HTML value attribute. Value that is set when the toggle is checked | `string`  | `null`                        | No       |
 | `checked` | Check status of the toggle                                         | `boolean` | `false`                       | No       |
 | `focus`   | Set the focus on the input                                         | `boolean` | `null`                        | No       |

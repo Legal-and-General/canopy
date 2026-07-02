@@ -8,7 +8,7 @@ import {
   inject,
 } from '@angular/core';
 
-import { LgDomService } from '../../utils';
+import { LgDomService, randomUniqueId } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
 import { LgErrorStateMatcher } from '../validation';
@@ -16,8 +16,6 @@ import { LgValidationComponent } from '../validation';
 import { LgIconComponent } from '../../icon';
 
 import { LgSelectDirective } from './select.directive';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-select-field',
@@ -30,7 +28,7 @@ export class LgSelectFieldComponent {
   private errorState = inject(LgErrorStateMatcher);
   private domService = inject(LgDomService);
 
-  @Input() id = `lg-select-${nextUniqueId++}`;
+  @Input() id = `lg-select-${randomUniqueId()}`;
   @HostBinding('class.lg-select-field') class = true;
   @HostBinding('class.lg-select-field--error') get errorClass() {
     return this.errorState.isControlInvalid(

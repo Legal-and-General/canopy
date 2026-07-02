@@ -1,6 +1,6 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
-let nextUniqueId = 0;
+import { randomUniqueId } from '../utils';
 
 @Directive({
   selector: '[lgPrefix]',
@@ -9,5 +9,5 @@ let nextUniqueId = 0;
 export class LgPrefixDirective {
   @Input()
   @HostBinding('attr.id')
-  id = `lg-prefix-${nextUniqueId++}`;
+  id = `lg-prefix-${randomUniqueId()}`;
 }

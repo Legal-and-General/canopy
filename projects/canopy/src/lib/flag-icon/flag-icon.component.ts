@@ -8,12 +8,12 @@ import {
   inject,
 } from '@angular/core';
 
+import { randomUniqueId } from '../utils';
+
 import { LgFlagIconRegistry } from './flag-icon.registry';
 import { FlagIconName } from './flag-icons-files.interface';
 
 type Name = FlagIconName;
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-flag-icon',
@@ -29,7 +29,7 @@ export class LgFlagIconComponent {
   private document = inject<Document>(DOCUMENT);
 
   private svgIcon: SVGElement;
-  private id = nextUniqueId++;
+  private id = randomUniqueId();
 
   @HostBinding('class.lg-flag-icon') class = true;
   @HostBinding('attr.aria-hidden') hidden = true;

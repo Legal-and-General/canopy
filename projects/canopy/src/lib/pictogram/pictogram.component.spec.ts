@@ -77,7 +77,7 @@ describe('LgPictogramComponent', () => {
 
       const svgElement = fixture.nativeElement.querySelector('svg');
 
-      expect(svgElement.getAttribute('id')).toMatch(/lg-pictogram-\d+-\d/);
+      expect(svgElement.getAttribute('id')).toMatch(/lg-pictogram-[a-z0-9]{7}-\d+/);
 
       const pathElement = svgElement.querySelector('path');
 

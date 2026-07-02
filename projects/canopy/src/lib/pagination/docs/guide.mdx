@@ -79,9 +79,9 @@ On small viewports (below `md`) the component shows a sliding window of 3 consec
 
 ### LgPaginationComponent inputs
 
-| Input | Description | Type | Default | Required |
-|-------|-------------|------|---------|----------|
-| `id` | HTML `id` attribute. If omitted, a unique id is generated automatically. | `string` | `lg-pagination-[nextUniqueId]` | No |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|----------|
+| `id` | HTML `id` attribute, auto generated if not provided. | `string` | auto-generated | No |
 | `totalItems` | Total number of items in the paged collection. | `number` | `0` | No |
 | `itemsPerPage` | Maximum number of items shown per page. Values lower than `1` are clamped to `1`. | `number` | `10` | No |
 | `currentPage` | Current page number. Values are clamped to the valid page range. | `number` | `1` | No |

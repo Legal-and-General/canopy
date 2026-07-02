@@ -25,6 +25,8 @@ describe('FormHintComponent', () => {
   it('adds a unique id', () => {
     fixture.detectChanges();
 
-    expect(/lg-hint-\d/.test(fixture.nativeElement.getAttribute('id'))).toBe(true);
+    expect(/^lg-hint-[a-z0-9]{7}$/.test(fixture.nativeElement.getAttribute('id'))).toBe(
+      true,
+    );
   });
 });

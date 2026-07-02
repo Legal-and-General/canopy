@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
-import { LgDomService } from '../../utils';
+import { LgDomService, randomUniqueId } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
@@ -23,8 +23,6 @@ import { LgLabelComponent } from '../label';
 import { LgFocusDirective } from '../../focus';
 
 import { CheckboxGroupVariant } from './checkbox-group.interface';
-
-let uniqueId = 0;
 
 @Component({
   selector: 'lg-checkbox-group, lg-filter-multiple-group',
@@ -45,15 +43,15 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private renderer = inject(Renderer2);
   private hostElement = inject(ElementRef);
 
-  private nextUniqueId = ++uniqueId;
-  private _name = `lg-checkbox-group-${this.nextUniqueId}`;
+  private uniqueId = randomUniqueId();
+  private _name = `lg-checkbox-group-${this.uniqueId}`;
   private _value: Array<string> = [];
   _variant: CheckboxGroupVariant;
   _checkboxes: QueryList<LgToggleComponent>;
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
 
-  @Input() id = `lg-checkbox-group-id-${this.nextUniqueId}`;
+  @Input() id = `lg-checkbox-group-id-${this.uniqueId}`;
   @Input() inline = false;
   @Input() disabled = false;
   @Input() focus: boolean;

@@ -2,8 +2,7 @@ import { Directive, HostBinding, Input, inject } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
 import { LgErrorStateMatcher } from '../validation';
-
-let nextUniqueId = 0;
+import { randomUniqueId } from '../../utils';
 
 @Directive({
   selector: '[lgInput]',
@@ -16,9 +15,10 @@ export class LgInputDirective {
     host: true,
     skipSelf: true,
   });
+  private _name: string | undefined;
 
   control = inject(NgControl, { self: true, optional: true });
-  uniqueId = nextUniqueId++;
+  uniqueId = randomUniqueId();
 
   @HostBinding('class.lg-input') class = true;
   @HostBinding('class.lg-input--block')
@@ -36,7 +36,13 @@ export class LgInputDirective {
 
   @Input()
   @HostBinding('attr.name')
-  name = `lg-input-${this.uniqueId}`;
+  get name(): string {
+    return this._name ?? this.id;
+  }
+
+  set name(value: string) {
+    this._name = value;
+  }
 
   @Input()
   @HostBinding('id')

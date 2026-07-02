@@ -16,12 +16,10 @@ import { NgClass } from '@angular/common';
 
 import { LgErrorStateMatcher } from '../validation';
 import { LgHintComponent } from '../hint';
-import { LgDomService } from '../../utils';
+import { LgDomService, randomUniqueId } from '../../utils';
 
 import { LgRadioGroupComponent } from './radio-group.component';
 import type { RadioSize, RadioStackBreakpoint, RadioVariant } from './radio.interface';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-radio-button, lg-filter-button, lg-segment-button',
@@ -65,7 +63,7 @@ export class LgRadioButtonComponent implements OnInit {
     return this._variant;
   }
 
-  @Input() id = `lg-radio-button-${++nextUniqueId}`;
+  @Input() id = `lg-radio-button-${randomUniqueId()}`;
   @Input() name: string;
   @Input() value: boolean | string;
   @Input() size: RadioSize = 'lg';

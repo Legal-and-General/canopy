@@ -90,8 +90,8 @@ describe('LgProgressIndicatorComponent', () => {
       ).componentInstance;
 
       expect(component1._id).not.toBe(component2._id);
-      expect(component1._id).toBeGreaterThanOrEqual(0);
-      expect(component2._id).toBeGreaterThanOrEqual(0);
+      expect(component1._id).toMatch(/^[a-z0-9]{7}$/);
+      expect(component2._id).toMatch(/^[a-z0-9]{7}$/);
     });
 
     it('should generate journeyTitleId with component ID', () => {

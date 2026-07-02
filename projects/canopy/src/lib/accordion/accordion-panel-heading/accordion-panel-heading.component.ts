@@ -14,8 +14,7 @@ import {
 import type { HeadingLevel } from '../../heading';
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
-
-let nextUniqueId = 0;
+import { randomUniqueId } from '../../utils';
 
 @Component({
   selector: 'lg-accordion-panel-heading',
@@ -40,7 +39,7 @@ export class LgAccordionPanelHeadingComponent implements AfterViewChecked {
   @Output() toggleActive = new EventEmitter<boolean>();
   @ContentChild(LgIconComponent) decorativeIcon: LgIconComponent;
 
-  _id = nextUniqueId++;
+  _id = randomUniqueId();
   _toggleId = `lg-accordion-panel-heading-${this._id}`;
   _panelId = `lg-accordion-panel-${this._id}`;
   _isActive = false;

@@ -175,14 +175,16 @@ describe('LgToggleComponent', () => {
 
   it('sets a unique name for the toggle button', () => {
     expect(
-      /lg-toggle-\d/.test(inputDebugElement.nativeElement.getAttribute('name')),
+      /^lg-toggle-[a-z0-9]{7}$/.test(
+        inputDebugElement.nativeElement.getAttribute('name'),
+      ),
     ).toBe(true);
   });
 
   it('sets a unique id for the toggle button', () => {
-    expect(/lg-toggle-\d/.test(inputDebugElement.nativeElement.getAttribute('id'))).toBe(
-      true,
-    );
+    expect(
+      /^lg-toggle-[a-z0-9]{7}$/.test(inputDebugElement.nativeElement.getAttribute('id')),
+    ).toBe(true);
   });
 
   it('sets the correct modifier class based on the variant', () => {

@@ -70,6 +70,35 @@ describe('LgSelectDirective', () => {
     expect(selectDebugElement.nativeElement.id).toContain('lg-select-');
   });
 
+  it('name matches id by default', () => {
+    fixture.detectChanges();
+
+    expect(selectDebugElement.nativeElement.name).toBe(
+      selectDebugElement.nativeElement.id,
+    );
+  });
+
+  it('name follows id when id is overridden', () => {
+    const selectInstance =
+      selectDebugElement.injector.get<LgSelectDirective>(LgSelectDirective);
+
+    selectInstance.id = 'custom-id';
+    fixture.detectChanges();
+
+    expect(selectDebugElement.nativeElement.name).toBe('custom-id');
+  });
+
+  it('name can be set independently of id', () => {
+    const selectInstance =
+      selectDebugElement.injector.get<LgSelectDirective>(LgSelectDirective);
+
+    selectInstance.id = 'custom-id';
+    selectInstance.name = 'custom-name';
+    fixture.detectChanges();
+
+    expect(selectDebugElement.nativeElement.name).toBe('custom-name');
+  });
+
   it('adds an error class when the field has a validation error', () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     fixture.detectChanges();

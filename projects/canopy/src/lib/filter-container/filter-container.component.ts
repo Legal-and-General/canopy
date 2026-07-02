@@ -16,14 +16,13 @@ import { Subscription } from 'rxjs';
 
 import { keyName } from '../utils/keyboard-keys';
 import { LgButtonToggleDirective } from '../button';
+import { randomUniqueId } from '../utils';
 
 import { LgFilterContainerPanelComponent } from './filter-container-panel/filter-container-panel.component';
 import {
   lgFilterContainerPanelIdPrefix,
   lgFilterContainerToggleIdPrefix,
 } from './filter-container.constants';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-filter-container',
@@ -40,7 +39,7 @@ export class LgFilterContainerComponent implements AfterContentInit, OnDestroy {
   private renderer = inject(Renderer2);
   private hostElement = inject(ElementRef);
 
-  private uniqueId = nextUniqueId++;
+  private uniqueId = randomUniqueId();
   private subscription: Subscription;
 
   @HostBinding('id') id = `lg-filter-container-${this.uniqueId}`;

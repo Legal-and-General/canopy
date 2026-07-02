@@ -16,10 +16,9 @@ import { Subscription } from 'rxjs';
 
 import type { Status } from '../status';
 import { LgStatusDirective } from '../status';
+import { randomUniqueId } from '../utils';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-panel-heading.component';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-details',
@@ -40,7 +39,7 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   private readonly statusDirective = inject(LgStatusDirective);
 
   private subscription: Subscription;
-  uniqueId = nextUniqueId++;
+  uniqueId = randomUniqueId();
   _showIcon = true;
 
   @Input() isActive = false;

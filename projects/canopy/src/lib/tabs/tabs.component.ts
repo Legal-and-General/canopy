@@ -19,10 +19,9 @@ import { NgClass, NgTemplateOutlet } from '@angular/common';
 
 import { isKeyDown, isKeyLeft, isKeyRight, isKeyUp } from '../utils/keyboard-keys';
 import { LgFocusDirective } from '../focus';
+import { randomUniqueId } from '../utils';
 
 import { LgTabItemComponent } from './tab-item/tab-item.component';
-
-let nextUniqueId = 0;
 
 @Component({
   selector: 'lg-tabs',
@@ -39,7 +38,7 @@ export class LgTabsComponent implements AfterContentInit, OnDestroy {
   selectedIndex = 0;
   isKeyboardEvent = false;
   tabs: Array<LgTabItemComponent>;
-  id = nextUniqueId++;
+  id = randomUniqueId();
 
   @HostBinding('class.lg-tabs') class = true;
 

@@ -83,13 +83,16 @@ import {
 ### Do
 
 1. **Do** use when only one item can be selected from a list.
-2. **Do** lay out options vertically, one choice per line.
-3. **Do** limit to a maximum of 5 options; use a select for longer lists.
+2. **Do** use stacked radio buttons by default — they are easier to scan and work better with long labels.
+3. **Do** keep radio groups to 2–5 options where possible. Avoid more than 7 unless you have strong evidence it's the best pattern.
+4. **Do** write clear, descriptive labels. Use hint text when users need extra context to choose confidently.
+5. **Do** use inline radio buttons sparingly — only for up to 3 short, closely related options.
 
 ### Don't
 
 1. **Don't** use when multiple items can be selected — use checkboxes instead.
 2. **Don't** use when the list has more than 5 options and space is limited — use the select component instead.
+3. **Don't** use inline radio buttons for more than 3 options, or when labels wrap onto multiple lines — switch to stacked.
 
 ---
 

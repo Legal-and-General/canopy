@@ -19,7 +19,7 @@ describe('LgCardToggableContentComponent', () => {
     fixture = TestBed.createComponent(LgCardToggableContentComponent);
     component = fixture.componentInstance;
     el = fixture.debugElement.nativeElement;
-    component.uniqueId = 0;
+    component.uniqueId = 'test-id';
     fixture.detectChanges();
   });
 
@@ -47,7 +47,7 @@ describe('LgCardToggableContentComponent', () => {
   });
 
   it('should have the correct id', () => {
-    expect(el.getAttribute('id')).toContain(`${lgCardPanelIdPrefix}0`);
+    expect(el.getAttribute('id')).toContain(`${lgCardPanelIdPrefix}test-id`);
   });
 
   it('should have role region', () => {
@@ -55,7 +55,7 @@ describe('LgCardToggableContentComponent', () => {
   });
 
   it('should have the correct aria-labelledby attribute', () => {
-    expect(el.getAttribute('aria-labelledby')).toBe(`${lgCardToggleIdPrefix}0`);
+    expect(el.getAttribute('aria-labelledby')).toBe(`${lgCardToggleIdPrefix}test-id`);
   });
 
   it('should unset the tabindex on blur', () => {

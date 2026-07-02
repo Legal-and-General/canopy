@@ -14,7 +14,7 @@ import {
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass } from '@angular/common';
 
-import { LgDomService } from '../../utils';
+import { LgDomService, randomUniqueId } from '../../utils';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent } from '../validation';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
@@ -23,8 +23,6 @@ import { LgFocusDirective } from '../../focus';
 
 import type { ToggleVariant } from './toggle.interface';
 import { CheckboxSize } from './toggle.interface';
-
-let nextUniqueId = 0;
 
 /**
  * @deprecated For lg-switch, use inline radio group or segment instead.  Will be removed in a future major release (date/version TBC).
@@ -54,7 +52,7 @@ export class LgToggleComponent implements ControlValueAccessor, OnInit {
   private hostElement = inject(ElementRef);
   control = inject(NgControl, { self: true, optional: true });
 
-  uniqueId = nextUniqueId++;
+  uniqueId = randomUniqueId();
   selectorVariant: string;
 
   @Input() checked = false;
