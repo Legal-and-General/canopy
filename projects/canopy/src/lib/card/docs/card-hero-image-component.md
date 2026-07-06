@@ -7,7 +7,7 @@ An image is added via the `src` input, and you need to specify if you want the i
 
 To display an image as the background image of this element, which fills the container at a set height or width using `background-size: cover`, simply provide a URL to the desired image to the `src` input and provide the value `true` to the `cover` input.
 
-Note that this image will fill the space of the container, but will preserve it's own aspect ratio, and therefore will be cropped in various ways. For example, on a tablet breakpoint, the container has a portrait aspect ratio, and then on desktop, it is landscape. Therefore we recommend that you only use images that are a large square, with the focus of the image in the centre (like a face), to avoid anything important being cut off.
+Note that this image will fill the space of the container, but will preserve its own aspect ratio, and therefore will be cropped in various ways. For example, on a tablet breakpoint, the container has a portrait aspect ratio, and then on desktop, it is landscape. Therefore we recommend that you only use images that are a large square, with the focus of the image in the centre (like a face), to avoid anything important being cut off.
 
 ```html
 <lg-card-hero-img [src]="imageUrl" [cover]="true">
@@ -17,9 +17,9 @@ Note that this image will fill the space of the container, but will preserve it'
 #### Displaying a Normal Image Tag
 
 To display an image, simply provide a URL to the desired image to the `src` input. Using this method will set the image to the
-full width and height of the container, so you will need to choose the image size carefully to fit for purpose. We recomand a image with aspect ratio of
-3:2, dimensions: 600 × 400. You can also give an image alt text using the `imageAlt` input, and if the `imageAlt` input is not defined it will default
-to 'card-hero-img' as alt text for the image.
+full width and height of the container, so you will need to choose the image size carefully to fit for purpose. We recommend an image with an aspect ratio of
+3:2, dimensions: 600 × 400. You can also provide alt text for the image using the `alt` input; if the `alt` input is not provided it will default
+to an empty string.
 
 ```html
 <lg-card-hero-img [src]="imageUrl" [alt]="imageAltText'>

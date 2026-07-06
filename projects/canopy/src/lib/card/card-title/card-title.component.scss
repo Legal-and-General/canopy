@@ -1,7 +1,7 @@
 @use '../../../styles/mixins.scss';
 
 .lg-card-title {
-  color: var(--card-title-color);
+  color: var(--card-colour);
   display: block;
 
   h1,
@@ -10,6 +10,8 @@
   h4,
   h5,
   h6 {
+    @include mixins.lg-font-size('3', '500');
+
     margin-bottom: 0;
   }
 

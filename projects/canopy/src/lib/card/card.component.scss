@@ -3,35 +3,76 @@
 .lg-card {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   @include mixins.lg-card;
 
-  &--promotion {
-    overflow: hidden;
-
-    .lg-card-hero-img__img + .lg-card-content {
-      padding: var(--space-6);
-      padding-top: var(--space-5);
-    }
+  &__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
   }
 
-  &--navigation {
-    padding-top: 0;
-    transition: box-shadow 250ms;
-    box-shadow: var(--drop-shadow);
+  &--promo {
+    .lg-card-header {
+      border-bottom: 0;
 
-    &:hover {
-      box-shadow: var(--drop-shadow-hover);
-    }
-
-    .lg-card-header__title {
-      @include mixins.lg-breakpoint('md') {
-        margin-right: 0;
+      .lg-card-title {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: var(--font-family-expressive);
+        }
       }
     }
 
+    .lg-card-footer {
+      border-top: 0;
+    }
+  }
+
+  &--interactive {
     .lg-card-header {
-      border-bottom: none;
+      &:hover {
+        background: var(--card-interactive-hover-background-colour);
+        padding-right: var(--card-interactive-hover-padding-right);
+        transition: padding-right var(--animation-duration) var(--animation-fn);
+        box-shadow: inset 0 calc(-1 * var(--card-interactive-hover-border-width)) 0 0
+          var(--card-interactive-hover-border-colour);
+        cursor: pointer;
+
+        a {
+          color: var(--card-interactive-hover-colour);
+        }
+      }
+
+      &:active {
+        box-shadow: inset 0 calc(-1 * var(--card-interactive-hover-border-width)) 0 0
+          var(--card-interactive-hover-active-colour);
+        background: var(--card-interactive-active-background-colour);
+
+        a {
+          color: var(--card-interactive-active-colour);
+        }
+      }
+
+      &:focus-within {
+        background: var(--card-interactive-focus-background-colour);
+        box-shadow: inset 0 0 0 var(--card-interactive-focus-border-width)
+          var(--card-interactive-focus-border-colour);
+
+        a {
+          color: var(--card-interactive-focus-colour);
+
+          &:focus-visible {
+            outline: none;
+          }
+        }
+      }
     }
   }
 
@@ -41,6 +82,139 @@
       @include mixins.lg-breakpoint('xl') {
         --grid-margin: var(--dimensions-large-6);
       }
+    }
+  }
+
+  // ── Orientation layout ───────────────────────────────────────────────────────
+  // Vertical (default): hero-img at the top via flex-direction: column.
+  // Horizontal: switch to flex-direction: row; hero-img moves to the right
+  // via order: 1 (horizontal) or stays left (reverse-horizontal).
+  // Pictogram icons (position: absolute in the overlay mixin for --default cards)
+  // are unaffected by order when absolutely positioned, but non-default cards
+  // also need order: 1 so the pictogram sits on the right in the flex row.
+
+  // sm horizontal — applies at all viewport sizes
+  &.lg-orientation--sm--horizontal {
+    flex-direction: row;
+
+    lg-card-hero-img {
+      order: 1;
+    }
+  }
+
+  &.lg-orientation--sm--reverse-horizontal {
+    flex-direction: row;
+  }
+
+  // md vertical — resets to column
+  &.lg-orientation--md--vertical {
+    @include mixins.lg-breakpoint('md') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // md horizontal
+  &.lg-orientation--md--horizontal {
+    @include mixins.lg-breakpoint('md') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
+      }
+    }
+  }
+
+  &.lg-orientation--md--reverse-horizontal {
+    @include mixins.lg-breakpoint('md') {
+      flex-direction: row;
+    }
+  }
+
+  // lg vertical — resets to column
+  &.lg-orientation--lg--vertical {
+    @include mixins.lg-breakpoint('lg') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // lg horizontal
+  &.lg-orientation--lg--horizontal {
+    @include mixins.lg-breakpoint('lg') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
+      }
+    }
+  }
+
+  &.lg-orientation--lg--reverse-horizontal {
+    @include mixins.lg-breakpoint('lg') {
+      flex-direction: row;
+    }
+  }
+
+  // xl vertical — resets to column
+  &.lg-orientation--xl--vertical {
+    @include mixins.lg-breakpoint('xl') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // xl horizontal
+  &.lg-orientation--xl--horizontal {
+    @include mixins.lg-breakpoint('xl') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
+      }
+    }
+  }
+
+  &.lg-orientation--xl--reverse-horizontal {
+    @include mixins.lg-breakpoint('xl') {
+      flex-direction: row;
+    }
+  }
+
+  // xxl vertical — resets to column
+  &.lg-orientation--xxl--vertical {
+    @include mixins.lg-breakpoint('xxl') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // xxl horizontal
+  &.lg-orientation--xxl--horizontal {
+    @include mixins.lg-breakpoint('xxl') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
+      }
+    }
+  }
+
+  &.lg-orientation--xxl--reverse-horizontal {
+    @include mixins.lg-breakpoint('xxl') {
+      flex-direction: row;
     }
   }
 }

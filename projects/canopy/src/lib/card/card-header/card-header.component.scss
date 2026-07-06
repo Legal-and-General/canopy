@@ -1,21 +1,10 @@
 @use '../../../styles/mixins.scss';
 
 .lg-card-header {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  border-bottom: solid var(--border-width) var(--card-title-border-color);
-  padding-bottom: var(--space-6);
-  margin-bottom: var(--card-header-margin-bottom);
+  padding: var(--card-padding-y) var(--card-padding-x);
+  border-bottom: var(--card-border-width) solid var(--card-border-colour);
 
   @include mixins.lg-breakpoint('md') {
     flex-direction: row;
-  }
-}
-
-.lg-card-header__title {
-  @include mixins.lg-breakpoint('md') {
-    flex: 1 1 0;
-    margin-right: var(--space-6);
   }
 }

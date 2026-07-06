@@ -19,7 +19,7 @@ const promotionsGeneralCardTemplate = `
 <lg-card
   lgMarginBottom="6"
   [lgPadding]="hasIcon ? 'lg' : 'none'"
-  variant="promotion"
+  variant="promo"
   [lgOrientation]="orientation">
   <lg-card-hero-img
     [cover]="true"

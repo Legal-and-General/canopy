@@ -1,8 +1,41 @@
 @use '../../../styles/mixins';
 
+$min-content: 16rem;
+
+@mixin lg-default-horizontal-brand-icon-overlay() {
+  position: relative;
+
+  lg-card-hero-img.lg-card-hero-img__icon {
+    position: absolute;
+    right: var(--card-padding-x);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  lg-card-hero-img.lg-card-hero-img__icon + .lg-card__body {
+    .lg-card-content {
+      padding-right: 8.5rem;
+      min-height: calc(
+        var(--content-pictogram-size-lg) + var(--card-padding-y) + var(--card-padding-y)
+      );
+    }
+  }
+}
+
+// Portrait default: image fills card width, height derived from 4:3 ratio.
+// Landscape: image fills card height, width derived from 1:1 ratio.
+// aspect-ratio is set on the host element (lg-card-hero-img) — inner elements fill it.
 .lg-card-hero-image__cover-image {
   width: 100%;
-  height: var(--card-hero-image-height);
+  height: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -11,238 +44,177 @@
 .lg-card-hero-image__img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.lg-card--promotion {
-  // specific margins around the pictogram when placed in a promotion card
+lg-card-hero-img {
+  display: block;
+  width: 100%;
+  flex: 0 0 auto;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+lg-card-hero-img.lg-card-hero-img__icon {
+  width: auto;
+  min-width: 0;
+  aspect-ratio: auto;
+  align-self: auto;
+  overflow: visible;
+}
+
+.lg-card {
   .lg-card-hero-img__icon {
-    margin-bottom: var(--space-6);
+    padding: var(--card-padding-x) var(--card-padding-x) 0 var(--card-padding-x);
   }
 
-  &.lg-orientation--sm--reverse-vertical {
-    .lg-card-hero-img__icon {
-      margin: var(--space-6) 0 0 0;
+  &.lg-card--default {
+    &.lg-orientation--sm--horizontal,
+    &.lg-orientation--sm--reverse-horizontal {
+      @include lg-default-horizontal-brand-icon-overlay();
     }
-  }
 
-  &.lg-orientation--sm--horizontal {
-    .lg-card-hero-img__icon {
-      margin: 0 var(--space-6) 0 0;
-    }
-  }
-
-  &.lg-orientation--sm--reverse-horizontal {
-    .lg-card-hero-img__icon {
-      margin: 0 0 0 var(--space-6);
-    }
-  }
-
-  &.lg-orientation--md--vertical {
-    .lg-card-hero-img__icon {
+    &.lg-orientation--md--horizontal,
+    &.lg-orientation--md--reverse-horizontal {
       @include mixins.lg-breakpoint('md') {
-        margin: 0 0 var(--space-6) 0;
+        @include lg-default-horizontal-brand-icon-overlay();
       }
     }
-  }
 
-  &.lg-orientation--md--reverse-vertical {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('md') {
-        margin: var(--space-6) 0 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--md--horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('md') {
-        margin: 0 var(--space-6) 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--md--reverse-horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('md') {
-        margin: 0 0 0 var(--space-6);
-      }
-    }
-  }
-
-  &.lg-orientation--lg--vertical {
-    .lg-card-hero-img__icon {
+    &.lg-orientation--lg--horizontal,
+    &.lg-orientation--lg--reverse-horizontal {
       @include mixins.lg-breakpoint('lg') {
-        margin: 0 0 var(--space-6) 0;
+        @include lg-default-horizontal-brand-icon-overlay();
       }
     }
-  }
 
-  &.lg-orientation--lg--reverse-vertical {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('lg') {
-        margin: var(--space-6) 0 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--lg--horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('lg') {
-        margin: 0 var(--space-6) 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--lg--reverse-horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('lg') {
-        margin: 0 0 0 var(--space-6);
-      }
-    }
-  }
-
-  &.lg-orientation--xl--vertical {
-    .lg-card-hero-img__icon {
+    &.lg-orientation--xl--horizontal,
+    &.lg-orientation--xl--reverse-horizontal {
       @include mixins.lg-breakpoint('xl') {
-        margin: 0 0 var(--space-6) 0;
+        @include lg-default-horizontal-brand-icon-overlay();
       }
     }
-  }
 
-  &.lg-orientation--xl--reverse-vertical {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('xl') {
-        margin: var(--space-6) 0 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--xl--horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('xl') {
-        margin: 0 var(--space-6) 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--xl--reverse-horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('xl') {
-        margin: 0 0 0 var(--space-6);
-      }
-    }
-  }
-
-  &.lg-orientation--xxl--vertical {
-    .lg-card-hero-img__icon {
+    &.lg-orientation--xxl--horizontal,
+    &.lg-orientation--xxl--reverse-horizontal {
       @include mixins.lg-breakpoint('xxl') {
-        margin: 0 0 var(--space-6) 0;
-      }
-    }
-  }
-
-  &.lg-orientation--xxl--reverse-vertical {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('xxl') {
-        margin: var(--space-6) 0 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--xxl--horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('xxl') {
-        margin: 0 var(--space-6) 0 0;
-      }
-    }
-  }
-
-  &.lg-orientation--xxl--reverse-horizontal {
-    .lg-card-hero-img__icon {
-      @include mixins.lg-breakpoint('xxl') {
-        margin: 0 0 0 var(--space-6);
+        @include lg-default-horizontal-brand-icon-overlay();
       }
     }
   }
 }
+
+// ── Orientation-driven layout ──────────────────────────────────────────────────
+// Portrait/vertical (default):
+//   width: 100% of card; aspect-ratio 4:3 derives the height.
+// Landscape/horizontal:
+//   align-self: stretch fills the card height; width: auto + aspect-ratio 1:1
 
 .lg-orientation {
-  &.lg-orientation--md--vertical,
-  &.lg-orientation--md--reverse-vertical {
-    .lg-card-hero-image__cover-image {
+  // sm horizontal
+  &.lg-orientation--sm--horizontal,
+  &.lg-orientation--sm--reverse-horizontal {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
+      width: auto;
+      min-width: $min-content;
+      align-self: stretch;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  // md vertical — resets sm horizontal
+  &.lg-orientation--md--vertical {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('md') {
         width: 100%;
-        height: var(--card-hero-image-height);
+        align-self: auto;
+        aspect-ratio: 4 / 3;
       }
     }
   }
 
+  // md horizontal
   &.lg-orientation--md--horizontal,
   &.lg-orientation--md--reverse-horizontal {
-    .lg-card-hero-image__cover-image {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('md') {
-        width: var(--card-hero-image-width);
-        height: 100%;
+        width: auto;
+        min-width: $min-content;
+        align-self: stretch;
+        aspect-ratio: 1 / 1;
       }
     }
   }
 
-  &.lg-orientation--lg--vertical,
-  &.lg-orientation--lg--reverse-vertical {
-    .lg-card-hero-image__cover-image {
+  // lg vertical — resets horizontal
+  &.lg-orientation--lg--vertical {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('lg') {
         width: 100%;
-        height: var(--card-hero-image-height);
+        align-self: auto;
+        aspect-ratio: 4 / 3;
       }
     }
   }
 
+  // lg horizontal
   &.lg-orientation--lg--horizontal,
   &.lg-orientation--lg--reverse-horizontal {
-    .lg-card-hero-image__cover-image {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('lg') {
-        width: var(--card-hero-image-width);
-        height: 100%;
+        width: auto;
+        min-width: $min-content;
+        align-self: stretch;
+        aspect-ratio: 1 / 1;
       }
     }
   }
 
-  &.lg-orientation--xl--vertical,
-  &.lg-orientation--xl--reverse-vertical {
-    .lg-card-hero-image__cover-image {
+  // xl vertical
+  &.lg-orientation--xl--vertical {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('xl') {
         width: 100%;
-        height: var(--card-hero-image-height);
+        align-self: auto;
+        aspect-ratio: 4 / 3;
       }
     }
   }
 
+  // xl horizontal
   &.lg-orientation--xl--horizontal,
   &.lg-orientation--xl--reverse-horizontal {
-    .lg-card-hero-image__cover-image {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('xl') {
-        width: var(--card-hero-image-width);
-        height: 100%;
+        width: auto;
+        min-width: $min-content;
+        align-self: stretch;
+        aspect-ratio: 1 / 1;
       }
     }
   }
 
-  &.lg-orientation--xxl--vertical,
-  &.lg-orientation--xxl--reverse-vertical {
-    .lg-card-hero-image__cover-image {
+  // xxl vertical
+  &.lg-orientation--xxl--vertical {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('xxl') {
         width: 100%;
-        height: var(--card-hero-image-height);
+        align-self: auto;
+        aspect-ratio: 4 / 3;
       }
     }
   }
 
+  // xxl horizontal
   &.lg-orientation--xxl--horizontal,
   &.lg-orientation--xxl--reverse-horizontal {
-    .lg-card-hero-image__cover-image {
+    lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('xxl') {
-        width: var(--card-hero-image-width);
-        height: 100%;
+        width: auto;
+        min-width: $min-content;
+        align-self: stretch;
+        aspect-ratio: 1 / 1;
       }
     }
   }

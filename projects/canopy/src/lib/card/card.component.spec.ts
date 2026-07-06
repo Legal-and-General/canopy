@@ -53,15 +53,15 @@ describe('LgCardComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-card');
   });
 
-  it('should have the promotion class if variant is promotion', () => {
-    component.variant = 'promotion';
+  it('should have the promo classes if variant is promo', () => {
+    component.variant = 'promo';
     fixture.detectChanges();
 
-    expect(el.getAttribute('class')).toContain('lg-card--promotion');
+    expect(el.getAttribute('class')).toContain('lg-card--promo');
   });
 
-  it('should not set the class lg-card--navigation on the lg-card', () => {
-    expect(el.className).not.toContain('lg-card--navigation');
+  it('should not set the class lg-card--interactive on the lg-card', () => {
+    expect(el.className).not.toContain('lg-card--interactive');
   });
 
   describe('when there is only lg-card-content', () => {
@@ -148,7 +148,9 @@ describe('LgCardComponent', () => {
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-content>Content</lg-card-content>
-         <lg-card-footer>Footer</lg-card-footer>
+         <lg-card-footer>
+           <button type="button">Continue</button>
+         </lg-card-footer>
         </lg-card>
       `);
 
@@ -175,7 +177,9 @@ describe('LgCardComponent', () => {
         <lg-card>
          <lg-card-header>Top</lg-card-header>
          <lg-card-content>Content</lg-card-content>
-         <lg-card-footer>Footer</lg-card-footer>
+         <lg-card-footer>
+           <button type="button">Continue</button>
+         </lg-card-footer>
         </lg-card>
       `);
 
@@ -261,12 +265,12 @@ describe('LgCardComponent', () => {
       localFixture.detectChanges();
     });
 
-    it('should set the variant to navigation on the lg-card', () => {
-      expect(component.variant).toContain('navigation');
+    it('should set the variant to interactive on the lg-card', () => {
+      expect(component.variant).toContain('interactive');
     });
 
-    it('should set the class lg-card--navigation on the lg-card', () => {
-      expect(el.className).toContain('lg-card--navigation');
+    it('should set the class lg-card--interactive on the lg-card', () => {
+      expect(el.className).toContain('lg-card--interactive');
     });
   });
 });
