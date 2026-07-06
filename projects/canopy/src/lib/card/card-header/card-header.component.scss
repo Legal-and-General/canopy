@@ -3,8 +3,4 @@
 .lg-card-header {
   padding: var(--card-padding-y) var(--card-padding-x);
   border-bottom: var(--card-border-width) solid var(--card-border-colour);
-
-  @include mixins.lg-breakpoint('md') {
-    flex-direction: row;
-  }
 }
