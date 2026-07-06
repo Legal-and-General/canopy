@@ -1,9 +1,9 @@
 ---
 name: canopy-card
-description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or any card sub-components (including promotion cards) in an Angular project using Canopy.
+description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or related card sub-components in an Angular project using Canopy.
 license: MIT
 metadata:
-  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/promotions/guide.mdx
+  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/card/guide.mdx
 ---
 
 # Canopy Card — Best Practices
@@ -28,6 +28,7 @@ import {
   LgCardNavigationTitleComponent,
   LgCardGroupComponent,
   LgCardToggableContentComponent,
+  LgCardContentInnerDataPointsComponent,
   LgCardHeroImageComponent,
 } from '@legal-and-general/canopy';
 ```
@@ -328,215 +329,52 @@ Use `LgCardToggableContentComponent` with the `lgButtonToggle` directive:
 4. **Do** place cards directly on the page background.
 5. **Do** create layouts that make the hierarchy of the page clearly understood.
 6. **Do** keep promotional message content succinct — follow content guidelines (title max 33 chars, description max 140 chars, link max 20 chars).
----
-name: canopy-card
-description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or related card sub-components in an Angular project using Canopy.
-license: MIT
-metadata:
-  source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/card/guide.mdx
----
-
-# Canopy Card — Best Practices
-
-This skill provides usage guidance, variants, and API reference for Canopy cards from `@legal-and-general/canopy`.
-
-Apply this skill whenever you use `lg-card` or any `LgCard*` component.
-
----
-
-## Import
-
-```ts
-import {
-  LgCardComponent,
-  LgCardContentComponent,
-  LgCardHeaderComponent,
-  LgCardFooterComponent,
-  LgCardTitleComponent,
-  LgCardSubtitleComponent,
-  LgCardSubheadingComponent,
-  LgCardNavigationTitleComponent,
-  LgCardGroupComponent,
-  LgCardToggableContentComponent,
-  LgCardContentInnerDataPointsComponent,
-  LgCardHeroImageComponent,
-} from '@legal-and-general/canopy';
-```
-
----
-
-## Basic Usage
-
-```html
-<lg-card>
-  <lg-card-content>
-    {{ cardContent }} <a href="#">Test link</a>.
-  </lg-card-content>
-</lg-card>
-```
-
----
-
-## Variants
-
-`LgCardComponent` supports `variant="default" | "promo" | "interactive"`.
-
-- `default`: standard content card.
-- `promo`: promotional styling (typically with hero image or pictogram).
-- `interactive`: navigation-card behaviour with hover/focus/active treatment.
-
-### Interactive variant behaviour
-
-If `LgCardNavigationTitleComponent` is projected into the card, the card sets itself to interactive behaviour automatically. You can still set `variant="interactive"` explicitly for clarity.
-
-```html
-<lg-card variant="interactive">
-  <lg-card-header>
-    <lg-card-navigation-title
-      [headingLevel]="2"
-      title="Internal link title"
-      link="/foo"
-    ></lg-card-navigation-title>
-  </lg-card-header>
-  <lg-card-content>
-    {{ cardContent }}
-  </lg-card-content>
-</lg-card>
-```
-
----
-
-## Orientation and media
-
-Use `LgOrientationDirective` on `lg-card` when using `lg-card-hero-img`.
-
-```html
-<lg-card [variant]="'promo'" [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
-  <lg-card-hero-img [cover]="true" [src]="imgUrl" [alt]="altText"></lg-card-hero-img>
-  <lg-card-content>...</lg-card-content>
-</lg-card>
-```
-
-Card documentation and stories currently cover `vertical` and `horizontal` orientation values.
-
-- `vertical`: media sits above content.
-- `horizontal`: media moves to the right-hand side.
-
-`LgOrientationDirective` also defines `reverse-horizontal` and `reverse-vertical` values in its shared type, but card-specific styles are currently implemented for `vertical`/`horizontal`. Do not assume reverse card layout behaviour unless you have validated and styled it for your use case.
-
----
-
-## Common card patterns
-
-### Product card
-
-Use `LgCardContentInnerDataPointsComponent` and data-point components for prominent values.
-
-```html
-<lg-card>
-  <lg-card-content>
-    <lg-card-content-inner-data-points>
-      <lg-data-point variant="card">...</lg-data-point>
-    </lg-card-content-inner-data-points>
-  </lg-card-content>
-</lg-card>
-```
-
-### Card group
-
-Wrap two or more cards with the `lg-card-group` attribute and place the wrapper in an `lgCol="12"` container.
-
-```html
-<div lgCol="12">
-  <aside lg-card-group>
-    <lg-card>...</lg-card>
-    <lg-card>...</lg-card>
-  </aside>
-</div>
-```
-
-### Show more card
-
-Pair `LgCardToggableContentComponent` with `lgButtonToggle`.
-
-```html
-<lg-card>
-  <lg-card-content>
-    <p>Always-visible content.</p>
-    <lg-card-toggable-content>
-      <p>Toggle content.</p>
-    </lg-card-toggable-content>
-    <button lg-button lgButtonToggle type="button" priority="link"
-            (toggleActive)="toggleActive($event)">
-      Show more
-    </button>
-  </lg-card-content>
-</lg-card>
-```
-
----
-
-## Inputs and outputs
-
-### LgCardComponent inputs
-
-| Input | Type | Default | Description |
-|---|---|---|---|
-| `variant` | `CardVariant` | `'default'` | Card variant: `'default'`, `'promo'`, `'interactive'`. |
-
-### LgCardHeroImageComponent inputs
-
-| Input | Type | Default | Description |
-|---|---|---|---|
-| `cover` | `boolean` | `false` | If `true`, image uses cover behaviour. |
-| `src` | `string` | `undefined` | Image URL. Leave empty when projecting a pictogram instead. |
-| `alt` | `string` | `''` | Alt text for image content. |
-
-### LgCardTitleComponent inputs
-
-| Input | Type | Default | Required | Description |
-|---|---|---|---|---|
-| `headingLevel` | `number` | n/a | Yes | Semantic heading level (`1`–`6`). |
-
-### LgCardSubheadingComponent inputs
-
-| Input | Type | Default | Required | Description |
-|---|---|---|---|---|
-| `headingLevel` | `number` | n/a | Yes | Semantic heading level (`1`–`6`). |
-
-### LgCardNavigationTitleComponent inputs
-
-| Input | Type | Default | Required | Description |
-|---|---|---|---|---|
-| `headingLevel` | `number` | n/a | Yes | Semantic heading level (`1`–`6`). |
-| `title` | `string` | `''` | Yes | Navigation title text. |
-| `link` | `string` | `''` | Yes | Internal or external destination URL. |
-| `queryParams` | `Params` | `null` | No | Query parameters for internal links. |
-| `queryParamsHandling` | `QueryParamsHandling` | `null` | No | Query param merge/replace strategy for internal links. |
-
-### LgCardNavigationTitleComponent outputs
-
-| Output | Type | Description |
-|---|---|---|
-| `linkClickedEvent` | `EventEmitter<void>` | Emits when the navigation link is clicked. |
-
----
-
-## Dos and Don'ts
-
-### Do
-
-1. **Do** keep each card focused on one topic.
-2. **Do** summarise content and link to fuller detail on child pages.
-3. **Do** place cards directly on the page background.
-4. **Do** use `LgCardNavigationTitleComponent` for interactive navigation cards.
-5. **Do** keep heading levels semantic; visual styling remains consistent.
+7. **Do** use the `interactive` card variant for navigation cards and prefer `LgCardNavigationTitleComponent` in `lg-card-header`.
 
 ### Don't
 
-1. **Don't** overload a card with multiple subjects.
-2. **Don't** use cards as a replacement for full pages.
-3. **Don't** nest cards inside cards.
-4. **Don't** build cluttered card layouts that hide hierarchy.
-5. **Don't** assume reverse orientation behaviour on cards without explicit validation.
+1. **Don't** overfill or cover more than one subject within a card.
+2. **Don't** use cards as a replacement for standard pages.
+3. **Don't** place cards on top of cards.
+4. **Don't** use to build complex, cluttered layouts that obscure page structure.
+5. **Don't** mix image and pictogram promotions within the same card layout section.
+
+---
+
+## Variant and orientation notes
+
+- `LgCardComponent` supports `variant="default" | "promo" | "interactive"`.
+- If `LgCardNavigationTitleComponent` is projected, the card switches to interactive behaviour automatically.
+- Card examples and styles currently cover `vertical` and `horizontal` orientation values.
+- `LgOrientationDirective` also defines `reverse-horizontal` and `reverse-vertical` values at the shared type level, but card-specific styles are implemented for `vertical`/`horizontal`.
+
+---
+
+## Component reference
+
+### LgCardComponent
+
+Main card container. Accepts `variant` input (`default`, `promo`, `interactive`).
+
+### LgCardHeroImageComponent
+
+Contains hero image or pictogram content.
+
+Inputs: `cover` (`boolean`, default `false`), `src` (`string`), `alt` (`string`, default `''`).
+
+### LgCardNavigationTitleComponent
+
+Navigation title and link component for interactive cards.
+
+Inputs: `headingLevel`, `title`, `link`, `queryParams`, `queryParamsHandling`.
+
+Outputs: `linkClickedEvent`.
+
+### LgCardContentInnerDataPointsComponent
+
+Tertiary layout section for arranging data points in card content.
+
+### LgCardGroupComponent
+
+Attribute directive (`[lg-card-group]`) to group 2+ cards with equal heights across breakpoints.
 
