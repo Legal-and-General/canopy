@@ -61,11 +61,13 @@ import {
   LgCardFooterComponent,
   LgCardGroupComponent,
   LgCardHeaderComponent,
+  LgCardHeroImageComponent,
   LgCardNavigationTitleComponent,
   LgCardSubheadingComponent,
   LgCardSubtitleComponent,
   LgCardTitleComponent,
 } from '../../../canopy/src/lib/card';
+import { LgOrientationDirective } from '../../../canopy/src/lib/orientation';
 import {
   LgContentAreaComponent,
   LgContentAreaContentComponent,
@@ -208,7 +210,9 @@ import {
     LgMarginDirective,
     LgCardGroupComponent,
     LgCardHeaderComponent,
+    LgCardHeroImageComponent,
     LgCardNavigationTitleComponent,
+    LgOrientationDirective,
     LgCardContentComponent,
     LgCardFooterComponent,
     LgLinkMenuComponent,

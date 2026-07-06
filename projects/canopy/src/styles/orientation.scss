@@ -8,16 +8,8 @@
     flex-direction: column;
   }
 
-  &.lg-orientation--sm--reverse-vertical {
-    flex-direction: column-reverse;
-  }
-
   &.lg-orientation--sm--horizontal {
     flex-direction: row;
-  }
-
-  &.lg-orientation--sm--reverse-horizontal {
-    flex-direction: row-reverse;
   }
 
   @include mixins.lg-breakpoint('md') {
@@ -27,16 +19,8 @@
       flex-direction: column;
     }
 
-    &.lg-orientation--md--reverse-vertical {
-      flex-direction: column-reverse;
-    }
-
     &.lg-orientation--md--horizontal {
       flex-direction: row;
-    }
-
-    &.lg-orientation--md--reverse-horizontal {
-      flex-direction: row-reverse;
     }
   }
 
@@ -47,16 +31,8 @@
       flex-direction: column;
     }
 
-    &.lg-orientation--lg--reverse-vertical {
-      flex-direction: column-reverse;
-    }
-
     &.lg-orientation--lg--horizontal {
       flex-direction: row;
-    }
-
-    &.lg-orientation--lg--reverse-horizontal {
-      flex-direction: row-reverse;
     }
   }
 
@@ -67,16 +43,8 @@
       flex-direction: column;
     }
 
-    &.lg-orientation--xl--reverse-vertical {
-      flex-direction: column-reverse;
-    }
-
     &.lg-orientation--xl--horizontal {
       flex-direction: row;
-    }
-
-    &.lg-orientation--xl--reverse-horizontal {
-      flex-direction: row-reverse;
     }
   }
 
@@ -87,16 +55,8 @@
       flex-direction: column;
     }
 
-    &.lg-orientation--xxl--reverse-vertical {
-      flex-direction: column-reverse;
-    }
-
     &.lg-orientation--xxl--horizontal {
       flex-direction: row;
-    }
-
-    &.lg-orientation--xxl--reverse-horizontal {
-      flex-direction: row-reverse;
     }
   }
 }

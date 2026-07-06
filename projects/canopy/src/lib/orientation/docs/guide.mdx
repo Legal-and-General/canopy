@@ -11,9 +11,7 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 The orientation directive arranges the direct children of the host element in a vertical or horizontal layout, in a responsive way.
 It accepts an object, where the **key** is a mobile-first breakpoint from the standard list of available breakpoints: `sm`, `md`, `lg`, `xl`, `xxl`.
 The **value** is from the set of available Orientation options.
-The current available options for Orientation are `vertical`, `horizontal`, `reverse-vertical` and `reverse-horizontal`.
-
-## Usage
+The current available options for Orientation are `vertical` and `horizontal`.
 
 Import the orientation directive in your application:
 
@@ -48,7 +46,7 @@ Use a responsive orientation object which will apply different layout orientatio
 Each **key** is a mobile-first breakpoint from the standard list of available breakpoints: `sm`, `md`, `lg`, `xl`, `xxl`.
 
 The **value** is from the set of available Orientation options.
-The current available options for Orientation are `vertical`, `horizontal`, `reverse-vertical` and `reverse-horizontal`.
+The current available options for Orientation are `vertical` and `horizontal`.
 
 In the example above, the orientation at the `md` breakpoint will be `horizontal`, and at the `lg` will be `vertical`.
 
@@ -72,10 +70,6 @@ Have this example in mind:
 
 **horizontal** - arranges the direct children of the host element in a horizontal layout. The children maintain the same order and 'lg-card-hero-img' is displayed first on the left, followed by 'lg-card-content'.
 
-**reverse-vertical** - arranges the direct children of the host element in a **reverse** vertical layout. The children do not maintain the same order and 'lg-card-content' is displayed first at the top, followed by 'lg-card-hero-img'.
-
-**reverse-horizontal** - arranges the direct children of the host element in a **reverse** horizontal layout. The children do not maintain the same order and 'lg-card-content' is displayed first on the left, followed by 'lg-card-hero-img'.
-
 ### Examples
 
 At the `sm` breakpoint apply `vertical` orientation, then at the `md` breakpoint apply `horizontal` orientation.
@@ -86,17 +80,9 @@ At the `sm` breakpoint apply `vertical` orientation, then at the `md` breakpoint
 
 ```
 
-At the `sm` breakpoint apply `vertical` orientation, at the `md` breakpoint apply `reverse-horizontal` orientation, then at the `lg` breakpoint apply `vertical` orientation.
-
-```html
-
-<lg-card [lgOrientation]="{ sm: 'vertical', md: 'reverse-horizontal', lg: 'vertical' }"></lg-card>
-
-```
-
 ## Inputs
 
-The current available orientation variants are `vertical`, `horizontal`, `reverse-vertical` and `reverse-horizontal`.
+The current available orientation variants are `vertical` and `horizontal`.
 
 The current available breakpoints are `sm`, `md`, `lg`, `xl`, `xxl`
 

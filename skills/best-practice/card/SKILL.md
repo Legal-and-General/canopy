@@ -61,9 +61,18 @@ import {
 
 ## Card Patterns
 
-### Promotion Card
+### Promo Card
 
-Use the `promotion` variant to display promotional content with a hero image or pictogram. Promotion cards should have consistent content length across multiple cards for better visual alignment.
+Use the `promo` variant to display promotional content with a hero image or pictogram. Promo cards should have consistent content length across multiple cards for better visual alignment.
+
+#### Hero image and pictogram layout
+
+The `lg-card-hero-img` element is always placed first in the DOM (before `lg-card-header` and `lg-card-content`). Its position is controlled by orientation:
+
+- **Vertical** (default): hero image or pictogram sits at the **top** of the card.
+- **Horizontal**: hero image or pictogram moves to the **right** of the card body.
+
+On the `default` variant in horizontal layout, a pictogram is absolutely positioned on the right of the card body and card content automatically receives extra right padding to prevent text overlap.
 
 #### Promotion Card with Hero Image
 
@@ -71,7 +80,7 @@ Use the `promotion` variant to display promotional content with a hero image or 
 <lg-card
   lgMarginBottom="6"
   lgPadding="none"
-  variant="promotion"
+  variant="promo"
   [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
   <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
   <lg-card-content>
@@ -89,7 +98,7 @@ Use a pictogram instead of an image for promotional content:
 ```html
 <lg-card
   lgMarginBottom="6"
-  variant="promotion"
+  variant="promo"
   [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
   <lg-card-hero-img>
     <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
@@ -112,7 +121,7 @@ Use a pictogram instead of an image for promotional content:
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
         <lg-card-content>
@@ -135,7 +144,7 @@ Use a pictogram instead of an image for promotional content:
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
         <lg-card-content>
@@ -161,7 +170,7 @@ Use a pictogram instead of an image for promotional content:
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl"></lg-card-hero-img>
         <lg-card-content>
@@ -200,7 +209,7 @@ For magazine-style layouts with a separator, combine image and pictogram promoti
     <div lgColSm="12" lgColLg="6">
       <lg-card
         lgMarginBottom="6"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img>
           <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
@@ -235,16 +244,19 @@ Place the `<form>` element as a parent of `<lg-card>`. Form inputs go in `<lg-ca
 
 ### Navigation Card
 
-Use `LgCardNavigationTitleComponent` for cards that act as navigation links:
+Use `LgCardNavigationTitleComponent` inside `lg-card-header` with the `interactive` variant. The link target and icon are automatically determined from the `link` input:
 
 ```html
-<lg-card>
-  <lg-card-content>
+<lg-card variant="interactive">
+  <lg-card-header>
     <lg-card-navigation-title
       [headingLevel]="3"
       title="Go to next page"
       link="/next-page">
     </lg-card-navigation-title>
+  </lg-card-header>
+  <lg-card-content>
+    <p>Card body text.</p>
   </lg-card-content>
 </lg-card>
 ```
@@ -265,16 +277,16 @@ Wrap data-point components in `LgCardContentInnerDataPointsComponent` for correc
 
 ### Card Group
 
-Wrap multiple cards in `LgCardGroupComponent` inside a `lgCol="12"` column:
+Wrap multiple cards in an element with the `lg-card-group` attribute inside a `lgCol="12"` column:
 
 ```html
 <div lgContainer>
   <div lgRow>
     <div [lgCol]="12">
-      <lg-card-group>
+      <aside lg-card-group>
         <lg-card>...</lg-card>
         <lg-card>...</lg-card>
-      </lg-card-group>
+      </aside>
     </div>
   </div>
 </div>
@@ -300,9 +312,9 @@ Use `LgCardToggableContentComponent` with the `lgButtonToggle` directive:
 
 ## Inputs
 
-| Input | Type | Default | Description |
-|-------|------|---------|-------------|
-| `variant` | `string` | `'default'` | The card variant — `default` or `promotion`. |
+| Input       | Type          | Default       | Description                                                            |
+|-------------|---------------|---------------|------------------------------------------------------------------------|
+| `variant`   | `CardVariant` | `'default'`   | The card variant — `'default'`, `'promo'`, or `'interactive'`.         |
 
 ---
 
@@ -332,31 +344,46 @@ Use `LgCardToggableContentComponent` with the `lgButtonToggle` directive:
 ## Component Reference
 
 ### LgCardComponent
-The main card container. Accepts projection of header, content, footer, and hero image components.
+
+The main card container. Accepts projection of hero image, header, content, and footer components.
+
+### LgCardHeroImageComponent
+
+Contains a hero image or pictogram. Always place as the first child of `lg-card`, before `lg-card-header` and `lg-card-content`. Position is controlled by `[lgOrientation]`: top of the card on vertical, right of the card on horizontal.
+
+Inputs: `cover` (`boolean`, default `false`), `src` (`string`), `alt` (`string`, default `''`)
+
+### LgCardHeaderComponent
+
+Primary layout section. Used for breadcrumbs, or as the container for `lg-card-navigation-title` on interactive cards.
 
 ### LgCardContentComponent
+
 The secondary layout section containing the card's main content and padding.
 
 ### LgCardContentInnerDataPoints
+
 Tertiary layout section specifically for data points with correct spacing.
 
 ### LgCardTitleComponent
+
 Main title container. Should be located inside `lg-card-content`.
 
 Inputs: `headingLevel` (required, `1`–`6`)
 
 ### LgCardNavigationTitleComponent
-Title and link container for navigation cards. Link target and icon are automatically determined.
+
+Title and link container for navigation cards. Must be placed inside `lg-card-header`. Link target and icon are automatically determined from the `link` input.
 
 Inputs: `headingLevel` (required), `title` (required), `link` (required), `queryParams`, `queryParamsHandling`
 
 Outputs: `linkClickedEvent`
 
-### LgCardHeaderComponent
-Primary layout section for breadcrumbs or similar content.
-
 ### LgCardFooterComponent
+
 Section for form buttons or actions.
 
 ### LgCardGroupComponent
-Container to group 2+ cards with equal heights across breakpoints. Wrap in `lgCol="12"`.
+
+Attribute directive (`[lg-card-group]`) that groups 2+ cards with equal heights across breakpoints. Apply as an attribute on a wrapping element (e.g. `<aside lg-card-group>`). Always wrap in a `lgCol="12"` container.
+

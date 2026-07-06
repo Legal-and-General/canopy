@@ -88,7 +88,7 @@
   // ── Orientation layout ───────────────────────────────────────────────────────
   // Vertical (default): hero-img at the top via flex-direction: column.
   // Horizontal: switch to flex-direction: row; hero-img moves to the right
-  // via order: 1 (horizontal) or stays left (reverse-horizontal).
+  // via order: 1.
   // Pictogram icons (position: absolute in the overlay mixin for --default cards)
   // are unaffected by order when absolutely positioned, but non-default cards
   // also need order: 1 so the pictogram sits on the right in the flex row.
@@ -100,10 +100,6 @@
     lg-card-hero-img {
       order: 1;
     }
-  }
-
-  &.lg-orientation--sm--reverse-horizontal {
-    flex-direction: row;
   }
 
   // md vertical — resets to column
@@ -125,12 +121,6 @@
       lg-card-hero-img {
         order: 1;
       }
-    }
-  }
-
-  &.lg-orientation--md--reverse-horizontal {
-    @include mixins.lg-breakpoint('md') {
-      flex-direction: row;
     }
   }
 
@@ -156,12 +146,6 @@
     }
   }
 
-  &.lg-orientation--lg--reverse-horizontal {
-    @include mixins.lg-breakpoint('lg') {
-      flex-direction: row;
-    }
-  }
-
   // xl vertical — resets to column
   &.lg-orientation--xl--vertical {
     @include mixins.lg-breakpoint('xl') {
@@ -184,12 +168,6 @@
     }
   }
 
-  &.lg-orientation--xl--reverse-horizontal {
-    @include mixins.lg-breakpoint('xl') {
-      flex-direction: row;
-    }
-  }
-
   // xxl vertical — resets to column
   &.lg-orientation--xxl--vertical {
     @include mixins.lg-breakpoint('xxl') {
@@ -209,12 +187,6 @@
       lg-card-hero-img {
         order: 1;
       }
-    }
-  }
-
-  &.lg-orientation--xxl--reverse-horizontal {
-    @include mixins.lg-breakpoint('xxl') {
-      flex-direction: row;
     }
   }
 }
