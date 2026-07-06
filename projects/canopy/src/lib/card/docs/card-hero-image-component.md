@@ -22,7 +22,7 @@ full width and height of the container, so you will need to choose the image siz
 to an empty string.
 
 ```html
-<lg-card-hero-img [src]="imageUrl" [alt]="imageAltText'>
+<lg-card-hero-img [src]="imageUrl" [alt]="imageAltText">
 </lg-card-hero-img>
 ```
 

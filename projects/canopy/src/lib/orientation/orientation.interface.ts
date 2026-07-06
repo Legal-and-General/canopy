@@ -1,4 +1,8 @@
-export type Orientation = 'horizontal' | 'vertical';
+export type Orientation =
+  | 'horizontal'
+  | 'vertical'
+  | 'reverse-horizontal'
+  | 'reverse-vertical';
 
 export interface OrientationResponsive {
   sm?: Orientation;

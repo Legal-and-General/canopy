@@ -55,8 +55,8 @@ describe('lgOrientation', () => {
   it('should set the correct orientation classes on the lg-card', () => {
     component.lgOrientation = {
       sm: 'vertical',
-      md: 'horizontal',
-      lg: 'vertical',
+      md: 'reverse-horizontal',
+      lg: 'reverse-vertical',
     };
 
     fixture.detectChanges();
@@ -66,11 +66,11 @@ describe('lgOrientation', () => {
     );
 
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-orientation--md--horizontal',
+      'lg-orientation--md--reverse-horizontal',
     );
 
     expect(testElement.nativeElement.getAttribute('class')).toContain(
-      'lg-orientation--lg--vertical',
+      'lg-orientation--lg--reverse-vertical',
     );
   });
 });

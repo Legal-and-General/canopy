@@ -34,10 +34,12 @@ Pass a responsive orientation object — keys are mobile-first breakpoints, valu
 
 ## Orientation Options
 
-| Value        | Description                                 |
-|--------------|---------------------------------------------|
-| `vertical`   | Children stacked vertically, same order.    |
-| `horizontal` | Children arranged horizontally, same order. |
+| Value                | Description                                     |
+|----------------------|-------------------------------------------------|
+| `vertical`           | Children stacked vertically, same order.        |
+| `horizontal`         | Children arranged horizontally, same order.     |
+| `reverse-vertical`   | Children stacked vertically, reversed order.    |
+| `reverse-horizontal` | Children arranged horizontally, reversed order. |
 
 ---
 
@@ -75,7 +77,7 @@ Each key is a mobile-first breakpoint (`sm`, `md`, `lg`, `xl`, `xxl`). At each b
 ### Multi-breakpoint configuration
 
 ```html
-<lg-card [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
+<lg-card [lgOrientation]="{ sm: 'vertical', md: 'reverse-horizontal', lg: 'vertical' }">
   ...
 </lg-card>
 ```
