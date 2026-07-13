@@ -3,8 +3,8 @@ name: canopy-v34-migration
 description: Apply the Canopy v33→v34 breaking changes to an Angular project. Trigger when the user asks to migrate to Canopy v34, upgrade @legal-and-general/canopy from v33, or fix errors after upgrading to v34.
 license: MIT
 metadata:
-  version: '34.0.0'
-  source: https://github.com/Legal-and-General/canopy/releases/tag/v34.0.0
+  version: '34.3.0'
+  source: https://github.com/Legal-and-General/canopy/releases/tag/v34.3.0
 ---
 
 # Canopy v33 → v34 Migration
@@ -212,6 +212,154 @@ current British-spelling `--link-mono-rest-colour` and related
 > **Automated?** Partly — direct token replacement is straightforward, but
 > manually review any custom hover, focus, or active states to ensure they use
 > the appropriate related `--link-mono-*` tokens.
+
+---
+
+## 5. pagination: replace removed pagination style tokens
+
+**What changed:** (v34.2.0) The pagination component was updated and its old
+`--pagination-button-*` custom properties were removed in favour of a new set
+of `--pagination-page-*` and related tokens. There is not a strict 1:1
+replacement for every previous variable, so overrides need to be rechecked
+against the new token model, including hover, focus, and active states.
+
+**Search for** (in `*.scss` and `*.css` files, and inline `style=""`
+attributes in `*.html` files):
+```css
+--pagination-button-hover-bg-color
+--pagination-button-hover-color
+--pagination-button-active-bg-color
+--pagination-button-active-color
+--pagination-button-prevnext-hover-border-color
+--pagination-button-prevnext-hover-color
+```
+
+**Replace with:**
+
+| Removed token | Replacement |
+|---|---|
+| `--pagination-button-hover-bg-color` | `--pagination-page-hover-background-colour` |
+| `--pagination-button-hover-color` | `--pagination-page-hover-colour` |
+| `--pagination-button-active-bg-color` | `--pagination-page-active-background-colour` |
+| `--pagination-button-active-color` | `--pagination-page-active-colour` |
+| `--pagination-button-prevnext-hover-border-color` | `--pagination-page-hover-hover-indicator-colour` (review against your hover state) |
+| `--pagination-button-prevnext-hover-color` | `--pagination-page-hover-colour` (review against your hover state) |
+
+Additional tokens are available on the new pagination component for states
+that did not previously have an equivalent override, including
+`--pagination-horizontal-gap`, `--pagination-vertical-gap`,
+`--pagination-page-common-hover-indicator-width`,
+`--pagination-page-rest-background-colour`, `--pagination-page-rest-colour`,
+`--pagination-page-rest-hover-indicator-colour`,
+`--pagination-page-active-hover-indicator-colour`,
+`--pagination-page-focus-background-colour`,
+`--pagination-page-focus-border-colour`,
+`--pagination-page-focus-border-width`, `--pagination-page-focus-colour`,
+`--pagination-page-focus-hover-indicator-colour`,
+`--pagination-page-disabled-background-colour`,
+`--pagination-page-disabled-colour`, and
+`--pagination-page-disabled-hover-indicator-colour`.
+
+**Before:**
+```scss
+:root {
+  --pagination-button-hover-bg-color: var(--colour-neutral-95);
+  --pagination-button-active-bg-color: var(--colour-brand-primary);
+}
+```
+
+**After:**
+```scss
+:root {
+  --pagination-page-hover-background-colour: var(--colour-neutral-95);
+  --pagination-page-active-background-colour: var(--colour-brand-primary);
+}
+```
+
+> **Automated?** Partly — renaming known removed tokens is mechanical, but you
+> must manually review hover, focus, active, and disabled states because the
+> new token model does not map 1:1 to the old one.
+
+---
+
+## 6. pagination: remove deleted pagination variables partial import
+
+**What changed:** (v34.2.0) The pagination SCSS variables partial has been
+deleted. Any direct import of it must be removed; customise the new
+pagination tokens (see section 5) in your theme layer instead.
+
+**Search for** (in `*.scss` files):
+```scss
+@use '@legal-and-general/canopy/styles/variables/components/pagination'
+@import '@legal-and-general/canopy/styles/variables/components/pagination'
+```
+
+**Replace with:**
+
+- Remove the import line entirely.
+- Move any pagination customisation to overrides of the supported tokens
+  listed in section 5.
+
+**Before:**
+```scss
+@use '@legal-and-general/canopy/styles/variables/components/pagination';
+```
+
+**After:**
+```scss
+/* Remove the deleted import */
+/* Override supported pagination tokens in your theme layer instead */
+```
+
+> **Automated?** Yes — remove the deleted import wherever it appears.
+
+---
+
+## 7. IDs: update tests and overrides that depend on generated ID formats
+
+**What changed:** (v34.3.0) Auto-generated element IDs are now randomised
+alphanumeric strings instead of sequential numbers, to avoid ID collisions
+across apps on the same page. This affects components such as inputs,
+toggles, table rows/cells, card toggleable content, details panel headings,
+and filter container panels. Internal `uniqueId`/`tableId` properties on
+`LgCardToggableContentComponent`, `LgDetailsPanelHeadingComponent`,
+`LgFilterContainerPanelComponent`, `LgTableRowToggleComponent`, and
+`LgTableCellComponent` changed type from `number` to `string`, but these are
+internal, not public inputs or outputs.
+
+**Search for** (in e2e/selector test files):
+```
+#lg-input-0
+lg-toggle-1
+```
+(and any other selectors that assume sequential numeric suffixes on
+Canopy-generated IDs)
+
+**Replace with:**
+
+- Update selector patterns that assume sequential numeric IDs (for example
+  `#lg-input-0`, `lg-toggle-1`) to match the new alphanumeric format (for
+  example `lg-input-[a-z0-9]{7}`).
+- If your application uses Angular SSR with `provideClientHydration()`,
+  override auto-generated IDs via the component's `id` input to ensure
+  consistent values are rendered on both server and client.
+- No action is required if your application does not assert on generated ID
+  values and does not use `provideClientHydration()`.
+
+**Before:**
+```ts
+cy.get('#lg-input-0').should('be.visible');
+```
+
+**After:**
+```ts
+cy.get('[id^="lg-input-"]').should('be.visible');
+```
+
+> **Automated?** No — searching for hardcoded sequential ID selectors is
+> mechanical, but confirming whether SSR hydration is affected, and updating
+> selectors to match the application's own test conventions, requires manual
+> review.
 
 ---
 
