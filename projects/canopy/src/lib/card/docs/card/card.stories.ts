@@ -13,7 +13,7 @@ import {
   LgGridContainerDirective,
   LgGridRowDirective,
 } from '../../../grid';
-import { LgMarginDirective, LgPaddingDirective } from '../../../spacing';
+import { LgMarginDirective } from '../../../spacing';
 import {
   LgButtonComponent,
   LgButtonGroupComponent,
@@ -170,7 +170,6 @@ const dataPointsCardTemplate = `
     LgLinkMenuComponent,
     LgLinkMenuItemComponent,
     LgLinkMenuItemTextComponent,
-    LgPaddingDirective,
     RouterTestingModule,
   ],
 })
@@ -204,7 +203,7 @@ const cardGroupTemplate = `
             <lg-card-content>
               {{ cardContent }} <a href="#">Test link</a>.
             </lg-card-content>
-            <lg-card-footer lgMarginTop="5">
+            <lg-card-footer>
             <lg-link-menu>
               <a href="" target="_blank">
                 <lg-link-menu-item>
@@ -242,7 +241,6 @@ const cardGroupTemplate = `
     LgGridRowDirective,
     LgGridContainerDirective,
     LgMarginDirective,
-    LgPaddingDirective,
   ],
 })
 class GroupCardComponent {

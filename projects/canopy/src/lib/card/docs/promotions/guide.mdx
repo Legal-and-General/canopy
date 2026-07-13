@@ -9,7 +9,7 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 <CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
-<p class="standfirst">Promotions are containers for content and actions on a specific topic, that use the Cards component and combine the Grid functionality to obtain a Magazin layout based on how many promotions you want to display.</p>
+<p class="standfirst">Promotions are containers for content and actions on a specific topic, that use the Cards component and combine the Grid functionality to obtain a Magazine layout based on how many promotions you want to display.</p>
 
 ## Usage
 
@@ -19,7 +19,7 @@ Import the following components in your application:
 
 ```js
   ...
-  imports: [ ..., LgCardComponent, etc., LgMarginComponent, LgPaddingComponent, LgOrientationComponent ],
+  imports: [ ..., LgCardComponent, LgMarginDirective, LgPaddingDirective, LgOrientationDirective ],
 ```
 
 and in your HTML, for a general promotion card with image:
@@ -78,7 +78,7 @@ Canopy provides a number of patterns for a range of common scenarios, and we rec
 ## Promotions content and templates
 
 As the promotion card is just a container for content, you can add whatever content you like.
-In the examples bellow, we use the Canopy Grid System to get the desired layout, together with the Orientation directive, and the component `LgCardHeroImageComponent` uses an image but it can be used with either an image or a pictogram.
+In the examples below, we use the Canopy Grid System to get the desired layout, together with the Orientation directive, and the component `LgCardHeroImageComponent` uses an image but it can be used with either an image or a pictogram.
 
 ### Stand-alone card layout
 
@@ -88,7 +88,6 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
     <div lgColSm="12">
       <lg-card
         lgMarginBottom="6"
-        lgPadding="none"
         variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
