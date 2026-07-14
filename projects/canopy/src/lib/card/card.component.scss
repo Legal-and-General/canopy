@@ -17,6 +17,7 @@
   &--promo {
     .lg-card-header {
       border-bottom: 0;
+      padding: var(--card-padding-y) var(--card-padding-x) 0 var(--card-padding-x);
 
       .lg-card-title {
         h1,
@@ -26,53 +27,31 @@
         h5,
         h6 {
           font-family: var(--font-family-expressive);
+          letter-spacing: var(--letter-spacing-normal-expressive);
         }
       }
     }
 
     .lg-card-footer {
       border-top: 0;
+      padding: 0 var(--card-padding-x) var(--card-padding-y) var(--card-padding-x);
     }
   }
 
   &--interactive {
     .lg-card-header {
-      transition: padding-right var(--animation-duration) var(--animation-fn);
+      padding: 0;
 
       &:hover {
-        background: var(--card-interactive-hover-background-colour);
-        padding-right: var(--card-interactive-hover-padding-right);
-        border-bottom: var(--card-interactive-hover-border-width) solid
-          var(--card-interactive-hover-border-colour);
-        margin-bottom: calc(
-          var(--card-border-width) - var(--card-interactive-hover-border-width)
-        );
-        cursor: pointer;
-
         a {
           color: var(--card-interactive-hover-colour);
         }
       }
 
-      &:active {
-        box-shadow: inset 0 calc(-1 * var(--card-interactive-hover-border-width)) 0 0
-          var(--card-interactive-hover-active-colour);
-        background: var(--card-interactive-active-background-colour);
-
-        a {
-          color: var(--card-interactive-active-colour);
-        }
-      }
-
-      &:focus-within {
-        background: var(--card-interactive-focus-background-colour);
+      &:has(a:focus-visible) {
+        background-color: var(--card-interactive-focus-background-colour);
         box-shadow: inset 0 0 0 var(--card-interactive-focus-border-width)
           var(--card-interactive-focus-border-colour);
-
-        &:hover {
-          border-bottom: var(--card-border-width) solid var(--card-border-colour);
-          margin-bottom: 0;
-        }
 
         a {
           color: var(--card-interactive-focus-colour);

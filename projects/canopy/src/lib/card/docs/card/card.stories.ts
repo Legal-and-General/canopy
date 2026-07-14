@@ -19,6 +19,7 @@ import {
   LgButtonGroupComponent,
   LgButtonToggleDirective,
 } from '../../../button';
+import { LgColourDirective } from '../../../colour';
 import { LgCardToggableContentComponent } from '../../card-toggable-content/card-toggable-content.component';
 import { LgCardSubheadingComponent } from '../../card-subheading/card-subheading.component';
 import { LgCardSubtitleComponent } from '../../card-subtitle/card-subtitle.component';
@@ -41,6 +42,8 @@ import {
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+const colours = [ 'blue', 'green', 'red', 'yellow' ];
+const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 const showMoreCardTemplate = `
 <lg-card>
@@ -277,6 +280,7 @@ export default {
         LgCardHeroImageComponent,
         LgPictogramComponent,
         LgOrientationDirective,
+        LgColourDirective,
         LgMarginDirective,
       ],
     }),
@@ -287,34 +291,55 @@ export default {
 };
 
 const defaultCardTemplate = `
-<lg-card [variant]="variant">
-  <lg-card-header>
-    @if (variant === 'interactive') {
-      <lg-card-navigation-title
-        [title]="title"
-        [link]="link"
-        [queryParams]="queryParams"
-        [queryParamsHandling]="queryParamsHandling"
-        [headingLevel]="headingLevel"
-      ></lg-card-navigation-title>
-    }
-    @if (variant !== 'interactive') {
-      <lg-card-title [headingLevel]="headingLevel">
-        {{title}}
-      </lg-card-title>
-    }
-  </lg-card-header>
-  <lg-card-content>
-    <lg-card-subheading [headingLevel]="headingLevel + 1">Subheading</lg-card-subheading>
-    {{cardContent}} <a href="#">Test link</a>.
-  </lg-card-content>
-  <lg-card-footer>
-    <lg-button-group>
-      <button lg-button type="button" priority="primary">Continue</button>
-      <button lg-button type="button" priority="secondary">Back</button>
-    </lg-button-group>
-  </lg-card-footer>
-</lg-card>
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="8" lgColMd="10" lgColSm="12">
+      <lg-card
+        [variant]="variant"
+        [lgColour]="colour"
+        [lgColourTheme]="theme"
+        [lgOrientation]="orientation"
+      >
+        @if (mediaType !== 'none') {
+          <lg-card-hero-img
+            [cover]="true"
+            [src]="mediaType === 'image' ? imgUrl : ''"
+            [alt]="altText"
+            [aspectRatio]="aspectRatio"
+          >
+            @if (mediaType === 'pictogram') {
+              <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
+            }
+          </lg-card-hero-img>
+        }
+        <lg-card-header>
+          @if (variant === 'interactive') {
+            <lg-card-navigation-title
+              [title]="title"
+              [link]="link"
+              [headingLevel]="headingLevel"
+            ></lg-card-navigation-title>
+          }
+          @if (variant !== 'interactive') {
+            <lg-card-title [headingLevel]="headingLevel">
+              {{title}}
+            </lg-card-title>
+          }
+        </lg-card-header>
+        <lg-card-content>
+          <lg-card-subheading [headingLevel]="headingLevel + 1">Subheading</lg-card-subheading>
+          {{cardContent}} <a href="#">Test link</a>.
+        </lg-card-content>
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+  </div>
+</div>
 `;
 
 export const DefaultCard = {
@@ -322,11 +347,17 @@ export const DefaultCard = {
   args: {
     variant: 'default',
     link: '/foo',
-    queryParams: null,
-    queryParamsHandling: null,
     headingLevel: 2,
     title: 'The title',
     cardContent: content,
+    mediaType: 'none',
+    imgUrl: 'promo-card/general-promotion1.jpg',
+    altText: 'Family sitting in a park',
+    iconName: 'looking-ahead',
+    orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
+    colour: 'blue',
+    theme: 'neutral',
+    aspectRatio: undefined,
   },
   argTypes: {
     variant: {
@@ -337,77 +368,49 @@ export const DefaultCard = {
         defaultValue: { summary: 'default' },
       },
     },
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: defaultCardTemplate,
-      },
-    },
-  },
-  render: (args: LgCardComponent) => ({
-    props: args,
-    template: defaultCardTemplate,
-  }),
-};
-
-const promoCardTemplate = `
-<lg-card [variant]="variant" [lgOrientation]="orientation">
-  <lg-card-hero-img
-    [cover]="true"
-    [src]="mediaType === 'image' ? imgUrl : ''"
-    [alt]="altText"
-  >
-    @if (mediaType === 'pictogram') {
-      <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
-    }
-  </lg-card-hero-img>
-  <lg-card-header>
-    <lg-card-title [headingLevel]="headingLevel">
-      {{title}}
-    </lg-card-title>
-  </lg-card-header>
-  <lg-card-content>
-    <p lgMarginBottom="6">{{ cardContent }}</p>
-    <a href="#">Find out more</a>
-  </lg-card-content>
-  <lg-card-footer>
-    <lg-button-group>
-      <button lg-button type="button" priority="primary">Continue</button>
-      <button lg-button type="button" priority="secondary">Back</button>
-    </lg-button-group>
-  </lg-card-footer>
-</lg-card>
-`;
-
-export const Promo = {
-  name: 'Image',
-  args: {
-    title: 'The title',
-    headingLevel: 2,
-    cardContent: content,
-    mediaType: 'image',
-    imgUrl: 'promo-card/general-promotion1.jpg',
-    altText: 'Family sitting in a park',
-    iconName: 'looking-ahead',
-    variant: 'promo',
-    orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
-  },
-  argTypes: {
-    variant: {
-      options: [ 'default', 'promo' ],
-      control: { type: 'select' },
-      table: {
-        type: { summary: [ 'default', 'promo' ] },
-        defaultValue: { summary: 'promo' },
-      },
-    },
     mediaType: {
-      options: [ 'image', 'pictogram' ],
+      options: [ 'none', 'image', 'pictogram' ],
       control: { type: 'select' },
       table: {
-        type: { summary: [ 'image', 'pictogram' ] },
-        defaultValue: { summary: 'image' },
+        type: { summary: [ 'none', 'image', 'pictogram' ] },
+        defaultValue: { summary: 'none' },
+      },
+    },
+    imgUrl: {
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    aspectRatio: {
+      options: [
+        'Default (CSS)',
+        'Landscape 1:1',
+        'Landscape 5:4',
+        'Landscape 4:3',
+        'Landscape 16:9',
+        'Landscape 2:1',
+        'Portrait 1:1',
+        'Portrait 4:5',
+        'Portrait 9:16',
+      ],
+      mapping: {
+        'Default (CSS)': undefined,
+        'Landscape 1:1': '1:1',
+        'Landscape 5:4': '5:4',
+        'Landscape 4:3': '4:3',
+        'Landscape 16:9': '16:9',
+        'Landscape 2:1': '2:1',
+        'Portrait 1:1': '1:1',
+        'Portrait 4:5': '4:5',
+        'Portrait 9:16': '9:16',
+      },
+      control: { type: 'select' },
+      table: {
+        type: {
+          summary: '1:1 | 5:4 | 4:3 | 16:9 | 2:1 | 4:5 | 9:16',
+        },
+        defaultValue: { summary: 'CSS default (4:3 portrait, 1:1 landscape)' },
       },
     },
     iconName: {
@@ -431,17 +434,35 @@ export const Promo = {
         defaultValue: { summary: 'vertical (sm), horizontal (md/lg)' },
       },
     },
+    colour: {
+      options: colours,
+      description: 'The colour to apply to the component.',
+      control: { type: 'select' },
+      table: {
+        type: { summary: colours },
+      },
+    },
+    theme: {
+      options: themes,
+      description:
+        'Optional theme for colour classes. When provided, applies lg-mode-{colour} and lg-theme-{theme} classes. Defaults to neutral.',
+      control: { type: 'select' },
+      table: {
+        type: { summary: themes },
+        defaultValue: { summary: 'neutral' },
+      },
+    },
   },
   parameters: {
     docs: {
       source: {
-        code: promoCardTemplate,
+        code: defaultCardTemplate,
       },
     },
   },
   render: (args: LgCardComponent) => ({
     props: args,
-    template: promoCardTemplate,
+    template: defaultCardTemplate,
   }),
 };
 
@@ -465,14 +486,18 @@ const threeCardsTemplate = `
           </lg-card-title>
         </lg-card-header>
         <lg-card-content>
-          <p lgMarginBottom="6">{{ cardContent }}</p>
-          <a href="#">Find out more</a>
+          <p>{{ cardContent }}</p>
         </lg-card-content>
         <lg-card-footer>
-          <lg-button-group>
-            <button lg-button type="button" priority="primary">Continue</button>
-            <button lg-button type="button" priority="secondary">Back</button>
-          </lg-button-group>
+          @if (footerContent === 'button-group') {
+            <lg-button-group>
+              <button lg-button type="button" priority="primary">Continue</button>
+              <button lg-button type="button" priority="secondary">Back</button>
+            </lg-button-group>
+          }
+          @if (footerContent === 'link') {
+            <a href="#">Find out more</a>
+          }
         </lg-card-footer>
       </lg-card>
     </div>
@@ -493,14 +518,18 @@ const threeCardsTemplate = `
           </lg-card-title>
         </lg-card-header>
         <lg-card-content>
-          <p lgMarginBottom="6">{{ cardContent }}</p>
-          <a href="#">Find out more</a>
+          <p>{{ cardContent }}</p>
         </lg-card-content>
         <lg-card-footer>
-          <lg-button-group>
-            <button lg-button type="button" priority="primary">Continue</button>
-            <button lg-button type="button" priority="secondary">Back</button>
-          </lg-button-group>
+          @if (footerContent === 'button-group') {
+            <lg-button-group>
+              <button lg-button type="button" priority="primary">Continue</button>
+              <button lg-button type="button" priority="secondary">Back</button>
+            </lg-button-group>
+          }
+          @if (footerContent === 'link') {
+            <a href="#">Find out more</a>
+          }
         </lg-card-footer>
       </lg-card>
     </div>
@@ -521,14 +550,18 @@ const threeCardsTemplate = `
           </lg-card-title>
         </lg-card-header>
         <lg-card-content>
-          <p lgMarginBottom="6">{{ cardContent }}</p>
-          <a href="#">Find out more</a>
+          <p>{{ cardContent }}</p>
         </lg-card-content>
         <lg-card-footer>
-          <lg-button-group>
-            <button lg-button type="button" priority="primary">Continue</button>
-            <button lg-button type="button" priority="secondary">Back</button>
-          </lg-button-group>
+          @if (footerContent === 'button-group') {
+            <lg-button-group>
+              <button lg-button type="button" priority="primary">Continue</button>
+              <button lg-button type="button" priority="secondary">Back</button>
+            </lg-button-group>
+          }
+          @if (footerContent === 'link') {
+            <a href="#">Find out more</a>
+          }
         </lg-card-footer>
       </lg-card>
     </div>
@@ -548,6 +581,7 @@ export const ThreeImages = {
     iconName: 'looking-ahead',
     variant: 'promo',
     orientation: { sm: 'vertical', md: 'vertical', lg: 'vertical' },
+    footerContent: 'button-group',
   },
   argTypes: {
     variant: {
@@ -587,6 +621,14 @@ export const ThreeImages = {
         defaultValue: { summary: 'vertical' },
       },
     },
+    footerContent: {
+      options: [ 'button-group', 'link' ],
+      control: { type: 'select' },
+      table: {
+        type: { summary: [ 'button-group', 'link' ] },
+        defaultValue: { summary: 'button-group' },
+      },
+    },
   },
   parameters: {
     docs: {
@@ -598,64 +640,6 @@ export const ThreeImages = {
   render: (args: LgCardComponent) => ({
     props: args,
     template: threeCardsTemplate,
-  }),
-};
-
-const productCardTemplate = `
-<lg-card>
-  <lg-card-content>
-    <div lgRow>
-      <div lgCol="12" lgColMd="6">
-        <lg-card-title headingLevel="4">
-          <a href="#">{{title}}</a>
-        </lg-card-title>
-        <lg-card-subtitle>
-          Payroll Reference Number P23456
-        </lg-card-subtitle>
-      </div>
-      <lg-data-point variant="card-principle" lgCol="12" lgColMd="6">
-        <lg-data-point-label [headingLevel]="5">
-          Last payment (after tax and deductions)
-        </lg-data-point-label>
-        <lg-data-point-value [size]="size">
-          <span><span class="lg-font-size-3">£</span>230.20</span>
-        </lg-data-point-value>
-        <lg-data-point-secondary-label>
-          as of 01 Jan 2020
-        </lg-data-point-secondary-label>
-      </lg-data-point>
-    </div>
-  </lg-card-content>
-</lg-card>
-`;
-
-export const ProductCard = {
-  name: 'Product',
-  args: {
-    title: 'Standard Lifetime Annuity Joint Life Full',
-    size: 'lg',
-  },
-  argTypes: {
-    size: {
-      options: [ 'sm', 'md', 'lg' ],
-      description: 'The size variant applied to the `<lg-data-point-value>` component',
-      table: {
-        type: { summary: [ 'sm', 'md', 'lg' ] },
-        defaultValue: { summary: 'lg' },
-      },
-      control: { type: 'select' },
-    },
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: productCardTemplate,
-      },
-    },
-  },
-  render: (args: LgCardComponent) => ({
-    props: args,
-    template: productCardTemplate,
   }),
 };
 
@@ -696,18 +680,6 @@ export const CardGroup = {
   args: {
     cardContent: content,
     additionalCards: 1,
-  },
-  argTypes: {
-    queryParams: {
-      table: {
-        disable: true,
-      },
-    },
-    queryParamsHandling: {
-      table: {
-        disable: true,
-      },
-    },
   },
   parameters: {
     docs: {

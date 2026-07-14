@@ -23,26 +23,72 @@
   }
 
   a {
-    text-decoration: none;
     display: flex;
-    padding: 0;
-
-    &:active {
-      background: transparent;
-      color: var(--link-active-color);
-
-      &:hover {
-        border-bottom: 0;
-        color: var(--card-interactive-hover-colour);
-      }
-
-      .lg-icon {
-        background: var(--link-active-color);
-      }
-    }
+    width: 100%;
+    padding: var(--card-padding-y) var(--card-padding-x) !important;
+    text-decoration: none !important;
+    border-bottom: var(--card-interactive-hover-border-width) solid transparent;
+    margin-bottom: calc(
+      var(--card-border-width) - var(--card-interactive-hover-border-width)
+    );
+    transition:
+      padding-right var(--animation-duration) var(--animation-fn),
+      background-color var(--animation-duration) var(--animation-fn),
+      color var(--animation-duration) var(--animation-fn);
 
     &:hover {
       color: var(--card-interactive-hover-colour);
+      padding-right: var(--card-interactive-hover-padding-right) !important;
+      background-color: var(--card-interactive-hover-background-colour);
+      border-bottom-color: var(--card-interactive-hover-border-colour);
+      cursor: pointer;
+
+      .lg-icon {
+        color: var(--card-interactive-hover-colour);
+        background-color: transparent;
+      }
+    }
+
+    &:active {
+      box-shadow: inset 0 calc(-1 * var(--card-interactive-hover-border-width)) 0 0
+        var(--card-interactive-active-border-colour);
+      background-color: var(--card-interactive-active-background-colour);
+      border-bottom-color: var(--card-interactive-active-border-colour);
+      color: var(--card-interactive-active-colour) !important;
+
+      &:hover {
+        color: var(--card-interactive-active-colour);
+      }
+
+      .lg-icon {
+        color: var(--card-interactive-active-colour);
+        background-color: transparent;
+      }
+    }
+
+    &:focus-visible {
+      color: var(--card-interactive-focus-colour);
+      background-color: var(--card-interactive-focus-background-colour);
+      box-shadow: inset 0 0 0 var(--card-interactive-focus-border-width)
+        var(--card-interactive-focus-border-colour);
+      border-bottom-color: transparent;
+      outline: none;
+      border-top-left-radius: var(--card-border-radius);
+      border-top-right-radius: var(--card-border-radius);
+
+      .lg-icon {
+        color: var(--card-interactive-focus-colour);
+        background-color: transparent;
+      }
+
+      &:hover {
+        border-bottom-color: transparent;
+      }
+    }
+
+    &:focus:not(:focus-visible) {
+      box-shadow: none;
+      outline: none;
     }
   }
 }
