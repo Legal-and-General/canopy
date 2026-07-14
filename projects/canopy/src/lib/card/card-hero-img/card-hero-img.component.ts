@@ -18,9 +18,9 @@ import { LgCardHeroImgAspectRatio } from './card-hero-img.interface';
 })
 export class LgCardHeroImageComponent {
   @Input() cover = false;
-  @Input() src: string;
+  @Input() src?: string;
   @Input() alt = '';
-  @Input() aspectRatio: LgCardHeroImgAspectRatio;
+  @Input() aspectRatio?: LgCardHeroImgAspectRatio;
 
   @HostBinding('style.aspect-ratio')
   get hostAspectRatio(): string | null {
