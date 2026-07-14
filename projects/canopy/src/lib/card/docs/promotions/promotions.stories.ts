@@ -5,6 +5,9 @@ import { LgCardComponent } from '../../card.component';
 import { LgPictogramComponent } from '../../../pictogram';
 import { LgMarginDirective, LgPaddingDirective } from '../../../spacing';
 import { LgCardContentComponent } from '../../card-content/card-content.component';
+import { LgCardHeaderComponent } from '../../card-header/card-header.component';
+import { LgCardTitleComponent } from '../../card-title/card-title.component';
+import { LgCardFooterComponent } from '../../card-footer/card-footer.component';
 import { IconName } from '../../../icon';
 import { LgCardHeroImageComponent } from '../../card-hero-img/card-hero-img.component';
 import { LgOrientationDirective, OrientationResponsive } from '../../../orientation';
@@ -28,11 +31,16 @@ const promotionsGeneralCardTemplate = `
       <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
     }
   </lg-card-hero-img>
+  <lg-card-header>
+    <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+  </lg-card-header>
   <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-    <p lgMarginBottom="6">{{ text }}</p>
-    <a href="#">{{ buttonText }}</a>
+    <p>{{ text }}</p>
+
   </lg-card-content>
+  <lg-card-footer>
+    <a href="#">{{ buttonText }}</a>
+  </lg-card-footer>
 </lg-card>`;
 
 @Component({
@@ -41,6 +49,9 @@ const promotionsGeneralCardTemplate = `
   imports: [
     LgMarginDirective,
     LgCardContentComponent,
+    LgCardHeaderComponent,
+    LgCardTitleComponent,
+    LgCardFooterComponent,
     LgPictogramComponent,
     LgCardHeroImageComponent,
     LgOrientationDirective,
@@ -64,7 +75,6 @@ class GeneralPromotionCardComponent {
 
 export default {
   title: 'Patterns/Promotions/Examples',
-  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [

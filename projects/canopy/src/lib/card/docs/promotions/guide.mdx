@@ -1,13 +1,10 @@
 import {Markdown, Meta} from '@storybook/addon-docs/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Patterns/Promotions/Guide" tags={['pending']}/>
+<Meta title="Patterns/Promotions/Guide"/>
 
 # Promotions
-
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
 
 <p class="standfirst">Promotions are containers for content and actions on a specific topic, that use the Cards component and combine the Grid functionality to obtain a Magazine layout based on how many promotions you want to display.</p>
 
@@ -18,8 +15,7 @@ They are used to group promotional content within a page.
 Import the following components in your application:
 
 ```js
-  ...
-  imports: [ ..., LgCardComponent, LgMarginDirective, LgPaddingDirective, LgOrientationDirective ],
+  import { LgCardComponent, LgMarginDirective, LgPaddingDirective, LgOrientationDirective } from '@legal-and-general/canopy';
 ```
 
 and in your HTML, for a general promotion card with image:
@@ -32,8 +28,10 @@ and in your HTML, for a general promotion card with image:
   [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
   <lg-card-hero-img [cover]="true" [src]="imageUrl">
   </lg-card-hero-img>
+  <lg-card-header>
+    <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+  </lg-card-header>
   <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
     <p lgMarginBottom="6">{{ text }}</p>
     <a href="#">{{ buttonText }}</a>
   </lg-card-content>
@@ -50,8 +48,10 @@ and in your HTML, for a general promotion card with icon:
   <lg-card-hero-img>
     <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
   </lg-card-hero-img>
+  <lg-card-header>
+    <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+  </lg-card-header>
   <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
     <p lgMarginBottom="6">{{ text }}</p>
     <a href="#">{{ buttonText }}</a>
   </lg-card-content>
@@ -92,8 +92,10 @@ In the examples below, we use the Canopy Grid System to get the desired layout, 
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -116,8 +118,10 @@ In the examples below, we use the Canopy Grid System to get the desired layout, 
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -131,8 +135,10 @@ In the examples below, we use the Canopy Grid System to get the desired layout, 
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -155,8 +161,10 @@ In the examples below, we use the Canopy Grid System to get the desired layout, 
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -170,8 +178,10 @@ In the examples below, we use the Canopy Grid System to get the desired layout, 
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -185,8 +195,10 @@ In the examples below, we use the Canopy Grid System to get the desired layout, 
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -214,8 +226,10 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -229,8 +243,10 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -244,8 +260,10 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -264,8 +282,10 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
         <lg-card-hero-img>
           <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -279,8 +299,10 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
         <lg-card-hero-img>
           <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -328,7 +350,6 @@ This component hasn't been subject to any testing, but is based on best practice
 Patterns which may perform a similar task, or which should be considered instead:
 
 * [Cards](./?path=/docs/components-card-guide--docs)
-* [Promo Cards](./?path=/docs/components-promo-cards-guide--docs)
 
 <Markdown>
   {Feedback}

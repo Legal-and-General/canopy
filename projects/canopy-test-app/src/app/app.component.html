@@ -552,6 +552,8 @@
 
                   <lg-toggle formControlName="checkbox"> Test checkbox </lg-toggle>
 
+                  <lg-toggle variant="switch" formControlName="switch">Test switch</lg-toggle>
+
                   <lg-radio-group formControlName="radio">
                     Test radio group
                     <lg-hint>Pick an option</lg-hint>
@@ -613,16 +615,26 @@
                 <lg-heading level="3">List with Icons</lg-heading>
 
                 <ul lg-list-with-icons>
-                  <li lg-list-with-icons-item iconName="checkmark" >List item 1</li>
-                  <li lg-list-with-icons-item iconName="close"
+                  <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 1</li>
+                  <li lg-list-with-icons-item iconName="close" iconColour="--colour-red-600"
                     >List item 2
                     <ul lg-list-with-icons>
-                      <li lg-list-with-icons-item iconName="checkmark">List item 2.1</li>
-                      <li lg-list-with-icons-item iconName="close">List item 2.2</li>
+                      <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 2.1</li>
+                      <li lg-list-with-icons-item iconName="close" iconColour="--colour-red-600">List item 2.2</li>
                     </ul>
                   </li>
-                  <li lg-list-with-icons-item iconName="checkmark">List item 3</li>
+                  <li lg-list-with-icons-item iconName="checkmark" iconColour="--colour-green-600">List item 3</li>
                 </ul>
+
+                <lg-separator />
+                <lg-heading level="3">Ordered list with custom counter</lg-heading>
+                <ol lgListWithExpressiveStyling>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                </ol>
+
+                <lg-separator />
                 <lg-heading [level]="3">Primary Message</lg-heading>
 
                 <lg-primary-message>
@@ -642,71 +654,22 @@
                 </lg-primary-message>
 
                 <lg-separator />
-                <lg-heading level="3">Promo Cards</lg-heading>
+                <lg-heading level="3">Quick Action</lg-heading>
 
-                <lg-promo-card-list>
-                  <lg-separator variant="dotted" lgMargin="none" />
-                  <lg-promo-card-list-title [headingLevel]="4">
-                    Get more from Legal &amp; General
-                  </lg-promo-card-list-title>
-                  <lg-promo-card variant="solid-white">
-                    <lg-promo-card-image imageUrl="assets/promo-card/care.jpg" />
-                    <lg-promo-card-title [headingLevel]="5">
-                      Need help with Care?
-                    </lg-promo-card-title>
-                    <lg-promo-card-content>
-                      <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
-                    </lg-promo-card-content>
-                    <lg-promo-card-footer>
-                      <button
-                        lgMarginBottom="none"
-                        lg-button
-                        type="button"
-                        priority="primary">
-                        Find care options
-                      </button>
-                    </lg-promo-card-footer>
-                  </lg-promo-card>
-                  <lg-promo-card variant="solid-green">
-                    <lg-promo-card-image imageUrl="assets/promo-card/pension-consolidation.jpg" />
-                    <lg-promo-card-title [headingLevel]="5">
-                      Consolidate your pension pots
-                    </lg-promo-card-title>
-                    <lg-promo-card-content>
-                      <p>You may have pension pots from several employers. We can help you trace any lost pensions and combine them into one easy to manage plan.</p>
-                    </lg-promo-card-content>
-                    <lg-promo-card-footer>
-                      <button
-                        lgMarginBottom="none"
-                        lg-button
-                        type="button"
-                        priority="secondary">
-                        Start consolidating
-                      </button>
-                    </lg-promo-card-footer>
-                  </lg-promo-card>
-                  <lg-promo-card variant="solid-yellow">
-                    <lg-promo-card-image imageUrl="assets/promo-card/care.jpg" />
-                    <lg-promo-card-title [headingLevel]="5">
-                      Need help with Care?
-                    </lg-promo-card-title>
-                    <lg-promo-card-content>
-                      <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
-                    </lg-promo-card-content>
-                    <lg-promo-card-footer>
-                      <button
-                        lgMarginBottom="none"
-                        lg-button
-                        type="button"
-                        priority="secondary">
-                        Find care options
-                      </button>
-                    </lg-promo-card-footer>
-                  </lg-promo-card>
-                </lg-promo-card-list>
+                <lg-heading level="4">Button</lg-heading>
+                <button lg-quick-action type="button" lgMarginBottom="5">
+                  <lg-icon name="repeat" />
+                  Load more
+                </button>
+                <br>
 
-                <lg-separator />
-                <lg-separator />
+                  <lg-heading level="4">Link</lg-heading>
+                  <a lg-quick-action href="#">
+                    <lg-icon name="secure-messaging" />
+                    Send us a message
+                  </a>
+
+                  <lg-separator />
                   <lg-heading level="3">Spinners</lg-heading>
 
                   <lg-spinner variant="dark" />
@@ -1482,6 +1445,8 @@
 <!--              </lg-checkbox-group>-->
 
 <!--              <lg-toggle formControlName="checkbox"> Test checkbox </lg-toggle>-->
+
+<!--              <lg-toggle variant="switch" formControlName="switch">Test switch</lg-toggle>-->
 
 <!--              <lg-radio-group formControlName="radio">-->
 <!--                Test radio group-->
