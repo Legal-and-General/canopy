@@ -71,7 +71,7 @@ Use the `promo` variant to display promotional content with a hero image or pict
 The `lg-card-hero-img` element is always placed first in the DOM (before `lg-card-header` and `lg-card-content`). Its position is controlled by orientation:
 
 - **Vertical** (default): hero image or pictogram sits at the **top** of the card.
-- **Horizontal**: hero image or pictogram moves to the **right** of the card body.
+- **Horizontal**: in `LgCardComponent`, the hero image or pictogram is positioned on the **right** of the card body.
 
 On the `default` variant in horizontal layout, a pictogram is absolutely positioned on the right of the card body and card content automatically receives extra right padding to prevent text overlap.
 
@@ -345,8 +345,8 @@ Use `LgCardToggableContentComponent` with the `lgButtonToggle` directive:
 
 - `LgCardComponent` supports `variant="default" | "promo" | "interactive"`.
 - If `LgCardNavigationTitleComponent` is projected, the card switches to interactive behaviour automatically.
-- Card examples and styles currently cover `vertical` and `horizontal` orientation values.
-- `LgOrientationDirective` also defines `reverse-horizontal` and `reverse-vertical` values at the shared type level, but card-specific styles are implemented for `vertical`/`horizontal`.
+- Card examples and styles support `vertical` and `horizontal` orientation values only.
+- `LgOrientationDirective` also defines `reverse-horizontal` and `reverse-vertical` values at the shared type level, but those reverse orientations are unsupported for cards.
 
 ---
 

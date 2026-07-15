@@ -31,6 +31,10 @@
   width: 90%;
   z-index: var(--z-index-modal);
 
+  .lg-card-content {
+    padding: 0;
+  }
+
   @include mixins.lg-breakpoint(md) {
     left: 50%;
     max-width: 37rem;

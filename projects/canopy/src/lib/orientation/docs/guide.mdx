@@ -26,6 +26,8 @@ Import the orientation directive in your application:
 
 In your HTML, apply the directive to the relevant component. If the default `lgOrientation` attribute has no value, the default orientation will remain.
 
+`LgCardComponent` applies component-specific orientation styling and supports `vertical` and `horizontal` layouts only. `reverse-vertical` and `reverse-horizontal` remain available for other layouts that use `LgOrientationDirective` directly.
+
 Pass in a **responsive orientation object** (see below).
 
 ```html
@@ -57,24 +59,21 @@ In the example above, the orientation at the `md` breakpoint will be `horizontal
 Have this example in mind:
 
 ```html
-<lg-card [lgOrientation]="{ sm: 'vertical' }">
-  <lg-card-hero-img
-    [cover]="true"
-    src="promo-card/general-promotion1.jpg">
-  </lg-card-hero-img>
-  <lg-card-content>
-    <h3 lgMarginBottom="4" class="lg-font--expressive">Content</h3>
-  </lg-card-content>
-</lg-card>
+<div [lgOrientation]="{ sm: 'vertical' }">
+  <div>First item</div>
+  <div>Second item</div>
+</div>
 ```
 
-**vertical** - arranges the direct children of the host element in a vertical layout. The children maintain the same order and 'lg-card-hero-img' is displayed first at the top, followed by 'lg-card-content'.
+**vertical** - arranges the direct children of the host element in a vertical layout. The children maintain the same order and the first item remains at the top.
 
-**horizontal** - arranges the direct children of the host element in a horizontal layout. The children maintain the same order and 'lg-card-hero-img' is displayed first on the left, followed by 'lg-card-content'.
+**horizontal** - arranges the direct children of the host element in a horizontal layout. The children maintain the same order and the first item remains on the left.
 
-**reverse-vertical** - arranges the direct children of the host element in a **reverse** vertical layout. The children do not maintain the same order and 'lg-card-content' is displayed first at the top, followed by 'lg-card-hero-img'.
+**reverse-vertical** - arranges the direct children of the host element in a **reverse** vertical layout. The children do not maintain the same order and the last item is displayed at the top.
 
-**reverse-horizontal** - arranges the direct children of the host element in a **reverse** horizontal layout. The children do not maintain the same order and 'lg-card-content' is displayed first on the left, followed by 'lg-card-hero-img'.
+**reverse-horizontal** - arranges the direct children of the host element in a **reverse** horizontal layout. The children do not maintain the same order and the last item is displayed on the left.
+
+For cards, use `vertical` and `horizontal` only.
 
 ### Examples
 
@@ -90,7 +89,10 @@ At the `sm` breakpoint apply `vertical` orientation, at the `md` breakpoint appl
 
 ```html
 
-<lg-card [lgOrientation]="{ sm: 'vertical', md: 'reverse-horizontal', lg: 'vertical' }"></lg-card>
+<div [lgOrientation]="{ sm: 'vertical', md: 'reverse-horizontal', lg: 'vertical' }">
+  <div>First item</div>
+  <div>Second item</div>
+</div>
 
 ```
 

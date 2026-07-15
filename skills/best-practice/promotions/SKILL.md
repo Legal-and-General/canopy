@@ -51,8 +51,10 @@ Use `LgSeparatorComponent` only for the magazine layout variant.
   <lg-card-content>
     <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
     <p lgMarginBottom="6">{{ text }}</p>
-    <a href="#">{{ buttonText }}</a>
   </lg-card-content>
+  <lg-card-footer>
+    <a href="#">{{ buttonText }}</a>
+  </lg-card-footer>
 </lg-card>
 ```
 
@@ -70,8 +72,10 @@ Use `LgSeparatorComponent` only for the magazine layout variant.
   <lg-card-content>
     <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
     <p lgMarginBottom="6">{{ text }}</p>
-    <a href="#">{{ buttonText }}</a>
   </lg-card-content>
+  <lg-card-footer>
+    <a href="#">{{ buttonText }}</a>
+  </lg-card-footer>
 </lg-card>
 ```
 

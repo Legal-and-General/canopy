@@ -70,34 +70,29 @@ lg-card-hero-img.lg-card-hero-img__icon {
   }
 
   &.lg-card--default {
-    &.lg-orientation--sm--horizontal,
-    &.lg-orientation--sm--reverse-horizontal {
+    &.lg-orientation--sm--horizontal {
       @include lg-default-horizontal-brand-icon-overlay();
     }
 
-    &.lg-orientation--md--horizontal,
-    &.lg-orientation--md--reverse-horizontal {
+    &.lg-orientation--md--horizontal {
       @include mixins.lg-breakpoint('md') {
         @include lg-default-horizontal-brand-icon-overlay();
       }
     }
 
-    &.lg-orientation--lg--horizontal,
-    &.lg-orientation--lg--reverse-horizontal {
+    &.lg-orientation--lg--horizontal {
       @include mixins.lg-breakpoint('lg') {
         @include lg-default-horizontal-brand-icon-overlay();
       }
     }
 
-    &.lg-orientation--xl--horizontal,
-    &.lg-orientation--xl--reverse-horizontal {
+    &.lg-orientation--xl--horizontal {
       @include mixins.lg-breakpoint('xl') {
         @include lg-default-horizontal-brand-icon-overlay();
       }
     }
 
-    &.lg-orientation--xxl--horizontal,
-    &.lg-orientation--xxl--reverse-horizontal {
+    &.lg-orientation--xxl--horizontal {
       @include mixins.lg-breakpoint('xxl') {
         @include lg-default-horizontal-brand-icon-overlay();
       }
@@ -113,8 +108,7 @@ lg-card-hero-img.lg-card-hero-img__icon {
 
 .lg-orientation {
   // sm horizontal
-  &.lg-orientation--sm--horizontal,
-  &.lg-orientation--sm--reverse-horizontal {
+  &.lg-orientation--sm--horizontal {
     lg-card-hero-img:not(.lg-card-hero-img__icon) {
       width: auto;
       min-width: $min-content;
@@ -135,8 +129,7 @@ lg-card-hero-img.lg-card-hero-img__icon {
   }
 
   // md horizontal
-  &.lg-orientation--md--horizontal,
-  &.lg-orientation--md--reverse-horizontal {
+  &.lg-orientation--md--horizontal {
     lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('md') {
         width: auto;
@@ -159,8 +152,7 @@ lg-card-hero-img.lg-card-hero-img__icon {
   }
 
   // lg horizontal
-  &.lg-orientation--lg--horizontal,
-  &.lg-orientation--lg--reverse-horizontal {
+  &.lg-orientation--lg--horizontal {
     lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('lg') {
         width: auto;
@@ -183,8 +175,7 @@ lg-card-hero-img.lg-card-hero-img__icon {
   }
 
   // xl horizontal
-  &.lg-orientation--xl--horizontal,
-  &.lg-orientation--xl--reverse-horizontal {
+  &.lg-orientation--xl--horizontal {
     lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('xl') {
         width: auto;
@@ -207,8 +198,7 @@ lg-card-hero-img.lg-card-hero-img__icon {
   }
 
   // xxl horizontal
-  &.lg-orientation--xxl--horizontal,
-  &.lg-orientation--xxl--reverse-horizontal {
+  &.lg-orientation--xxl--horizontal {
     lg-card-hero-img:not(.lg-card-hero-img__icon) {
       @include mixins.lg-breakpoint('xxl') {
         width: auto;

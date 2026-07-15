@@ -26,6 +26,8 @@ import { LgOrientationDirective } from '@legal-and-general/canopy';
 
 Pass a responsive orientation object — keys are mobile-first breakpoints, values are orientation modes:
 
+`lg-card` supports `vertical` and `horizontal` layouts only. `reverse-vertical` and `reverse-horizontal` remain available when `LgOrientationDirective` is applied to other container elements.
+
 ```html
 <lg-card [lgOrientation]="{ md: 'horizontal', lg: 'vertical' }"></lg-card>
 ```
@@ -34,12 +36,12 @@ Pass a responsive orientation object — keys are mobile-first breakpoints, valu
 
 ## Orientation Options
 
-| Value                | Description                                     |
-|----------------------|-------------------------------------------------|
-| `vertical`           | Children stacked vertically, same order.        |
-| `horizontal`         | Children arranged horizontally, same order.     |
-| `reverse-vertical`   | Children stacked vertically, reversed order.    |
-| `reverse-horizontal` | Children arranged horizontally, reversed order. |
+| Value                | Description                                       |
+|----------------------|---------------------------------------------------|
+| `vertical`           | Children stacked vertically, same order.          |
+| `horizontal`         | Children arranged horizontally, same order.       |
+| `reverse-vertical`   | Children stacked vertically, reversed order.      |
+| `reverse-horizontal` | Children arranged horizontally, reversed order.   |
 
 ---
 
@@ -77,7 +79,16 @@ Each key is a mobile-first breakpoint (`sm`, `md`, `lg`, `xl`, `xxl`). At each b
 ### Multi-breakpoint configuration
 
 ```html
-<lg-card [lgOrientation]="{ sm: 'vertical', md: 'reverse-horizontal', lg: 'vertical' }">
+<lg-card [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
   ...
 </lg-card>
+```
+
+### Reversed layout with a generic container
+
+```html
+<div [lgOrientation]="{ sm: 'vertical', md: 'reverse-horizontal' }">
+  <div>Primary content</div>
+  <aside>Secondary content</aside>
+</div>
 ```
