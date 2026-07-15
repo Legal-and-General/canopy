@@ -73,8 +73,8 @@
         var(--card-interactive-focus-border-colour);
       border-bottom-color: transparent;
       outline: none;
-      border-top-left-radius: var(--card-border-radius);
-      border-top-right-radius: var(--card-border-radius);
+      border-top-left-radius: var(--card-border-radius) !important;
+      border-top-right-radius: var(--card-border-radius) !important;
 
       .lg-icon {
         color: var(--card-interactive-focus-colour);
@@ -82,7 +82,7 @@
       }
 
       &:hover {
-        border-bottom-color: transparent;
+        outline: none !important;
       }
     }
 

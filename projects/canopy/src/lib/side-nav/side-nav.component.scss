@@ -7,8 +7,13 @@
   @include mixins.lg-breakpoint('lg') {
     @include mixins.lg-card;
 
+    padding: var(--component-padding);
     flex-direction: row;
     margin-bottom: 0;
+  }
+
+  .lg-card-content {
+    padding: 0;
   }
 }
 

@@ -405,6 +405,7 @@ $breakpoints: (
   background-color: var(--card-background-colour);
   border-radius: var(--container-common-border-radius-sm);
   margin-bottom: var(--grid-gutter);
+
   @include lg-breakpoint('md') {
     border-radius: var(--container-common-border-radius-md);
   }
