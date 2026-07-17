@@ -654,70 +654,6 @@
                 </lg-primary-message>
 
                 <lg-separator />
-                <lg-heading level="3">Promo Cards</lg-heading>
-
-                <lg-promo-card-list>
-                  <lg-separator variant="dotted" lgMargin="none" />
-                  <lg-promo-card-list-title [headingLevel]="4">
-                    Get more from Legal &amp; General
-                  </lg-promo-card-list-title>
-                  <lg-promo-card variant="solid-white">
-                    <lg-promo-card-image imageUrl="assets/promo-card/care.jpg" />
-                    <lg-promo-card-title [headingLevel]="5">
-                      Need help with Care?
-                    </lg-promo-card-title>
-                    <lg-promo-card-content>
-                      <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
-                    </lg-promo-card-content>
-                    <lg-promo-card-footer>
-                      <button
-                        lgMarginBottom="none"
-                        lg-button
-                        type="button"
-                        priority="primary">
-                        Find care options
-                      </button>
-                    </lg-promo-card-footer>
-                  </lg-promo-card>
-                  <lg-promo-card variant="solid-green">
-                    <lg-promo-card-image imageUrl="assets/promo-card/pension-consolidation.jpg" />
-                    <lg-promo-card-title [headingLevel]="5">
-                      Consolidate your pension pots
-                    </lg-promo-card-title>
-                    <lg-promo-card-content>
-                      <p>You may have pension pots from several employers. We can help you trace any lost pensions and combine them into one easy to manage plan.</p>
-                    </lg-promo-card-content>
-                    <lg-promo-card-footer>
-                      <button
-                        lgMarginBottom="none"
-                        lg-button
-                        type="button"
-                        priority="secondary">
-                        Start consolidating
-                      </button>
-                    </lg-promo-card-footer>
-                  </lg-promo-card>
-                  <lg-promo-card variant="solid-yellow">
-                    <lg-promo-card-image imageUrl="assets/promo-card/care.jpg" />
-                    <lg-promo-card-title [headingLevel]="5">
-                      Need help with Care?
-                    </lg-promo-card-title>
-                    <lg-promo-card-content>
-                      <p>Our care service can help you understand, find and fund care for you or a loved one.</p>
-                    </lg-promo-card-content>
-                    <lg-promo-card-footer>
-                      <button
-                        lgMarginBottom="none"
-                        lg-button
-                        type="button"
-                        priority="secondary">
-                        Find care options
-                      </button>
-                    </lg-promo-card-footer>
-                  </lg-promo-card>
-                </lg-promo-card-list>
-
-                <lg-separator />
                 <lg-heading level="3">Quick Action</lg-heading>
 
                 <lg-heading level="4">Button</lg-heading>
@@ -909,6 +845,75 @@
 
                   <lg-separator />
                   <lg-heading level="3">Cards</lg-heading>
+
+                  <lg-heading [level]="4">Card with image — vertical (default)</lg-heading>
+                  <lg-card>
+                    <lg-card-hero-img
+                      [cover]="true"
+                      src="assets/promo-card/general-promotion1.jpg"
+                      alt="Family sitting in a park"
+                    />
+                    <lg-card-header>
+                      <lg-card-title [headingLevel]="5">Image card — vertical</lg-card-title>
+                    </lg-card-header>
+                    <lg-card-content>
+                      Image sits at the top; card stacks vertically at all breakpoints.
+                    </lg-card-content>
+                  </lg-card>
+
+                  <lg-heading [level]="4">Card with image — horizontal from md</lg-heading>
+                  <lg-card [lgOrientation]="{ sm: 'vertical', md: 'horizontal' }">
+                    <lg-card-hero-img
+                      [cover]="true"
+                      src="assets/promo-card/general-promotion1.jpg"
+                      alt="Family sitting in a park"
+                    />
+                    <lg-card-header>
+                      <lg-card-title [headingLevel]="5">Image card — horizontal from md</lg-card-title>
+                    </lg-card-header>
+                    <lg-card-content>
+                      Vertical below md; image moves to the right at md and above.
+                    </lg-card-content>
+                  </lg-card>
+
+                  <lg-heading [level]="4">Card with pictogram — vertical (default)</lg-heading>
+                  <lg-card>
+                    <lg-card-hero-img>
+                      <lg-pictogram name="calendar" size="lg" [hasFill]="false" />
+                    </lg-card-hero-img>
+                    <lg-card-header>
+                      <lg-card-title [headingLevel]="5">Pictogram card — vertical</lg-card-title>
+                    </lg-card-header>
+                    <lg-card-content>
+                      Pictogram sits at the top of the card.
+                    </lg-card-content>
+                  </lg-card>
+
+                  <lg-heading [level]="4">Card with pictogram — horizontal from md</lg-heading>
+                  <lg-card [lgOrientation]="{ sm: 'vertical', md: 'horizontal' }">
+                    <lg-card-hero-img>
+                      <lg-pictogram name="calendar" size="lg" [hasFill]="false" />
+                    </lg-card-hero-img>
+                    <lg-card-header>
+                      <lg-card-title [headingLevel]="5">Pictogram card — horizontal from md</lg-card-title>
+                    </lg-card-header>
+                    <lg-card-content>
+                      Pictogram sits at the top below md; moves to the right at md and above.
+                    </lg-card-content>
+                  </lg-card>
+
+                  <lg-heading [level]="4">Default card with pictogram — horizontal overlay from md</lg-heading>
+                  <lg-card variant="default" [lgOrientation]="{ sm: 'vertical', md: 'horizontal' }">
+                    <lg-card-hero-img>
+                      <lg-pictogram name="pension-pot" size="lg" [hasFill]="false" />
+                    </lg-card-hero-img>
+                    <lg-card-header>
+                      <lg-card-title [headingLevel]="5">Default + horizontal + pictogram</lg-card-title>
+                    </lg-card-header>
+                    <lg-card-content>
+                      On the default variant in horizontal layout, the pictogram is absolutely positioned on the right and card content receives automatic right padding to prevent text overlap. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </lg-card-content>
+                  </lg-card>
 
                   <lg-card>
                     <lg-card-header>

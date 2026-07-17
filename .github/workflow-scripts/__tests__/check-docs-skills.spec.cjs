@@ -33,9 +33,13 @@ describe('checkDocsSkills', () => {
     };
   });
 
-  function mockListFiles(filenames) {
+  function mockListFiles(files) {
     github.rest.pulls.listFiles.mockResolvedValue({
-      data: filenames.map(filename => ({ filename })),
+      data: files.map(file =>
+        typeof file === 'string'
+          ? { filename: file, status: 'modified' }
+          : { status: 'modified', ...file },
+      ),
     });
   }
 
@@ -109,6 +113,24 @@ describe('checkDocsSkills', () => {
   describe('when no .mdx files are changed', () => {
     it('skips the check and does not fail', async () => {
       mockListFiles(['projects/canopy/src/lib/button/button.component.ts']);
+
+      await checkDocsSkills({ github, context, core });
+
+      expect(core.info).toHaveBeenCalledWith(
+        expect.stringContaining('Skipping check'),
+      );
+      expect(core.setFailed).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when only deleted .mdx files are in the PR', () => {
+    it('skips the check and does not fail', async () => {
+      mockListFiles([
+        {
+          filename: 'projects/canopy/src/lib/promo-card/docs/guide.mdx',
+          status: 'removed',
+        },
+      ]);
 
       await checkDocsSkills({ github, context, core });
 
@@ -288,6 +310,28 @@ describe('checkDocsSkills', () => {
 
       expect(core.setFailed).toHaveBeenCalledWith(
         expect.stringContaining('accordion'),
+      );
+    });
+  });
+
+  describe('when a skill file is deleted in the PR', () => {
+    it('ignores the deleted skill and only validates active guide changes', async () => {
+      mockListFiles([
+        {
+          filename: 'skills/best-practice/promo-card/SKILL.md',
+          status: 'removed',
+        },
+        {
+          filename: 'projects/canopy/src/lib/card/docs/promotions/guide.mdx',
+          status: 'modified',
+        },
+      ]);
+
+      await checkDocsSkills({ github, context, core });
+
+      expect(readFileSyncSpy).not.toHaveBeenCalled();
+      expect(core.setFailed).toHaveBeenCalledWith(
+        expect.stringContaining('projects/canopy/src/lib/card/docs/promotions/guide.mdx'),
       );
     });
   });

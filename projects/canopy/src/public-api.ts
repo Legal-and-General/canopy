@@ -35,7 +35,6 @@ export * from './lib/pictogram/index';
 export * from './lib/pagination/index';
 export * from './lib/pipes/index';
 export * from './lib/prefix/index';
-export * from './lib/promo-card/index';
 export * from './lib/quick-action/index';
 export * from './lib/separator/index';
 export * from './lib/show-at/index';

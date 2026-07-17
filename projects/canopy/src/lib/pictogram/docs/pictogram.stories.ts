@@ -126,7 +126,7 @@ export const StandardPictograms = {
   }),
   args: {
     hasFill: false,
-    size: 'sm',
+    size: 'md',
   },
   parameters: {
     docs: {

@@ -2,6 +2,6 @@
 
 .lg-card-footer {
   display: block;
-  border-top: solid var(--border-width) var(--card-title-border-color);
-  padding-top: var(--space-6);
+  padding: var(--card-padding-y) var(--card-padding-x);
+  border-top: var(--card-border-width) solid var(--card-border-colour);
 }

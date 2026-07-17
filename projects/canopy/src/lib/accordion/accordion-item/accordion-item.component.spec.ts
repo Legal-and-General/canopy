@@ -79,8 +79,12 @@ describe('LgAccordionItemComponent', () => {
   });
 
   it('should link the panel heading button id to the panel aria-labelledby, and the button aria-controls to the panel id', () => {
-    const buttonEl = fixture.debugElement.query(By.css('.lg-accordion__heading-toggle')).nativeElement;
-    const panelEl = fixture.debugElement.query(By.css('.lg-accordion__panel')).nativeElement;
+    const buttonEl = fixture.debugElement.query(
+      By.css('.lg-accordion__heading-toggle'),
+    ).nativeElement;
+    const panelEl = fixture.debugElement.query(
+      By.css('.lg-accordion__panel'),
+    ).nativeElement;
 
     expect(buttonEl.getAttribute('id')).toBe(panelEl.getAttribute('aria-labelledby'));
     expect(buttonEl.getAttribute('aria-controls')).toBe(panelEl.getAttribute('id'));

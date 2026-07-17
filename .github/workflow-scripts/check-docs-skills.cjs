@@ -36,10 +36,10 @@ function extractSourcePath(content) {
  * @param {string} owner
  * @param {string} repo
  * @param {number} pullNumber
- * @returns {Promise<string[]>} Array of relative file paths.
+ * @returns {Promise<Array<{filename: string, status: string}>>} Changed files metadata.
  */
 async function listChangedFiles(github, owner, repo, pullNumber) {
-  const filenames = [];
+  const files = [];
   let page = 1;
   let hasMore = true;
 
@@ -52,12 +52,12 @@ async function listChangedFiles(github, owner, repo, pullNumber) {
       page,
     });
 
-    filenames.push(...data.map(f => f.filename));
+    files.push(...data.map(f => ({ filename: f.filename, status: f.status })));
     hasMore = data.length === 100;
     page++;
   }
 
-  return filenames;
+  return files;
 }
 
 /**
@@ -84,11 +84,18 @@ module.exports = async ({ github, context: { repo: { repo, owner }, payload }, c
   const changedFiles = await listChangedFiles(github, owner, repo, pullNumber);
 
   const changedGuides = changedFiles.filter(
-    f => path.extname(f) === '.mdx',
+    f => path.extname(f.filename) === '.mdx' && f.status !== 'removed',
+  ).map(
+    f => f.filename,
   );
 
   const changedSkills = changedFiles.filter(
-    f => f.startsWith('skills/best-practice/') && path.basename(f) === 'SKILL.md',
+    f =>
+      f.filename.startsWith('skills/best-practice/') &&
+      path.basename(f.filename) === 'SKILL.md' &&
+      f.status !== 'removed',
+  ).map(
+    f => f.filename,
   );
 
   if (changedGuides.length === 0 && changedSkills.length === 0) {

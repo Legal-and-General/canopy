@@ -47,7 +47,7 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit(): void {
     if (this.cardNavigationTitle) {
-      this.variant = 'navigation';
+      this.variant = 'interactive';
     }
 
     if (this.buttonToggle && this.cardToggableContent) {
