@@ -17,7 +17,7 @@ After completing all sections, follow the **Verification** steps at the end.
 ## 1. form switch: replace removed `lg-switch` with radio buttons or a segment control
 
 **What changed:** The `lg-switch` selector has been removed from Canopy. Replace
-all usages with either an inline radio button pattern (`lg-radio-group` /
+all uses with either an inline radio button pattern (`lg-radio-group` /
 `lg-radio-button`) for binary choices between two explicit options, or a segment
 control (`lg-segmented-control`) for segmented-state selection.
 
@@ -64,7 +64,7 @@ lg-switch
 ## 2. quick action: replace removed `[lg-quick-action]` with a button or link
 
 **What changed:** The `[lg-quick-action]` directive/component has been removed
-from Canopy. Replace all usages with a standard Canopy button (`lg-button`) for
+from Canopy. Replace all uses with a standard Canopy button (`lg-button`) for
 actions or a Canopy link (`lg-link`) for navigation, based on the intent of each
 quick action.
 
