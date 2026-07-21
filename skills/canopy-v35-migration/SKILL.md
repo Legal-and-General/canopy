@@ -78,7 +78,7 @@ lg-quick-action
 
 - Use `<button lg-button>` for actions that perform an operation (e.g. editing
   details, submitting data).
-- Use `<a lg-link>` for navigation to another page or route.
+- Use `<a>` for navigation to another page or route.
 - Retain any `<lg-icon>` child elements — they are supported inside both buttons
   and links.
 
