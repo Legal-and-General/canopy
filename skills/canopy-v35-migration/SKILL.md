@@ -91,7 +91,7 @@ lg-quick-action
 
 **After (action — button):**
 ```html
-<button lg-button type="button">
+<button lg-button type="button" priority="link">
   <lg-icon name="edit"></lg-icon>
   Edit details
 </button>
