@@ -19,7 +19,7 @@ After completing all sections, follow the **Verification** steps at the end.
 **What changed:** The `lg-switch` selector has been removed from Canopy. Replace
 all uses with either an inline radio button pattern (`lg-radio-group` /
 `lg-radio-button`) for binary choices between two explicit options, or a segment
-control (`lg-segmented-control`) for segmented-state selection.
+control (`lg-segment-group` / `lg-segment-button`) for segmented-state selection.
 
 **Search for** (in `*.html` files):
 ```
