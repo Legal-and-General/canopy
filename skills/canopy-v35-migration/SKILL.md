@@ -50,9 +50,10 @@ lg-switch
 
 **After (segmented selection — segment control):**
 ```html
-<lg-segmented-control formControlName="confirm">
-  ...
-</lg-segmented-control>
+<lg-segment-group formControlName="confirm">
+  <lg-segment-button value="yes">Yes</lg-segment-button>
+  <lg-segment-button value="no">No</lg-segment-button>
+</lg-segment-group>
 ```
 
 > **Automated?** No — searching for `lg-switch` is mechanical, but choosing
