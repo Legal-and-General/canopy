@@ -107,7 +107,7 @@ lg-quick-action
 
 **After (navigation — link):**
 ```html
-<a lg-link href="/details">
+<a href="/details">
   <lg-icon name="edit"></lg-icon>
   View details
 </a>
