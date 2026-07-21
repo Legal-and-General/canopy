@@ -66,7 +66,7 @@ lg-switch
 
 **What changed:** The `[lg-quick-action]` directive/component has been removed
 from Canopy. Replace all uses with a standard Canopy button (`lg-button`) for
-actions or a Canopy link (`lg-link`) for navigation, based on the intent of each
+actions or a standard anchor link (`<a>`) for navigation, based on the intent of each
 quick action.
 
 **Search for** (in `*.html` files):
