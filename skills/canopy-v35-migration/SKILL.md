@@ -31,7 +31,7 @@ lg-switch
 - For binary yes/no or on/off choices, use `lg-radio-group` with inline radio
   buttons.
 - For segmented-state selection (e.g. switching between two labelled states),
-  use `lg-segmented-control`.
+  use `lg-segment-group` with `lg-segment-button`.
 - Review each usage in context to decide which pattern better matches the
   original intent.
 
