@@ -266,7 +266,10 @@ Items you want to appear in the mobile `<lg-link-menu>` must be decorated with
 LgPrimaryNavComponent
 ```
 
-**Replace with:** Add content-projected mobile items using the new directives.
+**Replace with:** Add desktop items inside `<lg-primary-nav-list-item>` and
+add content-projected mobile items using `[lgPrimaryNavMobileItem]` on `<a>`
+elements. For account menu mobile items, use `[lgAccountMenuMobileItem]`
+similarly.
 
 **Before:**
 ```html
@@ -283,25 +286,35 @@ import { LgPrimaryNavComponent } from '@legal-and-general/canopy';
 ```html
 <lg-primary-nav>
   <!-- Desktop list item (visible at lg breakpoint and above) -->
-  <li lgPrimaryNavListItem>
-    <a class="lg-primary-nav-item" href="/home">Home</a>
-  </li>
+  <lg-primary-nav-list-item>
+    <a lgPrimaryNavItem href="/home">Home</a>
+  </lg-primary-nav-list-item>
+
   <!-- Mobile link menu item (visible below lg breakpoint) -->
-  <lg-link-menu-item lgPrimaryNavMobileItem href="/home">Home</lg-link-menu-item>
+  <a lgPrimaryNavMobileItem href="/home">
+    <lg-link-menu-item>
+      <lg-link-menu-item-text>Home</lg-link-menu-item-text>
+    </lg-link-menu-item>
+  </a>
 </lg-primary-nav>
 ```
 
-For account menu items:
+For account menu mobile items:
 ```html
 <lg-account-menu>
   <!-- existing desktop items -->
-  <lg-link-menu-item lgAccountMenuMobileItem href="/my-account">My Account</lg-link-menu-item>
+  <a lgAccountMenuMobileItem href="/my-account">
+    <lg-link-menu-item>
+      <lg-link-menu-item-text>My Account</lg-link-menu-item-text>
+    </lg-link-menu-item>
+  </a>
 </lg-account-menu>
 ```
 
 ```ts
 import {
   LgPrimaryNavComponent,
+  LgPrimaryNavListItemComponent,
   LgPrimaryNavMobileItemDirective,
   LgAccountMenuMobileItemDirective,
 } from '@legal-and-general/canopy';
