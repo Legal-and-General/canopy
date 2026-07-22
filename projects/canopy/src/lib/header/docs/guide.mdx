@@ -2,12 +2,12 @@ import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeaderStories from './header.stories';
 
-<Meta title="Components/Header/Guide" tags={['pending']} />
+<Meta title="Components/Header/Guide" />
 
 # Header
 <p class="standfirst">Provides a generic header for display at the top of the page.</p>
 
-### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
@@ -20,10 +20,20 @@ The navigation component has been rebuilt with a slot-based structure, moving aw
 Import the header components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgHeaderComponent, etc. ],
-});
+import {
+  LgHeaderComponent,
+  LgHeaderLogoComponent,
+  LgPrimaryNavComponent,
+  LgPrimaryNavListItemComponent,
+  LgPrimaryNavItemDirective,
+  LgPrimaryNavMobileItemDirective,
+  LgAccountMenuComponent,
+  LgAccountMenuListItemComponent,
+  LgAccountMenuItemDirective,
+  LgAccountMenuItemLabelComponent,
+  LgAccountMenuMobileItemDirective,
+  LgNotificationBadgeComponent,
+} from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -47,6 +57,14 @@ The component uses an attribute selector which allows you to use the html <a hre
 | ------------- | ---------------------------------------------------------------------------- | :---------------------: | :-----: | :------: |
 | `menuToggled` | An event emitted with a boolean value when the menu toggle button is clicked | `EventEmitter<boolean>` |   n/a   |   Yes    |
 
+#### Content slots
+
+| Selector        | Description                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `lg-header-logo` | Projects one or more `lg-header-logo` elements into the logos wrapper at the start of the header bar                   |
+| `[lgMenuBadge]`  | Projects content (typically `lg-notification-badge`) into the burger toggle button; hidden when the menu is open        |
+| _(default)_      | Projects all other content (e.g. `lg-primary-nav`, `lg-account-menu`) into the main header wrapper                     |
+
 ### LgHeaderLogoComponent inputs
 
 | Name   | Description                            |   Type   |   Default   | Required |
@@ -54,19 +72,6 @@ The component uses an attribute selector which allows you to use the html <a hre
 | `src`  | A url src for the logo                 | `string` | `undefined` |   Yes    |
 | `alt`  | alt text to display alongside the logo | `string` |    `''`     |   Yes    |
 | `href` | Url link if the logo is clickable      | `string` | `undefined` |    No    |
-
----
-
-### Changing the width of the logos
-
-The width of the logos can be changed by overriding the values of the below css variables:
-
-```css
---header-logo-width
---header-logo-width-lg
---header-second-logo-width
---header-second-logo-width-lg
-```
 
 ---
 
@@ -292,10 +297,11 @@ Two badge variants are available:
 
 #### Inputs
 
-| Name         | Description                                                                                         |   Type   |   Default   | Required |
-| ------------ | --------------------------------------------------------------------------------------------------- | :------: | :---------: | :------: |
-| `count`      | The value to appear in the notification badge                                                       | `string` | `undefined` |   Yes    |
-| `accessText` | Accessible text used by assistive technologies to give context to the count value that is displayed | `string` | `undefined` |   Yes    |
+| Name         | Description                                                                                         |        Type         |   Default   | Required |
+| ------------ | --------------------------------------------------------------------------------------------------- | :-----------------: | :---------: | :------: |
+| `count`      | The numeric value to appear in the notification badge                                               |      `number`       | `undefined` |    No    |
+| `accessText` | Accessible text used by assistive technologies to give context to the count value that is displayed |      `string`       | `undefined` |    No    |
+| `variant`    | The display variant of the badge                                                                    | `'count' \| 'dot'` |  `'count'`  |    No    |
 
 ### LgAccountMenuComponent
 
@@ -317,9 +323,10 @@ Used to ensure account menu items are wrapped in an element marked up as a list 
 
 #### Outputs
 
-| Name      | Description                                                     |         Type          | Default | Required |
-| --------- | --------------------------------------------------------------- | :-------------------: | :-----: | :------: |
-| `clicked` | An event emitted when a click event bubbles up to the list item | `EventEmitter<Event>` |   n/a   |   Yes    |
+| Name        | Description                                                         |             Type              | Default | Required |
+| ----------- | ------------------------------------------------------------------- | :---------------------------: | :-----: | :------: |
+| `clicked`   | An event emitted when a click event bubbles up to the list item     |     `EventEmitter<Event>`     |   n/a   |   Yes    |
+| `tabbedOut` | An event emitted when the tab key bubbles up to the list item       | `EventEmitter<KeyboardEvent>` |   n/a   |   Yes    |
 
 ### LgAccountMenuItemLabelComponent
 
