@@ -41,10 +41,11 @@ npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
 
 Once installed, ask your agent:
-> "Apply the Canopy v27 migration to my project."
+> "Apply the Canopy v37 migration to my project."
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v37-migration` | v36 → v37 | [v37.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v37.0.0) |
 | `canopy-v36-migration` | v35 → v36 | [v36.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v36.0.0) |
 | `canopy-v35-migration` | v34 → v35 | [v35.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v35.0.0) |
 | `canopy-v34-migration` | v33 → v34 | [v34.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v34.0.0), [v34.2.0](https://github.com/Legal-and-General/canopy/releases/tag/v34.2.0), [v34.3.0](https://github.com/Legal-and-General/canopy/releases/tag/v34.3.0) |
