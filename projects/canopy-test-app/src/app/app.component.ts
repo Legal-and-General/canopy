@@ -91,10 +91,6 @@ import {
 import { LgSeparatorComponent } from '../../../canopy/src/lib/separator';
 import { LgAlertComponent } from '../../../canopy/src/lib/alert';
 import {
-  LgCarouselComponent,
-  LgCarouselItemComponent,
-} from '../../../canopy/src/lib/carousel';
-import {
   LgDataPointComponent,
   LgDataPointSecondaryLabelComponent,
   LgDataPointLabelComponent,
@@ -227,8 +223,6 @@ import {
     LgSeparatorComponent,
     LgAlertComponent,
     LgButtonGroupComponent,
-    LgCarouselComponent,
-    LgCarouselItemComponent,
     LgDataPointComponent,
     LgDataPointSecondaryLabelComponent,
     LgDataPointLabelComponent,
