@@ -1,11 +1,12 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as ContentAreaStories from './content-area.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Content area/Guide" />
+<Meta title="Components/Content area/Guide" tags={['updated']} />
 
 # Content area
-
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v22.0.0" target="_blank" rel="noopener noreferrer">v22</a>.</span></span>
 <p class="standfirst">A content area is a layout container used to structure and group main content sections within a page.</p>
 
 ![Content area component hero](docs/content-area/hero.png)

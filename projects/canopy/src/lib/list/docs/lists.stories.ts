@@ -143,7 +143,7 @@ class OrderedListWithIconsWrapperComponent {
 
 export default {
   title: 'Components/List with icons/Examples',
-  tags: [],
+  tags: [ 'updated' ],
   decorators: [
     moduleMetadata({
       imports: [
