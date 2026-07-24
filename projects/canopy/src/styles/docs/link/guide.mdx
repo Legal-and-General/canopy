@@ -1,11 +1,12 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../lib/docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Link/Guide" />
+<Meta title="Components/Link/Guide" tags={['updated']} />
 
 # Link
 
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v21.0.0" target="_blank" rel="noopener noreferrer">v21</a>.</span></span>
 <p class="standfirst">A Link is an interactive text element that enables users to navigate from one resource, page, or view to another—either within the application or to external destinations—in a way that is accessible to all users.</p>
 
 ![Link component example](docs/link/hero.png)

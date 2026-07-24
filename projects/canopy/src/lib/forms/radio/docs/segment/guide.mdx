@@ -1,10 +1,12 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../../docs/common/feedback.md';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Forms/Segment/Guide" />
+<Meta title="Components/Forms/Segment/Guide" tags={['updated']}/>
 
 # Segment
 
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v25.0.0" target="_blank" rel="noopener noreferrer">v25</a>.</span></span>
 <p class="standfirst">A segment allows users to select a single option from a small set of mutually exclusive choices, typically used as a more prominent alternative to radio buttons.</p>
 
 ![Segment hero](docs/segment/hero.png)

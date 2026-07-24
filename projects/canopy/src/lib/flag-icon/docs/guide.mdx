@@ -1,10 +1,12 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as FlagIconStories from './flag-icons.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Foundations/Flag icon/Guide" />
+<Meta title="Foundations/Flag icon/Guide" tags={['updated']} />
 
 # Flag icon
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v24.0.0" target="_blank" rel="noopener noreferrer">v24</a>.</span></span>
 
 <p class="standfirst">Flag icons are coloured country flags typically used to support location toggle.</p>
 

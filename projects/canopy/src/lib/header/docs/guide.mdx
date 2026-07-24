@@ -1,10 +1,14 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeaderStories from './header.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Header/Guide" />
+<Meta title="Components/Header/Guide" tags={['updated']} />
 
 # Header
+
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v36.0.0" target="_blank" rel="noopener noreferrer">v36</a>.</span></span>
+
 <p class="standfirst">Provides a generic header for display at the top of the page.</p>
 
 *Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*

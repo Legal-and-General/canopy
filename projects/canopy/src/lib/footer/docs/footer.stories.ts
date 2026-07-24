@@ -44,6 +44,7 @@ export const socialLinks = [
 
 export default {
   title: 'Components/Footer/Examples',
+  tags: [ 'updated' ],
   excludeStories: [ 'primaryLinks', 'socialLinks' ],
   component: LgFooterComponent,
   decorators: [
