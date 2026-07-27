@@ -60,6 +60,7 @@ class ButtonComponentExampleComponent {
 
 export default {
   title: 'Components/Button/Examples',
+  tags: [ 'updated' ],
   component: LgButtonComponent,
   decorators: [
     moduleMetadata({

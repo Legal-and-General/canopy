@@ -348,6 +348,7 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Forms/Form validation/Examples',
+  tags: [ 'updated' ],
   decorators: [
     moduleMetadata({
       imports: [ ReactiveFormsModule, ReactiveFormComponent ],

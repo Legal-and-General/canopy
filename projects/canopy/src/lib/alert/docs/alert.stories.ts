@@ -99,6 +99,7 @@ class LgAlertRichTextStoryComponent {
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Inline message (Alert)/Examples',
+  tags: [ 'updated' ],
   component: LgAlertComponent,
   decorators: [
     moduleMetadata({

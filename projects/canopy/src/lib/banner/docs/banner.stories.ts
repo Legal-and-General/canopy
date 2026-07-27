@@ -64,6 +64,7 @@ class LgBannerStoryComponent implements OnChanges {
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Banner message/Examples',
+  tags: [ 'updated' ],
   component: LgBannerComponent,
   argTypes: {
     content: {

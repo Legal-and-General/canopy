@@ -1,18 +1,30 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as PictogramStories from './pictogram.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Foundations/Pictogram/Guide"/>
+<Meta title="Foundations/Pictogram/Guide" tags={['updated']} />
 
 # Pictogram
 
-<p class="standfirst">A pictogram allows you to add supporting illustration to messages or journeys.</p>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy {' '} <a href="https://github.com/Legal-and-General/canopy/releases/tag/v33.0.0" target="_blank" rel="noopener noreferrer">v33</a>.</span>
+</span>
+
+<p class="standfirst">
+  A pictogram allows you to add supporting illustration to messages or journeys.
+</p>
 
 Adding a pictogram can provide extra affordance and help users in making decisions or understanding the outcome of a journey.
 
 More illustrative and colourful than UI icons, pictograms draw attention, create narratives and help to visualise data.
 
+_Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component._
 
-*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 ## Usage
 
 Consider using the message with illustration pattern for the end of journeys and for empty states.
@@ -50,15 +62,13 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 
 ### Do
 
-
-* **Do** scale pictograms according to the sizing chart above.
-* **Do** enable `hasFill` when using a pictogram in a self-service application only, to make the fill visible on neutral backgrounds.
+- **Do** scale pictograms according to the sizing chart above.
+- **Do** enable `hasFill` when using a pictogram in a self-service application only, to make the fill visible on neutral backgrounds.
 
 ### Don't
 
-
-* **Don't** use a pictogram in place of a UI icon, or at a size less than 160px.
-* **Don't** set `hasFill` to `true` to fill pictograms when using them in highly-branded scenarios such as in the Dotcom CMS.
+- **Don't** use a pictogram in place of a UI icon, or at a size less than 160px.
+- **Don't** set `hasFill` to `true` to fill pictograms when using them in highly-branded scenarios such as in the Dotcom CMS.
 
 ## Additional development details
 
@@ -73,9 +83,7 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 
 ## Related
 
-* [UI icon](./?path=/docs/foundations-ui-icon-guide--docs)
-* [Flag icon](./?path=/docs/foundations-flag-icon-guide--docs)
+- [UI icon](./?path=/docs/foundations-ui-icon-guide--docs)
+- [Flag icon](./?path=/docs/foundations-flag-icon-guide--docs)
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>

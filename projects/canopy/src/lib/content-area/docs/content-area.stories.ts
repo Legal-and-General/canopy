@@ -26,6 +26,7 @@ const content =
 
 export default {
   title: 'Components/Content area/Examples',
+  tags: [ 'updated' ],
   component: LgContentAreaComponent,
   decorators: [
     moduleMetadata({
