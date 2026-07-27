@@ -1,14 +1,26 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as DataPointStories from './data-point.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Data point/Guide"/>
+<Meta title="Components/Data point/Guide" tags={['updated']} />
 
 # Data point
 
-<p class="standfirst">Display data organised by a label and value. A data point can be used on its own, or grouped into a data point group where items are arranged horizontally or vertically.</p>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v29.0.0" target="_blank" rel="noopener noreferrer">v29</a>.</span>
+</span>
 
-### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
+<p class="standfirst">
+  Display data organised by a label and value. A data point can be used on its own, or
+  grouped into a data point group where items are arranged horizontally or vertically.
+</p>
+
+_Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component._
 
 ## Usage
 
@@ -39,23 +51,23 @@ Data point groups support up to four data points and can be arranged horizontall
 
 ### LgDataPointComponent inputs
 
-| Name         | Description                                                                    | Type                        | Default     | Required |
-|--------------|--------------------------------------------------------------------------------|-----------------------------|-------------|----------|
-| `variant`    | Sets the visual variant of the data point                                      | `'form' \| 'card' \| 'card-principle'` | `'form'` | No       |
-| `isListItem` | When `true`, applies `role="listitem"` — used when inside a data point group    | `boolean`                   | `false`     | No       |
+| Name         | Description                                                                  | Type                                   | Default  | Required |
+| ------------ | ---------------------------------------------------------------------------- | -------------------------------------- | -------- | -------- |
+| `variant`    | Sets the visual variant of the data point                                    | `'form' \| 'card' \| 'card-principle'` | `'form'` | No       |
+| `isListItem` | When `true`, applies `role="listitem"` — used when inside a data point group | `boolean`                              | `false`  | No       |
 
 ### LgDataPointLabelComponent inputs
 
-| Name           | Description                                                  | Type      | Default | Required |
-|----------------|--------------------------------------------------------------|-----------|---------|----------|
-| `headingLevel` | The level of the heading element rendered inside the label   | `number`  | n/a     | Yes      |
-| `isBold`       | When `true`, renders the label text at `font-weight: 700`; when `false`, uses `font-weight: 400` | `boolean` | `false` | No |
+| Name           | Description                                                                                      | Type      | Default | Required |
+| -------------- | ------------------------------------------------------------------------------------------------ | --------- | ------- | -------- |
+| `headingLevel` | The level of the heading element rendered inside the label                                       | `number`  | n/a     | Yes      |
+| `isBold`       | When `true`, renders the label text at `font-weight: 700`; when `false`, uses `font-weight: 400` | `boolean` | `false` | No       |
 
 ### LgDataPointValueComponent inputs
 
-| Name     | Description                                                                    | Type                  | Default | Required |
-|----------|--------------------------------------------------------------------------------|-----------------------|---------|----------|
-| `size`   | Controls the font size of the value: `sm` = size 1, `md` = size 3, `lg` = size 5. When used with `variant="card"`, `sm` is bold (`font-weight-700`) and `md`/`lg` are regular (`font-weight-400`). | `'sm' \| 'md' \| 'lg'` | `'sm'`  | No       |
+| Name   | Description                                                                                                                                                                                        | Type                   | Default | Required |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------- | -------- |
+| `size` | Controls the font size of the value: `sm` = size 1, `md` = size 3, `lg` = size 5. When used with `variant="card"`, `sm` is bold (`font-weight-700`) and `md`/`lg` are regular (`font-weight-400`). | `'sm' \| 'md' \| 'lg'` | `'sm'`  | No       |
 
 ### LgDataPointSecondaryLabelComponent
 
@@ -84,12 +96,10 @@ An optional add-on displayed below the secondary label (or below the value if no
 
 ### LgDataPointGroupComponent inputs
 
-| Name          | Description                                                                 | Type                         | Default        | Required |
-|---------------|-----------------------------------------------------------------------------|------------------------------|----------------|----------|
-| `orientation` | Sets how data points are arranged in the group                              | `'horizontal' \| 'vertical'` | `'horizontal'` | No       |
+| Name          | Description                                    | Type                         | Default        | Required |
+| ------------- | ---------------------------------------------- | ---------------------------- | -------------- | -------- |
+| `orientation` | Sets how data points are arranged in the group | `'horizontal' \| 'vertical'` | `'horizontal'` | No       |
 
-***
+---
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>

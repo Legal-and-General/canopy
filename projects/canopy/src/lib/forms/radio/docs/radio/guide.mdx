@@ -1,11 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../../docs/common/feedback.md';
 import * as RadioStories from './radio.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Forms/Radio/Guide"/>
+<Meta title="Components/Forms/Radio/Guide" tags={['updated']} />
 
 # Radio
 
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v25.0.0" target="_blank" rel="noopener noreferrer">v25</a>.</span></span>
 <p class="standfirst">A radio button lets a user choose one option from a set of mutually exclusive choices.</p>
 
 ![Radio hero](docs/forms/radio/hero-radio.png)

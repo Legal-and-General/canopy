@@ -1,10 +1,13 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as ListStories from './lists.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/List with icons/Guide" />
+<Meta title="Components/List with icons/Guide" tags={['updated']} />
 
 # List with icons
+
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v37.0.0" target="_blank" rel="noopener noreferrer">v37</a>.</span></span>
 
 <p class="standfirst">
   Lists are used to list an array of items. Canopy provides components for icon-enhanced

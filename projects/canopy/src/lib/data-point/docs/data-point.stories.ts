@@ -21,6 +21,7 @@ const orientationOptions = [ 'horizontal', 'vertical' ];
 
 export default {
   title: 'Components/Data point/Examples',
+  tags: [ 'updated' ],
   decorators: [
     moduleMetadata({
       imports: [

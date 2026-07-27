@@ -18,6 +18,7 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 export default {
   title: 'Components/Breadcrumb/Examples',
+  tags: [ 'updated' ],
   component: LgBreadcrumbComponent,
   parameters: {
     backgrounds: { disable: true },

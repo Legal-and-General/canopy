@@ -52,6 +52,7 @@ class LgColourStoryComponent {
 
 export default {
   title: 'Helpers/Directives/Colour/Examples',
+  tags: [ 'updated' ],
   decorators: [
     moduleMetadata({
       imports: [ LgColourStoryComponent ],

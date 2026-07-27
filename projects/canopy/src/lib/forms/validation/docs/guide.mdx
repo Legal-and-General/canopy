@@ -1,10 +1,12 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../../docs/common/feedback.md';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Forms/Form validation/Guide" />
+<Meta title="Components/Forms/Form validation/Guide" tags={['updated']} />
 
 # Form validation
 
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v25.0.0" target="_blank" rel="noopener noreferrer">v25</a>.</span></span>
 <p class="standfirst">Form validation provides real-time or post-submission feedback to help users identify and correct errors in their input.</p>
 
 ![Form Validation Hero](docs/forms/validation/form-validation-hero.png)

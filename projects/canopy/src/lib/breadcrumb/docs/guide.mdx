@@ -1,14 +1,26 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as BreadcrumbStories from './breadcrumb.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Breadcrumb/Guide" />
+<Meta title="Components/Breadcrumb/Guide" tags={['updated']} />
 
 # Breadcrumb
 
-<p class="standfirst">Breadcrumbs help users to understand a site's hierarchical structure and allow them to move between levels.</p>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy {' '} <a href="https://github.com/Legal-and-General/canopy/releases/tag/v34.0.0" target="_blank" rel="noopener noreferrer">v34</a>.</span>
+</span>
 
-### Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.
+<p class="standfirst">
+  Breadcrumbs help users to understand a site's hierarchical structure and allow them to
+  move between levels.
+</p>
+
+_Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component._
 
 ## Usage
 
@@ -86,8 +98,8 @@ Note: _This is not automatically added and should be implemented in your app as 
 
 ### LgBreadcrumbComponent inputs
 
-| Name      | Description                                    | Type     | Default | Required |
-| --------- | ---------------------------------------------- | -------- | ------- | -------- |
+| Name      | Description                                       | Type     | Default | Required |
+| --------- | ------------------------------------------------- | -------- | ------- | -------- |
 | `variant` | The layout variants available: `page`, `embedded` | `string` | `page`  | No       |
 
 ---

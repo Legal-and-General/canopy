@@ -203,6 +203,7 @@ class ReactiveFormComponent {
 
 export default {
   title: 'Components/Forms/Text input/Examples',
+  tags: [ 'updated' ],
   component: LgInputFieldComponent,
   decorators: [
     moduleMetadata({

@@ -28,6 +28,7 @@ class LgValidationExampleComponent {
 
 export default {
   title: 'Components/Forms/Form validation/Examples',
+  tags: [ 'updated' ],
   component: LgValidationComponent,
   decorators: [
     moduleMetadata({
