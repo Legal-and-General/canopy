@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import {
+  LgLinkMenuComponent,
+  LgLinkMenuItemComponent,
+  LgLinkMenuItemTextComponent,
+} from '../../link-menu';
+
 import { LgCardFooterComponent } from './card-footer.component';
 
 @Component({
@@ -33,6 +39,30 @@ class LgCardFooterWithTextHostComponent {}
 })
 class LgCardFooterWithMixedContentHostComponent {}
 
+@Component({
+  template: `
+    <lg-card-footer>
+      <lg-link-menu>
+        <a href="#">
+          <lg-link-menu-item>
+            <lg-link-menu-item-text isBold="true"
+              >Link menu item 1</lg-link-menu-item-text
+            >
+          </lg-link-menu-item>
+        </a>
+      </lg-link-menu>
+    </lg-card-footer>
+  `,
+  imports: [
+    LgCardFooterComponent,
+    LgLinkMenuComponent,
+    LgLinkMenuItemComponent,
+    LgLinkMenuItemTextComponent,
+  ],
+  standalone: true,
+})
+class LgCardFooterWithLinkMenuHostComponent {}
+
 describe('LgCardFooterComponent', () => {
   let component: LgCardFooterComponent;
   let fixture: ComponentFixture<LgCardFooterComponent>;
@@ -44,6 +74,7 @@ describe('LgCardFooterComponent', () => {
         LgCardFooterWithAnchorHostComponent,
         LgCardFooterWithTextHostComponent,
         LgCardFooterWithMixedContentHostComponent,
+        LgCardFooterWithLinkMenuHostComponent,
       ],
     }).compileComponents();
   }));
@@ -95,5 +126,15 @@ describe('LgCardFooterComponent', () => {
     expect(footer.querySelector('a')).toBeTruthy();
     expect(footer.querySelector('p')).toBeNull();
     expect(footer.textContent).toContain('Continue');
+  });
+
+  it('should add link menu modifier class when link menu content is projected', () => {
+    const hostFixture = TestBed.createComponent(LgCardFooterWithLinkMenuHostComponent);
+
+    hostFixture.detectChanges();
+
+    const footer: HTMLElement = hostFixture.nativeElement.querySelector('lg-card-footer');
+
+    expect(footer.classList.contains('lg-card-footer--link-menu')).toBe(true);
   });
 });

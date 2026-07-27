@@ -37,7 +37,7 @@
       color var(--animation-duration) var(--animation-fn);
 
     &:hover {
-      color: var(--card-interactive-hover-colour);
+      color: var(--card-interactive-hover-colour) !important;
       padding-right: var(--card-interactive-hover-padding-right) !important;
       background-color: var(--card-interactive-hover-background-colour);
       border-bottom-color: var(--card-interactive-hover-border-colour);

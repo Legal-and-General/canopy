@@ -5,3 +5,7 @@
   padding: var(--card-padding-y) var(--card-padding-x);
   border-top: var(--card-border-width) solid var(--card-border-colour);
 }
+
+.lg-card-footer--link-menu {
+  border-top: 0;
+}

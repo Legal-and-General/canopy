@@ -69,7 +69,8 @@ lg-card-hero-img.lg-card-hero-img__icon {
     padding: var(--card-padding-x) var(--card-padding-x) 0 var(--card-padding-x);
   }
 
-  &.lg-card--default {
+  &.lg-card--default,
+  &.lg-card--interactive {
     &.lg-orientation--sm--horizontal {
       @include lg-default-horizontal-brand-icon-overlay();
     }
