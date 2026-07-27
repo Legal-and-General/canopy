@@ -277,6 +277,9 @@ export default {
         LgButtonComponent,
         LgButtonGroupComponent,
         LgCardFooterComponent,
+        LgLinkMenuComponent,
+        LgLinkMenuItemComponent,
+        LgLinkMenuItemTextComponent,
         LgCardHeroImageComponent,
         LgPictogramComponent,
         LgOrientationDirective,
@@ -331,10 +334,29 @@ const defaultCardTemplate = `
           {{cardContent}} <a href="#">Test link</a>.
         </lg-card-content>
         <lg-card-footer>
-          <lg-button-group>
-            <button lg-button type="button" priority="primary">Continue</button>
-            <button lg-button type="button" priority="secondary">Back</button>
-          </lg-button-group>
+          @if (footerContent === 'button-group') {
+            <lg-button-group>
+              <button lg-button type="button" priority="primary">Continue</button>
+              <button lg-button type="button" priority="secondary">Back</button>
+            </lg-button-group>
+          }
+          @if (footerContent === 'link') {
+            <a href="#">Find out more</a>
+          }
+          @if (footerContent === 'link-menu') {
+            <lg-link-menu>
+              <a href="" target="_blank">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+              <a href="">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+            </lg-link-menu>
+          }
         </lg-card-footer>
       </lg-card>
     </div>
@@ -358,6 +380,7 @@ export const DefaultCard = {
     colour: 'blue',
     theme: 'neutral',
     aspectRatio: undefined,
+    footerContent: 'button-group',
   },
   argTypes: {
     variant: {
@@ -452,6 +475,14 @@ export const DefaultCard = {
         defaultValue: { summary: 'neutral' },
       },
     },
+    footerContent: {
+      options: [ 'button-group', 'link', 'link-menu' ],
+      control: { type: 'select' },
+      table: {
+        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        defaultValue: { summary: 'button-group' },
+      },
+    },
   },
   parameters: {
     docs: {
@@ -489,15 +520,10 @@ const threeCardsTemplate = `
           <p>{{ cardContent }}</p>
         </lg-card-content>
         <lg-card-footer>
-          @if (footerContent === 'button-group') {
             <lg-button-group>
               <button lg-button type="button" priority="primary">Continue</button>
               <button lg-button type="button" priority="secondary">Back</button>
             </lg-button-group>
-          }
-          @if (footerContent === 'link') {
-            <a href="#">Find out more</a>
-          }
         </lg-card-footer>
       </lg-card>
     </div>
@@ -521,15 +547,10 @@ const threeCardsTemplate = `
           <p>{{ cardContent }}</p>
         </lg-card-content>
         <lg-card-footer>
-          @if (footerContent === 'button-group') {
-            <lg-button-group>
-              <button lg-button type="button" priority="primary">Continue</button>
-              <button lg-button type="button" priority="secondary">Back</button>
-            </lg-button-group>
-          }
-          @if (footerContent === 'link') {
-            <a href="#">Find out more</a>
-          }
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
         </lg-card-footer>
       </lg-card>
     </div>
@@ -553,15 +574,10 @@ const threeCardsTemplate = `
           <p>{{ cardContent }}</p>
         </lg-card-content>
         <lg-card-footer>
-          @if (footerContent === 'button-group') {
-            <lg-button-group>
-              <button lg-button type="button" priority="primary">Continue</button>
-              <button lg-button type="button" priority="secondary">Back</button>
-            </lg-button-group>
-          }
-          @if (footerContent === 'link') {
-            <a href="#">Find out more</a>
-          }
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
         </lg-card-footer>
       </lg-card>
     </div>
@@ -580,8 +596,6 @@ export const ThreeImages = {
     altText: 'Family sitting in a park',
     iconName: 'looking-ahead',
     variant: 'promo',
-    orientation: { sm: 'vertical', md: 'vertical', lg: 'vertical' },
-    footerContent: 'button-group',
   },
   argTypes: {
     variant: {
@@ -608,25 +622,6 @@ export const ThreeImages = {
           summary: [ 'looking-ahead', 'pension-pot', 'calendar' ],
         },
         defaultValue: { summary: 'looking-ahead' },
-      },
-    },
-    orientation: {
-      options: {
-        horizontal: { sm: 'horizontal', md: 'horizontal', lg: 'horizontal' },
-        vertical: { sm: 'vertical', md: 'vertical', lg: 'vertical' },
-      },
-      control: { type: 'select' },
-      table: {
-        type: { summary: 'horizontal | vertical' },
-        defaultValue: { summary: 'vertical' },
-      },
-    },
-    footerContent: {
-      options: [ 'button-group', 'link' ],
-      control: { type: 'select' },
-      table: {
-        type: { summary: [ 'button-group', 'link' ] },
-        defaultValue: { summary: 'button-group' },
       },
     },
   },
