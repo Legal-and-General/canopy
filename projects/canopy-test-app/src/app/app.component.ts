@@ -125,7 +125,6 @@ import {
   LgToggleComponent,
 } from '../../../canopy/src/lib/forms';
 import {
-  LgListWithExpressiveStylingDirective,
   LgListWithIconsComponent,
   LgListWithIconsItemComponent,
 } from '../../../canopy/src/lib/list';
@@ -135,7 +134,6 @@ import {
   LgPrimaryMessageTitleComponent,
 } from '../../../canopy/src/lib/primary-message';
 import { LgPictogramComponent } from '../../../canopy/src/lib/pictogram';
-import { LgQuickActionComponent } from '../../../canopy/src/lib/quick-action';
 import { LgSpinnerComponent } from '../../../canopy/src/lib/spinner';
 import {
   LgTabItemComponent,
@@ -251,7 +249,6 @@ import {
     LgPictogramComponent,
     LgPrimaryMessageTitleComponent,
     LgPrimaryMessageDescriptionComponent,
-    LgQuickActionComponent,
     LgSpinnerComponent,
     LgTabsComponent,
     LgTabItemComponent,
@@ -287,7 +284,6 @@ import {
     LgProgressBarComponent,
     LgProgressIndicatorComponent,
     LgProgressHeaderComponent,
-    LgListWithExpressiveStylingDirective,
     RouterLink,
     RouterOutlet,
     LgModalComponent,
@@ -352,7 +348,6 @@ export class AppComponent {
       colors: this.fb.control([]),
       filters: this.fb.control([]),
       checkbox: [ '' ],
-      switch: [ '' ],
       segment: [ '' ],
       date: [ '' ],
       sortCode: [ '' ],

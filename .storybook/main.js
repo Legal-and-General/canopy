@@ -30,8 +30,6 @@ export default {
     '../projects/canopy/src/lib/alert/docs/alert.stories.ts',
     '../projects/canopy/src/lib/banner/docs/guide.mdx',
     '../projects/canopy/src/lib/banner/docs/banner.stories.ts',
-    '../projects/canopy/src/styles/guide.mdx',
-    '../projects/canopy/src/styles/blockquote.stories.ts',
     '../projects/canopy/src/lib/breadcrumb/docs/guide.mdx',
     '../projects/canopy/src/lib/breadcrumb/docs/breadcrumb.stories.ts',
     '../projects/canopy/src/lib/button/docs/guide.mdx',
