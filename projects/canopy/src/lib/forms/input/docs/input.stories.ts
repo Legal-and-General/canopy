@@ -137,6 +137,14 @@ const inputTemplate = `
 </lg-input-field>
 `;
 
+const textareaTemplate = `
+<lg-input-field>
+  Description
+  <lg-hint>Drag the lower-right corner to resize this text area.</lg-hint>
+  <textarea lgInput rows="4"></textarea>
+</lg-input-field>
+`;
+
 @Component({
   selector: 'lg-reactive-form',
   template: `
@@ -382,3 +390,22 @@ setupInputStoryValues(WithTextPrefix, inputTemplate, {
   label: 'Amount',
   hint: null,
 });
+
+export const ResizableTextarea = {
+  name: 'Resizable textarea',
+  render: () => ({
+    template: textareaTemplate,
+  }),
+  decorators: [
+    moduleMetadata({
+      imports: [ LgInputFieldComponent, LgInputDirective, LgHintComponent ],
+    }),
+  ],
+  parameters: {
+    docs: {
+      source: {
+        code: textareaTemplate,
+      },
+    },
+  },
+};
