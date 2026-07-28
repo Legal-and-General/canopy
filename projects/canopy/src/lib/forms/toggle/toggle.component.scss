@@ -80,11 +80,16 @@
 
   .lg-toggle--error &,
   .lg-toggle--error &:hover {
-    border: var(--checkbox-error-control-border-width) solid
+    border: var(--checkbox-rest-control-border-width) solid
       var(--checkbox-error-control-border-colour);
     background: var(--checkbox-error-control-background-colour);
     box-shadow: 0 0 0 var(--checkbox-error-control-border-width)
       var(--checkbox-error-control-background-colour);
+  }
+
+  .lg-toggle--error .lg-toggle__input:focus-visible + & {
+    border: var(--checkbox-error-control-border-width) solid
+      var(--checkbox-error-control-border-colour);
   }
 
   .lg-toggle__input:checked + & {
