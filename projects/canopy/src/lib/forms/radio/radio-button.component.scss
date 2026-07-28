@@ -80,11 +80,16 @@
 
   .lg-radio-button--error:hover &,
   .lg-radio-button--error & {
-    border: var(--radio-error-control-border-width) solid
+    border: var(--radio-rest-control-border-width) solid
       var(--radio-error-control-border-colour);
     background: var(--radio-error-control-background-colour);
     box-shadow: 0 0 0 var(--radio-error-control-border-width)
       var(--radio-error-control-background-colour);
+  }
+
+  .lg-radio-button--error .lg-radio-button__input:focus-visible + & {
+    border: var(--radio-error-control-border-width) solid
+      var(--radio-error-control-border-colour);
   }
 }
 
