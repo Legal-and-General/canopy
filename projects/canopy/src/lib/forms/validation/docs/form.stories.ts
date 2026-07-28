@@ -134,6 +134,25 @@ class FormGroupChildComponent implements OnInit {
         <input lgInput formControlName="text" />
       </lg-input-field>
 
+      <lg-input-field>
+        Text area
+        <lg-hint>This is a standard text area field</lg-hint>
+        @if (
+          isControlInvalid(textArea, validationForm) && textArea.hasError('required')
+        ) {
+          <lg-validation> Text area is a required field </lg-validation>
+        }
+        @if (
+          isControlInvalid(textArea, validationForm) && textArea.hasError('minlength')
+        ) {
+          <lg-validation> Text area should be at least 4 characters </lg-validation>
+        }
+        @if (isControlInvalid(textArea, validationForm) && textArea.hasError('invalid')) {
+          <lg-validation> Please enter a valid value </lg-validation>
+        }
+        <textarea lgInput formControlName="textArea" rows="4"></textarea>
+      </lg-input-field>
+
       <lg-select-field>
         Select field
         <lg-hint>This is a standard single option select field</lg-hint>
@@ -293,6 +312,10 @@ class ReactiveFormComponent {
     return this.form.get('text');
   }
 
+  get textArea() {
+    return this.form.get('textArea');
+  }
+
   get select() {
     return this.form.get('select');
   }
@@ -318,6 +341,7 @@ class ReactiveFormComponent {
   constructor() {
     this.form = this.fb.group({
       text: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
+      textArea: [ '', [ Validators.required, Validators.minLength(4), invalidValidator() ] ],
       select: [ '', [ Validators.required, invalidValidator() ] ],
       radio: [ '', [ Validators.required, invalidValidator() ] ],
       segment: [ '', [ Validators.required, invalidValidator() ] ],
