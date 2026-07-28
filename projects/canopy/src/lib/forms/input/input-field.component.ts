@@ -203,7 +203,9 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   }
 
   onFocusIn($event: FocusEvent): void {
-    if (($event.target as HTMLElement).nodeName === 'INPUT') {
+    const targetNode = ($event.target as HTMLElement).nodeName;
+
+    if (targetNode === 'INPUT' || targetNode === 'TEXTAREA') {
       this.hasFocus = true;
     }
   }
