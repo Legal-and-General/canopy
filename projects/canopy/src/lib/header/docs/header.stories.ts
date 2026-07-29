@@ -284,6 +284,7 @@ class CoBrandedNavigationComponent {
 
 export default {
   title: 'Components/Header/Examples',
+  tags: [ 'updated' ],
   component: LgHeaderComponent,
   decorators: [
     moduleMetadata({

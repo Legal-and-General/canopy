@@ -1,9 +1,17 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../common/feedback.md';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Foundations/Design tokens" />
+<Meta title="Foundations/Design tokens" tags={['updated']} />
 
 # Design tokens
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v20.0.0" target="_blank" rel="noopener noreferrer">v20</a>.</span>
+</span>
 
 <p class="standfirst">Design tokens are one of the core building blocks of our visual language. All our Angular components, patterns, and templates we create are styled using our design tokens. This ensures a unified look and feel across our products, makes it easier to build and scale components, and provides a way for teams who can’t use the Canopy Angular library to style their components consistently with all of our applications.</p>
 

@@ -105,6 +105,7 @@ class PaginationStoryComponent implements OnInit, OnChanges {
 
 export default {
   title: 'Components/Pagination/Examples',
+  tags: [ 'updated' ],
   component: LgPaginationComponent,
   globals: {
     backgrounds: { value: 'light' },

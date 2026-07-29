@@ -5,6 +5,24 @@ import { defaultConfig } from 'storybook-addon-tag-badges/manager-helpers';
 addons.setConfig({
   tagBadges: [
     {
+      tags: 'updated',
+      badge: {
+        text: 'Updated',
+        style: {
+          backgroundColor: '#caeedd',
+          color: '#1d1d1b',
+          fontWeight: 'normal'
+        },
+        tooltip:
+          'See the `Updated` tag in the guidance for the Canopy version in which these updates are available from.',
+      },
+      display: {
+        sidebar: false,
+        toolbar: true,
+        mdx: true,
+      },
+    },
+    {
       tags: 'pending',
       badge: {
         text: 'Pending',

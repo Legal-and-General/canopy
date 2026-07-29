@@ -1,17 +1,27 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as ComponentStories from './pagination.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Pagination/Guide" />
+<Meta title="Components/Pagination/Guide" tags={['updated']} />
 
 # Pagination
 
-<p class="standfirst">Controls a paginated list of items and exposes the current result range.</p>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy {' '} <a href="https://github.com/Legal-and-General/canopy/releases/tag/v34.2.0" target="_blank" rel="noopener noreferrer">v34</a>.</span>
+</span>
 
-*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
+<p class="standfirst">
+  Controls a paginated list of items and exposes the current result range.
+</p>
+
+_Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component._
 
 ## Usage
-
 
 Import the component in your application:
 
@@ -74,31 +84,30 @@ On medium viewports (`md` breakpoint) the component shows a sliding window of 5 
 
 On small viewports (below `md`) the component shows a sliding window of 3 consecutive page buttons with no ellipses. The results label is displayed below the controls.
 
-
 ## Additional development details
 
 ### LgPaginationComponent inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|----------|
-| `id` | HTML `id` attribute, auto generated if not provided. | `string` | auto-generated | No |
-| `totalItems` | Total number of items in the paged collection. | `number` | `0` | No |
-| `itemsPerPage` | Maximum number of items shown per page. Values lower than `1` are clamped to `1`. | `number` | `10` | No |
-| `currentPage` | Current page number. Values are clamped to the valid page range. | `number` | `1` | No |
+| Name           | Description                                                                       | Type     | Default        | Required |
+| -------------- | --------------------------------------------------------------------------------- | -------- | -------------- | -------- |
+| `id`           | HTML `id` attribute, auto generated if not provided.                              | `string` | auto-generated | No       |
+| `totalItems`   | Total number of items in the paged collection.                                    | `number` | `0`            | No       |
+| `itemsPerPage` | Maximum number of items shown per page. Values lower than `1` are clamped to `1`. | `number` | `10`           | No       |
+| `currentPage`  | Current page number. Values are clamped to the valid page range.                  | `number` | `1`            | No       |
 
 ### LgPaginationComponent outputs
 
-| Output | Description | Value |
-|--------|-------------|-------|
+| Output        | Description                                                                                                                                | Value                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
 | `pageChanged` | Emitted when the current page changes, including the requested page number and the zero-based start and end indexes for the visible slice. | `EventEmitter<PageData>` |
 
 ### PageData
 
-| Property | Description |
-|----------|-------------|
-| `pageNumber` | The requested page number. |
+| Property     | Description                                            |
+| ------------ | ------------------------------------------------------ |
+| `pageNumber` | The requested page number.                             |
 | `startIndex` | Zero-based inclusive start index for the current page. |
-| `endIndex` | Zero-based inclusive end index for the current page. |
+| `endIndex`   | Zero-based inclusive end index for the current page.   |
 
 ### Additional notes
 

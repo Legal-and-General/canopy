@@ -10,11 +10,13 @@ import {
   getFontSizeBreakpointValuesForTable,
   getLineHeightBreakpointValuesForTable,
 } from './typography-utils.ts';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta of={TypographyStories} />
+<Meta of={TypographyStories} tags={['updated']} />
 
 # Typography
 
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v17.0.0" target="_blank" rel="noopener noreferrer">v17</a>.</span></span>
 <p class="standfirst">Effective use of typography is one of the most important ways we can convey the hierarchy of a page and help the customer understand the nature of the content within. We have two flavours of our type system; Productive and Expressive.</p>
 
 Productive type is our default system and should be used in the majority of cases. The Expressive system should be used in cases where it's necessary to imbue the design with a greater degree of brand personality, such as on the home page or other marketing pages. Adding more brand personality can make designs feel richer, but should be used judiciously and never at the expense of usability or accessibility.

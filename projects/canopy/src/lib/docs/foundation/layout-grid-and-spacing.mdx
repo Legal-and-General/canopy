@@ -7,11 +7,19 @@ import {
   getSpacingDisplayName,
   getResponsiveSpacingValue
 } from './spacing-utils';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 
-<Meta title="Foundations/Layout, grid and spacing" />
+<Meta title="Foundations/Layout, grid and spacing" tags={['updated']} />
 
 # Layout, grid and spacing
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v19.0.0" target="_blank" rel="noopener noreferrer">v19</a>.</span>
+</span>
 
 <p class="standfirst">Our responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts. Our common approach across design and development enables us to remain in sync during the development process.</p>
 
