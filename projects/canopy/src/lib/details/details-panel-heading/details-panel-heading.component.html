@@ -8,22 +8,9 @@
     [attr.aria-controls]="'lg-details-content-' + uniqueId"
     (click)="toggle()"
   >
-    @if (showIcon && status !== 'generic') {
+    @if (showIcon) {
       <div class="lg-details-panel-heading__icon">
-        @switch (status) {
-          @case ('error') {
-            <lg-icon name="crossmark-spot-filled" />
-          }
-          @case ('info') {
-            <lg-icon name="information-filled" />
-          }
-          @case ('warning') {
-            <lg-icon name="warning-filled" />
-          }
-          @case ('success') {
-            <lg-icon name="checkmark-spot-filled" />
-          }
-        }
+        <lg-icon [name]="statusIcon" />
       </div>
     }
     <ng-content />

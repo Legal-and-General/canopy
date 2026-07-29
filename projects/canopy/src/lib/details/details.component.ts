@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
+  DoCheck,
   EventEmitter,
   HostBinding,
   Input,
@@ -14,6 +15,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
+import type { IconName } from '../icon';
 import type { Status } from '../status';
 import { LgStatusDirective } from '../status';
 import { randomUniqueId } from '../utils';
@@ -34,13 +36,15 @@ import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-
     },
   ],
 })
-export class LgDetailsComponent implements AfterContentInit, OnDestroy {
+export class LgDetailsComponent implements AfterContentInit, DoCheck, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly statusDirective = inject(LgStatusDirective);
 
   private subscription: Subscription;
+  private panelHeadingStatus?: Status;
   uniqueId = randomUniqueId();
   _showIcon = true;
+  _icon?: IconName;
 
   @Input() isActive = false;
   @Input()
@@ -53,6 +57,18 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   }
   get showIcon(): boolean {
     return this._showIcon;
+  }
+
+  @Input()
+  set icon(icon: IconName | undefined) {
+    this._icon = icon;
+
+    if (this.panelHeading) {
+      this.panelHeading.icon = icon;
+    }
+  }
+  get icon(): IconName | undefined {
+    return this._icon;
   }
 
   get status(): Status {
@@ -76,7 +92,10 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     this.panelHeading.uniqueId = this.uniqueId;
     this.panelHeading.isActive = this.isActive;
     this.panelHeading.statusDirective = this.statusDirective;
+    this.panelHeading.status = this.status;
+    this.panelHeadingStatus = this.status;
     this.panelHeading.showIcon = this.showIcon;
+    this.panelHeading.icon = this.icon;
 
     this.subscription = this.panelHeading.toggleActive.subscribe(isActive => {
       this.isActive = isActive;
@@ -89,6 +108,15 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
 
       this.cdr.markForCheck();
     });
+  }
+
+  ngDoCheck(): void {
+    if (!this.panelHeading || this.panelHeadingStatus === this.status) {
+      return;
+    }
+
+    this.panelHeading.status = this.status;
+    this.panelHeadingStatus = this.status;
   }
 
   ngOnDestroy(): void {

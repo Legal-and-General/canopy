@@ -16,15 +16,18 @@
   &__toggle {
     background: transparent;
     border: none;
+    border-radius: var(--details-focus-indicator-border-radius);
     color: inherit;
     cursor: pointer;
     display: inline-flex;
-    padding: var(--space-4);
+    padding: var(--details-padding-y) var(--details-padding-x);
     text-align: left;
     width: 100%;
 
     &:focus-visible {
-      @include mixins.lg-focus-outline;
+      box-shadow: 0 0 0 var(--details-focus-indicator-border-width)
+        var(--details-focus-indicator-colour);
+      outline: 0 !important;
     }
 
     &--active .lg-details-panel-heading__state-icon {
@@ -38,11 +41,16 @@
     margin-right: var(--space-2);
     padding-left: var(--space-2);
     position: relative;
-    top: var(--details-chevron-top-positon);
+    top: 0.2rem;
     transition: transform var(--animation-duration) var(--animation-fn);
   }
 }
 
 .lg-details-panel-heading__icon {
-  margin-right: var(--space-3);
+  color: var(--details-status-icon-colour);
+  flex-shrink: 0;
+  height: var(--content-icon-size-sm);
+  margin-right: var(--details-gap);
+  width: var(--content-icon-size-sm);
+  aspect-ratio: 1 / 1;
 }

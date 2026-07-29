@@ -1,15 +1,19 @@
 @use '../../styles/mixins';
 
 .lg-details {
-  background: var(--details-bg-color);
-  border-radius: var(--border-radius-sm);
+  padding: var(--details-padding-y) var(--details-padding-x);
+  align-items: flex-start;
+  gap: var(--details-gap);
+  border-radius: var(--details-border-radius);
   display: block;
   margin-bottom: var(--component-margin);
+  background: var(--details-background-colour);
   @include mixins.lg-status-subtle();
 
   &__panel {
     display: none;
-    padding: var(--space-5) var(--space-4) var(--space-4);
+    padding: var(--details-padding-y) var(--details-padding-x)
+      var(--details-active-padding-bottom);
 
     &--active {
       display: block;
