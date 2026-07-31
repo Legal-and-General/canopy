@@ -104,7 +104,11 @@ export class LgSelectDirective {
 
     const selectElement: HTMLSelectElement = this.selectElementRef.nativeElement;
 
-    if (selectElement.disabled || !this.isSelectEventContext(event, selectElement)) {
+    if (
+      selectElement.disabled ||
+      event.target === selectElement ||
+      !this.isSelectEventContext(event, selectElement)
+    ) {
       return;
     }
 

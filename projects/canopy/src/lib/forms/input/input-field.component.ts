@@ -217,8 +217,8 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
       : null;
   }
 
-  private getDescriptiveAffixIds(
-    affixes: QueryList<LgInputAffix> | undefined,
+  private getDescriptiveAffixIds<T extends LgInputAffix>(
+    affixes: QueryList<T> | undefined,
   ): Array<string> {
     return (
       affixes
