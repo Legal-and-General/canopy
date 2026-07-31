@@ -163,6 +163,33 @@ describe('LgSelectDirective', () => {
     expect(event.defaultPrevented).toBe(false);
   });
 
+  it('ignores the document tab fallback when the event originated on the select', async () => {
+    fixture.detectChanges();
+
+    const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
+    const directiveInstance =
+      selectDebugElement.injector.get<LgSelectDirective>(LgSelectDirective);
+    const blurSpy = jest.spyOn(selectElement, 'blur');
+    const nextFocusSpy = jest.spyOn(afterInput, 'focus');
+    const event = new KeyboardEvent('keydown', {
+      cancelable: true,
+      key: keyName.KEY_TAB,
+    });
+
+    Object.defineProperty(event, 'target', {
+      configurable: true,
+      value: selectElement,
+    });
+
+    directiveInstance.onDocumentKeydown(event);
+
+    await fixture.whenStable();
+    await new Promise(resolve => setTimeout(resolve));
+
+    expect(blurSpy).not.toHaveBeenCalled();
+    expect(nextFocusSpy).not.toHaveBeenCalled();
+  });
+
   it('synchronises option selection and emits change on arrow navigation', async () => {
     fixture.detectChanges();
 

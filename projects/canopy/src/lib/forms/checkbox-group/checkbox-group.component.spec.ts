@@ -269,12 +269,21 @@ describe('LgCheckboxGroupComponent', () => {
     expect(component.form.controls.color.value.length).toBe(0);
   });
 
-  it('renders the hint inside the legend so it is announced with the group label', () => {
+  it('renders a visually hidden hint inside the legend so it is announced with the group label', () => {
     expect(hintDebugElement.nativeElement.getAttribute('id').length).not.toEqual(0);
+
+    expect(
+      legendDebugElement.nativeElement.querySelector('.lg-visually-hidden'),
+    ).toBeTruthy();
 
     expect(legendDebugElement.nativeElement.textContent).toContain(
       'Choose your favourite',
     );
+  });
+
+  it('renders the visible hint outside the legend', () => {
+    expect(legendDebugElement.query(By.directive(LgHintComponent))).toBeNull();
+    expect(fieldsetDebugElement.query(By.directive(LgHintComponent))).toBeTruthy();
   });
 
   it('does not link the hint to the fieldset aria-describedby', () => {
