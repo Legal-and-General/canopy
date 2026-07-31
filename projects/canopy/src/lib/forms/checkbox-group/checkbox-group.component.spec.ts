@@ -77,6 +77,7 @@ describe('LgCheckboxGroupComponent', () => {
   let errorDebugElement: DebugElement;
   let hintDebugElement: DebugElement;
   let fieldsetDebugElement: DebugElement;
+  let legendDebugElement: DebugElement;
   let checkboxDebugElements: Array<DebugElement>;
 
   let groupInstance: LgCheckboxGroupComponent;
@@ -122,6 +123,7 @@ describe('LgCheckboxGroupComponent', () => {
     hintDebugElement = fixture.debugElement.query(By.directive(LgHintComponent));
 
     fieldsetDebugElement = fixture.debugElement.query(By.css('fieldset'));
+    legendDebugElement = fixture.debugElement.query(By.css('legend'));
 
     checkboxDebugElements = fixture.debugElement.queryAll(By.css('lg-toggle'));
 
@@ -267,12 +269,18 @@ describe('LgCheckboxGroupComponent', () => {
     expect(component.form.controls.color.value.length).toBe(0);
   });
 
-  it('links the hint to the fieldset with the correct aria attributes', () => {
+  it('renders the hint inside the legend so it is announced with the group label', () => {
     expect(hintDebugElement.nativeElement.getAttribute('id').length).not.toEqual(0);
 
-    expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
-      hintDebugElement.nativeElement.getAttribute('id'),
+    expect(legendDebugElement.nativeElement.textContent).toContain(
+      'Choose your favourite',
     );
+  });
+
+  it('does not link the hint to the fieldset aria-describedby', () => {
+    expect(
+      fieldsetDebugElement.nativeElement.getAttribute('aria-describedby'),
+    ).toBeNull();
   });
 
   it('links the error to the fieldset with the correct aria attributes', () => {
@@ -282,23 +290,22 @@ describe('LgCheckboxGroupComponent', () => {
 
     expect(errorDebugElement.nativeElement.getAttribute('id').length).not.toEqual(0);
 
-    expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedBy')).toContain(
+    expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedby')).toContain(
       errorDebugElement.nativeElement.getAttribute('id'),
     );
   });
 
-  it('combines both the hint and error ids to create the aria described attribute', () => {
+  it('sets the aria described attribute to the error id when validation is shown', () => {
     errorStateMatcherMock.isControlInvalid.mockReturnValue(true);
     fixture.detectChanges();
     errorDebugElement = fixture.debugElement.query(By.directive(LgValidationComponent));
 
     const errorId = errorDebugElement.nativeElement.getAttribute('id');
-    const hintId = hintDebugElement.nativeElement.getAttribute('id');
 
     fixture.detectChanges();
 
     expect(fieldsetDebugElement.nativeElement.getAttribute('aria-describedby')).toBe(
-      `${hintId} ${errorId}`,
+      errorId,
     );
   });
 

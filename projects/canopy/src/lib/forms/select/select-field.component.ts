@@ -7,8 +7,9 @@ import {
   ViewEncapsulation,
   inject,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
-import { LgDomService, randomUniqueId } from '../../utils';
+import { randomUniqueId } from '../../utils/unique-id';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
 import { LgErrorStateMatcher } from '../validation';
@@ -16,6 +17,11 @@ import { LgValidationComponent } from '../validation';
 import { LgIconComponent } from '../../icon';
 
 import { LgSelectDirective } from './select.directive';
+
+type LgSelectControl = Pick<
+  LgSelectDirective,
+  'ariaDescribedBy' | 'block' | 'control' | 'controlContainer' | 'id'
+>;
 
 @Component({
   selector: 'lg-select-field',
@@ -26,14 +32,21 @@ import { LgSelectDirective } from './select.directive';
 })
 export class LgSelectFieldComponent {
   private errorState = inject(LgErrorStateMatcher);
-  private domService = inject(LgDomService);
+  private readonly uniqueId = randomUniqueId();
+  private readonly fallbackControl = new FormControl('');
 
-  @Input() id = `lg-select-${randomUniqueId()}`;
+  @Input() id = `lg-select-${this.uniqueId}`;
   @HostBinding('class.lg-select-field') class = true;
   @HostBinding('class.lg-select-field--error') get errorClass() {
+    if (!this._selectElement) {
+      return false;
+    }
+
+    const control = this._selectElement.control ?? this.fallbackControl;
+
     return this.errorState.isControlInvalid(
-      this._selectElement.control,
-      this._selectElement.controlContainer,
+      control,
+      this._selectElement.controlContainer ?? undefined,
     );
   }
 
@@ -50,41 +63,55 @@ export class LgSelectFieldComponent {
     return this._block;
   }
 
-  _labelElement: LgLabelComponent;
+  _labelElement?: LgLabelComponent;
   @ViewChild(LgLabelComponent, { static: true })
   set labelElement(element: LgLabelComponent) {
     this._labelElement = element;
     this._labelElement.for = this.id;
   }
 
-  _selectElement: LgSelectDirective;
+  _selectElement?: LgSelectControl;
   @ContentChild(LgSelectDirective, { static: true })
-  set selectElement(element: LgSelectDirective) {
-    this._selectElement = element;
-    this._selectElement.id = this.id;
+  set nativeSelectElement(element: LgSelectDirective) {
+    this.registerSelectElement(element);
   }
 
-  _hintElement: LgHintComponent;
+  _hintElement?: LgHintComponent;
   @ContentChild(LgHintComponent)
-  set hintElement(element: LgValidationComponent) {
-    this._selectElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this._selectElement.ariaDescribedBy,
-      this._hintElement,
-      element,
-    );
-
+  set hintElement(element: LgHintComponent) {
     this._hintElement = element;
+    this.updateAriaDescribedBy();
   }
 
-  _validationElement: LgValidationComponent;
+  _validationElement?: LgValidationComponent;
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
-    this._selectElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this._selectElement.ariaDescribedBy,
-      this._validationElement,
-      element,
+    this._validationElement = element;
+    this.updateAriaDescribedBy();
+  }
+
+  private updateAriaDescribedBy(): void {
+    if (!this._selectElement) {
+      return;
+    }
+
+    const ids = [ this._hintElement?.id, this._validationElement?.id ].filter(
+      (id, index, values) => Boolean(id) && values.indexOf(id) === index,
     );
 
-    this._validationElement = element;
+    this._selectElement.ariaDescribedBy = ids.length > 0
+      ? ids.join(' ')
+      : null;
+  }
+
+  private registerSelectElement(element: LgSelectControl | undefined): void {
+    if (!element) {
+      return;
+    }
+
+    this._selectElement = element;
+    this._selectElement.id = this.id;
+    this._selectElement.block = this._block;
+    this.updateAriaDescribedBy();
   }
 }

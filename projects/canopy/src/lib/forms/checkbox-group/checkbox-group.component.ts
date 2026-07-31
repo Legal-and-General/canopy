@@ -126,12 +126,6 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
 
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-
     this._hintElement = element;
   }
 

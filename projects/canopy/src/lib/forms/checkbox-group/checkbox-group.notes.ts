@@ -21,7 +21,7 @@ import {
 | \`\`value\`\` | HTML value attribute. Sets the default checked ${name.toLowerCase()} buttons, must match the values of the ${name.toLowerCase()} buttons | array of strings | null | No |
 | \`\`focus\`\` | Set the focus on the fieldset | boolean | null | No |
 | \`\`disabled\`\` | Set the inner ${name.toLowerCase()}s to disabled | boolean | false | No |
-| \`\`ariaDescribedBy\`\` | HTML ID for the corresponding element that describes the ${name.toLowerCase()}s, if not provided it will use the hint field where appropriate | boolean | null | No |
+| \`\`ariaDescribedBy\`\` | HTML ID for a custom element that describes the ${name.toLowerCase()}s, for example additional guidance or validation messaging | boolean | null | No |
 ${
   name !== 'Filter'
     ? '| ``inline`` | If true, displays the buttons inline rather than stacked | boolean | false | No |'
