@@ -29,6 +29,7 @@ describe('LgInputFieldComponent', () => {
   const hintId = 'test-hint-id';
   const prefixId = 'prefix-id';
   const suffixId = 'suffix-id';
+  const buttonSuffixId = 'button-suffix-id';
 
   const suffixText = 'suffix';
   const prefixText = 'prefix';
@@ -64,6 +65,7 @@ describe('LgInputFieldComponent', () => {
     block = false,
     hasPrefix = false,
     hasSuffix = false,
+    hasButtonSuffix = false,
     showLabel = true,
   }) {
     ngMocks.flushTestBed();
@@ -75,6 +77,7 @@ describe('LgInputFieldComponent', () => {
         <lg-validation id="${errorId}">Error</lg-validation>
         <input lgInput />
         ${hasPrefix && `<span lgPrefix id="${prefixId}">${prefixText}</span>`}
+        ${hasButtonSuffix && `<button lg-button lgSuffix id="${buttonSuffixId}">Close</button>`}
         ${hasSuffix && `<span lgSuffix id="${suffixId}">${suffixText}</span>`}
       </lg-input-field>
     `);
@@ -267,6 +270,14 @@ describe('LgInputFieldComponent', () => {
 
     it('links the hint to the input field with the correct aria attributes', () => {
       expect(inputDirectiveInstance.ariaDescribedBy).toContain(suffixId);
+    });
+
+    it('does not link suffix buttons to the input field aria describedby', () => {
+      renderComponent({ hasButtonSuffix: true });
+
+      expect(inputDirectiveInstance.ariaDescribedBy).toContain(hintId);
+      expect(inputDirectiveInstance.ariaDescribedBy).toContain(errorId);
+      expect(inputDirectiveInstance.ariaDescribedBy).not.toContain(buttonSuffixId);
     });
   });
 

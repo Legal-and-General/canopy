@@ -57,14 +57,27 @@ describe('LgSelectFieldComponent', () => {
     }).compileComponents();
   }));
 
-  function renderComponent({ block } = { block: false }) {
+  function renderComponent(
+    {
+      block,
+      customHintId,
+      customErrorId,
+    }: {
+      block?: boolean;
+      customHintId?: string;
+      customErrorId?: string;
+    } = { block: false },
+  ) {
     ngMocks.flushTestBed();
+
+    const renderedHintId = customHintId ?? hintId;
+    const renderedErrorId = customErrorId ?? errorId;
 
     fixture = MockRender(`
       <lg-select-field [block]="${block}">
         Label
-        <lg-hint id="${hintId}">Hint</lg-hint>
-        <lg-validation id="${errorId}">Error</lg-validation>
+        <lg-hint id="${renderedHintId}">Hint</lg-hint>
+        <lg-validation id="${renderedErrorId}">Error</lg-validation>
         <select lgSelect>
           <option value="red">Red</option>
         </select>
@@ -106,6 +119,12 @@ describe('LgSelectFieldComponent', () => {
     renderComponent();
 
     expect(selectDirectiveInstance.ariaDescribedBy).toBe(`${hintId} ${errorId}`);
+  });
+
+  it('deduplicates aria describedby ids when hint and error ids match', () => {
+    renderComponent({ customHintId: hintId, customErrorId: hintId });
+
+    expect(selectDirectiveInstance.ariaDescribedBy).toBe(hintId);
   });
 
   it('sets the input element to block if block property is set', () => {
