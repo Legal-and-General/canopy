@@ -36,11 +36,12 @@
     color: var(--form-error-border-color);
   }
 
-  .lg-select-field--error *:focus-visible + & {
-    color: inherit;
+  // Keep error icon colour when the select is focused.
+  .lg-select-field--error .lg-select:focus-visible + & {
+    color: var(--form-error-border-color);
   }
 
-  .lg-select-field:disabled & {
+  .lg-select:disabled + & {
     color: var(--disabled-color);
   }
 }
