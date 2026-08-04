@@ -43,7 +43,6 @@
 
   &--error,
   &--error:hover {
-    color: var(--select-error-colour);
     background: var(--select-error-background-colour);
     box-shadow: 0 0 0 var(--select-error-border-width)
       var(--select-error-background-colour);
@@ -51,11 +50,10 @@
   }
 
   &.lg-select--error:focus-visible {
-    color: var(--select-error-colour);
     background: var(--select-error-background-colour);
     box-shadow: 0 0 0 var(--select-error-border-width)
       var(--select-error-background-colour);
-    border: var(--text-input-rest-border-width) solid var(--select-error-border-colour);
+    border: var(--text-input-error-border-width) solid var(--select-error-border-colour);
     outline: 0;
   }
 
