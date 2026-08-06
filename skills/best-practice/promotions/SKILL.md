@@ -133,7 +133,7 @@ For magazine layout, add dotted separators between grouped rows:
 - Promotions are a pattern combining `lg-card` and grid layout rules; use documented patterns before creating bespoke structures.
 - In cover-image mode (`[cover]="true"`), use large square images with the focal point centred to reduce problematic cropping across breakpoints.
 - For non-cover images, prefer images close to a 3:2 ratio (for example, 600 × 400).
-- The Promotions documentation is marked **Pending** and due for brand modernisation; avoid introducing additional bespoke pattern variants.
+- The Promotions documentation is due for brand modernisation; avoid introducing additional bespoke pattern variants.
 
 ---
 

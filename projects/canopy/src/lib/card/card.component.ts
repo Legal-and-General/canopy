@@ -3,11 +3,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChild,
+  ElementRef,
   forwardRef,
   HostBinding,
   Input,
   OnDestroy,
   ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -30,7 +32,12 @@ import { LgCardNavigationTitleComponent } from './card-navigation-title/card-nav
   standalone: true,
 })
 export class LgCardComponent implements AfterContentInit, OnDestroy {
+  private readonly hostElement = inject<ElementRef<HTMLElement>>(ElementRef);
   private subscription: Subscription;
+  private resizeObserver?: ResizeObserver;
+  private contentElement?: HTMLElement | null;
+  private headerElement?: HTMLElement | null;
+  private footerElement?: HTMLElement | null;
   private uniqueId = randomUniqueId();
 
   @ContentChild(forwardRef(() => LgButtonToggleDirective))
@@ -61,9 +68,64 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
         this.cardToggableContent.isActive = isActive;
       });
     }
+
+    this.initialiseContentCentreObserver();
   }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+    this.resizeObserver?.disconnect();
+  }
+
+  private initialiseContentCentreObserver(): void {
+    const host = this.hostElement.nativeElement;
+
+    this.contentElement = host.querySelector<HTMLElement>('lg-card-content');
+    this.headerElement = host.querySelector<HTMLElement>('lg-card-header');
+    this.footerElement = host.querySelector<HTMLElement>('lg-card-footer');
+
+    this.updateContentCentreOffset();
+
+    if (typeof ResizeObserver === 'undefined') {
+      return;
+    }
+
+    this.resizeObserver = new ResizeObserver(() => {
+      this.updateContentCentreOffset();
+    });
+
+    this.resizeObserver.observe(host);
+
+    if (this.contentElement) {
+      this.resizeObserver.observe(this.contentElement);
+    }
+
+    if (this.headerElement) {
+      this.resizeObserver.observe(this.headerElement);
+    }
+
+    if (this.footerElement) {
+      this.resizeObserver.observe(this.footerElement);
+    }
+  }
+
+  private updateContentCentreOffset(): void {
+    const host = this.hostElement.nativeElement;
+    const content = this.contentElement;
+
+    if (!content) {
+      host.style.setProperty('--lg-card-content-centre-offset', '0px');
+
+      return;
+    }
+
+    const cardRect = host.getBoundingClientRect();
+    const contentRect = content.getBoundingClientRect();
+    const cardCentre = cardRect.top + cardRect.height / 2;
+    const contentCentre = contentRect.top + contentRect.height / 2;
+    const offset = contentCentre - cardCentre;
+    const snappedOffset = Math.sign(offset) * Math.round(Math.abs(offset));
+
+    host.style.setProperty('--lg-card-content-centre-offset', `${snappedOffset}px`);
   }
 }
