@@ -53,11 +53,11 @@ describe('LgCardComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-card');
   });
 
-  it('should have the promotion class if variant is promotion', () => {
-    component.variant = 'promotion';
+  it('should have the promo class if variant is promo', () => {
+    component.variant = 'promo';
     fixture.detectChanges();
 
-    expect(el.getAttribute('class')).toContain('lg-card--promotion');
+    expect(el.getAttribute('class')).toContain('lg-card--promo');
   });
 
   it('should not set the class lg-card--navigation on the lg-card', () => {
@@ -261,12 +261,12 @@ describe('LgCardComponent', () => {
       localFixture.detectChanges();
     });
 
-    it('should set the variant to navigation on the lg-card', () => {
-      expect(component.variant).toContain('navigation');
+    it('should set the variant to interactive on the lg-card', () => {
+      expect(component.variant).toContain('interactive');
     });
 
-    it('should set the class lg-card--navigation on the lg-card', () => {
-      expect(el.className).toContain('lg-card--navigation');
+    it('should set the class lg-card--interactive on the lg-card', () => {
+      expect(el.className).toContain('lg-card--interactive');
     });
   });
 });
