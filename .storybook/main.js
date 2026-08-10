@@ -25,7 +25,6 @@ export default {
     // Components
     '../projects/canopy/src/lib/accordion/docs/guide.mdx',
     '../projects/canopy/src/lib/accordion/docs/accordion.stories.ts',
-    '../projects/canopy/src/lib/carousel/docs/carousel.stories.ts',
     '../projects/canopy/src/lib/alert/docs/guide.mdx',
     '../projects/canopy/src/lib/alert/docs/alert.stories.ts',
     '../projects/canopy/src/lib/banner/docs/guide.mdx',
@@ -102,8 +101,6 @@ export default {
     '../projects/canopy/src/lib/forms/sort-code/docs/sort-code.stories.ts',
     '../projects/canopy/src/lib/hero/docs/guide.mdx',
     '../projects/canopy/src/lib/hero/docs/hero.stories.ts',
-    '../projects/canopy/src/lib/hero-img/docs/guide.mdx',
-    '../projects/canopy/src/lib/hero-img/docs/hero-img.stories.ts',
     '../projects/canopy/src/lib/side-nav/docs/guide.mdx',
     '../projects/canopy/src/lib/side-nav/docs/side-nav.stories.ts',
     // Templates
