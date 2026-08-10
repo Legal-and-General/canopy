@@ -4,11 +4,9 @@ import {
   Component,
   ContentChild,
   ElementRef,
-  ElementRef,
   forwardRef,
   HostBinding,
   HostListener,
-  inject,
   Input,
   OnDestroy,
   Renderer2,
@@ -88,8 +86,6 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
         cardToggableContent.isActive = isActive;
       });
     }
-
-    this.initialiseContentCentreObserver();
   }
 
   ngOnDestroy(): void {
