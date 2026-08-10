@@ -3,31 +3,28 @@
 $min-content: 16rem;
 
 @mixin lg-default-horizontal-brand-icon-overlay() {
-  position: relative;
+  .lg-card-content {
+    position: relative;
+    padding-right: calc(
+      var(--content-pictogram-size-lg) + var(--card-padding-x) + var(--card-padding-x)
+    );
+    min-height: calc(
+      var(--content-pictogram-size-lg) + var(--card-padding-y) + var(--card-padding-y)
+    );
 
-  lg-card-hero-img.lg-card-hero-img__icon {
-    position: absolute;
-    right: var(--card-padding-x);
-    top: calc(50% + var(--lg-card-content-centre-offset, 0));
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    overflow: visible;
-    z-index: 1;
-  }
-
-  lg-card-hero-img.lg-card-hero-img__icon + .lg-card__body {
-    .lg-card-content {
-      padding-right: calc(
-        var(--content-pictogram-size-lg) + var(--card-padding-y) + var(--card-padding-y)
-      );
-      min-height: calc(
-        var(--content-pictogram-size-lg) + var(--card-padding-y) + var(--card-padding-y)
-      );
+    > lg-card-hero-img.lg-card-hero-img__icon {
+      position: absolute;
+      right: var(--card-padding-x);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: visible;
+      z-index: 1;
     }
   }
 }
