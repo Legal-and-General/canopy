@@ -131,7 +131,7 @@
     "stylelint-config-recommended": "18.0.0",
     "stylelint-selector-bem-pattern": "5.0.0",
     "svg-to-ts": "12.0.0",
-    "svgo": "4.0.1",
+    "svgo": "4.0.2",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
     "webpack": "5.106.1",
