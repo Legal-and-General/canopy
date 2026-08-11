@@ -8,7 +8,7 @@
   border-radius: var(--text-input-common-border-radius);
   border: var(--text-input-rest-border-width) solid var(--select-rest-border-colour);
   background: var(--select-rest-background-colour);
-  min-height: var(--input-common-scale-xxl);
+  min-height: var(--select-common-height);
   padding: var(--text-input-common-padding-y)
     calc(var(--icon-width) + 2 * var(--text-input-common-padding-x))
     var(--text-input-common-padding-y) var(--text-input-common-padding-x);
