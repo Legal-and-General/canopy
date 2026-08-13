@@ -3,35 +3,174 @@
 .lg-card {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   @include mixins.lg-card;
 
-  &--promotion {
-    overflow: hidden;
-
-    .lg-card-hero-img__img + .lg-card-content {
-      padding: var(--space-6);
-      padding-top: var(--space-5);
-    }
+  &__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
   }
 
-  &--navigation {
-    padding-top: 0;
-    transition: box-shadow 250ms;
-    box-shadow: var(--drop-shadow);
+  &--promo {
+    .lg-card-header {
+      border-bottom: 0;
+      padding: var(--card-padding-y) var(--card-padding-x) 0 var(--card-padding-x);
 
-    &:hover {
-      box-shadow: var(--drop-shadow-hover);
-    }
-
-    .lg-card-header__title {
-      @include mixins.lg-breakpoint('md') {
-        margin-right: 0;
+      .lg-card-title {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: var(--font-family-expressive);
+          letter-spacing: var(--letter-spacing-normal-expressive);
+        }
       }
     }
 
+    .lg-card-footer {
+      border-top: 0;
+      padding: 0 var(--card-padding-x) var(--card-padding-y) var(--card-padding-x);
+    }
+  }
+
+  &--interactive {
     .lg-card-header {
-      border-bottom: none;
+      padding: 0;
+
+      &:hover {
+        a {
+          color: var(--card-interactive-hover-colour);
+        }
+      }
+
+      &:has(a:focus-visible) {
+        background-color: var(--card-interactive-focus-background-colour);
+
+        a {
+          color: var(--card-interactive-focus-colour);
+
+          &:focus-visible {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    &:has(lg-card-hero-img) {
+      .lg-card-navigation-title {
+        a:focus-visible {
+          border-top-left-radius: 0 !important;
+          border-top-right-radius: 0 !important;
+        }
+      }
+
+      &.lg-orientation--sm--horizontal {
+        .lg-card-navigation-title {
+          a:focus-visible {
+            border-top-left-radius: var(--card-border-radius) !important;
+            border-top-right-radius: var(--card-border-radius) !important;
+          }
+        }
+      }
+
+      &.lg-orientation--md--horizontal {
+        @include mixins.lg-breakpoint('md') {
+          .lg-card-navigation-title {
+            a:focus-visible {
+              border-top-left-radius: var(--card-border-radius) !important;
+              border-top-right-radius: var(--card-border-radius) !important;
+            }
+          }
+        }
+      }
+
+      &.lg-orientation--lg--horizontal {
+        @include mixins.lg-breakpoint('lg') {
+          .lg-card-navigation-title {
+            a:focus-visible {
+              border-top-left-radius: var(--card-border-radius) !important;
+              border-top-right-radius: var(--card-border-radius) !important;
+            }
+          }
+        }
+      }
+
+      &.lg-orientation--xl--horizontal {
+        @include mixins.lg-breakpoint('xl') {
+          .lg-card-navigation-title {
+            a:focus-visible {
+              border-top-left-radius: var(--card-border-radius) !important;
+              border-top-right-radius: var(--card-border-radius) !important;
+            }
+          }
+        }
+      }
+
+      &.lg-orientation--xxl--horizontal {
+        @include mixins.lg-breakpoint('xxl') {
+          .lg-card-navigation-title {
+            a:focus-visible {
+              border-top-left-radius: var(--card-border-radius) !important;
+              border-top-right-radius: var(--card-border-radius) !important;
+            }
+          }
+        }
+      }
+
+      &:has(lg-card-hero-img.lg-card-hero-img__img) {
+        &.lg-orientation--sm--horizontal {
+          .lg-card-navigation-title {
+            a:focus-visible {
+              border-top-right-radius: 0 !important;
+            }
+          }
+        }
+
+        &.lg-orientation--md--horizontal {
+          @include mixins.lg-breakpoint('md') {
+            .lg-card-navigation-title {
+              a:focus-visible {
+                border-top-right-radius: 0 !important;
+              }
+            }
+          }
+        }
+
+        &.lg-orientation--lg--horizontal {
+          @include mixins.lg-breakpoint('lg') {
+            .lg-card-navigation-title {
+              a:focus-visible {
+                border-top-right-radius: 0 !important;
+              }
+            }
+          }
+        }
+
+        &.lg-orientation--xl--horizontal {
+          @include mixins.lg-breakpoint('xl') {
+            .lg-card-navigation-title {
+              a:focus-visible {
+                border-top-right-radius: 0 !important;
+              }
+            }
+          }
+        }
+
+        &.lg-orientation--xxl--horizontal {
+          @include mixins.lg-breakpoint('xxl') {
+            .lg-card-navigation-title {
+              a:focus-visible {
+                border-top-right-radius: 0 !important;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -40,6 +179,111 @@
     .lg-container {
       @include mixins.lg-breakpoint('xl') {
         --grid-margin: var(--dimensions-large-6);
+      }
+    }
+  }
+
+  // ── Orientation layout ───────────────────────────────────────────────────────
+  // Vertical (default): hero-img at the top via flex-direction: column.
+  // Horizontal: switch to flex-direction: row; hero-img moves to the right
+  // via order: 1.
+  // Pictogram icons (position: absolute in the overlay mixin for --default cards)
+  // are unaffected by order when absolutely positioned, but non-default cards
+  // also need order: 1 so the pictogram sits on the right in the flex row.
+
+  // sm horizontal — applies at all viewport sizes
+  &.lg-orientation--sm--horizontal {
+    flex-direction: row;
+
+    lg-card-hero-img {
+      order: 1;
+    }
+  }
+
+  // md vertical — resets to column
+  &.lg-orientation--md--vertical {
+    @include mixins.lg-breakpoint('md') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // md horizontal
+  &.lg-orientation--md--horizontal {
+    @include mixins.lg-breakpoint('md') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
+      }
+    }
+  }
+
+  // lg vertical — resets to column
+  &.lg-orientation--lg--vertical {
+    @include mixins.lg-breakpoint('lg') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // lg horizontal
+  &.lg-orientation--lg--horizontal {
+    @include mixins.lg-breakpoint('lg') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
+      }
+    }
+  }
+
+  // xl vertical — resets to column
+  &.lg-orientation--xl--vertical {
+    @include mixins.lg-breakpoint('xl') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // xl horizontal
+  &.lg-orientation--xl--horizontal {
+    @include mixins.lg-breakpoint('xl') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
+      }
+    }
+  }
+
+  // xxl vertical — resets to column
+  &.lg-orientation--xxl--vertical {
+    @include mixins.lg-breakpoint('xxl') {
+      flex-direction: column;
+
+      lg-card-hero-img {
+        order: 0;
+      }
+    }
+  }
+
+  // xxl horizontal
+  &.lg-orientation--xxl--horizontal {
+    @include mixins.lg-breakpoint('xxl') {
+      flex-direction: row;
+
+      lg-card-hero-img {
+        order: 1;
       }
     }
   }

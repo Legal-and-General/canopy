@@ -2,6 +2,7 @@ export * from './card-content/card-content.component';
 export * from './card-content-inner-data-points/card-content-inner-data-points.component';
 export * from './card-header/card-header.component';
 export * from './card-hero-img/card-hero-img.component';
+export * from './card-hero-img/card-hero-img.interface';
 export * from './card-subtitle/card-subtitle.component';
 export * from './card-title/card-title.component';
 export * from './card-footer/card-footer.component';
