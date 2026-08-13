@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
+  DoCheck,
   EventEmitter,
   HostBinding,
   Input,
@@ -34,13 +35,15 @@ import { LgDetailsPanelHeadingComponent } from './details-panel-heading/details-
     },
   ],
 })
-export class LgDetailsComponent implements AfterContentInit, OnDestroy {
+export class LgDetailsComponent implements AfterContentInit, DoCheck, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly statusDirective = inject(LgStatusDirective);
 
-  private subscription: Subscription;
+  private subscription = Subscription.EMPTY;
+  private panelHeadingStatus?: Status;
   uniqueId = randomUniqueId();
   _showIcon = true;
+  _icon?: string;
 
   @Input() isActive = false;
   @Input()
@@ -55,6 +58,18 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
     return this._showIcon;
   }
 
+  @Input()
+  set icon(icon: string | undefined) {
+    this._icon = icon;
+
+    if (this.panelHeading) {
+      this.panelHeading.icon = icon;
+    }
+  }
+  get icon() {
+    return this._icon;
+  }
+
   get status(): Status {
     return this.statusDirective.status;
   }
@@ -63,20 +78,30 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
   @Output() closed = new EventEmitter<void>();
 
   @HostBinding('class.lg-details') class = true;
-  @HostBinding('attr.role') get role(): string {
+  @HostBinding('class.lg-details--with-status-icon')
+  get withStatusIconClass(): boolean {
+    return this.showIcon;
+  }
+
+  @HostBinding('attr.role') get role(): string | null {
     if (this.status !== 'info' && this.status !== 'generic') {
       return 'alert';
     }
+
+    return null;
   }
 
   @ContentChild(LgDetailsPanelHeadingComponent)
-  panelHeading: LgDetailsPanelHeadingComponent;
+  panelHeading!: LgDetailsPanelHeadingComponent;
 
   ngAfterContentInit(): void {
     this.panelHeading.uniqueId = this.uniqueId;
     this.panelHeading.isActive = this.isActive;
     this.panelHeading.statusDirective = this.statusDirective;
+    this.panelHeading.status = this.status;
+    this.panelHeadingStatus = this.status;
     this.panelHeading.showIcon = this.showIcon;
+    this.panelHeading.icon = this.icon;
 
     this.subscription = this.panelHeading.toggleActive.subscribe(isActive => {
       this.isActive = isActive;
@@ -89,6 +114,15 @@ export class LgDetailsComponent implements AfterContentInit, OnDestroy {
 
       this.cdr.markForCheck();
     });
+  }
+
+  ngDoCheck(): void {
+    if (!this.panelHeading || this.panelHeadingStatus === this.status) {
+      return;
+    }
+
+    this.panelHeading.status = this.status;
+    this.panelHeadingStatus = this.status;
   }
 
   ngOnDestroy(): void {

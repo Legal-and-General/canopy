@@ -1,42 +1,120 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
+import { useArgs } from 'storybook/preview-api';
 
 import { LgDetailsComponent } from '../details.component';
 import { LgDetailsPanelHeadingComponent } from '../details-panel-heading/details-panel-heading.component';
+import type { IconName } from '../../icon';
+import type { Status } from '../../status';
+// Direct import required for Webpack compatibility - do not use barrel file
+import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
 
-const statusTypes = [ 'generic', 'info', 'success', 'warning', 'error' ];
+const statusTypes: Array<Status> = [ 'generic', 'info', 'success', 'warning', 'error' ];
+
+interface DetailsStoryArgs {
+  headingText: string;
+  bodyText: string;
+  headingLevel: number;
+  showIcon: boolean;
+  icon?: IconName;
+  status: Status;
+  isActive: boolean;
+  isFocused: boolean;
+  // Story-only flag used to show/hide the icon control based on the chosen status.
+  iconEditable?: boolean;
+}
 
 const template = `
 <lg-details
   [isActive]="isActive"
   [status]="status"
   [showIcon]="showIcon"
-  (opened)="toggle('Detail opened')"
-  (closed)="toggle('Detail closed')">
+  [icon]="icon">
   <lg-details-panel-heading [headingLevel]="headingLevel">{{ headingText }}</lg-details-panel-heading>
-  Give us a call on <a href="tel:08001234567">0800 123 4567</a> and we'll be happy to help you change your
-  payment details
+  {{ bodyText }}
 </lg-details>
 `;
 
 @Component({
   selector: 'lg-details-example',
-  template: template,
+  template: `<div #detailsContainer>${template}</div>`,
   imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+  standalone: true,
 })
-class DetailsExampleComponent {
-  @Input() status: string;
+class DetailsExampleComponent implements AfterViewInit, OnChanges {
+  @ViewChild('detailsContainer') detailsContainer?: ElementRef<HTMLElement>;
+
+  @Input() status: Status;
   @Input() statusTheme: string;
   @Input() headingLevel: number;
   @Input() headingText: string;
+  @Input() bodyText: string;
   @Input() isActive: boolean;
   @Input() showIcon: boolean;
+  @Input() icon?: IconName;
+  @Input() isFocused = false;
+
+  ngAfterViewInit(): void {
+    queueMicrotask(() => this.applyFocusedState());
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isFocused']) {
+      queueMicrotask(() => this.applyFocusedState());
+    }
+  }
+
+  private applyFocusedState(): void {
+    const toggle = this.detailsContainer?.nativeElement.querySelector<HTMLButtonElement>(
+      '.lg-details-panel-heading__toggle',
+    );
+
+    if (!toggle) {
+      return;
+    }
+
+    if (this.isFocused) {
+      toggle.focus();
+
+      return;
+    }
+
+    if (document.activeElement === toggle) {
+      toggle.blur();
+    }
+  }
 }
+
+let previousStatus: Status | undefined;
+
+const getResolvedIcon = (args: DetailsStoryArgs, statusChanged: boolean) =>
+  args.status === 'generic'
+    ? statusChanged
+      ? 'globe'
+      : args.icon
+    : args.status === 'info'
+      ? statusChanged
+        ? 'information-filled'
+        : args.icon
+      : undefined;
 
 export default {
   title: 'Components/Details/Examples',
-  tags: [ 'pending' ],
+  tags: [ 'updated' ],
   component: LgDetailsComponent,
+  parameters: {
+    backgrounds: {
+      disable: true,
+    },
+  },
   decorators: [
     moduleMetadata({
       imports: [ DetailsExampleComponent ],
@@ -50,9 +128,7 @@ export default {
       },
     },
     showIcon: {
-      description:
-        'Whether the icon should display on the warning, error or success statuses.',
-      name: 'showIcon (warning, success & error statuses only)',
+      description: 'Whether the status icon should display.',
       table: {
         type: {
           summary: 'boolean',
@@ -60,6 +136,26 @@ export default {
         defaultValue: {
           summary: 'true',
         },
+      },
+    },
+    icon: {
+      description:
+        'Custom icon used for generic and info statuses only. Success, warning and error use fixed icons.',
+      options: lgIconsArray.map(icon => icon.name),
+      control: {
+        type: 'select',
+      },
+      // Hidden for success, warning and error, which always use a fixed icon.
+      if: { arg: 'iconEditable', truthy: true },
+      table: {
+        type: {
+          summary: 'IconName',
+        },
+      },
+    },
+    iconEditable: {
+      table: {
+        disable: true,
       },
     },
     status: {
@@ -90,6 +186,17 @@ export default {
         type: 'select',
       },
     },
+    bodyText: {
+      description: 'Body content displayed when expanded.',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+      control: {
+        type: 'text',
+      },
+    },
     isActive: {
       description: 'Whether the details should be expanded.',
       table: {
@@ -97,7 +204,19 @@ export default {
           summary: 'boolean',
         },
         defaultValue: {
-          summary: 'true',
+          summary: 'false',
+        },
+      },
+    },
+    isFocused: {
+      description:
+        'Story-only focus toggle for demonstrating keyboard focus state on the heading button.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+        defaultValue: {
+          summary: 'false',
         },
       },
     },
@@ -117,6 +236,11 @@ export default {
       },
     },
     _showIcon: {
+      table: {
+        disable: true,
+      },
+    },
+    _icon: {
       table: {
         disable: true,
       },
@@ -161,20 +285,45 @@ export default {
 
 export const StandardDetails = {
   name: 'Details',
-  render: (args: LgDetailsComponent) => ({
-    props: args,
-    template: `<lg-details-example
-      [status]="status"
-      [headingLevel]="headingLevel"
-      [headingText]="headingText"
-      [isActive]="isActive"
-      [showIcon]="showIcon"
-     ></lg-details-example>`,
-  }),
+  render: (args: DetailsStoryArgs) => {
+    const [ , updateArgs ] = useArgs();
+
+    const statusChanged = args.status !== previousStatus;
+
+    previousStatus = args.status;
+
+    const resolvedIcon = getResolvedIcon(args, statusChanged);
+    const iconEditable = args.status === 'generic' || args.status === 'info';
+
+    if (args.iconEditable !== iconEditable) {
+      updateArgs({ iconEditable });
+    }
+
+    return {
+      props: { ...args, resolvedIcon },
+      template: `<lg-details-example
+        [status]="status"
+        [headingLevel]="headingLevel"
+        [headingText]="headingText"
+        [bodyText]="bodyText"
+        [isActive]="isActive"
+        [showIcon]="showIcon"
+        [icon]="resolvedIcon"
+        [isFocused]="isFocused"
+      ></lg-details-example>`,
+    };
+  },
   args: {
     status: 'generic',
     headingLevel: 5,
     headingText: 'How do I change my payment details?',
+    bodyText:
+      'Give us a call on 0800 123 4567 and we\'ll be happy to help you change your payment details.',
+    isActive: false,
+    showIcon: true,
+    icon: 'globe',
+    isFocused: false,
+    iconEditable: true,
   },
   parameters: {
     docs: {
@@ -188,7 +337,7 @@ export const StandardDetails = {
         { suffix: ' [success]', args: { status: 'success' } },
         { suffix: ' [warning]', args: { status: 'warning' } },
         { suffix: ' [error]', args: { status: 'error' } },
-        { suffix: ' [info]', args: { status: 'info', showIcon: true } },
+        { suffix: ' [focused]', args: { isFocused: true } },
       ],
     },
   },
