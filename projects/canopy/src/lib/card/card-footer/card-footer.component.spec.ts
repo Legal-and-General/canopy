@@ -1,67 +1,9 @@
-import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { MockComponent, MockRender, ngMocks } from 'ng-mocks';
 
-import {
-  LgLinkMenuComponent,
-  LgLinkMenuItemComponent,
-  LgLinkMenuItemTextComponent,
-} from '../../link-menu';
+import { LgLinkMenuComponent } from '../../link-menu';
 
 import { LgCardFooterComponent } from './card-footer.component';
-
-@Component({
-  template: `
-    <lg-card-footer>
-      <a href="#">Primary action</a>
-    </lg-card-footer>
-  `,
-  imports: [ LgCardFooterComponent ],
-  standalone: true,
-})
-class LgCardFooterWithAnchorHostComponent {}
-
-@Component({
-  template: ' <lg-card-footer> Footer text content </lg-card-footer> ',
-  imports: [ LgCardFooterComponent ],
-  standalone: true,
-})
-class LgCardFooterWithTextHostComponent {}
-
-@Component({
-  template: `
-    <lg-card-footer>
-      <a href="#">Continue</a>
-      <p>Unsupported paragraph</p>
-    </lg-card-footer>
-  `,
-  imports: [ LgCardFooterComponent ],
-  standalone: true,
-})
-class LgCardFooterWithMixedContentHostComponent {}
-
-@Component({
-  template: `
-    <lg-card-footer>
-      <lg-link-menu>
-        <a href="#">
-          <lg-link-menu-item>
-            <lg-link-menu-item-text isBold="true"
-              >Link menu item 1</lg-link-menu-item-text
-            >
-          </lg-link-menu-item>
-        </a>
-      </lg-link-menu>
-    </lg-card-footer>
-  `,
-  imports: [
-    LgCardFooterComponent,
-    LgLinkMenuComponent,
-    LgLinkMenuItemComponent,
-    LgLinkMenuItemTextComponent,
-  ],
-  standalone: true,
-})
-class LgCardFooterWithLinkMenuHostComponent {}
 
 describe('LgCardFooterComponent', () => {
   let component: LgCardFooterComponent;
@@ -69,19 +11,15 @@ describe('LgCardFooterComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        LgCardFooterComponent,
-        LgCardFooterWithAnchorHostComponent,
-        LgCardFooterWithTextHostComponent,
-        LgCardFooterWithMixedContentHostComponent,
-        LgCardFooterWithLinkMenuHostComponent,
-      ],
+      imports: [ LgCardFooterComponent, MockComponent(LgLinkMenuComponent) ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LgCardFooterComponent);
-    component = fixture.componentInstance;
+    ngMocks.flushTestBed();
+
+    fixture = MockRender('<lg-card-footer></lg-card-footer>');
+    component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();
   });
 
@@ -90,11 +28,19 @@ describe('LgCardFooterComponent', () => {
   });
 
   it('should contain the default class', () => {
-    expect(fixture.nativeElement.getAttribute('class')).toContain('lg-card-footer');
+    const footer: HTMLElement = fixture.nativeElement.querySelector('lg-card-footer');
+
+    expect(footer.classList.contains('lg-card-footer')).toBe(true);
   });
 
   it('should project allowed anchor actions', () => {
-    const hostFixture = TestBed.createComponent(LgCardFooterWithAnchorHostComponent);
+    ngMocks.flushTestBed();
+
+    const hostFixture = MockRender(`
+      <lg-card-footer>
+        <a href="#">Primary action</a>
+      </lg-card-footer>
+    `);
 
     hostFixture.detectChanges();
 
@@ -105,7 +51,11 @@ describe('LgCardFooterComponent', () => {
   });
 
   it('should not project plain text content', () => {
-    const hostFixture = TestBed.createComponent(LgCardFooterWithTextHostComponent);
+    ngMocks.flushTestBed();
+
+    const hostFixture = MockRender(
+      '<lg-card-footer> Footer text content </lg-card-footer>',
+    );
 
     hostFixture.detectChanges();
 
@@ -115,8 +65,15 @@ describe('LgCardFooterComponent', () => {
   });
 
   it('should project only allowed content when mixed content is provided', () => {
-    const hostFixture = TestBed.createComponent(
-      LgCardFooterWithMixedContentHostComponent,
+    ngMocks.flushTestBed();
+
+    const hostFixture = MockRender(
+      `
+      <lg-card-footer>
+        <a href="#">Continue</a>
+        <p>Unsupported paragraph</p>
+      </lg-card-footer>
+    `,
     );
 
     hostFixture.detectChanges();
@@ -129,7 +86,13 @@ describe('LgCardFooterComponent', () => {
   });
 
   it('should add link menu modifier class when link menu content is projected', () => {
-    const hostFixture = TestBed.createComponent(LgCardFooterWithLinkMenuHostComponent);
+    ngMocks.flushTestBed();
+
+    const hostFixture = MockRender(`
+      <lg-card-footer>
+        <lg-link-menu></lg-link-menu>
+      </lg-card-footer>
+    `);
 
     hostFixture.detectChanges();
 
