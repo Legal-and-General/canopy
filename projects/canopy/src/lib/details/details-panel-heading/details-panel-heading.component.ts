@@ -10,9 +10,18 @@ import {
 } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
+import type { IconName } from '../../icon/ui-icons-files.interface';
 import type { Status } from '../../status';
 import { LgStatusDirective } from '../../status';
 import { LgHeadingComponent } from '../../heading';
+
+const statusIcons: Record<Status, IconName> = {
+  generic: 'globe',
+  info: 'information-filled',
+  success: 'checkmark-spot-filled',
+  warning: 'warning-filled',
+  error: 'crossmark-spot-filled',
+};
 
 @Component({
   selector: 'lg-details-panel-heading',
@@ -23,10 +32,20 @@ import { LgHeadingComponent } from '../../heading';
   imports: [ LgHeadingComponent, LgIconComponent ],
 })
 export class LgDetailsPanelHeadingComponent {
-  private cdr = inject(ChangeDetectorRef);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   @Input() headingLevel;
   @Input() isActive = false;
+
+  _icon?: string;
+  @Input()
+  set icon(icon: string | undefined) {
+    this._icon = icon;
+    this.cdr.markForCheck();
+  }
+  get icon() {
+    return this._icon;
+  }
 
   _showIcon = true;
   @Input()
@@ -46,6 +65,14 @@ export class LgDetailsPanelHeadingComponent {
   }
   get status(): Status {
     return this.statusDirective?.status ?? this._status;
+  }
+
+  get statusIcon(): IconName {
+    if ((this.status === 'generic' || this.status === 'info') && this.icon) {
+      return this.icon as IconName;
+    }
+
+    return statusIcons[this.status];
   }
 
   statusDirective: LgStatusDirective;

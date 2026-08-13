@@ -1,17 +1,22 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import * as DetailStories from './details.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Details/Guide" tags={['pending']}/>
+<Meta title="Components/Details/Guide" tags={['updated']}/>
 
 # Details
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy {' '} <a href="https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0" target="_blank" rel="noopener noreferrer">v38</a>.</span>
+</span>
 
 <p class="standfirst">The Details component reduces page clutter and cognitive load by letting users reveal more information as and when they need it.</p>
-
-![Details component example](docs/details/example.png)
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
@@ -29,15 +34,12 @@ and in your HTML:
 
 Information that is important or relevant to most users should not be included within this component and should be displayed on the page instead.
 
-The component has **not** been designed for large amounts of information or rich content (sound, video, etc). It should only be used for small amounts of content. It can be used to contain Link components or simple imagery, if required.
+The component has **not** been designed for large amounts of information or rich content (sound, video, etc). It should only be used for small amounts of content. It can be used to contain Link components alongside text, if required.
 
-![Details component usage examples](docs/details/usage.png)
 
-The Details component can also be styled to match the [inline message component](./?path=/docs/components-inline-message-alert-guide--docs) with `warning`, `info`, `success` and `error` colouring. This lets you highlight information in different ways depending on severity. In the above example, we've used the `info` status to highlight a message telling the user they triggered a Money Purchase Annual Allowance.
-
+The Details component can also be styled to match the [inline message component](./?path=/docs/components-inline-message-alert-guide--docs) with `warning`, `info`, `success` and `error` colouring. This lets you highlight information in different ways depending on severity.  
 **These statuses should be used sparingly; the generic status should be suitable for most situations.**
 
-![Details components - types](docs/details/types.png)
 
 ## How it works
 
@@ -45,27 +47,11 @@ The details component combines an icon, label and chevron within a container. Cl
 
 The "alert" ARIA role is automatically added to the component if it's one of these statuses: `warning`, `error`, `success`. Note that this role will tell the browser to send out an accessible alert event to assistive technology products which can then notify the user about it.
 
-A decorative icon is also added next to the heading if it's one of the these statuses: `generic`, `info`, `warning`, `error`, `success`.
+A decorative icon is also added next to the heading for all statuses: `generic`, `info`, `warning`, `error`, `success`.
+For `generic` and `info`, the icon can be customised. For `success`, `warning`, and
+`error`, the icon remains fixed.
 
-## Do and don't
-
-### Do
-
-![How you should use the details component](docs/details/do.png)
-
-1. **Do** use to hide secondary information from view.
-2. **Do** make the label as short and descriptive as possible.
-3. **Do** match the width to the width of the content it sits with.
-
-### Don't
-
-![How you shouldn't use the details component](docs/details/dont.png)
-
-1. **Don't** use for large amounts of content.
-2. **Don't** use to hide key information.
-3. **Don't** overuse colour variations.
-
-## Additional developer details
+## Additional development details
 
 ### Inputs
 
@@ -74,7 +60,8 @@ A decorative icon is also added next to the heading if it's one of the these sta
 | `isActive`     | Expand the details                                                                                     | `boolean` | `false`   | no       |
 | `headingLevel` | The level of the details heading: `1`, `2`, `3`, `4`, `5`, `6`                                         | `number`  | n/a       | Yes      |
 | `status`       | Applies status treatment and ARIA role if applicable: `generic`, `info`, `warning`, `error`, `success` | `string`  | `generic` | No       |
-| `showIcon`     | Whether the icon should display on the warning, error or success statuses                              | `boolean` | `true`    | No       |
+| `showIcon`     | Whether the status icon should display                                                                  | `boolean` | `true`    | No       |
+| `icon`         | Custom icon for `generic` and `info` statuses only                                                      | `IconName`| `globe`   | No       |
 
 ### Outputs
 

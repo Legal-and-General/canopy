@@ -5,6 +5,8 @@ import { take } from 'rxjs/operators';
 
 import { LgHeadingComponent } from '../../heading';
 import { LgIconComponent } from '../../icon';
+import type { IconName } from '../../icon';
+import type { Status } from '../../status';
 
 import { LgDetailsPanelHeadingComponent } from './details-panel-heading.component';
 
@@ -12,6 +14,8 @@ describe('LgDetailsPanelHeadingComponent', () => {
   let component: LgDetailsPanelHeadingComponent;
   let fixture: ComponentFixture<LgDetailsPanelHeadingComponent>;
   let triggerElement;
+  const getStatusIconElement = (): HTMLElement | null =>
+    fixture.nativeElement.querySelector('.lg-details-panel-heading__icon lg-icon');
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -128,6 +132,72 @@ describe('LgDetailsPanelHeadingComponent', () => {
       fixture.detectChanges();
 
       expect(triggerElement.attributes['aria-expanded']).toBe('false');
+    });
+  });
+
+  describe('status icon rendering', () => {
+    it('renders the status icon when showIcon is true', () => {
+      component.status = 'generic';
+      component.showIcon = true;
+      fixture.detectChanges();
+
+      expect(getStatusIconElement()).toBeTruthy();
+    });
+
+    it('hides the status icon when showIcon is false', () => {
+      component.showIcon = false;
+      fixture.detectChanges();
+
+      expect(getStatusIconElement()).toBeNull();
+    });
+
+    const statusIconMap: Array<{ status: Status; icon: IconName }> = [
+      { status: 'generic', icon: 'globe' },
+      { status: 'info', icon: 'information-filled' },
+      { status: 'success', icon: 'checkmark-spot-filled' },
+      { status: 'warning', icon: 'warning-filled' },
+      { status: 'error', icon: 'crossmark-spot-filled' },
+    ];
+
+    statusIconMap.forEach(({ status, icon }) => {
+      it(`resolves the correct icon for ${status} status`, () => {
+        component.status = status;
+        fixture.detectChanges();
+
+        expect(component.statusIcon).toBe(icon);
+      });
+    });
+
+    it('uses a custom icon for generic status', () => {
+      component.status = 'generic';
+      component.icon = 'chat';
+      fixture.detectChanges();
+
+      expect(component.statusIcon).toBe('chat');
+    });
+
+    it('uses a custom icon for info status', () => {
+      component.status = 'info';
+      component.icon = 'chat';
+      fixture.detectChanges();
+
+      expect(component.statusIcon).toBe('chat');
+    });
+
+    const fixedStatusIconMap: Array<{ status: Status; icon: IconName }> = [
+      { status: 'success', icon: 'checkmark-spot-filled' },
+      { status: 'warning', icon: 'warning-filled' },
+      { status: 'error', icon: 'crossmark-spot-filled' },
+    ];
+
+    fixedStatusIconMap.forEach(({ status, icon }) => {
+      it(`keeps fixed icon mapping for ${status} status`, () => {
+        component.icon = 'chat';
+        component.status = status;
+        fixture.detectChanges();
+
+        expect(component.statusIcon).toBe(icon);
+      });
     });
   });
 });
