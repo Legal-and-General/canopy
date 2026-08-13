@@ -2,10 +2,13 @@ import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
 import * as CardStories from './card.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Card/Guide"/>
+<Meta title="Components/Card/Guide" tags={['updated']} />
 
 # Card
+
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0" target="_blank" rel="noopener noreferrer">v38</a>.</span></span>
 
 <p class="standfirst">Cards are containers for content and actions on a specific topic.</p>
 

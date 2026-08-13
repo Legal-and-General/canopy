@@ -1,10 +1,13 @@
 import {Markdown, Meta} from '@storybook/addon-docs/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Patterns/Promotions/Guide"/>
+<Meta title="Patterns/Promotions/Guide" tags={['updated']}/>
 
 # Promotions
+
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0" target="_blank" rel="noopener noreferrer">v38</a>.</span></span>
 
 <p class="standfirst">Promotions are containers for content and actions on a specific topic, that use the Cards component and combine the Grid functionality to obtain a Magazine layout based on how many promotions you want to display.</p>
 
