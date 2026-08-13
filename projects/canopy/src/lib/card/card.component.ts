@@ -6,12 +6,10 @@ import {
   ElementRef,
   forwardRef,
   HostBinding,
-  HostListener,
+  inject,
   Input,
   OnDestroy,
-  Renderer2,
   ViewEncapsulation,
-  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -21,8 +19,6 @@ import { randomUniqueId } from '../utils';
 import { CardVariant, lgCardPanelIdPrefix, lgCardToggleIdPrefix } from './card.interface';
 import { LgCardToggableContentComponent } from './card-toggable-content/card-toggable-content.component';
 import { LgCardNavigationTitleComponent } from './card-navigation-title/card-navigation-title.component';
-import { LgCardContentComponent } from './card-content/card-content.component';
-import { LgCardHeroImageComponent } from './card-hero-img/card-hero-img.component';
 
 @Component({
   selector: 'lg-card',
@@ -36,17 +32,13 @@ import { LgCardHeroImageComponent } from './card-hero-img/card-hero-img.componen
   standalone: true,
 })
 export class LgCardComponent implements AfterContentInit, OnDestroy {
-  private static readonly minWidths = {
-    md: 768,
-    lg: 1024,
-    xl: 1280,
-    xxl: 1440,
-  };
-
-  private readonly renderer = inject(Renderer2);
   private readonly hostElement = inject<ElementRef<HTMLElement>>(ElementRef);
   private subscription?: Subscription;
-  private readonly uniqueId = randomUniqueId();
+  private resizeObserver?: ResizeObserver;
+  private contentElement?: HTMLElement | null;
+  private headerElement?: HTMLElement | null;
+  private footerElement?: HTMLElement | null;
+  private uniqueId = randomUniqueId();
 
   @ContentChild(forwardRef(() => LgButtonToggleDirective))
   buttonToggle?: LgButtonToggleDirective;
@@ -54,12 +46,6 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
   cardToggableContent?: LgCardToggableContentComponent;
   @ContentChild(forwardRef(() => LgCardNavigationTitleComponent))
   cardNavigationTitle?: LgCardNavigationTitleComponent;
-  @ContentChild(forwardRef(() => LgCardContentComponent), { read: ElementRef })
-  cardContentElement?: ElementRef<HTMLElement>;
-  @ContentChild(forwardRef(() => LgCardHeroImageComponent))
-  cardHeroImage?: LgCardHeroImageComponent;
-  @ContentChild(forwardRef(() => LgCardHeroImageComponent), { read: ElementRef })
-  cardHeroImageElement?: ElementRef<HTMLElement>;
   @Input() variant: CardVariant = 'default';
 
   @HostBinding('class') get variantClass(): string {
@@ -70,8 +56,6 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
     if (this.cardNavigationTitle) {
       this.variant = 'interactive';
     }
-
-    this.syncPictogramPlacement();
 
     if (this.buttonToggle && this.cardToggableContent) {
       const cardToggableContent = this.cardToggableContent;
@@ -86,105 +70,64 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
         cardToggableContent.isActive = isActive;
       });
     }
+
+    this.initialiseContentCentreObserver();
   }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+    this.resizeObserver?.disconnect();
   }
 
-  @HostListener('window:resize')
-  onWindowResize(): void {
-    this.syncPictogramPlacement();
-  }
+  private initialiseContentCentreObserver(): void {
+    const host = this.hostElement.nativeElement;
 
-  private syncPictogramPlacement(): void {
-    if (!this.cardHeroImageElement || !this.cardHeroImage || !this.cardContentElement) {
+    this.contentElement = host.querySelector<HTMLElement>('lg-card-content');
+    this.headerElement = host.querySelector<HTMLElement>('lg-card-header');
+    this.footerElement = host.querySelector<HTMLElement>('lg-card-footer');
+
+    this.updateContentCentreOffset();
+
+    if (typeof ResizeObserver === 'undefined') {
       return;
     }
 
-    if (this.shouldProjectPictogramInCardContent()) {
-      this.renderer.appendChild(
-        this.cardContentElement.nativeElement,
-        this.cardHeroImageElement.nativeElement,
-      );
-
-      return;
-    }
-
-    const host: HTMLElement = this.hostElement.nativeElement;
-    const body: Element | null = host.querySelector('.lg-card__body');
-
-    if (body) {
-      this.renderer.insertBefore(host, this.cardHeroImageElement.nativeElement, body);
-    }
-  }
-
-  private shouldProjectPictogramInCardContent(): boolean {
-    if (!this.hasHorizontalOrientationAtCurrentViewport() || this.cardHeroImage?.src) {
-      return false;
-    }
-
-    return true;
-  }
-
-  private hasHorizontalOrientationAtCurrentViewport(): boolean {
-    const orientation = this.getCurrentOrientation();
-
-    return !!orientation && orientation.includes('horizontal');
-  }
-
-  private getCurrentOrientation(): string | undefined {
-    const classList: Array<string> = Array.from(this.hostElement.nativeElement.classList);
-    const orientationByBreakpoint = new Map<string, string>();
-
-    classList.forEach(className => {
-      const match = /^lg-orientation--(sm|md|lg|xl|xxl)--([a-z-]+)$/.exec(className);
-
-      if (match) {
-        orientationByBreakpoint.set(match[1], match[2]);
-      }
+    this.resizeObserver = new ResizeObserver(() => {
+      this.updateContentCentreOffset();
     });
 
-    if (
-      this.matchesMinWidth(LgCardComponent.minWidths.xxl) &&
-      orientationByBreakpoint.has('xxl')
-    ) {
-      return orientationByBreakpoint.get('xxl');
+    this.resizeObserver.observe(host);
+
+    if (this.contentElement) {
+      this.resizeObserver.observe(this.contentElement);
     }
 
-    if (
-      this.matchesMinWidth(LgCardComponent.minWidths.xl) &&
-      orientationByBreakpoint.has('xl')
-    ) {
-      return orientationByBreakpoint.get('xl');
+    if (this.headerElement) {
+      this.resizeObserver.observe(this.headerElement);
     }
 
-    if (
-      this.matchesMinWidth(LgCardComponent.minWidths.lg) &&
-      orientationByBreakpoint.has('lg')
-    ) {
-      return orientationByBreakpoint.get('lg');
+    if (this.footerElement) {
+      this.resizeObserver.observe(this.footerElement);
     }
-
-    if (
-      this.matchesMinWidth(LgCardComponent.minWidths.md) &&
-      orientationByBreakpoint.has('md')
-    ) {
-      return orientationByBreakpoint.get('md');
-    }
-
-    return orientationByBreakpoint.get('sm');
   }
 
-  private matchesMinWidth(minWidth: number): boolean {
-    if (typeof window !== 'undefined') {
-      if (typeof window.matchMedia === 'function') {
-        return window.matchMedia(`(min-width: ${minWidth}px)`).matches;
-      }
+  private updateContentCentreOffset(): void {
+    const host = this.hostElement.nativeElement;
+    const content = this.contentElement;
 
-      return window.innerWidth >= minWidth;
+    if (!content) {
+      host.style.setProperty('--lg-card-content-centre-offset', '0px');
+
+      return;
     }
 
-    return false;
+    const cardRect = host.getBoundingClientRect();
+    const contentRect = content.getBoundingClientRect();
+    const cardCentre = cardRect.top + cardRect.height / 2;
+    const contentCentre = contentRect.top + contentRect.height / 2;
+    const offset = contentCentre - cardCentre;
+    const snappedOffset = Math.sign(offset) * Math.round(Math.abs(offset));
+
+    host.style.setProperty('--lg-card-content-centre-offset', `${snappedOffset}px`);
   }
 }

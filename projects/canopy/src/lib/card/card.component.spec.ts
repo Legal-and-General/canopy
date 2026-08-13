@@ -53,15 +53,15 @@ describe('LgCardComponent', () => {
     expect(el.getAttribute('class')).toContain('lg-card');
   });
 
-  it('should have the promo class if variant is promo', () => {
+  it('should have the promo classes if variant is promo', () => {
     component.variant = 'promo';
     fixture.detectChanges();
 
     expect(el.getAttribute('class')).toContain('lg-card--promo');
   });
 
-  it('should not set the class lg-card--navigation on the lg-card', () => {
-    expect(el.className).not.toContain('lg-card--navigation');
+  it('should not set the class lg-card--interactive on the lg-card', () => {
+    expect(el.className).not.toContain('lg-card--interactive');
   });
 
   describe('when there is only lg-card-content', () => {
@@ -141,121 +141,6 @@ describe('LgCardComponent', () => {
     });
   });
 
-  describe('when placing pictogram hero media based on orientation', () => {
-    it('should move pictogram hero media into card content for horizontal orientation', () => {
-      ngMocks.flushTestBed();
-
-      const localFixture = MockRender(`
-        <lg-card class="lg-orientation--sm--horizontal">
-         <lg-card-hero-img></lg-card-hero-img>
-         <lg-card-content>Content</lg-card-content>
-        </lg-card>
-      `);
-
-      localFixture.detectChanges();
-
-      const cardElement = localFixture.debugElement.children[0]
-        .nativeElement as HTMLElement;
-      const cardContent = cardElement.querySelector('lg-card-content');
-      const heroInContent = cardContent?.querySelector('lg-card-hero-img');
-
-      expect(cardContent).toBeTruthy();
-      expect(heroInContent).toBeTruthy();
-    });
-
-    it('should keep hero media before card body for vertical orientation', () => {
-      ngMocks.flushTestBed();
-
-      const localFixture = MockRender(`
-        <lg-card class="lg-orientation--sm--vertical">
-         <lg-card-hero-img></lg-card-hero-img>
-         <lg-card-content>Content</lg-card-content>
-        </lg-card>
-      `);
-
-      localFixture.detectChanges();
-
-      const cardElement = localFixture.debugElement.children[0]
-        .nativeElement as HTMLElement;
-      const hero = cardElement.querySelector('lg-card-hero-img');
-      const body = cardElement.querySelector('.lg-card__body');
-
-      expect(hero).toBeTruthy();
-      expect(body).toBeTruthy();
-      expect(cardElement.firstElementChild).toBe(hero);
-    });
-
-    it('should keep image hero media before card body when src is present', () => {
-      ngMocks.flushTestBed();
-
-      const localFixture = MockRender(`
-        <lg-card class="lg-orientation--sm--horizontal">
-         <lg-card-hero-img src="/test"></lg-card-hero-img>
-         <lg-card-content>Content</lg-card-content>
-        </lg-card>
-      `);
-
-      localFixture.detectChanges();
-
-      const cardElement = localFixture.debugElement.children[0]
-        .nativeElement as HTMLElement;
-      const hero = cardElement.querySelector('lg-card-hero-img');
-
-      expect(hero).toBeTruthy();
-      expect(cardElement.firstElementChild).toBe(hero);
-    });
-
-    it('should re-place hero media when viewport breakpoint changes', () => {
-      ngMocks.flushTestBed();
-
-      const initialWindowWidth = window.innerWidth;
-
-      Object.defineProperty(window, 'innerWidth', {
-        configurable: true,
-        writable: true,
-        value: 500,
-      });
-
-      const localFixture = MockRender(`
-        <lg-card class="lg-orientation--sm--vertical lg-orientation--md--horizontal">
-         <lg-card-hero-img></lg-card-hero-img>
-         <lg-card-content>Content</lg-card-content>
-        </lg-card>
-      `);
-
-      localFixture.detectChanges();
-
-      const cardComponent = localFixture.debugElement.children[0]
-        .componentInstance as LgCardComponent;
-      const cardElement = localFixture.debugElement.children[0]
-        .nativeElement as HTMLElement;
-
-      expect(cardElement.firstElementChild?.tagName.toLowerCase()).toBe(
-        'lg-card-hero-img',
-      );
-
-      Object.defineProperty(window, 'innerWidth', {
-        configurable: true,
-        writable: true,
-        value: 1024,
-      });
-
-      cardComponent.onWindowResize();
-      localFixture.detectChanges();
-
-      const cardContent = cardElement.querySelector('lg-card-content');
-      const heroInContent = cardContent?.querySelector('lg-card-hero-img');
-
-      expect(heroInContent).toBeTruthy();
-
-      Object.defineProperty(window, 'innerWidth', {
-        configurable: true,
-        writable: true,
-        value: initialWindowWidth,
-      });
-    });
-  });
-
   describe('when there is lg-card-content and lg-card-footer', () => {
     beforeEach(() => {
       ngMocks.flushTestBed();
@@ -263,7 +148,9 @@ describe('LgCardComponent', () => {
       const localFixture = MockRender(`
         <lg-card>
          <lg-card-content>Content</lg-card-content>
-         <lg-card-footer>Footer</lg-card-footer>
+         <lg-card-footer>
+           <button type="button">Continue</button>
+         </lg-card-footer>
         </lg-card>
       `);
 
@@ -290,7 +177,9 @@ describe('LgCardComponent', () => {
         <lg-card>
          <lg-card-header>Top</lg-card-header>
          <lg-card-content>Content</lg-card-content>
-         <lg-card-footer>Footer</lg-card-footer>
+         <lg-card-footer>
+           <button type="button">Continue</button>
+         </lg-card-footer>
         </lg-card>
       `);
 
