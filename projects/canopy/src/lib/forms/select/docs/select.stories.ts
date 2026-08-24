@@ -27,17 +27,7 @@ const template = `
 </lg-select-field>
 `;
 
-@Component({
-  selector: 'lg-reactive-form',
-  template: ` <form [formGroup]="form">${template}</form> `,
-  imports: [
-    ReactiveFormsModule,
-    LgSelectFieldComponent,
-    LgHintComponent,
-    LgSelectDirective,
-  ],
-})
-class ReactiveFormComponent {
+class SelectStoryFormBase {
   fb = inject(UntypedFormBuilder);
 
   @Input() block: boolean;
@@ -45,18 +35,6 @@ class ReactiveFormComponent {
   @Input() optional: boolean;
   @Input() label: string;
   @Input() options: Array<string>;
-
-  @Input()
-  set disabled(disabled: boolean) {
-    if (disabled === true) {
-      this.form.controls.color.disable();
-    } else {
-      this.form.controls.color.enable();
-    }
-  }
-  get disabled(): boolean {
-    return this.form.controls.color.disabled;
-  }
 
   @Output() selectChange: EventEmitter<void> = new EventEmitter<void>();
 
@@ -69,7 +47,38 @@ class ReactiveFormComponent {
 
     this.form.valueChanges.subscribe(val => this.selectChange.emit(val));
   }
+
+  @Input()
+  set disabled(disabled: boolean) {
+    this.setControlDisabled(disabled);
+  }
+
+  get disabled(): boolean {
+    return this.form.controls.color.disabled;
+  }
+
+  protected setControlDisabled(disabled: boolean): void {
+    if (disabled) {
+      this.form.controls.color.disable();
+
+      return;
+    }
+
+    this.form.controls.color.enable();
+  }
 }
+
+@Component({
+  selector: 'lg-reactive-form',
+  template: ` <form [formGroup]="form">${template}</form> `,
+  imports: [
+    ReactiveFormsModule,
+    LgSelectFieldComponent,
+    LgHintComponent,
+    LgSelectDirective,
+  ],
+})
+class ReactiveFormComponent extends SelectStoryFormBase {}
 
 export default {
   title: 'Components/Forms/Select/Examples',

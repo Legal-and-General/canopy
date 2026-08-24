@@ -5,10 +5,12 @@
 >
   <legend lg-label [attr.for]="id">
     <ng-content />
+    @if (hintText) {
+      <span class="lg-visually-hidden">{{ hintText }}</span>
+    }
   </legend>
   <ng-content select=".lg-label--optional" />
   <ng-content select="lg-hint" />
   <ng-content select="lg-validation" />
   <ng-content select="lg-toggle, lg-checkbox, lg-filter-checkbox" />
 </fieldset>
-<ng-content select="lg-hint" />

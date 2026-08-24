@@ -9,11 +9,10 @@ import {
   QueryList,
   ViewChild,
   ViewEncapsulation,
-  inject,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { LgDomService, randomUniqueId } from '../../utils';
+import { randomUniqueId } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
 import { LgValidationComponent } from '../validation';
@@ -23,6 +22,11 @@ import { LgPrefixDirective } from '../../prefix';
 import { LgInputFieldExternalButtonDirective } from '../input-field-external-button';
 
 import { LgInputDirective } from './input.directive';
+
+interface LgInputAffix {
+  id: string;
+  hostElement: HTMLElement;
+}
 
 @Component({
   selector: 'lg-input-field',
@@ -41,8 +45,6 @@ import { LgInputDirective } from './input.directive';
   ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
-  private domService = inject(LgDomService);
-
   private _id = randomUniqueId();
   private _labelElement: LgLabelComponent;
   private _inputElement: LgInputDirective;
@@ -116,24 +118,14 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
-    this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.inputElement.ariaDescribedBy,
-      this._hintElement,
-      element,
-    );
-
     this._hintElement = element;
+    this.updateAriaDescribedBy();
   }
 
   @ContentChild(LgValidationComponent)
   set errorElement(element: LgValidationComponent) {
-    this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.inputElement.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-
     this._validationElement = element;
+    this.updateAriaDescribedBy();
   }
 
   @ContentChildren(LgButtonComponent, { descendants: true })
@@ -141,31 +133,17 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   @ContentChildren(LgSuffixDirective)
   set suffixChildren(elements: QueryList<LgSuffixDirective>) {
-    elements.forEach(element => {
-      this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-        this.inputElement.ariaDescribedBy,
-        this._validationElement,
-        element,
-      );
-    });
-
     this._suffixChildren = elements;
+    this.updateAriaDescribedBy();
   }
   get suffixChildren() {
     return this._suffixChildren;
   }
 
   @ContentChildren(LgPrefixDirective)
-  set prefixChildren(elements: QueryList<LgSuffixDirective>) {
-    elements.forEach(element => {
-      this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-        this.inputElement.ariaDescribedBy,
-        this._validationElement,
-        element,
-      );
-    });
-
+  set prefixChildren(elements: QueryList<LgPrefixDirective>) {
     this._prefixChildren = elements;
+    this.updateAriaDescribedBy();
   }
   get prefixChildren() {
     return this._prefixChildren;
@@ -203,7 +181,9 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   }
 
   onFocusIn($event: FocusEvent): void {
-    if (($event.target as HTMLElement).nodeName === 'INPUT') {
+    const targetNode = ($event.target as HTMLElement).nodeName;
+
+    if (targetNode === 'INPUT' || targetNode === 'TEXTAREA') {
       this.hasFocus = true;
     }
   }
@@ -218,5 +198,43 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   onMouseOut(): void {
     this.hasHover = false;
+  }
+
+  private updateAriaDescribedBy(): void {
+    if (!this._inputElement) {
+      return;
+    }
+
+    const ids = [
+      this._hintElement?.id,
+      this._validationElement?.id,
+      ...this.getDescriptiveAffixIds(this._prefixChildren),
+      ...this.getDescriptiveAffixIds(this._suffixChildren),
+    ].filter((id, index, values) => Boolean(id) && values.indexOf(id) === index);
+
+    this._inputElement.ariaDescribedBy = ids.length > 0
+      ? ids.join(' ')
+      : null;
+  }
+
+  private getDescriptiveAffixIds<T extends LgInputAffix>(
+    affixes: QueryList<T> | undefined,
+  ): Array<string> {
+    return (
+      affixes
+        ?.toArray()
+        .filter(affix => !this.isInteractiveAffix(affix.hostElement))
+        .map(affix => affix.id) ?? []
+    );
+  }
+
+  private isInteractiveAffix(element: HTMLElement): boolean {
+    const interactiveTags = [ 'A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA' ];
+
+    if (interactiveTags.includes(element.tagName)) {
+      return true;
+    }
+
+    return element.tabIndex >= 0;
   }
 }

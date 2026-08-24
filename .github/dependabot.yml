@@ -11,6 +11,8 @@ updates:
       interval: 'daily'
       time: '18:00'
       timezone: 'Europe/London'
+    cooldown:
+      default-days: 5
     pull-request-branch-name:
       separator: '-'
     groups:
@@ -41,6 +43,8 @@ updates:
       interval: 'daily'
       time: '18:00'
       timezone: 'Europe/London'
+    cooldown:
+      default-days: 5
     pull-request-branch-name:
       separator: '-'
     groups:
@@ -100,6 +104,8 @@ updates:
       interval: 'daily'
       time: '18:00'
       timezone: 'Europe/London'
+    cooldown:
+      default-days: 5
     pull-request-branch-name:
       separator: '-'
     groups:

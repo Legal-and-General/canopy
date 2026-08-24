@@ -27,6 +27,7 @@
 }
 
 .lg-toggle__label > .lg-toggle__checkbox {
+  flex-shrink: 0;
   color: transparent;
   font-size: var(--_toggle-icon-font-size);
   margin: var(--_toggle-icon-margin-top) var(--checkbox-common-gap) auto 0;
@@ -80,11 +81,16 @@
 
   .lg-toggle--error &,
   .lg-toggle--error &:hover {
-    border: var(--checkbox-error-control-border-width) solid
+    border: var(--checkbox-rest-control-border-width) solid
       var(--checkbox-error-control-border-colour);
     background: var(--checkbox-error-control-background-colour);
     box-shadow: 0 0 0 var(--checkbox-error-control-border-width)
       var(--checkbox-error-control-background-colour);
+  }
+
+  .lg-toggle--error .lg-toggle__input:focus-visible + & {
+    border: var(--checkbox-error-control-border-width) solid
+      var(--checkbox-error-control-border-colour);
   }
 
   .lg-toggle__input:checked + & {
