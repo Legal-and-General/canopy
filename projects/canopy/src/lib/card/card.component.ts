@@ -88,7 +88,11 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
 
     this.updateContentCentreOffset();
 
-    if (typeof ResizeObserver === 'undefined') {
+    const needsContentCentreOffset =
+      (this.variant === 'default' || this.variant === 'interactive') &&
+      !!host.querySelector('lg-card-hero-img.lg-card-hero-img__icon');
+
+    if (!needsContentCentreOffset || typeof ResizeObserver === 'undefined') {
       return;
     }
 
