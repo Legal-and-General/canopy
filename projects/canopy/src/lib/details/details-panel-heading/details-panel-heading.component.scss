@@ -7,24 +7,47 @@
   h4,
   h5,
   h6 {
-    font-size: var(--text-base-size);
-    font-weight: var(--font-weight-700);
-    line-height: var(--text-base-line-height);
+    @include mixins.lg-font-size('1', '700');
+
+    color: var(--details-status-text-colour);
+    font-feature-settings: 'case' on;
+    font-family: var(--typeface-productive);
+    font-style: normal;
     margin-bottom: 0;
+    align-self: stretch;
   }
 
   &__toggle {
+    appearance: none;
     background: transparent;
     border: none;
+    border-radius: var(--details-focus-indicator-border-radius);
+    box-sizing: border-box;
     color: inherit;
     cursor: pointer;
-    display: inline-flex;
-    padding: var(--space-4);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: var(--details-gap);
+    padding: var(--space-2);
+    position: relative;
     text-align: left;
     width: 100%;
 
     &:focus-visible {
-      @include mixins.lg-focus-outline;
+      outline: 0 !important;
+    }
+
+    &:focus-visible::after {
+      border: var(--details-focus-indicator-border-width) solid
+        var(--details-focus-indicator-colour);
+      border-radius: var(--details-focus-indicator-border-radius);
+      box-sizing: border-box;
+      content: '';
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 1;
     }
 
     &--active .lg-details-panel-heading__state-icon {
@@ -33,16 +56,23 @@
     }
   }
 
+  &__content {
+    letter-spacing: var(--letter-spacing-normal-productive);
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  &__icon {
+    grid-column: 1;
+  }
+
   &__state-icon {
-    margin-left: auto;
-    margin-right: var(--space-2);
-    padding-left: var(--space-2);
+    grid-column: 3;
+    justify-self: end;
+    margin-left: 0;
     position: relative;
-    top: var(--details-chevron-top-positon);
     transition: transform var(--animation-duration) var(--animation-fn);
   }
-}
-
-.lg-details-panel-heading__icon {
-  margin-right: var(--space-3);
 }

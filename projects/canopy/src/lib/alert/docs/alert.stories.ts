@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
+import { useArgs } from 'storybook/preview-api';
 
 import { LgAlertComponent } from '../alert.component';
 import { LgButtonComponent } from '../../button';
@@ -22,6 +23,8 @@ interface AlertStoryArgs {
   status: Status;
   statusTheme: string;
   role?: string;
+  // Story-only flag used to show/hide the icon control based on the chosen status.
+  iconEditable?: boolean;
 }
 
 @Component({
@@ -174,8 +177,15 @@ export default {
     icon: {
       description: 'Custom icon to display.',
       options: lgIconsArray.map(icon => icon.name),
+      // Hidden for success, warning and error, which always use a fixed icon.
+      if: { arg: 'iconEditable', truthy: true },
       control: {
         type: 'select',
+      },
+    },
+    iconEditable: {
+      table: {
+        disable: true,
       },
     },
     status: {
@@ -263,11 +273,18 @@ const getResolvedIcon = (args: AlertStoryArgs, statusChanged: boolean) =>
 export const StandardAlert = {
   name: 'Inline message with basic content',
   render: (args: AlertStoryArgs) => {
+    const [ , updateArgs ] = useArgs();
+
     const statusChanged = args.status !== previousStatus;
 
     previousStatus = args.status;
 
     const resolvedIcon = getResolvedIcon(args, statusChanged);
+    const iconEditable = args.status === 'generic' || args.status === 'info';
+
+    if (args.iconEditable !== iconEditable) {
+      updateArgs({ iconEditable });
+    }
 
     return {
       props: { ...args, resolvedIcon },
@@ -298,6 +315,7 @@ export const StandardAlert = {
     statusTheme: 'neutral',
     showIcon: true,
     icon: 'globe',
+    iconEditable: true,
   },
   argTypes: {
     headingText: {
@@ -341,11 +359,18 @@ export const StandardAlert = {
 export const RichTextExample = {
   name: 'Inline message with rich text',
   render: (args: AlertStoryArgs) => {
+    const [ , updateArgs ] = useArgs();
+
     const statusChanged = args.status !== previousStatus;
 
     previousStatus = args.status;
 
     const resolvedIcon = getResolvedIcon(args, statusChanged);
+    const iconEditable = args.status === 'generic' || args.status === 'info';
+
+    if (args.iconEditable !== iconEditable) {
+      updateArgs({ iconEditable });
+    }
 
     return {
       props: { ...args, resolvedIcon },
@@ -376,6 +401,7 @@ export const RichTextExample = {
     statusTheme: 'neutral',
     showIcon: true,
     icon: 'globe',
+    iconEditable: true,
   },
   parameters: {
     docs: {

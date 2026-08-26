@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Meta } from '@storybook/angular';
+import { useArgs } from 'storybook/preview-api';
 
 import { LgBannerComponent } from '../banner.component';
 import type { Status } from '../../status';
@@ -120,12 +121,15 @@ export default {
           summary: 'globe',
         },
       },
-      if: {
-        arg: 'status',
-        or: [ { eq: 'generic' }, { eq: 'info' } ],
-      },
+      // Hidden for success, warning and error, which always use a fixed icon.
+      if: { arg: 'iconEditable', truthy: true },
       control: {
         type: 'select',
+      },
+    },
+    iconEditable: {
+      table: {
+        disable: true,
       },
     },
     statusTheme: {
@@ -168,9 +172,18 @@ export const StandardBanner = {
     statusTheme: 'neutral';
     showIcon: boolean;
     icon: string | null;
-  }) => ({
-    props: { ...args },
-    template: `
+    iconEditable?: boolean;
+  }) => {
+    const [ , updateArgs ] = useArgs();
+    const iconEditable = args.status === 'generic' || args.status === 'info';
+
+    if (args.iconEditable !== iconEditable) {
+      updateArgs({ iconEditable });
+    }
+
+    return {
+      props: { ...args },
+      template: `
       <lg-banner-story
         [content]="content"
         [linkText]="linkText"
@@ -181,10 +194,11 @@ export const StandardBanner = {
         [icon]="icon">
       </lg-banner-story>
     `,
-    moduleMetadata: {
-      imports: [ LgBannerStoryComponent ],
-    },
-  }),
+      moduleMetadata: {
+        imports: [ LgBannerStoryComponent ],
+      },
+    };
+  },
   args: {
     content: 'This is a banner message.',
     linkText: 'Read more',
@@ -193,6 +207,7 @@ export const StandardBanner = {
     statusTheme: 'neutral',
     showIcon: true,
     icon: null,
+    iconEditable: true,
   },
   parameters: {
     docs: {

@@ -14,6 +14,12 @@ describe('LgDetailsComponent', () => {
   let detailsDebugElement: DebugElement;
   let detailsEl: HTMLElement;
 
+  const getHeadingStatusIconName = (): string | undefined => {
+    const iconComponents = ngMocks.findInstances(LgIconComponent);
+
+    return iconComponents.find(icon => icon.name !== 'chevron-down')?.name;
+  };
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -62,6 +68,38 @@ describe('LgDetailsComponent', () => {
 
       expect(panelEl.getAttribute('id')).toBe(toggleElAriaControls);
       expect(panelEl.getAttribute('aria-labelledby')).toBe(toggleElId);
+    });
+
+    it('should forward the custom icon input to panel heading', () => {
+      component.icon = 'chat';
+      fixture.detectChanges();
+
+      expect(component.panelHeading.icon).toBe('chat');
+    });
+
+    it('should update the rendered status icon when icon input changes', () => {
+      expect(getHeadingStatusIconName()).toBe('globe');
+
+      component.icon = 'chat';
+      fixture.detectChanges();
+
+      expect(getHeadingStatusIconName()).toBe('chat');
+    });
+
+    it('should update the rendered status icon when status changes to fixed-status variants', () => {
+      expect(getHeadingStatusIconName()).toBe('globe');
+
+      (component as any).statusDirective.lgStatus = 'warning';
+      fixture.detectChanges();
+      expect(getHeadingStatusIconName()).toBe('warning-filled');
+
+      (component as any).statusDirective.lgStatus = 'success';
+      fixture.detectChanges();
+      expect(getHeadingStatusIconName()).toBe('checkmark-spot-filled');
+
+      (component as any).statusDirective.lgStatus = 'error';
+      fixture.detectChanges();
+      expect(getHeadingStatusIconName()).toBe('crossmark-spot-filled');
     });
   });
 
