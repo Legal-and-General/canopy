@@ -17,15 +17,27 @@
     grid-auto-flow: column;
   }
 
+  @include mixins.lg-breakpoint('md', 'max-width') {
+    min-width: var(--input-common-min-width);
+  }
+
   .lg-radio-group--error & {
     box-shadow:
-      inset 0 0 0 var(--segment-control-error-border-width)
+      inset 0 0 0 var(--text-input-rest-border-width)
         var(--segment-control-error-border-colour),
       0 0 0 var(--text-input-rest-border-width)
         var(--segment-control-common-background-colour);
     border: var(--text-input-rest-border-width) solid
       var(--segment-control-common-background-colour);
     outline: 0;
+  }
+
+  .lg-radio-group--error &:has(.lg-radio-button__input:focus-visible) {
+    box-shadow:
+      inset 0 0 0 var(--segment-control-error-border-width)
+        var(--segment-control-error-border-colour),
+      0 0 0 var(--text-input-rest-border-width)
+        var(--segment-control-common-background-colour);
   }
 
   &:has(.lg-radio-button__input:disabled) {
@@ -42,6 +54,7 @@ $stack-breakpoints: (
   .lg-radio-group--stack-#{$stack-breakpoint} .lg-radio-group__segment {
     @include mixins.lg-breakpoint($stack-breakpoint, 'range', $max-breakpoint) {
       display: block;
+      min-width: var(--input-common-min-width);
     }
 
     .lg-radio-button--segment {

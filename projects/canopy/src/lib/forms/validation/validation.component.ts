@@ -1,4 +1,11 @@
-import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnInit,
+  ViewEncapsulation,
+  inject,
+} from '@angular/core';
 
 import type { Status } from '../../status';
 import { LgStatusDirective } from '../../status';
@@ -14,17 +21,24 @@ import { randomUniqueId } from '../../utils';
   hostDirectives: [
     {
       directive: LgStatusDirective,
-      inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
+      inputs: [ 'lgStatusTheme:statusTheme' ],
     },
   ],
 })
-export class LgValidationComponent {
+export class LgValidationComponent implements OnInit {
   private readonly statusDirective = inject(LgStatusDirective);
+  private validationStatus: Status = 'error';
 
   @Input() showIcon = true;
 
+  @Input()
+  set status(status: Status) {
+    this.validationStatus = status;
+    this.statusDirective.lgStatus = status;
+  }
+
   get status(): Status {
-    return this.statusDirective.status;
+    return this.validationStatus;
   }
 
   @HostBinding('id')
@@ -33,7 +47,7 @@ export class LgValidationComponent {
 
   @HostBinding('class.lg-validation') class = true;
 
-  constructor() {
-    this.statusDirective.lgStatus = 'error';
+  ngOnInit(): void {
+    this.statusDirective.lgStatus = this.validationStatus;
   }
 }

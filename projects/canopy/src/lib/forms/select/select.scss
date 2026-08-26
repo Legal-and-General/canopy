@@ -4,11 +4,11 @@
   @include mixins.lg-typography-default;
 
   cursor: pointer;
+  box-sizing: border-box;
   border-radius: var(--text-input-common-border-radius);
   border: var(--text-input-rest-border-width) solid var(--select-rest-border-colour);
   background: var(--select-rest-background-colour);
-  min-height: var(--input-common-scale-xxl);
-  max-height: var(--input-common-scale-xxl);
+  min-height: var(--select-common-height);
   padding: var(--text-input-common-padding-y)
     calc(var(--icon-width) + 2 * var(--text-input-common-padding-x))
     var(--text-input-common-padding-y) var(--text-input-common-padding-x);
@@ -22,7 +22,7 @@
     border-color: var(--border-hover-color);
   }
 
-  &:focus-visible {
+  &:focus-visible:not(.lg-select--error) {
     color: var(--select-focus-colour);
     background: var(--select-focus-background-colour);
     box-shadow:
@@ -43,13 +43,18 @@
 
   &--error,
   &--error:hover {
-    color: var(--select-error-colour);
     background: var(--select-error-background-colour);
-    box-shadow:
-      inset 0 0 0 var(--select-error-border-width) var(--select-error-border-colour),
-      0 0 0 var(--text-input-rest-border-width) var(--select-error-background-colour);
-    border: var(--text-input-rest-border-width) solid
+    box-shadow: 0 0 0 var(--select-error-border-width)
       var(--select-error-background-colour);
+    border: var(--text-input-rest-border-width) solid var(--select-error-border-colour);
+  }
+
+  &.lg-select--error:focus-visible {
+    background: var(--select-error-background-colour);
+    box-shadow: 0 0 0 var(--select-error-border-width)
+      var(--select-error-background-colour);
+    border: var(--text-input-error-border-width) solid var(--select-error-border-colour);
+    outline: 0;
   }
 
   &--block {

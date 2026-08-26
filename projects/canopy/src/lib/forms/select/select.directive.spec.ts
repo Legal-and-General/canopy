@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
+import { keyName } from '../../utils/keyboard-keys';
 import { LgErrorStateMatcher } from '../validation';
 
 import { LgSelectDirective } from './select.directive';
@@ -16,10 +17,12 @@ import { LgSelectDirective } from './select.directive';
 @Component({
   template: `
     <form (ngSubmit)="login()" [formGroup]="form">
+      <input id="before-select" />
       <select lgSelect formControlName="name">
         <option value="red">Red</option>
         <option value="green">Green</option>
       </select>
+      <input id="after-select" />
     </form>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,12 +32,16 @@ class TestSelectComponent {
   form = new UntypedFormGroup({
     name: new UntypedFormControl('', [ Validators.required ]),
   });
+
+  login() {}
 }
 
 describe('LgSelectDirective', () => {
   let fixture: ComponentFixture<TestSelectComponent>;
   let component: TestSelectComponent;
   let selectDebugElement: DebugElement;
+  let beforeInput: HTMLInputElement;
+  let afterInput: HTMLInputElement;
   let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
@@ -56,6 +63,8 @@ describe('LgSelectDirective', () => {
     component = fixture.componentInstance;
 
     selectDebugElement = fixture.debugElement.query(By.directive(LgSelectDirective));
+    beforeInput = fixture.debugElement.query(By.css('#before-select')).nativeElement;
+    afterInput = fixture.debugElement.query(By.css('#after-select')).nativeElement;
   }));
 
   it('adds a unique name', () => {
@@ -111,5 +120,97 @@ describe('LgSelectDirective', () => {
     component.form.get('name').markAsTouched();
 
     expect(selectDebugElement.nativeElement.className).not.toContain('lg-input--error');
+  });
+
+  it('blurs the select and moves focus to next control on tab', async () => {
+    fixture.detectChanges();
+    const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
+    const blurSpy = jest.spyOn(selectElement, 'blur');
+    const nextFocusSpy = jest.spyOn(afterInput, 'focus');
+    const event = new KeyboardEvent('keydown', {
+      cancelable: true,
+      key: keyName.KEY_TAB,
+    });
+
+    selectDebugElement.triggerEventHandler('keydown', event);
+
+    await fixture.whenStable();
+    await new Promise(resolve => setTimeout(resolve));
+
+    expect(blurSpy).toHaveBeenCalledTimes(1);
+    expect(nextFocusSpy).toHaveBeenCalledTimes(1);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it('blurs the select and moves focus to previous control on shift+tab', async () => {
+    fixture.detectChanges();
+    const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
+    const blurSpy = jest.spyOn(selectElement, 'blur');
+    const previousFocusSpy = jest.spyOn(beforeInput, 'focus');
+    const event = new KeyboardEvent('keydown', {
+      cancelable: true,
+      key: keyName.KEY_TAB,
+      shiftKey: true,
+    });
+
+    selectDebugElement.triggerEventHandler('keydown', event);
+
+    await fixture.whenStable();
+    await new Promise(resolve => setTimeout(resolve));
+
+    expect(blurSpy).toHaveBeenCalledTimes(1);
+    expect(previousFocusSpy).toHaveBeenCalledTimes(1);
+    expect(event.defaultPrevented).toBe(false);
+  });
+
+  it('ignores the document tab fallback when the event originated on the select', async () => {
+    fixture.detectChanges();
+
+    const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
+    const directiveInstance =
+      selectDebugElement.injector.get<LgSelectDirective>(LgSelectDirective);
+    const blurSpy = jest.spyOn(selectElement, 'blur');
+    const nextFocusSpy = jest.spyOn(afterInput, 'focus');
+    const event = new KeyboardEvent('keydown', {
+      cancelable: true,
+      key: keyName.KEY_TAB,
+    });
+
+    Object.defineProperty(event, 'target', {
+      configurable: true,
+      value: selectElement,
+    });
+
+    directiveInstance.onDocumentKeydown(event);
+
+    await fixture.whenStable();
+    await new Promise(resolve => setTimeout(resolve));
+
+    expect(blurSpy).not.toHaveBeenCalled();
+    expect(nextFocusSpy).not.toHaveBeenCalled();
+  });
+
+  it('synchronises option selection and emits change on arrow navigation', async () => {
+    fixture.detectChanges();
+
+    const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
+    const changeSpy = jest.fn();
+
+    selectElement.addEventListener('change', changeSpy);
+    selectElement.selectedIndex = 0;
+
+    selectDebugElement.triggerEventHandler(
+      'keydown',
+      new KeyboardEvent('keydown', { key: keyName.KEY_DOWN }),
+    );
+
+    // Simulate browser moving focus to the next option while the list is expanded.
+    selectElement.selectedIndex = 1;
+
+    await fixture.whenStable();
+
+    expect(selectElement.options[0].selected).toBe(false);
+    expect(selectElement.options[1].selected).toBe(true);
+    expect(changeSpy).toHaveBeenCalledTimes(1);
   });
 });

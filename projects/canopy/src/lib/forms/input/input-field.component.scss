@@ -52,12 +52,18 @@
 
   &__inputs {
     display: inline-flex;
+    box-sizing: border-box;
     align-items: center;
     border-radius: var(--text-input-common-border-radius);
     border: var(--text-input-rest-border-width) solid var(--text-input-rest-border-colour);
     background: var(--text-input-rest-background-colour);
-    min-height: var(--input-common-scale-xxl);
-    max-height: var(--input-common-scale-xxl);
+    max-height: var(--text-input-common-height);
+
+    &:has(textarea.lg-input) {
+      height: auto;
+      max-height: none;
+      align-items: stretch;
+    }
 
     #{$block}--hover & {
       border-color: var(--text-input-hover-border-colour);
@@ -87,14 +93,14 @@
       border: var(--text-input-rest-border-width) solid
         var(--text-input-error-border-colour);
       background: var(--text-input-error-background-colour);
-      box-shadow:
-        0 0 0 var(--text-input-rest-border-width) var(--text-input-error-border-colour),
-        0 0 0 var(--text-input-error-border-width)
-          var(--text-input-error-background-colour);
+      box-shadow: 0 0 0 var(--text-input-error-border-width)
+        var(--text-input-error-background-colour);
     }
 
-    #{$block}--error#{$block}--hover#{$block}--focus & {
+    #{$block}--error#{$block}--focus & {
       color: inherit;
+      border: var(--text-input-error-border-width) solid
+        var(--text-input-error-border-colour);
     }
 
     #{$block}--block & {
@@ -112,14 +118,19 @@
 
   flex: 1 0 auto;
   display: block;
+  box-sizing: border-box;
   border: none;
   margin: 0;
   outline: 0;
   max-width: 100%;
   background: none;
   padding: var(--text-input-common-padding-y) var(--text-input-common-padding-x);
-  min-height: var(--input-common-scale-xxl);
-  max-height: var(--input-common-scale-xxl);
+  min-height: var(--text-input-common-height);
+
+  &:is(textarea) {
+    max-height: none;
+    resize: both;
+  }
 
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {

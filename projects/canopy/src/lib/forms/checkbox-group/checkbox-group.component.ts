@@ -50,6 +50,7 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   _checkboxes: QueryList<LgToggleComponent>;
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
+  hintText = '';
 
   @Input() id = `lg-checkbox-group-id-${this.uniqueId}`;
   @Input() inline = false;
@@ -126,13 +127,12 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
 
   @ContentChild(LgHintComponent)
   set hintElement(element: LgHintComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-
     this._hintElement = element;
+  }
+
+  @ContentChild(LgHintComponent, { read: ElementRef })
+  set hintElementRef(element: ElementRef<HTMLElement> | undefined) {
+    this.hintText = element?.nativeElement.textContent?.trim() ?? '';
   }
 
   @ContentChild(LgValidationComponent)
