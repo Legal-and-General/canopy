@@ -298,12 +298,12 @@ const defaultCardTemplate = `
   <div lgRow>
     <div lgCol="8" lgColMd="10" lgColSm="12">
       <lg-card
-        [variant]="variant"
+        variant="default"
         [lgColour]="colour"
         [lgColourTheme]="theme"
         [lgOrientation]="orientation"
       >
-        @if (mediaType !== 'none') {
+        @if (mediaType === 'image' || mediaType === 'pictogram') {
           <lg-card-hero-img
             [cover]="true"
             [src]="mediaType === 'image' ? imgUrl : ''"
@@ -316,18 +316,9 @@ const defaultCardTemplate = `
           </lg-card-hero-img>
         }
         <lg-card-header>
-          @if (variant === 'interactive') {
-            <lg-card-navigation-title
-              [title]="title"
-              [link]="link"
-              [headingLevel]="headingLevel"
-            ></lg-card-navigation-title>
-          }
-          @if (variant !== 'interactive') {
-            <lg-card-title [headingLevel]="headingLevel">
-              {{title}}
-            </lg-card-title>
-          }
+          <lg-card-title [headingLevel]="headingLevel">
+            {{title}}
+          </lg-card-title>
         </lg-card-header>
         <lg-card-content>
           <lg-card-subheading [headingLevel]="headingLevel + 1">Subheading</lg-card-subheading>
@@ -341,16 +332,142 @@ const defaultCardTemplate = `
             </lg-button-group>
           }
           @if (footerContent === 'link') {
-            <a href="#">Find out more</a>
+            <a href="/foo">Learn more</a>
           }
           @if (footerContent === 'link-menu') {
             <lg-link-menu>
-              <a href="" target="_blank">
+              <a href="/foo">
                 <lg-link-menu-item>
                   <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
                 </lg-link-menu-item>
               </a>
-              <a href="">
+              <a href="/foo">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+            </lg-link-menu>
+          }
+        </lg-card-footer>
+      </lg-card>
+    </div>
+  </div>
+</div>
+`;
+
+const promoCardTemplate = `
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="8" lgColMd="10" lgColSm="12">
+      <lg-card
+        variant="promo"
+        [lgColour]="colour"
+        [lgColourTheme]="theme"
+        [lgOrientation]="orientation"
+      >
+        @if (mediaType === 'image' || mediaType === 'pictogram') {
+          <lg-card-hero-img
+            [cover]="true"
+            [src]="mediaType === 'image' ? imgUrl : ''"
+            [alt]="altText"
+            [aspectRatio]="aspectRatio"
+          >
+            @if (mediaType === 'pictogram') {
+              <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
+            }
+          </lg-card-hero-img>
+        }
+        <lg-card-header>
+          <lg-card-title [headingLevel]="headingLevel">
+            {{title}}
+          </lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <lg-card-subheading [headingLevel]="headingLevel + 1">Subheading</lg-card-subheading>
+          {{cardContent}} <a href="#">Test link</a>.
+        </lg-card-content>
+        <lg-card-footer>
+          @if (footerContent === 'button-group') {
+            <lg-button-group>
+              <button lg-button type="button" priority="primary">Continue</button>
+              <button lg-button type="button" priority="secondary">Back</button>
+            </lg-button-group>
+          }
+          @if (footerContent === 'link') {
+            <a href="/foo">Learn more</a>
+          }
+          @if (footerContent === 'link-menu') {
+            <lg-link-menu>
+              <a href="/foo">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+              <a href="/foo">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+            </lg-link-menu>
+          }
+        </lg-card-footer>
+      </lg-card>
+    </div>
+  </div>
+</div>
+`;
+
+const interactiveCardTemplate = `
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="8" lgColMd="10" lgColSm="12">
+      <lg-card
+        variant="interactive"
+        [lgColour]="colour"
+        [lgColourTheme]="theme"
+        [lgOrientation]="orientation"
+      >
+        @if (mediaType === 'image' || mediaType === 'pictogram') {
+          <lg-card-hero-img
+            [cover]="true"
+            [src]="mediaType === 'image' ? imgUrl : ''"
+            [alt]="altText"
+            [aspectRatio]="aspectRatio"
+          >
+            @if (mediaType === 'pictogram') {
+              <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
+            }
+          </lg-card-hero-img>
+        }
+        <lg-card-header>
+          <lg-card-navigation-title
+            [title]="title"
+            [link]="link"
+            [headingLevel]="headingLevel"
+          ></lg-card-navigation-title>
+        </lg-card-header>
+        <lg-card-content>
+          <lg-card-subheading [headingLevel]="headingLevel + 1">Subheading</lg-card-subheading>
+          {{cardContent}} <a href="#">Test link</a>.
+        </lg-card-content>
+        <lg-card-footer>
+          @if (footerContent === 'button-group') {
+            <lg-button-group>
+              <button lg-button type="button" priority="primary">Continue</button>
+              <button lg-button type="button" priority="secondary">Back</button>
+            </lg-button-group>
+          }
+          @if (footerContent === 'link') {
+            <a href="/foo">Learn more</a>
+          }
+          @if (footerContent === 'link-menu') {
+            <lg-link-menu>
+              <a href="/foo">
+                <lg-link-menu-item>
+                  <lg-link-menu-item-text isBold="true">Link menu item 1</lg-link-menu-item-text>
+                </lg-link-menu-item>
+              </a>
+              <a href="/foo">
                 <lg-link-menu-item>
                   <lg-link-menu-item-text isBold="true">Link menu item 2</lg-link-menu-item-text>
                 </lg-link-menu-item>
@@ -365,9 +482,8 @@ const defaultCardTemplate = `
 `;
 
 export const DefaultCard = {
-  name: 'Standard',
+  name: 'Default',
   args: {
-    variant: 'default',
     link: '/foo',
     headingLevel: 2,
     title: 'The title',
@@ -375,22 +491,14 @@ export const DefaultCard = {
     mediaType: 'none',
     imgUrl: 'promo-card/general-promotion1.jpg',
     altText: 'Family sitting in a park',
+    aspectRatio: '16:9',
     iconName: 'looking-ahead',
     orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
     colour: 'blue',
     theme: 'neutral',
-    aspectRatio: undefined,
     footerContent: 'button-group',
   },
   argTypes: {
-    variant: {
-      options: [ 'default', 'promo', 'interactive' ],
-      control: { type: 'select' },
-      table: {
-        type: { summary: [ 'default', 'promo', 'interactive' ] },
-        defaultValue: { summary: 'default' },
-      },
-    },
     mediaType: {
       options: [ 'none', 'image', 'pictogram' ],
       control: { type: 'select' },
@@ -399,6 +507,7 @@ export const DefaultCard = {
         defaultValue: { summary: 'none' },
       },
     },
+    variant: { table: { disable: true } },
     imgUrl: {
       control: { type: 'text' },
       table: {
@@ -406,19 +515,7 @@ export const DefaultCard = {
       },
     },
     aspectRatio: {
-      options: [
-        'Default (CSS)',
-        'Landscape 1:1',
-        'Landscape 5:4',
-        'Landscape 4:3',
-        'Landscape 16:9',
-        'Landscape 2:1',
-        'Portrait 1:1',
-        'Portrait 4:5',
-        'Portrait 9:16',
-      ],
-      mapping: {
-        'Default (CSS)': undefined,
+      options: {
         'Landscape 1:1': '1:1',
         'Landscape 5:4': '5:4',
         'Landscape 4:3': '4:3',
@@ -428,12 +525,11 @@ export const DefaultCard = {
         'Portrait 4:5': '4:5',
         'Portrait 9:16': '9:16',
       },
+      description: 'Aspect ratio on the image',
       control: { type: 'select' },
       table: {
-        type: {
-          summary: '1:1 | 5:4 | 4:3 | 16:9 | 2:1 | 4:5 | 9:16',
-        },
-        defaultValue: { summary: 'CSS default (4:3 portrait, 1:1 landscape)' },
+        type: { summary: '1:1 | 5:4 | 4:3 | 16:9 | 2:1 | 4:5 | 9:16' },
+        defaultValue: { summary: 'Landscape 16:9' },
       },
     },
     iconName: {
@@ -494,6 +590,230 @@ export const DefaultCard = {
   render: (args: LgCardComponent) => ({
     props: args,
     template: defaultCardTemplate,
+  }),
+};
+
+export const PromoCard = {
+  name: 'Promo',
+  args: {
+    link: '/foo',
+    headingLevel: 2,
+    title: 'The title',
+    cardContent: content,
+    mediaType: 'image',
+    imgUrl: 'promo-card/general-promotion1.jpg',
+    altText: 'Family sitting in a park',
+    aspectRatio: '16:9',
+    iconName: 'looking-ahead',
+    orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
+    colour: 'blue',
+    theme: 'neutral',
+    footerContent: 'button-group',
+  },
+  argTypes: {
+    mediaType: {
+      options: [ 'none', 'image', 'pictogram' ],
+      control: { type: 'select' },
+      table: {
+        type: { summary: [ 'none', 'image', 'pictogram' ] },
+        defaultValue: { summary: 'image' },
+      },
+    },
+    variant: { table: { disable: true } },
+    imgUrl: {
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    aspectRatio: {
+      options: {
+        'Landscape 1:1': '1:1',
+        'Landscape 5:4': '5:4',
+        'Landscape 4:3': '4:3',
+        'Landscape 16:9': '16:9',
+        'Landscape 2:1': '2:1',
+        'Portrait 1:1': '1:1',
+        'Portrait 4:5': '4:5',
+        'Portrait 9:16': '9:16',
+      },
+      description: 'Aspect ratio on the image',
+      control: { type: 'select' },
+      table: {
+        type: { summary: '1:1 | 5:4 | 4:3 | 16:9 | 2:1 | 4:5 | 9:16' },
+        defaultValue: { summary: 'Landscape 16:9' },
+      },
+    },
+    iconName: {
+      options: [ 'looking-ahead', 'pension-pot', 'calendar' ],
+      control: { type: 'select' },
+      table: {
+        type: {
+          summary: [ 'looking-ahead', 'pension-pot', 'calendar' ],
+        },
+        defaultValue: { summary: 'looking-ahead' },
+      },
+    },
+    orientation: {
+      options: {
+        horizontal: { sm: 'horizontal', md: 'horizontal', lg: 'horizontal' },
+        vertical: { sm: 'vertical', md: 'vertical', lg: 'vertical' },
+      },
+      control: { type: 'select' },
+      table: {
+        type: { summary: 'horizontal | vertical' },
+        defaultValue: { summary: 'vertical (sm), horizontal (md/lg)' },
+      },
+    },
+    colour: {
+      options: colours,
+      description: 'The colour to apply to the component.',
+      control: { type: 'select' },
+      table: {
+        type: { summary: colours },
+      },
+    },
+    theme: {
+      options: themes,
+      description:
+        'Optional theme for colour classes. When provided, applies lg-mode-{colour} and lg-theme-{theme} classes. Defaults to neutral.',
+      control: { type: 'select' },
+      table: {
+        type: { summary: themes },
+        defaultValue: { summary: 'neutral' },
+      },
+    },
+    footerContent: {
+      options: [ 'button-group', 'link', 'link-menu' ],
+      control: { type: 'select' },
+      table: {
+        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        defaultValue: { summary: 'button-group' },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: promoCardTemplate,
+      },
+    },
+  },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: promoCardTemplate,
+  }),
+};
+
+export const InteractiveCard = {
+  name: 'Interactive',
+  args: {
+    link: '/foo',
+    headingLevel: 2,
+    title: 'The title',
+    cardContent: content,
+    mediaType: 'none',
+    imgUrl: 'promo-card/general-promotion1.jpg',
+    altText: 'Family sitting in a park',
+    aspectRatio: '16:9',
+    iconName: 'looking-ahead',
+    orientation: { sm: 'vertical', md: 'horizontal', lg: 'horizontal' },
+    colour: 'blue',
+    theme: 'neutral',
+    footerContent: 'button-group',
+  },
+  argTypes: {
+    mediaType: {
+      options: [ 'none', 'image', 'pictogram' ],
+      control: { type: 'select' },
+      table: {
+        type: { summary: [ 'none', 'image', 'pictogram' ] },
+        defaultValue: { summary: 'none' },
+      },
+    },
+    variant: { table: { disable: true } },
+    imgUrl: {
+      control: { type: 'text' },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    aspectRatio: {
+      options: {
+        'Landscape 1:1': '1:1',
+        'Landscape 5:4': '5:4',
+        'Landscape 4:3': '4:3',
+        'Landscape 16:9': '16:9',
+        'Landscape 2:1': '2:1',
+        'Portrait 1:1': '1:1',
+        'Portrait 4:5': '4:5',
+        'Portrait 9:16': '9:16',
+      },
+      description: 'Aspect ratio on the image',
+      control: { type: 'select' },
+      table: {
+        type: { summary: '1:1 | 5:4 | 4:3 | 16:9 | 2:1 | 4:5 | 9:16' },
+        defaultValue: { summary: 'Landscape 16:9' },
+      },
+    },
+    iconName: {
+      options: [ 'looking-ahead', 'pension-pot', 'calendar' ],
+      control: { type: 'select' },
+      table: {
+        type: {
+          summary: [ 'looking-ahead', 'pension-pot', 'calendar' ],
+        },
+        defaultValue: { summary: 'looking-ahead' },
+      },
+    },
+    orientation: {
+      options: {
+        horizontal: { sm: 'horizontal', md: 'horizontal', lg: 'horizontal' },
+        vertical: { sm: 'vertical', md: 'vertical', lg: 'vertical' },
+      },
+      control: { type: 'select' },
+      table: {
+        type: { summary: 'horizontal | vertical' },
+        defaultValue: { summary: 'vertical (sm), horizontal (md/lg)' },
+      },
+    },
+    colour: {
+      options: colours,
+      description: 'The colour to apply to the component.',
+      control: { type: 'select' },
+      table: {
+        type: { summary: colours },
+      },
+    },
+    theme: {
+      options: themes,
+      description:
+        'Optional theme for colour classes. When provided, applies lg-mode-{colour} and lg-theme-{theme} classes. Defaults to neutral.',
+      control: { type: 'select' },
+      table: {
+        type: { summary: themes },
+        defaultValue: { summary: 'neutral' },
+      },
+    },
+    footerContent: {
+      options: [ 'button-group', 'link', 'link-menu' ],
+      control: { type: 'select' },
+      table: {
+        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        defaultValue: { summary: 'button-group' },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: interactiveCardTemplate,
+      },
+    },
+  },
+  render: (args: LgCardComponent) => ({
+    props: args,
+    template: interactiveCardTemplate,
   }),
 };
 
@@ -595,17 +915,10 @@ export const ThreeImages = {
     imgUrl: 'promo-card/general-promotion1.jpg',
     altText: 'Family sitting in a park',
     iconName: 'looking-ahead',
-    variant: 'promo',
+    footerContent: 'button-group',
   },
   argTypes: {
-    variant: {
-      options: [ 'default', 'promo' ],
-      control: { type: 'select' },
-      table: {
-        type: { summary: [ 'default', 'promo' ] },
-        defaultValue: { summary: 'promo' },
-      },
-    },
+    variant: { table: { disable: true } },
     mediaType: {
       options: [ 'image', 'pictogram' ],
       control: { type: 'select' },
@@ -622,6 +935,14 @@ export const ThreeImages = {
           summary: [ 'looking-ahead', 'pension-pot', 'calendar' ],
         },
         defaultValue: { summary: 'looking-ahead' },
+      },
+    },
+    footerContent: {
+      options: [ 'button-group', 'link', 'link-menu' ],
+      control: { type: 'select' },
+      table: {
+        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        defaultValue: { summary: 'button-group' },
       },
     },
   },

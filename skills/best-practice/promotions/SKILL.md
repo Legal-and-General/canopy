@@ -140,4 +140,3 @@ For magazine layout, add dotted separators between grouped rows:
 ## Related Skills
 
 - Use `canopy-card` for broader `LgCardComponent` usage beyond promotions.
-- Use `canopy-promo-card` for the `LgPromoCardComponent` pattern.

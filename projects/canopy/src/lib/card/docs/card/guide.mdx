@@ -8,7 +8,7 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 # Card
 
-<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0" target="_blank" rel="noopener noreferrer">v38</a>.</span></span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v39.0.0" target="_blank" rel="noopener noreferrer">v39</a>.</span></span>
 
 <p class="standfirst">Cards are containers for content and actions on a specific topic.</p>
 
@@ -68,17 +68,106 @@ Cards are structured into three layout areas:
 
 As the card component is just a container for content, you can add whatever content you like. However, you can extend the basic card component and create specific card implementations.
 
-### Standard card
+### Card with variants
 
-The standard card example includes controls for `default`, `promo`, and `interactive` variants.
+The examples show the `default`, `promo`, and `interactive` card variants.
 
-<Source of={CardStories.DefaultCard} />
+Example below is a `promo` card variant with Pictogram.
+
+```html
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="8" lgColMd="10" lgColSm="12">
+      <lg-card
+        variant="promo"
+        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }"
+      >
+        <lg-card-hero-img [cover]="true">
+          <lg-pictogram [name]="'looking-ahead'" size="lg" [hasFill]="false"></lg-pictogram>
+        </lg-card-hero-img>
+
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
+
+        <lg-card-content>
+          <lg-card-subheading [headingLevel]="3">Subheading</lg-card-subheading>
+          {{ cardContent }} <a href="#">Test link</a>.
+        </lg-card-content>
+
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+  </div>
+</div>
+```
 
 ### Three cards
 
 This example demonstrates image-based promo cards in a three-card layout. Use the controls to switch between image and brand icon media, adjust the layout orientation, and change the footer content.
 
-<Source of={CardStories.ThreeImages} />
+```html
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="12" lgColMd="4">
+      <lg-card variant="promo" [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
+        <lg-card-hero-img [cover]="true" [src]="'promo-card/general-promotion1.jpg'" alt="Family sitting in a park"></lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <p>{{ cardContent }}</p>
+        </lg-card-content>
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+    <div lgCol="12" lgColMd="4">
+      <lg-card variant="promo" [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
+        <lg-card-hero-img [cover]="true" [src]="'promo-card/general-promotion1.jpg'" alt="Family sitting in a park"></lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <p>{{ cardContent }}</p>
+        </lg-card-content>
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+    <div lgCol="12" lgColMd="4">
+      <lg-card variant="promo" [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
+        <lg-card-hero-img [cover]="true" [src]="'promo-card/general-promotion1.jpg'" alt="Family sitting in a park"></lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <p>{{ cardContent }}</p>
+        </lg-card-content>
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+  </div>
+</div>
+```
 
 ### Card with Data Points
 

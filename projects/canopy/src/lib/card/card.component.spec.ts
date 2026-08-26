@@ -273,4 +273,46 @@ describe('LgCardComponent', () => {
       expect(el.className).toContain('lg-card--interactive');
     });
   });
+
+  it('should update the content centre offset when content geometry changes', () => {
+    const host = el;
+    const content = document.createElement('lg-card-content');
+
+    (component as any).contentElement = content;
+
+    Object.defineProperty(host, 'getBoundingClientRect', {
+      configurable: true,
+      value: () =>
+        ({
+          top: 0,
+          height: 200,
+        }) as DOMRect,
+    });
+
+    Object.defineProperty(content, 'getBoundingClientRect', {
+      configurable: true,
+      value: () =>
+        ({
+          top: 40,
+          height: 80,
+        }) as DOMRect,
+    });
+
+    (component as any).updateContentCentreOffset();
+
+    expect(host.style.getPropertyValue('--lg-card-content-centre-offset')).toBe('-20px');
+
+    Object.defineProperty(content, 'getBoundingClientRect', {
+      configurable: true,
+      value: () =>
+        ({
+          top: 90,
+          height: 80,
+        }) as DOMRect,
+    });
+
+    (component as any).updateContentCentreOffset();
+
+    expect(host.style.getPropertyValue('--lg-card-content-centre-offset')).toBe('30px');
+  });
 });
