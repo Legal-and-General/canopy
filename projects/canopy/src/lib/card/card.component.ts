@@ -86,13 +86,17 @@ export class LgCardComponent implements AfterContentInit, OnDestroy {
     this.headerElement = host.querySelector<HTMLElement>('lg-card-header');
     this.footerElement = host.querySelector<HTMLElement>('lg-card-footer');
 
-    this.updateContentCentreOffset();
-
     const needsContentCentreOffset =
       (this.variant === 'default' || this.variant === 'interactive') &&
       !!host.querySelector('lg-card-hero-img.lg-card-hero-img__icon');
 
-    if (!needsContentCentreOffset || typeof ResizeObserver === 'undefined') {
+    if (!needsContentCentreOffset) {
+      return;
+    }
+
+    this.updateContentCentreOffset();
+
+    if (typeof ResizeObserver === 'undefined') {
       return;
     }
 
