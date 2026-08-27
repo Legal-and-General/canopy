@@ -1,4 +1,5 @@
 export * from './table-cell/table-cell.component';
+export * from './table-foot/table-foot.component';
 export * from './table-head/table-head.component';
 export * from './table-head-cell/table-head-cell.component';
 export * from './table-row/table-row.component';
