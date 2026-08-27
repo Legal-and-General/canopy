@@ -1,0 +1,16 @@
+@use '../../../styles/mixins.scss';
+@use '../table.breakpoints';
+
+.lg-table-foot {
+  font-weight: var(--font-weight-700);
+}
+
+@each $columns-breakpoint in table.$columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    .lg-table-foot {
+      @include mixins.lg-breakpoint($columns-breakpoint) {
+        display: table-footer-group;
+      }
+    }
+  }
+}

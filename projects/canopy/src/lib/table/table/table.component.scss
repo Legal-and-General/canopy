@@ -6,17 +6,23 @@
   flex-direction: column;
   margin-bottom: var(--component-margin);
   border-spacing: 0;
-  border-top: solid var(--table-header-border-width) var(--table-header-border-color);
+  border-radius: var(--table-border-radius);
+  overflow: hidden;
+  border: var(--container-common-border-width-xs) solid var(--table-border-colour);
+  background: var(--table-background-colour);
+  color: var(--table-cell-common-colour);
 
-  &--striped:not(&--expandable) tbody tr:nth-child(odd) {
-    background-color: var(--table-stripe-color);
+  &--striped:not(&--expandable) tbody tr:nth-child(even):not(.lg-table-row--error) {
+    background-color: var(--table-cell-common-background-colour) !important;
   }
 
   &--bordered {
-    border-collapse: collapse;
+    border-collapse: separate; // or should this be collapse
 
-    tr {
-      border-bottom: solid var(--border-width) var(--table-row-border-color);
+    tr:not(:last-child):not(.lg-table-row--error):not(.lg-table-row--selected):not(
+        .lg-table-row__toggle--active
+      ) {
+      border-bottom: solid var(--border-width) var(--table-cell-common-border-colour);
     }
   }
 
@@ -24,11 +30,11 @@
     &.lg-table--striped {
       tbody tr {
         &:nth-child(4n + 1) {
-          background-color: var(--table-stripe-color);
+          background-color: var(--table-cell-common-background-colour);
         }
 
         &:nth-child(4n + 2) {
-          background-color: var(--table-stripe-color);
+          background-color: var(--table-cell-common-background-colour);
         }
       }
     }
@@ -42,10 +48,23 @@
 @each $columns-breakpoint in table.$columns-breakpoints {
   .lg-table--columns-#{$columns-breakpoint} {
     @include mixins.lg-breakpoint($columns-breakpoint) {
-      border-top: 0;
+      // border-top: 0;
       display: table;
       table-layout: auto;
       width: 100%;
+
+      &.lg-table--bordered {
+        .lg-table-row:not(:last-child):not(.lg-table-row--error):not(
+            .lg-table-row--selected
+          ):not(.lg-table-row__toggle--active) {
+          border-bottom: 0;
+
+          td {
+            border-bottom: solid var(--border-width)
+              var(--table-cell-common-border-colour);
+          }
+        }
+      }
     }
   }
 }

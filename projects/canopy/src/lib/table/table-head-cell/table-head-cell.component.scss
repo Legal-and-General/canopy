@@ -3,10 +3,11 @@
 
 .lg-table-head-cell {
   display: block;
-  font-weight: var(--font-weight-500);
-  background-color: transparent;
-  border-bottom: solid var(--table-header-border-width) var(--table-header-border-color);
-  padding: var(--space-3) 0;
+  // font-weight: var(--font-weight-500);
+  background: var(--table-cell-common-background-colour);
+  border-bottom: var(--table-cell-header-border-width) solid
+    var(--table-cell-header-border-colour);
+  padding: var(--table-cell-common-padding-y-sm) var(--table-cell-common-padding-x);
   vertical-align: bottom;
 
   &--align-end {
@@ -18,7 +19,7 @@
   .lg-table--columns-#{$columns-breakpoint} {
     .lg-table-head-cell {
       @include mixins.lg-breakpoint($columns-breakpoint) {
-        padding: var(--space-4);
+        padding: var(--table-cell-common-padding-y-lg) var(--table-cell-common-padding-x);
         display: table-cell;
       }
     }

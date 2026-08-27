@@ -2,19 +2,20 @@ import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Table/Guide" tags={['pending']} />
+<Meta title="Components/Table/Guide" tags={['updated']}/>
 
 # Table
 
-<CustomBadge
-  text="Pending"
-  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
-/>
-<span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy {' '} <a href="https://github.com/Legal-and-General/canopy/releases/tag/v40.0.0" target="_blank" rel="noopener noreferrer">v40</a>.</span>
+</span>
 
 <p class="standfirst">Tables display large amounts of structured information in a format that's easy to scan and read.</p>
-
-![example](docs/table/example.png)
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
@@ -23,10 +24,7 @@ Use a table to display tabular data. Tables are usually the best solution to all
 Import the table components into your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgTableComponent, etc. ],
-});
+import { LgTableComponent } from '@legal-and-general/canopy';
 ```
 
 ### Simple example
@@ -52,6 +50,13 @@ Import the table components into your application:
       <td lg-table-cell>1947</td>
     </tr>
   </tbody>
+  <tfoot lg-table-foot>
+    <tr lg-table-row>
+      <td lg-table-cell></td>
+      <td lg-table-cell>Total books</td>
+      <td lg-table-cell>2</td>
+    </tr>
+  </tfoot>
 </table>
 ```
 
@@ -156,16 +161,12 @@ Also note the use of the [margin directive](./?path=/docs/helpers-directives-mar
 
 ### Do
 
-![do](docs/table/do.png)
-
 1. **Do** alternate row colours to aid table scanning.
 2. **Do** use table headers to establish an information hierarchy and communicate what the rows and columns represent.
 3. **Do** align numbers right in table cells when comparing columns of numbers and use the 1,000 separator for easy recognition.
 4. **Do** consider the responsive mobile view when you're designing your table layout.
 
 ### Don't
-
-![dont](docs/table/dont.png)
 
 1. **Don't** increase visual noise by using both horizontal and vertical lines to separate cells, use adequate padding instead.
 2. **Don't** centre align content vertically.
@@ -188,6 +189,10 @@ A component that acts as a standard table.
 ### LgTableBodyComponent
 
 A component that acts as a standard table body.
+
+### LgTableFootComponent
+
+A component that acts as a standard table footer.
 
 ### LgTableCellComponent
 
@@ -216,7 +221,7 @@ A component that acts as a standard table header cell.
 
 | Name        | Description                                                            | Type             | Default | Required |
 | ----------- | ---------------------------------------------------------------------- | ---------------- | ------- | -------- |
-| `align`     | Alignment option for the header and its respective column              | `start` or `end` | `start` | No       |
+| `align`     | Alignment option for the header and its respective column              | `start`, `centre` or `end` | `start` | No       |
 | `showLabel` | Whether to show label for this header in each row in non-column layout | `boolean`        | `true`  | No       |
 
 #### LgTableRowComponent

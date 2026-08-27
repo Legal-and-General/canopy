@@ -25,9 +25,15 @@ export class LgTableHeadCellComponent {
 
   @HostBinding('style.text-align')
   get alignment() {
-    return this.align === AlignmentOptions.End
-      ? 'right'
-      : 'left';
+    if (this.align === AlignmentOptions.End) {
+      return 'right';
+    }
+
+    if (this.align === AlignmentOptions.Centre) {
+      return 'center';
+    }
+
+    return 'left';
   }
 
   @Input() align: AlignmentOptions = AlignmentOptions.Start;

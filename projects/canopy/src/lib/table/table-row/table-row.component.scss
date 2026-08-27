@@ -4,7 +4,6 @@
 .lg-table-row {
   display: flex;
   flex-direction: column;
-  padding: var(--space-3);
 
   &__detail {
     padding: 0;
@@ -13,6 +12,23 @@
   &--hidden {
     @include mixins.lg-visually-hidden;
   }
+
+  &--error {
+    background-color: var(
+      --table-status-cell-error-background-colour
+    ) !important; // this should be updated with new package, without the status in name
+  }
+
+  &--selected {
+    background-color: var(
+      --table-cell-common-background-colour
+    ) !important; // check this background
+  }
+
+  &--footer {
+    border-top: solid var(--table-cell-header-border-width)
+      var(--table-cell-header-border-colour);
+  }
 }
 
 @each $columns-breakpoint in table.$columns-breakpoints {
@@ -20,6 +36,15 @@
     .lg-table-row {
       @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-row;
+      }
+
+      &--footer {
+        @include mixins.lg-breakpoint($columns-breakpoint) {
+          .lg-table-cell {
+            border-top: solid var(--table-cell-header-border-width)
+              var(--table-cell-header-border-colour);
+          }
+        }
       }
     }
   }
