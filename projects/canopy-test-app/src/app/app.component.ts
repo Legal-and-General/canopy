@@ -61,11 +61,13 @@ import {
   LgCardFooterComponent,
   LgCardGroupComponent,
   LgCardHeaderComponent,
+  LgCardHeroImageComponent,
   LgCardNavigationTitleComponent,
   LgCardSubheadingComponent,
   LgCardSubtitleComponent,
   LgCardTitleComponent,
 } from '../../../canopy/src/lib/card';
+import { LgOrientationDirective } from '../../../canopy/src/lib/orientation';
 import {
   LgContentAreaComponent,
   LgContentAreaContentComponent,
@@ -132,15 +134,6 @@ import {
   LgPrimaryMessageTitleComponent,
 } from '../../../canopy/src/lib/primary-message';
 import { LgPictogramComponent } from '../../../canopy/src/lib/pictogram';
-import {
-  LgPromoCardComponent,
-  LgPromoCardContentComponent,
-  LgPromoCardFooterComponent,
-  LgPromoCardImageComponent,
-  LgPromoCardListComponent,
-  LgPromoCardListTitleComponent,
-  LgPromoCardTitleComponent,
-} from '../../../canopy/src/lib/promo-card';
 import { LgSpinnerComponent } from '../../../canopy/src/lib/spinner';
 import {
   LgTabItemComponent,
@@ -208,7 +201,9 @@ import {
     LgMarginDirective,
     LgCardGroupComponent,
     LgCardHeaderComponent,
+    LgCardHeroImageComponent,
     LgCardNavigationTitleComponent,
+    LgOrientationDirective,
     LgCardContentComponent,
     LgCardFooterComponent,
     LgLinkMenuComponent,
@@ -254,12 +249,6 @@ import {
     LgPictogramComponent,
     LgPrimaryMessageTitleComponent,
     LgPrimaryMessageDescriptionComponent,
-    LgPromoCardListComponent,
-    LgPromoCardListTitleComponent,
-    LgPromoCardComponent,
-    LgPromoCardImageComponent,
-    LgPromoCardTitleComponent,
-    LgPromoCardFooterComponent,
     LgSpinnerComponent,
     LgTabsComponent,
     LgTabItemComponent,
@@ -287,7 +276,6 @@ import {
     LgFooterNavItemComponent,
     LgFooterSocialComponent,
     LgFooterFootnoteComponent,
-    LgPromoCardContentComponent,
     LgFilterContainerPanelComponent,
     LgAccordionPanelHeadingComponent,
     LgHeroCardPrincipleDataPointComponent,

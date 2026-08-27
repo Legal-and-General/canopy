@@ -26,7 +26,8 @@ const template = `
 <lg-card>
   <lg-card-hero-img
     [cover]="true"
-    src="promo-card/general-promotion1.jpg">
+    src="promo-card/general-promotion1.jpg"
+    aspectRatio="2:1">
   </lg-card-hero-img>
   <lg-card-content lgPadding="5">
     <h3 lgMarginBottom="4" class="lg-font--expressive">Card without orientation</h3>

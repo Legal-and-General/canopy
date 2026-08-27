@@ -130,7 +130,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-table` | `lg-table` directives, variants, expandable rows, accessibility | — |
 | `canopy-list` | `LgListWithIconsComponent`, icon colour, expressive styling | — |
 | `canopy-card` | `LgCardComponent`, templates, navigation card, card group | — |
-| `canopy-promo-card` | `LgPromoCardComponent`, content limits, image requirements | — |
+| `canopy-promotions` | Promotions pattern using `LgCardComponent`, grid layouts, image/pictogram templates | Pending (due for brand modernisation) |
 | **Navigation** | | |
 | `canopy-breadcrumb` | `LgBreadcrumbComponent`, current page, ellipsis, variants | — |
 | `canopy-tabs` | Tabbed content vs tabbed navigation, inputs, outputs | — |

@@ -1,8 +1,6 @@
 @use '../../../styles/mixins.scss';
 
 .lg-card-navigation-title {
-  --card-active-focus-border-bottom-width: var(--space-1);
-
   text-decoration: none;
   width: 100%;
 
@@ -12,104 +10,85 @@
   h4,
   h5,
   h6 {
-    margin-bottom: calc(-1 * var(--card-header-margin-bottom));
-    font-size: var(--font-size-3);
+    @include mixins.lg-font-size('3', '500');
+
+    margin-bottom: 0;
   }
 
   .lg-icon {
     margin-left: auto;
-    background: var(--link-color);
-    border-radius: 50%;
-    color: var(--colour-greyscale-0);
-    // To do: remove once updated
-    width: var(--icon-width) !important;
-    height: var(--icon-height) !important;
-
-    > svg {
-      padding: 0.125rem;
-    }
+    margin-right: 0;
+    width: var(--dimensions-large-6) !important;
+    height: var(--dimensions-large-6) !important;
   }
 
   a {
-    @include mixins.lg-link(
-      $default-color: var(--link-color),
-      $hover-color: var(--link-color)
-    );
-
-    text-decoration: none;
-    border-bottom: solid var(--border-width) var(--card-title-border-color);
-    padding: var(--card-navigation-link-padding-top) 0
-      var(--card-navigation-link-padding-bottom);
-    align-items: center;
     display: flex;
-    font-weight: var(--font-weight-500);
-    margin-left: calc(-1 * var(--component-padding));
-    margin-right: calc(-1 * var(--component-padding));
-    margin-top: var(--outer-focus-width);
-    padding-left: var(--component-padding);
-    padding-right: var(--component-padding);
-    padding-top: var(--card-navigation-link-padding-bottom);
-
-    @include mixins.lg-breakpoint('md') {
-      padding-top: var(--card-navigation-link-padding-top-md);
-    }
-
-    &:visited {
-      border-color: var(--card-title-border-color);
-      color: var(--link-color);
-    }
-
-    &:active {
-      background: transparent;
-      color: var(--link-active-color);
-      border-bottom: var(--card-active-focus-border-bottom-width) solid
-        var(--link-active-color);
-
-      &:hover {
-        border-bottom: 0;
-      }
-
-      .lg-icon {
-        background: var(--link-active-color);
-      }
-    }
+    width: 100%;
+    padding: var(--card-padding-y) var(--card-padding-x) !important;
+    text-decoration: none !important;
+    border-bottom: var(--card-interactive-hover-border-width) solid transparent;
+    margin-bottom: calc(
+      var(--card-border-width) - var(--card-interactive-hover-border-width)
+    );
+    transition:
+      padding-right var(--animation-duration) var(--animation-fn),
+      background-color var(--animation-duration) var(--animation-fn),
+      color var(--animation-duration) var(--animation-fn);
 
     &:hover {
-      color: var(--link-color);
-      padding-bottom: calc(
-        var(--card-navigation-link-padding-bottom) + var(--border-width)
-      );
-      box-shadow:
-        inset 0 -0.063rem 0 0 var(--link-color),
-        0 0.188rem 0 0 var(--link-color);
-      border-bottom: 0;
-    }
+      color: var(--card-interactive-hover-colour) !important;
+      padding-right: var(--card-interactive-hover-padding-right) !important;
+      background-color: var(--card-interactive-hover-background-colour);
+      border-bottom-color: var(--card-interactive-hover-border-colour);
+      cursor: pointer;
 
-    &:focus-visible,
-    &:focus-visible:hover {
-      background: transparent;
-      border-bottom: var(--card-active-focus-border-bottom-width) solid
-        var(--link-active-color);
-      border-radius: calc(var(--border-radius-sm) / 2);
-      color: var(--link-active-color);
-      margin-left: calc(-1 * var(--component-padding) + var(--outer-focus-width));
-      margin-right: calc(-1 * var(--component-padding) + var(--outer-focus-width));
-      margin-top: var(--outer-focus-width);
-      padding-right: calc(var(--component-padding) - var(--outer-focus-width));
-      padding-left: calc(var(--component-padding) - var(--outer-focus-width));
-      padding-bottom: calc(
-        var(--card-navigation-link-padding-bottom) +
-          var(--border-width) - var(--card-active-focus-border-bottom-width)
-      );
-
-      @include mixins.lg-focus-outline;
-    }
-
-    &:focus-visible,
-    &:active {
       .lg-icon {
-        background: var(--link-active-color);
+        color: var(--card-interactive-hover-colour);
+        background-color: transparent;
       }
+    }
+
+    &:active {
+      box-shadow: inset 0 calc(-1 * var(--card-interactive-hover-border-width)) 0 0
+        var(--card-interactive-active-border-colour);
+      background-color: var(--card-interactive-active-background-colour);
+      border-bottom-color: var(--card-interactive-active-border-colour);
+      color: var(--card-interactive-active-colour) !important;
+
+      &:hover {
+        color: var(--card-interactive-active-colour);
+      }
+
+      .lg-icon {
+        color: var(--card-interactive-active-colour);
+        background-color: transparent;
+      }
+    }
+
+    &:focus-visible {
+      color: var(--card-interactive-focus-colour);
+      background-color: var(--card-interactive-focus-background-colour);
+      box-shadow: inset 0 0 0 var(--card-interactive-focus-border-width)
+        var(--card-interactive-focus-border-colour);
+      border-bottom-color: transparent;
+      outline: none;
+      border-top-left-radius: var(--card-border-radius) !important;
+      border-top-right-radius: var(--card-border-radius) !important;
+
+      .lg-icon {
+        color: var(--card-interactive-focus-colour);
+        background-color: transparent;
+      }
+
+      &:hover {
+        outline: none !important;
+      }
+    }
+
+    &:focus:not(:focus-visible) {
+      box-shadow: none;
+      outline: none;
     }
   }
 }

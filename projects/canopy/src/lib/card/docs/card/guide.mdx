@@ -2,29 +2,28 @@ import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
 import * as CardStories from './card.stories';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Components/Card/Guide" tags={['pending']}/>
+<Meta title="Components/Card/Guide" tags={['updated']} />
 
 # Card
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v39.0.0" target="_blank" rel="noopener noreferrer">v39</a>.</span></span>
 
 <p class="standfirst">Cards are containers for content and actions on a specific topic.</p>
 
-![example](docs/card/example.png)
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
 Cards are a useful way to chunk information into a more easily readable and actionable format. They are used to group content within a page but should not be used as a page substitute.
 
+When used with `LgOrientationDirective`, cards support `vertical` and `horizontal` layouts only. `reverse-vertical` and `reverse-horizontal` are not supported for cards.
+
 Import the card components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgCardComponent, etc. ],
-});
+  import { LgCardComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML, for a basic card:
@@ -41,13 +40,16 @@ and in your HTML, for a basic card:
 
 In their most basic form, cards are an empty container for any content. Canopy provides a number of preset card templates and patterns for a range of common scenarios, and we recommend you use those before creating something from scratch.
 
-![layouts](docs/card/layouts.png)
+Cards are structured into three layout areas:
+
+1. **Header** - optional static or interactive header content.
+2. **Content** - the main body where text, images, and brand icons can be combined.
+3. **Footer** - action area for links, buttons, or menus.
+
 
 ## Dos and Don'ts
 
 ### Do
-
-![do](docs/card/do.png)
 
 1. **Do** ensure that content relates to a single idea or concept.
 2. **Do** summarise content and provide links to expanded content on child pages.
@@ -56,8 +58,6 @@ In their most basic form, cards are an empty container for any content. Canopy p
 5. **Do** create layouts that make the hierarchy of the page clearly understood.
 
 ### Don't
-
-![dont](docs/card/dont.png)
 
 1. **Don't** overfill, or cover more than one subject within a card.
 2. **Don't** use cards as a replacement for standard pages.
@@ -68,23 +68,106 @@ In their most basic form, cards are an empty container for any content. Canopy p
 
 As the card component is just a container for content, you can add whatever content you like. However, you can extend the basic card component and create specific card implementations.
 
-### Product card
+### Card with variants
 
-This component uses some extra card components, such as `LgDataPointComponent` with `variant="card-principle"`, `LgDataPointLabelComponent`, `LgDataPointValueComponent`, and `LgDataPointSecondaryLabelComponent` to display a prominent principle data point.
+The examples show the `default`, `promo`, and `interactive` card variants.
 
-<Source of={CardStories.ProductCard} />
+Example below is a `promo` card variant with Pictogram.
 
-### Form Journey card
+```html
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="8" lgColMd="10" lgColSm="12">
+      <lg-card
+        variant="promo"
+        [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }"
+      >
+        <lg-card-hero-img [cover]="true">
+          <lg-pictogram [name]="'looking-ahead'" size="lg" [hasFill]="false"></lg-pictogram>
+        </lg-card-hero-img>
 
-Creates the Form Journey template, used to display a single page form. Note that the `<form>` element is a parent of the `<lg-card>` component, this is because the form inputs and submit button are spread out between the card content and card footer.
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
 
-<Source of={CardStories.FormJourneyCard} />
+        <lg-card-content>
+          <lg-card-subheading [headingLevel]="3">Subheading</lg-card-subheading>
+          {{ cardContent }} <a href="#">Test link</a>.
+        </lg-card-content>
 
-### Card Navigation
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+  </div>
+</div>
+```
 
-This component uses some extra card components, such as `LgCardNavigationTitleComponent` to display in navigational format.
+### Three cards
 
-<Source of={CardStories.NavigationCard} />
+This example demonstrates image-based promo cards in a three-card layout. Use the controls to switch between image and brand icon media, adjust the layout orientation, and change the footer content.
+
+```html
+<div lgContainer>
+  <div lgRow>
+    <div lgCol="12" lgColMd="4">
+      <lg-card variant="promo" [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
+        <lg-card-hero-img [cover]="true" [src]="'promo-card/general-promotion1.jpg'" alt="Family sitting in a park"></lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <p>{{ cardContent }}</p>
+        </lg-card-content>
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+    <div lgCol="12" lgColMd="4">
+      <lg-card variant="promo" [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
+        <lg-card-hero-img [cover]="true" [src]="'promo-card/general-promotion1.jpg'" alt="Family sitting in a park"></lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <p>{{ cardContent }}</p>
+        </lg-card-content>
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+    <div lgCol="12" lgColMd="4">
+      <lg-card variant="promo" [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
+        <lg-card-hero-img [cover]="true" [src]="'promo-card/general-promotion1.jpg'" alt="Family sitting in a park"></lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="2">The title</lg-card-title>
+        </lg-card-header>
+        <lg-card-content>
+          <p>{{ cardContent }}</p>
+        </lg-card-content>
+        <lg-card-footer>
+          <lg-button-group>
+            <button lg-button type="button" priority="primary">Continue</button>
+            <button lg-button type="button" priority="secondary">Back</button>
+          </lg-button-group>
+        </lg-card-footer>
+      </lg-card>
+    </div>
+  </div>
+</div>
+```
 
 ### Card with Data Points
 
@@ -113,9 +196,9 @@ The main body of the card. It accepts the projection of the following components
 
 #### Inputs
 
-| Name           | Description                                                     | Type                    | Default | Required |
-|----------------|-----------------------------------------------------------------|-------------------------|---------|----------|
-|   `variant`    | The variant of the card: `promotion`                            | `string`                |`default`|  No      |
+| Name           | Description                                                     | Type                    | Default   | Required |
+|----------------|-----------------------------------------------------------------|-------------------------|-----------|----------|
+|   `variant`    | The visual variant of the card: `default`, `promo`, or `interactive` | `CardVariant`           | `default` | No       |
 
 <Markdown>
   {CardHeroImageComponent}
@@ -123,7 +206,7 @@ The main body of the card. It accepts the projection of the following components
 
 ### LgCardHeaderComponent
 
-This is the primary layout section of the card component, it is used to contain breadcrumbs or other similar content.
+This is the primary layout section of the card component. It can be static content (for example, breadcrumbs) or interactive navigation when used with `LgCardNavigationTitleComponent`.
 
 ### LgCardContent
 
@@ -143,9 +226,11 @@ This is where the main title should be provided. It should be located inside the
 |----------------|-------------------------------------------------------------|----------|---------|----------|
 | `headingLevel` | The level of the card heading: `1`, `2`, `3`, `4`, `5`, `6` | `number` | n/a     | Yes      |
 
+**Note: Heading level changes semantics only, while the visual title styling remains consistent.**
+
 ### LgCardNavigationTitleComponent
 
-This is where the main title and link should be provided. It should be located inside the card content.
+This is where the main title and link should be provided. It should be located inside the lg-card-header.
 The `target` attribute and icon for the link will be automatically determined based on the `link` input.
 
 #### Inputs
@@ -200,7 +285,20 @@ toggleActive(state: boolean): void {
 
 ### LgCardFooter
 
-This is the footer layout section of the card component, it is used to contain call to action buttons as well as messages or hints.
+This is the footer layout section of the card component and is reserved for actions only, such as buttons, links, and menus.
+
+### LgCardGroupComponent
+
+A container that groups two or more cards, ensuring they are laid out correctly across breakpoints and share equal height. Applied as an attribute directive on a wrapping element:
+
+```html
+<div lg-card-group>
+  <lg-card>...</lg-card>
+  <lg-card>...</lg-card>
+</div>
+```
+
+It has no inputs. It should always be wrapped in an `lgCol="12"` container.
 
 ***
 
