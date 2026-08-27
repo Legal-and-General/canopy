@@ -14,12 +14,20 @@
   }
 </ng-template>
 
+<ng-template #link>
+  <ng-content select="lg-icon" />
+
+  <span class="lg-btn__text">
+    <ng-content />
+  </span>
+</ng-template>
+
 @if (loading) {
   <span class="lg-btn__hidden-content" aria-hidden="true">
-    <ng-container *ngTemplateOutlet="standard" />
+    <ng-container *ngTemplateOutlet="priority === 'link' ? link : standard" />
   </span>
 
   <lg-spinner class="lg-btn__spinner" [variant]="'inherit'" lgMargin="none"/>
 } @else {
-  <ng-container *ngTemplateOutlet="standard" />
+  <ng-container *ngTemplateOutlet="priority === 'link' ? link : standard" />
 }
