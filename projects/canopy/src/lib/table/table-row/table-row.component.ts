@@ -92,7 +92,7 @@ export class LgTableRowComponent {
     return this.isError;
   }
 
-  @HostBinding('class.lg-theme-neutral-inverse')
+  @HostBinding('class.lg-theme-neutral')
   get hasErrorTheme() {
     return this.isError;
   }
@@ -154,9 +154,11 @@ export class LgTableRowComponent {
   }
 
   private setStripedEvenRowClasses() {
-    const shouldUseBlueMode = this.isStripedEvenRow && !this.isError;
+    const shouldUseStripedTheme =
+      this.isStripedEvenRow && !this.isError && !this.isSelected;
+    const shouldUseBlueMode = this.isSelected || (this.isStripedEvenRow && !this.isError);
 
-    if (this.isStripedEvenRow) {
+    if (shouldUseStripedTheme) {
       this.renderer.addClass(this.hostElement.nativeElement, 'lg-theme-neutral-inverse');
     } else {
       this.renderer.removeClass(

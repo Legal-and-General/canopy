@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { QueryList } from '@angular/core';
 import { MockComponent } from 'ng-mocks';
 
 import { LgTableRowComponent } from '../table-row/table-row.component';
@@ -29,14 +30,18 @@ describe('LgTableFootComponent', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-table-foot');
   });
 
-  describe('when a foot row is present', () => {
-    it('should mark the row as a foot row', () => {
-      const row = { isFootRow: false } as Partial<LgTableRowComponent>;
+  describe('when foot rows are present', () => {
+    it('should mark all rows as foot rows', () => {
+      const firstRow = { isFootRow: false } as Partial<LgTableRowComponent>;
+      const secondRow = { isFootRow: false } as Partial<LgTableRowComponent>;
+      const rows = new QueryList<LgTableRowComponent>();
 
-      component.footRow = row as LgTableRowComponent;
+      rows.reset([ firstRow, secondRow ] as Array<LgTableRowComponent>);
+      component.footRows = rows;
       component.ngAfterContentChecked();
 
-      expect(component.footRow.isFootRow).toBe(true);
+      expect(firstRow.isFootRow).toBe(true);
+      expect(secondRow.isFootRow).toBe(true);
     });
   });
 });

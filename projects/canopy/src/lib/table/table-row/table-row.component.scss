@@ -14,15 +14,11 @@
   }
 
   &--error {
-    background-color: var(
-      --table-status-cell-error-background-colour
-    ) !important; // this should be updated with new package, without the status in name
+    background-color: var(--table-status-cell-error-background-colour) !important;
   }
 
   &--selected {
-    background-color: var(
-      --table-cell-common-background-colour
-    ) !important; // check this background
+    background-color: var(--table-cell-common-background-colour) !important;
   }
 
   &--footer {

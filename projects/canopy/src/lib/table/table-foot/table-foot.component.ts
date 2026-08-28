@@ -2,8 +2,9 @@ import {
   AfterContentChecked,
   ChangeDetectionStrategy,
   Component,
-  ContentChild,
+  ContentChildren,
   HostBinding,
+  QueryList,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -20,11 +21,11 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
 export class LgTableFootComponent implements AfterContentChecked {
   @HostBinding('class') class = 'lg-table-foot';
 
-  @ContentChild(LgTableRowComponent, { static: false }) footRow: LgTableRowComponent;
+  @ContentChildren(LgTableRowComponent) footRows!: QueryList<LgTableRowComponent>;
 
   ngAfterContentChecked() {
-    if (this.footRow) {
-      this.footRow.isFootRow = true;
-    }
+    this.footRows?.forEach(row => {
+      row.isFootRow = true;
+    });
   }
 }

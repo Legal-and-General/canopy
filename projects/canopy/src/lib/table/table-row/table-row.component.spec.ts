@@ -154,7 +154,8 @@ describe('LgTableRowComponent', () => {
       const classes = fixture.nativeElement.getAttribute('class');
 
       expect(classes).toContain('lg-status-error');
-      expect(classes).toContain('lg-theme-neutral-inverse');
+      expect(classes).toContain('lg-theme-neutral');
+      expect(classes).not.toContain('lg-theme-neutral-inverse');
       expect(classes).not.toContain('lg-mode-blue');
     });
 
@@ -167,6 +168,18 @@ describe('LgTableRowComponent', () => {
       expect(classes).toContain('lg-table-row--selected');
       expect(classes).toContain('lg-mode-blue');
       expect(classes).toContain('lg-theme-subtle');
+    });
+
+    it('should add the selected colour classes when a striped row is selected', () => {
+      component.isStripedEvenRow = true;
+      component.rowVariant = 'selected';
+      fixture.detectChanges();
+
+      const classes = fixture.nativeElement.getAttribute('class');
+
+      expect(classes).toContain('lg-mode-blue');
+      expect(classes).toContain('lg-theme-subtle');
+      expect(classes).not.toContain('lg-theme-neutral-inverse');
     });
 
     it('should not apply multiple variant classes simultaneously', () => {

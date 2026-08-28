@@ -10,8 +10,6 @@
     appearance: none;
     cursor: pointer;
     padding: 0 var(--space-2) 0 0;
-    min-width: var(--table-toggle-width);
-    min-height: var(--table-toggle-width);
 
     &:focus-visible {
       @include mixins.lg-focus-outline;

@@ -516,6 +516,9 @@ export default {
       ],
     }),
   ],
+  parameters: {
+    backgrounds: { disable: true },
+  },
   argTypes,
 };
 
