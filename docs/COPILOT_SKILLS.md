@@ -45,6 +45,7 @@ Once installed, ask your agent:
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v39-migration` | v38 → v39 | [v39.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v39.0.0) |
 | `canopy-v38-migration` | v37 → v38 | [v38.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0) |
 | `canopy-v37-migration` | v36 → v37 | [v37.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v37.0.0) |
 | `canopy-v36-migration` | v35 → v36 | [v36.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v36.0.0) |
