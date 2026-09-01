@@ -27,7 +27,6 @@ export default [
       '**/pictogram.interface.ts',
       '**/icons.interface.ts',
       'projects/canopy/src/lib/ui-icons-files/**',
-      'projects/canopy/src/lib/brand-icons-files/**',
       'projects/canopy/src/lib/flag-icons-files/**',
       'projects/canopy/src/lib/pictogram-files/**',
       'projects/canopy/storybook/css-variables/**',
