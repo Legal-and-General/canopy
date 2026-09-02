@@ -16,7 +16,7 @@ import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/fo
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
-import { LgValidationComponent } from '../validation';
+import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import { LgToggleComponent } from '../toggle';
 import { LgMarginDirective } from '../../spacing';
 import { LgLabelComponent } from '../label';
@@ -48,10 +48,13 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private nextUniqueId = ++uniqueId;
   private _name = `lg-checkbox-group-${this.nextUniqueId}`;
   private _value: Array<string> = [];
+  private _describedByValidation: { id: string };
   _variant: CheckboxGroupVariant;
   _checkboxes: QueryList<LgToggleComponent>;
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
+  _validationWrapperElement: LgValidationWrapperDirective;
+  hintText = '';
 
   @Input() id = `lg-checkbox-group-id-${this.nextUniqueId}`;
   @Input() inline = false;
@@ -137,15 +140,16 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
     this._hintElement = element;
   }
 
-  @ContentChild(LgValidationComponent)
+  @ContentChild(LgValidationComponent, { descendants: true })
   set errorElement(element: LgValidationComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-
     this._validationElement = element;
+    this.updateValidationDescription();
+  }
+
+  @ContentChild(LgValidationWrapperDirective)
+  set errorWrapperElement(element: LgValidationWrapperDirective) {
+    this._validationWrapperElement = element;
+    this.updateValidationDescription();
   }
 
   constructor() {
@@ -186,5 +190,21 @@ export class LgCheckboxGroupComponent implements ControlValueAccessor {
         checkbox.name = this.name;
       });
     }
+  }
+
+  private updateValidationDescription(): void {
+    const element = this._validationElement ?? this._validationWrapperElement ?? null;
+
+    if (element === this._describedByValidation) {
+      return;
+    }
+
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._describedByValidation,
+      element,
+    );
+
+    this._describedByValidation = element;
   }
 }
