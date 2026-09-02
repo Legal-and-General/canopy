@@ -17,7 +17,7 @@ import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/fo
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
-import { LgValidationComponent } from '../validation';
+import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import { LgLabelComponent } from '../label';
 import { LgFocusDirective } from '../../focus';
 
@@ -47,11 +47,13 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
 
   private nextUniqueId = ++uniqueId;
   private _name = `lg-radio-group-${this.nextUniqueId}`;
+  private _describedByValidation: { id: string };
   variant: RadioVariant;
   _stack: RadioStackBreakpoint;
   _radios: QueryList<LgRadioButtonComponent>;
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
+  _validationWrapperElement: LgValidationWrapperDirective;
   _value: boolean | string = null;
 
   @Input() id = `lg-radio-group-id-${this.nextUniqueId}`;
@@ -114,15 +116,16 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
     this._hintElement = element;
   }
 
-  @ContentChild(LgValidationComponent)
+  @ContentChild(LgValidationComponent, { descendants: true })
   set errorElement(element: LgValidationComponent) {
-    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-
     this._validationElement = element;
+    this.updateValidationDescription();
+  }
+
+  @ContentChild(LgValidationWrapperDirective)
+  set errorWrapperElement(element: LgValidationWrapperDirective) {
+    this._validationWrapperElement = element;
+    this.updateValidationDescription();
   }
 
   @Input()
@@ -208,5 +211,21 @@ export class LgRadioGroupComponent implements ControlValueAccessor, AfterContent
         radio.name = this.name;
       });
     }
+  }
+
+  private updateValidationDescription(): void {
+    const element = this._validationElement ?? this._validationWrapperElement ?? null;
+
+    if (element === this._describedByValidation) {
+      return;
+    }
+
+    this.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.ariaDescribedBy,
+      this._describedByValidation,
+      element,
+    );
+
+    this._describedByValidation = element;
   }
 }
