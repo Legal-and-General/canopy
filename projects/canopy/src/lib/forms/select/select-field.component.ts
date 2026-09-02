@@ -12,7 +12,7 @@ import { LgDomService, randomUniqueId } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
 import { LgErrorStateMatcher } from '../validation';
-import { LgValidationComponent } from '../validation';
+import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import { LgIconComponent } from '../../icon';
 
 import { LgSelectDirective } from './select.directive';
@@ -27,6 +27,7 @@ import { LgSelectDirective } from './select.directive';
 export class LgSelectFieldComponent {
   private errorState = inject(LgErrorStateMatcher);
   private domService = inject(LgDomService);
+  private _describedByValidation: { id: string };
 
   @Input() id = `lg-select-${randomUniqueId()}`;
   @HostBinding('class.lg-select-field') class = true;
@@ -60,13 +61,17 @@ export class LgSelectFieldComponent {
   _selectElement: LgSelectDirective;
   @ContentChild(LgSelectDirective, { static: true })
   set selectElement(element: LgSelectDirective) {
+    if (!element) {
+      return;
+    }
+
     this._selectElement = element;
     this._selectElement.id = this.id;
   }
 
   _hintElement: LgHintComponent;
   @ContentChild(LgHintComponent)
-  set hintElement(element: LgValidationComponent) {
+  set hintElement(element: LgHintComponent) {
     this._selectElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._selectElement.ariaDescribedBy,
       this._hintElement,
@@ -77,14 +82,36 @@ export class LgSelectFieldComponent {
   }
 
   _validationElement: LgValidationComponent;
-  @ContentChild(LgValidationComponent)
+  @ContentChild(LgValidationComponent, { descendants: true })
   set errorElement(element: LgValidationComponent) {
+    this._validationElement = element;
+    this.updateAriaDescribedBy();
+  }
+
+  _validationWrapperElement: LgValidationWrapperDirective;
+  @ContentChild(LgValidationWrapperDirective)
+  set errorWrapperElement(element: LgValidationWrapperDirective) {
+    this._validationWrapperElement = element;
+    this.updateAriaDescribedBy();
+  }
+
+  private updateAriaDescribedBy(): void {
+    if (!this._selectElement) {
+      return;
+    }
+
+    const element = this._validationElement ?? this._validationWrapperElement ?? null;
+
+    if (element === this._describedByValidation) {
+      return;
+    }
+
     this._selectElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
       this._selectElement.ariaDescribedBy,
-      this._validationElement,
+      this._describedByValidation,
       element,
     );
 
-    this._validationElement = element;
+    this._describedByValidation = element;
   }
 }
