@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, inject, Input } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
-import type { TableVariant } from '../table.interface';
+import type { TableRowVariant, TableVariant } from '../table.interface';
 import { AlignmentOptions, TableColumnLayoutBreakpoints } from '../table.interface';
 import { LgTableComponent } from '../table/table.component';
 import { LgTableExpandedDetailComponent } from '../table-expanded-detail/table-expanded-detail.component';
@@ -10,6 +10,7 @@ import { LgTableRowComponent } from '../table-row/table-row.component';
 import { LgTableRowToggleComponent } from '../table-row-toggle/table-row-toggle.component';
 import { LgTableHeadCellComponent } from '../table-head-cell/table-head-cell.component';
 import { LgTableHeadComponent } from '../table-head/table-head.component';
+import { LgTableFootComponent } from '../table-foot/table-foot.component';
 import { LgTableBodyComponent } from '../table-body/table-body.component';
 import { LgInputDirective, LgInputFieldComponent } from '../../forms';
 import { LgMarginDirective } from '../../spacing';
@@ -21,12 +22,23 @@ import {
 } from '../../grid';
 import { LgButtonComponent } from '../../button';
 import { LgIconComponent } from '../../icon';
+import type { Colour, ColourTheme } from '../../colour';
+import { LgColourDirective } from '../../colour';
+import { LgCardComponent, LgCardContentComponent } from '../../card';
 
 interface TableStoryItem {
   author: string;
   title: string;
   published: string;
 }
+
+interface TableStoryModeArgs {
+  mode: Colour;
+  theme: ColourTheme;
+}
+
+const colours: Array<Colour> = [ 'blue', 'green', 'red', 'yellow' ];
+const themes: Array<ColourTheme> = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 function getDefaultTableContent(): Array<TableStoryItem> {
   return [
@@ -141,12 +153,12 @@ export class StoryTableDetailComponent {
   private cd = inject(ChangeDetectorRef);
 
   @Input() books: Array<TableStoryItem> = [];
-  @Input() variant: TableVariant;
-  @Input() alignPublishColumn: AlignmentOptions;
-  @Input() showAuthorLabel: boolean;
-  @Input() columnBreakpoint: TableColumnLayoutBreakpoints;
+  @Input() variant!: TableVariant;
+  @Input() alignPublishColumn!: AlignmentOptions;
+  @Input() showAuthorLabel!: boolean;
+  @Input() columnBreakpoint!: TableColumnLayoutBreakpoints;
   @Input() expandedRows: Array<number> = [];
-  @Input() stack: boolean;
+  @Input() stack!: boolean;
 
   get colspan() {
     return Object.keys(this.books[0]).length + 1;
@@ -281,12 +293,48 @@ const withLongCopyTableTemplate = `
   ],
 })
 class StoryTableLongCopyComponent {
-  @Input() variant: TableVariant;
-  @Input() stack: boolean;
+  @Input() variant!: TableVariant;
+  @Input() stack!: boolean;
 }
 
 const responsiveCategory = 'Responsive options';
 const alignmentCategory = 'Alignment';
+const colourCategory = 'Colour';
+
+const colourArgTypes = {
+  mode: {
+    options: colours,
+    description: 'The colour mode to apply to the card containing the table.',
+    table: {
+      category: colourCategory,
+      type: {
+        summary: colours,
+      },
+      defaultValue: {
+        summary: 'blue',
+      },
+    },
+    control: {
+      type: 'select',
+    },
+  },
+  theme: {
+    options: themes,
+    description: 'The theme to apply to the card containing the table.',
+    table: {
+      category: colourCategory,
+      type: {
+        summary: themes,
+      },
+      defaultValue: {
+        summary: 'neutral',
+      },
+    },
+    control: {
+      type: 'select',
+    },
+  },
+};
 
 const argTypes = {
   variant: {
@@ -323,12 +371,12 @@ const argTypes = {
     },
   },
   alignTitleColumn: {
-    options: [ AlignmentOptions.End, AlignmentOptions.Start ],
+    options: [ AlignmentOptions.Start, AlignmentOptions.Centre, AlignmentOptions.End ],
     description: 'Align Title column.',
     table: {
       category: alignmentCategory,
       type: {
-        summary: [ AlignmentOptions.End, AlignmentOptions.Start ],
+        summary: [ AlignmentOptions.Start, AlignmentOptions.Centre, AlignmentOptions.End ],
       },
     },
     control: {
@@ -336,12 +384,28 @@ const argTypes = {
     },
   },
   alignPublishColumn: {
-    options: [ AlignmentOptions.End, AlignmentOptions.Start ],
+    options: [ AlignmentOptions.Start, AlignmentOptions.Centre, AlignmentOptions.End ],
     description: 'Align Publish column.',
     table: {
       category: alignmentCategory,
       type: {
-        summary: [ AlignmentOptions.End, AlignmentOptions.Start ],
+        summary: [ AlignmentOptions.Start, AlignmentOptions.Centre, AlignmentOptions.End ],
+      },
+    },
+    control: {
+      type: 'select',
+    },
+  },
+  rowVariant: {
+    options: [ null, 'error', 'selected' ],
+    description: 'Apply a visual variant to the row. Accepts `error`, or `selected`.',
+    table: {
+      category: 'Variant',
+      type: {
+        summary: [ 'error', 'selected' ],
+      },
+      defaultValue: {
+        summary: 'null',
       },
     },
     control: {
@@ -427,7 +491,7 @@ const argTypes = {
 
 export default {
   title: 'Components/Table/Examples',
-  tags: [ 'pending' ],
+  tags: [ 'updated' ],
   component: LgTableComponent,
   excludeStories: [ 'StoryTableDetailComponent' ],
   decorators: [
@@ -437,6 +501,7 @@ export default {
         StoryTableLongCopyComponent,
         LgTableComponent,
         LgTableHeadComponent,
+        LgTableFootComponent,
         LgTableRowComponent,
         LgTableHeadCellComponent,
         LgTableBodyComponent,
@@ -445,50 +510,149 @@ export default {
         LgInputDirective,
         LgMarginDirective,
         LgSuffixDirective,
+        LgColourDirective,
+        LgCardComponent,
+        LgCardContentComponent,
       ],
     }),
   ],
+  parameters: {
+    backgrounds: { disable: true },
+  },
   argTypes,
 };
 
 const standardTableTemplate = `
-<table lg-table [showColumnsAt]="columnBreakpoint" [variant]="variant">
-  <thead lg-table-head>
-    <tr lg-table-row>
-      <th lg-table-head-cell [showLabel]="showAuthorLabel">Author</th>
-      <th lg-table-head-cell [align]="alignTitleColumn">Title</th>
-      <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
-    </tr>
-  </thead>
+<lg-card lgMarginHorizontal="none" [lgColour]="mode" [lgColourTheme]="theme">
+  <lg-card-content>
+    <table lg-table [showColumnsAt]="columnBreakpoint" [variant]="variant">
+      <thead lg-table-head>
+        <tr lg-table-row>
+          <th lg-table-head-cell [showLabel]="showAuthorLabel">Author</th>
+          <th lg-table-head-cell [align]="alignTitleColumn">Title</th>
+          <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
+        </tr>
+      </thead>
 
-  <tbody lg-table-body>
-    @for (book of books; track book.title) {
-      <tr lg-table-row>
-        <td lg-table-cell [stack]="stack">{{ book.author }}</td>
-        <td lg-table-cell [stack]="stack">{{ book.title }}</td>
-        <td lg-table-cell [stack]="stack">{{ book.published }}</td>
-      </tr>
-    }
-  </tbody>
-</table>
+      <tbody lg-table-body>
+        @for (book of books; track book.title) {
+          <tr lg-table-row>
+            <td lg-table-cell [stack]="stack">{{ book.author }}</td>
+            <td lg-table-cell [stack]="stack">{{ book.title }}</td>
+            <td lg-table-cell [stack]="stack">{{ book.published }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </lg-card-content>
+</lg-card>
 `;
+
+const rowVariantsTableTemplate = `
+<table lg-table [showColumnsAt]="columnBreakpoint" [variant]="variant">
+    <thead lg-table-head>
+      <tr lg-table-row>
+        <th lg-table-head-cell>Author</th>
+        <th lg-table-head-cell [align]="alignTitleColumn">Title</th>
+        <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
+      </tr>
+    </thead>
+
+    <tbody lg-table-body>
+      <tr lg-table-row>
+        <td lg-table-cell>Orhan Pamuk</td>
+        <td lg-table-cell>Strangeness In My Mind</td>
+        <td lg-table-cell>2016</td>
+      </tr>
+      <tr lg-table-row rowVariant="error">
+        <td lg-table-cell>George Orwell</td>
+        <td lg-table-cell>Animal Farm (error)</td>
+        <td lg-table-cell>1945</td>
+      </tr>
+      <tr lg-table-row rowVariant="selected">
+        <td lg-table-cell>Chinua Achebe</td>
+        <td lg-table-cell>Things Fall Apart (selected)</td>
+        <td lg-table-cell>1958</td>
+      </tr>
+      <tr lg-table-row>
+        <td lg-table-cell>Brian Greene</td>
+        <td lg-table-cell>The Elegant Universe</td>
+        <td lg-table-cell>1999</td>
+      </tr>
+    </tbody>
+
+    <tfoot lg-table-foot>
+      <tr lg-table-row>
+        <td lg-table-cell></td>
+        <td lg-table-cell [align]="alignTitleColumn">Total books</td>
+        <td lg-table-cell [align]="alignPublishColumn">5</td>
+      </tr>
+    </tfoot>
+  </table>
+`;
+
+export const RowVariantsTable = {
+  name: 'Row variants',
+  render: (args: LgTableComponent & { rowVariant: TableRowVariant }) => ({
+    props: args,
+    template: rowVariantsTableTemplate,
+  }),
+  args: {
+    variant: 'striped',
+    alignTitleColumn: AlignmentOptions.Start,
+    alignPublishColumn: AlignmentOptions.End,
+    columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
+  },
+  argTypes: {
+    ...argTypes,
+    showAuthorLabel: {
+      table: {
+        disable: true,
+      },
+    },
+    stack: {
+      table: {
+        disable: true,
+      },
+    },
+    rowVariant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: rowVariantsTableTemplate,
+      },
+    },
+  },
+};
 
 export const StandardTable = {
   name: 'Standard',
-  render: (args: LgTableComponent) => ({
+  render: (args: LgTableComponent & TableStoryModeArgs) => ({
     props: args,
     template: standardTableTemplate,
   }),
   args: {
     books: getDefaultTableContent(),
+    mode: 'blue',
+    theme: 'neutral',
     variant: 'striped',
     alignTitleColumn: AlignmentOptions.Start,
     alignPublishColumn: AlignmentOptions.End,
     columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
-    showAuthorLabel: false,
+    showAuthorLabel: true,
     stack: false,
   },
+  argTypes: {
+    ...argTypes,
+    ...colourArgTypes,
+  },
   parameters: {
+    themes: { disable: true },
     docs: {
       source: {
         code: standardTableTemplate,
@@ -511,7 +675,7 @@ export const ExpandableTable = {
     alignTitleColumn: AlignmentOptions.Start,
     alignPublishColumn: AlignmentOptions.End,
     columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
-    showAuthorLabel: false,
+    showAuthorLabel: true,
     stack: false,
   },
   argTypes: {
@@ -538,27 +702,27 @@ export const ExpandableTable = {
 
 const withInputTableTemplate = `
 <table lg-table [variant]="variant">
-  <thead lg-table-head>
-    <tr lg-table-row>
-      <th lg-table-head-cell>Author</th>
-      <th lg-table-head-cell>Rating</th>
-    </tr>
-  </thead>
-
-  <tbody lg-table-body>
-    @for (book of books; track book.author) {
+    <thead lg-table-head>
       <tr lg-table-row>
-        <td lg-table-cell>{{ book.author }}</td>
-        <td lg-table-cell>
-          <lg-input-field lgMarginBottom="none" showLabel="false">
-            <input lgInput size="2" />
-            <span lgSuffix>%</span>
-          </lg-input-field>
-        </td>
+        <th lg-table-head-cell>Author</th>
+        <th lg-table-head-cell>Rating</th>
       </tr>
-    }
-  </tbody>
-</table>
+    </thead>
+
+    <tbody lg-table-body>
+      @for (book of books; track book.author) {
+        <tr lg-table-row>
+          <td lg-table-cell>{{ book.author }}</td>
+          <td lg-table-cell>
+            <lg-input-field lgMarginBottom="none" showLabel="false">
+              <input lgInput size="2" />
+              <span lgSuffix>%</span>
+            </lg-input-field>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
 `;
 
 export const WithInputTable = {

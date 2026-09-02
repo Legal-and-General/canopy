@@ -129,6 +129,16 @@ export class LgTableComponent implements AfterContentChecked {
   }
 
   private handleBodyRows() {
+    let rowIndex = -1;
+
+    this.tableBody.rows.forEach(row => {
+      if (!row.isDetailRow) {
+        rowIndex++;
+      }
+
+      row.isStripedEvenRow = this.variant === 'striped' && rowIndex % 2 === 1;
+    });
+
     this.tableBody.rows
       .filter(row => !row.isDetailRow)
       .forEach((row, index) => {

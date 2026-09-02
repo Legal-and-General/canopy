@@ -4,6 +4,7 @@
 .lg-table-cell {
   display: flex;
   align-items: center;
+  padding: var(--table-cell-common-padding-y-sm) var(--table-cell-common-padding-x);
 
   &--stacked {
     flex-direction: column;
@@ -28,7 +29,6 @@
 
   &--toggle-cell {
     order: 1;
-    padding: 0;
 
     .lg-table-cell__label {
       display: none;
@@ -41,7 +41,7 @@
 }
 
 .lg-table-cell__content {
-  text-align: end;
+  // text-align: end;
   margin-left: auto;
 
   .lg-label {
@@ -65,7 +65,7 @@
 }
 
 .lg-table-cell__label {
-  font-weight: var(--font-weight-500);
+  font-weight: var(--font-weight-700);
   padding-right: var(--space-5);
 }
 
@@ -74,14 +74,7 @@
     .lg-table-cell {
       @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-cell;
-        padding: var(--space-4);
-      }
-
-      &--toggle-cell {
-        @include mixins.lg-breakpoint($columns-breakpoint) {
-          min-width: var(--table-toggle-width);
-          padding: 0;
-        }
+        padding: var(--table-cell-common-padding-y-lg) var(--table-cell-common-padding-x);
       }
 
       &__content {
@@ -93,6 +86,14 @@
         &--align-end {
           @include mixins.lg-breakpoint($columns-breakpoint) {
             text-align: right;
+          }
+        }
+
+        &--align-centre {
+          @include mixins.lg-breakpoint($columns-breakpoint) {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
           }
         }
       }
