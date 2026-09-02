@@ -18,7 +18,6 @@ When the user submits a form and it is validated as having errors, the following
 3. The first field with an error automatically gets focus so the user knows where to begin.
 
 ## Usage
-
 The rules to display the error states are incorporated into the individual Canopy form components. When used in conjunction with standard Angular form validation the error styles will be displayed automatically.
 
 **We recommend using <a href="https://angular.io/guide/reactive-forms" target="_black">Angular's reactive forms</a>.**
@@ -52,24 +51,18 @@ isControlInvalid(control: AbstractControl, form: FormGroupDirective) {
 In your HTML, add the validation components with the appropriate structural directives to determine if they should be visible. The error state matcher will determine whether the form field is in an error state.
 
 ```html
-<form
-  [formGroup]="form"
-  (ngSubmit)="onSubmit(form)"
-  #userForm="ngForm">
-    <lg-input-field>
-      Text
-      <lg-hint>This is a standard input field</lg-hint>
-    @if (isControlInvalid(text, userForm) && text.hasError('required')) {
-      <lg-validation>
-        Username is a required field
-      </lg-validation>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)" #userForm="ngForm">
+  <lg-input-field>
+    Text
+    <lg-hint>This is a standard input field</lg-hint>
+    @if ( isControlInvalid(form.get('text')!, userForm) &&
+    form.get('text')?.hasError('required') ) {
+    <lg-validation>Enter a value</lg-validation>
+    } @if ( isControlInvalid(form.get('text')!, userForm) &&
+    form.get('text')?.hasError('minlength') ) {
+    <lg-validation>Enter at least 4 characters</lg-validation>
     }
-    @if (isControlInvalid(text, validationForm) && text.hasError('minlength')) {
-      <lg-validation>
-        Username needs to be at least 4 characters
-      </lg-validation>
-    }
-      <input lgInput formControlName="username" />
+    <input lgInput formControlName="text" />
   </lg-input-field>
 </form>
 ```
@@ -81,14 +74,68 @@ Dynamic validation is validation that happens while the user is inputting into a
 * **Don't show inline validation on focus.** Don't make the user feel like they've made a mistake before they've even entered their information.
 * **Don't validate immediately after each character is entered.** Wait 500 to 1000 milliseconds after the user has stopped typing.
 
+## Wrapping the validation component
+
+Form fields project `lg-validation` into a dedicated slot between the label and hint and the field itself. Angular content projection only matches the projected element itself, so if you wrap `lg-validation` in your own component, the field cannot recognise it and the wrapper falls back into the label. Add the `lgValidationWrapper` attribute to your wrapper so that it is projected into the validation slot.
+
+```js
+import { LgValidationWrapperDirective } from '@legal-and-general/canopy';
+```
+
+If your wrapper projects `lg-validation` through with `ng-content`, the field finds the inner `lg-validation` and links it to the input automatically:
+
+```html
+<lg-input-field>
+  Username
+  <app-my-error lgValidationWrapper>
+    <lg-validation>Enter a username</lg-validation>
+  </app-my-error>
+  <input lgInput formControlName="username" />
+</lg-input-field>
+```
+
+If your wrapper renders `lg-validation` inside its own template, the field cannot reach it. In that case the field describes the input using the wrapper's own ID, which the directive generates for you. Use a static `id` or bind `lgValidationWrapperId` when you need a predictable value, for example to anchor an error summary link:
+
+```html
+<lg-input-field>
+  Username
+  <app-my-error
+    lgValidationWrapper
+    [lgValidationWrapperId]="'username-error'"
+    [message]="errorMessage"
+  />
+  <input lgInput formControlName="username" />
+</lg-input-field>
+```
+
+Import `LgValidationWrapperDirective` in the component that uses the
+`lgValidationWrapper` attribute. The directive supplies the wrapper ID used by the
+fallback when the wrapper renders `lg-validation` in its own template.
+
+For a wrapper that only projects `lg-validation` with `ng-content`, you can use
+`ngProjectAs="lg-validation"` instead. The field can still find the inner
+`lg-validation` and use its ID for `aria-describedby`:
+
+```html
+<app-my-error ngProjectAs="lg-validation">
+  <lg-validation>Enter a username</lg-validation>
+</app-my-error>
+```
+
 ## Additional development details
 
 ### LgValidationComponent inputs
 
-| Name       | Description                                                          | Type      | Default | Required |
-|------------|----------------------------------------------------------------------|-----------|---------|----------|
-| `status`  | The status of the validation: `generic`, `info`, `warning`, `error`, `success` | `string`  | `error` | No       |
-| `showIcon` | Whether the icon should display                                      | `boolean` | `true`  | No       |
+| Name       | Description                                                                    | Type      | Default | Required |
+| ---------- | ------------------------------------------------------------------------------ | --------- | ------- | -------- |
+| `status`   | The status of the validation: `generic`, `info`, `warning`, `error`, `success` | `string`  | `error` | No       |
+| `showIcon` | Whether the icon should display                                                | `boolean` | `true`  | No       |
+
+### LgValidationWrapperDirective inputs
+
+| Name                    | Description                                                                                        | Type     | Default                          | Required |
+| ----------------------- | -------------------------------------------------------------------------------------------------- | -------- | -------------------------------- | -------- |
+| `lgValidationWrapperId` | Dynamic ID used to describe the field when the wrapper renders `lg-validation` in its own template | `string` | `lg-validation-wrapper-<unique>` | No       |
 
 ## Accessibility – other considerations
 
@@ -98,8 +145,6 @@ Style error messages in red and use a warning icon to provide a <a href="https:/
 
 [Read our writing guide](./?path=/docs/principles-writing--docs).
 
-***
+---
 
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>

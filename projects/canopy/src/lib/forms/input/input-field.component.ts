@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 import { LgDomService } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
-import { LgValidationComponent } from '../validation';
+import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import { LgButtonComponent } from '../../button';
 import { LgSuffixDirective } from '../../suffix';
 import { LgPrefixDirective } from '../../prefix';
@@ -50,6 +50,8 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _inputElement: LgInputDirective;
   private _hintElement: LgHintComponent;
   private _validationElement: LgValidationComponent;
+  private _validationWrapperElement: LgValidationWrapperDirective;
+  private _describedByValidation: { id: string };
   private _suffixChildren: QueryList<LgSuffixDirective>;
   private _prefixChildren: QueryList<LgPrefixDirective>;
   private _externalButtonChildren: QueryList<LgInputFieldExternalButtonDirective>;
@@ -127,15 +129,16 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
     this._hintElement = element;
   }
 
-  @ContentChild(LgValidationComponent)
+  @ContentChild(LgValidationComponent, { descendants: true })
   set errorElement(element: LgValidationComponent) {
-    this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
-      this.inputElement.ariaDescribedBy,
-      this._validationElement,
-      element,
-    );
-
     this._validationElement = element;
+    this.updateAriaDescribedBy();
+  }
+
+  @ContentChild(LgValidationWrapperDirective)
+  set errorWrapperElement(element: LgValidationWrapperDirective) {
+    this._validationWrapperElement = element;
+    this.updateAriaDescribedBy();
   }
 
   @ContentChildren(LgButtonComponent, { descendants: true })
@@ -222,5 +225,25 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
   onMouseOut(): void {
     this.hasHover = false;
+  }
+
+  private updateAriaDescribedBy(): void {
+    if (!this._inputElement) {
+      return;
+    }
+
+    const element = this._validationElement ?? this._validationWrapperElement ?? null;
+
+    if (element === this._describedByValidation) {
+      return;
+    }
+
+    this.inputElement.ariaDescribedBy = this.domService.toggleIdInStringProperty(
+      this.inputElement.ariaDescribedBy,
+      this._describedByValidation,
+      element,
+    );
+
+    this._describedByValidation = element;
   }
 }
