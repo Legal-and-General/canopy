@@ -20,11 +20,11 @@
    * @tokens Link Base
    * @presenter Color
    */
-  --link-color: #005dba; /* Default link color */
-  --link-hover-color: #003894; /* Hover link color */
-  --link-visited-color: #000a52; /* Visited link color */
-  --link-active-color: #000a52; /* Active link color */
-  --link-focus-color: #000a52; /* Focus link color */
+  --link-color: #005dba; /* Default link colour */
+  --link-hover-color: #003894; /* Hover link colour */
+  --link-visited-color: #000a52; /* Visited link colour */
+  --link-active-color: #000a52; /* Active link colour */
+  --link-focus-color: #000a52; /* Focus link colour */
   --link-gap: 0.25rem; /* Gap between link text and icon */
 
   /**
