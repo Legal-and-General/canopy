@@ -1,0 +1,19 @@
+:root {
+  /**
+   * @tokens Content Area Base
+   * @presenter Color
+   */
+  --content-area-padding-x: 1.75rem; /* Horizontal padding */
+  --content-area-padding-y: 1.25rem; /* Vertical padding */
+  --content-area-border-radius: 1.75rem; /* Corner radius */
+  --content-area-gap: 1.75rem; /* Gap between content */
+
+  /**
+   * @tokens Content Area Colours
+   * @presenter Color
+   */
+  --content-area-background-colour: #ffffff; /* Background colour */
+  --content-area-border-colour: #d3d3d3; /* Border colour */
+  --content-area-border-width: 0.0625rem; /* Border width */
+  --content-area-colour: #1d1d1b; /* Text colour */
+}

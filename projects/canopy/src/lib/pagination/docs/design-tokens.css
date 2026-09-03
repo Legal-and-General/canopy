@@ -1,0 +1,33 @@
+:root {
+  /**
+   * @tokens Pagination Base
+   * @presenter Color
+   */
+  --pagination-colour: #1d1d1b;
+  --pagination-inside-gap: 0.5rem;
+  --pagination-vertical-gap: 1rem;
+  --pagination-horizontal-gap: 1.75rem;
+  --pagination-page-common-hover-indicator-width: 0.125rem;
+
+  /**
+   * @tokens Pagination Page States
+   * @presenter Color
+   */
+  --pagination-page-rest-background-colour: #ffffff;
+  --pagination-page-rest-colour: #1d1d1b;
+  --pagination-page-rest-hover-indicator-colour: #ffffff;
+  --pagination-page-hover-background-colour: #aee1f7;
+  --pagination-page-hover-hover-indicator-colour: #001d6e;
+  --pagination-page-hover-colour: #1d1d1b;
+  --pagination-page-active-background-colour: #005dba;
+  --pagination-page-active-colour: #ffffff;
+  --pagination-page-active-hover-indicator-colour: #005dba;
+  --pagination-page-focus-background-colour: #ffffff;
+  --pagination-page-focus-border-colour: #1d1d1b;
+  --pagination-page-focus-border-width: 0.1875rem;
+  --pagination-page-focus-colour: #1d1d1b;
+  --pagination-page-focus-hover-indicator-colour: #ffffff;
+  --pagination-page-disabled-background-colour: #f4f4f4;
+  --pagination-page-disabled-colour: #d3d3d3;
+  --pagination-page-disabled-hover-indicator-colour: #f4f4f4;
+}
