@@ -1,0 +1,77 @@
+/**
+ * Link design tokens for Storybook design token addon
+ * This file defines the actual token values for display
+ */
+
+:root {
+  /**
+   * @tokens Link Primary
+   * @presenter Color
+   */
+  --link-primary-rest-colour: #005dba; /* Blue 600 */
+  --link-primary-hover-colour: #003894; /* Blue 700 */
+  --link-primary-visited-colour: #000a52; /* Blue 900 */
+  --link-primary-active-colour: #000a52; /* Blue 900 */
+  --link-primary-focus-colour: #000a52; /* Blue 900 */
+  --link-primary-focus-border-width: 0.1875rem; /* Focus border width */
+  --link-primary-focus-border-radius: 0.125rem; /* Focus border radius */
+
+  /**
+   * @tokens Link Base
+   * @presenter Color
+   */
+  --link-color: #005dba; /* Default link color */
+  --link-hover-color: #003894; /* Hover link color */
+  --link-visited-color: #000a52; /* Visited link color */
+  --link-active-color: #000a52; /* Active link color */
+  --link-focus-color: #000a52; /* Focus link color */
+  --link-gap: 0.25rem; /* Gap between link text and icon */
+
+  /**
+   * @tokens Link Dark Foreground
+   * @presenter Color
+   */
+  --dark-foreground-link-color: #202020; /* Greyscale 900 */
+  --dark-foreground-link-hover-color: #202020; /* Greyscale 900 */
+  --dark-foreground-link-visited-color: #000000; /* Greyscale 1000 */
+  --dark-foreground-link-active-color: #000000; /* Greyscale 1000 */
+  --dark-foreground-link-active-bg-color: #000000; /* Greyscale 1000 */
+  --dark-foreground-link-focus-color: #000000; /* Greyscale 1000 */
+  --dark-foreground-link-focus-bg-color: #000000; /* Greyscale 1000 */
+
+  /**
+   * @tokens Link Light Foreground
+   * @presenter Color
+   */
+  --light-foreground-link-color: #ffffff; /* Greyscale 0 */
+  --light-foreground-link-hover-color: #ffffff; /* Greyscale 0 */
+  --light-foreground-link-visited-color: #ffffff; /* Greyscale 0 */
+  --light-foreground-link-active-color: #ffffff; /* Greyscale 0 */
+  --light-foreground-link-active-bg-color: #ffffff; /* Greyscale 0 */
+  --light-foreground-link-focus-color: #ffffff; /* Greyscale 0 */
+  --light-foreground-link-focus-bg-color: #ffffff; /* Greyscale 0 */
+
+  /**
+   * @tokens Link Status Subtle
+   * @presenter Color
+   */
+  --link-status-subtle-rest-colour: #202020; /* Greyscale 900 */
+  --link-status-subtle-hover-colour: #202020; /* Greyscale 900 */
+  --link-status-subtle-visited-colour: #000000; /* Greyscale 1000 */
+  --link-status-subtle-active-colour: #000000; /* Greyscale 1000 */
+  --link-status-subtle-focus-colour: #000000; /* Greyscale 1000 */
+  --link-status-subtle-focus-border-width: 0.1875rem; /* Focus border width */
+  --link-status-subtle-focus-border-radius: 0.125rem; /* Focus border radius */
+
+  /**
+   * @tokens Link Status Bold
+   * @presenter Color
+   */
+  --link-status-bold-rest-colour: #ffffff; /* Greyscale 0 */
+  --link-status-bold-hover-colour: #ffffff; /* Greyscale 0 */
+  --link-status-bold-visited-colour: #ffffff; /* Greyscale 0 */
+  --link-status-bold-active-colour: #ffffff; /* Greyscale 0 */
+  --link-status-bold-focus-colour: #ffffff; /* Greyscale 0 */
+  --link-status-bold-focus-border-width: 0.1875rem; /* Focus border width */
+  --link-status-bold-focus-border-radius: 0.125rem; /* Focus border radius */
+}

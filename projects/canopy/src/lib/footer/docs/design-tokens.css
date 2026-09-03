@@ -1,0 +1,25 @@
+:root {
+  /**
+   * @tokens Footer Base
+   * @presenter Color
+   */
+  --footer-background-colour: #ffffff;
+  --footer-border-colour: #d3d3d3;
+  --footer-border-width: 0.0625rem;
+  --footer-min-width: 20rem;
+  --footer-padding-x: 1rem;
+  --footer-padding-y: 1.75rem;
+  --footer-gap: 1.75rem;
+
+  /**
+   * @tokens Footer Logo
+   */
+  --footer-logo-gap: 2.25rem;
+  --footer-logo-size: 5rem;
+
+  /**
+   * @tokens Footer Links
+   */
+  --footer-link-group-social-gap: 0.75rem;
+  --footer-link-group-link-gap: 1rem;
+}
