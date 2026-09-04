@@ -80,7 +80,7 @@
     "@commitlint/config-conventional": "21.0.1",
     "@commitlint/prompt": "21.0.1",
     "@compodoc/compodoc": "2.0.0",
-    "@percy/cli": "1.32.2",
+    "@percy/cli": "1.32.8",
     "@percy/storybook": "10.0.0",
     "@semantic-release/github": "12.0.8",
     "@semantic-release/npm": "13.1.5",
