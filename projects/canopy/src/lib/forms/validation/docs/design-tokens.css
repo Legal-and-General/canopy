@@ -1,0 +1,10 @@
+:root {
+  /**
+   * @tokens Form Validation
+   * @presenter Color
+   */
+  --form-field-gap: 1rem;
+  --label-and-hint-validation-message-colour: #1d1d1b;
+  --content-icon-size-sm: 1.5rem;
+  --content-gap-inside-md: 0.75rem;
+}

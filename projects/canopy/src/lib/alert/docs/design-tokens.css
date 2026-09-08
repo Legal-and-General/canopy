@@ -1,0 +1,18 @@
+:root {
+  /**
+   * @tokens Inline Message Base
+   * @presenter Color
+   */
+  --inline-message-padding-x: 0.75rem; /* Horizontal padding */
+  --inline-message-padding-y: 0.75rem; /* Vertical padding */
+  --inline-message-border-radius: 0.75rem; /* Corner radius */
+  --inline-message-gap: 0.75rem; /* Gap between icon and content */
+
+  /**
+   * @tokens Inline Message Colours
+   * @presenter Color
+   */
+  --inline-message-text-colour: #1d1d1b; /* Text colour */
+  --inline-message-background-colour: #f4f4f4; /* Background colour */
+  --inline-message-icon-colour: #1d1d1b; /* Icon colour */
+}

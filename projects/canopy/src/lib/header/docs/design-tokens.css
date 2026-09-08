@@ -1,0 +1,60 @@
+:root {
+  /**
+   * @tokens Header Container
+   * @presenter Color
+   */
+  --header-container-background-colour: #ffffff;
+  --header-container-gap: 1.75rem;
+  --header-container-logo-gap-sm: 1rem;
+  --header-container-logo-gap-lg: 1.25rem;
+  --header-container-min-width: 20rem;
+  --header-container-padding-x: 1rem;
+  --header-container-padding-y: 0.5rem;
+  --header-container-max-height: 5.5625rem;
+
+  /**
+   * @tokens Header Logo
+   */
+  --header-logo-container-max-width-sm: 10.3125rem;
+  --header-logo-container-max-height-sm: 2.75rem;
+  --header-logo-container-max-height-lg: 4rem;
+  --header-logo-container-max-width-lg: 14.5rem;
+  --header-logo-container-padding-bottom-lg: 0.75rem;
+  --header-logo-container-padding-bottom-sm: 0.5rem;
+  --header-logo-primary-max-height-sm: 2.25rem;
+  --header-logo-primary-max-height-lg: 3.25rem;
+  --header-logo-secondary-height-sm: 1.5625rem;
+  --header-logo-secondary-height-lg: 2.25rem;
+  --header-logo-secondary-max-width-sm: 5.25rem;
+  --header-logo-secondary-max-width-lg: 7.5rem;
+
+  /**
+   * @tokens Header Button
+   * @presenter Color
+   */
+  --header-button-padding-default-x: 0.75rem;
+  --header-button-padding-small-x: 0.5rem;
+  --header-button-padding-right: 0.75rem;
+  --header-button-padding-y: 0.75rem;
+  --header-button-padding-bottom: 0.75rem;
+  --header-button-border-radius: 0.75rem;
+  --header-button-border-width-focus: 0.1875rem;
+  --header-button-icon-size: 1.5rem;
+  --header-button-gap: 0.5rem;
+  --header-button-text-label-height: 1.375rem;
+  --header-button-text-icon-label-height: 0.875rem;
+  --header-button-min-height: 3rem;
+  --header-button-min-width: 3rem;
+  --header-button-rest-background-colour: #ffffff;
+  --header-button-rest-colour: #1d1d1b;
+  --header-button-rest-hover-indicator: #ffffff;
+  --header-button-hover-background-colour: #aee1f7;
+  --header-button-hover-colour: #1d1d1b;
+  --header-button-hover-hover-indicator: #001d6e;
+  --header-button-active-background-colour: #005dba;
+  --header-button-active-colour: #ffffff;
+  --header-button-active-hover-indicator: #005dba;
+  --header-button-focus-background-colour: #ffffff;
+  --header-button-focus-border-colour: #ffffff;
+  --header-button-focus-colour: #1d1d1b;
+}

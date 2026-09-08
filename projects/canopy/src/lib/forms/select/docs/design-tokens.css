@@ -1,0 +1,57 @@
+:root {
+  /**
+   * @tokens Select Base
+   */
+  --select-common-border-radius: 0.75rem;
+  --select-common-height: 3rem;
+  --select-common-padding-x: 1rem;
+  --select-common-padding-y: 0.5rem;
+  --select-common-text-gap: 0.5rem;
+  --select-common-button-gap: 1rem;
+
+  /**
+   * @tokens Select Rest
+   * @presenter Color
+   */
+  --select-rest-background-colour: #ffffff;
+  --select-rest-border-colour: #858686;
+  --select-rest-colour: #1d1d1b;
+  --select-rest-border-width: 0.09375rem;
+
+  /**
+   * @tokens Select Hover
+   * @presenter Color
+   */
+  --select-hover-background-colour: #ffffff;
+  --select-hover-border-colour: #4d4f4f;
+  --select-hover-colour: #1d1d1b;
+  --select-hover-border-width: 0.09375rem;
+
+  /**
+   * @tokens Select Focus
+   * @presenter Color
+   */
+  --select-focus-background-colour: #ffffff;
+  --select-focus-border-colour: #1d1d1b;
+  --select-focus-colour: #1d1d1b;
+  --select-focus-border-width: 0.1875rem;
+
+  /**
+   * @tokens Select Error
+   * @presenter Color
+   */
+  --select-error-background-colour: #ffffff;
+  --select-error-border-colour: #c50b30;
+  --select-error-colour: #1d1d1b;
+  --select-error-border-width: 0.09375rem;
+  --select-error-focus-border-width: 0.1875rem;
+
+  /**
+   * @tokens Select Disabled
+   * @presenter Color
+   */
+  --select-disabled-background-colour: #f4f4f4;
+  --select-disabled-border-colour: #d3d3d3;
+  --select-disabled-colour: #a6a7a7;
+  --select-disabled-border-width: 0.09375rem;
+}

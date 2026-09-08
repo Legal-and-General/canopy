@@ -1,0 +1,77 @@
+:root {
+  /**
+   * @tokens Button Base
+   * @presenter Color
+   */
+  --button-border-radius: 0.75rem; /* Button corner radius */
+  --button-border-width: 0.09375rem; /* Default border width */
+  --button-border-width-focus: 0.1875rem; /* Focus border width */
+  --button-gap: 0.5rem; /* Gap between button content */
+  --button-common-labelled-min-height: 3rem; /* Labelled button minimum height */
+  --button-common-labelled-min-width: 3rem; /* Labelled button minimum width */
+  --button-common-labelled-padding-x: 1rem; /* Labelled button horizontal padding */
+  --button-common-labelled-padding-y: 0.75rem; /* Labelled button vertical padding */
+  --button-common-icon-only-min-height: 3rem; /* Icon-only button minimum height */
+  --button-common-icon-only-min-width: 3rem; /* Icon-only button minimum width */
+  --button-common-icon-only-padding-x: 0.75rem; /* Icon-only button horizontal padding */
+  --button-common-icon-only-padding-y: 0.75rem; /* Icon-only button vertical padding */
+  --button-icon-width: 1.5rem; /* Icon width */
+
+  /**
+   * @tokens Button Primary
+   * @presenter Color
+   */
+  --button-primary-rest-background-colour: #005dba; /* Rest background colour */
+  --button-primary-rest-border-colour: #005dba; /* Rest border colour */
+  --button-primary-rest-colour: #ffffff; /* Rest text colour */
+  --button-primary-hover-background-colour: #001d6e; /* Hover background colour */
+  --button-primary-hover-border-colour: #001d6e; /* Hover border colour */
+  --button-primary-hover-colour: #ffffff; /* Hover text colour */
+  --button-primary-active-background-colour: #000039; /* Active background colour */
+  --button-primary-active-border-colour: #000039; /* Active border colour */
+  --button-primary-active-colour: #ffffff; /* Active text colour */
+  --button-primary-focus-background-colour: #005dba; /* Focus background colour */
+  --button-primary-focus-colour: #ffffff; /* Focus text colour */
+  --button-primary-disabled-background-colour: #d3d3d3; /* Disabled background colour */
+  --button-primary-disabled-border-colour: #d3d3d3; /* Disabled border colour */
+  --button-primary-disabled-colour: #7a7b7b; /* Disabled text colour */
+
+  /**
+   * @tokens Button Secondary
+   * @presenter Color
+   */
+  --button-secondary-rest-background-colour: #ffffff; /* Rest background colour */
+  --button-secondary-rest-border-colour: #1d1d1b; /* Rest border colour */
+  --button-secondary-rest-colour: #1d1d1b; /* Rest text colour */
+  --button-secondary-hover-background-colour: #001d6e; /* Hover background colour */
+  --button-secondary-hover-border-colour: #001d6e; /* Hover border colour */
+  --button-secondary-hover-colour: #ffffff; /* Hover text colour */
+  --button-secondary-active-background-colour: #000039; /* Active background colour */
+  --button-secondary-active-border-colour: #000039; /* Active border colour */
+  --button-secondary-active-colour: #ffffff; /* Active text colour */
+  --button-secondary-focus-background-colour: #ffffff; /* Focus background colour */
+  --button-secondary-focus-border-colour: #1d1d1b; /* Focus border colour */
+  --button-secondary-focus-colour: #1d1d1b; /* Focus text colour */
+  --button-secondary-disabled-background-colour: #d3d3d3; /* Disabled background colour */
+  --button-secondary-disabled-border-colour: #d3d3d3; /* Disabled border colour */
+  --button-secondary-disabled-colour: #7a7b7b; /* Disabled text colour */
+
+  /**
+   * @tokens Button Status
+   * @presenter Color
+   */
+  --button-status-rest-background-colour: #4d4f4f; /* Rest background colour */
+  --button-status-rest-border-colour: #4d4f4f; /* Rest border colour */
+  --button-status-rest-colour: #ffffff; /* Rest text colour */
+  --button-status-hover-background-colour: #343634; /* Hover background colour */
+  --button-status-hover-border-colour: #343634; /* Hover border colour */
+  --button-status-hover-colour: #ffffff; /* Hover text colour */
+  --button-status-active-background-colour: #1d1d1b; /* Active background colour */
+  --button-status-active-border-colour: #1d1d1b; /* Active border colour */
+  --button-status-active-colour: #ffffff; /* Active text colour */
+  --button-status-focus-background-colour: #4d4f4f; /* Focus background colour */
+  --button-status-focus-colour: #ffffff; /* Focus text colour */
+  --button-status-disabled-background-colour: #bcbdbd; /* Disabled background colour */
+  --button-status-disabled-border-colour: #bcbdbd; /* Disabled border colour */
+  --button-status-disabled-colour: #858686; /* Disabled text colour */
+}

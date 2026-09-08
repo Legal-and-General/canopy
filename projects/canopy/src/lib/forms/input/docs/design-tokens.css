@@ -1,0 +1,58 @@
+:root {
+  /**
+   * @tokens Text Input Base
+   */
+  --text-input-common-border-radius: 0.75rem;
+  --text-input-common-height: 3rem;
+  --text-input-common-padding-x: 1rem;
+  --text-input-common-padding-y: 0.5rem;
+  --text-input-common-text-gap: 0.5rem;
+  --text-input-common-button-gap: 0.5rem;
+  --text-input-common-addon-button-gap: 1rem;
+
+  /**
+   * @tokens Text Input Rest
+   * @presenter Color
+   */
+  --text-input-rest-background-colour: #ffffff;
+  --text-input-rest-border-colour: #858686;
+  --text-input-rest-colour: #1d1d1b;
+  --text-input-rest-border-width: 0.09375rem;
+
+  /**
+   * @tokens Text Input Hover
+   * @presenter Color
+   */
+  --text-input-hover-background-colour: #ffffff;
+  --text-input-hover-border-colour: #4d4f4f;
+  --text-input-hover-colour: #1d1d1b;
+  --text-input-hover-border-width: 0.09375rem;
+
+  /**
+   * @tokens Text Input Focus
+   * @presenter Color
+   */
+  --text-input-focus-background-colour: #ffffff;
+  --text-input-focus-border-colour: #1d1d1b;
+  --text-input-focus-colour: #1d1d1b;
+  --text-input-focus-border-width: 0.1875rem;
+
+  /**
+   * @tokens Text Input Error
+   * @presenter Color
+   */
+  --text-input-error-background-colour: #ffffff;
+  --text-input-error-border-colour: #c50b30;
+  --text-input-error-colour: #1d1d1b;
+  --text-input-error-border-width: 0.09375rem;
+  --text-input-error-focus-border-width: 0.1875rem;
+
+  /**
+   * @tokens Text Input Disabled
+   * @presenter Color
+   */
+  --text-input-disabled-background-colour: #f4f4f4;
+  --text-input-disabled-border-colour: #d3d3d3;
+  --text-input-disabled-colour: #a6a7a7;
+  --text-input-disabled-border-width: 0.09375rem;
+}

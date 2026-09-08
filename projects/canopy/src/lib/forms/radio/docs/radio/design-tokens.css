@@ -1,0 +1,52 @@
+:root {
+  /**
+   * @tokens Radio Base
+   */
+  --radio-scale-sm-control-size: 1rem;
+  --radio-scale-sm-indicator-size: 0.5rem;
+  --radio-scale-sm-gap: 1.75rem;
+  --radio-scale-lg-control-size: 1.75rem;
+  --radio-scale-lg-indicator-size: 1rem;
+  --radio-scale-lg-gap: 2.25rem;
+  --radio-common-colour: #1d1d1b;
+  --radio-common-border-radius: 1rem;
+  --radio-group-sm-gap: 1rem;
+  --radio-group-lg-gap: 1.25rem;
+
+  /**
+   * @tokens Radio Rest and Hover
+   * @presenter Color
+   */
+  --radio-rest-control-background-colour: #ffffff;
+  --radio-rest-control-border-colour: #858686;
+  --radio-rest-control-border-width: 0.09375rem;
+  --radio-rest-indicator-colour: #005dba;
+  --radio-hover-control-background-colour: #ffffff;
+  --radio-hover-control-border-colour: #4d4f4f;
+  --radio-hover-control-border-width: 0.09375rem;
+  --radio-hover-indicator-colour: #001d6e;
+
+  /**
+   * @tokens Radio Focus and Error
+   * @presenter Color
+   */
+  --radio-focus-control-background-colour: #ffffff;
+  --radio-focus-control-border-colour: #1d1d1b;
+  --radio-focus-control-border-width: 0.1875rem;
+  --radio-focus-indicator-colour: #005dba;
+  --radio-error-control-background-colour: #ffffff;
+  --radio-error-control-border-colour: #c50b30;
+  --radio-error-control-border-width: 0.09375rem;
+  --radio-error-control-focus-border-width: 0.1875rem;
+  --radio-error-indicator-colour: #c50b30;
+
+  /**
+   * @tokens Radio Disabled
+   * @presenter Color
+   */
+  --radio-disabled-label-colour: #a6a7a7;
+  --radio-disabled-control-background-colour: #f4f4f4;
+  --radio-disabled-control-border-colour: #d3d3d3;
+  --radio-disabled-control-border-width: 0.09375rem;
+  --radio-disabled-indicator-colour: #d3d3d3;
+}

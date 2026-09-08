@@ -1,0 +1,43 @@
+:root {
+  /**
+   * @tokens Link Menu Base
+   * @presenter Color
+   */
+  --link-menu-border-colour: #d3d3d3;
+  --link-menu-border-width: 0.0625rem;
+  --link-menu-border-radius: 1rem;
+
+  /**
+   * @tokens Link Menu Item
+   * @presenter Color
+   */
+  --link-menu-item-padding-top: 1rem;
+  --link-menu-item-padding-bottom: 1rem;
+  --link-menu-item-padding-left: 1rem;
+  --link-menu-item-padding-right: 0.5rem;
+  --link-menu-item-gap: 0.75rem;
+  --link-menu-item-rest-border-colour: #d3d3d3;
+  --link-menu-item-rest-border-width-bottom: 0.0625rem;
+  --link-menu-item-rest-colour: #1d1d1b;
+  --link-menu-item-rest-colour-muted: #4d4f4f;
+
+  /**
+   * @tokens Link Menu Item States
+   * @presenter Color
+   */
+  --link-menu-item-hover-background-colour: #aee1f7;
+  --link-menu-item-hover-border-colour: #001d6e;
+  --link-menu-item-hover-border-width-bottom: 0.1875rem;
+  --link-menu-item-hover-colour: #1d1d1b;
+  --link-menu-item-hover-colour-muted: #1d1d1b;
+  --link-menu-item-hover-padding-right: 0.5rem;
+  --link-menu-item-active-background-colour: #005dba;
+  --link-menu-item-active-border-width-bottom: 0.0625rem;
+  --link-menu-item-active-border-colour: #ffffff;
+  --link-menu-item-active-colour: #ffffff;
+  --link-menu-item-active-colour-muted: #ffffff;
+  --link-menu-item-focus-border-colour: #1d1d1b;
+  --link-menu-item-focus-border-width: 0.1875rem;
+  --link-menu-item-focus-colour: #1d1d1b;
+  --link-menu-item-focus-colour-muted: #1d1d1b;
+}

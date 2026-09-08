@@ -1,0 +1,21 @@
+:root {
+  /**
+   * @tokens Data Point Base
+   * @presenter Color
+   */
+  --data-point-gap: 0.25rem; /* Gap between data point elements */
+
+  /**
+   * @tokens Data Point Colours
+   * @presenter Color
+   */
+  --data-point-label-colour: #4d4f4f; /* Label colour */
+  --data-point-value-colour: #1d1d1b; /* Value colour */
+
+  /**
+   * @tokens Data Point Group
+   * @presenter Color
+   */
+  --data-point-group-column-gap: 2.25rem; /* Column gap */
+  --data-point-group-row-gap: 2.25rem; /* Row gap */
+}

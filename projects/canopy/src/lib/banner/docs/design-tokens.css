@@ -1,0 +1,17 @@
+:root {
+  /**
+   * @tokens Banner Base
+   * @presenter Color
+   */
+  --banner-padding-x: 1rem; /* Horizontal padding */
+  --banner-padding-y: 0.75rem; /* Vertical padding */
+  --banner-gap: 0.75rem; /* Gap between banner content */
+
+  /**
+   * @tokens Banner Colours
+   * @presenter Color
+   */
+  --banner-background-colour: #4d4f4f; /* Background colour */
+  --banner-text-colour: #ffffff; /* Text colour */
+  --banner-icon-colour: #ffffff; /* Icon colour */
+}

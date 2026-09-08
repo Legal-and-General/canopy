@@ -1,0 +1,45 @@
+:root {
+  /**
+   * @tokens Segment Control
+   * @presenter Color
+   */
+  --segment-control-common-background-colour: #f4f4f4;
+  --segment-control-common-border-colour: #858686;
+  --segment-control-common-border-radius: 0.75rem;
+  --segment-control-common-border-width: 0.09375rem;
+  --segment-control-common-gap: 0.25rem;
+  --segment-control-common-min-width: 14.5rem;
+  --segment-control-common-padding-x: 0.25rem;
+  --segment-control-common-padding-y: 0.25rem;
+  --segment-control-focus-border-colour: #1d1d1b;
+  --segment-control-focus-border-width: 0.1875rem;
+  --segment-control-error-border-colour: #c50b30;
+  --segment-control-error-border-width: 0.09375rem;
+  --segment-control-error-focus-border-width: 0.1875rem;
+
+  /**
+   * @tokens Segment Button Base
+   */
+  --segment-button-common-padding-x: 0.5rem;
+  --segment-button-common-padding-y: 0.5rem;
+  --segment-button-common-border-radius: 0.5rem;
+  --segment-button-common-min-height: 2.25rem;
+
+  /**
+   * @tokens Segment Button States
+   * @presenter Color
+   */
+  --segment-button-rest-background-colour: #ffffff;
+  --segment-button-rest-colour: #1d1d1b;
+  --segment-button-hover-background-colour: #aee1f7;
+  --segment-button-hover-colour: #1d1d1b;
+  --segment-button-active-background-colour: #005dba;
+  --segment-button-active-colour: #ffffff;
+  --segment-button-focus-background-colour: #ffffff;
+  --segment-button-focus-colour: #1d1d1b;
+  --segment-button-focus-border-colour: #1d1d1b;
+  --segment-button-focus-border-width: 0.1875rem;
+  --segment-button-error-background-colour: #4d4f4f;
+  --segment-button-disabled-background-colour: #d3d3d3;
+  --segment-button-disabled-colour: #a6a7a7;
+}

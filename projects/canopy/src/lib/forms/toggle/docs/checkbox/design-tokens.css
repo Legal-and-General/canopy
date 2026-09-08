@@ -1,0 +1,54 @@
+:root {
+  /**
+   * @tokens Checkbox Base
+   */
+  --checkbox-scale-sm-gap: 1.75rem;
+  --checkbox-scale-sm-control-size: 1rem;
+  --checkbox-scale-sm-indicator-size: 1rem;
+  --checkbox-scale-lg-gap: 2.25rem;
+  --checkbox-scale-lg-control-size: 1.75rem;
+  --checkbox-scale-lg-indicator-size: 1.75rem;
+  --checkbox-common-gap: 0.75rem;
+  --checkbox-common-colour: #1d1d1b;
+  --checkbox-common-border-radius: 0.25rem;
+  --checkbox-group-sm-gap: 1rem;
+  --checkbox-group-lg-gap: 1.25rem;
+
+  /**
+   * @tokens Checkbox Rest and Hover
+   * @presenter Color
+   */
+  --checkbox-rest-control-background-colour: #ffffff;
+  --checkbox-rest-control-border-colour: #858686;
+  --checkbox-rest-control-border-width: 0.09375rem;
+  --checkbox-rest-indicator-colour: #005dba;
+  --checkbox-hover-control-background-colour: #ffffff;
+  --checkbox-hover-control-border-colour: #4d4f4f;
+  --checkbox-hover-control-border-width: 0.09375rem;
+  --checkbox-hover-indicator-colour: #001d6e;
+
+  /**
+   * @tokens Checkbox Focus and Error
+   * @presenter Color
+   */
+  --checkbox-focus-control-background-colour: #ffffff;
+  --checkbox-focus-control-border-colour: #1d1d1b;
+  --checkbox-focus-control-border-width: 0.1875rem;
+  --checkbox-focus-indicator-colour: #005dba;
+  --checkbox-error-control-background-colour: #ffffff;
+  --checkbox-error-control-border-colour: #c50b30;
+  --checkbox-error-control-border-width: 0.09375rem;
+  --checkbox-error-control-focus-border-width: 0.1875rem;
+  --checkbox-error-indicator-colour: #c50b30;
+
+  /**
+   * @tokens Checkbox Disabled
+   * @presenter Color
+   */
+  --checkbox-disabled-label-colour: #a6a7a7;
+  --checkbox-disabled-control-background-colour: #f4f4f4;
+  --checkbox-disabled-control-border-colour: #d3d3d3;
+  --checkbox-disabled-control-border-width: 0.09375rem;
+  --checkbox-disabled-indicator-colour: #d3d3d3;
+  --checkbox-disabled-indicator-background-colour: #d3d3d3;
+}

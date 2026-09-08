@@ -1,0 +1,27 @@
+:root {
+  /**
+   * @tokens Details Base
+   * @presenter Color
+   */
+  --details-active-padding-bottom: 1rem; /* Active panel bottom padding */
+  --details-border-radius: 0.75rem; /* Corner radius */
+  --details-gap: 0.75rem; /* Gap between details elements */
+  --details-padding-x: 0.75rem; /* Horizontal padding */
+  --details-padding-y: 0.75rem; /* Vertical padding */
+
+  /**
+   * @tokens Details Focus
+   * @presenter Color
+   */
+  --details-focus-indicator-colour: #1d1d1b; /* Focus indicator colour */
+  --details-focus-indicator-border-width: 0.1875rem; /* Focus indicator border width */
+  --details-focus-indicator-border-radius: 0.5rem; /* Focus indicator border radius */
+
+  /**
+   * @tokens Details Status
+   * @presenter Color
+   */
+  --details-status-background-colour: #f4f4f4; /* Status background colour */
+  --details-status-icon-colour: #1d1d1b; /* Status icon colour */
+  --details-status-text-colour: #1d1d1b; /* Status text colour */
+}
