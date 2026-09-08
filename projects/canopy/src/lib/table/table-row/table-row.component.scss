@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
 
+  .lg-toggle {
+    margin-bottom: 0;
+  }
+
   &__detail {
     padding: 0;
   }
@@ -24,6 +28,11 @@
   &--footer {
     border-top: solid var(--table-cell-header-border-width)
       var(--table-cell-header-border-colour);
+    flex-direction: row;
+
+    .lg-table-cell:first-child {
+      flex: 1;
+    }
   }
 }
 

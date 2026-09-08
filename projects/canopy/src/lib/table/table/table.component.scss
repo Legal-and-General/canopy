@@ -17,12 +17,13 @@
   }
 
   &--bordered {
-    border-collapse: separate; // or should this be collapse
+    border-collapse: separate;
 
     tr:not(:last-child):not(.lg-table-row--error):not(.lg-table-row--selected):not(
         .lg-table-row__toggle--active
       ) {
-      border-bottom: solid var(--border-width) var(--table-cell-common-border-colour);
+      box-shadow: inset 0 calc(-1 * var(--border-width)) 0
+        var(--table-cell-common-border-colour);
     }
   }
 
@@ -48,7 +49,6 @@
 @each $columns-breakpoint in table.$columns-breakpoints {
   .lg-table--columns-#{$columns-breakpoint} {
     @include mixins.lg-breakpoint($columns-breakpoint) {
-      // border-top: 0;
       display: table;
       table-layout: auto;
       width: 100%;
@@ -60,7 +60,7 @@
           border-bottom: 0;
 
           td {
-            border-bottom: solid var(--border-width)
+            box-shadow: inset 0 calc(-1 * var(--border-width)) 0
               var(--table-cell-common-border-colour);
           }
         }

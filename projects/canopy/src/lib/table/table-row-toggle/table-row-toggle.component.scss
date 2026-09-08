@@ -19,6 +19,12 @@
   &__heading-icon {
     transition: transform var(--animation-duration) var(--animation-fn);
     margin-right: var(--space-2);
+    vertical-align: middle;
+
+    &.lg-icon {
+      width: var(--content-icon-size-sm);
+      height: var(--content-icon-size-sm);
+    }
 
     &--active {
       transform: rotateX(180deg);
