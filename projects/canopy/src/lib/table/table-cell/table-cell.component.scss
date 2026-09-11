@@ -4,6 +4,7 @@
 .lg-table-cell {
   display: flex;
   align-items: center;
+  padding: var(--table-cell-common-padding-y-sm) var(--table-cell-common-padding-x);
 
   &--stacked {
     flex-direction: column;
@@ -28,7 +29,6 @@
 
   &--toggle-cell {
     order: 1;
-    padding: 0;
 
     .lg-table-cell__label {
       display: none;
@@ -41,7 +41,7 @@
 }
 
 .lg-table-cell__content {
-  text-align: end;
+  // text-align: end;
   margin-left: auto;
 
   .lg-label {
@@ -64,8 +64,23 @@
   }
 }
 
+.lg-table-row--footer .lg-table-cell:first-child .lg-table-cell__content {
+  margin-left: 0;
+  text-align: start;
+}
+
+.lg-table-row--footer .lg-table-cell__label {
+  display: none;
+}
+
+.lg-table-cell:has(.lg-toggle .lg-visually-hidden) {
+  .lg-toggle__label > .lg-toggle__checkbox {
+    margin: 0;
+  }
+}
+
 .lg-table-cell__label {
-  font-weight: var(--font-weight-500);
+  font-weight: var(--font-weight-700);
   padding-right: var(--space-5);
 }
 
@@ -74,13 +89,25 @@
     .lg-table-cell {
       @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-cell;
-        padding: var(--space-4);
+        padding: var(--table-cell-common-padding-y-lg) var(--table-cell-common-padding-x);
+        vertical-align: middle;
+      }
+
+      &:has(.lg-input-field) {
+        @include mixins.lg-breakpoint($columns-breakpoint) {
+          padding: var(--table-cell-common-padding-y-sm)
+            var(--table-cell-common-padding-x);
+        }
+
+        .lg-label {
+          margin-bottom: 0;
+        }
       }
 
       &--toggle-cell {
         @include mixins.lg-breakpoint($columns-breakpoint) {
-          min-width: var(--table-toggle-width);
-          padding: 0;
+          width: 1%;
+          white-space: nowrap;
         }
       }
 
@@ -93,6 +120,14 @@
         &--align-end {
           @include mixins.lg-breakpoint($columns-breakpoint) {
             text-align: right;
+          }
+        }
+
+        &--align-centre {
+          @include mixins.lg-breakpoint($columns-breakpoint) {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
           }
         }
       }

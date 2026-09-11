@@ -4,7 +4,10 @@
 .lg-table-row {
   display: flex;
   flex-direction: column;
-  padding: var(--space-3);
+
+  .lg-toggle {
+    margin-bottom: 0;
+  }
 
   &__detail {
     padding: 0;
@@ -13,6 +16,24 @@
   &--hidden {
     @include mixins.lg-visually-hidden;
   }
+
+  &--error {
+    background-color: var(--table-status-cell-error-background-colour) !important;
+  }
+
+  &--selected {
+    background-color: var(--table-cell-common-background-colour) !important;
+  }
+
+  &--footer {
+    border-top: solid var(--table-cell-header-border-width)
+      var(--table-cell-header-border-colour);
+    flex-direction: row;
+
+    .lg-table-cell:first-child {
+      flex: 1;
+    }
+  }
 }
 
 @each $columns-breakpoint in table.$columns-breakpoints {
@@ -20,6 +41,15 @@
     .lg-table-row {
       @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-row;
+      }
+
+      &--footer {
+        @include mixins.lg-breakpoint($columns-breakpoint) {
+          .lg-table-cell {
+            border-top: solid var(--table-cell-header-border-width)
+              var(--table-cell-header-border-colour);
+          }
+        }
       }
     }
   }

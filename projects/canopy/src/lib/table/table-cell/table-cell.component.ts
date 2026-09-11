@@ -98,6 +98,7 @@ export class LgTableCellComponent {
     return this._columnLabel;
   }
 
+  @Input()
   set align(align: AlignmentOptions) {
     this._align = align;
 
