@@ -18,22 +18,12 @@ import { LgMarginDirective } from '../../spacing';
 import { LgSuffixDirective } from '../../suffix';
 import { LgButtonComponent } from '../../button';
 import { LgIconComponent } from '../../icon';
-import type { Colour, ColourTheme } from '../../colour';
-import { LgColourDirective } from '../../colour';
 
 interface TableStoryItem {
   author: string;
   title: string;
   published: string;
 }
-
-interface TableStoryModeArgs {
-  mode: Colour;
-  theme: ColourTheme;
-}
-
-const colours: Array<Colour> = [ 'blue', 'green', 'red', 'yellow' ];
-const themes: Array<ColourTheme> = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 function getDefaultTableContent(): Array<TableStoryItem> {
   return [
@@ -381,42 +371,6 @@ class StoryTableWithInputComponent {
 
 const responsiveCategory = 'Responsive options';
 const alignmentCategory = 'Alignment';
-const colourCategory = 'Colour';
-
-const colourArgTypes = {
-  mode: {
-    options: colours,
-    description: 'The colour mode to apply to the card containing the table.',
-    table: {
-      category: colourCategory,
-      type: {
-        summary: colours,
-      },
-      defaultValue: {
-        summary: 'blue',
-      },
-    },
-    control: {
-      type: 'select',
-    },
-  },
-  theme: {
-    options: themes,
-    description: 'The theme to apply to the card containing the table.',
-    table: {
-      category: colourCategory,
-      type: {
-        summary: themes,
-      },
-      defaultValue: {
-        summary: 'neutral',
-      },
-    },
-    control: {
-      type: 'select',
-    },
-  },
-};
 
 const argTypes = {
   variant: {
@@ -582,7 +536,6 @@ export default {
         LgToggleComponent,
         LgMarginDirective,
         LgSuffixDirective,
-        LgColourDirective,
       ],
     }),
   ],
@@ -595,8 +548,6 @@ export default {
 const standardTableTemplate = `
 <table
   lg-table
-  [lgColour]="mode"
-  [lgColourTheme]="theme"
   [showColumnsAt]="columnBreakpoint"
   [variant]="variant">
       <thead lg-table-head>
@@ -621,8 +572,15 @@ const standardTableTemplate = `
 
 const rowVariantsTableTemplate = `
 <table lg-table [showColumnsAt]="columnBreakpoint" [variant]="variant">
+    <colgroup>
+      <col span="1" style="width: 1%;" />
+      <col span="3" />
+    </colgroup>
     <thead lg-table-head>
       <tr lg-table-row>
+        <th lg-table-head-cell [showLabel]="false">
+          <span class="lg-visually-hidden">Select</span>
+        </th>
         <th lg-table-head-cell>Author</th>
         <th lg-table-head-cell [align]="alignTitleColumn">Title</th>
         <th lg-table-head-cell [align]="alignPublishColumn">Published</th>
@@ -631,6 +589,7 @@ const rowVariantsTableTemplate = `
 
     <tbody lg-table-body>
       <tr lg-table-row>
+        <td lg-table-cell></td>
         <td lg-table-cell>Orhan Pamuk</td>
         <td lg-table-cell>Strangeness In My Mind</td>
         <td lg-table-cell>2016</td>
@@ -638,28 +597,30 @@ const rowVariantsTableTemplate = `
       <tr lg-table-row [rowVariant]="errorRowSelected ? 'error' : null">
         <td lg-table-cell>
           <lg-checkbox
-            size="sm"
+            [class.lg-toggle--error]="errorRowSelected"
             [checked]="errorRowSelected"
             (change)="errorRowSelected = !errorRowSelected">
-            George Orwell
+            <span class="lg-visually-hidden">Select George Orwell</span>
           </lg-checkbox>
         </td>
+        <td lg-table-cell>George Orwell</td>
         <td lg-table-cell>Animal Farm (error)</td>
         <td lg-table-cell>1945</td>
       </tr>
       <tr lg-table-row [rowVariant]="selectedRowSelected ? 'selected' : null">
         <td lg-table-cell>
           <lg-checkbox
-            size="sm"
             [checked]="selectedRowSelected"
             (change)="selectedRowSelected = !selectedRowSelected">
-            Chinua Achebe
+            <span class="lg-visually-hidden">Select Chinua Achebe</span>
           </lg-checkbox>
         </td>
+        <td lg-table-cell>Chinua Achebe</td>
         <td lg-table-cell>Things Fall Apart (selected)</td>
         <td lg-table-cell>1958</td>
       </tr>
       <tr lg-table-row>
+        <td lg-table-cell></td>
         <td lg-table-cell>Brian Greene</td>
         <td lg-table-cell>The Elegant Universe</td>
         <td lg-table-cell>1999</td>
@@ -671,14 +632,12 @@ const rowVariantsTableTemplate = `
 
 export const StandardTable = {
   name: 'Standard',
-  render: (args: LgTableComponent & TableStoryModeArgs) => ({
+  render: (args: LgTableComponent) => ({
     props: args,
     template: standardTableTemplate,
   }),
   args: {
     books: getDefaultTableContent(),
-    mode: 'blue',
-    theme: 'neutral',
     variant: 'striped',
     alignTitleColumn: AlignmentOptions.Start,
     alignPublishColumn: AlignmentOptions.End,
@@ -688,7 +647,6 @@ export const StandardTable = {
   },
   argTypes: {
     ...argTypes,
-    ...colourArgTypes,
     rowVariant: {
       table: {
         disable: true,

@@ -73,6 +73,12 @@
   display: none;
 }
 
+.lg-table-cell:has(.lg-toggle .lg-visually-hidden) {
+  .lg-toggle__label > .lg-toggle__checkbox {
+    margin: 0;
+  }
+}
+
 .lg-table-cell__label {
   font-weight: var(--font-weight-700);
   padding-right: var(--space-5);
@@ -84,9 +90,10 @@
       @include mixins.lg-breakpoint($columns-breakpoint) {
         display: table-cell;
         padding: var(--table-cell-common-padding-y-lg) var(--table-cell-common-padding-x);
+        vertical-align: middle;
       }
 
-      &:has(input) {
+      &:has(.lg-input-field) {
         @include mixins.lg-breakpoint($columns-breakpoint) {
           padding: var(--table-cell-common-padding-y-sm)
             var(--table-cell-common-padding-x);
