@@ -1,6 +1,6 @@
 @use '../../styles/mixins';
 
-.lg-primary-message {
+.lg-notice {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +8,7 @@
 
   .lg-pictogram {
     width: var(--content-pictogram-size-md);
+    --lg-pictogram-fill-colour: var(--content-pictogram-status-fill) !important;
 
     @include mixins.lg-breakpoint(md) {
       width: var(--content-pictogram-size-lg);

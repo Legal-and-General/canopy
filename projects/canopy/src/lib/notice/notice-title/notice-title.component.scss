@@ -1,6 +1,6 @@
 @use '../../../styles/mixins';
 
-@mixin primary-message-title() {
+@mixin notice-title() {
   display: block;
   margin-top: var(--space-4);
   @include mixins.lg-font-size('3');
@@ -10,8 +10,8 @@
   }
 }
 
-.lg-primary-message-title {
-  @include primary-message-title;
+.lg-notice-title {
+  @include notice-title;
 
   h1,
   h2,
@@ -19,6 +19,6 @@
   h4,
   h5,
   h6 {
-    @include primary-message-title;
+    @include notice-title;
   }
 }

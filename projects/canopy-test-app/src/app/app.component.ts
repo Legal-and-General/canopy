@@ -123,10 +123,10 @@ import {
   LgListWithIconsItemComponent,
 } from '../../../canopy/src/lib/list';
 import {
-  LgPrimaryMessageComponent,
-  LgPrimaryMessageDescriptionComponent,
-  LgPrimaryMessageTitleComponent,
-} from '../../../canopy/src/lib/primary-message';
+  LgNoticeComponent,
+  LgNoticeDescriptionComponent,
+  LgNoticeTitleComponent,
+} from '../../../canopy/src/lib/notice';
 import { LgPictogramComponent } from '../../../canopy/src/lib/pictogram';
 import {
   LgPromoCardComponent,
@@ -244,10 +244,10 @@ import {
     LgRadioButtonComponent,
     LgListWithIconsComponent,
     LgListWithIconsItemComponent,
-    LgPrimaryMessageComponent,
+    LgNoticeComponent,
     LgPictogramComponent,
-    LgPrimaryMessageTitleComponent,
-    LgPrimaryMessageDescriptionComponent,
+    LgNoticeTitleComponent,
+    LgNoticeDescriptionComponent,
     LgPromoCardListComponent,
     LgPromoCardListTitleComponent,
     LgPromoCardComponent,

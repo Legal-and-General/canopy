@@ -311,38 +311,38 @@ BrandIconName
 
 ---
 
-## 6. primary-message: replace slotted `lg-brand-icon` content with `lg-pictogram`
+## 6. notice: replace slotted `lg-brand-icon` content with `lg-pictogram`
 
-**What changed:** `lg-primary-message` now accepts `lg-pictogram` in its
+**What changed:** `lg-notice` now accepts `lg-pictogram` in its
 content slot instead of `lg-brand-icon`.
 
 **Search for** (in `*.html` files):
 ```html
-<lg-primary-message
+<lg-notice
 <lg-brand-icon
 ```
 
 **Replace with:**
 
-- Inside `lg-primary-message`, replace any slotted `<lg-brand-icon>` usage with
+- Inside `lg-notice`, replace any slotted `<lg-brand-icon>` usage with
   `<lg-pictogram>`.
-- Keep the surrounding `lg-primary-message` structure unchanged unless the
+- Keep the surrounding `lg-notice` structure unchanged unless the
   pictogram name or size also needs migrating under the sections above.
 
 **Before:**
 ```html
-<lg-primary-message>
+<lg-notice>
   <lg-brand-icon name="calendar"></lg-brand-icon>
-  <lg-primary-message-title>Title</lg-primary-message-title>
-</lg-primary-message>
+  <lg-notice-title>Title</lg-notice-title>
+</lg-notice>
 ```
 
 **After:**
 ```html
-<lg-primary-message>
+<lg-notice>
   <lg-pictogram name="calendar"></lg-pictogram>
-  <lg-primary-message-title>Title</lg-primary-message-title>
-</lg-primary-message>
+  <lg-notice-title>Title</lg-notice-title>
+</lg-notice>
 ```
 
 > **Automated?** Yes — replace the slotted selector, then re-check the

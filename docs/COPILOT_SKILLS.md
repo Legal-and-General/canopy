@@ -124,7 +124,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-skeleton` | `LgSkeletonDirective` (`[lgSkeleton]`), animation, screen reader behaviour | — |
 | `canopy-progress-indicator` | `LgProgressIndicatorComponent`, steps, current step | — |
 | `canopy-sr-alert-message` | `LgSrAlertMessageDirective`, `[lgSrAlertMessage]`, live region, screen reader only | — |
-| `canopy-primary-message` | `LgPrimaryMessageComponent`, title, description, icon | — |
+| `canopy-notice` | `LgNoticeComponent`, title, description, icon | — |
 | **Data Display** | | |
 | `canopy-data-point` | `LgDataPointComponent`, label/value/list, heading level | — |
 | `canopy-accordion` | `LgAccordionComponent`, multi, lazy content, outputs | — |
