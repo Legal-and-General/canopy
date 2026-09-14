@@ -35,7 +35,11 @@ export class LgNoticeComponent implements AfterContentInit {
 
   @Input()
   set status(status: Status | undefined) {
-    if (!status) {
+    if (status === undefined) {
+      this.hasExplicitStatus = false;
+      this._status = 'generic';
+      this.applyStatusClasses();
+
       return;
     }
 

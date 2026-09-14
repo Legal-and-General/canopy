@@ -416,8 +416,8 @@ describe('LgStatus', () => {
 
     it('should not throw error when used on lg-notice', () => {
       @Component({
-        template: '<lg-notice status="info">Test</lg-notice>',
-        imports: [ LgNoticeComponent ],
+        template: '<lg-notice lgStatus="info">Test</lg-notice>',
+        imports: [ LgNoticeComponent, LgStatusDirective ],
       })
       class TestNoticeComponent {}
 
