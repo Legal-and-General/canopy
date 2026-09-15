@@ -588,8 +588,14 @@ const rowVariantsTableTemplate = `
     </thead>
 
     <tbody lg-table-body>
-      <tr lg-table-row>
-        <td lg-table-cell></td>
+      <tr lg-table-row [rowVariant]="pamukRowSelected ? 'selected' : null">
+        <td lg-table-cell>
+          <lg-checkbox
+            [checked]="pamukRowSelected"
+            (change)="pamukRowSelected = !pamukRowSelected">
+            <span class="lg-visually-hidden">Select Orhan Pamuk</span>
+          </lg-checkbox>
+        </td>
         <td lg-table-cell>Orhan Pamuk</td>
         <td lg-table-cell>Strangeness In My Mind</td>
         <td lg-table-cell>2016</td>
@@ -604,7 +610,7 @@ const rowVariantsTableTemplate = `
           </lg-checkbox>
         </td>
         <td lg-table-cell>George Orwell</td>
-        <td lg-table-cell>Animal Farm (error)</td>
+        <td lg-table-cell>Animal Farm (invalid)</td>
         <td lg-table-cell>1945</td>
       </tr>
       <tr lg-table-row [rowVariant]="selectedRowSelected ? 'selected' : null">
@@ -616,11 +622,17 @@ const rowVariantsTableTemplate = `
           </lg-checkbox>
         </td>
         <td lg-table-cell>Chinua Achebe</td>
-        <td lg-table-cell>Things Fall Apart (selected)</td>
+        <td lg-table-cell>Things Fall Apart</td>
         <td lg-table-cell>1958</td>
       </tr>
-      <tr lg-table-row>
-        <td lg-table-cell></td>
+      <tr lg-table-row [rowVariant]="greeneRowSelected ? 'selected' : null">
+        <td lg-table-cell>
+          <lg-checkbox
+            [checked]="greeneRowSelected"
+            (change)="greeneRowSelected = !greeneRowSelected">
+            <span class="lg-visually-hidden">Select Brian Greene</span>
+          </lg-checkbox>
+        </td>
         <td lg-table-cell>Brian Greene</td>
         <td lg-table-cell>The Elegant Universe</td>
         <td lg-table-cell>1999</td>
@@ -668,8 +680,10 @@ export const RowVariantsTable = {
   render: (
     args: LgTableComponent & {
       rowVariant: TableRowVariant;
+      pamukRowSelected: boolean;
       errorRowSelected: boolean;
       selectedRowSelected: boolean;
+      greeneRowSelected: boolean;
     },
   ) => ({
     props: args,
@@ -680,8 +694,10 @@ export const RowVariantsTable = {
     alignTitleColumn: AlignmentOptions.Start,
     alignPublishColumn: AlignmentOptions.End,
     columnBreakpoint: TableColumnLayoutBreakpoints.Medium,
+    pamukRowSelected: false,
     errorRowSelected: true,
     selectedRowSelected: true,
+    greeneRowSelected: false,
   },
   argTypes: {
     ...argTypes,
