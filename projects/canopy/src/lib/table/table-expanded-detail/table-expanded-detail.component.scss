@@ -1,3 +1,23 @@
 .lg-table-expanded-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  transition:
+    grid-template-rows var(--animation-duration) ease-in-out,
+    opacity var(--animation-duration) ease-in-out,
+    padding var(--animation-duration) ease-in-out;
   white-space: normal;
+
+  &--active {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    padding: var(--space-4) 0;
+  }
+
+  &__content {
+    min-height: 0;
+    overflow: hidden;
+  }
 }
