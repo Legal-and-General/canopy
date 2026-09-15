@@ -1,30 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import tokenSources from '../.storybook/component-token-sources.js';
 
 const root = process.cwd();
-const tokenPages = findFiles(path.join(root, 'projects/canopy/src'), 'design-tokens.mdx');
-const fallbackTokenFile = path.join(
-  root,
-  'projects/canopy/src/lib/forms/input/docs/design-tokens.css',
-);
-
-const tokenSets = tokenPages.flatMap(pagePath => {
-  const page = fs.readFileSync(pagePath, 'utf8');
-  const title = page.match(/<Meta title="([^"]+)"/)?.[1];
-  const label = page.match(/categoryName="([^"]+)"/)?.[1];
-
-  if (!title || !label) return [];
-
-  const tokenFile = fs.existsSync(pagePath.replace(/design-tokens\.mdx$/, 'design-tokens.css'))
-    ? pagePath.replace(/design-tokens\.mdx$/, 'design-tokens.css')
-    : fallbackTokenFile;
-
-  return [{
-    label,
-    titlePrefix: title.replace(/\/Design tokens$/, ''),
-    tokens: parseTokens(tokenFile),
-  }];
-});
+const tokenSets = tokenSources.map(({ label, source, titlePrefix }) => ({
+  label,
+  titlePrefix,
+  tokens: parseTokens(path.join(root, source)),
+}));
 
 const output = `const tokenSets = ${JSON.stringify(deduplicate(tokenSets), null, 2)};\n\nexport default tokenSets;\n`;
 fs.writeFileSync(path.join(root, '.storybook/component-token-data.js'), output);
@@ -61,13 +44,3 @@ function deduplicate(sets) {
   return [...new Map(sets.map(set => [set.titlePrefix, set])).values()];
 }
 
-function findFiles(directory, fileName) {
-  return fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
-    const entryPath = path.join(directory, entry.name);
-    return entry.isDirectory()
-      ? findFiles(entryPath, fileName)
-      : entry.name === fileName
-        ? [entryPath]
-        : [];
-  });
-}

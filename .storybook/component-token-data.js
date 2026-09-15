@@ -709,180 +709,6 @@ const tokenSets = [
   },
   {
     "label": "Text Input",
-    "titlePrefix": "Patterns/Date input",
-    "tokens": [
-      {
-        "name": "--text-input-common-border-radius",
-        "value": "0.75rem",
-        "description": "",
-        "presenter": "BorderRadius"
-      },
-      {
-        "name": "--text-input-common-height",
-        "value": "3rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-padding-x",
-        "value": "1rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-padding-y",
-        "value": "0.5rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-text-gap",
-        "value": "0.5rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-button-gap",
-        "value": "0.5rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-addon-button-gap",
-        "value": "1rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-rest-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-rest-border-colour",
-        "value": "#858686",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-rest-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-rest-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-hover-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-hover-border-colour",
-        "value": "#4d4f4f",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-hover-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-hover-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-focus-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-focus-border-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-focus-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-focus-border-width",
-        "value": "0.1875rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-error-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-error-border-colour",
-        "value": "#c50b30",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-error-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-error-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-error-focus-border-width",
-        "value": "0.1875rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-disabled-background-colour",
-        "value": "#f4f4f4",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-disabled-border-colour",
-        "value": "#d3d3d3",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-disabled-colour",
-        "value": "#a6a7a7",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-disabled-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      }
-    ]
-  },
-  {
-    "label": "Text Input",
     "titlePrefix": "Components/Forms/Text input",
     "tokens": [
       {
@@ -1601,180 +1427,6 @@ const tokenSets = [
       },
       {
         "name": "--select-disabled-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      }
-    ]
-  },
-  {
-    "label": "Text Input",
-    "titlePrefix": "Patterns/Sort code",
-    "tokens": [
-      {
-        "name": "--text-input-common-border-radius",
-        "value": "0.75rem",
-        "description": "",
-        "presenter": "BorderRadius"
-      },
-      {
-        "name": "--text-input-common-height",
-        "value": "3rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-padding-x",
-        "value": "1rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-padding-y",
-        "value": "0.5rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-text-gap",
-        "value": "0.5rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-button-gap",
-        "value": "0.5rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-common-addon-button-gap",
-        "value": "1rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-rest-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-rest-border-colour",
-        "value": "#858686",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-rest-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-rest-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-hover-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-hover-border-colour",
-        "value": "#4d4f4f",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-hover-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-hover-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-focus-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-focus-border-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-focus-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-focus-border-width",
-        "value": "0.1875rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-error-background-colour",
-        "value": "#ffffff",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-error-border-colour",
-        "value": "#c50b30",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-error-colour",
-        "value": "#1d1d1b",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-error-border-width",
-        "value": "0.09375rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-error-focus-border-width",
-        "value": "0.1875rem",
-        "description": "",
-        "presenter": "Spacing"
-      },
-      {
-        "name": "--text-input-disabled-background-colour",
-        "value": "#f4f4f4",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-disabled-border-colour",
-        "value": "#d3d3d3",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-disabled-colour",
-        "value": "#a6a7a7",
-        "description": "",
-        "presenter": "Color"
-      },
-      {
-        "name": "--text-input-disabled-border-width",
         "value": "0.09375rem",
         "description": "",
         "presenter": "Spacing"
@@ -2864,6 +2516,354 @@ const tokenSets = [
         "value": "0.125rem",
         "description": "Focus border radius",
         "presenter": "BorderRadius"
+      }
+    ]
+  },
+  {
+    "label": "Text Input",
+    "titlePrefix": "Patterns/Date input",
+    "tokens": [
+      {
+        "name": "--text-input-common-border-radius",
+        "value": "0.75rem",
+        "description": "",
+        "presenter": "BorderRadius"
+      },
+      {
+        "name": "--text-input-common-height",
+        "value": "3rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-padding-x",
+        "value": "1rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-padding-y",
+        "value": "0.5rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-text-gap",
+        "value": "0.5rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-button-gap",
+        "value": "0.5rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-addon-button-gap",
+        "value": "1rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-rest-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-rest-border-colour",
+        "value": "#858686",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-rest-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-rest-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-hover-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-hover-border-colour",
+        "value": "#4d4f4f",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-hover-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-hover-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-focus-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-focus-border-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-focus-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-focus-border-width",
+        "value": "0.1875rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-error-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-error-border-colour",
+        "value": "#c50b30",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-error-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-error-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-error-focus-border-width",
+        "value": "0.1875rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-disabled-background-colour",
+        "value": "#f4f4f4",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-disabled-border-colour",
+        "value": "#d3d3d3",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-disabled-colour",
+        "value": "#a6a7a7",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-disabled-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
+      }
+    ]
+  },
+  {
+    "label": "Text Input",
+    "titlePrefix": "Patterns/Sort code",
+    "tokens": [
+      {
+        "name": "--text-input-common-border-radius",
+        "value": "0.75rem",
+        "description": "",
+        "presenter": "BorderRadius"
+      },
+      {
+        "name": "--text-input-common-height",
+        "value": "3rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-padding-x",
+        "value": "1rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-padding-y",
+        "value": "0.5rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-text-gap",
+        "value": "0.5rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-button-gap",
+        "value": "0.5rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-common-addon-button-gap",
+        "value": "1rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-rest-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-rest-border-colour",
+        "value": "#858686",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-rest-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-rest-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-hover-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-hover-border-colour",
+        "value": "#4d4f4f",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-hover-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-hover-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-focus-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-focus-border-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-focus-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-focus-border-width",
+        "value": "0.1875rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-error-background-colour",
+        "value": "#ffffff",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-error-border-colour",
+        "value": "#c50b30",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-error-colour",
+        "value": "#1d1d1b",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-error-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-error-focus-border-width",
+        "value": "0.1875rem",
+        "description": "",
+        "presenter": "Spacing"
+      },
+      {
+        "name": "--text-input-disabled-background-colour",
+        "value": "#f4f4f4",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-disabled-border-colour",
+        "value": "#d3d3d3",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-disabled-colour",
+        "value": "#a6a7a7",
+        "description": "",
+        "presenter": "Color"
+      },
+      {
+        "name": "--text-input-disabled-border-width",
+        "value": "0.09375rem",
+        "description": "",
+        "presenter": "Spacing"
       }
     ]
   }
