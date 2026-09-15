@@ -88,4 +88,5 @@ When `status` is provided, it determines the role and takes precedence over
 ## Design Constraints
 
 - A notice must be the only content in its container.
+- A notice can sit inside a Content Area when it is the only content in that area. The Content Area provides the surrounding colour mode and theme, while the Notice provides the message content.
 - Multiple `lg-notice-description` components are allowed for additional paragraphs or actions.

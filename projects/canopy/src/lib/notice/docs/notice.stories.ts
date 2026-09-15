@@ -6,7 +6,11 @@ import { LgNoticeComponent } from '../notice.component';
 import { LgNoticeTitleComponent } from '../notice-title/notice-title.component';
 import { LgNoticeDescriptionComponent } from '../notice-description/notice-description.component';
 import { LgButtonComponent } from '../../button';
+import { LgColourDirective } from '../../colour';
+import { LgContentAreaComponent } from '../../content-area';
+import { LgContentAreaContentComponent } from '../../content-area/content-area-content/content-area-content.component';
 import { LgMarginDirective } from '../../spacing';
+import type { Colour, ColourTheme } from '../../colour/colour.interface';
 import type { Status } from '../../status';
 
 @Component({
@@ -40,12 +44,44 @@ class LgNoticeStoryComponent {
   @Input() status?: Status;
 }
 
+@Component({
+  selector: 'lg-notice-content-area-story',
+  template: `
+    <lg-content-area [lgColour]="mode" [lgColourTheme]="theme">
+      <lg-content-area-content>
+        <lg-notice [status]="status">
+          <lg-pictogram name="calendar" [hasFill]="true" />
+          <lg-notice-title>This is a message with pictogram</lg-notice-title>
+          <lg-notice-description>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </lg-notice-description>
+        </lg-notice>
+      </lg-content-area-content>
+    </lg-content-area>
+  `,
+  imports: [
+    LgColourDirective,
+    LgContentAreaComponent,
+    LgContentAreaContentComponent,
+    LgNoticeComponent,
+    LgPictogramComponent,
+    LgNoticeTitleComponent,
+    LgNoticeDescriptionComponent,
+  ],
+})
+class LgNoticeContentAreaStoryComponent {
+  @Input() mode: Colour = 'blue';
+  @Input() theme: ColourTheme = 'neutral';
+  @Input() status: Status = 'info';
+}
+
 export default {
   title: 'Components/Notice/Examples',
   component: LgNoticeStoryComponent,
   decorators: [
     moduleMetadata({
-      imports: [ LgNoticeStoryComponent ],
+      imports: [ LgNoticeStoryComponent, LgNoticeContentAreaStoryComponent ],
     }),
   ],
   argTypes: {
@@ -107,6 +143,7 @@ export const StandardNotice = {
     hasRole: true,
   },
   parameters: {
+    backgrounds: { disable: true },
     docs: {
       source: {
         code: exampleTemplate,
@@ -116,5 +153,51 @@ export const StandardNotice = {
   render: (args: LgNoticeComponent) => ({
     props: args,
     template,
+  }),
+};
+
+const contentAreaNoticeTemplate = `
+<lg-notice-content-area-story
+  [mode]="mode"
+  [theme]="theme"
+  [status]="status"
+></lg-notice-content-area-story>
+`;
+
+export const NoticeInContentArea = {
+  name: 'Notice in content area',
+  args: {
+    mode: 'blue',
+    theme: 'neutral',
+    status: 'info',
+  },
+  argTypes: {
+    mode: {
+      options: [ 'blue', 'green', 'red', 'yellow' ],
+      control: { type: 'select' },
+      description: 'The colour mode applied to the content area.',
+    },
+    theme: {
+      options: [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ],
+      control: { type: 'select' },
+      description: 'The theme applied to the content area colour mode.',
+    },
+    status: {
+      options: [ 'generic', 'info', 'success', 'warning', 'error' ],
+      control: { type: 'select' },
+      description: 'The status applied to the notice.',
+    },
+  },
+  parameters: {
+    backgrounds: { disable: true },
+    docs: {
+      source: {
+        code: contentAreaNoticeTemplate,
+      },
+    },
+  },
+  render: (args: LgNoticeContentAreaStoryComponent) => ({
+    props: args,
+    template: contentAreaNoticeTemplate,
   }),
 };
