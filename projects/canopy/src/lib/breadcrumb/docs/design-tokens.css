@@ -1,6 +1,6 @@
 :root {
   /**
-   * @tokens Breadcrumb Base
+   * @tokens Breadcrumb
    * @presenter Color
    */
   --breadcrumb-gap: 0.5rem; /* Gap between breadcrumb items */
@@ -8,10 +8,6 @@
   --breadcrumb-padding-y: 0.75rem; /* Vertical padding */
   --breadcrumb-min-width: 20rem; /* Minimum width */
 
-  /**
-   * @tokens Breadcrumb Border
-   * @presenter Color
-   */
   --breadcrumb-border-width: 0.0625rem; /* Border width */
   --breadcrumb-border-colour: #d3d3d3; /* Border colour */
 }

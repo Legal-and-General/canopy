@@ -1,6 +1,6 @@
 :root {
   /**
-   * @tokens Footer Base
+   * @tokens Footer
    * @presenter Color
    */
   --footer-background-colour: #ffffff;
@@ -11,15 +11,9 @@
   --footer-padding-y: 1.75rem;
   --footer-gap: 1.75rem;
 
-  /**
-   * @tokens Footer Logo
-   */
   --footer-logo-gap: 2.25rem;
   --footer-logo-size: 5rem;
 
-  /**
-   * @tokens Footer Links
-   */
   --footer-link-group-social-gap: 0.75rem;
   --footer-link-group-link-gap: 1rem;
 }

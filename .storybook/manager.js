@@ -1,5 +1,6 @@
 import { addons } from 'storybook/manager-api';
 import canopyTheme from './canopy-theme';
+import './addons/component-token-panel';
 import { defaultConfig } from 'storybook-addon-tag-badges/manager-helpers';
 
 addons.setConfig({

@@ -1,6 +1,6 @@
 :root {
   /**
-   * @tokens Segment Control
+  * @tokens Segment
    * @presenter Color
    */
   --segment-control-common-background-colour: #f4f4f4;
@@ -17,18 +17,11 @@
   --segment-control-error-border-width: 0.09375rem;
   --segment-control-error-focus-border-width: 0.1875rem;
 
-  /**
-   * @tokens Segment Button Base
-   */
   --segment-button-common-padding-x: 0.5rem;
   --segment-button-common-padding-y: 0.5rem;
   --segment-button-common-border-radius: 0.5rem;
   --segment-button-common-min-height: 2.25rem;
 
-  /**
-   * @tokens Segment Button States
-   * @presenter Color
-   */
   --segment-button-rest-background-colour: #ffffff;
   --segment-button-rest-colour: #1d1d1b;
   --segment-button-hover-background-colour: #aee1f7;

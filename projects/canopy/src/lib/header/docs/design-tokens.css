@@ -1,7 +1,6 @@
 :root {
   /**
-   * @tokens Header Container
-   * @presenter Color
+   * @tokens Header
    */
   --header-container-background-colour: #ffffff;
   --header-container-gap: 1.75rem;
@@ -12,9 +11,6 @@
   --header-container-padding-y: 0.5rem;
   --header-container-max-height: 5.5625rem;
 
-  /**
-   * @tokens Header Logo
-   */
   --header-logo-container-max-width-sm: 10.3125rem;
   --header-logo-container-max-height-sm: 2.75rem;
   --header-logo-container-max-height-lg: 4rem;
@@ -28,10 +24,6 @@
   --header-logo-secondary-max-width-sm: 5.25rem;
   --header-logo-secondary-max-width-lg: 7.5rem;
 
-  /**
-   * @tokens Header Button
-   * @presenter Color
-   */
   --header-button-padding-default-x: 0.75rem;
   --header-button-padding-small-x: 0.5rem;
   --header-button-padding-right: 0.75rem;

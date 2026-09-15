@@ -1,6 +1,6 @@
 :root {
   /**
-   * @tokens Button Base
+   * @tokens Button
    * @presenter Color
    */
   --button-border-radius: 0.75rem; /* Button corner radius */
@@ -17,10 +17,6 @@
   --button-common-icon-only-padding-y: 0.75rem; /* Icon-only button vertical padding */
   --button-icon-width: 1.5rem; /* Icon width */
 
-  /**
-   * @tokens Button Primary
-   * @presenter Color
-   */
   --button-primary-rest-background-colour: #005dba; /* Rest background colour */
   --button-primary-rest-border-colour: #005dba; /* Rest border colour */
   --button-primary-rest-colour: #ffffff; /* Rest text colour */
@@ -36,10 +32,6 @@
   --button-primary-disabled-border-colour: #d3d3d3; /* Disabled border colour */
   --button-primary-disabled-colour: #7a7b7b; /* Disabled text colour */
 
-  /**
-   * @tokens Button Secondary
-   * @presenter Color
-   */
   --button-secondary-rest-background-colour: #ffffff; /* Rest background colour */
   --button-secondary-rest-border-colour: #1d1d1b; /* Rest border colour */
   --button-secondary-rest-colour: #1d1d1b; /* Rest text colour */
@@ -56,10 +48,6 @@
   --button-secondary-disabled-border-colour: #d3d3d3; /* Disabled border colour */
   --button-secondary-disabled-colour: #7a7b7b; /* Disabled text colour */
 
-  /**
-   * @tokens Button Status
-   * @presenter Color
-   */
   --button-status-rest-background-colour: #4d4f4f; /* Rest background colour */
   --button-status-rest-border-colour: #4d4f4f; /* Rest border colour */
   --button-status-rest-colour: #ffffff; /* Rest text colour */

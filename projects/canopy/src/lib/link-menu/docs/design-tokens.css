@@ -1,16 +1,12 @@
 :root {
   /**
-   * @tokens Link Menu Base
+   * @tokens Link Menu
    * @presenter Color
    */
   --link-menu-border-colour: #d3d3d3;
   --link-menu-border-width: 0.0625rem;
   --link-menu-border-radius: 1rem;
 
-  /**
-   * @tokens Link Menu Item
-   * @presenter Color
-   */
   --link-menu-item-padding-top: 1rem;
   --link-menu-item-padding-bottom: 1rem;
   --link-menu-item-padding-left: 1rem;
@@ -21,10 +17,6 @@
   --link-menu-item-rest-colour: #1d1d1b;
   --link-menu-item-rest-colour-muted: #4d4f4f;
 
-  /**
-   * @tokens Link Menu Item States
-   * @presenter Color
-   */
   --link-menu-item-hover-background-colour: #aee1f7;
   --link-menu-item-hover-border-colour: #001d6e;
   --link-menu-item-hover-border-width-bottom: 0.1875rem;

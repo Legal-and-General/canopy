@@ -1,6 +1,6 @@
 :root {
   /**
-   * @tokens Pagination Base
+   * @tokens Pagination
    * @presenter Color
    */
   --pagination-colour: #1d1d1b;
@@ -9,10 +9,6 @@
   --pagination-horizontal-gap: 1.75rem;
   --pagination-page-common-hover-indicator-width: 0.125rem;
 
-  /**
-   * @tokens Pagination Page States
-   * @presenter Color
-   */
   --pagination-page-rest-background-colour: #ffffff;
   --pagination-page-rest-colour: #1d1d1b;
   --pagination-page-rest-hover-indicator-colour: #ffffff;
