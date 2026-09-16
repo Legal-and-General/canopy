@@ -85,7 +85,7 @@ describe('LgNoticeComponent', () => {
   });
 
   describe('the status input', () => {
-    function testStatus(status: Status, expectedRole: string | null) {
+    function testStatus(status: Exclude<Status, 'generic'>, expectedRole: string | null) {
       component.status = status;
       fixture.detectChanges();
 
@@ -109,15 +109,15 @@ describe('LgNoticeComponent', () => {
       expect(pictogram.nativeElement.getAttribute('class')).toContain('lg-theme-neutral');
     }
 
-    for (const status of [ 'generic', 'info' ]) {
-      it(`does not add an ARIA role for the ${status} status`, () => {
-        testStatus(status as Status, null);
-      });
-    }
+    it('does not add an ARIA role for the info status', () => {
+      testStatus('info', null);
+    });
 
-    for (const status of [ 'success', 'warning', 'error' ]) {
+    for (const status of [ 'success', 'warning', 'error' ] as Array<
+      Exclude<Status, 'generic'>
+    >) {
       it(`adds the ARIA role "alert" for the ${status} status`, () => {
-        testStatus(status as Status, 'alert');
+        testStatus(status, 'alert');
       });
     }
   });

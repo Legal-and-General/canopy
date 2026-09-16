@@ -29,15 +29,15 @@ export class LgNoticeComponent implements AfterContentInit {
   private readonly statusClassService = inject(StatusClassService);
   private hasExplicitStatus = false;
   private appliedStatusClasses: Array<string> = [];
-  private _status: Status = 'generic';
+  private _status: Exclude<Status, 'generic'> = 'info';
 
   @Input() hasRole = true;
 
   @Input()
-  set status(status: Status | undefined) {
+  set status(status: Exclude<Status, 'generic'> | undefined) {
     if (status === undefined) {
       this.hasExplicitStatus = false;
-      this._status = 'generic';
+      this._status = 'info';
       this.applyStatusClasses();
 
       return;
@@ -48,7 +48,7 @@ export class LgNoticeComponent implements AfterContentInit {
     this.applyStatusClasses();
   }
 
-  get status(): Status {
+  get status(): Exclude<Status, 'generic'> {
     return this._status;
   }
 

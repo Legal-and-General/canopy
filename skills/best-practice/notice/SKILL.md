@@ -60,7 +60,7 @@ import {
 
 | Input | Type | Default | Description |
 |-------|------|---------|-------------|
-| `status` | `'generic' \| 'info' \| 'success' \| 'warning' \| 'error'` | `'generic'` | Sets the notice status. Explicit `success`, `warning`, and `error` statuses apply `role="alert"`; explicit `generic` and `info` statuses do not add an ARIA role. |
+| `status` | `'info' \| 'success' \| 'warning' \| 'error'` | `'info'` | Sets the notice status. Explicit `success`, `warning`, and `error` statuses apply `role="alert"`; `info` does not add an ARIA role. |
 | `hasRole` | `boolean` | `true` | When `status` is omitted, controls the default `role="alert"`; set to `false` to remove the role. |
 
 When `status` is provided, it determines the role and takes precedence over

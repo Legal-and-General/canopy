@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: var(--notice-gap);
 
   .lg-pictogram {
     width: var(--content-pictogram-size-md);
@@ -18,4 +19,11 @@
 
 .lg-content-area-content > .lg-notice {
   margin-inline: auto;
+}
+
+.lg-content-area.lg-theme-subtle,
+.lg-content-area.lg-theme-bold {
+  .lg-notice .lg-pictogram {
+    --lg-pictogram-fill-colour: none !important;
+  }
 }

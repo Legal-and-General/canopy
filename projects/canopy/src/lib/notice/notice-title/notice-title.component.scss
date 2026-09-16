@@ -2,12 +2,10 @@
 
 @mixin notice-title() {
   display: block;
-  margin-top: var(--space-4);
-  @include mixins.lg-font-size('3');
+  @include mixins.lg-font-size('4', '500', 'expressive');
 
-  @include mixins.lg-breakpoint(md) {
-    margin-top: var(--space-5);
-  }
+  font-feature-settings: 'case' on;
+  letter-spacing: var(--letter-spacing-normal-expressive);
 }
 
 .lg-notice-title {
