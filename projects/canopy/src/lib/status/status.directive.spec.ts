@@ -8,6 +8,7 @@ import { LgCardComponent } from '../card/card.component';
 import { LgDetailsComponent } from '../details/details.component';
 import { LgDetailsPanelHeadingComponent } from '../details/details-panel-heading/details-panel-heading.component';
 import { LgValidationComponent } from '../forms/validation/validation.component';
+import { LgNoticeComponent } from '../notice/notice.component';
 
 import { LgStatusDirective } from './status.directive';
 import type { Status, Theme } from './status.interface';
@@ -413,6 +414,20 @@ describe('LgStatus', () => {
       }).not.toThrow();
     });
 
+    it('should not throw error when used on lg-notice', () => {
+      @Component({
+        template: '<lg-notice lgStatus="info">Test</lg-notice>',
+        imports: [ LgNoticeComponent, LgStatusDirective ],
+      })
+      class TestNoticeComponent {}
+
+      expect(() => {
+        const noticeFixture = TestBed.createComponent(TestNoticeComponent);
+
+        noticeFixture.detectChanges();
+      }).not.toThrow();
+    });
+
     it('should not throw error when used on lg-validation', () => {
       @Component({
         template: '<lg-validation status="error">Test error</lg-validation>',
@@ -440,7 +455,7 @@ describe('LgStatus', () => {
         divFixture.detectChanges();
       }).toThrow(
         new Error(
-          'lgStatus directive can only be used on the following components: lg-banner, lg-alert, lg-details, lg-validation. Current element: div',
+          'lgStatus directive can only be used on the following components: lg-banner, lg-alert, lg-details, lg-notice, lg-validation. Current element: div',
         ),
       );
     });
@@ -458,7 +473,7 @@ describe('LgStatus', () => {
         cardFixture.detectChanges();
       }).toThrow(
         new Error(
-          'lgStatus directive can only be used on the following components: lg-banner, lg-alert, lg-details, lg-validation. Current element: lg-card',
+          'lgStatus directive can only be used on the following components: lg-banner, lg-alert, lg-details, lg-notice, lg-validation. Current element: lg-card',
         ),
       );
     });

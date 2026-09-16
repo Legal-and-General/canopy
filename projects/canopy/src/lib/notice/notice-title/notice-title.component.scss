@@ -1,0 +1,22 @@
+@use '../../../styles/mixins';
+
+@mixin notice-title() {
+  display: block;
+  @include mixins.lg-font-size('4', '500', 'expressive');
+
+  font-feature-settings: 'case' on;
+  letter-spacing: var(--letter-spacing-normal-expressive);
+}
+
+.lg-notice-title {
+  @include notice-title;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include notice-title;
+  }
+}
