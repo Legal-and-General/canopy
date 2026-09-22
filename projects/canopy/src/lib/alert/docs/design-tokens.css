@@ -3,12 +3,11 @@
    * @tokens Inline Message
    * @presenter Color
    */
-  --inline-message-padding-x: 0.75rem; /* Horizontal padding */
-  --inline-message-padding-y: 0.75rem; /* Vertical padding */
-  --inline-message-border-radius: 0.75rem; /* Corner radius */
-  --inline-message-gap: 0.75rem; /* Gap between icon and content */
-
-  --inline-message-text-colour: #1d1d1b; /* Text colour */
-  --inline-message-background-colour: #f4f4f4; /* Background colour */
-  --inline-message-icon-colour: #1d1d1b; /* Icon colour */
+  --inline-message-background-colour: #f4f4f4; /* Inline Message Background Colour */
+  --inline-message-border-radius: 0.75rem; /* Inline Message Border Radius */
+  --inline-message-gap: 0.75rem; /* Inline Message Gap */
+  --inline-message-icon-colour: #1d1d1b; /* Inline Message Icon Colour */
+  --inline-message-padding-x: 0.75rem; /* Inline Message Padding X */
+  --inline-message-padding-y: 0.75rem; /* Inline Message Padding Y */
+  --inline-message-text-colour: #1d1d1b; /* Inline Message Text Colour */
 }

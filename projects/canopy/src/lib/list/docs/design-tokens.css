@@ -1,6 +1,11 @@
 :root {
   /**
-  * @tokens List
+   * @tokens List
+   * @presenter Color
    */
-  --list-gap: 1.25rem;
+  --list-gap: 1.25rem; /* List Gap */
+  --list-item-common-gap: 0.75rem; /* List Item Common Gap */
+  --list-item-common-padding-left: 0.75rem; /* List Item Common Padding Left */
+  --list-item-negative-colour: #c50b30; /* List Item Negative Colour */
+  --list-item-positive-colour: #00633d; /* List Item Positive Colour */
 }

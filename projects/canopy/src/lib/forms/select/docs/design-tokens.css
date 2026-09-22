@@ -1,37 +1,33 @@
 :root {
   /**
-  * @tokens Select
+   * @tokens Select
+   * @presenter Color
    */
-  --select-common-border-radius: 0.75rem;
-  --select-common-height: 3rem;
-  --select-common-padding-x: 1rem;
-  --select-common-padding-y: 0.5rem;
-  --select-common-text-gap: 0.5rem;
-  --select-common-button-gap: 1rem;
-
-  --select-rest-background-colour: #ffffff;
-  --select-rest-border-colour: #858686;
-  --select-rest-colour: #1d1d1b;
-  --select-rest-border-width: 0.09375rem;
-
-  --select-hover-background-colour: #ffffff;
-  --select-hover-border-colour: #4d4f4f;
-  --select-hover-colour: #1d1d1b;
-  --select-hover-border-width: 0.09375rem;
-
-  --select-focus-background-colour: #ffffff;
-  --select-focus-border-colour: #1d1d1b;
-  --select-focus-colour: #1d1d1b;
-  --select-focus-border-width: 0.1875rem;
-
-  --select-error-background-colour: #ffffff;
-  --select-error-border-colour: #c50b30;
-  --select-error-colour: #1d1d1b;
-  --select-error-border-width: 0.09375rem;
-  --select-error-focus-border-width: 0.1875rem;
-
-  --select-disabled-background-colour: #f4f4f4;
-  --select-disabled-border-colour: #d3d3d3;
-  --select-disabled-colour: #a6a7a7;
-  --select-disabled-border-width: 0.09375rem;
+  --select-common-border-radius: 0.75rem; /* Select Common Border Radius */
+  --select-common-button-gap: 1rem; /* Select Common Button Gap */
+  --select-common-height: 3rem; /* Select Common Height */
+  --select-common-padding-x: 1rem; /* Select Common Padding X */
+  --select-common-padding-y: 0.5rem; /* Select Common Padding Y */
+  --select-common-text-gap: 0.5rem; /* Select Common Text Gap */
+  --select-disabled-background-colour: #f4f4f4; /* Select Disabled Background Colour */
+  --select-disabled-border-colour: #d3d3d3; /* Select Disabled Border Colour */
+  --select-disabled-border-width: 0.09375rem; /* Select Disabled Border Width */
+  --select-disabled-colour: #a6a7a7; /* Select Disabled Colour */
+  --select-error-background-colour: #ffffff; /* Select Error Background Colour */
+  --select-error-border-colour: #c50b30; /* Select Error Border Colour */
+  --select-error-border-width: 0.09375rem; /* Select Error Border Width */
+  --select-error-colour: #1d1d1b; /* Select Error Colour */
+  --select-error-focus-border-width: 0.1875rem; /* Select Error Focus Border Width */
+  --select-focus-background-colour: #ffffff; /* Select Focus Background Colour */
+  --select-focus-border-colour: #1d1d1b; /* Select Focus Border Colour */
+  --select-focus-border-width: 0.1875rem; /* Select Focus Border Width */
+  --select-focus-colour: #1d1d1b; /* Select Focus Colour */
+  --select-hover-background-colour: #ffffff; /* Select Hover Background Colour */
+  --select-hover-border-colour: #4d4f4f; /* Select Hover Border Colour */
+  --select-hover-border-width: 0.09375rem; /* Select Hover Border Width */
+  --select-hover-colour: #1d1d1b; /* Select Hover Colour */
+  --select-rest-background-colour: #ffffff; /* Select Rest Background Colour */
+  --select-rest-border-colour: #858686; /* Select Rest Border Colour */
+  --select-rest-border-width: 0.09375rem; /* Select Rest Border Width */
+  --select-rest-colour: #1d1d1b; /* Select Rest Colour */
 }

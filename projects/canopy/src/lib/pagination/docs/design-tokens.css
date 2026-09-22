@@ -3,27 +3,26 @@
    * @tokens Pagination
    * @presenter Color
    */
-  --pagination-colour: #1d1d1b;
-  --pagination-inside-gap: 0.5rem;
-  --pagination-vertical-gap: 1rem;
-  --pagination-horizontal-gap: 1.75rem;
-  --pagination-page-common-hover-indicator-width: 0.125rem;
-
-  --pagination-page-rest-background-colour: #ffffff;
-  --pagination-page-rest-colour: #1d1d1b;
-  --pagination-page-rest-hover-indicator-colour: #ffffff;
-  --pagination-page-hover-background-colour: #aee1f7;
-  --pagination-page-hover-hover-indicator-colour: #001d6e;
-  --pagination-page-hover-colour: #1d1d1b;
-  --pagination-page-active-background-colour: #005dba;
-  --pagination-page-active-colour: #ffffff;
-  --pagination-page-active-hover-indicator-colour: #005dba;
-  --pagination-page-focus-background-colour: #ffffff;
-  --pagination-page-focus-border-colour: #1d1d1b;
-  --pagination-page-focus-border-width: 0.1875rem;
-  --pagination-page-focus-colour: #1d1d1b;
-  --pagination-page-focus-hover-indicator-colour: #ffffff;
-  --pagination-page-disabled-background-colour: #f4f4f4;
-  --pagination-page-disabled-colour: #d3d3d3;
-  --pagination-page-disabled-hover-indicator-colour: #f4f4f4;
+  --pagination-colour: #1d1d1b; /* Pagination Colour */
+  --pagination-horizontal-gap: 1.75rem; /* Pagination Horizontal Gap */
+  --pagination-inside-gap: 0.5rem; /* Pagination Inside Gap */
+  --pagination-page-active-background-colour: #005dba; /* Pagination Page Active Background Colour */
+  --pagination-page-active-colour: #ffffff; /* Pagination Page Active Colour */
+  --pagination-page-active-hover-indicator-colour: #005dba; /* Pagination Page Active Hover Indicator Colour */
+  --pagination-page-common-hover-indicator-width: 0.125rem; /* Pagination Page Common Hover Indicator Width */
+  --pagination-page-disabled-background-colour: #f4f4f4; /* Pagination Page Disabled Background Colour */
+  --pagination-page-disabled-colour: #d3d3d3; /* Pagination Page Disabled Colour */
+  --pagination-page-disabled-hover-indicator-colour: #f4f4f4; /* Pagination Page Disabled Hover Indicator Colour */
+  --pagination-page-focus-background-colour: #ffffff; /* Pagination Page Focus Background Colour */
+  --pagination-page-focus-border-colour: #1d1d1b; /* Pagination Page Focus Border Colour */
+  --pagination-page-focus-border-width: 0.1875rem; /* Pagination Page Focus Border Width */
+  --pagination-page-focus-colour: #1d1d1b; /* Pagination Page Focus Colour */
+  --pagination-page-focus-hover-indicator-colour: #ffffff; /* Pagination Page Focus Hover Indicator Colour */
+  --pagination-page-hover-background-colour: #aee1f7; /* Pagination Page Hover Background Colour */
+  --pagination-page-hover-colour: #1d1d1b; /* Pagination Page Hover Colour */
+  --pagination-page-hover-hover-indicator-colour: #001d6e; /* Pagination Page Hover Hover Indicator Colour */
+  --pagination-page-rest-background-colour: #ffffff; /* Pagination Page Rest Background Colour */
+  --pagination-page-rest-colour: #1d1d1b; /* Pagination Page Rest Colour */
+  --pagination-page-rest-hover-indicator-colour: #ffffff; /* Pagination Page Rest Hover Indicator Colour */
+  --pagination-vertical-gap: 1rem; /* Pagination Vertical Gap */
 }

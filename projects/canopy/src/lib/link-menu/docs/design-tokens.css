@@ -3,33 +3,31 @@
    * @tokens Link Menu
    * @presenter Color
    */
-  --link-menu-border-colour: #d3d3d3;
-  --link-menu-border-width: 0.0625rem;
-  --link-menu-border-radius: 1rem;
-
-  --link-menu-item-padding-top: 1rem;
-  --link-menu-item-padding-bottom: 1rem;
-  --link-menu-item-padding-left: 1rem;
-  --link-menu-item-padding-right: 0.5rem;
-  --link-menu-item-gap: 0.75rem;
-  --link-menu-item-rest-border-colour: #d3d3d3;
-  --link-menu-item-rest-border-width-bottom: 0.0625rem;
-  --link-menu-item-rest-colour: #1d1d1b;
-  --link-menu-item-rest-colour-muted: #4d4f4f;
-
-  --link-menu-item-hover-background-colour: #aee1f7;
-  --link-menu-item-hover-border-colour: #001d6e;
-  --link-menu-item-hover-border-width-bottom: 0.1875rem;
-  --link-menu-item-hover-colour: #1d1d1b;
-  --link-menu-item-hover-colour-muted: #1d1d1b;
-  --link-menu-item-hover-padding-right: 0.5rem;
-  --link-menu-item-active-background-colour: #005dba;
-  --link-menu-item-active-border-width-bottom: 0.0625rem;
-  --link-menu-item-active-border-colour: #ffffff;
-  --link-menu-item-active-colour: #ffffff;
-  --link-menu-item-active-colour-muted: #ffffff;
-  --link-menu-item-focus-border-colour: #1d1d1b;
-  --link-menu-item-focus-border-width: 0.1875rem;
-  --link-menu-item-focus-colour: #1d1d1b;
-  --link-menu-item-focus-colour-muted: #1d1d1b;
+  --link-menu-border-colour: #d3d3d3; /* Link Menu Border Colour */
+  --link-menu-border-radius: 1rem; /* Link Menu Border Radius */
+  --link-menu-border-width: 0.0625rem; /* Link Menu Border Width */
+  --link-menu-item-active-background-colour: #005dba; /* Link Menu Item Active Background Colour */
+  --link-menu-item-active-border-colour: #ffffff; /* Link Menu Item Active Border Colour */
+  --link-menu-item-active-border-width-bottom: 0.0625rem; /* Link Menu Item Active Border Width Bottom */
+  --link-menu-item-active-colour: #ffffff; /* Link Menu Item Active Colour */
+  --link-menu-item-active-colour-muted: #ffffff; /* Link Menu Item Active Colour Muted */
+  --link-menu-item-focus-border-colour: #1d1d1b; /* Link Menu Item Focus Border Colour */
+  --link-menu-item-focus-border-width: 0.1875rem; /* Link Menu Item Focus Border Width */
+  --link-menu-item-focus-colour: #1d1d1b; /* Link Menu Item Focus Colour */
+  --link-menu-item-focus-colour-muted: #1d1d1b; /* Link Menu Item Focus Colour Muted */
+  --link-menu-item-gap: 0.75rem; /* Link Menu Item Gap */
+  --link-menu-item-hover-background-colour: #aee1f7; /* Link Menu Item Hover Background Colour */
+  --link-menu-item-hover-border-colour: #001d6e; /* Link Menu Item Hover Border Colour */
+  --link-menu-item-hover-border-width-bottom: 0.1875rem; /* Link Menu Item Hover Border Width Bottom */
+  --link-menu-item-hover-colour: #1d1d1b; /* Link Menu Item Hover Colour */
+  --link-menu-item-hover-colour-muted: #1d1d1b; /* Link Menu Item Hover Colour Muted */
+  --link-menu-item-hover-padding-right: 0.5rem; /* Link Menu Item Hover Padding Right */
+  --link-menu-item-padding-bottom: 1rem; /* Link Menu Item Padding Bottom */
+  --link-menu-item-padding-left: 1rem; /* Link Menu Item Padding Left */
+  --link-menu-item-padding-right: 0.5rem; /* Link Menu Item Padding Right */
+  --link-menu-item-padding-top: 1rem; /* Link Menu Item Padding Top */
+  --link-menu-item-rest-border-colour: #d3d3d3; /* Link Menu Item Rest Border Colour */
+  --link-menu-item-rest-border-width-bottom: 0.0625rem; /* Link Menu Item Rest Border Width Bottom */
+  --link-menu-item-rest-colour: #1d1d1b; /* Link Menu Item Rest Colour */
+  --link-menu-item-rest-colour-muted: #4d4f4f; /* Link Menu Item Rest Colour Muted */
 }

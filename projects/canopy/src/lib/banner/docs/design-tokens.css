@@ -3,10 +3,10 @@
    * @tokens Banner
    * @presenter Color
    */
-  --banner-padding-x: 1rem; /* Horizontal padding */
-  --banner-padding-y: 0.75rem; /* Vertical padding */
-  --banner-gap: 0.75rem; /* Gap between banner content */
-  --banner-background-colour: #4d4f4f; /* Background colour */
-  --banner-text-colour: #ffffff; /* Text colour */
-  --banner-icon-colour: #ffffff; /* Icon colour */
+  --banner-background-colour: #4d4f4f; /* Banner Background Colour */
+  --banner-gap: 0.75rem; /* Banner Gap */
+  --banner-icon-colour: #ffffff; /* Banner Icon Colour */
+  --banner-padding-x: 1rem; /* Banner Padding X */
+  --banner-padding-y: 0.75rem; /* Banner Padding Y */
+  --banner-text-colour: #ffffff; /* Banner Text Colour */
 }

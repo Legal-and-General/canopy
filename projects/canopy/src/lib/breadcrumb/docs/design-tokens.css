@@ -3,11 +3,10 @@
    * @tokens Breadcrumb
    * @presenter Color
    */
-  --breadcrumb-gap: 0.5rem; /* Gap between breadcrumb items */
-  --breadcrumb-padding-x: 1rem; /* Horizontal padding */
-  --breadcrumb-padding-y: 0.75rem; /* Vertical padding */
-  --breadcrumb-min-width: 20rem; /* Minimum width */
-
-  --breadcrumb-border-width: 0.0625rem; /* Border width */
-  --breadcrumb-border-colour: #d3d3d3; /* Border colour */
+  --breadcrumb-border-colour: #d3d3d3; /* Breadcrumb Border Colour */
+  --breadcrumb-border-width: 0.0625rem; /* Breadcrumb Border Width */
+  --breadcrumb-gap: 0.5rem; /* Breadcrumb Gap */
+  --breadcrumb-min-width: 20rem; /* Breadcrumb Min Width */
+  --breadcrumb-padding-x: 1rem; /* Breadcrumb Padding X */
+  --breadcrumb-padding-y: 0.75rem; /* Breadcrumb Padding Y */
 }
