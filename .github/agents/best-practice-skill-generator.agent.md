@@ -73,7 +73,7 @@ The target can be any of the following:
 - **forms**: everything under `projects/canopy/src/lib/forms/`
 - **layout**: `page`, `content-area`, `grid`, `hero`, `hero-img`, `header`, `footer`, `side-nav`
 - **navigation**: `breadcrumb`, `tabs`, `pagination`, `link-menu`, `side-nav`
-- **feedback**: `alert`, `banner`, `spinner`, `skeleton`, `progress-indicator`, `sr-alert-message`, `primary-message`
+- **feedback**: `alert`, `banner`, `spinner`, `skeleton`, `progress-indicator`, `sr-alert-message`, `notice`
 - **data-display**: `data-point`, `table`, `list`, `accordion`, `details`, `card`, `promo-card`
 - **actions**: `button`, `filter-container`
 - **utilities**: `pictogram`, `icon`, `focus`, `shadow`, `show-at`, `hide-at`, `orientation`, `feature-toggle`, `pipes/camel-case`, `pipes/kebab-case`
