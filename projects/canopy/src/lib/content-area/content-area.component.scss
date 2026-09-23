@@ -7,11 +7,14 @@
 
   @include mixins.lg-content-area;
 
+  // prevent directly projected content applying its own component-margin, without
+  // affecting margins of elements nested within those components (e.g. form fields)
+  > * {
+    margin: 0 !important;
+  }
+
   &--form-journey {
     .lg-content-area-content {
-      display: flex;
-      flex-direction: column;
-      row-gap: var(--space-6);
       padding-left: var(--content-area-padding-x);
       padding-right: var(--content-area-padding-x);
     }
