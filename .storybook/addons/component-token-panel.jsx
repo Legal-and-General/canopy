@@ -1,29 +1,64 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AddonPanel } from 'storybook/internal/components';
 import { addons, types, useStorybookState } from 'storybook/manager-api';
-import tokenSets from '../component-token-data';
+import tokenSources from '../component-token-sources';
 
 const ADDON_ID = 'canopy/component-tokens';
 const PANEL_ID = `${ADDON_ID}/panel`;
+
+// storybook-design-token's own webpack plugin already parses designTokenGlob into this
+// file; reuse it instead of maintaining a separate parsing/generation pipeline.
+function useTokenCategories() {
+  const [categoryMap, setCategoryMap] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch('./design-tokens.source.json')
+      .then(response => response.json())
+      .then(data => {
+        if (cancelled) return;
+
+        const map = new Map();
+        for (const category of data?.cssTokens?.categories ?? []) {
+          map.set(category.name, [...(map.get(category.name) ?? []), ...category.tokens]);
+        }
+        setCategoryMap(map);
+      })
+      .catch(() => setCategoryMap(new Map()));
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return categoryMap;
+}
 
 function ComponentTokenPanel({ active }) {
   const [searchText, setSearchText] = useState('');
   const { index, storyId } = useStorybookState();
   const story = index?.[storyId];
-  const tokenSet = tokenSets.find(({ titlePrefix }) =>
+  const categoryMap = useTokenCategories();
+
+  const source = tokenSources.find(({ titlePrefix }) =>
     story?.title === titlePrefix || story?.title?.startsWith(`${titlePrefix}/`),
   );
+  const tokens = source && categoryMap
+    ? source.categories.flatMap(category => categoryMap.get(category) ?? [])
+    : [];
+
   const searchTerm = searchText.trim().toLowerCase();
-  const filteredTokens = tokenSet?.tokens.filter(token =>
+  const filteredTokens = tokens.filter(token =>
     [ token.name, token.value, token.description, token.presenter ]
-      .some(value => value.toLowerCase().includes(searchTerm)),
-  ) ?? [];
+      .some(value => (value ?? '').toLowerCase().includes(searchTerm)),
+  );
 
   return (
     <AddonPanel active={active}>
-      {tokenSet ? (
+      {source ? (
         <div style={{ padding: '16px' }}>
-          <h2 style={{ margin: '0 0 16px' }}>{tokenSet.label} tokens</h2>
+          <h2 style={{ margin: '0 0 16px' }}>{source.label} tokens</h2>
           <input
             aria-label="Search design tokens"
             onChange={event => setSearchText(event.target.value)}
@@ -62,6 +97,7 @@ function ComponentTokenPanel({ active }) {
     </AddonPanel>
   );
 }
+
 
 function TokenPreview({ token }) {
   const { presenter, value } = token;
