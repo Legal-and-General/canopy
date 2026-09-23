@@ -3,25 +3,57 @@ import path from 'node:path';
 import tokenSources from '../.storybook/component-token-sources.js';
 
 const root = process.cwd();
-const tokenSets = tokenSources.map(({ label, source, titlePrefix }) => ({
-  label,
-  titlePrefix,
-  tokens: parseTokens(path.join(root, source)),
-}));
+const tokensCssPath = path.join(root, 'projects/canopy/storybook/design-tokens/storybook-tokens.css');
+
+const tokenMap = parseTokens(tokensCssPath);
+
+const tokenSets = tokenSources.map(({ label, prefix, titlePrefix }) => {
+  const tokens = [...tokenMap.entries()]
+    .filter(([name]) => name.startsWith(prefix))
+    .map(([name, { value, comment }]) => ({
+      name,
+      value,
+      description: comment || toSentence(name),
+      presenter: getPresenter(name, value),
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  if (tokens.length === 0) {
+    console.warn(`No tokens found for "${label}" (prefix "${prefix}")`);
+  }
+
+  return { label, titlePrefix, tokens };
+});
 
 const output = `const tokenSets = ${JSON.stringify(deduplicate(tokenSets), null, 2)};\n\nexport default tokenSets;\n`;
 fs.writeFileSync(path.join(root, '.storybook/component-token-data.js'), output);
 
 function parseTokens(filePath) {
-  return fs.readFileSync(filePath, 'utf8').split('\n').flatMap(line => {
-    const match = line.match(/^\s*(--[\w-]+):\s*([^;]+);\s*(?:\/\*\s*(.*?)\s*\*\/)?/);
-    return match ? [{
-      name: match[1],
-      value: match[2],
-      description: match[3] || '',
-      presenter: getPresenter(match[1], match[2]),
-    }] : [];
-  });
+  const tokenMap = new Map();
+  if (!fs.existsSync(filePath)) return tokenMap;
+
+  const css = fs.readFileSync(filePath, 'utf8');
+  const regex = /(--[a-zA-Z0-9-]+)\s*:\s*([^;]+);\s*(?:\/\*\s*(.*?)\s*\*\/)?/g;
+
+  for (const match of css.matchAll(regex)) {
+    const [, name, rawValue, comment] = match;
+    const value = rawValue.replace(/\s+/g, ' ').trim();
+
+    if (!name || !value || tokenMap.has(name)) continue;
+
+    tokenMap.set(name, { value, comment: comment?.trim() || '' });
+  }
+
+  return tokenMap;
+}
+
+function toSentence(name) {
+  return name
+    .replace(/^--/, '')
+    .split('-')
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
 }
 
 function getPresenter(name, value) {

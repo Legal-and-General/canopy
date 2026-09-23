@@ -5,32 +5,25 @@ import path from 'node:path';
 import tokenSources from '../.storybook/component-token-sources.js';
 
 const root = process.cwd();
-const tokensCssDir = path.join(root, 'node_modules/@legal-and-general/canopy-design-tokens/css');
-const cssFiles = [
-  'variables.css',
-  'component-themes.css',
-  'layout.css',
-  'status.css',
-  'typography.css',
-].map(file => path.join(tokensCssDir, file));
+// Placeholder until @legal-and-general/canopy-design-tokens publishes this file; swap to
+// 'node_modules/@legal-and-general/canopy-design-tokens/dist/css/storybook-tokens.css' once released.
+const tokensCssPath = path.join(root, 'projects/canopy/src/styles/tokens/storybook-tokens.css');
 
 const tokenMap = new Map();
 
-for (const filePath of cssFiles) {
-  if (!fs.existsSync(filePath)) continue;
-
-  const css = fs.readFileSync(filePath, 'utf8');
-  const regex = /(--[a-zA-Z0-9-]+)\s*:\s*([^;]+);/g;
+if (fs.existsSync(tokensCssPath)) {
+  const css = fs.readFileSync(tokensCssPath, 'utf8');
+  const regex = /(--[a-zA-Z0-9-]+)\s*:\s*([^;]+);\s*(?:\/\*\s*(.*?)\s*\*\/)?/g;
 
   for (const match of css.matchAll(regex)) {
-    const [, name, rawValue] = match;
+    const [, name, rawValue, comment] = match;
     const value = rawValue.replace(/\s+/g, ' ').trim();
 
     if (!name || !value || tokenMap.has(name)) {
       continue;
     }
 
-    tokenMap.set(name, value);
+    tokenMap.set(name, { value, comment: comment?.trim() || '' });
   }
 }
 
@@ -67,10 +60,10 @@ for (const source of tokenSources) {
 
   const matches = [...tokenMap.entries()]
     .filter(([name]) => name.startsWith(prefix))
-    .map(([name, value]) => ({
+    .map(([name, { value, comment }]) => ({
       name,
       value,
-      description: toSentence(name),
+      description: comment || toSentence(name),
       presenter: getPresenter(name, value),
     }))
     .sort((a, b) => a.name.localeCompare(b.name));

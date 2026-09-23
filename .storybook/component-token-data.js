@@ -6,43 +6,43 @@ const tokenSets = [
       {
         "name": "--inline-message-background-colour",
         "value": "#f4f4f4",
-        "description": "Inline Message Background Colour",
+        "description": "Inline message background colour",
         "presenter": "Color"
       },
       {
         "name": "--inline-message-border-radius",
         "value": "0.75rem",
-        "description": "Inline Message Border Radius",
+        "description": "Inline message border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--inline-message-gap",
         "value": "0.75rem",
-        "description": "Inline Message Gap",
+        "description": "Gap between element inside an inline message",
         "presenter": "Spacing"
       },
       {
         "name": "--inline-message-icon-colour",
         "value": "#1d1d1b",
-        "description": "Inline Message Icon Colour",
+        "description": "Inline message icon colour",
         "presenter": "Color"
       },
       {
         "name": "--inline-message-padding-x",
         "value": "0.75rem",
-        "description": "Inline Message Padding X",
+        "description": "Inline message left and right padding",
         "presenter": "Spacing"
       },
       {
         "name": "--inline-message-padding-y",
         "value": "0.75rem",
-        "description": "Inline Message Padding Y",
+        "description": "Inline message top and bottom padding",
         "presenter": "Spacing"
       },
       {
         "name": "--inline-message-text-colour",
         "value": "#1d1d1b",
-        "description": "Inline Message Text Colour",
+        "description": "Inline message text colour",
         "presenter": "Color"
       }
     ]
@@ -54,37 +54,37 @@ const tokenSets = [
       {
         "name": "--banner-background-colour",
         "value": "#4d4f4f",
-        "description": "Banner Background Colour",
+        "description": "Banner background colour",
         "presenter": "Color"
       },
       {
         "name": "--banner-gap",
         "value": "0.75rem",
-        "description": "Banner Gap",
+        "description": "Gap between elements inside the banner",
         "presenter": "Spacing"
       },
       {
         "name": "--banner-icon-colour",
         "value": "#ffffff",
-        "description": "Banner Icon Colour",
+        "description": "Banner icon colour",
         "presenter": "Color"
       },
       {
         "name": "--banner-padding-x",
         "value": "1rem",
-        "description": "Banner Padding X",
+        "description": "Banner left and right padding",
         "presenter": "Spacing"
       },
       {
         "name": "--banner-padding-y",
         "value": "0.75rem",
-        "description": "Banner Padding Y",
+        "description": "Banner top and bottom padding",
         "presenter": "Spacing"
       },
       {
         "name": "--banner-text-colour",
         "value": "#ffffff",
-        "description": "Banner Text Colour",
+        "description": "Banner text colour",
         "presenter": "Color"
       }
     ]
@@ -96,37 +96,37 @@ const tokenSets = [
       {
         "name": "--breadcrumb-border-colour",
         "value": "#d3d3d3",
-        "description": "Breadcrumb Border Colour",
+        "description": "The border colour of the page-level breadcrumb",
         "presenter": "Color"
       },
       {
         "name": "--breadcrumb-border-width",
         "value": "0.0625rem",
-        "description": "Breadcrumb Border Width",
+        "description": "The border width of the page-level breadcrumb",
         "presenter": "Spacing"
       },
       {
         "name": "--breadcrumb-gap",
         "value": "0.5rem",
-        "description": "Breadcrumb Gap",
+        "description": "The gap between links in the breadcrumb",
         "presenter": "Spacing"
       },
       {
         "name": "--breadcrumb-min-width",
         "value": "20rem",
-        "description": "Breadcrumb Min Width",
+        "description": "The min width of the page-level breadcrumb, matching page breakpoint min width",
         "presenter": "Spacing"
       },
       {
         "name": "--breadcrumb-padding-x",
         "value": "1rem",
-        "description": "Breadcrumb Padding X",
+        "description": "The left and right padding of the page-level breadcrumb, matching the page margin",
         "presenter": "Spacing"
       },
       {
         "name": "--breadcrumb-padding-y",
         "value": "0.75rem",
-        "description": "Breadcrumb Padding Y",
+        "description": "The top and bottom padding of the page-level breadcrumb",
         "presenter": "Spacing"
       }
     ]
@@ -138,79 +138,79 @@ const tokenSets = [
       {
         "name": "--button-border-radius",
         "value": "0.75rem",
-        "description": "Button Border Radius",
+        "description": "Button border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--button-border-width",
         "value": "0.09375rem",
-        "description": "Button Border Width",
+        "description": "Button border width",
         "presenter": "Spacing"
       },
       {
         "name": "--button-border-width-focus",
         "value": "0.1875rem",
-        "description": "Button Border Width Focus",
+        "description": "Button focus border width",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-icon-only-min-height",
         "value": "3rem",
-        "description": "Button Common Icon Only Min Height",
+        "description": "Button minimum height",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-icon-only-min-width",
         "value": "3rem",
-        "description": "Button Common Icon Only Min Width",
+        "description": "Button minimum width",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-icon-only-padding-x",
         "value": "0.75rem",
-        "description": "Button Common Icon Only Padding X",
+        "description": "Button padding left and right",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-icon-only-padding-y",
         "value": "0.75rem",
-        "description": "Button Common Icon Only Padding Y",
+        "description": "Button padding top and bottom",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-labelled-min-height",
         "value": "3rem",
-        "description": "Button Common Labelled Min Height",
+        "description": "Button minimum height",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-labelled-min-width",
         "value": "3rem",
-        "description": "Button Common Labelled Min Width",
+        "description": "Button minimum width",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-labelled-padding-x",
         "value": "1rem",
-        "description": "Button Common Labelled Padding X",
+        "description": "Button padding left and right",
         "presenter": "Spacing"
       },
       {
         "name": "--button-common-labelled-padding-y",
         "value": "0.75rem",
-        "description": "Button Common Labelled Padding Y",
+        "description": "Button padding top and bottom",
         "presenter": "Spacing"
       },
       {
         "name": "--button-gap",
         "value": "0.5rem",
-        "description": "Button Gap",
+        "description": "The gap between elements within a button",
         "presenter": "Spacing"
       },
       {
         "name": "--button-group-gap",
         "value": "1rem",
-        "description": "Button Group Gap",
+        "description": "The gap between buttons in a group",
         "presenter": "Spacing"
       },
       {
@@ -222,259 +222,259 @@ const tokenSets = [
       {
         "name": "--button-primary-active-background-colour",
         "value": "#000039",
-        "description": "Button Primary Active Background Colour",
+        "description": "Primary button active background",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-active-border-colour",
         "value": "#000039",
-        "description": "Button Primary Active Border Colour",
+        "description": "Primary button active border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-active-colour",
         "value": "#ffffff",
-        "description": "Button Primary Active Colour",
+        "description": "Primary button active text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-disabled-background-colour",
         "value": "#d3d3d3",
-        "description": "Button Primary Disabled Background Colour",
+        "description": "Primary button disabled background",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-disabled-border-colour",
         "value": "#d3d3d3",
-        "description": "Button Primary Disabled Border Colour",
+        "description": "Primary button disabled border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-disabled-colour",
         "value": "#7a7b7b",
-        "description": "Button Primary Disabled Colour",
+        "description": "Primary button disabled text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-focus-background-colour",
         "value": "#005dba",
-        "description": "Button Primary Focus Background Colour",
+        "description": "Primary button focus background",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-focus-colour",
         "value": "#ffffff",
-        "description": "Button Primary Focus Colour",
+        "description": "Primary button focus text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-hover-background-colour",
         "value": "#001d6e",
-        "description": "Button Primary Hover Background Colour",
+        "description": "Primary button hover background",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-hover-border-colour",
         "value": "#001d6e",
-        "description": "Button Primary Hover Border Colour",
+        "description": "Primary button hover border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-hover-colour",
         "value": "#ffffff",
-        "description": "Button Primary Hover Colour",
+        "description": "Primary button hover text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-rest-background-colour",
         "value": "#005dba",
-        "description": "Button Primary Rest Background Colour",
+        "description": "Primary button default background",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-rest-border-colour",
         "value": "#005dba",
-        "description": "Button Primary Rest Border Colour",
+        "description": "Primary button default border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-primary-rest-colour",
         "value": "#ffffff",
-        "description": "Button Primary Rest Colour",
+        "description": "Primary button default text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-active-background-colour",
         "value": "#000039",
-        "description": "Button Secondary Active Background Colour",
+        "description": "Secondary button active background",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-active-border-colour",
         "value": "#000039",
-        "description": "Button Secondary Active Border Colour",
+        "description": "Secondary button active border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-active-colour",
         "value": "#ffffff",
-        "description": "Button Secondary Active Colour",
+        "description": "Secondary button active text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-disabled-background-colour",
         "value": "#d3d3d3",
-        "description": "Button Secondary Disabled Background Colour",
+        "description": "Secondary button disabled background",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-disabled-border-colour",
         "value": "#d3d3d3",
-        "description": "Button Secondary Disabled Border Colour",
+        "description": "Secondary button disabled border colou",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-disabled-colour",
         "value": "#7a7b7b",
-        "description": "Button Secondary Disabled Colour",
+        "description": "Secondary button disabled text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-focus-background-colour",
         "value": "#ffffff",
-        "description": "Button Secondary Focus Background Colour",
+        "description": "Secondary button focus background",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-focus-border-colour",
         "value": "#1d1d1b",
-        "description": "Button Secondary Focus Border Colour",
+        "description": "Secondary button focus border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-focus-colour",
         "value": "#1d1d1b",
-        "description": "Button Secondary Focus Colour",
+        "description": "Secondary button focus text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-hover-background-colour",
         "value": "#001d6e",
-        "description": "Button Secondary Hover Background Colour",
+        "description": "Secondary button hover background",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-hover-border-colour",
         "value": "#001d6e",
-        "description": "Button Secondary Hover Border Colour",
+        "description": "Secondary button hover border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-hover-colour",
         "value": "#ffffff",
-        "description": "Button Secondary Hover Colour",
+        "description": "Secondary button hover text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-rest-background-colour",
         "value": "#ffffff",
-        "description": "Button Secondary Rest Background Colour",
+        "description": "Secondary button default background",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-rest-border-colour",
         "value": "#1d1d1b",
-        "description": "Button Secondary Rest Border Colour",
+        "description": "Secondary button default border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-secondary-rest-colour",
         "value": "#1d1d1b",
-        "description": "Button Secondary Rest Colour",
+        "description": "Secondary button default text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-active-background-colour",
         "value": "#1d1d1b",
-        "description": "Button Status Active Background Colour",
+        "description": "Status button active background",
         "presenter": "Color"
       },
       {
         "name": "--button-status-active-border-colour",
         "value": "#1d1d1b",
-        "description": "Button Status Active Border Colour",
+        "description": "Status button active border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-active-colour",
         "value": "#ffffff",
-        "description": "Button Status Active Colour",
+        "description": "Status button active text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-disabled-background-colour",
         "value": "#bcbdbd",
-        "description": "Button Status Disabled Background Colour",
+        "description": "Status button disabled background",
         "presenter": "Color"
       },
       {
         "name": "--button-status-disabled-border-colour",
         "value": "#bcbdbd",
-        "description": "Button Status Disabled Border Colour",
+        "description": "Status button disabled border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-disabled-colour",
         "value": "#858686",
-        "description": "Button Status Disabled Colour",
+        "description": "Status button disabled text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-focus-background-colour",
         "value": "#4d4f4f",
-        "description": "Button Status Focus Background Colour",
+        "description": "Status button focus background",
         "presenter": "Color"
       },
       {
         "name": "--button-status-focus-colour",
         "value": "#ffffff",
-        "description": "Button Status Focus Colour",
+        "description": "Status button focus text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-hover-background-colour",
         "value": "#343634",
-        "description": "Button Status Hover Background Colour",
+        "description": "Status button hover background",
         "presenter": "Color"
       },
       {
         "name": "--button-status-hover-border-colour",
         "value": "#343634",
-        "description": "Button Status Hover Border Colour",
+        "description": "Status button hover border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-hover-colour",
         "value": "#ffffff",
-        "description": "Button Status Hover Colour",
+        "description": "Status button hover text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-rest-background-colour",
         "value": "#4d4f4f",
-        "description": "Button Status Rest Background Colour",
+        "description": "Status button default background",
         "presenter": "Color"
       },
       {
         "name": "--button-status-rest-border-colour",
         "value": "#4d4f4f",
-        "description": "Button Status Rest Border Colour",
+        "description": "Status button default border colour",
         "presenter": "Color"
       },
       {
         "name": "--button-status-rest-colour",
         "value": "#ffffff",
-        "description": "Button Status Rest Colour",
+        "description": "Status button default text and icon colour",
         "presenter": "Color"
       }
     ]
@@ -486,49 +486,49 @@ const tokenSets = [
       {
         "name": "--content-area-background-colour",
         "value": "#ffffff",
-        "description": "Content Area Background Colour",
+        "description": "Content area background colour",
         "presenter": "Color"
       },
       {
         "name": "--content-area-border-colour",
         "value": "#d3d3d3",
-        "description": "Content Area Border Colour",
+        "description": "Content area border colour",
         "presenter": "Color"
       },
       {
         "name": "--content-area-border-radius",
         "value": "1.75rem",
-        "description": "Content Area Border Radius",
+        "description": "Content area border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--content-area-border-width",
         "value": "0.0625rem",
-        "description": "Content Area Border Width",
+        "description": "Content area border width",
         "presenter": "Spacing"
       },
       {
         "name": "--content-area-colour",
         "value": "#1d1d1b",
-        "description": "Content Area Colour",
+        "description": "Content area foreground colour",
         "presenter": "Color"
       },
       {
         "name": "--content-area-gap",
         "value": "1.75rem",
-        "description": "Content Area Gap",
+        "description": "The row gap between items in a content area",
         "presenter": "Spacing"
       },
       {
         "name": "--content-area-padding-x",
         "value": "1.75rem",
-        "description": "Content Area Padding X",
+        "description": "Content area padding left and right",
         "presenter": "Spacing"
       },
       {
         "name": "--content-area-padding-y",
         "value": "1.25rem",
-        "description": "Content Area Padding Y",
+        "description": "Content area padding top and bottom",
         "presenter": "Spacing"
       }
     ]
@@ -540,31 +540,31 @@ const tokenSets = [
       {
         "name": "--data-point-gap",
         "value": "0.25rem",
-        "description": "Data Point Gap",
+        "description": "The gap between the label and value",
         "presenter": "Spacing"
       },
       {
         "name": "--data-point-group-column-gap",
         "value": "2.25rem",
-        "description": "Data Point Group Column Gap",
+        "description": "The gap between data points",
         "presenter": "Spacing"
       },
       {
         "name": "--data-point-group-row-gap",
         "value": "2.25rem",
-        "description": "Data Point Group Row Gap",
+        "description": "The gap between data points",
         "presenter": "Spacing"
       },
       {
         "name": "--data-point-label-colour",
         "value": "#4d4f4f",
-        "description": "Data Point Label Colour",
+        "description": "The label text colour",
         "presenter": "Color"
       },
       {
         "name": "--data-point-value-colour",
         "value": "#1d1d1b",
-        "description": "Data Point Value Colour",
+        "description": "The value text colour",
         "presenter": "Color"
       }
     ]
@@ -576,67 +576,67 @@ const tokenSets = [
       {
         "name": "--details-active-padding-bottom",
         "value": "1rem",
-        "description": "Details Active Padding Bottom",
+        "description": "Details component bottom padding applied when component is active (open)",
         "presenter": "Spacing"
       },
       {
         "name": "--details-border-radius",
         "value": "0.75rem",
-        "description": "Details Border Radius",
+        "description": "Details component border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--details-focus-indicator-border-radius",
         "value": "0.5rem",
-        "description": "Details Focus Indicator Border Radius",
+        "description": "Details component focus indicator border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--details-focus-indicator-border-width",
         "value": "0.1875rem",
-        "description": "Details Focus Indicator Border Width",
+        "description": "Details component focus indicator border width",
         "presenter": "Spacing"
       },
       {
         "name": "--details-focus-indicator-colour",
         "value": "#1d1d1b",
-        "description": "Details Focus Indicator Colour",
+        "description": "Details component focus indicator colour",
         "presenter": "Color"
       },
       {
         "name": "--details-gap",
         "value": "0.75rem",
-        "description": "Details Gap",
+        "description": "Gap between element inside an Details component",
         "presenter": "Spacing"
       },
       {
         "name": "--details-padding-x",
         "value": "0.75rem",
-        "description": "Details Padding X",
+        "description": "Details component left and right padding",
         "presenter": "Spacing"
       },
       {
         "name": "--details-padding-y",
         "value": "0.75rem",
-        "description": "Details Padding Y",
+        "description": "Details component top and bottom padding",
         "presenter": "Spacing"
       },
       {
         "name": "--details-status-background-colour",
         "value": "#f4f4f4",
-        "description": "Details Status Background Colour",
+        "description": "Details component background colour",
         "presenter": "Color"
       },
       {
         "name": "--details-status-icon-colour",
         "value": "#1d1d1b",
-        "description": "Details Status Icon Colour",
+        "description": "Details component icon colour",
         "presenter": "Color"
       },
       {
         "name": "--details-status-text-colour",
         "value": "#1d1d1b",
-        "description": "Details Status Text Colour",
+        "description": "Details component text colour",
         "presenter": "Color"
       }
     ]
@@ -648,67 +648,67 @@ const tokenSets = [
       {
         "name": "--footer-background-colour",
         "value": "#ffffff",
-        "description": "Footer Background Colour",
+        "description": "Footer background colour",
         "presenter": "Color"
       },
       {
         "name": "--footer-border-colour",
         "value": "#d3d3d3",
-        "description": "Footer Border Colour",
+        "description": "Footer borders and separators colour",
         "presenter": "Color"
       },
       {
         "name": "--footer-border-width",
         "value": "0.0625rem",
-        "description": "Footer Border Width",
+        "description": "Footer borders and separators width",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-gap",
         "value": "1.75rem",
-        "description": "Footer Gap",
+        "description": "Gap between elements in the footer",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-link-group-link-gap",
         "value": "1rem",
-        "description": "Footer Link Group Link Gap",
+        "description": "The gap between links",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-link-group-social-gap",
         "value": "0.75rem",
-        "description": "Footer Link Group Social Gap",
+        "description": "The gap between social icons",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-logo-gap",
         "value": "2.25rem",
-        "description": "Footer Logo Gap",
+        "description": "Gap between the logo and stickers in the footer",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-logo-size",
         "value": "5rem",
-        "description": "Footer Logo Size",
+        "description": "The size of the logo in the footer. Currently connected to the wrong variable and needs replacing with a structure that mimics the header",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-min-width",
         "value": "20rem",
-        "description": "Footer Min Width",
+        "description": "The minimum width of the footer, matching page min-width",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-padding-x",
         "value": "1rem",
-        "description": "Footer Padding X",
+        "description": "The left and right padding of the footer, matching page margin",
         "presenter": "Spacing"
       },
       {
         "name": "--footer-padding-y",
         "value": "1.75rem",
-        "description": "Footer Padding Y",
+        "description": "The top and bottom padding of the footer",
         "presenter": "Spacing"
       }
     ]
@@ -720,169 +720,169 @@ const tokenSets = [
       {
         "name": "--text-input-common-addon-button-gap",
         "value": "1rem",
-        "description": "Text Input Common Addon Button Gap",
+        "description": "The gap between text elements and the add-on button in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-border-radius",
         "value": "0.75rem",
-        "description": "Text Input Common Border Radius",
+        "description": "The radius of the text input field",
         "presenter": "BorderRadius"
       },
       {
         "name": "--text-input-common-button-gap",
         "value": "0.5rem",
-        "description": "Text Input Common Button Gap",
+        "description": "The gap between the text input and external button",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-height",
         "value": "3rem",
-        "description": "Text Input Common Height",
+        "description": "The height of the text input",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-padding-x",
         "value": "1rem",
-        "description": "Text Input Common Padding X",
+        "description": "The left and right padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-padding-y",
         "value": "0.5rem",
-        "description": "Text Input Common Padding Y",
+        "description": "The top and bottom padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-text-gap",
         "value": "0.5rem",
-        "description": "Text Input Common Text Gap",
+        "description": "The gap between text elements in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-disabled-background-colour",
         "value": "#f4f4f4",
-        "description": "Text Input Disabled Background Colour",
+        "description": "Text input background colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-disabled-border-colour",
         "value": "#d3d3d3",
-        "description": "Text Input Disabled Border Colour",
+        "description": "Text input border colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-disabled-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Disabled Border Width",
+        "description": "Text input border width in disabled state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-disabled-colour",
         "value": "#a6a7a7",
-        "description": "Text Input Disabled Colour",
+        "description": "Text input text colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Error Background Colour",
+        "description": "Text input background colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-border-colour",
         "value": "#c50b30",
-        "description": "Text Input Error Border Colour",
+        "description": "Text input border colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Error Border Width",
+        "description": "Text input border width in error state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-error-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Error Colour",
+        "description": "Text input text colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-focus-border-width",
         "value": "0.1875rem",
-        "description": "Text Input Error Focus Border Width",
+        "description": "The border width of the text input when it has an error and is focused",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-focus-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Focus Background Colour",
+        "description": "Text input background colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-focus-border-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Focus Border Colour",
+        "description": "Text input border colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-focus-border-width",
         "value": "0.1875rem",
-        "description": "Text Input Focus Border Width",
+        "description": "Text input border width in focus state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-focus-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Focus Colour",
+        "description": "Text input text colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Hover Background Colour",
+        "description": "Text input background colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-border-colour",
         "value": "#4d4f4f",
-        "description": "Text Input Hover Border Colour",
+        "description": "Text input border colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Hover Border Width",
+        "description": "Text input border width in hover state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-hover-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Hover Colour",
+        "description": "Text input text colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Rest Background Colour",
+        "description": "Text input background colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-border-colour",
         "value": "#858686",
-        "description": "Text Input Rest Border Colour",
+        "description": "Text input border colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Rest Border Width",
+        "description": "Text input border width in rest state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-rest-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Rest Colour",
+        "description": "Text input text colour in rest state",
         "presenter": "Color"
       }
     ]
@@ -894,97 +894,97 @@ const tokenSets = [
       {
         "name": "--radio-common-border-radius",
         "value": "1rem",
-        "description": "Radio Common Border Radius",
+        "description": "The border radius of the radio control and indicator",
         "presenter": "BorderRadius"
       },
       {
         "name": "--radio-common-colour",
         "value": "#1d1d1b",
-        "description": "Radio Common Colour",
+        "description": "Radio button label colour",
         "presenter": "Color"
       },
       {
         "name": "--radio-disabled-control-background-colour",
         "value": "#f4f4f4",
-        "description": "Radio Disabled Control Background Colour",
+        "description": "Background colour of the radio control in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--radio-disabled-control-border-colour",
         "value": "#d3d3d3",
-        "description": "Radio Disabled Control Border Colour",
+        "description": "Border colour of the radio control in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--radio-disabled-control-border-width",
         "value": "0.09375rem",
-        "description": "Radio Disabled Control Border Width",
+        "description": "Border width of the radio control in disabled state",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-disabled-indicator-colour",
         "value": "#d3d3d3",
-        "description": "Radio Disabled Indicator Colour",
+        "description": "Colour of the radio indicator in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--radio-disabled-label-colour",
         "value": "#a6a7a7",
-        "description": "Radio Disabled Label Colour",
+        "description": "Colour of the radio label in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--radio-error-control-background-colour",
         "value": "#ffffff",
-        "description": "Radio Error Control Background Colour",
+        "description": "Background colour of the radio control in error state",
         "presenter": "Color"
       },
       {
         "name": "--radio-error-control-border-colour",
         "value": "#c50b30",
-        "description": "Radio Error Control Border Colour",
+        "description": "Border colour of the radio control in error state",
         "presenter": "Color"
       },
       {
         "name": "--radio-error-control-border-width",
         "value": "0.09375rem",
-        "description": "Radio Error Control Border Width",
+        "description": "Border width of the radio control in error state",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-error-control-focus-border-width",
         "value": "0.1875rem",
-        "description": "Radio Error Control Focus Border Width",
+        "description": "The border width of the radio when it has an error and is focused",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-error-indicator-colour",
         "value": "#c50b30",
-        "description": "Radio Error Indicator Colour",
+        "description": "Colour of the radio indicator in error state",
         "presenter": "Color"
       },
       {
         "name": "--radio-focus-control-background-colour",
         "value": "#ffffff",
-        "description": "Radio Focus Control Background Colour",
+        "description": "Background colour of the radio control in focus state",
         "presenter": "Color"
       },
       {
         "name": "--radio-focus-control-border-colour",
         "value": "#1d1d1b",
-        "description": "Radio Focus Control Border Colour",
+        "description": "Border colour of the radio control in focus state",
         "presenter": "Color"
       },
       {
         "name": "--radio-focus-control-border-width",
         "value": "0.1875rem",
-        "description": "Radio Focus Control Border Width",
+        "description": "Border width of the radio control in focus state",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-focus-indicator-colour",
         "value": "#005dba",
-        "description": "Radio Focus Indicator Colour",
+        "description": "Colour of the radio indicator in focus state",
         "presenter": "Color"
       },
       {
@@ -1002,85 +1002,85 @@ const tokenSets = [
       {
         "name": "--radio-hover-control-background-colour",
         "value": "#ffffff",
-        "description": "Radio Hover Control Background Colour",
+        "description": "Background colour of the radio control in hover state",
         "presenter": "Color"
       },
       {
         "name": "--radio-hover-control-border-colour",
         "value": "#4d4f4f",
-        "description": "Radio Hover Control Border Colour",
+        "description": "Border colour of the radio control in hover state",
         "presenter": "Color"
       },
       {
         "name": "--radio-hover-control-border-width",
         "value": "0.09375rem",
-        "description": "Radio Hover Control Border Width",
+        "description": "Border width of the radio control in hover state",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-hover-indicator-colour",
         "value": "#001d6e",
-        "description": "Radio Hover Indicator Colour",
+        "description": "Colour of the radio indicator in hover state",
         "presenter": "Color"
       },
       {
         "name": "--radio-rest-control-background-colour",
         "value": "#ffffff",
-        "description": "Radio Rest Control Background Colour",
+        "description": "Background colour of the radio control in rest state",
         "presenter": "Color"
       },
       {
         "name": "--radio-rest-control-border-colour",
         "value": "#858686",
-        "description": "Radio Rest Control Border Colour",
+        "description": "Border colour of the radio control in rest state",
         "presenter": "Color"
       },
       {
         "name": "--radio-rest-control-border-width",
         "value": "0.09375rem",
-        "description": "Radio Rest Control Border Width",
+        "description": "Border width of the radio control in rest state",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-rest-indicator-colour",
         "value": "#005dba",
-        "description": "Radio Rest Indicator Colour",
+        "description": "Colour of the radio indicator in rest state",
         "presenter": "Color"
       },
       {
         "name": "--radio-scale-lg-control-size",
         "value": "1.75rem",
-        "description": "Radio Scale Lg Control Size",
+        "description": "The width and height of the large radio button control",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-scale-lg-gap",
         "value": "2.25rem",
-        "description": "Radio Scale Lg Gap",
+        "description": "The gap between radio control and label",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-scale-lg-indicator-size",
         "value": "1rem",
-        "description": "Radio Scale Lg Indicator Size",
+        "description": "The width and height of the large radio button indicator",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-scale-sm-control-size",
         "value": "1rem",
-        "description": "Radio Scale Sm Control Size",
+        "description": "The width and height of the small radio button control",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-scale-sm-gap",
         "value": "1.75rem",
-        "description": "Radio Scale Sm Gap",
+        "description": "The gap between radio control and label",
         "presenter": "Spacing"
       },
       {
         "name": "--radio-scale-sm-indicator-size",
         "value": "0.5rem",
-        "description": "Radio Scale Sm Indicator Size",
+        "description": "The width and height of the small radio button inidcator",
         "presenter": "Spacing"
       }
     ]
@@ -1224,7 +1224,7 @@ const tokenSets = [
       {
         "name": "--segment-control-common-min-width",
         "value": "14.5rem",
-        "description": "Segment Control Common Min Width",
+        "description": "The minimum width of a stacked segment control",
         "presenter": "Spacing"
       },
       {
@@ -1248,13 +1248,13 @@ const tokenSets = [
       {
         "name": "--segment-control-error-border-width",
         "value": "0.09375rem",
-        "description": "Segment Control Error Border Width",
+        "description": "Border width of the segment control in error state",
         "presenter": "Spacing"
       },
       {
         "name": "--segment-control-error-focus-border-width",
         "value": "0.1875rem",
-        "description": "Segment Control Error Focus Border Width",
+        "description": "The border width of the segment control when it has an error and is focused",
         "presenter": "Spacing"
       },
       {
@@ -1278,163 +1278,163 @@ const tokenSets = [
       {
         "name": "--select-common-border-radius",
         "value": "0.75rem",
-        "description": "Select Common Border Radius",
+        "description": "The radius of the text input field",
         "presenter": "BorderRadius"
       },
       {
         "name": "--select-common-button-gap",
         "value": "1rem",
-        "description": "Select Common Button Gap",
+        "description": "The gap between text elements and the add-on button in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--select-common-height",
         "value": "3rem",
-        "description": "Select Common Height",
+        "description": "The height of the select",
         "presenter": "Spacing"
       },
       {
         "name": "--select-common-padding-x",
         "value": "1rem",
-        "description": "Select Common Padding X",
+        "description": "The left and right padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--select-common-padding-y",
         "value": "0.5rem",
-        "description": "Select Common Padding Y",
+        "description": "The top and bottom padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--select-common-text-gap",
         "value": "0.5rem",
-        "description": "Select Common Text Gap",
+        "description": "The gap between text elements in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--select-disabled-background-colour",
         "value": "#f4f4f4",
-        "description": "Select Disabled Background Colour",
+        "description": "Text input background colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--select-disabled-border-colour",
         "value": "#d3d3d3",
-        "description": "Select Disabled Border Colour",
+        "description": "Text input border colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--select-disabled-border-width",
         "value": "0.09375rem",
-        "description": "Select Disabled Border Width",
+        "description": "Text input border width in disabled state",
         "presenter": "Spacing"
       },
       {
         "name": "--select-disabled-colour",
         "value": "#a6a7a7",
-        "description": "Select Disabled Colour",
+        "description": "Text input text colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--select-error-background-colour",
         "value": "#ffffff",
-        "description": "Select Error Background Colour",
+        "description": "Text input background colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--select-error-border-colour",
         "value": "#c50b30",
-        "description": "Select Error Border Colour",
+        "description": "Text input border colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--select-error-border-width",
         "value": "0.09375rem",
-        "description": "Select Error Border Width",
+        "description": "Text input border width in error state",
         "presenter": "Spacing"
       },
       {
         "name": "--select-error-colour",
         "value": "#1d1d1b",
-        "description": "Select Error Colour",
+        "description": "Text input text colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--select-error-focus-border-width",
         "value": "0.1875rem",
-        "description": "Select Error Focus Border Width",
+        "description": "The border width of the select input when it has an error and is focused",
         "presenter": "Spacing"
       },
       {
         "name": "--select-focus-background-colour",
         "value": "#ffffff",
-        "description": "Select Focus Background Colour",
+        "description": "Text input background colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--select-focus-border-colour",
         "value": "#1d1d1b",
-        "description": "Select Focus Border Colour",
+        "description": "Text input border colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--select-focus-border-width",
         "value": "0.1875rem",
-        "description": "Select Focus Border Width",
+        "description": "Text input border width in focus state",
         "presenter": "Spacing"
       },
       {
         "name": "--select-focus-colour",
         "value": "#1d1d1b",
-        "description": "Select Focus Colour",
+        "description": "Text input text colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--select-hover-background-colour",
         "value": "#ffffff",
-        "description": "Select Hover Background Colour",
+        "description": "Text input background colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--select-hover-border-colour",
         "value": "#4d4f4f",
-        "description": "Select Hover Border Colour",
+        "description": "Text input border colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--select-hover-border-width",
         "value": "0.09375rem",
-        "description": "Select Hover Border Width",
+        "description": "Text input border width in hover state",
         "presenter": "Spacing"
       },
       {
         "name": "--select-hover-colour",
         "value": "#1d1d1b",
-        "description": "Select Hover Colour",
+        "description": "Text input text colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--select-rest-background-colour",
         "value": "#ffffff",
-        "description": "Select Rest Background Colour",
+        "description": "Text input background colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--select-rest-border-colour",
         "value": "#858686",
-        "description": "Select Rest Border Colour",
+        "description": "Text input border colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--select-rest-border-width",
         "value": "0.09375rem",
-        "description": "Select Rest Border Width",
+        "description": "Text input border width in rest state",
         "presenter": "Spacing"
       },
       {
         "name": "--select-rest-colour",
         "value": "#1d1d1b",
-        "description": "Select Rest Colour",
+        "description": "Text input text colour in rest state",
         "presenter": "Color"
       }
     ]
@@ -1446,109 +1446,109 @@ const tokenSets = [
       {
         "name": "--checkbox-common-border-radius",
         "value": "0.25rem",
-        "description": "Checkbox Common Border Radius",
+        "description": "The border radius of the checkbox control",
         "presenter": "BorderRadius"
       },
       {
         "name": "--checkbox-common-colour",
         "value": "#1d1d1b",
-        "description": "Checkbox Common Colour",
+        "description": "Checkbox button label colour",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-common-gap",
         "value": "0.75rem",
-        "description": "Checkbox Common Gap",
+        "description": "The gap between checkbox control and label",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-disabled-control-background-colour",
         "value": "#f4f4f4",
-        "description": "Checkbox Disabled Control Background Colour",
+        "description": "Background colour of the checkbox control in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-disabled-control-border-colour",
         "value": "#d3d3d3",
-        "description": "Checkbox Disabled Control Border Colour",
+        "description": "Border colour of the checkbox control in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-disabled-control-border-width",
         "value": "0.09375rem",
-        "description": "Checkbox Disabled Control Border Width",
+        "description": "Border width of the checkbox control in disabled state",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-disabled-indicator-background-colour",
         "value": "#d3d3d3",
-        "description": "Checkbox Disabled Indicator Background Colour",
+        "description": "Colour of the checkbox indicator in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-disabled-indicator-colour",
         "value": "#d3d3d3",
-        "description": "Checkbox Disabled Indicator Colour",
+        "description": "Colour of the checkbox indicator in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-disabled-label-colour",
         "value": "#a6a7a7",
-        "description": "Checkbox Disabled Label Colour",
+        "description": "Colour of the checkbox label in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-error-control-background-colour",
         "value": "#ffffff",
-        "description": "Checkbox Error Control Background Colour",
+        "description": "Background colour of the checkbox control in error state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-error-control-border-colour",
         "value": "#c50b30",
-        "description": "Checkbox Error Control Border Colour",
+        "description": "Border colour of the checkbox control in error state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-error-control-border-width",
         "value": "0.09375rem",
-        "description": "Checkbox Error Control Border Width",
+        "description": "Border width of the checkbox control in error state",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-error-control-focus-border-width",
         "value": "0.1875rem",
-        "description": "Checkbox Error Control Focus Border Width",
+        "description": "The border width of the checkbox when it has an error and is focused",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-error-indicator-colour",
         "value": "#c50b30",
-        "description": "Checkbox Error Indicator Colour",
+        "description": "Colour of the checkbox indicator in error state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-focus-control-background-colour",
         "value": "#ffffff",
-        "description": "Checkbox Focus Control Background Colour",
+        "description": "Background colour of the checkbox control in focus state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-focus-control-border-colour",
         "value": "#1d1d1b",
-        "description": "Checkbox Focus Control Border Colour",
+        "description": "Border colour of the checkbox control in focus state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-focus-control-border-width",
         "value": "0.1875rem",
-        "description": "Checkbox Focus Control Border Width",
+        "description": "Border width of the checkbox control in focus state",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-focus-indicator-colour",
         "value": "#005dba",
-        "description": "Checkbox Focus Indicator Colour",
+        "description": "Colour of the checkbox indicator in focus state",
         "presenter": "Color"
       },
       {
@@ -1566,85 +1566,85 @@ const tokenSets = [
       {
         "name": "--checkbox-hover-control-background-colour",
         "value": "#ffffff",
-        "description": "Checkbox Hover Control Background Colour",
+        "description": "Background colour of the checkbox control in hover state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-hover-control-border-colour",
         "value": "#4d4f4f",
-        "description": "Checkbox Hover Control Border Colour",
+        "description": "Border colour of the checkbox control in hover state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-hover-control-border-width",
         "value": "0.09375rem",
-        "description": "Checkbox Hover Control Border Width",
+        "description": "Border width of the checkbox control in hover state",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-hover-indicator-colour",
         "value": "#001d6e",
-        "description": "Checkbox Hover Indicator Colour",
+        "description": "Colour of the checkbox indicator in hover state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-rest-control-background-colour",
         "value": "#ffffff",
-        "description": "Checkbox Rest Control Background Colour",
+        "description": "Background colour of the checkbox control in rest state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-rest-control-border-colour",
         "value": "#858686",
-        "description": "Checkbox Rest Control Border Colour",
+        "description": "Border colour of the checkbox control in rest state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-rest-control-border-width",
         "value": "0.09375rem",
-        "description": "Checkbox Rest Control Border Width",
+        "description": "Border width of the checkbox control in rest state",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-rest-indicator-colour",
         "value": "#005dba",
-        "description": "Checkbox Rest Indicator Colour",
+        "description": "Colour of the checkbox indicator in rest state",
         "presenter": "Color"
       },
       {
         "name": "--checkbox-scale-lg-control-size",
         "value": "1.75rem",
-        "description": "Checkbox Scale Lg Control Size",
+        "description": "The width and height of the large checkbox button control",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-scale-lg-gap",
         "value": "2.25rem",
-        "description": "Checkbox Scale Lg Gap",
+        "description": "The gap between radio control and label",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-scale-lg-indicator-size",
         "value": "1.75rem",
-        "description": "Checkbox Scale Lg Indicator Size",
+        "description": "The width and height of the large checkbox button indicator",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-scale-sm-control-size",
         "value": "1rem",
-        "description": "Checkbox Scale Sm Control Size",
+        "description": "The width and height of the small checkbox button control",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-scale-sm-gap",
         "value": "1.75rem",
-        "description": "Checkbox Scale Sm Gap",
+        "description": "The gap between radio control and label",
         "presenter": "Spacing"
       },
       {
         "name": "--checkbox-scale-sm-indicator-size",
         "value": "1rem",
-        "description": "Checkbox Scale Sm Indicator Size",
+        "description": "The width and height of the small checkbox button inidcator",
         "presenter": "Spacing"
       }
     ]
@@ -1652,100 +1652,119 @@ const tokenSets = [
   {
     "label": "Form Validation",
     "titlePrefix": "Components/Forms/Form validation",
-    "tokens": []
+    "tokens": [
+      {
+        "name": "--label-and-hint-validation-message-colour",
+        "value": "#1d1d1b",
+        "description": "The colour of the the error message text and icon",
+        "presenter": "Color"
+      }
+    ]
   },
   {
     "label": "Header",
     "titlePrefix": "Components/Header",
     "tokens": [
       {
-        "name": "--header-button-active-background-colour",
-        "value": "#005dba",
-        "description": "Header Button Active Background Colour",
-        "presenter": "Color"
-      },
-      {
         "name": "--header-button-active-colour",
-        "value": "#ffffff",
-        "description": "Header Button Active Colour",
+        "value": "#001d6e",
+        "description": "Hover state text colour of the nav button",
         "presenter": "Color"
       },
       {
         "name": "--header-button-active-hover-indicator",
-        "value": "#005dba",
-        "description": "Header Button Active Hover Indicator",
+        "value": "#001d6e",
+        "description": "Hover state hover indicator colour of the nav button",
         "presenter": "Empty"
+      },
+      {
+        "name": "--header-button-active-indicator-height",
+        "value": "0.125rem",
+        "description": "The height of the underline on the header button active state",
+        "presenter": "Spacing"
       },
       {
         "name": "--header-button-border-radius",
         "value": "0.75rem",
-        "description": "Header Button Border Radius",
+        "description": "Border radius of the nav button",
         "presenter": "BorderRadius"
       },
       {
         "name": "--header-button-border-width-focus",
         "value": "0.1875rem",
-        "description": "Header Button Border Width Focus",
+        "description": "Border width of the focus state of the nav button",
         "presenter": "Spacing"
       },
       {
-        "name": "--header-button-focus-background-colour",
-        "value": "#ffffff",
-        "description": "Header Button Focus Background Colour",
+        "name": "--header-button-expanded-background-colour",
+        "value": "#005dba",
+        "description": "Active state background colour of the nav button",
         "presenter": "Color"
+      },
+      {
+        "name": "--header-button-expanded-colour",
+        "value": "#ffffff",
+        "description": "Active state text colour of the nav button",
+        "presenter": "Color"
+      },
+      {
+        "name": "--header-button-expanded-hover-indicator",
+        "value": "#005dba",
+        "description": "Active state hover indicator colour of the nav button",
+        "presenter": "Empty"
       },
       {
         "name": "--header-button-focus-border-colour",
         "value": "#ffffff",
-        "description": "Header Button Focus Border Colour",
+        "description": "Focus state border colour of the nav button",
         "presenter": "Color"
       },
       {
         "name": "--header-button-focus-colour",
         "value": "#1d1d1b",
-        "description": "Header Button Focus Colour",
+        "description": "Focus state text colour of the nav button",
         "presenter": "Color"
       },
       {
         "name": "--header-button-gap",
         "value": "0.5rem",
-        "description": "Header Button Gap",
+        "description": "Gap between elements inside the nav button",
         "presenter": "Spacing"
-      },
-      {
-        "name": "--header-button-hover-background-colour",
-        "value": "#aee1f7",
-        "description": "Header Button Hover Background Colour",
-        "presenter": "Color"
       },
       {
         "name": "--header-button-hover-colour",
         "value": "#1d1d1b",
-        "description": "Header Button Hover Colour",
+        "description": "Hover state text colour of the nav button",
         "presenter": "Color"
       },
       {
         "name": "--header-button-hover-hover-indicator",
-        "value": "#001d6e",
-        "description": "Header Button Hover Hover Indicator",
+        "value": "#005dba",
+        "description": "Hover state hover indicator colour of the nav button",
         "presenter": "Empty"
+      },
+      {
+        "name": "--header-button-hover-indicator-height",
+        "value": "0.125rem",
+        "description": "The height of the underline on the header button hover state",
+        "presenter": "Spacing"
       },
       {
         "name": "--header-button-icon-size",
         "value": "1.5rem",
-        "description": "Header Button Icon Size",
+        "description": "The width and height of the icon",
         "presenter": "Spacing"
       },
       {
         "name": "--header-button-min-height",
         "value": "3rem",
-        "description": "Header Button Min Height",
+        "description": "Min height of the nav button",
         "presenter": "Spacing"
       },
       {
         "name": "--header-button-min-width",
         "value": "3rem",
-        "description": "Header Button Min Width",
+        "description": "Min width of the nav button",
         "presenter": "Spacing"
       },
       {
@@ -1757,7 +1776,7 @@ const tokenSets = [
       {
         "name": "--header-button-padding-default-x",
         "value": "0.75rem",
-        "description": "Header Button Padding Default X",
+        "description": "Left and right padding of the nav button",
         "presenter": "Spacing"
       },
       {
@@ -1769,163 +1788,157 @@ const tokenSets = [
       {
         "name": "--header-button-padding-small-x",
         "value": "0.5rem",
-        "description": "Header Button Padding Small X",
+        "description": "Left and right padding of the nav button",
         "presenter": "Spacing"
       },
       {
         "name": "--header-button-padding-y",
         "value": "0.75rem",
-        "description": "Header Button Padding Y",
+        "description": "Top and bottom padding of the nav button",
         "presenter": "Spacing"
-      },
-      {
-        "name": "--header-button-rest-background-colour",
-        "value": "#ffffff",
-        "description": "Header Button Rest Background Colour",
-        "presenter": "Color"
       },
       {
         "name": "--header-button-rest-colour",
         "value": "#1d1d1b",
-        "description": "Header Button Rest Colour",
+        "description": "Rest state hover text colour of the nav button",
         "presenter": "Color"
       },
       {
         "name": "--header-button-rest-hover-indicator",
-        "value": "#ffffff",
-        "description": "Header Button Rest Hover Indicator",
+        "value": "#d3d3d3",
+        "description": "Rest state hover indicator colour of the nav button",
         "presenter": "Empty"
       },
       {
         "name": "--header-button-text-icon-label-height",
         "value": "0.875rem",
-        "description": "Header Button Text Icon Label Height",
+        "description": "Ensures the label container height matches the text line height when the badge is visible",
         "presenter": "Spacing"
       },
       {
         "name": "--header-button-text-label-height",
         "value": "1.375rem",
-        "description": "Header Button Text Label Height",
+        "description": "Ensures the label container height matches the text line height when the badge is visible",
         "presenter": "Spacing"
       },
       {
         "name": "--header-container-background-colour",
         "value": "#ffffff",
-        "description": "Header Container Background Colour",
+        "description": "Background colour of the nav container",
         "presenter": "Color"
       },
       {
         "name": "--header-container-gap",
         "value": "1.75rem",
-        "description": "Header Container Gap",
+        "description": "Gap between elements inside the nav container",
         "presenter": "Spacing"
       },
       {
         "name": "--header-container-logo-gap-lg",
         "value": "1.25rem",
-        "description": "Header Container Logo Gap Lg",
+        "description": "Gap between logos in the nav for LG+ breakpoint",
         "presenter": "Spacing"
       },
       {
         "name": "--header-container-logo-gap-sm",
         "value": "1rem",
-        "description": "Header Container Logo Gap Sm",
+        "description": "Gap between logos in the nav for SM breakpoint",
         "presenter": "Spacing"
       },
       {
         "name": "--header-container-max-height",
         "value": "5.5625rem",
-        "description": "Header Container Max Height",
+        "description": "The overall max height of the nav bar",
         "presenter": "Spacing"
       },
       {
         "name": "--header-container-min-width",
         "value": "20rem",
-        "description": "Header Container Min Width",
+        "description": "Min width of nav container",
         "presenter": "Spacing"
       },
       {
         "name": "--header-container-padding-x",
         "value": "1rem",
-        "description": "Header Container Padding X",
+        "description": "Left and right padding of nav container",
         "presenter": "Spacing"
       },
       {
         "name": "--header-container-padding-y",
         "value": "0.5rem",
-        "description": "Header Container Padding Y",
+        "description": "Top and bottom padding of nav container",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-container-max-height-lg",
         "value": "4rem",
-        "description": "Header Logo Container Max Height Lg",
+        "description": "The max height of the logo slot for LG+ breakpoints",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-container-max-height-sm",
         "value": "2.75rem",
-        "description": "Header Logo Container Max Height Sm",
+        "description": "The max height of the logo slot for SM breakpoint",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-container-max-width-lg",
         "value": "14.5rem",
-        "description": "Header Logo Container Max Width Lg",
+        "description": "The max width of the logo slot for LG+ breakpoints",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-container-max-width-sm",
         "value": "10.3125rem",
-        "description": "Header Logo Container Max Width Sm",
+        "description": "The max width of the logo slot for SM breakpoint",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-container-padding-bottom-lg",
         "value": "0.75rem",
-        "description": "Header Logo Container Padding Bottom Lg",
+        "description": "Padding to ensure that the logo optically aligns to other content in the nav",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-container-padding-bottom-sm",
         "value": "0.5rem",
-        "description": "Header Logo Container Padding Bottom Sm",
+        "description": "Padding to ensure that the logo optically aligns to other content in the nav",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-primary-max-height-lg",
         "value": "3.25rem",
-        "description": "Header Logo Primary Max Height Lg",
+        "description": "The max height of the primary logo for LG+ breakpoints",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-primary-max-height-sm",
         "value": "2.25rem",
-        "description": "Header Logo Primary Max Height Sm",
+        "description": "The max height of the primary logo for SM breakpoint",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-secondary-height-lg",
         "value": "2.25rem",
-        "description": "Header Logo Secondary Height Lg",
+        "description": "The height of the secondary logo for LG+ breakpoints",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-secondary-height-sm",
         "value": "1.5625rem",
-        "description": "Header Logo Secondary Height Sm",
+        "description": "The height of the secondary logo for SM breakpoint",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-secondary-max-width-lg",
         "value": "7.5rem",
-        "description": "Header Logo Secondary Max Width Lg",
+        "description": "The max width of the secondary logo for LG+ breakpoints",
         "presenter": "Spacing"
       },
       {
         "name": "--header-logo-secondary-max-width-sm",
         "value": "5.25rem",
-        "description": "Header Logo Secondary Max Width Sm",
+        "description": "The max width of the secondary logo for SM breakpoint",
         "presenter": "Spacing"
       }
     ]
@@ -2105,31 +2118,31 @@ const tokenSets = [
       {
         "name": "--list-gap",
         "value": "1.25rem",
-        "description": "List Gap",
+        "description": "The gap between list items in a list",
         "presenter": "Spacing"
       },
       {
         "name": "--list-item-common-gap",
         "value": "0.75rem",
-        "description": "List Item Common Gap",
+        "description": "The gap between icon or number and text in a list item",
         "presenter": "Spacing"
       },
       {
         "name": "--list-item-common-padding-left",
         "value": "0.75rem",
-        "description": "List Item Common Padding Left",
+        "description": "Left padding applied to child list items to ident them",
         "presenter": "Spacing"
       },
       {
         "name": "--list-item-negative-colour",
         "value": "#c50b30",
-        "description": "List Item Negative Colour",
+        "description": "Sets the bullet colour to red for scenarios when negative information needs to be conveyed",
         "presenter": "Color"
       },
       {
         "name": "--list-item-positive-colour",
         "value": "#00633d",
-        "description": "List Item Positive Colour",
+        "description": "Sets the bullet colour to green for scenarios when positive information needs to be conveyed",
         "presenter": "Color"
       }
     ]
@@ -2141,133 +2154,133 @@ const tokenSets = [
       {
         "name": "--pagination-colour",
         "value": "#1d1d1b",
-        "description": "Pagination Colour",
+        "description": "The colour of the text elements in the pagination component",
         "presenter": "Color"
       },
       {
         "name": "--pagination-horizontal-gap",
         "value": "1.75rem",
-        "description": "Pagination Horizontal Gap",
+        "description": "The vertical gap between elements in the pagination component",
         "presenter": "Spacing"
       },
       {
         "name": "--pagination-inside-gap",
         "value": "0.5rem",
-        "description": "Pagination Inside Gap",
+        "description": "The gap between page buttons in the pagination component",
         "presenter": "Spacing"
       },
       {
         "name": "--pagination-page-active-background-colour",
         "value": "#005dba",
-        "description": "Pagination Page Active Background Colour",
+        "description": "Pagination button active state background colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-active-colour",
         "value": "#ffffff",
-        "description": "Pagination Page Active Colour",
+        "description": "Pagination button active state colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-active-hover-indicator-colour",
         "value": "#005dba",
-        "description": "Pagination Page Active Hover Indicator Colour",
+        "description": "Pagination button active state hover indicator colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-common-hover-indicator-width",
         "value": "0.125rem",
-        "description": "Pagination Page Common Hover Indicator Width",
+        "description": "Pagination button hover indicator width",
         "presenter": "Spacing"
       },
       {
         "name": "--pagination-page-disabled-background-colour",
         "value": "#f4f4f4",
-        "description": "Pagination Page Disabled Background Colour",
+        "description": "Pagination button disabled state background colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-disabled-colour",
         "value": "#d3d3d3",
-        "description": "Pagination Page Disabled Colour",
+        "description": "Pagination button disabled state colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-disabled-hover-indicator-colour",
         "value": "#f4f4f4",
-        "description": "Pagination Page Disabled Hover Indicator Colour",
+        "description": "Pagination button active state disabled indicator colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-focus-background-colour",
         "value": "#ffffff",
-        "description": "Pagination Page Focus Background Colour",
+        "description": "Pagination button focus state background colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-focus-border-colour",
         "value": "#1d1d1b",
-        "description": "Pagination Page Focus Border Colour",
+        "description": "Pagination button focus state border colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-focus-border-width",
         "value": "0.1875rem",
-        "description": "Pagination Page Focus Border Width",
+        "description": "Pagination button focus state border width",
         "presenter": "Spacing"
       },
       {
         "name": "--pagination-page-focus-colour",
         "value": "#1d1d1b",
-        "description": "Pagination Page Focus Colour",
+        "description": "Pagination button focus state colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-focus-hover-indicator-colour",
         "value": "#ffffff",
-        "description": "Pagination Page Focus Hover Indicator Colour",
+        "description": "Pagination button focus state hover indicator colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-hover-background-colour",
         "value": "#aee1f7",
-        "description": "Pagination Page Hover Background Colour",
+        "description": "Pagination button hover state background colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-hover-colour",
         "value": "#1d1d1b",
-        "description": "Pagination Page Hover Colour",
+        "description": "Pagination button hover state colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-hover-hover-indicator-colour",
         "value": "#001d6e",
-        "description": "Pagination Page Hover Hover Indicator Colour",
+        "description": "Pagination button hover state hover indicator colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-rest-background-colour",
         "value": "#ffffff",
-        "description": "Pagination Page Rest Background Colour",
+        "description": "Pagination button rest state background colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-rest-colour",
         "value": "#1d1d1b",
-        "description": "Pagination Page Rest Colour",
+        "description": "Pagination button rest state colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-page-rest-hover-indicator-colour",
         "value": "#ffffff",
-        "description": "Pagination Page Rest Hover Indicator Colour",
+        "description": "Pagination button rest state hover indicator colour",
         "presenter": "Color"
       },
       {
         "name": "--pagination-vertical-gap",
         "value": "1rem",
-        "description": "Pagination Vertical Gap",
+        "description": "The vertical gap between elements in the pagination component",
         "presenter": "Spacing"
       }
     ]
@@ -2279,13 +2292,13 @@ const tokenSets = [
       {
         "name": "--link-gap",
         "value": "0.5rem",
-        "description": "Link Gap",
+        "description": "Gap between elements inside a link",
         "presenter": "Spacing"
       },
       {
         "name": "--link-group-gap",
         "value": "1rem",
-        "description": "Link Group Gap",
+        "description": "The gap between links in a link group",
         "presenter": "Spacing"
       },
       {
@@ -2453,169 +2466,169 @@ const tokenSets = [
       {
         "name": "--link-mono-active-colour",
         "value": "#000000",
-        "description": "Link Mono Active Colour",
+        "description": "Footer link active colour",
         "presenter": "Color"
       },
       {
         "name": "--link-mono-focus-border-radius",
         "value": "0.25rem",
-        "description": "Link Mono Focus Border Radius",
+        "description": "Link focus indicator border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--link-mono-focus-border-width",
         "value": "0.0625rem",
-        "description": "Link Mono Focus Border Width",
+        "description": "Link focus indicator border width",
         "presenter": "Spacing"
       },
       {
         "name": "--link-mono-focus-colour",
         "value": "#000000",
-        "description": "Link Mono Focus Colour",
+        "description": "Footer link focus colour",
         "presenter": "Color"
       },
       {
         "name": "--link-mono-hover-colour",
         "value": "#000000",
-        "description": "Link Mono Hover Colour",
+        "description": "Footer link hover colour",
         "presenter": "Color"
       },
       {
         "name": "--link-mono-rest-colour",
         "value": "#000000",
-        "description": "Link Mono Rest Colour",
+        "description": "Footer link rest colour",
         "presenter": "Color"
       },
       {
         "name": "--link-mono-visited-colour",
         "value": "#000000",
-        "description": "Link Mono Visited Colour",
+        "description": "Footer link visited colour",
         "presenter": "Color"
       },
       {
         "name": "--link-primary-active-colour",
         "value": "#000a52",
-        "description": "Link Primary Active Colour",
+        "description": "Primary link active text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-primary-focus-border-radius",
         "value": "0.25rem",
-        "description": "Link Primary Focus Border Radius",
+        "description": "Link focus indicator border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--link-primary-focus-border-width",
         "value": "0.0625rem",
-        "description": "Link Primary Focus Border Width",
+        "description": "Link focus indicator border width",
         "presenter": "Spacing"
       },
       {
         "name": "--link-primary-focus-colour",
         "value": "#005dba",
-        "description": "Link Primary Focus Colour",
+        "description": "Primary link focus text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-primary-hover-colour",
         "value": "#001d6e",
-        "description": "Link Primary Hover Colour",
+        "description": "Primary link hover text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-primary-rest-colour",
         "value": "#005dba",
-        "description": "Link Primary Rest Colour",
+        "description": "Primary link rest text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-primary-visited-colour",
         "value": "#1d1d1b",
-        "description": "Link Primary Visited Colour",
+        "description": "Primary link visited text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-bold-active-colour",
         "value": "#f4f4f4",
-        "description": "Link Status Bold Active Colour",
+        "description": "Bold status link active text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-bold-focus-border-radius",
         "value": "0.25rem",
-        "description": "Link Status Bold Focus Border Radius",
+        "description": "Link focus indicator border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--link-status-bold-focus-border-width",
         "value": "0.0625rem",
-        "description": "Link Status Bold Focus Border Width",
+        "description": "Link focus indicator border width",
         "presenter": "Spacing"
       },
       {
         "name": "--link-status-bold-focus-colour",
         "value": "#f4f4f4",
-        "description": "Link Status Bold Focus Colour",
+        "description": "Bold status link focus text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-bold-hover-colour",
         "value": "#f4f4f4",
-        "description": "Link Status Bold Hover Colour",
+        "description": "Bold status link hover text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-bold-rest-colour",
         "value": "#f4f4f4",
-        "description": "Link Status Bold Rest Colour",
+        "description": "Bold status link rest text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-bold-visited-colour",
         "value": "#f4f4f4",
-        "description": "Link Status Bold Visited Colour",
+        "description": "Bold status link visited text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-subtle-active-colour",
         "value": "#000000",
-        "description": "Link Status Subtle Active Colour",
+        "description": "Subtle status link active text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-subtle-focus-border-radius",
         "value": "0.25rem",
-        "description": "Link Status Subtle Focus Border Radius",
+        "description": "Link focus indicator border radius",
         "presenter": "BorderRadius"
       },
       {
         "name": "--link-status-subtle-focus-border-width",
         "value": "0.0625rem",
-        "description": "Link Status Subtle Focus Border Width",
+        "description": "Link focus indicator border width",
         "presenter": "Spacing"
       },
       {
         "name": "--link-status-subtle-focus-colour",
         "value": "#000000",
-        "description": "Link Status Subtle Focus Colour",
+        "description": "Subtle status link focus text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-subtle-hover-colour",
         "value": "#000000",
-        "description": "Link Status Subtle Hover Colour",
+        "description": "Subtle status link hover text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-subtle-rest-colour",
         "value": "#000000",
-        "description": "Link Status Subtle Rest Colour",
+        "description": "Subtle status link rest text and icon colour",
         "presenter": "Color"
       },
       {
         "name": "--link-status-subtle-visited-colour",
         "value": "#000000",
-        "description": "Link Status Subtle Visited Colour",
+        "description": "Subtle status link visited text and icon colour",
         "presenter": "Color"
       }
     ]
@@ -2627,169 +2640,169 @@ const tokenSets = [
       {
         "name": "--text-input-common-addon-button-gap",
         "value": "1rem",
-        "description": "Text Input Common Addon Button Gap",
+        "description": "The gap between text elements and the add-on button in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-border-radius",
         "value": "0.75rem",
-        "description": "Text Input Common Border Radius",
+        "description": "The radius of the text input field",
         "presenter": "BorderRadius"
       },
       {
         "name": "--text-input-common-button-gap",
         "value": "0.5rem",
-        "description": "Text Input Common Button Gap",
+        "description": "The gap between the text input and external button",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-height",
         "value": "3rem",
-        "description": "Text Input Common Height",
+        "description": "The height of the text input",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-padding-x",
         "value": "1rem",
-        "description": "Text Input Common Padding X",
+        "description": "The left and right padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-padding-y",
         "value": "0.5rem",
-        "description": "Text Input Common Padding Y",
+        "description": "The top and bottom padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-text-gap",
         "value": "0.5rem",
-        "description": "Text Input Common Text Gap",
+        "description": "The gap between text elements in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-disabled-background-colour",
         "value": "#f4f4f4",
-        "description": "Text Input Disabled Background Colour",
+        "description": "Text input background colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-disabled-border-colour",
         "value": "#d3d3d3",
-        "description": "Text Input Disabled Border Colour",
+        "description": "Text input border colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-disabled-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Disabled Border Width",
+        "description": "Text input border width in disabled state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-disabled-colour",
         "value": "#a6a7a7",
-        "description": "Text Input Disabled Colour",
+        "description": "Text input text colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Error Background Colour",
+        "description": "Text input background colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-border-colour",
         "value": "#c50b30",
-        "description": "Text Input Error Border Colour",
+        "description": "Text input border colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Error Border Width",
+        "description": "Text input border width in error state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-error-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Error Colour",
+        "description": "Text input text colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-focus-border-width",
         "value": "0.1875rem",
-        "description": "Text Input Error Focus Border Width",
+        "description": "The border width of the text input when it has an error and is focused",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-focus-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Focus Background Colour",
+        "description": "Text input background colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-focus-border-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Focus Border Colour",
+        "description": "Text input border colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-focus-border-width",
         "value": "0.1875rem",
-        "description": "Text Input Focus Border Width",
+        "description": "Text input border width in focus state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-focus-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Focus Colour",
+        "description": "Text input text colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Hover Background Colour",
+        "description": "Text input background colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-border-colour",
         "value": "#4d4f4f",
-        "description": "Text Input Hover Border Colour",
+        "description": "Text input border colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Hover Border Width",
+        "description": "Text input border width in hover state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-hover-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Hover Colour",
+        "description": "Text input text colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Rest Background Colour",
+        "description": "Text input background colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-border-colour",
         "value": "#858686",
-        "description": "Text Input Rest Border Colour",
+        "description": "Text input border colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Rest Border Width",
+        "description": "Text input border width in rest state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-rest-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Rest Colour",
+        "description": "Text input text colour in rest state",
         "presenter": "Color"
       }
     ]
@@ -2801,169 +2814,169 @@ const tokenSets = [
       {
         "name": "--text-input-common-addon-button-gap",
         "value": "1rem",
-        "description": "Text Input Common Addon Button Gap",
+        "description": "The gap between text elements and the add-on button in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-border-radius",
         "value": "0.75rem",
-        "description": "Text Input Common Border Radius",
+        "description": "The radius of the text input field",
         "presenter": "BorderRadius"
       },
       {
         "name": "--text-input-common-button-gap",
         "value": "0.5rem",
-        "description": "Text Input Common Button Gap",
+        "description": "The gap between the text input and external button",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-height",
         "value": "3rem",
-        "description": "Text Input Common Height",
+        "description": "The height of the text input",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-padding-x",
         "value": "1rem",
-        "description": "Text Input Common Padding X",
+        "description": "The left and right padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-padding-y",
         "value": "0.5rem",
-        "description": "Text Input Common Padding Y",
+        "description": "The top and bottom padding of the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-common-text-gap",
         "value": "0.5rem",
-        "description": "Text Input Common Text Gap",
+        "description": "The gap between text elements in the text input field",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-disabled-background-colour",
         "value": "#f4f4f4",
-        "description": "Text Input Disabled Background Colour",
+        "description": "Text input background colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-disabled-border-colour",
         "value": "#d3d3d3",
-        "description": "Text Input Disabled Border Colour",
+        "description": "Text input border colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-disabled-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Disabled Border Width",
+        "description": "Text input border width in disabled state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-disabled-colour",
         "value": "#a6a7a7",
-        "description": "Text Input Disabled Colour",
+        "description": "Text input text colour in disabled state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Error Background Colour",
+        "description": "Text input background colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-border-colour",
         "value": "#c50b30",
-        "description": "Text Input Error Border Colour",
+        "description": "Text input border colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Error Border Width",
+        "description": "Text input border width in error state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-error-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Error Colour",
+        "description": "Text input text colour in error state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-error-focus-border-width",
         "value": "0.1875rem",
-        "description": "Text Input Error Focus Border Width",
+        "description": "The border width of the text input when it has an error and is focused",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-focus-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Focus Background Colour",
+        "description": "Text input background colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-focus-border-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Focus Border Colour",
+        "description": "Text input border colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-focus-border-width",
         "value": "0.1875rem",
-        "description": "Text Input Focus Border Width",
+        "description": "Text input border width in focus state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-focus-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Focus Colour",
+        "description": "Text input text colour in focus state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Hover Background Colour",
+        "description": "Text input background colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-border-colour",
         "value": "#4d4f4f",
-        "description": "Text Input Hover Border Colour",
+        "description": "Text input border colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-hover-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Hover Border Width",
+        "description": "Text input border width in hover state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-hover-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Hover Colour",
+        "description": "Text input text colour in hover state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-background-colour",
         "value": "#ffffff",
-        "description": "Text Input Rest Background Colour",
+        "description": "Text input background colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-border-colour",
         "value": "#858686",
-        "description": "Text Input Rest Border Colour",
+        "description": "Text input border colour in rest state",
         "presenter": "Color"
       },
       {
         "name": "--text-input-rest-border-width",
         "value": "0.09375rem",
-        "description": "Text Input Rest Border Width",
+        "description": "Text input border width in rest state",
         "presenter": "Spacing"
       },
       {
         "name": "--text-input-rest-colour",
         "value": "#1d1d1b",
-        "description": "Text Input Rest Colour",
+        "description": "Text input text colour in rest state",
         "presenter": "Color"
       }
     ]

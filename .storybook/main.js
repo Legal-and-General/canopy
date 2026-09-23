@@ -180,7 +180,7 @@ export default {
     {
       name: 'storybook-design-token',
       options: {
-        designTokenGlob: '**/design-tokens.css',
+        designTokenGlob: '**/{design-tokens,storybook-tokens}.css',
       },
     }
   ],
