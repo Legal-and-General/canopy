@@ -14,7 +14,7 @@ Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills
 npx skills add Legal-and-General/canopy --list
 
 # Install a specific migration skill
-npx skills add Legal-and-General/canopy --skill canopy-v27-migration
+npx skills add Legal-and-General/canopy --skill canopy-v40-migration
 
 # List all available best practice skills
 npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --list
@@ -41,10 +41,11 @@ npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
 
 Once installed, ask your agent:
-> "Apply the Canopy v38 migration to my project."
+> "Apply the Canopy v40 migration to my project."
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v40-migration` | v39 → v40 | [v40.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v40.0.0) |
 | `canopy-v39-migration` | v38 → v39 | [v39.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v39.0.0) |
 | `canopy-v38-migration` | v37 → v38 | [v38.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0) |
 | `canopy-v37-migration` | v36 → v37 | [v37.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v37.0.0) |
@@ -124,7 +125,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-skeleton` | `LgSkeletonDirective` (`[lgSkeleton]`), animation, screen reader behaviour | — |
 | `canopy-progress-indicator` | `LgProgressIndicatorComponent`, steps, current step | — |
 | `canopy-sr-alert-message` | `LgSrAlertMessageDirective`, `[lgSrAlertMessage]`, live region, screen reader only | — |
-| `canopy-primary-message` | `LgPrimaryMessageComponent`, title, description, icon | — |
+| `canopy-notice` | `LgNoticeComponent`, title, description, icon | — |
 | **Data Display** | | |
 | `canopy-data-point` | `LgDataPointComponent`, label/value/list, heading level | — |
 | `canopy-accordion` | `LgAccordionComponent`, multi, lazy content, outputs | — |

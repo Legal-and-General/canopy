@@ -82,7 +82,7 @@ For `generic` and `info` statuses, you can provide a custom icon via the `icon` 
 
 ### Don't
 
-1. **Don't** use inline messages when space is not an issue — consider using Primary Message with Pictogram instead.
+1. **Don't** use inline messages when space is not an issue — consider using Notice with Pictogram instead.
 2. **Don't** overload the page with multiple inline messages simultaneously.
 3. **Don't** use error status without providing clear steps to resolve the issue.
 4. **Don't** use inline messages to hide important information; place them where users will see them in context.

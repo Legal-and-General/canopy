@@ -128,7 +128,13 @@ export class LgStatusDirective implements OnInit, AfterViewInit, OnDestroy {
     const tagName = element.tagName.toLowerCase();
     const classList = element.classList;
 
-    const allowedComponents = [ 'lg-banner', 'lg-alert', 'lg-details', 'lg-validation' ];
+    const allowedComponents = [
+      'lg-banner',
+      'lg-alert',
+      'lg-details',
+      'lg-notice',
+      'lg-validation',
+    ];
 
     const isValidTag = allowedComponents.includes(tagName);
     const isValidClass = allowedComponents.some(className =>
