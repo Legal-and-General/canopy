@@ -10,4 +10,9 @@
   @include mixins.lg-breakpoint('md') {
     flex-direction: row;
   }
+
+  // prevent directly projected content applying its own component-margin
+  > * {
+    margin: 0 !important;
+  }
 }
