@@ -77,8 +77,7 @@ of the Table brand modernisation:
 If your application overrides any of these properties, those overrides must be removed
 or replaced as part of the migration.
 
-**Search for** (in `*.scss`, `*.css`, and inline `style=""` attributes in `*.html`
-files):
+**Search for** (in `*.scss`, `*.css`, `*.html`, and `*.ts` files, including inline templates and style bindings):
 ```css
 --table-stripe-color
 --table-header-border-width
