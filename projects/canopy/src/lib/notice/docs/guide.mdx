@@ -1,0 +1,116 @@
+import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
+import Feedback from '../../docs/common/feedback.md?raw';
+import * as NoticeStories from './notice.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+
+<Meta title="Components/Notice/Guide" tags={['updated']}/>
+
+# Notice
+
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v40.0.0" target="_blank" rel="noopener noreferrer">v40</a>.</span></span>
+
+<p class="standfirst">A message that sits in the page and provides a simple and engaging message to the user.</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
+
+## Usage
+
+A notice should contain key information, while not requiring full and immediate attention. It can be used in the following contexts:
+
+| State       | Use when                            | Example                                     |
+|-------------|-------------------------------------|---------------------------------------------|
+| Empty       | No items to show                    | You have no transactions                    |
+| Error       | Something is erroneous              | Cannot find the page you are looking for    |
+| Information | Additional information is available | New feature intro guide                     |
+| Success     | An action was completed             | All done! Completion of application journey |
+
+Import the notice components into your application:
+
+```js
+import {
+  LgNoticeActionComponent,
+  LgNoticeComponent,
+} from '@legal-and-general/canopy';
+```
+
+and in your HTML:
+
+<Source of={NoticeStories.StandardNotice} />
+
+## How it works
+
+A notice should be the only content that displays in a container.
+
+* It contains a pictogram. Choose an appropriate pictogram from the [pictogram catalogue](./?path=/story/foundations-pictogram-catalog--standard-pictograms) that best fits the scenario. Read the [pictogram guide](./?path=/docs/foundations-pictogram-guide--docs) for more details.
+* It contains a title and description. [Read our writing page](./?path=/docs/principles-writing--docs) for how to write appropriate copy.
+* (Optional) It can contain an action. Wrap one link, one button, or one button group in `LgNoticeActionComponent`. When using a notice at the end of a journey, adding an action is a great way to guide the user to the next step so they don't get stuck in a dead-end.
+* It can sit inside a Content Area when it is the only content in that area. The Content Area provides the surrounding colour mode and theme, while the Notice provides the message content.
+
+## Status
+
+The `status` input defaults to `info`. Set it to communicate the type of message.
+When `status` is set explicitly, `success`, `warning` and `error` use the role `alert`
+so assistive technologies announce them when they are shown. Explicitly setting
+`info` does not add an ARIA role. When `status` is omitted, `hasRole`
+controls the default role of `alert`.
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** use when there is no other functionality or content.
+2. **Do** use when space is not limited.
+3. **Do** use an appropriate pictogram to capture the message you want to convey.
+
+### Don't
+
+1. **Don't** use on a page where it's not the only content, e.g. a form.
+2. **Don't** use for validation. Use form validation instead.
+
+## Additional developer details
+
+### LgNoticeComponent
+
+This is where the `LgPictogramComponent`, `LgNoticeTitleComponent` and `LgNoticeDescriptionComponent` are projected.
+
+#### Inputs
+
+| Name      | Description                                                                                  | Type                                                   | Default | Required |
+|-----------|----------------------------------------------------------------------------------------------|--------------------------------------------------------|---------|----------|
+| `status`  | Sets the message status. Defaults to `info`.                                                   | `'info' \| 'success' \| 'warning' \| 'error'` | `info` | No       |
+| `hasRole` | When `status` is not set, `false` removes the default role `alert` from the component.       | `boolean`                                              | `true`  | No       |
+
+### LgNoticeTitleComponent
+
+This is where the title (main message) is projected.
+
+### LgNoticeDescriptionComponent
+
+This is where the description (main message) is projected.
+
+A notice can have more than one `LgNoticeDescriptionComponent`.
+
+### LgNoticeActionComponent
+
+This is where an optional action is projected. The `type` input must match the projected control:
+
+| Type           | Allowed content                         |
+|----------------|------------------------------------------|
+| `link`         | One link with an `href` attribute        |
+| `button`       | One button with the `lg-button` directive |
+| `button-group` | One `lg-button-group` component          |
+
+***
+
+## Research on this component
+
+This component is based on best practice and has not had specific usability testing.
+
+## Related
+
+* [Inline message](./?path=/docs/components-inline-message-alert-guide--docs)
+* [Modal](./?path=/docs/components-modal-guide--docs)
+
+<Markdown>
+  {Feedback}
+</Markdown>

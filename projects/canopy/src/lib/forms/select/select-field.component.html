@@ -3,7 +3,7 @@
 </label>
 <ng-content select=".lg-label--optional" />
 <ng-content select="lg-hint" />
-<ng-content select="lg-validation" />
+<ng-content select="lg-validation, [lgValidationWrapper]" />
 <div class="lg-select-field__outer">
   <div class="lg-select-field__inner" [class.lg-select-field__inner--block]="block">
     <ng-content select="[lgSelect]" />

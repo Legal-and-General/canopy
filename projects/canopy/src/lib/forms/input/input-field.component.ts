@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 import { randomUniqueId } from '../../utils';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
-import { LgValidationComponent } from '../validation';
+import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import { LgButtonComponent } from '../../button';
 import { LgSuffixDirective } from '../../suffix';
 import { LgPrefixDirective } from '../../prefix';
@@ -50,6 +50,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _inputElement: LgInputDirective;
   private _hintElement: LgHintComponent;
   private _validationElement: LgValidationComponent;
+  private _validationWrapperElement: LgValidationWrapperDirective;
   private _suffixChildren: QueryList<LgSuffixDirective>;
   private _prefixChildren: QueryList<LgPrefixDirective>;
   private _externalButtonChildren: QueryList<LgInputFieldExternalButtonDirective>;
@@ -122,9 +123,15 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
     this.updateAriaDescribedBy();
   }
 
-  @ContentChild(LgValidationComponent)
+  @ContentChild(LgValidationComponent, { descendants: true })
   set errorElement(element: LgValidationComponent) {
     this._validationElement = element;
+    this.updateAriaDescribedBy();
+  }
+
+  @ContentChild(LgValidationWrapperDirective)
+  set errorWrapperElement(element: LgValidationWrapperDirective) {
+    this._validationWrapperElement = element;
     this.updateAriaDescribedBy();
   }
 
@@ -207,7 +214,7 @@ export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
 
     const ids = [
       this._hintElement?.id,
-      this._validationElement?.id,
+      this._validationElement?.id ?? this._validationWrapperElement?.id,
       ...this.getDescriptiveAffixIds(this._prefixChildren),
       ...this.getDescriptiveAffixIds(this._suffixChildren),
     ].filter((id, index, values) => Boolean(id) && values.indexOf(id) === index);

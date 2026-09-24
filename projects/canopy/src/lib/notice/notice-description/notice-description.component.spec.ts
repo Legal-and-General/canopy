@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LgPrimaryMessageDescriptionComponent } from './primary-message-description.component';
+import { LgNoticeDescriptionComponent } from './notice-description.component';
 
-describe('LgPrimaryMessageDescriptionComponent', () => {
-  let component: LgPrimaryMessageDescriptionComponent;
-  let fixture: ComponentFixture<LgPrimaryMessageDescriptionComponent>;
+describe('LgNoticeDescriptionComponent', () => {
+  let component: LgNoticeDescriptionComponent;
+  let fixture: ComponentFixture<LgNoticeDescriptionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ LgPrimaryMessageDescriptionComponent ],
+      imports: [ LgNoticeDescriptionComponent ],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LgPrimaryMessageDescriptionComponent);
+    fixture = TestBed.createComponent(LgNoticeDescriptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -24,7 +24,7 @@ describe('LgPrimaryMessageDescriptionComponent', () => {
 
   it('should have a class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain(
-      'lg-primary-message-description',
+      'lg-notice-description',
     );
   });
 });

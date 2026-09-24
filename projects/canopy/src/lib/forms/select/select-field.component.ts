@@ -13,7 +13,7 @@ import { randomUniqueId } from '../../utils/unique-id';
 import { LgHintComponent } from '../hint';
 import { LgLabelComponent } from '../label';
 import { LgErrorStateMatcher } from '../validation';
-import { LgValidationComponent } from '../validation';
+import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import { LgIconComponent } from '../../icon';
 
 import { LgSelectDirective } from './select.directive';
@@ -84,9 +84,16 @@ export class LgSelectFieldComponent {
   }
 
   _validationElement?: LgValidationComponent;
-  @ContentChild(LgValidationComponent)
+  @ContentChild(LgValidationComponent, { descendants: true })
   set errorElement(element: LgValidationComponent) {
     this._validationElement = element;
+    this.updateAriaDescribedBy();
+  }
+
+  _validationWrapperElement?: LgValidationWrapperDirective;
+  @ContentChild(LgValidationWrapperDirective)
+  set errorWrapperElement(element: LgValidationWrapperDirective) {
+    this._validationWrapperElement = element;
     this.updateAriaDescribedBy();
   }
 
@@ -95,9 +102,10 @@ export class LgSelectFieldComponent {
       return;
     }
 
-    const ids = [ this._hintElement?.id, this._validationElement?.id ].filter(
-      (id, index, values) => Boolean(id) && values.indexOf(id) === index,
-    );
+    const ids = [
+      this._hintElement?.id,
+      this._validationElement?.id ?? this._validationWrapperElement?.id,
+    ].filter((id, index, values) => Boolean(id) && values.indexOf(id) === index);
 
     this._selectElement.ariaDescribedBy = ids.length > 0
       ? ids.join(' ')

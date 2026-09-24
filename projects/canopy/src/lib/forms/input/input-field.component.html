@@ -3,7 +3,7 @@
 </label>
 <ng-content select=".lg-label--optional" />
 <ng-content select="lg-hint" />
-<ng-content select="lg-validation" />
+<ng-content select="lg-validation, [lgValidationWrapper]" />
 <div
   class="lg-input-field__inputs"
   (focusin)="onFocusIn($event)"

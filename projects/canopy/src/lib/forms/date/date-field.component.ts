@@ -27,7 +27,7 @@ import { isValid, parseISO } from 'date-fns';
 
 import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
-import { LgValidationComponent } from '../validation';
+import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import omit from '../../utils/omit';
 import { randomUniqueId } from '../../utils';
 import { LgInputDirective } from '../input';
@@ -76,6 +76,7 @@ implements OnInit, AfterViewInit, ControlValueAccessor, OnDestroy {
   subscriptions: Array<Subscription> = [];
   _hintElement: LgHintComponent;
   _validationElement: LgValidationComponent;
+  _validationWrapperElement: LgValidationWrapperDirective;
 
   @Input() value: string;
   @Input() disabled = false;
@@ -92,9 +93,14 @@ implements OnInit, AfterViewInit, ControlValueAccessor, OnDestroy {
     this._hintElement = element;
   }
 
-  @ContentChild(LgValidationComponent)
+  @ContentChild(LgValidationComponent, { descendants: true })
   set errorContentElement(element: LgValidationComponent) {
     this._validationElement = element;
+  }
+
+  @ContentChild(LgValidationWrapperDirective)
+  set errorWrapperContentElement(element: LgValidationWrapperDirective) {
+    this._validationWrapperElement = element;
   }
 
   @ViewChild('dateFormDirective')
@@ -190,8 +196,11 @@ implements OnInit, AfterViewInit, ControlValueAccessor, OnDestroy {
       ids.push(this._hintElement.id);
     }
 
-    if (this._validationElement?.id) {
-      ids.push(this._validationElement.id);
+    const validationId =
+      this._validationElement?.id ?? this._validationWrapperElement?.id;
+
+    if (validationId) {
+      ids.push(validationId);
     }
 
     this.ariaDescribedBy = ids.length

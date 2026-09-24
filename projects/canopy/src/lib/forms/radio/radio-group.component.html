@@ -9,7 +9,7 @@
   <ng-content select=".lg-label--optional" />
   <ng-content select="lg-hint" />
 
-  <ng-content select="lg-validation" />
+  <ng-content select="lg-validation, [lgValidationWrapper]" />
 
   @if (variant === 'segment') {
     <div class="lg-radio-group__segment">

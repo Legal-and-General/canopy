@@ -13,7 +13,14 @@ import { LgContentAreaFooterComponent } from '../content-area-footer/content-are
 import { LgContentAreaTitleComponent } from '../content-area-title/content-area-title.component';
 import { LgIconComponent } from '../../icon';
 import { LgButtonComponent, LgButtonGroupComponent } from '../../button';
-import { LgHintComponent, LgInputDirective, LgInputFieldComponent } from '../../forms';
+import {
+  LgHintComponent,
+  LgInputDirective,
+  LgInputFieldComponent,
+  LgSelectDirective,
+  LgSelectFieldComponent,
+  LgSortCodeDirective,
+} from '../../forms';
 import {
   LgGridColDirective,
   LgGridContainerDirective,
@@ -106,6 +113,7 @@ const contentAreaChildTemplate = `
   </lg-content-area-header>
   <lg-content-area-content>
     <p>{{content}}</p>
+    <p>{{content}}</p>
   </lg-content-area-content>
 </lg-content-area>
 `;
@@ -183,6 +191,19 @@ const formJourneyTemplate = `
                 }
                 <input lgInput formControlName="accountNumber" size="8" />
               </lg-input-field>
+              <lg-input-field [block]="true">
+                Sort code
+                <lg-hint>Must be 6 digits, like 12-34-56</lg-hint>
+                <input lgInput lgSortCode formControlName="sortCode" size="8" />
+              </lg-input-field>
+              <lg-select-field [block]="true">
+                Account type
+                <select lgSelect formControlName="accountType">
+                  <option value="current">Current account</option>
+                  <option value="savings">Savings account</option>
+                  <option value="joint">Joint account</option>
+                </select>
+              </lg-select-field>
             </lg-content-area-content>
             <lg-content-area-footer>
               <lg-button-group>
@@ -211,6 +232,9 @@ const formJourneyTemplate = `
     LgContentAreaFooterComponent,
     LgInputFieldComponent,
     LgInputDirective,
+    LgSortCodeDirective,
+    LgSelectFieldComponent,
+    LgSelectDirective,
     LgContentAreaTitleComponent,
     ReactiveFormsModule,
     LgContentAreaContentComponent,
@@ -231,7 +255,11 @@ class ContentAreaFormJourneyComponent {
   form: UntypedFormGroup;
 
   constructor() {
-    this.form = this.fb.group({ accountNumber: { value: '', disabled: false } });
+    this.form = this.fb.group({
+      accountNumber: { value: '', disabled: false },
+      sortCode: { value: '', disabled: false },
+      accountType: { value: 'current', disabled: false },
+    });
   }
 
   onSubmit(event): void {
