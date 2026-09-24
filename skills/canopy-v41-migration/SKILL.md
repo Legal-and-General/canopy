@@ -59,8 +59,7 @@ importing that internal file directly.
 }
 ```
 
-> **Automated?** Yes — remove the deleted import wherever it appears, then re-test any
-> stylesheet that depended on those internal Table variables.
+> **Automated?** Only for side-effect-only imports — before deleting an import, inspect the file for variables or mixins loaded from it and remove or rework those references using supported public Canopy APIs; then re-test the stylesheet.
 
 ---
 
