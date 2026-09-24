@@ -35,9 +35,7 @@
 }
 
 .lg-alert__body {
-  display: flex;
   flex: 1;
-  flex-direction: column;
   --text-bottom-margin: var(--inline-message-gap);
 }
 
