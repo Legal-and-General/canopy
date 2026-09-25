@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgHeroComponent } from '../hero.component';
@@ -58,7 +58,7 @@ export const productHeroHTML = `
     <div lgContainer>
       <div lgRow>
         <div [lgCol]="12">
-          <lg-breadcrumb variant="embedded" lgMarginBottom="none">
+          <lg-breadcrumb variant="page" lgMarginBottom="none">
             <lg-breadcrumb-item>
               <a href="#">
                 <lg-icon name="home-outline"></lg-icon>
@@ -140,7 +140,7 @@ export const productHeroHTML = `
 `;
 
 export const conversationalHeroHTML = `
-<lg-hero [overlap]="overlap">
+<lg-hero>
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>
@@ -159,7 +159,7 @@ export const conversationalHeroHTML = `
 </lg-hero>
 `;
 
-const productHeroTemplate = `<lg-hero [overlap]="overlap" lgMarginTop="none">${productHeroHTML}</lg-hero>${bodyHTML}`;
+const productHeroTemplate = `<lg-hero lgMarginTop="none">${productHeroHTML}</lg-hero>${bodyHTML}`;
 
 @Component({
   selector: 'lg-hero-product-story',
@@ -193,9 +193,7 @@ const productHeroTemplate = `<lg-hero [overlap]="overlap" lgMarginTop="none">${p
     LgHeroCardHeaderComponent,
   ],
 })
-class HeroProductStoryComponent {
-  @Input() overlap: number;
-}
+class HeroProductStoryComponent {}
 
 export default {
   title: 'Patterns/Hero/Examples',
@@ -221,25 +219,13 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-  argTypes: {
-    overlap: {
-      description: 'The amount that the page content overlaps the hero component (rem).',
-      control: {
-        type: 'number',
-      },
-    },
-  },
 };
 
 export const ProductHero = {
   name: 'Product details',
-  render: (args: LgHeroComponent) => ({
-    props: args,
-    template: '<lg-hero-product-story [overlap]="overlap"></lg-hero-product-story>',
+  render: () => ({
+    template: '<lg-hero-product-story></lg-hero-product-story>',
   }),
-  args: {
-    overlap: 2,
-  },
   parameters: {
     docs: {
       source: {
@@ -256,13 +242,9 @@ ${bodyHTML}
 
 export const ConversationalHero = {
   name: 'Conversational UI',
-  render: (args: LgHeroComponent) => ({
-    props: args,
+  render: () => ({
     template: conversationalHeroTemplate,
   }),
-  args: {
-    overlap: 2,
-  },
   parameters: {
     docs: {
       source: {

@@ -14,15 +14,15 @@
     margin-bottom: 0;
   }
 
-  a {
-    @include mixins.lg-link(
-      $default-color: var(--hero-link-color),
-      $hover-color: var(--hero-link-hover-color),
-      $visited-color: var(--hero-link-visited-color),
-      $active-color: var(--hero-link-active-color),
-      $focus-color: var(--hero-link-focus-color)
-    );
-  }
+  // a {
+  //   @include mixins.lg-link(
+  //     $default-color: var(--hero-link-color),
+  //     $hover-color: var(--hero-link-hover-color),
+  //     $visited-color: var(--hero-link-visited-color),
+  //     $active-color: var(--hero-link-active-color),
+  //     $focus-color: var(--hero-link-focus-color)
+  //   );
+  // }
 }
 
 .lg-hero-card-notification__icon {

@@ -11,8 +11,9 @@
   > h4,
   > h5,
   > h6 {
-    @include mixins.lg-font-size(6);
+    @include mixins.lg-font-size(5, '500', 'expressive');
 
-    margin-bottom: var(--space-4);
+    color: var(--hero-title-block-colour);
+    margin-bottom: var(--hero-title-block-gap);
   }
 }

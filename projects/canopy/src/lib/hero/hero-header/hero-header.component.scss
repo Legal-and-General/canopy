@@ -1,19 +1,10 @@
 .lg-hero-header {
   display: block;
   position: relative;
-  background-color: var(--hero-overlay-bg-color);
-
-  // To do: Remove once breadcrumb link colour tokens are set correctly for hero backgrounds
-  lg-breadcrumb {
-    --link-mono-rest-colour: var(--colour-greyscale-0);
-    --link-mono-hover-colour: var(--colour-greyscale-0);
-    --link-mono-active-colour: var(--colour-greyscale-0);
-    --link-mono-visited-colour: var(--colour-greyscale-0);
-    --link-mono-focus-colour: var(--colour-greyscale-0);
-  }
+  // background-color: var(--hero-overlay-bg-color);
 }
 
 .lg-hero-header__content {
-  padding: var(--space-3) 0;
+  padding: 0;
   position: relative;
 }
