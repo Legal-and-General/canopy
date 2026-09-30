@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -15,4 +16,11 @@ import {
 })
 export class LgHeroComponent {
   @HostBinding('class.lg-hero') class = true;
+
+  @HostBinding('class.lg-hero--child')
+  get isChildVariant() {
+    return this.variant === 'child';
+  }
+
+  @Input() variant: 'default' | 'child' = 'default';
 }

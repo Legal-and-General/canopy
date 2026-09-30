@@ -30,4 +30,11 @@ describe('LgHeroComponent', () => {
   it('should have the default class', () => {
     expect(componentElement.getAttribute('class')).toContain('lg-hero');
   });
+
+  it('should apply the child class for the child variant', () => {
+    component.variant = 'child';
+    fixture.detectChanges();
+
+    expect(componentElement.classList.contains('lg-hero--child')).toBe(true);
+  });
 });

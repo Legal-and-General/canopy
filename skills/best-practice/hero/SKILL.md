@@ -1,6 +1,6 @@
 ---
 name: canopy-hero
-description: Best practices for the Canopy Hero component. Trigger when adding a page hero banner, product details hero, or conversational hero section in an Angular project using Canopy.
+description: Use when building a Canopy page hero, conversational child hero, product-details hero, or hero cards with data points and breadcrumbs in an Angular application.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/hero/docs/guide.mdx
@@ -43,7 +43,7 @@ import {
 ## Basic Usage (Conversational)
 
 ```html
-<lg-hero [overlap]="overlap">
+<lg-hero variant="child">
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>

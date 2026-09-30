@@ -1,4 +1,11 @@
 .lg-hero {
   display: block;
-  margin-top: calc(-1 * var(--page-vertical-padding));
+
+  &--child .lg-hero-card-header {
+    margin-bottom: 0;
+  }
+
+  &--child .lg-hero-card-header__title {
+    margin-bottom: 0;
+  }
 }

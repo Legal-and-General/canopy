@@ -3,32 +3,29 @@ import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeroStories from './hero.stories';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Patterns/Hero/Guide" tags={['pending']} />
+<Meta title="Patterns/Hero/Guide" tags={['updated']} />
 
 # Hero
 
-<CustomBadge
-  text="Pending"
-  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
-/>
-<span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v42.0.0" target="_blank" rel="noopener noreferrer">v42</a>.</span></span>
 
 <p class="standfirst">A flexible pattern that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
 Import the hero components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgHeroComponent, etc. ],
-});
+import { LgHeroComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 <Source of={HeroStories.ConversationalHero} />
+
+Use `variant="child"` for a conversational UI hero.
 
 ### Other hero types and templates
 
@@ -135,6 +132,18 @@ This component can used to display product data, for example on a product detail
 </lg-hero>
 ```
 
+#### Product details using data point components
+
+The hero also supports the [data point components](./?path=/docs/components-data-point-guide--docs). Use `LgDataPointComponent` with `variant="card-principle"` and a `size="lg"` value inside the hero card header, and `LgDataPointGroupComponent` with `size="md"` values inside the hero card content.
+
+<Source of={HeroStories.ProductHeroDataPoint} />
+
+#### Hero cards using data point components
+
+Secondary data points can also be grouped inside a card within the hero card content. Use `LgCardComponent` with a `LgCardTitleComponent` heading, and `LgCardContentInnerDataPointsComponent` containing `LgDataPointComponent` items with `variant="card"`.
+
+<Source of={HeroStories.HeroCardsDataPoint} />
+
 ## Additional development details
 
 ### LgHeroComponent
@@ -143,7 +152,9 @@ This is the branded bar which runs across the top of the page.
 
 #### Inputs
 
-This component has no inputs.
+| Name      | Description                                      | Type                   | Default     | Required |
+| --------- | ------------------------------------------------ | ---------------------- | ----------- | -------- |
+| `variant` | Use `child` for a conversational UI. | `'default' \| 'child'` | `'default'` | No       |
 
 ### LgHeroContentComponent
 

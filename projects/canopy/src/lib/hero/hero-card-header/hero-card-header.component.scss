@@ -3,6 +3,7 @@
 .lg-hero-card-header {
   display: flex;
   flex-direction: column;
+  margin-bottom: var(--hero-gap);
 
   @include mixins.lg-breakpoint('lg') {
     flex-direction: row;
@@ -11,14 +12,29 @@
 
 .lg-hero-card-header__title {
   @include mixins.lg-breakpoint('lg') {
-    margin-right: var(--space-5);
     flex: 1 1 auto;
   }
 }
 
 .lg-hero-card-header__data {
+  &:has(> *) {
+    margin-top: var(--page-gutter-sm);
+  }
+
   @include mixins.lg-breakpoint('lg') {
+    margin-top: 0;
     text-align: right;
     flex: 0 0 auto;
+  }
+
+  .lg-data-point--card-principle {
+    display: flex;
+    flex-direction: column;
+    // padding-bottom: var(--content-gap-row-sm);
+
+    @include mixins.lg-breakpoint('md') {
+      padding-bottom: 0;
+      text-align: left;
+    }
   }
 }
