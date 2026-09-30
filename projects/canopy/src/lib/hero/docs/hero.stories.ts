@@ -198,7 +198,7 @@ export const productHeroDataPointHTML = `
                   Valuation
                 </lg-data-point-label>
                 <lg-data-point-value size="lg">
-                  £00,000,00
+                  £00,000.00
                 </lg-data-point-value>
                 <lg-data-point-add-on>
                   <a href="#">Optional help link</a>
@@ -286,7 +286,7 @@ export const heroCardsDataPointHTML = `
                   Valuation
                 </lg-data-point-label>
                 <lg-data-point-value size="lg">
-                  £00,000,00
+                  £00,000.00
                 </lg-data-point-value>
                 <lg-data-point-add-on>
                   <a href="#">Optional help link</a>

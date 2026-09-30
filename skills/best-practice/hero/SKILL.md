@@ -35,6 +35,13 @@ import {
   LgHeroCardPrincipleDataPointLabelComponent,
   LgHeroCardPrincipleDataPointValueComponent,
   LgHeroCardNotificationComponent,
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+  LgGridColDirective,
+  LgIconComponent,
+  LgMarginDirective,
 } from '@legal-and-general/canopy';
 ```
 
@@ -67,16 +74,14 @@ import {
 
 ### Breadcrumb inside `lg-hero-header`
 
-Use `variant="embedded"` when the breadcrumb is inside a hero header that is already wrapped with grid directives (`lgContainer`, `lgRow`, `lgCol`), so the breadcrumb must not apply its own container alignment.
-
-The `.lg-hero-header` component automatically overrides the `--link-mono-*` colour tokens so breadcrumb links render in white (`--colour-greyscale-0`) without any additional consumer styling required.
+Use `variant="page"` for breadcrumbs inside `lg-hero-header`, even when the header uses grid directives. Set `lgMarginBottom="none"` as in the hero examples, and let the active theme determine link colours.
 
 ```html
 <lg-hero-header>
   <div lgContainer>
     <div lgRow>
       <div [lgCol]="12">
-        <lg-breadcrumb variant="embedded">
+        <lg-breadcrumb variant="page" lgMarginBottom="none">
           <lg-breadcrumb-item>
             <a href="#"><lg-icon name="home-outline"></lg-icon> Home</a>
           </lg-breadcrumb-item>
@@ -93,15 +98,12 @@ The `.lg-hero-header` component automatically overrides the `--link-mono-*` colo
 </lg-hero-header>
 ```
 
-> ❌ Do not use `variant="page"` inside `lg-hero-header` — it will double up on container alignment.  
-> ❌ Do not manually override breadcrumb link colours inside the hero — this is handled automatically.
-
 ---
 
 ## Product Details Layout
 
 ```html
-<lg-hero [overlap]="2">
+<lg-hero>
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>
@@ -129,13 +131,12 @@ The `.lg-hero-header` component automatically overrides the `--link-mono-*` colo
 
 | Input | Type | Default | Description |
 |-------|------|---------|-------------|
-| `overlap` | `number` | — | Amount (in rem) that the page content overlaps the hero. |
+| `variant` | `'default' \| 'child'` | `'default'` | Use `child` for a conversational UI hero; it removes the gap beneath the card header. |
 
 ---
 
 ## Design Constraints
 
 - Always wrap hero card content with the grid directives (`lgContainer`, `lgRow`, `lgCol`).
-- The hero renders against a dark blue background — use `variant="light"` on any breadcrumb inside the hero.
-- This component is pending brand modernisation.
+- Use the page breadcrumb variant inside `lg-hero-header`; rely on the active theme for background and link colours rather than assuming a dark-blue hero or white links.
 
