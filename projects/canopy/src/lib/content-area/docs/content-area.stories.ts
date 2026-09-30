@@ -26,14 +26,22 @@ import {
   LgGridContainerDirective,
   LgGridRowDirective,
 } from '../../grid';
+import {
+  LgProgressHeaderComponent,
+  LgProgressIndicatorComponent,
+} from '../../progress-indicator';
 import { LgMarginDirective, LgPaddingDirective } from '../../spacing';
+import { LgNoticeComponent } from '../../notice/notice.component';
+import { LgNoticeActionComponent } from '../../notice/notice-action/notice-action.component';
+import { LgNoticeTitleComponent } from '../../notice/notice-title/notice-title.component';
+import { LgNoticeDescriptionComponent } from '../../notice/notice-description/notice-description.component';
+import { LgPictogramComponent } from '../../pictogram';
 
 const content =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
 export default {
   title: 'Components/Content area/Examples',
-  tags: [ 'updated' ],
   component: LgContentAreaComponent,
   decorators: [
     moduleMetadata({
@@ -51,6 +59,10 @@ export default {
         LgGridRowDirective,
         LgMarginDirective,
         LgPaddingDirective,
+        LgNoticeComponent,
+        LgNoticeDescriptionComponent,
+        LgNoticeTitleComponent,
+        LgPictogramComponent,
       ],
     }),
   ],
@@ -87,7 +99,6 @@ const standardTemplate = `
 `;
 
 export const Standard = {
-  name: 'Standard',
   args: {
     content: content,
   },
@@ -171,48 +182,219 @@ export const WithExpressiveType = {
   }),
 };
 
+const introductorySource = `
+<lg-content-area variant="form-journey">
+  <lg-content-area-header>
+    <a href="#">
+      <lg-icon name="arrow-left"></lg-icon>
+      Back
+    </a>
+  </lg-content-area-header>
+  <lg-content-area-content>
+    <h1>Journey title</h1>
+    <p>This is a temporary introduction for the form journey. Please replace this text with relevant content that guides users through the process.</p>
+    <h4>Before you begin</h4>
+    <p>You can update the bank account used for your payments. This should take about five minutes.</p>
+    <p>Have your account number and sort code ready.</p>
+  </lg-content-area-content>
+  <lg-content-area-footer>
+    <lg-button-group>
+      <button lg-button type="button" priority="primary">
+        Continue
+        <lg-icon name="arrow-right" />
+      </button>
+      <button lg-button type="button" priority="secondary">
+        Cancel
+        <lg-icon name="close" />
+      </button>
+    </lg-button-group>
+  </lg-content-area-footer>
+</lg-content-area>
+`;
+
+const intermediateSource = `
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+  <lg-content-area variant="form-journey">
+    <lg-content-area-header>
+      <a href="#">
+        <lg-icon name="arrow-left"></lg-icon>
+        Back
+      </a>
+    </lg-content-area-header>
+    <lg-content-area-content>
+      <lg-progress-indicator [max]="3" [value]="1">
+        Step heading
+        <lg-progress-header>
+          <h1>Journey title</h1>
+        </lg-progress-header>
+      </lg-progress-indicator>
+      <p>Enter the details of the account you want us to use for your payments.</p>
+      <lg-input-field [block]="true">
+        Account number
+        <lg-hint>Your account number is 8 digits</lg-hint>
+        <input lgInput formControlName="accountNumber" size="8" />
+      </lg-input-field>
+      <lg-input-field [block]="true">
+        Sort code
+        <lg-hint>Must be 6 digits, like 12-34-56</lg-hint>
+        <input lgInput lgSortCode formControlName="sortCode" size="8" />
+      </lg-input-field>
+      <lg-select-field [block]="true">
+        Account type
+        <select lgSelect formControlName="accountType">
+          <option value="current">Current account</option>
+          <option value="savings">Savings account</option>
+          <option value="joint">Joint account</option>
+        </select>
+      </lg-select-field>
+    </lg-content-area-content>
+    <lg-content-area-footer>
+      <lg-button-group>
+        <button lg-button type="button" priority="primary">
+          Continue
+          <lg-icon name="arrow-right" />
+        </button>
+        <button lg-button type="button" priority="secondary">
+          Cancel
+          <lg-icon name="close" />
+        </button>
+      </lg-button-group>
+    </lg-content-area-footer>
+  </lg-content-area>
+</form>
+`;
+
+const confirmationSource = `
+<lg-content-area variant="form-journey">
+  <lg-content-area-content>
+    <lg-notice status="success">
+      <lg-pictogram name="confirm" hasFill="true"></lg-pictogram>
+      <lg-notice-title>Success!</lg-notice-title>
+      <lg-notice-description>You've completed the form</lg-notice-description>
+      <lg-notice-action type="button">
+        <button lg-button priority="primary" type="button">
+          Return to product
+          <lg-icon name="arrow-right" />
+        </button>
+      </lg-notice-action>
+    </lg-notice>
+  </lg-content-area-content>
+</lg-content-area>
+`;
+
 const formJourneyTemplate = `
   <div lgContainer>
     <div lgRow>
-      <div lgCol="12" lgColLg="6" lgColLgOffset="3" lgColMd="10" lgColMdOffset="1">
-        <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
-          <lg-content-area variant="form-journey">
-            <lg-content-area-header>
-              <a href="#">
-                <lg-icon name="arrow-left"></lg-icon>{{backLinkText}}
-              </a>
-            </lg-content-area-header>
-            <lg-content-area-content>
-              <p>{{contentAreaContent}}</p>
-              <lg-input-field [block]="true">
-                {{label}}
-                @if (hint) {
-                  <lg-hint>{{hint}}</lg-hint>
-                }
-                <input lgInput formControlName="accountNumber" size="8" />
-              </lg-input-field>
-              <lg-input-field [block]="true">
-                Sort code
-                <lg-hint>Must be 6 digits, like 12-34-56</lg-hint>
-                <input lgInput lgSortCode formControlName="sortCode" size="8" />
-              </lg-input-field>
-              <lg-select-field [block]="true">
-                Account type
-                <select lgSelect formControlName="accountType">
-                  <option value="current">Current account</option>
-                  <option value="savings">Savings account</option>
-                  <option value="joint">Joint account</option>
-                </select>
-              </lg-select-field>
-            </lg-content-area-content>
-            <lg-content-area-footer>
-              <lg-button-group>
-                <button lg-button type="button" priority="primary">Continue</button>
-                <button lg-button type="submit" priority="secondary">Back</button>
-              </lg-button-group>
-            </lg-content-area-footer>
-          </lg-content-area>
-        </form>
+      <div lgCol="12" lgColLg="8" lgColLgOffset="2" lgColMd="10" lgColMdOffset="1">
+        @switch (stage) {
+          @case ('introductory') {
+            <lg-content-area variant="form-journey">
+              <lg-content-area-header>
+                <a href="#">
+                  <lg-icon name="arrow-left"></lg-icon>{{backLinkText}}
+                </a>
+              </lg-content-area-header>
+              <lg-content-area-content>
+                <h1>
+                  {{title}}
+                </h1>
+                <p>{{contentAreaContent}}</p>
+                <h4>Before you begin</h4>
+                <p>
+                  You can update the bank account used for your payments. This should take about five minutes.
+                </p>
+                <p>Have your account number and sort code ready.</p>
+              </lg-content-area-content>
+              <lg-content-area-footer>
+                <lg-button-group>
+                  <button lg-button type="button" priority="primary">
+                    Continue
+                    <lg-icon name="arrow-right" />
+                  </button>
+                  <button lg-button type="button" priority="secondary">
+                    Cancel
+                    <lg-icon name="close" />
+                  </button>
+                </lg-button-group>
+              </lg-content-area-footer>
+            </lg-content-area>
+          }
+          @case ('intermediate') {
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+              <lg-content-area variant="form-journey">
+                <lg-content-area-header>
+                  <a href="#">
+                    <lg-icon name="arrow-left"></lg-icon>{{backLinkText}}
+                  </a>
+                </lg-content-area-header>
+                <lg-content-area-content>
+                  <lg-progress-indicator [max]="3" [value]="1">
+                    {{journeyTitle}}
+                    <lg-progress-header>
+                      <h1>
+                        Step heading
+                      </h1>
+                    </lg-progress-header>
+                  </lg-progress-indicator>
+                  <p>{{contentAreaContent}}</p>
+                  <lg-input-field [block]="true">
+                    {{label}}
+                    @if (hint) {
+                      <lg-hint>{{hint}}</lg-hint>
+                    }
+                    <input lgInput formControlName="accountNumber" size="8" />
+                  </lg-input-field>
+                  <lg-input-field [block]="true">
+                    Sort code
+                    <lg-hint>Must be 6 digits, like 12-34-56</lg-hint>
+                    <input lgInput lgSortCode formControlName="sortCode" size="8" />
+                  </lg-input-field>
+                  <lg-select-field [block]="true">
+                    Account type
+                    <select lgSelect formControlName="accountType">
+                      <option value="current">Current account</option>
+                      <option value="savings">Savings account</option>
+                      <option value="joint">Joint account</option>
+                    </select>
+                  </lg-select-field>
+                </lg-content-area-content>
+                <lg-content-area-footer>
+                  <lg-button-group>
+                  <button lg-button type="button" priority="primary">
+                    Continue
+                    <lg-icon name="arrow-right" />
+                  </button>
+                  <button lg-button type="button" priority="secondary">
+                    Cancel
+                    <lg-icon name="close" />
+                  </button>
+                </lg-button-group>
+                </lg-content-area-footer>
+              </lg-content-area>
+            </form>
+          }
+          @case ('confirmation') {
+            <lg-content-area variant="form-journey">
+              <lg-content-area-content>
+              <lg-notice status="success">
+                <lg-pictogram name="confirm" hasFill="true"></lg-pictogram>
+                <lg-notice-title
+                  >Success!
+                </lg-notice-title>
+                <lg-notice-description>
+                  You've completed the form
+                </lg-notice-description>
+                <lg-notice-action type="button">
+                  <button lg-button priority="primary" type="button">
+                    Return to product
+                    <lg-icon name="arrow-right" />
+                  </button>
+                </lg-notice-action>
+              </lg-notice>
+              </lg-content-area-content>
+            </lg-content-area>
+          }
+        }
       </div>
     </div>
   </div>
@@ -225,8 +407,6 @@ const formJourneyTemplate = `
     LgGridContainerDirective,
     LgGridRowDirective,
     LgGridColDirective,
-    LgPaddingDirective,
-    LgMarginDirective,
     LgButtonComponent,
     LgButtonGroupComponent,
     LgContentAreaFooterComponent,
@@ -235,7 +415,13 @@ const formJourneyTemplate = `
     LgSortCodeDirective,
     LgSelectFieldComponent,
     LgSelectDirective,
-    LgContentAreaTitleComponent,
+    LgProgressHeaderComponent,
+    LgProgressIndicatorComponent,
+    LgNoticeComponent,
+    LgNoticeActionComponent,
+    LgNoticeTitleComponent,
+    LgNoticeDescriptionComponent,
+    LgPictogramComponent,
     ReactiveFormsModule,
     LgContentAreaContentComponent,
     LgContentAreaComponent,
@@ -247,10 +433,13 @@ const formJourneyTemplate = `
 class ContentAreaFormJourneyComponent {
   fb = inject(UntypedFormBuilder);
 
-  @Input() contentAreaContent: string;
-  @Input() hint: string;
-  @Input() label: string;
-  @Input() backLinkText: string;
+  @Input() stage!: 'introductory' | 'intermediate' | 'confirmation';
+  @Input() journeyTitle!: string;
+  @Input() title!: string;
+  @Input() contentAreaContent!: string;
+  @Input() hint!: string;
+  @Input() label!: string;
+  @Input() backLinkText!: string;
 
   form: UntypedFormGroup;
 
@@ -262,17 +451,39 @@ class ContentAreaFormJourneyComponent {
     });
   }
 
-  onSubmit(event): void {
+  onSubmit(event: UntypedFormGroup): void {
     /* eslint-disable-next-line no-console */
     console.log('submit', event);
   }
 }
 
-export const FormJourney = {
-  name: 'Form journey',
+const renderFormJourney = (args: ContentAreaFormJourneyComponent) => ({
+  props: args,
+  moduleMetadata: {
+    imports: [ ContentAreaFormJourneyComponent ],
+  },
+  template:
+    '<lg-content-area-form-journey [stage]="stage" [journeyTitle]="journeyTitle" [title]="title" [contentAreaContent]="contentAreaContent" [hint]="hint" [label]="label" [backLinkText]="backLinkText"></lg-content-area-form-journey>',
+});
+
+const formJourneyArgTypes = {
+  headingLevel: {
+    control: false,
+    table: { disable: true },
+  },
+  variant: {
+    control: false,
+    table: { disable: true },
+  },
+};
+
+export const Introduction = {
+  name: 'Form journey - introduction',
   args: {
+    stage: 'introductory',
+    title: 'Journey title',
     contentAreaContent:
-      'Please enter your account number to continue. We will use your account number to verify your identity.',
+      'This is a temporary introduction for the form journey. Please replace this text with relevant content that guides users through the process.',
     backLinkText: 'Back',
     label: 'Account number',
     hint: 'Your account number is 8 digits',
@@ -280,16 +491,54 @@ export const FormJourney = {
   parameters: {
     docs: {
       source: {
-        code: formJourneyTemplate,
+        code: introductorySource,
       },
     },
   },
-  render: (args: ContentAreaFormJourneyComponent) => ({
-    props: args,
-    moduleMetadata: {
-      imports: [ ContentAreaFormJourneyComponent ],
+  argTypes: formJourneyArgTypes,
+  render: renderFormJourney,
+};
+
+export const FormJourney = {
+  name: 'Form journey - intermediate',
+  args: {
+    stage: 'intermediate',
+    journeyTitle: 'Journey title',
+    contentAreaContent:
+      'Enter the details of the account you want us to use for your payments.',
+    backLinkText: 'Back',
+    label: 'Account number',
+    hint: 'Your account number is 8 digits',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: intermediateSource,
+      },
     },
-    template:
-      '<lg-content-area-form-journey [contentAreaContent]="contentAreaContent" [hint]="hint" [label]="label" [backLinkText]="backLinkText"></lg-content-area-form-journey>',
-  }),
+  },
+  argTypes: formJourneyArgTypes,
+  render: renderFormJourney,
+};
+
+export const Confirmation = {
+  name: 'Form journey - confirmation',
+  args: {
+    stage: 'confirmation',
+    title: 'Your details have been updated',
+    contentAreaContent:
+      'We have received your new bank details. They will be used for your next eligible payment.',
+    backLinkText: 'Back',
+    label: 'Account number',
+    hint: 'Your account number is 8 digits',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: confirmationSource,
+      },
+    },
+  },
+  argTypes: formJourneyArgTypes,
+  render: renderFormJourney,
 };
