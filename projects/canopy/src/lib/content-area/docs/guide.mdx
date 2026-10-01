@@ -63,12 +63,25 @@ You can add the `lg-font--expressive` class to the title component.
 
 ![Content area component form variant](docs/content-area/variant-form.png)
 
-Includes an optional header and breadcrumb, and always provides a footer containing buttons. You must always use the form journey variant when guiding users through forms.
+Use this variant for multi-page form journeys. Give each step a page title with `lg-content-area-title` at heading level 2. Keep the journey title in the progress indicator separate from the page title. The footer contains the actions for the current step.
 
 A directive or class is also available, allowing you to apply Content area styling to custom elements when needed.
 
+##### Introductory page
+
+Use the same header and back link as the intermediate page. In the content area, show the level 2 “Before you begin” title and introductory text. Place Continue and Cancel in a button group in the footer.
+
+<Source of={ContentAreaStories.Introductory} />
+
+##### Intermediate page
 
 <Source of={ContentAreaStories.FormJourney} />
+
+##### Confirmation page
+
+Confirmation is shown as a completed state, without an active progress indicator.
+
+<Source of={ContentAreaStories.Confirmation} />
 
 ## Do and don't
 
