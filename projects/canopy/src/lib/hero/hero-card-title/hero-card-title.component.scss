@@ -2,6 +2,10 @@
 
 .lg-hero-card-title {
   display: block;
+
+  &:has(+ .lg-hero-card-subtitle) {
+    margin-bottom: var(--hero-title-block-gap);
+  }
 }
 
 .lg-hero-card-title__heading {
@@ -11,8 +15,9 @@
   > h4,
   > h5,
   > h6 {
-    @include mixins.lg-font-size(6);
+    @include mixins.lg-font-size(5, '500', 'expressive');
 
-    margin-bottom: var(--space-4);
+    color: var(--hero-title-block-colour);
+    margin-bottom: 0;
   }
 }

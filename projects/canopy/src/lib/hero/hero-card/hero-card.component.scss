@@ -2,11 +2,16 @@
 
 .lg-hero-card {
   display: block;
-  padding-top: var(--space-6);
-  padding-bottom: var(--space-6);
+  padding-top: var(--content-gap-row-md);
+  padding-bottom: var(--content-gap-row-md);
 
   @include mixins.lg-breakpoint('md') {
-    padding-top: var(--space-7);
-    padding-bottom: var(--space-7);
+    padding-top: var(--content-gap-row-lg);
+    padding-bottom: var(--content-gap-row-lg);
+  }
+
+  @include mixins.lg-breakpoint('lg') {
+    padding-top: var(--content-gap-row-xl);
+    padding-bottom: var(--content-gap-row-xl);
   }
 }

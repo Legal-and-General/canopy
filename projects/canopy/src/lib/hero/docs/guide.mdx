@@ -3,32 +3,35 @@ import Feedback from '../../docs/common/feedback.md?raw';
 import * as HeroStories from './hero.stories';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Patterns/Hero/Guide" tags={['pending']} />
+<Meta title="Patterns/Hero/Guide" tags={['updated']} />
 
 # Hero
 
-<CustomBadge
-  text="Pending"
-  style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }}
-/>
-<span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v42.0.0" target="_blank" rel="noopener noreferrer">v42</a>.</span></span>
 
 <p class="standfirst">A flexible pattern that is often used to display the most prominent information about a page. The module consists of lots of smaller presentation components that help to map out the common hero use cases.</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
 Import the hero components in your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgHeroComponent, etc. ],
-});
+import {
+  LgHeroComponent,
+  LgHeroCardComponent,
+  LgHeroCardHeaderComponent,
+  LgHeroCardTitleComponent,
+  LgHeroContentComponent,
+} from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
 <Source of={HeroStories.ConversationalHero} />
+
+Use `variant="child"` for a conversational UI hero.
 
 ### Other hero types and templates
 
@@ -39,12 +42,12 @@ You can extend the basic Hero component and create specific Hero layouts and imp
 Using the `LgHeroCardHeaderComponent` together with `LgBreadcrumbComponent`, breadcrumbs can be easily added to the hero. See the [breadcrumb component](./?path=/docs/components-breadcrumb-guide--docs).
 
 ```html
-<lg-hero [overlap]="overlap">
+<lg-hero>
   <lg-hero-header>
     <div lgContainer>
       <div lgRow>
         <div lgCol="12">
-          <lg-breadcrumb variant="embedded" lgMarginBottom="none">
+          <lg-breadcrumb variant="page" lgMarginBottom="none">
             <lg-breadcrumb-item>
               <a href="#"><lg-icon name="home-outline"></lg-icon>Home</a>
             </lg-breadcrumb-item>
@@ -64,7 +67,7 @@ Using the `LgHeroCardHeaderComponent` together with `LgBreadcrumbComponent`, bre
 This component can used to display product data, for example on a product details page. Note the extensive use of presentation components to achieve the desired layout.
 
 ```html
-<lg-hero [overlap]="2">
+<lg-hero>
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>
@@ -135,18 +138,29 @@ This component can used to display product data, for example on a product detail
 </lg-hero>
 ```
 
+#### Product details using data point components
+
+The hero also supports the [data point components](./?path=/docs/components-data-point-guide--docs). Use `LgDataPointComponent` with `variant="card-principle"` and a `size="lg"` value inside the hero card header, and `LgDataPointGroupComponent` with `size="md"` values inside the hero card content.
+
+<Source of={HeroStories.ProductHeroDataPoint} />
+
+#### Hero cards using data point components
+
+Secondary data points can also be grouped inside a card within the hero card content. Use `LgCardComponent` with a `LgCardTitleComponent` heading, and `LgCardContentInnerDataPointsComponent` containing `LgDataPointComponent` items with `variant="card"`.
+
+<Source of={HeroStories.HeroCardsDataPoint} />
+
 ## Additional development details
 
 ### LgHeroComponent
 
-This is the branded bar which runs across
-the top of the page. It also controls the functionality to create the 'overlap' between the page content.
+This is the branded bar which runs across the top of the page.
 
 #### Inputs
 
-| Name      | Description                                                        |   Type   | Default | Required |
-| --------- | ------------------------------------------------------------------ | :------: | :-----: | :------: |
-| `overlap` | The amount that the page content overlaps the hero component (rem) | `number` |   `2`   |    No    |
+| Name      | Description                                      | Type                   | Default     | Required |
+| --------- | ------------------------------------------------ | ---------------------- | ----------- | -------- |
+| `variant` | Use `child` for a conversational UI. | `'default' \| 'child'` | `'default'` | No       |
 
 ### LgHeroContentComponent
 
@@ -155,7 +169,7 @@ This is the main section of the hero bar, it stretches the full width and is agn
 #### Configure Grid
 
 ```html
-<lg-hero [overlap]="2">
+<lg-hero>
   <lg-hero-content>
     <div lgContainer>
       <div lgRow>

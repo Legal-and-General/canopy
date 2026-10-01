@@ -2,7 +2,7 @@
 
 .lg-hero-card-notification {
   padding: var(--space-3);
-  margin-bottom: var(--space-5);
+  margin-top: var(--space-6);
   position: relative;
   display: inline-flex;
   flex-direction: row;
@@ -12,16 +12,6 @@
   @include mixins.lg-breakpoint(lg) {
     padding-right: var(--space-4);
     margin-bottom: 0;
-  }
-
-  a {
-    @include mixins.lg-link(
-      $default-color: var(--hero-link-color),
-      $hover-color: var(--hero-link-hover-color),
-      $visited-color: var(--hero-link-visited-color),
-      $active-color: var(--hero-link-active-color),
-      $focus-color: var(--hero-link-focus-color)
-    );
   }
 }
 

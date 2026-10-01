@@ -1,10 +1,12 @@
 @use '../../../styles/mixins';
 
 .lg-hero-card-principle-data-point-value {
-  @include mixins.lg-font-size('6');
+  @include mixins.lg-font-size('5', '400');
+
+  color: var(--data-point-value-colour);
 
   @include mixins.lg-breakpoint('lg') {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--data-point-gap);
     text-align: left;
   }
 }

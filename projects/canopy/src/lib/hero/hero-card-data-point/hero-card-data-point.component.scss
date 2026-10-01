@@ -2,7 +2,6 @@
 
 .lg-hero-card-data-point {
   display: block;
-  border-bottom: solid var(--border-width) var(--hero-rule-color);
   margin-bottom: var(--space-3);
   padding-bottom: var(--space-3);
 
@@ -10,14 +9,11 @@
     border-bottom: none;
   }
 
-  @include mixins.lg-breakpoint('md') {
-    border-bottom: none;
-    border-right: solid var(--border-width) var(--hero-rule-color);
+  @include mixins.lg-breakpoint('lg') {
     margin-right: var(--space-7);
     padding-right: var(--space-7);
 
     &:last-child {
-      border-right: none;
       margin-right: 0;
       padding-right: 0;
     }

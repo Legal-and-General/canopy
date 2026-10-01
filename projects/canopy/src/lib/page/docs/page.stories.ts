@@ -156,7 +156,7 @@ const contentCategory = 'content';
 const fullWidthWithHeroTemplate = `
   <lg-page>
     ${header}
-    <lg-hero [overlap]="overlap">
+    <lg-hero>
       ${productHeroHTML}
     </lg-hero>
     <div lgContainer>
@@ -221,7 +221,6 @@ const fullWidthWithHeroTemplate = `
   ],
 })
 class FullWidthWithHeaderComponent {
-  @Input() overlap: number;
   @Input() logo: string;
   @Input() logoAlt: string;
   @Input() copyright: string;
@@ -443,7 +442,6 @@ export const FullWidthWithHero = {
   render: (args: LgPageComponent) => ({
     props: args,
     template: `<lg-full-width-with-header
-      [overlap]="overlap"
       [logo]="logo"
       [logoAlt]="logoAlt"
       [copyright]="copyright"
@@ -454,18 +452,7 @@ export const FullWidthWithHero = {
       [secondaryLinks]="secondaryLinks"
     ></lg-full-width-with-header>`,
   }),
-  args: {
-    ...createArgs(),
-    overlap: 2,
-  },
-  argTypes: {
-    overlap: {
-      description: 'The amount that the page content overlaps the hero component (rem)',
-      table: {
-        category: 'other',
-      },
-    },
-  },
+  args: createArgs(),
   parameters: {
     docs: {
       source: {
