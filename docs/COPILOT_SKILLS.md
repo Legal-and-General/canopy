@@ -111,7 +111,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | **Layout** | | |
 | `canopy-page` | `LgPageComponent`, skip link, slot projection | — |
 | `canopy-grid` | `lgContainer`, `lgRow`, `lgCol`, responsive columns, offsets | — |
-| `canopy-content-area` | `LgContentAreaComponent`, variants, heading level, nesting rules | — |
+| `canopy-content-area` | `LgContentAreaComponent`, form journey stages, progress, success confirmation, heading level | — |
 | `canopy-header` | `lg-header`, logo, primary nav, account menu, co-branding | — |
 | `canopy-footer` | `lg-footer`, nav variants, logo, `rel="noopener"` | — |
 | `canopy-hero` | `LgHeroComponent`, overlap, breadcrumb light variant | — |
@@ -147,6 +147,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-forms-date` | `LgDateFieldComponent`, ISO 8601 output, validation priority | — |
 | `canopy-forms-sort-code` | `lgSortCode` directive, auto-format, hint text requirement | — |
 | `canopy-forms-validation` | `LgValidationComponent`, error state matcher, dynamic rules | — |
+| `canopy-forms-design` | Single-page and multi-page journeys, field layout, validation, and actions | — |
 | `canopy-forms-radio` | `LgRadioGroupComponent`, inline, value, max 5 options | — |
 | `canopy-forms-segment` | Segment group/button, stack input, 2–5 buttons | — |
 | `canopy-forms-checkbox` | `LgToggleComponent` (checkbox), group, size, inline | — |
