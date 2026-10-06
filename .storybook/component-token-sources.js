@@ -95,6 +95,11 @@ const tokenSources = [
     categories: ['Link', 'Link Group'],
   },
   {
+    label: 'Notice',
+    titlePrefix: 'Components/Notice',
+    categories: ['Notice'],
+  },
+  {
     label: 'Text Input',
     titlePrefix: 'Patterns/Date input',
     categories: ['Text Input'],
