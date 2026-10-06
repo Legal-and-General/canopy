@@ -9,6 +9,9 @@ const preview = {
     controls: {
       expanded: true
     },
+    designToken: {
+      disable: true,
+    },
     backgrounds: {
       options: {
         // Default colors
