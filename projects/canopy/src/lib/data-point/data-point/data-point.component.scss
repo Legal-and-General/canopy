@@ -4,6 +4,11 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  margin-bottom: var(--component-margin);
+
+  .lg-data-point-group > & {
+    margin-bottom: 0;
+  }
 
   .lg-data-point-group > & {
     margin-bottom: 0;
