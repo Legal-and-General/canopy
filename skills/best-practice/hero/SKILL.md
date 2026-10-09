@@ -27,14 +27,12 @@ import {
   LgHeroCardSubtitleComponent,
   LgHeroCardContentComponent,
   LgHeroCardFooterComponent,
-  LgHeroCardDataPointListComponent,
-  LgHeroCardDataPointComponent,
-  LgHeroCardDataPointLabelComponent,
-  LgHeroCardDataPointValueComponent,
-  LgHeroCardPrincipleDataPointComponent,
-  LgHeroCardPrincipleDataPointLabelComponent,
-  LgHeroCardPrincipleDataPointValueComponent,
-  LgHeroCardNotificationComponent,
+  LgDataPointComponent,
+  LgDataPointGroupComponent,
+  LgDataPointLabelComponent,
+  LgDataPointSecondaryLabelComponent,
+  LgDataPointValueComponent,
+  LgAlertComponent,
   LgBreadcrumbComponent,
   LgBreadcrumbItemComponent,
   LgGridContainerDirective,
@@ -112,11 +110,31 @@ Use `variant="page"` for breadcrumbs inside `lg-hero-header`, even when the head
             <lg-hero-card-header>
               <lg-hero-card-title [headingLevel]="2">Pension annuity</lg-hero-card-title>
               <lg-hero-card-subtitle>Payroll Reference P23456</lg-hero-card-subtitle>
-              <lg-hero-card-principle-data-point>
-                <lg-hero-card-principle-data-point-label [headingLevel]="3">Last payment</lg-hero-card-principle-data-point-label>
-                <lg-hero-card-principle-data-point-value>£230.20</lg-hero-card-principle-data-point-value>
-              </lg-hero-card-principle-data-point>
+              <lg-alert status="info">
+                <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
+              </lg-alert>
+              <lg-data-point variant="card-principle">
+                <lg-data-point-label [headingLevel]="3">Last payment</lg-data-point-label>
+                <lg-data-point-value size="lg">£230.20</lg-data-point-value>
+              </lg-data-point>
             </lg-hero-card-header>
+            <lg-hero-card-content>
+              <lg-data-point-group orientation="horizontal">
+                <lg-data-point>
+                  <lg-data-point-label [headingLevel]="3">Payment due</lg-data-point-label>
+                  <lg-data-point-value size="md">15 Jan 2020</lg-data-point-value>
+                </lg-data-point>
+                <lg-data-point>
+                  <lg-data-point-label [headingLevel]="3">Payment frequency</lg-data-point-label>
+                  <lg-data-point-value size="md">Monthly</lg-data-point-value>
+                </lg-data-point>
+                <lg-data-point>
+                  <lg-data-point-label [headingLevel]="3">Tax code</lg-data-point-label>
+                  <lg-data-point-value size="md">2T</lg-data-point-value>
+                  <lg-data-point-secondary-label>Received on 12 Mar 2019</lg-data-point-secondary-label>
+                </lg-data-point>
+              </lg-data-point-group>
+            </lg-hero-card-content>
           </lg-hero-card>
         </div>
       </div>
@@ -137,6 +155,9 @@ Use `variant="page"` for breadcrumbs inside `lg-hero-header`, even when the head
 
 ## Design Constraints
 
+- Use the shared data-point components for principle and secondary values. The hero-specific data-point wrappers, labels, values and list have been removed; do not import or use them.
+- Use `variant="card-principle"` and a `size="lg"` value in the hero card header. Use a data-point group and `size="md"` values for secondary information, with `lg-data-point-secondary-label` for supporting text below a value.
+- Use `LgAlertComponent` with `status="info"` for inline product messages in the hero card header. Its information icon is enabled by default; do not supply a separate icon. The hero card notification component has been removed.
 - Always wrap hero card content with the grid directives (`lgContainer`, `lgRow`, `lgCol`).
 - Use the page breadcrumb variant inside `lg-hero-header`; rely on the active theme for background and link colours rather than assuming a dark-blue hero or white links.
 

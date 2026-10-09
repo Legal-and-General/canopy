@@ -14,14 +14,6 @@ import { LgHeroContentComponent } from '../hero-content/hero-content.component';
 import { LgHeroCardComponent } from '../hero-card/hero-card.component';
 import { LgHeroCardFooterComponent } from '../hero-card-footer/hero-card-footer.component';
 import { LgHeroCardContentComponent } from '../hero-card-content/hero-card-content.component';
-import { LgHeroCardDataPointListComponent } from '../hero-card-data-point-list/hero-card-data-point-list.component';
-import { LgHeroCardDataPointValueComponent } from '../hero-card-data-point-value/hero-card-data-point-value.component';
-import { LgHeroCardDataPointLabelComponent } from '../hero-card-data-point-label/hero-card-data-point-label.component';
-import { LgHeroCardDataPointComponent } from '../hero-card-data-point/hero-card-data-point.component';
-import { LgHeroCardPrincipleDataPointValueComponent } from '../hero-card-principle-data-point-value/hero-card-principle-data-point-value.component';
-import { LgHeroCardPrincipleDataPointLabelComponent } from '../hero-card-principle-data-point-label/hero-card-principle-data-point-label.component';
-import { LgHeroCardPrincipleDataPointComponent } from '../hero-card-principle-data-point/hero-card-principle-data-point.component';
-import { LgHeroCardNotificationComponent } from '../hero-card-notification/hero-card-notification.component';
 import { LgHeroCardSubtitleComponent } from '../hero-card-subtitle/hero-card-subtitle.component';
 import { LgHeroCardTitleComponent } from '../hero-card-title/hero-card-title.component';
 import { LgHeroCardHeaderComponent } from '../hero-card-header/hero-card-header.component';
@@ -34,6 +26,7 @@ import {
 } from '../../card';
 import { LgIconComponent } from '../../icon';
 import { LgAlertComponent } from '../../alert/alert.component';
+import { LgButtonComponent } from '../../button/button.component';
 import {
   LgLinkMenuComponent,
   LgLinkMenuItemComponent,
@@ -44,6 +37,7 @@ import {
   LgDataPointComponent,
   LgDataPointGroupComponent,
   LgDataPointLabelComponent,
+  LgDataPointSecondaryLabelComponent,
   LgDataPointValueComponent,
 } from '../../data-point';
 
@@ -107,95 +101,9 @@ export const productHeroHTML = `
               <lg-hero-card-subtitle>
                 Payroll Reference Number P23456
               </lg-hero-card-subtitle>
-              <lg-hero-card-notification>
-                <lg-icon name="information-filled"></lg-icon>
-                <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
-              </lg-hero-card-notification>
-              <lg-hero-card-principle-data-point>
-                <lg-hero-card-principle-data-point-label [headingLevel]="5">
-                  Last payment (after tax and deductions)
-                </lg-hero-card-principle-data-point-label>
-                <lg-hero-card-principle-data-point-value>
-                  £230.20
-                </lg-hero-card-principle-data-point-value>
-              </lg-hero-card-principle-data-point>
-            </lg-hero-card-header>
-            <lg-hero-card-content>
-              <lg-hero-card-data-point-list>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label [headingLevel]="6">
-                    Payment due
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    15 Jan 2020
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label [headingLevel]="6">
-                    Payment frequency
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    Monthly
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label [headingLevel]="6">
-                    Tax code
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    2T <span lgMarginLeft="4" class="lg-font-size-1">Received on 12 Mar 2019</span>
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-              </lg-hero-card-data-point-list>
-            </lg-hero-card-content>
-            <lg-hero-card-footer>
-              <small class="lg-font-size-0-6">* This is not a guaranteed amount and could be subject to change.</small>
-            </lg-hero-card-footer>
-          </lg-hero-card>
-        </div>
-      </div>
-    </div>
-  </lg-hero-content>
-`;
-
-export const productHeroDataPointHTML = `
-  <lg-hero-header>
-    <div lgContainer>
-      <div lgRow>
-        <div [lgCol]="12">
-          <lg-breadcrumb variant="page" lgMarginBottom="none">
-            <lg-breadcrumb-item>
-              <a href="#">
-                <lg-icon name="home-outline"></lg-icon>
-                Home
-              </a>
-            </lg-breadcrumb-item>
-            <lg-breadcrumb-item>
-              <a href="#">Products</a>
-            </lg-breadcrumb-item>
-            <lg-breadcrumb-item>
-              Pension Annuity
-            </lg-breadcrumb-item>
-          </lg-breadcrumb>
-        </div>
-      </div>
-    </div>
-  </lg-hero-header>
-  <lg-hero-content>
-    <div lgContainer>
-      <div lgRow>
-        <div [lgCol]="12">
-          <lg-hero-card>
-            <lg-hero-card-header>
-              <lg-hero-card-title [headingLevel]="4">
-                Pension annuity
-              </lg-hero-card-title>
-              <lg-hero-card-subtitle>
-                Payroll Reference Number P23456
-              </lg-hero-card-subtitle>
               <lg-data-point variant="card-principle">
                 <lg-data-point-label [headingLevel]="5">
-                  Valuation
+                  Last payment
                 </lg-data-point-label>
                 <lg-data-point-value size="lg">
                   £00,000.00
@@ -205,7 +113,10 @@ export const productHeroDataPointHTML = `
                 </lg-data-point-add-on>
               </lg-data-point>
             </lg-hero-card-header>
-            <lg-hero-card-content>
+            <lg-alert status="info" lgMarginTop="6" lgMarginBottom="5">
+              <p>Your payments have been suspended, please <a href="#">contact us</a> to learn more.</p>
+            </lg-alert>
+            <lg-hero-card-content class="lg-hero-card-content--with-action">
               <lg-data-point-group orientation="horizontal">
                 <lg-data-point>
                   <lg-data-point-label [headingLevel]="6">
@@ -227,15 +138,16 @@ export const productHeroDataPointHTML = `
                   <lg-data-point-label [headingLevel]="6">
                     Tax code
                   </lg-data-point-label>
-                  <lg-data-point-value size="md">
-                    2T
-                  </lg-data-point-value>
+                  <lg-data-point-value size="md">2T</lg-data-point-value>
+                  <lg-data-point-secondary-label>
+                    Received on 12 Mar 2019
+                  </lg-data-point-secondary-label>
                 </lg-data-point>
               </lg-data-point-group>
+              <div class="lg-hero-card-content__action">
+                <button lg-button type="button" priority="primary">Continue</button>
+              </div>
             </lg-hero-card-content>
-            <lg-hero-card-footer>
-              <small class="lg-font-size-0-6">* This is not a guaranteed amount and could be subject to change.</small>
-            </lg-hero-card-footer>
           </lg-hero-card>
         </div>
       </div>
@@ -438,55 +350,21 @@ const productHeroTemplate = `<lg-hero lgMarginTop="none">${productHeroHTML}</lg-
     LgIconComponent,
     LgHeroContentComponent,
     LgHeroCardComponent,
-    LgHeroCardFooterComponent,
     LgHeroCardContentComponent,
-    LgHeroCardDataPointListComponent,
-    LgHeroCardDataPointValueComponent,
-    LgHeroCardDataPointLabelComponent,
-    LgHeroCardDataPointComponent,
-    LgHeroCardPrincipleDataPointValueComponent,
-    LgHeroCardPrincipleDataPointLabelComponent,
-    LgHeroCardPrincipleDataPointComponent,
-    LgHeroCardNotificationComponent,
+    LgDataPointGroupComponent,
+    LgDataPointComponent,
+    LgDataPointLabelComponent,
+    LgDataPointValueComponent,
+    LgDataPointSecondaryLabelComponent,
+    LgDataPointAddOnComponent,
+    LgAlertComponent,
     LgHeroCardSubtitleComponent,
     LgHeroCardTitleComponent,
     LgHeroCardHeaderComponent,
+    LgButtonComponent,
   ],
 })
 class HeroProductStoryComponent {}
-
-const productHeroDataPointTemplate = `<lg-hero lgMarginTop="none">${productHeroDataPointHTML}</lg-hero>${bodyHTML}`;
-
-@Component({
-  selector: 'lg-hero-product-data-point-story',
-  template: productHeroDataPointTemplate,
-  imports: [
-    LgCardComponent,
-    LgCardContentComponent,
-    LgHeroComponent,
-    LgHeroHeaderComponent,
-    LgMarginDirective,
-    LgBreadcrumbComponent,
-    LgBreadcrumbItemComponent,
-    LgIconComponent,
-    LgGridContainerDirective,
-    LgGridRowDirective,
-    LgGridColDirective,
-    LgHeroContentComponent,
-    LgHeroCardComponent,
-    LgHeroCardFooterComponent,
-    LgHeroCardContentComponent,
-    LgHeroCardSubtitleComponent,
-    LgHeroCardTitleComponent,
-    LgHeroCardHeaderComponent,
-    LgDataPointComponent,
-    LgDataPointGroupComponent,
-    LgDataPointLabelComponent,
-    LgDataPointValueComponent,
-    LgDataPointAddOnComponent,
-  ],
-})
-class HeroProductDataPointStoryComponent {}
 
 const heroCardsDataPointTemplate = `<lg-hero lgMarginTop="none">${heroCardsDataPointHTML}</lg-hero>`;
 
@@ -533,17 +411,11 @@ export default {
   globals: {
     backgrounds: { value: 'off-white' },
   },
-  excludeStories: [
-    'productHeroHTML',
-    'productHeroDataPointHTML',
-    'heroCardsDataPointHTML',
-    'conversationalHeroHTML',
-  ],
+  excludeStories: [ 'productHeroHTML', 'heroCardsDataPointHTML', 'conversationalHeroHTML' ],
   decorators: [
     moduleMetadata({
       imports: [
         HeroProductStoryComponent,
-        HeroProductDataPointStoryComponent,
         HeroCardsDataPointStoryComponent,
         LgHeroComponent,
         LgHeroContentComponent,
@@ -564,7 +436,7 @@ export default {
 };
 
 export const ProductHero = {
-  name: 'Product details',
+  name: 'Product details (legacy)',
   render: () => ({
     template: '<lg-hero-product-story></lg-hero-product-story>',
   }),
@@ -572,20 +444,6 @@ export const ProductHero = {
     docs: {
       source: {
         code: productHeroTemplate,
-      },
-    },
-  },
-};
-
-export const ProductHeroDataPoint = {
-  name: 'Product details (data point)',
-  render: () => ({
-    template: '<lg-hero-product-data-point-story></lg-hero-product-data-point-story>',
-  }),
-  parameters: {
-    docs: {
-      source: {
-        code: productHeroDataPointTemplate,
       },
     },
   },

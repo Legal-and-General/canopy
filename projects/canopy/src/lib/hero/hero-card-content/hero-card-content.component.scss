@@ -18,4 +18,23 @@
   > .lg-row {
     flex: 1 1 auto;
   }
+
+  &--with-action {
+    gap: var(--content-gap-row-sm);
+
+    @include mixins.lg-breakpoint('md') {
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    > .lg-hero-card-content__action {
+      display: flex;
+      justify-content: flex-end;
+
+      @include mixins.lg-breakpoint('md') {
+        flex: 0 0 auto;
+        margin-left: auto;
+      }
+    }
+  }
 }

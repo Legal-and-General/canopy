@@ -6,6 +6,8 @@ import { productHeroHTML } from '../../hero/docs/hero.stories';
 import { LgPageComponent } from '../page.component';
 import { LgHeaderComponent, LgHeaderLogoComponent } from '../../header';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
+import { LgAlertComponent } from '../../alert';
+import { LgButtonComponent } from '../../button';
 import {
   LgFooterComponent,
   LgFooterCopyrightComponent,
@@ -24,22 +26,22 @@ import { LgMarginDirective } from '../../spacing';
 import {
   LgHeroCardComponent,
   LgHeroCardContentComponent,
-  LgHeroCardDataPointComponent,
-  LgHeroCardDataPointLabelComponent,
-  LgHeroCardDataPointListComponent,
-  LgHeroCardDataPointValueComponent,
   LgHeroCardFooterComponent,
   LgHeroCardHeaderComponent,
-  LgHeroCardNotificationComponent,
-  LgHeroCardPrincipleDataPointComponent,
-  LgHeroCardPrincipleDataPointLabelComponent,
-  LgHeroCardPrincipleDataPointValueComponent,
   LgHeroCardSubtitleComponent,
   LgHeroCardTitleComponent,
   LgHeroComponent,
   LgHeroContentComponent,
   LgHeroHeaderComponent,
 } from '../../hero';
+import {
+  LgDataPointAddOnComponent,
+  LgDataPointComponent,
+  LgDataPointGroupComponent,
+  LgDataPointLabelComponent,
+  LgDataPointSecondaryLabelComponent,
+  LgDataPointValueComponent,
+} from '../../data-point';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
 import { LgIconComponent } from '../../icon';
 import { LgShowAtDirective } from '../../show-at';
@@ -189,14 +191,14 @@ const fullWidthWithHeroTemplate = `
     LgHeroCardHeaderComponent,
     LgHeroCardTitleComponent,
     LgHeroCardSubtitleComponent,
-    LgHeroCardNotificationComponent,
-    LgHeroCardPrincipleDataPointComponent,
-    LgHeroCardPrincipleDataPointLabelComponent,
-    LgHeroCardPrincipleDataPointValueComponent,
-    LgHeroCardDataPointListComponent,
-    LgHeroCardDataPointComponent,
-    LgHeroCardDataPointLabelComponent,
-    LgHeroCardDataPointValueComponent,
+    LgAlertComponent,
+    LgButtonComponent,
+    LgDataPointAddOnComponent,
+    LgDataPointComponent,
+    LgDataPointGroupComponent,
+    LgDataPointLabelComponent,
+    LgDataPointSecondaryLabelComponent,
+    LgDataPointValueComponent,
     LgHeroCardFooterComponent,
     LgBreadcrumbComponent,
     LgBreadcrumbItemComponent,
