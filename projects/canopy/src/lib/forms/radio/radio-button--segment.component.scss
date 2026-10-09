@@ -3,9 +3,8 @@
 .lg-radio-button--segment {
   display: flex;
   min-height: var(--segment-button-common-min-height);
-  padding: var(--segment-button-common-padding-y) var(--segment-button-common-padding-x);
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   border-radius: var(--segment-button-common-border-radius);
   background: var(--segment-button-rest-background-colour);
   transition: all var(--animation-duration) var(--animation-fn);
@@ -20,6 +19,8 @@
 
   .lg-radio-button__label {
     flex-grow: 1;
+    align-self: stretch;
+    padding: var(--segment-button-common-padding-y) var(--segment-button-common-padding-x);
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -76,13 +77,6 @@
       @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
         display: flex;
         flex-flow: column wrap;
-      }
-
-      .lg-radio-button__label {
-        @include mixins.lg-breakpoint($stack-breakpoint, 'max-width') {
-          margin: calc(var(--space-1) + var(--radio-segment-separator-border-width)) 0
-            var(--space-1);
-        }
       }
 
       + .lg-radio-button--segment {
