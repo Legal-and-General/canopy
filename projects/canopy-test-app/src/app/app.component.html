@@ -3,7 +3,7 @@
     <lg-header-logo src="assets/legal-and-general-logo.svg" alt="Legal and General" />
   </header>
 
-  <lg-hero [overlap]="3" class="lg-hero--test-page">
+  <lg-hero>
     <lg-hero-header>
       <div lgContainer>
         <div lgRow>
@@ -38,41 +38,35 @@
                 <lg-hero-card-subtitle>
                   Payroll Reference Number P23456
                 </lg-hero-card-subtitle>
-                <lg-hero-card-principle-data-point>
-                  <lg-hero-card-principle-data-point-label headingLevel="4">
+                <lg-data-point variant="card-principle">
+                  <lg-data-point-label headingLevel="4">
                     Last payment (after tax and deductions)
-                  </lg-hero-card-principle-data-point-label>
-                  <lg-hero-card-principle-data-point-value>
+                  </lg-data-point-label>
+                  <lg-data-point-value size="lg">
                     £230.20
-                  </lg-hero-card-principle-data-point-value>
-                </lg-hero-card-principle-data-point>
+                  </lg-data-point-value>
+                </lg-data-point>
               </lg-hero-card-header>
               <lg-hero-card-content>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label headingLevel="5">
-                    Payment due
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    15 Jan 2020
-                  </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label headingLevel="5">
-                    Payment frequency
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value> Monthly </lg-hero-card-data-point-value>
-                </lg-hero-card-data-point>
-                <lg-hero-card-data-point>
-                  <lg-hero-card-data-point-label headingLevel="5">
-                    Tax code
-                  </lg-hero-card-data-point-label>
-                  <lg-hero-card-data-point-value>
-                    2T
-                    <span lgMarginLeft="4" class="lg-font-size-1"
-                      >Received on 12 Mar 2019</span
-                      >
-                    </lg-hero-card-data-point-value>
-                  </lg-hero-card-data-point>
+                <lg-data-point-group orientation="horizontal">
+                  <lg-data-point>
+                    <lg-data-point-label headingLevel="5">Payment due</lg-data-point-label>
+                    <lg-data-point-value size="md">15 Jan 2020</lg-data-point-value>
+                  </lg-data-point>
+                  <lg-data-point>
+                    <lg-data-point-label headingLevel="5">
+                      Payment frequency
+                    </lg-data-point-label>
+                    <lg-data-point-value size="md">Monthly</lg-data-point-value>
+                  </lg-data-point>
+                  <lg-data-point>
+                    <lg-data-point-label headingLevel="5">Tax code</lg-data-point-label>
+                    <lg-data-point-value size="md">2T</lg-data-point-value>
+                    <lg-data-point-secondary-label>
+                      Received on 12 Mar 2019
+                    </lg-data-point-secondary-label>
+                  </lg-data-point>
+                </lg-data-point-group>
                 </lg-hero-card-content>
                 <lg-hero-card-footer>
                   <small class="lg-font-size-0-6"

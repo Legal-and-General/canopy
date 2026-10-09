@@ -2,5 +2,9 @@
 
 .lg-hero-card-subtitle {
   display: block;
-  margin-bottom: var(--space-6);
+  color: var(--hero-subheadings-colour);
+
+  & + & {
+    margin-top: var(--content-gap-inside-xs);
+  }
 }
