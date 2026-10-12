@@ -43,7 +43,9 @@ This structural recipe uses a minimal header and footer. Add your organisation's
 ```html
 <lg-page variant="default">
   <header lg-header><a href="/">Legal &amp; General</a></header>
-  <lg-banner>Manage your products online.</lg-banner>
+  <div ngProjectAs="[lg-header]">
+    <lg-banner status="generic">Manage your products online.</lg-banner>
+  </div>
   <lg-hero [overlap]="2">
     <lg-hero-header>
       <div lgContainer>
@@ -90,7 +92,7 @@ This structural recipe uses a minimal header and footer. Add your organisation's
 
 ## Layout
 
-The main column spans 12 columns on small screens, then narrows to 10 at `sm`, 8 at `md` and 6 at `lg`. Matching offsets keep it centred. The header and footer occupy the page's projection slots; the banner, hero and content occupy the main region.
+The main column spans 12 columns on small screens, then narrows to 10 at `sm`, 8 at `md` and 6 at `lg`. Matching offsets keep it centred. The header and banner are projected into the `[lg-header]` slot, so the banner sits outside `<main>` and before its skip-link target. The hero and content occupy the main region, while the footer uses the `[lg-footer]` slot.
 
 The banner, hero and content regions are optional. If you omit the hero, provide the page's main heading in the content region instead. For a branded page, also change the breadcrumb theme to `bold`; the page does not change it automatically.
 

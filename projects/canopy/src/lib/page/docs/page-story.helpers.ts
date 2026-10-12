@@ -377,7 +377,7 @@ export const basicHeroTemplate = `
           <div lgCol="12">
             <lg-hero-card>
               <lg-hero-card-header>
-                <lg-hero-card-title headingLevel="4">
+                <lg-hero-card-title headingLevel="1">
                   Good morning, Gene
                 </lg-hero-card-title>
               </lg-hero-card-header>
