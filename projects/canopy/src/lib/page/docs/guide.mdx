@@ -1,31 +1,106 @@
-import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
-import * as PageStories from './page.stories';
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 <Meta title="Templates/Page/Guide" />
 
 # Page
 
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy {' '} <a href="https://github.com/Legal-and-General/canopy/releases/tag/v43.0.0" target="_blank" rel="noopener noreferrer">v43</a>.</span>
+</span>
+
 <p class="standfirst">Provides a page layout with content projection slots for standard header and footer.</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
 The page component works best when combined with the [grid directives](./?path=/docs/helpers-directives-grid-guide--docs) which can be used to provide a responsive layout for the main content.
 
-Import the page component and grid directives in your application:
+Import the page component and grid directives, then add them to your standalone component's `imports` array:
 
-```js
-@NgModule({
-  ...
-  imports: [ ..., LgGridContainerDirective, LgGridRowDirective, LgGridColDirective, LgPageComponent ],
-});
+```ts
+import {
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+  LgPageComponent,
+} from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
 
-<Source of={PageStories.TwoColumns} />
+```html
+<lg-page>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12">
+        <h1>Your account</h1>
+        <p>View and update your product details.</p>
+      </div>
+    </div>
+  </div>
+</lg-page>
+```
+
+## Page template patterns
+
+Each pattern guide provides a short structural recipe, its imports and a link to the interactive example. Recipes show composition, not complete application behaviour.
+
+| Pattern | Use when |
+|---------|----------|
+| [Basic page](./?path=/docs/templates-page-basic-guide--docs) | Content needs a centred column with optional banner and hero regions |
+| [Child page](./?path=/docs/templates-page-child-guide--docs) | Primary and related content need an 8/4 layout |
+| [Product page](./?path=/docs/templates-page-product-guide--docs) | A product summary leads into detailed and supporting content |
+| [Form journey](./?path=/docs/templates-page-form-journey-guide--docs) | A focused form uses the standard or branded page appearance |
+
+## Variants
+
+### Default
+
+The default variant retains the standard page background. It is used when `variant` is omitted or set to `default`.
+
+```html
+<lg-page variant="default">
+  <h1>Your account</h1>
+</lg-page>
+```
+
+### Branded
+
+Use `variant="branded"` for a page with the regal background. The header, footer and page layout are unchanged.
+
+The page templates use blue mode with the bold theme for breadcrumbs on branded pages, and blue mode with the neutral theme on default pages. Set `lgColour="blue"` and bind `lgColourTheme` to the page variant when composing your own template; the page component does not apply breadcrumb themes automatically.
+
+```html
+<lg-page variant="branded">
+  <h1>Your account</h1>
+</lg-page>
+```
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** use the page variant to select the standard or branded background.
+2. **Do** combine the page component with grid directives for responsive content.
+
+### Don't
+
+1. **Don't** use an inline background style to recreate the branded variant.
 
 ## Additional development details
+
+### LgPageComponent inputs
+
+| Input | Description | Type | Default | Required |
+|-------|-------------|------|---------|----------|
+| `variant` | Selects the page background: `default` or `branded` | `PageVariant` | `'default'` | No |
 
 ### LgPageComponent
 

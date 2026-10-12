@@ -1,0 +1,131 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Feedback from '../../../docs/common/feedback.md?raw';
+
+<Meta title="Templates/Page/Basic/Guide" />
+
+# Basic page
+
+<p class="standfirst">A page shell with optional banner and hero regions above a centred content column.</p>
+
+## Usage
+
+Use this pattern for a focused page without a related-content column. Include only the regions the page needs.
+
+Import the following from Canopy and add them to your standalone component's `imports` array:
+
+```ts
+import {
+  LgBannerComponent,
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgCardComponent,
+  LgCardContentComponent,
+  LgColourDirective,
+  LgFooterComponent,
+  LgFooterCopyrightComponent,
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+  LgHeaderComponent,
+  LgHeroCardComponent,
+  LgHeroCardHeaderComponent,
+  LgHeroCardTitleComponent,
+  LgHeroComponent,
+  LgHeroContentComponent,
+  LgHeroHeaderComponent,
+  LgMarginDirective,
+  LgPageComponent,
+} from '@legal-and-general/canopy';
+```
+
+This structural recipe uses a minimal header and footer. Add your organisation's logo, navigation and footer links using the linked component guides.
+
+```html
+<lg-page variant="default">
+  <header lg-header><a href="/">Legal &amp; General</a></header>
+  <lg-banner>Manage your products online.</lg-banner>
+  <lg-hero [overlap]="2">
+    <lg-hero-header>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-breadcrumb variant="embedded" lgMarginBottom="none"
+              lgColour="blue" lgColourTheme="neutral">
+              <lg-breadcrumb-item><a href="/">Home</a></lg-breadcrumb-item>
+              <lg-breadcrumb-item>Your account</lg-breadcrumb-item>
+            </lg-breadcrumb>
+          </div>
+        </div>
+      </div>
+    </lg-hero-header>
+    <lg-hero-content>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-hero-card>
+              <lg-hero-card-header>
+                <lg-hero-card-title headingLevel="1">Your account</lg-hero-card-title>
+              </lg-hero-card-header>
+            </lg-hero-card>
+          </div>
+        </div>
+      </div>
+    </lg-hero-content>
+  </lg-hero>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12" lgColSm="10" lgColSmOffset="1"
+        lgColMd="8" lgColMdOffset="2" lgColLg="6" lgColLgOffset="3">
+        <lg-card lgMarginHorizontal="none">
+          <lg-card-content><p>View and update your product details.</p></lg-card-content>
+        </lg-card>
+      </div>
+    </div>
+  </div>
+  <footer lg-footer>
+    <lg-footer-copyright>Legal &amp; General</lg-footer-copyright>
+  </footer>
+</lg-page>
+```
+
+## Layout
+
+The main column spans 12 columns on small screens, then narrows to 10 at `sm`, 8 at `md` and 6 at `lg`. Matching offsets keep it centred. The header and footer occupy the page's projection slots; the banner, hero and content occupy the main region.
+
+The banner, hero and content regions are optional. If you omit the hero, provide the page's main heading in the content region instead. For a branded page, also change the breadcrumb theme to `bold`; the page does not change it automatically.
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** keep the heading meaningful when optional regions are removed.
+2. **Do** use grid offsets to centre content at each breakpoint.
+
+### Don't
+
+1. **Don't** reproduce the layout with custom widths or inline spacing.
+2. **Don't** show a banner when there is no page-wide message.
+
+## Additional development details
+
+### Composition inputs
+
+These are inputs on the composing components, not a separate Basic page API.
+
+| Component or directive | Input | Recipe value | Purpose |
+|------------------------|-------|--------------|---------|
+| `lg-page` | `variant` | `'default'` | Standard page background |
+| `lg-hero` | `overlap` | `2` | Content overlap in rem |
+| `lg-breadcrumb` | `variant` | `'embedded'` | Breadcrumbs within the hero |
+| `lgColour` | `lgColourTheme` | `'neutral'` | Breadcrumb theme for the default page |
+
+## Related
+
+- [Interactive Basic page example](./?path=/story/templates-page-basic-examples--basic)
+- [Page API and projection](./?path=/docs/templates-page-guide--docs)
+- [Header](./?path=/docs/components-header-guide--docs)
+- [Footer](./?path=/docs/components-footer-guide--docs)
+- [Hero](./?path=/docs/patterns-hero-guide--docs)
+- [Grid](./?path=/docs/helpers-directives-grid-guide--docs)
+
+<Markdown>{Feedback}</Markdown>
