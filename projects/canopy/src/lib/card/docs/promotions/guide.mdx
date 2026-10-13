@@ -1,15 +1,15 @@
 import {Markdown, Meta} from '@storybook/addon-docs/blocks';
 import CardHeroImageComponent from '../card-hero-image-component.md';
 import Feedback from '../../../docs/common/feedback.md';
-import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
+import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
-<Meta title="Patterns/Promotions/Guide" tags={['pending']}/>
+<Meta title="Patterns/Promotions/Guide" tags={['updated']}/>
 
 # Promotions
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0" target="_blank" rel="noopener noreferrer">v38</a>.</span></span>
 
-<p class="standfirst">Promotions are containers for content and actions on a specific topic, that use the Cards component and combine the Grid functionality to obtain a Magazin layout based on how many promotions you want to display.</p>
+<p class="standfirst">Promotions are containers for content and actions on a specific topic, that use the Cards component and combine the Grid functionality to obtain a Magazine layout based on how many promotions you want to display.</p>
 
 ## Usage
 
@@ -18,8 +18,7 @@ They are used to group promotional content within a page.
 Import the following components in your application:
 
 ```js
-  ...
-  imports: [ ..., LgCardComponent, etc., LgMarginComponent, LgPaddingComponent, LgOrientationComponent ],
+  import { LgCardComponent, LgMarginDirective, LgPaddingDirective, LgOrientationDirective } from '@legal-and-general/canopy';
 ```
 
 and in your HTML, for a general promotion card with image:
@@ -28,12 +27,14 @@ and in your HTML, for a general promotion card with image:
 <lg-card
   lgMarginBottom="6"
   lgPadding="none"
-  variant="promotion"
+  variant="promo"
   [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
   <lg-card-hero-img [cover]="true" [src]="imageUrl">
   </lg-card-hero-img>
+  <lg-card-header>
+    <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+  </lg-card-header>
   <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
     <p lgMarginBottom="6">{{ text }}</p>
     <a href="#">{{ buttonText }}</a>
   </lg-card-content>
@@ -45,13 +46,15 @@ and in your HTML, for a general promotion card with icon:
 ```html
 <lg-card
   lgMarginBottom="6"
-  variant="promotion"
+  variant="promo"
   [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
   <lg-card-hero-img>
     <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
   </lg-card-hero-img>
+  <lg-card-header>
+    <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+  </lg-card-header>
   <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
     <p lgMarginBottom="6">{{ text }}</p>
     <a href="#">{{ buttonText }}</a>
   </lg-card-content>
@@ -78,7 +81,7 @@ Canopy provides a number of patterns for a range of common scenarios, and we rec
 ## Promotions content and templates
 
 As the promotion card is just a container for content, you can add whatever content you like.
-In the examples bellow, we use the Canopy Grid System to get the desired layout, together with the Orientation directive, and the component `LgCardHeroImageComponent` uses an image but it can be used with either an image or a pictogram.
+In the examples below, we use the Canopy Grid System to get the desired layout, together with the Orientation directive, and the component `LgCardHeroImageComponent` uses an image but it can be used with either an image or a pictogram.
 
 ### Stand-alone card layout
 
@@ -88,13 +91,14 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
     <div lgColSm="12">
       <lg-card
         lgMarginBottom="6"
-        lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'horizontal' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -113,12 +117,14 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -128,12 +134,14 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -152,12 +160,14 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -167,12 +177,14 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -182,12 +194,14 @@ In the examples bellow, we use the Canopy Grid System to get the desired layout,
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -211,12 +225,14 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -226,12 +242,14 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -241,12 +259,14 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
       <lg-card
         lgMarginBottom="6"
         lgPadding="none"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img [cover]="true" [src]="imageUrl">
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -260,13 +280,15 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
     <div lgColSm="12" lgColLg="6">
       <lg-card
         lgMarginBottom="6"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img>
           <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -275,13 +297,15 @@ To achieve this layout add the `LgSeparatorComponent` to the imports.
     <div lgColSm="12" lgColLg="6">
       <lg-card
         lgMarginBottom="6"
-        variant="promotion"
+        variant="promo"
         [lgOrientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
         <lg-card-hero-img>
           <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
         </lg-card-hero-img>
+        <lg-card-header>
+          <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+        </lg-card-header>
         <lg-card-content>
-          <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
           <p lgMarginBottom="6">{{ text }}</p>
           <a href="#">{{ buttonText }}</a>
         </lg-card-content>
@@ -304,7 +328,7 @@ The main body of the promotion card. It's composed by the following components:
 
 | Name      | Description                          | Type     | Default   | Required |
 |-----------|--------------------------------------|----------|-----------|----------|
-| `variant` | The variant of the card: `promotion` | `string` | `default` | Yes      |
+| `variant` | The variant of the card: `promo` | `string` | `default` | Yes      |
 
 <Markdown>
   {CardHeroImageComponent}
@@ -329,7 +353,6 @@ This component hasn't been subject to any testing, but is based on best practice
 Patterns which may perform a similar task, or which should be considered instead:
 
 * [Cards](./?path=/docs/components-card-guide--docs)
-* [Promo Cards](./?path=/docs/components-promo-cards-guide--docs)
 
 <Markdown>
   {Feedback}
