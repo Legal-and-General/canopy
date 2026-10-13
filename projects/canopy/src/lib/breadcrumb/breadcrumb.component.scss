@@ -12,6 +12,7 @@
     padding: var(--breadcrumb-padding-y) 0;
     margin-left: auto;
     margin-right: auto;
+    min-width: min(100%, var(--breadcrumb-min-width));
     width: 100%;
 
     &::after {

@@ -1,7 +1,7 @@
 @use '../../../styles/mixins';
 
 .lg-data-point-value {
-  color: var(--label-and-hint-label-colour);
+  color: var(--data-point-value-colour);
   margin-bottom: var(--data-point-gap);
 
   &.lg-data-point-value--card,
