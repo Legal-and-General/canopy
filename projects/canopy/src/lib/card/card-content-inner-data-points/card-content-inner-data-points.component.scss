@@ -1,21 +1,62 @@
+@use '../../../styles/mixins';
+
 .lg-card-content-inner-data-points {
   display: grid;
-  column-gap: var(--space-4);
-  grid-template:
-    'a a'
-    'b c';
+  column-gap: var(--data-point-group-row-gap);
+  grid-template-columns: minmax(0, 1fr);
+
+  @include mixins.lg-breakpoint('md') {
+    grid-template:
+      'a a'
+      'b c';
+  }
 
   // First data point
   > *:first-child {
-    grid-area: a;
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--content-gap-row-sm);
+
+    @include mixins.lg-breakpoint('md') {
+      grid-area: a;
+      margin-bottom: var(--card-gap);
+    }
   }
 
   // 3 data points, second and third data point
   > *:nth-child(2):nth-last-child(2),
   > *:nth-child(3):nth-last-child(1) {
-    display: inline-flex;
     margin-right: 0;
-    grid-area: 2;
+
+    @include mixins.lg-breakpoint('md') {
+      display: inline-flex;
+      grid-area: 2;
+    }
+  }
+
+  > .lg-data-point:first-child:has(+ .lg-data-point-group) {
+    margin-bottom: 0;
+  }
+
+  > .lg-data-point-group {
+    grid-column: 1 / -1;
+    margin-top: var(--content-gap-row-sm);
+    margin-bottom: var(--content-gap-row-sm);
+
+    > .lg-data-point {
+      margin-bottom: 0;
+    }
+  }
+
+  @include mixins.lg-breakpoint('md', 'max-width') {
+    > .lg-data-point {
+      margin-bottom: var(--data-point-group-row-gap);
+    }
+
+    > .lg-data-point:first-child {
+      margin-bottom: var(--content-gap-row-sm);
+    }
+
+    > .lg-data-point:last-child {
+      margin-bottom: var(--content-gap-row-sm);
+    }
   }
 }

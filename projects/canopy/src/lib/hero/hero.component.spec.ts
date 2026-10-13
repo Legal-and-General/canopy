@@ -31,64 +31,10 @@ describe('LgHeroComponent', () => {
     expect(componentElement.getAttribute('class')).toContain('lg-hero');
   });
 
-  describe('when the overlap is set to -2', () => {
-    beforeEach(() => {
-      component.overlap = -2;
-      fixture.detectChanges();
-      fixture.detectChanges();
-    });
+  it('should apply the child class for the child variant', () => {
+    component.variant = 'child';
+    fixture.detectChanges();
 
-    it('should set the margin-bottom style to 2rem', () => {
-      expect(componentElement.style['margin-bottom']).toEqual('2rem');
-    });
-
-    it('should not set the padding-bottom', () => {
-      expect(componentElement.style['padding-bottom']).toEqual('');
-    });
-  });
-
-  describe('when the overlap is set to 10', () => {
-    beforeEach(() => {
-      component.overlap = 10;
-      fixture.detectChanges();
-    });
-
-    it('should set the margin-bottom style to -10rem', () => {
-      expect(componentElement.style['margin-bottom']).toEqual('-10rem');
-    });
-
-    it('should set the padding-bottom style to 10rem', () => {
-      expect(componentElement.style['padding-bottom']).toEqual('10rem');
-    });
-  });
-
-  describe('when the overlap is set to null', () => {
-    beforeEach(() => {
-      component.overlap = null;
-      fixture.detectChanges();
-    });
-
-    it('should not set the margin-bottom style', () => {
-      expect(componentElement.style['margin-bottom']).toEqual('');
-    });
-
-    it('should not set the padding-bottom style', () => {
-      expect(componentElement.style['padding-bottom']).toEqual('');
-    });
-  });
-
-  describe('when the overlap is set to undefined', () => {
-    beforeEach(() => {
-      component.overlap = undefined;
-      fixture.detectChanges();
-    });
-
-    it('should not set the margin-bottom', () => {
-      expect(componentElement.style['margin-bottom']).toEqual('');
-    });
-
-    it('should not set the padding-bottom', () => {
-      expect(componentElement.style['padding-bottom']).toEqual('');
-    });
+    expect(componentElement.classList.contains('lg-hero--child')).toBe(true);
   });
 });
