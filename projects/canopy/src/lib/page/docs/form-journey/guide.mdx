@@ -1,0 +1,162 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Feedback from '../../../docs/common/feedback.md?raw';
+
+<Meta title="Templates/Page/Form Journey/Guide" />
+
+# Form journey
+
+<p class="standfirst">A centred form layout with breadcrumbs above the main content, available with product or branded appearance.</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
+
+## Usage
+
+Use this pattern for a focused form within a product journey. It composes a page, grid and form-journey content area; it does not supply form state, validation or navigation.
+
+Import the following from Canopy and add them to your standalone component's `imports` array:
+
+```ts
+import {
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgButtonComponent,
+  LgButtonGroupComponent,
+  LgColourDirective,
+  LgContentAreaComponent,
+  LgContentAreaContentComponent,
+  LgContentAreaFooterComponent,
+  LgContentAreaHeaderComponent,
+  LgContentAreaTitleComponent,
+  LgFooterComponent,
+  LgFooterCopyrightComponent,
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+  LgHeaderComponent,
+  LgHintComponent,
+  LgIconComponent,
+  LgInputDirective,
+  LgInputFieldComponent,
+  LgPageComponent,
+} from '@legal-and-general/canopy';
+```
+
+The recipe shows the product layout only, with a reduced header and footer. Connect the fields and actions to your application's form and navigation logic before using it as a working journey.
+
+```html
+<lg-page variant="default">
+  <header lg-header><a href="/">Legal &amp; General</a></header>
+  <div ngProjectAs="[lg-header]">
+    <div lgContainer>
+      <div lgRow>
+        <div lgCol="12">
+          <lg-breadcrumb variant="page" lgColour="blue" lgColourTheme="neutral">
+            <lg-breadcrumb-item><a href="/products">Products</a></lg-breadcrumb-item>
+            <lg-breadcrumb-item>Update your product</lg-breadcrumb-item>
+          </lg-breadcrumb>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12" lgColMd="10" lgColMdOffset="1" lgColLg="8" lgColLgOffset="2">
+        <form>
+          <lg-content-area variant="form-journey">
+            <lg-content-area-header>
+              <a href="/products"><lg-icon name="arrow-left"></lg-icon> Back</a>
+            </lg-content-area-header>
+            <lg-content-area-content>
+              <lg-content-area-title [headingLevel]="1">Update your product</lg-content-area-title>
+              <lg-input-field [block]="true">
+                Product number
+                <input lgInput name="productNumber" type="text" />
+              </lg-input-field>
+              <lg-input-field [block]="true">
+                Postcode
+                <lg-hint>For example, SW1A 1AA</lg-hint>
+                <input lgInput name="postcode" type="text" autocomplete="postal-code" />
+              </lg-input-field>
+            </lg-content-area-content>
+            <lg-content-area-footer>
+              <lg-button-group>
+                <button lg-button type="button" priority="primary">Continue</button>
+                <button lg-button type="button" priority="secondary">Cancel</button>
+              </lg-button-group>
+            </lg-content-area-footer>
+          </lg-content-area>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer lg-footer>
+    <lg-footer-copyright>Legal &amp; General</lg-footer-copyright>
+  </footer>
+</lg-page>
+```
+
+## Variants
+
+### Product
+
+The Product example uses `variant="default"` for the standard page background, with blue-mode, neutral-theme breadcrumbs. Omitting the page variant also selects the default background.
+
+[View the Product example](./?path=/story/templates-page-form-journey-examples--product).
+
+### Branded
+
+The Branded example uses the same form structure and behaviour with a regal page background and blue-mode, bold-theme breadcrumbs. In the recipe above, change the page's `variant` to `branded` and the breadcrumb's `lgColourTheme` to `bold`:
+
+```html
+<lg-page variant="branded">
+```
+
+```html
+<lg-breadcrumb variant="page" lgColour="blue" lgColourTheme="bold">
+```
+
+These are changes to the existing opening tags, not additional elements. The two appearance settings are independent: the page component does not automatically style breadcrumbs or recolour the header and footer.
+
+[View the Branded example](./?path=/story/templates-page-form-journey-examples--branded).
+
+## Layout
+
+The breadcrumb wrapper uses `ngProjectAs="[lg-header]"` to remain outside the page's main region. Both examples use the same form layout: 12 columns below `md`, 10 centred columns at `md`, and 8 centred columns at `lg`.
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** keep the form's heading, fields and actions within the content area's matching slots.
+2. **Do** use the application's established form validation and navigation approach for both appearances.
+3. **Do** set the breadcrumb theme explicitly alongside the page variant.
+
+### Don't
+
+1. **Don't** treat the recipe's buttons as a completed submit or cancel workflow.
+2. **Don't** add a second `main` element; the page already provides one.
+3. **Don't** recreate the regal background with inline styles or apply the bold theme to the entire page to style only the breadcrumbs.
+
+## Additional development details
+
+### Composition inputs
+
+| Component or directive | Input | Product | Branded | Purpose |
+|------------------------|-------|---------|---------|---------|
+| `lg-page` | `variant` | `'default'` | `'branded'` | Page background |
+| `lg-content-area` | `variant` | `'form-journey'` | `'form-journey'` | Form content-area layout |
+| `lg-breadcrumb` | `variant` | `'page'` | `'page'` | Full-page breadcrumb layout |
+| `lgColour` | `lgColour` / `lgColourTheme` | `'blue'` / `'neutral'` | `'blue'` / `'bold'` | Breadcrumb mode and theme |
+
+## Related
+
+- [Interactive Product example](./?path=/story/templates-page-form-journey-examples--product)
+- [Interactive Branded example](./?path=/story/templates-page-form-journey-examples--branded)
+- [Page API and projection](./?path=/docs/templates-page-guide--docs)
+- [Content area](./?path=/docs/components-content-area-guide--docs)
+- [Input](./?path=/docs/components-forms-input-guide--docs)
+- [Colour](./?path=/docs/helpers-directives-colour-guide--docs)
+- [Header](./?path=/docs/components-header-guide--docs)
+- [Footer](./?path=/docs/components-footer-guide--docs)
+
+<Markdown>{Feedback}</Markdown>
