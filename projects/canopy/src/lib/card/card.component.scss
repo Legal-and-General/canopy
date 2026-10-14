@@ -18,11 +18,6 @@
   &--navigation {
     padding-top: 0;
     transition: box-shadow 250ms;
-    box-shadow: var(--drop-shadow);
-
-    &:hover {
-      box-shadow: var(--drop-shadow-hover);
-    }
 
     .lg-card-header__title {
       @include mixins.lg-breakpoint('md') {
