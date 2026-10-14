@@ -14,7 +14,7 @@ Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills
 npx skills add Legal-and-General/canopy --list
 
 # Install a specific migration skill
-npx skills add Legal-and-General/canopy --skill canopy-v40-migration
+npx skills add Legal-and-General/canopy --skill canopy-v41-migration
 
 # List all available best practice skills
 npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --list
@@ -41,10 +41,11 @@ npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
 
 Once installed, ask your agent:
-> "Apply the Canopy v40 migration to my project."
+> "Apply the Canopy v41 migration to my project."
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v41-migration` | v40 → v41 | [v41.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v41.0.0) |
 | `canopy-v40-migration` | v39 → v40 | [v40.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v40.0.0) |
 | `canopy-v39-migration` | v38 → v39 | [v39.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v39.0.0) |
 | `canopy-v38-migration` | v37 → v38 | [v38.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v38.0.0) |
@@ -110,7 +111,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | **Layout** | | |
 | `canopy-page` | `LgPageComponent`, skip link, slot projection | — |
 | `canopy-grid` | `lgContainer`, `lgRow`, `lgCol`, responsive columns, offsets | — |
-| `canopy-content-area` | `LgContentAreaComponent`, variants, heading level, nesting rules | — |
+| `canopy-content-area` | `LgContentAreaComponent`, form journey stages, progress, success confirmation, heading level | — |
 | `canopy-header` | `lg-header`, logo, primary nav, account menu, co-branding | — |
 | `canopy-footer` | `lg-footer`, nav variants, logo, `rel="noopener"` | — |
 | `canopy-hero` | `LgHeroComponent`, overlap, breadcrumb light variant | — |
@@ -146,6 +147,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-forms-date` | `LgDateFieldComponent`, ISO 8601 output, validation priority | — |
 | `canopy-forms-sort-code` | `lgSortCode` directive, auto-format, hint text requirement | — |
 | `canopy-forms-validation` | `LgValidationComponent`, error state matcher, dynamic rules | — |
+| `canopy-forms-design` | Single-page and multi-page journeys, field layout, validation, and actions | — |
 | `canopy-forms-radio` | `LgRadioGroupComponent`, inline, value, max 5 options | — |
 | `canopy-forms-segment` | Segment group/button, stack input, 2–5 buttons | — |
 | `canopy-forms-checkbox` | `LgToggleComponent` (checkbox), group, size, inline | — |

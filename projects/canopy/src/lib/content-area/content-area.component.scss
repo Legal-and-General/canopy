@@ -7,6 +7,10 @@
 
   @include mixins.lg-content-area;
 
+  .lg-notice-action .lg-btn {
+    margin-bottom: 0;
+  }
+
   // prevent directly projected content applying its own component-margin, without
   // affecting margins of elements nested within those components (e.g. form fields)
   > * {
@@ -17,6 +21,14 @@
     .lg-content-area-content {
       padding-left: var(--content-area-padding-x);
       padding-right: var(--content-area-padding-x);
+
+      h1 {
+        @include mixins.lg-font-size(4, '500', 'expressive');
+
+        letter-spacing: var(--letter-spacing-normal-expressive);
+        color: var(--hero-title-block-colour);
+        margin-bottom: 0;
+      }
     }
 
     .lg-content-area-footer {
