@@ -8,6 +8,7 @@
   border-radius: var(--segment-button-common-border-radius);
   background: var(--segment-button-rest-background-colour);
   transition: all var(--animation-duration) var(--animation-fn);
+  min-width: 5.25rem;
 
   @include mixins.lg-breakpoint('md', 'max-width') {
     margin-bottom: var(--segment-control-common-gap);
