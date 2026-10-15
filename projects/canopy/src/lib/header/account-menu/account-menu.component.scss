@@ -22,7 +22,7 @@ button.lg-account-menu-item {
   gap: var(--header-button-gap);
   background: none;
 
-  &::after {
+  &:not(.primary-nav-toggle)::after {
     content: '';
     position: absolute;
     left: var(--header-button-padding-small-x);
@@ -38,7 +38,7 @@ button.lg-account-menu-item {
   &:hover {
     color: var(--header-button-hover-colour) !important;
 
-    &::after {
+    &:not(.primary-nav-toggle)::after {
       width: calc(100% - (var(--header-button-padding-small-x) * 2));
     }
   }
@@ -57,17 +57,21 @@ button.lg-account-menu-item {
   &--active:hover,
   &--active:visited:hover {
     border-radius: var(--header-button-border-radius) !important;
-    background: var(--header-button-active-background-colour);
     color: var(--header-button-active-colour) !important;
+    font-weight: var(--font-weight-700);
+    letter-spacing: var(--letter-spacing-condensed-productive);
 
     &:focus-visible,
     &:hover:focus-visible {
       color: var(--header-button-active-colour) !important;
-      background: var(--header-button-active-background-colour);
     }
 
-    &:hover::after {
-      content: none;
+    &:not(.primary-nav-toggle)::after {
+      width: calc(100% - (var(--header-button-padding-small-x) * 2));
+      border-radius: var(--border-radius-1-lg);
+      background: var(--header-button-active-hover-indicator);
+      height: var(--header-button-active-indicator-height);
+      flex-shrink: 0;
     }
   }
 
@@ -76,11 +80,10 @@ button.lg-account-menu-item {
     border-radius: var(--header-button-border-radius) !important;
     box-shadow: inset 0 0 0 var(--header-button-border-width-focus)
       var(--header-button-focus-colour) !important;
-    background: var(--header-button-focus-background-colour);
     color: var(--header-button-focus-colour) !important;
     outline: 0 !important;
 
-    &:hover::after {
+    &:not(.primary-nav-toggle):not(.lg-account-menu-item--active):hover::after {
       content: none;
     }
   }
