@@ -29,6 +29,7 @@
     @include mixins.lg-breakpoint('md') {
       display: inline-flex;
       grid-area: 2;
+      margin-bottom: 0;
     }
   }
 
@@ -56,7 +57,7 @@
     }
 
     > .lg-data-point:last-child {
-      margin-bottom: var(--content-gap-row-sm);
+      margin-bottom: 0;
     }
   }
 }
