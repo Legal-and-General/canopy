@@ -47,7 +47,10 @@
 
     &:focus-visible {
       background-color: transparent;
-      @include mixins.lg-focus-outline;
+      border-radius: var(--header-button-border-radius) !important;
+      box-shadow: inset 0 0 0 var(--header-button-border-width-focus)
+        var(--header-button-focus-colour) !important;
+      outline: 0 !important;
     }
   }
 }
