@@ -37,12 +37,19 @@ lg-promo-card
 
 - Replace `LgPromoCard*` imports and standalone `imports` entries with the
   corresponding Card components.
-- Replace `<lg-promo-card>` with `<lg-card>`.
+-  - Replace `<lg-promo-card>` with `<lg-card variant="promo">`. Replace any
+  `solid-white`, `solid-green`, or `solid-yellow` variant attributes or bound
+  values with `promo`, and review the resulting appearance separately.
+- Replace removed `PromoCardVariant` type references with `CardVariant` and
+  update their assigned values to the supported Card variants.
 - Use `<lg-card-hero-img>`, `<lg-card-header>`, `<lg-card-title>`,
   `<lg-card-content>`, and `<lg-card-footer>` for the relevant projected
   content. Place the hero image or pictogram before the Card body.
-- Remove imports and markup for the deleted Promo Card list and title
-  components. Use the existing grid components to lay out multiple Cards.
+- Replace `<lg-promo-card-title>` with `<lg-card-title>` inside
+  `<lg-card-header>`, preserving its content and `headingLevel` binding.
+- Replace the Promo Card list wrapper with the existing grid components. Preserve
+  each `<lg-promo-card-list-title>` as a heading with the same content and level
+  outside the replacement grid. Replace the corresponding removed imports.
 - Do not import the removed Promo Card SCSS or recreate its selectors.
 
 **Before:**
