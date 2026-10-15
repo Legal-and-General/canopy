@@ -46,6 +46,7 @@ function ComponentTokenPanel({ active }) {
   );
   const tokens = source && categoryMap
     ? source.categories.flatMap(category => categoryMap.get(category) ?? [])
+      .sort((firstToken, secondToken) => firstToken.name.localeCompare(secondToken.name, 'en-GB'))
     : [];
 
   const searchTerm = searchText.trim().toLowerCase();
