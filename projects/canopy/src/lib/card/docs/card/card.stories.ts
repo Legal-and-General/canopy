@@ -483,6 +483,7 @@ const interactiveCardTemplate = `
 
 export const DefaultCard = {
   name: 'Default',
+  tags: [ 'updated' ],
   args: {
     link: '/foo',
     headingLevel: 2,
@@ -595,6 +596,7 @@ export const DefaultCard = {
 
 export const PromoCard = {
   name: 'Promo',
+  tags: [ 'updated' ],
   args: {
     link: '/foo',
     headingLevel: 2,
@@ -707,6 +709,7 @@ export const PromoCard = {
 
 export const InteractiveCard = {
   name: 'Interactive',
+  tags: [ 'updated' ],
   args: {
     link: '/foo',
     headingLevel: 2,
@@ -907,6 +910,7 @@ const threeCardsTemplate = `
 
 export const ThreeImages = {
   name: 'Three cards',
+  tags: [ 'updated' ],
   args: {
     title: 'The title',
     headingLevel: 2,
@@ -962,6 +966,7 @@ export const ThreeImages = {
 
 export const ShowMoreCard = {
   name: 'Show more',
+  tags: [ 'updated' ],
   parameters: {
     docs: {
       source: {
@@ -979,6 +984,7 @@ export const ShowMoreCard = {
 
 export const DataPointsCard = {
   name: 'Data points',
+  tags: [ 'updated' ],
   parameters: {
     docs: {
       source: {
@@ -994,6 +1000,7 @@ export const DataPointsCard = {
 
 export const CardGroup = {
   name: 'Card group',
+  tags: [ 'updated' ],
   args: {
     cardContent: content,
     additionalCards: 1,
