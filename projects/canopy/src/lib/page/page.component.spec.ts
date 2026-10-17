@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
 
 import { LgPageComponent } from './page.component';
 
@@ -22,19 +20,5 @@ describe('LgPageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should focus to main container on click of skip to main content', () => {
-    const mainElement: DebugElement = fixture.debugElement.query(By.css('#main'));
-    const focusSpy = jest.spyOn(mainElement.nativeElement, 'focus');
-    const event = {
-      preventDefault: jest.fn(),
-    };
-
-    fixture.debugElement
-      .query(By.css('.lg-page__skip-link'))
-      .triggerEventHandler('click', event);
-
-    expect(focusSpy).toHaveBeenCalled();
   });
 });

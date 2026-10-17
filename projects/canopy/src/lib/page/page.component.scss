@@ -18,17 +18,3 @@
     padding-top: 0;
   }
 }
-
-.lg-page__skip-link {
-  background: var(--colour-greyscale-0);
-  @include mixins.lg-visually-hidden;
-
-  &:focus-visible,
-  &:active {
-    left: 0;
-    clip-path: none !important;
-    width: auto !important;
-    height: auto !important;
-    z-index: var(--z-index-skip-link);
-  }
-}
