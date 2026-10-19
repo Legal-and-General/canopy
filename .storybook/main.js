@@ -157,7 +157,13 @@ export default {
         },
       },
     },
-    'storybook-addon-tag-badges'
+    'storybook-addon-tag-badges',
+    {
+      name: 'storybook-design-token',
+      options: {
+        designTokenGlob: '**/storybook-tokens.css',
+      },
+    }
   ],
   staticDirs: [
     '../assets/',
