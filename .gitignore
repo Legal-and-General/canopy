@@ -4,6 +4,7 @@
 storybook-static
 documentation.json
 /projects/canopy/storybook/css-variables
+/projects/canopy/storybook/design-tokens
 
 # compiled output
 /dist

@@ -29,6 +29,24 @@ Canopy uses [Storybook](https://storybook.js.org/) to enable components to be de
 
 Running `npm start` will run storybook locally, this will hot reload any changes and is the most seamless way to modify or create existing components.
 
+### Component design tokens
+
+Component design tokens are shown in the Storybook component add-on. To add a component, add an entry to `.storybook/component-token-sources.js`:
+
+```javascript
+{
+   label: 'Notice',
+   titlePrefix: 'Components/Notice',
+   categories: ['Notice'],
+}
+```
+
+- `label` is the component name displayed in the add-on tab.
+- `titlePrefix` must match the component's Storybook title, including its group path. The add-on uses it to match the active story; for example, `Components/Notice` matches stories titled `Components/Notice/Examples`.
+- `categories` is an array of exact, case-sensitive `@tokens` labels from the `storybook-tokens.css` file supplied by `@legal-and-general/canopy-design-tokens`. Add every relevant category when a component has tokens split across multiple labels, as with Button's `['Button', 'Button Group']`. These are category labels, not presenter names or CSS variable prefixes.
+
+After adding or changing an entry, run `npm run build:storybook` and check the component's Design tokens add-on tab.
+
 ### Deployments
 
 Pull requests are deployed manually to [GitHub Pages](https://pages.github.com/) by the Core or Regular Contributors.
