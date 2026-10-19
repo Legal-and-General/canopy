@@ -70,6 +70,7 @@ const childPageTemplate = `
 
 export const ChildPage = {
   name: 'Child page',
+  tags: [ 'updated' ],
   render: (args: LgPageComponent) => ({
     props: args,
     template: childPageTemplate,

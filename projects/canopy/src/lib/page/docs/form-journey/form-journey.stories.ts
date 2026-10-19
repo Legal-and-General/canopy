@@ -29,6 +29,7 @@ const formJourneyTemplate = `
 
 export const Product = {
   name: 'Product',
+  tags: [ 'updated' ],
   render: (args: LgPageComponent) => ({
     props: {
       ...args,

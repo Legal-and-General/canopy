@@ -35,6 +35,7 @@ const basicTemplate = `
 
 export const Basic = {
   name: 'Basic page',
+  tags: [ 'updated' ],
   render: (args: LgPageComponent) => ({
     props: args,
     template: basicTemplate,

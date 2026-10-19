@@ -29,6 +29,7 @@ import {
 import {
   LgCardComponent,
   LgCardContentComponent,
+  LgCardContentInnerDataPointsComponent,
   LgCardFooterComponent,
   LgCardHeaderComponent,
   LgCardTitleComponent,
@@ -77,7 +78,11 @@ import {
 } from '../../data-point';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
 import { LgIconComponent } from '../../icon';
-import { LgLinkMenuItemComponent, LgLinkMenuItemTextComponent } from '../../link-menu';
+import {
+  LgLinkMenuComponent,
+  LgLinkMenuItemComponent,
+  LgLinkMenuItemTextComponent,
+} from '../../link-menu';
 
 const pageVariants = [ 'default', 'branded' ];
 
@@ -297,6 +302,7 @@ export const pageStoryMeta = {
         LgAccountMenuMobileItemDirective,
         LgLinkMenuItemComponent,
         LgLinkMenuItemTextComponent,
+        LgLinkMenuComponent,
         LgGridContainerDirective,
         LgGridRowDirective,
         LgGridColDirective,
@@ -304,6 +310,7 @@ export const pageStoryMeta = {
         LgHeaderLogoComponent,
         LgCardComponent,
         LgCardContentComponent,
+        LgCardContentInnerDataPointsComponent,
         LgCardHeaderComponent,
         LgCardTitleComponent,
         LgCardFooterComponent,
@@ -353,7 +360,7 @@ export const basicHeroTemplate = `
       <div lgContainer>
         <div lgRow>
           <div lgCol="12">
-            <lg-breadcrumb variant="embedded" lgMarginBottom="none" lgColour="blue" [lgColourTheme]="variant === 'branded' ? 'bold' : 'neutral'">
+            <lg-breadcrumb variant="page" lgMarginBottom="none" lgColour="blue" [lgColourTheme]="variant === 'branded' ? 'bold' : 'neutral'">
               <lg-breadcrumb-item>
                 <a href="#">
                   <lg-icon name="home-outline"></lg-icon>
@@ -378,7 +385,7 @@ export const basicHeroTemplate = `
             <lg-hero-card>
               <lg-hero-card-header>
                 <lg-hero-card-title headingLevel="1">
-                  Good morning, Gene
+                  Page title
                 </lg-hero-card-title>
               </lg-hero-card-header>
             </lg-hero-card>

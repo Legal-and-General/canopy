@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/angular';
 
 import { LgPageComponent } from '../../page.component';
-import { productHeroHTML } from '../../../hero/docs/hero.stories';
+import { heroCardsDataPointHTML } from '../../../hero/docs/hero.stories';
 import { createArgs, footer, header, pageStoryMeta } from '../page-story.helpers';
 
 export default {
@@ -13,7 +13,7 @@ const productPageTemplate = `
   <lg-page [variant]="variant">
     ${header}
     <lg-hero>
-      ${productHeroHTML}
+      ${heroCardsDataPointHTML}
     </lg-hero>
     <div lgContainer>
       <div lgRow>
@@ -57,6 +57,7 @@ const productPageTemplate = `
 
 export const ProductPage = {
   name: 'Product page',
+  tags: [ 'updated' ],
   render: (args: LgPageComponent) => ({
     props: args,
     template: productPageTemplate,
