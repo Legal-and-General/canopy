@@ -46,7 +46,7 @@ This recipe retains the product hero's header and content slots but omits the ex
 ```html
 <lg-page variant="default">
   <header lg-header><a href="/">Legal &amp; General</a></header>
-  <lg-hero [overlap]="2">
+  <lg-hero>
     <lg-hero-header>
       <div lgContainer>
         <div lgRow>
@@ -127,7 +127,6 @@ If you choose the branded page variant, explicitly change the breadcrumb theme t
 | Component or directive | Input | Recipe value | Purpose |
 |------------------------|-------|--------------|---------|
 | `lg-page` | `variant` | `'default'` | Standard page background |
-| `lg-hero` | `overlap` | `2` | Content overlap in rem |
 | `lg-hero-card-title` | `headingLevel` | `'1'` | Main page heading |
 | `lgCol` | `lgColMd` | `8` / `4` | Product and supporting content from `md` |
 

@@ -47,7 +47,6 @@ export const Basic = {
     showContent: true,
     showFooter: true,
     bannerMessage: 'Generic banner message',
-    overlap: 2,
   },
   argTypes: {
     showHeader: {
@@ -72,10 +71,6 @@ export const Basic = {
     },
     bannerMessage: {
       control: 'text',
-      table: { category: pageSectionsCategory },
-    },
-    overlap: {
-      control: { type: 'number' },
       table: { category: pageSectionsCategory },
     },
   },

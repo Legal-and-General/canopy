@@ -44,7 +44,7 @@ This recipe reduces the header, footer and cards to their structural roles. See 
 ```html
 <lg-page variant="default">
   <header lg-header><a href="/">Legal &amp; General</a></header>
-  <lg-hero [overlap]="2">
+  <lg-hero>
     <lg-hero-header>
       <div lgContainer>
         <div lgRow>
@@ -123,7 +123,6 @@ For a branded page, set the page variant to `branded` and the breadcrumb theme t
 | Component or directive | Input | Recipe value | Purpose |
 |------------------------|-------|--------------|---------|
 | `lg-page` | `variant` | `'default'` | Standard page background |
-| `lg-hero` | `overlap` | `2` | Content overlap in rem |
 | `lg-breadcrumb` | `variant` | `'embedded'` | Breadcrumbs within the hero |
 | `lgCol` | `lgColMd` | `8` / `4` | Primary and related columns from `md` |
 

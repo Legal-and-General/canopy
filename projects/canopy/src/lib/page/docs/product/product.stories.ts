@@ -12,7 +12,7 @@ export default {
 const productPageTemplate = `
   <lg-page [variant]="variant">
     ${header}
-    <lg-hero [overlap]="overlap">
+    <lg-hero>
       ${productHeroHTML}
     </lg-hero>
     <div lgContainer>
@@ -61,10 +61,7 @@ export const ProductPage = {
     props: args,
     template: productPageTemplate,
   }),
-  args: {
-    ...createArgs(),
-    overlap: 2,
-  },
+  args: createArgs(),
   parameters: {
     docs: {
       source: {

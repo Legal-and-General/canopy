@@ -74,10 +74,7 @@ export const ChildPage = {
     props: args,
     template: childPageTemplate,
   }),
-  args: {
-    ...createArgs(),
-    overlap: 2,
-  },
+  args: createArgs(),
   parameters: {
     docs: {
       source: {

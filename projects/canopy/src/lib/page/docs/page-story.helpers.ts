@@ -10,6 +10,7 @@ import {
   LgContentAreaTitleComponent,
 } from '../../content-area';
 import { LgBannerComponent } from '../../banner';
+import { LgAlertComponent } from '../../alert';
 import { LgColourDirective } from '../../colour';
 import {
   LgAccountMenuComponent,
@@ -58,22 +59,22 @@ import { LgMarginDirective } from '../../spacing';
 import {
   LgHeroCardComponent,
   LgHeroCardContentComponent,
-  LgHeroCardDataPointComponent,
-  LgHeroCardDataPointLabelComponent,
-  LgHeroCardDataPointListComponent,
-  LgHeroCardDataPointValueComponent,
   LgHeroCardFooterComponent,
   LgHeroCardHeaderComponent,
-  LgHeroCardNotificationComponent,
-  LgHeroCardPrincipleDataPointComponent,
-  LgHeroCardPrincipleDataPointLabelComponent,
-  LgHeroCardPrincipleDataPointValueComponent,
   LgHeroCardSubtitleComponent,
   LgHeroCardTitleComponent,
   LgHeroComponent,
   LgHeroContentComponent,
   LgHeroHeaderComponent,
 } from '../../hero';
+import {
+  LgDataPointAddOnComponent,
+  LgDataPointComponent,
+  LgDataPointGroupComponent,
+  LgDataPointLabelComponent,
+  LgDataPointSecondaryLabelComponent,
+  LgDataPointValueComponent,
+} from '../../data-point';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
 import { LgIconComponent } from '../../icon';
 import { LgLinkMenuItemComponent, LgLinkMenuItemTextComponent } from '../../link-menu';
@@ -271,14 +272,13 @@ export const pageStoryMeta = {
         LgSortCodeDirective,
         LgGridContainerDirective,
         LgHeroCardTitleComponent,
-        LgHeroCardNotificationComponent,
-        LgHeroCardPrincipleDataPointComponent,
-        LgHeroCardPrincipleDataPointLabelComponent,
-        LgHeroCardPrincipleDataPointValueComponent,
-        LgHeroCardDataPointListComponent,
-        LgHeroCardDataPointComponent,
-        LgHeroCardDataPointLabelComponent,
-        LgHeroCardDataPointValueComponent,
+        LgAlertComponent,
+        LgDataPointAddOnComponent,
+        LgDataPointComponent,
+        LgDataPointGroupComponent,
+        LgDataPointLabelComponent,
+        LgDataPointSecondaryLabelComponent,
+        LgDataPointValueComponent,
         LgHeroCardContentComponent,
         LgHeroCardFooterComponent,
         LgBreadcrumbComponent,
@@ -348,7 +348,7 @@ export const pageStoryMeta = {
 } as Meta;
 
 export const basicHeroTemplate = `
-  <lg-hero [overlap]="overlap">
+  <lg-hero>
     <lg-hero-header>
       <div lgContainer>
         <div lgRow>
