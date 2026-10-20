@@ -1,7 +1,10 @@
 export type TableVariant = 'striped' | 'bordered';
 
+export type TableRowVariant = 'error' | 'selected';
+
 export enum AlignmentOptions {
   Start = 'start',
+  Centre = 'centre',
   End = 'end',
 }
 

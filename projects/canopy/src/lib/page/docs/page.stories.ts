@@ -6,6 +6,8 @@ import { productHeroHTML } from '../../hero/docs/hero.stories';
 import { LgPageComponent } from '../page.component';
 import { LgHeaderComponent, LgHeaderLogoComponent } from '../../header';
 import { LgCardComponent, LgCardContentComponent } from '../../card';
+import { LgAlertComponent } from '../../alert';
+import { LgButtonComponent } from '../../button';
 import {
   LgFooterComponent,
   LgFooterCopyrightComponent,
@@ -24,22 +26,22 @@ import { LgMarginDirective } from '../../spacing';
 import {
   LgHeroCardComponent,
   LgHeroCardContentComponent,
-  LgHeroCardDataPointComponent,
-  LgHeroCardDataPointLabelComponent,
-  LgHeroCardDataPointListComponent,
-  LgHeroCardDataPointValueComponent,
   LgHeroCardFooterComponent,
   LgHeroCardHeaderComponent,
-  LgHeroCardNotificationComponent,
-  LgHeroCardPrincipleDataPointComponent,
-  LgHeroCardPrincipleDataPointLabelComponent,
-  LgHeroCardPrincipleDataPointValueComponent,
   LgHeroCardSubtitleComponent,
   LgHeroCardTitleComponent,
   LgHeroComponent,
   LgHeroContentComponent,
   LgHeroHeaderComponent,
 } from '../../hero';
+import {
+  LgDataPointAddOnComponent,
+  LgDataPointComponent,
+  LgDataPointGroupComponent,
+  LgDataPointLabelComponent,
+  LgDataPointSecondaryLabelComponent,
+  LgDataPointValueComponent,
+} from '../../data-point';
 import { LgBreadcrumbComponent, LgBreadcrumbItemComponent } from '../../breadcrumb';
 import { LgIconComponent } from '../../icon';
 import { LgShowAtDirective } from '../../show-at';
@@ -156,7 +158,7 @@ const contentCategory = 'content';
 const fullWidthWithHeroTemplate = `
   <lg-page>
     ${header}
-    <lg-hero [overlap]="overlap">
+    <lg-hero>
       ${productHeroHTML}
     </lg-hero>
     <div lgContainer>
@@ -189,14 +191,14 @@ const fullWidthWithHeroTemplate = `
     LgHeroCardHeaderComponent,
     LgHeroCardTitleComponent,
     LgHeroCardSubtitleComponent,
-    LgHeroCardNotificationComponent,
-    LgHeroCardPrincipleDataPointComponent,
-    LgHeroCardPrincipleDataPointLabelComponent,
-    LgHeroCardPrincipleDataPointValueComponent,
-    LgHeroCardDataPointListComponent,
-    LgHeroCardDataPointComponent,
-    LgHeroCardDataPointLabelComponent,
-    LgHeroCardDataPointValueComponent,
+    LgAlertComponent,
+    LgButtonComponent,
+    LgDataPointAddOnComponent,
+    LgDataPointComponent,
+    LgDataPointGroupComponent,
+    LgDataPointLabelComponent,
+    LgDataPointSecondaryLabelComponent,
+    LgDataPointValueComponent,
     LgHeroCardFooterComponent,
     LgBreadcrumbComponent,
     LgBreadcrumbItemComponent,
@@ -221,7 +223,6 @@ const fullWidthWithHeroTemplate = `
   ],
 })
 class FullWidthWithHeaderComponent {
-  @Input() overlap: number;
   @Input() logo: string;
   @Input() logoAlt: string;
   @Input() copyright: string;
@@ -443,7 +444,6 @@ export const FullWidthWithHero = {
   render: (args: LgPageComponent) => ({
     props: args,
     template: `<lg-full-width-with-header
-      [overlap]="overlap"
       [logo]="logo"
       [logoAlt]="logoAlt"
       [copyright]="copyright"
@@ -454,18 +454,7 @@ export const FullWidthWithHero = {
       [secondaryLinks]="secondaryLinks"
     ></lg-full-width-with-header>`,
   }),
-  args: {
-    ...createArgs(),
-    overlap: 2,
-  },
-  argTypes: {
-    overlap: {
-      description: 'The amount that the page content overlaps the hero component (rem)',
-      table: {
-        category: 'other',
-      },
-    },
-  },
+  args: createArgs(),
   parameters: {
     docs: {
       source: {

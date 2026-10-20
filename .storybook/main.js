@@ -76,8 +76,6 @@ export default {
     '../projects/canopy/src/lib/notice/docs/notice.stories.ts',
     '../projects/canopy/src/lib/pagination/docs/guide.mdx',
     '../projects/canopy/src/lib/pagination/docs/pagination.stories.ts',
-    '../projects/canopy/src/lib/promo-card/docs/guide.mdx',
-    '../projects/canopy/src/lib/promo-card/docs/promo-card.stories.ts',
     '../projects/canopy/src/lib/separator/docs/guide.mdx',
     '../projects/canopy/src/lib/separator/docs/separator.stories.ts',
     '../projects/canopy/src/lib/spinner/docs/guide.mdx',

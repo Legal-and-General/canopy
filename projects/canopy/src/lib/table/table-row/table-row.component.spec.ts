@@ -125,4 +125,98 @@ describe('LgTableRowComponent', () => {
       expect(debugElement.nativeElement.getAttribute('aria-labelledby')).toBe('test');
     });
   });
+
+  describe('rowVariant', () => {
+    it('should not add any variant class by default', () => {
+      expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table-row--error',
+      );
+
+      expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table-row--selected',
+      );
+    });
+
+    it('should add the error class when rowVariant is error', () => {
+      component.rowVariant = 'error';
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.getAttribute('class')).toContain(
+        'lg-table-row--error',
+      );
+    });
+
+    it('should add the error status classes when rowVariant is error', () => {
+      component.rowVariant = 'error';
+      component.isStripedEvenRow = true;
+      fixture.detectChanges();
+
+      const classes = fixture.nativeElement.getAttribute('class');
+
+      expect(classes).toContain('lg-status-error');
+      expect(classes).toContain('lg-theme-neutral');
+      expect(classes).not.toContain('lg-theme-neutral-inverse');
+      expect(classes).not.toContain('lg-mode-blue');
+    });
+
+    it('should add the selected class when rowVariant is selected', () => {
+      component.rowVariant = 'selected';
+      fixture.detectChanges();
+
+      const classes = fixture.nativeElement.getAttribute('class');
+
+      expect(classes).toContain('lg-table-row--selected');
+      expect(classes).toContain('lg-mode-blue');
+      expect(classes).toContain('lg-theme-subtle');
+    });
+
+    it('should add the selected colour classes when a striped row is selected', () => {
+      component.isStripedEvenRow = true;
+      component.rowVariant = 'selected';
+      fixture.detectChanges();
+
+      const classes = fixture.nativeElement.getAttribute('class');
+
+      expect(classes).toContain('lg-mode-blue');
+      expect(classes).toContain('lg-theme-subtle');
+      expect(classes).not.toContain('lg-theme-neutral-inverse');
+    });
+
+    it('should not apply multiple variant classes simultaneously', () => {
+      component.rowVariant = 'error';
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table-row--selected',
+      );
+    });
+  });
+
+  describe('isFootRow', () => {
+    it('should not add the footer class by default', () => {
+      expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table-row--footer',
+      );
+    });
+
+    it('should add the footer class when isFootRow is true', () => {
+      component.isFootRow = true;
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.getAttribute('class')).toContain(
+        'lg-table-row--footer',
+      );
+    });
+
+    it('should remove the footer class when isFootRow is false', () => {
+      component.isFootRow = true;
+      fixture.detectChanges();
+      component.isFootRow = false;
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table-row--footer',
+      );
+    });
+  });
 });

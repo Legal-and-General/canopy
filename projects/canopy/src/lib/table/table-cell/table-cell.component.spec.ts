@@ -72,6 +72,29 @@ describe('LgTableCellComponent', () => {
     });
   });
 
+  describe('when align is set to centre', () => {
+    beforeEach(() => {
+      component.align = AlignmentOptions.Centre;
+      fixture.detectChanges();
+    });
+
+    it('should set the centre alignment class', () => {
+      const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
+
+      expect(contentElement.nativeElement.getAttribute('class')).toContain(
+        'lg-table-cell__content--align-centre',
+      );
+    });
+
+    it('should not set the end alignment class', () => {
+      const contentElement = debugElement.query(By.css('.lg-table-cell__content'));
+
+      expect(contentElement.nativeElement.getAttribute('class')).not.toContain(
+        'lg-table-cell__content--align-end',
+      );
+    });
+  });
+
   describe('when stack is set to true', () => {
     beforeEach(() => {
       component.stack = true;

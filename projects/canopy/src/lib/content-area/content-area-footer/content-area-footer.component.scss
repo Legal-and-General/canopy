@@ -2,4 +2,9 @@
   display: block;
   border-top: solid var(--content-area-border-width) var(--content-area-border-colour);
   padding: var(--content-area-padding-y) var(--content-area-padding-x);
+
+  // prevent directly projected content applying its own component-margin
+  > * {
+    margin: 0 !important;
+  }
 }

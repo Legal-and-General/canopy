@@ -227,6 +227,7 @@ const exampleTemplate = `
 
 export const StandardNotice = {
   name: 'Notice',
+  tags: [ 'updated' ],
   args: {
     action: 'button',
     hasRole: true,
@@ -258,6 +259,7 @@ const contentAreaNoticeTemplate = `
 
 export const NoticeInContentArea = {
   name: 'Notice in content area',
+  tags: [ 'updated' ],
   args: {
     icon: 'globe',
     mode: 'blue',

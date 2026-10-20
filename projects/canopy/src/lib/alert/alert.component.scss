@@ -28,16 +28,14 @@
   flex-shrink: 0;
 
   .lg-icon {
-    width: var(--content-icon-size-sm);
-    height: var(--content-icon-size-sm);
+    width: var(--content-icon-size-md);
+    height: var(--content-icon-size-md);
     color: var(--inline-message-icon-colour);
   }
 }
 
 .lg-alert__body {
-  display: flex;
   flex: 1;
-  flex-direction: column;
   --text-bottom-margin: var(--inline-message-gap);
 }
 

@@ -1,4 +1,11 @@
 .lg-content-area-content {
   display: flex;
+  flex-direction: column;
+  gap: var(--content-area-gap);
   padding: var(--content-area-padding-y) var(--content-area-padding-x);
+
+  // prevent directly projected content applying its own component-margin
+  > * {
+    margin-block: 0 !important;
+  }
 }

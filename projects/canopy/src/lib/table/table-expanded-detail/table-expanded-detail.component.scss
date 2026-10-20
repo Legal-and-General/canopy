@@ -1,3 +1,42 @@
+@use '../../../styles/mixins.scss';
+@use '../table.breakpoints';
+
 .lg-table-expanded-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows var(--animation-duration) ease-in-out;
   white-space: normal;
+
+  &--active {
+    grid-template-rows: 1fr;
+
+    .lg-table-expanded-detail__content {
+      opacity: 1;
+      padding-top: var(--table-cell-common-padding-y-sm);
+      padding-bottom: var(--table-cell-common-padding-y-sm);
+    }
+  }
+
+  &__content {
+    min-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-top: 0;
+    transition:
+      opacity var(--animation-duration) ease-in-out,
+      padding var(--animation-duration) ease-in-out;
+  }
+}
+
+@each $columns-breakpoint in table.$columns-breakpoints {
+  .lg-table--columns-#{$columns-breakpoint} {
+    .lg-table-expanded-detail--active .lg-table-expanded-detail__content {
+      @include mixins.lg-breakpoint($columns-breakpoint) {
+        padding-top: var(--table-cell-common-padding-y-lg);
+        padding-bottom: var(--table-cell-common-padding-y-lg);
+      }
+    }
+  }
 }
