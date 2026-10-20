@@ -8,9 +8,9 @@
 
   .lg-icon,
   .lg-list-with-icons-item__marker {
-    height: var(--content-icon-size-sm);
-    width: var(--content-icon-size-sm);
-    min-width: var(--content-icon-size-sm);
+    height: var(--list-item-common-icon-size-default);
+    width: var(--list-item-common-icon-size-default);
+    min-width: var(--list-item-common-icon-size-default);
     color: var(--list-item-icon-colour);
   }
 

@@ -17,7 +17,7 @@
     align-items: flex-start;
     column-gap: var(--details-gap);
     grid-template-columns: var(--details-panel-leading-width) minmax(0, 1fr) var(
-        --content-icon-size-sm
+        --content-icon-size-md
       );
     grid-template-rows: 0fr;
     opacity: 0;
@@ -38,7 +38,7 @@
   }
 
   &--with-status-icon .lg-details__panel {
-    --details-panel-leading-width: var(--content-icon-size-sm);
+    --details-panel-leading-width: var(--content-icon-size-md);
   }
 
   &__panel-content {
@@ -51,9 +51,9 @@
   .lg-icon {
     color: var(--details-status-icon-colour);
     flex-shrink: 0;
-    height: var(--content-icon-size-sm);
+    height: var(--content-icon-size-md);
     margin-right: var(--details-gap);
-    width: var(--content-icon-size-sm);
+    width: var(--content-icon-size-md);
     aspect-ratio: 1 / 1;
   }
 

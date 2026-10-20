@@ -101,8 +101,8 @@
   }
 
   .lg-pagination__button--prevnext .lg-icon {
-    width: var(--content-icon-size-sm);
-    height: var(--content-icon-size-sm);
+    width: var(--content-icon-size-md);
+    height: var(--content-icon-size-md);
   }
 
   .lg-pagination__button:hover:not(:disabled) .lg-pagination__button-content::after,
@@ -163,8 +163,8 @@
     align-items: center;
     justify-content: center;
     font-weight: var(--font-weight-700);
-    width: var(--content-icon-size-sm);
-    height: var(--content-icon-size-sm);
+    width: var(--content-icon-size-md);
+    height: var(--content-icon-size-md);
     color: var(--pagination-page-rest-colour);
   }
 

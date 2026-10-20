@@ -402,17 +402,9 @@ $breakpoints: (
 }
 
 @mixin lg-card {
-  background-color: var(--card-bg-color);
-  border-radius: var(--container-common-border-radius-sm);
+  background-color: var(--card-background-colour);
+  border-radius: var(--card-border-radius);
   margin-bottom: var(--grid-gutter);
-  padding: var(--component-padding);
-
-  @include lg-breakpoint('md') {
-    border-radius: var(--container-common-border-radius-md);
-  }
-  @include lg-breakpoint('lg') {
-    border-radius: var(--container-common-border-radius-lg);
-  }
 }
 
 @mixin lg-content-area {

@@ -5,6 +5,9 @@ import { LgCardComponent } from '../../card.component';
 import { LgPictogramComponent } from '../../../pictogram';
 import { LgMarginDirective, LgPaddingDirective } from '../../../spacing';
 import { LgCardContentComponent } from '../../card-content/card-content.component';
+import { LgCardHeaderComponent } from '../../card-header/card-header.component';
+import { LgCardTitleComponent } from '../../card-title/card-title.component';
+import { LgCardFooterComponent } from '../../card-footer/card-footer.component';
 import { IconName } from '../../../icon';
 import { LgCardHeroImageComponent } from '../../card-hero-img/card-hero-img.component';
 import { LgOrientationDirective, OrientationResponsive } from '../../../orientation';
@@ -19,20 +22,26 @@ const promotionsGeneralCardTemplate = `
 <lg-card
   lgMarginBottom="6"
   [lgPadding]="hasIcon ? 'lg' : 'none'"
-  variant="promotion"
+  variant="promo"
   [lgOrientation]="orientation">
   <lg-card-hero-img
     [cover]="true"
-    [src]="hasIcon ? '' : imgUrl">
+    [src]="hasIcon ? '' : imgUrl"
+    [aspectRatio]="aspectRatio">
     @if (hasIcon) {
       <lg-pictogram [name]="iconName" size="lg" [hasFill]="false"></lg-pictogram>
     }
   </lg-card-hero-img>
+  <lg-card-header>
+    <lg-card-title [headingLevel]="3">{{ title }}</lg-card-title>
+  </lg-card-header>
   <lg-card-content>
-    <h3 lgMarginBottom="2" class="lg-font--expressive">{{ title }}</h3>
-    <p lgMarginBottom="6">{{ text }}</p>
-    <a href="#">{{ buttonText }}</a>
+    <p>{{ text }}</p>
+
   </lg-card-content>
+  <lg-card-footer>
+    <a href="#">{{ buttonText }}</a>
+  </lg-card-footer>
 </lg-card>`;
 
 @Component({
@@ -41,6 +50,9 @@ const promotionsGeneralCardTemplate = `
   imports: [
     LgMarginDirective,
     LgCardContentComponent,
+    LgCardHeaderComponent,
+    LgCardTitleComponent,
+    LgCardFooterComponent,
     LgPictogramComponent,
     LgCardHeroImageComponent,
     LgOrientationDirective,
@@ -55,6 +67,7 @@ class GeneralPromotionCardComponent {
   @Input() imgUrl: string;
   @Input() iconName: IconName;
   @Input() hasIcon: boolean;
+  @Input() aspectRatio?: '1:1' | '5:4' | '4:3' | '16:9' | '2:1' | '4:5' | '9:16';
   @Input() orientation: OrientationResponsive = {
     sm: 'vertical',
     md: 'horizontal',
@@ -64,7 +77,6 @@ class GeneralPromotionCardComponent {
 
 export default {
   title: 'Patterns/Promotions/Examples',
-  tags: [ 'pending' ],
   decorators: [
     moduleMetadata({
       imports: [
@@ -93,6 +105,7 @@ const promotionsGeneralCardStandAloneTemplate = `
         imgUrl="promo-card/general-promotion1.jpg"
         [hasIcon]="hasIcon"
         iconName="looking-ahead"
+        aspectRatio="2:1"
         [orientation]="orientation">
       </lg-card-general-promotion>
     </div>
@@ -110,7 +123,7 @@ const promotionsGeneralCardTwoCardsTemplate = `
       [text]="text"
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion1.jpg"
-      [hasIcon]="hasIcon" iconName="looking-ahead"
+      [hasIcon]="hasIcon" iconName="looking-ahead" aspectRatio="2:1"
       [orientation]="orientation">
     </lg-card-general-promotion>
     <lg-card-general-promotion
@@ -121,7 +134,7 @@ const promotionsGeneralCardTwoCardsTemplate = `
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion2.jpg"
       [hasIcon]="hasIcon"
-      iconName="pension-pot"
+      iconName="pension-pot" aspectRatio="2:1"
       [orientation]="orientation">
     </lg-card-general-promotion>
   </div>
@@ -138,7 +151,7 @@ const promotionsGeneralCardThreeCardsTemplate = `
       [text]="text"
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion1.jpg"
-      [hasIcon]="hasIcon" iconName="looking-ahead"
+      [hasIcon]="hasIcon" iconName="looking-ahead" aspectRatio="2:1"
       [orientation]="orientation">
     </lg-card-general-promotion>
     <lg-card-general-promotion
@@ -149,7 +162,7 @@ const promotionsGeneralCardThreeCardsTemplate = `
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion2.jpg"
       [hasIcon]="hasIcon"
-      iconName="pension-pot"
+      iconName="pension-pot" aspectRatio="2:1"
       [orientation]="orientation">
     </lg-card-general-promotion>
     <lg-card-general-promotion
@@ -160,7 +173,7 @@ const promotionsGeneralCardThreeCardsTemplate = `
       [buttonText]="buttonText"
       imgUrl="promo-card/general-promotion3.jpg"
       [hasIcon]="hasIcon"
-      iconName="calendar-confirm"
+      iconName="calendar-confirm" aspectRatio="2:1"
       [orientation]="orientation">
     </lg-card-general-promotion>
   </div>
@@ -182,6 +195,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
       imgUrl="promo-card/general-promotion1.jpg"
       [hasIcon]="false"
       iconName="looking-ahead"
+      aspectRatio="2:1"
       [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
     </lg-card-general-promotion>
     <lg-card-general-promotion
@@ -193,6 +207,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
       imgUrl="promo-card/general-promotion2.jpg"
       [hasIcon]="false"
       iconName="pension-pot"
+      aspectRatio="2:1"
       [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
     </lg-card-general-promotion>
     <lg-card-general-promotion
@@ -204,6 +219,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
       imgUrl="promo-card/general-promotion3.jpg"
       [hasIcon]="false"
       iconName="calendar-confirm"
+      aspectRatio="2:1"
       [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
     </lg-card-general-promotion>
   </div>
@@ -220,6 +236,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
       imgUrl="promo-card/general-promotion1.jpg"
       [hasIcon]="false"
       iconName="looking-ahead"
+      aspectRatio="2:1"
       [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
     </lg-card-general-promotion>
     <lg-card-general-promotion
@@ -231,6 +248,7 @@ const promotionsGeneralCardMagazineLayoutTemplate = `
       imgUrl="promo-card/general-promotion2.jpg"
       [hasIcon]="false"
       iconName="pension-pot"
+      aspectRatio="2:1"
       [orientation]="{ sm: 'vertical', md: 'horizontal', lg: 'vertical' }">
     </lg-card-general-promotion>
   </div>

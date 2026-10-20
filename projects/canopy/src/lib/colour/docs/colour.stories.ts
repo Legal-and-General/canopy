@@ -13,12 +13,7 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 @Component({
   selector: 'lg-colour-story',
   template: `
-    <lg-card
-      [lgColour]="colour"
-      [lgColourTheme]="theme"
-      lgPaddingLeft="6"
-      lgPaddingRight="6"
-    >
+    <lg-card [lgColour]="colour" [lgColourTheme]="theme">
       <lg-card-content>
         <p><strong>The colour directive</strong></p>
         <p>
