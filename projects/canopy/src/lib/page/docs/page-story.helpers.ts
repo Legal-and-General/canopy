@@ -1,6 +1,7 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { primaryLinks, socialLinks } from '../../footer/docs/footer.stories';
+import { primaryLinks } from '../../footer/docs/footer.stories';
 import { LgPageComponent } from '../page.component';
 import {
   LgContentAreaComponent,
@@ -32,24 +33,18 @@ import {
   LgCardContentInnerDataPointsComponent,
   LgCardFooterComponent,
   LgCardHeaderComponent,
+  LgCardHeroImageComponent,
+  LgCardNavigationTitleComponent,
   LgCardTitleComponent,
 } from '../../card';
 import { LgButtonComponent, LgButtonGroupComponent } from '../../button';
-import {
-  LgHintComponent,
-  LgInputDirective,
-  LgInputFieldComponent,
-  LgSelectDirective,
-  LgSelectFieldComponent,
-  LgSortCodeDirective,
-} from '../../forms';
+import { LgHintComponent, LgInputDirective, LgInputFieldComponent } from '../../forms';
 import {
   LgFooterComponent,
   LgFooterCopyrightComponent,
   LgFooterLogoComponent,
   LgFooterNavComponent,
   LgFooterNavItemComponent,
-  LgFooterSocialComponent,
 } from '../../footer';
 import {
   LgGridColDirective,
@@ -109,7 +104,6 @@ export const createArgs = () => ({
     customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art
     customer service.`,
   primaryLinks,
-  socialLinks,
 });
 
 export const header = `
@@ -231,14 +225,6 @@ export const footer = `
 
   <lg-footer-logo [src]="logo" [alt]="logoAlt"></lg-footer-logo>
 
-  <lg-footer-social>
-    @for (social of socialLinks; track social.id) {
-      <a class="social-link" [href]="social.href" [id]="social.id" target="_blank" [attr.aria-label]="social.label">
-        <lg-icon [name]="social.icon" size="sm"></lg-icon>
-      </a>
-    }
-  </lg-footer-social>
-
   <lg-footer-copyright>{{ copyright }}</lg-footer-copyright>
 </footer>
 `;
@@ -254,6 +240,7 @@ export const pageStoryMeta = {
   decorators: [
     moduleMetadata({
       imports: [
+        RouterTestingModule,
         LgHeaderComponent,
         LgFooterComponent,
         LgPageComponent,
@@ -272,9 +259,6 @@ export const pageStoryMeta = {
         LgInputFieldComponent,
         LgInputDirective,
         LgHintComponent,
-        LgSelectFieldComponent,
-        LgSelectDirective,
-        LgSortCodeDirective,
         LgGridContainerDirective,
         LgHeroCardTitleComponent,
         LgAlertComponent,
@@ -312,6 +296,8 @@ export const pageStoryMeta = {
         LgCardContentComponent,
         LgCardContentInnerDataPointsComponent,
         LgCardHeaderComponent,
+        LgCardHeroImageComponent,
+        LgCardNavigationTitleComponent,
         LgCardTitleComponent,
         LgCardFooterComponent,
         LgButtonComponent,
@@ -321,7 +307,6 @@ export const pageStoryMeta = {
         LgFooterNavComponent,
         LgFooterNavItemComponent,
         LgFooterLogoComponent,
-        LgFooterSocialComponent,
         LgFooterCopyrightComponent,
       ],
     }),
@@ -355,7 +340,7 @@ export const pageStoryMeta = {
 } as Meta;
 
 export const basicHeroTemplate = `
-  <lg-hero>
+  <lg-hero variant="child">
     <lg-hero-header>
       <div lgContainer>
         <div lgRow>
@@ -417,25 +402,20 @@ export const formJourneyProductContent = `
                   <h1>Step heading</h1>
                 </lg-progress-header>
               </lg-progress-indicator>
-              <p>Enter the details of the account you want us to use for your payments.</p>
-              <lg-input-field [block]="true">
-                Account number
-                <lg-hint>Your account number is 8 digits</lg-hint>
-                <input lgInput formControlName="accountNumber" size="8" />
+              <p>Enter your details.</p>
+              <lg-input-field>
+                First name
+                <lg-hint>For example, Jane</lg-hint>
+                <input lgInput formControlName="firstName" autocomplete="given-name" />
               </lg-input-field>
-              <lg-input-field [block]="true">
-                Sort code
-                <lg-hint>Must be 6 digits, like 12-34-56</lg-hint>
-                <input lgInput lgSortCode formControlName="sortCode" size="8" />
+              <lg-input-field>
+                Last name
+                <input lgInput formControlName="lastName" autocomplete="family-name" />
               </lg-input-field>
-              <lg-select-field [block]="true">
-                Account type
-                <select lgSelect formControlName="accountType">
-                  <option value="current">Current account</option>
-                  <option value="savings">Savings account</option>
-                  <option value="joint">Joint account</option>
-                </select>
-              </lg-select-field>
+              <lg-input-field>
+                Email address
+                <input lgInput formControlName="emailAddress" type="email" autocomplete="email" />
+              </lg-input-field>
             </lg-content-area-content>
             <lg-content-area-footer>
               <lg-button-group>

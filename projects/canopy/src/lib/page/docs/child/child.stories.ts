@@ -28,12 +28,6 @@ const childPageTemplate = `
             <lg-card-content>
               {{card1}}
             </lg-card-content>
-            <lg-card-footer>
-              <lg-button-group>
-                <button lg-button type="button" priority="primary">View more</button>
-                <button lg-button type="button" priority="secondary">Contact us</button>
-              </lg-button-group>
-            </lg-card-footer>
           </lg-card>
         </div>
         <div lgCol="12" lgColMd="4">
@@ -45,19 +39,6 @@ const childPageTemplate = `
             <lg-card-footer>
               <lg-button-group>
                 <button lg-button type="button" priority="primary">View more</button>
-                <button lg-button type="button" priority="secondary">Contact us</button>
-              </lg-button-group>
-            </lg-card-footer>
-          </lg-card>
-          <lg-card lgMarginHorizontal="none">
-            <lg-card-header>
-              <lg-card-title headingLevel="2">Additional content</lg-card-title>
-            </lg-card-header>
-            <lg-card-content>{{card3}}</lg-card-content>
-            <lg-card-footer>
-              <lg-button-group>
-                <button lg-button type="button" priority="primary">View more</button>
-                <button lg-button type="button" priority="secondary">Contact us</button>
               </lg-button-group>
             </lg-card-footer>
           </lg-card>

@@ -13,7 +13,7 @@
 }
 
 .lg-page__main {
-  padding: var(--page-vertical-padding) 0;
+  padding: var(--page-vertical-padding) 0 var(--content-gap-row-lg) 0;
   flex: 1 0 auto;
 }
 

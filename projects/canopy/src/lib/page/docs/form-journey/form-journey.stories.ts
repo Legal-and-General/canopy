@@ -34,9 +34,9 @@ export const Product = {
     props: {
       ...args,
       form: new UntypedFormGroup({
-        accountNumber: new UntypedFormControl(''),
-        sortCode: new UntypedFormControl(''),
-        accountType: new UntypedFormControl('current'),
+        firstName: new UntypedFormControl(''),
+        lastName: new UntypedFormControl(''),
+        emailAddress: new UntypedFormControl(''),
       }),
     },
     moduleMetadata: {

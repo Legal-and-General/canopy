@@ -47,7 +47,7 @@ export const Basic = {
     showHero: true,
     showContent: true,
     showFooter: true,
-    bannerMessage: 'Generic banner message',
+    bannerMessage: 'Optional banner message',
   },
   argTypes: {
     showHeader: {
