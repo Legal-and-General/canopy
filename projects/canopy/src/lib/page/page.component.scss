@@ -3,13 +3,17 @@
 .lg-page {
   display: flex;
   flex-direction: column;
-  background: var(--page-bg-color);
-  min-height: 100%;
+  background: var(--body-default-background-colour);
+  min-height: 100vh;
   max-width: 100vw;
 }
 
+.lg-page--branded {
+  background: var(--body-regal-background-colour);
+}
+
 .lg-page__main {
-  padding: var(--page-vertical-padding) 0;
+  padding: var(--page-vertical-padding) 0 var(--content-gap-row-lg) 0;
   flex: 1 0 auto;
 }
 

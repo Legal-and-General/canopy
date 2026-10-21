@@ -24,6 +24,41 @@ describe('LgPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should use the default variant when omitted', () => {
+    expect(component.variant).toBe('default');
+    expect(fixture.nativeElement.classList.contains('lg-page')).toBe(true);
+    expect(fixture.nativeElement.classList.contains('lg-page--default')).toBe(true);
+    expect(fixture.nativeElement.classList.contains('lg-page--branded')).toBe(false);
+  });
+
+  it('should accept the explicit default variant', () => {
+    fixture.componentRef.setInput('variant', 'default');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.classList.contains('lg-page--default')).toBe(true);
+    expect(fixture.nativeElement.classList.contains('lg-page--branded')).toBe(false);
+  });
+
+  it('should apply the branded variant and retain the base class', () => {
+    fixture.componentRef.setInput('variant', 'branded');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.classList.contains('lg-page')).toBe(true);
+    expect(fixture.nativeElement.classList.contains('lg-page--branded')).toBe(true);
+    expect(fixture.nativeElement.classList.contains('lg-page--default')).toBe(false);
+  });
+
+  it('should remove the branded variant when switching back to default', () => {
+    fixture.componentRef.setInput('variant', 'branded');
+    fixture.detectChanges();
+    fixture.componentRef.setInput('variant', 'default');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.classList.contains('lg-page')).toBe(true);
+    expect(fixture.nativeElement.classList.contains('lg-page--default')).toBe(true);
+    expect(fixture.nativeElement.classList.contains('lg-page--branded')).toBe(false);
+  });
+
   it('should focus to main container on click of skip to main content', () => {
     const mainElement: DebugElement = fixture.debugElement.query(By.css('#main'));
     const focusSpy = jest.spyOn(mainElement.nativeElement, 'focus');

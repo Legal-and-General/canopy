@@ -13,14 +13,7 @@ import { LgContentAreaFooterComponent } from '../content-area-footer/content-are
 import { LgContentAreaTitleComponent } from '../content-area-title/content-area-title.component';
 import { LgIconComponent } from '../../icon';
 import { LgButtonComponent, LgButtonGroupComponent } from '../../button';
-import {
-  LgHintComponent,
-  LgInputDirective,
-  LgInputFieldComponent,
-  LgSelectDirective,
-  LgSelectFieldComponent,
-  LgSortCodeDirective,
-} from '../../forms';
+import { LgHintComponent, LgInputDirective, LgInputFieldComponent } from '../../forms';
 import {
   LgGridColDirective,
   LgGridContainerDirective,
@@ -228,25 +221,20 @@ const intermediateSource = `
           <h1>Journey title</h1>
         </lg-progress-header>
       </lg-progress-indicator>
-      <p>Enter the details of the account you want us to use for your payments.</p>
+      <p>Enter your details.</p>
       <lg-input-field [block]="true">
-        Account number
-        <lg-hint>Your account number is 8 digits</lg-hint>
-        <input lgInput formControlName="accountNumber" size="8" />
+        First name
+        <lg-hint>For example, Jane</lg-hint>
+        <input lgInput formControlName="firstName" autocomplete="given-name" />
       </lg-input-field>
       <lg-input-field [block]="true">
-        Sort code
-        <lg-hint>Must be 6 digits, like 12-34-56</lg-hint>
-        <input lgInput lgSortCode formControlName="sortCode" size="8" />
+        Last name
+        <input lgInput formControlName="lastName" autocomplete="family-name" />
       </lg-input-field>
-      <lg-select-field [block]="true">
-        Account type
-        <select lgSelect formControlName="accountType">
-          <option value="current">Current account</option>
-          <option value="savings">Savings account</option>
-          <option value="joint">Joint account</option>
-        </select>
-      </lg-select-field>
+      <lg-input-field [block]="true">
+        Email address
+        <input lgInput formControlName="emailAddress" type="email" autocomplete="email" />
+      </lg-input-field>
     </lg-content-area-content>
     <lg-content-area-footer>
       <lg-button-group>
@@ -337,26 +325,21 @@ const formJourneyTemplate = `
                     </lg-progress-header>
                   </lg-progress-indicator>
                   <p>{{contentAreaContent}}</p>
-                  <lg-input-field [block]="true">
+                  <lg-input-field>
                     {{label}}
                     @if (hint) {
                       <lg-hint>{{hint}}</lg-hint>
                     }
-                    <input lgInput formControlName="accountNumber" size="8" />
+                    <input lgInput formControlName="firstName" autocomplete="given-name" />
                   </lg-input-field>
-                  <lg-input-field [block]="true">
-                    Sort code
-                    <lg-hint>Must be 6 digits, like 12-34-56</lg-hint>
-                    <input lgInput lgSortCode formControlName="sortCode" size="8" />
+                  <lg-input-field>
+                    Last name
+                    <input lgInput formControlName="lastName" autocomplete="family-name" />
                   </lg-input-field>
-                  <lg-select-field [block]="true">
-                    Account type
-                    <select lgSelect formControlName="accountType">
-                      <option value="current">Current account</option>
-                      <option value="savings">Savings account</option>
-                      <option value="joint">Joint account</option>
-                    </select>
-                  </lg-select-field>
+                  <lg-input-field>
+                    Email address
+                    <input lgInput formControlName="emailAddress" type="email" autocomplete="email" />
+                  </lg-input-field>
                 </lg-content-area-content>
                 <lg-content-area-footer>
                   <lg-button-group>
@@ -412,9 +395,6 @@ const formJourneyTemplate = `
     LgContentAreaFooterComponent,
     LgInputFieldComponent,
     LgInputDirective,
-    LgSortCodeDirective,
-    LgSelectFieldComponent,
-    LgSelectDirective,
     LgProgressHeaderComponent,
     LgProgressIndicatorComponent,
     LgNoticeComponent,
@@ -445,9 +425,9 @@ class ContentAreaFormJourneyComponent {
 
   constructor() {
     this.form = this.fb.group({
-      accountNumber: { value: '', disabled: false },
-      sortCode: { value: '', disabled: false },
-      accountType: { value: 'current', disabled: false },
+      firstName: { value: '', disabled: false },
+      lastName: { value: '', disabled: false },
+      emailAddress: { value: '', disabled: false },
     });
   }
 
@@ -504,11 +484,10 @@ export const FormJourney = {
   args: {
     stage: 'intermediate',
     journeyTitle: 'Journey title',
-    contentAreaContent:
-      'Enter the details of the account you want us to use for your payments.',
+    contentAreaContent: 'Enter your details.',
     backLinkText: 'Back',
-    label: 'Account number',
-    hint: 'Your account number is 8 digits',
+    label: 'First name',
+    hint: 'For example, Jane',
   },
   parameters: {
     docs: {
