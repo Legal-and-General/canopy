@@ -12,6 +12,10 @@ import { LgAccordionPanelHeadingComponent } from './accordion-panel-heading.comp
   template: `
     <lg-accordion-panel-heading>
       <lg-icon name="light-bulb"></lg-icon>Panel heading
+      <div lgAccordionHeadingActions>
+        <a href="#favourite">Favourite</a>
+        <a href="#delete">Delete</a>
+      </div>
     </lg-accordion-panel-heading>
   `,
   standalone: false,
@@ -152,7 +156,8 @@ describe('LgAccordionPanelHeadingComponent', () => {
         By.css('lg-icon'),
       );
 
-      expect(icons[0].attributes.name).toBe('light-bulb');
+      expect(icons[0].attributes.name).toBe('chevron-down');
+      expect(icons[1].attributes.name).toBe('light-bulb');
     });
 
     it('should still render the chevron icon', () => {
@@ -161,7 +166,34 @@ describe('LgAccordionPanelHeadingComponent', () => {
       );
 
       expect(icons.length).toBe(2);
-      expect(icons[1].attributes.name).toBe('chevron-down');
+      expect(icons[0].attributes.name).toBe('chevron-down');
+    });
+
+    it('should render header links outside the toggle without toggling the panel', () => {
+      const heading = fixtureAccordionPanelHeadingWithIcon.debugElement.query(
+        By.directive(LgAccordionPanelHeadingComponent),
+      );
+      const toggle = heading.query(By.css('.lg-accordion__heading-toggle'));
+      const links = heading.queryAll(By.css('[lgAccordionHeadingActions] a'));
+      const toggleSpy = jest.spyOn(heading.componentInstance.toggleActive, 'emit');
+
+      const labels = links.map(link => {
+        const anchor: HTMLAnchorElement = link.nativeElement;
+
+        return anchor.textContent;
+      });
+
+      expect(labels).toEqual([ 'Favourite', 'Delete' ]);
+      expect(toggle.nativeElement.querySelector('a')).toBeNull();
+
+      links.forEach(link => {
+        const anchor: HTMLAnchorElement = link.nativeElement;
+
+        anchor.click();
+      });
+
+      expect(toggleSpy).not.toHaveBeenCalled();
+      expect(heading.componentInstance.isActive).toBe(false);
     });
   });
 });
