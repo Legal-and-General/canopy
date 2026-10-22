@@ -5,6 +5,7 @@ import {
   Component,
   ContentChild,
   EventEmitter,
+  HostBinding,
   Input,
   OnChanges,
   OnDestroy,
@@ -39,6 +40,8 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   private selectionDispatcher = inject(UniqueSelectionDispatcher);
   private cdr = inject(ChangeDetectorRef);
   private _toggleSubscription: Subscription;
+
+  @HostBinding('class.lg-accordion-item') class = true;
   accordion = inject<LgAccordionComponent>(LG_ACCORDION, {
     optional: true,
     skipSelf: true,
@@ -109,7 +112,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.accordionPanelHeading && changes.isActive) {
-      const isActive = changes.isActive.currentValue || false;
+      const isActive = Boolean(changes.isActive.currentValue);
 
       this.accordionPanelHeading.isActive = isActive;
       this.toggleActiveState(isActive);

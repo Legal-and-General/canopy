@@ -4,15 +4,15 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 import AccordionStoriesMeta, * as CSF from './accordion.stories'
 
-<Meta title="Components/Accordion/Guide" tags={['pending']}/>
+<Meta title="Components/Accordion/Guide" tags={['updated']}/>
 
 # Accordion
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v44.0.0" target="_blank" rel="noopener noreferrer">v44</a>.</span></span>
 
 <p class="standfirst">The accordion component reduces page clutter and cognitive load by letting users reveal sections of information as and when they need it.</p>
 
-![Accordion component example](docs/accordion/example.png)
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
@@ -22,15 +22,12 @@ Information that is important or relevant to most users should not be hidden wit
 
 Accordions work best for simple content and links but can support rich content (sound, video, imagery, etc), if required.
 
-If needed visually, an icon can be set for each accordion item heading. The icon must match an `lgIcon` asset.
+If needed visually, an icon can be set for each accordion item heading. Use an `lg-icon` with a supported icon name. The header displays the chevron first, followed by the optional decorative icon and then the label. When a label wraps, both icons stay aligned with its first line.
 
 Import the accordion components into your application:
 
 ```js
-@NgModule({
-  ...
-  imports: [ ..., LgAccordionComponent, etc. ],
-});
+import { LgAccordionComponent } from '@legal-and-general/canopy';
 ```
 
 and in your HTML:
@@ -70,7 +67,31 @@ and in your HTML:
 
 ## How it works
 
-Accordions have a chevron to indicate that they are interactive, but clicking anywhere on the bar will expand or collapse the content within. By default, several accordion sections can be expanded at once. If you need to, you can limit the number of open accordion sections to one. The first accordion is usually expanded by default.
+Accordions have a chevron to indicate that they are interactive. Clicking the heading toggle will expand or collapse the content within. By default, several accordion sections can be expanded at once. Set `[multi]="false"` on the group to allow only one open section at a time.
+
+All items are closed by default. Set `[isActive]="true"` on an item to open it initially; the first item is not opened automatically.
+
+Panels open and close immediately, without an expand or collapse animation. The chevron still rotates with an animated transition. Closed panels use `display: none`, so their controls cannot receive keyboard focus. Open panels have no animation wrapper clipping their content.
+
+### Header actions
+
+Place links or buttons in a container marked with `lgAccordionHeadingActions` inside the panel heading. These actions appear on the right, outside the toggle button, and do not expand or collapse the accordion. They can wrap beneath the heading when space is limited. Connect them to your application's destinations or action handlers; the links below use placeholder destinations.
+
+```html
+<lg-accordion-panel-heading>
+  Item 1
+  <div lgAccordionHeadingActions>
+    <a lg-button priority="link" [backIcon]="true" href="#favourite">
+      <lg-icon name="star-outline" />
+      Favourite
+    </a>
+    <a lg-button priority="link" [backIcon]="true" href="#delete">
+      <lg-icon name="trash" />
+      Delete
+    </a>
+  </div>
+</lg-accordion-panel-heading>
+```
 
 ## Dos and Don'ts
 
@@ -113,7 +134,7 @@ Accordions have a chevron to indicate that they are interactive, but clicking an
 
 ### Lazy content initialisation
 
-Wrap the panel content in a ng-template with the `lgAccordionContent` directive to only initialise and render the panel when it is first opened.
+Wrap the panel content in an `ng-template` with the `lgAccordionItemContent` directive to initialise and render it only when the item is first opened. Once initialised, the content is retained when the item is closed and reopened.
 
 ***
 

@@ -74,13 +74,23 @@ describe('LgAccordionItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should apply the lg-accordion-item class to the host', () => {
+    const itemElement = fixture.debugElement.children[0].nativeElement;
+
+    expect(itemElement.classList.contains('lg-accordion-item')).toBe(true);
+  });
+
   it('should render panel content', () => {
     expect(fixture.debugElement.query(By.css('.default-content'))).toBeDefined();
   });
 
   it('should link the panel heading button id to the panel aria-labelledby, and the button aria-controls to the panel id', () => {
-    const buttonEl = fixture.debugElement.query(By.css('.lg-accordion__heading-toggle')).nativeElement;
-    const panelEl = fixture.debugElement.query(By.css('.lg-accordion__panel')).nativeElement;
+    const buttonEl = fixture.debugElement.query(
+      By.css('.lg-accordion__heading-toggle'),
+    ).nativeElement;
+    const panelEl = fixture.debugElement.query(
+      By.css('.lg-accordion__panel'),
+    ).nativeElement;
 
     expect(buttonEl.getAttribute('id')).toBe(panelEl.getAttribute('aria-labelledby'));
     expect(buttonEl.getAttribute('aria-controls')).toBe(panelEl.getAttribute('id'));
@@ -152,6 +162,13 @@ describe('LgAccordionItemComponent', () => {
     expect(
       panelElement.nativeElement.classList.contains('lg-accordion__panel--active'),
     ).toBe(true);
+
+    triggerElement.nativeElement.click();
+    fixture.detectChanges();
+
+    expect(
+      panelElement.nativeElement.classList.contains('lg-accordion__panel--active'),
+    ).toBe(false);
   });
 
   describe('when updating isActive input', () => {

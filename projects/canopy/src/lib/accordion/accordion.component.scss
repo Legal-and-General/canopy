@@ -1,4 +1,6 @@
 .lg-accordion {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--accordion-group-gap);
   margin-bottom: var(--component-margin);
 }
