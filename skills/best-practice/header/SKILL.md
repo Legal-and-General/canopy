@@ -3,6 +3,7 @@ name: canopy-header
 description: Best practices for the Canopy Header component. Trigger when adding a site header, primary navigation, account menu, notification badge, or logo in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: navigation
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/header/docs/guide.mdx
 ---
 

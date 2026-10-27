@@ -1,0 +1,850 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "default",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgCardComponent",
+        "type": "CardVariant"
+      },
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "alt",
+        "property": "alt",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "aspectRatio",
+        "property": "aspectRatio",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": "LgCardHeroImgAspectRatio"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "cover",
+        "property": "cover",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "src",
+        "property": "src",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "link",
+        "property": "link",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": null
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "queryParams",
+        "property": "queryParams",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": "Params"
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "queryParamsHandling",
+        "property": "queryParamsHandling",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": "QueryParamsHandling"
+      },
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "title",
+        "property": "title",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgCardSubheadingComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgCardTitleComponent",
+        "type": "HeadingLevel"
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "linkClickedEvent",
+        "property": "linkClickedEvent",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": null
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:4",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-content",
+        "selectors": [
+          "lg-card-content"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:5",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-footer",
+        "selectors": [
+          "lg-card-footer"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:3",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-header",
+        "selectors": [
+          "lg-card-header"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:1",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-hero-img",
+        "selectors": [
+          "lg-card-hero-img"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-content/card-content.component.html:1",
+        "owner": "LgCardContentComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-content-inner-data-points/card-content-inner-data-points.component.html:1",
+        "owner": "LgCardContentInnerDataPointsComponent",
+        "selector": "lg-data-point, lg-data-point-group",
+        "selectors": [
+          "lg-data-point",
+          "lg-data-point-group"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1",
+        "owner": "LgCardFooterComponent",
+        "selector": "lg-button-group, a, button, lg-link-menu",
+        "selectors": [
+          "lg-button-group",
+          "a",
+          "button",
+          "lg-link-menu"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-group/card-group.component.html:1",
+        "owner": "LgCardGroupComponent",
+        "selector": "lg-card",
+        "selectors": [
+          "lg-card"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-header/card-header.component.html:2",
+        "owner": "LgCardHeaderComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-hero-img/card-hero-img.component.html:14",
+        "owner": "LgCardHeroImageComponent",
+        "selector": "lg-pictogram",
+        "selectors": [
+          "lg-pictogram"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-subheading/card-subheading.component.html:2",
+        "owner": "LgCardSubheadingComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-subtitle/card-subtitle.component.html:1",
+        "owner": "LgCardSubtitleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-title/card-title.component.html:2",
+        "owner": "LgCardTitleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-toggable-content/card-toggable-content.component.html:1",
+        "owner": "LgCardToggableContentComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card.interface.ts",
+        "symbol": "CardVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "default",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "CardVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card",
+        "source": "projects/canopy/src/lib/card/card.component.ts",
+        "symbol": "LgCardComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-content",
+        "source": "projects/canopy/src/lib/card/card-content/card-content.component.ts",
+        "symbol": "LgCardContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-content-inner-data-points",
+        "source": "projects/canopy/src/lib/card/card-content-inner-data-points/card-content-inner-data-points.component.ts",
+        "symbol": "LgCardContentInnerDataPointsComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-footer",
+        "source": "projects/canopy/src/lib/card/card-footer/card-footer.component.ts",
+        "symbol": "LgCardFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-card-group]",
+        "source": "projects/canopy/src/lib/card/card-group/card-group.component.ts",
+        "symbol": "LgCardGroupComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-header",
+        "source": "projects/canopy/src/lib/card/card-header/card-header.component.ts",
+        "symbol": "LgCardHeaderComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "alt",
+            "property": "alt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "aspectRatio",
+            "property": "aspectRatio",
+            "required": false,
+            "type": "LgCardHeroImgAspectRatio"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "cover",
+            "property": "cover",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "src",
+            "property": "src",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-hero-img",
+        "source": "projects/canopy/src/lib/card/card-hero-img/card-hero-img.component.ts",
+        "symbol": "LgCardHeroImageComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card-hero-img/card-hero-img.interface.ts",
+        "symbol": "LgCardHeroImgAspectRatio"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          },
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "link",
+            "property": "link",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "queryParams",
+            "property": "queryParams",
+            "required": false,
+            "type": "Params"
+          },
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "queryParamsHandling",
+            "property": "queryParamsHandling",
+            "required": false,
+            "type": "QueryParamsHandling"
+          },
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "title",
+            "property": "title",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "linkClickedEvent",
+            "property": "linkClickedEvent",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "lg-card-navigation-title",
+        "source": "projects/canopy/src/lib/card/card-navigation-title/card-navigation-title.component.ts",
+        "symbol": "LgCardNavigationTitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-subheading",
+        "source": "projects/canopy/src/lib/card/card-subheading/card-subheading.component.ts",
+        "symbol": "LgCardSubheadingComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-subtitle",
+        "source": "projects/canopy/src/lib/card/card-subtitle/card-subtitle.component.ts",
+        "symbol": "LgCardSubtitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-title",
+        "source": "projects/canopy/src/lib/card/card-title/card-title.component.ts",
+        "symbol": "LgCardTitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-toggable-content",
+        "source": "projects/canopy/src/lib/card/card-toggable-content/card-toggable-content.component.ts",
+        "symbol": "LgCardToggableContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card.interface.ts",
+        "symbol": "lgCardPanelIdPrefix"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card.interface.ts",
+        "symbol": "lgCardToggleIdPrefix"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:370",
+      "statement": "overfill or cover more than one subject within a card."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:371",
+      "statement": "use cards as a replacement for standard pages."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:372",
+      "statement": "place cards on top of cards."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:373",
+      "statement": "use to build complex, cluttered layouts that obscure page structure."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:374",
+      "statement": "mix image and pictogram promotions within the same card layout section."
+    }
+  ],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or related card sub-components in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/card/card-content-inner-data-points/card-content-inner-data-points.component.ts",
+    "projects/canopy/src/lib/card/card-content/card-content.component.ts",
+    "projects/canopy/src/lib/card/card-footer/card-footer.component.ts",
+    "projects/canopy/src/lib/card/card-group/card-group.component.ts",
+    "projects/canopy/src/lib/card/card-header/card-header.component.ts",
+    "projects/canopy/src/lib/card/card-hero-img/card-hero-img.component.ts",
+    "projects/canopy/src/lib/card/card-hero-img/card-hero-img.interface.ts",
+    "projects/canopy/src/lib/card/card-navigation-title/card-navigation-title.component.ts",
+    "projects/canopy/src/lib/card/card-subheading/card-subheading.component.ts",
+    "projects/canopy/src/lib/card/card-subtitle/card-subtitle.component.ts",
+    "projects/canopy/src/lib/card/card-title/card-title.component.ts",
+    "projects/canopy/src/lib/card/card-toggable-content/card-toggable-content.component.ts",
+    "projects/canopy/src/lib/card/card.component.ts",
+    "projects/canopy/src/lib/card/card.interface.ts",
+    "projects/canopy/src/lib/card/docs/card/guide.mdx",
+    "skills/best-practice/card/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-card",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:70",
+      "statement": "**One fixed action:** place it directly in the footer. A button group adds nothing for a single action that is always shown."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:71",
+      "statement": "**Two or more related actions:** wrap them in `lg-button-group`, with only one `primary`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:72",
+      "statement": "**An action that is sometimes joined by a second:** `lg-button-group` is acceptable, so the layout is the same whether or not the second action is shown."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:73",
+      "statement": "Use `<button lg-button>` for an action on the page, and `<a lg-button>` with `routerLink` only when navigating to a route."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:107",
+      "statement": "**Vertical** (default): hero image or pictogram sits at the **top** of the card."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:108",
+      "statement": "**Horizontal**: in `LgCardComponent`, the hero image or pictogram is positioned on the **right** of the card body."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:360",
+      "statement": "ensure that content relates to a single idea or concept."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:361",
+      "statement": "summarise content and provide links to expanded content on child pages."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:362",
+      "statement": "use when each card will contain different types of content."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:363",
+      "statement": "place cards directly on the page background."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:364",
+      "statement": "create layouts that make the hierarchy of the page clearly understood."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:365",
+      "statement": "keep promotional message content succinct — follow content guidelines (title max 33 chars, description max 140 chars, link max 20 chars)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md:366",
+      "statement": "use the `interactive` card variant for navigation cards and prefer `LgCardNavigationTitleComponent` in `lg-card-header`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:381",
+      "statement": "If `LgCardNavigationTitleComponent` is projected, the card switches to interactive behaviour automatically."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/card/SKILL.md:382",
+      "statement": "Card examples and styles support `vertical` and `horizontal` orientation values only."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/card/docs/card/guide.mdx:53",
+        "projects/canopy/src/lib/button/docs/guide.mdx:194",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-single-primary-action",
+      "intent": "Place one fixed action directly in a card footer."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/card/docs/card/guide.mdx:53",
+        "projects/canopy/src/lib/button/docs/guide.mdx:184",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-single-navigation-action",
+      "intent": "Place one fixed navigation link directly in a card footer."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/card/docs/card/guide.mdx:55",
+        "projects/canopy/src/lib/button/docs/guide.mdx:161",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-optional-second-action",
+      "intent": "Keep the footer layout stable when a second action is sometimes shown."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/button/docs/guide.mdx:194",
+        "projects/canopy/src/lib/button/docs/guide.mdx:161",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-related-actions",
+      "intent": "Group two or more related actions in a card footer."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:41"
+      ],
+      "id": "card-example-1",
+      "intent": "Follow documented card example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:53"
+      ],
+      "id": "card-example-2",
+      "intent": "Follow documented card example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:75"
+      ],
+      "id": "card-example-3",
+      "intent": "Follow documented card example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:114"
+      ],
+      "id": "card-example-4",
+      "intent": "Follow documented card example 4."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:133"
+      ],
+      "id": "card-example-5",
+      "intent": "Follow documented card example 5."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:152"
+      ],
+      "id": "card-example-6",
+      "intent": "Follow documented card example 6."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:175"
+      ],
+      "id": "card-example-7",
+      "intent": "Follow documented card example 7."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:201"
+      ],
+      "id": "card-example-8",
+      "intent": "Follow documented card example 8."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:227"
+      ],
+      "id": "card-example-9",
+      "intent": "Follow documented card example 9."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:267"
+      ],
+      "id": "card-example-10",
+      "intent": "Follow documented card example 10."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:284"
+      ],
+      "id": "card-example-11",
+      "intent": "Follow documented card example 11."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:303"
+      ],
+      "id": "card-example-12",
+      "intent": "Follow documented card example 12."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:317"
+      ],
+      "id": "card-example-13",
+      "intent": "Follow documented card example 13."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:334"
+      ],
+      "id": "card-example-14",
+      "intent": "Follow documented card example 14."
+    }
+  ],
+  "publicSymbols": [
+    "CardVariant",
+    "LgCardComponent",
+    "LgCardContentComponent",
+    "LgCardContentInnerDataPointsComponent",
+    "LgCardFooterComponent",
+    "LgCardGroupComponent",
+    "LgCardHeaderComponent",
+    "LgCardHeroImageComponent",
+    "LgCardHeroImgAspectRatio",
+    "LgCardNavigationTitleComponent",
+    "LgCardSubheadingComponent",
+    "LgCardSubtitleComponent",
+    "LgCardTitleComponent",
+    "LgCardToggableContentComponent",
+    "lgCardPanelIdPrefix",
+    "lgCardToggleIdPrefix"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-card-group]",
+    "lg-card",
+    "lg-card-content",
+    "lg-card-content-inner-data-points",
+    "lg-card-footer",
+    "lg-card-header",
+    "lg-card-hero-img",
+    "lg-card-navigation-title",
+    "lg-card-subheading",
+    "lg-card-subtitle",
+    "lg-card-title",
+    "lg-card-toggable-content"
+  ],
+  "title": "Canopy Card",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/card/SKILL.md",
+      "name": "event"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ name: canopy-pipes-kebab-case
 description: Best practices for the Canopy Kebab Case pipe. Trigger when using LgKebabCasePipe or transforming strings to kebab-case in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: utilities
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/pipes/kebab-case/docs/guide.mdx
 ---
 

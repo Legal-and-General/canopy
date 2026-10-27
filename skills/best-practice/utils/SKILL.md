@@ -3,6 +3,7 @@ name: canopy-utils
 description: Reference for Canopy CSS utility classes. Trigger when using lg-visually-hidden, lg-unstyled-link, or other Canopy utility CSS classes in an Angular project.
 license: MIT
 metadata:
+  category: utilities
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/styles/docs/utils.mdx
 ---
 

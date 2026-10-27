@@ -1,0 +1,359 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgAccordionComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "default": "`lg-accordion-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgAccordionComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "multi",
+        "property": "multi",
+        "required": false,
+        "symbol": "LgAccordionComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgAccordionItemComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgAccordionPanelHeadingComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgAccordionPanelHeadingComponent",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "closed",
+        "property": "closed",
+        "required": false,
+        "symbol": "LgAccordionItemComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "opened",
+        "property": "opened",
+        "required": false,
+        "symbol": "LgAccordionItemComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "toggleActive",
+        "property": "toggleActive",
+        "required": false,
+        "symbol": "LgAccordionPanelHeadingComponent",
+        "type": null
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/accordion/accordion.component.html:1",
+        "owner": "LgAccordionComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/accordion/accordion-item/accordion-item.component.html:15",
+        "owner": "LgAccordionItemComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/accordion/accordion-item/accordion-item.component.html:1",
+        "owner": "LgAccordionItemComponent",
+        "selector": "lg-accordion-panel-heading",
+        "selectors": [
+          "lg-accordion-panel-heading"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/accordion/accordion-panel-heading/accordion-panel-heading.component.html:11",
+        "owner": "LgAccordionPanelHeadingComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/accordion/accordion.component.ts",
+        "symbol": "LG_ACCORDION"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          },
+          {
+            "default": "`lg-accordion-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "multi",
+            "property": "multi",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-accordion",
+        "source": "projects/canopy/src/lib/accordion/accordion.component.ts",
+        "symbol": "LgAccordionComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "closed",
+            "property": "closed",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "opened",
+            "property": "opened",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "lg-accordion-item",
+        "source": "projects/canopy/src/lib/accordion/accordion-item/accordion-item.component.ts",
+        "symbol": "LgAccordionItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "ng-template[lgAccordionItemContent]",
+        "source": "projects/canopy/src/lib/accordion/accordion-item/accordion-item-content.directive.ts",
+        "symbol": "LgAccordionItemContentDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          },
+          {
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "toggleActive",
+            "property": "toggleActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "lg-accordion-panel-heading",
+        "source": "projects/canopy/src/lib/accordion/accordion-panel-heading/accordion-panel-heading.component.ts",
+        "symbol": "LgAccordionPanelHeadingComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/accordion/SKILL.md:103",
+      "statement": "use to hide key information that all users need — display it on the page instead."
+    }
+  ],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Accordion component. Trigger when adding expandable/collapsible content sections, progressive disclosure panels, or FAQ layouts in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/accordion/accordion-item/accordion-item-content.directive.ts",
+    "projects/canopy/src/lib/accordion/accordion-item/accordion-item.component.ts",
+    "projects/canopy/src/lib/accordion/accordion-panel-heading/accordion-panel-heading.component.ts",
+    "projects/canopy/src/lib/accordion/accordion.component.ts",
+    "projects/canopy/src/lib/accordion/docs/guide.mdx",
+    "skills/best-practice/accordion/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-accordion",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/accordion/SKILL.md:97",
+      "statement": "use to hide secondary information that not all users need immediately."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/accordion/SKILL.md:98",
+      "statement": "keep panel headings as short and descriptive as possible."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/accordion/SKILL.md:99",
+      "statement": "open the first accordion panel by default when the content is likely to be relevant to most users."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accordion/SKILL.md:109",
+      "statement": "Use an **Accordion** (over Details) when there are multiple related sections of content."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accordion/SKILL.md:110",
+      "statement": "Use **Tabs** when there is a large amount of content and switching between sections is a core interaction."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accordion/SKILL.md:111",
+      "statement": "For a single collapsible section, use the **Details** component instead."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accordion/SKILL.md:32"
+      ],
+      "id": "accordion-example-1",
+      "intent": "Follow documented accordion example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accordion/SKILL.md:47"
+      ],
+      "id": "accordion-example-2",
+      "intent": "Follow documented accordion example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accordion/SKILL.md:58"
+      ],
+      "id": "accordion-example-3",
+      "intent": "Follow documented accordion example 3."
+    }
+  ],
+  "publicSymbols": [
+    "LG_ACCORDION",
+    "LgAccordionComponent",
+    "LgAccordionItemComponent",
+    "LgAccordionItemContentDirective",
+    "LgAccordionPanelHeadingComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-accordion",
+    "lg-accordion-item",
+    "lg-accordion-panel-heading",
+    "ng-template[lgAccordionItemContent]"
+  ],
+  "title": "Canopy Accordion",
+  "tokens": []
+}

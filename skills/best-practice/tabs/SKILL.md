@@ -3,6 +3,7 @@ name: canopy-tabs
 description: Best practices for the Canopy Tabs component. Trigger when switching between content sections, tabbed navigation, route-based tabs, or single-page tab interfaces in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: navigation
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/tabs/docs/guide.mdx
 ---
 

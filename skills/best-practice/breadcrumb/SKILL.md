@@ -3,6 +3,7 @@ name: canopy-breadcrumb
 description: Best practices for the Canopy Breadcrumb component. Trigger when adding site hierarchy navigation, breadcrumb trails, or location-based navigation to an Angular project using Canopy.
 license: MIT
 metadata:
+  category: navigation
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/breadcrumb/docs/guide.mdx
 ---
 

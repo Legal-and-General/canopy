@@ -3,6 +3,7 @@ name: canopy-brand-icon
 description: Removal notice for the Canopy Brand Icon component. Trigger whenever lg-brand-icon, LgBrandIconComponent, or brand icon imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: removed
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/brand-icon/docs/guide.mdx
 ---
 

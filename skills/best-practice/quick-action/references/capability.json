@@ -1,0 +1,108 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/quick-action/SKILL.md:58",
+      "statement": "use `lg-quick-action` in new templates."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/quick-action/SKILL.md:59",
+      "statement": "import `LgQuickActionComponent` in standalone component imports."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/quick-action/SKILL.md:60",
+      "statement": "recreate quick action styling with ad-hoc CSS; use existing button/link patterns."
+    }
+  ],
+  "category": "removed",
+  "deprecated": null,
+  "description": "Removal notice for the Canopy Quick Action directive. Trigger whenever lg-quick-action, LgQuickActionComponent, or related imports appear in an Angular project using Canopy.",
+  "evidence": [
+    "skills/best-practice/quick-action/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-quick-action",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/quick-action/SKILL.md:40",
+      "statement": "Action in context: use `lg-button` with `priority=\"link\"`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/quick-action/SKILL.md:41",
+      "statement": "Navigation between pages/routes: use the Link component."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/quick-action/SKILL.md:42",
+      "statement": "Primary/secondary actions: use standard button priorities."
+    }
+  ],
+  "introduced": null,
+  "kind": "removed",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/quick-action/SKILL.md:28"
+      ],
+      "id": "quick-action-example-1",
+      "intent": "Follow documented quick-action example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/quick-action/SKILL.md:44"
+      ],
+      "id": "quick-action-example-2",
+      "intent": "Follow documented quick-action example 2."
+    }
+  ],
+  "publicSymbols": [],
+  "relatedSkills": [
+    "canopy-button",
+    "canopy-link"
+  ],
+  "removed": {
+    "confidence": "high",
+    "evidence": "skills/best-practice/quick-action/SKILL.md:10"
+  },
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Quick Action - REMOVED",
+  "tokens": []
+}

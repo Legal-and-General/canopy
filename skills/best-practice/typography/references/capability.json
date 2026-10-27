@@ -1,0 +1,118 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:104",
+      "statement": "use any font sizes or weights not in the type system."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:105",
+      "statement": "use italic text to emphasise information."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:106",
+      "statement": "use expressive text for paragraphs or anything below `--font-size-4` (32px)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:107",
+      "statement": "centre-align large passages of copy."
+    }
+  ],
+  "category": "foundations",
+  "deprecated": null,
+  "description": "Foundation guidance for Canopy typography. Trigger when choosing font sizes, font weights, type scales, productive vs expressive text, or applying typography CSS variables in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/docs/foundation/typography/typography.mdx",
+    "skills/best-practice/typography/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-typography",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:96",
+      "statement": "use consistent headings to indicate hierarchy."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:97",
+      "statement": "use a minimum of 16px (`--font-size-1`) for paragraph text or data points."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:98",
+      "statement": "use bold text to emphasise information."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:99",
+      "statement": "check colour contrast of text on backgrounds (see the `colour-foundation` skill)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md:100",
+      "statement": "centre-align text for empty or loading states."
+    }
+  ],
+  "introduced": null,
+  "kind": "foundation",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/typography/SKILL.md:45"
+      ],
+      "id": "typography-example-1",
+      "intent": "Follow documented typography example 1."
+    }
+  ],
+  "publicSymbols": [],
+  "relatedSkills": [
+    "canopy-colour-foundation"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Typography",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/typography/SKILL.md",
+      "name": "colour-foundation"
+    }
+  ]
+}

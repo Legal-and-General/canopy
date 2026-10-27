@@ -3,6 +3,7 @@ name: canopy-card
 description: Best practices for the Canopy Card component. Trigger when using lg-card, LgCardComponent, or related card sub-components in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/card/guide.mdx
 ---
 
@@ -51,11 +52,44 @@ import {
 
 ```html
 <lg-card>
-  <lg-card-content>
+  <lg-card-header>
     <lg-card-title [headingLevel]="2">Card Title</lg-card-title>
+  </lg-card-header>
+  <lg-card-content>
     <p>Card body text.</p>
   </lg-card-content>
 </lg-card>
+```
+
+---
+
+## Footer Actions
+
+`lg-card-footer` accepts `lg-button-group`, `a`, `button` and `lg-link-menu` as direct children.
+
+- **One fixed action:** place it directly in the footer. A button group adds nothing for a single action that is always shown.
+- **Two or more related actions:** wrap them in `lg-button-group`, with only one `primary`.
+- **An action that is sometimes joined by a second:** `lg-button-group` is acceptable, so the layout is the same whether or not the second action is shown.
+- Use `<button lg-button>` for an action on the page, and `<a lg-button>` with `routerLink` only when navigating to a route.
+
+```html
+<!-- One fixed action -->
+<lg-card-footer>
+  <button lg-button type="button" priority="primary">Continue</button>
+</lg-card-footer>
+
+<!-- One fixed action that navigates to a route -->
+<lg-card-footer>
+  <a lg-button priority="primary" routerLink="/next-step">Continue</a>
+</lg-card-footer>
+
+<!-- Two related actions -->
+<lg-card-footer>
+  <lg-button-group>
+    <button lg-button type="button" priority="primary">Continue</button>
+    <button lg-button type="button" priority="secondary">Back</button>
+  </lg-button-group>
+</lg-card-footer>
 ```
 
 ---

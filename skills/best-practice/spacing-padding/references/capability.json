@@ -1,0 +1,340 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgPadding",
+        "property": "lgPadding",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingBottom",
+        "property": "lgPaddingBottom",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingBottomNoneAt",
+        "property": "lgPaddingBottomNoneAt",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingHorizontal",
+        "property": "lgPaddingHorizontal",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingHorizontalNoneAt",
+        "property": "lgPaddingHorizontalNoneAt",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingLeft",
+        "property": "lgPaddingLeft",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingLeftNoneAt",
+        "property": "lgPaddingLeftNoneAt",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingNoneAt",
+        "property": "lgPaddingNoneAt",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingRight",
+        "property": "lgPaddingRight",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingRightNoneAt",
+        "property": "lgPaddingRightNoneAt",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingTop",
+        "property": "lgPaddingTop",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingTopNoneAt",
+        "property": "lgPaddingTopNoneAt",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingVertical",
+        "property": "lgPaddingVertical",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgPaddingVerticalNoneAt",
+        "property": "lgPaddingVerticalNoneAt",
+        "required": false,
+        "symbol": "LgPaddingDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgPadding",
+            "property": "lgPadding",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingBottom",
+            "property": "lgPaddingBottom",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingBottomNoneAt",
+            "property": "lgPaddingBottomNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingHorizontal",
+            "property": "lgPaddingHorizontal",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingHorizontalNoneAt",
+            "property": "lgPaddingHorizontalNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingLeft",
+            "property": "lgPaddingLeft",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingLeftNoneAt",
+            "property": "lgPaddingLeftNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingNoneAt",
+            "property": "lgPaddingNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingRight",
+            "property": "lgPaddingRight",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingRightNoneAt",
+            "property": "lgPaddingRightNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingTop",
+            "property": "lgPaddingTop",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingTopNoneAt",
+            "property": "lgPaddingTopNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingVertical",
+            "property": "lgPaddingVertical",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgPaddingVerticalNoneAt",
+            "property": "lgPaddingVerticalNoneAt",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "\n    [lgPadding],\n    [lgPaddingVertical],\n    [lgPaddingHorizontal],\n    [lgPaddingTop],\n    [lgPaddingRight],\n    [lgPaddingBottom],\n    [lgPaddingLeft],\n    [lgPaddingNoneAt],\n    [lgPaddingVerticalNoneAt],\n    [lgPaddingHorizontalNoneAt],\n    [lgPaddingTopNoneAt],\n    [lgPaddingRightNoneAt],\n    [lgPaddingBottomNoneAt],\n    [lgPaddingLeftNoneAt]\n  ",
+        "source": "projects/canopy/src/lib/spacing/padding/padding.directive.ts",
+        "symbol": "LgPaddingDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Padding directive. Trigger when applying padding to Canopy components or HTML elements using the Canopy spacing scale in an Angular project.",
+  "evidence": [
+    "projects/canopy/src/lib/spacing/padding/docs/guide.mdx",
+    "projects/canopy/src/lib/spacing/padding/padding.directive.ts",
+    "skills/best-practice/spacing-padding/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-spacing-padding",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spacing-padding/SKILL.md:84",
+      "statement": "Always use `lgPadding` directives instead of writing custom CSS padding — this ensures spacing adheres to the Canopy spacing scale."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spacing-padding/SKILL.md:85",
+      "statement": "Spacing variant values (`none`, `1`–`12`) map to CSS custom properties defined in `spacing.scss`."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-padding/SKILL.md:30"
+      ],
+      "id": "spacing-padding-example-1",
+      "intent": "Follow documented spacing-padding example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-padding/SKILL.md:53"
+      ],
+      "id": "spacing-padding-example-2",
+      "intent": "Follow documented spacing-padding example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgPaddingDirective"
+  ],
+  "relatedSkills": [
+    "canopy-spacing-row-gap"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgPaddingBottomNoneAt]",
+    "[lgPaddingBottom]",
+    "[lgPaddingHorizontalNoneAt]",
+    "[lgPaddingHorizontal]",
+    "[lgPaddingLeftNoneAt]",
+    "[lgPaddingLeft]",
+    "[lgPaddingNoneAt]",
+    "[lgPaddingRightNoneAt]",
+    "[lgPaddingRight]",
+    "[lgPaddingTopNoneAt]",
+    "[lgPaddingTop]",
+    "[lgPaddingVerticalNoneAt]",
+    "[lgPaddingVertical]",
+    "[lgPadding]"
+  ],
+  "title": "Canopy Padding",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-padding/SKILL.md",
+      "name": "spacing-margin"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-padding/SKILL.md",
+      "name": "spacing-padding"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-padding/SKILL.md",
+      "name": "spacing-row-gap"
+    }
+  ]
+}

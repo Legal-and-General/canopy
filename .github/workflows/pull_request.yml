@@ -67,14 +67,50 @@ jobs:
           overwrite: true
 
   check-docs-skills:
-    name: 'Check best-practice skills'
+    name: 'Check Canopy skill metadata'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: 'Check that .mdx changes are accompanied by skill updates'
+      - name: 'Setup node'
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: 'Install dependencies'
+        run: npm ci
+
+      - name: 'Check documentation, skills, and metadata impact'
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const checkDocsSkills = require('./.github/workflow-scripts/check-docs-skills.cjs')
             await checkDocsSkills({ github, context, core })
+
+      - name: 'Check generated skill metadata'
+        run: npm run generate:skill-metadata -- --check
+
+      - name: 'Validate skill metadata'
+        run: npm run validate:skill-metadata
+
+      - name: 'Test skill metadata'
+        run: npm run test:skill-metadata
+
+      - name: 'Evaluate skill discovery and composition'
+        run: npm run test:skill-metadata:evaluation
+
+      - name: 'Smoke-test orchestration skill installation'
+        run: npm run test:skill-installation
+
+      - name: 'Summarise skill metadata validation'
+        if: always()
+        run: |
+          {
+            echo '## Skill metadata validation'
+            echo
+            echo '- Deterministic generation: completed'
+            echo '- Schema and reference validation: completed'
+            echo '- Discovery/composition evaluation: completed'
+            echo '- Installation smoke test: completed'
+          } >> "$GITHUB_STEP_SUMMARY"

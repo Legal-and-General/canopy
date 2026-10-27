@@ -3,6 +3,7 @@ name: canopy-forms-validation
 description: Best practices for Canopy form validation. Trigger when displaying inline form errors, setting up error state matching, or implementing form-level validation in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: forms
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/validation/docs/guide.mdx
 ---
 

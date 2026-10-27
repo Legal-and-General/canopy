@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "capability.schema.json",
+  "title": "Canopy skill capability",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "kind",
+    "title",
+    "category",
+    "description",
+    "introduced",
+    "deprecated",
+    "removed",
+    "publicSymbols",
+    "selectors",
+    "intents",
+    "avoidWhen",
+    "relatedSkills",
+    "api",
+    "patterns",
+    "accessibility",
+    "tokens",
+    "evidence",
+    "generation"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "number", "const": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["component", "directive", "pipe", "foundation", "utility", "principle", "style", "guidance", "removed"] },
+    "title": { "type": "string", "minLength": 1 },
+    "category": { "enum": ["actions", "feedback", "data-display", "navigation", "forms", "layout", "foundations", "utilities", "principles", "guidance", "styles", "deprecated", "removed"] },
+    "description": { "type": "string", "minLength": 1 },
+    "introduced": {},
+    "deprecated": {},
+    "removed": {},
+    "publicSymbols": { "type": "array", "items": { "type": "string" } },
+    "selectors": { "type": "array", "items": { "type": "string" } },
+    "intents": { "type": "array", "items": { "$ref": "#/$defs/semantic" } },
+    "avoidWhen": { "type": "array", "items": { "$ref": "#/$defs/semantic" } },
+    "relatedSkills": { "type": "array", "items": { "type": "string" } },
+    "api": {
+      "type": "object",
+      "required": ["inputs", "outputs", "projection", "symbols"],
+      "additionalProperties": false,
+      "properties": {
+        "inputs": { "type": "array", "items": { "$ref": "#/$defs/apiMember" } },
+        "outputs": { "type": "array", "items": { "$ref": "#/$defs/apiMember" } },
+        "projection": { "type": "array", "items": { "$ref": "#/$defs/projectionSlot" } },
+        "symbols": { "type": "array" }
+      }
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "intent", "confidence", "evidence"],
+        "properties": {
+          "id": { "type": "string" },
+          "intent": { "type": "string" },
+          "confidence": { "enum": ["high", "medium"] },
+          "evidence": {}
+        }
+      }
+    },
+    "accessibility": { "type": "array", "items": { "$ref": "#/$defs/semantic" } },
+    "tokens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "confidence", "evidence"],
+        "properties": {
+          "name": { "type": "string" },
+          "confidence": { "enum": ["high", "medium"] },
+          "evidence": {}
+        }
+      }
+    },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "generation": {
+      "type": "object",
+      "required": ["deterministicFields", "semanticFields"],
+      "additionalProperties": false,
+      "properties": {
+        "deterministicFields": { "type": "array", "items": { "type": "string" } },
+        "semanticFields": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "semantic": {
+      "type": "object",
+      "required": ["statement", "confidence", "evidence"],
+      "properties": {
+        "statement": { "type": "string" },
+        "confidence": { "enum": ["high", "medium"] },
+        "evidence": {}
+      }
+    },
+    "projectionSlot": {
+      "type": "object",
+      "required": ["owner", "selector", "selectors", "catchAll", "conditional", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "owner": { "type": "string" },
+        "selector": { "type": "string" },
+        "selectors": { "type": "array", "items": { "type": "string" } },
+        "catchAll": { "type": "boolean" },
+        "conditional": { "type": "boolean" },
+        "evidence": { "type": "string" }
+      }
+    },
+    "apiMember": {
+      "type": "object",
+      "required": ["symbol", "name", "property", "type", "required", "deprecated"],
+      "properties": {
+        "symbol": { "type": "string" },
+        "name": { "type": "string" },
+        "property": { "type": "string" },
+        "type": {},
+        "default": {},
+        "required": { "type": "boolean" },
+        "deprecated": { "type": "boolean" }
+      }
+    }
+  }
+}

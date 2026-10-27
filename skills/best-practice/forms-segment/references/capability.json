@@ -1,0 +1,538 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:83",
+      "statement": "Always use `lg-segment-group` to group related segment buttons with a clear label."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:84",
+      "statement": "Use `lg-hint` to provide extra context where needed."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:85",
+      "statement": "Ensure all segment buttons have clear, descriptive labels."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:86",
+      "statement": "There must be clear colour contrast between selected and unselected states."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:87",
+      "statement": "Keyboard users use Tab to move into/out of the segment group, and arrow keys to navigate between options and select them (segment buttons are implemented as radios)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:88",
+      "statement": "Only one segment button can be selected at a time within a group."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "_disabled",
+        "property": "_disabled",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "string"
+      },
+      {
+        "default": "`lg-radio-button-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "string"
+      },
+      {
+        "default": "lg",
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "RadioSize"
+      },
+      {
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "boolean | string"
+      },
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": "string"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "focus",
+        "property": "focus",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-radio-group-id-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "inline",
+        "property": "inline",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "stack",
+        "property": "stack",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "blur",
+        "property": "blur",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "EventEmitter<Event>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-button.component.html:22",
+        "owner": "LgRadioButtonComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-button.component.html:27",
+        "owner": "LgRadioButtonComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:7",
+        "owner": "LgRadioGroupComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:9",
+        "owner": "LgRadioGroupComponent",
+        "selector": ".lg-label--optional",
+        "selectors": [
+          ".lg-label--optional"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:10",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:22",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:19",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-radio-button, lg-filter-button",
+        "selectors": [
+          "lg-radio-button",
+          "lg-filter-button"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:16",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-segment-button",
+        "selectors": [
+          "lg-segment-button"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:12",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "_disabled",
+            "property": "_disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "`lg-radio-button-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "lg",
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": "RadioSize"
+          },
+          {
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": "boolean | string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "blur",
+            "property": "blur",
+            "required": false,
+            "type": "EventEmitter<Event>"
+          }
+        ],
+        "selector": "lg-radio-button, lg-filter-button, lg-segment-button",
+        "source": "projects/canopy/src/lib/forms/radio/radio-button.component.ts",
+        "symbol": "LgRadioButtonComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "focus",
+            "property": "focus",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-radio-group-id-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "inline",
+            "property": "inline",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "deprecated": false,
+            "name": "stack",
+            "property": "stack",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-radio-group, lg-filter-group, lg-segment-group",
+        "source": "projects/canopy/src/lib/forms/radio/radio-group.component.ts",
+        "symbol": "LgRadioGroupComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+        "symbol": "RadioSize"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+        "symbol": "RadioStackBreakpoint"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+        "symbol": "RadioVariant"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:75",
+      "statement": "use when multiple items can be selected — use checkboxes instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:76",
+      "statement": "use when there are more than 5 options — use the select component instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:77",
+      "statement": "use for navigation — use tabs or a button group instead."
+    }
+  ],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Segment component. Trigger when adding conscious single-choice selectors, question-and-answer journey controls, or compact radio alternatives in a form in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/radio/docs/segment/guide.mdx",
+    "projects/canopy/src/lib/forms/radio/radio-button.component.ts",
+    "projects/canopy/src/lib/forms/radio/radio-group.component.ts",
+    "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+    "skills/best-practice/forms-segment/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-segment",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:69",
+      "statement": "use when only one option can be selected from 2–5 choices and vertical space is limited."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:70",
+      "statement": "use the vertical (`stack`) variant on mobile when horizontal space is insufficient."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:71",
+      "statement": "keep labels short and concise to ensure they fit within the buttons without wrapping."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:94",
+      "statement": "In the default state, nothing is pre-selected (unlike radio buttons, where one is always selected)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:95",
+      "statement": "There must be clear colour contrast between the selected and unselected states."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:96",
+      "statement": "Use `stack=\"md\"` or `stack=\"lg\"` to switch to a vertical layout below a given breakpoint."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-segment/SKILL.md:97",
+      "statement": "Minimum 2, maximum 5 segment buttons per group."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-segment/SKILL.md:30"
+      ],
+      "id": "forms-segment-example-1",
+      "intent": "Follow documented forms-segment example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgRadioButtonComponent",
+    "LgRadioGroupComponent",
+    "RadioSize",
+    "RadioStackBreakpoint",
+    "RadioVariant"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-filter-button",
+    "lg-filter-group",
+    "lg-radio-button",
+    "lg-radio-group",
+    "lg-segment-button",
+    "lg-segment-group"
+  ],
+  "title": "Canopy Segment",
+  "tokens": []
+}

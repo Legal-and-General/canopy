@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "scenarios": [
+    {
+      "id": "one-primary-action-in-card-footer",
+      "query": "Place one primary action in a card footer.",
+      "expectedSkills": ["canopy-button", "canopy-card"],
+      "expectedPattern": "card-single-primary-action",
+      "requiredSelectors": ["button[lg-button]", "lg-card-footer"],
+      "forbiddenRules": ["Add a second primary action", "Place the action outside the card footer"]
+    },
+    {
+      "id": "two-related-actions-in-card-footer",
+      "query": "Place two related actions in a card footer with one primary action.",
+      "expectedSkills": ["canopy-button", "canopy-card"],
+      "expectedPattern": "card-related-actions",
+      "requiredSelectors": ["button[lg-button]", "lg-button-group", "lg-card-footer"],
+      "forbiddenRules": ["Make both actions primary", "Separate the related actions"]
+    },
+    {
+      "id": "radio-choices-with-validation",
+      "query": "Collect one choice from radio options and show validation.",
+      "expectedSkills": ["canopy-forms-radio", "canopy-forms-validation"],
+      "expectedPattern": "validated-radio-group",
+      "requiredSelectors": ["lg-radio-group", "lg-radio-button", "lg-validation"],
+      "forbiddenRules": ["Use radio choices without a group", "Omit validation"]
+    },
+    {
+      "id": "checkboxes-with-validation",
+      "query": "Collect multiple choices with checkboxes and show validation.",
+      "expectedSkills": ["canopy-forms-checkbox", "canopy-forms-validation"],
+      "expectedPattern": "validated-checkbox-group",
+      "requiredSelectors": ["lg-checkbox", "lg-validation"],
+      "forbiddenRules": ["Use radio buttons for multiple choices", "Omit validation"]
+    },
+    {
+      "id": "finish-action-with-documented-icon",
+      "query": "Create a Finish action using the documented checkmark icon.",
+      "expectedSkills": ["canopy-button", "canopy-icon"],
+      "expectedPattern": "finish-action-with-icon",
+      "requiredSelectors": ["button[lg-button]", "lg-icon"],
+      "forbiddenRules": ["Invent an icon name", "Use an undocumented icon"]
+    },
+    {
+      "id": "primary-message-with-illustrative-asset",
+      "query": "Show a primary completion message or notice with an illustrative pictogram.",
+      "expectedSkills": ["canopy-notice", "canopy-pictogram"],
+      "expectedPattern": "primary-notice-with-pictogram",
+      "requiredSelectors": ["lg-notice", "lg-pictogram"],
+      "forbiddenRules": ["Use an inline alert as the primary page message", "Use an arbitrary image"]
+    },
+    {
+      "id": "inline-alert-versus-primary-message",
+      "query": "Show an inline alert rather than a primary page message or notice.",
+      "expectedSkills": ["canopy-alert", "canopy-notice"],
+      "expectedPattern": "inline-alert",
+      "requiredSelectors": ["lg-alert"],
+      "forbiddenRules": ["Use a notice for an inline status", "Treat an alert as a full-page completion message"]
+    },
+    {
+      "id": "responsive-content-area",
+      "query": "Create a responsive content area with header, content and footer.",
+      "expectedSkills": ["canopy-content-area"],
+      "expectedPattern": "responsive-content-area",
+      "requiredSelectors": ["lg-content-area", "lg-content-area-content"],
+      "forbiddenRules": ["Add custom layout CSS", "Replace the content area with a card"]
+    },
+    {
+      "id": "journey-progress",
+      "query": "Show progress through a known multi-step journey.",
+      "expectedSkills": ["canopy-progress-indicator"],
+      "expectedPattern": "journey-progress-indicator",
+      "requiredSelectors": ["lg-progress-indicator", "lg-progress-header"],
+      "forbiddenRules": ["Use a spinner for known journey progress", "Hide the current step"]
+    },
+    {
+      "id": "loading-state",
+      "query": "Show an indeterminate loading state while content is fetched.",
+      "expectedSkills": ["canopy-spinner"],
+      "expectedPattern": "loading-spinner",
+      "requiredSelectors": ["lg-spinner"],
+      "forbiddenRules": ["Use journey progress for indeterminate loading", "Invent a loading component"]
+    },
+    {
+      "id": "icon-only-button-with-accessible-label",
+      "query": "Create an icon-only button with an accessible text label.",
+      "expectedSkills": ["canopy-button", "canopy-accessibility", "canopy-icon"],
+      "expectedPattern": "accessible-icon-button",
+      "requiredSelectors": ["button[lg-button]", "lg-icon"],
+      "forbiddenRules": ["Remove the accessible label", "Use an icon without a text alternative"]
+    },
+    {
+      "id": "deprecated-component-with-replacement",
+      "query": "Replace the deprecated Brand Icon component with its supported replacement.",
+      "expectedSkills": ["canopy-brand-icon", "canopy-pictogram"],
+      "expectedPattern": "deprecated-component-replacement",
+      "requiredSelectors": ["lg-pictogram"],
+      "forbiddenRules": ["Use lg-brand-icon", "Import LgBrandIconComponent"]
+    },
+    {
+      "id": "capability-in-later-canopy-version",
+      "query": "Our application uses Canopy 27. Add the date picker available only from Canopy 28.",
+      "expectedSkills": [],
+      "requiredSelectors": [],
+      "forbiddenRules": ["Invent the date picker selector", "Recommend a Canopy 28 API for Canopy 27"],
+      "expectedVersion": { "current": 27, "availableFrom": 28, "gap": true }
+    },
+    {
+      "id": "non-canopy-terminology",
+      "query": "Show a temporary inline toast notification using Canopy terminology.",
+      "expectedSkills": ["canopy-alert"],
+      "expectedPattern": "terminology-mapping",
+      "requiredSelectors": ["lg-alert"],
+      "forbiddenRules": ["Invent a toast component", "Use a non-Canopy selector"]
+    },
+    {
+      "id": "unsupported-capability",
+      "query": "Add a carousel component to the page.",
+      "expectedSkills": [],
+      "requiredSelectors": [],
+      "forbiddenRules": ["Invent a carousel selector", "Invent a carousel API"],
+      "expectedUnsupported": true
+    }
+  ]
+}

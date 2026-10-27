@@ -1,0 +1,4633 @@
+{
+  "compositions": [
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accessibility/SKILL.md:97"
+      ],
+      "id": "accessibility-example-1",
+      "intent": "Follow documented accessibility example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-icon"
+        },
+        {
+          "selector": "span"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accordion/SKILL.md:32"
+      ],
+      "id": "accordion-example-1",
+      "intent": "Follow documented accordion example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-accordion-panel-heading"
+                },
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-accordion-item"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-accordion-panel-heading"
+                },
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-accordion-item"
+            }
+          ],
+          "selector": "lg-accordion"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accordion/SKILL.md:47"
+      ],
+      "id": "accordion-example-2",
+      "intent": "Follow documented accordion example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-accordion-panel-heading"
+            },
+            {
+              "children": [
+                {
+                  "selector": "app-lazy-component"
+                }
+              ],
+              "selector": "ng-template"
+            }
+          ],
+          "selector": "lg-accordion-item"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accordion/SKILL.md:58"
+      ],
+      "id": "accordion-example-3",
+      "intent": "Follow documented accordion example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "lg-accordion-panel-heading"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/alert/SKILL.md:28"
+      ],
+      "id": "alert-example-1",
+      "intent": "Follow documented alert example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-alert"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/alert/SKILL.md:55"
+      ],
+      "id": "alert-example-2",
+      "intent": "Follow documented alert example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-alert"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/banner/SKILL.md:30"
+      ],
+      "id": "banner-example-1",
+      "intent": "Follow documented banner example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "p"
+            },
+            {
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-banner"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/banner/SKILL.md:43"
+      ],
+      "id": "banner-example-2",
+      "intent": "Follow documented banner example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "a"
+                },
+                {
+                  "selector": "button"
+                }
+              ],
+              "selector": "p"
+            },
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-banner"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/banner/SKILL.md:91"
+      ],
+      "id": "banner-example-3",
+      "intent": "Follow documented banner example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-banner"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/breadcrumb/SKILL.md:36"
+      ],
+      "id": "breadcrumb-example-1",
+      "intent": "Follow documented breadcrumb example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-icon"
+                    }
+                  ],
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-breadcrumb-item"
+            },
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-breadcrumb-item"
+            },
+            {
+              "selector": "lg-breadcrumb-item"
+            }
+          ],
+          "selector": "lg-breadcrumb"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/breadcrumb/SKILL.md:57"
+      ],
+      "id": "breadcrumb-example-2",
+      "intent": "Follow documented breadcrumb example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-breadcrumb-item"
+            },
+            {
+              "selector": "lg-breadcrumb-item"
+            }
+          ],
+          "selector": "lg-breadcrumb"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/breadcrumb/SKILL.md:74"
+      ],
+      "id": "breadcrumb-example-3",
+      "intent": "Follow documented breadcrumb example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-breadcrumb-item"
+            },
+            {
+              "selector": "lg-breadcrumb-item-ellipsis"
+            },
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-breadcrumb-item"
+            },
+            {
+              "selector": "lg-breadcrumb-item"
+            }
+          ],
+          "selector": "lg-breadcrumb"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:62"
+      ],
+      "id": "button-example-1",
+      "intent": "Follow documented button example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "button"
+        },
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:74"
+      ],
+      "id": "button-example-2",
+      "intent": "Follow documented button example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:82"
+      ],
+      "id": "button-example-3",
+      "intent": "Follow documented button example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:95"
+      ],
+      "id": "button-example-4",
+      "intent": "Follow documented button example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        },
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:115"
+      ],
+      "id": "button-example-5",
+      "intent": "Follow documented button example 5.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "button"
+            },
+            {
+              "selector": "button"
+            }
+          ],
+          "selector": "lg-button-group"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:130"
+      ],
+      "id": "button-example-6",
+      "intent": "Follow documented button example 6.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "actionCount": {
+          "equals": 1
+        },
+        "actionType": "button",
+        "secondActionPossible": false
+      },
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/card/docs/card/guide.mdx:53",
+        "projects/canopy/src/lib/button/docs/guide.mdx:194",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-single-primary-action",
+      "intent": "Place one fixed action directly in a card footer.",
+      "rules": [
+        "Place one fixed action directly in the card footer as a button.",
+        "lg-button-group is for two or more related actions, and is also acceptable when a second action may be shown conditionally."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "attributes": {
+                "priority": "primary"
+              },
+              "selector": "button[lg-button]"
+            }
+          ],
+          "selector": "lg-card-footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "actionCount": {
+          "equals": 1
+        },
+        "actionType": "navigation",
+        "secondActionPossible": false
+      },
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/card/docs/card/guide.mdx:53",
+        "projects/canopy/src/lib/button/docs/guide.mdx:184",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-single-navigation-action",
+      "intent": "Place one fixed navigation link directly in a card footer.",
+      "rules": [
+        "Place one fixed navigation action directly in the card footer as a link styled as a button.",
+        "lg-button-group is for two or more related actions, and is also acceptable when a second action may be shown conditionally."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "a[lg-button]"
+            }
+          ],
+          "selector": "lg-card-footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "actionCount": {
+          "maximum": 2,
+          "minimum": 1
+        },
+        "secondActionPossible": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/card/docs/card/guide.mdx:55",
+        "projects/canopy/src/lib/button/docs/guide.mdx:161",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-optional-second-action",
+      "intent": "Keep the footer layout stable when a second action is sometimes shown.",
+      "rules": [
+        "Use lg-button-group when a second action may be shown conditionally.",
+        "Give only one of the actions primary priority."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "repeat": {
+                    "maximum": 2,
+                    "minimum": 1
+                  },
+                  "selector": "button[lg-button]"
+                }
+              ],
+              "selector": "lg-button-group"
+            }
+          ],
+          "selector": "lg-card-footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "actionCount": {
+          "minimum": 2
+        },
+        "relationship": "related"
+      },
+      "confidence": "high",
+      "evidence": [
+        "projects/canopy/src/lib/button/docs/guide.mdx:194",
+        "projects/canopy/src/lib/button/docs/guide.mdx:161",
+        "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1"
+      ],
+      "id": "card-related-actions",
+      "intent": "Group two or more related actions in a card footer.",
+      "rules": [
+        "For a minimum of two related actions, use lg-button-group.",
+        "Give only one of the related actions primary priority."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "repeat": {
+                    "minimum": 2
+                  },
+                  "selector": "button[lg-button]"
+                }
+              ],
+              "selector": "lg-button-group"
+            }
+          ],
+          "selector": "lg-card-footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:41"
+      ],
+      "id": "card-example-1",
+      "intent": "Follow documented card example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:53"
+      ],
+      "id": "card-example-2",
+      "intent": "Follow documented card example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-card-title"
+                }
+              ],
+              "selector": "lg-card-header"
+            },
+            {
+              "children": [
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:75"
+      ],
+      "id": "card-example-3",
+      "intent": "Follow documented card example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "button"
+            }
+          ],
+          "selector": "lg-card-footer"
+        },
+        {
+          "children": [
+            {
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-card-footer"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "button"
+                },
+                {
+                  "selector": "button"
+                }
+              ],
+              "selector": "lg-button-group"
+            }
+          ],
+          "selector": "lg-card-footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:114"
+      ],
+      "id": "card-example-4",
+      "intent": "Follow documented card example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-card-hero-img"
+            },
+            {
+              "children": [
+                {
+                  "selector": "h3"
+                },
+                {
+                  "selector": "p"
+                },
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:133"
+      ],
+      "id": "card-example-5",
+      "intent": "Follow documented card example 5.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-pictogram"
+                }
+              ],
+              "selector": "lg-card-hero-img"
+            },
+            {
+              "children": [
+                {
+                  "selector": "h3"
+                },
+                {
+                  "selector": "p"
+                },
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:152"
+      ],
+      "id": "card-example-6",
+      "intent": "Follow documented card example 6.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-card-hero-img"
+                        },
+                        {
+                          "children": [
+                            {
+                              "selector": "h3"
+                            },
+                            {
+                              "selector": "p"
+                            },
+                            {
+                              "selector": "a"
+                            }
+                          ],
+                          "selector": "lg-card-content"
+                        }
+                      ],
+                      "selector": "lg-card"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            }
+          ],
+          "selector": "div"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:175"
+      ],
+      "id": "card-example-7",
+      "intent": "Follow documented card example 7.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-card-hero-img"
+                        },
+                        {
+                          "children": [
+                            {
+                              "selector": "h3"
+                            },
+                            {
+                              "selector": "p"
+                            },
+                            {
+                              "selector": "a"
+                            }
+                          ],
+                          "selector": "lg-card-content"
+                        }
+                      ],
+                      "selector": "lg-card"
+                    }
+                  ],
+                  "selector": "div"
+                },
+                {
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            }
+          ],
+          "selector": "div"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:201"
+      ],
+      "id": "card-example-8",
+      "intent": "Follow documented card example 8.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-card-hero-img"
+                        },
+                        {
+                          "children": [
+                            {
+                              "selector": "h3"
+                            },
+                            {
+                              "selector": "p"
+                            },
+                            {
+                              "selector": "a"
+                            }
+                          ],
+                          "selector": "lg-card-content"
+                        }
+                      ],
+                      "selector": "lg-card"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            }
+          ],
+          "selector": "div"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:227"
+      ],
+      "id": "card-example-9",
+      "intent": "Follow documented card example 9.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-separator"
+                    }
+                  ],
+                  "selector": "div"
+                },
+                {
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-separator"
+                    }
+                  ],
+                  "selector": "div"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "selector": "lg-pictogram"
+                            }
+                          ],
+                          "selector": "lg-card-hero-img"
+                        },
+                        {
+                          "children": [
+                            {
+                              "selector": "h3"
+                            },
+                            {
+                              "selector": "p"
+                            },
+                            {
+                              "selector": "a"
+                            }
+                          ],
+                          "selector": "lg-card-content"
+                        }
+                      ],
+                      "selector": "lg-card"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            }
+          ],
+          "selector": "div"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:267"
+      ],
+      "id": "card-example-10",
+      "intent": "Follow documented card example 10.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-card-content"
+                },
+                {
+                  "children": [
+                    {
+                      "selector": "button"
+                    }
+                  ],
+                  "selector": "lg-card-footer"
+                }
+              ],
+              "selector": "lg-card"
+            }
+          ],
+          "selector": "form"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:284"
+      ],
+      "id": "card-example-11",
+      "intent": "Follow documented card example 11.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-card-navigation-title"
+                }
+              ],
+              "selector": "lg-card-header"
+            },
+            {
+              "children": [
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:303"
+      ],
+      "id": "card-example-12",
+      "intent": "Follow documented card example 12.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-data-point"
+                    }
+                  ],
+                  "selector": "lg-card-content-inner-data-points"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:317"
+      ],
+      "id": "card-example-13",
+      "intent": "Follow documented card example 13.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-card"
+                        },
+                        {
+                          "selector": "lg-card"
+                        }
+                      ],
+                      "selector": "aside"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            }
+          ],
+          "selector": "div"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/card/SKILL.md:334"
+      ],
+      "id": "card-example-14",
+      "intent": "Follow documented card example 14.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "p"
+                },
+                {
+                  "children": [
+                    {
+                      "selector": "p"
+                    }
+                  ],
+                  "selector": "lg-card-toggable-content"
+                },
+                {
+                  "selector": "button"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/colour/SKILL.md:32"
+      ],
+      "id": "colour-example-1",
+      "intent": "Follow documented colour example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/colour/SKILL.md:40"
+      ],
+      "id": "colour-example-2",
+      "intent": "Follow documented colour example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/colour-directive/SKILL.md:34"
+      ],
+      "id": "colour-directive-example-1",
+      "intent": "Follow documented colour-directive example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/colour-directive/SKILL.md:42"
+      ],
+      "id": "colour-directive-example-2",
+      "intent": "Follow documented colour-directive example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:48"
+      ],
+      "id": "content-area-example-1",
+      "intent": "Follow documented content-area example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-content-area-content"
+            }
+          ],
+          "selector": "lg-content-area"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:60"
+      ],
+      "id": "content-area-example-2",
+      "intent": "Follow documented content-area example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-content-area-title"
+                }
+              ],
+              "selector": "lg-content-area-header"
+            },
+            {
+              "children": [
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-content-area-content"
+            }
+          ],
+          "selector": "lg-content-area"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:73"
+      ],
+      "id": "content-area-example-3",
+      "intent": "Follow documented content-area example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-content-area-title"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:83"
+      ],
+      "id": "content-area-example-4",
+      "intent": "Follow documented content-area example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-content-area-header"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-content-area-title"
+                },
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-content-area-content"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "button"
+                    },
+                    {
+                      "selector": "button"
+                    }
+                  ],
+                  "selector": "lg-button-group"
+                }
+              ],
+              "selector": "lg-content-area-footer"
+            }
+          ],
+          "selector": "lg-content-area"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:109"
+      ],
+      "id": "content-area-example-5",
+      "intent": "Follow documented content-area example 5.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-progress-header"
+                }
+              ],
+              "selector": "lg-progress-indicator"
+            },
+            {
+              "selector": "lg-content-area-title"
+            }
+          ],
+          "selector": "lg-content-area-content"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:124"
+      ],
+      "id": "content-area-example-6",
+      "intent": "Follow documented content-area example 6.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-pictogram"
+            },
+            {
+              "selector": "lg-notice-title"
+            },
+            {
+              "selector": "lg-notice-description"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-icon"
+                    }
+                  ],
+                  "selector": "button"
+                }
+              ],
+              "selector": "lg-notice-action"
+            }
+          ],
+          "selector": "lg-notice"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:37"
+      ],
+      "id": "data-point-example-1",
+      "intent": "Follow documented data-point example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-data-point-label"
+            },
+            {
+              "selector": "lg-data-point-value"
+            }
+          ],
+          "selector": "lg-data-point"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:46"
+      ],
+      "id": "data-point-example-2",
+      "intent": "Follow documented data-point example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-data-point-label"
+            },
+            {
+              "selector": "lg-data-point-value"
+            },
+            {
+              "selector": "lg-data-point-secondary-label"
+            }
+          ],
+          "selector": "lg-data-point"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:56"
+      ],
+      "id": "data-point-example-3",
+      "intent": "Follow documented data-point example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-data-point-label"
+            },
+            {
+              "selector": "lg-data-point-value"
+            },
+            {
+              "selector": "lg-data-point-secondary-label"
+            },
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-data-point-add-on"
+            }
+          ],
+          "selector": "lg-data-point"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:67"
+      ],
+      "id": "data-point-example-4",
+      "intent": "Follow documented data-point example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-data-point-label"
+                },
+                {
+                  "selector": "lg-data-point-value"
+                }
+              ],
+              "selector": "lg-data-point"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-data-point-label"
+                },
+                {
+                  "selector": "lg-data-point-value"
+                }
+              ],
+              "selector": "lg-data-point"
+            }
+          ],
+          "selector": "lg-data-point-group"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/details/SKILL.md:33"
+      ],
+      "id": "details-example-1",
+      "intent": "Follow documented details example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-details-panel-heading"
+            }
+          ],
+          "selector": "lg-details"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/details/SKILL.md:66"
+      ],
+      "id": "details-example-2",
+      "intent": "Follow documented details example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-details-panel-heading"
+            }
+          ],
+          "selector": "lg-details"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/filter-container/SKILL.md:37"
+      ],
+      "id": "filter-container-example-1",
+      "intent": "Follow documented filter-container example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-icon"
+                }
+              ],
+              "selector": "button"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-filter-container-panel-body"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "button"
+                        },
+                        {
+                          "selector": "button"
+                        }
+                      ],
+                      "selector": "lg-button-group"
+                    }
+                  ],
+                  "selector": "lg-filter-container-panel-footer"
+                }
+              ],
+              "selector": "lg-filter-container-panel"
+            }
+          ],
+          "selector": "lg-filter-container"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/flag-icon/SKILL.md:30"
+      ],
+      "id": "flag-icon-example-1",
+      "intent": "Follow documented flag-icon example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-flag-icon"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:39"
+      ],
+      "id": "footer-example-1",
+      "intent": "Follow documented footer example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-footer-footnote"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-icon"
+                    }
+                  ],
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-footer-social"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-footer-nav-item"
+                },
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-footer-nav-item"
+                }
+              ],
+              "selector": "lg-footer-nav"
+            },
+            {
+              "selector": "lg-footer-logo"
+            },
+            {
+              "selector": "lg-footer-copyright"
+            }
+          ],
+          "selector": "footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:82"
+      ],
+      "id": "footer-example-2",
+      "intent": "Follow documented footer example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-footer-nav-item"
+                }
+              ],
+              "selector": "lg-footer-nav"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-footer-nav-item"
+                }
+              ],
+              "selector": "lg-footer-nav"
+            },
+            {
+              "selector": "lg-footer-logo"
+            },
+            {
+              "selector": "lg-footer-copyright"
+            }
+          ],
+          "selector": "footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:103"
+      ],
+      "id": "footer-example-3",
+      "intent": "Follow documented footer example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-footer-footnote"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-icon"
+                    }
+                  ],
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-footer-social"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-footer-nav-item"
+                },
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-footer-nav-item"
+                }
+              ],
+              "selector": "lg-footer-nav"
+            },
+            {
+              "selector": "lg-footer-logo"
+            },
+            {
+              "selector": "lg-footer-copyright"
+            }
+          ],
+          "selector": "footer"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:154"
+      ],
+      "id": "footer-example-4",
+      "intent": "Follow documented footer example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-icon"
+                }
+              ],
+              "selector": "a"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-icon"
+                }
+              ],
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-footer-social"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:169"
+      ],
+      "id": "footer-example-5",
+      "intent": "Follow documented footer example 5.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "img"
+            },
+            {
+              "selector": "img"
+            }
+          ],
+          "selector": "lg-footer-stickers"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:180"
+      ],
+      "id": "footer-example-6",
+      "intent": "Follow documented footer example 6.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-footer-footnote"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:190"
+      ],
+      "id": "footer-example-7",
+      "intent": "Follow documented footer example 7.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-footer-copyright"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-checkbox/SKILL.md:34"
+      ],
+      "id": "forms-checkbox-example-1",
+      "intent": "Follow documented forms-checkbox example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-checkbox"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-checkbox/SKILL.md:46"
+      ],
+      "id": "forms-checkbox-example-2",
+      "intent": "Follow documented forms-checkbox example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-hint"
+            },
+            {
+              "selector": "lg-toggle"
+            },
+            {
+              "selector": "lg-toggle"
+            },
+            {
+              "selector": "lg-toggle"
+            }
+          ],
+          "selector": "lg-checkbox-group"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-date/SKILL.md:30"
+      ],
+      "id": "forms-date-example-1",
+      "intent": "Follow documented forms-date example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-date-field"
+            },
+            {
+              "selector": "button"
+            }
+          ],
+          "selector": "form"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-date/SKILL.md:70"
+      ],
+      "id": "forms-date-example-2",
+      "intent": "Follow documented forms-date example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-date-field"
+            }
+          ],
+          "selector": "ng-container"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-design/SKILL.md:40"
+      ],
+      "id": "forms-design-example-1",
+      "intent": "Follow documented forms-design example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-pictogram"
+            },
+            {
+              "selector": "lg-notice-title"
+            },
+            {
+              "selector": "lg-notice-description"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-icon"
+                    }
+                  ],
+                  "selector": "button"
+                }
+              ],
+              "selector": "lg-notice-action"
+            }
+          ],
+          "selector": "lg-notice"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-filter-buttons/SKILL.md:38"
+      ],
+      "id": "forms-filter-buttons-example-1",
+      "intent": "Follow documented forms-filter-buttons example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-radio-button"
+            },
+            {
+              "selector": "lg-radio-button"
+            },
+            {
+              "selector": "lg-radio-button"
+            }
+          ],
+          "selector": "lg-radio-group"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-filter-buttons/SKILL.md:53"
+      ],
+      "id": "forms-filter-buttons-example-2",
+      "intent": "Follow documented forms-filter-buttons example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-toggle"
+            },
+            {
+              "selector": "lg-toggle"
+            },
+            {
+              "selector": "lg-toggle"
+            }
+          ],
+          "selector": "lg-checkbox-group"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:36"
+      ],
+      "id": "forms-input-example-1",
+      "intent": "Follow documented forms-input example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-hint"
+            },
+            {
+              "selector": "input"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:48"
+      ],
+      "id": "forms-input-example-2",
+      "intent": "Follow documented forms-input example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "input"
+            },
+            {
+              "selector": "span"
+            }
+          ],
+          "selector": "lg-input-field"
+        },
+        {
+          "children": [
+            {
+              "selector": "input"
+            },
+            {
+              "selector": "span"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:70"
+      ],
+      "id": "forms-input-example-3",
+      "intent": "Follow documented forms-input example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "input"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-icon"
+                }
+              ],
+              "selector": "button"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:88"
+      ],
+      "id": "forms-input-example-4",
+      "intent": "Follow documented forms-input example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "input"
+            },
+            {
+              "selector": "button"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:99"
+      ],
+      "id": "forms-input-example-5",
+      "intent": "Follow documented forms-input example 5.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "input"
+            },
+            {
+              "selector": "span"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-icon"
+                }
+              ],
+              "selector": "button"
+            },
+            {
+              "selector": "button"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-radio/SKILL.md:31"
+      ],
+      "id": "forms-radio-example-1",
+      "intent": "Follow documented forms-radio example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-hint"
+            },
+            {
+              "selector": "lg-radio-button"
+            },
+            {
+              "selector": "lg-radio-button"
+            },
+            {
+              "selector": "lg-radio-button"
+            }
+          ],
+          "selector": "lg-radio-group"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-segment/SKILL.md:30"
+      ],
+      "id": "forms-segment-example-1",
+      "intent": "Follow documented forms-segment example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-hint"
+            },
+            {
+              "selector": "lg-segment-button"
+            },
+            {
+              "selector": "lg-segment-button"
+            },
+            {
+              "selector": "lg-segment-button"
+            }
+          ],
+          "selector": "lg-segment-group"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-select/SKILL.md:30"
+      ],
+      "id": "forms-select-example-1",
+      "intent": "Follow documented forms-select example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-hint"
+            },
+            {
+              "children": [
+                {
+                  "selector": "option"
+                },
+                {
+                  "selector": "option"
+                },
+                {
+                  "selector": "option"
+                },
+                {
+                  "selector": "option"
+                }
+              ],
+              "selector": "select"
+            }
+          ],
+          "selector": "lg-select-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-sort-code/SKILL.md:35"
+      ],
+      "id": "forms-sort-code-example-1",
+      "intent": "Follow documented forms-sort-code example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-hint"
+            },
+            {
+              "selector": "input"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-switch/SKILL.md:41"
+      ],
+      "id": "forms-switch-example-2",
+      "intent": "Follow documented forms-switch example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-checkbox"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-validation/SKILL.md:57"
+      ],
+      "id": "forms-validation-example-1",
+      "intent": "Follow documented forms-validation example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "input"
+                }
+              ],
+              "selector": "lg-input-field"
+            },
+            {
+              "selector": "button"
+            }
+          ],
+          "selector": "form"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-validation/SKILL.md:85"
+      ],
+      "id": "forms-validation-example-2",
+      "intent": "Follow documented forms-validation example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-validation"
+                }
+              ],
+              "selector": "app-error-message"
+            },
+            {
+              "selector": "input"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-validation/SKILL.md:99"
+      ],
+      "id": "forms-validation-example-3",
+      "intent": "Follow documented forms-validation example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "app-error-message"
+            },
+            {
+              "selector": "input"
+            }
+          ],
+          "selector": "lg-input-field"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:45"
+      ],
+      "id": "header-example-1",
+      "intent": "Follow documented header example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-header-logo"
+            }
+          ],
+          "selector": "header"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:57"
+      ],
+      "id": "header-example-2",
+      "intent": "Follow documented header example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-header-logo"
+            },
+            {
+              "selector": "lg-header-logo"
+            }
+          ],
+          "selector": "header"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:75"
+      ],
+      "id": "header-example-3",
+      "intent": "Follow documented header example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-header-logo"
+            },
+            {
+              "selector": "lg-notification-badge"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-primary-nav-list-item"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-notification-badge"
+                        }
+                      ],
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-primary-nav-list-item"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-link-menu-item-text"
+                        }
+                      ],
+                      "selector": "lg-link-menu-item"
+                    }
+                  ],
+                  "selector": "a"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-link-menu-item-text"
+                        },
+                        {
+                          "selector": "lg-notification-badge"
+                        }
+                      ],
+                      "selector": "lg-link-menu-item"
+                    }
+                  ],
+                  "selector": "a"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-link-menu-item-text"
+                        }
+                      ],
+                      "selector": "lg-link-menu-item"
+                    }
+                  ],
+                  "selector": "a"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-link-menu-item-text"
+                        }
+                      ],
+                      "selector": "lg-link-menu-item"
+                    }
+                  ],
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-primary-nav"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-account-menu-item-label"
+                        },
+                        {
+                          "selector": "lg-icon"
+                        }
+                      ],
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-account-menu-list-item"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-account-menu-item-label"
+                        },
+                        {
+                          "selector": "lg-icon"
+                        }
+                      ],
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-account-menu-list-item"
+                }
+              ],
+              "selector": "lg-account-menu"
+            }
+          ],
+          "selector": "header"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:142"
+      ],
+      "id": "header-example-4",
+      "intent": "Follow documented header example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-header-logo"
+            },
+            {
+              "selector": "lg-header-logo"
+            },
+            {
+              "selector": "lg-notification-badge"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-primary-nav-list-item"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-link-menu-item-text"
+                        }
+                      ],
+                      "selector": "lg-link-menu-item"
+                    }
+                  ],
+                  "selector": "a"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-link-menu-item-text"
+                        }
+                      ],
+                      "selector": "lg-link-menu-item"
+                    }
+                  ],
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-primary-nav"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-account-menu-item-label"
+                        },
+                        {
+                          "selector": "lg-icon"
+                        }
+                      ],
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-account-menu-list-item"
+                }
+              ],
+              "selector": "lg-account-menu"
+            }
+          ],
+          "selector": "header"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/heading/SKILL.md:30"
+      ],
+      "id": "heading-example-1",
+      "intent": "Follow documented heading example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-heading"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/hero/SKILL.md:51"
+      ],
+      "id": "hero-example-1",
+      "intent": "Follow documented hero example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "selector": "lg-hero-card-title"
+                                    }
+                                  ],
+                                  "selector": "lg-hero-card-header"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "selector": "p"
+                                    }
+                                  ],
+                                  "selector": "lg-hero-card-content"
+                                }
+                              ],
+                              "selector": "lg-hero-card"
+                            }
+                          ],
+                          "selector": "div"
+                        }
+                      ],
+                      "selector": "div"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "lg-hero-content"
+            }
+          ],
+          "selector": "lg-hero"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/hero/SKILL.md:78"
+      ],
+      "id": "hero-example-2",
+      "intent": "Follow documented hero example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "selector": "lg-icon"
+                                    }
+                                  ],
+                                  "selector": "a"
+                                }
+                              ],
+                              "selector": "lg-breadcrumb-item"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "selector": "a"
+                                }
+                              ],
+                              "selector": "lg-breadcrumb-item"
+                            },
+                            {
+                              "selector": "lg-breadcrumb-item"
+                            }
+                          ],
+                          "selector": "lg-breadcrumb"
+                        }
+                      ],
+                      "selector": "div"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            }
+          ],
+          "selector": "lg-hero-header"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/hero/SKILL.md:104"
+      ],
+      "id": "hero-example-3",
+      "intent": "Follow documented hero example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "selector": "lg-hero-card-title"
+                                    },
+                                    {
+                                      "selector": "lg-hero-card-subtitle"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "selector": "a"
+                                            }
+                                          ],
+                                          "selector": "p"
+                                        }
+                                      ],
+                                      "selector": "lg-alert"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "selector": "lg-data-point-label"
+                                        },
+                                        {
+                                          "selector": "lg-data-point-value"
+                                        }
+                                      ],
+                                      "selector": "lg-data-point"
+                                    }
+                                  ],
+                                  "selector": "lg-hero-card-header"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "selector": "lg-data-point-label"
+                                            },
+                                            {
+                                              "selector": "lg-data-point-value"
+                                            }
+                                          ],
+                                          "selector": "lg-data-point"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "selector": "lg-data-point-label"
+                                            },
+                                            {
+                                              "selector": "lg-data-point-value"
+                                            }
+                                          ],
+                                          "selector": "lg-data-point"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "selector": "lg-data-point-label"
+                                            },
+                                            {
+                                              "selector": "lg-data-point-value"
+                                            },
+                                            {
+                                              "selector": "lg-data-point-secondary-label"
+                                            }
+                                          ],
+                                          "selector": "lg-data-point"
+                                        }
+                                      ],
+                                      "selector": "lg-data-point-group"
+                                    }
+                                  ],
+                                  "selector": "lg-hero-card-content"
+                                }
+                              ],
+                              "selector": "lg-hero-card"
+                            }
+                          ],
+                          "selector": "div"
+                        }
+                      ],
+                      "selector": "div"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "lg-hero-content"
+            }
+          ],
+          "selector": "lg-hero"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:30"
+      ],
+      "id": "icon-example-1",
+      "intent": "Follow documented icon example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-icon"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:54"
+      ],
+      "id": "icon-example-2",
+      "intent": "Follow documented icon example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "span"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:67"
+      ],
+      "id": "icon-example-3",
+      "intent": "Follow documented icon example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-icon"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:71"
+      ],
+      "id": "icon-example-4",
+      "intent": "Follow documented icon example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-icon"
+        },
+        {
+          "selector": "span"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link/SKILL.md:34"
+      ],
+      "id": "link-example-1",
+      "intent": "Follow documented link example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "a"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link/SKILL.md:47"
+      ],
+      "id": "link-example-2",
+      "intent": "Follow documented link example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            },
+            {
+              "selector": "span"
+            }
+          ],
+          "selector": "a"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:38"
+      ],
+      "id": "link-menu-example-1",
+      "intent": "Follow documented link-menu example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-link-menu-item-text"
+                    }
+                  ],
+                  "selector": "lg-link-menu-item"
+                }
+              ],
+              "selector": "a"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-link-menu-item-text"
+                    }
+                  ],
+                  "selector": "lg-link-menu-item"
+                }
+              ],
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-link-menu"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:59"
+      ],
+      "id": "link-menu-example-2",
+      "intent": "Follow documented link-menu example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "lg-link-menu-item-text"
+                    },
+                    {
+                      "selector": "lg-link-menu-item-text"
+                    }
+                  ],
+                  "selector": "lg-link-menu-item"
+                }
+              ],
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-link-menu"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:76"
+      ],
+      "id": "link-menu-example-3",
+      "intent": "Follow documented link-menu example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-icon"
+                },
+                {
+                  "selector": "lg-link-menu-item-text"
+                }
+              ],
+              "selector": "lg-link-menu-item"
+            }
+          ],
+          "selector": "a"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:87"
+      ],
+      "id": "link-menu-example-4",
+      "intent": "Follow documented link-menu example 4.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-link-menu-item"
+        },
+        {
+          "selector": "lg-link-menu-item"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:97"
+      ],
+      "id": "link-menu-example-5",
+      "intent": "Follow documented link-menu example 5.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-link-menu-item-text"
+                }
+              ],
+              "selector": "lg-link-menu-item"
+            }
+          ],
+          "selector": "a"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/modal/SKILL.md:40"
+      ],
+      "id": "modal-example-1",
+      "intent": "Follow documented modal example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "button"
+        },
+        {
+          "children": [
+            {
+              "selector": "lg-modal-header"
+            },
+            {
+              "selector": "lg-modal-body"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "selector": "button"
+                    },
+                    {
+                      "selector": "button"
+                    }
+                  ],
+                  "selector": "lg-button-group"
+                }
+              ],
+              "selector": "lg-modal-footer"
+            }
+          ],
+          "selector": "lg-modal"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/modal/SKILL.md:77"
+      ],
+      "id": "modal-example-2",
+      "intent": "Follow documented modal example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-modal-body-timer"
+            }
+          ],
+          "selector": "lg-modal-body"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/notice/SKILL.md:32"
+      ],
+      "id": "notice-example-1",
+      "intent": "Follow documented notice example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-pictogram"
+            },
+            {
+              "selector": "lg-notice-title"
+            },
+            {
+              "selector": "lg-notice-description"
+            },
+            {
+              "children": [
+                {
+                  "selector": "button"
+                }
+              ],
+              "selector": "lg-notice-description"
+            }
+          ],
+          "selector": "lg-notice"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/orientation/SKILL.md:32"
+      ],
+      "id": "orientation-example-1",
+      "intent": "Follow documented orientation example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/orientation/SKILL.md:71"
+      ],
+      "id": "orientation-example-2",
+      "intent": "Follow documented orientation example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-card-hero-img"
+            },
+            {
+              "children": [
+                {
+                  "selector": "h3"
+                }
+              ],
+              "selector": "lg-card-content"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/orientation/SKILL.md:82"
+      ],
+      "id": "orientation-example-3",
+      "intent": "Follow documented orientation example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/page/SKILL.md:33"
+      ],
+      "id": "page-example-1",
+      "intent": "Follow documented page example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "header"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "router-outlet"
+                        }
+                      ],
+                      "selector": "div"
+                    }
+                  ],
+                  "selector": "div"
+                }
+              ],
+              "selector": "div"
+            },
+            {
+              "selector": "footer"
+            }
+          ],
+          "selector": "lg-page"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/page/SKILL.md:69"
+      ],
+      "id": "page-example-2",
+      "intent": "Follow documented page example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "app-header"
+            },
+            {
+              "selector": "router-outlet"
+            },
+            {
+              "selector": "app-footer"
+            }
+          ],
+          "selector": "lg-page"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/pagination/SKILL.md:30"
+      ],
+      "id": "pagination-example-1",
+      "intent": "Follow documented pagination example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-pagination"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/pictogram/SKILL.md:30"
+      ],
+      "id": "pictogram-example-1",
+      "intent": "Follow documented pictogram example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-pictogram"
+        },
+        {
+          "selector": "lg-pictogram"
+        },
+        {
+          "selector": "lg-pictogram"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/pictogram/SKILL.md:65"
+      ],
+      "id": "pictogram-example-2",
+      "intent": "Follow documented pictogram example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-pictogram"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/progress-indicator/SKILL.md:34"
+      ],
+      "id": "progress-indicator-example-1",
+      "intent": "Follow documented progress-indicator example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-progress-bar"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/progress-indicator/SKILL.md:40"
+      ],
+      "id": "progress-indicator-example-2",
+      "intent": "Follow documented progress-indicator example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-progress-header"
+            }
+          ],
+          "selector": "lg-progress-indicator"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/promotions/SKILL.md:44"
+      ],
+      "id": "promotions-example-1",
+      "intent": "Follow documented promotions example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-card-hero-img"
+            },
+            {
+              "children": [
+                {
+                  "selector": "h3"
+                },
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-card-content"
+            },
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-card-footer"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/promotions/SKILL.md:64"
+      ],
+      "id": "promotions-example-2",
+      "intent": "Follow documented promotions example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-pictogram"
+                }
+              ],
+              "selector": "lg-card-hero-img"
+            },
+            {
+              "children": [
+                {
+                  "selector": "h3"
+                },
+                {
+                  "selector": "p"
+                }
+              ],
+              "selector": "lg-card-content"
+            },
+            {
+              "children": [
+                {
+                  "selector": "a"
+                }
+              ],
+              "selector": "lg-card-footer"
+            }
+          ],
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/promotions/SKILL.md:102"
+      ],
+      "id": "promotions-example-3",
+      "intent": "Follow documented promotions example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-separator"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/quick-action/SKILL.md:28"
+      ],
+      "id": "quick-action-example-1",
+      "intent": "Follow documented quick-action example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/quick-action/SKILL.md:44"
+      ],
+      "id": "quick-action-example-2",
+      "intent": "Follow documented quick-action example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "lg-icon"
+            }
+          ],
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/separator/SKILL.md:28"
+      ],
+      "id": "separator-example-1",
+      "intent": "Follow documented separator example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-separator"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/separator/SKILL.md:34"
+      ],
+      "id": "separator-example-2",
+      "intent": "Follow documented separator example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-separator"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/separator/SKILL.md:40"
+      ],
+      "id": "separator-example-3",
+      "intent": "Follow documented separator example 3.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-separator"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/side-nav/SKILL.md:37"
+      ],
+      "id": "side-nav-example-1",
+      "intent": "Follow documented side-nav example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-side-nav-bar-item-heading"
+                        }
+                      ],
+                      "selector": "lg-side-nav-bar-item"
+                    }
+                  ],
+                  "selector": "a"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "lg-side-nav-bar-item-heading"
+                        },
+                        {
+                          "selector": "lg-side-nav-bar-item-content"
+                        }
+                      ],
+                      "selector": "lg-side-nav-bar-item"
+                    }
+                  ],
+                  "selector": "a"
+                },
+                {
+                  "children": [
+                    {
+                      "selector": "a"
+                    }
+                  ],
+                  "selector": "lg-side-nav-bar-footer"
+                }
+              ],
+              "selector": "lg-side-nav-bar"
+            },
+            {
+              "children": [
+                {
+                  "selector": "router-outlet"
+                }
+              ],
+              "selector": "lg-side-nav-content"
+            }
+          ],
+          "selector": "lg-side-nav"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/skeleton/SKILL.md:30"
+      ],
+      "id": "skeleton-example-1",
+      "intent": "Follow documented skeleton example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "span"
+                }
+              ],
+              "selector": "lg-data-point-label"
+            },
+            {
+              "selector": "lg-data-point-value"
+            }
+          ],
+          "selector": "lg-data-point"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-margin/SKILL.md:32"
+      ],
+      "id": "spacing-margin-example-1",
+      "intent": "Follow documented spacing-margin example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-margin/SKILL.md:55"
+      ],
+      "id": "spacing-margin-example-2",
+      "intent": "Follow documented spacing-margin example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-padding/SKILL.md:30"
+      ],
+      "id": "spacing-padding-example-1",
+      "intent": "Follow documented spacing-padding example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-padding/SKILL.md:53"
+      ],
+      "id": "spacing-padding-example-2",
+      "intent": "Follow documented spacing-padding example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        },
+        {
+          "selector": "lg-card"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spinner/SKILL.md:30"
+      ],
+      "id": "spinner-example-1",
+      "intent": "Follow documented spinner example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-spinner"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/table/SKILL.md:75"
+      ],
+      "id": "table-example-1",
+      "intent": "Follow documented table example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-table-row-toggle"
+                }
+              ],
+              "selector": "td"
+            },
+            {
+              "selector": "td"
+            }
+          ],
+          "selector": "tr"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-table-expanded-detail"
+                }
+              ],
+              "selector": "td"
+            }
+          ],
+          "selector": "tr"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/table/SKILL.md:95"
+      ],
+      "id": "table-example-2",
+      "intent": "Follow documented table example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "p"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-icon"
+                }
+              ],
+              "selector": "button"
+            }
+          ],
+          "selector": "td"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/tabs/SKILL.md:45"
+      ],
+      "id": "tabs-example-1",
+      "intent": "Follow documented tabs example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "selector": "lg-tab-item-heading"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "p"
+                        }
+                      ],
+                      "selector": "div"
+                    }
+                  ],
+                  "selector": "lg-tab-item-content"
+                }
+              ],
+              "selector": "lg-tab-item"
+            },
+            {
+              "children": [
+                {
+                  "selector": "lg-tab-item-heading"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "selector": "p"
+                        }
+                      ],
+                      "selector": "div"
+                    }
+                  ],
+                  "selector": "lg-tab-item-content"
+                }
+              ],
+              "selector": "lg-tab-item"
+            }
+          ],
+          "selector": "lg-tabs"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/tabs/SKILL.md:72"
+      ],
+      "id": "tabs-example-2",
+      "intent": "Follow documented tabs example 2.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "children": [
+            {
+              "selector": "a"
+            },
+            {
+              "selector": "a"
+            }
+          ],
+          "selector": "lg-tab-nav-bar"
+        },
+        {
+          "children": [
+            {
+              "selector": "router-outlet"
+            }
+          ],
+          "selector": "lg-tab-nav-content"
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "documentedExample": true
+      },
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/typography/SKILL.md:45"
+      ],
+      "id": "typography-example-1",
+      "intent": "Follow documented typography example 1.",
+      "rules": [
+        "Preserve the documented Canopy component hierarchy."
+      ],
+      "tree": [
+        {
+          "selector": "lg-content-area-title"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 1
+}

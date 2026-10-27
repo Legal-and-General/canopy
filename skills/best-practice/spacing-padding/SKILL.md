@@ -3,6 +3,7 @@ name: canopy-spacing-padding
 description: Best practices for the Canopy Padding directive. Trigger when applying padding to Canopy components or HTML elements using the Canopy spacing scale in an Angular project.
 license: MIT
 metadata:
+  category: layout
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/spacing/padding/docs/guide.mdx
 ---
 

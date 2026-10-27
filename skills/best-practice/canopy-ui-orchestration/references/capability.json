@@ -1,0 +1,265 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [],
+  "category": "guidance",
+  "deprecated": null,
+  "description": ">",
+  "evidence": [
+    "docs/CANOPY_UI_SKILL.md",
+    "skills/best-practice/canopy-ui-orchestration/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-ui-orchestration",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:20",
+      "statement": "Treat the consumer's installed Canopy version as authoritative."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:21",
+      "statement": "Use Canopy's public surface before creating custom UI."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:22",
+      "statement": "Do not silently upgrade Canopy."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:23",
+      "statement": "Do not copy private component markup or override internal selectors."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:24",
+      "statement": "Do not treat source-code capability as design approval."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:25",
+      "statement": "Report unsupported or uncertain requirements instead of inventing APIs."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:26",
+      "statement": "Require rendered visual and accessibility checks where the result depends on layout,"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:31",
+      "statement": "Read `@legal-and-general/canopy` from the consumer's package manifest."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:32",
+      "statement": "Confirm the resolved version from the lockfile or installed package."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:33",
+      "statement": "Check that installed Canopy skills use the matching `v<version>` repository tag."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:34",
+      "statement": "Ask before installing, refreshing, or upgrading dependencies or skills."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:35",
+      "statement": "Use evidence from the matching tag. Do not use the latest Storybook as evidence for an"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:37",
+      "statement": "If exact-version evidence is unavailable, state the gap before recommending an API."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:41",
+      "statement": "Translate the request into intent phrases, constraints, content, actions, and states."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:42",
+      "statement": "Search [capabilities.json](./references/capabilities.json) for exact names, selectors,"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:44",
+      "statement": "Consider components, directives, services, pipes, tokens, utilities, icons, pictograms,"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:46",
+      "statement": "Shortlist candidates with a reason, confidence, compatibility warning, and relevant"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:48",
+      "statement": "Load only the shortlisted component-specific skills."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:49",
+      "statement": "Read the matching version's detailed skills and evidence before implementation."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:70",
+      "statement": "parent capability;"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:71",
+      "statement": "required and optional children;"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:72",
+      "statement": "projected slots and directives;"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:73",
+      "statement": "action count and whether actions are related;"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:74",
+      "statement": "icon or illustrative asset requirements;"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:75",
+      "statement": "spacing ownership and responsive behaviour;"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:76",
+      "statement": "accessibility behaviour;"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:77",
+      "statement": "relevant component skills and evidence."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:104",
+      "statement": "Use the documented Canopy capability that owns the required semantics."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:105",
+      "statement": "Configure its public API."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:106",
+      "statement": "Compose public Canopy primitives when no single capability covers the request."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:107",
+      "statement": "Use the closest supported predecessor when a capability exists only in a later version."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:108",
+      "statement": "Build a thin consumer component only when necessary."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:109",
+      "statement": "Ask for an upgrade or design decision when a material compromise remains."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:118",
+      "statement": "Verify every import is publicly exported in the installed version."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:119",
+      "statement": "Run Angular template type-checking and relevant consumer tests."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:120",
+      "statement": "Inspect the rendered DOM for projected and composite patterns."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:121",
+      "statement": "Check computed styles, responsive layouts, and supported colour modes where relevant."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:122",
+      "statement": "Run accessibility checks, including keyboard use, focus, names, descriptions, and status"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:124",
+      "statement": "Report unsupported, uncertain, or unverified behaviour explicitly."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:130",
+      "statement": "[Capability index](./references/capabilities.json)"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:131",
+      "statement": "[Conditional compositions](./references/compositions.json)"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/canopy-ui-orchestration/SKILL.md:132",
+      "statement": "[Schema and release compatibility](./references/schema-version.json)"
+    }
+  ],
+  "introduced": null,
+  "kind": "guidance",
+  "patterns": [],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy UI Orchestration",
+  "tokens": []
+}

@@ -1,0 +1,301 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "Nav",
+        "deprecated": false,
+        "name": "label",
+        "property": "label",
+        "required": false,
+        "symbol": "LgSideNavBarComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgSideNavBarLinkDirective",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "activated",
+        "property": "activated",
+        "required": false,
+        "symbol": "LgSideNavBarLinkDirective",
+        "type": "EventEmitter<void>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav-bar/side-nav-bar.component.html:3",
+        "owner": "LgSideNavBarComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav-bar-footer/side-nav-bar-footer.component.html:1",
+        "owner": "LgSideNavBarFooterComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav-bar-item/side-nav-bar-item.component.html:3",
+        "owner": "LgSideNavBarItemComponent",
+        "selector": "lg-side-nav-bar-item-content",
+        "selectors": [
+          "lg-side-nav-bar-item-content"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav-bar-item/side-nav-bar-item.component.html:2",
+        "owner": "LgSideNavBarItemComponent",
+        "selector": "lg-side-nav-bar-item-heading",
+        "selectors": [
+          "lg-side-nav-bar-item-heading"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav-bar-item-content/side-nav-bar-item-content.component.html:1",
+        "owner": "LgSideNavBarItemContentComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav-bar-item-heading/side-nav-bar-item-heading.component.html:1",
+        "owner": "LgSideNavBarItemHeadingComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav.component.html:1",
+        "owner": "LgSideNavComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/side-nav/side-nav-content/side-nav-content.component.html:1",
+        "owner": "LgSideNavContentComponent",
+        "selector": "router-outlet",
+        "selectors": [
+          "router-outlet"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "Nav",
+            "deprecated": false,
+            "name": "label",
+            "property": "label",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-side-nav-bar",
+        "source": "projects/canopy/src/lib/side-nav/side-nav-bar/side-nav-bar.component.ts",
+        "symbol": "LgSideNavBarComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-side-nav-bar-footer",
+        "source": "projects/canopy/src/lib/side-nav/side-nav-bar-footer/side-nav-bar-footer.component.ts",
+        "symbol": "LgSideNavBarFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-side-nav-bar-item",
+        "source": "projects/canopy/src/lib/side-nav/side-nav-bar-item/side-nav-bar-item.component.ts",
+        "symbol": "LgSideNavBarItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-side-nav-bar-item-content",
+        "source": "projects/canopy/src/lib/side-nav/side-nav-bar-item-content/side-nav-bar-item-content.component.ts",
+        "symbol": "LgSideNavBarItemContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-side-nav-bar-item-heading",
+        "source": "projects/canopy/src/lib/side-nav/side-nav-bar-item-heading/side-nav-bar-item-heading.component.ts",
+        "symbol": "LgSideNavBarItemHeadingComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "activated",
+            "property": "activated",
+            "required": false,
+            "type": "EventEmitter<void>"
+          }
+        ],
+        "selector": "[lgSideBarNavLink]",
+        "source": "projects/canopy/src/lib/side-nav/side-nav-bar-link/side-nav-bar-link.directive.ts",
+        "symbol": "LgSideNavBarLinkDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-side-nav",
+        "source": "projects/canopy/src/lib/side-nav/side-nav.component.ts",
+        "symbol": "LgSideNavComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-side-nav-content",
+        "source": "projects/canopy/src/lib/side-nav/side-nav-content/side-nav-content.component.ts",
+        "symbol": "LgSideNavContentComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Side Nav component. Trigger when building sidebar navigation, account section navigation, or multi-page navigation panels in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/side-nav/docs/guide.mdx",
+    "projects/canopy/src/lib/side-nav/side-nav-bar-footer/side-nav-bar-footer.component.ts",
+    "projects/canopy/src/lib/side-nav/side-nav-bar-item-content/side-nav-bar-item-content.component.ts",
+    "projects/canopy/src/lib/side-nav/side-nav-bar-item-heading/side-nav-bar-item-heading.component.ts",
+    "projects/canopy/src/lib/side-nav/side-nav-bar-item/side-nav-bar-item.component.ts",
+    "projects/canopy/src/lib/side-nav/side-nav-bar-link/side-nav-bar-link.directive.ts",
+    "projects/canopy/src/lib/side-nav/side-nav-bar/side-nav-bar.component.ts",
+    "projects/canopy/src/lib/side-nav/side-nav-content/side-nav-content.component.ts",
+    "projects/canopy/src/lib/side-nav/side-nav.component.ts",
+    "skills/best-practice/side-nav/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-side-nav",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/side-nav/SKILL.md:102",
+      "statement": "On mobile, the navigation bar moves **below** the content area, not to the left."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/side-nav/SKILL.md:104",
+      "statement": "Always provide an accessible `label` on `lg-side-nav-bar` to identify the navigation region."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/side-nav/SKILL.md:105",
+      "statement": "This component is pending brand modernisation."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/side-nav/SKILL.md:37"
+      ],
+      "id": "side-nav-example-1",
+      "intent": "Follow documented side-nav example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgSideNavBarComponent",
+    "LgSideNavBarFooterComponent",
+    "LgSideNavBarItemComponent",
+    "LgSideNavBarItemContentComponent",
+    "LgSideNavBarItemHeadingComponent",
+    "LgSideNavBarLinkDirective",
+    "LgSideNavComponent",
+    "LgSideNavContentComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgSideBarNavLink]",
+    "lg-side-nav",
+    "lg-side-nav-bar",
+    "lg-side-nav-bar-footer",
+    "lg-side-nav-bar-item",
+    "lg-side-nav-bar-item-content",
+    "lg-side-nav-bar-item-heading",
+    "lg-side-nav-content"
+  ],
+  "title": "Canopy Side Nav",
+  "tokens": []
+}

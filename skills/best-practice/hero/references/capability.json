@@ -1,0 +1,346 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgHeroCardTitleComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "default": "default",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgHeroComponent",
+        "type": "'default' | 'child'"
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-card/hero-card.component.html:1",
+        "owner": "LgHeroCardComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-card-content/hero-card-content.component.html:1",
+        "owner": "LgHeroCardContentComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-card-footer/hero-card-footer.component.html:1",
+        "owner": "LgHeroCardFooterComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-card-header/hero-card-header.component.html:2",
+        "owner": "LgHeroCardHeaderComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-card-header/hero-card-header.component.html:5",
+        "owner": "LgHeroCardHeaderComponent",
+        "selector": "lg-data-point",
+        "selectors": [
+          "lg-data-point"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-card-subtitle/hero-card-subtitle.component.html:1",
+        "owner": "LgHeroCardSubtitleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-card-title/hero-card-title.component.html:2",
+        "owner": "LgHeroCardTitleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero.component.html:2",
+        "owner": "LgHeroComponent",
+        "selector": "lg-hero-content",
+        "selectors": [
+          "lg-hero-content"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero.component.html:1",
+        "owner": "LgHeroComponent",
+        "selector": "lg-hero-header",
+        "selectors": [
+          "lg-hero-header"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-content/hero-content.component.html:1",
+        "owner": "LgHeroContentComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/hero/hero-header/hero-header.component.html:2",
+        "owner": "LgHeroHeaderComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-card",
+        "source": "projects/canopy/src/lib/hero/hero-card/hero-card.component.ts",
+        "symbol": "LgHeroCardComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-card-content",
+        "source": "projects/canopy/src/lib/hero/hero-card-content/hero-card-content.component.ts",
+        "symbol": "LgHeroCardContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-card-footer",
+        "source": "projects/canopy/src/lib/hero/hero-card-footer/hero-card-footer.component.ts",
+        "symbol": "LgHeroCardFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-card-header",
+        "source": "projects/canopy/src/lib/hero/hero-card-header/hero-card-header.component.ts",
+        "symbol": "LgHeroCardHeaderComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-card-subtitle",
+        "source": "projects/canopy/src/lib/hero/hero-card-subtitle/hero-card-subtitle.component.ts",
+        "symbol": "LgHeroCardSubtitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-card-title",
+        "source": "projects/canopy/src/lib/hero/hero-card-title/hero-card-title.component.ts",
+        "symbol": "LgHeroCardTitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "default",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "'default' | 'child'"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero",
+        "source": "projects/canopy/src/lib/hero/hero.component.ts",
+        "symbol": "LgHeroComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-content",
+        "source": "projects/canopy/src/lib/hero/hero-content/hero-content.component.ts",
+        "symbol": "LgHeroContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hero-header",
+        "source": "projects/canopy/src/lib/hero/hero-header/hero-header.component.ts",
+        "symbol": "LgHeroHeaderComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Use when building a Canopy page hero, conversational child hero, product-details hero, or hero cards with data points and breadcrumbs in an Angular application.",
+  "evidence": [
+    "projects/canopy/src/lib/hero/docs/guide.mdx",
+    "projects/canopy/src/lib/hero/hero-card-content/hero-card-content.component.ts",
+    "projects/canopy/src/lib/hero/hero-card-footer/hero-card-footer.component.ts",
+    "projects/canopy/src/lib/hero/hero-card-header/hero-card-header.component.ts",
+    "projects/canopy/src/lib/hero/hero-card-subtitle/hero-card-subtitle.component.ts",
+    "projects/canopy/src/lib/hero/hero-card-title/hero-card-title.component.ts",
+    "projects/canopy/src/lib/hero/hero-card/hero-card.component.ts",
+    "projects/canopy/src/lib/hero/hero-content/hero-content.component.ts",
+    "projects/canopy/src/lib/hero/hero-header/hero-header.component.ts",
+    "projects/canopy/src/lib/hero/hero.component.ts",
+    "skills/best-practice/hero/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-hero",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/hero/SKILL.md:159",
+      "statement": "Use the shared data-point components for principle and secondary values. The hero-specific data-point wrappers, labels, values and list have been removed; do not import or use them."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/hero/SKILL.md:160",
+      "statement": "Use `variant=\"card-principle\"` and a `size=\"lg\"` value in the hero card header. Use a data-point group and `size=\"md\"` values for secondary information, with `lg-data-point-secondary-label` for supporting text below a value."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/hero/SKILL.md:161",
+      "statement": "Use `LgAlertComponent` with `status=\"info\"` for inline product messages in the hero card header. Its information icon is enabled by default; do not supply a separate icon. The hero card notification component has been removed."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/hero/SKILL.md:162",
+      "statement": "Always wrap hero card content with the grid directives (`lgContainer`, `lgRow`, `lgCol`)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/hero/SKILL.md:163",
+      "statement": "Use the page breadcrumb variant inside `lg-hero-header`; rely on the active theme for background and link colours rather than assuming a dark-blue hero or white links."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/hero/SKILL.md:51"
+      ],
+      "id": "hero-example-1",
+      "intent": "Follow documented hero example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/hero/SKILL.md:78"
+      ],
+      "id": "hero-example-2",
+      "intent": "Follow documented hero example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/hero/SKILL.md:104"
+      ],
+      "id": "hero-example-3",
+      "intent": "Follow documented hero example 3."
+    }
+  ],
+  "publicSymbols": [
+    "LgHeroCardComponent",
+    "LgHeroCardContentComponent",
+    "LgHeroCardFooterComponent",
+    "LgHeroCardHeaderComponent",
+    "LgHeroCardSubtitleComponent",
+    "LgHeroCardTitleComponent",
+    "LgHeroComponent",
+    "LgHeroContentComponent",
+    "LgHeroHeaderComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-hero",
+    "lg-hero-card",
+    "lg-hero-card-content",
+    "lg-hero-card-footer",
+    "lg-hero-card-header",
+    "lg-hero-card-subtitle",
+    "lg-hero-card-title",
+    "lg-hero-content",
+    "lg-hero-header"
+  ],
+  "title": "Canopy Hero",
+  "tokens": []
+}

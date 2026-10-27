@@ -1,0 +1,626 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgAccountMenuItemDirective",
+        "type": null
+      },
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "alt",
+        "property": "alt",
+        "required": false,
+        "symbol": "LgHeaderLogoComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "href",
+        "property": "href",
+        "required": false,
+        "symbol": "LgHeaderLogoComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "src",
+        "property": "src",
+        "required": false,
+        "symbol": "LgHeaderLogoComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "accessText",
+        "property": "accessText",
+        "required": false,
+        "symbol": "LgNotificationBadgeComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "count",
+        "property": "count",
+        "required": false,
+        "symbol": "LgNotificationBadgeComponent",
+        "type": "number"
+      },
+      {
+        "default": "count",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgNotificationBadgeComponent",
+        "type": "'count' | 'dot'"
+      },
+      {
+        "deprecated": false,
+        "name": "showResponsiveMenu",
+        "property": "showResponsiveMenu",
+        "required": false,
+        "symbol": "LgPrimaryNavComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgPrimaryNavItemDirective",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "alignRight",
+        "property": "alignRight",
+        "required": false,
+        "symbol": "LgPrimaryNavListItemComponent",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "clicked",
+        "property": "clicked",
+        "required": false,
+        "symbol": "LgAccountMenuListItemComponent",
+        "type": "EventEmitter<Event>"
+      },
+      {
+        "deprecated": false,
+        "name": "tabbedOut",
+        "property": "tabbedOut",
+        "required": false,
+        "symbol": "LgAccountMenuListItemComponent",
+        "type": "EventEmitter<KeyboardEvent>"
+      },
+      {
+        "deprecated": false,
+        "name": "menuToggled",
+        "property": "menuToggled",
+        "required": false,
+        "symbol": "LgHeaderComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "tabbedOut",
+        "property": "tabbedOut",
+        "required": false,
+        "symbol": "LgHeaderLogoComponent",
+        "type": "EventEmitter<KeyboardEvent>"
+      },
+      {
+        "deprecated": false,
+        "name": "clicked",
+        "property": "clicked",
+        "required": false,
+        "symbol": "LgPrimaryNavListItemComponent",
+        "type": "EventEmitter<Event>"
+      },
+      {
+        "deprecated": false,
+        "name": "tabbedOut",
+        "property": "tabbedOut",
+        "required": false,
+        "symbol": "LgPrimaryNavListItemComponent",
+        "type": "EventEmitter<KeyboardEvent>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/header/header.component.html:9",
+        "owner": "LgHeaderComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/header/header.component.html:32",
+        "owner": "LgHeaderComponent",
+        "selector": "[lgMenuBadge]",
+        "selectors": [
+          "[lgMenuBadge]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/header/header.component.html:6",
+        "owner": "LgHeaderComponent",
+        "selector": "lg-header-logo",
+        "selectors": [
+          "lg-header-logo"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/header/primary-navigation/primary-navigation.component.html:13",
+        "owner": "LgPrimaryNavComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/header/primary-navigation/primary-navigation.component.html:7",
+        "owner": "LgPrimaryNavComponent",
+        "selector": "[lgAccountMenuMobileItem]",
+        "selectors": [
+          "[lgAccountMenuMobileItem]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/header/primary-navigation/primary-navigation.component.html:3",
+        "owner": "LgPrimaryNavComponent",
+        "selector": "[lgPrimaryNavMobileItem]",
+        "selectors": [
+          "[lgPrimaryNavMobileItem]"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-account-menu",
+        "source": "projects/canopy/src/lib/header/account-menu/account-menu.component.ts",
+        "symbol": "LgAccountMenuComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgAccountMenuItem]",
+        "source": "projects/canopy/src/lib/header/account-menu/account-menu-item.directive.ts",
+        "symbol": "LgAccountMenuItemDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-account-menu-item-label",
+        "source": "projects/canopy/src/lib/header/account-menu/account-menu-item-label/account-menu-item-label.component.ts",
+        "symbol": "LgAccountMenuItemLabelComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "clicked",
+            "property": "clicked",
+            "required": false,
+            "type": "EventEmitter<Event>"
+          },
+          {
+            "deprecated": false,
+            "name": "tabbedOut",
+            "property": "tabbedOut",
+            "required": false,
+            "type": "EventEmitter<KeyboardEvent>"
+          }
+        ],
+        "selector": "lg-account-menu-list-item",
+        "source": "projects/canopy/src/lib/header/account-menu/account-menu-list-item/account-menu-list-item.component.ts",
+        "symbol": "LgAccountMenuListItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgAccountMenuMobileItem]",
+        "source": "projects/canopy/src/lib/header/account-menu/account-menu-mobile-item.directive.ts",
+        "symbol": "LgAccountMenuMobileItemDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "menuToggled",
+            "property": "menuToggled",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "[lg-header]",
+        "source": "projects/canopy/src/lib/header/header.component.ts",
+        "symbol": "LgHeaderComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "alt",
+            "property": "alt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "href",
+            "property": "href",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "deprecated": false,
+            "name": "src",
+            "property": "src",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "tabbedOut",
+            "property": "tabbedOut",
+            "required": false,
+            "type": "EventEmitter<KeyboardEvent>"
+          }
+        ],
+        "selector": "lg-header-logo",
+        "source": "projects/canopy/src/lib/header/header-logo/header-logo.component.ts",
+        "symbol": "LgHeaderLogoComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "accessText",
+            "property": "accessText",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "deprecated": false,
+            "name": "count",
+            "property": "count",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "default": "count",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "'count' | 'dot'"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-notification-badge",
+        "source": "projects/canopy/src/lib/header/notification-badge/notification-badge.component.ts",
+        "symbol": "LgNotificationBadgeComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "showResponsiveMenu",
+            "property": "showResponsiveMenu",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-primary-nav",
+        "source": "projects/canopy/src/lib/header/primary-navigation/primary-navigation.component.ts",
+        "symbol": "LgPrimaryNavComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgPrimaryNavItem]",
+        "source": "projects/canopy/src/lib/header/primary-navigation/primary-navigation-item.directive.ts",
+        "symbol": "LgPrimaryNavItemDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "alignRight",
+            "property": "alignRight",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "clicked",
+            "property": "clicked",
+            "required": false,
+            "type": "EventEmitter<Event>"
+          },
+          {
+            "deprecated": false,
+            "name": "tabbedOut",
+            "property": "tabbedOut",
+            "required": false,
+            "type": "EventEmitter<KeyboardEvent>"
+          }
+        ],
+        "selector": "lg-primary-nav-list-item",
+        "source": "projects/canopy/src/lib/header/primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component.ts",
+        "symbol": "LgPrimaryNavListItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgPrimaryNavMobileItem]",
+        "source": "projects/canopy/src/lib/header/primary-navigation/primary-navigation-mobile-item.directive.ts",
+        "symbol": "LgPrimaryNavMobileItemDirective"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:264",
+      "statement": "apply `lg-header` as a component tag — it is an attribute selector and must be applied to a native `<header>` element."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:265",
+      "statement": "expect mobile navigation to be auto-generated — all mobile items must be explicitly authored."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:266",
+      "statement": "place `lgAccountMenuMobileItem` items inside `lg-account-menu` — they must be inside `lg-primary-nav`."
+    }
+  ],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Header component. Trigger when adding a site header, primary navigation, account menu, notification badge, or logo in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/header/account-menu/account-menu-item-label/account-menu-item-label.component.ts",
+    "projects/canopy/src/lib/header/account-menu/account-menu-item.directive.ts",
+    "projects/canopy/src/lib/header/account-menu/account-menu-list-item/account-menu-list-item.component.ts",
+    "projects/canopy/src/lib/header/account-menu/account-menu-mobile-item.directive.ts",
+    "projects/canopy/src/lib/header/account-menu/account-menu.component.ts",
+    "projects/canopy/src/lib/header/docs/guide.mdx",
+    "projects/canopy/src/lib/header/header-logo/header-logo.component.ts",
+    "projects/canopy/src/lib/header/header.component.ts",
+    "projects/canopy/src/lib/header/notification-badge/notification-badge.component.ts",
+    "projects/canopy/src/lib/header/primary-navigation/primary-navigation-item.directive.ts",
+    "projects/canopy/src/lib/header/primary-navigation/primary-navigation-list-item/primary-navigation-list-item.component.ts",
+    "projects/canopy/src/lib/header/primary-navigation/primary-navigation-mobile-item.directive.ts",
+    "projects/canopy/src/lib/header/primary-navigation/primary-navigation.component.ts",
+    "skills/best-practice/header/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-header",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/header/SKILL.md:70",
+      "statement": "**Desktop items**: use `lg-primary-nav-list-item` + `lgPrimaryNavItem`"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/header/SKILL.md:71",
+      "statement": "**Mobile primary nav items**: use `lgPrimaryNavMobileItem` + `lg-link-menu-item` structure, projected inside `lg-primary-nav`"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/header/SKILL.md:72",
+      "statement": "**Mobile account menu items**: use `lgAccountMenuMobileItem` + `lg-link-menu-item` structure, also projected inside `lg-primary-nav`"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/header/SKILL.md:73",
+      "statement": "**Desktop account menu items**: use `lg-account-menu` + `lg-account-menu-list-item` + `lgAccountMenuItem` — these are always visible in the header bar"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:255",
+      "statement": "always provide both `lgPrimaryNavMobileItem` and desktop `lg-primary-nav-list-item` entries — the navigation does not auto-derive mobile items from desktop items."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:256",
+      "statement": "project `lgAccountMenuMobileItem` anchors inside `lg-primary-nav` — they appear in the mobile nav dropdown, not in `lg-account-menu`."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:257",
+      "statement": "use `lg-account-menu` items for the header bar (visible on both mobile and desktop next to the burger menu)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:258",
+      "statement": "wrap mobile items in `lg-link-menu-item` / `lg-link-menu-item-text` structure."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:259",
+      "statement": "keep navigation items to around six maximum to avoid overcrowding."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/header/SKILL.md:260",
+      "statement": "use `lgMenuBadge` on `lg-notification-badge` to show a badge on the mobile burger menu button."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/header/SKILL.md:274",
+      "statement": "Mobile items are no longer derived automatically — provide `lgPrimaryNavMobileItem` and `lgAccountMenuMobileItem` explicitly."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/header/SKILL.md:275",
+      "statement": "Import `LgPrimaryNavMobileItemDirective`, `LgAccountMenuMobileItemDirective`, `LgLinkMenuItemComponent`, and `LgLinkMenuItemTextComponent` in your component's `imports` array."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:45"
+      ],
+      "id": "header-example-1",
+      "intent": "Follow documented header example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:57"
+      ],
+      "id": "header-example-2",
+      "intent": "Follow documented header example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:75"
+      ],
+      "id": "header-example-3",
+      "intent": "Follow documented header example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/header/SKILL.md:142"
+      ],
+      "id": "header-example-4",
+      "intent": "Follow documented header example 4."
+    }
+  ],
+  "publicSymbols": [
+    "LgAccountMenuComponent",
+    "LgAccountMenuItemDirective",
+    "LgAccountMenuItemLabelComponent",
+    "LgAccountMenuListItemComponent",
+    "LgAccountMenuMobileItemDirective",
+    "LgHeaderComponent",
+    "LgHeaderLogoComponent",
+    "LgNotificationBadgeComponent",
+    "LgPrimaryNavComponent",
+    "LgPrimaryNavItemDirective",
+    "LgPrimaryNavListItemComponent",
+    "LgPrimaryNavMobileItemDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-header]",
+    "[lgAccountMenuItem]",
+    "[lgAccountMenuMobileItem]",
+    "[lgPrimaryNavItem]",
+    "[lgPrimaryNavMobileItem]",
+    "lg-account-menu",
+    "lg-account-menu-item-label",
+    "lg-account-menu-list-item",
+    "lg-header-logo",
+    "lg-notification-badge",
+    "lg-primary-nav",
+    "lg-primary-nav-list-item"
+  ],
+  "title": "Canopy Header",
+  "tokens": []
+}

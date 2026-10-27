@@ -3,6 +3,7 @@ name: canopy-pictogram
 description: Best practices for the Canopy Pictogram component. Trigger when using lg-pictogram, LgPictogramComponent, or adding illustrative pictograms in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/pictogram/docs/guide.mdx
 ---
 

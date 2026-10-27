@@ -3,6 +3,7 @@ name: canopy-colour-foundation
 description: Best practices for Canopy's colour palette, design tokens, colour modes, tones, and accessibility principles. Trigger when choosing colours, referencing colour tokens, or structuring colour usage across an Angular project using Canopy.
 license: MIT
 metadata:
+  category: foundations
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/docs/foundation/colours/colours.mdx
 ---
 

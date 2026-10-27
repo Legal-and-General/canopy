@@ -3,6 +3,7 @@ name: canopy-pagination
 description: Best practices for the Canopy Pagination component. Trigger when paginating lists, controlling paged datasets, or adding page navigation controls in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: navigation
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/pagination/docs/guide.mdx
 ---
 

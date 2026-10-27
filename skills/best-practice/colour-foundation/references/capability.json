@@ -1,0 +1,213 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:133",
+      "statement": "Normal text: minimum 4.5:1 contrast ratio."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:134",
+      "statement": "Large text (≥18pt/24px, or ≥14pt/18.66px bold): minimum 3:1."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:135",
+      "statement": "UI components and icons: minimum 3:1."
+    }
+  ],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:121",
+      "statement": "use `green`, `red`, or `yellow` modes unless there is a clear, approved branding requirement — `blue` must be the default."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:122",
+      "statement": "reference or hard-code raw brand colour values — always use the design tokens from the component guidance."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:123",
+      "statement": "mix colour modes within a single view — consistency within each view is essential for brand recognition and accessibility."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:124",
+      "statement": "use gradients or shadows — the Canopy design language is flat."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:125",
+      "statement": "override or customise tokens — unapproved changes risk breaking consistency and accessibility."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:126",
+      "statement": "use bold or signature brand colours excessively — reserve them for emphasis or key brand moments, not as default backgrounds."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:127",
+      "statement": "use colour combinations that fail WCAG 2.2 AA contrast requirements."
+    }
+  ],
+  "category": "foundations",
+  "deprecated": null,
+  "description": "Best practices for Canopy's colour palette, design tokens, colour modes, tones, and accessibility principles. Trigger when choosing colours, referencing colour tokens, or structuring colour usage across an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/docs/foundation/colours/colours.mdx",
+    "skills/best-practice/colour-foundation/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-colour-foundation",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:34",
+      "statement": "**Use only approved tokens** — always use the design tokens specified in the component guidance, never raw hex values or custom tokens."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:35",
+      "statement": "**Clarity and accessibility** — all Canopy colour combinations meet or exceed WCAG 2.2 AA contrast standards."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:36",
+      "statement": "**Consistency** — apply the same colour roles across all products; never mix colour modes within a single view (card, panel, content area, or page)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:37",
+      "statement": "**Favour neutral backgrounds** — use off-white or white as the default background; white space is a key brand device."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:38",
+      "statement": "**Flat design language** — gradients and shadows are not permitted."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:111",
+      "statement": "lead with `blue` — it is the default mode for all Canopy products and experiences."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:112",
+      "statement": "use only the approved Canopy colour tokens specified in the component guidance — never invent your own or use raw colour values."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:113",
+      "statement": "use only one colour mode per view — mixing modes within the same card, panel, content area, or page is not permitted."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:114",
+      "statement": "apply tones purposefully — use `neutral` for productivity UIs and `bold` for brand-led moments."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:115",
+      "statement": "check colour contrast — ensure all combinations meet WCAG 2.2 AA (4.5:1 for normal text, 3:1 for large text and UI components)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:116",
+      "statement": "favour neutral backgrounds and embrace white space — use off-white or white as the default background."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md:117",
+      "statement": "always pair status colours with an appropriate icon — never rely on colour alone to communicate status."
+    }
+  ],
+  "introduced": null,
+  "kind": "foundation",
+  "patterns": [],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Colour Foundation",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "--colour-blue-600"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "--colour-greyscale-100"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "colour-blue"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "colour-directive"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "colour-foundation"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "colour-green"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "colour-greyscale"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "colour-red"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-foundation/SKILL.md",
+      "name": "colour-yellow"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ name: canopy-skeleton
 description: Best practices for the Canopy Skeleton Loading directive. Trigger when adding skeleton loading states, placeholder content while data loads, or shimmer effects in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: feedback
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/skeleton/docs/guide.mdx
 ---
 

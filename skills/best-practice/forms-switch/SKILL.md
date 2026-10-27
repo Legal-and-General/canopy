@@ -3,6 +3,7 @@ name: canopy-forms-switch
 description: Removal notice for the Canopy Switch selector. Trigger whenever lg-switch, switch variant usage, or related imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: removed
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/toggle/docs/switch/guide.mdx
 ---
 

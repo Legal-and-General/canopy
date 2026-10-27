@@ -3,6 +3,7 @@ name: canopy-button
 description: Best practices for the Canopy Button component. Trigger when adding buttons, form submissions, navigation actions, icon buttons, loading states, button groups, or toggle buttons in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: actions
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/button/docs/guide.mdx
 ---
 

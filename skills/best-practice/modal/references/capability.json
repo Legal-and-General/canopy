@@ -1,0 +1,452 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/modal/SKILL.md:136",
+      "statement": "The modal can always be dismissed by pressing the **ESC** key — do not disable this."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/modal/SKILL.md:137",
+      "statement": "The \"X\" button in the upper right corner always remains visible — do not remove it."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/modal/SKILL.md:138",
+      "statement": "Ensure the modal title (in `<lg-modal-header>`) accurately describes the modal's purpose."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "timer",
+        "property": "timer",
+        "required": false,
+        "symbol": "LgModalBodyTimerComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "closeOnOverlayClick",
+        "property": "closeOnOverlayClick",
+        "required": false,
+        "symbol": "LgModalComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgModalComponent",
+        "type": "string"
+      },
+      {
+        "default": "2",
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgModalHeaderComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "deprecated": false,
+        "name": "lgModalTrigger",
+        "property": "lgModalTrigger",
+        "required": false,
+        "symbol": "LgModalTriggerDirective",
+        "type": "string"
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "closed",
+        "property": "closed",
+        "required": false,
+        "symbol": "LgModalComponent",
+        "type": "EventEmitter<void>"
+      },
+      {
+        "deprecated": false,
+        "name": "closedEscKey",
+        "property": "closedEscKey",
+        "required": false,
+        "symbol": "LgModalComponent",
+        "type": "EventEmitter<void>"
+      },
+      {
+        "deprecated": false,
+        "name": "closedOverlayClick",
+        "property": "closedOverlayClick",
+        "required": false,
+        "symbol": "LgModalComponent",
+        "type": "EventEmitter<void>"
+      },
+      {
+        "deprecated": false,
+        "name": "open",
+        "property": "open",
+        "required": false,
+        "symbol": "LgModalComponent",
+        "type": "EventEmitter<void>"
+      },
+      {
+        "deprecated": false,
+        "name": "closed",
+        "property": "closed",
+        "required": false,
+        "symbol": "LgModalHeaderComponent",
+        "type": "EventEmitter<void>"
+      },
+      {
+        "deprecated": false,
+        "name": "clicked",
+        "property": "clicked",
+        "required": false,
+        "symbol": "LgModalTriggerDirective",
+        "type": "EventEmitter<void>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/modal/modal-body/modal-body.component.html:1",
+        "owner": "LgModalBodyComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/modal/modal.component.html:17",
+        "owner": "LgModalComponent",
+        "selector": "lg-modal-body",
+        "selectors": [
+          "lg-modal-body"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/modal/modal.component.html:18",
+        "owner": "LgModalComponent",
+        "selector": "lg-modal-footer",
+        "selectors": [
+          "lg-modal-footer"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/modal/modal.component.html:16",
+        "owner": "LgModalComponent",
+        "selector": "lg-modal-header",
+        "selectors": [
+          "lg-modal-header"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/modal/modal-footer/modal-footer.component.html:1",
+        "owner": "LgModalFooterComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/modal/modal-header/modal-header.component.html:2",
+        "owner": "LgModalHeaderComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-modal-body",
+        "source": "projects/canopy/src/lib/modal/modal-body/modal-body.component.ts",
+        "symbol": "LgModalBodyComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "timer",
+            "property": "timer",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-modal-body-timer",
+        "source": "projects/canopy/src/lib/modal/modal-body-timer/modal-body-timer.component.ts",
+        "symbol": "LgModalBodyTimerComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "closeOnOverlayClick",
+            "property": "closeOnOverlayClick",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "closed",
+            "property": "closed",
+            "required": false,
+            "type": "EventEmitter<void>"
+          },
+          {
+            "deprecated": false,
+            "name": "closedEscKey",
+            "property": "closedEscKey",
+            "required": false,
+            "type": "EventEmitter<void>"
+          },
+          {
+            "deprecated": false,
+            "name": "closedOverlayClick",
+            "property": "closedOverlayClick",
+            "required": false,
+            "type": "EventEmitter<void>"
+          },
+          {
+            "deprecated": false,
+            "name": "open",
+            "property": "open",
+            "required": false,
+            "type": "EventEmitter<void>"
+          }
+        ],
+        "selector": "lg-modal",
+        "source": "projects/canopy/src/lib/modal/modal.component.ts",
+        "symbol": "LgModalComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-modal-footer",
+        "source": "projects/canopy/src/lib/modal/modal-footer/modal-footer.component.ts",
+        "symbol": "LgModalFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "2",
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "closed",
+            "property": "closed",
+            "required": false,
+            "type": "EventEmitter<void>"
+          }
+        ],
+        "selector": "lg-modal-header",
+        "source": "projects/canopy/src/lib/modal/modal-header/modal-header.component.ts",
+        "symbol": "LgModalHeaderComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/modal/modal.service.ts",
+        "symbol": "LgModalService"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgModalTrigger",
+            "property": "lgModalTrigger",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "clicked",
+            "property": "clicked",
+            "required": false,
+            "type": "EventEmitter<void>"
+          }
+        ],
+        "selector": "[lgModalTrigger]",
+        "source": "projects/canopy/src/lib/modal/modal-trigger/modal-trigger.directive.ts",
+        "symbol": "LgModalTriggerDirective"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:126",
+      "statement": "use for interaction confirmation — consider using the Alert component instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:127",
+      "statement": "fill with too much content or allow content to overflow and scroll."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:128",
+      "statement": "use for high-stakes processes such as application journeys."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:129",
+      "statement": "use if the content can be presented within a regular page — modals are a last resort."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:130",
+      "statement": "remove or disable the \"X\" close button or ESC key dismissal."
+    }
+  ],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Modal component. Trigger when using lg-modal, LgModalComponent, LgModalService, or lgModalTrigger in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/modal/docs/guide.mdx",
+    "projects/canopy/src/lib/modal/modal-body-timer/modal-body-timer.component.ts",
+    "projects/canopy/src/lib/modal/modal-body/modal-body.component.ts",
+    "projects/canopy/src/lib/modal/modal-footer/modal-footer.component.ts",
+    "projects/canopy/src/lib/modal/modal-header/modal-header.component.ts",
+    "projects/canopy/src/lib/modal/modal-trigger/modal-trigger.directive.ts",
+    "projects/canopy/src/lib/modal/modal.component.ts",
+    "projects/canopy/src/lib/modal/modal.service.ts",
+    "skills/best-practice/modal/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-modal",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:119",
+      "statement": "use when you require the customer's full and immediate attention."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:120",
+      "statement": "keep content brief and concise."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:121",
+      "statement": "use for important warnings, as a way to prevent or correct critical errors."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/modal/SKILL.md:122",
+      "statement": "use descriptive button labels (e.g. Accept, Delete, Save — not Yes/No/OK)."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/modal/SKILL.md:40"
+      ],
+      "id": "modal-example-1",
+      "intent": "Follow documented modal example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/modal/SKILL.md:77"
+      ],
+      "id": "modal-example-2",
+      "intent": "Follow documented modal example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgModalBodyComponent",
+    "LgModalBodyTimerComponent",
+    "LgModalComponent",
+    "LgModalFooterComponent",
+    "LgModalHeaderComponent",
+    "LgModalService",
+    "LgModalTriggerDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgModalTrigger]",
+    "lg-modal",
+    "lg-modal-body",
+    "lg-modal-body-timer",
+    "lg-modal-footer",
+    "lg-modal-header"
+  ],
+  "title": "Canopy Modal",
+  "tokens": []
+}

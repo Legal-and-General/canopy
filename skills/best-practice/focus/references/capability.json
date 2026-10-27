@@ -1,0 +1,86 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgFocus",
+        "property": "lgFocus",
+        "required": false,
+        "symbol": "LgFocusDirective",
+        "type": "boolean"
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgFocus",
+            "property": "lgFocus",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgFocus]",
+        "source": "projects/canopy/src/lib/focus/focus.directive.ts",
+        "symbol": "LgFocusDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "foundations",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Focus directive. Trigger when using lgFocus or LgFocusDirective to programmatically control keyboard focus in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/focus/docs/guide.mdx",
+    "projects/canopy/src/lib/focus/focus.directive.ts",
+    "skills/best-practice/focus/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-focus",
+  "intents": [],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [],
+  "publicSymbols": [
+    "LgFocusDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgFocus]"
+  ],
+  "title": "Canopy Focus",
+  "tokens": []
+}

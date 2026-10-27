@@ -1,0 +1,521 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "align",
+        "property": "align",
+        "required": false,
+        "symbol": "LgTableCellComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "colspan",
+        "property": "colspan",
+        "required": false,
+        "symbol": "LgTableCellComponent",
+        "type": "number"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "stack",
+        "property": "stack",
+        "required": false,
+        "symbol": "LgTableCellComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "showColumnsAt",
+        "property": "showColumnsAt",
+        "required": false,
+        "symbol": "LgTableComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgTableComponent",
+        "type": null
+      },
+      {
+        "default": "AlignmentOptions.Start",
+        "deprecated": false,
+        "name": "align",
+        "property": "align",
+        "required": false,
+        "symbol": "LgTableHeadCellComponent",
+        "type": "AlignmentOptions"
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showLabel",
+        "property": "showLabel",
+        "required": false,
+        "symbol": "LgTableHeadCellComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isHidden",
+        "property": "isHidden",
+        "required": false,
+        "symbol": "LgTableRowComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "rowVariant",
+        "property": "rowVariant",
+        "required": false,
+        "symbol": "LgTableRowComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgTableRowToggleComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table-body/table-body.component.html:1",
+        "owner": "LgTableBodyComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table-cell/table-cell.component.html:19",
+        "owner": "LgTableCellComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table/table.component.html:1",
+        "owner": "LgTableComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table-expanded-detail/table-expanded-detail.component.html:2",
+        "owner": "LgTableExpandedDetailComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table-foot/table-foot.component.html:1",
+        "owner": "LgTableFootComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table-head-cell/table-head-cell.component.html:1",
+        "owner": "LgTableHeadCellComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table-head/table-head.component.html:1",
+        "owner": "LgTableHeadComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/table/table-row/table-row.component.html:1",
+        "owner": "LgTableRowComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/table/table.interface.ts",
+        "symbol": "AlignmentOptions"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-table-body]",
+        "source": "projects/canopy/src/lib/table/table-body/table-body.component.ts",
+        "symbol": "LgTableBodyComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "align",
+            "property": "align",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "colspan",
+            "property": "colspan",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "stack",
+            "property": "stack",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-table-cell]",
+        "source": "projects/canopy/src/lib/table/table-cell/table-cell.component.ts",
+        "symbol": "LgTableCellComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "showColumnsAt",
+            "property": "showColumnsAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-table]",
+        "source": "projects/canopy/src/lib/table/table/table.component.ts",
+        "symbol": "LgTableComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-table-expanded-detail",
+        "source": "projects/canopy/src/lib/table/table-expanded-detail/table-expanded-detail.component.ts",
+        "symbol": "LgTableExpandedDetailComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-table-foot]",
+        "source": "projects/canopy/src/lib/table/table-foot/table-foot.component.ts",
+        "symbol": "LgTableFootComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "AlignmentOptions.Start",
+            "deprecated": false,
+            "name": "align",
+            "property": "align",
+            "required": false,
+            "type": "AlignmentOptions"
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showLabel",
+            "property": "showLabel",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-table-head-cell]",
+        "source": "projects/canopy/src/lib/table/table-head-cell/table-head-cell.component.ts",
+        "symbol": "LgTableHeadCellComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-table-head]",
+        "source": "projects/canopy/src/lib/table/table-head/table-head.component.ts",
+        "symbol": "LgTableHeadComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isHidden",
+            "property": "isHidden",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "rowVariant",
+            "property": "rowVariant",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-table-row]",
+        "source": "projects/canopy/src/lib/table/table-row/table-row.component.ts",
+        "symbol": "LgTableRowComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-table-row-toggle",
+        "source": "projects/canopy/src/lib/table/table-row-toggle/table-row-toggle.component.ts",
+        "symbol": "LgTableRowToggleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/table/table.interface.ts",
+        "symbol": "TableColumn"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/table/table.interface.ts",
+        "symbol": "TableColumnLayoutBreakpoints"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/table/table.interface.ts",
+        "symbol": "TableRowVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/table/table.interface.ts",
+        "symbol": "TableVariant"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/table/SKILL.md:145",
+      "statement": "use both horizontal and vertical lines to separate cells — use adequate padding instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/table/SKILL.md:146",
+      "statement": "centre-align content vertically or horizontally."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/table/SKILL.md:147",
+      "statement": "left-align numbers in comparison columns."
+    }
+  ],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Table component. Trigger when displaying tabular data, comparison tables, expandable detail rows, or structured data grids in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/table/docs/guide.mdx",
+    "projects/canopy/src/lib/table/table-body/table-body.component.ts",
+    "projects/canopy/src/lib/table/table-cell/table-cell.component.ts",
+    "projects/canopy/src/lib/table/table-expanded-detail/table-expanded-detail.component.ts",
+    "projects/canopy/src/lib/table/table-foot/table-foot.component.ts",
+    "projects/canopy/src/lib/table/table-head-cell/table-head-cell.component.ts",
+    "projects/canopy/src/lib/table/table-head/table-head.component.ts",
+    "projects/canopy/src/lib/table/table-row-toggle/table-row-toggle.component.ts",
+    "projects/canopy/src/lib/table/table-row/table-row.component.ts",
+    "projects/canopy/src/lib/table/table.interface.ts",
+    "projects/canopy/src/lib/table/table/table.component.ts",
+    "skills/best-practice/table/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-table",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/table/SKILL.md:138",
+      "statement": "alternate row colours (use `variant=\"striped\"`) to aid table scanning."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/table/SKILL.md:139",
+      "statement": "use table headers to establish information hierarchy and describe rows and columns."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/table/SKILL.md:140",
+      "statement": "right-align numeric data related to size (counts, percentages) for easy comparison; use a thousands separator."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/table/SKILL.md:141",
+      "statement": "consider the responsive mobile view — columns collapse to a 2-column layout on small screens."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/table/SKILL.md:153",
+      "statement": "Default alignment is left for text, dates, postcodes, and phone numbers."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/table/SKILL.md:154",
+      "statement": "Numeric comparison columns must be right-aligned."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/table/SKILL.md:155",
+      "statement": "Column headers align to match their column data."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/table/SKILL.md:156",
+      "statement": "At mobile breakpoints the table switches to a 2-column layout (header | value) per row."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/table/SKILL.md:157",
+      "statement": "Storybook may wrap the Standard table example in a card so mode and theme controls can demonstrate colour rendering; that wrapper is for the example presentation and is not required for table usage."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/table/SKILL.md:75"
+      ],
+      "id": "table-example-1",
+      "intent": "Follow documented table example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/table/SKILL.md:95"
+      ],
+      "id": "table-example-2",
+      "intent": "Follow documented table example 2."
+    }
+  ],
+  "publicSymbols": [
+    "AlignmentOptions",
+    "LgTableBodyComponent",
+    "LgTableCellComponent",
+    "LgTableComponent",
+    "LgTableExpandedDetailComponent",
+    "LgTableFootComponent",
+    "LgTableHeadCellComponent",
+    "LgTableHeadComponent",
+    "LgTableRowComponent",
+    "LgTableRowToggleComponent",
+    "TableColumn",
+    "TableColumnLayoutBreakpoints",
+    "TableRowVariant",
+    "TableVariant"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-table-body]",
+    "[lg-table-cell]",
+    "[lg-table-foot]",
+    "[lg-table-head-cell]",
+    "[lg-table-head]",
+    "[lg-table-row]",
+    "[lg-table]",
+    "lg-table-expanded-detail",
+    "lg-table-row-toggle"
+  ],
+  "title": "Canopy Table",
+  "tokens": []
+}

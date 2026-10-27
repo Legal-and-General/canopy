@@ -3,6 +3,7 @@ name: canopy-content-area
 description: Best practices for the Canopy Content Area component. Trigger when structuring main page content sections, form journeys, or sub-pages in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: layout
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/content-area/docs/guide.mdx
 ---
 

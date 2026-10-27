@@ -1,0 +1,146 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgFlagIconComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/flag-icon/flag-icon.component.html:1",
+        "owner": "LgFlagIconComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-flag-icon",
+        "source": "projects/canopy/src/lib/flag-icon/flag-icon.component.ts",
+        "symbol": "LgFlagIconComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/flag-icon/flag-icon.registry.ts",
+        "symbol": "LgFlagIconRegistry"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/flag-icon/SKILL.md:54",
+      "statement": "use flag icons as a replacement for language labels where ambiguity is possible — a flag represents a country, not necessarily a language."
+    }
+  ],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Flag Icon component. Trigger whenever lg-flag-icon, LgFlagIconComponent, or flag icon imports appear in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/flag-icon/docs/guide.mdx",
+    "projects/canopy/src/lib/flag-icon/flag-icon.component.ts",
+    "projects/canopy/src/lib/flag-icon/flag-icon.registry.ts",
+    "skills/best-practice/flag-icon/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-flag-icon",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/flag-icon/SKILL.md:48",
+      "statement": "use the `global` flag for regions where a single country flag is ambiguous, e.g. \"Middle East\"."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/flag-icon/SKILL.md:49",
+      "statement": "always pair the flag icon with the country or region name as visible text."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/flag-icon/SKILL.md:50",
+      "statement": "ensure sufficient contrast between the flag and its surrounding background."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/flag-icon/SKILL.md:60",
+      "statement": "Use `lg-icon` for UI icons — see the UI icon skill."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/flag-icon/SKILL.md:61",
+      "statement": "Use `lg-pictogram` for illustrative pictograms."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/flag-icon/SKILL.md:30"
+      ],
+      "id": "flag-icon-example-1",
+      "intent": "Follow documented flag-icon example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgFlagIconComponent",
+    "LgFlagIconRegistry"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-flag-icon"
+  ],
+  "title": "Canopy Flag Icon",
+  "tokens": []
+}

@@ -1,0 +1,184 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgListWithIconsComponent",
+        "type": null
+      },
+      {
+        "default": "bullet-point",
+        "deprecated": false,
+        "name": "iconName",
+        "property": "iconName",
+        "required": false,
+        "symbol": "LgListWithIconsItemComponent",
+        "type": "IconName"
+      },
+      {
+        "default": "mono",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgListWithIconsItemComponent",
+        "type": "'mono' | 'positive' | 'negative'"
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/list/list-with-icons-item/list-with-icons-item.component.html:3",
+        "owner": "LgListWithIconsItemComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-list-with-icons]",
+        "source": "projects/canopy/src/lib/list/list-with-icons.component.ts",
+        "symbol": "LgListWithIconsComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "bullet-point",
+            "deprecated": false,
+            "name": "iconName",
+            "property": "iconName",
+            "required": false,
+            "type": "IconName"
+          },
+          {
+            "default": "mono",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "'mono' | 'positive' | 'negative'"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-list-with-icons-item]",
+        "source": "projects/canopy/src/lib/list/list-with-icons-item/list-with-icons-item.component.ts",
+        "symbol": "LgListWithIconsItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/list/list-with-icons.interface.ts",
+        "symbol": "ListWithIconsSize"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/list/SKILL.md:127",
+      "statement": "rely on plain `ul` or `ol` expecting Canopy list marker styling."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/list/SKILL.md:128",
+      "statement": "use removed APIs such as `iconColour`."
+    }
+  ],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for Canopy list-with-icons usage. Trigger when using lg-list-with-icons, lg-list-with-icons-item, ordered list markers, or list item variant theming in Angular.",
+  "evidence": [
+    "projects/canopy/src/lib/list/docs/guide.mdx",
+    "projects/canopy/src/lib/list/list-with-icons-item/list-with-icons-item.component.ts",
+    "projects/canopy/src/lib/list/list-with-icons.component.ts",
+    "projects/canopy/src/lib/list/list-with-icons.interface.ts",
+    "skills/best-practice/list/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-list",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/list/SKILL.md:120",
+      "statement": "apply `lg-list-with-icons` to `ul` or `ol`, and `lg-list-with-icons-item` to each `li`."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/list/SKILL.md:121",
+      "statement": "use `variant` on each item for mixed positive/negative/neutral lists."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/list/SKILL.md:122",
+      "statement": "keep nested lists to parent and one child level."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/list/SKILL.md:123",
+      "statement": "use `ol` for naturally ordered sequences; use `ul` for unordered content."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [],
+  "publicSymbols": [
+    "LgListWithIconsComponent",
+    "LgListWithIconsItemComponent",
+    "ListWithIconsSize"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-list-with-icons-item]",
+    "[lg-list-with-icons]"
+  ],
+  "title": "Canopy List with Icons",
+  "tokens": []
+}

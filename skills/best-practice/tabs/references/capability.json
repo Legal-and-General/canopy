@@ -1,0 +1,365 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "Tabs",
+        "deprecated": false,
+        "name": "label",
+        "property": "label",
+        "required": false,
+        "symbol": "LgTabNavBarComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "index",
+        "property": "index",
+        "required": false,
+        "symbol": "LgTabNavBarLinkDirective",
+        "type": "number"
+      },
+      {
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgTabNavBarLinkDirective",
+        "type": "boolean"
+      },
+      {
+        "deprecated": false,
+        "name": "isFocused",
+        "property": "isFocused",
+        "required": false,
+        "symbol": "LgTabNavBarLinkDirective",
+        "type": "boolean"
+      },
+      {
+        "deprecated": false,
+        "name": "selectedTabId",
+        "property": "selectedTabId",
+        "required": false,
+        "symbol": "LgTabNavContentComponent",
+        "type": "string"
+      },
+      {
+        "default": "tabs",
+        "deprecated": false,
+        "name": "label",
+        "property": "label",
+        "required": false,
+        "symbol": "LgTabsComponent",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "selectedTabIndexChange",
+        "property": "selectedTabIndexChange",
+        "required": false,
+        "symbol": "LgTabNavBarLinkDirective",
+        "type": "EventEmitter<number>"
+      },
+      {
+        "deprecated": false,
+        "name": "tabEvent",
+        "property": "tabEvent",
+        "required": false,
+        "symbol": "LgTabsComponent",
+        "type": "EventEmitter<{ index: number }>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/tabs/tab-item/tab-item.component.html:6",
+        "owner": "LgTabItemComponent",
+        "selector": "lg-tab-item-content",
+        "selectors": [
+          "lg-tab-item-content"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/tabs/tab-item/tab-item.component.html:2",
+        "owner": "LgTabItemComponent",
+        "selector": "lg-tab-item-heading",
+        "selectors": [
+          "lg-tab-item-heading"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/tabs/tab-item-content/tab-item-content.component.html:1",
+        "owner": "LgTabItemContentComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/tabs/tab-item-heading/tab-item-heading.component.html:1",
+        "owner": "LgTabItemHeadingComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/tabs/tab-nav-bar/tab-nav-bar.component.html:1",
+        "owner": "LgTabNavBarComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/tabs/tab-nav-content/tab-nav-content.component.html:1",
+        "owner": "LgTabNavContentComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-tab-item",
+        "source": "projects/canopy/src/lib/tabs/tab-item/tab-item.component.ts",
+        "symbol": "LgTabItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-tab-item-content",
+        "source": "projects/canopy/src/lib/tabs/tab-item-content/tab-item-content.component.ts",
+        "symbol": "LgTabItemContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-tab-item-heading",
+        "source": "projects/canopy/src/lib/tabs/tab-item-heading/tab-item-heading.component.ts",
+        "symbol": "LgTabItemHeadingComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "Tabs",
+            "deprecated": false,
+            "name": "label",
+            "property": "label",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-tab-nav-bar",
+        "source": "projects/canopy/src/lib/tabs/tab-nav-bar/tab-nav-bar.component.ts",
+        "symbol": "LgTabNavBarComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "index",
+            "property": "index",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "deprecated": false,
+            "name": "isFocused",
+            "property": "isFocused",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "selectedTabIndexChange",
+            "property": "selectedTabIndexChange",
+            "required": false,
+            "type": "EventEmitter<number>"
+          }
+        ],
+        "selector": "[lgTabNavBarLink]",
+        "source": "projects/canopy/src/lib/tabs/tab-nav-bar/tab-nav-bar-link.directive.ts",
+        "symbol": "LgTabNavBarLinkDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "selectedTabId",
+            "property": "selectedTabId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-tab-nav-content",
+        "source": "projects/canopy/src/lib/tabs/tab-nav-content/tab-nav-content.component.ts",
+        "symbol": "LgTabNavContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "tabs",
+            "deprecated": false,
+            "name": "label",
+            "property": "label",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "tabEvent",
+            "property": "tabEvent",
+            "required": false,
+            "type": "EventEmitter<{ index: number }>"
+          }
+        ],
+        "selector": "lg-tabs",
+        "source": "projects/canopy/src/lib/tabs/tabs.component.ts",
+        "symbol": "LgTabsComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Tabs component. Trigger when switching between content sections, tabbed navigation, route-based tabs, or single-page tab interfaces in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/tabs/docs/guide.mdx",
+    "projects/canopy/src/lib/tabs/tab-item-content/tab-item-content.component.ts",
+    "projects/canopy/src/lib/tabs/tab-item-heading/tab-item-heading.component.ts",
+    "projects/canopy/src/lib/tabs/tab-item/tab-item.component.ts",
+    "projects/canopy/src/lib/tabs/tab-nav-bar/tab-nav-bar-link.directive.ts",
+    "projects/canopy/src/lib/tabs/tab-nav-bar/tab-nav-bar.component.ts",
+    "projects/canopy/src/lib/tabs/tab-nav-content/tab-nav-content.component.ts",
+    "projects/canopy/src/lib/tabs/tabs.component.ts",
+    "skills/best-practice/tabs/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-tabs",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/tabs/SKILL.md:116",
+      "statement": "Use **Tabs** when users need to switch between sections and all sections are equally important."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/tabs/SKILL.md:117",
+      "statement": "Use **Accordion** when content sections can be hidden to save space but are not equally prominent."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/tabs/SKILL.md:118",
+      "statement": "Tabs are pending brand modernisation."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/tabs/SKILL.md:45"
+      ],
+      "id": "tabs-example-1",
+      "intent": "Follow documented tabs example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/tabs/SKILL.md:72"
+      ],
+      "id": "tabs-example-2",
+      "intent": "Follow documented tabs example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgTabItemComponent",
+    "LgTabItemContentComponent",
+    "LgTabItemHeadingComponent",
+    "LgTabNavBarComponent",
+    "LgTabNavBarLinkDirective",
+    "LgTabNavContentComponent",
+    "LgTabsComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgTabNavBarLink]",
+    "lg-tab-item",
+    "lg-tab-item-content",
+    "lg-tab-item-heading",
+    "lg-tab-nav-bar",
+    "lg-tab-nav-content",
+    "lg-tabs"
+  ],
+  "title": "Canopy Tabs",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/tabs/SKILL.md",
+      "name": "event"
+    }
+  ]
+}

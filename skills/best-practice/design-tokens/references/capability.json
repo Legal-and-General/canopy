@@ -1,0 +1,112 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:98",
+      "statement": "use foundation tokens in product code if a semantic or component token exists."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:99",
+      "statement": "hardcode raw values (e.g. `#005dba`) where a token is available."
+    }
+  ],
+  "category": "foundations",
+  "deprecated": null,
+  "description": "Foundation guidance for Canopy design tokens. Trigger when applying CSS custom properties for colour, typography, spacing, or component styling in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/docs/foundation/design-tokens.mdx",
+    "skills/best-practice/design-tokens/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-design-tokens",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:82",
+      "statement": "**Use component tokens** — e.g. `--button-primary-rest-background-colour`"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:83",
+      "statement": "**Use semantic tokens** — e.g. `--container-background-colour`"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:84",
+      "statement": "**Use foundation tokens only as a last resort** — if using one, consider whether a new semantic/component token should be proposed instead"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:92",
+      "statement": "use component-tier tokens first when styling Canopy components."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:93",
+      "statement": "use semantic tokens for layout and UI role styling."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md:94",
+      "statement": "check whether a token already exists before writing a raw value."
+    }
+  ],
+  "introduced": null,
+  "kind": "foundation",
+  "patterns": [],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Design Tokens — Foundation",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md",
+      "name": "colour-blue-100"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md",
+      "name": "colour-surface-fill-1"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/design-tokens/SKILL.md",
+      "name": "radius-5"
+    }
+  ]
+}

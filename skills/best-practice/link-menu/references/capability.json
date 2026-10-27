@@ -1,0 +1,306 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:127",
+      "statement": "Always use semantic navigation markup and ARIA roles for grouped navigation (e.g. `<nav role=\"navigation\">`)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:128",
+      "statement": "Each link must have a clear, descriptive label."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:129",
+      "statement": "If using icons, provide accessible text or `aria-label` for screen readers."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:130",
+      "statement": "Keyboard users must be able to tab through all links in the menu in order."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "default": "undefined",
+        "deprecated": false,
+        "name": "rightIcon",
+        "property": "rightIcon",
+        "required": false,
+        "symbol": "LgLinkMenuItemComponent",
+        "type": "string | null | undefined"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isBold",
+        "property": "isBold",
+        "required": false,
+        "symbol": "LgLinkMenuItemTextComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/link-menu/link-menu.component.html:1",
+        "owner": "LgLinkMenuComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/link-menu/link-menu-item/link-menu-item.component.html:3",
+        "owner": "LgLinkMenuItemComponent",
+        "selector": "lg-icon",
+        "selectors": [
+          "lg-icon"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/link-menu/link-menu-item/link-menu-item.component.html:7",
+        "owner": "LgLinkMenuItemComponent",
+        "selector": "lg-link-menu-item-text",
+        "selectors": [
+          "lg-link-menu-item-text"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/link-menu/link-menu-item/link-menu-item.component.html:8",
+        "owner": "LgLinkMenuItemComponent",
+        "selector": "lg-link-menu-item-text",
+        "selectors": [
+          "lg-link-menu-item-text"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/link-menu/link-menu-item/link-menu-item.component.html:11",
+        "owner": "LgLinkMenuItemComponent",
+        "selector": "lg-notification-badge",
+        "selectors": [
+          "lg-notification-badge"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/link-menu/link-menu-item-text/link-menu-item-text.component.html:1",
+        "owner": "LgLinkMenuItemTextComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-link-menu",
+        "source": "projects/canopy/src/lib/link-menu/link-menu.component.ts",
+        "symbol": "LgLinkMenuComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "undefined",
+            "deprecated": false,
+            "name": "rightIcon",
+            "property": "rightIcon",
+            "required": false,
+            "type": "string | null | undefined"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-link-menu-item",
+        "source": "projects/canopy/src/lib/link-menu/link-menu-item/link-menu-item.component.ts",
+        "symbol": "LgLinkMenuItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isBold",
+            "property": "isBold",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-link-menu-item-text",
+        "source": "projects/canopy/src/lib/link-menu/link-menu-item-text/link-menu-item-text.component.ts",
+        "symbol": "LgLinkMenuItemTextComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:118",
+      "statement": "use link menus for single actions — use a link or button instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:119",
+      "statement": "include unrelated or miscellaneous links, or present a long, unstructured list — menus must group related links and use clear hierarchy to avoid overwhelming users with \"walls of links.\""
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:120",
+      "statement": "use link menus as a substitute for contextual links within page content."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:121",
+      "statement": "overload menus with too many links or excessive secondary text."
+    }
+  ],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Link Menu component. Trigger when building link lists, navigation menus, or card-style link collections in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/link-menu/docs/guide.mdx",
+    "projects/canopy/src/lib/link-menu/link-menu-item-text/link-menu-item-text.component.ts",
+    "projects/canopy/src/lib/link-menu/link-menu-item/link-menu-item.component.ts",
+    "projects/canopy/src/lib/link-menu/link-menu.component.ts",
+    "skills/best-practice/link-menu/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-link-menu",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:111",
+      "statement": "organise links into logical, related groups with clear, descriptive section headings — especially in complex menus like sidebars, navs, or footers."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:112",
+      "statement": "provide clear, concise labels for each link."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:113",
+      "statement": "use secondary text for additional context if needed."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:114",
+      "statement": "ensure icons are meaningful and support the link's purpose."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:136",
+      "statement": "Link menus work best when they contain **between 2 and 10 links** — fewer may not justify a menu; more can overwhelm users."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:137",
+      "statement": "Use link menus only for grouped navigation, not as a catch-all for every possible destination."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link-menu/SKILL.md:138",
+      "statement": "Link menus are not a replacement for contextual links within page content."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:38"
+      ],
+      "id": "link-menu-example-1",
+      "intent": "Follow documented link-menu example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:59"
+      ],
+      "id": "link-menu-example-2",
+      "intent": "Follow documented link-menu example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:76"
+      ],
+      "id": "link-menu-example-3",
+      "intent": "Follow documented link-menu example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:87"
+      ],
+      "id": "link-menu-example-4",
+      "intent": "Follow documented link-menu example 4."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link-menu/SKILL.md:97"
+      ],
+      "id": "link-menu-example-5",
+      "intent": "Follow documented link-menu example 5."
+    }
+  ],
+  "publicSymbols": [
+    "LgLinkMenuComponent",
+    "LgLinkMenuItemComponent",
+    "LgLinkMenuItemTextComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-link-menu",
+    "lg-link-menu-item",
+    "lg-link-menu-item-text"
+  ],
+  "title": "Canopy Link Menu",
+  "tokens": []
+}

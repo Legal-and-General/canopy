@@ -1,0 +1,379 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": "string | null"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": null
+      },
+      {
+        "default": "`lg-input-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgInputFieldComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-input-${this._id}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgInputFieldComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showLabel",
+        "property": "showLabel",
+        "required": false,
+        "symbol": "LgInputFieldComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:2",
+        "owner": "LgInputFieldComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:4",
+        "owner": "LgInputFieldComponent",
+        "selector": ".lg-label--optional",
+        "selectors": [
+          ".lg-label--optional"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:30",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgInputFieldExternalButton]",
+        "selectors": [
+          "[lgInputFieldExternalButton]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:20",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgInput]",
+        "selectors": [
+          "[lgInput]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:16",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgPrefix]",
+        "selectors": [
+          "[lgPrefix]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:24",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgSuffix]",
+        "selectors": [
+          "[lgSuffix]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:5",
+        "owner": "LgInputFieldComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:6",
+        "owner": "LgInputFieldComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string | null"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-input-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgInput]",
+        "source": "projects/canopy/src/lib/forms/input/input.directive.ts",
+        "symbol": "LgInputDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-input-${this._id}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showLabel",
+            "property": "showLabel",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-input-field",
+        "source": "projects/canopy/src/lib/forms/input/input-field.component.ts",
+        "symbol": "LgInputFieldComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:144",
+      "statement": "truncate label text."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:145",
+      "statement": "use a text input when a predefined response is required — use the select component instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:146",
+      "statement": "use a text input for simple yes/no responses — use checkboxes or radio buttons instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:147",
+      "statement": "use placeholder text as a replacement for a label."
+    }
+  ],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Text Input component. Trigger when adding text input fields, single-line form inputs, prefixes, suffixes, or input buttons in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/input/docs/guide.mdx",
+    "projects/canopy/src/lib/forms/input/input-field.component.ts",
+    "projects/canopy/src/lib/forms/input/input.directive.ts",
+    "skills/best-practice/forms-input/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-input",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:137",
+      "statement": "always include a label — never rely on placeholder text alone."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:138",
+      "statement": "keep labels clear, concise, and relevant."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:139",
+      "statement": "use prefix/suffix variants to clarify the input type (e.g. currency, percentage)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-input/SKILL.md:140",
+      "statement": "keep input widths relative to the expected length of the content."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:36"
+      ],
+      "id": "forms-input-example-1",
+      "intent": "Follow documented forms-input example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:48"
+      ],
+      "id": "forms-input-example-2",
+      "intent": "Follow documented forms-input example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:70"
+      ],
+      "id": "forms-input-example-3",
+      "intent": "Follow documented forms-input example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:88"
+      ],
+      "id": "forms-input-example-4",
+      "intent": "Follow documented forms-input example 4."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-input/SKILL.md:99"
+      ],
+      "id": "forms-input-example-5",
+      "intent": "Follow documented forms-input example 5."
+    }
+  ],
+  "publicSymbols": [
+    "LgInputDirective",
+    "LgInputFieldComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgInput]",
+    "lg-input-field"
+  ],
+  "title": "Canopy Text Input",
+  "tokens": []
+}

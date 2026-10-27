@@ -1,0 +1,71 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "pipe",
+        "outputs": [],
+        "selector": "camelCase",
+        "source": "projects/canopy/src/lib/pipes/camel-case/camel-case.pipe.ts",
+        "symbol": "LgCamelCasePipe"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "utilities",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Camel Case pipe. Trigger when using LgCamelCasePipe or transforming strings to camelCase in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/pipes/camel-case/camel-case.pipe.ts",
+    "projects/canopy/src/lib/pipes/camel-case/docs/guide.mdx",
+    "skills/best-practice/pipes-camel-case/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-pipes-camel-case",
+  "intents": [],
+  "introduced": null,
+  "kind": "pipe",
+  "patterns": [],
+  "publicSymbols": [
+    "LgCamelCasePipe"
+  ],
+  "relatedSkills": [
+    "canopy-pipes-kebab-case"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "camelCase"
+  ],
+  "title": "Canopy Camel Case Pipe",
+  "tokens": []
+}

@@ -1,0 +1,9 @@
+<ng-content select="lg-sample-header" />
+<lg-icon name="information" />
+<ng-content />
+@if (showExtras) {
+  <ng-content
+    select="lg-sample-title, a, button[lg-button][priority='link']"
+  ></ng-content>
+}
+<ng-content select="[lgSuffix]" />

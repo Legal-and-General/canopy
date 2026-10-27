@@ -61,11 +61,11 @@ Reading all 50+ documentation files at once will exhaust the context window. App
 
 The target can be any of the following:
 
-| Input | What to generate |
-|---|---|
-| A component name (e.g. `button`, `accordion`, `card`) | One skill for that component |
-| A category (e.g. `forms`, `foundations`, `layout`, `navigation`) | One skill per item in that category |
-| `all` | One skill per component/foundation with a guide.mdx |
+| Input                                                            | What to generate                                    |
+| ---------------------------------------------------------------- | --------------------------------------------------- |
+| A component name (e.g. `button`, `accordion`, `card`)            | One skill for that component                        |
+| A category (e.g. `forms`, `foundations`, `layout`, `navigation`) | One skill per item in that category                 |
+| `all`                                                            | One skill per component/foundation with a guide.mdx |
 
 **Category groupings:**
 
@@ -81,11 +81,12 @@ The target can be any of the following:
 If no target is provided, ask the user to specify one before proceeding.
 
 **Skill naming rule**: convert the component path to kebab-case. No prefix is needed — the `skills/best-practice/` folder already provides context:
+
 - `button` → `button`
 - `forms/input` → `forms-input`
 - `spacing/margin` → `spacing-margin`
 
-**One topic, multiple skills**: some topics have more than one distinct source of documentation — for example a foundation/design principles doc *and* a directive/component implementation doc. In these cases, produce a separate skill for each source and have each one cross-reference the other with a short `> See also:` note. Use a `<topic>-foundation` / `<topic>-directive` (or `<topic>-component`) suffix to distinguish them. If you are uncertain whether a topic warrants one skill or several, **ask the user before generating**.
+**One topic, multiple skills**: some topics have more than one distinct source of documentation — for example a foundation/design principles doc _and_ a directive/component implementation doc. In these cases, produce a separate skill for each source and have each one cross-reference the other with a short `> See also:` note. Use a `<topic>-foundation` / `<topic>-directive` (or `<topic>-component`) suffix to distinguish them. If you are uncertain whether a topic warrants one skill or several, **ask the user before generating**.
 
 ---
 
@@ -116,6 +117,40 @@ For each target component, locate its documentation:
 
    If **any** of these signals are present, **skip Steps 4–5 and go directly to Step 5D** (the deprecation skill template below).
 
+## Step 3b — Extract and Verify Source Facts
+
+Before writing or updating a skill:
+
+1. Discover the target's public exports from `projects/canopy/src/public-api.ts` and its
+   public barrel files. Do not infer public availability from a file name.
+2. Read the component, directive, pipe, service, or utility source associated with the
+   target.
+3. Read component templates and identify projected slots separately from internal
+   implementation children.
+4. Read representative tests and the stories required to verify documented composition.
+5. Run deterministic extraction for the target:
+
+   ```bash
+   npm run generate:skill-metadata -- --skill canopy-<name>
+   ```
+
+6. Compare the extracted selectors, public symbols, inputs, outputs, types, defaults,
+   required status, deprecations, projection evidence, and token references with the guide
+   and existing skill.
+7. Stop with an actionable diagnostic when authoritative sources disagree. Do not silently
+   choose whichever source was read last.
+
+Use these diagnostic prefixes:
+
+- `PUBLIC_API_MISMATCH`;
+- `DOCS_API_MISMATCH`;
+- `COMPOSITION_CONFLICT`;
+- `BROKEN_SKILL_REFERENCE`;
+- `LOW_CONFIDENCE_METADATA`.
+
+The deterministic extractor owns technical facts. Do not manually reproduce fields that it
+can generate.
+
 ---
 
 ## Step 4 — Read and Extract Content
@@ -123,28 +158,34 @@ For each target component, locate its documentation:
 For each component, extract the following from the guide.mdx:
 
 ### 4a. Core usage
+
 - Component/directive selector and import path
 - Basic HTML usage example
 - Any mandatory structural requirements (e.g. required child components)
 
 ### 4b. Variants and inputs
+
 - All documented variants, priorities, or modes
 - The complete inputs table (name, type, default, description)
 - Any outputs if present
 
 ### 4c. Dos and Don'ts (text)
+
 - All items listed under `### Do` and `### Don't` sections
 
 ### 4d. Documentation images
+
 After reading the guide.mdx, identify every image that contains documentation content — including dos/don'ts screenshots, variant/priority illustrations, anatomy diagrams, and any image where the surrounding MDX text explains a rule or usage pattern. View each one using the image viewing tool and extract any information visible in the image that is not already captured in the MDX text: additional dos/don'ts, labelled variants, layout constraints, or other usage guidance. Add what you find to the relevant sections of the skill.
 
 The image path in `assets/docs/` maps from the MDX reference `docs/<component>/<file>.png`.
 For example: `![do](docs/button/do.png)` → `assets/docs/button/do.png`.
 
 ### 4e. Accessibility notes
+
 Any accessibility requirements, ARIA attributes, or screen-reader guidance mentioned in the guide.
 
 ### 4f. Design constraints
+
 Any notes about layout rules, colour mode requirements, or restrictions on usage that a consumer should respect.
 
 ---
@@ -161,6 +202,7 @@ name: <name>
 description: Deprecation notice for the Canopy <ComponentName>. Trigger whenever <selector>, Lg<ComponentName>Component, or related imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: <see "Choosing the category" below>
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/<component>
 ---
 
@@ -207,12 +249,13 @@ Write the skill file to `skills/best-practice/<name>/SKILL.md`.
 
 Use the following template:
 
-```markdown
+````markdown
 ---
 name: <name>
 description: <One sentence: what this skill covers and when it triggers. Mention the component name and key use cases.>
 license: MIT
 metadata:
+  category: <see "Choosing the category" below>
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/<component>/docs/guide.mdx
 ---
 
@@ -229,6 +272,7 @@ Apply this skill whenever you use `<component-selector>` or import `Lg<Component
 ```ts
 import { Lg<ComponentName>Component } from '@legal-and-general/canopy';
 ```
+````
 
 Add to your module imports or standalone component's `imports` array.
 
@@ -255,8 +299,8 @@ When to use this variant and the corresponding template snippet.
 ## Inputs
 
 | Input | Type | Default | Description |
-|-------|------|---------|-------------|
-| ... | ... | ... | ... |
+| ----- | ---- | ------- | ----------- |
+| ...   | ...  | ...     | ...         |
 
 ---
 
@@ -281,7 +325,8 @@ When to use this variant and the corresponding template snippet.
 ## Design Constraints
 
 <!-- Only include constraints that a consumer must respect (e.g. colour mode inheritance, layout restrictions). -->
-```
+
+````
 
 **Writing rules:**
 - Keep every rule actionable and specific. Avoid vague rules like "Use correctly."
@@ -290,6 +335,29 @@ When to use this variant and the corresponding template snippet.
 - Use code snippets to illustrate rules where helpful.
 - Omit any section that has no content (e.g. if there are no outputs, omit the outputs section).
 - Cap the total skill length at ~300 lines. If content exceeds this, prioritise: (1) import + basic usage, (2) dos/don'ts, (3) inputs table, (4) variants.
+
+**Choosing the category:**
+
+`metadata.category` is the single source of truth for how the orchestration metadata routes
+this skill. Set it to the product category that best describes the skill (the
+removed/deprecated lifecycle is applied automatically from the documentation, so you do not
+need to set `removed`/`deprecated` yourself unless the skill is purely a notice). Allowed
+values:
+
+| Category | Use for |
+| --- | --- |
+| `actions` | Buttons, links, and other action triggers |
+| `feedback` | Alerts, banners, modals, notices, spinners, progress, skeletons |
+| `data-display` | Cards, tables, lists, icons, pictograms, data points |
+| `navigation` | Headers, footers, tabs, breadcrumbs, pagination, side nav |
+| `forms` | Form fields, inputs, validation, and form-specific containers |
+| `layout` | Grid, spacing, page, content area, orientation, separators |
+| `foundations` | Colour, typography, design tokens, accessibility, focus |
+| `utilities` | Pipes, feature toggles, responsive show/hide helpers |
+| `principles` | Writing and forms-design guidance |
+| `styles` | Colour and shadow mixins/directives |
+| `guidance` | Cross-cutting orchestration guidance |
+| `deprecated` / `removed` | Lifecycle notices only |
 
 ---
 
@@ -300,6 +368,50 @@ After generating each skill, re-read it once and verify:
 1. **Input names** — every input used in a template snippet exists in the Inputs table for that component. Cross-check against the guide.mdx inputs table before writing each snippet.
 2. **Boolean inputs** — boolean inputs use property binding (`[input]="true"`) rather than string attributes (`input="true"`) in all examples, to avoid strict Angular template type-checking failures.
 3. **CSS custom properties** — every CSS variable reference uses the correct project naming convention. If uncertain, check existing source files in `projects/canopy/src/styles/` before including a variable name.
+4. **Public API** — every import and selector is present in the deterministic extract for the
+   target.
+5. **Conditional language** — preserve cardinality and conditions such as "one", "two or
+   more", "at most", "may", and "when related".
+6. **Evidence and confidence** — link semantic intents, alternatives, related skills,
+   accessibility constraints, and composition rules to repository evidence. Do not publish
+   low-confidence metadata without an explicit maintainer decision.
+7. **Semantic diff** — preserve intentional reviewed guidance unless its evidence changed.
+   Avoid wholesale reformatting and distinguish source-driven changes from wording-only
+   changes.
+8. **Examples come from the documentation** — copy every code example, and its element
+   nesting, from the guide or a Storybook story. Never write new example markup or move a
+   child element to a different parent. If the guide's prose and its stories disagree about
+   where an element goes, do not choose: keep the example from the story, flag the conflict
+   in your report and leave the decision to a maintainer. The metadata validator rejects a
+   Canopy child that its parent's named projection slots do not accept (`SLOT_MISMATCH`),
+   but it cannot tell whether a permitted position is the intended one.
+
+## Step 5c — Generate Semantic Metadata
+
+After the skill passes self-review:
+
+1. Propose its description, intents, aliases, when-to-use and when-not-to-use guidance,
+   related skills, alternatives, conditional composition rules, accessibility constraints,
+   responsive constraints, confidence, and evidence.
+2. Do not invent undocumented design rules or treat repeated implementation usage as design
+   approval.
+3. Ask a maintainer to resolve contradictory or low-confidence evidence before publication.
+4. Regenerate the target record and aggregate indexes:
+
+   ```bash
+   npm run generate:skill-metadata -- --skill canopy-<name>
+   npm run generate:skill-metadata
+````
+
+5. Validate metadata and run the evaluation suite:
+
+   ```bash
+   npm run validate:skill-metadata
+   npm run test:skill-metadata
+   npm run test:skill-metadata:evaluation
+   ```
+
+6. Review the generated semantic diff and confirm that every evidence path exists.
 
 ---
 
@@ -321,10 +433,13 @@ If the table does not have a "Best Practice Skills" section yet, add one above o
 
 These skills guide your AI coding agent to use Canopy components correctly.
 
-| Skill | Covers | Notes |
-|---|---|---|
-| `button` | Button usage, priorities, dos and don'ts | — |
+| Skill    | Covers                                   | Notes |
+| -------- | ---------------------------------------- | ----- |
+| `button` | Button usage, priorities, dos and don'ts | —     |
 ```
+
+If discovery, composition, version handling, or metadata behaviour changed, also update
+`docs/CANOPY_UI_SKILL.md`. Keep installation examples version-pinned.
 
 ---
 
@@ -369,5 +484,11 @@ Before finishing, verify each generated skill:
 - [ ] Inputs table matches the guide.mdx inputs table exactly
 - [ ] No internal contributor information is included (e.g. no references to raising GitHub issues or adding to Canopy itself)
 - [ ] British English is used throughout (e.g. "colour" not "color", "initialise" not "initialize")
+- [ ] Deterministic API extraction passes for the target
+- [ ] Guide and source conflicts are resolved rather than hidden
+- [ ] Semantic metadata has evidence and reviewed confidence
+- [ ] Related skills and conditional compositions are valid
+- [ ] Aggregate indexes are regenerated and unchanged on a second generation
+- [ ] Metadata validation and evaluation tests pass "initialize")
 - [ ] The skill is ≤ 300 lines
 - [ ] If the component is deprecated, a deprecation skill was generated (Step 5D) instead of a best-practice skill

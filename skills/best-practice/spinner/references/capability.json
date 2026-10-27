@@ -1,0 +1,172 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spinner/SKILL.md:84",
+      "statement": "A spinner used alone on a page or card must always be accompanied by supporting text (`text` input or adjacent copy) explaining the wait."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spinner/SKILL.md:85",
+      "statement": "Always use `lgSrAlertMessage` to notify screen reader users when loading has completed — the spinner's disappearance is not detectable by assistive technologies alone."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "default": "md",
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgSpinnerComponent",
+        "type": "SpinnerSize"
+      },
+      {
+        "deprecated": false,
+        "name": "text",
+        "property": "text",
+        "required": false,
+        "symbol": "LgSpinnerComponent",
+        "type": "string"
+      },
+      {
+        "default": "dark",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgSpinnerComponent",
+        "type": "SpinnerVariant"
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "md",
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": "SpinnerSize"
+          },
+          {
+            "deprecated": false,
+            "name": "text",
+            "property": "text",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "dark",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "SpinnerVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-spinner",
+        "source": "projects/canopy/src/lib/spinner/spinner.component.ts",
+        "symbol": "LgSpinnerComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spinner/SKILL.md:76",
+      "statement": "use a spinner if the duration of the process can be pre-determined — use a progress indicator instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spinner/SKILL.md:77",
+      "statement": "use multiple spinners in a single view."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spinner/SKILL.md:78",
+      "statement": "use a spinner inside a button or input without the `inherit` variant."
+    }
+  ],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Spinner component. Trigger when adding loading spinners, indeterminate loading states, or loading buttons in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/spinner/docs/guide.mdx",
+    "projects/canopy/src/lib/spinner/spinner.component.ts",
+    "skills/best-practice/spinner/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-spinner",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spinner/SKILL.md:70",
+      "statement": "use spinners to help manage user expectations against technical limitations."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spinner/SKILL.md:71",
+      "statement": "always accompany a page- or card-level spinner with a supporting message explaining the reason for the wait."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spinner/SKILL.md:72",
+      "statement": "pair the spinner with `lgSrAlertMessage` so screen reader users are notified when loading finishes."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spinner/SKILL.md:30"
+      ],
+      "id": "spinner-example-1",
+      "intent": "Follow documented spinner example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgSpinnerComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-spinner"
+  ],
+  "title": "Canopy Spinner",
+  "tokens": []
+}

@@ -1,0 +1,388 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:122",
+      "statement": "Use a meaningful `headingLevel` that fits the surrounding page outline."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:123",
+      "statement": "Expect `warning`, `error`, and `success` to announce as alerts because those statuses apply `role=\"alert\"` automatically."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:124",
+      "statement": "Keep the heading text descriptive enough to work as the accessible name of the toggle button."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "icon",
+        "property": "icon",
+        "required": false,
+        "symbol": "LgDetailsComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgDetailsComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "showIcon",
+        "property": "showIcon",
+        "required": false,
+        "symbol": "LgDetailsComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgDetailsPanelHeadingComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "icon",
+        "property": "icon",
+        "required": false,
+        "symbol": "LgDetailsPanelHeadingComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isActive",
+        "property": "isActive",
+        "required": false,
+        "symbol": "LgDetailsPanelHeadingComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "showIcon",
+        "property": "showIcon",
+        "required": false,
+        "symbol": "LgDetailsPanelHeadingComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "status",
+        "property": "status",
+        "required": false,
+        "symbol": "LgDetailsPanelHeadingComponent",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "closed",
+        "property": "closed",
+        "required": false,
+        "symbol": "LgDetailsComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "opened",
+        "property": "opened",
+        "required": false,
+        "symbol": "LgDetailsComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "toggleActive",
+        "property": "toggleActive",
+        "required": false,
+        "symbol": "LgDetailsPanelHeadingComponent",
+        "type": null
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/details/details.component.html:10",
+        "owner": "LgDetailsComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/details/details.component.html:1",
+        "owner": "LgDetailsComponent",
+        "selector": "lg-details-panel-heading",
+        "selectors": [
+          "lg-details-panel-heading"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/details/details-panel-heading/details-panel-heading.component.html:17",
+        "owner": "LgDetailsPanelHeadingComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "icon",
+            "property": "icon",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "showIcon",
+            "property": "showIcon",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "closed",
+            "property": "closed",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "opened",
+            "property": "opened",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "lg-details",
+        "source": "projects/canopy/src/lib/details/details.component.ts",
+        "symbol": "LgDetailsComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "icon",
+            "property": "icon",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isActive",
+            "property": "isActive",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "showIcon",
+            "property": "showIcon",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "status",
+            "property": "status",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "toggleActive",
+            "property": "toggleActive",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "lg-details-panel-heading",
+        "source": "projects/canopy/src/lib/details/details-panel-heading/details-panel-heading.component.ts",
+        "symbol": "LgDetailsPanelHeadingComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:113",
+      "statement": "use Details for large amounts of content or rich media such as audio or video."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:114",
+      "statement": "hide key information that is important or relevant to most users. Put that content on the page instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:115",
+      "statement": "use a Details panel to gate a required action such as confirming terms and conditions before a user can continue. <!-- from documentation image -->"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:116",
+      "statement": "stack multiple coloured status variants together as a substitute for clearer page structure. Use status treatments sparingly, and default to `generic`. <!-- from documentation image -->"
+    }
+  ],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Details component. Trigger when adding a single collapsible section, an FAQ-style disclosure, or a status-coloured details panel in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/details/details-panel-heading/details-panel-heading.component.ts",
+    "projects/canopy/src/lib/details/details.component.ts",
+    "projects/canopy/src/lib/details/docs/guide.mdx",
+    "skills/best-practice/details/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-details",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:106",
+      "statement": "use Details to hide secondary information that helps some users but is not essential for everyone to see immediately."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:107",
+      "statement": "keep the heading short and descriptive so users can decide quickly whether to expand it."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:108",
+      "statement": "match the width of the Details panel to the content it sits with so it feels like part of the same reading flow."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/details/SKILL.md:109",
+      "statement": "keep the content small and simple. Links and simple imagery are acceptable, but the component is intended for brief supporting content."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:130",
+      "statement": "Use Details for a single collapsible section. If you need to hide multiple related sections, prefer Accordion."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:131",
+      "statement": "Keep content collapsed by default."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:132",
+      "statement": "Match the panel width to nearby content rather than stretching it beyond the layout it belongs to."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:133",
+      "statement": "Use the `generic` status unless a stronger message treatment is genuinely needed."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:139",
+      "statement": "Use **Details** for a single collapsible section containing a small amount of supporting content."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/details/SKILL.md:140",
+      "statement": "Use **Accordion** when you need to hide large amounts of content or organise multiple related sections."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/details/SKILL.md:33"
+      ],
+      "id": "details-example-1",
+      "intent": "Follow documented details example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/details/SKILL.md:66"
+      ],
+      "id": "details-example-2",
+      "intent": "Follow documented details example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgDetailsComponent",
+    "LgDetailsPanelHeadingComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-details",
+    "lg-details-panel-heading"
+  ],
+  "title": "Canopy Details",
+  "tokens": []
+}

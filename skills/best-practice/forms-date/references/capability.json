@@ -1,0 +1,277 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": "string"
+      },
+      {
+        "default": "`lg-input-date-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "dateId",
+        "property": "dateId",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "focus",
+        "property": "focus",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": "boolean"
+      },
+      {
+        "default": "`lg-input-month-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "monthId",
+        "property": "monthId",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": "string"
+      },
+      {
+        "default": "`lg-input-year-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "yearId",
+        "property": "yearId",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/date/date-field.component.html:7",
+        "owner": "LgDateFieldComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/date/date-field.component.html:10",
+        "owner": "LgDateFieldComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "`lg-input-date-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "dateId",
+            "property": "dateId",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "focus",
+            "property": "focus",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "`lg-input-month-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "monthId",
+            "property": "monthId",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "`lg-input-year-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "yearId",
+            "property": "yearId",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-date-field",
+        "source": "projects/canopy/src/lib/forms/date/date-field.component.ts",
+        "symbol": "LgDateFieldComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/afterDate.validator.ts",
+        "symbol": "afterDateValidator"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/beforeDate.validator.ts",
+        "symbol": "beforeDateValidator"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/futureDate.validator.ts",
+        "symbol": "futureDateValidator"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/pastDate.validator.ts",
+        "symbol": "pastDateValidator"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Date Input component. Trigger when capturing or validating date values in a form in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/date/afterDate.validator.ts",
+    "projects/canopy/src/lib/forms/date/beforeDate.validator.ts",
+    "projects/canopy/src/lib/forms/date/date-field.component.ts",
+    "projects/canopy/src/lib/forms/date/docs/guide.mdx",
+    "projects/canopy/src/lib/forms/date/futureDate.validator.ts",
+    "projects/canopy/src/lib/forms/date/pastDate.validator.ts",
+    "skills/best-practice/forms-date/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-date",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-date/SKILL.md:110",
+      "statement": "The output value is a valid ISO 8601 date string: `YYYY-MM-DD`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-date/SKILL.md:111",
+      "statement": "The component automatically adds an `lg-hint` — do not add a second one."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-date/SKILL.md:112",
+      "statement": "A `#validationForm=\"ngForm\"` reference and a submit button must be present in the same `<form>` for validation to work correctly."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-date/SKILL.md:30"
+      ],
+      "id": "forms-date-example-1",
+      "intent": "Follow documented forms-date example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-date/SKILL.md:70"
+      ],
+      "id": "forms-date-example-2",
+      "intent": "Follow documented forms-date example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgDateFieldComponent",
+    "afterDateValidator",
+    "beforeDateValidator",
+    "futureDateValidator",
+    "pastDateValidator"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-date-field"
+  ],
+  "title": "Canopy Date Input",
+  "tokens": []
+}

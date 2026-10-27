@@ -1,0 +1,363 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:91",
+      "statement": "Always group related checkboxes using `lg-checkbox-group` with a clear label."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:92",
+      "statement": "Use `lg-hint` to provide extra context where needed."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:93",
+      "statement": "Ensure all checkboxes have clear, descriptive labels."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:94",
+      "statement": "Set `ariaDescribedBy` to link checkboxes to hint or validation messages."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:95",
+      "statement": "Keyboard users must be able to tab through all checkboxes and toggle them with Space."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "_disabled",
+        "property": "_disabled",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "string"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "checked",
+        "property": "checked",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "focus",
+        "property": "focus",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "boolean"
+      },
+      {
+        "default": "`lg-toggle-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-toggle-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "default": "lg",
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "CheckboxSize"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "boolean | string"
+      },
+      {
+        "default": "checkbox",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "ToggleVariant"
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "blur",
+        "property": "blur",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "EventEmitter<Event>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/toggle/toggle.component.html:39",
+        "owner": "LgToggleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/toggle/toggle.component.html:1",
+        "owner": "LgToggleComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/toggle/toggle.interface.ts",
+        "symbol": "CheckboxSize"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "_disabled",
+            "property": "_disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "checked",
+            "property": "checked",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "focus",
+            "property": "focus",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "`lg-toggle-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-toggle-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "lg",
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": "CheckboxSize"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": "boolean | string"
+          },
+          {
+            "default": "checkbox",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "ToggleVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "blur",
+            "property": "blur",
+            "required": false,
+            "type": "EventEmitter<Event>"
+          }
+        ],
+        "selector": "lg-toggle, lg-checkbox, lg-filter-checkbox",
+        "source": "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
+        "symbol": "LgToggleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/toggle/toggle.interface.ts",
+        "symbol": "ToggleVariant"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:110",
+      "statement": "rely on placeholder text or tooltips as a substitute for a label."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:111",
+      "statement": "use negative labels."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:112",
+      "statement": "use as part of a dark pattern."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:113",
+      "statement": "use when a single exclusive response is required — use radio buttons instead."
+    }
+  ],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Checkbox and Checkbox Group components. Trigger when adding multi-selection checkboxes, agreement confirmation, or grouped checkbox controls in a form in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/toggle/docs/checkbox/guide.mdx",
+    "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
+    "projects/canopy/src/lib/forms/toggle/toggle.interface.ts",
+    "skills/best-practice/forms-checkbox/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-checkbox",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:103",
+      "statement": "always provide a clear, descriptive label for every checkbox."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:104",
+      "statement": "use to allow the user to choose from multiple options."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:105",
+      "statement": "use a single checkbox to capture acknowledgement or consent (e.g. \"I agree to the terms and conditions\")."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-checkbox/SKILL.md:106",
+      "statement": "use a checkbox to confirm an action has been completed (e.g. in a checklist)."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-checkbox/SKILL.md:34"
+      ],
+      "id": "forms-checkbox-example-1",
+      "intent": "Follow documented forms-checkbox example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-checkbox/SKILL.md:46"
+      ],
+      "id": "forms-checkbox-example-2",
+      "intent": "Follow documented forms-checkbox example 2."
+    }
+  ],
+  "publicSymbols": [
+    "CheckboxSize",
+    "LgToggleComponent",
+    "ToggleVariant"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-checkbox",
+    "lg-filter-checkbox",
+    "lg-toggle"
+  ],
+  "title": "Canopy Checkbox",
+  "tokens": []
+}

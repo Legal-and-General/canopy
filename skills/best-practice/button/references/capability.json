@@ -1,0 +1,383 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/button/SKILL.md:179",
+      "statement": "Icon-only buttons must contain visually hidden text (placed inside the button alongside the icon) so screen readers announce the action."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/button/SKILL.md:180",
+      "statement": "The `lgButtonToggle` directive manages `aria-expanded` and `aria-controls` automatically when used with `LgFilterContainerComponent`. When used standalone, set `id` and `ariaControls` on the directive manually."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "backIcon",
+        "property": "backIcon",
+        "required": false,
+        "symbol": "LgButtonComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgButtonComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "fullWidth",
+        "property": "fullWidth",
+        "required": false,
+        "symbol": "LgButtonComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "iconButton",
+        "property": "iconButton",
+        "required": false,
+        "symbol": "LgButtonComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "loading",
+        "property": "loading",
+        "required": false,
+        "symbol": "LgButtonComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "priority",
+        "property": "priority",
+        "required": false,
+        "symbol": "LgButtonComponent",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "toggleActive",
+        "property": "toggleActive",
+        "required": false,
+        "symbol": "LgButtonToggleDirective",
+        "type": "EventEmitter<boolean>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/button/button.component.html:9",
+        "owner": "LgButtonComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/button/button.component.html:13",
+        "owner": "LgButtonComponent",
+        "selector": "lg-icon",
+        "selectors": [
+          "lg-icon"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/button/button-group/button-group.component.html:1",
+        "owner": "LgButtonGroupComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/button/button.interface.ts",
+        "symbol": "ButtonBehaviour"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/button/button.interface.ts",
+        "symbol": "ButtonPriority"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "backIcon",
+            "property": "backIcon",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "fullWidth",
+            "property": "fullWidth",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "iconButton",
+            "property": "iconButton",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "loading",
+            "property": "loading",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "priority",
+            "property": "priority",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-button]",
+        "source": "projects/canopy/src/lib/button/button.component.ts",
+        "symbol": "LgButtonComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-button-group",
+        "source": "projects/canopy/src/lib/button/button-group/button-group.component.ts",
+        "symbol": "LgButtonGroupComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "toggleActive",
+            "property": "toggleActive",
+            "required": false,
+            "type": "EventEmitter<boolean>"
+          }
+        ],
+        "selector": "[lgButtonToggle]",
+        "source": "projects/canopy/src/lib/button/button-toggle/button-toggle.directive.ts",
+        "symbol": "LgButtonToggleDirective"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:167",
+      "statement": "place more than one `primary` button in a single view."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:168",
+      "statement": "use too many buttons in close proximity."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:169",
+      "statement": "use vague or generic labels like \"Click here\", \"Submit\", or \"Go\"."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:170",
+      "statement": "let button labels wrap onto multiple lines."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:171",
+      "statement": "centre- or right-align buttons unless the layout specifically requires it — left-align by default."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:172",
+      "statement": "use `fullWidth` at `lg` breakpoints or wider."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:173",
+      "statement": "use a button for navigation when a link is semantically more appropriate."
+    }
+  ],
+  "category": "actions",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Button component. Trigger when adding buttons, form submissions, navigation actions, icon buttons, loading states, button groups, or toggle buttons in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/button/button-group/button-group.component.ts",
+    "projects/canopy/src/lib/button/button-toggle/button-toggle.directive.ts",
+    "projects/canopy/src/lib/button/button.component.ts",
+    "projects/canopy/src/lib/button/button.interface.ts",
+    "projects/canopy/src/lib/button/docs/guide.mdx",
+    "skills/best-practice/button/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-button",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:158",
+      "statement": "use concise, descriptive labels — for example \"Save changes\" or \"Download report\" — so users know what will happen."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:159",
+      "statement": "use a single `primary` button per page or view."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:160",
+      "statement": "use `fullWidth` on mobile breakpoints (`sm`/`md`) for easier tapping."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:161",
+      "statement": "provide visually hidden label text inside icon-only buttons for screen readers."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:162",
+      "statement": "group related buttons with `LgButtonGroupComponent` for consistent alignment."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/button/SKILL.md:163",
+      "statement": "use a `<button>` element for actions and an `<a>` element only when navigating to a new page."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:62"
+      ],
+      "id": "button-example-1",
+      "intent": "Follow documented button example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:74"
+      ],
+      "id": "button-example-2",
+      "intent": "Follow documented button example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:82"
+      ],
+      "id": "button-example-3",
+      "intent": "Follow documented button example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:95"
+      ],
+      "id": "button-example-4",
+      "intent": "Follow documented button example 4."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:115"
+      ],
+      "id": "button-example-5",
+      "intent": "Follow documented button example 5."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/button/SKILL.md:130"
+      ],
+      "id": "button-example-6",
+      "intent": "Follow documented button example 6."
+    }
+  ],
+  "publicSymbols": [
+    "ButtonBehaviour",
+    "ButtonPriority",
+    "LgButtonComponent",
+    "LgButtonGroupComponent",
+    "LgButtonToggleDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-button]",
+    "[lgButtonToggle]",
+    "lg-button-group"
+  ],
+  "title": "Canopy Button",
+  "tokens": []
+}

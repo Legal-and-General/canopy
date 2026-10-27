@@ -3,6 +3,7 @@ name: canopy-forms-filter-buttons
 description: Best practices for Canopy Filter Buttons. Trigger when adding filter button controls for narrowing data sets, with single or multiple selection, in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: forms
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/docs/filter-buttons/guide.mdx
 ---
 

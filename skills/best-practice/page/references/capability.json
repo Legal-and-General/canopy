@@ -1,0 +1,121 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/page/page.component.html:7",
+        "owner": "LgPageComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/page/page.component.html:10",
+        "owner": "LgPageComponent",
+        "selector": "[lg-footer]",
+        "selectors": [
+          "[lg-footer]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/page/page.component.html:4",
+        "owner": "LgPageComponent",
+        "selector": "[lg-header]",
+        "selectors": [
+          "[lg-header]"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-page",
+        "source": "projects/canopy/src/lib/page/page.component.ts",
+        "symbol": "LgPageComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Page component. Trigger when setting up a full-page layout with a header and footer in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/page/docs/guide.mdx",
+    "projects/canopy/src/lib/page/page.component.ts",
+    "skills/best-practice/page/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-page",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/page/SKILL.md:81",
+      "statement": "Combine `lg-page` with the grid directives (`lgContainer`, `lgRow`, `lgCol`) to create a responsive layout for the main content area."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/page/SKILL.md:33"
+      ],
+      "id": "page-example-1",
+      "intent": "Follow documented page example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/page/SKILL.md:69"
+      ],
+      "id": "page-example-2",
+      "intent": "Follow documented page example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgPageComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-page"
+  ],
+  "title": "Canopy Page",
+  "tokens": []
+}

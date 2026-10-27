@@ -3,6 +3,7 @@ name: canopy-grid
 description: Best practices for the Canopy Grid directives. Trigger when building responsive multi-column layouts, applying column spans, or offsetting columns in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: layout
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/grid/docs/guide.mdx
 ---
 

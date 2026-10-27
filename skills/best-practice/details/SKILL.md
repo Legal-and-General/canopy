@@ -3,6 +3,7 @@ name: canopy-details
 description: Best practices for the Canopy Details component. Trigger when adding a single collapsible section, an FAQ-style disclosure, or a status-coloured details panel in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/details/docs/guide.mdx
 ---
 

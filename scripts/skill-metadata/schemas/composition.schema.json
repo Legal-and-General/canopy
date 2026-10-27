@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "composition.schema.json",
+  "title": "Canopy composition rule",
+  "type": "object",
+  "required": ["id", "intent", "rules", "conditions", "tree", "evidence", "confidence"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "intent": { "type": "string", "minLength": 1 },
+    "rules": { "type": "array", "items": { "type": "string" } },
+    "conditions": { "type": "object" },
+    "tree": { "type": "array" },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "confidence": { "enum": ["high", "medium"] }
+  }
+}

@@ -1,0 +1,439 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "Progress bar",
+        "deprecated": false,
+        "name": "ariaLabel",
+        "property": "ariaLabel",
+        "required": false,
+        "symbol": "LgProgressBarComponent",
+        "type": null
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "ariaLabelledBy",
+        "property": "ariaLabelledBy",
+        "required": false,
+        "symbol": "LgProgressBarComponent",
+        "type": "null | string"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isAriaLiveRegion",
+        "property": "isAriaLiveRegion",
+        "required": false,
+        "symbol": "LgProgressBarComponent",
+        "type": null
+      },
+      {
+        "default": "0",
+        "deprecated": false,
+        "name": "max",
+        "property": "max",
+        "required": false,
+        "symbol": "LgProgressBarComponent",
+        "type": null
+      },
+      {
+        "default": "0",
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgProgressBarComponent",
+        "type": null
+      },
+      {
+        "default": "step",
+        "deprecated": false,
+        "name": "displayAs",
+        "property": "displayAs",
+        "required": false,
+        "symbol": "LgProgressIndicatorComponent",
+        "type": "ProgressDisplayAs"
+      },
+      {
+        "default": "0",
+        "deprecated": false,
+        "name": "max",
+        "property": "max",
+        "required": false,
+        "symbol": "LgProgressIndicatorComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showProgressBar",
+        "property": "showProgressBar",
+        "required": false,
+        "symbol": "LgProgressIndicatorComponent",
+        "type": null
+      },
+      {
+        "default": "Step",
+        "deprecated": false,
+        "name": "stepsPrefix",
+        "property": "stepsPrefix",
+        "required": false,
+        "symbol": "LgProgressIndicatorComponent",
+        "type": null
+      },
+      {
+        "default": "0",
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgProgressIndicatorComponent",
+        "type": null
+      },
+      {
+        "default": "step",
+        "deprecated": false,
+        "name": "displayAs",
+        "property": "displayAs",
+        "required": false,
+        "symbol": "LgProgressJourneyComponent",
+        "type": "ProgressDisplayAs"
+      },
+      {
+        "deprecated": false,
+        "name": "journeyTitleId",
+        "property": "journeyTitleId",
+        "required": false,
+        "symbol": "LgProgressJourneyComponent",
+        "type": "string"
+      },
+      {
+        "default": "0",
+        "deprecated": false,
+        "name": "max",
+        "property": "max",
+        "required": false,
+        "symbol": "LgProgressJourneyComponent",
+        "type": null
+      },
+      {
+        "default": "Step",
+        "deprecated": false,
+        "name": "stepsPrefix",
+        "property": "stepsPrefix",
+        "required": false,
+        "symbol": "LgProgressJourneyComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "stepsTextId",
+        "property": "stepsTextId",
+        "required": false,
+        "symbol": "LgProgressJourneyComponent",
+        "type": "string"
+      },
+      {
+        "default": "0",
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgProgressJourneyComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/progress-indicator/progress-header/progress-header.component.html:1",
+        "owner": "LgProgressHeaderComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/progress-indicator/progress-indicator.component.html:9",
+        "owner": "LgProgressIndicatorComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/progress-indicator/progress-indicator.component.html:20",
+        "owner": "LgProgressIndicatorComponent",
+        "selector": "lg-progress-header",
+        "selectors": [
+          "lg-progress-header"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/progress-indicator/progress-journey/progress-journey.component.html:2",
+        "owner": "LgProgressJourneyComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "Progress bar",
+            "deprecated": false,
+            "name": "ariaLabel",
+            "property": "ariaLabel",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "ariaLabelledBy",
+            "property": "ariaLabelledBy",
+            "required": false,
+            "type": "null | string"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isAriaLiveRegion",
+            "property": "isAriaLiveRegion",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "0",
+            "deprecated": false,
+            "name": "max",
+            "property": "max",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "0",
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-progress-bar",
+        "source": "projects/canopy/src/lib/progress-indicator/progress-bar/progress-bar.component.ts",
+        "symbol": "LgProgressBarComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-progress-header",
+        "source": "projects/canopy/src/lib/progress-indicator/progress-header/progress-header.component.ts",
+        "symbol": "LgProgressHeaderComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "step",
+            "deprecated": false,
+            "name": "displayAs",
+            "property": "displayAs",
+            "required": false,
+            "type": "ProgressDisplayAs"
+          },
+          {
+            "default": "0",
+            "deprecated": false,
+            "name": "max",
+            "property": "max",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showProgressBar",
+            "property": "showProgressBar",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "Step",
+            "deprecated": false,
+            "name": "stepsPrefix",
+            "property": "stepsPrefix",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "0",
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-progress-indicator",
+        "source": "projects/canopy/src/lib/progress-indicator/progress-indicator.component.ts",
+        "symbol": "LgProgressIndicatorComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "step",
+            "deprecated": false,
+            "name": "displayAs",
+            "property": "displayAs",
+            "required": false,
+            "type": "ProgressDisplayAs"
+          },
+          {
+            "deprecated": false,
+            "name": "journeyTitleId",
+            "property": "journeyTitleId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "0",
+            "deprecated": false,
+            "name": "max",
+            "property": "max",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "Step",
+            "deprecated": false,
+            "name": "stepsPrefix",
+            "property": "stepsPrefix",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "stepsTextId",
+            "property": "stepsTextId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "0",
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-progress-journey",
+        "source": "projects/canopy/src/lib/progress-indicator/progress-journey/progress-journey.component.ts",
+        "symbol": "LgProgressJourneyComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/progress-indicator/progress-indicator.interface.ts",
+        "symbol": "ProgressDisplayAs"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Progress Indicator component. Trigger when adding progress bars, multi-step form journey progress, step counters, or percentage indicators in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/progress-indicator/docs/guide.mdx",
+    "projects/canopy/src/lib/progress-indicator/progress-bar/progress-bar.component.ts",
+    "projects/canopy/src/lib/progress-indicator/progress-header/progress-header.component.ts",
+    "projects/canopy/src/lib/progress-indicator/progress-indicator.component.ts",
+    "projects/canopy/src/lib/progress-indicator/progress-indicator.interface.ts",
+    "projects/canopy/src/lib/progress-indicator/progress-journey/progress-journey.component.ts",
+    "skills/best-practice/progress-indicator/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-progress-indicator",
+  "intents": [],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/progress-indicator/SKILL.md:34"
+      ],
+      "id": "progress-indicator-example-1",
+      "intent": "Follow documented progress-indicator example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/progress-indicator/SKILL.md:40"
+      ],
+      "id": "progress-indicator-example-2",
+      "intent": "Follow documented progress-indicator example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgProgressBarComponent",
+    "LgProgressHeaderComponent",
+    "LgProgressIndicatorComponent",
+    "LgProgressJourneyComponent",
+    "ProgressDisplayAs"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-progress-bar",
+    "lg-progress-header",
+    "lg-progress-indicator",
+    "lg-progress-journey"
+  ],
+  "title": "Canopy Progress Indicator",
+  "tokens": []
+}

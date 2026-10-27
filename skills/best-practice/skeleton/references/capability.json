@@ -1,0 +1,147 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "lgSkeletonHeight",
+        "property": "lgSkeletonHeight",
+        "required": false,
+        "symbol": "LgSkeletonDirective",
+        "type": "string"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "lgSkeletonRightAlign",
+        "property": "lgSkeletonRightAlign",
+        "required": false,
+        "symbol": "LgSkeletonDirective",
+        "type": null
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "lgSkeletonWidth",
+        "property": "lgSkeletonWidth",
+        "required": false,
+        "symbol": "LgSkeletonDirective",
+        "type": "string"
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "lgSkeletonHeight",
+            "property": "lgSkeletonHeight",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "lgSkeletonRightAlign",
+            "property": "lgSkeletonRightAlign",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "lgSkeletonWidth",
+            "property": "lgSkeletonWidth",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgSkeleton]",
+        "source": "projects/canopy/src/lib/skeleton/skeleton.directive.ts",
+        "symbol": "LgSkeletonDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Skeleton Loading directive. Trigger when adding skeleton loading states, placeholder content while data loads, or shimmer effects in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/skeleton/docs/guide.mdx",
+    "projects/canopy/src/lib/skeleton/skeleton.directive.ts",
+    "skills/best-practice/skeleton/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-skeleton",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/skeleton/SKILL.md:54",
+      "statement": "On composite components made up of child components, apply `lgSkeleton` to the **child** components or to elements wrapping projected content — not to the composite root."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/skeleton/SKILL.md:55",
+      "statement": "For components that project content directly (e.g. `lg-data-point-value`), apply `lgSkeleton` to the component itself."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/skeleton/SKILL.md:56",
+      "statement": "For components that project into another component (e.g. `lg-data-point-label` → `lg-heading`), wrap the projected content in a `<span lgSkeleton>`."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/skeleton/SKILL.md:30"
+      ],
+      "id": "skeleton-example-1",
+      "intent": "Follow documented skeleton example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgSkeletonDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgSkeleton]"
+  ],
+  "title": "Canopy Skeleton Loading",
+  "tokens": []
+}

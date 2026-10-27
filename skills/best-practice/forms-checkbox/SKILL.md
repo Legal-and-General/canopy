@@ -3,6 +3,7 @@ name: canopy-forms-checkbox
 description: Best practices for the Canopy Checkbox and Checkbox Group components. Trigger when adding multi-selection checkboxes, agreement confirmation, or grouped checkbox controls in a form in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: forms
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/toggle/docs/checkbox/guide.mdx
 ---
 

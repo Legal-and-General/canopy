@@ -3,13 +3,10 @@
 const fs = require('fs');
 const path = require('path');
 
-/**
- * Parses the `metadata.source` value from a SKILL.md frontmatter block and
- * returns the repository-relative path of the corresponding .mdx file.
- *
- * @param {string} content - Raw file contents of a SKILL.md.
- * @returns {string|null}
- */
+const SKILL_SOURCE_PREFIX = 'https://github.com/Legal-and-General/canopy/tree/master/';
+const ORCHESTRATION_REFERENCES =
+  'skills/best-practice/canopy-ui-orchestration/references/';
+
 function extractSourcePath(content) {
   const match = content.match(/^\s*source:\s*(.+)$/m);
 
@@ -19,25 +16,32 @@ function extractSourcePath(content) {
 
   const url = match[1].trim();
 
-  // The Best Practice Skill Generator always writes metadata.source URLs with this
-  // prefix. It is a fixed convention, not a branch reference — master here just
-  // reflects the canonical URL format used when generating skills.
-  const SKILL_SOURCE_PREFIX = 'https://github.com/Legal-and-General/canopy/tree/master/';
-
   return url.startsWith(SKILL_SOURCE_PREFIX)
     ? url.slice(SKILL_SOURCE_PREFIX.length)
     : null;
 }
 
-/**
- * Fetches every file changed in the PR, handling pagination.
- *
- * @param {object} github
- * @param {string} owner
- * @param {string} repo
- * @param {number} pullNumber
- * @returns {Promise<string[]>} Array of relative file paths.
- */
+function capabilityPathForSkill(skillFile) {
+  return path.posix.join(path.posix.dirname(skillFile), 'references/capability.json');
+}
+
+function sourceCoversGuide(sourcePath, guidePath) {
+  return sourcePath === guidePath || guidePath.startsWith(`${sourcePath}/`);
+}
+
+function isMetadataSource(file) {
+  return (
+    file === 'projects/canopy/src/public-api.ts' ||
+    /^projects\/canopy\/src\/lib\/.+\/index\.ts$/.test(file) ||
+    /^projects\/canopy\/src\/lib\/.+\.(component|directive|pipe|service)\.ts$/.test(
+      file,
+    ) ||
+    /^projects\/canopy\/src\/lib\/.+\.component\.html$/.test(file) ||
+    /^projects\/canopy\/src\/lib\/.+\/docs\/.+\.stories\.ts$/.test(file) ||
+    /^projects\/canopy\/src\/styles\/.+\.(scss|mdx)$/.test(file)
+  );
+}
+
 async function listChangedFiles(github, owner, repo, pullNumber) {
   const filenames = [];
   let page = 1;
@@ -52,7 +56,7 @@ async function listChangedFiles(github, owner, repo, pullNumber) {
       page,
     });
 
-    filenames.push(...data.map(f => f.filename));
+    filenames.push(...data.map((file) => file.filename));
     hasMore = data.length === 100;
     page++;
   }
@@ -60,45 +64,72 @@ async function listChangedFiles(github, owner, repo, pullNumber) {
   return filenames;
 }
 
-/**
- * Checks that every changed .mdx file in the PR has a corresponding
- * best-practice skill that was also added or updated. Fails the workflow step
- * when documentation changes are not accompanied by skill updates.
- *
- * @param {object} params
- * @param {object} params.github     - Octokit client from actions/github-script.
- * @param {object} params.context    - Actions context from actions/github-script.
- * @param {object} params.core       - Actions core from actions/github-script.
- */
-module.exports = async ({ github, context: { repo: { repo, owner }, payload }, core }) => {
-  const pullNumber = payload.pull_request.number;
-
-  const labels = (payload.pull_request.labels || []).map(l => l.name);
+module.exports = async ({
+  github,
+  context: {
+    repo: { repo, owner },
+    payload,
+  },
+  core,
+}) => {
+  const pullRequest = payload.pull_request;
+  const labels = (pullRequest.labels || []).map((label) => label.name);
 
   if (labels.includes('skip-skill-check')) {
-    core.info('PR has the "skip-skill-check" label. Skipping skill update check.');
+    const bypassReason = pullRequest.body?.match(
+      /Skill check bypass reason:\s*(.+)/i,
+    )?.[1];
+
+    if (!bypassReason?.trim()) {
+      core.setFailed(
+        'SKILL_STALE: The "skip-skill-check" label requires a pull request body entry in the form "Skill check bypass reason: <reason>".',
+      );
+
+      return;
+    }
+
+    core.info(
+      `PR has the "skip-skill-check" label. Bypass reason: ${bypassReason.trim()}`,
+    );
 
     return;
   }
 
-  const changedFiles = await listChangedFiles(github, owner, repo, pullNumber);
-
-  const changedGuides = changedFiles.filter(
-    f => path.extname(f) === '.mdx',
-  );
-
+  const changedFiles = await listChangedFiles(github, owner, repo, pullRequest.number);
+  const changedGuides = changedFiles.filter((file) => path.extname(file) === '.mdx');
   const changedSkills = changedFiles.filter(
-    f => f.startsWith('skills/best-practice/') && path.basename(f) === 'SKILL.md',
+    (file) =>
+      file.startsWith('skills/best-practice/') && path.basename(file) === 'SKILL.md',
+  );
+  const changedCapabilities = new Set(
+    changedFiles.filter((file) =>
+      /^skills\/best-practice\/.+\/references\/capability\.json$/.test(file),
+    ),
+  );
+  const aggregateChanged = changedFiles.some(
+    (file) =>
+      file === `${ORCHESTRATION_REFERENCES}capabilities.json` ||
+      file === `${ORCHESTRATION_REFERENCES}compositions.json` ||
+      file === `${ORCHESTRATION_REFERENCES}schema-version.json`,
+  );
+  const metadataSources = changedFiles.filter(isMetadataSource);
+  const schemasChanged = changedFiles.some((file) =>
+    file.startsWith('scripts/skill-metadata/schemas/'),
   );
 
-  if (changedGuides.length === 0 && changedSkills.length === 0) {
-    core.info('No .mdx files or best-practice skills changed. Skipping check.');
+  if (
+    changedGuides.length === 0 &&
+    changedSkills.length === 0 &&
+    changedCapabilities.size === 0 &&
+    metadataSources.length === 0 &&
+    !schemasChanged
+  ) {
+    core.info('No skill metadata inputs changed. Skipping impact check.');
 
     return;
   }
 
-  // Build a set of .mdx paths that are covered by a changed skill.
-  const coveredGuidePaths = new Set();
+  const skillSources = new Map();
 
   for (const skillFile of changedSkills) {
     try {
@@ -106,59 +137,118 @@ module.exports = async ({ github, context: { repo: { repo, owner }, payload }, c
       const sourcePath = extractSourcePath(content);
 
       if (sourcePath) {
-        coveredGuidePaths.add(sourcePath);
+        skillSources.set(skillFile, sourcePath);
       }
     } catch {
-      // The skill file may have been deleted in this PR — ignore.
+      // Deleted skills are validated by deterministic generation and reference checks.
     }
   }
 
-  // Warn when a skill was amended but its source .mdx was not — likely a bug fix.
-  const skillsWithoutDocChange = [...coveredGuidePaths].filter(
-    p => !changedGuides.includes(p),
+  const missingSkillUpdates = changedGuides.filter(
+    (guide) =>
+      ![...skillSources.values()].some((source) => sourceCoversGuide(source, guide)),
   );
+  const coveredGuides = changedGuides.filter(
+    (guide) => !missingSkillUpdates.includes(guide),
+  );
+  const staleCapabilities = changedSkills
+    .map(capabilityPathForSkill)
+    .filter((capability) => !changedCapabilities.has(capability));
+  const skillsWithoutGuideChange = [...skillSources.entries()]
+    .filter(
+      ([, source]) => !changedGuides.some((guide) => sourceCoversGuide(source, guide)),
+    )
+    .map(([, source]) => source);
+  const failures = [];
 
-  if (skillsWithoutDocChange.length > 0) {
+  if (missingSkillUpdates.length > 0) {
+    failures.push(
+      missingSkillUpdates.length === changedGuides.length
+        ? `SKILL_STALE: ${missingSkillUpdates.length} .mdx file(s) were changed but no corresponding best-practice skill(s) were found.`
+        : `SKILL_STALE: ${missingSkillUpdates.length} of ${changedGuides.length} changed .mdx file(s) are missing a corresponding best-practice skill update.`,
+      ...missingSkillUpdates.map((file) => `  - ${file}`),
+    );
+
+    if (coveredGuides.length > 0) {
+      failures.push('Already covered:', ...coveredGuides.map((file) => `  - ${file}`));
+    }
+  }
+
+  if (staleCapabilities.length > 0) {
+    // Non-blocking: the authoritative `generate:skill-metadata --check` step
+    // deterministically regenerates and byte-compares, so it owns drift
+    // detection. This diff-based heuristic only guides and must never preempt
+    // that step with a false positive (e.g. a SKILL.md edit that does not alter
+    // the generated metadata).
     core.warning(
-      `${skillsWithoutDocChange.length} skill(s) were updated without a corresponding .mdx change. ` +
-        `This is allowed (e.g. fixing a skill bug) but please double-check the source documentation is still accurate:\n` +
-        skillsWithoutDocChange.map(f => `  - ${f}`).join('\n'),
+      [
+        'INDEX_STALE: Changed skills may require regenerated per-skill capability metadata.',
+        ...staleCapabilities.map((file) => `  - ${file}`),
+        'If generation produces a diff, run: npm run generate:skill-metadata',
+      ].join('\n'),
     );
   }
 
-  if (changedGuides.length === 0) {
+  if (
+    (changedGuides.length > 0 ||
+      changedSkills.length > 0 ||
+      changedCapabilities.size > 0 ||
+      schemasChanged) &&
+    !aggregateChanged
+  ) {
+    // Non-blocking for the same reason as above; drift is enforced by the
+    // deterministic generation check.
+    core.warning(
+      [
+        'INDEX_STALE: Skill or schema inputs changed without regenerated aggregate indexes.',
+        'If generation produces a diff, run: npm run generate:skill-metadata',
+      ].join('\n'),
+    );
+  }
+
+  if (skillsWithoutGuideChange.length > 0) {
+    core.warning(
+      `${skillsWithoutGuideChange.length} skill(s) changed without their source documentation. ` +
+        'This is allowed for a skill correction, but verify the source remains accurate:\n' +
+        skillsWithoutGuideChange.map((file) => `  - ${file}`).join('\n'),
+    );
+  }
+
+  if (metadataSources.length > 0) {
+    core.info(
+      `Metadata extraction will verify ${metadataSources.length} changed source file(s). ` +
+        'Implementation-only changes are allowed when deterministic generation produces no diff.',
+    );
+  }
+
+  if (changedGuides.length > 0) {
+    core.info(
+      `Found ${changedGuides.length} changed .mdx file(s):\n${changedGuides
+        .map((file) => `  - ${file}`)
+        .join('\n')}`,
+    );
+  }
+
+  if (failures.length > 0) {
+    core.setFailed(
+      [
+        ...failures,
+        '',
+        'Run the Best Practice Skill Generator for semantic changes, then commit the regenerated metadata.',
+      ].join('\n'),
+    );
+
     return;
   }
 
   core.info(
-    `Found ${changedGuides.length} changed .mdx file(s):\n${changedGuides.map(f => `  - ${f}`).join('\n')}`,
+    [
+      'Skill metadata impact check passed.',
+      `All ${coveredGuides.length} changed .mdx file(s) have a corresponding best-practice skill update.`,
+      `Changed guides: ${changedGuides.length}`,
+      `Changed skills: ${changedSkills.length}`,
+      `Changed capabilities: ${changedCapabilities.size}`,
+      `Changed metadata sources: ${metadataSources.length}`,
+    ].join('\n'),
   );
-
-  const missing = changedGuides.filter(g => !coveredGuidePaths.has(g));
-  const covered = changedGuides.filter(g => coveredGuidePaths.has(g));
-
-  if (missing.length === 0) {
-    core.info(
-      `All ${covered.length} changed .mdx file(s) have a corresponding best-practice skill update.`,
-    );
-
-    return;
-  }
-
-  const lines = [
-    missing.length === changedGuides.length
-      ? `${missing.length} .mdx file(s) were changed but no corresponding best-practice skill(s) were found.`
-      : `${missing.length} of ${changedGuides.length} changed .mdx file(s) are missing a corresponding best-practice skill update.`,
-    '',
-    'Please run the "Best Practice Skill Generator" agent and commit the generated skill(s) alongside the documentation changes.',
-    '',
-    'Missing skills for:',
-    ...missing.map(f => `  - ${f}`),
-  ];
-
-  if (covered.length > 0) {
-    lines.push('', 'Already covered:', ...covered.map(f => `  - ${f}`));
-  }
-
-  core.setFailed(lines.join('\n'));
 };

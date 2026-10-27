@@ -1,0 +1,230 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgColour",
+        "property": "lgColour",
+        "required": false,
+        "symbol": "LgColourDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColourTheme",
+        "property": "lgColourTheme",
+        "required": false,
+        "symbol": "LgColourDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/colour/colour.interface.ts",
+        "symbol": "Colour"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/colour/colour-class.service.ts",
+        "symbol": "ColourClassService"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/colour/colour.interface.ts",
+        "symbol": "ColourTheme"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgColour",
+            "property": "lgColour",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColourTheme",
+            "property": "lgColourTheme",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgColour]",
+        "source": "projects/canopy/src/lib/colour/colour.directive.ts",
+        "symbol": "LgColourDirective"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:99",
+      "statement": "use `yellow` for general marketing or promotional content — it is reserved for warnings and cautions. Use `blue` instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:100",
+      "statement": "override the CSS custom property values set by `lgColour` with custom colours (e.g. do not write `--card-background-colour: #42AEEA` in your own styles). This breaks the design token system."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:101",
+      "statement": "use raw hex values in place of design tokens — always reference the named token so colour changes propagate correctly."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:102",
+      "statement": "apply multiple different colour modes across related components on a single page without semantic purpose — mixing `blue`, `green`, `yellow`, and `red` on one view creates visual noise and dilutes meaning."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:103",
+      "statement": "rely on colour alone to convey status or error information — always include a supporting icon (e.g. the error ✕ icon in a red alert), so the message is accessible to all users."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:104",
+      "statement": "apply custom background colours directly to component elements via CSS — use the `lgColour` directive instead so all nested components inherit the correct design tokens."
+    }
+  ],
+  "category": "styles",
+  "deprecated": null,
+  "description": "Best practices for applying colour modes and themes with the Canopy lgColour directive. Trigger when setting colours, themes, or colour modes on Canopy components in an Angular project.",
+  "evidence": [
+    "projects/canopy/src/lib/colour/colour-class.service.ts",
+    "projects/canopy/src/lib/colour/colour.directive.ts",
+    "projects/canopy/src/lib/colour/colour.interface.ts",
+    "projects/canopy/src/lib/colour/docs/guide.mdx",
+    "skills/best-practice/colour-directive/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-colour-directive",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:91",
+      "statement": "choose a colour mode that reflects the semantic meaning of the content — use `red` for errors, `yellow` for warnings, `green` for success, and `blue` for neutral/general content."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:92",
+      "statement": "use design tokens (CSS custom properties) when referencing colours in your own styles — for example `var(--card-background-colour)` — rather than raw hex values."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:93",
+      "statement": "pair colour with an icon or other non-colour indicator when conveying status or errors, so the information is accessible to users who cannot distinguish colours."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:94",
+      "statement": "keep colour variation consistent and purposeful within a page — apply a limited, coherent palette so users can rely on colour as a meaningful signal."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:95",
+      "statement": "verify that any custom colour combinations you introduce meet WCAG contrast requirements (minimum 4.5:1 for normal text, 3:1 for large text)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:110",
+      "statement": "The `lgColour` directive adds `lg-mode-{colour}` and `lg-theme-{theme}` classes to the host element. All nested Canopy components automatically inherit and adapt to these classes via CSS custom properties — you do not need to apply the directive to child components."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md:111",
+      "statement": "Colour modes and themes are defined by the design system. Do not create new modes or extend the existing ones with custom values."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/colour-directive/SKILL.md:34"
+      ],
+      "id": "colour-directive-example-1",
+      "intent": "Follow documented colour-directive example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/colour-directive/SKILL.md:42"
+      ],
+      "id": "colour-directive-example-2",
+      "intent": "Follow documented colour-directive example 2."
+    }
+  ],
+  "publicSymbols": [
+    "Colour",
+    "ColourClassService",
+    "ColourTheme",
+    "LgColourDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgColour]"
+  ],
+  "title": "Canopy Colour Directive",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md",
+      "name": "--card-background-colour"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md",
+      "name": "colour-directive"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/colour-directive/SKILL.md",
+      "name": "colour-foundation"
+    }
+  ]
+}

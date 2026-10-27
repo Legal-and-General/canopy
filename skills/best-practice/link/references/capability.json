@@ -1,0 +1,154 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:59",
+      "statement": "All images in documentation or UI must have meaningful `alt` text (or `alt=\"\"` for decorative images)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:60",
+      "statement": "Always provide visually hidden text for external links to indicate they open in a new tab."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:61",
+      "statement": "Link text must always be descriptive of the destination or purpose."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:62",
+      "statement": "If using icons, provide accessible text or `aria-label` for screen readers as needed."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:63",
+      "statement": "Keyboard users must be able to tab through all links in order."
+    }
+  ],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:111",
+      "statement": "use links for primary actions — use a button instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:112",
+      "statement": "use generic phrases like \"click here\" or \"read more\" without context."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:113",
+      "statement": "use unnecessarily long link text — keep it concise without sacrificing clarity."
+    }
+  ],
+  "category": "actions",
+  "deprecated": null,
+  "description": "Best practices for Canopy link styles. Trigger when using anchor tags, links with icons, external links, or the lg-unstyled-link class in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/styles/docs/link/guide.mdx",
+    "skills/best-practice/link/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-link",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:81",
+      "statement": "Default context: blue links."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:82",
+      "statement": "Status contexts (success, error): monochrome links."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/link/SKILL.md:83",
+      "statement": "Bold backgrounds: white (blue/green/red) or black (yellow)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:103",
+      "statement": "use links for navigation — when the element takes a user to a new page, view, or resource."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:104",
+      "statement": "write concise, meaningful link text that describes the destination or purpose."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:105",
+      "statement": "use icons to provide additional context (e.g. file type, external link)."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:106",
+      "statement": "use the external link icon and visually hidden text for links opening in a new tab."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/link/SKILL.md:107",
+      "statement": "group related links at the end of sections to aid navigation."
+    }
+  ],
+  "introduced": null,
+  "kind": "guidance",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link/SKILL.md:34"
+      ],
+      "id": "link-example-1",
+      "intent": "Follow documented link example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/link/SKILL.md:47"
+      ],
+      "id": "link-example-2",
+      "intent": "Follow documented link example 2."
+    }
+  ],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Link",
+  "tokens": []
+}
