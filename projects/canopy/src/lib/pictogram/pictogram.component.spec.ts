@@ -69,7 +69,7 @@ describe('LgPictogramComponent', () => {
         '<svg id="test">test-svg<path id="lg-icon-fill-primary"></path></svg>',
       );
 
-      component.name = 'accessible' as any;
+      component.name = 'accessible';
       fixture.detectChanges();
       await fixture.whenStable();
 
@@ -87,7 +87,7 @@ describe('LgPictogramComponent', () => {
 
     it('should not throw an error when a pictogram is not registered', () => {
       expect(() => {
-        component.name = 'accessible' as any;
+        component.name = 'accessible';
       }).not.toThrow();
     });
 
@@ -96,7 +96,7 @@ describe('LgPictogramComponent', () => {
 
       pictogramRegistryMock.get.mockResolvedValue(undefined);
 
-      component.name = 'accessible' as any;
+      component.name = 'accessible';
       fixture.detectChanges();
       await fixture.whenStable();
 

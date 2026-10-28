@@ -192,7 +192,7 @@ describe('ColourClassService', () => {
     });
 
     it('should handle undefined classes gracefully', () => {
-      service.removeColourClasses(mockRenderer, mockElement, undefined as any);
+      service.removeColourClasses(mockRenderer, mockElement, undefined);
 
       expect(mockRenderer.removeClass).not.toHaveBeenCalled();
     });

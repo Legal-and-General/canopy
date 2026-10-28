@@ -84,6 +84,10 @@ Current linting includes
 - `stylelint` and `prettier` for scss files
 - `prettier` for json files
 
+Stylelint's `at-rule-prelude-no-invalid` rule excludes Sass `@mixin` and `@function`
+declarations because their parameter syntax differs from CSS. Standard CSS at-rule
+preludes remain validated.
+
 ## Running visual tests
 
 Visual tests run using [Percy](https://percy.io/). The visual tests will take screenshots of the components and compare them to the baseline images.

@@ -33,7 +33,7 @@ describe('LgSelectFieldComponent', () => {
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
-    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+    };
 
     TestBed.configureTestingModule({
       imports: [
