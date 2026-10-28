@@ -62,10 +62,6 @@ export const Basic = {
       control: 'boolean',
       table: { category: pageSectionsCategory },
     },
-    showContent: {
-      control: 'boolean',
-      table: { category: pageSectionsCategory },
-    },
     showFooter: {
       control: 'boolean',
       table: { category: pageSectionsCategory },
@@ -76,6 +72,9 @@ export const Basic = {
     },
   },
   parameters: {
+    controls: {
+      exclude: [ 'showContent' ],
+    },
     docs: {
       source: {
         code: basicTemplate,

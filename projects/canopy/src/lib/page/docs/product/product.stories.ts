@@ -117,27 +117,27 @@ const productPageTemplate = `
                           <lg-link-menu>
                             <a href="#">
                               <lg-link-menu-item>
-                                <lg-link-menu-item-text>Primary label</lg-link-menu-item-text>
+                                <lg-link-menu-item-text [isBold]="false">Primary label</lg-link-menu-item-text>
                               </lg-link-menu-item>
                             </a>
                             <a href="#">
                               <lg-link-menu-item>
-                                <lg-link-menu-item-text>Primary label</lg-link-menu-item-text>
+                                <lg-link-menu-item-text [isBold]="false">Primary label</lg-link-menu-item-text>
                               </lg-link-menu-item>
                             </a>
                             <a href="#">
                               <lg-link-menu-item>
-                                <lg-link-menu-item-text>Primary label</lg-link-menu-item-text>
+                                <lg-link-menu-item-text [isBold]="false">Primary label</lg-link-menu-item-text>
                               </lg-link-menu-item>
                             </a>
                             <a href="#">
                               <lg-link-menu-item>
-                                <lg-link-menu-item-text>Primary label</lg-link-menu-item-text>
+                                <lg-link-menu-item-text [isBold]="false">Primary label</lg-link-menu-item-text>
                               </lg-link-menu-item>
                             </a>
                             <a href="#">
                               <lg-link-menu-item>
-                                <lg-link-menu-item-text>Primary label</lg-link-menu-item-text>
+                                <lg-link-menu-item-text [isBold]="false">Primary label</lg-link-menu-item-text>
                               </lg-link-menu-item>
                             </a>
                           </lg-link-menu>
@@ -243,7 +243,7 @@ const productPageTemplate = `
     <div lgContainer>
       <div lgRow>
         <div lgCol="12">
-          <h2 class="lg-font--expressive">Heading</h2>
+          <h2 class="lg-font--expressive" lgMarginTop="6">Heading</h2>
         </div>
         <div lgCol="12">
           <lg-card variant="promo" lgColour="blue" lgColourTheme="subtle" lgMarginBottom="6">
@@ -269,7 +269,7 @@ const productPageTemplate = `
               [cover]="true"
               src="promo-card/general-promotion1.jpg"
               alt="A family enjoying time together outdoors"
-              aspectRatio="16:9"
+              aspectRatio="2:1"
             ></lg-card-hero-img>
             <lg-card-header>
               <lg-card-title [headingLevel]="3">Card title</lg-card-title>
@@ -278,7 +278,10 @@ const productPageTemplate = `
               Card content. This is just placeholder content and should be replaced with your own content.
             </lg-card-content>
             <lg-card-footer>
-              <a href="#">Link</a>
+              <lg-button-group>
+                <a lg-button priority="link" href="#">Link</a>
+                <a lg-button priority="link" href="#">Link</a>
+              </lg-button-group>
             </lg-card-footer>
           </lg-card>
         </div>
@@ -288,7 +291,7 @@ const productPageTemplate = `
               [cover]="true"
               src="promo-card/general-promotion2.jpg"
               alt="A couple walking together in a park"
-              aspectRatio="16:9"
+              aspectRatio="2:1"
             ></lg-card-hero-img>
             <lg-card-header>
               <lg-card-title [headingLevel]="3">Card title</lg-card-title>
@@ -297,7 +300,10 @@ const productPageTemplate = `
               Card content. This is just placeholder content and should be replaced with your own content.
             </lg-card-content>
             <lg-card-footer>
-              <a href="#">Link</a>
+              <lg-button-group>
+                <a lg-button priority="link" href="#">Link</a>
+                <a lg-button priority="link" href="#">Link</a>
+              </lg-button-group>
             </lg-card-footer>
           </lg-card>
         </div>

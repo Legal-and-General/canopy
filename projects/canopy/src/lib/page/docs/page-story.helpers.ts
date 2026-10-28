@@ -403,19 +403,23 @@ export const formJourneyProductContent = `
                 </lg-progress-header>
               </lg-progress-indicator>
               <p>Enter your details.</p>
-              <lg-input-field>
-                First name
-                <lg-hint>For example, Jane</lg-hint>
-                <input lgInput formControlName="firstName" autocomplete="given-name" />
-              </lg-input-field>
-              <lg-input-field>
-                Last name
-                <input lgInput formControlName="lastName" autocomplete="family-name" />
-              </lg-input-field>
-              <lg-input-field>
-                Email address
-                <input lgInput formControlName="emailAddress" type="email" autocomplete="email" />
-              </lg-input-field>
+              <div lgRow>
+                <div lgColSm="12" lgColLg="6">
+                  <lg-input-field>
+                    First name
+                    <lg-hint>For example, Jane</lg-hint>
+                    <input lgInput formControlName="firstName" autocomplete="given-name" />
+                  </lg-input-field>
+                  <lg-input-field>
+                    Last name
+                    <input lgInput formControlName="lastName" autocomplete="family-name" />
+                  </lg-input-field>
+                  <lg-input-field>
+                    Email address
+                    <input lgInput formControlName="emailAddress" type="email" autocomplete="email" />
+                  </lg-input-field>
+                </div>
+              </div>
             </lg-content-area-content>
             <lg-content-area-footer>
               <lg-button-group>
