@@ -38,7 +38,7 @@ describe('LgInputDirective', () => {
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
-    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+    };
 
     TestBed.configureTestingModule({
       imports: [ FormsModule, ReactiveFormsModule, LgInputDirective, TestInputComponent ],

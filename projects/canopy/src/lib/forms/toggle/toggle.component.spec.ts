@@ -139,7 +139,7 @@ describe('LgToggleComponent', () => {
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
-    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+    };
 
     TestBed.configureTestingModule({
       imports: [
@@ -333,7 +333,7 @@ describe('LgToggleComponent selector variant', () => {
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
-    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+    };
 
     TestBed.configureTestingModule({
       imports: [
