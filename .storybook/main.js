@@ -103,7 +103,14 @@ export default {
     '../projects/canopy/src/lib/side-nav/docs/side-nav.stories.ts',
     // Templates
     '../projects/canopy/src/lib/page/docs/guide.mdx',
-    '../projects/canopy/src/lib/page/docs/page.stories.ts',
+    '../projects/canopy/src/lib/page/docs/basic/guide.mdx',
+    '../projects/canopy/src/lib/page/docs/basic/basic.stories.ts',
+    '../projects/canopy/src/lib/page/docs/child/guide.mdx',
+    '../projects/canopy/src/lib/page/docs/child/child.stories.ts',
+    '../projects/canopy/src/lib/page/docs/product/guide.mdx',
+    '../projects/canopy/src/lib/page/docs/product/product.stories.ts',
+    '../projects/canopy/src/lib/page/docs/form-journey/guide.mdx',
+    '../projects/canopy/src/lib/page/docs/form-journey/form-journey.stories.ts',
     // Helpers
     //  Directives
     '../projects/canopy/src/lib/colour/docs/guide.mdx',

@@ -6,6 +6,7 @@
   list-style-type: none;
   margin-bottom: var(--component-margin);
   min-width: var(--breadcrumb-min-width);
+  background-color: transparent !important;
 
   &--page {
     position: relative;
