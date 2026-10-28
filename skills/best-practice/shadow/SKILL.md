@@ -3,6 +3,7 @@ name: canopy-shadow
 description: Removal notice for the Canopy Shadow directive. Trigger whenever lgShadow, LgShadowDirective, hasHoverState, or related imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: removed
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/shadow/docs/guide.mdx
 ---
 

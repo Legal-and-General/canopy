@@ -1,0 +1,1817 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:79",
+      "statement": "Use Canopy validation components to explain how to correct an invalid field."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:80",
+      "statement": "Keep labels programmatically associated with their controls, and provide hints when users need formatting guidance."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:81",
+      "statement": "Make error messages specific and actionable; do not expose technical validation details."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:82",
+      "statement": "Use semantic heading levels consistently. Each journey page uses a level-2 page title; the progress indicator's journey title and current-step heading do not replace it."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgCheckboxGroupComponent",
+        "type": "string"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgCheckboxGroupComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "focus",
+        "property": "focus",
+        "required": false,
+        "symbol": "LgCheckboxGroupComponent",
+        "type": "boolean"
+      },
+      {
+        "default": "`lg-checkbox-group-id-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgCheckboxGroupComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "inline",
+        "property": "inline",
+        "required": false,
+        "symbol": "LgCheckboxGroupComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgCheckboxGroupComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgCheckboxGroupComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": "string"
+      },
+      {
+        "default": "`lg-input-date-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "dateId",
+        "property": "dateId",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "focus",
+        "property": "focus",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": "boolean"
+      },
+      {
+        "default": "`lg-input-month-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "monthId",
+        "property": "monthId",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": "string"
+      },
+      {
+        "default": "`lg-input-year-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "yearId",
+        "property": "yearId",
+        "required": false,
+        "symbol": "LgDateFieldComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-hint-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgHintComponent",
+        "type": null
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": "string | null"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": null
+      },
+      {
+        "default": "`lg-input-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgInputDirective",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgInputFieldComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-input-${this._id}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgInputFieldComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showLabel",
+        "property": "showLabel",
+        "required": false,
+        "symbol": "LgInputFieldComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-input-field-external-button-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgInputFieldExternalButtonDirective",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "class",
+        "property": "class",
+        "required": false,
+        "symbol": "LgLabelComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "for",
+        "property": "for",
+        "required": false,
+        "symbol": "LgLabelComponent",
+        "type": "string"
+      },
+      {
+        "default": "`lg-label-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgLabelComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "_disabled",
+        "property": "_disabled",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "string"
+      },
+      {
+        "default": "`lg-radio-button-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "string"
+      },
+      {
+        "default": "lg",
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "RadioSize"
+      },
+      {
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "boolean | string"
+      },
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": "string"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "disabled",
+        "property": "disabled",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "focus",
+        "property": "focus",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-radio-group-id-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "inline",
+        "property": "inline",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "stack",
+        "property": "stack",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgRadioGroupComponent",
+        "type": null
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": "string | null"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": null
+      },
+      {
+        "default": "`lg-select-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgSelectFieldComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-select-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgSelectFieldComponent",
+        "type": null
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "_disabled",
+        "property": "_disabled",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "string"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "checked",
+        "property": "checked",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "focus",
+        "property": "focus",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "boolean"
+      },
+      {
+        "default": "`lg-toggle-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-toggle-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": null
+      },
+      {
+        "default": "lg",
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "CheckboxSize"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "value",
+        "property": "value",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "boolean | string"
+      },
+      {
+        "default": "checkbox",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "ToggleVariant"
+      },
+      {
+        "default": "`lg-validation-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgValidationComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showIcon",
+        "property": "showIcon",
+        "required": false,
+        "symbol": "LgValidationComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "status",
+        "property": "status",
+        "required": false,
+        "symbol": "LgValidationComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgValidationWrapperId",
+        "property": "lgValidationWrapperId",
+        "required": false,
+        "symbol": "LgValidationWrapperDirective",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "blur",
+        "property": "blur",
+        "required": false,
+        "symbol": "LgRadioButtonComponent",
+        "type": "EventEmitter<Event>"
+      },
+      {
+        "deprecated": false,
+        "name": "blur",
+        "property": "blur",
+        "required": false,
+        "symbol": "LgToggleComponent",
+        "type": "EventEmitter<Event>"
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.component.html:7",
+        "owner": "LgCheckboxGroupComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.component.html:12",
+        "owner": "LgCheckboxGroupComponent",
+        "selector": ".lg-label--optional",
+        "selectors": [
+          ".lg-label--optional"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.component.html:13",
+        "owner": "LgCheckboxGroupComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.component.html:15",
+        "owner": "LgCheckboxGroupComponent",
+        "selector": "lg-toggle, lg-checkbox, lg-filter-checkbox",
+        "selectors": [
+          "lg-toggle",
+          "lg-checkbox",
+          "lg-filter-checkbox"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.component.html:14",
+        "owner": "LgCheckboxGroupComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/date/date-field.component.html:7",
+        "owner": "LgDateFieldComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/date/date-field.component.html:10",
+        "owner": "LgDateFieldComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/hint/hint.component.html:1",
+        "owner": "LgHintComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:2",
+        "owner": "LgInputFieldComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:4",
+        "owner": "LgInputFieldComponent",
+        "selector": ".lg-label--optional",
+        "selectors": [
+          ".lg-label--optional"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:30",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgInputFieldExternalButton]",
+        "selectors": [
+          "[lgInputFieldExternalButton]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:20",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgInput]",
+        "selectors": [
+          "[lgInput]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:16",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgPrefix]",
+        "selectors": [
+          "[lgPrefix]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:24",
+        "owner": "LgInputFieldComponent",
+        "selector": "[lgSuffix]",
+        "selectors": [
+          "[lgSuffix]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:5",
+        "owner": "LgInputFieldComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/input/input-field.component.html:6",
+        "owner": "LgInputFieldComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/label/label.component.html:1",
+        "owner": "LgLabelComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-button.component.html:22",
+        "owner": "LgRadioButtonComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-button.component.html:27",
+        "owner": "LgRadioButtonComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:7",
+        "owner": "LgRadioGroupComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:9",
+        "owner": "LgRadioGroupComponent",
+        "selector": ".lg-label--optional",
+        "selectors": [
+          ".lg-label--optional"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:10",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:22",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:19",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-radio-button, lg-filter-button",
+        "selectors": [
+          "lg-radio-button",
+          "lg-filter-button"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": true,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:16",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-segment-button",
+        "selectors": [
+          "lg-segment-button"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/radio/radio-group.component.html:12",
+        "owner": "LgRadioGroupComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:2",
+        "owner": "LgSelectFieldComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:4",
+        "owner": "LgSelectFieldComponent",
+        "selector": ".lg-label--optional",
+        "selectors": [
+          ".lg-label--optional"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:9",
+        "owner": "LgSelectFieldComponent",
+        "selector": "[lgSelect]",
+        "selectors": [
+          "[lgSelect]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:5",
+        "owner": "LgSelectFieldComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:6",
+        "owner": "LgSelectFieldComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/toggle/toggle.component.html:39",
+        "owner": "LgToggleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/toggle/toggle.component.html:1",
+        "owner": "LgToggleComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/validation/validation.component.html:21",
+        "owner": "LgValidationComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/toggle/toggle.interface.ts",
+        "symbol": "CheckboxSize"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "focus",
+            "property": "focus",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "`lg-checkbox-group-id-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "inline",
+            "property": "inline",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-checkbox-group, lg-filter-multiple-group",
+        "source": "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.component.ts",
+        "symbol": "LgCheckboxGroupComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "`lg-input-date-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "dateId",
+            "property": "dateId",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "focus",
+            "property": "focus",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "`lg-input-month-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "monthId",
+            "property": "monthId",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "`lg-input-year-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "yearId",
+            "property": "yearId",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-date-field",
+        "source": "projects/canopy/src/lib/forms/date/date-field.component.ts",
+        "symbol": "LgDateFieldComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/validation/error-state-matcher.ts",
+        "symbol": "LgErrorStateMatcher"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "`lg-hint-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-hint",
+        "source": "projects/canopy/src/lib/forms/hint/hint.component.ts",
+        "symbol": "LgHintComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string | null"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-input-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgInput]",
+        "source": "projects/canopy/src/lib/forms/input/input.directive.ts",
+        "symbol": "LgInputDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-input-${this._id}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showLabel",
+            "property": "showLabel",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-input-field",
+        "source": "projects/canopy/src/lib/forms/input/input-field.component.ts",
+        "symbol": "LgInputFieldComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "`lg-input-field-external-button-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgInputFieldExternalButton]",
+        "source": "projects/canopy/src/lib/forms/input-field-external-button/input-field-external-button.directive.ts",
+        "symbol": "LgInputFieldExternalButtonDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "class",
+            "property": "class",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "for",
+            "property": "for",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "`lg-label-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-label]",
+        "source": "projects/canopy/src/lib/forms/label/label.component.ts",
+        "symbol": "LgLabelComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "_disabled",
+            "property": "_disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "`lg-radio-button-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "lg",
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": "RadioSize"
+          },
+          {
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": "boolean | string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "blur",
+            "property": "blur",
+            "required": false,
+            "type": "EventEmitter<Event>"
+          }
+        ],
+        "selector": "lg-radio-button, lg-filter-button, lg-segment-button",
+        "source": "projects/canopy/src/lib/forms/radio/radio-button.component.ts",
+        "symbol": "LgRadioButtonComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "disabled",
+            "property": "disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "focus",
+            "property": "focus",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-radio-group-id-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "inline",
+            "property": "inline",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "deprecated": false,
+            "name": "stack",
+            "property": "stack",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-radio-group, lg-filter-group, lg-segment-group",
+        "source": "projects/canopy/src/lib/forms/radio/radio-group.component.ts",
+        "symbol": "LgRadioGroupComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string | null"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-select-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgSelect]",
+        "source": "projects/canopy/src/lib/forms/select/select.directive.ts",
+        "symbol": "LgSelectDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-select-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-select-field",
+        "source": "projects/canopy/src/lib/forms/select/select-field.component.ts",
+        "symbol": "LgSelectFieldComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgSortCode]",
+        "source": "projects/canopy/src/lib/forms/sort-code/sort-code.directive.ts",
+        "symbol": "LgSortCodeDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "_disabled",
+            "property": "_disabled",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "checked",
+            "property": "checked",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "focus",
+            "property": "focus",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "`lg-toggle-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-toggle-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "lg",
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": "CheckboxSize"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "value",
+            "property": "value",
+            "required": false,
+            "type": "boolean | string"
+          },
+          {
+            "default": "checkbox",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "ToggleVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "blur",
+            "property": "blur",
+            "required": false,
+            "type": "EventEmitter<Event>"
+          }
+        ],
+        "selector": "lg-toggle, lg-checkbox, lg-filter-checkbox",
+        "source": "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
+        "symbol": "LgToggleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "`lg-validation-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showIcon",
+            "property": "showIcon",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "status",
+            "property": "status",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-validation",
+        "source": "projects/canopy/src/lib/forms/validation/validation.component.ts",
+        "symbol": "LgValidationComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgValidationWrapperId",
+            "property": "lgValidationWrapperId",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgValidationWrapper]",
+        "source": "projects/canopy/src/lib/forms/validation/validation-wrapper.directive.ts",
+        "symbol": "LgValidationWrapperDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+        "symbol": "RadioSize"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+        "symbol": "RadioStackBreakpoint"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+        "symbol": "RadioVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/toggle/toggle.interface.ts",
+        "symbol": "ToggleVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/afterDate.validator.ts",
+        "symbol": "afterDateValidator"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/beforeDate.validator.ts",
+        "symbol": "beforeDateValidator"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/futureDate.validator.ts",
+        "symbol": "futureDateValidator"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/date/pastDate.validator.ts",
+        "symbol": "pastDateValidator"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "principles",
+  "deprecated": null,
+  "description": "Best practices for designing Canopy forms and form journeys. Trigger when choosing a single-page or multi-page flow, arranging fields, or planning form actions and validation in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/checkbox-group/checkbox-group.component.ts",
+    "projects/canopy/src/lib/forms/date/afterDate.validator.ts",
+    "projects/canopy/src/lib/forms/date/beforeDate.validator.ts",
+    "projects/canopy/src/lib/forms/date/date-field.component.ts",
+    "projects/canopy/src/lib/forms/date/futureDate.validator.ts",
+    "projects/canopy/src/lib/forms/date/pastDate.validator.ts",
+    "projects/canopy/src/lib/forms/docs/forms-design.mdx",
+    "projects/canopy/src/lib/forms/hint/hint.component.ts",
+    "projects/canopy/src/lib/forms/input-field-external-button/input-field-external-button.directive.ts",
+    "projects/canopy/src/lib/forms/input/input-field.component.ts",
+    "projects/canopy/src/lib/forms/input/input.directive.ts",
+    "projects/canopy/src/lib/forms/label/label.component.ts",
+    "projects/canopy/src/lib/forms/radio/radio-button.component.ts",
+    "projects/canopy/src/lib/forms/radio/radio-group.component.ts",
+    "projects/canopy/src/lib/forms/radio/radio.interface.ts",
+    "projects/canopy/src/lib/forms/select/select-field.component.ts",
+    "projects/canopy/src/lib/forms/select/select.directive.ts",
+    "projects/canopy/src/lib/forms/sort-code/sort-code.directive.ts",
+    "projects/canopy/src/lib/forms/toggle/toggle.component.ts",
+    "projects/canopy/src/lib/forms/toggle/toggle.interface.ts",
+    "projects/canopy/src/lib/forms/validation/error-state-matcher.ts",
+    "projects/canopy/src/lib/forms/validation/validation-wrapper.directive.ts",
+    "projects/canopy/src/lib/forms/validation/validation.component.ts",
+    "skills/best-practice/forms-design/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-design",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:22",
+      "statement": "Give each page a semantic level-2 title using `lg-content-area-title`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:23",
+      "statement": "Keep the back link in the content-area header."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:24",
+      "statement": "Place the page title, instructions, progress indicator where appropriate, and fields in the content section."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:25",
+      "statement": "Put the current page's actions in the content-area footer."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:26",
+      "statement": "Keep the journey title distinct from the page title."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:60",
+      "statement": "Arrange fields in one column and group related information together."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:61",
+      "statement": "Put fields in a logical order, such as personal details before contact details."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:62",
+      "statement": "Top-align labels; place hints below labels and above their controls."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:63",
+      "statement": "Use input masks where they help users enter a known format."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:64",
+      "statement": "Avoid splitting a field such as a person's name unless the task requires it."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:65",
+      "statement": "Mark optional fields in the label, for example `Mobile number (optional)`, instead of marking every required field."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:66",
+      "statement": "Stack radio buttons and checkboxes vertically, one option per line."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:67",
+      "statement": "Prefer radio buttons or a segment control over a select when the options are suitable; use select inputs as a last resort."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:68",
+      "statement": "Size fields to the expected answer: do not make known-length fields wider than their expected value, and choose a reasonable width for variable-length answers."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:72",
+      "statement": "Align form buttons with the left edge of the fields."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:73",
+      "statement": "Use a back link at the top of a multi-page form when users need to return to the previous step."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:74",
+      "statement": "Use Continue for forward navigation and a clearly labelled secondary action for cancellation where appropriate."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-design/SKILL.md:75",
+      "statement": "Do not disable form buttons to prevent errors; keep them available so users can receive feedback and correct their input."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-design/SKILL.md:40"
+      ],
+      "id": "forms-design-example-1",
+      "intent": "Follow documented forms-design example 1."
+    }
+  ],
+  "publicSymbols": [
+    "CheckboxSize",
+    "LgCheckboxGroupComponent",
+    "LgDateFieldComponent",
+    "LgErrorStateMatcher",
+    "LgHintComponent",
+    "LgInputDirective",
+    "LgInputFieldComponent",
+    "LgInputFieldExternalButtonDirective",
+    "LgLabelComponent",
+    "LgRadioButtonComponent",
+    "LgRadioGroupComponent",
+    "LgSelectDirective",
+    "LgSelectFieldComponent",
+    "LgSortCodeDirective",
+    "LgToggleComponent",
+    "LgValidationComponent",
+    "LgValidationWrapperDirective",
+    "RadioSize",
+    "RadioStackBreakpoint",
+    "RadioVariant",
+    "ToggleVariant",
+    "afterDateValidator",
+    "beforeDateValidator",
+    "futureDateValidator",
+    "pastDateValidator"
+  ],
+  "relatedSkills": [
+    "canopy-card",
+    "canopy-content-area"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-label]",
+    "[lgInputFieldExternalButton]",
+    "[lgInput]",
+    "[lgSelect]",
+    "[lgSortCode]",
+    "[lgValidationWrapper]",
+    "lg-checkbox",
+    "lg-checkbox-group",
+    "lg-date-field",
+    "lg-filter-button",
+    "lg-filter-checkbox",
+    "lg-filter-group",
+    "lg-filter-multiple-group",
+    "lg-hint",
+    "lg-input-field",
+    "lg-radio-button",
+    "lg-radio-group",
+    "lg-segment-button",
+    "lg-segment-group",
+    "lg-select-field",
+    "lg-toggle",
+    "lg-validation"
+  ],
+  "title": "Canopy Forms Design",
+  "tokens": []
+}

@@ -1,0 +1,115 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgRowGap",
+        "property": "lgRowGap",
+        "required": false,
+        "symbol": "LgRowGapDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgRowGap",
+            "property": "lgRowGap",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgRowGap]",
+        "source": "projects/canopy/src/lib/spacing/row-gap/row-gap.directive.ts",
+        "symbol": "LgRowGapDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Row Gap directive. Trigger when applying row-gap spacing to flex or grid containers using the Canopy spacing scale in an Angular project.",
+  "evidence": [
+    "projects/canopy/src/lib/spacing/row-gap/docs/guide.mdx",
+    "projects/canopy/src/lib/spacing/row-gap/row-gap.directive.ts",
+    "skills/best-practice/spacing-row-gap/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-spacing-row-gap",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spacing-row-gap/SKILL.md:63",
+      "statement": "Use `lgRowGap` instead of custom CSS `row-gap` to stay consistent with the Canopy spacing scale."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spacing-row-gap/SKILL.md:64",
+      "statement": "Works on any HTML element that supports the `row-gap` CSS property."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [],
+  "publicSymbols": [
+    "LgRowGapDirective"
+  ],
+  "relatedSkills": [
+    "canopy-spacing-padding"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgRowGap]"
+  ],
+  "title": "Canopy Row Gap",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-row-gap/SKILL.md",
+      "name": "spacing-margin"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-row-gap/SKILL.md",
+      "name": "spacing-padding"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-row-gap/SKILL.md",
+      "name": "spacing-row-gap"
+    }
+  ]
+}

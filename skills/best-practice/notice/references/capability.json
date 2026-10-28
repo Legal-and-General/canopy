@@ -1,0 +1,290 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "button",
+        "deprecated": false,
+        "name": "type",
+        "property": "type",
+        "required": false,
+        "symbol": "LgNoticeActionComponent",
+        "type": "NoticeActionType"
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "hasRole",
+        "property": "hasRole",
+        "required": false,
+        "symbol": "LgNoticeComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "status",
+        "property": "status",
+        "required": false,
+        "symbol": "LgNoticeComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/notice/notice.component.html:4",
+        "owner": "LgNoticeComponent",
+        "selector": "lg-notice-action",
+        "selectors": [
+          "lg-notice-action"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/notice/notice.component.html:3",
+        "owner": "LgNoticeComponent",
+        "selector": "lg-notice-description",
+        "selectors": [
+          "lg-notice-description"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/notice/notice.component.html:2",
+        "owner": "LgNoticeComponent",
+        "selector": "lg-notice-title",
+        "selectors": [
+          "lg-notice-title"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/notice/notice.component.html:1",
+        "owner": "LgNoticeComponent",
+        "selector": "lg-pictogram",
+        "selectors": [
+          "lg-pictogram"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/notice/notice-description/notice-description.component.html:1",
+        "owner": "LgNoticeDescriptionComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/notice/notice-title/notice-title.component.html:1",
+        "owner": "LgNoticeTitleComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "button",
+            "deprecated": false,
+            "name": "type",
+            "property": "type",
+            "required": false,
+            "type": "NoticeActionType"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-notice-action",
+        "source": "projects/canopy/src/lib/notice/notice-action/notice-action.component.ts",
+        "symbol": "LgNoticeActionComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "hasRole",
+            "property": "hasRole",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "status",
+            "property": "status",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-notice",
+        "source": "projects/canopy/src/lib/notice/notice.component.ts",
+        "symbol": "LgNoticeComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-notice-description",
+        "source": "projects/canopy/src/lib/notice/notice-description/notice-description.component.ts",
+        "symbol": "LgNoticeDescriptionComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-notice-title",
+        "source": "projects/canopy/src/lib/notice/notice-title/notice-title.component.ts",
+        "symbol": "LgNoticeTitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/notice/notice-action/notice-action.component.ts",
+        "symbol": "NoticeActionType"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md:84",
+      "statement": "use on a page that contains other content (e.g. a form) — it should be the only content in its container."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md:85",
+      "statement": "use for form validation — use inline messages (`lg-alert`) instead."
+    }
+  ],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Notice component. Trigger when adding full-page confirmation messages, empty states, error pages, or success completion screens in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/notice/docs/guide.mdx",
+    "projects/canopy/src/lib/notice/notice-action/notice-action.component.ts",
+    "projects/canopy/src/lib/notice/notice-description/notice-description.component.ts",
+    "projects/canopy/src/lib/notice/notice-title/notice-title.component.ts",
+    "projects/canopy/src/lib/notice/notice.component.ts",
+    "skills/best-practice/notice/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-notice",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md:76",
+      "statement": "use when there is no other functionality or content on the page."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md:77",
+      "statement": "use when space is not limited."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md:78",
+      "statement": "choose an appropriate pictogram from the pictogram catalogue to reinforce the message."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md:79",
+      "statement": "tint the pictogram to match the status — for example `--colour-green-400` for a success state."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md:80",
+      "statement": "add a button as a call to action at the end of a journey to guide users to the next step."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/notice/SKILL.md:91",
+      "statement": "A notice must be the only content in its container."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/notice/SKILL.md:92",
+      "statement": "A notice can sit inside a Content Area when it is the only content in that area. The Content Area provides the surrounding colour mode and theme, while the Notice provides the message content."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/notice/SKILL.md:93",
+      "statement": "Multiple `lg-notice-description` components are allowed for additional paragraphs or actions."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/notice/SKILL.md:32"
+      ],
+      "id": "notice-example-1",
+      "intent": "Follow documented notice example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgNoticeActionComponent",
+    "LgNoticeComponent",
+    "LgNoticeDescriptionComponent",
+    "LgNoticeTitleComponent",
+    "NoticeActionType"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-notice",
+    "lg-notice-action",
+    "lg-notice-description",
+    "lg-notice-title"
+  ],
+  "title": "Canopy Notice",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/notice/SKILL.md",
+      "name": "colour-green-400"
+    }
+  ]
+}

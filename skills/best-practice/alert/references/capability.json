@@ -1,0 +1,202 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/alert/SKILL.md:97",
+      "statement": "To suppress the role on any status, pass `[role]=\"'none'`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/alert/SKILL.md:98",
+      "statement": "Always include meaningful, actionable text in error messages — explain the problem and how to fix it."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/alert/SKILL.md:99",
+      "statement": "Error messages should include a link to detailed help or next steps when appropriate."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "icon",
+        "property": "icon",
+        "required": false,
+        "symbol": "LgAlertComponent",
+        "type": "IconName"
+      },
+      {
+        "deprecated": false,
+        "name": "role",
+        "property": "role",
+        "required": false,
+        "symbol": "LgAlertComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showIcon",
+        "property": "showIcon",
+        "required": false,
+        "symbol": "LgAlertComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/alert/alert.component.html:8",
+        "owner": "LgAlertComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "icon",
+            "property": "icon",
+            "required": false,
+            "type": "IconName"
+          },
+          {
+            "deprecated": false,
+            "name": "role",
+            "property": "role",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showIcon",
+            "property": "showIcon",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-alert",
+        "source": "projects/canopy/src/lib/alert/alert.component.ts",
+        "symbol": "LgAlertComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:86",
+      "statement": "use inline messages when space is not an issue — consider using Notice with Pictogram instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:87",
+      "statement": "overload the page with multiple inline messages simultaneously."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:88",
+      "statement": "use error status without providing clear steps to resolve the issue."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:89",
+      "statement": "use inline messages to hide important information; place them where users will see them in context."
+    }
+  ],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Inline Message (Alert) component. Trigger when adding inline messages, status alerts, info/warning/error/success notifications, or feedback messages in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/alert/alert.component.ts",
+    "projects/canopy/src/lib/alert/docs/guide.mdx",
+    "skills/best-practice/alert/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-alert",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:79",
+      "statement": "display inline messages in a timely manner so users can resolve issues immediately."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:80",
+      "statement": "keep the message succinct."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:81",
+      "statement": "include a link to take an action or get more detailed information when appropriate."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/alert/SKILL.md:82",
+      "statement": "place the inline message close to the element it relates to so users understand the context."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/alert/SKILL.md:28"
+      ],
+      "id": "alert-example-1",
+      "intent": "Follow documented alert example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/alert/SKILL.md:55"
+      ],
+      "id": "alert-example-2",
+      "intent": "Follow documented alert example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgAlertComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-alert"
+  ],
+  "title": "Canopy Inline Message (Alert)",
+  "tokens": []
+}

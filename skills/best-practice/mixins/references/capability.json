@@ -1,0 +1,110 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [],
+  "category": "styles",
+  "deprecated": null,
+  "description": "Reference for Canopy SCSS mixins. Trigger when using lg-breakpoint, lg-font-size, lg-focus-outline, lg-inner-focus-outline, lg-link, lg-unstyled-link, lg-visually-hidden, lg-status, or lg-content-area mixins in SCSS in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/styles/docs/mixins.mdx",
+    "skills/best-practice/mixins/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-mixins",
+  "intents": [],
+  "introduced": null,
+  "kind": "style",
+  "patterns": [],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy SCSS Mixins — Reference",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "--colour-greyscale-0"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "bg-color"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "breakpoint"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "color"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "inner-bg-color"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "max-breakpoint"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "modifier"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "range"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "size"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "status"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/mixins/SKILL.md",
+      "name": "type"
+    }
+  ]
+}

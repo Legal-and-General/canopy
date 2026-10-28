@@ -1,0 +1,251 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:163",
+      "statement": "Style error messages in red and use a warning icon to support colour-blind users."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:164",
+      "statement": "Use descriptive, human-readable error messages — tell users what to enter, not what went wrong technically."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "default": "`lg-validation-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgValidationComponent",
+        "type": null
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showIcon",
+        "property": "showIcon",
+        "required": false,
+        "symbol": "LgValidationComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "status",
+        "property": "status",
+        "required": false,
+        "symbol": "LgValidationComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgValidationWrapperId",
+        "property": "lgValidationWrapperId",
+        "required": false,
+        "symbol": "LgValidationWrapperDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/validation/validation.component.html:21",
+        "owner": "LgValidationComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/forms/validation/error-state-matcher.ts",
+        "symbol": "LgErrorStateMatcher"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "`lg-validation-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showIcon",
+            "property": "showIcon",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "status",
+            "property": "status",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-validation",
+        "source": "projects/canopy/src/lib/forms/validation/validation.component.ts",
+        "symbol": "LgValidationComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgValidationWrapperId",
+            "property": "lgValidationWrapperId",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgValidationWrapper]",
+        "source": "projects/canopy/src/lib/forms/validation/validation-wrapper.directive.ts",
+        "symbol": "LgValidationWrapperDirective"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:120",
+      "statement": "bind `[id]` on a component that also has an `id` input. Use"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:156",
+      "statement": "show inline validation on focus — don't make users feel they've made a mistake before they've typed anything."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:157",
+      "statement": "validate immediately after every keystroke — wait 500–1000 ms after the user stops typing."
+    }
+  ],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for Canopy form validation. Trigger when displaying inline form errors, setting up error state matching, or implementing form-level validation in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/validation/docs/guide.mdx",
+    "projects/canopy/src/lib/forms/validation/error-state-matcher.ts",
+    "projects/canopy/src/lib/forms/validation/validation-wrapper.directive.ts",
+    "projects/canopy/src/lib/forms/validation/validation.component.ts",
+    "skills/best-practice/forms-validation/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-validation",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:113",
+      "statement": "import `LgValidationWrapperDirective` in every standalone component that uses"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:115",
+      "statement": "assign a static `id` or bind `lgValidationWrapperId` when an error summary links"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:144",
+      "statement": "All fields with errors are highlighted when the form is submitted."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:145",
+      "statement": "Inline messages appear above each field describing how to fix the problem."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md:146",
+      "statement": "The first field with an error automatically receives focus."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-validation/SKILL.md:57"
+      ],
+      "id": "forms-validation-example-1",
+      "intent": "Follow documented forms-validation example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-validation/SKILL.md:85"
+      ],
+      "id": "forms-validation-example-2",
+      "intent": "Follow documented forms-validation example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-validation/SKILL.md:99"
+      ],
+      "id": "forms-validation-example-3",
+      "intent": "Follow documented forms-validation example 3."
+    }
+  ],
+  "publicSymbols": [
+    "LgErrorStateMatcher",
+    "LgValidationComponent",
+    "LgValidationWrapperDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgValidationWrapper]",
+    "lg-validation"
+  ],
+  "title": "Canopy Form Validation",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-validation/SKILL.md",
+      "name": "colour-blind"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgFeatureToggle",
+        "property": "lgFeatureToggle",
+        "required": false,
+        "symbol": "LgFeatureToggleDirective",
+        "type": "string"
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.guard.ts",
+        "symbol": "FeatureToggleGuard"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.interface.ts",
+        "symbol": "LgFeatureToggleConfig"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgFeatureToggle",
+            "property": "lgFeatureToggle",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgFeatureToggle]",
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.directive.ts",
+        "symbol": "LgFeatureToggleDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.module.ts",
+        "symbol": "LgFeatureToggleModule"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.interface.ts",
+        "symbol": "LgFeatureToggleOptions"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.interface.ts",
+        "symbol": "LgToggles"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.guard.ts",
+        "symbol": "getDataPropertyValues"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.interface.ts",
+        "symbol": "togglesInjectable"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/feature-toggle/feature-toggle.interface.ts",
+        "symbol": "togglesOptionsInjectable"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "utilities",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Feature Toggle module. Trigger when using LgFeatureToggleModule, the lgFeatureToggle directive, or FeatureToggleGuard in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/feature-toggle/docs/guide.mdx",
+    "projects/canopy/src/lib/feature-toggle/feature-toggle.directive.ts",
+    "projects/canopy/src/lib/feature-toggle/feature-toggle.guard.ts",
+    "projects/canopy/src/lib/feature-toggle/feature-toggle.interface.ts",
+    "projects/canopy/src/lib/feature-toggle/feature-toggle.module.ts",
+    "skills/best-practice/feature-toggle/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-feature-toggle",
+  "intents": [],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [],
+  "publicSymbols": [
+    "FeatureToggleGuard",
+    "LgFeatureToggleConfig",
+    "LgFeatureToggleDirective",
+    "LgFeatureToggleModule",
+    "LgFeatureToggleOptions",
+    "LgToggles",
+    "getDataPropertyValues",
+    "togglesInjectable",
+    "togglesOptionsInjectable"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgFeatureToggle]"
+  ],
+  "title": "Canopy Feature Toggle",
+  "tokens": []
+}

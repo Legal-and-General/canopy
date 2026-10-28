@@ -1,0 +1,222 @@
+{
+  "accessibility": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/filter-container/SKILL.md:83",
+      "statement": "Do not use any element other than `<button>` for the toggle — using a `<div>` or `<a>` will throw an error."
+    }
+  ],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/filter-container/filter-container.component.html:1",
+        "owner": "LgFilterContainerComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/filter-container/filter-container.component.html:3",
+        "owner": "LgFilterContainerComponent",
+        "selector": "[lg-filter-container-trigger]",
+        "selectors": [
+          "[lg-filter-container-trigger]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/filter-container/filter-container.component.html:4",
+        "owner": "LgFilterContainerComponent",
+        "selector": "lg-filter-container-panel",
+        "selectors": [
+          "lg-filter-container-panel"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/filter-container/filter-container-panel-body/filter-container-panel-body.component.html:1",
+        "owner": "LgFilterContainerPanelBodyComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/filter-container/filter-container-panel/filter-container-panel.component.html:1",
+        "owner": "LgFilterContainerPanelComponent",
+        "selector": "lg-filter-container-panel-body",
+        "selectors": [
+          "lg-filter-container-panel-body"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/filter-container/filter-container-panel/filter-container-panel.component.html:2",
+        "owner": "LgFilterContainerPanelComponent",
+        "selector": "lg-filter-container-panel-footer",
+        "selectors": [
+          "lg-filter-container-panel-footer"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/filter-container/filter-container-panel-footer/filter-container-panel-footer.component.html:1",
+        "owner": "LgFilterContainerPanelFooterComponent",
+        "selector": "lg-button-group",
+        "selectors": [
+          "lg-button-group"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-filter-container",
+        "source": "projects/canopy/src/lib/filter-container/filter-container.component.ts",
+        "symbol": "LgFilterContainerComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-filter-container-panel-body",
+        "source": "projects/canopy/src/lib/filter-container/filter-container-panel-body/filter-container-panel-body.component.ts",
+        "symbol": "LgFilterContainerPanelBodyComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-filter-container-panel",
+        "source": "projects/canopy/src/lib/filter-container/filter-container-panel/filter-container-panel.component.ts",
+        "symbol": "LgFilterContainerPanelComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-filter-container-panel-footer",
+        "source": "projects/canopy/src/lib/filter-container/filter-container-panel-footer/filter-container-panel-footer.component.ts",
+        "symbol": "LgFilterContainerPanelFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/filter-container/filter-container.constants.ts",
+        "symbol": "lgFilterContainerPanelIdPrefix"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/filter-container/filter-container.constants.ts",
+        "symbol": "lgFilterContainerToggleIdPrefix"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Filter Container pattern. Trigger when adding an expandable filter panel with a toggle button and filter controls in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/filter-container/docs/guide.mdx",
+    "projects/canopy/src/lib/filter-container/filter-container-panel-body/filter-container-panel-body.component.ts",
+    "projects/canopy/src/lib/filter-container/filter-container-panel-footer/filter-container-panel-footer.component.ts",
+    "projects/canopy/src/lib/filter-container/filter-container-panel/filter-container-panel.component.ts",
+    "projects/canopy/src/lib/filter-container/filter-container.component.ts",
+    "projects/canopy/src/lib/filter-container/filter-container.constants.ts",
+    "skills/best-practice/filter-container/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-filter-container",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/filter-container/SKILL.md:74",
+      "statement": "The toggle button is always positioned to the right of the containing element."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/filter-container/SKILL.md:75",
+      "statement": "Use `priority=\"secondary\"` on the toggle button — it is a supporting action, not the primary page action."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/filter-container/SKILL.md:76",
+      "statement": "Place filter controls inside `lg-filter-container-panel-body`, not directly in `lg-filter-container`."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/filter-container/SKILL.md:37"
+      ],
+      "id": "filter-container-example-1",
+      "intent": "Follow documented filter-container example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgFilterContainerComponent",
+    "LgFilterContainerPanelBodyComponent",
+    "LgFilterContainerPanelComponent",
+    "LgFilterContainerPanelFooterComponent",
+    "lgFilterContainerPanelIdPrefix",
+    "lgFilterContainerToggleIdPrefix"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-filter-container",
+    "lg-filter-container-panel",
+    "lg-filter-container-panel-body",
+    "lg-filter-container-panel-footer"
+  ],
+  "title": "Canopy Filter Container",
+  "tokens": []
+}

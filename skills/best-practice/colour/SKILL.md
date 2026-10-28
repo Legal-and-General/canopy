@@ -3,6 +3,7 @@ name: canopy-colour
 description: Best practices for applying colour modes and themes with the Canopy lgColour directive. Trigger when setting colours, themes, or colour modes on Canopy components in an Angular project.
 license: MIT
 metadata:
+  category: styles
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/colour/docs/guide.mdx
 ---
 

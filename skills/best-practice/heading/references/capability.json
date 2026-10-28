@@ -1,0 +1,125 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "level",
+        "property": "level",
+        "required": false,
+        "symbol": "LgHeadingComponent",
+        "type": "HeadingLevel"
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/heading/heading.component.html:3",
+        "owner": "LgHeadingComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/heading/heading.interface.ts",
+        "symbol": "HeadingLevel"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "level",
+            "property": "level",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-heading",
+        "source": "projects/canopy/src/lib/heading/heading.component.ts",
+        "symbol": "LgHeadingComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Heading component. Trigger when setting a dynamic heading level inside a custom component in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/heading/docs/guide.mdx",
+    "projects/canopy/src/lib/heading/heading.component.ts",
+    "projects/canopy/src/lib/heading/heading.interface.ts",
+    "skills/best-practice/heading/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-heading",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/heading/SKILL.md:47",
+      "statement": "Always pass a `level` value that maintains a logical document outline."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/heading/SKILL.md:48",
+      "statement": "Consumers of components that wrap `lg-heading` must supply a `headingLevel` input that reflects the correct hierarchy for their page context."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/heading/SKILL.md:30"
+      ],
+      "id": "heading-example-1",
+      "intent": "Follow documented heading example 1."
+    }
+  ],
+  "publicSymbols": [
+    "HeadingLevel",
+    "LgHeadingComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-heading"
+  ],
+  "title": "Canopy Heading",
+  "tokens": []
+}

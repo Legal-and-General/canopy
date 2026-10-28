@@ -3,6 +3,7 @@ name: canopy-mixins
 description: Reference for Canopy SCSS mixins. Trigger when using lg-breakpoint, lg-font-size, lg-focus-outline, lg-inner-focus-outline, lg-link, lg-unstyled-link, lg-visually-hidden, lg-status, or lg-content-area mixins in SCSS in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: styles
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/styles/docs/mixins.mdx
 ---
 

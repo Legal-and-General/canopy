@@ -1,0 +1,56 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [],
+  "category": "utilities",
+  "deprecated": null,
+  "description": "Reference for Canopy CSS utility classes. Trigger when using lg-visually-hidden, lg-unstyled-link, or other Canopy utility CSS classes in an Angular project.",
+  "evidence": [
+    "projects/canopy/src/styles/docs/utils.mdx",
+    "skills/best-practice/utils/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-utils",
+  "intents": [],
+  "introduced": null,
+  "kind": "utility",
+  "patterns": [],
+  "publicSymbols": [],
+  "relatedSkills": [
+    "canopy-mixins"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy CSS Utilities — Reference",
+  "tokens": []
+}

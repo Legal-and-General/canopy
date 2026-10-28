@@ -1,0 +1,147 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "hasRole",
+        "property": "hasRole",
+        "required": false,
+        "symbol": "LgSeparatorComponent",
+        "type": "boolean"
+      },
+      {
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgSeparatorComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "hasRole",
+            "property": "hasRole",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-separator",
+        "source": "projects/canopy/src/lib/separator/separator.component.ts",
+        "symbol": "LgSeparatorComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Separator component. Trigger when visually dividing content sections or grouping items in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/separator/docs/guide.mdx",
+    "projects/canopy/src/lib/separator/separator.component.ts",
+    "skills/best-practice/separator/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-separator",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/separator/SKILL.md:59",
+      "statement": "use a separator to group related items, such as within a list."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/separator/SKILL.md:60",
+      "statement": "use a separator to divide content into clear, manageable sections."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/separator/SKILL.md:66",
+      "statement": "The separator can be positioned at full or partial width."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/separator/SKILL.md:67",
+      "statement": "This component is pending brand modernisation."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/separator/SKILL.md:28"
+      ],
+      "id": "separator-example-1",
+      "intent": "Follow documented separator example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/separator/SKILL.md:34"
+      ],
+      "id": "separator-example-2",
+      "intent": "Follow documented separator example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/separator/SKILL.md:40"
+      ],
+      "id": "separator-example-3",
+      "intent": "Follow documented separator example 3."
+    }
+  ],
+  "publicSymbols": [
+    "LgSeparatorComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-separator"
+  ],
+  "title": "Canopy Separator",
+  "tokens": []
+}

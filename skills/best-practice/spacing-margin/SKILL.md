@@ -3,6 +3,7 @@ name: canopy-spacing-margin
 description: Best practices for the Canopy Margin directive. Trigger when applying margin spacing to Canopy components or HTML elements using the Canopy spacing scale in an Angular project.
 license: MIT
 metadata:
+  category: layout
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/spacing/margin/docs/guide.mdx
 ---
 

@@ -3,6 +3,7 @@ name: canopy-hero
 description: Use when building a Canopy page hero, conversational child hero, product-details hero, or hero cards with data points and breadcrumbs in an Angular application.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/hero/docs/guide.mdx
 ---
 

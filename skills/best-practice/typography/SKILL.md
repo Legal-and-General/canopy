@@ -3,6 +3,7 @@ name: canopy-typography
 description: Foundation guidance for Canopy typography. Trigger when choosing font sizes, font weights, type scales, productive vs expressive text, or applying typography CSS variables in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: foundations
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/docs/foundation/typography/typography.mdx
 ---
 

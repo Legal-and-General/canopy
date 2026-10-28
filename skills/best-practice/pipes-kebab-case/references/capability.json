@@ -1,0 +1,71 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "pipe",
+        "outputs": [],
+        "selector": "kebabCase",
+        "source": "projects/canopy/src/lib/pipes/kebab-case/kebab-case.pipe.ts",
+        "symbol": "LgKebabCasePipe"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "utilities",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Kebab Case pipe. Trigger when using LgKebabCasePipe or transforming strings to kebab-case in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/pipes/kebab-case/docs/guide.mdx",
+    "projects/canopy/src/lib/pipes/kebab-case/kebab-case.pipe.ts",
+    "skills/best-practice/pipes-kebab-case/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-pipes-kebab-case",
+  "intents": [],
+  "introduced": null,
+  "kind": "pipe",
+  "patterns": [],
+  "publicSymbols": [
+    "LgKebabCasePipe"
+  ],
+  "relatedSkills": [
+    "canopy-pipes-camel-case"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "kebabCase"
+  ],
+  "title": "Canopy Kebab Case Pipe",
+  "tokens": []
+}

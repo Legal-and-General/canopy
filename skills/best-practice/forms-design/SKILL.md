@@ -3,6 +3,7 @@ name: canopy-forms-design
 description: Best practices for designing Canopy forms and form journeys. Trigger when choosing a single-page or multi-page flow, arranging fields, or planning form actions and validation in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: principles
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/docs/forms-design.mdx
 ---
 

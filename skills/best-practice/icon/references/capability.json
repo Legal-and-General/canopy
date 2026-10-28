@@ -1,0 +1,203 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgIconComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/icon/icon.component.html:1",
+        "owner": "LgIconComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-icon",
+        "source": "projects/canopy/src/lib/icon/icon.component.ts",
+        "symbol": "LgIconComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/icon/icon.registry.ts",
+        "symbol": "LgIconRegistry"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:90",
+      "statement": "scale icons below 16px."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:91",
+      "statement": "scale icons above 64px — use pictograms or illustration for more prominent graphics."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:92",
+      "statement": "overlay icons on photographic backgrounds."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:93",
+      "statement": "use low-contrast colour combinations."
+    }
+  ],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy UI Icon component. Trigger when using lg-icon, LgIconComponent, or adding functional UI icons in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/icon/docs/guide.mdx",
+    "projects/canopy/src/lib/icon/icon.component.ts",
+    "projects/canopy/src/lib/icon/icon.registry.ts",
+    "skills/best-practice/icon/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-icon",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/icon/SKILL.md:66",
+      "statement": "For **decorative** icons (pure visual adornment), add `aria-hidden=\"true\"`:"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/icon/SKILL.md:70",
+      "statement": "For **informative** icons with no accompanying visible text, provide screen-reader text:"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:82",
+      "statement": "scale icons on the 4px scale for crisp outlines."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:83",
+      "statement": "use charcoal or high-contrast colour icons on white backgrounds."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:84",
+      "statement": "use tinted colours on light backgrounds — minimum contrast ratio 4.5:1."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:85",
+      "statement": "use white icons on high-contrast backgrounds."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md:86",
+      "statement": "add `aria-hidden=\"true\"` to decorative icons."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:30"
+      ],
+      "id": "icon-example-1",
+      "intent": "Follow documented icon example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:54"
+      ],
+      "id": "icon-example-2",
+      "intent": "Follow documented icon example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:67"
+      ],
+      "id": "icon-example-3",
+      "intent": "Follow documented icon example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/icon/SKILL.md:71"
+      ],
+      "id": "icon-example-4",
+      "intent": "Follow documented icon example 4."
+    }
+  ],
+  "publicSymbols": [
+    "LgIconComponent",
+    "LgIconRegistry"
+  ],
+  "relatedSkills": [
+    "canopy-pictogram"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-icon"
+  ],
+  "title": "Canopy UI Icon",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/icon/SKILL.md",
+      "name": "--colour-green-700"
+    }
+  ]
+}

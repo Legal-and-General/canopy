@@ -3,6 +3,7 @@ name: canopy-side-nav
 description: Best practices for the Canopy Side Nav component. Trigger when building sidebar navigation, account section navigation, or multi-page navigation panels in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: navigation
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/side-nav/docs/guide.mdx
 ---
 

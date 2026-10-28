@@ -1,0 +1,88 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgHideAt",
+        "property": "lgHideAt",
+        "required": false,
+        "symbol": "LgHideAtDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgHideAt",
+            "property": "lgHideAt",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgHideAt]",
+        "source": "projects/canopy/src/lib/hide-at/hide-at.directive.ts",
+        "symbol": "LgHideAtDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "utilities",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Hide At directive. Trigger when using lgHideAt or LgHideAtDirective to hide elements at specific breakpoints in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/hide-at/docs/guide.mdx",
+    "projects/canopy/src/lib/hide-at/hide-at.directive.ts",
+    "skills/best-practice/hide-at/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-hide-at",
+  "intents": [],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [],
+  "publicSymbols": [
+    "LgHideAtDirective"
+  ],
+  "relatedSkills": [
+    "canopy-show-at"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgHideAt]"
+  ],
+  "title": "Canopy Hide At",
+  "tokens": []
+}

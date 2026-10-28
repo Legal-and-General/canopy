@@ -1,0 +1,392 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "isListItem",
+        "property": "isListItem",
+        "required": false,
+        "symbol": "LgDataPointComponent",
+        "type": "boolean"
+      },
+      {
+        "default": "form",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgDataPointComponent",
+        "type": "DataPointVariant"
+      },
+      {
+        "default": "horizontal",
+        "deprecated": false,
+        "name": "orientation",
+        "property": "orientation",
+        "required": false,
+        "symbol": "LgDataPointGroupComponent",
+        "type": "DataPointOrientation"
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": true,
+        "symbol": "LgDataPointLabelComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "isBold",
+        "property": "isBold",
+        "required": false,
+        "symbol": "LgDataPointLabelComponent",
+        "type": null
+      },
+      {
+        "default": "sm",
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgDataPointValueComponent",
+        "type": "DataPointSize"
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point-add-on/data-point-add-on.component.html:1",
+        "owner": "LgDataPointAddOnComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point/data-point.component.html:4",
+        "owner": "LgDataPointComponent",
+        "selector": "lg-data-point-add-on",
+        "selectors": [
+          "lg-data-point-add-on"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point/data-point.component.html:1",
+        "owner": "LgDataPointComponent",
+        "selector": "lg-data-point-label",
+        "selectors": [
+          "lg-data-point-label"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point/data-point.component.html:3",
+        "owner": "LgDataPointComponent",
+        "selector": "lg-data-point-secondary-label",
+        "selectors": [
+          "lg-data-point-secondary-label"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point/data-point.component.html:2",
+        "owner": "LgDataPointComponent",
+        "selector": "lg-data-point-value",
+        "selectors": [
+          "lg-data-point-value"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point-group/data-point-group.component.html:1",
+        "owner": "LgDataPointGroupComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point-label/data-point-label.component.html:1",
+        "owner": "LgDataPointLabelComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point-secondary-label/data-point-secondary-label.component.html:1",
+        "owner": "LgDataPointSecondaryLabelComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/data-point/data-point-value/data-point-value.component.html:1",
+        "owner": "LgDataPointValueComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/data-point/data-point.interface.ts",
+        "symbol": "DataPointOrientation"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/data-point/data-point.interface.ts",
+        "symbol": "DataPointSize"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/data-point/data-point.interface.ts",
+        "symbol": "DataPointVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-data-point-add-on",
+        "source": "projects/canopy/src/lib/data-point/data-point-add-on/data-point-add-on.component.ts",
+        "symbol": "LgDataPointAddOnComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "isListItem",
+            "property": "isListItem",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "form",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "DataPointVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-data-point",
+        "source": "projects/canopy/src/lib/data-point/data-point/data-point.component.ts",
+        "symbol": "LgDataPointComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "horizontal",
+            "deprecated": false,
+            "name": "orientation",
+            "property": "orientation",
+            "required": false,
+            "type": "DataPointOrientation"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-data-point-group",
+        "source": "projects/canopy/src/lib/data-point/data-point-group/data-point-group.component.ts",
+        "symbol": "LgDataPointGroupComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": true,
+            "type": "HeadingLevel"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "isBold",
+            "property": "isBold",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-data-point-label",
+        "source": "projects/canopy/src/lib/data-point/data-point-label/data-point-label.component.ts",
+        "symbol": "LgDataPointLabelComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-data-point-secondary-label",
+        "source": "projects/canopy/src/lib/data-point/data-point-secondary-label/data-point-secondary-label.component.ts",
+        "symbol": "LgDataPointSecondaryLabelComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "sm",
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": "DataPointSize"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-data-point-value",
+        "source": "projects/canopy/src/lib/data-point/data-point-value/data-point-value.component.ts",
+        "symbol": "LgDataPointValueComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Data Point component. Trigger when displaying labelled data values, key-value pairs, or summary data lists in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/data-point/data-point-add-on/data-point-add-on.component.ts",
+    "projects/canopy/src/lib/data-point/data-point-group/data-point-group.component.ts",
+    "projects/canopy/src/lib/data-point/data-point-label/data-point-label.component.ts",
+    "projects/canopy/src/lib/data-point/data-point-secondary-label/data-point-secondary-label.component.ts",
+    "projects/canopy/src/lib/data-point/data-point-value/data-point-value.component.ts",
+    "projects/canopy/src/lib/data-point/data-point.interface.ts",
+    "projects/canopy/src/lib/data-point/data-point/data-point.component.ts",
+    "projects/canopy/src/lib/data-point/docs/guide.mdx",
+    "skills/best-practice/data-point/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-data-point",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/data-point/SKILL.md:122",
+      "statement": "A data point group supports **up to four** data points."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/data-point/SKILL.md:124",
+      "statement": "When placed inside `lg-data-point-group` with two or more data points, `role=\"list\"` is applied to the wrapper and `role=\"listitem\"` is applied to each data point automatically. With only one data point, neither role is applied — a single-item list is not meaningful to screen reader users."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/data-point/SKILL.md:125",
+      "statement": "Use with the `lgSkeleton` directive for loading states (see the `skeleton` skill)."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:37"
+      ],
+      "id": "data-point-example-1",
+      "intent": "Follow documented data-point example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:46"
+      ],
+      "id": "data-point-example-2",
+      "intent": "Follow documented data-point example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:56"
+      ],
+      "id": "data-point-example-3",
+      "intent": "Follow documented data-point example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/data-point/SKILL.md:67"
+      ],
+      "id": "data-point-example-4",
+      "intent": "Follow documented data-point example 4."
+    }
+  ],
+  "publicSymbols": [
+    "DataPointOrientation",
+    "DataPointSize",
+    "DataPointVariant",
+    "LgDataPointAddOnComponent",
+    "LgDataPointComponent",
+    "LgDataPointGroupComponent",
+    "LgDataPointLabelComponent",
+    "LgDataPointSecondaryLabelComponent",
+    "LgDataPointValueComponent"
+  ],
+  "relatedSkills": [
+    "canopy-skeleton"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-data-point",
+    "lg-data-point-add-on",
+    "lg-data-point-group",
+    "lg-data-point-label",
+    "lg-data-point-secondary-label",
+    "lg-data-point-value"
+  ],
+  "title": "Canopy Data Point",
+  "tokens": []
+}

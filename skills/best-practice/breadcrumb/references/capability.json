@@ -1,0 +1,225 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "BreadcrumbVariant.page",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgBreadcrumbComponent",
+        "type": "BreadcrumbVariant"
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/breadcrumb/breadcrumb.component.html:1",
+        "owner": "LgBreadcrumbComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.component.html:19",
+        "owner": "LgBreadcrumbItemComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.interface.ts",
+        "symbol": "BreadcrumbVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.interface.ts",
+        "symbol": "ItemTypes"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "BreadcrumbVariant.page",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "BreadcrumbVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-breadcrumb",
+        "source": "projects/canopy/src/lib/breadcrumb/breadcrumb.component.ts",
+        "symbol": "LgBreadcrumbComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-breadcrumb-item",
+        "source": "projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.component.ts",
+        "symbol": "LgBreadcrumbItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-breadcrumb-item-ellipsis",
+        "source": "projects/canopy/src/lib/breadcrumb/breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component.ts",
+        "symbol": "LgBreadcrumbItemEllipsisComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:133",
+      "statement": "reflect the user's session history — breadcrumbs are location-based, not history-based."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:134",
+      "statement": "make the current page's breadcrumb a link."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:135",
+      "statement": "use on websites with a shallow or flat structure."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:136",
+      "statement": "duplicate main menu or secondary navigation options."
+    }
+  ],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Breadcrumb component. Trigger when adding site hierarchy navigation, breadcrumb trails, or location-based navigation to an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/breadcrumb/breadcrumb-item-ellipsis/breadcrumb-item-ellipsis.component.ts",
+    "projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.component.ts",
+    "projects/canopy/src/lib/breadcrumb/breadcrumb-item/breadcrumb-item.interface.ts",
+    "projects/canopy/src/lib/breadcrumb/breadcrumb.component.ts",
+    "projects/canopy/src/lib/breadcrumb/docs/guide.mdx",
+    "skills/best-practice/breadcrumb/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-breadcrumb",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:126",
+      "statement": "make the first breadcrumb a link to the homepage."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:127",
+      "statement": "reflect the user's position in the site's hierarchical structure."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:128",
+      "statement": "include the current page label in the breadcrumb trail."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:129",
+      "statement": "use `embedded` when placing the breadcrumb inside a component that already has grid structure."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:142",
+      "statement": "On mobile, only the one level above the current page is shown — the current page itself is hidden."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/breadcrumb/SKILL.md:143",
+      "statement": "Breadcrumbs are pending brand modernisation."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/breadcrumb/SKILL.md:36"
+      ],
+      "id": "breadcrumb-example-1",
+      "intent": "Follow documented breadcrumb example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/breadcrumb/SKILL.md:57"
+      ],
+      "id": "breadcrumb-example-2",
+      "intent": "Follow documented breadcrumb example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/breadcrumb/SKILL.md:74"
+      ],
+      "id": "breadcrumb-example-3",
+      "intent": "Follow documented breadcrumb example 3."
+    }
+  ],
+  "publicSymbols": [
+    "BreadcrumbVariant",
+    "ItemTypes",
+    "LgBreadcrumbComponent",
+    "LgBreadcrumbItemComponent",
+    "LgBreadcrumbItemEllipsisComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-breadcrumb",
+    "lg-breadcrumb-item",
+    "lg-breadcrumb-item-ellipsis"
+  ],
+  "title": "Canopy Breadcrumb",
+  "tokens": []
+}

@@ -3,6 +3,7 @@ name: canopy-promotions
 description: Best practices for Canopy Promotions patterns. Trigger when building promotional card layouts with lg-card, grid directives, and orientation rules in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/card/docs/promotions/guide.mdx
 ---
 

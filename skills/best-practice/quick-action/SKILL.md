@@ -3,6 +3,7 @@ name: canopy-quick-action
 description: Removal notice for the Canopy Quick Action directive. Trigger whenever lg-quick-action, LgQuickActionComponent, or related imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: removed
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/quick-action/docs/guide.mdx
 ---
 

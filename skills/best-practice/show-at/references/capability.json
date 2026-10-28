@@ -1,0 +1,88 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgShowAt",
+        "property": "lgShowAt",
+        "required": false,
+        "symbol": "LgShowAtDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgShowAt",
+            "property": "lgShowAt",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgShowAt]",
+        "source": "projects/canopy/src/lib/show-at/show-at.directive.ts",
+        "symbol": "LgShowAtDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "utilities",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Show At directive. Trigger when using lgShowAt or LgShowAtDirective to show elements at specific breakpoints in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/show-at/docs/guide.mdx",
+    "projects/canopy/src/lib/show-at/show-at.directive.ts",
+    "skills/best-practice/show-at/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-show-at",
+  "intents": [],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [],
+  "publicSymbols": [
+    "LgShowAtDirective"
+  ],
+  "relatedSkills": [
+    "canopy-hide-at"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgShowAt]"
+  ],
+  "title": "Canopy Show At",
+  "tokens": []
+}

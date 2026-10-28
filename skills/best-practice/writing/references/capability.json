@@ -1,0 +1,206 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:82",
+      "statement": "use internal jargon or technical acronyms without explanation."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:83",
+      "statement": "use passive voice when active is possible."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:84",
+      "statement": "use vague button or link labels (\"Click here\", \"Find out more\")."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:85",
+      "statement": "write long paragraphs that are difficult to scan."
+    }
+  ],
+  "category": "principles",
+  "deprecated": null,
+  "description": "Writing and tone of voice guidance for Canopy applications. Trigger when writing UI text, labels, error messages, headings, button text, or any copy in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/docs/principles/writing.mdx",
+    "skills/best-practice/writing/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-writing",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:22",
+      "statement": "**Bright** — bring intelligence and energy; demonstrate expertise in accessible language."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:23",
+      "statement": "**Calm** — keep it simple, concise, and confident; let the facts speak."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:24",
+      "statement": "**Real** — be down to earth, warm, and transparent; write like you speak."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:30",
+      "statement": "**Lead with the benefit** — tell users what's in it for them early on."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:31",
+      "statement": "**Understand your audience** — explain acronyms, avoid jargon, write at reading age 9."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:32",
+      "statement": "**Active, not passive** — \"The system updated your address\" not \"Your address has been updated\"."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:33",
+      "statement": "**Draw pictures with words** — prefer concrete objects over abstract ideas."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:34",
+      "statement": "**Structure your thoughts** — order messages logically before you write."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:35",
+      "statement": "**Edit and simplify** — cut unnecessary words; avoid long sentences."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:36",
+      "statement": "**Use \"you\"** — prefer \"you\" over \"we\" to involve the reader."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:37",
+      "statement": "**Write like you speak** — use contractions (\"You're\" not \"You are\"), avoid clichés."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:45",
+      "statement": "Set expectations — titles should describe what the content contains and how it helps."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:46",
+      "statement": "Keep titles short and actionable: \"How do I update my address online\"."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:50",
+      "statement": "Use descriptive verbs: **Accept**, **Create**, **Delete**, **Save**, **Update**."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:51",
+      "statement": "Avoid vague terms: **Yes**, **No**, **OK**, **Click here**."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:55",
+      "statement": "Use words that describe the destination or action: \"Update my address\", \"View my policy documents\"."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:56",
+      "statement": "Never write \"click here\" or \"find out more\" as link text."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:60",
+      "statement": "Be specific about what went wrong and what the user needs to do to fix it."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:61",
+      "statement": "Use active, direct language without blame."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:65",
+      "statement": "Keep each paragraph short and to the point."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:66",
+      "statement": "Break content into bite-sized chunks; users scan rather than read."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/writing/SKILL.md:67",
+      "statement": "Use subheadings, bullet points, and whitespace to aid scanning."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:75",
+      "statement": "focus on the customer's goal before writing."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:76",
+      "statement": "use words that customers themselves would use."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:77",
+      "statement": "use active, confident language: \"you should\", \"we recommend\"."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/writing/SKILL.md:78",
+      "statement": "keep body text scannable with short paragraphs and subheadings."
+    }
+  ],
+  "introduced": null,
+  "kind": "principle",
+  "patterns": [],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Writing Principles",
+  "tokens": []
+}

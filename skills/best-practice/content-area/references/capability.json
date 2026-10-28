@@ -1,0 +1,334 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "default",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgContentAreaComponent",
+        "type": "ContentAreaVariant"
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgContentAreaTitleComponent",
+        "type": "HeadingLevel"
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/content-area/content-area.component.html:2",
+        "owner": "LgContentAreaComponent",
+        "selector": "lg-content-area-content",
+        "selectors": [
+          "lg-content-area-content"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/content-area/content-area.component.html:3",
+        "owner": "LgContentAreaComponent",
+        "selector": "lg-content-area-footer",
+        "selectors": [
+          "lg-content-area-footer"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/content-area/content-area.component.html:1",
+        "owner": "LgContentAreaComponent",
+        "selector": "lg-content-area-header",
+        "selectors": [
+          "lg-content-area-header"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/content-area/content-area-content/content-area-content.component.html:1",
+        "owner": "LgContentAreaContentComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/content-area/content-area-footer/content-area-footer.component.html:1",
+        "owner": "LgContentAreaFooterComponent",
+        "selector": "lg-button-group",
+        "selectors": [
+          "lg-button-group"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/content-area/content-area-header/content-area-header.component.html:1",
+        "owner": "LgContentAreaHeaderComponent",
+        "selector": "lg-content-area-title, a, button[lg-button][priority='link']",
+        "selectors": [
+          "lg-content-area-title",
+          "a",
+          "button[lg-button][priority='link']"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/content-area/content-area-title/content-area-title.component.html:2",
+        "owner": "LgContentAreaTitleComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/content-area/content-area.interface.ts",
+        "symbol": "ContentAreaVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "default",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "ContentAreaVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-content-area",
+        "source": "projects/canopy/src/lib/content-area/content-area.component.ts",
+        "symbol": "LgContentAreaComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-content-area-content",
+        "source": "projects/canopy/src/lib/content-area/content-area-content/content-area-content.component.ts",
+        "symbol": "LgContentAreaContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-content-area-footer",
+        "source": "projects/canopy/src/lib/content-area/content-area-footer/content-area-footer.component.ts",
+        "symbol": "LgContentAreaFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-content-area-header",
+        "source": "projects/canopy/src/lib/content-area/content-area-header/content-area-header.component.ts",
+        "symbol": "LgContentAreaHeaderComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-content-area-title",
+        "source": "projects/canopy/src/lib/content-area/content-area-title/content-area-title.component.ts",
+        "symbol": "LgContentAreaTitleComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:168",
+      "statement": "nest content areas inside other content areas."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:169",
+      "statement": "place Cards inside a content area."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:170",
+      "statement": "use the default variant for form journeys — always use `variant=\"form-journey\"`."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:171",
+      "statement": "use fewer than 4 columns for a content area on MD layouts and above."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:172",
+      "statement": "show an active progress indicator on the confirmation page."
+    }
+  ],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Content Area component. Trigger when structuring main page content sections, form journeys, or sub-pages in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/content-area/content-area-content/content-area-content.component.ts",
+    "projects/canopy/src/lib/content-area/content-area-footer/content-area-footer.component.ts",
+    "projects/canopy/src/lib/content-area/content-area-header/content-area-header.component.ts",
+    "projects/canopy/src/lib/content-area/content-area-title/content-area-title.component.ts",
+    "projects/canopy/src/lib/content-area/content-area.component.ts",
+    "projects/canopy/src/lib/content-area/content-area.interface.ts",
+    "projects/canopy/src/lib/content-area/docs/guide.mdx",
+    "skills/best-practice/content-area/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-content-area",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:160",
+      "statement": "use content areas as parent-level containers for all main page content."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:161",
+      "statement": "align content areas to the 12-column grid, spanning at least 4 columns on MD layouts and above."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:162",
+      "statement": "use the form journey variant for all form-based flows."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:163",
+      "statement": "place the progress indicator in the content section, above the current step's title and fields."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/content-area/SKILL.md:164",
+      "statement": "use the content-area footer for step actions, grouped with `lg-button-group`."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:48"
+      ],
+      "id": "content-area-example-1",
+      "intent": "Follow documented content-area example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:60"
+      ],
+      "id": "content-area-example-2",
+      "intent": "Follow documented content-area example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:73"
+      ],
+      "id": "content-area-example-3",
+      "intent": "Follow documented content-area example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:83"
+      ],
+      "id": "content-area-example-4",
+      "intent": "Follow documented content-area example 4."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:109"
+      ],
+      "id": "content-area-example-5",
+      "intent": "Follow documented content-area example 5."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/content-area/SKILL.md:124"
+      ],
+      "id": "content-area-example-6",
+      "intent": "Follow documented content-area example 6."
+    }
+  ],
+  "publicSymbols": [
+    "ContentAreaVariant",
+    "LgContentAreaComponent",
+    "LgContentAreaContentComponent",
+    "LgContentAreaFooterComponent",
+    "LgContentAreaHeaderComponent",
+    "LgContentAreaTitleComponent"
+  ],
+  "relatedSkills": [
+    "canopy-forms-design"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-content-area",
+    "lg-content-area-content",
+    "lg-content-area-footer",
+    "lg-content-area-header",
+    "lg-content-area-title"
+  ],
+  "title": "Canopy Content Area",
+  "tokens": []
+}

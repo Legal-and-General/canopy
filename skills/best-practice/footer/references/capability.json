@@ -1,0 +1,461 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "alt",
+        "property": "alt",
+        "required": false,
+        "symbol": "LgFooterLogoComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "src",
+        "property": "src",
+        "required": false,
+        "symbol": "LgFooterLogoComponent",
+        "type": "string"
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer.component.html:17",
+        "owner": "LgFooterComponent",
+        "selector": "lg-footer-copyright",
+        "selectors": [
+          "lg-footer-copyright"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer.component.html:5",
+        "owner": "LgFooterComponent",
+        "selector": "lg-footer-footnote",
+        "selectors": [
+          "lg-footer-footnote"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer.component.html:13",
+        "owner": "LgFooterComponent",
+        "selector": "lg-footer-logo",
+        "selectors": [
+          "lg-footer-logo"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer.component.html:8",
+        "owner": "LgFooterComponent",
+        "selector": "lg-footer-nav",
+        "selectors": [
+          "lg-footer-nav"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer.component.html:6",
+        "owner": "LgFooterComponent",
+        "selector": "lg-footer-social",
+        "selectors": [
+          "lg-footer-social"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer.component.html:14",
+        "owner": "LgFooterComponent",
+        "selector": "lg-footer-stickers",
+        "selectors": [
+          "lg-footer-stickers"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer-copyright/footer-copyright.component.html:1",
+        "owner": "LgFooterCopyrightComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer-footnote/footer-footnote.component.html:1",
+        "owner": "LgFooterFootnoteComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer-nav/footer-nav.component.html:2",
+        "owner": "LgFooterNavComponent",
+        "selector": "lg-footer-nav-item",
+        "selectors": [
+          "lg-footer-nav-item"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer-nav-item/footer-nav-item.component.html:3",
+        "owner": "LgFooterNavItemComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer-nav-item/footer-nav-item.component.html:1",
+        "owner": "LgFooterNavItemComponent",
+        "selector": "[lg-footer-action]",
+        "selectors": [
+          "[lg-footer-action]"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer-social/footer-social.component.html:1",
+        "owner": "LgFooterSocialComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/footer/footer-stickers/footer-stickers.component.html:1",
+        "owner": "LgFooterStickersComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-footer]",
+        "source": "projects/canopy/src/lib/footer/footer.component.ts",
+        "symbol": "LgFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-footer-copyright",
+        "source": "projects/canopy/src/lib/footer/footer-copyright/footer-copyright.component.ts",
+        "symbol": "LgFooterCopyrightComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-footer-footnote",
+        "source": "projects/canopy/src/lib/footer/footer-footnote/footer-footnote.component.ts",
+        "symbol": "LgFooterFootnoteComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "alt",
+            "property": "alt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "src",
+            "property": "src",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-footer-logo",
+        "source": "projects/canopy/src/lib/footer/footer-logo/footer-logo.component.ts",
+        "symbol": "LgFooterLogoComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-footer-nav",
+        "source": "projects/canopy/src/lib/footer/footer-nav/footer-nav.component.ts",
+        "symbol": "LgFooterNavComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-footer-nav-item",
+        "source": "projects/canopy/src/lib/footer/footer-nav-item/footer-nav-item.component.ts",
+        "symbol": "LgFooterNavItemComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-footer-social",
+        "source": "projects/canopy/src/lib/footer/footer-social/footer-social.component.ts",
+        "symbol": "LgFooterSocialComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-footer-stickers",
+        "source": "projects/canopy/src/lib/footer/footer-stickers/footer-stickers.component.ts",
+        "symbol": "LgFooterStickersComponent"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Footer component. Trigger when adding a site footer, footer navigation, or footer logos in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/footer/docs/guide.mdx",
+    "projects/canopy/src/lib/footer/footer-copyright/footer-copyright.component.ts",
+    "projects/canopy/src/lib/footer/footer-footnote/footer-footnote.component.ts",
+    "projects/canopy/src/lib/footer/footer-logo/footer-logo.component.ts",
+    "projects/canopy/src/lib/footer/footer-nav-item/footer-nav-item.component.ts",
+    "projects/canopy/src/lib/footer/footer-nav/footer-nav.component.ts",
+    "projects/canopy/src/lib/footer/footer-social/footer-social.component.ts",
+    "projects/canopy/src/lib/footer/footer-stickers/footer-stickers.component.ts",
+    "projects/canopy/src/lib/footer/footer.component.ts",
+    "skills/best-practice/footer/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-footer",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:73",
+      "statement": "**Primary and secondary links merged**: The `variant` input has been removed from `lg-footer-nav`. All links now go in a single `lg-footer-nav` component."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:75",
+      "statement": "**New components added**:"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:141",
+      "statement": "Anchor tags projected into `lg-footer-nav` automatically receive `rel=\"noopener\"`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:142",
+      "statement": "Button tags projected into `lg-footer-nav` automatically receive `type=\"button\"`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:213",
+      "statement": "Copyright text appears on the left"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:214",
+      "statement": "Stickers appear in the centre (when present)"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:215",
+      "statement": "Logo appears on the right"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:216",
+      "statement": "For co-branded logos: L&G logo on the left, partner logo on the right"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:220",
+      "statement": "Logo appears at the top"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:221",
+      "statement": "Stickers appear below the logo"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:222",
+      "statement": "Copyright text appears below the stickers"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:228",
+      "statement": "Logo height is set internally and cannot be modified"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:229",
+      "statement": "Override logo widths with CSS custom properties:"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:237",
+      "statement": "Maximum of 8 social media links recommended (component will warn in console if exceeded)"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:238",
+      "statement": "Footer navigation link states use mono link colours:"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:239",
+      "statement": "Hover: `--link-mono-hover-colour`"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:240",
+      "statement": "Focus: `--link-mono-focus-colour` (with visible border)"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:241",
+      "statement": "Active: `--link-mono-active-colour`"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/footer/SKILL.md:242",
+      "statement": "Visited: `--link-mono-visited-colour`"
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:39"
+      ],
+      "id": "footer-example-1",
+      "intent": "Follow documented footer example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:82"
+      ],
+      "id": "footer-example-2",
+      "intent": "Follow documented footer example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:103"
+      ],
+      "id": "footer-example-3",
+      "intent": "Follow documented footer example 3."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:154"
+      ],
+      "id": "footer-example-4",
+      "intent": "Follow documented footer example 4."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:169"
+      ],
+      "id": "footer-example-5",
+      "intent": "Follow documented footer example 5."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:180"
+      ],
+      "id": "footer-example-6",
+      "intent": "Follow documented footer example 6."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/footer/SKILL.md:190"
+      ],
+      "id": "footer-example-7",
+      "intent": "Follow documented footer example 7."
+    }
+  ],
+  "publicSymbols": [
+    "LgFooterComponent",
+    "LgFooterCopyrightComponent",
+    "LgFooterFootnoteComponent",
+    "LgFooterLogoComponent",
+    "LgFooterNavComponent",
+    "LgFooterNavItemComponent",
+    "LgFooterSocialComponent",
+    "LgFooterStickersComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-footer]",
+    "lg-footer-copyright",
+    "lg-footer-footnote",
+    "lg-footer-logo",
+    "lg-footer-nav",
+    "lg-footer-nav-item",
+    "lg-footer-social",
+    "lg-footer-stickers"
+  ],
+  "title": "Canopy Footer",
+  "tokens": []
+}

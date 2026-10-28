@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "index.schema.json",
+  "title": "Canopy capability index",
+  "type": "object",
+  "required": ["schemaVersion", "capabilities"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "number", "const": 1 },
+    "capabilities": { "type": "array", "items": { "type": "object" } }
+  }
+}

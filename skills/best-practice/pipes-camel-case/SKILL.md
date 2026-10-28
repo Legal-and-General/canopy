@@ -3,6 +3,7 @@ name: canopy-pipes-camel-case
 description: Best practices for the Canopy Camel Case pipe. Trigger when using LgCamelCasePipe or transforming strings to camelCase in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: utilities
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/pipes/camel-case/docs/guide.mdx
 ---
 

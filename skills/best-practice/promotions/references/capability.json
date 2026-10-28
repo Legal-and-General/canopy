@@ -1,0 +1,675 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": "default",
+        "deprecated": false,
+        "name": "variant",
+        "property": "variant",
+        "required": false,
+        "symbol": "LgCardComponent",
+        "type": "CardVariant"
+      },
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "alt",
+        "property": "alt",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "aspectRatio",
+        "property": "aspectRatio",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": "LgCardHeroImgAspectRatio"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "cover",
+        "property": "cover",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "src",
+        "property": "src",
+        "required": false,
+        "symbol": "LgCardHeroImageComponent",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "link",
+        "property": "link",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": null
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "queryParams",
+        "property": "queryParams",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": "Params"
+      },
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "queryParamsHandling",
+        "property": "queryParamsHandling",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": "QueryParamsHandling"
+      },
+      {
+        "default": "",
+        "deprecated": false,
+        "name": "title",
+        "property": "title",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgCardSubheadingComponent",
+        "type": "HeadingLevel"
+      },
+      {
+        "deprecated": false,
+        "name": "headingLevel",
+        "property": "headingLevel",
+        "required": false,
+        "symbol": "LgCardTitleComponent",
+        "type": "HeadingLevel"
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "linkClickedEvent",
+        "property": "linkClickedEvent",
+        "required": false,
+        "symbol": "LgCardNavigationTitleComponent",
+        "type": null
+      }
+    ],
+    "projection": [
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:4",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-content",
+        "selectors": [
+          "lg-card-content"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:5",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-footer",
+        "selectors": [
+          "lg-card-footer"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:3",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-header",
+        "selectors": [
+          "lg-card-header"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card.component.html:1",
+        "owner": "LgCardComponent",
+        "selector": "lg-card-hero-img",
+        "selectors": [
+          "lg-card-hero-img"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-content/card-content.component.html:1",
+        "owner": "LgCardContentComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-content-inner-data-points/card-content-inner-data-points.component.html:1",
+        "owner": "LgCardContentInnerDataPointsComponent",
+        "selector": "lg-data-point, lg-data-point-group",
+        "selectors": [
+          "lg-data-point",
+          "lg-data-point-group"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-footer/card-footer.component.html:1",
+        "owner": "LgCardFooterComponent",
+        "selector": "lg-button-group, a, button, lg-link-menu",
+        "selectors": [
+          "lg-button-group",
+          "a",
+          "button",
+          "lg-link-menu"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-group/card-group.component.html:1",
+        "owner": "LgCardGroupComponent",
+        "selector": "lg-card",
+        "selectors": [
+          "lg-card"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-header/card-header.component.html:2",
+        "owner": "LgCardHeaderComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-hero-img/card-hero-img.component.html:14",
+        "owner": "LgCardHeroImageComponent",
+        "selector": "lg-pictogram",
+        "selectors": [
+          "lg-pictogram"
+        ]
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-subheading/card-subheading.component.html:2",
+        "owner": "LgCardSubheadingComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-subtitle/card-subtitle.component.html:1",
+        "owner": "LgCardSubtitleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-title/card-title.component.html:2",
+        "owner": "LgCardTitleComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/card/card-toggable-content/card-toggable-content.component.html:1",
+        "owner": "LgCardToggableContentComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card.interface.ts",
+        "symbol": "CardVariant"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "default",
+            "deprecated": false,
+            "name": "variant",
+            "property": "variant",
+            "required": false,
+            "type": "CardVariant"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card",
+        "source": "projects/canopy/src/lib/card/card.component.ts",
+        "symbol": "LgCardComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-content",
+        "source": "projects/canopy/src/lib/card/card-content/card-content.component.ts",
+        "symbol": "LgCardContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-content-inner-data-points",
+        "source": "projects/canopy/src/lib/card/card-content-inner-data-points/card-content-inner-data-points.component.ts",
+        "symbol": "LgCardContentInnerDataPointsComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-footer",
+        "source": "projects/canopy/src/lib/card/card-footer/card-footer.component.ts",
+        "symbol": "LgCardFooterComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "[lg-card-group]",
+        "source": "projects/canopy/src/lib/card/card-group/card-group.component.ts",
+        "symbol": "LgCardGroupComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-header",
+        "source": "projects/canopy/src/lib/card/card-header/card-header.component.ts",
+        "symbol": "LgCardHeaderComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "alt",
+            "property": "alt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "aspectRatio",
+            "property": "aspectRatio",
+            "required": false,
+            "type": "LgCardHeroImgAspectRatio"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "cover",
+            "property": "cover",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "src",
+            "property": "src",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-hero-img",
+        "source": "projects/canopy/src/lib/card/card-hero-img/card-hero-img.component.ts",
+        "symbol": "LgCardHeroImageComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card-hero-img/card-hero-img.interface.ts",
+        "symbol": "LgCardHeroImgAspectRatio"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          },
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "link",
+            "property": "link",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "queryParams",
+            "property": "queryParams",
+            "required": false,
+            "type": "Params"
+          },
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "queryParamsHandling",
+            "property": "queryParamsHandling",
+            "required": false,
+            "type": "QueryParamsHandling"
+          },
+          {
+            "default": "",
+            "deprecated": false,
+            "name": "title",
+            "property": "title",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "linkClickedEvent",
+            "property": "linkClickedEvent",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "lg-card-navigation-title",
+        "source": "projects/canopy/src/lib/card/card-navigation-title/card-navigation-title.component.ts",
+        "symbol": "LgCardNavigationTitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-subheading",
+        "source": "projects/canopy/src/lib/card/card-subheading/card-subheading.component.ts",
+        "symbol": "LgCardSubheadingComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-subtitle",
+        "source": "projects/canopy/src/lib/card/card-subtitle/card-subtitle.component.ts",
+        "symbol": "LgCardSubtitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "headingLevel",
+            "property": "headingLevel",
+            "required": false,
+            "type": "HeadingLevel"
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-title",
+        "source": "projects/canopy/src/lib/card/card-title/card-title.component.ts",
+        "symbol": "LgCardTitleComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-card-toggable-content",
+        "source": "projects/canopy/src/lib/card/card-toggable-content/card-toggable-content.component.ts",
+        "symbol": "LgCardToggableContentComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card.interface.ts",
+        "symbol": "lgCardPanelIdPrefix"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/card/card.interface.ts",
+        "symbol": "lgCardToggleIdPrefix"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for Canopy Promotions patterns. Trigger when building promotional card layouts with lg-card, grid directives, and orientation rules in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/card/card-content-inner-data-points/card-content-inner-data-points.component.ts",
+    "projects/canopy/src/lib/card/card-content/card-content.component.ts",
+    "projects/canopy/src/lib/card/card-footer/card-footer.component.ts",
+    "projects/canopy/src/lib/card/card-group/card-group.component.ts",
+    "projects/canopy/src/lib/card/card-header/card-header.component.ts",
+    "projects/canopy/src/lib/card/card-hero-img/card-hero-img.component.ts",
+    "projects/canopy/src/lib/card/card-hero-img/card-hero-img.interface.ts",
+    "projects/canopy/src/lib/card/card-navigation-title/card-navigation-title.component.ts",
+    "projects/canopy/src/lib/card/card-subheading/card-subheading.component.ts",
+    "projects/canopy/src/lib/card/card-subtitle/card-subtitle.component.ts",
+    "projects/canopy/src/lib/card/card-title/card-title.component.ts",
+    "projects/canopy/src/lib/card/card-toggable-content/card-toggable-content.component.ts",
+    "projects/canopy/src/lib/card/card.component.ts",
+    "projects/canopy/src/lib/card/card.interface.ts",
+    "projects/canopy/src/lib/card/docs/promotions/guide.mdx",
+    "skills/best-practice/promotions/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-promotions",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:89",
+      "statement": "Stand-alone card"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:90",
+      "statement": "Two cards"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:91",
+      "statement": "Three cards"
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:92",
+      "statement": "Magazine layout"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/promotions/SKILL.md:126",
+      "statement": "keep the promotional message succinct."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/promotions/SKILL.md:127",
+      "statement": "keep content length consistent across cards to preserve alignment."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/promotions/SKILL.md:128",
+      "statement": "use only documented promotions variants and layouts."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:134",
+      "statement": "Promotions are a pattern combining `lg-card` and grid layout rules; use documented patterns before creating bespoke structures."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:135",
+      "statement": "In cover-image mode (`[cover]=\"true\"`), use large square images with the focal point centred to reduce problematic cropping across breakpoints."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:136",
+      "statement": "For non-cover images, prefer images close to a 3:2 ratio (for example, 600 × 400)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:137",
+      "statement": "The Promotions documentation is due for brand modernisation; avoid introducing additional bespoke pattern variants."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/promotions/SKILL.md:143",
+      "statement": "Use `canopy-card` for broader `LgCardComponent` usage beyond promotions."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/promotions/SKILL.md:44"
+      ],
+      "id": "promotions-example-1",
+      "intent": "Follow documented promotions example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/promotions/SKILL.md:64"
+      ],
+      "id": "promotions-example-2",
+      "intent": "Follow documented promotions example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/promotions/SKILL.md:102"
+      ],
+      "id": "promotions-example-3",
+      "intent": "Follow documented promotions example 3."
+    }
+  ],
+  "publicSymbols": [
+    "CardVariant",
+    "LgCardComponent",
+    "LgCardContentComponent",
+    "LgCardContentInnerDataPointsComponent",
+    "LgCardFooterComponent",
+    "LgCardGroupComponent",
+    "LgCardHeaderComponent",
+    "LgCardHeroImageComponent",
+    "LgCardHeroImgAspectRatio",
+    "LgCardNavigationTitleComponent",
+    "LgCardSubheadingComponent",
+    "LgCardSubtitleComponent",
+    "LgCardTitleComponent",
+    "LgCardToggableContentComponent",
+    "lgCardPanelIdPrefix",
+    "lgCardToggleIdPrefix"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lg-card-group]",
+    "lg-card",
+    "lg-card-content",
+    "lg-card-content-inner-data-points",
+    "lg-card-footer",
+    "lg-card-header",
+    "lg-card-hero-img",
+    "lg-card-navigation-title",
+    "lg-card-subheading",
+    "lg-card-subtitle",
+    "lg-card-title",
+    "lg-card-toggable-content"
+  ],
+  "title": "Canopy Promotions",
+  "tokens": []
+}

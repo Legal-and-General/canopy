@@ -1,0 +1,304 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:63",
+      "statement": "Always provide label text inside `lg-select-field` as projected content — the component renders the associated `<label>` element automatically."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:64",
+      "statement": "Use `lg-hint` to provide extra context where needed."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:65",
+      "statement": "Provide a meaningful default option or empty value (\"Select\" or \"Choose an option\")."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:66",
+      "statement": "Ensure option text is clear and descriptive."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:67",
+      "statement": "Keyboard users must be able to open the select with Space/Enter and navigate options with arrow keys."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:68",
+      "statement": "List options in a predictable order (alphabetical, chronological, most frequently used)."
+    }
+  ],
+  "api": {
+    "inputs": [
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "ariaDescribedBy",
+        "property": "ariaDescribedBy",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": "string | null"
+      },
+      {
+        "default": false,
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": null
+      },
+      {
+        "default": "`lg-select-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgSelectDirective",
+        "type": "string"
+      },
+      {
+        "deprecated": false,
+        "name": "block",
+        "property": "block",
+        "required": false,
+        "symbol": "LgSelectFieldComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-select-${this.uniqueId}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgSelectFieldComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:2",
+        "owner": "LgSelectFieldComponent",
+        "selector": "*",
+        "selectors": []
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:4",
+        "owner": "LgSelectFieldComponent",
+        "selector": ".lg-label--optional",
+        "selectors": [
+          ".lg-label--optional"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:9",
+        "owner": "LgSelectFieldComponent",
+        "selector": "[lgSelect]",
+        "selectors": [
+          "[lgSelect]"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:5",
+        "owner": "LgSelectFieldComponent",
+        "selector": "lg-hint",
+        "selectors": [
+          "lg-hint"
+        ]
+      },
+      {
+        "catchAll": false,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/forms/select/select-field.component.html:6",
+        "owner": "LgSelectFieldComponent",
+        "selector": "lg-validation, [lgValidationWrapper]",
+        "selectors": [
+          "lg-validation",
+          "[lgValidationWrapper]"
+        ]
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "ariaDescribedBy",
+            "property": "ariaDescribedBy",
+            "required": false,
+            "type": "string | null"
+          },
+          {
+            "default": false,
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-select-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgSelect]",
+        "source": "projects/canopy/src/lib/forms/select/select.directive.ts",
+        "symbol": "LgSelectDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "block",
+            "property": "block",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-select-${this.uniqueId}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-select-field",
+        "source": "projects/canopy/src/lib/forms/select/select-field.component.ts",
+        "symbol": "LgSelectFieldComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:81",
+      "statement": "use a select when typing may be faster, such as for date of birth or postcode — use text input instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:82",
+      "statement": "use a select to present a single selection — use a checkbox instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:83",
+      "statement": "use a select for a very large number of options — consider an autocomplete approach instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:84",
+      "statement": "capitalise option text — use sentence case for easy reading."
+    }
+  ],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Select component. Trigger when adding dropdown form fields, single-selection lists, or option pickers in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/select/docs/guide.mdx",
+    "projects/canopy/src/lib/forms/select/select-field.component.ts",
+    "projects/canopy/src/lib/forms/select/select.directive.ts",
+    "skills/best-practice/forms-select/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-select",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:76",
+      "statement": "use a select when the preset option list is long (more than five options) and space is limited."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/forms-select/SKILL.md:77",
+      "statement": "list options in a predictable format: alphabetical, chronological, or most frequently used."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-select/SKILL.md:30"
+      ],
+      "id": "forms-select-example-1",
+      "intent": "Follow documented forms-select example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgSelectDirective",
+    "LgSelectFieldComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgSelect]",
+    "lg-select-field"
+  ],
+  "title": "Canopy Select",
+  "tokens": []
+}

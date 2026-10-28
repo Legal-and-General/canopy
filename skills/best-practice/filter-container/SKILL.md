@@ -3,6 +3,7 @@ name: canopy-filter-container
 description: Best practices for the Canopy Filter Container pattern. Trigger when adding an expandable filter panel with a toggle button and filter controls in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: forms
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/filter-container/docs/guide.mdx
 ---
 

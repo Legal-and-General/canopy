@@ -3,6 +3,7 @@ name: canopy-forms-segment
 description: Best practices for the Canopy Segment component. Trigger when adding conscious single-choice selectors, question-and-answer journey controls, or compact radio alternatives in a form in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: forms
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/radio/docs/segment/guide.mdx
 ---
 

@@ -3,6 +3,7 @@ name: canopy-notice
 description: Best practices for the Canopy Notice component. Trigger when adding full-page confirmation messages, empty states, error pages, or success completion screens in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: feedback
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/notice/docs/guide.mdx
 ---
 

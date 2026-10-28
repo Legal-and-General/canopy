@@ -3,6 +3,7 @@ name: canopy-feature-toggle
 description: Best practices for the Canopy Feature Toggle module. Trigger when using LgFeatureToggleModule, the lgFeatureToggle directive, or FeatureToggleGuard in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: utilities
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/feature-toggle/docs/guide.mdx
 ---
 

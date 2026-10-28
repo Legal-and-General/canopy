@@ -3,6 +3,7 @@ name: canopy-list
 description: Best practices for Canopy list-with-icons usage. Trigger when using lg-list-with-icons, lg-list-with-icons-item, ordered list markers, or list item variant theming in Angular.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/list/docs/guide.mdx
 ---
 

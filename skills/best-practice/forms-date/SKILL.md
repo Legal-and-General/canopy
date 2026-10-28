@@ -3,6 +3,7 @@ name: canopy-forms-date
 description: Best practices for the Canopy Date Input component. Trigger when capturing or validating date values in a form in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: forms
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/date/docs/guide.mdx
 ---
 

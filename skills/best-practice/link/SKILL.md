@@ -3,6 +3,7 @@ name: canopy-link
 description: Best practices for Canopy link styles. Trigger when using anchor tags, links with icons, external links, or the lg-unstyled-link class in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: actions
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/styles/docs/link/guide.mdx
 ---
 

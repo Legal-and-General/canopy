@@ -1,0 +1,124 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgSrAlertMessage",
+        "property": "lgSrAlertMessage",
+        "required": false,
+        "symbol": "LgSrAlertMessageDirective",
+        "type": "boolean"
+      },
+      {
+        "default": "8000",
+        "deprecated": false,
+        "name": "timer",
+        "property": "timer",
+        "required": false,
+        "symbol": "LgSrAlertMessageDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgSrAlertMessage",
+            "property": "lgSrAlertMessage",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "default": "8000",
+            "deprecated": false,
+            "name": "timer",
+            "property": "timer",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgSrAlertMessage]",
+        "source": "projects/canopy/src/lib/sr-alert-message/sr-alert-message.directive.ts",
+        "symbol": "LgSrAlertMessageDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Screen Reader Alert Message directive. Trigger when notifying screen reader users of dynamic content changes, loading completion, or status updates in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/sr-alert-message/docs/guide.mdx",
+    "projects/canopy/src/lib/sr-alert-message/sr-alert-message.directive.ts",
+    "skills/best-practice/sr-alert-message/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-sr-alert-message",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/sr-alert-message/SKILL.md:51",
+      "statement": "A spinner disappearing when data finishes loading."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/sr-alert-message/SKILL.md:52",
+      "statement": "A success state appearing after a form submission."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/sr-alert-message/SKILL.md:58",
+      "statement": "The `LgSpinnerComponent` documentation recommends always pairing a spinner with `lgSrAlertMessage` to announce when loading is complete."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/sr-alert-message/SKILL.md:59",
+      "statement": "The element carrying the directive is visually hidden at all times; it exists solely for screen readers."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [],
+  "publicSymbols": [
+    "LgSrAlertMessageDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgSrAlertMessage]"
+  ],
+  "title": "Canopy Screen Reader Alert Message",
+  "tokens": []
+}

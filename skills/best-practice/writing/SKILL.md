@@ -3,6 +3,7 @@ name: canopy-writing
 description: Writing and tone of voice guidance for Canopy applications. Trigger when writing UI text, labels, error messages, headings, button text, or any copy in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: principles
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/docs/principles/writing.mdx
 ---
 

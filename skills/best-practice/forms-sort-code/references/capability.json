@@ -1,0 +1,91 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgSortCode]",
+        "source": "projects/canopy/src/lib/forms/sort-code/sort-code.directive.ts",
+        "symbol": "LgSortCodeDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "forms",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Sort Code directive. Trigger when capturing and validating UK bank sort codes in a form in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/forms/sort-code/docs/guide.mdx",
+    "projects/canopy/src/lib/forms/sort-code/sort-code.directive.ts",
+    "skills/best-practice/forms-sort-code/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-forms-sort-code",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-sort-code/SKILL.md:61",
+      "statement": "Always copy the exact hint text: \"Must be 6 digits long, for example 00-00-00\"."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/forms-sort-code/SKILL.md:62",
+      "statement": "Use with Angular reactive forms."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/forms-sort-code/SKILL.md:35"
+      ],
+      "id": "forms-sort-code-example-1",
+      "intent": "Follow documented forms-sort-code example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgSortCodeDirective"
+  ],
+  "relatedSkills": [
+    "canopy-forms-validation"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgSortCode]"
+  ],
+  "title": "Canopy Sort Code",
+  "tokens": []
+}

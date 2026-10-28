@@ -1,0 +1,130 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgOrientation",
+        "property": "lgOrientation",
+        "required": false,
+        "symbol": "LgOrientationDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgOrientation",
+            "property": "lgOrientation",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgOrientation]",
+        "source": "projects/canopy/src/lib/orientation/orientation.directive.ts",
+        "symbol": "LgOrientationDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/orientation/orientation.interface.ts",
+        "symbol": "Orientation"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/orientation/orientation.interface.ts",
+        "symbol": "OrientationResponsive"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Orientation directive. Trigger when using lgOrientation or LgOrientationDirective to create responsive vertical/horizontal layouts in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/orientation/docs/guide.mdx",
+    "projects/canopy/src/lib/orientation/orientation.directive.ts",
+    "projects/canopy/src/lib/orientation/orientation.interface.ts",
+    "skills/best-practice/orientation/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-orientation",
+  "intents": [],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/orientation/SKILL.md:32"
+      ],
+      "id": "orientation-example-1",
+      "intent": "Follow documented orientation example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/orientation/SKILL.md:71"
+      ],
+      "id": "orientation-example-2",
+      "intent": "Follow documented orientation example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/orientation/SKILL.md:82"
+      ],
+      "id": "orientation-example-3",
+      "intent": "Follow documented orientation example 3."
+    }
+  ],
+  "publicSymbols": [
+    "LgOrientationDirective",
+    "Orientation",
+    "OrientationResponsive"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgOrientation]"
+  ],
+  "title": "Canopy Orientation",
+  "tokens": []
+}

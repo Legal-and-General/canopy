@@ -1,0 +1,216 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "colour",
+        "property": "colour",
+        "required": false,
+        "symbol": "LgPictogramComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "hasFill",
+        "property": "hasFill",
+        "required": false,
+        "symbol": "LgPictogramComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "name",
+        "property": "name",
+        "required": false,
+        "symbol": "LgPictogramComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "size",
+        "property": "size",
+        "required": false,
+        "symbol": "LgPictogramComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/pictogram/pictogram.component.html:1",
+        "owner": "LgPictogramComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "colour",
+            "property": "colour",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "hasFill",
+            "property": "hasFill",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "name",
+            "property": "name",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "size",
+            "property": "size",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-pictogram",
+        "source": "projects/canopy/src/lib/pictogram/pictogram.component.ts",
+        "symbol": "LgPictogramComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/pictogram/pictogram.registry.ts",
+        "symbol": "LgPictogramRegistry"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/pictogram/pictogram.component.ts",
+        "symbol": "PictogramSize"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pictogram/SKILL.md:92",
+      "statement": "use a pictogram in place of a UI icon."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pictogram/SKILL.md:93",
+      "statement": "use pictograms below 32px — use UI icons instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pictogram/SKILL.md:94",
+      "statement": "set `[hasFill]=\"true\"` in highly-branded scenarios such as the Dotcom CMS."
+    }
+  ],
+  "category": "data-display",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Pictogram component. Trigger when using lg-pictogram, LgPictogramComponent, or adding illustrative pictograms in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/pictogram/docs/guide.mdx",
+    "projects/canopy/src/lib/pictogram/pictogram.component.ts",
+    "projects/canopy/src/lib/pictogram/pictogram.registry.ts",
+    "skills/best-practice/pictogram/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-pictogram",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pictogram/SKILL.md:86",
+      "statement": "scale pictograms according to the sizing chart — minimum 32px."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pictogram/SKILL.md:87",
+      "statement": "use pictograms to support messages, empty states, or end-of-journey screens."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pictogram/SKILL.md:88",
+      "statement": "enable `[hasFill]=\"true\"` when using a pictogram in a self-service application to make the fill visible on neutral backgrounds."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/pictogram/SKILL.md:30"
+      ],
+      "id": "pictogram-example-1",
+      "intent": "Follow documented pictogram example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/pictogram/SKILL.md:65"
+      ],
+      "id": "pictogram-example-2",
+      "intent": "Follow documented pictogram example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgPictogramComponent",
+    "LgPictogramRegistry",
+    "PictogramSize"
+  ],
+  "relatedSkills": [
+    "canopy-icon"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-pictogram"
+  ],
+  "title": "Canopy Pictogram",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pictogram/SKILL.md",
+      "name": "--colour-green-400"
+    }
+  ]
+}

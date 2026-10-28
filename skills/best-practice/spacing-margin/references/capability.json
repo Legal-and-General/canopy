@@ -1,0 +1,340 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgMargin",
+        "property": "lgMargin",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginBottom",
+        "property": "lgMarginBottom",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginBottomNoneAt",
+        "property": "lgMarginBottomNoneAt",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginHorizontal",
+        "property": "lgMarginHorizontal",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginHorizontalNoneAt",
+        "property": "lgMarginHorizontalNoneAt",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginLeft",
+        "property": "lgMarginLeft",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginLeftNoneAt",
+        "property": "lgMarginLeftNoneAt",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginNoneAt",
+        "property": "lgMarginNoneAt",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginRight",
+        "property": "lgMarginRight",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginRightNoneAt",
+        "property": "lgMarginRightNoneAt",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginTop",
+        "property": "lgMarginTop",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginTopNoneAt",
+        "property": "lgMarginTopNoneAt",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginVertical",
+        "property": "lgMarginVertical",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgMarginVerticalNoneAt",
+        "property": "lgMarginVerticalNoneAt",
+        "required": false,
+        "symbol": "LgMarginDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgMargin",
+            "property": "lgMargin",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginBottom",
+            "property": "lgMarginBottom",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginBottomNoneAt",
+            "property": "lgMarginBottomNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginHorizontal",
+            "property": "lgMarginHorizontal",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginHorizontalNoneAt",
+            "property": "lgMarginHorizontalNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginLeft",
+            "property": "lgMarginLeft",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginLeftNoneAt",
+            "property": "lgMarginLeftNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginNoneAt",
+            "property": "lgMarginNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginRight",
+            "property": "lgMarginRight",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginRightNoneAt",
+            "property": "lgMarginRightNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginTop",
+            "property": "lgMarginTop",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginTopNoneAt",
+            "property": "lgMarginTopNoneAt",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginVertical",
+            "property": "lgMarginVertical",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgMarginVerticalNoneAt",
+            "property": "lgMarginVerticalNoneAt",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "\n    [lgMargin],\n    [lgMarginVertical],\n    [lgMarginHorizontal],\n    [lgMarginTop],\n    [lgMarginRight],\n    [lgMarginBottom],\n    [lgMarginLeft],\n    [lgMarginNoneAt],\n    [lgMarginVerticalNoneAt],\n    [lgMarginHorizontalNoneAt],\n    [lgMarginTopNoneAt],\n    [lgMarginRightNoneAt],\n    [lgMarginBottomNoneAt],\n    [lgMarginLeftNoneAt]\n  ",
+        "source": "projects/canopy/src/lib/spacing/margin/margin.directive.ts",
+        "symbol": "LgMarginDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Margin directive. Trigger when applying margin spacing to Canopy components or HTML elements using the Canopy spacing scale in an Angular project.",
+  "evidence": [
+    "projects/canopy/src/lib/spacing/margin/docs/guide.mdx",
+    "projects/canopy/src/lib/spacing/margin/margin.directive.ts",
+    "skills/best-practice/spacing-margin/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-spacing-margin",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spacing-margin/SKILL.md:91",
+      "statement": "Always use `lgMargin` directives instead of writing custom CSS margin — this ensures spacing adheres to the Canopy spacing scale."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/spacing-margin/SKILL.md:92",
+      "statement": "Spacing variant values (`none`, `1`–`12`) map to CSS custom properties defined in `spacing.scss`."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-margin/SKILL.md:32"
+      ],
+      "id": "spacing-margin-example-1",
+      "intent": "Follow documented spacing-margin example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/spacing-margin/SKILL.md:55"
+      ],
+      "id": "spacing-margin-example-2",
+      "intent": "Follow documented spacing-margin example 2."
+    }
+  ],
+  "publicSymbols": [
+    "LgMarginDirective"
+  ],
+  "relatedSkills": [
+    "canopy-spacing-row-gap"
+  ],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgMarginBottomNoneAt]",
+    "[lgMarginBottom]",
+    "[lgMarginHorizontalNoneAt]",
+    "[lgMarginHorizontal]",
+    "[lgMarginLeftNoneAt]",
+    "[lgMarginLeft]",
+    "[lgMarginNoneAt]",
+    "[lgMarginRightNoneAt]",
+    "[lgMarginRight]",
+    "[lgMarginTopNoneAt]",
+    "[lgMarginTop]",
+    "[lgMarginVerticalNoneAt]",
+    "[lgMarginVertical]",
+    "[lgMargin]"
+  ],
+  "title": "Canopy Margin",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-margin/SKILL.md",
+      "name": "spacing-margin"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-margin/SKILL.md",
+      "name": "spacing-padding"
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/spacing-margin/SKILL.md",
+      "name": "spacing-row-gap"
+    }
+  ]
+}

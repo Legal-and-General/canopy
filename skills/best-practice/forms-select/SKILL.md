@@ -3,6 +3,7 @@ name: canopy-forms-select
 description: Best practices for the Canopy Select component. Trigger when adding dropdown form fields, single-selection lists, or option pickers in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: forms
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/select/docs/guide.mdx
 ---
 

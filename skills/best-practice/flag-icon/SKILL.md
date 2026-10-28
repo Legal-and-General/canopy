@@ -3,6 +3,7 @@ name: canopy-flag-icon
 description: Best practices for the Canopy Flag Icon component. Trigger whenever lg-flag-icon, LgFlagIconComponent, or flag icon imports appear in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/flag-icon/docs/guide.mdx
 ---
 

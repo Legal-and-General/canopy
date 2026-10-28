@@ -3,6 +3,7 @@ name: canopy-data-point
 description: Best practices for the Canopy Data Point component. Trigger when displaying labelled data values, key-value pairs, or summary data lists in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: data-display
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/data-point/docs/guide.mdx
 ---
 

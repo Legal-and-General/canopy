@@ -1,0 +1,186 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "default": null,
+        "deprecated": false,
+        "name": "icon",
+        "property": "icon",
+        "required": false,
+        "symbol": "LgBannerComponent",
+        "type": "string | null"
+      },
+      {
+        "default": true,
+        "deprecated": false,
+        "name": "showIcon",
+        "property": "showIcon",
+        "required": false,
+        "symbol": "LgBannerComponent",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [
+      {
+        "catchAll": true,
+        "conditional": false,
+        "evidence": "projects/canopy/src/lib/banner/banner.component.html:10",
+        "owner": "LgBannerComponent",
+        "selector": "*",
+        "selectors": []
+      }
+    ],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "default": null,
+            "deprecated": false,
+            "name": "icon",
+            "property": "icon",
+            "required": false,
+            "type": "string | null"
+          },
+          {
+            "default": true,
+            "deprecated": false,
+            "name": "showIcon",
+            "property": "showIcon",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [],
+        "selector": "lg-banner",
+        "source": "projects/canopy/src/lib/banner/banner.component.ts",
+        "symbol": "LgBannerComponent"
+      }
+    ]
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:112",
+      "statement": "project `<lg-icon>` inside the banner — use the `[icon]` input instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:113",
+      "statement": "use a banner as a feedback mechanism for user actions — use an inline message, pop-up notification, or modal instead."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:114",
+      "statement": "use `warning` status for non-warning purposes."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:115",
+      "statement": "show more than one banner message at a time."
+    }
+  ],
+  "category": "feedback",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Banner Message component. Trigger when adding full-width page banners, site-wide notifications, or top-of-page warning messages in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/banner/banner.component.ts",
+    "projects/canopy/src/lib/banner/docs/guide.mdx",
+    "skills/best-practice/banner/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-banner",
+  "intents": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:105",
+      "statement": "keep the message succinct."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:106",
+      "statement": "position the banner directly beneath the site header and above all other page content."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:107",
+      "statement": "use the optional link pattern (projecting an `<a>` after the main content) to provide a call to action or further information."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/banner/SKILL.md:108",
+      "statement": "wrap main content in a `<p>` tag when also projecting a link below it."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/banner/SKILL.md:121",
+      "statement": "The banner is full-width; do not constrain it to a column or card."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/banner/SKILL.md:30"
+      ],
+      "id": "banner-example-1",
+      "intent": "Follow documented banner example 1."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/banner/SKILL.md:43"
+      ],
+      "id": "banner-example-2",
+      "intent": "Follow documented banner example 2."
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/banner/SKILL.md:91"
+      ],
+      "id": "banner-example-3",
+      "intent": "Follow documented banner example 3."
+    }
+  ],
+  "publicSymbols": [
+    "LgBannerComponent"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-banner"
+  ],
+  "title": "Canopy Banner Message",
+  "tokens": []
+}

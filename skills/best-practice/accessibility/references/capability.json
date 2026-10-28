@@ -1,0 +1,155 @@
+{
+  "accessibility": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:120",
+      "statement": "[ ] Page `lang` attribute is set."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:121",
+      "statement": "[ ] Skip link is present (or `lg-page` is used)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:122",
+      "statement": "[ ] All images have `alt` text (or `alt=\"\"`)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:123",
+      "statement": "[ ] All form controls have labels."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:124",
+      "statement": "[ ] Grouped form controls use `<fieldset>` + `<legend>`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:125",
+      "statement": "[ ] Tables use `<th>`, `<td>`, and `scope` appropriately."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:126",
+      "statement": "[ ] Decorative icons have `aria-hidden=\"true\"`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:127",
+      "statement": "[ ] Screen-reader-only text uses `lg-visually-hidden`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:128",
+      "statement": "[ ] Page uses semantic landmark elements."
+    }
+  ],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [],
+  "category": "foundations",
+  "deprecated": null,
+  "description": "Accessibility guidance for Canopy applications. Trigger when implementing accessible HTML, ARIA attributes, keyboard navigation, skip links, screen reader support, or form accessibility in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/docs/principles/accessibility/developer.mdx",
+    "skills/best-practice/accessibility/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-accessibility",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:52",
+      "statement": "Provide descriptive `alt` text for all **content images**."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:53",
+      "statement": "Set `alt=\"\"` (empty string) for decorative images."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:54",
+      "statement": "Never omit the `alt` attribute entirely."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:71",
+      "statement": "Use `<th>` for header cells and `<td>` for data cells."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:72",
+      "statement": "Add `scope=\"col\"` or `scope=\"row\"` for tables where the header direction is ambiguous."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:73",
+      "statement": "Provide a `<caption>` to identify the table's topic."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:81",
+      "statement": "Every form control must have a `<label>` linked via `for`/`id`, or wrapped around the control."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:82",
+      "statement": "Group related controls (checkboxes, radio buttons) with `<fieldset>` and `<legend>`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/accessibility/SKILL.md:83",
+      "statement": "Mark required controls with the `required` attribute."
+    }
+  ],
+  "introduced": null,
+  "kind": "foundation",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/accessibility/SKILL.md:97"
+      ],
+      "id": "accessibility-example-1",
+      "intent": "Follow documented accessibility example 1."
+    }
+  ],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Accessibility",
+  "tokens": []
+}

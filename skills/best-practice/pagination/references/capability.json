@@ -1,0 +1,195 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "currentPage",
+        "property": "currentPage",
+        "required": false,
+        "symbol": "LgPaginationComponent",
+        "type": null
+      },
+      {
+        "default": "`lg-pagination-${randomUniqueId()}`",
+        "deprecated": false,
+        "name": "id",
+        "property": "id",
+        "required": false,
+        "symbol": "LgPaginationComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "itemsPerPage",
+        "property": "itemsPerPage",
+        "required": false,
+        "symbol": "LgPaginationComponent",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "totalItems",
+        "property": "totalItems",
+        "required": false,
+        "symbol": "LgPaginationComponent",
+        "type": null
+      }
+    ],
+    "outputs": [
+      {
+        "deprecated": false,
+        "name": "pageChanged",
+        "property": "pageChanged",
+        "required": false,
+        "symbol": "LgPaginationComponent",
+        "type": null
+      }
+    ],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "currentPage",
+            "property": "currentPage",
+            "required": false,
+            "type": null
+          },
+          {
+            "default": "`lg-pagination-${randomUniqueId()}`",
+            "deprecated": false,
+            "name": "id",
+            "property": "id",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "itemsPerPage",
+            "property": "itemsPerPage",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "totalItems",
+            "property": "totalItems",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "component",
+        "outputs": [
+          {
+            "deprecated": false,
+            "name": "pageChanged",
+            "property": "pageChanged",
+            "required": false,
+            "type": null
+          }
+        ],
+        "selector": "lg-pagination",
+        "source": "projects/canopy/src/lib/pagination/pagination.component.ts",
+        "symbol": "LgPaginationComponent"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "symbol",
+        "outputs": [],
+        "source": "projects/canopy/src/lib/pagination/pagination.component.ts",
+        "symbol": "PageData"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "navigation",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Pagination component. Trigger when paginating lists, controlling paged datasets, or adding page navigation controls in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/pagination/docs/guide.mdx",
+    "projects/canopy/src/lib/pagination/pagination.component.ts",
+    "skills/best-practice/pagination/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-pagination",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/pagination/SKILL.md:101",
+      "statement": "The component **hides itself automatically** when `totalItems <= itemsPerPage` (i.e. there is only one page)."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/pagination/SKILL.md:102",
+      "statement": "Desktop and tablet controls show previous/next plus page buttons, capped to a maximum of 9 controls in total (including ellipses). The first page, last page, current page, and nearby neighbours are preserved."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/pagination/SKILL.md:103",
+      "statement": "Mobile controls use a sliding window of 3 page buttons with no ellipses."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/pagination/SKILL.md:104",
+      "statement": "The results label (\"Showing x-y of n results\") is rendered in an `aria-live` region, with the range and total emphasised using semantic `<strong>` text."
+    }
+  ],
+  "introduced": null,
+  "kind": "component",
+  "patterns": [
+    {
+      "confidence": "high",
+      "evidence": [
+        "skills/best-practice/pagination/SKILL.md:30"
+      ],
+      "id": "pagination-example-1",
+      "intent": "Follow documented pagination example 1."
+    }
+  ],
+  "publicSymbols": [
+    "LgPaginationComponent",
+    "PageData"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "lg-pagination"
+  ],
+  "title": "Canopy Pagination",
+  "tokens": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/pagination/SKILL.md",
+      "name": "event"
+    }
+  ]
+}

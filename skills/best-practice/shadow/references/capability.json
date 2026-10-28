@@ -1,0 +1,67 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [],
+    "outputs": [],
+    "projection": [],
+    "symbols": []
+  },
+  "avoidWhen": [
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/shadow/SKILL.md:38",
+      "statement": "use `lgShadow` in new feature work."
+    },
+    {
+      "confidence": "high",
+      "evidence": "skills/best-practice/shadow/SKILL.md:39",
+      "statement": "add `LgShadowDirective` to any new standalone component's `imports` array."
+    }
+  ],
+  "category": "removed",
+  "deprecated": null,
+  "description": "Removal notice for the Canopy Shadow directive. Trigger whenever lgShadow, LgShadowDirective, hasHoverState, or related imports appear in an Angular project using Canopy.",
+  "evidence": [
+    "skills/best-practice/shadow/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-shadow",
+  "intents": [],
+  "introduced": null,
+  "kind": "removed",
+  "patterns": [],
+  "publicSymbols": [],
+  "relatedSkills": [],
+  "removed": {
+    "confidence": "high",
+    "evidence": "skills/best-practice/shadow/SKILL.md:10"
+  },
+  "schemaVersion": 1,
+  "selectors": [],
+  "title": "Canopy Shadow Directive — REMOVED",
+  "tokens": []
+}

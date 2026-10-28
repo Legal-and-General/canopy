@@ -3,6 +3,7 @@ name: canopy-modal
 description: Best practices for the Canopy Modal component. Trigger when using lg-modal, LgModalComponent, LgModalService, or lgModalTrigger in an Angular project using Canopy.
 license: MIT
 metadata:
+  category: feedback
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/modal/docs/guide.mdx
 ---
 

@@ -1,0 +1,234 @@
+{
+  "accessibility": [],
+  "api": {
+    "inputs": [
+      {
+        "deprecated": false,
+        "name": "lgCol",
+        "property": "lgCol",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColLg",
+        "property": "lgColLg",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColLgOffset",
+        "property": "lgColLgOffset",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColMd",
+        "property": "lgColMd",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColMdOffset",
+        "property": "lgColMdOffset",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColOffset",
+        "property": "lgColOffset",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColSm",
+        "property": "lgColSm",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      },
+      {
+        "deprecated": false,
+        "name": "lgColSmOffset",
+        "property": "lgColSmOffset",
+        "required": false,
+        "symbol": "LgGridColDirective",
+        "type": null
+      }
+    ],
+    "outputs": [],
+    "projection": [],
+    "symbols": [
+      {
+        "deprecated": false,
+        "inputs": [
+          {
+            "deprecated": false,
+            "name": "lgCol",
+            "property": "lgCol",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColLg",
+            "property": "lgColLg",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColLgOffset",
+            "property": "lgColLgOffset",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColMd",
+            "property": "lgColMd",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColMdOffset",
+            "property": "lgColMdOffset",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColOffset",
+            "property": "lgColOffset",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColSm",
+            "property": "lgColSm",
+            "required": false,
+            "type": null
+          },
+          {
+            "deprecated": false,
+            "name": "lgColSmOffset",
+            "property": "lgColSmOffset",
+            "required": false,
+            "type": null
+          }
+        ],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgCol],[lgColSm],[lgColMd],[lgColLg]",
+        "source": "projects/canopy/src/lib/grid/grid-col.directive.ts",
+        "symbol": "LgGridColDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgContainer]",
+        "source": "projects/canopy/src/lib/grid/grid-container.directive.ts",
+        "symbol": "LgGridContainerDirective"
+      },
+      {
+        "deprecated": false,
+        "inputs": [],
+        "kind": "directive",
+        "outputs": [],
+        "selector": "[lgRow]",
+        "source": "projects/canopy/src/lib/grid/grid-row.directive.ts",
+        "symbol": "LgGridRowDirective"
+      }
+    ]
+  },
+  "avoidWhen": [],
+  "category": "layout",
+  "deprecated": null,
+  "description": "Best practices for the Canopy Grid directives. Trigger when building responsive multi-column layouts, applying column spans, or offsetting columns in an Angular project using Canopy.",
+  "evidence": [
+    "projects/canopy/src/lib/grid/docs/guide.mdx",
+    "projects/canopy/src/lib/grid/grid-col.directive.ts",
+    "projects/canopy/src/lib/grid/grid-container.directive.ts",
+    "projects/canopy/src/lib/grid/grid-row.directive.ts",
+    "skills/best-practice/grid/SKILL.md"
+  ],
+  "generation": {
+    "deterministicFields": [
+      "api",
+      "category",
+      "deprecated",
+      "description",
+      "evidence",
+      "id",
+      "introduced",
+      "kind",
+      "publicSymbols",
+      "relatedSkills",
+      "removed",
+      "schemaVersion",
+      "selectors",
+      "title",
+      "tokens"
+    ],
+    "semanticFields": [
+      "accessibility",
+      "avoidWhen",
+      "intents",
+      "patterns"
+    ]
+  },
+  "id": "canopy-grid",
+  "intents": [
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/grid/SKILL.md:62",
+      "statement": "Always stack three directives: `lgContainer` → `lgRow` → `lgCol`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/grid/SKILL.md:63",
+      "statement": "Use `[lgCol]=\"12\"` as the mobile-first default, then override at `lgColMd` or `lgColLg`."
+    },
+    {
+      "confidence": "medium",
+      "evidence": "skills/best-practice/grid/SKILL.md:64",
+      "statement": "Combine with `lg-page` for full-page layouts."
+    }
+  ],
+  "introduced": null,
+  "kind": "directive",
+  "patterns": [],
+  "publicSymbols": [
+    "LgGridColDirective",
+    "LgGridContainerDirective",
+    "LgGridRowDirective"
+  ],
+  "relatedSkills": [],
+  "removed": null,
+  "schemaVersion": 1,
+  "selectors": [
+    "[lgColLg]",
+    "[lgColMd]",
+    "[lgColSm]",
+    "[lgCol]",
+    "[lgContainer]",
+    "[lgRow]"
+  ],
+  "title": "Canopy Grid",
+  "tokens": []
+}
