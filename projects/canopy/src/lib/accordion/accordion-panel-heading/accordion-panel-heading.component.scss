@@ -7,6 +7,12 @@ lg-accordion-panel-heading {
   gap: var(--accordion-header-label-gap);
   padding: var(--accordion-padding-y) var(--accordion-padding-x);
 
+  &:not(:has(> [lgAccordionHeadingActions])) {
+    .lg-accordion__heading-toggle--with-icon > .lg-accordion__heading-icon--animated {
+      order: 1;
+    }
+  }
+
   > [lgAccordionHeadingActions] {
     display: flex;
     flex-basis: 100%;
@@ -43,6 +49,7 @@ lg-accordion-panel-heading {
   background-color: transparent;
   color: var(--text-default-primary-colour);
   border: 0;
+  padding: 0;
   cursor: pointer;
   display: flex;
   align-items: flex-start;
@@ -56,9 +63,9 @@ lg-accordion-panel-heading {
   }
 
   &:focus-visible {
-    border-radius: var(--link-primary-focus-border-radius);
-    outline: var(--link-primary-focus-border-width) solid
-      var(--text-default-primary-colour);
+    border-radius: var(--accordion-header-focus-indicator-border-radius);
+    outline: var(--accordion-header-focus-indicator-border-width) solid
+      var(--accordion-header-focus-indicator-colour);
     outline-offset: 0;
     z-index: 1;
   }

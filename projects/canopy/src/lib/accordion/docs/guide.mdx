@@ -22,7 +22,7 @@ Information that is important or relevant to most users should not be hidden wit
 
 Accordions work best for simple content and links but can support rich content (sound, video, imagery, etc), if required.
 
-If needed visually, an icon can be set for each accordion item heading. Use an `lg-icon` with a supported icon name. The header displays the chevron first, followed by the optional decorative icon and then the label. When a label wraps, both icons stay aligned with its first line.
+If needed visually, an icon can be set for each accordion item heading. Use an `lg-icon` with a supported icon name. When a decorative icon is present and there is no `lgAccordionHeadingActions` container, the header displays the decorative icon on the left, the label in the middle and the chevron on the right. Otherwise, the chevron stays on the left, followed by the optional decorative icon and then the label. When a label wraps, both icons stay aligned with its first line.
 
 Import the accordion components into your application:
 
@@ -71,7 +71,7 @@ Accordions have a chevron to indicate that they are interactive. Clicking the he
 
 All items are closed by default. Set `[isActive]="true"` on an item to open it initially; the first item is not opened automatically.
 
-Panels open and close immediately, without an expand or collapse animation. The chevron still rotates with an animated transition. Closed panels use `display: none`, so their controls cannot receive keyboard focus. Open panels have no animation wrapper clipping their content.
+Panels animate their height and bottom padding when opening and closing, using `--animation-duration` and `--animation-fn`. The background colour does not animate. Content is clipped during the transition, then overflow is released once opening finishes so expanded content can extend beyond the panel. Closed panels are marked `inert`, so their controls cannot receive keyboard focus. The chevron retains its animated rotation. Users requesting reduced motion, and browsers without discrete-transition support, receive immediate panel changes instead.
 
 ### Header actions
 
@@ -135,21 +135,3 @@ Place links or buttons in a container marked with `lgAccordionHeadingActions` in
 ### Lazy content initialisation
 
 Wrap the panel content in an `ng-template` with the `lgAccordionItemContent` directive to initialise and render it only when the item is first opened. Once initialised, the content is retained when the item is closed and reopened.
-
-***
-
-## Research on this pattern
-
-This component is based on best practice and has not had specific usability testing.
-
-## Related
-
-Consider using an accordion instead of the **details component** if there are multiple related sections of content. **Tabs** would be an alternative way to display if there's a large amount of content.
-
-* [Card](./?path=/docs/components-card-guide--docs)
-* [Details](./?path=/docs/components-details-guide--docs)
-* [Tabs](./?path=/docs/components-tabs-guide--docs)
-
-<Markdown>
-  {Feedback}
-</Markdown>

@@ -86,7 +86,12 @@ const accordionItems = `
 
 const standardTemplate = `
 @if (showExpandCollapseAll) {
-  <button lg-button type="button" priority="secondary" (click)="toggleAll()">
+  <button
+    lg-button
+    type="button"
+    priority="secondary"
+    style="margin-bottom: var(--accordion-group-gap)"
+    (click)="toggleAll()">
     {{ allExpanded ? 'Collapse all' : 'Expand all' }}
     <lg-icon [name]="allExpanded ? 'minus' : 'add'" />
   </button>
@@ -103,7 +108,6 @@ const standardTemplate = `
     `
       :host {
         display: block;
-        padding: var(--space-4);
       }
     `,
   ],
@@ -274,47 +278,6 @@ const contentAreaTemplate = `
 </lg-content-area>
 `;
 
-export const AccordionInContentArea = {
-  name: 'Accordion in content area',
-  render: (args: AccordionWrapperComponent & { mode: Colour; theme: ColourTheme }) => ({
-    props: args,
-    template: contentAreaTemplate,
-  }),
-  args: {
-    ...StandardAccordion.args,
-    headingLevel: 3,
-    showHeaderActions: true,
-    showExpandCollapseAll: true,
-    multi: true,
-    itemTwoTitle:
-      'An In-Depth Exploration of the Fascinating World of the Second Accordion: Unveiling Its History, Mechanics, and Cultural Significance in Modern Music',
-    iconForFirstAccordionItem: 'notes',
-    iconForSecondAccordionItem: 'news',
-    iconForThirdAccordionItem: 'light-bulb',
-    mode: 'blue',
-    theme: 'neutral-inverse',
-  },
-  argTypes: {
-    mode: {
-      options: [ 'blue', 'green', 'red', 'yellow' ],
-      control: { type: 'select' },
-      description: 'The colour mode applied to the content area.',
-    },
-    theme: {
-      options: [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ],
-      control: { type: 'select' },
-      description: 'The theme applied to the content area colour mode.',
-    },
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: contentAreaTemplate,
-      },
-    },
-  },
-};
-
 export const AccordionWithIcons = {
   name: 'Accordion with Icons',
   render: (args: AccordionWrapperComponent) => ({
@@ -365,6 +328,47 @@ export const AccordionWithIcons = {
         'The icon to display in the left side of the heading of the third accordion item.',
       control: {
         type: 'select',
+      },
+    },
+  },
+};
+
+export const AccordionInContentArea = {
+  name: 'Accordion in content area',
+  render: (args: AccordionWrapperComponent & { mode: Colour; theme: ColourTheme }) => ({
+    props: args,
+    template: contentAreaTemplate,
+  }),
+  args: {
+    ...StandardAccordion.args,
+    headingLevel: 3,
+    showHeaderActions: true,
+    showExpandCollapseAll: true,
+    multi: true,
+    itemTwoTitle:
+      'An In-Depth Exploration of the Fascinating World of the Second Accordion: Unveiling Its History, Mechanics, and Cultural Significance in Modern Music',
+    iconForFirstAccordionItem: 'notes',
+    iconForSecondAccordionItem: 'news',
+    iconForThirdAccordionItem: 'light-bulb',
+    mode: 'blue',
+    theme: 'neutral-inverse',
+  },
+  argTypes: {
+    mode: {
+      options: [ 'blue', 'green', 'red', 'yellow' ],
+      control: { type: 'select' },
+      description: 'The colour mode applied to the content area.',
+    },
+    theme: {
+      options: [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ],
+      control: { type: 'select' },
+      description: 'The theme applied to the content area colour mode.',
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: contentAreaTemplate,
       },
     },
   },

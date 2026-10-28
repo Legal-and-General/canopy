@@ -80,9 +80,12 @@ to destroy its components or reset their state.
 </lg-accordion-panel-heading>
 ```
 
-Use a supported `lg-icon` name. Let Canopy arrange the chevron, optional decorative
-icon and label in that order. Allow long labels to wrap; both icons align with
-the first line, so do not add manual positioning or spacing overrides.
+Use a supported `lg-icon` name. When a decorative icon is present and no
+`lgAccordionHeadingActions` container exists, let Canopy place the decorative icon
+on the left, the label in the middle and the chevron on the right. Otherwise, the
+chevron stays on the left, before the optional decorative icon and label. Allow
+long labels to wrap; both icons align with the first line, so do not add manual
+positioning or spacing overrides.
 
 ---
 
@@ -212,12 +215,16 @@ Do not assume the accordion group exposes an expand-all method.
 
 ## Interaction and Accessibility
 
-- Let panels show and hide immediately. Only the chevron has an animated rotation;
-  do not add panel-height animation or an overflow-clipping wrapper.
-- Rely on `display: none` to hide closed panels and exclude their controls from
-  keyboard navigation; do not override the closed panel's display styles.
-- Expect open panels to have no animation wrapper clipping their content. Other
-  ancestor containers can still impose clipping or stacking constraints.
+- Let Canopy animate panel height and bottom padding using `--animation-duration`
+  and `--animation-fn`; do not add a background-colour transition to represent
+  opening or closing. The chevron retains its animated rotation.
+- Preserve the built-in reduced-motion behaviour and immediate panel changes in
+  browsers without discrete-transition support.
+- Rely on the built-in hidden state and `inert` binding to exclude closed controls
+  from interaction; do not override these protections.
+- Expect clipping during the transition and visible overflow once expansion
+  finishes. Other ancestor containers can still impose clipping or stacking
+  constraints; do not add permanent overflow clipping to the panel.
 - Preserve the toggle's keyboard operation, link-style focus outline and automatic
   `aria-expanded`, `aria-controls` and panel labelling. Do not replace them with
   click-only heading elements or remove focus indicators.

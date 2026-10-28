@@ -171,6 +171,24 @@ describe('LgAccordionItemComponent', () => {
     ).toBe(false);
   });
 
+  it('should prevent interaction while closed and restore it when opened', () => {
+    const panel = fixture.debugElement.query(
+      By.css('.lg-accordion__panel'),
+    ).nativeElement;
+
+    expect(panel.hasAttribute('inert')).toBe(true);
+
+    triggerElement.nativeElement.click();
+    fixture.detectChanges();
+
+    expect(panel.hasAttribute('inert')).toBe(false);
+
+    triggerElement.nativeElement.click();
+    fixture.detectChanges();
+
+    expect(panel.hasAttribute('inert')).toBe(true);
+  });
+
   describe('when updating isActive input', () => {
     it('should set heading active', () => {
       fixture.debugElement.componentInstance.isActive = true;
