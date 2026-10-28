@@ -1,6 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { action } from 'storybook/actions';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 
 import { LgAccordionComponent } from '../accordion.component';
 import { LgAccordionItemComponent } from '../accordion-item/accordion-item.component';
@@ -9,29 +17,49 @@ import { LgAccordionPanelHeadingComponent } from '../accordion-panel-heading/acc
 import { LgButtonComponent } from '../../button';
 import { LgMarginDirective } from '../../spacing';
 import { LgIconComponent } from '../../icon';
+import { LgColourDirective } from '../../colour';
+import type { Colour, ColourTheme } from '../../colour/colour.interface';
+import {
+  LgContentAreaComponent,
+  LgContentAreaContentComponent,
+  LgContentAreaHeaderComponent,
+  LgContentAreaTitleComponent,
+} from '../../content-area';
 
 const accordionItems = `
 <lg-accordion-item [isActive]="itemOneActive"
-                   (opened)="toggle('Item 1 opened')"
-                   (closed)="toggle('Item 1 closed')">
+                   (opened)="itemToggled.emit('Item 1 opened')"
+                   (closed)="itemToggled.emit('Item 1 closed')">
   <lg-accordion-panel-heading>
     @if (iconForFirstAccordionItem) {
       <lg-icon [name]="iconForFirstAccordionItem"></lg-icon>
     }
     Item 1
+    @if (showHeaderActions) {
+      <div lgAccordionHeadingActions>
+        <a lg-button priority="link" [backIcon]="true" href="#favourite">
+          <lg-icon name="star-outline" />
+          Favourite
+        </a>
+        <a lg-button priority="link" [backIcon]="true" href="#delete">
+          <lg-icon name="trash" />
+          Delete
+        </a>
+      </div>
+    }
   </lg-accordion-panel-heading>
 
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.</p>
 </lg-accordion-item>
 <lg-accordion-item [isActive]="itemTwoActive"
-                   (opened)="toggle('Item 3 opened')"
-                   (closed)="toggle('Item 2 closed')">
+                   (opened)="itemToggled.emit('Item 2 opened')"
+                   (closed)="itemToggled.emit('Item 2 closed')">
   <lg-accordion-panel-heading>
     @if (iconForSecondAccordionItem) {
       <lg-icon [name]="iconForSecondAccordionItem"></lg-icon>
     }
-    Item 2
+    {{ itemTwoTitle }}
   </lg-accordion-panel-heading>
 
   <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -56,7 +84,22 @@ const accordionItems = `
 </lg-accordion-item>
 `;
 
-const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=multi>${accordionItems}</lg-accordion>`;
+const standardTemplate = `
+@if (showExpandCollapseAll) {
+  <button
+    lg-button
+    type="button"
+    priority="secondary"
+    style="margin-bottom: var(--accordion-group-gap)"
+    (click)="toggleAll()">
+    {{ allExpanded ? 'Collapse all' : 'Expand all' }}
+    <lg-icon [name]="allExpanded ? 'minus' : 'add'" />
+  </button>
+}
+<lg-accordion [headingLevel]="headingLevel" [multi]="multi || showExpandCollapseAll">
+  ${accordionItems}
+</lg-accordion>
+`;
 
 @Component({
   selector: 'lg-accordion-with-icons-wrapper',
@@ -65,7 +108,6 @@ const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=mu
     `
       :host {
         display: block;
-        padding: var(--space-4);
       }
     `,
   ],
@@ -75,17 +117,47 @@ class AccordionWrapperComponent {
   @Input() iconForFirstAccordionItem = '';
   @Input() iconForSecondAccordionItem = '';
   @Input() iconForThirdAccordionItem = '';
+  @Input() itemTwoTitle = 'Item 2';
+  @Input() showHeaderActions = false;
+  @Input() showExpandCollapseAll = false;
   @Input() headingLevel = 2;
   @Input() itemOneActive = false;
   @Input() itemTwoActive = true;
   @Input() itemThreeActive = false;
   @Input() multi = false;
+  @Output() itemToggled = new EventEmitter<string>();
+
+  @ViewChildren(LgAccordionPanelHeadingComponent)
+  panelHeadings: QueryList<LgAccordionPanelHeadingComponent>;
+
+  get allExpanded(): boolean {
+    return (
+      !!this.panelHeadings?.length &&
+      this.panelHeadings.toArray().every(heading => heading.isActive)
+    );
+  }
+
+  toggleAll(): void {
+    const expand = !this.allExpanded;
+
+    this.panelHeadings.forEach(heading => {
+      if (heading.isActive !== expand) {
+        heading.toggle();
+      }
+    });
+  }
 }
 
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Accordion/Examples',
   tags: [ 'pending' ],
+  args: {
+    toggle: action('Toggle Item'),
+  },
+  parameters: {
+    backgrounds: { disable: true },
+  },
   decorators: [
     moduleMetadata({
       imports: [
@@ -97,6 +169,11 @@ export default {
         LgButtonComponent,
         LgMarginDirective,
         LgIconComponent,
+        LgColourDirective,
+        LgContentAreaComponent,
+        LgContentAreaContentComponent,
+        LgContentAreaHeaderComponent,
+        LgContentAreaTitleComponent,
       ],
       declarations: [ AccordionWrapperComponent ],
     }),
@@ -109,7 +186,10 @@ export default {
       },
     },
     multi: {
-      description: 'Set false to only allow a single panel to be open at a time.',
+      control: false,
+      table: {
+        disable: true,
+      },
     },
     headingLevel: {
       options: [ '1', '2', '3', '4', '5', '6' ],
@@ -158,6 +238,7 @@ export const StandardAccordion = {
         [itemTwoActive]="itemTwoActive"
         [itemThreeActive]="itemThreeActive"
         [multi]="multi"
+        (itemToggled)="toggle($event)"
         >
       </lg-accordion-with-icons-wrapper>
     `,
@@ -170,6 +251,32 @@ export const StandardAccordion = {
     multi: false,
   },
 };
+
+const contentAreaTemplate = `
+<lg-content-area [lgColour]="mode" [lgColourTheme]="theme">
+  <lg-content-area-header>
+    <lg-content-area-title [headingLevel]="2">
+      Accordion in content area
+    </lg-content-area-title>
+  </lg-content-area-header>
+  <lg-content-area-content>
+    <lg-accordion-with-icons-wrapper
+      [headingLevel]="headingLevel"
+      [itemOneActive]="itemOneActive"
+      [itemTwoActive]="itemTwoActive"
+      [itemThreeActive]="itemThreeActive"
+      [iconForFirstAccordionItem]="iconForFirstAccordionItem"
+      [iconForSecondAccordionItem]="iconForSecondAccordionItem"
+      [iconForThirdAccordionItem]="iconForThirdAccordionItem"
+      [itemTwoTitle]="itemTwoTitle"
+      [showHeaderActions]="showHeaderActions"
+      [showExpandCollapseAll]="showExpandCollapseAll"
+      [multi]="multi"
+      (itemToggled)="toggle($event)">
+    </lg-accordion-with-icons-wrapper>
+  </lg-content-area-content>
+</lg-content-area>
+`;
 
 export const AccordionWithIcons = {
   name: 'Accordion with Icons',
@@ -184,13 +291,14 @@ export const AccordionWithIcons = {
         [iconForSecondAccordionItem]="iconForSecondAccordionItem"
         [iconForThirdAccordionItem]="iconForThirdAccordionItem"
         [multi]="multi"
+        (itemToggled)="toggle($event)"
       >
     </lg-accordion-with-icons-wrapper>`,
   }),
   args: {
-    iconForFirstAccordionItem: 'notes',
-    iconForSecondAccordionItem: 'news',
-    iconForThirdAccordionItem: 'light-bulb',
+    iconForFirstAccordionItem: 'globe',
+    iconForSecondAccordionItem: 'globe',
+    iconForThirdAccordionItem: 'globe',
     headingLevel: 2,
     itemOneActive: false,
     itemTwoActive: true,
@@ -199,7 +307,7 @@ export const AccordionWithIcons = {
   },
   argTypes: {
     iconForFirstAccordionItem: {
-      options: [ 'news', 'notes', 'light-bulb' ],
+      options: [ 'globe', 'notes', 'light-bulb' ],
       description:
         'The icon to display in the left side of the heading of the first accordion item.',
       control: {
@@ -207,7 +315,7 @@ export const AccordionWithIcons = {
       },
     },
     iconForSecondAccordionItem: {
-      options: [ 'news', 'notes', 'light-bulb' ],
+      options: [ 'globe', 'notes', 'light-bulb' ],
       description:
         'The icon to display in the left side of the heading of the second accordion item.',
       control: {
@@ -215,11 +323,52 @@ export const AccordionWithIcons = {
       },
     },
     iconForThirdAccordionItem: {
-      options: [ 'news', 'notes', 'light-bulb' ],
+      options: [ 'globe', 'notes', 'light-bulb' ],
       description:
         'The icon to display in the left side of the heading of the third accordion item.',
       control: {
         type: 'select',
+      },
+    },
+  },
+};
+
+export const AccordionInContentArea = {
+  name: 'Accordion in content area',
+  render: (args: AccordionWrapperComponent & { mode: Colour; theme: ColourTheme }) => ({
+    props: args,
+    template: contentAreaTemplate,
+  }),
+  args: {
+    ...StandardAccordion.args,
+    headingLevel: 3,
+    showHeaderActions: true,
+    showExpandCollapseAll: true,
+    multi: true,
+    itemTwoTitle:
+      'An In-Depth Exploration of the Fascinating World of the Second Accordion: Unveiling Its History, Mechanics, and Cultural Significance in Modern Music',
+    iconForFirstAccordionItem: 'notes',
+    iconForSecondAccordionItem: 'news',
+    iconForThirdAccordionItem: 'light-bulb',
+    mode: 'blue',
+    theme: 'neutral-inverse',
+  },
+  argTypes: {
+    mode: {
+      options: [ 'blue', 'green', 'red', 'yellow' ],
+      control: { type: 'select' },
+      description: 'The colour mode applied to the content area.',
+    },
+    theme: {
+      options: [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ],
+      control: { type: 'select' },
+      description: 'The theme applied to the content area colour mode.',
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: contentAreaTemplate,
       },
     },
   },
