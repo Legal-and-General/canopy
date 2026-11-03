@@ -13,6 +13,10 @@ export default {
       './projects/canopy/src/styles/styles.scss',
       './projects/canopy/src/styles/form.scss',
     ],
+    'canopy-core': [
+      './projects/canopy/src/styles/styles-core.scss',
+      './projects/canopy/src/styles/form.scss',
+    ],
     'canopy-classes': [
       './projects/canopy/src/styles/styles-classes.scss',
       './projects/canopy/src/styles/form.scss',

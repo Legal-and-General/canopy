@@ -66,14 +66,46 @@ and add it to the imports section of your module.
 
 Canopy creates a global css file to provide some global styles and utility classes for spacing, colours etc. This global css is required for the individual components to work.
 
-In your `angular.json` file you will need to incorporate the global styles into the styles arrays of build and test.
+The backwards-compatible stylesheet includes every colour and theme combination. Add it to the `styles` array in `angular.json` when the application needs to switch between all Canopy themes.
 
 ```json
-  "styles": [
-    ...
-    "node_modules/@legal-and-general/canopy/canopy.css"
-  ],
+"styles": [
+  "node_modules/@legal-and-general/canopy/canopy.css"
+]
 ```
+
+### Import selected themes
+
+For a smaller stylesheet using the default blue-neutral theme, import the Canopy core:
+
+```json
+"styles": [
+  "node_modules/@legal-and-general/canopy/canopy-core.css"
+]
+```
+
+Import additional theme files only when the application uses those combinations:
+
+```json
+"styles": [
+  "node_modules/@legal-and-general/canopy/canopy-core.css",
+  "node_modules/@legal-and-general/canopy/themes/green-bold.css"
+]
+```
+
+Apply the selected colour and theme classes to the container that needs the theme:
+
+```html
+<section class="lg-mode-green lg-theme-bold">
+  <!-- Themed Canopy content -->
+</section>
+```
+
+The core stylesheet contains shared styles, tokens and the default blue-neutral values. The `blue-neutral.css` theme is only needed to restore blue-neutral values inside a differently themed ancestor.
+
+Additional stylesheets are available under `themes/` for every combination of blue, green, red and yellow with neutral, neutral-inverse, subtle and bold. Import each combination the application uses.
+
+Use either the compiled CSS files above or the Sass entry described below. Importing both strategies duplicates Canopy's global styles.
 
 ### Canopy classes
 

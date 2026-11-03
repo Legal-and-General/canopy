@@ -84,7 +84,7 @@
               "projects/canopy-test-app/src/assets"
             ],
             "styles": [
-              "dist/canopy/canopy.css"
+              "dist/canopy/canopy-core.css"
             ],
             "scripts": [],
             "extractLicenses": false,
