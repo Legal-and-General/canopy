@@ -1,77 +1,94 @@
 @use '../../styles/mixins';
 
 .lg-side-nav {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.lg-side-nav__layout {
   display: flex;
   flex-direction: column-reverse;
+  width: 100%;
+  min-width: 0;
 
-  .lg-card-content {
+  @include mixins.lg-breakpoint('lg') {
+    flex-direction: row;
+  }
+}
+
+.lg-side-nav__navigation,
+.lg-side-nav__content {
+  min-width: 0;
+
+  @include mixins.lg-breakpoint('lg') {
+    flex: 1;
+  }
+}
+
+.lg-side-nav__content {
+  @include mixins.lg-breakpoint('lg') {
+    flex: 2;
+  }
+}
+
+.lg-content-area:has(> .lg-content-area-content > lg-side-nav) {
+  > .lg-content-area-content {
     padding: 0;
   }
 
-  @include mixins.lg-breakpoint('lg') {
-    @include mixins.lg-card;
+  > .lg-content-area-header {
+    align-items: flex-start;
+    gap: var(--space-4);
 
-    padding: var(--component-padding);
-    flex-direction: row;
-    margin-bottom: 0;
+    > .lg-btn {
+      flex: none;
+      align-self: flex-start;
+    }
 
-    .lg-card {
-      overflow: visible;
+    @include mixins.lg-breakpoint('md') {
+      > .lg-content-area-title {
+        flex: 1;
+      }
     }
   }
 }
 
-.lg-side-nav-bar-link {
-  @include mixins.lg-unstyled-link();
-
-  text-decoration: none;
-  color: var(--side-nav-bar-link-color);
-  border-bottom: var(--border-width) solid var(--side-nav-bar-link-border-color);
-  display: block;
-  padding: var(--space-4);
-  width: 100%;
-
-  @include mixins.lg-breakpoint('md') {
-    padding: var(--space-4);
+.lg-side-nav .lg-link-menu a {
+  &:first-child:is(:focus, :focus-visible, :focus:hover, :focus-visible:hover) {
+    border-top-left-radius: var(--link-menu-border-radius);
+    border-top-right-radius: var(--link-menu-border-radius);
   }
 
-  @include mixins.lg-breakpoint('lg') {
-    padding: var(--space-4) var(--space-3);
-  }
-
-  &:visited {
-    color: var(--side-nav-bar-link-color);
-    border-bottom: var(--border-width) solid var(--side-nav-bar-link-border-color);
-    text-decoration: none;
-  }
-
-  &:hover {
-    color: var(--side-nav-bar-link-hover-color);
-    border-bottom: var(--side-nav-bar-link-border-width-lg) solid
-      var(--side-nav-bar-link-hover-color);
-    padding-bottom: var(--space-3);
+  &:last-child:is(:focus, :focus-visible) {
+    border-bottom-left-radius: var(--link-menu-border-radius);
+    border-bottom-right-radius: var(--link-menu-border-radius);
   }
 }
 
-.lg-side-nav-bar-link--selected {
-  color: var(--side-nav-bar-link-active-color);
-  border-bottom: var(--side-nav-bar-link-border-width-md) solid
-    var(--side-nav-bar-link-active-color);
-  padding-bottom: calc(var(--space-4) - var(--side-nav-bar-link-border-width-md));
+.lg-side-nav .lg-link-menu a.lg-side-nav-bar-link--selected {
+  &:not(:focus, :focus-visible, :active) {
+    background-color: var(--link-menu-item-active-background-colour);
+    border-bottom: var(--link-menu-item-active-border-width-bottom) solid
+      var(--link-menu-item-active-border-colour);
+    padding-right: var(--link-menu-item-padding-right) !important;
+    margin-bottom: calc(
+      var(--link-menu-item-rest-border-width-bottom) - var(
+          --link-menu-item-active-border-width-bottom
+        )
+    );
 
-  &:hover {
-    padding-bottom: calc(var(--space-3) - var(--border-width));
+    .lg-link-menu-item-text,
+    .lg-icon {
+      color: var(--link-menu-item-active-colour);
+    }
   }
 
-  &:visited {
-    color: var(--side-nav-bar-link-active-color);
-    border-bottom: var(--side-nav-bar-link-border-width-md) solid
-      var(--side-nav-bar-link-active-color);
-  }
-
-  &:visited:hover {
-    color: var(--side-nav-bar-link-hover-color);
-    border-bottom: var(--side-nav-bar-link-border-width-lg) solid
-      var(--side-nav-bar-link-hover-color);
+  &:last-child:not(:focus, :focus-visible, :active) {
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: inset 0 calc(-1 * var(--link-menu-item-active-border-width-bottom)) 0
+      var(--link-menu-item-active-border-colour);
   }
 }

@@ -1,100 +1,198 @@
 import { Meta, Markdown, Source } from '@storybook/addon-docs/blocks';
 import Feedback from '../../docs/common/feedback.md?raw';
+import * as SideNavStories from './side-nav.stories';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Patterns/Side nav/Guide" tags={['pending']}/>
+<Meta title="Patterns/Side nav/Guide" tags={['updated']} />
 
 # Side nav
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}>
+  <CustomBadge
+    text="Updated"
+    style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }}
+  />
+  <span class="small-text">for brand modernisation in Canopy {' '} <a href="https://github.com/Legal-and-General/canopy/releases/tag/v45.0.0" target="_blank" rel="noopener noreferrer">v45</a>.</span>
+</span>
 
-<p class="standfirst">The side nav allows the user to define a series of navigation items that display content in a predefined area.</p>
+<p class="standfirst">
+  The side nav combines a link menu and routed content within a single content area.
+</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 ## Usage
 
-Import the side nav components in your application:
+Use the side nav for related pages within an account or service. Wrap the entire
+layout in one content area, with the side nav inside `lg-content-area-content`.
+The side-nav components provide layout and focus handling, not a card surface.
 
-```js
-@NgModule({
-  ...
-  imports: [ ..., LgSideNavComponent, etc. ],
-});
+Import the components and Angular router directives in your standalone component:
+
+```typescript
+import { Location } from '@angular/common';
+import { inject } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import {
+  LgButtonComponent,
+  LgContentAreaComponent,
+  LgContentAreaContentComponent,
+  LgContentAreaHeaderComponent,
+  LgColourDirective,
+  LgIconComponent,
+  LgLinkMenuComponent,
+  LgLinkMenuItemComponent,
+  LgLinkMenuItemTextComponent,
+  LgSideNavComponent,
+  LgSideNavBarComponent,
+  LgSideNavBarFooterComponent,
+  LgSideNavBarLinkDirective,
+  LgSideNavContentComponent,
+} from '@legal-and-general/canopy';
 ```
 
-and in your HTML:
+Add these components and directives to your component's `imports`, then compose
+the pattern in its template:
 
 ```html
-<lg-side-nav>
-  <lg-side-nav-bar label="Side Nav Demo">
-    <a id="side-nav-0"
-     [routerLink]="'firstPage'"
-     [isActive]="true"
-     lgSideNavBarLink
-     >
-      <lg-side-nav-bar-item>
-        <lg-side-nav-bar-item-heading>Overview</lg-side-nav-bar-item-heading>
-      </lg-side-nav-bar-item>
-    </a>
-    <a id="side-nav-1"
-     [routerLink]="'secondPage'"
-     lgSideNavBarLink
-    >
-      <lg-side-nav-bar-item>
-        <lg-side-nav-bar-item-heading>Personal details</lg-side-nav-bar-item-heading>
-        <lg-side-nav-bar-item-content>Your name, date of birth, marital status and National Insurance Number.</lg-side-nav-bar-item-content>
-      </lg-side-nav-bar-item>
-    </a>
-    <lg-side-nav-bar-footer>
-      <a lg-button lgMarginTop="8" priority="secondary" [fullWidth]="false" href="#">Logout</a>
-    </lg-side-nav-bar-footer>
-  </lg-side-nav-bar>
-  <lg-side-nav-content tabindex="0">
-    <router-outlet></router-outlet>
-  </lg-side-nav-content>
-</lg-side-nav>
+<lg-content-area lgColour="blue" lgColourTheme="neutral">
+  <lg-content-area-header>
+    <button lg-button type="button" priority="link" (click)="back()">
+      <lg-icon name="arrow-left" />
+      Back
+    </button>
+  </lg-content-area-header>
+  <lg-content-area-content>
+    <lg-side-nav>
+      <lg-side-nav-bar label="Account navigation">
+        <lg-link-menu>
+          <a
+            routerLink="overview"
+            routerLinkActive
+            #overview="routerLinkActive"
+            ariaCurrentWhenActive="page"
+            [isActive]="overview.isActive"
+            lgSideBarNavLink
+          >
+            <lg-link-menu-item>
+              <lg-link-menu-item-text [isBold]="true"
+                >Personal details</lg-link-menu-item-text
+              >
+              <lg-link-menu-item-text>
+                Name, date of birth and marital status.
+              </lg-link-menu-item-text>
+            </lg-link-menu-item>
+          </a>
+          <a
+            routerLink="contact"
+            routerLinkActive
+            #contact="routerLinkActive"
+            ariaCurrentWhenActive="page"
+            [isActive]="contact.isActive"
+            lgSideBarNavLink
+          >
+            <lg-link-menu-item>
+              <lg-link-menu-item-text [isBold]="true">Contact</lg-link-menu-item-text>
+              <lg-link-menu-item-text>Your contact information.</lg-link-menu-item-text>
+            </lg-link-menu-item>
+          </a>
+        </lg-link-menu>
+        <lg-side-nav-bar-footer>
+          <button lg-button type="button" priority="secondary" (click)="logout()">
+            Logout
+          </button>
+        </lg-side-nav-bar-footer>
+      </lg-side-nav-bar>
+      <lg-side-nav-content>
+        <router-outlet />
+      </lg-side-nav-content>
+    </lg-side-nav>
+  </lg-content-area-content>
+</lg-content-area>
 ```
+
+Configure the corresponding routes in your application. `RouterLink` changes the
+URL and renders the selected page in the outlet. `RouterLinkActive` drives the
+current item, including direct route entry and browser back/forward navigation.
+When a link becomes active, the side nav moves focus to the content region.
+
+The header contains only the back action and is optional. Omit it when no back
+action is needed; omit the navigation footer when there is no secondary action.
+Your application supplies the back and logout behaviour. For example:
+
+```typescript
+private location = inject(Location);
+
+back(): void {
+  this.location.back();
+}
+```
+
+Choose an appropriate destination when there is no previous page in the application.
+Implement `logout()` using your application's authentication service.
+
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** use one content area around both navigation and routed content.
+2. **Do** give the navigation a meaningful label and mark the current link with `aria-current="page"`.
+3. **Do** use link-menu text components for labels and optional descriptions.
+4. **Do** retain `lg-side-nav-content` as the focus target for routed content.
+
+### Don't
+
+1. **Don't** wrap the side nav or its panels in cards or nested content areas.
+2. **Don't** manually track a clicked index instead of using the router's active state.
+3. **Don't** place the logout action inside the link menu; use the navigation footer.
 
 ## Additional development details
 
-### LgSideNavBarComponent
+### Responsive layout
 
-Here is where the navigation menu items are projected.
-On mobile devices, the menu is below the content area, instead of to the left.
+At `64rem` and above, the navigation sits on the left and routed content on the
+right, using nominal `1:2` flex proportions. Below this breakpoint, the navigation
+sits underneath the content. The layout fills the available content-area width;
+it does not impose a fixed minimum page width or an exact 12-column grid.
 
-### LgSideNavBarLinkDirective
+The optional header contains the back action only.
 
-This `lgSideNavBarLink` directive applies the appropriate styling to the links. It also emits an event when the link is activated.
-The links, once clicked on, will display their routes' content in the side nav content component.
+### Routed content spacing
 
-#### Inputs
+The side nav provides a content-area content section for each column. Do not add
+another content-area wrapper inside `lg-side-nav-content`.
 
-| Name       | Description                                             |   Type    | Default | Required |
-|------------|---------------------------------------------------------|:---------:|:-------:|:--------:|
-| `isActive` | specifies whether or not the link is in an active state | `boolean` | `false` |    No    |
+Routed component hosts and their directly nested forms use a column layout with
+`--content-area-gap`. Their immediate children's block margins are reset so field
+components do not add their default bottom margin to the gap. This does not reset
+spacing inside fields, hints or validation messages. Additional nested groups must
+provide their own layout; the rule does not apply to every descendant form or field.
 
-### LgSideNavBarItemComponent
+### LgSideNavBarComponent inputs
 
-This is where the `LgSideNavBarItemHeadingComponent` and `LgSideNavBarItemContentComponent` of the link are projected and positioned.
+| Input   | Description                                | Type     | Default | Required |
+| ------- | ------------------------------------------ | -------- | ------- | -------- |
+| `label` | Accessible name for the navigation region. | `string` | `'Nav'` | No       |
 
-### LgSideNavBarItemHeadingComponent
+### LgSideNavBarLinkDirective inputs
 
-This is the main label of the link.
+Apply `lgSideBarNavLink` to each navigation anchor within the link menu.
 
-### LgSideNavBarItemContentComponent
+| Input      | Description                                    | Type      | Default | Required |
+| ---------- | ---------------------------------------------- | --------- | ------- | -------- |
+| `isActive` | Whether the link represents the current route. | `boolean` | `false` | No       |
 
-This is used to add a description for the link.
+### LgSideNavBarLinkDirective outputs
 
-### LgSideNavBarFooterComponent
+| Output      | Description                                                                                  | Value                |
+| ----------- | -------------------------------------------------------------------------------------------- | -------------------- |
+| `activated` | Emitted when `isActive` is set to a truthy value. Used by the side nav to focus its content. | `EventEmitter<void>` |
 
-The footer is below the navigation items and can hold different kinds of content (e.g. a button).
+### Existing navigation items
 
-### LgSideNavContentComponent
+The existing `LgSideNavBarItemComponent`, `LgSideNavBarItemHeadingComponent` and
+`LgSideNavBarItemContentComponent` exports remain available for existing templates.
+Use link-menu components for new side-nav layouts.
 
-This is the predefined area where content is shown. It should always contain a router outlet to be able to display
-the different nav item routes.
-
-***
-
-<Markdown>
-  {Feedback}
-</Markdown>
+<Markdown>{Feedback}</Markdown>
