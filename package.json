@@ -12,7 +12,7 @@
     "// ----- BUILD LIB": "",
     "build": "npm run build:icons && ng build canopy && npm run build:styles",
     "build:icons": "npm run optimise:svgs && npm run generate:icons && npm run generate:pictograms && npm run generate:flag-icons && npm run generate:icon-loader",
-    "build:styles": "webpack --config webpack.global.config.js",
+    "build:styles": "webpack --config webpack.global.config.js && node scripts/generate-theme-css.js",
     "// ----- GENERATE": "",
     "generate:icons": "svg-to-ts-files --config svg-to-ts-icons.config.json",
     "copy:storybook-tokens": "node scripts/copy-storybook-tokens.js",
