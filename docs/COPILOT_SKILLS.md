@@ -36,6 +36,88 @@ npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 
 ---
 
+## Setting up skills in your project
+
+This section explains how to set up the skills so that your agent uses them reliably.
+
+### 1. Install every best practice skill at your Canopy version
+
+Find the Canopy version in your `package.json`, then install all best practice skills,
+including the orchestration skill, from the matching tag:
+
+```bash
+# Replace vx.x.x with the Canopy version in your package.json
+npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
+```
+
+The CLI asks which agent you use and copies the skills into that agent's skills folder (for
+example, `.agents/skills/` for GitHub Copilot or `.claude/skills/` for Claude Code). It also
+records the source and tag in `skills-lock.json`. Commit both so everyone working on the
+project uses the same skills.
+
+Installing every skill is recommended. The orchestration skill coordinates the component
+skills, so it works best when they are all installed.
+
+### 2. Tell your agent to use the skills
+
+Agents choose which installed skills to load by comparing your request with each skill's
+description. This usually works, but it is not guaranteed. A request that does not mention
+Canopy (for example, "add a toast notification") may not load any Canopy skill, and a request
+naming one component may load only that component's skill.
+
+**Recommended:** add this to your repository's agent instructions file, such as
+`.github/copilot-instructions.md` or `AGENTS.md`. It makes the skills load consistently and
+makes the agent plan every requested element before editing. In testing, it made the biggest
+difference to results.
+
+```markdown
+## Canopy UI
+
+This project uses Canopy (`@legal-and-general/canopy`) at the version in `package.json`.
+
+Before editing any UI:
+
+1. Read the `canopy-ui-orchestration` skill and the `canopy-*` skill for each component you plan to use.
+2. List every element the request asks for and the Canopy component you will use for each.
+   If the request is ambiguous (for example, a new page or an existing one), ask before editing.
+3. Use only Canopy components, directives, pipes, inputs, outputs, tokens and assets that the installed Canopy version provides.
+
+When you finish, say which requested elements you built, which existing ones you reused and which you did not build.
+```
+
+### 3. Describe what you need, not just the component
+
+Describe the intent, content, actions and constraints, and let the agent choose the
+components. For example, "Add Continue and Cancel actions to the form card" gives the agent
+more to work with than "add a button group". Other examples:
+
+- "Show a prominent success message with an illustration and a link."
+- "Build a responsive content area containing radio choices and validation."
+- "Review this icon-only action for Canopy and accessibility compliance."
+- "Find the supported replacement for this deprecated Canopy component."
+
+### 4. Reinstall the skills when you upgrade Canopy
+
+Skills describe the API of the version they were installed from. After upgrading Canopy,
+reinstall them at the new tag so your agent does not use outdated guidance:
+
+```bash
+npx skills add Legal-and-General/canopy/skills/best-practice#vy.y.y --skill '*'
+```
+
+For a major version upgrade, apply the matching [migration skill](#migration-skills) first.
+
+### 5. Check that the skills are being used
+
+- Ask the agent which skills it used for a change. If it did not use any Canopy skill for
+  UI work, check the instruction from step 2.
+- Review generated markup against the component skill or the Storybook documentation for
+  your version.
+- If the agent uses a selector or input you cannot find in the installed package, treat it
+  as invented. Remove it and ask the agent to check the installed Canopy version.
+
+---
+
 ## Migration Skills
 
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
@@ -75,9 +157,15 @@ Once installed, ask your agent:
 
 These skills guide your AI coding agent to use Canopy components and foundations correctly — covering imports, inputs, dos and don'ts, accessibility, and design constraints.
 
+The set includes `canopy-ui-orchestration`, which helps the agent plan every requested element,
+choose between Canopy components and check the installed version, then loads the relevant
+component skills. It does not replace them, or Storybook, testing and design review, and an
+agent may not follow every rule it reads.
+
 > **Note:** Best practice skills are available from tag `v24.0.0` onwards.
 
 Once installed, your agent will automatically apply the best practices whenever it works with the relevant component. For example, after installing `canopy-button` you can ask:
+
 > "Add a primary button that submits the form."
 
 Best practice skills are generated from the Canopy Storybook documentation using the [Best Practice Skill Generator](.github/agents/best-practice-skill-generator.agent.md) agent.
@@ -92,12 +180,26 @@ To generate or regenerate skills, use the **Best Practice Skill Generator** agen
 
 The agent reads the `guide.mdx` documentation, stories, and documentation images (including dos and don'ts screenshots) for each component, then writes a `SKILL.md` to `skills/best-practice/<name>/`.
 
+### Maintaining the orchestration skill
+
+The `canopy-ui-orchestration` skill is not generated. Edit
+`skills/best-practice/canopy-ui-orchestration/SKILL.md` by hand when a change affects how
+components are chosen or combined, for example:
+
+- a new component, or a removed or renamed one;
+- a new or changed composition rule in a component guide;
+- a new common term that should map to a Canopy component.
+
+Keep it short: component-specific guidance belongs in that component's guide and skill. Test
+changes in a consumer project, with and without the skill installed.
+
 ### Available best practice skills
 
 <!-- Best practice skills will appear here as they are generated. -->
 
 | Skill | Covers | Notes |
 |---|---|---|
+| `canopy-ui-orchestration` | Version-aware discovery and composition across Canopy capabilities | Install alongside detailed skills |
 | **Foundations** | | |
 | `canopy-colour-foundation` | Colour palette, design tokens, modes, tones, accessibility principles | — |
 | `canopy-colour-directive` | `lgColour` directive, applying colour modes and themes to components | — |
