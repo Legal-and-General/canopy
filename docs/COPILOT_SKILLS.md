@@ -142,7 +142,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-tabs` | Tabbed content vs tabbed navigation, inputs, outputs | — |
 | `canopy-pagination` | `LgPaginationComponent`, totalItems, currentPage, PageData | — |
 | `canopy-link-menu` | `LgLinkMenuComponent`, item text, right icon behaviour | — |
-| `canopy-side-nav` | Side nav full component set, mobile behaviour, router-outlet | — |
+| `canopy-side-nav` | Content-area and link-menu composition, routing, colour modes, form spacing, accessibility | — |
 | **Forms** | | |
 | `canopy-forms-input` | `LgInputFieldComponent`, prefix/suffix, block, showLabel | — |
 | `canopy-forms-select` | `LgSelectFieldComponent`, when to use vs other controls | — |
