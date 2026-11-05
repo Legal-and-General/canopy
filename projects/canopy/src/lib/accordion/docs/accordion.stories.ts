@@ -84,6 +84,40 @@ const accordionItems = `
 </lg-accordion-item>
 `;
 
+const customAccordionItems = `
+@for (item of [
+  { title: 'Item 1', active: itemOneActive, icon: iconForFirstAccordionItem },
+  { title: 'Item 2', active: itemTwoActive, icon: iconForSecondAccordionItem },
+  { title: 'Item 3', active: itemThreeActive, icon: iconForThirdAccordionItem }
+]; track item.title) {
+  <lg-accordion-item [isActive]="item.active"
+                     (opened)="itemToggled.emit(item.title + ' opened')"
+                     (closed)="itemToggled.emit(item.title + ' closed')">
+    <lg-accordion-panel-heading>
+      @if (item.icon) {
+        <lg-icon [name]="item.icon"></lg-icon>
+      }
+      {{ item.title }}
+      @if (showHeaderActions) {
+        <div lgAccordionHeadingActions>
+          <a lg-button priority="link" [backIcon]="true" href="#favourite">
+            <lg-icon name="star-outline" />
+            Favourite
+          </a>
+          <a lg-button priority="link" [backIcon]="true" href="#delete">
+            <lg-icon name="trash" />
+            Delete
+          </a>
+        </div>
+      }
+    </lg-accordion-panel-heading>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.</p>
+  </lg-accordion-item>
+}
+`;
+
 const standardTemplate = `
 @if (showExpandCollapseAll) {
   <button
@@ -97,7 +131,11 @@ const standardTemplate = `
   </button>
 }
 <lg-accordion [headingLevel]="headingLevel" [multi]="multi || showExpandCollapseAll">
-  ${accordionItems}
+  @if (customContent) {
+    ${customAccordionItems}
+  } @else {
+    ${accordionItems}
+  }
 </lg-accordion>
 `;
 
@@ -118,6 +156,7 @@ class AccordionWrapperComponent {
   @Input() iconForSecondAccordionItem = '';
   @Input() iconForThirdAccordionItem = '';
   @Input() itemTwoTitle = 'Item 2';
+  @Input() customContent = false;
   @Input() showHeaderActions = false;
   @Input() showExpandCollapseAll = false;
   @Input() headingLevel = 2;
@@ -256,7 +295,7 @@ const contentAreaTemplate = `
 <lg-content-area [lgColour]="mode" [lgColourTheme]="theme">
   <lg-content-area-header>
     <lg-content-area-title [headingLevel]="2">
-      Accordion in content area
+      {{ customContent ? 'Accordion with custom content' : 'Accordion in content area' }}
     </lg-content-area-title>
   </lg-content-area-header>
   <lg-content-area-content>
@@ -269,6 +308,7 @@ const contentAreaTemplate = `
       [iconForSecondAccordionItem]="iconForSecondAccordionItem"
       [iconForThirdAccordionItem]="iconForThirdAccordionItem"
       [itemTwoTitle]="itemTwoTitle"
+      [customContent]="customContent"
       [showHeaderActions]="showHeaderActions"
       [showExpandCollapseAll]="showExpandCollapseAll"
       [multi]="multi"
@@ -342,11 +382,10 @@ export const AccordionInContentArea = {
   args: {
     ...StandardAccordion.args,
     headingLevel: 3,
-    showHeaderActions: true,
+    showHeaderActions: false,
     showExpandCollapseAll: true,
     multi: true,
-    itemTwoTitle:
-      'An In-Depth Exploration of the Fascinating World of the Second Accordion: Unveiling Its History, Mechanics, and Cultural Significance in Modern Music',
+    itemTwoTitle: 'Item 2',
     iconForFirstAccordionItem: 'notes',
     iconForSecondAccordionItem: 'news',
     iconForThirdAccordionItem: 'light-bulb',
@@ -371,5 +410,15 @@ export const AccordionInContentArea = {
         code: contentAreaTemplate,
       },
     },
+  },
+};
+
+export const AccordionWithCustomContent = {
+  ...AccordionInContentArea,
+  name: 'Accordion with custom content',
+  args: {
+    ...AccordionInContentArea.args,
+    customContent: true,
+    showHeaderActions: true,
   },
 };
