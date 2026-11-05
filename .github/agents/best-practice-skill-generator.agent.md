@@ -300,6 +300,11 @@ After generating each skill, re-read it once and verify:
 1. **Input names** — every input used in a template snippet exists in the Inputs table for that component. Cross-check against the guide.mdx inputs table before writing each snippet.
 2. **Boolean inputs** — boolean inputs use property binding (`[input]="true"`) rather than string attributes (`input="true"`) in all examples, to avoid strict Angular template type-checking failures.
 3. **CSS custom properties** — every CSS variable reference uses the correct project naming convention. If uncertain, check existing source files in `projects/canopy/src/styles/` before including a variable name.
+4. **Public API** — every import and selector is exported from `projects/canopy/src/public-api.ts`.
+5. **Conditional language** — preserve cardinality and conditions such as "one", "two or more", "at most", "may" and "when related".
+6. **Examples come from the documentation** — copy every code example, and its element nesting, from the guide or a Storybook story. Never write new example markup or move a child element to a different parent. If the guide's prose and its stories disagree about where an element goes, keep the example from the story and flag the conflict in your report for a maintainer to resolve.
+
+If the change affects how components are chosen or combined (for example, a new component or a changed composition rule), check whether `skills/best-practice/canopy-ui-orchestration/SKILL.md` needs updating.
 
 ---
 
