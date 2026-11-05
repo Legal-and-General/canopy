@@ -1,0 +1,139 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Feedback from '../../../docs/common/feedback.md?raw';
+
+<Meta title="Templates/Page/Child/Guide" />
+
+# Child page
+
+<p class="standfirst">A page with a hero, primary content and a narrower column for related content.</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
+
+## Usage
+
+Use this pattern when supporting information needs to sit alongside the main content on larger screens.
+
+Import the following from Canopy and add them to your standalone component's `imports` array:
+
+```ts
+import {
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgCardComponent,
+  LgCardContentComponent,
+  LgColourDirective,
+  LgFooterComponent,
+  LgFooterCopyrightComponent,
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+  LgHeaderComponent,
+  LgHeroCardComponent,
+  LgHeroCardHeaderComponent,
+  LgHeroCardTitleComponent,
+  LgHeroComponent,
+  LgHeroContentComponent,
+  LgHeroHeaderComponent,
+  LgMarginDirective,
+  LgPageComponent,
+} from '@legal-and-general/canopy';
+```
+
+This recipe reduces the header, footer and cards to their structural roles. See the interactive example for the fuller composition.
+
+```html
+<lg-page variant="default">
+  <header lg-header><a href="/">Legal &amp; General</a></header>
+  <lg-hero>
+    <lg-hero-header>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-breadcrumb variant="page" lgMarginBottom="none"
+              lgColour="blue" lgColourTheme="neutral">
+              <lg-breadcrumb-item><a href="/">Home</a></lg-breadcrumb-item>
+              <lg-breadcrumb-item>Your details</lg-breadcrumb-item>
+            </lg-breadcrumb>
+          </div>
+        </div>
+      </div>
+    </lg-hero-header>
+    <lg-hero-content>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-hero-card>
+              <lg-hero-card-header>
+                <lg-hero-card-title headingLevel="1">Your details</lg-hero-card-title>
+              </lg-hero-card-header>
+            </lg-hero-card>
+          </div>
+        </div>
+      </div>
+    </lg-hero-content>
+  </lg-hero>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12" lgColMd="8">
+        <lg-card lgMarginHorizontal="none">
+          <lg-card-content>
+            <h2>Contact details</h2>
+            <p>Review the contact details associated with your account.</p>
+          </lg-card-content>
+        </lg-card>
+      </div>
+      <div lgCol="12" lgColMd="4">
+        <lg-card lgMarginHorizontal="none">
+          <lg-card-content>
+            <h2>Related information</h2>
+            <a href="/help">Get help with your account</a>
+          </lg-card-content>
+        </lg-card>
+      </div>
+    </div>
+  </div>
+  <footer lg-footer>
+    <lg-footer-copyright>Legal &amp; General</lg-footer-copyright>
+  </footer>
+</lg-page>
+```
+
+## Layout
+
+Both content columns span 12 columns below `md`, with primary content first. At `md` and above, the primary column spans 8 columns and the related column spans 4. The hero retains its own full-width grid and breadcrumbs.
+
+For a branded page, set the page variant to `branded` and the breadcrumb theme to `bold`. This pairing is explicit, not inherited automatically from the page component.
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** put the main content before related content in the markup.
+2. **Do** keep related information relevant to the current page.
+
+### Don't
+
+1. **Don't** use the narrower column for the page's primary task.
+2. **Don't** use custom widths to recreate the 8/4 grid split.
+
+## Additional development details
+
+### Composition inputs
+
+| Component or directive | Input | Recipe value | Purpose |
+|------------------------|-------|--------------|---------|
+| `lg-page` | `variant` | `'default'` | Standard page background |
+| `lg-breadcrumb` | `variant` | `'embedded'` | Breadcrumbs within the hero |
+| `lgCol` | `lgColMd` | `8` / `4` | Primary and related columns from `md` |
+
+## Related
+
+- [Interactive Child page example](./?path=/story/templates-page-child-examples--child-page)
+- [Page API and projection](./?path=/docs/templates-page-guide--docs)
+- [Basic page](./?path=/docs/templates-page-basic-guide--docs)
+- [Grid](./?path=/docs/helpers-directives-grid-guide--docs)
+- [Header](./?path=/docs/components-header-guide--docs)
+- [Footer](./?path=/docs/components-footer-guide--docs)
+- [Hero](./?path=/docs/patterns-hero-guide--docs)
+
+<Markdown>{Feedback}</Markdown>

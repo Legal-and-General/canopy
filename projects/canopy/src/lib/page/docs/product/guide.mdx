@@ -1,0 +1,143 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import Feedback from '../../../docs/common/feedback.md?raw';
+
+<Meta title="Templates/Page/Product/Guide" />
+
+# Product page
+
+<p class="standfirst">A product summary in the hero with product content and supporting information below.</p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
+
+## Usage
+
+Use this pattern to give a product its own page, with its identity and summary visible before detailed information.
+
+Import the following from Canopy and add them to your standalone component's `imports` array:
+
+```ts
+import {
+  LgBreadcrumbComponent,
+  LgBreadcrumbItemComponent,
+  LgCardComponent,
+  LgCardContentComponent,
+  LgColourDirective,
+  LgFooterComponent,
+  LgFooterCopyrightComponent,
+  LgGridColDirective,
+  LgGridContainerDirective,
+  LgGridRowDirective,
+  LgHeaderComponent,
+  LgHeroCardComponent,
+  LgHeroCardContentComponent,
+  LgHeroCardHeaderComponent,
+  LgHeroCardSubtitleComponent,
+  LgHeroCardTitleComponent,
+  LgHeroComponent,
+  LgHeroContentComponent,
+  LgHeroHeaderComponent,
+  LgMarginDirective,
+  LgPageComponent,
+} from '@legal-and-general/canopy';
+```
+
+This recipe retains the product hero's header and content slots but omits the example's notifications and detailed data points. The header and footer are also reduced; add organisation-specific content using their component guides.
+
+```html
+<lg-page variant="default">
+  <header lg-header><a href="/">Legal &amp; General</a></header>
+  <lg-hero>
+    <lg-hero-header>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-breadcrumb variant="page" lgMarginBottom="none"
+              lgColour="blue" lgColourTheme="neutral">
+              <lg-breadcrumb-item><a href="/products">Products</a></lg-breadcrumb-item>
+              <lg-breadcrumb-item>Pension annuity</lg-breadcrumb-item>
+            </lg-breadcrumb>
+          </div>
+        </div>
+      </div>
+    </lg-hero-header>
+    <lg-hero-content>
+      <div lgContainer>
+        <div lgRow>
+          <div lgCol="12">
+            <lg-hero-card>
+              <lg-hero-card-header>
+                <lg-hero-card-title headingLevel="1">Pension annuity</lg-hero-card-title>
+                <lg-hero-card-subtitle>Reference P23456</lg-hero-card-subtitle>
+              </lg-hero-card-header>
+              <lg-hero-card-content><p>Payment frequency: monthly.</p></lg-hero-card-content>
+            </lg-hero-card>
+          </div>
+        </div>
+      </div>
+    </lg-hero-content>
+  </lg-hero>
+  <div lgContainer>
+    <div lgRow>
+      <div lgCol="12" lgColMd="8">
+        <lg-card lgMarginHorizontal="none">
+          <lg-card-content>
+            <h2>Your product</h2>
+            <p>Review your payment details and product documents.</p>
+          </lg-card-content>
+        </lg-card>
+      </div>
+      <div lgCol="12" lgColMd="4">
+        <lg-card lgMarginHorizontal="none">
+          <lg-card-content>
+            <h2>Related information</h2>
+            <a href="/help">Contact us about your product</a>
+          </lg-card-content>
+        </lg-card>
+      </div>
+    </div>
+  </div>
+  <footer lg-footer>
+    <lg-footer-copyright>Legal &amp; General</lg-footer-copyright>
+  </footer>
+</lg-page>
+```
+
+## Layout
+
+The hero identifies the product independently of the content grid below it. Main and related content stack below `md`, then use an 8/4 split. Keep product summary information in the hero; use the main column for detail and actions.
+
+If you choose the branded page variant, explicitly change the breadcrumb theme to `bold` as well. The page component does not apply colour themes to its children.
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** give the product a clear heading and identifying reference where appropriate.
+2. **Do** use the hero's data-point components when presenting structured product values.
+
+### Don't
+
+1. **Don't** move essential product information into the related-content column.
+2. **Don't** rely on the page variant to set breadcrumb colours automatically.
+
+## Additional development details
+
+### Composition inputs
+
+| Component or directive | Input | Recipe value | Purpose |
+|------------------------|-------|--------------|---------|
+| `lg-page` | `variant` | `'default'` | Standard page background |
+| `lg-hero-card-title` | `headingLevel` | `'1'` | Main page heading |
+| `lgCol` | `lgColMd` | `8` / `4` | Product and supporting content from `md` |
+
+## Related
+
+- [Interactive Product page example](./?path=/story/templates-page-product-examples--product-page)
+- [Page API and projection](./?path=/docs/templates-page-guide--docs)
+- [Hero and product data points](./?path=/docs/patterns-hero-guide--docs)
+- [Child page](./?path=/docs/templates-page-child-guide--docs)
+- [Grid](./?path=/docs/helpers-directives-grid-guide--docs)
+- [Header](./?path=/docs/components-header-guide--docs)
+- [Footer](./?path=/docs/components-footer-guide--docs)
+
+<Markdown>{Feedback}</Markdown>
