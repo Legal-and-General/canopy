@@ -53,7 +53,7 @@ const productPageTemplate = `
                 <lg-hero-card-content>
                   <div lgRow>
                     <div lgCol="12" lgColLg="8">
-                      <lg-card lgMarginBottom="none">
+                      <lg-card>
                         <lg-card-header>
                           <lg-card-title [headingLevel]="3">Overview</lg-card-title>
                         </lg-card-header>

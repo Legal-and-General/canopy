@@ -407,16 +407,15 @@ export const formJourneyProductContent = `
                 <div lgColSm="12" lgColLg="6">
                   <lg-input-field>
                     First name
-                    <lg-hint>For example, Jane</lg-hint>
-                    <input lgInput formControlName="firstName" autocomplete="given-name" />
+                    <input lgInput [block]="true" size="35" formControlName="firstName" autocomplete="given-name" />
                   </lg-input-field>
                   <lg-input-field>
                     Last name
-                    <input lgInput formControlName="lastName" autocomplete="family-name" />
+                    <input lgInput [block]="true" size="35" formControlName="lastName" autocomplete="family-name" />
                   </lg-input-field>
                   <lg-input-field>
                     Email address
-                    <input lgInput formControlName="emailAddress" type="email" autocomplete="email" />
+                    <input lgInput [block]="true" size="35" formControlName="emailAddress" type="email" autocomplete="email" />
                   </lg-input-field>
                 </div>
               </div>
