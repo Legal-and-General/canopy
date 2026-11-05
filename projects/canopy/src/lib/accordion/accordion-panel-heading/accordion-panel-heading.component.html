@@ -8,7 +8,13 @@
     [attr.aria-expanded]="_isActive"
     [attr.aria-controls]="_panelId"
     (click)="toggle()">
-    <ng-content />
-    <lg-icon class="lg-accordion__heading-icon lg-accordion__heading-icon--animated" name="chevron-down" />
+    <lg-icon
+      class="lg-accordion__heading-icon lg-accordion__heading-icon--animated"
+      name="chevron-down" />
+    <ng-content select="lg-icon" />
+    <span class="lg-accordion__heading-toggle-label">
+      <ng-content />
+    </span>
   </button>
 </lg-heading>
+<ng-content select="[lgAccordionHeadingActions]" />
