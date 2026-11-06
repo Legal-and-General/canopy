@@ -56,26 +56,30 @@
       cursor: default;
       opacity: 1;
     }
+
+    &[aria-disabled='true'] {
+      cursor: default;
+    }
   }
 
-  .lg-pagination__button:hover:not(:disabled) {
+  .lg-pagination__button:hover:not(:disabled, [aria-disabled='true']) {
     background: var(--pagination-page-hover-background-colour);
     color: var(--pagination-page-hover-colour);
     cursor: pointer;
   }
 
-  .lg-pagination__button:hover:not(:disabled):not(:active),
+  .lg-pagination__button:hover:not(:disabled, [aria-disabled='true']):not(:active),
   .lg-pagination__button:focus-visible:not(:active) {
     transition:
       background-color 150ms ease-out,
       color 150ms ease-out;
   }
 
-  &.lg-theme-bold .lg-pagination__button:hover:not(:disabled) {
+  &.lg-theme-bold .lg-pagination__button:hover:not(:disabled, [aria-disabled='true']) {
     color: var(--link-menu-item-hover-colour, var(--pagination-page-hover-colour));
   }
 
-  .lg-pagination__button:active:not(:disabled) {
+  .lg-pagination__button:active:not(:disabled, [aria-disabled='true']) {
     background: var(--pagination-page-active-background-colour);
     color: var(--pagination-page-active-colour);
   }
@@ -105,41 +109,46 @@
     height: var(--content-icon-size-md);
   }
 
-  .lg-pagination__button:hover:not(:disabled) .lg-pagination__button-content::after,
+  .lg-pagination__button:hover:not(:disabled, [aria-disabled='true'])
+    .lg-pagination__button-content::after,
   .lg-pagination__button:focus-visible .lg-pagination__button-content::after {
     transition:
       width 150ms ease-out,
       border-color 150ms ease-out;
   }
 
-  .lg-pagination__button:hover:not(:disabled) .lg-pagination__button-content::after,
+  .lg-pagination__button:hover:not(:disabled, [aria-disabled='true'])
+    .lg-pagination__button-content::after,
   .lg-pagination__button:focus-visible .lg-pagination__button-content::after,
-  .lg-pagination__button:active:not(:disabled) .lg-pagination__button-content::after,
+  .lg-pagination__button:active:not(:disabled, [aria-disabled='true'])
+    .lg-pagination__button-content::after,
   .lg-pagination__button.lg-pagination__button--active
     .lg-pagination__button-content::after {
     width: max(0.625rem, 100%);
   }
 
-  .lg-pagination__button--prevnext:hover:not(:disabled)
+  .lg-pagination__button--prevnext:hover:not(:disabled, [aria-disabled='true'])
     .lg-pagination__button-content::after,
   .lg-pagination__button--prevnext:focus-visible .lg-pagination__button-content::after,
-  .lg-pagination__button--prevnext:active:not(:disabled)
+  .lg-pagination__button--prevnext:active:not(:disabled, [aria-disabled='true'])
     .lg-pagination__button-content::after,
   .lg-pagination__button--prevnext.lg-pagination__button--active
     .lg-pagination__button-content::after {
     width: min(1.5rem, 100%);
   }
 
-  .lg-pagination__button:hover:not(:disabled) .lg-pagination__button-content::after {
+  .lg-pagination__button:hover:not(:disabled, [aria-disabled='true'])
+    .lg-pagination__button-content::after {
     border-color: var(--pagination-page-hover-hover-indicator-colour);
   }
 
   .lg-pagination__button--active .lg-pagination__button-content::after,
-  .lg-pagination__button--active:hover:not(:disabled)
+  .lg-pagination__button--active:hover:not(:disabled, [aria-disabled='true'])
     .lg-pagination__button-content::after,
-  .lg-pagination__button--active:active:not(:disabled)
+  .lg-pagination__button--active:active:not(:disabled, [aria-disabled='true'])
     .lg-pagination__button-content::after,
-  .lg-pagination__button:active:not(:disabled) .lg-pagination__button-content::after {
+  .lg-pagination__button:active:not(:disabled, [aria-disabled='true'])
+    .lg-pagination__button-content::after {
     border-color: var(--pagination-page-active-hover-indicator-colour);
   }
 
@@ -152,8 +161,8 @@
   }
 
   .lg-pagination__button--active,
-  .lg-pagination__button--active:hover:not(:disabled),
-  .lg-pagination__button--active:active:not(:disabled) {
+  .lg-pagination__button--active:hover:not(:disabled, [aria-disabled='true']),
+  .lg-pagination__button--active:active:not(:disabled, [aria-disabled='true']) {
     background: var(--pagination-page-active-background-colour);
     color: var(--pagination-page-active-colour);
   }
