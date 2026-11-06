@@ -20,10 +20,11 @@
           <button
             type="button"
             class="lg-pagination__button"
-            [attr.aria-label]="'Go to page ' + control.page"
+            [attr.aria-label]="(currentPage === control.page ? 'Page ' : 'Go to page ') + control.page"
             [attr.aria-current]="currentPage === control.page ? 'page' : 'false'"
+            [attr.aria-disabled]="currentPage === control.page ? 'true' : null"
             [class.lg-pagination__button--active]="currentPage === control.page"
-            (click)="goTo(control.page)"
+            (click)="currentPage !== control.page && goTo(control.page)"
             >
             <span class="lg-pagination__button-content">{{ control.page }}</span>
           </button>
@@ -69,10 +70,11 @@
           <button
             type="button"
             class="lg-pagination__button"
-            [attr.aria-label]="'Go to page ' + control.page"
+            [attr.aria-label]="(currentPage === control.page ? 'Page ' : 'Go to page ') + control.page"
             [attr.aria-current]="currentPage === control.page ? 'page' : 'false'"
+            [attr.aria-disabled]="currentPage === control.page ? 'true' : null"
             [class.lg-pagination__button--active]="currentPage === control.page"
-            (click)="goTo(control.page)"
+            (click)="currentPage !== control.page && goTo(control.page)"
             >
             <span class="lg-pagination__button-content">{{ control.page }}</span>
           </button>
@@ -116,10 +118,11 @@
           <button
             type="button"
             class="lg-pagination__button"
-            [attr.aria-label]="'Go to page ' + control.page"
+            [attr.aria-label]="(currentPage === control.page ? 'Page ' : 'Go to page ') + control.page"
             [attr.aria-current]="currentPage === control.page ? 'page' : 'false'"
+            [attr.aria-disabled]="currentPage === control.page ? 'true' : null"
             [class.lg-pagination__button--active]="currentPage === control.page"
-            (click)="goTo(control.page)"
+            (click)="currentPage !== control.page && goTo(control.page)"
             >
             <span class="lg-pagination__button-content">{{ control.page }}</span>
           </button>
