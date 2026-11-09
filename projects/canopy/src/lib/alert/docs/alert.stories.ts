@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { useArgs } from 'storybook/preview-api';
 
@@ -42,6 +42,7 @@ interface AlertStoryArgs {
       }
     </lg-alert>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgAlertComponent, LgButtonComponent ],
 })
 class LgAlertStoryComponent {
@@ -84,6 +85,7 @@ class LgAlertStoryComponent {
       }
     </lg-alert>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgAlertComponent, LgButtonComponent ],
 })
 class LgAlertRichTextStoryComponent {

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgAccordionComponent } from '../accordion.component';
 import { LgAccordionItemComponent } from '../accordion-item/accordion-item.component';
@@ -69,6 +69,7 @@ const standardTemplate = `<lg-accordion [headingLevel]="headingLevel" [multi]=mu
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 class AccordionWrapperComponent {

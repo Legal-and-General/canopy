@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
 import { LgMarginDirective } from '../../spacing';
@@ -64,6 +64,7 @@ import { LgAlertComponent } from '../../alert';
       </p>
     </lg-alert>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [
     `
       .welcome-img {

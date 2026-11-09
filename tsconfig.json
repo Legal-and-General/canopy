@@ -15,6 +15,8 @@
     "importHelpers": true,
     "target": "ES2022",
     "noUnusedLocals": true,
+    "strict": false,
+    "ignoreDeprecations": "6.0",
     "typeRoots": [
       "node_modules/@types"
     ],

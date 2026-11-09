@@ -6,6 +6,7 @@ import {
   Output,
   SimpleChanges,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {
   ReactiveFormsModule,
@@ -34,6 +35,7 @@ import { LgToggleComponent } from '../toggle.component';
       </lg-toggle>
     </form>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ ReactiveFormsModule, LgToggleComponent ],
 })
 export class ReactiveToggleFormComponent implements OnChanges {

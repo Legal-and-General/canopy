@@ -5,6 +5,7 @@ import {
   OnInit,
   Output,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -82,6 +83,7 @@ function invalidValidator(): ValidatorFn {
       useExisting: FormGroupDirective,
     },
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgDateFieldComponent, ReactiveFormsModule, LgValidationComponent ],
 })
 class FormGroupChildComponent implements OnInit {
@@ -273,6 +275,7 @@ class FormGroupChildComponent implements OnInit {
       <button lg-button type="submit" priority="primary">Submit</button>
     </form>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ReactiveFormsModule,
     LgInputFieldComponent,

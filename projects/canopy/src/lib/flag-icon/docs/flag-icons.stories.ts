@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgFlagIconComponent } from '../flag-icon.component';
@@ -32,6 +32,7 @@ import { lgFlagIconsArray } from '../../flag-icons-files/set/lgFlagIconsArray';
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgFlagIconComponent ],
 })
 class SwatchFlagIconComponent {

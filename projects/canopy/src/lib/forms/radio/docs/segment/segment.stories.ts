@@ -3,7 +3,14 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
@@ -30,6 +37,7 @@ const segmentTemplate = `
 @Component({
   selector: 'lg-reactive-form-segment',
   template: ` <form [formGroup]="form">${segmentTemplate}</form> `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ReactiveFormsModule,
     LgHintComponent,

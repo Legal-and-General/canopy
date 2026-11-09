@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -87,6 +87,7 @@ const showMoreCardTemplate = `
 @Component({
   selector: 'lg-card-show-more',
   template: showMoreCardTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardToggableContentComponent,
     LgCardSubheadingComponent,
@@ -160,6 +161,7 @@ const dataPointsCardTemplate = `
 @Component({
   selector: 'lg-card-data-points',
   template: dataPointsCardTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardContentComponent,
     LgCardHeaderComponent,
@@ -230,6 +232,7 @@ const cardGroupTemplate = `
 @Component({
   selector: 'lg-card-group',
   template: cardGroupTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardContentComponent,
     LgCardNavigationTitleComponent,

@@ -9,6 +9,7 @@ import {
   QueryList,
   ViewChild,
   ViewEncapsulation,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -33,6 +34,7 @@ interface LgInputAffix {
   templateUrl: './input-field.component.html',
   styleUrls: [ './input-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgLabelComponent,
     LgHintComponent,

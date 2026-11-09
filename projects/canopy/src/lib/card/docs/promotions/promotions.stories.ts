@@ -1,5 +1,5 @@
 import { moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgCardComponent } from '../../card.component';
 import { LgPictogramComponent } from '../../../pictogram';
@@ -47,6 +47,7 @@ const promotionsGeneralCardTemplate = `
 @Component({
   selector: 'lg-card-general-promotion',
   template: promotionsGeneralCardTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgMarginDirective,
     LgCardContentComponent,

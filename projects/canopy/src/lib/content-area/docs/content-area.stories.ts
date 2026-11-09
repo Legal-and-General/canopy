@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -403,6 +403,7 @@ const formJourneyTemplate = `
 @Component({
   selector: 'lg-content-area-form-journey',
   template: formJourneyTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgGridContainerDirective,
     LgGridRowDirective,

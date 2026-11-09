@@ -1,5 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgModalComponent } from '../modal.component';
 import { LgModalTriggerDirective } from '../modal-trigger/modal-trigger.directive';
@@ -30,6 +30,7 @@ const template = `
   selector: 'lg-modal-wrapper',
   template,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgModalComponent,
     LgModalTriggerDirective,

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 import { RouterOutlet } from '@angular/router';
 
@@ -56,6 +56,7 @@ const template = `
   selector: 'lg-story-side-nav',
   template,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgSideNavComponent,
     LgSideNavBarComponent,

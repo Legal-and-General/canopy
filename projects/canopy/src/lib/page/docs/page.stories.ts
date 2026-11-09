@@ -1,5 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { primaryLinks, socialLinks } from '../../footer/docs/footer.stories';
 import { productHeroHTML } from '../../hero/docs/hero.stories';
@@ -181,6 +181,7 @@ const fullWidthWithHeroTemplate = `
 @Component({
   selector: 'lg-full-width-with-header',
   template: fullWidthWithHeroTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgPageComponent,
     LgHeroComponent,

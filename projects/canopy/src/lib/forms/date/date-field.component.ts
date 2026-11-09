@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -49,6 +50,7 @@ const labelFieldMap = {
   templateUrl: './date-field.component.html',
   styleUrls: [ './date-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgFocusDirective,
     LgLabelComponent,

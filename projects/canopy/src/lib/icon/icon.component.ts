@@ -6,6 +6,7 @@ import {
   Input,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { randomUniqueId } from '../utils';
@@ -21,6 +22,7 @@ type Name = IconName;
   styleUrls: [ './icon.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: { ngSkipHydration: 'true' },
 })
 export class LgIconComponent {

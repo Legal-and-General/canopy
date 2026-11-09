@@ -6,6 +6,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -28,6 +29,7 @@ type LgSelectControl = Pick<
   templateUrl: './select-field.component.html',
   styleUrls: [ './select-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgLabelComponent, LgIconComponent ],
 })
 export class LgSelectFieldComponent {

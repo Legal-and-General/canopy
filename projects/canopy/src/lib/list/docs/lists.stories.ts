@@ -1,5 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
 import { IconName } from '../../icon';
@@ -73,6 +73,7 @@ const considerationsTemplate = `
     `,
   ],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgListWithIconsComponent, LgListWithIconsItemComponent, NgTemplateOutlet ],
 })
 class ConsiderationsListWrapperComponent {
@@ -115,6 +116,7 @@ const orderedTemplate = `
     `,
   ],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgListWithIconsComponent, LgListWithIconsItemComponent, NgTemplateOutlet ],
 })
 class ListWithIconsWrapperComponent {
@@ -134,6 +136,7 @@ class ListWithIconsWrapperComponent {
     `,
   ],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgListWithIconsComponent, LgListWithIconsItemComponent, NgTemplateOutlet ],
 })
 class OrderedListWithIconsWrapperComponent {
