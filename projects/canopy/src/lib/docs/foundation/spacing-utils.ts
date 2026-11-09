@@ -59,7 +59,7 @@ export const convertToPxAndRem = (
   allVariables?: Record<string, string>,
 ): { px: string; rem: string } => {
   // Remove any CSS var() wrapper and get the actual value
-  let value = cssValue.replace(/var\(([^)]+)\)/g, (match, varName: string) => {
+  const value = cssValue.replace(/var\(([^)]+)\)/g, (match, varName: string) => {
     const cleanVarName = varName.split(',')[0].trim();
 
     return allVariables?.[cleanVarName] || match;

@@ -25,7 +25,7 @@ describe('LgModalComponent', () => {
   let component: LgModalComponent;
   let cdrMock: ChangeDetectorRef;
   let fixture: MockedComponentFixture<LgModalComponent>;
-  let isOpenSpy = jest.fn().mockReturnValue(of(undefined));
+  const isOpenSpy = jest.fn().mockReturnValue(of(undefined));
   const modalServiceMock = {
     isOpen$: isOpenSpy,
     open: jest.fn(),
