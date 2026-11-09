@@ -3,6 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const REPOSITORY_GUIDES_PATH = 'projects/canopy/src/lib/docs/repository-guides/';
+
 /**
  * Parses the `metadata.source` value from a SKILL.md frontmatter block and
  * returns the repository-relative path of the corresponding .mdx file.
@@ -61,9 +63,8 @@ async function listChangedFiles(github, owner, repo, pullNumber) {
 }
 
 /**
- * Checks that every changed .mdx file in the PR has a corresponding
- * best-practice skill that was also added or updated. Fails the workflow step
- * when documentation changes are not accompanied by skill updates.
+ * Checks that changed skill-source .mdx files have corresponding best-practice
+ * skill updates. Repository guides are not sources for component skills.
  *
  * @param {object} params
  * @param {object} params.github     - Octokit client from actions/github-script.
@@ -84,7 +85,7 @@ module.exports = async ({ github, context: { repo: { repo, owner }, payload }, c
   const changedFiles = await listChangedFiles(github, owner, repo, pullNumber);
 
   const changedGuides = changedFiles.filter(
-    f => path.extname(f) === '.mdx',
+    f => path.extname(f) === '.mdx' && !f.startsWith(REPOSITORY_GUIDES_PATH),
   );
 
   const changedSkills = changedFiles.filter(
@@ -92,7 +93,7 @@ module.exports = async ({ github, context: { repo: { repo, owner }, payload }, c
   );
 
   if (changedGuides.length === 0 && changedSkills.length === 0) {
-    core.info('No .mdx files or best-practice skills changed. Skipping check.');
+    core.info('No skill-source .mdx files or best-practice skills changed. Skipping check.');
 
     return;
   }

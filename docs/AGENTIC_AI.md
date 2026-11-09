@@ -44,15 +44,7 @@ Open Copilot Chat in your IDE, select the **Migration Guide Writer** agent from 
 **Migration Skill Generator — via a GitHub issue (recommended for cloud):**
 1. Create a new issue using the [Migration Skill](../.github/ISSUE_TEMPLATE/migration-skill.yml) issue template, providing the major version number.
 2. Once the issue is created, assign it to `@copilot` and select the **Migration Skill Generator** agent.
-3. The agent will fetch the release notes, generate the skill, update `docs/COPILOT_SKILLS.md`, and open a pull request. Consumers can then install the skill with:
-   ```bash
-   npx skills add Legal-and-General/canopy --skill canopy-v{N}-migration
-   ```
-
-> **Note:** once your application has been fully migrated to the new version, uninstall the skill to keep your Copilot context clean:
-> ```bash
-> npx skills remove Legal-and-General/canopy --skill canopy-v{N}-migration
-> ```
+3. The agent will fetch the release notes, generate the skill, update `docs/COPILOT_SKILLS.md`, and open a pull request. Consumers can then install and remove it using the [migration skills guide](./COPILOT_SKILLS.md#migration-skills).
 
 **Best Practice Skill Generator — IDE / local:**
 Open Copilot Chat in your IDE, select the **Best Practice Skill Generator** agent from the dropdown, and ask it to generate a skill for the component(s) you need:
@@ -100,9 +92,12 @@ There are two kinds of skill in this repo:
 | Kind | Audience | Location |
 |---|---|---|
 | **Internal skills** | The Canopy team (IDE / Cloud Copilot) | `.github/skills/` and `.agents/skills/` |
-| **Consumer migration skills** | Developers consuming the `@legal-and-general/canopy` package | `skills/` (installable via `npx skills add`) |
+| **Consumer skills** | Developers consuming the `@legal-and-general/canopy` package | `skills/canopy-v*-migration/` and `skills/best-practice/` (installable via `npx skills add`) |
 
-Consumer migration and best-practice skills are documented in [`docs/COPILOT_SKILLS.md`](COPILOT_SKILLS.md) and generated automatically by the **Migration Skill Generator** and **Best Practice Skill Generator** agents respectively.
+Consumer [migration skills](COPILOT_SKILLS.md#migration-skills) and
+[best-practice skills](COPILOT_SKILLS.md#best-practice-skills) are generated
+automatically by the **Migration Skill Generator** and **Best Practice Skill
+Generator** agents respectively.
 
 ### How they work
 

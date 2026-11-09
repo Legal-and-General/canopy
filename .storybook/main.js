@@ -4,6 +4,20 @@ export default {
   stories: [
     '../projects/canopy/src/lib/docs/welcome/welcome.mdx',
     '../projects/canopy/src/lib/docs/welcome/welcome.stories.ts',
+    // AI
+    '../projects/canopy/src/lib/docs/repository-guides/best-practice-skills.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/migration-skills.mdx',
+    // Development
+    '../projects/canopy/src/lib/docs/repository-guides/usage.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/breaking-changes.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/contributing.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/coding-standards.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/agentic-ai.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/releases.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/next-branch.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/maintenance-releases.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/dependabot.mdx',
+    '../projects/canopy/src/lib/docs/repository-guides/policies.mdx',
     // Foundation
     '../projects/canopy/src/lib/docs/foundation/colours/colours.mdx',
     '../projects/canopy/src/lib/docs/foundation/colours/colours.stories.ts',
@@ -18,6 +32,7 @@ export default {
     '../projects/canopy/src/lib/flag-icon/docs/guide.mdx',
     '../projects/canopy/src/lib/flag-icon/docs/flag-icons.stories.ts',
     // Principles
+    '../projects/canopy/src/lib/docs/repository-guides/best-practice.mdx',
     '../projects/canopy/src/lib/docs/principles/writing.mdx',
     '../projects/canopy/src/lib/docs/principles/accessibility/overview.mdx',
     '../projects/canopy/src/lib/docs/principles/accessibility/overview.stories.ts',
@@ -165,6 +180,7 @@ export default {
   ],
   staticDirs: [
     '../assets/',
+    { from: '../docs/assets', to: '/repository-docs-assets' },
   ],
   core: {
     fsCache: true,

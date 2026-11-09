@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 
-import { LgIconComponent } from '../../icon';
 import { LgMarginDirective } from '../../spacing';
 
 @Component({
   selector: 'lg-docs-welcome-usage',
-  imports: [ LgMarginDirective, LgIconComponent ],
+  imports: [ LgMarginDirective ],
   template: `
     <img src="docs/welcome/builders.svg" alt="" />
 
@@ -20,10 +19,11 @@ import { LgMarginDirective } from '../../spacing';
 
       <ul lgMargin="none">
         <li>
-          <a href="https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md">
+          <a
+            href="./?path=/docs/development-using-canopy-installation-and-usage--docs"
+            target="_top"
+          >
             Read about how to use the Angular library
-            <lg-icon name="link-external" />
-            <span class="lg-visually-hidden"> opens in a new tab</span>
           </a>
         </li>
         <li lgMarginTop="4">

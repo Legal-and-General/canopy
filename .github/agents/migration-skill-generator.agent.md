@@ -203,51 +203,26 @@ After completing all sections, follow the **Verification** steps at the end.
 
 ## Step 6 — Update Consumer Documentation
 
-### 6a — Discover all existing skills
+### 6a — Discover existing migration skills
 
-List all directories under `skills/` to build an up-to-date inventory:
-
-```bash
-gh api repos/Legal-and-General/canopy/contents/skills \
-  --jq '[.[] | select(.type == "dir") | {name: .name, path: .path}]'
-```
-
-For each found skill directory, read its `SKILL.md` frontmatter to extract `name`, `description`, and `metadata.version`. If the `skills/` directory does not yet exist, the newly generated skill will be the only entry in the table.
+Inspect the local `skills/canopy-v*-migration/` directories, including the
+newly generated skill, and read their `SKILL.md` frontmatter. Do not treat
+`skills/best-practice/` as a migration skill.
 
 ### 6b — Upsert `docs/COPILOT_SKILLS.md`
 
-Always fully regenerate `docs/COPILOT_SKILLS.md` — never append to it. Read all existing skill directories first so no previously generated skills are dropped from the table. Use this structure:
+Read the existing file and reconcile the **Migration Skills** table with the
+local inventory. Add missing migration entries and add or update the new
+skill's row, ordered newest version first:
 
-````markdown
-# Canopy Copilot Migration Skills
-
-Canopy publishes installable [Copilot skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) for each major release that contains breaking changes. These skills guide your AI coding agent to apply the migration changes automatically in your project.
-
-## Installing a skill
-
-Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills) and work with GitHub Copilot, Claude Code, Cursor, and [40+ other coding agents](https://www.npmjs.com/package/skills#supported-agents).
-
-```bash
-# List all available Canopy skills without installing
-npx skills add Legal-and-General/canopy --list
-
-# Install a specific migration skill (replace v21 with the version you need)
-npx skills add Legal-and-General/canopy --skill canopy-v21-migration
-
-# Install all available Canopy migration skills
-npx skills add Legal-and-General/canopy --skill '*'
+```markdown
+| `canopy-v{N}-migration` | v{N-1} → v{N} | [v{N}.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v{N}.0.0) |
 ```
 
-Once installed, ask your agent:
-> "Apply the Canopy v21 migration to my project."
-
-## Available skills
-
-| Skill | Migrates | Release notes |
-|---|---|---|
-{rows — one per skill, sorted newest version first}
-| `canopy-v{N}-migration` | v{N-1} → v{N} | [v{N}.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v{N}.0.0) |
-````
+Use the release notes referenced by each skill. Preserve all other rows,
+existing release-note links, installation guidance and the **Best Practice
+Skills** section. Do not regenerate the whole file: this Markdown is also the
+source of the shared Storybook skills page.
 
 ### 6c — Ensure `README.md` links to the skills docs
 
@@ -363,4 +338,4 @@ Provide a brief summary covering:
 - **Never invent breaking changes** — only generate skill sections from real content in the release notes. If no breaking changes are found, report this and do not generate a skill.
 - **One skill per major version** — skill names follow `canopy-v{N}-migration` where `{N}` is the major version number only. Do not create skills for patch or minor releases unless they contain unusual breaking changes explicitly flagged as such.
 - **Confirm before overwriting (IDE only)** — if a skill for this version already exists, show the diff and ask for confirmation before replacing it.
-- **Always regenerate `docs/COPILOT_SKILLS.md` from the full inventory** — read all existing skill directories in `skills/` first so no previously generated skills are accidentally dropped from the table.
+- **Preserve the shared skills catalogue** — update the migration table without removing other migration entries, best-practice skills or installation guidance.

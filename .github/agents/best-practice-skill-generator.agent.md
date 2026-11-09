@@ -307,12 +307,28 @@ After generating each skill, re-read it once and verify:
 
 After generating all skills, update `docs/COPILOT_SKILLS.md`:
 
-1. Add a new row to the **Available skills** table for each newly generated skill.
+1. Add or update a row in the **Available best practice skills** table for each
+   newly generated skill, using its `SKILL.md` frontmatter name and the
+   appropriate existing category. Preserve all other rows, the migration
+   skills table and the installation guidance.
 2. Use the format:
 
 ```markdown
-| `<name>` | Best practices for <ComponentName> | Current |
+| `<name>` | Best practices for <ComponentName> | — |
 ```
+
+3. Keep each skill in exactly one row:
+   - Deprecation and removal skills (Step 5D) belong only in the
+     **Deprecated/Removed** group, with `Deprecated` or `Removed` in the Notes
+     column. If the skill already has a row in another category, move it rather
+     than adding a second row.
+   - If a skill folder under `skills/best-practice/` is deleted, remove its row.
+   - Set the Notes column from the source guide's status badge: use
+     `Pending brand modernisation` when the guide has
+     `<CustomBadge text="Pending" ...>`, and `—` when it is marked `Updated`
+     or has no badge. Update existing rows when a guide's badge changes.
+   - Before finishing, confirm that every row matches a `SKILL.md` `name` under
+     `skills/best-practice/`, and that every skill has a row.
 
 If the table does not have a "Best Practice Skills" section yet, add one above or below the migration skills section:
 
@@ -371,3 +387,4 @@ Before finishing, verify each generated skill:
 - [ ] British English is used throughout (e.g. "colour" not "color", "initialise" not "initialize")
 - [ ] The skill is ≤ 300 lines
 - [ ] If the component is deprecated, a deprecation skill was generated (Step 5D) instead of a best-practice skill
+- [ ] `docs/COPILOT_SKILLS.md` lists each skill exactly once, with deprecated or removed skills only in the **Deprecated/Removed** group

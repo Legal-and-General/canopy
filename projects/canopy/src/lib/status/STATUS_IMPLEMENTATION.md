@@ -2,35 +2,29 @@
 
 ## Overview
 
-The `lgStatus` directive is a reusable Angular directive that applies one of five common colour variants to Canopy components. It provides consistent status-based styling across the component library.
+The `lgStatus` directive applies status and theme classes to supported Canopy
+components. These notes describe its implementation for contributors; see the
+Alert, Banner, Details and Validation component guides for consumer usage.
 
 ## Architecture
 
 ### Core Components
 
-1. **LgStatusDirective** (`status.directive.ts`)
-   - Main directive that manages status and theme application
-   - Handles theme inheritance from colour mode containers
-   - Validates usage on approved components only (dev mode)
-   - Uses MutationObserver for dynamic theme inheritance
-
-2. **StatusClassService** (`status-class.service.ts`)
-   - Injectable service for managing CSS class application
-   - Provides methods to apply and remove status-related classes
-   - Ensures clean class management with proper cleanup
-
-3. **Status Interface** (`status.interface.ts`)
-   - Type definitions for Status and Theme
+- `LgStatusDirective` manages the status and theme, inherits a theme from a
+  colour-mode ancestor and checks the host element in development mode.
+- `StatusClassService` applies the `lg-status-{status}` and `lg-theme-{theme}`
+  classes and removes previously applied classes.
+- `status.interface.ts` defines the `Status` and `Theme` types.
 
 ### Status Types
 
-```typescript
+```ts
 type Status = 'generic' | 'info' | 'success' | 'warning' | 'error';
 ```
 
 ### Theme Types
 
-```typescript
+```ts
 type Theme = 'neutral' | 'neutral-inverse' | 'subtle' | 'bold';
 ```
 
@@ -38,306 +32,163 @@ type Theme = 'neutral' | 'neutral-inverse' | 'subtle' | 'bold';
 
 ### Directive Lifecycle
 
-1. **ngOnInit**
-   - Applies initial classes based on status and theme
-   - Sets up MutationObserver if theme inheritance is needed
-
-2. **ngAfterViewInit**
-   - Validates that directive is used on approved components (dev mode only)
-   - Prevents misuse on unsupported elements
-
-3. **ngOnDestroy**
-   - Cleans up MutationObserver if present
-   - Prevents memory leaks
+On initialisation the directive applies its classes and sets up theme
+observation. After view initialisation it validates its host in development
+mode. On destruction it disconnects the observer.
 
 ### Theme Inheritance Mechanism
 
-The directive implements intelligent theme inheritance from parent colour mode containers:
-
-```typescript
-private getInheritedTheme(): Theme | null {
-  const element = this.hostElement.nativeElement as HTMLElement;
-  const colourModeContainer = this.findColourModeContainer(element);
-  
-  if (colourModeContainer) {
-    const classList = colourModeContainer.classList;
-    const themeClass = Array.from(classList).find(className =>
-      className.startsWith('lg-theme-'),
-    );
-    
-    if (themeClass) {
-      const theme = themeClass.replace('lg-theme-', '') as Theme;
-      return theme;
-    }
-  }
-  
-  return null;
-}
-```
-
-**How it works:**
-
-- Walks up the DOM tree to find a parent with `lg-mode-*` class
-- Extracts theme from `lg-theme-*` class if present
-- Returns null if no colour mode container found
-- **Inherited themes take precedence** over explicitly set `lgStatusTheme`
+The directive looks for the nearest ancestor with an `lg-mode-*` class. If that
+ancestor also has an `lg-theme-*` class, the inherited theme takes precedence
+over an explicitly supplied theme. Otherwise the directive uses the explicit
+theme, falling back to `neutral`.
 
 ### MutationObserver Setup
 
-The directive observes class changes on parent colour mode containers to ensure inherited themes are always applied:
-
-```typescript
-private setupMutationObserver(): void {
-  const colourModeContainer = this.findColourModeContainer(element);
-  
-  if (colourModeContainer) {
-    this.mutationObserver = new MutationObserver(() => {
-      this.applyClasses();
-    });
-    
-    this.mutationObserver.observe(colourModeContainer, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-  }
-}
-```
-
-This ensures that if the parent's theme changes dynamically, the status component automatically updates, regardless of whether `lgStatusTheme` is explicitly set.
+The directive observes class changes on the colour-mode ancestor it found on
+initialisation and reapplies its classes when that ancestor changes. It does
+not automatically observe a new ancestor if the host is moved to another
+container.
 
 ### Component Validation
 
-In development mode, the directive validates it's only used on approved components:
-
-```typescript
-private validateHostElement(): void {
-  if (!isDevMode()) {
-    return;
-  }
-  
-  const allowedComponents = ['lg-banner', 'lg-alert', 'lg-details', 'lg-validation'];
-  
-  const isValidTag = allowedComponents.includes(tagName);
-  const isValidClass = allowedComponents.some(className =>
-    classList.contains(className),
-  );
-  
-  if (!isValidTag && !isValidClass) {
-    throw new Error(
-      `lgStatus directive can only be used on: ${allowedComponents.join(', ')}`
-    );
-  }
-}
-```
-
-**Approved Components:**
-
-- `lg-banner`
-- `lg-alert`
-- `lg-details`
-- `lg-validation`
+In development mode, the directive accepts hosts whose tag or class matches
+`lg-banner`, `lg-alert`, `lg-details`, `lg-notice` or `lg-validation`; it throws
+for other hosts. Status and theme values are TypeScript types, not runtime
+validation.
 
 ## Usage Guide
 
+Consumers use the inputs exposed by each component, not a second instance of
+the directive.
+
 ### Basic Usage
 
-```typescript
-import { LgStatusDirective } from '@legal-and-general/canopy';
-```
+Import `LgAlertComponent` and use its `status` and `statusTheme` inputs:
 
 ```html
-<lg-alert lgStatus="success" lgStatusTheme="neutral">
-  Operation completed successfully!
+<lg-alert status="success" statusTheme="neutral">
+  Operation completed successfully.
 </lg-alert>
 ```
 
 ### With Theme Inheritance
 
-When used within a colour mode container, the directive automatically inherits the theme and this **cannot be overridden**:
+Import `LgColourDirective` when using a colour-mode container:
 
 ```html
 <div lgColour="blue" lgColourTheme="bold">
-  <lg-alert lgStatus="success">
-    <!-- Automatically inherits "bold" theme from parent -->
-    <!-- Setting lgStatusTheme here would have no effect -->
-    This alert uses bold theme styling
+  <lg-alert status="error">
+    This alert inherits the bold theme.
   </lg-alert>
 </div>
 ```
 
 ### Status-Only Usage (No Colour Mode Parent)
 
-If only status is specified and there's no colour mode parent, theme defaults to 'neutral':
-
-```html
-<lg-alert lgStatus="error">
-  <!-- Uses neutral theme as fallback (no colour mode parent) -->
-  An error occurred
-</lg-alert>
-```
-
-If `lgStatusTheme` is explicitly set, it will only be used when there's no colour mode parent:
-
-```html
-<lg-alert lgStatus="error" lgStatusTheme="subtle">
-  <!-- Uses subtle theme only if no colour mode parent exists -->
-  <!-- If inside a colour mode container, inherits that theme instead -->
-  An error occurred
-</lg-alert>
-```
+Without an inherited theme, the component's `statusTheme` input is used; if it
+is not supplied, the directive defaults to `neutral`. The directive's default
+status is `generic`, but individual components may choose different defaults.
+For example, Validation defaults to `error`.
 
 ## Input Properties
 
-| Property | Type | Default | Required | Description |
-|----------|------|---------|----------|-------------|
-| `lgStatus` | `Status` | `'generic'` | No | The status variant to apply |
-| `lgStatusTheme` | `Theme` | `'neutral'` | No | The theme variant (only used as fallback when no colour mode parent exists; inherited themes take precedence) |
+| Directive input | Type | Default | Component input |
+|---|---|---|---|
+| `lgStatus` | `Status` | `generic` | `status` |
+| `lgStatusTheme` | `Theme` | Inherited theme, or `neutral` | `statusTheme` |
+
+Check each component guide for its supported inputs and defaults.
 
 ## CSS Classes Applied
 
-The directive applies two classes:
-
-1. **Status Class**: `lg-status-{status}`
-   - Examples: `lg-status-success`, `lg-status-error`
-
-2. **Theme Class**: `lg-theme-{theme}`
-   - Examples: `lg-theme-neutral`, `lg-theme-bold`
+The service applies `lg-status-{status}` and `lg-theme-{theme}` to the host and
+removes the previously applied classes when the values change.
 
 ## Common Use Cases
 
 ### 1. Alert Messages
 
-```html
-<lg-alert lgStatus="error" lgStatusTheme="neutral">
-  Please correct the errors below
-</lg-alert>
-```
+See [Basic Usage](#basic-usage).
 
 ### 2. Banner Notifications
 
 ```html
-<lg-banner lgStatus="info" lgStatusTheme="subtle">
-  System maintenance scheduled for tonight
+<lg-banner status="info" statusTheme="subtle">
+  System maintenance is scheduled for tonight.
 </lg-banner>
 ```
 
 ### 3. Form Validation
 
 ```html
-<lg-validation lgStatus="error">
-  This field is required
-</lg-validation>
+<lg-validation status="error">This field is required.</lg-validation>
 ```
 
 ### 4. Details/Disclosure
 
 ```html
-<lg-details lgStatus="warning" lgStatusTheme="neutral-inverse">
-  <summary>Important information</summary>
-  <p>Please read carefully...</p>
+<lg-details status="warning" statusTheme="neutral-inverse">
+  <lg-details-panel-heading [headingLevel]="2">Important information</lg-details-panel-heading>
+  Please read carefully.
 </lg-details>
 ```
 
 ## Integration with Existing Components
 
-The status directive is already integrated into several Canopy components:
-
-- **Alert Component**: Uses status for inline messages
-- **Banner Component**: Uses status for page-level notifications
-- **Details Component**: Uses status for collapsible content
-- **Form Validation**: Uses status for error/success states
-
-These components already include the directive, so you don't need to add it manually.
+Alert, Banner and Details expose the directive's inputs as `status` and
+`statusTheme` through Angular's host-directives API. Validation also uses the
+directive, but manages its `status` input itself. Notice uses
+`StatusClassService` directly on its projected pictogram rather than applying
+the directive to its host.
 
 ## Development Considerations
 
 ### Performance
 
-- **MutationObserver**: Created whenever a colour mode parent container is detected
-- **Automatic Cleanup**: Observer disconnected on destroy to prevent memory leaks
-- **Always Active**: Observer remains active to ensure inherited themes always take precedence
+The observer watches only the initial colour-mode ancestor's class attribute
+and is disconnected when the directive is destroyed.
 
 ### Testing
 
-When testing components that use this directive:
-
-```typescript
-// Mock the StatusClassService if needed
-TestBed.configureTestingModule({
-  providers: [
-    StatusClassService
-  ]
-});
-```
+The implementation is covered by `status.directive.spec.ts` and
+`status-class.service.spec.ts`. Test any integration with the affected
+component, including theme inheritance and changes to the parent colour mode.
 
 ### Debugging
 
-In development mode, the directive will throw errors if used incorrectly:
-
-- Using on non-approved components
-- Invalid status or theme values
+In development mode, an unsupported host causes an error. Verify status and
+theme values using the exported TypeScript types; they are not checked at
+runtime.
 
 ### Extending to New Components
 
-To allow the directive on a new component, update the `allowedComponents` array in `validateHostElement()`:
+Update the allowed hosts in `validateHostElement()` and integrate the directive
+with the component. For components that expose both inputs directly, the
+host-directives configuration follows this pattern:
 
-```typescript
-const allowedComponents = [
-  'lg-banner', 
-  'lg-alert', 
-  'lg-details', 
-  'lg-validation',
-  'lg-your-new-component' // Add new component
-];
+```ts
+hostDirectives: [{
+  directive: LgStatusDirective,
+  inputs: [ 'lgStatus:status', 'lgStatusTheme:statusTheme' ],
+}],
 ```
+
+Consider the component's default status, role, icons and theme behaviour, and
+document its public inputs in its component guide.
 
 ## Best Practices
 
-1. **Theme Inheritance is Automatic**: When inside colour mode containers, the directive automatically inherits the theme and this cannot be overridden - this ensures visual consistency
-
-2. **Explicit Themes for Standalone Usage**: Only set `lgStatusTheme` when the component is not inside a colour mode container
-
-3. **Use Semantic Status Values**: Choose status values that match the message intent:
-   - `success`: Positive confirmations
-   - `error`: Critical issues
-   - `warning`: Cautionary messages
-   - `info`: Informational notices
-   - `generic`: Neutral messages
-
-4. **Validation in Dev Mode**: Always test in development mode to catch usage errors early
-
-5. **Avoid Direct Class Manipulation**: Let the directive manage classes - don't manually add `lg-status-*` or `lg-theme-*` classes
+Use semantic status values, prefer the component inputs to manually applying
+status classes, and account for inherited themes. Test in development mode to
+catch unsupported hosts.
 
 ## Migration Notes
 
-If migrating from manual class application:
-
-**Before:**
-
-```html
-<lg-alert class="lg-status-success lg-theme-neutral">
-  Success message
-</lg-alert>
-```
-
-**After:**
-
-```html
-<lg-alert lgStatus="success" lgStatusTheme="neutral">
-  Success message
-</lg-alert>
-```
+When replacing manually applied status classes, remove conflicting classes and
+configure the component's `status` and `statusTheme` inputs instead.
 
 ## Future Enhancements
 
-Potential improvements for consideration:
-
-1. **Additional Status Types**: Consider adding more status types if needed
-2. **Custom Theme Support**: Allow custom themes beyond the predefined set
-3. **Status Icons**: Automatic icon injection based on status
-4. **Accessibility Improvements**: ARIA attributes based on status
-5. **Animation Support**: Transition effects when status changes
-
----
-
-**Last Updated**: February 2026
+Propose changes to status behaviour through an issue and consider accessibility
+and breaking-change implications.

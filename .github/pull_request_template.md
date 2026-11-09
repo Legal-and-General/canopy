@@ -13,9 +13,9 @@ Screenshot: (if appropriate provide a quick screen grab of the changes)
 
 # Checklist:
 
-- [ ] The commit messages follow the [convention for this project](./blob/master/docs/CONTRIBUTING.md#conventional-commits)
+- [ ] The commit messages follow the [convention for this project](https://github.com/Legal-and-General/canopy/blob/master/docs/CONTRIBUTING.md#conventional-commits)
 - [ ] I have provided an adequate amount of test coverage
-- [ ] I have added the functionality to the [test app](./blob/master/docs/CONTRIBUTING.md#build-test-application)
+- [ ] I have added the functionality to the [test app](https://github.com/Legal-and-General/canopy/blob/master/docs/CONTRIBUTING.md#build-test-application)
 - [ ] I have provided a story in storybook to document the changes
 - [ ] I have added the documentation
 - [ ] I have added any new public feature modules to public-api.ts
