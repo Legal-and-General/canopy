@@ -113,6 +113,14 @@ An alternative to importing the global `canopy.css` file is to use the SCSS
 files in your project's SCSS entry file. Configure the font paths before
 loading the other styles so the Angular builder can find the packaged fonts:
 
+These SCSS entry points import design-token CSS from the separate
+`@legal-and-general/canopy-design-tokens` package. Add that package as a direct
+dependency before using this option; it is not installed automatically with
+Canopy. Use the version listed in Canopy's [`package.json`](../package.json) at
+the Git tag matching your installed Canopy release. This extra dependency is
+not required when using the prebuilt `canopy.css` or the bundled token CSS with
+`canopy-classes.css`.
+
 ```scss
 @use '@legal-and-general/canopy/styles/typography-fonts' with (
   $fonts-path-otto: '../fonts/otto',
