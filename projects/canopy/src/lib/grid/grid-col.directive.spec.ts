@@ -1,10 +1,11 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgGridColDirective } from './grid-col.directive';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div
       [lgCol]="lgCol"

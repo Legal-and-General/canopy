@@ -1,10 +1,11 @@
-import { Component, DebugElement } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgInputFieldExternalButtonDirective } from './input-field-external-button.directive';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: ` <button lgInputFieldExternalButton>Button 1</button>
     <button lgInputFieldExternalButton>Button 2</button>
     <button lgInputFieldExternalButton [id]="customId">Button 3</button>`,

@@ -1,10 +1,11 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgPaddingDirective } from './padding.directive';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div
       [lgPadding]="lgPadding ? lgPadding : undefined"

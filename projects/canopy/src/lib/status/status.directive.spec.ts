@@ -1,4 +1,11 @@
-import { Component, DebugElement, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  DebugElement,
+  ElementRef,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -14,6 +21,7 @@ import { LgStatusDirective } from './status.directive';
 import type { Status, Theme } from './status.interface';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
   template:
     ' <lg-banner [status]="lgStatus" [statusTheme]="lgStatusTheme">Test</lg-banner> ',
   imports: [ LgBannerComponent ],
@@ -24,6 +32,7 @@ class TestComponent {
 }
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="lg-mode-blue lg-theme-bold">
       <lg-banner [status]="lgStatus">Test</lg-banner>
@@ -253,6 +262,7 @@ describe('LgStatus', () => {
       });
 
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: `
           <div class="lg-mode-blue lg-theme-bold">
             <lg-banner [status]="'info'" [statusTheme]="'neutral'">Test</lg-banner>
@@ -285,6 +295,7 @@ describe('LgStatus', () => {
       });
 
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: `
           <div #container class="lg-mode-blue lg-theme-bold">
             <lg-banner status="generic">Test</lg-banner>
@@ -348,6 +359,7 @@ describe('LgStatus', () => {
       });
 
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template:
           '<lg-banner [status]="status" [statusTheme]="statusTheme">Test</lg-banner>',
         imports: [ LgBannerComponent ],
@@ -369,6 +381,7 @@ describe('LgStatus', () => {
   describe('component validation', () => {
     it('should not throw error when used on lg-banner', () => {
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: '<lg-banner status="info">Test</lg-banner>',
         imports: [ LgBannerComponent ],
       })
@@ -383,6 +396,7 @@ describe('LgStatus', () => {
 
     it('should not throw error when used on lg-alert', () => {
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: '<lg-alert status="info">Test</lg-alert>',
         imports: [ LgAlertComponent ],
       })
@@ -397,6 +411,7 @@ describe('LgStatus', () => {
 
     it('should not throw error when used on lg-details', () => {
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: `
           <lg-details status="info">
             <lg-details-panel-heading>Test</lg-details-panel-heading>
@@ -416,6 +431,7 @@ describe('LgStatus', () => {
 
     it('should not throw error when used on lg-notice', () => {
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: '<lg-notice lgStatus="info">Test</lg-notice>',
         imports: [ LgNoticeComponent, LgStatusDirective ],
       })
@@ -430,6 +446,7 @@ describe('LgStatus', () => {
 
     it('should not throw error when used on lg-validation', () => {
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: '<lg-validation status="error">Test error</lg-validation>',
         imports: [ LgValidationComponent ],
       })
@@ -444,6 +461,7 @@ describe('LgStatus', () => {
 
     it('should throw error when used on a div', () => {
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: '<div lgStatus="info">Test</div>',
         imports: [ LgStatusDirective ],
       })
@@ -462,6 +480,7 @@ describe('LgStatus', () => {
 
     it('should throw error when used on lg-card', () => {
       @Component({
+        changeDetection: ChangeDetectionStrategy.Eager,
         template: '<lg-card lgStatus="info">Test</lg-card>',
         imports: [ LgCardComponent, LgStatusDirective ],
       })
