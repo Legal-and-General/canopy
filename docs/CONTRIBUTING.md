@@ -76,7 +76,7 @@ Run `npm test` to execute the library unit tests, this step is also run as part 
 
 ## Running lint
 
-Run `npm run lint` to execute the library unit tests, this step is also run as part of the pull request pipeline.
+Run `npm run lint` to check the code with ESLint and Stylelint. The pull request pipeline runs these checks separately.
 
 Current linting includes
 

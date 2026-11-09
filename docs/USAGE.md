@@ -22,8 +22,6 @@ You will need to add the following to your [users `.npmrc` file](https://docs.np
 //npm.pkg.github.com/:_authToken=PERSONAL-ACCESS-TOKEN
 ```
 
-If you are working on a poorly configured corporate proxy you may need to add `strict-ssl=false` in order to overcome cert errors such as `UNABLE_TO_GET_ISSUER_CERT_LOCALLY` .
-
 Authenticating a CI tool against the registry should be very similar to the above. You will have to store the token appropriately in a secret and inject it into the `~/.npmrc` file at build time.
 
 ## NPM install
