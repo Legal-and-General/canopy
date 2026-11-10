@@ -35,16 +35,7 @@ interface LgInputAffix {
   styleUrls: [ './input-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Eager,
-  imports: [
-    LgLabelComponent,
-    LgHintComponent,
-    LgValidationComponent,
-    LgButtonComponent,
-    LgSuffixDirective,
-    LgPrefixDirective,
-    LgInputDirective,
-    LgInputFieldExternalButtonDirective,
-  ],
+  imports: [ LgLabelComponent ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _id = randomUniqueId();
