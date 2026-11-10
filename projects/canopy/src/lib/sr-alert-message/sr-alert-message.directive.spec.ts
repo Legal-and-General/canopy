@@ -23,13 +23,13 @@ describe('lgSrAlertMessage', () => {
   let directive: LgSrAlertMessageDirective;
   let testElement: DebugElement;
   let component: TestComponent;
-  let cdrMock: jest.Mocked<ChangeDetectorRef>;
+  let cdrMock: Mocked<ChangeDetectorRef>;
 
   beforeEach(waitForAsync(() => {
     cdrMock = {
-      detectChanges: jest.fn(),
-      markForCheck: jest.fn(),
-    } as unknown as jest.Mocked<ChangeDetectorRef>;
+      detectChanges: vi.fn(),
+      markForCheck: vi.fn(),
+    } as unknown as Mocked<ChangeDetectorRef>;
 
     TestBed.configureTestingModule({
       imports: [ TestComponent, LgSrAlertMessageDirective ],

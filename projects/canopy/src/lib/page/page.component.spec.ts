@@ -61,9 +61,9 @@ describe('LgPageComponent', () => {
 
   it('should focus to main container on click of skip to main content', () => {
     const mainElement: DebugElement = fixture.debugElement.query(By.css('#main'));
-    const focusSpy = jest.spyOn(mainElement.nativeElement, 'focus');
+    const focusSpy = vi.spyOn(mainElement.nativeElement, 'focus');
     const event = {
-      preventDefault: jest.fn(),
+      preventDefault: vi.fn(),
     };
 
     fixture.debugElement

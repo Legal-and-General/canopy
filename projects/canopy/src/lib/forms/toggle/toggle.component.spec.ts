@@ -132,13 +132,13 @@ describe('LgToggleComponent', () => {
   let inputDebugElement: DebugElement;
   let inputLabelElement: DebugElement;
 
-  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
+  let errorStateMatcherMock: Mocked<LgErrorStateMatcher>;
 
-  jest.spyOn(console, 'error').mockImplementation();
+  vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn(),
+      isControlInvalid: vi.fn(),
     };
 
     TestBed.configureTestingModule({
@@ -265,7 +265,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('triggers the onChange action when the toggle is checked', () => {
-    const onChangeSpy = jest.spyOn(toggleInstance, 'onChange');
+    const onChangeSpy = vi.spyOn(toggleInstance, 'onChange');
 
     inputDebugElement.triggerEventHandler('click', null);
 
@@ -273,7 +273,7 @@ describe('LgToggleComponent', () => {
   });
 
   it('triggers the onBlur action when the toggle is blurred', () => {
-    const onBlurSpy = jest.spyOn(toggleInstance, 'onBlur');
+    const onBlurSpy = vi.spyOn(toggleInstance, 'onBlur');
 
     inputDebugElement.triggerEventHandler('blur', null);
 
@@ -328,11 +328,11 @@ describe('LgToggleComponent selector variant', () => {
   let toggleInstance: LgToggleComponent;
   let inputLabelElement: DebugElement;
 
-  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
+  let errorStateMatcherMock: Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn(),
+      isControlInvalid: vi.fn(),
     };
 
     TestBed.configureTestingModule({

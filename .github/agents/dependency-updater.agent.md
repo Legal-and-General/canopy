@@ -150,11 +150,11 @@ Some relationships are not expressed as peer dependencies. Check the following k
 | Group | Packages |
 |-------|----------|
 | **Angular framework** | `@angular/animations`, `@angular/cdk`, `@angular/common`, `@angular/compiler`, `@angular/compiler-cli`, `@angular/core`, `@angular/forms`, `@angular/language-service`, `@angular/platform-browser`, `@angular/platform-browser-dynamic`, `@angular/router` |
-| **Angular tooling** | `@angular-builders/jest`, `@angular-devkit/build-angular`, `@angular-eslint/builder`, `@angular-eslint/eslint-plugin`, `@angular-eslint/eslint-plugin-template`, `@angular-eslint/schematics`, `@angular-eslint/template-parser`, `@angular/cli`, `ng-packagr`, `rxjs`, `zone.js` |
+| **Angular tooling** | `@angular/build`, `@angular-devkit/build-angular`, `@angular-eslint/builder`, `@angular-eslint/eslint-plugin`, `@angular-eslint/eslint-plugin-template`, `@angular-eslint/schematics`, `@angular-eslint/template-parser`, `@angular/cli`, `ng-packagr`, `rxjs`, `zone.js` |
 | **TypeScript** | Must satisfy the range declared by `@angular/compiler-cli`'s peer deps |
 | **Storybook** | `@storybook/addon-a11y`, `@storybook/addon-docs`, `@storybook/angular`, `storybook`, `eslint-plugin-storybook`, `storybook-addon-tag-badges`, `@percy/cli`, `@percy/storybook` |
-| **Jest / testing** | `jest`, `jest-preset-angular`, `@angular-builders/jest`, `@types/jest`, `jest-marbles`, `ng-mocks` — check compatibility against the active Angular major version |
-| **ESLint** | `eslint`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `@typescript-eslint/utils`, `@stylistic/eslint-plugin`, `eslint-plugin-import`, `eslint-plugin-jest`, `eslint-plugin-storybook`, `eslint-plugin-unused-imports` |
+| **Testing** | `vitest`, `@vitest/coverage-v8`, `jsdom`, `ng-mocks` — check Vitest and Angular builder compatibility |
+| **ESLint** | `eslint`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `@typescript-eslint/utils`, `@stylistic/eslint-plugin`, `eslint-plugin-import`, `eslint-plugin-storybook`, `eslint-plugin-unused-imports` |
 | **Commitlint** | `@commitlint/cli`, `@commitlint/config-angular`, `@commitlint/config-conventional`, `@commitlint/prompt`, `commitizen`, `cz-conventional-changelog` |
 
 #### 3c — Present the final update list
@@ -307,7 +307,9 @@ After all code changes are applied, validate the full build and test suite:
 npm run build
 
 # 2. Run unit tests
-npm run test:ci 2>&1 | tail -n 50
+npm run test:ci
+npm run test:ws
+npm run test:test-app
 
 # 3. Run lint
 npm run lint

@@ -1,35 +1,28 @@
 import { TestBed } from '@angular/core/testing';
 
+import { ICON_LOADER } from './icon-loader';
 import { LgIconRegistry } from './icon.registry';
-
-// Mock auto-generated icon-loader file
-const KNOWN_ICONS = [ 'add', 'chevron-right' ];
-
-jest.mock('./icon-loader', () => ({
-  ICON_LOADER: new Proxy(
-    {},
-    {
-      get: (_target, iconName: string) => {
-        // Only return a loader for known icons, undefined for others
-        if (KNOWN_ICONS.includes(iconName)) {
-          return () =>
-            Promise.resolve({
-              name: iconName,
-              data: `<svg id="mock-${iconName}"><path/></svg>`,
-            });
-        }
-
-        return undefined;
-      },
-    },
-  ),
-}));
+import type { IconName } from './ui-icons-files.interface';
 
 describe('LgIconRegistry', () => {
   let registry: LgIconRegistry;
 
   beforeEach(() => {
+    vi.spyOn(ICON_LOADER, 'add').mockResolvedValue({
+      name: 'add',
+      data: '<svg id="mock-add"><path/></svg>',
+    });
+
+    vi.spyOn(ICON_LOADER, 'chevron-right').mockResolvedValue({
+      name: 'chevron-right',
+      data: '<svg id="mock-chevron-right"><path/></svg>',
+    });
+
     registry = TestBed.inject(LgIconRegistry);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('should be created', () => {
@@ -53,7 +46,7 @@ describe('LgIconRegistry', () => {
   });
 
   it('should return undefined for non-existent icons', async () => {
-    const result = await registry.get('non-existent-icon' as any);
+    const result = await registry.get('non-existent-icon' as IconName);
 
     expect(result).toBeUndefined();
   });

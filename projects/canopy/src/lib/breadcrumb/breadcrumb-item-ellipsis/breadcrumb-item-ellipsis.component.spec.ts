@@ -8,12 +8,12 @@ import { LgBreadcrumbItemEllipsisComponent } from './breadcrumb-item-ellipsis.co
 describe('LgBreadcrumbItemEllipsisComponent', () => {
   let component: LgBreadcrumbItemEllipsisComponent;
   let fixture: ComponentFixture<LgBreadcrumbItemEllipsisComponent>;
-  let iconRegistryMock: jest.Mocked<LgIconRegistry>;
+  let iconRegistryMock: Mocked<LgIconRegistry>;
 
   beforeEach(waitForAsync(() => {
     iconRegistryMock = {
-      get: jest.fn(),
-    } as unknown as jest.Mocked<LgIconRegistry>;
+      get: vi.fn(),
+    } as unknown as Mocked<LgIconRegistry>;
 
     TestBed.configureTestingModule({
       imports: [ LgBreadcrumbItemEllipsisComponent, MockComponent(LgIconComponent) ],

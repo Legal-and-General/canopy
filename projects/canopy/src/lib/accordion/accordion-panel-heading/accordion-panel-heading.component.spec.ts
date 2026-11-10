@@ -132,7 +132,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
     });
 
     it('should emit an event with the value of \'isActive\'', () => {
-      const componentEventSpy = jest.spyOn(component.toggleActive, 'emit');
+      const componentEventSpy = vi.spyOn(component.toggleActive, 'emit');
 
       component.toggle();
 
@@ -175,7 +175,7 @@ describe('LgAccordionPanelHeadingComponent', () => {
       );
       const toggle = heading.query(By.css('.lg-accordion__heading-toggle'));
       const links = heading.queryAll(By.css('[lgAccordionHeadingActions] a'));
-      const toggleSpy = jest.spyOn(heading.componentInstance.toggleActive, 'emit');
+      const toggleSpy = vi.spyOn(heading.componentInstance.toggleActive, 'emit');
 
       const labels = links.map(link => {
         const anchor: HTMLAnchorElement = link.nativeElement;

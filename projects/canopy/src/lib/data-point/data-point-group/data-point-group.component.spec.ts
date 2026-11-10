@@ -141,7 +141,7 @@ describe('LgDataPointGroupComponent', () => {
     it('should log a console error', () => {
       ngMocks.flushTestBed();
 
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       MockRender(`
         <lg-data-point-group>

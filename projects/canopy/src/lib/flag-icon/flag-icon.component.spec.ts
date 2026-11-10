@@ -6,12 +6,12 @@ import { LgFlagIconRegistry } from './flag-icon.registry';
 describe('LgFlagIconComponent', () => {
   let component: LgFlagIconComponent;
   let fixture: ComponentFixture<LgFlagIconComponent>;
-  let flagIconRegistryMock: jest.Mocked<LgFlagIconRegistry>;
+  let flagIconRegistryMock: Mocked<LgFlagIconRegistry>;
 
   beforeEach(waitForAsync(() => {
     flagIconRegistryMock = {
-      get: jest.fn(),
-    } as unknown as jest.Mocked<LgFlagIconRegistry>;
+      get: vi.fn(),
+    } as unknown as Mocked<LgFlagIconRegistry>;
 
     TestBed.configureTestingModule({
       imports: [ LgFlagIconComponent ],

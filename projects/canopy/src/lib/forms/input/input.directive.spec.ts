@@ -33,11 +33,11 @@ describe('LgInputDirective', () => {
   let component: TestInputComponent;
   let inputDebugElement: DebugElement;
   let inputInstance: LgInputDirective;
-  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
+  let errorStateMatcherMock: Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn().mockReturnValue(false),
+      isControlInvalid: vi.fn().mockReturnValue(false),
     };
 
     TestBed.configureTestingModule({

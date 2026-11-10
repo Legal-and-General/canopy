@@ -1,9 +1,5 @@
 'use strict';
 
-jest.mock('fs-extra', () => ({
-  writeFileSync: jest.fn(),
-}));
-
 const fs = require('fs-extra');
 const downloadBranchDeployArtifact = require('../download-branch-deploy-artifact.cjs');
 
@@ -15,22 +11,26 @@ describe('download-branch-deploy-artifact', () => {
   let github;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
     github = {
       rest: {
         actions: {
-          listWorkflowRunsForRepo: jest.fn().mockResolvedValue({
+          listWorkflowRunsForRepo: vi.fn().mockResolvedValue({
             data: {
               workflow_runs: [{ head_sha: 'abc123', name: 'Pull request', id: 1 }],
             },
           }),
-          listWorkflowRunArtifacts: jest.fn().mockResolvedValue({
+          listWorkflowRunArtifacts: vi.fn().mockResolvedValue({
             data: { artifacts: [{ name: 'lg-sb-build', id: 10 }] },
           }),
-          downloadArtifact: jest.fn().mockResolvedValue({ data: [1, 2, 3] }),
+          downloadArtifact: vi.fn().mockResolvedValue({ data: [1, 2, 3] }),
         },
       },
     };
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('should find the correct workflow run and download the lg-sb-build artifact', async () => {
@@ -102,4 +102,3 @@ describe('download-branch-deploy-artifact', () => {
     ).rejects.toMatch(/no artifacts found/);
   });
 });
-
