@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgPaginationComponent, PageData } from '../pagination.component';
@@ -51,6 +58,7 @@ import {
       />
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgTableComponent,
     LgTableHeadComponent,

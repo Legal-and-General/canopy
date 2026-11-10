@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 
@@ -51,6 +51,7 @@ import { lgPictogramsArray } from '../../pictogram-files/set/lgPictogramsArray';
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgPictogramComponent, NgStyle ],
 })
 class SwatchPictogramComponent {

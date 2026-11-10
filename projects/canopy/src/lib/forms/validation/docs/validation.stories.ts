@@ -1,5 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgValidationComponent } from '../validation.component';
 import { LgValidationWrapperDirective } from '../validation-wrapper.directive';
@@ -19,6 +19,7 @@ const template = `
 @Component({
   selector: 'lg-validation-example',
   template: template,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgValidationComponent ],
 })
 class LgValidationExampleComponent {
@@ -40,6 +41,7 @@ const wrapperTemplate = `
 
 @Component({
   selector: 'lg-my-error',
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: '<ng-content />',
 })
 class MyErrorComponent {}
@@ -47,6 +49,7 @@ class MyErrorComponent {}
 @Component({
   selector: 'lg-validation-wrapper-example',
   template: wrapperTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgInputFieldComponent,
     LgInputDirective,

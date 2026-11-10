@@ -10,7 +10,7 @@ import {
   inject,
 } from '@angular/core';
 
-import { LgIconComponent } from '../../icon';
+import { IconName, LgIconComponent } from '../../icon';
 
 @Component({
   selector: 'lg-link-menu-item',
@@ -27,11 +27,11 @@ export class LgLinkMenuItemComponent implements OnInit {
 
   @ContentChild(LgIconComponent) iconComponent: LgIconComponent;
 
-  @Input() rightIcon: string | null | undefined = undefined;
+  @Input() rightIcon: IconName | null | undefined = undefined;
 
   openInANewTab = false;
 
-  get rightIconName(): string | null {
+  get rightIconName(): IconName | null {
     if (this.rightIcon !== undefined) {
       return this.rightIcon;
     }

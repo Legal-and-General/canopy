@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -29,6 +30,7 @@ import { CheckboxSize } from './toggle.interface';
   templateUrl: './toggle.component.html',
   styleUrls: [ './toggle.component.scss', './toggle--filter.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgFocusDirective, NgClass, LgIconComponent ],
 })
 export class LgToggleComponent implements ControlValueAccessor, OnInit {

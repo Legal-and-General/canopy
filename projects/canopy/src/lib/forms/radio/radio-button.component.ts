@@ -10,6 +10,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -30,6 +31,7 @@ import type { RadioSize, RadioStackBreakpoint, RadioVariant } from './radio.inte
     './radio-button--segment.component.scss',
   ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ NgClass ],
 })
 export class LgRadioButtonComponent implements OnInit {

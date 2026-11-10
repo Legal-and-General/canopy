@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -21,6 +28,7 @@ const template = `
 @Component({
   selector: 'lg-reactive-form',
   template: ` <form [formGroup]="form">${template}</form> `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ReactiveFormsModule,
     LgInputFieldComponent,

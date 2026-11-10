@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { IconName, LgIconComponent } from '../../icon';
@@ -45,6 +45,7 @@ const buttonVariants = [ 'primary', 'secondary', 'link' ];
       </a>
     }
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgButtonComponent, LgIconComponent ],
 })
 class ButtonComponentExampleComponent {

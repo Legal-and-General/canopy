@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 import { JsonPipe } from '@angular/common';
 
@@ -55,6 +55,7 @@ const spaces = [ 'undefined', 'none', '1', '2', '3', '4', '5', '6', '7', '8', '9
       </div>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardComponent,
     LgCardContentComponent,

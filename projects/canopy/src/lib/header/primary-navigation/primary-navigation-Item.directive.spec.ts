@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { LgPrimaryNavItemDirective } from './primary-navigation-item.directive';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <button id="test" type="button" lgPrimaryNavItem>Primary nav button</button>
   `,

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 import typographyVariables from '@lib/storybook/css-variables/tokens/variables';
 
@@ -25,6 +25,7 @@ const expressiveFontSizes = getExpressiveFontSizes(typographyVariables);
       }
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 class LgDisplayFontSizeComponent {
@@ -140,6 +141,7 @@ class LgDisplayFontSizeComponent {
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 class LgFontPanelComponent {

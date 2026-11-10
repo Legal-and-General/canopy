@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'lg-story-content',
   template: '<p>Dummy tab content.</p>',
-  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
 export class StoryContentComponent {}

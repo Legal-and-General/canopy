@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Meta } from '@storybook/angular';
 import { useArgs } from 'storybook/preview-api';
 
@@ -28,6 +34,7 @@ const statuses: Array<Status> = [ 'generic', 'info', 'success', 'warning', 'erro
       }
     </lg-banner>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgBannerComponent, LgButtonComponent ],
 })
 class LgBannerStoryComponent implements OnChanges {

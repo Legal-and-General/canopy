@@ -3,7 +3,14 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgRadioGroupComponent } from '../../radio-group.component';
@@ -32,6 +39,7 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form-radio',
   template: formTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ReactiveFormsModule,
     LgRadioGroupComponent,

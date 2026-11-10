@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
@@ -26,6 +33,7 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form',
   template: formTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCheckboxGroupComponent,
     LgHintComponent,

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgSkeletonDirective } from '../skeleton.directive';
@@ -43,6 +43,7 @@ interface Data {
       </lg-card-content>
     </lg-card>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardComponent,
     LgCardHeaderComponent,
@@ -112,6 +113,7 @@ class AsyncSkeletonLoadingCardComponent implements OnInit {
       </lg-card-content>
     </lg-card>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgDataPointSecondaryLabelComponent,
     LgSkeletonDirective,
@@ -162,6 +164,7 @@ class AsyncSkeletonLoadingProductCardComponent implements OnInit {
       </lg-card-content>
     </lg-card>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgDataPointValueComponent,
     LgDataPointLabelComponent,

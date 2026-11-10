@@ -6,6 +6,7 @@ import {
   Input,
   QueryList,
   ViewChildren,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Meta } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
@@ -59,6 +60,7 @@ interface Color {
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 class TintSwatchComponent implements AfterViewInit {

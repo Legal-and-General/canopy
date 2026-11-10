@@ -1,18 +1,23 @@
 import commonESLintRules from './common-eslint.rules.js';
-import angularESLintPlugin from '@angular-eslint/eslint-plugin';
-import typescriptESLintPlugin from '@typescript-eslint/eslint-plugin';
+import angularESLint from 'angular-eslint';
+import tseslint from 'typescript-eslint';
 import jestEslint from 'eslint-plugin-jest';
-import typescriptESLintParser from '@typescript-eslint/parser';
 import stylisticESLintPlugin from '@stylistic/eslint-plugin';
 import importESLintPlugin from 'eslint-plugin-import';
 import unusedImportsESLintPlugin from 'eslint-plugin-unused-imports';
+
+// `angular-eslint` and `typescript-eslint` ship their recommended rules as an
+// array of flat config objects rather than a single `configs.recommended`
+// object, so merge the `rules` from each entry into one object.
+const mergeRules = (configs) =>
+  configs.reduce((rules, config) => ({ ...rules, ...(config.rules ?? {}) }), {});
 
 export default [
   {
     name: 'Typescript',
     files: ['./projects/**/*.ts'],
     languageOptions: {
-      parser: typescriptESLintParser,
+      parser: tseslint.parser,
       parserOptions: {
         ecmaVersion: 2020,
         project: './tsconfig.json',
@@ -20,8 +25,8 @@ export default [
       },
     },
     plugins: {
-      '@angular-eslint': angularESLintPlugin,
-      '@typescript-eslint': typescriptESLintPlugin,
+      '@angular-eslint': angularESLint.tsPlugin,
+      '@typescript-eslint': tseslint.plugin,
       '@stylistic': stylisticESLintPlugin,
       import: importESLintPlugin,
       'unused-imports': unusedImportsESLintPlugin,
@@ -29,12 +34,15 @@ export default [
     },
     rules: {
       // Include recommended rules from each plugin
-      ...angularESLintPlugin.configs.recommended.rules,
-      ...typescriptESLintPlugin.configs.recommended.rules,
-      ...typescriptESLintPlugin.configs['recommended-requiring-type-checking'].rules,
+      ...mergeRules(angularESLint.configs.tsRecommended),
+      ...mergeRules(tseslint.configs.recommendedTypeChecked),
 
       // From Angular ESLint plugin
       '@angular-eslint/no-output-native': 'warn',
+      // Preserve existing change detection strategies rather than requiring
+      // a migration to `OnPush`, which would be a breaking behavioural
+      // change.
+      '@angular-eslint/prefer-on-push-component-change-detection': 'off',
       '@angular-eslint/component-selector': [
         'error',
         {
@@ -164,7 +172,13 @@ export default [
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/unbound-method': 'off',
       'unused-imports/no-unused-vars': 'off',
-      '@angular-eslint/prefer-standalone': 'off'
+      '@angular-eslint/prefer-standalone': 'off',
+      // ESLint's type-aware linting uses the root tsconfig.json, whereas
+      // ts-jest compiles specs against projects/canopy/tsconfig.spec.json;
+      // the two disagree on whether `as unknown as jest.Mocked<T>` mock
+      // casts are "unnecessary", so disable the rule here to avoid removing
+      // casts that are actually required at test-compile time.
+      '@typescript-eslint/no-unnecessary-type-assertion': 'off',
     },
   },
   {

@@ -1,5 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
 import { LgLinkMenuComponent } from '../link-menu.component';
@@ -29,6 +29,7 @@ const template = `
   selector: 'lg-link-menu-story',
   template,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgLinkMenuComponent,
     LgLinkMenuItemComponent,

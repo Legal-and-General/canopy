@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgHeroComponent } from '../hero.component';
@@ -364,6 +364,7 @@ const productHeroTemplate = `<lg-hero lgMarginTop="none">${productHeroHTML}</lg-
 @Component({
   selector: 'lg-hero-product-story',
   template: productHeroTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardComponent,
     LgCardContentComponent,
@@ -399,6 +400,7 @@ const heroCardsDataPointTemplate = `<lg-hero lgMarginTop="none">${heroCardsDataP
 @Component({
   selector: 'lg-hero-cards-data-point-story',
   template: heroCardsDataPointTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardComponent,
     LgCardContentComponent,

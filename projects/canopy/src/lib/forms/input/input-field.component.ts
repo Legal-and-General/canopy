@@ -9,6 +9,7 @@ import {
   QueryList,
   ViewChild,
   ViewEncapsulation,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -33,16 +34,8 @@ interface LgInputAffix {
   templateUrl: './input-field.component.html',
   styleUrls: [ './input-field.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [
-    LgLabelComponent,
-    LgHintComponent,
-    LgValidationComponent,
-    LgButtonComponent,
-    LgSuffixDirective,
-    LgPrefixDirective,
-    LgInputDirective,
-    LgInputFieldExternalButtonDirective,
-  ],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [ LgLabelComponent ],
 })
 export class LgInputFieldComponent implements AfterContentInit, OnDestroy {
   private _id = randomUniqueId();

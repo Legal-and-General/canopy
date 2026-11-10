@@ -14,7 +14,9 @@ export class LgSortCodeDirective implements OnInit {
   @HostBinding('attr.maxlength') maxlength = '8';
   @HostBinding('attr.size') size = '7';
 
-  @HostListener('focusout', [ '$event.target.value' ]) onBlur(value) {
+  @HostListener('focusout', [ '$event' ]) onBlur(event: FocusEvent) {
+    const value = (event.target as HTMLInputElement).value;
+
     if (this.ngControl.valid) {
       this.ngControl.control.setValue(this.format(value), { emitEvent: false });
     }

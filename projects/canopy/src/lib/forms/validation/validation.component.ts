@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import type { Status } from '../../status';
@@ -18,6 +19,7 @@ import { randomUniqueId } from '../../utils';
   styleUrls: [ './validation.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgIconComponent ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   hostDirectives: [
     {
       directive: LgStatusDirective,

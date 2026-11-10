@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, moduleMetadata } from '@storybook/angular';
 
 import { LgPictogramComponent, PictogramName } from '../../pictogram';
@@ -61,6 +61,7 @@ const pictogramNames: Array<PictogramName> = [
       </lg-notice-action>
     </lg-notice>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgNoticeComponent,
     LgNoticeActionComponent,
@@ -127,6 +128,7 @@ class LgNoticeStoryComponent {
       </lg-content-area-content>
     </lg-content-area>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgColourDirective,
     LgContentAreaComponent,

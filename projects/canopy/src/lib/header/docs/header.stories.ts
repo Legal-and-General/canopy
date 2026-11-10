@@ -1,5 +1,5 @@
 import { Meta, moduleMetadata } from '@storybook/angular';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgHeaderComponent } from '../header.component';
 import { LgIconComponent } from '../../icon';
@@ -130,6 +130,7 @@ const navigationWithoutAccountMenuTemplate = `
 @Component({
   selector: 'lg-navigation',
   template: navigationTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgHeaderComponent,
     LgHeaderLogoComponent,
@@ -162,6 +163,7 @@ class PrimaryNavigationComponent {
 @Component({
   selector: 'lg-navigation-no-account-menu',
   template: navigationWithoutAccountMenuTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgHeaderComponent,
     LgHeaderLogoComponent,
@@ -256,6 +258,7 @@ const coBrandedNavigationTemplate = `
 @Component({
   selector: 'lg-co-branded-navigation',
   template: coBrandedNavigationTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgHeaderComponent,
     LgHeaderLogoComponent,

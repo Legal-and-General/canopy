@@ -3,7 +3,14 @@ import {
   UntypedFormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Component, Input, EventEmitter, Output, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  EventEmitter,
+  Output,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgRadioButtonComponent } from '../../radio';
@@ -32,6 +39,7 @@ const formTemplate = `
 @Component({
   selector: 'lg-reactive-form-filter',
   template: formTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ ReactiveFormsModule, LgRadioGroupComponent, LgRadioButtonComponent ],
 })
 class ReactiveFormFilterComponent {

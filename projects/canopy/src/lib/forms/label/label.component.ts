@@ -1,4 +1,10 @@
-import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import { randomUniqueId } from '../../utils';
 
@@ -7,6 +13,7 @@ import { randomUniqueId } from '../../utils';
   templateUrl: './label.component.html',
   styleUrls: [ './label.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
 })
 export class LgLabelComponent {

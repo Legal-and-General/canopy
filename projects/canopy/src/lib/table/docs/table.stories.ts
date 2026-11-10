@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, inject, Input } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  inject,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import type { TableRowVariant, TableVariant } from '../table.interface';
@@ -135,6 +141,7 @@ const expandableTableTemplate = `
 @Component({
   selector: 'lg-story-table-detail',
   template: expandableTableTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgTableComponent,
     LgTableHeadComponent,
@@ -283,6 +290,7 @@ const withLongCopyTableTemplate = `
 @Component({
   selector: 'lg-story-table-long-copy',
   template: withLongCopyTableTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgTableComponent,
     LgTableHeadComponent,
@@ -341,6 +349,7 @@ const withInputTableTemplate = `
 @Component({
   selector: 'lg-story-table-with-input',
   template: withInputTableTemplate,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgTableComponent,
     LgTableHeadComponent,

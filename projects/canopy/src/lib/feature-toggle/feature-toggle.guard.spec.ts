@@ -180,7 +180,9 @@ describe('FeatureToggleGuard', () => {
     it('should be true when the parent is enabled', () => {
       configService.toggles$ = of(enabledConfig);
 
-      expect(guard.canLoad(routeSnapshot)).toBeObservable(cold('(a|)', { a: true }));
+      expect(guard.canLoad(routeSnapshot as unknown)).toBeObservable(
+        cold('(a|)', { a: true }),
+      );
 
       expect(router.navigate).not.toHaveBeenCalled();
     });
@@ -188,7 +190,9 @@ describe('FeatureToggleGuard', () => {
     it('should be true when the parent and child is enabled', () => {
       configService.toggles$ = of(enabledConfig2);
 
-      expect(guard.canLoad(routeSnapshot)).toBeObservable(cold('(a|)', { a: true }));
+      expect(guard.canLoad(routeSnapshot as unknown)).toBeObservable(
+        cold('(a|)', { a: true }),
+      );
 
       expect(router.navigate).not.toHaveBeenCalled();
     });
@@ -201,7 +205,7 @@ describe('FeatureToggleGuard', () => {
       });
 
       scheduler.run(({ expectObservable }) => {
-        const result$ = guard.canLoad(routeSnapshot);
+        const result$ = guard.canLoad(routeSnapshot as unknown);
 
         expectObservable(result$).toBe('(a|)', { a: false });
       });
@@ -222,7 +226,7 @@ describe('FeatureToggleGuard', () => {
       });
 
       scheduler.run(({ expectObservable }) => {
-        const result$ = guard.canLoad(routeSnapshot);
+        const result$ = guard.canLoad(routeSnapshot as unknown);
 
         expectObservable(result$).toBe('(a|)', { a: false });
       });

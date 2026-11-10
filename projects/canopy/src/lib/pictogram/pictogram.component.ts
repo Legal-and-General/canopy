@@ -7,6 +7,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { randomUniqueId } from '../utils';
@@ -24,6 +25,7 @@ export type PictogramSize = 'md' | 'lg' | 'xl';
   styleUrls: [ './pictogram.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: { ngSkipHydration: 'true' },
 })
 export class LgPictogramComponent {

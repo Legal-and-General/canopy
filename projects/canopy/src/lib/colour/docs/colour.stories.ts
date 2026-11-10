@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 
 import type { Colour, ColourTheme } from '../colour.interface';
@@ -36,6 +36,7 @@ const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
       </lg-card-content>
     </lg-card>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     LgCardComponent,
     LgCardContentComponent,

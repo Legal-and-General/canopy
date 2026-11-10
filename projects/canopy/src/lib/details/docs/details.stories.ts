@@ -7,6 +7,7 @@ import {
   OnChanges,
   SimpleChanges,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { useArgs } from 'storybook/preview-api';
 
@@ -47,6 +48,7 @@ const template = `
   selector: 'lg-details-example',
   template: `<div #detailsContainer>${template}</div>`,
   imports: [ LgDetailsComponent, LgDetailsPanelHeadingComponent ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
 })
 class DetailsExampleComponent implements AfterViewInit, OnChanges {

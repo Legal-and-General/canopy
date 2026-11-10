@@ -1,10 +1,11 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { LgHideAtDirective } from './hide-at.directive';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: ' <div [lgHideAt]="lgHideAt || null">How you see me...</div> ',
   imports: [ LgHideAtDirective ],
 })

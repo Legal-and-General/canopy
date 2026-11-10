@@ -10,6 +10,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   inject,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -18,7 +19,6 @@ import { LgHintComponent } from '../hint';
 import { LgErrorStateMatcher } from '../validation';
 import { LgValidationComponent, LgValidationWrapperDirective } from '../validation';
 import { LgToggleComponent } from '../toggle';
-import { LgMarginDirective } from '../../spacing';
 import { LgLabelComponent } from '../label';
 import { LgFocusDirective } from '../../focus';
 
@@ -29,7 +29,8 @@ import { CheckboxGroupVariant } from './checkbox-group.interface';
   templateUrl: './checkbox-group.component.html',
   styleUrls: [ './checkbox-group.component.scss' ],
   encapsulation: ViewEncapsulation.None,
-  imports: [ LgFocusDirective, LgLabelComponent, LgMarginDirective ],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  imports: [ LgFocusDirective, LgLabelComponent ],
 })
 export class LgCheckboxGroupComponent implements ControlValueAccessor {
   private control = inject(NgControl, { self: true, optional: true });

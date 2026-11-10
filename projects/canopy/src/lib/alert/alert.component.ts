@@ -1,4 +1,11 @@
-import { Component, HostBinding, Input, ViewEncapsulation, inject } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  ViewEncapsulation,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import type { Status, Theme } from '../status';
 import { LgStatusDirective } from '../status';
@@ -19,6 +26,7 @@ const statusIcons: Record<Status, IconName> = {
   styleUrls: [ './alert.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   imports: [ LgIconComponent ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   hostDirectives: [
     {
       directive: LgStatusDirective,

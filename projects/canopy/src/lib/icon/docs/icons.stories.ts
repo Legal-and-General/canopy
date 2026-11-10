@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { moduleMetadata } from '@storybook/angular';
 
@@ -33,6 +40,7 @@ import { lgIconsArray } from '../../ui-icons-files/set/lgIconsArray';
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ LgIconComponent ],
 })
 class SwatchIconComponent implements OnChanges {

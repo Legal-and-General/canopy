@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { LgMarginDirective } from '../../spacing';
 
@@ -18,6 +18,7 @@ import { LgMarginDirective } from '../../spacing';
     </ul>
   `,
   styleUrls: [ './docs-list.scss' ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [
     `
       .benefits__img {

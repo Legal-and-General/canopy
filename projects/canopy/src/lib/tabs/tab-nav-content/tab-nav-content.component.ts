@@ -1,10 +1,17 @@
-import { Component, Input, ViewEncapsulation, HostBinding } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewEncapsulation,
+  HostBinding,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'lg-tab-nav-content',
   templateUrl: './tab-nav-content.component.html',
   styleUrls: [ './tab-nav-content.component.scss' ],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
 })
 export class LgTabNavContentComponent {
