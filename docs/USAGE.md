@@ -34,7 +34,7 @@ You should now be able to install the module.
 
 ### Requirements
 
- Your project should already have `@angular/common` and `@angular/core` installed with a compatible Angular version (Canopy currently supports Angular 21.x; using other major versions may lead to incompatibilities).
+Your project should already have `@angular/common`, `@angular/core` and `@angular/cdk` installed with a compatible Angular version (Canopy currently supports Angular 22.x; using other major versions may lead to incompatibilities). `@angular/cdk` is required but is not installed by default by `ng new`, so you may need to add it explicitly: `npm install @angular/cdk@22`.
 
 ## Import the Library
 

@@ -10,15 +10,8 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "main": "bundles/canopy.umd.js",
-  "module": "fesm5/canopy.js",
-  "es2015": "fesm2015/canopy.js",
-  "esm5": "esm5/canopy.js",
-  "esm2015": "esm2015/canopy.js",
-  "fesm5": "fesm5/canopy.js",
-  "fesm2015": "fesm2015/canopy.js",
+  "module": "fesm2022/canopy.js",
   "typings": "canopy.d.ts",
-  "metadata": "canopy.metadata.json",
   "sideEffects": false,
   "dependencies": {
     "tslib": "2.9.1"
