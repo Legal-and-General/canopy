@@ -26,7 +26,7 @@
     "test:ws": "npx jest --config=.github/workflow-scripts/jest.config.js --coverage",
     "test:visual": "npm run build && npm run build:storybook && npx percy storybook ./storybook-static",
     "// ----- LINTING AND OPTIMISATION": "",
-    "eslint": "ng lint --quiet",
+    "eslint": "npm run generate:icons && npm run generate:pictograms && npm run generate:flag-icons && ng lint --quiet",
     "lint": "npm run eslint && npm run stylelint",
     "optimise:svgs": "svgo projects/canopy/src/assets/icons -r --config=svgo-icons.config.js && svgo projects/canopy/src/assets/pictograms -r --config=svgo-pictograms.config.js && svgo projects/canopy/src/assets/flag-icons -r --config=svgo-flag-icons.config.js",
     "stylelint": "stylelint \"projects/**/*.scss\"",
