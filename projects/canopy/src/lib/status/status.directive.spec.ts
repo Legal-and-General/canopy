@@ -277,7 +277,7 @@ describe('LgStatus', () => {
       expect(classes).not.toContain('lg-theme-neutral');
     });
 
-    it('should update inherited theme when parent container theme changes', done => {
+    it('should update inherited theme when parent container theme changes', async () => {
       TestBed.resetTestingModule();
 
       TestBed.configureTestingModule({
@@ -319,21 +319,16 @@ describe('LgStatus', () => {
       dynamicFixture.detectChanges();
 
       // Wait for MutationObserver to trigger
-      setTimeout(() => {
-        classes = dynamicElement.nativeElement.getAttribute('class');
+      await new Promise<void>(resolve => setTimeout(resolve, 50));
+      classes = dynamicElement.nativeElement.getAttribute('class');
 
-        expect(classes).toContain('lg-theme-subtle');
-        expect(classes).not.toContain('lg-theme-bold');
-        done();
-      }, 50);
+      expect(classes).toContain('lg-theme-subtle');
+      expect(classes).not.toContain('lg-theme-bold');
     });
 
     it('should disconnect MutationObserver when directive is destroyed', () => {
       const directiveInstance = statusElement.injector.get(LgStatusDirective);
-      const disconnectSpy = jest.spyOn(
-        directiveInstance['mutationObserver'],
-        'disconnect',
-      );
+      const disconnectSpy = vi.spyOn(directiveInstance['mutationObserver'], 'disconnect');
 
       colourModeFixture.destroy();
 

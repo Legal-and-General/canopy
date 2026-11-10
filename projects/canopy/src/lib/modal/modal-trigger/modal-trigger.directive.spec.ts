@@ -18,15 +18,15 @@ describe('LgModalTriggerComponent', () => {
   let fixture: ComponentFixture<TestTriggerComponent>;
   let triggerDebugElement: DebugElement;
   let triggerInstance: LgModalTriggerDirective;
-  let modalServiceMock: jest.Mocked<LgModalService>;
-  let focusSpy: jest.SpyInstance;
+  let modalServiceMock: Mocked<LgModalService>;
+  let focusSpy: MockInstance;
   const isOpen$ = new BehaviorSubject(true);
 
   beforeEach(waitForAsync(() => {
     modalServiceMock = {
-      isOpen$: jest.fn(),
-      open: jest.fn(),
-    } as unknown as jest.Mocked<LgModalService>;
+      isOpen$: vi.fn(),
+      open: vi.fn(),
+    } as unknown as Mocked<LgModalService>;
 
     modalServiceMock.isOpen$.mockReturnValue(isOpen$);
 
@@ -45,13 +45,13 @@ describe('LgModalTriggerComponent', () => {
       LgModalTriggerDirective,
     );
 
-    focusSpy = jest.spyOn(triggerDebugElement.nativeElement, 'focus');
+    focusSpy = vi.spyOn(triggerDebugElement.nativeElement, 'focus');
 
     fixture.detectChanges();
   }));
 
   it('should open the modal on click of the trigger element', () => {
-    const clickedSpy = jest.spyOn(triggerInstance.clicked, 'emit');
+    const clickedSpy = vi.spyOn(triggerInstance.clicked, 'emit');
 
     triggerDebugElement.nativeElement.click();
 

@@ -351,7 +351,7 @@ describe('TableComponent', () => {
   });
 
   describe('when the toggle is clicked on an table with expanded detail', () => {
-    const clickSpy = jest.fn();
+    const clickSpy = vi.fn();
 
     beforeEach(() => {
       ngMocks.flushTestBed();

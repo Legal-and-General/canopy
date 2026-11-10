@@ -1,10 +1,5 @@
 'use strict';
 
-jest.mock('fs-extra', () => ({
-  existsSync: jest.fn(),
-  readdirSync: jest.fn(),
-}));
-
 const fs = require('fs-extra');
 const deploy = require('../deploy.cjs');
 
@@ -17,30 +12,29 @@ describe('deploy', () => {
   let exec;
 
   beforeEach(() => {
-    jest.clearAllMocks();
-    jest.spyOn(console, 'info').mockImplementation(() => {});
-    jest.spyOn(console, 'log').mockImplementation(() => {});
-    exec = { exec: jest.fn().mockResolvedValue(0) };
-    github = {
-      rest: {
-        checks: {
-          listForRef: jest.fn().mockResolvedValue({ data: { check_runs: [] } }),
-        },
-        pulls: {
-          list: jest.fn().mockResolvedValue({ data: [] }),
-        },
-      },
-    };
-    fs.existsSync.mockReturnValue(false);
-    fs.readdirSync.mockImplementation((path) => {
+    vi.spyOn(console, 'info').mockImplementation(() => {});
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(fs, 'existsSync').mockReturnValue(false);
+    vi.spyOn(fs, 'readdirSync').mockImplementation((path) => {
       if (path === './lg-sb-build') return [{ name: 'index.html' }];
 
       return [];
     });
+    exec = { exec: vi.fn().mockResolvedValue(0) };
+    github = {
+      rest: {
+        checks: {
+          listForRef: vi.fn().mockResolvedValue({ data: { check_runs: [] } }),
+        },
+        pulls: {
+          list: vi.fn().mockResolvedValue({ data: [] }),
+        },
+      },
+    };
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   describe('when deploying the master branch', () => {
@@ -139,7 +133,12 @@ describe('deploy', () => {
 
     it('should evaluate PR checks before deploying', async () => {
       github.rest.checks.listForRef.mockResolvedValue({
-        data: { check_runs: [{ conclusion: 'success' }, { conclusion: 'skipped' }] },
+        data: {
+          check_runs: [
+            { name: 'verify', conclusion: 'success' },
+            { name: 'CodeQL', conclusion: 'skipped' },
+          ],
+        },
       });
 
       await deploy({ ...featureParams, github, exec });
@@ -154,7 +153,12 @@ describe('deploy', () => {
 
     it('should deploy when all checks have passed or been skipped', async () => {
       github.rest.checks.listForRef.mockResolvedValue({
-        data: { check_runs: [{ conclusion: 'success' }, { conclusion: 'skipped' }] },
+        data: {
+          check_runs: [
+            { name: 'verify', conclusion: 'success' },
+            { name: 'CodeQL', conclusion: 'skipped' },
+          ],
+        },
       });
 
       await deploy({ ...featureParams, github, exec });
@@ -169,9 +173,14 @@ describe('deploy', () => {
       expect(console.info).toHaveBeenCalledWith('ℹ️ The PR checks passed successfully');
     });
 
-    it('should throw when any check has not passed', async () => {
+    it('should throw when a required check has not passed', async () => {
       github.rest.checks.listForRef.mockResolvedValue({
-        data: { check_runs: [{ conclusion: 'success' }, { conclusion: 'failure' }] },
+        data: {
+          check_runs: [
+            { name: 'verify', conclusion: 'success' },
+            { name: 'CodeQL', conclusion: 'failure' },
+          ],
+        },
       });
 
       await expect(deploy({ ...featureParams, github, exec })).rejects.toMatch(
@@ -225,7 +234,7 @@ describe('deploy', () => {
 
     it('should convert slashes to hyphens in the branch docs path', async () => {
       github.rest.checks.listForRef.mockResolvedValue({
-        data: { check_runs: [{ conclusion: 'success' }] },
+        data: { check_runs: [{ name: 'verify', conclusion: 'success' }] },
       });
 
       await deploy({ ...featureParams, github, exec });
@@ -383,4 +392,3 @@ describe('deploy', () => {
     });
   });
 });
-

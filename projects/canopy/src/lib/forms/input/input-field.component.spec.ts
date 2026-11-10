@@ -22,7 +22,7 @@ describe('LgInputFieldComponent', () => {
   let inputDirectiveInstance: LgInputDirective;
   let inputFieldDebugElement: DebugElement;
   let inputWrapperDebugElement: DebugElement;
-  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
+  let errorStateMatcherMock: Mocked<LgErrorStateMatcher>;
   let labelDebugElement: DebugElement;
 
   const errorId = 'test-error-id';
@@ -36,7 +36,7 @@ describe('LgInputFieldComponent', () => {
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn().mockReturnValue(false),
+      isControlInvalid: vi.fn().mockReturnValue(false),
     };
 
     TestBed.configureTestingModule({
@@ -241,7 +241,7 @@ describe('LgInputFieldComponent', () => {
     });
 
     it('adds an error class to the input wrapper when the control is invalid', () => {
-      jest.spyOn(component, 'errorClass', 'get').mockReturnValue(true);
+      vi.spyOn(component, 'errorClass', 'get').mockReturnValue(true);
       fixture.detectChanges();
 
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).toContain(
@@ -250,7 +250,7 @@ describe('LgInputFieldComponent', () => {
     });
 
     it('does not add the error class to the input wrapper when the control is valid', () => {
-      jest.spyOn(component, 'errorClass', 'get').mockReturnValue(false);
+      vi.spyOn(component, 'errorClass', 'get').mockReturnValue(false);
       fixture.detectChanges();
 
       expect(inputFieldDebugElement.nativeElement.getAttribute('class')).not.toContain(

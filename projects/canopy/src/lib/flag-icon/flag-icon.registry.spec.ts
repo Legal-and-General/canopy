@@ -1,35 +1,28 @@
 import { TestBed } from '@angular/core/testing';
 
+import { ICON_LOADER } from './flag-icon-loader';
 import { LgFlagIconRegistry } from './flag-icon.registry';
-
-// Mock auto-generated flag-icon-loader file
-const KNOWN_FLAG_ICONS = [ 'united-kingdom', 'france' ];
-
-jest.mock('./flag-icon-loader', () => ({
-  ICON_LOADER: new Proxy(
-    {},
-    {
-      get: (_target, iconName: string) => {
-        // Only return a loader for known flag icons, undefined for others
-        if (KNOWN_FLAG_ICONS.includes(iconName)) {
-          return () =>
-            Promise.resolve({
-              name: iconName,
-              data: `<svg id="mock-${iconName}"><path/></svg>`,
-            });
-        }
-
-        return undefined;
-      },
-    },
-  ),
-}));
+import type { FlagIconName } from './flag-icons-files.interface';
 
 describe('LgFlagIconRegistry', () => {
   let registry: LgFlagIconRegistry;
 
   beforeEach(() => {
+    vi.spyOn(ICON_LOADER, 'united-kingdom').mockResolvedValue({
+      name: 'united-kingdom',
+      data: '<svg id="mock-united-kingdom"><path/></svg>',
+    });
+
+    vi.spyOn(ICON_LOADER, 'france').mockResolvedValue({
+      name: 'france',
+      data: '<svg id="mock-france"><path/></svg>',
+    });
+
     registry = TestBed.inject(LgFlagIconRegistry);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('should be created', () => {
@@ -53,7 +46,7 @@ describe('LgFlagIconRegistry', () => {
   });
 
   it('should return undefined for non-existent flag icons', async () => {
-    const result = await registry.get('non-existent-flag-icon' as any);
+    const result = await registry.get('non-existent-flag-icon' as FlagIconName);
 
     expect(result).toBeUndefined();
   });

@@ -66,7 +66,7 @@ describe('LgCardToggableContentComponent', () => {
 
   it('should set the focus on the panel when active', () => {
     component.isActive = true;
-    const focusSpy = jest.spyOn(el, 'focus');
+    const focusSpy = vi.spyOn(el, 'focus');
 
     fixture.detectChanges();
 
@@ -75,7 +75,7 @@ describe('LgCardToggableContentComponent', () => {
 
   it('shouldn\'t set the focus on the panel when inactive', () => {
     component.isActive = false;
-    const focusSpy = jest.spyOn(el, 'focus');
+    const focusSpy = vi.spyOn(el, 'focus');
 
     fixture.detectChanges();
 
