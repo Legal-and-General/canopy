@@ -39,11 +39,9 @@ export default [
 
       // From Angular ESLint plugin
       '@angular-eslint/no-output-native': 'warn',
-      // Preserve existing change detection strategies (including the
-      // `ChangeDetectionStrategy.Eager` added by the Angular v22 migration to
-      // keep pre-v22 default behaviour) rather than requiring a migration to
-      // `OnPush`, which would be a breaking behavioural change out of scope
-      // for this upgrade.
+      // Preserve existing change detection strategies rather than requiring
+      // a migration to `OnPush`, which would be a breaking behavioural
+      // change.
       '@angular-eslint/prefer-on-push-component-change-detection': 'off',
       '@angular-eslint/component-selector': [
         'error',
@@ -186,15 +184,6 @@ export default [
   {
     name: 'TypeScript Story Files',
     files: ['./**/*.stories.ts'],
-    rules: {
-      '@angular-eslint/prefer-standalone': 'off'
-    },
-  },
-  {
-    // Intentionally tests NgModule-based (non-standalone) component usage;
-    // not covered by the stories/spec overrides above.
-    name: 'NgModule Compatibility Fixtures',
-    files: ['./projects/canopy-test-app/src/app/story-content.component.ts'],
     rules: {
       '@angular-eslint/prefer-standalone': 'off'
     },
