@@ -111,7 +111,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-accessibility` | lang attribute, skip link, alt text, form a11y, ARIA, landmarks | — |
 | `canopy-writing` | Tone of voice, content principles, button/link/error message copy | — |
 | **Layout** | | |
-| `canopy-page` | `LgPageComponent`, skip link, slot projection | — |
+| `canopy-page` | `LgPageComponent`, variants, slot projection, Basic/Child/Product/Form Journey templates | — |
 | `canopy-grid` | `lgContainer`, `lgRow`, `lgCol`, responsive columns, offsets | — |
 | `canopy-content-area` | `LgContentAreaComponent`, form journey stages, progress, success confirmation, heading level | — |
 | `canopy-header` | `lg-header`, logo, primary nav, account menu, co-branding | — |
