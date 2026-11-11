@@ -14,6 +14,11 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
 Selects should only be used when space constraints or the number of options make **Radio buttons**, **Segmented controls**, or **Checkboxes** impractical. These alternative inputs typically provide a superior experience by keeping options visible and scannable.
 
 #### When to use
@@ -27,7 +32,7 @@ Selects should only be used when space constraints or the number of options make
 - Avoid using a select if the list is extremely long (e.g., over 20 items); consider a combobox with autocomplete instead.
 
 
-Import the select component and directive in your application:
+For reactive forms, import the select component and directive in your application:
 
 ```js
 import { LgSelectFieldComponent, LgSelectDirective } from '@legal-and-general/canopy';
@@ -36,6 +41,36 @@ import { LgSelectFieldComponent, LgSelectDirective } from '@legal-and-general/ca
 and in your HTML:
 
 <Source of={SelectStories.Select} />
+
+### Signal Forms
+
+Angular Signal Forms are experimental in Angular 21. Use the separate
+`LgSignalSelectFieldComponent` and `LgSignalSelectDirective` with Angular's
+`FormField` directive:
+
+```html
+<lg-signal-select-field [submitted]="submitted()">
+  Colour
+  <lg-hint>Select your preferred colour.</lg-hint>
+  @if (showColourError()) {
+    <lg-validation>Select a colour.</lg-validation>
+  }
+  <select lgSignalSelect [formField]="fields.colour">
+    <option value="">Select a colour</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="orange">Orange</option>
+    <option value="red">Red</option>
+    <option value="violet">Violet</option>
+    <option value="yellow">Yellow</option>
+  </select>
+</lg-signal-select-field>
+```
+
+Create `fields` using Angular's `form()` and configure the required rule in
+its schema. Track submission in the form component and pass it to the field
+to show errors for pristine fields after submission; clear it when resetting
+the form. See the Signal Forms example for the complete form.
 
 ## How it works
 

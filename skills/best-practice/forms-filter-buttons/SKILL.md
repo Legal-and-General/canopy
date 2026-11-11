@@ -1,6 +1,6 @@
 ---
 name: canopy-forms-filter-buttons
-description: Best practices for Canopy Filter Buttons. Trigger when adding filter button controls for narrowing data sets, with single or multiple selection, in an Angular project using Canopy.
+description: Best practices for Canopy Filter Buttons in Reactive or Signal Forms. Trigger for single or multiple selection filters, lg-signal-filter-group or lg-signal-filter-multiple-group.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/docs/filter-buttons/guide.mdx
@@ -32,15 +32,16 @@ import { LgCheckboxGroupComponent, LgToggleComponent } from '@legal-and-general/
 
 ## Select One (Single Selection)
 
-Style radio buttons as filter buttons to allow a single selection:
+Use Angular Reactive Forms controls for production. Use the filter selectors of
+the radio components to allow a single selection:
 
 ```html
-<lg-radio-group formControlName="status">
+<lg-filter-group formControlName="status">
   Status
-  <lg-radio-button value="all">All</lg-radio-button>
-  <lg-radio-button value="active">Active</lg-radio-button>
-  <lg-radio-button value="closed">Closed</lg-radio-button>
-</lg-radio-group>
+  <lg-filter-button value="all">All</lg-filter-button>
+  <lg-filter-button value="active">Active</lg-filter-button>
+  <lg-filter-button value="closed">Closed</lg-filter-button>
+</lg-filter-group>
 ```
 
 ---
@@ -50,13 +51,51 @@ Style radio buttons as filter buttons to allow a single selection:
 Use checkbox group to allow multiple simultaneous selections:
 
 ```html
-<lg-checkbox-group formControlName="types">
+<lg-filter-multiple-group formControlName="types">
   Document type
-  <lg-toggle value="statements">Statements</lg-toggle>
-  <lg-toggle value="letters">Letters</lg-toggle>
-  <lg-toggle value="reports">Reports</lg-toggle>
-</lg-checkbox-group>
+  <lg-filter-checkbox value="statements">Statements</lg-filter-checkbox>
+  <lg-filter-checkbox value="letters">Letters</lg-filter-checkbox>
+  <lg-filter-checkbox value="reports">Reports</lg-filter-checkbox>
+</lg-filter-multiple-group>
 ```
+
+---
+
+## Signal Forms (experimental opt-in)
+
+Angular 21 Signal Forms are experimental and their API may change; consider the
+risks before using them in production. Import `FormField` and `form` from
+`@angular/forms/signals` and add `FormField` to the standalone component's
+`imports`. Create `fields` using `form()` and configure validation in its schema.
+
+For single selection import `LgSignalRadioGroupComponent` and
+`LgSignalRadioButtonComponent` from Canopy:
+
+```html
+<lg-signal-filter-group [formField]="fields.status" [submitted]="submitted()">
+  Status
+  <lg-signal-filter-button value="active">Active</lg-signal-filter-button>
+  <lg-signal-filter-button value="closed">Closed</lg-signal-filter-button>
+</lg-signal-filter-group>
+```
+
+For multiple selection import `LgSignalCheckboxGroupComponent` and
+`LgSignalCheckboxOptionComponent` from Canopy and initialise the field to a
+string array:
+
+```html
+<lg-signal-filter-multiple-group [formField]="fields.types" [submitted]="submitted()">
+  Document type
+  <lg-signal-filter-checkbox value="statements">Statements</lg-signal-filter-checkbox>
+  <lg-signal-filter-checkbox value="letters">Letters</lg-signal-filter-checkbox>
+</lg-signal-filter-multiple-group>
+```
+
+Add the imported Canopy components to the standalone component's `imports`.
+Track submission and clear it on reset. Use `lgRequiredCheckboxGroup` for a
+required multiple-selection field; Angular 21's `required()` alone does not
+reject an empty array. See `canopy-forms-radio` and `canopy-forms-checkbox`
+for signal input references and `canopy-forms-validation` for error guidance.
 
 ---
 

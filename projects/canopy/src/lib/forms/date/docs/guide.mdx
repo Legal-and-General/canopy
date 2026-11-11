@@ -13,6 +13,13 @@ The output is a concatenation of individual string values into a valid ISO 8601 
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
+### Reactive Forms
+
 Import the date input component into your application:
 
 ```js
@@ -119,6 +126,34 @@ const form = new FormGroup({
 | `focus`           | Set the focus on the fieldset                                                                                                                  | `boolean` |               `null`               |    No    |
 
 Note that this component automatically adds an `lg-hint` component that cannot be modified.
+
+### Signal Forms
+
+Angular Signal Forms are experimental in Angular 21. For a Signal Form, import
+`LgSignalDateFieldComponent` and bind `[formField]` to a string field. Configure
+`required` in the form schema when needed. The date field reports its
+part-specific and calendar errors through the field's `errors()` signal.
+An incomplete non-empty date is invalid immediately so that it cannot be
+submitted before the active input loses focus; error display still depends on
+interaction or submission. Use `novalidate` on the form when using custom
+Signal Forms submission and validation, so browser validation does not prevent
+the submit handler from running.
+
+```html
+<lg-signal-date-field [formField]="fields.date" [submitted]="submitted()">
+  Date of birth
+  @if (showDateError()) {
+    <lg-validation>Enter a valid date of birth.</lg-validation>
+  }
+</lg-signal-date-field>
+```
+
+Use `apply(path.date, lgPastDateSchema)` or `lgFutureDateSchema` to restrict the
+date relative to today. For a fixed limit, use
+`apply(path.date, lgBeforeDateSchema(date))` or `lgAfterDateSchema(date)`.
+The before/after errors contain `required` and `actual` formatted dates.
+Track submission separately for error display and clear it when resetting the
+form. See the Signal Forms example for a complete form.
 
 ## Validation
 

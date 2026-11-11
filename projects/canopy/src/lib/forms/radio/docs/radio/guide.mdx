@@ -14,9 +14,14 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
 Use a radio group when you want the user to make a single selection from **2 or more** options.
 
-Import the radio components into your application:
+For reactive forms, import the radio components into your application:
 
 ```js
 import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-general/canopy';
@@ -25,6 +30,30 @@ import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-genera
 and in your HTML:
 
 <Source of={RadioStories.Radio} />
+
+### Signal Forms
+
+Angular Signal Forms are experimental in Angular 21. Use the separate
+`LgSignalRadioGroupComponent` and `LgSignalRadioButtonComponent` with
+`[formField]` on the group:
+
+```html
+<lg-signal-radio-group [formField]="fields.contact" [submitted]="submitted()">
+  How should we contact you?
+  <lg-hint>Choose one option.</lg-hint>
+  @if (showContactError()) {
+    <lg-validation>Select a contact method.</lg-validation>
+  }
+  <lg-signal-radio-button value="email">Email</lg-signal-radio-button>
+  <lg-signal-radio-button value="phone">Phone</lg-signal-radio-button>
+</lg-signal-radio-group>
+```
+
+Use `lg-signal-segment-group` and `lg-signal-segment-button` for segments, or
+`lg-signal-filter-group` and `lg-signal-filter-button` for single-selection
+filters. Configure validation in the form schema and pass the form submission
+state to `submitted`, clearing it when resetting the form. See the Signal Forms
+examples in the radio, segment and filter button sections.
 
 ## How it works
 
