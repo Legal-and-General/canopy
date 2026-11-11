@@ -1,0 +1,8 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import CopilotSkills from '../../../../../../docs/COPILOT_SKILLS.md?raw';
+import { RepositoryMarkdown } from './repository-markdown.js';
+import { extractSkillSection } from './skill-sections.cjs';
+
+<Meta title="AI/Best practice skills" />
+
+<RepositoryMarkdown promoteHeadings>{extractSkillSection(CopilotSkills, 'bestPractice')}</RepositoryMarkdown>

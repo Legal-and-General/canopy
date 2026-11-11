@@ -6,7 +6,10 @@ import { DocsWelcomeHeroComponent } from './hero.component';
 import { DocsWelcomeBenefitsComponent } from './benefists.component';
 import { DocsWelcomeUsageComponent } from './usage.component';
 import { DocsWelcomeInsideComponent } from './inside.component';
-import { DocsWelcomeBottomLinksSectionComponent } from './bottom-links-section.component';
+import {
+  DocsWelcomeBottomLinksSectionComponent,
+  type DocsWelcomeLink,
+} from './bottom-links-section.component';
 
 const pageTemplate = `
 <lg-docs-welcome-hero></lg-docs-welcome-hero>
@@ -43,10 +46,11 @@ const pageTemplate = `
   styleUrls: [ './welcome.component.scss' ],
 })
 export class DocsWelcomePageComponent {
-  contributeLinks: Array<{ href: string; text: string }> = [
+  contributeLinks: Array<DocsWelcomeLink> = [
     {
-      href: 'https://github.com/Legal-and-General/canopy/blob/master/docs/CONTRIBUTING.md',
+      href: './?path=/docs/development-contributing-overview--docs',
       text: 'Contribute code',
+      target: '_top',
     },
     {
       href: 'https://forms.office.com/r/z6sjtcSRaT',
@@ -62,7 +66,7 @@ export class DocsWelcomePageComponent {
     },
   ];
 
-  getInTouchLinks: Array<{ href: string; text: string }> = [
+  getInTouchLinks: Array<DocsWelcomeLink> = [
     {
       href: 'https://forms.office.com/r/Wyq6asqWht',
       text: 'Request help',

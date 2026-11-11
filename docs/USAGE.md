@@ -22,8 +22,6 @@ You will need to add the following to your [users `.npmrc` file](https://docs.np
 //npm.pkg.github.com/:_authToken=PERSONAL-ACCESS-TOKEN
 ```
 
-If you are working on a poorly configured corporate proxy you may need to add `strict-ssl=false` in order to overcome cert errors such as `UNABLE_TO_GET_ISSUER_CERT_LOCALLY` .
-
 Authenticating a CI tool against the registry should be very similar to the above. You will have to store the token appropriately in a secret and inject it into the `~/.npmrc` file at build time.
 
 ## NPM install
@@ -34,33 +32,38 @@ You should now be able to install the module.
 
 ### Requirements
 
- Your project should already have `@angular/common` and `@angular/core` installed with a compatible Angular version (Canopy currently supports Angular 21.x; using other major versions may lead to incompatibilities).
+Your project should already have `@angular/common` and `@angular/core`
+installed. Canopy is built and tested against the Angular version in the
+[repository's `package.json`](../package.json). Check that file at the
+[Git tag](https://github.com/Legal-and-General/canopy/tags) corresponding to
+your installed Canopy release when choosing a compatible Angular version.
 
 ## Import the Library
 
-In your angular `app.module.ts' file you can choose to import all of the component modules or just the specific ones that you are using in your application.
+Canopy exports standalone Angular components, directives and pipes. Import the ones
+you need into the component that uses them.
 
-### Importing specific component modules (recommended)
+<a id="importing-specific-component-modules-recommended"></a>
 
-Importing specific modules is considered best practice as it only includes the code that you need and keeps build size to a minimum. Refer to the [storybook](https://legal-and-general.github.io/canopy/) docs tabs for documentation specific to each module.
+### Importing standalone components
 
-```js
-import { LgButtonModule, LgCardModule } from '@legal-and-general/canopy';
-```
+For example, import the button component into an application component:
 
-and add it to the imports section of your module.
+```ts
+import { Component } from '@angular/core';
+import { LgButtonComponent } from '@legal-and-general/canopy';
 
-```js
-@NgModule({
-  ...
-  imports: [
-    ...
-    LgButtonModule,
-    LgCardModule,
-  ],
-  ...
+@Component({
+  selector: 'app-example',
+  imports: [LgButtonComponent],
+  template: '<button lg-button type="button">Continue</button>',
 })
+export class ExampleComponent {}
 ```
+
+Standalone Canopy components can also be added to an NgModule's `imports` array.
+Refer to the component guides in [Storybook](https://legal-and-general.github.io/canopy/)
+for the imports and usage of each component.
 
 ## Import the global css
 
@@ -70,7 +73,6 @@ In your `angular.json` file you will need to incorporate the global styles into 
 
 ```json
   "styles": [
-    ...
     "node_modules/@legal-and-general/canopy/canopy.css"
   ],
 ```
@@ -79,11 +81,17 @@ In your `angular.json` file you will need to incorporate the global styles into 
 
 The default css file, `canopy.css`, includes styling at an element-level. For the majority of cases, this should be used. However, if you need to tighten the scope of the usage of Canopy, for example if your application is embedded within another HTML page, then instead you can just use the Canopy classes.
 
-In your `angular.json` file instead of importing `canopy.css`, use `canopy-classes.css`.
+In your `angular.json` file, replace `canopy.css` with the packaged design
+token files and `canopy-classes.css`. The classes-only stylesheet does not
+include the token definitions.
 
 ```json
   "styles": [
-    ...
+    "node_modules/@legal-and-general/canopy/styles/tokens/variables.css",
+    "node_modules/@legal-and-general/canopy/styles/tokens/component-themes.css",
+    "node_modules/@legal-and-general/canopy/styles/tokens/layout.css",
+    "node_modules/@legal-and-general/canopy/styles/tokens/status.css",
+    "node_modules/@legal-and-general/canopy/styles/tokens/typography.css",
     "node_modules/@legal-and-general/canopy/canopy-classes.css"
   ],
 ```
@@ -91,31 +99,42 @@ In your `angular.json` file instead of importing `canopy.css`, use `canopy-class
 Furthermore, by using the `lg-canopy-element-typography` mixin, it is still possible to use the element styles and then easily scope them to where you like. For example:
 
 ```scss
-@import '~@legal-and-general/canopy/styles/mixins';
-        
+@use '@legal-and-general/canopy/styles/mixins' as canopy;
+
 app-hello-world {
-  @include lg-canopy-element-typography();
+  @include canopy.lg-canopy-element-typography();
 }
 ```
 
 
 ## To import the styles in a scss format
 
-An alternative to importing the global canopy.css file is to import only the desired scss files in your project.
-To import all the styles in one go, you can do the following in your project's scss entry file:
+An alternative to importing the global `canopy.css` file is to use the SCSS
+files in your project's SCSS entry file. Configure the font paths before
+loading the other styles so the Angular builder can find the packaged fonts:
 
-projects/canopy-test-app/src/styles.scss:
+These SCSS entry points import design-token CSS from the separate
+`@legal-and-general/canopy-design-tokens` package. Add that package as a direct
+dependency before using this option; it is not installed automatically with
+Canopy. Use the version listed in Canopy's [`package.json`](../package.json) at
+the Git tag matching your installed Canopy release. This extra dependency is
+not required when using the prebuilt `canopy.css` or the bundled token CSS with
+`canopy-classes.css`.
 
 ```scss
-$fonts-path: 'dist/canopy/fonts';
-@import 'dist/canopy/styles/styles';
+@use '@legal-and-general/canopy/styles/typography-fonts' with (
+  $fonts-path-otto: '../fonts/otto',
+  $fonts-path-nunito-sans: '../fonts/nunito-sans'
+);
+@use '@legal-and-general/canopy/styles/styles';
+@use '@legal-and-general/canopy/styles/form';
 ```
 
-You can find the scss files here:
+The installed package contains:
 
-- dist/styes - containing styles.scss that import all the styles
-- dist/styles/variables - containing all the variables for colors, typography, etc
-- dist/lib - containing all the components styles
+- `styles/` - global styles, mixins and variables
+- `styles/tokens/` - design token CSS
+- `lib/` - component SCSS
 
 ### Canopy Fonts
 
@@ -123,13 +142,12 @@ Canopy consists of two fonts; Nunito Sans and ABC Otto. Both fonts are included 
 
 ## Using the components
 
-Each components is individually documented on Storybook, refer to the latest version which is available at https://legal-and-general.github.io/canopy/
-
-The `notes` tab explains the usage of each component. The `story` tab displays the code required to render that particular documentation page, and is a useful reference point.
+Each component is documented in [Storybook](https://legal-and-general.github.io/canopy/).
+Its guide describes the design and usage, and the examples show the component in use.
 
 ## Updating Versions
 
-Canopy uses [semantic versioning](https://semver.org/) and a new version is deployed automatically on each code merge to the master branch. From time to time there will be breaking changes and like all modules it is recommended that you stay up to date where possible. It may be worth [subscribing to release notifications](https://help.github.com/en/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository) to be keep up to date with changes.
+Canopy uses [semantic versioning](https://semver.org/), and qualifying changes merged to the master branch can trigger a release. From time to time there will be breaking changes and like all modules it is recommended that you stay up to date where possible. It may be worth [subscribing to release notifications](https://help.github.com/en/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository) to be kept up to date with changes.
 
 The [releases section](https://github.com/Legal-and-General/canopy/releases) on GitHub documents the changes between releases. Keep an eye out for anything labelled as a `BREAKING CHANGE` as this may require some code changes in your application.
 

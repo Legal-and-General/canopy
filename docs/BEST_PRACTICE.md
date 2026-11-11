@@ -4,7 +4,7 @@
 
 - In most cases it should not be extended or modified within applications.
 
-- There should be a 1 to 1 mapping between the [design](https://legalandgeneral.invisionapp.com/dsm/legalandgeneral/canopy?mode=preview) and development implementation.
+- There should be a 1 to 1 mapping between the design and development implementation. You can request access to the Figma libraries from the [Storybook welcome page](https://legal-and-general.github.io/canopy/).
 
 With those strict rules in mind, Canopy can provide us with a powerful set of tools to quickly build high quality applications which are visually and behaviorally aligned.
 

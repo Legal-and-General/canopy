@@ -14,37 +14,25 @@
 
 > An Angular implementation of the Legal & General design system.
 
-Interested in [contributing?](docs/CONTRIBUTING.md)
+## Documentation
 
-Want to learn how to [use it in a project?](docs/USAGE.md)
+[Canopy Storybook](https://legal-and-general.github.io/canopy/) is the home of
+our documentation for designers and developers. Explore the component guides,
+design principles and examples, or start with:
 
-Have an [issue you would like to raise?](../../issues)
+- [Installing and using Canopy](https://legal-and-general.github.io/canopy/?path=/docs/development-using-canopy-installation-and-usage--docs)
+- [Contributing to Canopy](https://legal-and-general.github.io/canopy/?path=/docs/development-contributing-overview--docs)
+- [Releases](https://legal-and-general.github.io/canopy/?path=/docs/development-contributing-releases-overview--docs)
+- [Best practice skills](https://legal-and-general.github.io/canopy/?path=/docs/ai-best-practice-skills--docs) and [migration skills](https://legal-and-general.github.io/canopy/?path=/docs/ai-migration-skills--docs)
+- [Contributor agents and workflows](https://legal-and-general.github.io/canopy/?path=/docs/development-contributing-agents-and-workflows--docs)
 
-Want to [request a modification or a new feature?](../../discussions)
+The [source guides](docs/) are also available on GitHub, including the
+[AI skills catalogue](docs/COPILOT_SKILLS.md).
 
-Want to [apply a migration with AI assistance?](docs/COPILOT_SKILLS.md#migration-skills)
+## Get involved
 
-Want to [use Canopy components correctly with AI assistance?](docs/COPILOT_SKILLS.md#best-practice-skills)
+Please follow our [code of conduct](docs/CODE_OF_CONDUCT.md). Read the
+[security policy](docs/SECURITY.md) for reporting vulnerabilities and the
+[licence](LICENSE.md) for terms of use.
 
-## AI Skills
-
-Canopy publishes installable [skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) that work with GitHub Copilot.
-
-```bash
-# List all available skills
-npx skills add Legal-and-General/canopy --list
-
-# Install a migration skill (guides your agent through a major version upgrade)
-npx skills add Legal-and-General/canopy --skill canopy-v23-migration
-
-# Install a single best practice skill — pin to the Canopy version in your package.json (available from v24.0.0)
-npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill canopy-button
-
-# Install all best practice skills — pinned to a specific version (available from v24.0.0)
-npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
-
-# Install all available skills
-npx skills add Legal-and-General/canopy --skill '*'
-```
-
-See [docs/COPILOT_SKILLS.md](docs/COPILOT_SKILLS.md) for the full list of available skills.
+Raise an [issue](../../issues) or [request a feature](../../discussions).

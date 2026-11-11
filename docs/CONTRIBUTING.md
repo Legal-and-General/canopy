@@ -1,33 +1,84 @@
 # Contributing
 
-Hi, glad you are here all contributions are very much welcome!
+Hi, we’re glad you’re here! All contributions are welcome.
 
 Before you start Contributing to Canopy it is worth familiarising yourself with the [best practice](./BEST_PRACTICE.md) guidelines.
 
 Please do raise an [issue](https://github.com/Legal-and-General/canopy/issues) or [discussion](https://github.com/Legal-and-General/canopy/discussions) before starting a piece of work. Our contributors can help provide guidance to make sure your effort isn't wasted. It is important that the development and design implementations stay in sync and that the codebase remains consistent. This will help to give the codebase a long life and remain intuitive for those using it.
 
-## Table of contents
+## Getting started
 
-- [Storybook](#storybook)
-- [Build](#build)
-- [Running unit tests](#running-unit-tests)
-- [Running lint](#running-lint)
-- [Running visual tests](#running-visual-tests)
-- [Conventional commits](#conventional-commits)
-- [Commit Signing](#commit-signing)
-- [Branch naming convention](#branch-naming-convention)
-- [Review Process](#review-process)
-- [Github Actions](#github-actions)
-- [SVG Icons](#svg-icons)
-- [Angular Material CDK](#angular-material-cdk)
-- [Dependabot](#dependabot)
-- [Agentic AI](#agentic-ai)
+Use the Node version specified in `.nvmrc` (for example, run `nvm use`) and
+install dependencies with `npm ci` from the repository root. See the
+[GitHub registry setup](./USAGE.md#setting-up-the-github-registry) and
+[authentication](./USAGE.md#authenticating-against-the-github-registry) guidance
+if you need to configure access to packages.
+
+For commit messages, follow the [Conventional commits](#conventional-commits)
+guidance.
+
+## Coding standards
+
+- **Design and API:** Match Canopy designs so consumers do not need custom
+  styles. Use standalone Angular components and directives, `lg`-prefixed
+  selectors and `Lg` class names. Keep typed inputs, outputs and defaults
+  consistent with related components. Form controls should integrate with Angular
+  forms, for example through `ControlValueAccessor` where appropriate.
+- **Structure and exports:** Keep a component's implementation, template,
+  styles and tests together under `projects/canopy/src/lib/`, with stories and
+  a guide in its `docs/` subfolder. Export intended public APIs through the
+  component's `index.ts` and `projects/canopy/src/public-api.ts`. Check the
+  [breaking changes guide](./BREAKING_CHANGES.md) before changing an existing API.
+- **Styles and tokens:** Use shared design tokens for values such as colours
+  and spacing: prefer component tokens, then semantic tokens, and use
+  foundation tokens only when needed. Reuse shared styles and consistent
+  class names; the [styles and design tokens guidance](./CODING_STANDARDS.md#styles-and-design-tokens)
+  explains these with examples.
+- **Accessibility and tests:** Use semantic HTML, accessible labels and
+  keyboard interactions. Add unit tests for the public behaviour and relevant
+  states, and run the [tests](#running-unit-tests) and [lint](#running-lint).
+
+See the [coding standards guide](./CODING_STANDARDS.md) for more detail.
 
 ## Storybook
 
-Canopy uses [Storybook](https://storybook.js.org/) to enable components to be developed in isolation. If you are creating a new component or directive a corresponding story file will be needed.
+Canopy uses [Storybook](https://storybook.js.org/) to develop components in
+isolation and document them. Run `npm start` for a local preview with hot reload.
 
-Running `npm start` will run storybook locally, this will hot reload any changes and is the most seamless way to modify or create existing components.
+### Component stories and guides
+
+1. Add a `*.stories.ts` file under the component's `docs/` folder. Give its
+   default export a title and component, and add named stories for representative
+   variants and states. Use `args` for defaults, `argTypes` for controls and
+   `moduleMetadata` for Angular imports as needed. See the
+   [Separator stories](../projects/canopy/src/lib/separator/docs/separator.stories.ts).
+2. Add or update `guide.mdx` with usage, applicable inputs and outputs, and
+   dos and don'ts for components. Follow the
+   [documentation templates](../.github/instructions/component-docs.instructions.md);
+   use `<Source of={NoticeStories.StandardNotice} />` to show a story's code
+   where useful, as in the [Notice guide](../projects/canopy/src/lib/notice/docs/guide.mdx).
+3. Register the guide and stories in [`.storybook/main.js`](../.storybook/main.js)
+   under the appropriate sidebar group, with matching title prefixes (for
+   example, `Components/Separator/Guide` and `Components/Separator/Examples`).
+   Use `npm start` to check the guide, examples, controls, displayed source and
+   accessibility, then run `npm run build:storybook`. Stories also support
+   [visual regression testing](#running-visual-tests).
+
+### Repository guides
+
+The repository guides are kept in Markdown, mostly in `docs/`, and are also
+displayed in Storybook. Keep those Markdown files as the source of truth so
+they remain available on GitHub and the AI skill generators can update the
+skills catalogue.
+
+The Storybook pages in `projects/canopy/src/lib/docs/repository-guides/` import
+the Markdown files and are registered in `.storybook/main.js`. Add new guide
+links to `repository-links.cjs` so links between guides stay within the current
+Storybook deployment. Images in `docs/assets/` are served by Storybook.
+The AI skills pages share `docs/COPILOT_SKILLS.md`: retain its `Migration Skills`
+and `Best Practice Skills` headings so Storybook can render each section.
+Update `SKILL_ANCHOR_ROUTES` in `repository-links.cjs` when adding or renaming
+linked catalogue headings.
 
 ### Component design tokens
 
@@ -52,7 +103,7 @@ After adding or changing an entry, run `npm run build:storybook` and check the c
 Pull requests are deployed manually to [GitHub Pages](https://pages.github.com/) by the Core or Regular Contributors.
 Once the deployment has completed successfully the pull request will be updated with the environment details.
 
-<img alt="" src="./assets/deployment-gh-pages.png">
+<img alt="GitHub showing a successful branch deployment and a View deployment link" src="./assets/deployment-gh-pages.png">
 
 The `master` branch is also deployed to GitHub Pages, this currently provides the most up-to-date documentation for the latest version.
 
@@ -66,9 +117,10 @@ The build artifacts will be stored in the `dist/` directory.
 
 ### Build test application
 
-A test application is located in the `projects/canopy-test-app` folder. This application helps to capture any issues with exported modules. Run `npm run build:test-app` to build the test application, this happens automatically as part of the pull request pipeline.
-
-The test application includes a test page which contains all of the Canopy components to ensure that they layout correctly. This page is also accessible in storybook via the main navigation, where possible all new components should be added to the test page.
+A test application in `projects/canopy-test-app` exercises many Canopy
+components together. Run `npm run build:test-app` to build it; this also runs
+as part of the pull request pipeline. Use `npm run start:test-app` to serve it
+locally.
 
 ## Running unit tests
 
@@ -76,13 +128,12 @@ Run `npm test` to execute the library unit tests, this step is also run as part 
 
 ## Running lint
 
-Run `npm run lint` to execute the library unit tests, this step is also run as part of the pull request pipeline.
+Run `npm run lint` to check the code with ESLint and Stylelint. The pull request pipeline runs these checks separately.
 
-Current linting includes
-
-- `eslint` and `prettier` for typescript, javascript and html files
-- `stylelint` and `prettier` for scss files
-- `prettier` for json files
+- `npm run eslint` checks TypeScript, JavaScript and Angular templates.
+- `npm run stylelint` checks SCSS.
+- The pre-commit hook uses `lint-staged` to format and lint matching staged
+  source files, including formatting with Prettier.
 
 Stylelint's `at-rule-prelude-no-invalid` rule excludes Sass `@mixin` and `@function`
 declarations because their parameter syntax differs from CSS. Standard CSS at-rule
@@ -102,7 +153,7 @@ Pre-requisites:
 ```bash
 export PERCY_BRANCH='local';
 export PERCY_TOKEN='<percy-token>'; # this is available in the Percy project settings
-export PERCY_STORYBOOK_DOC_CAPTURE: true;
+export PERCY_STORYBOOK_DOC_CAPTURE=true;
 ```
 
 Run `npm run test:visual` to execute the visual regression tests locally.
@@ -113,13 +164,16 @@ This repository is set up to work with the [angular version](https://github.com/
 
 A git commit-msg hook will lint your commits to ensure they are of the correct format. To make it easy to follow the correct format you can `npm run commit` which will use the [commitizen](https://github.com/commitizen/cz-cli) cli to run you through the process.
 
-The commit message format is important as it is what drives the semantic versioning. Versioning is currently carried out by the [semantic release](https://semantic-release.gitbook.io/) node module. On merging to the master branch, semantic release will scan the commit messages and determine the next version. It will also tag, package and deploy this version to the [GitHub registry](https://github.com/features/package-registry).
+Commit messages determine whether semantic-release creates a release and which
+version it uses. See the [releases guide](./RELEASES.md) for the release
+branches and versioning rules.
 
 ### Breaking Changes
 
 Be particularly aware of any changes which may be deemed a breaking change. Refer to our [guide of what is and is not considered a breaking change](./BREAKING_CHANGES.md)
 
-The format for breaking changes is outlined on the [convention commit docs](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#commit-message-with-description-and-breaking-change-in-body)
+Use a `BREAKING CHANGE:` footer, as shown in the example below. Canopy's Angular
+commit convention does not support the `!` marker.
 
 Whenever introducing a breaking change consider using the `next` branch. Refer to the [next docs](./NEXT_BRANCH.md).
 
@@ -163,7 +217,7 @@ The repository is set up with a `pre-push` hook that will prevent the user from 
 
 ## Review Process
 
-Pull requests require two successful approvals before they can be merged. One review must be from a [CODEOWNER](./.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
+Pull requests require two successful approvals before they can be merged. One review must be from a [CODEOWNER](../.github/CODEOWNERS). We also require that developers working on a specific project seek review from someone on a different project. The aim being that by removing any immediate delivery pressure we can ensure a high level of quality and negate the risk of factions forming within the codebase, currently we cannot automate this process and so it must be based on trust.
 
 ### Code Owners
 
@@ -171,7 +225,7 @@ Code Owners are chosen based on a history of consistent contributions. Code Owne
 
 ## Github Actions
 
-The build is currently handled by [Github Actions](https://help.github.com/en/actions), the config for which is checked into the [.github](./.github) directory. The build will run on every pull request and run standard verification tasks e.g. linting, unit testing, test build. The build will need to be green in order for a pull request to pass.
+The build is currently handled by [Github Actions](https://help.github.com/en/actions), the config for which is checked into the [.github](https://github.com/Legal-and-General/canopy/tree/master/.github) directory. The build will run on every pull request and run standard verification tasks e.g. linting, unit testing, test build. The build will need to be green in order for a pull request to pass.
 
 ## SVG Icons
 
@@ -187,4 +241,4 @@ The dependency updates are currently handled by [Dependabot](./DEPENDABOT.md).
 
 ## Agentic AI
 
-Canopy uses GitHub Copilot coding agents to automate specific development tasks such as dependency updates. For details on the available agents, skills, and how to add new ones, see [AGENTIC_AI.md](./AGENTIC_AI.md). Canopy also publishes installable Copilot skills for consumers — see [COPILOT_SKILLS.md](./COPILOT_SKILLS.md).
+Canopy uses GitHub Copilot coding agents to automate specific development tasks such as dependency updates. For details on the available agents, skills, and how to add new ones, see [AGENTIC_AI.md](./AGENTIC_AI.md). Canopy also publishes installable [migration skills](./COPILOT_SKILLS.md#migration-skills) and [best practice skills](./COPILOT_SKILLS.md#best-practice-skills) for consumers.

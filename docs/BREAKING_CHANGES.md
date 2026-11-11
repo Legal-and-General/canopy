@@ -15,10 +15,10 @@ The following patterns are supported and fall within the breaking change process
 If modifications happen to a component which force some kind of change on to a consuming application, then this is a breaking change. Consider the following example.
 
 ```html
-<lg-alert variant="error">This is an error</lg-alert>
+<lg-alert status="error">This is an error</lg-alert>
 ```
 
-If we were to modify the above component and rename the variant property to `type`, this would be classed as a breaking change.  
+If we were to modify the above component and rename the status property to `type`, this would be classed as a breaking change.
 e.g.
 
 ```html
@@ -32,12 +32,12 @@ If instead we were to add a new property, this would not be a breaking change be
 e.g.
 
 ```html
-<lg-alert variant="error" [dismissible]="'true'">This is an error</lg-alert>
+<lg-alert status="error" [showIcon]="false">This is an error</lg-alert>
 ```
 
 ### CSS variables, mixins and utility classes
 
-There [may be scenarios where you need to implement custom patterns in your application](./BEST_PRACTICE.md#the-pattern-is-not-meant–for–the–design–system). If this is the case we recommend that you familiarise yourself with the css variables, mixins and utility classes provided by Canopy.
+There [may be scenarios where you need to implement custom patterns in your application](./BEST_PRACTICE.md#the-pattern-is-not-meant-for-the-design-system). If this is the case we recommend that you familiarise yourself with the css variables, mixins and utility classes provided by Canopy.
 
 > Utility classes are CSS class names that serve one particular purpose, and are named as such.
 
@@ -72,8 +72,7 @@ A good example of this is the date component, in it's simplest form the componen
 ```html
 <lg-date-field formControlName="date">
   Date of birth
-  <lg-date-field></lg-date-field
-></lg-date-field>
+</lg-date-field>
 ```
 
 The markup rendered to the browser is of course much more complex and consists of multiple input fields and other DOM elements. Theoretically we could change the encapsulated markup without causing a breaking change as the component API remains unchanged.

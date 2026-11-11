@@ -64,6 +64,9 @@ Always run `npm run build` after changes to verify there are no build errors. Al
 
 - **Component prefix**: `lg` (e.g. `LgButtonComponent`, selector `lg-button`)
 - All Angular components are **standalone**
+- For component APIs, modern Angular patterns, host metadata, design tokens,
+  tests and Storybook documentation, follow [Coding standards](../docs/CODING_STANDARDS.md).
+- Preserve existing public APIs unless a breaking change is intentional.
 - **SCSS**: BEM naming convention; allowed units: `rem`, `em`, `%`, `ms`, `s`, `deg`, `vh`, `vw`, `fr`
 - **Prettier**: 90-character line width, single quotes, trailing commas (see `.prettierrc`)
 - **Linting**: ESLint rules in `eslint-configs/`; StyleLint rules in `.stylelintrc`
@@ -108,7 +111,7 @@ Every component must have a `docs/guide.mdx` file documenting usage, variants, d
 
 ## Commit Linting
 
-Follow the **Angular Conventional Commits** format, enforced by `commitlint` (`commitlint.config.js` extends `@commitlint/config-angular`):
+Follow the **Angular Conventional Commits** format, enforced by `commitlint` (`commitlint.config.cjs` extends `@commitlint/config-angular`):
 
 ```
 <type>(<optional scope>): <short description>
@@ -118,7 +121,7 @@ Valid types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `revert
 
 - Use `npm run commit` for the interactive Commitizen prompt rather than committing manually
 - All commits must be **GPG signed**
-- Breaking changes: append `!` after the type (e.g. `feat!:`) or include a `BREAKING CHANGE:` footer
+- Breaking changes require a `BREAKING CHANGE:` footer; `feat!:` is rejected by commitlint and is not recognised by the release parser. See `docs/RELEASES.md`.
 
 ## Branch Naming
 

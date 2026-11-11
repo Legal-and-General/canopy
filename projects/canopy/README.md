@@ -1,25 +1,13 @@
 # Canopy
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+An Angular implementation of the Legal & General design system.
 
-## Code scaffolding
-
-Run `ng generate component component-name --project canopy` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project canopy`.
-
-> Note: Don't forget to add `--project canopy` or else it will be added to the default project in your `angular.json` file.
-
-## Build
-
-Run `ng build canopy` to build the project. The build artifacts will be stored in the `dist/` directory.
+See [Canopy Storybook](https://legal-and-general.github.io/canopy/) for design
+guidance, components and developer documentation. The
+[usage guide](https://legal-and-general.github.io/canopy/?path=/docs/development-using-canopy-installation-and-usage--docs)
+explains how to install and use the library.
 
 ## Publishing
 
-After building your library with `ng build canopy`, go to the dist folder `cd dist/canopy` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test canopy` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+When a manual publish is needed, run `npm run build` from the repository root,
+then run `npm publish` from `dist/canopy`.

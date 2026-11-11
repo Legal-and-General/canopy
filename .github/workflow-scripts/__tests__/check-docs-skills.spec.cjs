@@ -119,6 +119,38 @@ describe('checkDocsSkills', () => {
     });
   });
 
+  describe('when repository guides are changed', () => {
+    it('does not require best-practice skills for repository guides', async () => {
+      mockListFiles([
+        'projects/canopy/src/lib/docs/repository-guides/usage.mdx',
+        'projects/canopy/src/lib/docs/repository-guides/ai.mdx',
+      ]);
+
+      await checkDocsSkills({ github, context, core });
+
+      expect(core.info).toHaveBeenCalledWith(
+        expect.stringContaining('Skipping check'),
+      );
+      expect(core.setFailed).not.toHaveBeenCalled();
+    });
+
+    it('still requires skills for other changed guides', async () => {
+      mockListFiles([
+        'projects/canopy/src/lib/docs/repository-guides/usage.mdx',
+        'projects/canopy/src/lib/accordion/docs/guide.mdx',
+      ]);
+
+      await checkDocsSkills({ github, context, core });
+
+      expect(core.setFailed).toHaveBeenCalledWith(
+        expect.stringContaining('projects/canopy/src/lib/accordion/docs/guide.mdx'),
+      );
+      expect(core.setFailed).not.toHaveBeenCalledWith(
+        expect.stringContaining('repository-guides/usage.mdx'),
+      );
+    });
+  });
+
   describe('when .mdx files are changed with no skill updates', () => {
     it('logs the detected .mdx files', async () => {
       mockListFiles(['projects/canopy/src/lib/accordion/docs/guide.mdx']);
