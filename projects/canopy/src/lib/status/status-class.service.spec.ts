@@ -201,7 +201,7 @@ describe('StatusClassService', () => {
     });
 
     it('should handle undefined classes gracefully', () => {
-      service.removeStatusClasses(mockRenderer, mockElement, undefined as any);
+      service.removeStatusClasses(mockRenderer, mockElement, undefined);
 
       expect(mockRenderer.removeClass).not.toHaveBeenCalled();
     });

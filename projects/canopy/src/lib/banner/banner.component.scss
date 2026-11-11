@@ -38,12 +38,16 @@
   .lg-banner__text {
     @include mixins.lg-typography-default();
 
-    display: flex;
     flex: 1;
-    flex-direction: column;
     color: var(--banner-text-colour, var(--text-status-bold-primary-colour));
     --text-bottom-margin: var(--banner-gap);
+
+    overflow-wrap: anywhere;
   }
+}
+
+.lg-banner .lg-btn--link {
+  display: inline-flex;
 }
 
 // Remove padding from links within banner

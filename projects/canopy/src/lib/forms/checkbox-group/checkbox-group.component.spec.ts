@@ -88,7 +88,7 @@ describe('LgCheckboxGroupComponent', () => {
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn(),
-    } as unknown as jest.Mocked<LgErrorStateMatcher>;
+    };
 
     TestBed.configureTestingModule({
       imports: [

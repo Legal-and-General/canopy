@@ -62,6 +62,7 @@
     flex-direction: column;
     grid-column: 2;
     min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   &__icon {

@@ -76,7 +76,7 @@ describe('LgListWithIconsItemComponent', () => {
     component.variant = 'positive';
     fixture.detectChanges();
 
-    component.variant = undefined as unknown as 'mono' | 'positive' | 'negative';
+    component.variant = undefined;
     fixture.detectChanges();
 
     expect(fixture.nativeElement.style.getPropertyValue('--list-item-icon-colour')).toBe(
@@ -88,7 +88,7 @@ describe('LgListWithIconsItemComponent', () => {
     component.variant = 'negative';
     fixture.detectChanges();
 
-    component.variant = null as unknown as 'mono' | 'positive' | 'negative';
+    component.variant = null;
     fixture.detectChanges();
 
     expect(fixture.nativeElement.style.getPropertyValue('--list-item-icon-colour')).toBe(

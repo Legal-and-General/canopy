@@ -45,6 +45,7 @@
     grid-column: 2;
     min-width: 0;
     overflow: hidden;
+    overflow-wrap: anywhere;
     padding-inline: var(--space-2);
   }
 

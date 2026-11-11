@@ -135,7 +135,7 @@ describe('LgDateFieldComponent', () => {
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
-    } as unknown as LgErrorStateMatcher;
+    };
 
     TestBed.configureTestingModule({
       imports: [
@@ -553,7 +553,7 @@ describe('LgDateFieldComponent with custom ariaDescribedBy', () => {
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
       isControlInvalid: jest.fn().mockReturnValue(false),
-    } as unknown as LgErrorStateMatcher;
+    };
 
     TestBed.configureTestingModule({
       imports: [

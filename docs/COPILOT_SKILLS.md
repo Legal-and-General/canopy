@@ -14,7 +14,7 @@ Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills
 npx skills add Legal-and-General/canopy --list
 
 # Install a specific migration skill
-npx skills add Legal-and-General/canopy --skill canopy-v43-migration
+npx skills add Legal-and-General/canopy --skill canopy-v44-migration
 
 # List all available best practice skills
 npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --list
@@ -41,10 +41,11 @@ npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
 
 Once installed, ask your agent:
-> "Apply the Canopy v43 migration to my project."
+> "Apply the Canopy v44 migration to my project."
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v44-migration` | v43 → v44 | [v44.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v44.0.0) |
 | `canopy-v43-migration` | v42 → v43 | [v43.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v43.0.0) |
 | `canopy-v42-migration` | v41 → v42 | [v42.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v42.0.0) |
 | `canopy-v41-migration` | v40 → v41 | [v41.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v41.0.0) |
@@ -111,7 +112,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-accessibility` | lang attribute, skip link, alt text, form a11y, ARIA, landmarks | — |
 | `canopy-writing` | Tone of voice, content principles, button/link/error message copy | — |
 | **Layout** | | |
-| `canopy-page` | `LgPageComponent`, skip link, slot projection | — |
+| `canopy-page` | `LgPageComponent`, variants, slot projection, Basic/Child/Product/Form Journey templates | — |
 | `canopy-grid` | `lgContainer`, `lgRow`, `lgCol`, responsive columns, offsets | — |
 | `canopy-content-area` | `LgContentAreaComponent`, form journey stages, progress, success confirmation, heading level | — |
 | `canopy-header` | `lg-header`, logo, primary nav, account menu, co-branding | — |
