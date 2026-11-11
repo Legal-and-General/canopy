@@ -9,3 +9,7 @@
 .lg-card-footer--link-menu {
   border-top: 0;
 }
+
+.lg-card-footer > .lg-btn:only-child {
+  margin-bottom: 0;
+}

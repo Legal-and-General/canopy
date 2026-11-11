@@ -21,49 +21,49 @@ const colours = [ 'blue', 'green', 'red', 'yellow' ];
 const themes = [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ];
 
 const navigationTemplate = `
-<header lg-header [lgColour]="colour" [lgColourTheme]="theme">
+<header lg-header #header [lgColour]="colour" [lgColourTheme]="theme">
   <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
   <lg-notification-badge lgMenuBadge variant="dot" accessText="You have unread messages"></lg-notification-badge>
 
   <lg-primary-nav>
     <lg-primary-nav-list-item>
-      <a href="" [isActive]="true" lgPrimaryNavItem>Link 1</a>
+      <a href="" [isActive]="activeLink === 'primary-1'" (click)="$event.preventDefault(); activeLink = 'primary-1'" lgPrimaryNavItem>Link 1</a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item>
-      <a href="" lgPrimaryNavItem>
+      <a href="" [isActive]="activeLink === 'primary-2'" (click)="$event.preventDefault(); activeLink = 'primary-2'" lgPrimaryNavItem>
         Link 2
         <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item>
-      <a href="" lgPrimaryNavItem>Link 3</a>
+      <a href="" [isActive]="activeLink === 'primary-3'" (click)="$event.preventDefault(); activeLink = 'primary-3'" lgPrimaryNavItem>Link 3</a>
     </lg-primary-nav-list-item>
 
 
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-1' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-1'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 1</lg-link-menu-item-text>
       </lg-link-menu-item>
     </a>
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-2' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-2'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 2</lg-link-menu-item-text>
         <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </lg-link-menu-item>
     </a>
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-3' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-3'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 3</lg-link-menu-item-text>
       </lg-link-menu-item>
     </a>
 
-    <a lgAccountMenuMobileItem href="">
+    <a lgAccountMenuMobileItem href="" [attr.aria-current]="activeLink === 'account-1' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'account-1'">
       <lg-link-menu-item>
         <lg-icon name="bullet-feature"></lg-icon>
         <lg-link-menu-item-text>Link</lg-link-menu-item-text>
       </lg-link-menu-item>
     </a>
-    <a lgAccountMenuMobileItem href="">
+    <a lgAccountMenuMobileItem href="" [attr.aria-current]="activeLink === 'account-2' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'account-2'">
       <lg-link-menu-item>
         <lg-icon name="bullet-feature"></lg-icon>
         <lg-link-menu-item-text>Link 2</lg-link-menu-item-text>
@@ -73,13 +73,13 @@ const navigationTemplate = `
 
   <lg-account-menu>
     <lg-account-menu-list-item>
-      <a href="" lgAccountMenuItem>
+      <a href="" [isActive]="!header.showResponsiveMenu && activeLink === 'account-1'" (click)="$event.preventDefault(); activeLink = 'account-1'" lgAccountMenuItem>
         <lg-account-menu-item-label>Link</lg-account-menu-item-label>
         <lg-icon name="bullet-feature"></lg-icon>
       </a>
     </lg-account-menu-list-item>
     <lg-account-menu-list-item>
-      <a href="" lgAccountMenuItem>
+      <a href="" [isActive]="!header.showResponsiveMenu && activeLink === 'account-2'" (click)="$event.preventDefault(); activeLink = 'account-2'" lgAccountMenuItem>
         <lg-account-menu-item-label>Link 2</lg-account-menu-item-label>
         <lg-icon name="bullet-feature"></lg-icon>
       </a>
@@ -95,30 +95,30 @@ const navigationWithoutAccountMenuTemplate = `
 
   <lg-primary-nav>
     <lg-primary-nav-list-item>
-      <a href="" [isActive]="true" lgPrimaryNavItem>Link 1</a>
+      <a href="" [isActive]="activeLink === 'primary-1'" (click)="$event.preventDefault(); activeLink = 'primary-1'" lgPrimaryNavItem>Link 1</a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item>
-      <a href="" lgPrimaryNavItem>
+      <a href="" [isActive]="activeLink === 'primary-2'" (click)="$event.preventDefault(); activeLink = 'primary-2'" lgPrimaryNavItem>
         Link 2
         <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item>
-      <a href="" lgPrimaryNavItem>Link 3</a>
+      <a href="" [isActive]="activeLink === 'primary-3'" (click)="$event.preventDefault(); activeLink = 'primary-3'" lgPrimaryNavItem>Link 3</a>
     </lg-primary-nav-list-item>
 
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-1' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-1'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 1</lg-link-menu-item-text>
       </lg-link-menu-item>
     </a>
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-2' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-2'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 2</lg-link-menu-item-text>
         <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </lg-link-menu-item>
     </a>
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-3' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-3'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 3</lg-link-menu-item-text>
       </lg-link-menu-item>
@@ -150,6 +150,8 @@ const navigationWithoutAccountMenuTemplate = `
   ],
 })
 class PrimaryNavigationComponent {
+  activeLink = 'primary-1';
+
   @Input() logo: string;
   @Input() logoAlt: string;
   @Input() logoHref: string;
@@ -174,6 +176,8 @@ class PrimaryNavigationComponent {
   ],
 })
 class PrimaryNavigationNoAccountMenuComponent {
+  activeLink = 'primary-1';
+
   @Input() logo: string;
   @Input() logoAlt: string;
   @Input() logoHref: string;
@@ -182,49 +186,49 @@ class PrimaryNavigationNoAccountMenuComponent {
 }
 
 const coBrandedNavigationTemplate = `
-<header lg-header [lgColour]="colour" [lgColourTheme]="theme">
+<header lg-header #header [lgColour]="colour" [lgColourTheme]="theme">
   <lg-header-logo [src]="logo" [alt]="logoAlt" [href]="logoHref"></lg-header-logo>
   <lg-header-logo [src]="secondaryLogo" [alt]="secondaryLogoAlt" [href]="secondaryLogoHref"></lg-header-logo>
   <lg-notification-badge lgMenuBadge variant="dot" accessText="You have unread messages"></lg-notification-badge>
 
   <lg-primary-nav>
     <lg-primary-nav-list-item>
-      <a href="" [isActive]="true" lgPrimaryNavItem>Link 1</a>
+      <a href="" [isActive]="activeLink === 'primary-1'" (click)="$event.preventDefault(); activeLink = 'primary-1'" lgPrimaryNavItem>Link 1</a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item>
-      <a href="" lgPrimaryNavItem>
+      <a href="" [isActive]="activeLink === 'primary-2'" (click)="$event.preventDefault(); activeLink = 'primary-2'" lgPrimaryNavItem>
         Link 2
         <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </a>
     </lg-primary-nav-list-item>
     <lg-primary-nav-list-item>
-      <a href="" lgPrimaryNavItem>Link 3</a>
+      <a href="" [isActive]="activeLink === 'primary-3'" (click)="$event.preventDefault(); activeLink = 'primary-3'" lgPrimaryNavItem>Link 3</a>
     </lg-primary-nav-list-item>
 
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-1' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-1'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 1</lg-link-menu-item-text>
       </lg-link-menu-item>
     </a>
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-2' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-2'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 2</lg-link-menu-item-text>
         <lg-notification-badge count="3" accessText="You have 3 unread messages"></lg-notification-badge>
       </lg-link-menu-item>
     </a>
-    <a lgPrimaryNavMobileItem href="">
+    <a lgPrimaryNavMobileItem href="" [attr.aria-current]="activeLink === 'primary-3' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'primary-3'">
       <lg-link-menu-item>
         <lg-link-menu-item-text>Link 3</lg-link-menu-item-text>
       </lg-link-menu-item>
     </a>
 
-    <a lgAccountMenuMobileItem href="">
+    <a lgAccountMenuMobileItem href="" [attr.aria-current]="activeLink === 'account-1' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'account-1'">
       <lg-link-menu-item>
         <lg-icon name="bullet-feature"></lg-icon>
         <lg-link-menu-item-text>Link</lg-link-menu-item-text>
       </lg-link-menu-item>
     </a>
-    <a lgAccountMenuMobileItem href="">
+    <a lgAccountMenuMobileItem href="" [attr.aria-current]="activeLink === 'account-2' ? 'page' : null" (click)="$event.preventDefault(); activeLink = 'account-2'">
       <lg-link-menu-item>
         <lg-icon name="bullet-feature"></lg-icon>
         <lg-link-menu-item-text>Link 2</lg-link-menu-item-text>
@@ -234,13 +238,13 @@ const coBrandedNavigationTemplate = `
 
   <lg-account-menu>
     <lg-account-menu-list-item>
-      <a href="" lgAccountMenuItem>
+      <a href="" [isActive]="!header.showResponsiveMenu && activeLink === 'account-1'" (click)="$event.preventDefault(); activeLink = 'account-1'" lgAccountMenuItem>
         <lg-account-menu-item-label>Link</lg-account-menu-item-label>
         <lg-icon name="bullet-feature"></lg-icon>
       </a>
     </lg-account-menu-list-item>
     <lg-account-menu-list-item>
-      <a href="" lgAccountMenuItem>
+      <a href="" [isActive]="!header.showResponsiveMenu && activeLink === 'account-2'" (click)="$event.preventDefault(); activeLink = 'account-2'" lgAccountMenuItem>
         <lg-account-menu-item-label>Link 2</lg-account-menu-item-label>
         <lg-icon name="bullet-feature"></lg-icon>
       </a>
@@ -272,6 +276,8 @@ const coBrandedNavigationTemplate = `
   ],
 })
 class CoBrandedNavigationComponent {
+  activeLink = 'primary-1';
+
   @Input() logo: string;
   @Input() logoAlt: string;
   @Input() logoHref: string;
@@ -436,31 +442,6 @@ const coBrandedTemplate = `
 </header>
 `;
 
-export const CoBrandedHeader = {
-  name: 'Co-branded',
-  render: (args: LgHeaderComponent) => ({
-    props: args,
-    template: coBrandedTemplate,
-  }),
-  args: {
-    logo: 'legal-and-general-logo.svg',
-    logoAlt: 'Company name',
-    logoHref: 'https://storybook.js.org',
-    secondaryLogo: 'logo-template-lg.svg',
-    secondaryLogoAlt: 'Second company name',
-    secondaryLogoHref: 'https://storybook.js.org',
-    colour: 'blue',
-    theme: 'neutral',
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: coBrandedTemplate,
-      },
-    },
-  },
-};
-
 export const NavHeader = {
   name: 'Standard with navigation',
   render: (args: LgHeaderComponent) => ({
@@ -536,6 +517,31 @@ export const NavHeaderWithoutAccountMenu = {
     docs: {
       source: {
         code: navigationWithoutAccountMenuTemplate,
+      },
+    },
+  },
+};
+
+export const CoBrandedHeader = {
+  name: 'Co-branded',
+  render: (args: LgHeaderComponent) => ({
+    props: args,
+    template: coBrandedTemplate,
+  }),
+  args: {
+    logo: 'legal-and-general-logo.svg',
+    logoAlt: 'Company name',
+    logoHref: 'https://storybook.js.org',
+    secondaryLogo: 'logo-template-lg.svg',
+    secondaryLogoAlt: 'Second company name',
+    secondaryLogoHref: 'https://storybook.js.org',
+    colour: 'blue',
+    theme: 'neutral',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: coBrandedTemplate,
       },
     },
   },

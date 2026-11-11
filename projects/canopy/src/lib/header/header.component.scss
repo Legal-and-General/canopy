@@ -77,13 +77,14 @@
   &.lg-account-menu-item--active:hover,
   &.lg-account-menu-item--active:visited:hover {
     border-radius: var(--header-button-border-radius) !important;
-    background: var(--header-button-active-background-colour);
-    color: var(--header-button-active-colour) !important;
+    background: var(--header-button-expanded-background-colour);
+    color: var(--header-button-expanded-colour) !important;
 
     &:focus-visible,
     &:hover:focus-visible {
-      color: var(--header-button-active-colour) !important;
-      background: var(--header-button-active-background-colour);
+      border-radius: var(--header-button-border-radius) !important;
+      color: var(--header-button-expanded-colour) !important;
+      background: var(--header-button-expanded-background-colour);
     }
 
     &:hover::after {

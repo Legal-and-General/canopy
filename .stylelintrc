@@ -12,6 +12,12 @@
       }
     ],
     "at-rule-no-unknown": null,
+    "at-rule-prelude-no-invalid": [
+      true,
+      {
+        "ignoreAtRules": ["mixin", "function"]
+      }
+    ],
     "media-query-no-invalid": null,
     "no-descending-specificity": null,
     "no-invalid-position-at-import-rule": [

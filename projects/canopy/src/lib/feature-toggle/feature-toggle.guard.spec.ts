@@ -44,9 +44,7 @@ describe('FeatureToggleGuard', () => {
     guard = TestBed.inject(FeatureToggleGuard);
     router = TestBed.inject(Router) as jest.Mocked<Router>;
 
-    configService = TestBed.inject(
-      LgFeatureToggleService,
-    ) as jest.Mocked<LgFeatureToggleService>;
+    configService = TestBed.inject(LgFeatureToggleService);
   });
 
   afterEach(() => {
