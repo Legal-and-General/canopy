@@ -30,14 +30,18 @@ import { LgAlertComponent } from '../../alert';
         >
       </p>
       <p>
-        It's easy to see what's been updated already from the green 'updated' tag - if the
-        menu item says 'pending' then we haven't got to it yet - but we're working on it.
-        Each updated component has a link to the Canopy version it's available from.
+        It's easy to see what's been updated already. If the menu says 'Pending' then we
+        haven't got to it yet - but we're working on it. If there's no tag, it's already
+        been brand modernised and is ready to use.
+      </p>
+      <p>
+        Every updated foundation, component or pattern has a link on the 'Guide' page to
+        the Canopy version it's available from.
         <a
           href="https://github.com/Legal-and-General/canopy/releases?q=&expanded=true"
           target="_blank"
           rel="noopener noreferrer"
-          >Find our releases here.</a
+          >Find out more about our releases.</a
         >
       </p>
       <p>
