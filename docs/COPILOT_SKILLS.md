@@ -14,7 +14,7 @@ Skills are installed via the [`skills` CLI](https://www.npmjs.com/package/skills
 npx skills add Legal-and-General/canopy --list
 
 # Install a specific migration skill
-npx skills add Legal-and-General/canopy --skill canopy-v44-migration
+npx skills add Legal-and-General/canopy --skill canopy-v45-migration
 
 # List all available best practice skills
 npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --list
@@ -41,10 +41,11 @@ npx skills add Legal-and-General/canopy/skills/best-practice#vx.x.x --skill '*'
 These skills guide your AI coding agent to apply breaking changes after a major version upgrade.
 
 Once installed, ask your agent:
-> "Apply the Canopy v44 migration to my project."
+> "Apply the Canopy v45 migration to my project."
 
 | Skill | Migrates | Release notes |
 |---|---|---|
+| `canopy-v45-migration` | v44 → v45 | [v45.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v45.0.0) |
 | `canopy-v44-migration` | v43 → v44 | [v44.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v44.0.0) |
 | `canopy-v43-migration` | v42 → v43 | [v43.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v43.0.0) |
 | `canopy-v42-migration` | v41 → v42 | [v42.0.0](https://github.com/Legal-and-General/canopy/releases/tag/v42.0.0) |
