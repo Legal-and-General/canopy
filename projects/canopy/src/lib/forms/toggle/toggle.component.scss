@@ -89,8 +89,7 @@
   }
 
   .lg-toggle--error .lg-toggle__input:focus-visible + & {
-    border: var(--checkbox-error-control-border-width) solid
-      var(--checkbox-error-control-border-colour);
+    border: 0.1875rem solid var(--checkbox-error-control-border-colour);
   }
 
   .lg-toggle__input:checked + & {
