@@ -67,7 +67,7 @@
 }
 
 .lg-side-nav .lg-link-menu a.lg-side-nav-bar-link--selected {
-  &:not(:focus, :focus-visible, :active) {
+  &:not(:focus-visible, :active) {
     background-color: var(--link-menu-item-active-background-colour);
     border-bottom: var(--link-menu-item-active-border-width-bottom) solid
       var(--link-menu-item-active-border-colour);
@@ -84,7 +84,7 @@
     }
   }
 
-  &:last-child:not(:focus, :focus-visible, :active) {
+  &:last-child:not(:focus-visible, :active) {
     border-bottom-color: transparent;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
