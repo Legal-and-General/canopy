@@ -88,8 +88,7 @@
   }
 
   .lg-radio-button--error .lg-radio-button__input:focus-visible + & {
-    border: var(--radio-error-control-border-width) solid
-      var(--radio-error-control-border-colour);
+    border: 0.1875rem solid var(--radio-error-control-border-colour);
   }
 }
 
