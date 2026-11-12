@@ -99,8 +99,12 @@
 
     #{$block}--error#{$block}--focus & {
       color: inherit;
-      border: var(--text-input-error-border-width) solid
+      border: var(--text-input-rest-border-width) solid
         var(--text-input-error-border-colour);
+      box-shadow:
+        0 0 0 var(--text-input-rest-border-width) var(--text-input-error-border-colour),
+        0 0 0 var(--text-input-error-focus-border-width)
+          var(--text-input-focus-background-colour);
     }
 
     #{$block}--block & {
