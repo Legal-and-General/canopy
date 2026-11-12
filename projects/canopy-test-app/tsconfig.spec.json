@@ -2,13 +2,18 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
+    "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "../../node_modules/@types",
+      "../../node_modules"
+    ],
     "types": [
-      "jest",
+      "vitest/globals",
       "node"
     ]
   },
   "files": [
-    "src/polyfills.ts"
+    "../vitest-globals.d.ts"
   ],
   "include": [
     "src/**/*.spec.ts",

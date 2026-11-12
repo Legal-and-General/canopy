@@ -2,17 +2,26 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
-    "module": "commonjs",
+    "module": "esnext",
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
+    "typeRoots": [
+      "../../node_modules/@types",
+      "../../node_modules"
+    ],
     "types": [
-      "jest",
+      "vitest/globals",
       "node"
     ]
   },
-  "files": [],
+  "files": [
+    "../vitest-globals.d.ts"
+  ],
   "include": [
     "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/spec.ts",
+    "**/spec.tsx",
     "**/*.d.ts"
   ]
 }

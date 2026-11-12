@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["jest"]
+    "types": ["node", "vitest/globals"]
   },
-  "include": ["**/*.cjs"]
+  "include": ["**/*.cjs", "../../projects/vitest-globals.d.ts"]
 }

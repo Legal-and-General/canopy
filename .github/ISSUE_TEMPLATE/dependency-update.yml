@@ -37,7 +37,7 @@ body:
     attributes:
       label: Package name (specific package only)
       description: Required if "Specific package" is selected above. Include the target version if known.
-      placeholder: "e.g. jest@30.0.0 or jest@latest"
+      placeholder: "e.g. vitest@latest"
 
   - type: textarea
     id: exclusions

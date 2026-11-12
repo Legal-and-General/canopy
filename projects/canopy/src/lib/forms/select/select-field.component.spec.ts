@@ -28,11 +28,11 @@ describe('LgSelectFieldComponent', () => {
   const errorId = 'test-error-id';
   const hintId = 'test-hint-id';
 
-  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
+  let errorStateMatcherMock: Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn().mockReturnValue(false),
+      isControlInvalid: vi.fn().mockReturnValue(false),
     };
 
     TestBed.configureTestingModule({

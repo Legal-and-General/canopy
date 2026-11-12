@@ -13,7 +13,7 @@ describe('get-pr-data', () => {
     github = {
       rest: {
         pulls: {
-          get: jest.fn().mockResolvedValue({
+          get: vi.fn().mockResolvedValue({
             data: { head: { sha: 'abc123', ref: 'feature/my-feature' } },
           }),
         },
@@ -60,5 +60,4 @@ describe('get-pr-data', () => {
     );
   });
 });
-
 

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { MockComponents, MockProvider } from 'ng-mocks';
+import { MockComponent, MockComponents, MockProvider } from 'ng-mocks';
 import { Component, Input } from '@angular/core';
 
 import { LgIconComponent } from '../../icon';
@@ -30,13 +30,17 @@ describe('LgLinkMenuItemComponent', () => {
       imports: [
         TestComponent,
         LgLinkMenuItemComponent,
-        MockComponents(LgLinkMenuItemTextComponent, LgIconComponent),
+        MockComponents(LgLinkMenuItemTextComponent),
       ],
       providers: [ MockProvider(LgIconRegistry) ],
-    }).compileComponents();
+    })
+      .overrideComponent(TestComponent, {
+        add: { imports: [ MockComponent(LgIconComponent) ] },
+      })
+      .compileComponents();
 
-    jest.spyOn(console, 'warn').mockImplementation();
-    jest.spyOn(console, 'error').mockImplementation();
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
   });
 
   describe('component tests', () => {
@@ -76,7 +80,7 @@ describe('LgLinkMenuItemComponent', () => {
     });
 
     it('should log a warning if the parent is not an anchor element', () => {
-      const consoleSpy = jest.spyOn(console, 'warn').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
       fixture = TestBed.createComponent(TestComponent);
       component = fixture.componentInstance;

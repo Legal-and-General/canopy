@@ -116,14 +116,14 @@ describe('LgAccordionItemComponent', () => {
   });
 
   describe('clicking on the child component trigger', () => {
-    let openedSpy: jest.SpyInstance;
-    let closedSpy: jest.SpyInstance;
-    let selectionDispatcherSpy: jest.SpyInstance;
+    let openedSpy: MockInstance;
+    let closedSpy: MockInstance;
+    let selectionDispatcherSpy: MockInstance;
 
     beforeEach(() => {
-      openedSpy = jest.spyOn(component.opened, 'emit');
-      closedSpy = jest.spyOn(component.closed, 'emit');
-      selectionDispatcherSpy = jest.spyOn(selectionDispatcher, 'notify');
+      openedSpy = vi.spyOn(component.opened, 'emit');
+      closedSpy = vi.spyOn(component.closed, 'emit');
+      selectionDispatcherSpy = vi.spyOn(selectionDispatcher, 'notify');
     });
 
     it('should update \'isActive\'', () => {
@@ -219,12 +219,12 @@ describe('LgAccordionItemComponent', () => {
 
   describe('when notified of sibling accordion item activated', () => {
     const someOtherId = 'some-other-id';
-    let closedSpy: jest.SpyInstance;
+    let closedSpy: MockInstance;
 
     beforeEach(() => {
       fixture.debugElement.componentInstance.isActive = true;
       fixture.detectChanges();
-      closedSpy = jest.spyOn(component.closed, 'emit');
+      closedSpy = vi.spyOn(component.closed, 'emit');
     });
 
     describe('and accordion is in multi mode', () => {

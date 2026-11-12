@@ -6,7 +6,7 @@ import type { Status, Theme } from './status.interface';
 
 describe('StatusClassService', () => {
   let service: StatusClassService;
-  let mockRenderer: jest.Mocked<Renderer2>;
+  let mockRenderer: Mocked<Renderer2>;
   let mockElement: HTMLElement;
 
   beforeEach(() => {
@@ -18,9 +18,9 @@ describe('StatusClassService', () => {
     mockElement = document.createElement('div');
 
     mockRenderer = {
-      addClass: jest.fn(),
-      removeClass: jest.fn(),
-    } as unknown as jest.Mocked<Renderer2>;
+      addClass: vi.fn(),
+      removeClass: vi.fn(),
+    } as unknown as Mocked<Renderer2>;
   });
 
   describe('applyStatusClasses', () => {
@@ -86,7 +86,7 @@ describe('StatusClassService', () => {
       const theme: Theme = 'neutral';
 
       statuses.forEach(status => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         const appliedClasses = service.applyStatusClasses(
           mockRenderer,
           mockElement,
@@ -108,7 +108,7 @@ describe('StatusClassService', () => {
       const status: Status = 'info';
 
       themes.forEach(theme => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         const appliedClasses = service.applyStatusClasses(
           mockRenderer,
           mockElement,
