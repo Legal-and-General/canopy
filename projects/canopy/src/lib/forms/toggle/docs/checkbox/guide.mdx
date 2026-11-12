@@ -13,9 +13,16 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
 Use a checkbox when you want to let the user choose multiple options. Each checkbox is either checked or unchecked.
 
-This checkbox component is implemented by `LgToggleComponent`. While `<lg-toggle>` is an available (generic) selector and is used in some existing products, **we recommend using** `<lg-checkbox>`.
+For reactive forms, the checkbox component is implemented by `LgToggleComponent`.
+While `<lg-toggle>` is an available (generic) selector and is used in some existing
+products, **we recommend using** `<lg-checkbox>`.
 
 Checkboxes can be used in the following ways:
 
@@ -27,7 +34,7 @@ Checkboxes can be used in the following ways:
 
 Import the toggle component in your application:
 ```js
-import { LgToggleComponent } from '@landg/angular-components';
+import { LgToggleComponent } from '@legal-and-general/canopy';
 ```
 
 And in HTML:
@@ -57,6 +64,53 @@ and in your HTML:
   <lg-toggle value="yellow" (blur)="checkboxBlur.emit($event)">Yellow</lg-toggle>
 </lg-checkbox-group>
 ```
+
+### Signal Forms
+
+Angular Signal Forms are experimental in Angular 21. Use
+`LgSignalCheckboxGroupComponent` and `LgSignalCheckboxOptionComponent` for a
+group, with `[formField]` on the group:
+
+```html
+<lg-signal-checkbox-group [formField]="fields.colours" [submitted]="submitted()">
+  Colours
+  <lg-hint>Choose all that apply.</lg-hint>
+  @if (showError()) {
+    <lg-validation>Select at least one colour.</lg-validation>
+  }
+  <lg-signal-toggle value="red">Red</lg-signal-toggle>
+  <lg-signal-toggle value="blue">Blue</lg-signal-toggle>
+</lg-signal-checkbox-group>
+```
+
+For a required group, apply `lgRequiredCheckboxGroup` in the form schema:
+
+```ts
+import { apply, form } from '@angular/forms/signals';
+import { lgRequiredCheckboxGroup } from '@legal-and-general/canopy';
+
+readonly fields = form(this.model, path => {
+  apply(path.colours, lgRequiredCheckboxGroup);
+});
+```
+
+The model must initialise `colours` to an empty string array. Angular 21's
+`required()` alone does not reject an empty array; this schema also adds the
+necessary length rule. Pass the form's submission state to `submitted` and
+clear it when resetting the form. See the Signal Forms example for a complete form.
+
+For a single checkbox, `LgSignalCheckboxComponent` implements Angular's
+`FormCheckboxControl` and binds to a **boolean** field:
+
+```html
+<lg-signal-checkbox [formField]="fields.agreed" [submitted]="submitted()">
+  I agree to the terms.
+</lg-signal-checkbox>
+```
+
+Initialise `agreed` to `false` and use `required(path.agreed)` when agreement
+is mandatory. Unlike the reactive toggle's configured string value or `null`,
+the signal checkbox stores `true` or `false`.
 
 ## How it works
 
@@ -116,7 +170,7 @@ Use inline checkboxes only when all labels are short and the options are closely
 
 ## Developer reference
 
-**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
+The following reference describes the reactive-form components.
 
 ### LgToggleComponent
 

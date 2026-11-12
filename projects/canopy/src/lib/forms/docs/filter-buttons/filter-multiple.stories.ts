@@ -9,6 +9,14 @@ import { moduleMetadata } from '@storybook/angular';
 import { LgCheckboxGroupComponent } from '../../checkbox-group';
 import { LgToggleComponent } from '../../toggle';
 import { LgHintComponent } from '../../hint';
+import { ReactiveValidationExampleComponent } from '../../validation/docs/reactive-validation-example';
+
+export const ReactiveValidationMultiple = {
+  decorators: [ moduleMetadata({ imports: [ ReactiveValidationExampleComponent ] }) ],
+  render: () => ({
+    template: '<lg-reactive-validation-example kind="filter-multiple" />',
+  }),
+};
 
 const formTemplate = `
 <form [formGroup]="form">

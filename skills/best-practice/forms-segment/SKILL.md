@@ -1,6 +1,6 @@
 ---
 name: canopy-forms-segment
-description: Best practices for the Canopy Segment component. Trigger when adding conscious single-choice selectors, question-and-answer journey controls, or compact radio alternatives in a form in an Angular project using Canopy.
+description: Best practices for Canopy Segment in Reactive or Signal Forms. Trigger for single-choice selectors, question-and-answer journeys or lg-signal-segment-group.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/radio/docs/segment/guide.mdx
@@ -10,9 +10,10 @@ metadata:
 
 This skill provides usage guidance, dos and don'ts, and input reference for the Canopy segment control from `@legal-and-general/canopy`.
 
-Apply this skill whenever you use `LgSegmentGroupComponent` or `LgSegmentButtonComponent`.
+Apply this skill whenever you use segment selectors, including
+`lg-signal-segment-group` and `lg-signal-segment-button`.
 
-> Segment buttons are implemented as restyled radio buttons. Import `LgRadioComponent` to use them.
+> Segment buttons are implemented as restyled radio buttons. Import the radio group and button components to use them.
 
 ---
 
@@ -26,6 +27,8 @@ import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-genera
 
 ## Basic Usage
 
+Use Angular Reactive Forms controls for production.
+
 ```html
 <lg-segment-group formControlName="colour">
   Colour
@@ -35,6 +38,29 @@ import { LgRadioGroupComponent, LgRadioButtonComponent } from '@legal-and-genera
   <lg-segment-button value="green">Green</lg-segment-button>
 </lg-segment-group>
 ```
+
+---
+
+## Signal Forms (experimental opt-in)
+
+Angular 21 Signal Forms are experimental and their API may change; consider the
+risks before using them in production. Import `FormField` and `form` from
+`@angular/forms/signals`, and `LgSignalRadioGroupComponent` and
+`LgSignalRadioButtonComponent` from `@legal-and-general/canopy`. Add `FormField`
+and both components to the standalone component's `imports`. Create `fields`
+using `form()`, starting with no selection, and configure validation in its schema.
+
+```html
+<lg-signal-segment-group [formField]="fields.colour" [submitted]="submitted()" stack="md">
+  Colour
+  <lg-signal-segment-button value="red">Red</lg-signal-segment-button>
+  <lg-signal-segment-button value="blue">Blue</lg-signal-segment-button>
+</lg-signal-segment-group>
+```
+
+Track submission and clear it on reset. Use the same signal group and button
+inputs as the radio variant; see `canopy-forms-radio` for the signal input
+reference and `canopy-forms-validation` for error and submission guidance.
 
 ---
 

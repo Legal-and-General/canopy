@@ -13,13 +13,18 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
 Use Text input when a user needs to enter a short, single-line value. For example:
 
 1. **Contact details** – name, email address, phone number, postcode
 2. **Product or account details** – reference/policy number, amounts (numeric)
 3. **Search**
 
-Import the text input component in your application:
+For reactive forms, import the text input component in your application:
 
 ```js
 import { LgInputFieldComponent, LgInputDirective } from '@legal-and-general/canopy';
@@ -34,6 +39,76 @@ and in your HTML:
   <input lgInput size="12" formControlName="name" />
 </lg-input-field>
 ```
+
+### Signal Forms
+
+Angular Signal Forms are experimental in Angular 21. For signal forms, use the
+separate `LgSignalInputFieldComponent` and `LgSignalInputDirective` with Angular's
+`FormField` directive. The existing reactive-form components remain unchanged.
+
+```html
+<lg-signal-input-field [submitted]="submitted()">
+  Name
+  <lg-hint>Please enter your name</lg-hint>
+  @if (showNameError()) {
+    <lg-validation>Enter your name</lg-validation>
+  }
+  <input lgSignalInput [formField]="fields.name" />
+</lg-signal-input-field>
+```
+
+Create `fields` using Angular's `form()` and configure validation in its schema.
+Track submission in the form component and pass it to the field to show errors
+for pristine fields after submission. Reset that submission state when resetting
+the form. The Signal Forms stories include the standard input, prefixes,
+suffixes and resizable textarea, with submit validation.
+
+```ts
+import { Component, signal } from '@angular/core';
+import { FormField, form, minLength, required, submit } from '@angular/forms/signals';
+import {
+  LgHintComponent,
+  LgSignalInputDirective,
+  LgSignalInputFieldComponent,
+  LgValidationComponent,
+} from '@legal-and-general/canopy';
+
+@Component({
+  imports: [
+    FormField,
+    LgHintComponent,
+    LgSignalInputDirective,
+    LgSignalInputFieldComponent,
+    LgValidationComponent,
+  ],
+  templateUrl: './example.html',
+})
+export class ExampleComponent {
+  readonly model = signal({ name: '' });
+  readonly submitted = signal(false);
+  readonly fields = form(this.model, path => {
+    required(path.name);
+    minLength(path.name, 3);
+  });
+
+  showNameError(): boolean {
+    const state = this.fields.name();
+    return state.invalid() && ((state.dirty() && state.touched()) || this.submitted());
+  }
+
+  onSubmit(event: Event): void {
+    event.preventDefault();
+    this.submitted.set(true);
+    if (this.fields.name().invalid()) {
+      this.fields.name().focusBoundControl();
+    }
+    void submit(this.fields, async () => {});
+  }
+}
+```
+
+Place the example HTML inside `<form novalidate (submit)="onSubmit($event)">`
+and include an enabled submit button.
 
 ### Optional fields
 
@@ -165,7 +240,7 @@ You can combine multiple suffixes with an external button when complex interacti
 
 ## Additional development information
 
-**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
+The following reference describes the reactive-form components.
 
 ### LgInputDirective inputs
 

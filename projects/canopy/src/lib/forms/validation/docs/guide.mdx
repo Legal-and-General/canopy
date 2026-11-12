@@ -13,6 +13,11 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
 Use form validation to guide users through data entry and ensure submitted information is accurate. Validation must be clear, timely, and accessible.
 
 ### When a user submits a form with errors
@@ -61,7 +66,7 @@ Error messages must be clear, concise, and tell the user how to fix the problem.
 
 The rules to display the error states are incorporated into the individual Canopy form components. When used in conjunction with standard Angular form validation the error styles will be displayed automatically.
 
-**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_black">Angular's reactive forms</a>.**
+The following example uses Angular's reactive forms.
 
 Error messages need to be handled by the individual applications by utilising the Validation component and the `LgErrorStateMatcher`.
 
@@ -155,6 +160,19 @@ For a wrapper that only projects `lg-validation` with `ng-content`, you can use
   <lg-validation>Enter a username</lg-validation>
 </app-my-error>
 ```
+
+## Signal Forms
+
+Angular Signal Forms are experimental in Angular 21. The same
+`LgValidationComponent` and `LgValidationWrapperDirective` work with both
+Signal Forms and reactive forms; separate signal versions are not needed.
+Configure validation in the signal form schema, display messages based on
+field state and a separately tracked submission state, and focus the first
+invalid control on submit, or focus an error summary for a longer form. See the
+Signal Forms examples for a complete form, validation message and wrapped
+validation message. The example focuses the first invalid field and does not
+implement an error summary; add one for a long form as described above. Clear
+the submission state on reset.
 
 ## Dos and don’ts
 

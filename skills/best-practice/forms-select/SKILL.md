@@ -1,6 +1,6 @@
 ---
 name: canopy-forms-select
-description: Best practices for the Canopy Select component. Trigger when adding dropdown form fields, single-selection lists, or option pickers in an Angular project using Canopy.
+description: Best practices for Canopy Select in Reactive or Signal Forms. Trigger for dropdowns, option pickers, lgSelect or lgSignalSelect.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/select/docs/guide.mdx
@@ -10,7 +10,8 @@ metadata:
 
 This skill provides usage guidance, dos and don'ts, and input reference for the Canopy `lg-select-field` component from `@legal-and-general/canopy`.
 
-Apply this skill whenever you use `LgSelectFieldComponent` or `LgSelectDirective`.
+Apply this skill whenever you use `LgSelectFieldComponent`, `LgSelectDirective`,
+`LgSignalSelectFieldComponent` or `LgSignalSelectDirective`.
 
 ---
 
@@ -24,7 +25,7 @@ import { LgSelectFieldComponent, LgSelectDirective } from '@legal-and-general/ca
 
 ## Basic Usage
 
-Use Angular reactive forms. The `lgSelect` directive goes on the `<select>` element inside `lg-select-field`.
+Use Angular Reactive Forms controls for production. The `lgSelect` directive goes on the `<select>` element inside `lg-select-field`.
 
 ```html
 <lg-select-field formControlName="colour">
@@ -38,6 +39,40 @@ Use Angular reactive forms. The `lgSelect` directive goes on the `<select>` elem
   </select>
 </lg-select-field>
 ```
+
+---
+
+## Signal Forms (experimental opt-in)
+
+Angular 21 Signal Forms are experimental and their API may change; consider the
+risks before using them in production. Import `FormField` and `form` from
+`@angular/forms/signals`, and `LgSignalSelectFieldComponent` and
+`LgSignalSelectDirective` from `@legal-and-general/canopy`. Add `FormField` and
+the Canopy component and directive to the standalone component's `imports`.
+Create `fields` using `form()` and configure the required rule in its schema.
+
+```html
+<lg-signal-select-field [submitted]="submitted()">
+  Colour
+  <lg-hint>Select your preferred colour.</lg-hint>
+  @if (showColourError()) { <lg-validation>Select a colour.</lg-validation> }
+  <select lgSignalSelect [formField]="fields.colour">
+    <option value="">Select a colour</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+  </select>
+</lg-signal-select-field>
+```
+
+Track submission and pass it to the field to show errors for pristine fields
+after submission; clear it when resetting. See `canopy-forms-validation` for
+validation and submission guidance.
+
+| Signal field input | Type | Default | Description |
+|---|---|---|---|
+| `id` | `string` | auto-generated | Connects the select and label. |
+| `block` | `boolean` | `false` | Makes the select full-width on small screens. |
+| `submitted` | `boolean` | `false` | Enables error display after submission. |
 
 ---
 

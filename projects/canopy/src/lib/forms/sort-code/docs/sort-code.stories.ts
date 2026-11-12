@@ -9,6 +9,12 @@ import { moduleMetadata } from '@storybook/angular';
 import { LgSortCodeDirective } from '../sort-code.directive';
 import { LgInputDirective, LgInputFieldComponent } from '../../input';
 import { LgHintComponent } from '../../hint';
+import { ReactiveValidationExampleComponent } from '../../validation/docs/reactive-validation-example';
+
+export const ReactiveValidation = {
+  decorators: [ moduleMetadata({ imports: [ ReactiveValidationExampleComponent ] }) ],
+  render: () => ({ template: '<lg-reactive-validation-example kind="sort-code" />' }),
+};
 
 const template = `
 <lg-input-field>
