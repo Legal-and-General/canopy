@@ -29,7 +29,7 @@ describe('LgContentAreaTitleComponent', () => {
   });
 
   it('should log an error if headingLevel is not set', () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error');
+    const consoleErrorSpy = vi.spyOn(console, 'error');
 
     component.ngOnInit();
 
@@ -39,7 +39,7 @@ describe('LgContentAreaTitleComponent', () => {
   });
 
   it('should not log an error if headingLevel is set', () => {
-    const consoleErrorSpy = jest.spyOn(console, 'error');
+    const consoleErrorSpy = vi.spyOn(console, 'error');
 
     component.headingLevel = 2;
     component.ngOnInit();

@@ -28,7 +28,7 @@ describe('LgCardNavigationTitleComponent', () => {
       providers: [ provideRouter([]) ],
     }).compileComponents();
 
-    jest.spyOn(console, 'error').mockImplementation();
+    vi.spyOn(console, 'error').mockImplementation(() => {});
   }));
 
   afterEach(() => {
@@ -74,7 +74,7 @@ describe('LgCardNavigationTitleComponent', () => {
     });
 
     it('should emit events', () => {
-      const linkClickedEventSpy = jest.spyOn(component.linkClickedEvent, 'emit');
+      const linkClickedEventSpy = vi.spyOn(component.linkClickedEvent, 'emit');
 
       component.linkClicked();
 

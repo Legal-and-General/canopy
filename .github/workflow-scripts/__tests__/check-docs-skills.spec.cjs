@@ -15,22 +15,25 @@ describe('checkDocsSkills', () => {
   let readFileSyncSpy;
 
   beforeEach(() => {
-    jest.clearAllMocks();
-    readFileSyncSpy = jest.spyOn(fs, 'readFileSync').mockReturnValue('');
+    readFileSyncSpy = vi.spyOn(fs, 'readFileSync').mockReturnValue('');
 
     github = {
       rest: {
         pulls: {
-          listFiles: jest.fn(),
+          listFiles: vi.fn(),
         },
       },
     };
 
     core = {
-      info: jest.fn(),
-      setFailed: jest.fn(),
-      warning: jest.fn(),
+      info: vi.fn(),
+      setFailed: vi.fn(),
+      warning: vi.fn(),
     };
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   function mockListFiles(filenames) {

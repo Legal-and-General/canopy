@@ -13,7 +13,7 @@ describe('create-gh-deployment-status', () => {
     github = {
       rest: {
         repos: {
-          createDeploymentStatus: jest.fn().mockResolvedValue({}),
+          createDeploymentStatus: vi.fn().mockResolvedValue({}),
         },
       },
     };
@@ -49,4 +49,3 @@ describe('create-gh-deployment-status', () => {
     expect(github.rest.repos.createDeploymentStatus).toHaveBeenCalledTimes(1);
   });
 });
-

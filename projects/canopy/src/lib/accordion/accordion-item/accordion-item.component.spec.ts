@@ -74,13 +74,23 @@ describe('LgAccordionItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should apply the lg-accordion-item class to the host', () => {
+    const itemElement = fixture.debugElement.children[0].nativeElement;
+
+    expect(itemElement.classList.contains('lg-accordion-item')).toBe(true);
+  });
+
   it('should render panel content', () => {
     expect(fixture.debugElement.query(By.css('.default-content'))).toBeDefined();
   });
 
   it('should link the panel heading button id to the panel aria-labelledby, and the button aria-controls to the panel id', () => {
-    const buttonEl = fixture.debugElement.query(By.css('.lg-accordion__heading-toggle')).nativeElement;
-    const panelEl = fixture.debugElement.query(By.css('.lg-accordion__panel')).nativeElement;
+    const buttonEl = fixture.debugElement.query(
+      By.css('.lg-accordion__heading-toggle'),
+    ).nativeElement;
+    const panelEl = fixture.debugElement.query(
+      By.css('.lg-accordion__panel'),
+    ).nativeElement;
 
     expect(buttonEl.getAttribute('id')).toBe(panelEl.getAttribute('aria-labelledby'));
     expect(buttonEl.getAttribute('aria-controls')).toBe(panelEl.getAttribute('id'));
@@ -106,14 +116,14 @@ describe('LgAccordionItemComponent', () => {
   });
 
   describe('clicking on the child component trigger', () => {
-    let openedSpy: jest.SpyInstance;
-    let closedSpy: jest.SpyInstance;
-    let selectionDispatcherSpy: jest.SpyInstance;
+    let openedSpy: MockInstance;
+    let closedSpy: MockInstance;
+    let selectionDispatcherSpy: MockInstance;
 
     beforeEach(() => {
-      openedSpy = jest.spyOn(component.opened, 'emit');
-      closedSpy = jest.spyOn(component.closed, 'emit');
-      selectionDispatcherSpy = jest.spyOn(selectionDispatcher, 'notify');
+      openedSpy = vi.spyOn(component.opened, 'emit');
+      closedSpy = vi.spyOn(component.closed, 'emit');
+      selectionDispatcherSpy = vi.spyOn(selectionDispatcher, 'notify');
     });
 
     it('should update \'isActive\'', () => {
@@ -152,6 +162,31 @@ describe('LgAccordionItemComponent', () => {
     expect(
       panelElement.nativeElement.classList.contains('lg-accordion__panel--active'),
     ).toBe(true);
+
+    triggerElement.nativeElement.click();
+    fixture.detectChanges();
+
+    expect(
+      panelElement.nativeElement.classList.contains('lg-accordion__panel--active'),
+    ).toBe(false);
+  });
+
+  it('should prevent interaction while closed and restore it when opened', () => {
+    const panel = fixture.debugElement.query(
+      By.css('.lg-accordion__panel'),
+    ).nativeElement;
+
+    expect(panel.hasAttribute('inert')).toBe(true);
+
+    triggerElement.nativeElement.click();
+    fixture.detectChanges();
+
+    expect(panel.hasAttribute('inert')).toBe(false);
+
+    triggerElement.nativeElement.click();
+    fixture.detectChanges();
+
+    expect(panel.hasAttribute('inert')).toBe(true);
   });
 
   describe('when updating isActive input', () => {
@@ -184,12 +219,12 @@ describe('LgAccordionItemComponent', () => {
 
   describe('when notified of sibling accordion item activated', () => {
     const someOtherId = 'some-other-id';
-    let closedSpy: jest.SpyInstance;
+    let closedSpy: MockInstance;
 
     beforeEach(() => {
       fixture.debugElement.componentInstance.isActive = true;
       fixture.detectChanges();
-      closedSpy = jest.spyOn(component.closed, 'emit');
+      closedSpy = vi.spyOn(component.closed, 'emit');
     });
 
     describe('and accordion is in multi mode', () => {

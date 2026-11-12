@@ -1,12 +1,11 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { Subscription } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 import { LgModalService } from './';
 
 describe('LgModalService', () => {
   const id = 'test-1';
   let service: LgModalService;
-  let subscription: Subscription;
 
   beforeEach(waitForAsync(() => {
     service = TestBed.inject(LgModalService);
@@ -17,50 +16,38 @@ describe('LgModalService', () => {
   });
 
   afterEach(() => {
-    subscription?.unsubscribe();
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should push true to the state of the specific modal when calling the #open fn', done => {
+  it('should push true to the state of the specific modal when calling the #open fn', async () => {
     service.open(id);
 
-    subscription = service['states'].get(id).subscribe(data => {
-      expect(data).toBe(true);
-      done();
-    });
+    expect(await firstValueFrom(service['states'].get(id))).toBe(true);
   });
 
-  it('should push false to the state of the specific modal when calling the #close fn', done => {
+  it('should push false to the state of the specific modal when calling the #close fn', async () => {
     service.close(id);
 
-    subscription = service['states'].get(id).subscribe(data => {
-      expect(data).toBe(false);
-      done();
-    });
+    expect(await firstValueFrom(service['states'].get(id))).toBe(false);
   });
 
   describe('isOpen$', () => {
-    it('should return the state observable for the specific modal', done => {
+    it('should return the state observable for the specific modal', async () => {
       service['states'].get(id).next(true);
 
-      subscription = service.isOpen$(id).subscribe(data => {
-        expect(data).toBe(true);
-        done();
-      });
+      expect(await firstValueFrom(service.isOpen$(id))).toBe(true);
     });
 
-    it('should call #add when the modal doesn\'t exist', done => {
-      const addSpy = jest.spyOn(service, 'add');
+    it('should call #add when the modal doesn\'t exist', async () => {
+      const addSpy = vi.spyOn(service, 'add');
+      const state = await firstValueFrom(service.isOpen$('test-2'));
 
-      subscription = service.isOpen$('test-2').subscribe(data => {
-        expect(addSpy).toHaveBeenCalledWith('test-2');
-        expect(data).toBeUndefined();
-        done();
-      });
+      expect(addSpy).toHaveBeenCalledWith('test-2');
+      expect(state).toBeUndefined();
     });
   });
 
@@ -77,7 +64,7 @@ describe('LgModalService', () => {
   it('should call #close and remove an item from the map when calling #remove', () => {
     expect(service['states'].has(id)).toBe(true);
 
-    const closeSpy = jest.spyOn(service, 'close');
+    const closeSpy = vi.spyOn(service, 'close');
 
     service.remove(id);
 

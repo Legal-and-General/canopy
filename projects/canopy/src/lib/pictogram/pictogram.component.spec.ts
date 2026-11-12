@@ -6,12 +6,12 @@ import { LgPictogramRegistry } from './pictogram.registry';
 describe('LgPictogramComponent', () => {
   let component: LgPictogramComponent;
   let fixture: ComponentFixture<LgPictogramComponent>;
-  let pictogramRegistryMock: jest.Mocked<LgPictogramRegistry>;
+  let pictogramRegistryMock: Mocked<LgPictogramRegistry>;
 
   beforeEach(waitForAsync(() => {
     pictogramRegistryMock = {
-      get: jest.fn(),
-    } as unknown as jest.Mocked<LgPictogramRegistry>;
+      get: vi.fn(),
+    } as unknown as Mocked<LgPictogramRegistry>;
 
     TestBed.configureTestingModule({
       imports: [ LgPictogramComponent ],
@@ -92,7 +92,7 @@ describe('LgPictogramComponent', () => {
     });
 
     it('should log a console error when a pictogram cannot be found', async () => {
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       pictogramRegistryMock.get.mockResolvedValue(undefined);
 

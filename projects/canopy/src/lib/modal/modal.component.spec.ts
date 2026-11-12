@@ -25,12 +25,12 @@ describe('LgModalComponent', () => {
   let component: LgModalComponent;
   let cdrMock: ChangeDetectorRef;
   let fixture: MockedComponentFixture<LgModalComponent>;
-  let isOpenSpy = jest.fn().mockReturnValue(of(undefined));
+  let isOpenSpy = vi.fn().mockReturnValue(of(undefined));
   const modalServiceMock = {
     isOpen$: isOpenSpy,
-    open: jest.fn(),
-    close: jest.fn(),
-    remove: jest.fn(),
+    open: vi.fn(),
+    close: vi.fn(),
+    remove: vi.fn(),
   };
   const id = 'test-1';
 
@@ -58,14 +58,14 @@ describe('LgModalComponent', () => {
     component = fixture.debugElement.children[0].componentInstance;
     component.id = id;
 
-    jest.spyOn(component.closed, 'emit').mockImplementation(() => {});
-    jest.spyOn(component.open, 'emit').mockImplementation(() => {});
-    jest.spyOn(component.closedEscKey, 'emit').mockImplementation(() => {});
-    jest.spyOn(component.closedOverlayClick, 'emit').mockImplementation(() => {});
+    vi.spyOn(component.closed, 'emit').mockImplementation(() => {});
+    vi.spyOn(component.open, 'emit').mockImplementation(() => {});
+    vi.spyOn(component.closedEscKey, 'emit').mockImplementation(() => {});
+    vi.spyOn(component.closedOverlayClick, 'emit').mockImplementation(() => {});
   }));
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('should create', () => {
@@ -104,7 +104,7 @@ describe('LgModalComponent', () => {
       });
 
       it('should detect changes', () => {
-        const cdrDetectChangesSpy = jest.spyOn(component['cdr'], 'detectChanges');
+        const cdrDetectChangesSpy = vi.spyOn(component['cdr'], 'detectChanges');
 
         isOpenSpy.mockReturnValue(of(true));
         component.ngOnInit();
@@ -159,7 +159,7 @@ describe('LgModalComponent', () => {
     it('should stop the propagation of the event', () => {
       const event = new Event('click');
 
-      jest.spyOn(event, 'stopPropagation');
+      vi.spyOn(event, 'stopPropagation');
       component.onModalClick(event);
 
       expect(event.stopPropagation).toHaveBeenCalledTimes(1);

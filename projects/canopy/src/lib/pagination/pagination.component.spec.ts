@@ -379,7 +379,7 @@ describe('LgPaginationComponent', () => {
   });
 
   describe('#pageChanged', () => {
-    let pageChangedSpy: jest.SpyInstance;
+    let pageChangedSpy: MockInstance;
 
     beforeEach(() => {
       fixture.componentRef.setInput('totalItems', 30);
@@ -387,7 +387,7 @@ describe('LgPaginationComponent', () => {
 
       fixture.detectChanges();
 
-      pageChangedSpy = jest.spyOn(component.pageChanged, 'emit');
+      pageChangedSpy = vi.spyOn(component.pageChanged, 'emit');
     });
 
     it('should emit when the total items input changes', () => {
