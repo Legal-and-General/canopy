@@ -207,7 +207,7 @@ describe('LgPaginationComponent', () => {
       );
 
       it('should not emit or change the result range when the current page is clicked', () => {
-        const pageChangedSpy = jest.spyOn(component.pageChanged, 'emit');
+        const pageChangedSpy = vi.spyOn(component.pageChanged, 'emit');
 
         getLayoutPageButtons()[1].nativeElement.click();
         fixture.detectChanges();
@@ -219,7 +219,7 @@ describe('LgPaginationComponent', () => {
       });
 
       it('should transfer the current-page state after navigating and block reactivation', () => {
-        const pageChangedSpy = jest.spyOn(component.pageChanged, 'emit');
+        const pageChangedSpy = vi.spyOn(component.pageChanged, 'emit');
 
         getLayoutPageButtons()[2].nativeElement.click();
         fixture.detectChanges();
