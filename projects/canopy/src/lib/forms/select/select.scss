@@ -46,14 +46,15 @@
     background: var(--select-error-background-colour);
     box-shadow: 0 0 0 var(--select-error-border-width)
       var(--select-error-background-colour);
-    border: var(--text-input-rest-border-width) solid var(--select-error-border-colour);
+    border: var(--select-rest-border-width) solid var(--select-error-border-colour);
   }
 
   &.lg-select--error:focus-visible {
     background: var(--select-error-background-colour);
-    box-shadow: 0 0 0 var(--select-error-border-width)
-      var(--select-error-background-colour);
-    border: var(--text-input-error-border-width) solid var(--select-error-border-colour);
+    border: var(--select-rest-border-width) solid var(--select-error-border-colour);
+    box-shadow:
+      0 0 0 var(--select-rest-border-width) var(--select-error-border-colour),
+      0 0 0 var(--select-error-focus-border-width) var(--select-focus-background-colour);
     outline: 0;
   }
 
