@@ -120,7 +120,7 @@ const template = `
         </lg-select-field>
       </form>
     } @else {
-      <h3>{{ (route.data | async)?.title }}</h3>
+      <h2>{{ (route.data | async)?.title }}</h2>
       <p>{{ (route.data | async)?.description }}</p>
     }
   `,
