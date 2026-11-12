@@ -157,6 +157,104 @@ describe('LgPaginationComponent', () => {
     });
   });
 
+  describe.each([ 'desktop', 'tablet', 'mobile' ])(
+    '%s current-page accessibility',
+    layout => {
+      const getLayoutPageButtons = () =>
+        fixture.debugElement.queryAll(
+          By.css(
+            `.lg-pagination__controls--${layout} .lg-pagination__button:not(.lg-pagination__button--prevnext)`,
+          ),
+        );
+
+      beforeEach(() => {
+        fixture.componentRef.setInput('totalItems', 30);
+        fixture.componentRef.setInput('itemsPerPage', 10);
+        fixture.componentRef.setInput('currentPage', 2);
+        fixture.detectChanges();
+      });
+
+      it.each([ 1, 2, 3 ])(
+        'should identify page %s as current and unavailable for activation',
+        page => {
+          fixture.componentRef.setInput('currentPage', page);
+          fixture.detectChanges();
+
+          getLayoutPageButtons().forEach((button, index) => {
+            const element = button.nativeElement as HTMLButtonElement;
+            const isCurrent = index + 1 === page;
+
+            expect(element.getAttribute('aria-label')).toBe(
+              isCurrent
+                ? `Page ${page}`
+                : `Go to page ${index + 1}`,
+            );
+
+            expect(element.getAttribute('aria-current')).toBe(
+              isCurrent
+                ? 'page'
+                : 'false',
+            );
+
+            expect(element.getAttribute('aria-disabled')).toBe(isCurrent
+              ? 'true'
+              : null);
+
+            expect(element.disabled).toBe(false);
+            expect(element.tabIndex).toBe(0);
+          });
+        },
+      );
+
+      it('should not emit or change the result range when the current page is clicked', () => {
+        const pageChangedSpy = vi.spyOn(component.pageChanged, 'emit');
+
+        getLayoutPageButtons()[1].nativeElement.click();
+        fixture.detectChanges();
+
+        expect(pageChangedSpy).not.toHaveBeenCalled();
+        expect(component.currentPage).toBe(2);
+        expect(component.startItem).toBe(11);
+        expect(component.endItem).toBe(20);
+      });
+
+      it('should transfer the current-page state after navigating and block reactivation', () => {
+        const pageChangedSpy = vi.spyOn(component.pageChanged, 'emit');
+
+        getLayoutPageButtons()[2].nativeElement.click();
+        fixture.detectChanges();
+
+        expect(pageChangedSpy).toHaveBeenCalledTimes(1);
+
+        expect(pageChangedSpy).toHaveBeenCalledWith({
+          pageNumber: 3,
+          startIndex: 20,
+          endIndex: 29,
+        });
+
+        const oldCurrent = getLayoutPageButtons()[1].nativeElement as HTMLButtonElement;
+        const newCurrent = getLayoutPageButtons()[2].nativeElement as HTMLButtonElement;
+
+        expect(oldCurrent.getAttribute('aria-label')).toBe('Go to page 2');
+        expect(oldCurrent.getAttribute('aria-current')).toBe('false');
+        expect(oldCurrent.hasAttribute('aria-disabled')).toBe(false);
+        expect(newCurrent.getAttribute('aria-label')).toBe('Page 3');
+        expect(newCurrent.getAttribute('aria-current')).toBe('page');
+        expect(newCurrent.getAttribute('aria-disabled')).toBe('true');
+
+        newCurrent.click();
+
+        expect(pageChangedSpy).toHaveBeenCalledTimes(1);
+
+        oldCurrent.click();
+        fixture.detectChanges();
+
+        expect(pageChangedSpy).toHaveBeenCalledTimes(2);
+        expect(component.currentPage).toBe(2);
+      });
+    },
+  );
+
   describe('desktop truncation', () => {
     const getPageNumbers = () =>
       getPageButtons().map(button =>
