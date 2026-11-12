@@ -22,6 +22,13 @@ describe('LgSideNavBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should render a labelled navigation region without a card wrapper', () => {
+    expect(fixture.nativeElement.getAttribute('role')).toBe('navigation');
+    expect(fixture.nativeElement.getAttribute('aria-label')).toBe('Nav');
+    expect(fixture.nativeElement.querySelector('lg-card')).toBeNull();
+    expect(fixture.nativeElement.querySelector('lg-card-content')).toBeNull();
+  });
+
   it('should contain the default class', () => {
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-side-nav-bar');
   });

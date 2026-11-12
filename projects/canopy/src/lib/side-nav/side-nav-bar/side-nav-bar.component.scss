@@ -8,9 +8,7 @@
   margin: var(--component-margin) 0 0 0;
   font-size: var(--text-base-size);
   font-weight: var(--tabs-list-item-font-weight);
-  padding: var(--component-padding);
-
-  @include mixins.lg-card;
+  min-width: 0;
 
   > a {
     text-decoration: none;
@@ -18,10 +16,5 @@
 
   @include mixins.lg-breakpoint('lg') {
     margin: 0;
-    padding: 0 var(--component-margin) var(--component-margin) 0;
-    border-right: var(--border-width) solid var(--colour-greyscale-200);
-    flex: 1;
-    // To do: Remove after temporary card rounded corners
-    border-radius: 0 !important;
   }
 }
