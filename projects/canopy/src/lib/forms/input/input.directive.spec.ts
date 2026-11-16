@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, DebugElement } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
+  FormControl,
   UntypedFormControl,
   UntypedFormGroup,
   FormsModule,
@@ -26,6 +27,22 @@ class TestInputComponent {
   form = new UntypedFormGroup({
     name: new UntypedFormControl('', [ Validators.required ]),
   });
+}
+
+@Component({
+  template: '<input lgInput [disabled]="disabled" />',
+  imports: [ LgInputDirective ],
+})
+class StandaloneInputTestComponent {
+  @Input() disabled = false;
+}
+
+@Component({
+  template: '<input lgInput [formControl]="control" />',
+  imports: [ ReactiveFormsModule, LgInputDirective ],
+})
+class DisabledReactiveInputTestComponent {
+  control = new FormControl({ value: '', disabled: true });
 }
 
 describe('LgInputDirective', () => {
@@ -96,6 +113,82 @@ describe('LgInputDirective', () => {
     fixture.detectChanges();
 
     expect(inputDebugElement.nativeElement.className).toContain('lg-input--block');
+  });
+
+  it('sets and removes the native disabled state through the directive input', () => {
+    const standaloneFixture = TestBed.createComponent(StandaloneInputTestComponent);
+    const input: HTMLInputElement =
+      standaloneFixture.nativeElement.querySelector('input');
+
+    standaloneFixture.componentRef.setInput('disabled', true);
+    standaloneFixture.detectChanges();
+
+    expect(input.disabled).toBe(true);
+
+    standaloneFixture.componentRef.setInput('disabled', false);
+    standaloneFixture.detectChanges();
+
+    expect(input.hasAttribute('disabled')).toBe(false);
+    expect(input.disabled).toBe(false);
+  });
+
+  it('preserves an initially disabled form control in the native input', () => {
+    component.form.controls.name.disable();
+    fixture.detectChanges();
+
+    expect(inputInstance.disabled).toBe(false);
+    expect(inputDebugElement.nativeElement.disabled).toBe(true);
+  });
+
+  describe('an initially disabled reactive input', () => {
+    let reactiveFixture: ComponentFixture<DisabledReactiveInputTestComponent>;
+    let control: FormControl;
+    let inputEl: HTMLInputElement;
+
+    beforeEach(() => {
+      reactiveFixture = TestBed.createComponent(DisabledReactiveInputTestComponent);
+      control = reactiveFixture.componentInstance.control;
+      inputEl = reactiveFixture.nativeElement.querySelector('input');
+    });
+
+    it('sets the native disabled attribute when the form control is disabled before first render', () => {
+      reactiveFixture.detectChanges();
+
+      expect(inputEl.disabled).toBe(true);
+      expect(inputEl.hasAttribute('disabled')).toBe(true);
+    });
+
+    it('removes the native disabled attribute when the form control is re-enabled', () => {
+      reactiveFixture.detectChanges();
+      control.enable();
+      reactiveFixture.detectChanges();
+
+      expect(inputEl.disabled).toBe(false);
+      expect(inputEl.hasAttribute('disabled')).toBe(false);
+    });
+  });
+
+  it('still honours the disabled input without a form control', () => {
+    const standaloneFixture = TestBed.createComponent(StandaloneInputTestComponent);
+    const inputEl: HTMLInputElement =
+      standaloneFixture.nativeElement.querySelector('input');
+
+    standaloneFixture.componentRef.setInput('disabled', true);
+    standaloneFixture.detectChanges();
+
+    expect(inputEl.hasAttribute('disabled')).toBe(true);
+  });
+
+  it('keeps the native input disabled when the directive input is reset', () => {
+    component.form.controls.name.disable();
+    inputInstance.disabled = true;
+    fixture.detectChanges();
+
+    inputInstance.disabled = false;
+    fixture.changeDetectorRef.markForCheck();
+    fixture.detectChanges();
+
+    expect(inputDebugElement.nativeElement.disabled).toBe(true);
   });
 
   it('adds an error class when the field has a validation error', () => {
