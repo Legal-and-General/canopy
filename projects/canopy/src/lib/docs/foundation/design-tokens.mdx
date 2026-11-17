@@ -98,16 +98,29 @@ For example, `--colour-surface-fill-1` has different values in “blue”, “gr
 Design tokens underpin all Canopy components, patterns, template libraries, and the Angular component library.
 
 If you're using the Canopy Angular library, the tokens are included automatically.
-Otherwise, you'll need to install the package manually:
+Otherwise, first configure the project's `.npmrc` to use GitHub Packages for the Canopy scope:
+
+```ini
+@legal-and-general:registry=https://npm.pkg.github.com/
+```
+
+Complete these steps before installing (external links):
+
+* [Setting up the GitHub registry](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#setting-up-the-github-registry)
+* [Authenticating against the GitHub registry](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#authenticating-against-the-github-registry)
+
+Authentication requires a personal access token with `read:packages` permission. Store
+credentials in your user's `.npmrc` or a CI secret, never in the project's committed files.
+
+Only after registry configuration and authentication are complete, install the package:
 
 ```bash
 npm install @legal-and-general/canopy-design-tokens
 ```
 
-To ensure everything works correctly, follow these steps (external links):
-
-* [Setting up the GitHub registry](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#setting-up-the-github-registry)
-* [Authenticating against the GitHub registry](https://github.com/Legal-and-General/canopy/blob/master/docs/USAGE.md#authenticating-against-the-github-registry)
+This package is hosted on GitHub Packages, not the public npm registry. If configuration,
+authentication or installation fails, stop and resolve the error; do not fall back to
+the public npm registry or substitute a similarly named package.
 
 ### Importing tokens
 
