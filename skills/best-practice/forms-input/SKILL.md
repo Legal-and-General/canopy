@@ -1,6 +1,6 @@
 ---
 name: canopy-forms-input
-description: Best practices for the Canopy Text Input component. Trigger when adding text input fields, single-line form inputs, prefixes, suffixes, or input buttons in an Angular project using Canopy.
+description: Best practices for Canopy Text Input, including Reactive and Signal Forms. Trigger for text fields, prefixes, suffixes, input buttons, lgInput or lgSignalInput.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/input/docs/guide.mdx
@@ -10,7 +10,8 @@ metadata:
 
 This skill provides usage guidance, dos and don'ts, and input reference for the Canopy `lg-input-field` component from `@legal-and-general/canopy`.
 
-Apply this skill whenever you use `LgInputFieldComponent` or the `lgInput` directive.
+Apply this skill whenever you use `LgInputFieldComponent`, `lgInput`,
+`LgSignalInputFieldComponent` or `lgSignalInput`.
 
 ---
 
@@ -30,7 +31,7 @@ import { LgHintComponent, LgValidationComponent } from '@legal-and-general/canop
 
 ## Basic Usage
 
-Use Angular reactive forms. The `lgInput` directive goes on the `<input>` element inside `lg-input-field`.
+Use Angular Reactive Forms controls for production. The `lgInput` directive goes on the `<input>` element inside `lg-input-field`.
 
 ```html
 <lg-input-field>
@@ -39,6 +40,41 @@ Use Angular reactive forms. The `lgInput` directive goes on the `<input>` elemen
   <input lgInput formControlName="name" />
 </lg-input-field>
 ```
+
+---
+
+## Signal Forms (experimental opt-in)
+
+Angular 21 Signal Forms are experimental and their API may change. Consider the
+risks before using them in production; the Reactive Forms controls remain available.
+Import `FormField` and `form` from `@angular/forms/signals`, and
+`LgSignalInputFieldComponent` and `LgSignalInputDirective` from
+`@legal-and-general/canopy`. Add `FormField` and both Canopy imports to the
+standalone component's `imports`. Create `fields` with `form()` and configure
+validation in its schema.
+
+```html
+<lg-signal-input-field [submitted]="submitted()">
+  Name
+  <lg-hint>Please enter your name</lg-hint>
+  @if (showNameError()) { <lg-validation>Enter your name</lg-validation> }
+  <input lgSignalInput [formField]="fields.name" />
+</lg-signal-input-field>
+```
+
+Track submission in the form component, pass it to the field, and reset it when
+resetting the form. Display validation when the field is invalid and either
+both dirty and touched or submitted. On invalid submission, focus the first
+invalid field with `focusBoundControl()`. The signal variant also supports
+prefixes, suffixes, external buttons and a resizable `<textarea lgSignalInput>`.
+See `canopy-forms-validation` for submission and validation guidance.
+
+| Signal field input | Type | Default | Description |
+|---|---|---|---|
+| `id` | `string` | auto-generated | Connects the input and label. |
+| `block` | `boolean` | `false` | Makes the input full-width on small screens. |
+| `showLabel` | `boolean` | `true` | Visually shows or hides the label. |
+| `submitted` | `boolean` | `false` | Enables error display after submission. |
 
 ---
 

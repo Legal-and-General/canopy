@@ -13,12 +13,17 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers';
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
 Use segments in forms when a user must make a single, mutually exclusive selection from a small list of options (between 2 and 5). They are particularly effective when:
 
 - You want to provide a more prominent visual alternative to standard radio buttons.
 - You want to ensure the user makes a conscious choice (starting with no default selection).
 
-Import the radio components into your application:
+For reactive forms, import the radio components into your application:
 
 ```js
 import {
@@ -36,6 +41,11 @@ and in your HTML:
   <lg-segment-button value="yellow">Yellow</lg-segment-button>
 </lg-segment-group>
 ```
+
+For Angular Signal Forms, use `LgSignalRadioGroupComponent` and
+`LgSignalRadioButtonComponent` with the `lg-signal-segment-group` and
+`lg-signal-segment-button` selectors. Bind `[formField]` to the group; see the
+segment Signal Forms example for a complete form.
 
 ## How it works
 
@@ -77,7 +87,7 @@ Segments should stack vertically on mobile to ensure each button remains easy to
 
 ## Developer reference
 
-**We recommend using <a href="https://angular.io/guide/reactive-forms" target="_blank">Angular's reactive forms</a>.**
+The following reference describes the reactive-form components.
 
 ### Displaying the buttons at different breakpoints
 

@@ -7,6 +7,12 @@ import {
 import { moduleMetadata } from '@storybook/angular';
 
 import { LgDateFieldComponent } from '../date-field.component';
+import { ReactiveValidationExampleComponent } from '../../validation/docs/reactive-validation-example';
+
+export const ReactiveValidation = {
+  decorators: [ moduleMetadata({ imports: [ ReactiveValidationExampleComponent ] }) ],
+  render: () => ({ template: '<lg-reactive-validation-example kind="date" />' }),
+};
 
 const template = `
 <lg-date-field [focus]="focus" formControlName="date">

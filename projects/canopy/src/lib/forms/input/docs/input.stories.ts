@@ -14,6 +14,12 @@ import { LgSuffixDirective } from '../../../suffix';
 import { LgHintComponent } from '../../hint';
 import { LgIconComponent } from '../../../icon';
 import { LgInputFieldExternalButtonDirective } from '../../input-field-external-button';
+import { ReactiveValidationExampleComponent } from '../../validation/docs/reactive-validation-example';
+
+export const ReactiveValidation = {
+  decorators: [ moduleMetadata({ imports: [ ReactiveValidationExampleComponent ] }) ],
+  render: () => ({ template: '<lg-reactive-validation-example kind="input" />' }),
+};
 
 interface Config {
   block?: boolean;

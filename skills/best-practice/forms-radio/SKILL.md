@@ -1,6 +1,6 @@
 ---
 name: canopy-forms-radio
-description: Best practices for the Canopy Radio component. Trigger when adding single-choice radio button groups to a form in an Angular project using Canopy.
+description: Best practices for Canopy Radio in Reactive or Signal Forms. Trigger for single-choice radio groups, lg-radio-group or lg-signal-radio-group.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/radio/docs/radio/guide.mdx
@@ -10,7 +10,8 @@ metadata:
 
 This skill provides usage guidance, dos and don'ts, and input reference for the Canopy radio components from `@legal-and-general/canopy`.
 
-Apply this skill whenever you use `LgRadioGroupComponent` or `LgRadioButtonComponent`.
+Apply this skill whenever you use `LgRadioGroupComponent`, `LgRadioButtonComponent`,
+`LgSignalRadioGroupComponent` or `LgSignalRadioButtonComponent`.
 
 ---
 
@@ -27,6 +28,8 @@ import {
 
 ## Basic Usage
 
+Use Angular Reactive Forms controls for production.
+
 ```html
 <lg-radio-group formControlName="colour">
   Preferred colour
@@ -36,6 +39,48 @@ import {
   <lg-radio-button value="green">Green</lg-radio-button>
 </lg-radio-group>
 ```
+
+---
+
+## Signal Forms (experimental opt-in)
+
+Angular 21 Signal Forms are experimental and their API may change; consider the
+risks before using them in production. Import `FormField` and `form` from
+`@angular/forms/signals`, and `LgSignalRadioGroupComponent` and
+`LgSignalRadioButtonComponent` from `@legal-and-general/canopy`. Add `FormField`
+and both components to the standalone component's `imports`. Create `fields`
+using `form()` and configure validation in its schema.
+
+```html
+<lg-signal-radio-group [formField]="fields.contact" [submitted]="submitted()">
+  How should we contact you?
+  <lg-hint>Choose one option.</lg-hint>
+  @if (showContactError()) { <lg-validation>Select a contact method.</lg-validation> }
+  <lg-signal-radio-button value="email">Email</lg-signal-radio-button>
+  <lg-signal-radio-button value="phone">Phone</lg-signal-radio-button>
+</lg-signal-radio-group>
+```
+
+Track submission and pass it to the group; clear it when resetting the form.
+For segments and single-selection filters use the signal selectors documented in
+`canopy-forms-segment` and `canopy-forms-filter-buttons`. See
+`canopy-forms-validation` for error and submission guidance.
+
+| Signal group input | Type | Default | Description |
+|---|---|---|---|
+| `id`, `name` | `string` | auto-generated | Identify the group and its options. |
+| `value` | `string \| boolean` | `''` | Selected value; normally managed by `formField`. |
+| `inline` | `boolean` | `false` | Displays options inline. |
+| `stack` | `RadioStackBreakpoint \| undefined` | `undefined` | Sets the responsive stacking breakpoint. |
+| `submitted` | `boolean` | `false` | Enables error display after submission. |
+| `ariaDescribedBy` | `string` | `''` | Additional describing element IDs. |
+
+| Signal button input | Type | Default | Description |
+|---|---|---|---|
+| `id` | `string` | auto-generated | Identifies the option. |
+| `value` | `string \| boolean` | required | Value selected by this option. |
+| `size` | `RadioSize` | `'lg'` | Size of the radio button. |
+| `ariaDescribedBy` | `string` | `''` | Additional describing element IDs. |
 
 ---
 

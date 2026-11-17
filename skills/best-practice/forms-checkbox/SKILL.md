@@ -1,6 +1,6 @@
 ---
 name: canopy-forms-checkbox
-description: Best practices for the Canopy Checkbox and Checkbox Group components. Trigger when adding multi-selection checkboxes, agreement confirmation, or grouped checkbox controls in a form in an Angular project using Canopy.
+description: Best practices for Canopy Checkbox in Reactive or Signal Forms. Trigger for multi-selection, agreement, checkbox groups or lg-signal-checkbox.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/toggle/docs/checkbox/guide.mdx
@@ -10,7 +10,8 @@ metadata:
 
 This skill provides usage guidance, dos and don'ts, and input reference for Canopy checkbox components from `@legal-and-general/canopy`.
 
-Apply this skill whenever you use `LgToggleComponent` (as `lg-checkbox`) or `LgCheckboxGroupComponent`.
+Apply this skill whenever you use `LgToggleComponent` (as `lg-checkbox`),
+`LgCheckboxGroupComponent` or the Signal Forms checkbox components.
 
 ---
 
@@ -29,6 +30,8 @@ import { LgCheckboxGroupComponent, LgToggleComponent } from '@legal-and-general/
 ---
 
 ## Single Checkbox
+
+Use Angular Reactive Forms controls for production.
 
 ```html
 <lg-checkbox formControlName="agreed" value="yes">
@@ -51,6 +54,60 @@ Use `lg-checkbox-group` when presenting two or more related options.
   <lg-toggle value="green">Green</lg-toggle>
 </lg-checkbox-group>
 ```
+
+---
+
+## Signal Forms (experimental opt-in)
+
+Angular 21 Signal Forms are experimental and their API may change; consider the
+risks before using them in production. Import `FormField`, `form`, `apply` and
+`required` as needed from `@angular/forms/signals`. Add `FormField` and the
+appropriate Canopy components to the standalone component's `imports`.
+
+For a single checkbox, import `LgSignalCheckboxComponent`, initialise `agreed`
+to `false` and use `required(path.agreed)` in the form schema when agreement is
+mandatory. Unlike the reactive toggle's configured string value or `null`, the
+signal checkbox stores a boolean.
+
+```html
+<lg-signal-checkbox [formField]="fields.agreed" [submitted]="submitted()">
+  I agree to the terms.
+</lg-signal-checkbox>
+```
+
+For a group, import `LgSignalCheckboxGroupComponent`,
+`LgSignalCheckboxOptionComponent` and `lgRequiredCheckboxGroup` from Canopy.
+Initialise `colours` to an empty string array. Angular 21's `required()` alone
+does not reject an empty array, so apply the group schema for a required group:
+
+```ts
+readonly fields = form(this.model, path => {
+  apply(path.colours, lgRequiredCheckboxGroup);
+});
+```
+
+```html
+<lg-signal-checkbox-group [formField]="fields.colours" [submitted]="submitted()">
+  Colours
+  <lg-hint>Choose all that apply.</lg-hint>
+  @if (showError()) { <lg-validation>Select at least one colour.</lg-validation> }
+  <lg-signal-toggle value="red">Red</lg-signal-toggle>
+  <lg-signal-toggle value="blue">Blue</lg-signal-toggle>
+</lg-signal-checkbox-group>
+```
+
+Track submission and clear it on reset. See `canopy-forms-validation` for error
+and submission guidance.
+
+| Signal input | Type | Default | Applies to |
+|---|---|---|---|
+| `id`, `name` | `string` | auto-generated | Single checkbox and group. |
+| `inline` | `boolean` | `false` | Group. |
+| `submitted` | `boolean` | `false` | Single checkbox and group; enables error display after submission. |
+| `ariaDescribedBy` | `string` | `''` | Single checkbox, group and option; additional describing element IDs. |
+| `size` | `CheckboxSize` | `'lg'` | Single checkbox and option. |
+| `value` | `string` | required | Group option. |
+| `id` | `string` | auto-generated | Group option. |
 
 ---
 

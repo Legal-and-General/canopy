@@ -1,6 +1,6 @@
 ---
 name: canopy-forms-validation
-description: Best practices for Canopy form validation. Trigger when displaying inline form errors, setting up error state matching, or implementing form-level validation in an Angular project using Canopy.
+description: Best practices for Canopy Reactive and Signal Forms validation. Trigger for inline errors, error state matching, submission, error summaries or wrapped validation.
 license: MIT
 metadata:
   source: https://github.com/Legal-and-General/canopy/tree/master/projects/canopy/src/lib/forms/validation/docs/guide.mdx
@@ -28,9 +28,9 @@ import {
 
 ---
 
-## Setup
+## Reactive Forms setup
 
-Inject `LgErrorStateMatcher` and use it to determine when to show errors:
+Use Reactive Forms controls for production. Inject `LgErrorStateMatcher` and use it to determine when to show errors:
 
 ```ts
 constructor(
@@ -51,7 +51,7 @@ isControlInvalid(control: AbstractControl, form: FormGroupDirective): boolean {
 
 ## Template
 
-Always add `#userForm="ngForm"` to the `<form>` element and ensure the submit button is inside the form.
+For Reactive Forms, always add `#userForm="ngForm"` to the `<form>` element and ensure the submit button is inside the form.
 
 ```html
 <form [formGroup]="form" (ngSubmit)="onSubmit(form)" #userForm="ngForm">
@@ -68,6 +68,72 @@ Always add `#userForm="ngForm"` to the `<form>` element and ensure the submit bu
   <button type="submit">Submit</button>
 </form>
 ```
+
+---
+
+## Signal Forms (experimental opt-in)
+
+Angular 21 Signal Forms are experimental and their API may change; consider the
+risks before using them in production. Reuse `LgValidationComponent` and
+`LgValidationWrapperDirective`; there are no separate signal validation
+components. Configure validators in the signal form schema and track submission
+separately instead of using `LgErrorStateMatcher` or `ngForm`.
+
+```ts
+import { Component, signal } from '@angular/core';
+import { FormField, form, required, submit } from '@angular/forms/signals';
+import {
+  LgSignalInputDirective,
+  LgSignalInputFieldComponent,
+  LgValidationComponent,
+} from '@legal-and-general/canopy';
+
+@Component({
+  imports: [
+    FormField,
+    LgSignalInputDirective,
+    LgSignalInputFieldComponent,
+    LgValidationComponent,
+  ],
+  templateUrl: './example.html',
+})
+export class ExampleComponent {
+  readonly model = signal({ username: '' });
+  readonly submitted = signal(false);
+  readonly fields = form(this.model, (path) => required(path.username));
+
+  showError(): boolean {
+    const state = this.fields.username();
+    return state.invalid() && ((state.dirty() && state.touched()) || this.submitted());
+  }
+
+  onSubmit(event: Event): void {
+    event.preventDefault();
+    this.submitted.set(true);
+    if (this.fields.username().invalid()) {
+      this.fields.username().focusBoundControl();
+    }
+    void submit(this.fields, async () => {});
+  }
+}
+```
+
+```html
+<form novalidate (submit)="onSubmit($event)">
+  <lg-signal-input-field [submitted]="submitted()">
+    Username @if (showError()) { <lg-validation>Enter a username</lg-validation> }
+    <input lgSignalInput [formField]="fields.username" />
+  </lg-signal-input-field>
+  <button type="submit">Submit</button>
+</form>
+```
+
+For multiple fields, focus the first invalid field in form order or focus an
+error summary for a longer form. The example above focuses a field and does not
+implement an error summary. Reset `submitted` when resetting the form. Pass it
+to each signal field or group to show errors on pristine fields after submission.
+Signal field error styling and messages should use the same invalid-and
+(dirty-and-touched-or-submitted) condition.
 
 ---
 
@@ -142,7 +208,7 @@ reach the inner element. It describes the field with the wrapper ID instead. Use
 
 1. All fields with errors are highlighted when the form is submitted.
 2. Inline messages appear above each field describing how to fix the problem.
-3. The first field with an error automatically receives focus.
+3. Focus the first field with an error, or an error summary for a longer form.
 
 ---
 

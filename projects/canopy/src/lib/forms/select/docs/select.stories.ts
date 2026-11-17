@@ -9,6 +9,12 @@ import { Meta, moduleMetadata } from '@storybook/angular';
 import { LgSelectFieldComponent } from '../select-field.component';
 import { LgHintComponent } from '../../hint';
 import { LgSelectDirective } from '../select.directive';
+import { ReactiveValidationExampleComponent } from '../../validation/docs/reactive-validation-example';
+
+export const ReactiveValidation = {
+  decorators: [ moduleMetadata({ imports: [ ReactiveValidationExampleComponent ] }) ],
+  render: () => ({ template: '<lg-reactive-validation-example kind="select" />' }),
+};
 
 const template = `
 <lg-select-field [block]="block">

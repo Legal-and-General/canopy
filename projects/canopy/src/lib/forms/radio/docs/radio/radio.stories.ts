@@ -9,6 +9,12 @@ import { moduleMetadata } from '@storybook/angular';
 import { LgRadioGroupComponent } from '../../radio-group.component';
 import { LgRadioButtonComponent } from '../../radio-button.component';
 import { LgHintComponent } from '../../../hint';
+import { ReactiveValidationExampleComponent } from '../../../validation/docs/reactive-validation-example';
+
+export const ReactiveValidation = {
+  decorators: [ moduleMetadata({ imports: [ ReactiveValidationExampleComponent ] }) ],
+  render: () => ({ template: '<lg-reactive-validation-example kind="radio" />' }),
+};
 
 const formTemplate = `
 <form [formGroup]="form">

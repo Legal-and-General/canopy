@@ -10,6 +10,12 @@ import { LgRadioGroupComponent } from '../../radio-group.component';
 import { RadioStackBreakpoint } from '../../radio.interface';
 import { LgRadioButtonComponent } from '../../radio-button.component';
 import { LgHintComponent } from '../../../hint';
+import { ReactiveValidationExampleComponent } from '../../../validation/docs/reactive-validation-example';
+
+export const ReactiveValidation = {
+  decorators: [ moduleMetadata({ imports: [ ReactiveValidationExampleComponent ] }) ],
+  render: () => ({ template: '<lg-reactive-validation-example kind="segment" />' }),
+};
 
 const segmentTemplate = `
 <lg-segment-group [inline]="inline" [focus]="focus" [stack]="stack" formControlName="color">
