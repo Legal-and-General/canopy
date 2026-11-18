@@ -13,8 +13,16 @@
     color: var(--link-menu-item-focus-colour);
   }
 
+  a:hover:focus-visible & {
+    color: var(--link-menu-item-focus-colour);
+  }
+
   a:active & {
     color: var(--link-menu-item-active-colour);
+  }
+
+  a:active:hover:focus-visible & {
+    color: var(--link-menu-item-focus-colour);
   }
 
   &--bold {
@@ -31,8 +39,16 @@
       color: var(--link-menu-item-focus-colour);
     }
 
+    a:hover:focus-visible & {
+      color: var(--link-menu-item-focus-colour);
+    }
+
     a:active & {
       color: var(--link-menu-item-active-colour);
+    }
+
+    a:active:hover:focus-visible & {
+      color: var(--link-menu-item-focus-colour);
     }
   }
 }

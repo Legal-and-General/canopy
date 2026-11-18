@@ -10,7 +10,7 @@
   }
 
   &__img {
-    width: var(--footer-logo-size);
+    width: 5rem; // hardcode until footer tokens have been updated
   }
 
   &__second-img {

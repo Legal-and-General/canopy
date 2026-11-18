@@ -28,17 +28,11 @@
     &:last-child {
       border-bottom-left-radius: var(--link-menu-border-radius);
       border-bottom-right-radius: var(--link-menu-border-radius);
-      border-bottom-color: transparent;
 
       &:hover,
       &:active {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-      }
-
-      &:hover {
-        box-shadow: inset 0 calc(-1 * var(--link-menu-item-hover-border-width-bottom)) 0 0
-          var(--link-menu-item-hover-border-colour);
       }
 
       &:active {
@@ -54,8 +48,7 @@
       text-decoration: none;
     }
 
-    &:hover {
-      color: var(--link-menu-item-hover-colour);
+    &:hover:not(:focus-visible) {
       background-color: var(--link-menu-item-hover-background-colour);
       border-bottom: var(--link-menu-item-hover-border-width-bottom) solid
         var(--link-menu-item-hover-border-colour);
@@ -68,7 +61,6 @@
     }
 
     &:focus-visible {
-      color: var(--link-menu-item-focus-colour);
       box-shadow: inset 0 0 0 var(--link-menu-item-focus-border-width)
         var(--link-menu-item-focus-border-colour);
       outline: none !important;
@@ -84,6 +76,22 @@
             --link-menu-item-active-border-width-bottom
           )
       ); // prevent bouncing effect caused by border
+    }
+
+    &:active:hover {
+      .lg-link-menu-item-text,
+      .lg-link-menu-item__icon-left-container .lg-icon,
+      .lg-link-menu-item__icon-container .lg-icon {
+        color: var(--link-menu-item-hover-colour) !important;
+      }
+    }
+
+    &:active:hover:focus-visible {
+      .lg-link-menu-item-text,
+      .lg-link-menu-item__icon-left-container .lg-icon,
+      .lg-link-menu-item__icon-container .lg-icon {
+        color: var(--link-menu-item-active-colour) !important;
+      }
     }
   }
 }

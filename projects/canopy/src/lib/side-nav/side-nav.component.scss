@@ -59,15 +59,10 @@
     border-top-left-radius: var(--link-menu-border-radius);
     border-top-right-radius: var(--link-menu-border-radius);
   }
-
-  &:last-child:is(:focus, :focus-visible) {
-    border-bottom-left-radius: var(--link-menu-border-radius);
-    border-bottom-right-radius: var(--link-menu-border-radius);
-  }
 }
 
 .lg-side-nav .lg-link-menu a.lg-side-nav-bar-link--selected {
-  &:not(:focus-visible, :active) {
+  &:not(:active) {
     background-color: var(--link-menu-item-active-background-colour);
     border-bottom: var(--link-menu-item-active-border-width-bottom) solid
       var(--link-menu-item-active-border-colour);
@@ -84,11 +79,9 @@
     }
   }
 
-  &:last-child:not(:focus-visible, :active) {
+  &:last-child:not(:active) {
     border-bottom-color: transparent;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    box-shadow: inset 0 calc(-1 * var(--link-menu-item-active-border-width-bottom)) 0
-      var(--link-menu-item-active-border-colour);
   }
 }

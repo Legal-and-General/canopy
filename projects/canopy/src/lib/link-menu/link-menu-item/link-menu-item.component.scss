@@ -24,8 +24,16 @@
       color: var(--link-menu-item-focus-colour-muted);
     }
 
+    a:hover:focus-visible & {
+      color: var(--link-menu-item-focus-colour-muted);
+    }
+
     a:active & {
       color: var(--link-menu-item-active-colour-muted);
+    }
+
+    a:active:hover:focus-visible & {
+      color: var(--link-menu-item-focus-colour-muted);
     }
   }
 }
@@ -47,8 +55,16 @@
     color: var(--link-menu-item-focus-colour);
   }
 
+  a:hover:focus-visible & .lg-icon {
+    color: var(--link-menu-item-focus-colour);
+  }
+
   a:active & .lg-icon {
     color: var(--link-menu-item-active-colour);
+  }
+
+  a:active:hover:focus-visible & .lg-icon {
+    color: var(--link-menu-item-focus-colour);
   }
 }
 
