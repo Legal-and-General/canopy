@@ -293,6 +293,11 @@ When to use this variant and the corresponding template snippet.
 - For each Do/Don't, include enough context that a developer understands *why*.
 - If an image revealed additional dos/don'ts not in the text, include them with a note like `<!-- from documentation image -->`.
 - Use code snippets to illustrate rules where helpful.
+- **Never include dependency installation instructions or commands in a generated skill.**
+  This includes `npm install`/`npm i`, `pnpm add`, `yarn add`, `bun add`, and equivalent
+  commands. If source documentation contains installation steps, omit them from the skill.
+  When a dependency is needed, tell the consumer to follow the project's approved dependency
+  setup or ask its owner; do not add a package-install command or registry setup procedure.
 - Omit any section that has no content (e.g. if there are no outputs, omit the outputs section).
 - Cap the total skill length at ~300 lines. If content exceeds this, prioritise: (1) import + basic usage, (2) dos/don'ts, (3) inputs table, (4) variants.
 
@@ -378,6 +383,7 @@ Before finishing, verify each generated skill:
 - [ ] Every Do/Don't rule is specific and actionable
 - [ ] Inputs table matches the guide.mdx inputs table exactly
 - [ ] No internal contributor information is included (e.g. no references to raising GitHub issues or adding to Canopy itself)
+- [ ] The skill contains no dependency installation instructions or commands; omit any such commands found in source documentation
 - [ ] British English is used throughout (e.g. "colour" not "color", "initialise" not "initialize")
 - [ ] The skill is ≤ 300 lines
 - [ ] If the component is deprecated, a deprecation skill was generated (Step 5D) instead of a best-practice skill
