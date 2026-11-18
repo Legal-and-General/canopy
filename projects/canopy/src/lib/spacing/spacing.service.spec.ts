@@ -11,8 +11,8 @@ describe('SpacingService', () => {
 
   beforeEach(() => {
     const spy = {
-      addRules: jest.fn(),
-      addRulesToMediaQuery: jest.fn(),
+      addRules: vi.fn(),
+      addRulesToMediaQuery: vi.fn(),
     };
 
     TestBed.configureTestingModule({

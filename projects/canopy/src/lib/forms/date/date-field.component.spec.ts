@@ -17,6 +17,7 @@ import {
 } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents } from 'ng-mocks';
+import { firstValueFrom } from 'rxjs';
 import { skip } from 'rxjs/operators';
 
 import { LgHintComponent } from '../hint';
@@ -134,7 +135,7 @@ describe('LgDateFieldComponent', () => {
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn().mockReturnValue(false),
+      isControlInvalid: vi.fn().mockReturnValue(false),
     };
 
     TestBed.configureTestingModule({
@@ -378,16 +379,15 @@ describe('LgDateFieldComponent', () => {
     expect(component.form.controls.dateOfBirth.value).toEqual('1944-03-07');
   });
 
-  it('replaces empty fields with an empty string if date is not complete', done => {
+  it('replaces empty fields with an empty string if date is not complete', async () => {
     fixture.detectChanges();
 
-    component.dateChange.pipe(skip(1)).subscribe(change => {
-      expect(change.dateOfBirth).toBe('1944-03-');
-      done();
-    });
+    const change = firstValueFrom(component.dateChange.pipe(skip(1)));
 
     dateFieldInstance.year.setValue('1944');
     dateFieldInstance.month.setValue('3');
+
+    expect((await change).dateOfBirth).toBe('1944-03-');
   });
 
   it('updates the date value on each input change', () => {
@@ -414,17 +414,16 @@ describe('LgDateFieldComponent', () => {
     expect(dateFieldInstance.year.value).toBe('3');
   });
 
-  it('publishes a change when the user enters a date', done => {
+  it('publishes a change when the user enters a date', async () => {
     fixture.detectChanges();
 
-    component.dateChange.pipe(skip(2)).subscribe(change => {
-      expect(change.dateOfBirth).toBe('1944-03-07');
-      done();
-    });
+    const change = firstValueFrom(component.dateChange.pipe(skip(2)));
 
     dateFieldInstance.year.setValue('1944');
     dateFieldInstance.month.setValue('3');
     dateFieldInstance.date.setValue('7');
+
+    expect((await change).dateOfBirth).toBe('1944-03-07');
   });
 
   describe('validation rules', () => {
@@ -552,7 +551,7 @@ describe('LgDateFieldComponent with custom ariaDescribedBy', () => {
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn().mockReturnValue(false),
+      isControlInvalid: vi.fn().mockReturnValue(false),
     };
 
     TestBed.configureTestingModule({

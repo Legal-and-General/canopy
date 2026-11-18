@@ -5,11 +5,9 @@ import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-
 import { LgPictogramComponent } from '../pictogram';
 import type { Status } from '../status';
 
-import {
-  LgNoticeComponent,
-  LgNoticeDescriptionComponent,
-  LgNoticeTitleComponent,
-} from './';
+import { LgNoticeComponent } from './notice.component';
+import { LgNoticeDescriptionComponent } from './notice-description/notice-description.component';
+import { LgNoticeTitleComponent } from './notice-title/notice-title.component';
 
 describe('LgNoticeComponent', () => {
   let component: LgNoticeComponent;

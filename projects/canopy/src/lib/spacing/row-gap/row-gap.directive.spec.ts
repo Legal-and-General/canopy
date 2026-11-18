@@ -22,7 +22,7 @@ describe('LgRowGapDirective', () => {
   let testElements: Array<DebugElement>;
   let component: TestComponent;
   let renderer: Renderer2;
-  let rendererRemoveClassSpy: jest.SpyInstance;
+  let rendererRemoveClassSpy: MockInstance;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -33,7 +33,7 @@ describe('LgRowGapDirective', () => {
 
     renderer = fixture.componentRef.injector.get<Renderer2>(Renderer2);
 
-    rendererRemoveClassSpy = jest.spyOn(renderer, 'removeClass');
+    rendererRemoveClassSpy = vi.spyOn(renderer, 'removeClass');
 
     fixture.detectChanges();
     component = fixture.componentInstance;

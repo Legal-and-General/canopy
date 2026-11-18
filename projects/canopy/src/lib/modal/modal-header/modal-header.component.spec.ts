@@ -9,12 +9,12 @@ import { LgModalHeaderComponent } from './modal-header.component';
 describe('LgModalHeaderComponent', () => {
   let component: LgModalHeaderComponent;
   let fixture: ComponentFixture<LgModalHeaderComponent>;
-  let modalServiceMock: jest.Mocked<LgModalService>;
+  let modalServiceMock: Mocked<LgModalService>;
 
   beforeEach(async () => {
     modalServiceMock = {
-      close: jest.fn(),
-    } as unknown as jest.Mocked<LgModalService>;
+      close: vi.fn(),
+    } as unknown as Mocked<LgModalService>;
 
     await TestBed.configureTestingModule({
       imports: [ LgModalHeaderComponent, MockComponent(LgIconComponent) ],
@@ -44,7 +44,7 @@ describe('LgModalHeaderComponent', () => {
   });
 
   it('should close the modal on #close', () => {
-    const closedEmitterSpy = jest.spyOn(component.closed, 'emit');
+    const closedEmitterSpy = vi.spyOn(component.closed, 'emit');
 
     component.modalId = 'test';
     component.close();

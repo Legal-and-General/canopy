@@ -142,7 +142,7 @@ describe('LgFeatureToggleDirective', () => {
       );
       const directive = directiveElements[0].injector.get(LgFeatureToggleDirective);
 
-      const unsubscribeSpy = jest.spyOn(directive.subscription, 'unsubscribe');
+      const unsubscribeSpy = vi.spyOn(directive.subscription, 'unsubscribe');
 
       fixture.destroy();
 
@@ -194,8 +194,8 @@ describe('LgFeatureToggleDirective', () => {
       );
       const directive = directiveElements[0].injector.get(LgFeatureToggleDirective);
 
-      const clearSpy = jest.spyOn(directive['viewContainer'], 'clear');
-      const createSpy = jest.spyOn(directive['viewContainer'], 'createEmbeddedView');
+      const clearSpy = vi.spyOn(directive['viewContainer'], 'clear');
+      const createSpy = vi.spyOn(directive['viewContainer'], 'createEmbeddedView');
 
       // Now set the toggle to true to trigger the directive logic
       togglesSubject.next({ testFeature: true });

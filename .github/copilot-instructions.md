@@ -10,7 +10,7 @@ Always use **British English (en-GB)** in all code comments, documentation, comm
 
 ## Tech Stack
 
-Check `package.json` for current versions of all dependencies. The library uses Angular (standalone components), RxJS, TypeScript, Storybook, Jest, and Percy.
+Check `package.json` for current versions of all dependencies. The library uses Angular (standalone components), RxJS, TypeScript, Storybook, Vitest, and Percy.
 
 - **Angular guidance**: Follow `.agents/skills/angular-developer/SKILL.md` for Angular-specific code generation and best practices.
 
@@ -23,7 +23,8 @@ projects/canopy/src/public-api.ts  # Public API barrel — update when adding ne
 .storybook/                 # Storybook global configuration
 .github/                    # Workflows, PR templates, issue templates
 commitlint.config.js        # Commit linting (extends @commitlint/config-angular)
-jest.config.js              # Jest test configuration
+vitest.config.ts            # Angular test configuration
+.github/workflow-scripts/   # Workflow scripts and their Vitest configuration
 .percy.yml                  # Percy visual test configuration
 eslint-configs/             # ESLint rules (JS, TS, template)
 .stylelintrc                # StyleLint rules (BEM, SCSS, postcss-scss)
@@ -52,13 +53,15 @@ docs/
 | Build library               | `npm run build`            |
 | Run unit tests              | `npm test`                 |
 | Run unit tests (CI mode)    | `npm run test:ci`          |
+| Run workflow-script tests   | `npm run test:ws`          |
+| Run test-app unit tests     | `npm run test:test-app`    |
 | Run visual tests (Percy)    | `npm run test:visual`      |
 | Lint (ESLint + StyleLint)   | `npm run lint`             |
 | Interactive commit          | `npm run commit`           |
 | Generate icons              | `npm run generate:icons`   |
 | Build Storybook             | `npm run build:storybook`  |
 
-Always run `npm run build` after changes to verify there are no build errors. Also run `npm test` to ensure no unit tests are broken. To run a single spec file: `npm test -- <path-to-spec-file>`.
+Always run `npm run build` after changes to verify there are no build errors. Validate all three unit-test suites using the commands above. To run a single library spec: `npm test -- --include=<path-to-spec-file> --coverage=false`.
 
 ## Code Style
 
@@ -71,19 +74,13 @@ Always run `npm run build` after changes to verify there are no build errors. Al
 
 ## Unit Tests
 
-- Framework: Jest with `jest-preset-angular`, test environment `jsdom`
-- Test files are co-located: `<component>.component.spec.ts`
-- Use `ng-mocks` for mocking Angular components, directives, and pipes
-- Coverage output: `coverage/` folder (json-summary, html, text-summary reporters)
-- Run locally: `npm test`; in CI: `npm run test:ci`
-
-Since components are standalone, configure `TestBed` using `imports`:
-
-```typescript
-TestBed.configureTestingModule({
-  imports: [ LgMyComponent, MockComponent(LgDependencyComponent) ],
-}).compileComponents();
-```
+- Vitest runs Angular tests with `jsdom` and Zone.js, and workflow-script tests with Node.js
+- Canopy tests may use `fixture.detectChanges()`, `fakeAsync` and `waitForAsync`; the downloaded Angular skill's zoneless guidance and `useAutoTick()`/`timeout()` utilities do not apply here
+- Use global test APIs, including `vi`, and the global `Mock`, `Mocked<T>` and `MockInstance` types without imports
+- Prefer `vi` for mocks and spies; use `ng-mocks` when Angular metadata is required
+- The Angular test builder does not support `vi.mock()` for relative imports; use TestBed providers or spies instead
+- For CommonJS workflow scripts, use `vi.spyOn()` for dependencies loaded with `require()`; `vi.mock()` does not intercept `require()`
+- Coverage output: `coverage/` for the library and `coverage/workflow-scripts/` for workflow scripts
 
 ## Storybook
 

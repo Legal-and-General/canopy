@@ -10,7 +10,7 @@ describe('LgSideNavLinkDirective', () => {
   let directive: LgSideNavBarLinkDirective;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let eventSpy: jest.SpyInstance;
+  let eventSpy: MockInstance;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -30,7 +30,7 @@ describe('LgSideNavLinkDirective', () => {
     debugElement = fixture.debugElement.children[0].query(By.css('a'));
     directive = debugElement.injector.get(LgSideNavBarLinkDirective);
     el = debugElement.nativeElement;
-    eventSpy = jest.spyOn(directive.activated, 'emit');
+    eventSpy = vi.spyOn(directive.activated, 'emit');
 
     fixture.detectChanges();
   });

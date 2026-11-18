@@ -27,6 +27,9 @@ import { LgAccordionItemContentDirective } from './accordion-item-content.direct
 
 @Component({
   selector: 'lg-accordion-item',
+  host: {
+    class: 'lg-accordion-item',
+  },
   templateUrl: './accordion-item.component.html',
   styleUrls: [ './accordion-item.component.scss' ],
   encapsulation: ViewEncapsulation.None,
@@ -39,6 +42,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
   private selectionDispatcher = inject(UniqueSelectionDispatcher);
   private cdr = inject(ChangeDetectorRef);
   private _toggleSubscription: Subscription;
+
   accordion = inject<LgAccordionComponent>(LG_ACCORDION, {
     optional: true,
     skipSelf: true,
@@ -109,7 +113,7 @@ export class LgAccordionItemComponent implements AfterContentInit, OnChanges, On
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.accordionPanelHeading && changes.isActive) {
-      const isActive = changes.isActive.currentValue || false;
+      const isActive = Boolean(changes.isActive.currentValue);
 
       this.accordionPanelHeading.isActive = isActive;
       this.toggleActiveState(isActive);

@@ -60,28 +60,28 @@ describe('LgRadioButtonComponent', () => {
   let testComponent: TestRadioButtonComponent;
   let fixture: ComponentFixture<LgRadioButtonComponent>;
   let testFixture: ComponentFixture<TestRadioButtonComponent>;
-  let errorStateMatcherMock: { isControlInvalid: jest.Mock };
+  let errorStateMatcherMock: { isControlInvalid: Mock };
   let radioGroupMock: {
     name: string;
     variant: string;
     disabled: boolean;
-    onTouched: jest.Mock;
-    onChange: jest.Mock;
+    onTouched: Mock;
+    onChange: Mock;
   };
   let hintDebugElement: DebugElement;
   let inputDebugElement: DebugElement;
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn(),
+      isControlInvalid: vi.fn(),
     };
 
     radioGroupMock = {
       name: 'color',
       variant: 'segment',
       disabled: false,
-      onTouched: jest.fn(),
-      onChange: jest.fn(),
+      onTouched: vi.fn(),
+      onChange: vi.fn(),
     };
 
     TestBed.configureTestingModule({
@@ -199,7 +199,7 @@ describe('LgRadioButtonComponent', () => {
   });
 
   it('should emit an event when #onBlur is called', () => {
-    const blurSpy = jest.spyOn(component.blur, 'emit');
+    const blurSpy = vi.spyOn(component.blur, 'emit');
 
     component.onBlur(new Event(''));
     expect(blurSpy).toHaveBeenCalled();

@@ -1,7 +1,6 @@
 import commonESLintRules from './common-eslint.rules.js';
 import angularESLintPlugin from '@angular-eslint/eslint-plugin';
 import typescriptESLintPlugin from '@typescript-eslint/eslint-plugin';
-import jestEslint from 'eslint-plugin-jest';
 import typescriptESLintParser from '@typescript-eslint/parser';
 import stylisticESLintPlugin from '@stylistic/eslint-plugin';
 import importESLintPlugin from 'eslint-plugin-import';
@@ -25,7 +24,6 @@ export default [
       '@stylistic': stylisticESLintPlugin,
       import: importESLintPlugin,
       'unused-imports': unusedImportsESLintPlugin,
-      jest: jestEslint,
     },
     rules: {
       // Include recommended rules from each plugin

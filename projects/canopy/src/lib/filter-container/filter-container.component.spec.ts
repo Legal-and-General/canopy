@@ -17,7 +17,7 @@ describe('LgFilterContainerComponent', () => {
   let fixture: MockedComponentFixture<LgFilterContainerComponent>;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let toggleActiveClassSpy: jest.SpyInstance;
+  let toggleActiveClassSpy: MockInstance;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -44,7 +44,7 @@ describe('LgFilterContainerComponent', () => {
 
     component = ngMocks.findInstance(LgFilterContainerComponent);
 
-    toggleActiveClassSpy = jest.spyOn(component as any, 'toggleActiveClass');
+    toggleActiveClassSpy = vi.spyOn(component as any, 'toggleActiveClass');
 
     if (!component.filterContainerToggle.toggleActive) {
       component.filterContainerToggle.toggleActive = new EventEmitter<boolean>();
@@ -95,7 +95,7 @@ describe('LgFilterContainerComponent', () => {
     const escEvent = new KeyboardEvent('keydown', {
       key: keyName.KEY_ESCAPE,
     });
-    const toggleSpy = jest.spyOn(component.filterContainerToggle, 'toggle');
+    const toggleSpy = vi.spyOn(component.filterContainerToggle, 'toggle');
 
     component.onKeydown(escEvent);
 

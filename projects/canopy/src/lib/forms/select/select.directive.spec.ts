@@ -42,11 +42,11 @@ describe('LgSelectDirective', () => {
   let selectDebugElement: DebugElement;
   let beforeInput: HTMLInputElement;
   let afterInput: HTMLInputElement;
-  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
+  let errorStateMatcherMock: Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn(),
+      isControlInvalid: vi.fn(),
     };
 
     TestBed.configureTestingModule({
@@ -125,8 +125,8 @@ describe('LgSelectDirective', () => {
   it('blurs the select and moves focus to next control on tab', async () => {
     fixture.detectChanges();
     const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
-    const blurSpy = jest.spyOn(selectElement, 'blur');
-    const nextFocusSpy = jest.spyOn(afterInput, 'focus');
+    const blurSpy = vi.spyOn(selectElement, 'blur');
+    const nextFocusSpy = vi.spyOn(afterInput, 'focus');
     const event = new KeyboardEvent('keydown', {
       cancelable: true,
       key: keyName.KEY_TAB,
@@ -145,8 +145,8 @@ describe('LgSelectDirective', () => {
   it('blurs the select and moves focus to previous control on shift+tab', async () => {
     fixture.detectChanges();
     const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
-    const blurSpy = jest.spyOn(selectElement, 'blur');
-    const previousFocusSpy = jest.spyOn(beforeInput, 'focus');
+    const blurSpy = vi.spyOn(selectElement, 'blur');
+    const previousFocusSpy = vi.spyOn(beforeInput, 'focus');
     const event = new KeyboardEvent('keydown', {
       cancelable: true,
       key: keyName.KEY_TAB,
@@ -169,8 +169,8 @@ describe('LgSelectDirective', () => {
     const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
     const directiveInstance =
       selectDebugElement.injector.get<LgSelectDirective>(LgSelectDirective);
-    const blurSpy = jest.spyOn(selectElement, 'blur');
-    const nextFocusSpy = jest.spyOn(afterInput, 'focus');
+    const blurSpy = vi.spyOn(selectElement, 'blur');
+    const nextFocusSpy = vi.spyOn(afterInput, 'focus');
     const event = new KeyboardEvent('keydown', {
       cancelable: true,
       key: keyName.KEY_TAB,
@@ -194,7 +194,7 @@ describe('LgSelectDirective', () => {
     fixture.detectChanges();
 
     const selectElement = selectDebugElement.nativeElement as HTMLSelectElement;
-    const changeSpy = jest.fn();
+    const changeSpy = vi.fn();
 
     selectElement.addEventListener('change', changeSpy);
     selectElement.selectedIndex = 0;

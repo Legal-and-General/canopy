@@ -6,12 +6,12 @@ import { LgIconRegistry } from './icon.registry';
 describe('LgIconComponent', () => {
   let component: LgIconComponent;
   let fixture: ComponentFixture<LgIconComponent>;
-  let iconRegistryMock: jest.Mocked<LgIconRegistry>;
+  let iconRegistryMock: Mocked<LgIconRegistry>;
 
   beforeEach(waitForAsync(() => {
     iconRegistryMock = {
-      get: jest.fn(),
-    } as unknown as jest.Mocked<LgIconRegistry>;
+      get: vi.fn(),
+    } as unknown as Mocked<LgIconRegistry>;
 
     TestBed.configureTestingModule({
       imports: [ LgIconComponent ],
@@ -64,7 +64,7 @@ describe('LgIconComponent', () => {
     });
 
     it('should log a console error when an icon cannot be found', async () => {
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       iconRegistryMock.get.mockResolvedValue(undefined);
 

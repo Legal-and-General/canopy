@@ -214,3 +214,22 @@ export const BasicPagination = {
     currentPage: 1,
   },
 };
+
+export const CurrentPage = {
+  name: 'Current page',
+  render: (args: LgPaginationComponent) => ({
+    props: args,
+    template: `
+      <lg-pagination
+        [totalItems]="totalItems"
+        [itemsPerPage]="itemsPerPage"
+        [currentPage]="currentPage"
+      />
+    `,
+  }),
+  args: {
+    totalItems: 30,
+    itemsPerPage: 10,
+    currentPage: 2,
+  },
+};

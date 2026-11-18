@@ -83,11 +83,11 @@ describe('LgCheckboxGroupComponent', () => {
   let groupInstance: LgCheckboxGroupComponent;
   let checkboxInstances: Array<LgToggleComponent>;
   let component: TestCheckboxGroupComponent;
-  let errorStateMatcherMock: jest.Mocked<LgErrorStateMatcher>;
+  let errorStateMatcherMock: Mocked<LgErrorStateMatcher>;
 
   beforeEach(waitForAsync(() => {
     errorStateMatcherMock = {
-      isControlInvalid: jest.fn(),
+      isControlInvalid: vi.fn(),
     };
 
     TestBed.configureTestingModule({

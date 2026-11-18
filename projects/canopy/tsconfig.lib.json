@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "inlineSources": true,
-    "types": [ "jest" ],
+    "types": [],
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

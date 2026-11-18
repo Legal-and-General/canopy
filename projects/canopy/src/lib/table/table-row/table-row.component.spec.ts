@@ -37,14 +37,14 @@ describe('LgTableRowComponent', () => {
   });
 
   it('should have the table row toggle class if the row is expandable', () => {
-    jest.spyOn(component, 'hasToggle', 'get').mockReturnValue(true);
+    vi.spyOn(component, 'hasToggle', 'get').mockReturnValue(true);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).toContain('lg-table-row__toggle');
   });
 
   it('shouldn\'t have the table row toggle class if the row is not expandable', () => {
-    jest.spyOn(component, 'hasToggle', 'get').mockReturnValue(false);
+    vi.spyOn(component, 'hasToggle', 'get').mockReturnValue(false);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).not.toContain(
@@ -53,7 +53,7 @@ describe('LgTableRowComponent', () => {
   });
 
   it('should have the active class if the row is toggled active', () => {
-    jest.spyOn(component, 'isToggledActive', 'get').mockReturnValue(true);
+    vi.spyOn(component, 'isToggledActive', 'get').mockReturnValue(true);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).toContain(
@@ -62,7 +62,7 @@ describe('LgTableRowComponent', () => {
   });
 
   it('shouldn\'t have the active class if the row is not toggled active', () => {
-    jest.spyOn(component, 'isToggledActive', 'get').mockReturnValue(false);
+    vi.spyOn(component, 'isToggledActive', 'get').mockReturnValue(false);
     fixture.detectChanges();
 
     expect(fixture.nativeElement.getAttribute('class')).not.toContain(

@@ -6,7 +6,7 @@ describe('CardSubheadingComponent', () => {
   let component: LgCardSubheadingComponent;
   let fixture: ComponentFixture<LgCardSubheadingComponent>;
 
-  const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
+  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,7 +19,7 @@ describe('CardSubheadingComponent', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('should create', () => {

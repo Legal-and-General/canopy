@@ -84,7 +84,26 @@ On medium viewports (`md` breakpoint) the component shows a sliding window of 5 
 
 On small viewports (below `md`) the component shows a sliding window of 3 consecutive page buttons with no ellipses. The results label is displayed below the controls.
 
+## Dos and Don'ts
+
+### Do
+
+1. **Do** retain the current-page label, state and keyboard focus indicator.
+
+### Don't
+
+1. **Don't** trigger navigation or reload results when the current page is activated.
+
 ## Additional development details
+
+### Accessibility
+
+The current-page button is labelled `Page N`, with `aria-current="page"` and
+`aria-disabled="true"`. It remains keyboard-focusable so its page number and state can
+be announced, but activating it does not navigate or emit `pageChanged`.
+
+Other page buttons are labelled `Go to page N`. Selecting a different page updates
+the labels and states automatically in the desktop, tablet and mobile layouts.
 
 ### LgPaginationComponent inputs
 

@@ -331,6 +331,9 @@ const defaultCardTemplate = `
               <button lg-button type="button" priority="secondary">Back</button>
             </lg-button-group>
           }
+          @if (footerContent === 'button') {
+            <button lg-button type="button" priority="primary">Continue</button>
+          }
           @if (footerContent === 'link') {
             <a href="/foo">Learn more</a>
           }
@@ -392,6 +395,9 @@ const promoCardTemplate = `
               <button lg-button type="button" priority="primary">Continue</button>
               <button lg-button type="button" priority="secondary">Back</button>
             </lg-button-group>
+          }
+          @if (footerContent === 'button') {
+            <button lg-button type="button" priority="primary">Continue</button>
           }
           @if (footerContent === 'link') {
             <a href="/foo">Learn more</a>
@@ -456,6 +462,9 @@ const interactiveCardTemplate = `
               <button lg-button type="button" priority="primary">Continue</button>
               <button lg-button type="button" priority="secondary">Back</button>
             </lg-button-group>
+          }
+          @if (footerContent === 'button') {
+            <button lg-button type="button" priority="primary">Continue</button>
           }
           @if (footerContent === 'link') {
             <a href="/foo">Learn more</a>
@@ -573,10 +582,10 @@ export const DefaultCard = {
       },
     },
     footerContent: {
-      options: [ 'button-group', 'link', 'link-menu' ],
+      options: [ 'button-group', 'button', 'link', 'link-menu' ],
       control: { type: 'select' },
       table: {
-        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        type: { summary: [ 'button-group', 'button', 'link', 'link-menu' ] },
         defaultValue: { summary: 'button-group' },
       },
     },
@@ -686,10 +695,10 @@ export const PromoCard = {
       },
     },
     footerContent: {
-      options: [ 'button-group', 'link', 'link-menu' ],
+      options: [ 'button-group', 'button', 'link', 'link-menu' ],
       control: { type: 'select' },
       table: {
-        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        type: { summary: [ 'button-group', 'button', 'link', 'link-menu' ] },
         defaultValue: { summary: 'button-group' },
       },
     },
@@ -799,10 +808,10 @@ export const InteractiveCard = {
       },
     },
     footerContent: {
-      options: [ 'button-group', 'link', 'link-menu' ],
+      options: [ 'button-group', 'button', 'link', 'link-menu' ],
       control: { type: 'select' },
       table: {
-        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        type: { summary: [ 'button-group', 'button', 'link', 'link-menu' ] },
         defaultValue: { summary: 'button-group' },
       },
     },
@@ -943,10 +952,10 @@ export const ThreeImages = {
       },
     },
     footerContent: {
-      options: [ 'button-group', 'link', 'link-menu' ],
+      options: [ 'button-group', 'button', 'link', 'link-menu' ],
       control: { type: 'select' },
       table: {
-        type: { summary: [ 'button-group', 'link', 'link-menu' ] },
+        type: { summary: [ 'button-group', 'button', 'link', 'link-menu' ] },
         defaultValue: { summary: 'button-group' },
       },
     },

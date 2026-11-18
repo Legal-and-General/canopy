@@ -13,7 +13,7 @@ describe('create-gh-deployment', () => {
     github = {
       rest: {
         repos: {
-          createDeployment: jest.fn().mockResolvedValue({ data: { id: 99 } }),
+          createDeployment: vi.fn().mockResolvedValue({ data: { id: 99 } }),
         },
       },
     };
@@ -39,4 +39,3 @@ describe('create-gh-deployment', () => {
     expect(id).toBe(99);
   });
 });
-

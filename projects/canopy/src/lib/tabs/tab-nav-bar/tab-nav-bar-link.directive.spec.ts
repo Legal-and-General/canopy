@@ -10,7 +10,7 @@ describe('LgTabNavLinkDirective', () => {
   let directive: LgTabNavBarLinkDirective;
   let debugElement: DebugElement;
   let el: HTMLElement;
-  let eventSpy: jest.SpyInstance;
+  let eventSpy: MockInstance;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -30,7 +30,7 @@ describe('LgTabNavLinkDirective', () => {
     debugElement = fixture.debugElement.children[0].query(By.css('a'));
     directive = debugElement.injector.get(LgTabNavBarLinkDirective);
     el = debugElement.nativeElement;
-    eventSpy = jest.spyOn(directive.selectedTabIndexChange, 'emit');
+    eventSpy = vi.spyOn(directive.selectedTabIndexChange, 'emit');
 
     fixture.detectChanges();
   });
@@ -113,12 +113,12 @@ describe('LgTabNavLinkDirective', () => {
   });
 
   describe('selectByKeyboard', () => {
-    let clickSpy: jest.SpyInstance;
-    let focusSpy: jest.SpyInstance;
+    let clickSpy: MockInstance;
+    let focusSpy: MockInstance;
 
     beforeEach(() => {
-      clickSpy = jest.spyOn(el, 'click');
-      focusSpy = jest.spyOn(el, 'focus');
+      clickSpy = vi.spyOn(el, 'click');
+      focusSpy = vi.spyOn(el, 'focus');
     });
 
     it('sets isKeyboardEvent to true', () => {

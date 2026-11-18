@@ -22,7 +22,7 @@ describe('LgSpinnerComponent', () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('should create', () => {
@@ -124,30 +124,30 @@ describe('LgSpinnerComponent', () => {
 
     describe('constructor', () => {
       beforeEach(() => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
 
         fixture = TestBed.createComponent(LgSpinnerComponent);
         component = fixture.componentInstance;
       });
 
       afterEach(() => {
-        jest.useRealTimers();
+        vi.useRealTimers();
       });
 
       it('should toggle readScreenReaderAlert every 2.5 seconds', () => {
         expect(component.readScreenReaderAlert).toBe(true);
 
-        jest.advanceTimersByTime(2500);
+        vi.advanceTimersByTime(2500);
 
         expect(component.readScreenReaderAlert).toBe(false);
 
-        jest.advanceTimersByTime(2500);
+        vi.advanceTimersByTime(2500);
 
         expect(component.readScreenReaderAlert).toBe(true);
       });
 
       it('should clean up subscription on destroy', () => {
-        const unsubscribeSpy = jest.spyOn(component.subscription, 'unsubscribe');
+        const unsubscribeSpy = vi.spyOn(component.subscription, 'unsubscribe');
 
         component.ngOnDestroy();
 

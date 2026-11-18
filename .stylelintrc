@@ -26,7 +26,7 @@
         "ignoreAtRules": ["use"]
       }
     ],
-    "unit-allowed-list": ["rem", "em", "%", "ms", "s", "deg", "vh", "vw", "fr"],
+    "unit-allowed-list": ["rem", "em", "%", "ms", "s", "deg", "vh", "dvh", "vw", "fr"],
     "declaration-empty-line-before": [
       "always",
       {

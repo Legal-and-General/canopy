@@ -46,6 +46,36 @@ Cards are structured into three layout areas:
 2. **Content** - the main body where text, images, and brand icons can be combined.
 3. **Footer** - action area for links, buttons, or menus.
 
+### Footer actions
+
+The footer accepts `lg-button-group`, a button, a link styled as a button, or `lg-link-menu` as direct children.
+
+- **One fixed action:** place it directly in the footer. A button group adds nothing for a single action that is always shown.
+- **Two or more related actions:** wrap them in `lg-button-group`.
+- **An action that is sometimes joined by a second:** `lg-button-group` is acceptable, so the layout is the same whether or not the second action is shown.
+- Use a `<button>` for an action on the page, and `<a lg-button>` with `routerLink` only when the action navigates to a route.
+- Use only one primary button.
+
+```html
+<!-- One fixed action -->
+<lg-card-footer>
+  <button lg-button type="button" priority="primary">Continue</button>
+</lg-card-footer>
+
+<!-- One fixed action that navigates to a route -->
+<lg-card-footer>
+  <a lg-button priority="primary" routerLink="/next-step">Continue</a>
+</lg-card-footer>
+
+<!-- Two related actions -->
+<lg-card-footer>
+  <lg-button-group>
+    <button lg-button type="button" priority="primary">Continue</button>
+    <button lg-button type="button" priority="secondary">Back</button>
+  </lg-button-group>
+</lg-card-footer>
+```
+
 
 ## Dos and Don'ts
 

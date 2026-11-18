@@ -1,6 +1,5 @@
 import storybook from 'eslint-plugin-storybook';
 import globals from 'globals';
-import jestEslint from 'eslint-plugin-jest';
 import {
   javascriptConfig,
   templateConfig,
@@ -13,12 +12,21 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.jest,
         ...globals.node,
-        ...jestEslint.environments.globals.globals,
       },
       ecmaVersion: 2020,
       sourceType: 'module',
+    },
+  },
+  {
+    name: 'Vitest - Language options',
+    files: [ '**/*.spec.{ts,tsx,js,mjs,cjs}', '**/spec.{ts,tsx}' ],
+    languageOptions: {
+      globals: {
+        ...globals.vitest,
+        aroundAll: 'readonly',
+        aroundEach: 'readonly',
+      },
     },
   },
   {

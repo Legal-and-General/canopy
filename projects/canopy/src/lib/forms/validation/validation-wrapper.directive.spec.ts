@@ -12,7 +12,8 @@ import { MockComponents } from 'ng-mocks';
 
 import { LgIconComponent } from '../../icon';
 import { LgCheckboxGroupComponent } from '../checkbox-group';
-import { LgDateFieldComponent } from '../date';
+// Import directly: the date barrel breaks ng-mocks in the full Vitest bundle.
+import { LgDateFieldComponent } from '../date/date-field.component';
 import { LgInputDirective, LgInputFieldComponent } from '../input';
 import { LgRadioButtonComponent, LgRadioGroupComponent } from '../radio';
 import { LgSelectDirective, LgSelectFieldComponent } from '../select';

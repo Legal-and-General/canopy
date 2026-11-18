@@ -6,7 +6,7 @@ import type { Colour, ColourTheme } from './colour.interface';
 
 describe('ColourClassService', () => {
   let service: ColourClassService;
-  let mockRenderer: jest.Mocked<Renderer2>;
+  let mockRenderer: Mocked<Renderer2>;
   let mockElement: HTMLElement;
 
   beforeEach(() => {
@@ -18,9 +18,9 @@ describe('ColourClassService', () => {
     mockElement = document.createElement('div');
 
     mockRenderer = {
-      addClass: jest.fn(),
-      removeClass: jest.fn(),
-    } as unknown as jest.Mocked<Renderer2>;
+      addClass: vi.fn(),
+      removeClass: vi.fn(),
+    } as unknown as Mocked<Renderer2>;
   });
 
   describe('applyColourClasses', () => {
@@ -83,7 +83,7 @@ describe('ColourClassService', () => {
       const theme: ColourTheme = 'neutral';
 
       colours.forEach(colour => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         const appliedClasses = service.applyColourClasses(
           mockRenderer,
           mockElement,
@@ -105,7 +105,7 @@ describe('ColourClassService', () => {
       const colour: Colour = 'blue';
 
       themes.forEach(theme => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
         const appliedClasses = service.applyColourClasses(
           mockRenderer,
           mockElement,

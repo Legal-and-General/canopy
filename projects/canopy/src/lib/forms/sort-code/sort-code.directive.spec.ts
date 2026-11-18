@@ -88,7 +88,7 @@ describe('LgSortCodeDirective', () => {
 
     it('should be called on a focusout event', () => {
       component.form.get('sortCode').setValue('000');
-      const spy = jest.spyOn(inputInstance as any, 'format');
+      const spy = vi.spyOn(inputInstance as any, 'format');
 
       fixture.detectChanges();
       inputDebugElement.nativeElement.dispatchEvent(new Event('focusout'));

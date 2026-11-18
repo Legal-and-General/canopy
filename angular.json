@@ -16,6 +16,37 @@
             "project": "projects/canopy/ng-package.json"
           }
         },
+        "test-build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/canopy-vitest",
+            "browser": "projects/canopy/src/public-api.ts",
+            "index": false,
+            "tsConfig": "projects/canopy/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing",
+              "zone.js/plugins/vitest-patch"
+            ],
+            "aot": false
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "buildTarget": "canopy:test-build",
+            "tsConfig": "projects/canopy/tsconfig.spec.json",
+            "runner": "vitest",
+            "runnerConfig": "vitest.config.ts",
+            "coverage": true,
+            "include": [
+              "**/*.spec.ts",
+              "**/*.spec.tsx",
+              "**/spec.ts",
+              "**/spec.tsx"
+            ]
+          }
+        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -122,6 +153,36 @@
             }
           },
           "defaultConfiguration": ""
+        },
+        "test-build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/canopy-test-app-vitest",
+            "browser": "projects/canopy-test-app/src/main.ts",
+            "index": false,
+            "tsConfig": "projects/canopy-test-app/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing",
+              "zone.js/plugins/vitest-patch"
+            ],
+            "aot": false
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "buildTarget": "canopy-test-app:test-build",
+            "tsConfig": "projects/canopy-test-app/tsconfig.spec.json",
+            "runner": "vitest",
+            "runnerConfig": "vitest.config.ts",
+            "include": [
+              "**/*.spec.ts",
+              "**/*.spec.tsx",
+              "**/spec.ts",
+              "**/spec.tsx"
+            ]
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",

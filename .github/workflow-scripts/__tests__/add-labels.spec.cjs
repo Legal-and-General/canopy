@@ -12,7 +12,7 @@ describe('addLabels', () => {
     github = {
       rest: {
         issues: {
-          addLabels: jest.fn().mockResolvedValue({}),
+          addLabels: vi.fn().mockResolvedValue({}),
         },
       },
     };
@@ -58,5 +58,4 @@ describe('addLabels', () => {
     );
   });
 });
-
 

@@ -1,4 +1,7 @@
-import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, Input, ViewEncapsulation } from '@angular/core';
+
+import { PageVariant } from './page.interface';
+
 @Component({
   selector: 'lg-page',
   templateUrl: './page.component.html',
@@ -8,6 +11,12 @@ import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 })
 export class LgPageComponent {
   @HostBinding('class.lg-page') class = true;
+
+  @Input() variant: PageVariant = 'default';
+
+  @HostBinding('class') get variantClass(): string {
+    return `lg-page--${this.variant}`;
+  }
 
   public skipToMain(event: Event, $element: HTMLElement) {
     event.preventDefault();

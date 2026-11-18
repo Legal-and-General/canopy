@@ -77,7 +77,7 @@ describe('LgFooterNavComponent', () => {
   });
 
   it('should log an error message when the inner element is neither an anchor or a button', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
 
     ngMocks.flushTestBed();
 

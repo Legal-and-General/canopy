@@ -34,7 +34,7 @@ describe('LgFooterSocialComponent', () => {
 
   describe('social links validation', () => {
     it('should not warn when there are 8 or fewer social links', () => {
-      const consoleWarnSpy = jest.spyOn(console, 'warn');
+      const consoleWarnSpy = vi.spyOn(console, 'warn');
 
       TestBed.resetTestingModule();
 
@@ -63,7 +63,7 @@ describe('LgFooterSocialComponent', () => {
     });
 
     it('should warn when there are more than 8 social links', () => {
-      const consoleWarnSpy = jest.spyOn(console, 'warn');
+      const consoleWarnSpy = vi.spyOn(console, 'warn');
 
       TestBed.resetTestingModule();
 
@@ -95,7 +95,7 @@ describe('LgFooterSocialComponent', () => {
     });
 
     it('should count both anchor and button elements', () => {
-      const consoleWarnSpy = jest.spyOn(console, 'warn');
+      const consoleWarnSpy = vi.spyOn(console, 'warn');
 
       TestBed.resetTestingModule();
 

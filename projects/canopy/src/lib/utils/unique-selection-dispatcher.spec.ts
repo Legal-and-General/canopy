@@ -27,7 +27,7 @@ describe('SingleItemDispatcherService', () => {
   }));
 
   it('should remove listener', () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
     const removeListener = dispatcher.listen(spy);
 
     dispatcher.notify(id, context);
@@ -41,7 +41,7 @@ describe('SingleItemDispatcherService', () => {
   });
 
   it('should clear listeners when destroyed', () => {
-    const spy = jest.fn();
+    const spy = vi.fn();
 
     dispatcher.listen(spy);
     dispatcher.ngOnDestroy();

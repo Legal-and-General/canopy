@@ -72,11 +72,34 @@ The test application includes a test page which contains all of the Canopy compo
 
 ## Running unit tests
 
-Run `npm test` to execute the library unit tests, this step is also run as part of the pull request pipeline.
+After installing dependencies, run `npm run build:icons` (or `npm run build`) to
+generate the icon files required by the Angular tests.
+
+```bash
+npm test              # Library tests, with coverage in coverage/
+npm run test:ws       # Workflow-script tests, with coverage in coverage/workflow-scripts/
+npm run test:test-app # Test-app tests
+```
+
+All three suites use Vitest. The pull request pipeline runs the library suite with
+`npm run test:ci`. Angular tests use jsdom and Zone.js; workflow scripts use Node.js.
+
+To run one library spec without coverage:
+
+```bash
+npm test -- --include=projects/canopy/src/lib/icon/icon.registry.spec.ts --coverage=false
+```
+
+Vitest's global test APIs, including `vi`, and the `Mock`, `Mocked<T>` and
+`MockInstance` types need no imports. Prefer `vi` for mocks and spies; use `ng-mocks`
+when Angular metadata is required. The Angular test builder does not support
+`vi.mock()` for relative imports; use TestBed providers or spies instead. For
+CommonJS dependencies loaded with `require()`, use `vi.spyOn()` because `vi.mock()`
+does not intercept `require()`.
 
 ## Running lint
 
-Run `npm run lint` to execute the library unit tests, this step is also run as part of the pull request pipeline.
+Run `npm run lint` to execute ESLint and Stylelint, which also run in the pull request pipeline.
 
 Current linting includes
 
