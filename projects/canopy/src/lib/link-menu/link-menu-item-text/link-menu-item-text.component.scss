@@ -5,7 +5,7 @@
   font-weight: var(--font-weight-500);
   font-feature-settings: 'case' on;
 
-  a:hover & {
+  a:hover:not(:active):not(.lg-side-nav-bar-link--selected) & {
     color: var(--link-menu-item-hover-colour);
   }
 
@@ -13,16 +13,12 @@
     color: var(--link-menu-item-focus-colour);
   }
 
-  a:hover:focus-visible & {
+  a:hover:focus-visible:not(:active):not(.lg-side-nav-bar-link--selected) & {
     color: var(--link-menu-item-focus-colour);
   }
 
   a:active & {
     color: var(--link-menu-item-active-colour);
-  }
-
-  a:active:hover:focus-visible & {
-    color: var(--link-menu-item-focus-colour);
   }
 
   &--bold {
@@ -31,7 +27,7 @@
     font-weight: var(--font-weight-700);
     color: var(--link-menu-item-rest-colour);
 
-    a:hover & {
+    a:hover:not(:active):not(.lg-side-nav-bar-link--selected) & {
       color: var(--link-menu-item-hover-colour);
     }
 
@@ -39,16 +35,12 @@
       color: var(--link-menu-item-focus-colour);
     }
 
-    a:hover:focus-visible & {
+    a:hover:focus-visible:not(:active):not(.lg-side-nav-bar-link--selected) & {
       color: var(--link-menu-item-focus-colour);
     }
 
     a:active & {
       color: var(--link-menu-item-active-colour);
-    }
-
-    a:active:hover:focus-visible & {
-      color: var(--link-menu-item-focus-colour);
     }
   }
 }

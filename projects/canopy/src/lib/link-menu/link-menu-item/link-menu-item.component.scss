@@ -16,7 +16,7 @@
     font-weight: var(--font-weight-400);
     color: var(--link-menu-item-rest-colour-muted);
 
-    a:hover & {
+    a:hover:not(:active):not(.lg-side-nav-bar-link--selected) & {
       color: var(--link-menu-item-hover-colour-muted);
     }
 
@@ -24,16 +24,12 @@
       color: var(--link-menu-item-focus-colour-muted);
     }
 
-    a:hover:focus-visible & {
+    a:hover:focus-visible:not(:active):not(.lg-side-nav-bar-link--selected) & {
       color: var(--link-menu-item-focus-colour-muted);
     }
 
     a:active & {
       color: var(--link-menu-item-active-colour-muted);
-    }
-
-    a:active:hover:focus-visible & {
-      color: var(--link-menu-item-focus-colour-muted);
     }
   }
 }
@@ -47,7 +43,7 @@
     color: var(--link-menu-item-rest-colour);
   }
 
-  a:hover & .lg-icon {
+  a:hover:not(:active):not(.lg-side-nav-bar-link--selected) & .lg-icon {
     color: var(--link-menu-item-hover-colour);
   }
 
@@ -55,16 +51,12 @@
     color: var(--link-menu-item-focus-colour);
   }
 
-  a:hover:focus-visible & .lg-icon {
+  a:hover:focus-visible:not(:active):not(.lg-side-nav-bar-link--selected) & .lg-icon {
     color: var(--link-menu-item-focus-colour);
   }
 
   a:active & .lg-icon {
     color: var(--link-menu-item-active-colour);
-  }
-
-  a:active:hover:focus-visible & .lg-icon {
-    color: var(--link-menu-item-focus-colour);
   }
 }
 
@@ -87,6 +79,8 @@
   }
 }
 
-a:hover .lg-link-menu-item__icon-container .lg-icon {
+a:hover:not(:active):not(.lg-side-nav-bar-link--selected)
+  .lg-link-menu-item__icon-container
+  .lg-icon {
   transform: translateX(0.25rem);
 }
