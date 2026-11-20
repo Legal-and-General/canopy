@@ -1,8 +1,8 @@
-<div class="lg-font-size-1--700" [attr.id]="journeyTitleId">
+<div class="lg-progress-journey__title lg-font-size-1--700" [attr.id]="journeyTitleId">
   <ng-content />
 </div>
 
-<div class="lg-font-size-0-6">
+<div class="lg-progress-journey__progress">
   @switch (displayAs) {
     @case ('step') {
       <span

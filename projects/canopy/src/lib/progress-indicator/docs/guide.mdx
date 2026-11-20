@@ -3,16 +3,18 @@ import Feedback from '../../docs/common/feedback.md?raw';
 import * as ProgressIndicatorStories from './progress-indicator.stories';
 import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
-<Meta title="Components/Progress indicator/Guide" tags={['pending']} />
+<Meta title="Components/Progress indicator/Guide" tags={['updated']} />
 
 # Progress indicator
 
-<CustomBadge text="Pending" style={{ backgroundColor: '#005dba', borderColor: '#005dba', color: '#fff' }} /> <span class="small-text">Due for brand modernisation</span>
+<span style={{ display: 'inline-flex', alignItems: 'baseline', gap: '0.25rem' }}><CustomBadge text="Updated" style={{ backgroundColor: '#caeedd', borderColor: '#caeedd' }} /><span class="small-text">for brand modernisation in Canopy{' '}<a href="https://github.com/Legal-and-General/canopy/releases/tag/v47.0.0" target="_blank" rel="noopener noreferrer">v47</a>.</span></span>
 
-<p class="standardfirst">
+<p class="standfirst">
   The progress indicator is used to inform users about the status of an ongoing
   processes.
 </p>
+
+*Design guidance for this component is currently being rewritten. Please contact the Canopy team if you need more information on how to use this component.*
 
 The progress indicator is a container that comprises of 3 child components: `lg-progress-bar`, `lg-progress-header` and `lg-progress-journey`, which in combination is used to display the progress of a multi-part form journey.
 
@@ -29,15 +31,10 @@ Use this component when you want to show the progress of a journey. It can be us
 The progress indicator component is a **Angular standalone component**, you can import the component into your application as:
 
 ```js
-@NgModule({
-    ...
-    imports: [
-      ...,
-      LgProgressBarComponent,
-      LgProgressHeaderComponent,
-      LgProgressIndicatorComponent
-    ],
-});
+import {
+  LgProgressBarComponent,
+  LgProgressHeaderComponent,
+  LgProgressIndicatorComponent } from '@legal-and-general/canopy';
 ```
 
 For a single progress bar, use the following markup:
@@ -55,29 +52,124 @@ And for a progress indicator as a part of a form journey, use the following mark
   [displayAs]="displayAs"
   [showProgressBar]="showProgressBar"
 >
-  Journey title
-  <lg-progress-header> Step Heading </lg-progress-header>
+  Application journey
+  <lg-progress-header>Your details</lg-progress-header>
 </lg-progress-indicator>
 ```
 
+The journey title describes the overall journey and should remain the same as the user
+progresses. Update the `lg-progress-header` content to describe the active step. At
+narrow widths, the title and progress text wrap to fit the available space. The
+indicator's colours follow the Canopy colour mode applied to it or an ancestor.
+
+The filled and unfilled portions of the bar are separated by a gap while progress
+is between 0% and 100%. Empty and completed bars span the full width without a gap.
+
+## Dos and Don'ts
+
+### Do
+
+1. **Do** keep the journey title consistent and update the step heading for each step.
+2. **Do** use the `displayAs` input to choose step-based or percentage-based progress text.
+
+### Don't
+
+1. **Don't** use the journey title as the active step heading.
+
 ## Additional development details
+
+### Progress values
+
+Set `max` to a positive total and keep `value` between `0` and `max`. These inputs
+default to `0`; Angular does not require them to be supplied.
+
+The bar calculates its fill as `(value / max) * 100`, capped at 100%. When `max`
+is zero or negative, the bar is empty. Percentage text uses the same ratio, clamped
+to 0–100 and rounded down to a whole number; when `max` is zero it displays `0%`.
+Step text displays the supplied `value` and `max` without rounding or clamping.
+
+### Animation
+
+On initial display, the filled portion animates from zero to the current progress
+in browsers that support CSS `@starting-style`. Subsequent width changes also
+transition when `value` or `max` changes, for both step and percentage displays.
+The transitions use the shared `--animation-duration` and `--animation-fn`
+variables, which default to `0.25s` and `ease-out`.
+
+When `prefers-reduced-motion: reduce` is enabled, transitions are disabled and the
+current progress is shown immediately. Browsers without `@starting-style` support
+show the initial progress immediately but still transition subsequent width changes.
+
+### Accessibility
+
+The bar exposes `role="progressbar"` with a minimum of zero and the supplied `max`
+and `value` as its ARIA maximum and current value. Keep those inputs within the
+valid range rather than relying on the visual percentage cap.
+
+Within `lg-progress-indicator`, the bar is labelled by the journey title and progress
+text using generated IDs. For a standalone `lg-progress-bar`, provide a descriptive
+`ariaLabel`, or set `ariaLabelledBy` to the ID of an existing label. Set
+`isAriaLiveRegion` to `true` to use `aria-live="polite"`; it defaults to `false`
+(`aria-live="off"`).
+
+### Typography
+
+`lg-progress-header` uses expressive typography at size 4 with a font weight
+of 700. The journey title uses size 1 with weight 700. Step and percentage
+text inherit their font size rather than applying a fixed font-size utility.
+
+### CSS custom properties
+
+| Custom property | Controls |
+| --------------- | -------- |
+| `--progress-indicator-gap` | Space before the step heading. |
+| `--progress-header-colour` | Active step heading colour. |
+| `--progress-journey-colour` | Journey title and progress text colour. |
+| `--progress-journey-gap` | Space between the journey title and progress text. |
+| `--progress-bar-background-colour` | Progress bar track colour. |
+| `--progress-bar-colour` | Progress bar fill colour. |
+| `--progress-bar-gap` | Space between journey details and the progress bar, and between its filled and unfilled portions. |
+| `--progress-bar-border-radius` | Progress bar corner radius. |
+| `--progress-bar-height` | Progress bar height. |
+| `--animation-duration` | Shared transition duration; defaults to `0.25s`. |
+| `--animation-fn` | Shared transition easing; defaults to `ease-out`. |
 
 ### LgProgressBarComponent inputs
 
-| Name    | Description                     |   Type   | Default | Required |
-| ------- | ------------------------------- | :------: | :-----: | :------: |
-| `max`   | The number of the maximum steps | `number` |   `0`   |   Yes    |
-| `value` | The current step in the process | `number` |   `0`   |   Yes    |
+| Input | Description | Type | Default | Required |
+| ----- | ----------- | ---- | ------- | -------- |
+| `max` | Total number of steps or units. | `number` | `0` | No |
+| `value` | Current number of steps or units. | `number` | `0` | No |
+| `ariaLabel` | Accessible name when not labelled by another element. | `string` | `'Progress bar'` | No |
+| `ariaLabelledBy` | Space-separated IDs of elements that label the bar; takes precedence over `ariaLabel`. | `string \| null` | `null` | No |
+| `isAriaLiveRegion` | Enables polite live-region announcements. | `boolean` | `false` | No |
 
 ### LgProgressIndicatorComponent inputs
 
-| Name              | Description                                                                                                |           Type           | Default | Required |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | :----------------------: | :-----: | :------: |
-| `max`             | The number of the maximum steps                                                                            |         `number`         |   `0`   |   Yes    |
-| `value`           | The current step in the process                                                                            |         `number`         |   `0`   |   Yes    |
-| `displayAs`       | Display as a step counter or percentage. The percentage is calculated based on the `max` and `min` values. | `'percentage' \| 'step'` | `step`  |    No    |
-| `showProgressBar` | Toggle display the progress bar                                                                            |        `boolean`         | `true`  |    No    |
-| `stepsPrefix`     | For a step counter, this changes the text content which describes the steps (e.g. Step 1 of 3).            |         `string`         | `Step`  |    No    |
+| Input | Description | Type | Default | Required |
+| ----- | ----------- | ---- | ------- | -------- |
+| `max` | Total number of steps or units. | `number` | `0` | No |
+| `value` | Current number of steps or units. | `number` | `0` | No |
+| `displayAs` | Displays a step counter or the percentage calculated from `value / max`, clamped to 0–100 and rounded down. | `'percentage' \| 'step'` | `'step'` | No |
+| `showProgressBar` | Controls whether the progress bar is displayed. | `boolean` | `true` | No |
+| `stepsPrefix` | Prefix for step text, for example 'Step 1 of 3'. | `string` | `'Step'` | No |
+
+### LgProgressJourneyComponent inputs
+
+The indicator configures this component internally. When using it directly, import
+`LgProgressJourneyComponent` and supply the journey title as projected content.
+
+| Input | Description | Type | Default | Required |
+| ----- | ----------- | ---- | ------- | -------- |
+| `max` | Total number of steps or units. | `number` | `0` | No |
+| `value` | Current number of steps or units. | `number` | `0` | No |
+| `displayAs` | Displays a step counter or percentage text. | `'percentage' \| 'step'` | `'step'` | No |
+| `stepsPrefix` | Prefix for step text. | `string` | `'Step'` | No |
+| `journeyTitleId` | ID applied to the journey title for accessible labelling. | `string` | `undefined` | No |
+| `stepsTextId` | ID applied to the progress text for accessible labelling. | `string` | `undefined` | No |
+
+`LgProgressHeaderComponent` has no inputs; supply the active step heading as
+projected content. These components do not emit outputs.
 
 <Markdown>
   {Feedback}

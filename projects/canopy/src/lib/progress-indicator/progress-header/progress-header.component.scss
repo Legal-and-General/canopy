@@ -1,7 +1,8 @@
 @use '../../../styles/mixins.scss';
 
 .lg-progress-header {
-  @include mixins.lg-font-size(4);
+  @include mixins.lg-font-size(4, '700', 'expressive');
 
-  padding-top: var(--space-4);
+  color: var(--progress-header-colour);
+  padding-top: var(--progress-indicator-gap);
 }

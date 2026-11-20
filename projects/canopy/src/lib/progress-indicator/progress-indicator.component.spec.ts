@@ -1,9 +1,30 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MockComponents } from 'ng-mocks';
 
+import { LgProgressHeaderComponent } from './progress-header/progress-header.component';
 import { LgProgressBarComponent } from './progress-bar/progress-bar.component';
 import { LgProgressJourneyComponent } from './progress-journey/progress-journey.component';
 import { LgProgressIndicatorComponent } from './progress-indicator.component';
+
+@Component({
+  selector: 'lg-progress-indicator-test-host',
+  standalone: true,
+  imports: [ LgProgressHeaderComponent, LgProgressIndicatorComponent ],
+  template: `
+    <lg-progress-indicator [max]="max" [value]="value" [displayAs]="displayAs">
+      <span>{{ journeyTitle }}</span>
+      <lg-progress-header>{{ stepHeading }}</lg-progress-header>
+    </lg-progress-indicator>
+  `,
+})
+class ProgressIndicatorTestHostComponent {
+  max = 5;
+  value = 1;
+  displayAs: 'percentage' | 'step' = 'step';
+  journeyTitle = 'Application journey';
+  stepHeading = 'Your details';
+}
 
 /* eslint-disable no-underscore-dangle */
 describe('LgProgressIndicatorComponent', () => {
@@ -277,3 +298,61 @@ describe('LgProgressIndicatorComponent', () => {
   });
 });
 /* eslint-enable no-underscore-dangle */
+
+describe('LgProgressIndicatorComponent content projection', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ ProgressIndicatorTestHostComponent ],
+    }).compileComponents();
+  });
+
+  it('should render journey title, progress bar, and step heading separately', () => {
+    const fixture = TestBed.createComponent(ProgressIndicatorTestHostComponent);
+
+    fixture.detectChanges();
+
+    const journeyTitle = fixture.nativeElement.querySelector(
+      '.lg-progress-journey__title',
+    );
+    const progressBar = fixture.nativeElement.querySelector('[role="progressbar"]');
+    const stepHeading = fixture.nativeElement.querySelector('lg-progress-header');
+
+    expect(journeyTitle.textContent).toContain('Application journey');
+    expect(progressBar).toBeTruthy();
+    expect(stepHeading.textContent).toContain('Your details');
+    expect(journeyTitle.contains(stepHeading)).toBe(false);
+  });
+
+  it('should keep the journey title while the active step heading changes', () => {
+    const fixture = TestBed.createComponent(ProgressIndicatorTestHostComponent);
+
+    fixture.detectChanges();
+    fixture.componentInstance.value = 2;
+    fixture.componentInstance.stepHeading = 'Your address';
+    fixture.detectChanges();
+
+    expect(
+      fixture.nativeElement.querySelector('.lg-progress-journey__title').textContent,
+    ).toContain('Application journey');
+
+    expect(
+      fixture.nativeElement.querySelector('.lg-progress-journey__stepper').textContent,
+    ).toContain('Step 2 of 5');
+
+    expect(
+      fixture.nativeElement.querySelector('lg-progress-header').textContent,
+    ).toContain('Your address');
+  });
+
+  it('should wrap a long journey title without losing its content', () => {
+    const fixture = TestBed.createComponent(ProgressIndicatorTestHostComponent);
+    const longTitle = 'A very long journey title that must wrap to fit the container';
+
+    fixture.componentInstance.journeyTitle = longTitle;
+    fixture.detectChanges();
+
+    expect(
+      fixture.nativeElement.querySelector('.lg-progress-journey__title').textContent,
+    ).toContain(longTitle);
+  });
+});

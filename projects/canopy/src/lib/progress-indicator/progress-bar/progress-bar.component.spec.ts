@@ -114,4 +114,81 @@ describe('LgProgressBarComponent', () => {
 
     expect(progressBarBarElement.style.width).toBe(expectedWidth);
   });
+
+  it.each([
+    { value: 1, max: 4, filledWidth: '25%', trackWidth: '75%' },
+    { value: 30, max: 100, filledWidth: '30%', trackWidth: '70%' },
+  ])(
+    'renders proportional segments for $value of $max',
+    ({ value, max, filledWidth, trackWidth }) => {
+      fixture.componentRef.setInput('value', value);
+      fixture.componentRef.setInput('max', max);
+      fixture.detectChanges();
+
+      const fill: HTMLElement = fixture.nativeElement.querySelector(
+        '.lg-progress-bar__bar',
+      );
+      const track: HTMLElement = fixture.nativeElement.querySelector(
+        '.lg-progress-bar__track',
+      );
+
+      expect(fill.style.width).toBe(filledWidth);
+      expect(track.style.width).toBe(trackWidth);
+      expect(track.getAttribute('aria-hidden')).toBe('true');
+    },
+  );
+
+  it.each([
+    { value: 0, max: 100 },
+    { value: 1, max: 0 },
+    { value: 1, max: -1 },
+  ])('renders only the full-width track for $value of $max', ({ value, max }) => {
+    fixture.componentRef.setInput('value', value);
+    fixture.componentRef.setInput('max', max);
+    fixture.detectChanges();
+
+    const track: HTMLElement = fixture.nativeElement.querySelector(
+      '.lg-progress-bar__track',
+    );
+
+    expect(fixture.nativeElement.querySelector('.lg-progress-bar__bar')).toBeNull();
+    expect(track.style.width).toBe('100%');
+  });
+
+  it.each([ 100, 120 ])('renders only the full-width fill at %s%%', value => {
+    fixture.componentRef.setInput('value', value);
+    fixture.componentRef.setInput('max', 100);
+    fixture.detectChanges();
+
+    const fill: HTMLElement = fixture.nativeElement.querySelector(
+      '.lg-progress-bar__bar',
+    );
+
+    expect(fill.style.width).toBe('100%');
+    expect(fixture.nativeElement.querySelector('.lg-progress-bar__track')).toBeNull();
+  });
+
+  it('updates segments when moving between empty, partial and complete progress', () => {
+    fixture.componentRef.setInput('max', 100);
+
+    for (const value of [ 0, 50, 100, 50, 0 ]) {
+      fixture.componentRef.setInput('value', value);
+      fixture.detectChanges();
+
+      const fill: HTMLElement | null = fixture.nativeElement.querySelector(
+        '.lg-progress-bar__bar',
+      );
+      const track: HTMLElement | null = fixture.nativeElement.querySelector(
+        '.lg-progress-bar__track',
+      );
+
+      expect(fill?.style.width ?? null).toBe(value > 0
+        ? `${value}%`
+        : null);
+
+      expect(track?.style.width ?? null).toBe(value < 100
+        ? `${100 - value}%`
+        : null);
+    }
+  });
 });
