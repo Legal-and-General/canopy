@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
+import { Location } from '@angular/common';
 import {
   ReactiveFormsModule,
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 // Define interfaces for tabs and side nav items
 interface TabItem {
@@ -138,9 +139,6 @@ import {
 import {
   LgSideNavBarComponent,
   LgSideNavBarFooterComponent,
-  LgSideNavBarItemComponent,
-  LgSideNavBarItemContentComponent,
-  LgSideNavBarItemHeadingComponent,
   LgSideNavBarLinkDirective,
   LgSideNavComponent,
   LgSideNavContentComponent,
@@ -245,9 +243,6 @@ import {
     LgSideNavComponent,
     LgSideNavBarComponent,
     LgSideNavBarLinkDirective,
-    LgSideNavBarItemComponent,
-    LgSideNavBarItemHeadingComponent,
-    LgSideNavBarItemContentComponent,
     LgSideNavBarFooterComponent,
     LgSideNavContentComponent,
     LgPaginationComponent,
@@ -269,6 +264,7 @@ import {
     LgProgressIndicatorComponent,
     LgProgressHeaderComponent,
     RouterLink,
+    RouterLinkActive,
     RouterOutlet,
     LgModalComponent,
     LgModalTriggerDirective,
@@ -278,12 +274,12 @@ import {
   ],
 })
 export class AppComponent {
-  fb = inject(UntypedFormBuilder);
+  private location = inject(Location);
 
+  fb = inject(UntypedFormBuilder);
   title = 'canopy-test-app';
   form: UntypedFormGroup;
   selectedTabIndex = 0;
-  selectedSideNavIndex = 1;
   tabs: Array<TabItem> = [
     {
       path: './tab-1',
@@ -300,7 +296,8 @@ export class AppComponent {
   ];
   sideNav: Array<SideNavItem> = [
     {
-      title: 'Overview',
+      title: 'Personal details',
+      description: 'Name, date of birth and marital status.',
       path: 'side-nav-1',
     },
     {
@@ -348,8 +345,7 @@ export class AppComponent {
     this.selectedTabIndex = index;
   }
 
-  handleSideNavClick(event: MouseEvent, index: number): void {
-    event.preventDefault();
-    this.selectedSideNavIndex = index;
+  back(): void {
+    this.location.back();
   }
 }

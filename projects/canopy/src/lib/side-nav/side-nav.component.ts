@@ -14,6 +14,8 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { LgContentAreaContentComponent } from '../content-area/content-area-content/content-area-content.component';
+
 import { LgSideNavContentComponent } from './side-nav-content/side-nav-content.component';
 import { LgSideNavBarLinkDirective } from './side-nav-bar-link/side-nav-bar-link.directive';
 
@@ -24,6 +26,7 @@ import { LgSideNavBarLinkDirective } from './side-nav-bar-link/side-nav-bar-link
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  imports: [ LgContentAreaContentComponent ],
 })
 export class LgSideNavComponent implements AfterViewInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
