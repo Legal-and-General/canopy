@@ -1,12 +1,40 @@
 .lg-progress-bar {
-  background-color: var(--colour-blue-100);
-  height: calc(var(--space-1));
-  border-radius: var(--border-radius-sm);
+  display: flex;
+  column-gap: var(--progress-bar-gap);
+  height: var(--progress-bar-height);
+  border-radius: var(--progress-bar-border-radius);
   width: 100%;
+  margin-block-start: var(--progress-bar-gap);
+
+  &__bar,
+  &__track {
+    flex: 0 1 auto;
+    min-width: 0;
+    border-radius: inherit;
+    height: 100%;
+    transition: width var(--animation-duration) var(--animation-fn);
+  }
 
   &__bar {
-    background-color: var(--colour-blue-600);
-    border-radius: var(--border-radius-sm);
-    height: inherit;
+    background-color: var(--progress-bar-colour);
+
+    @starting-style {
+      width: 0% !important;
+    }
+  }
+
+  &__track {
+    background-color: var(--progress-bar-background-colour);
+
+    @starting-style {
+      width: 100% !important;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-progress-bar__bar,
+  .lg-progress-bar__track {
+    transition: none;
   }
 }

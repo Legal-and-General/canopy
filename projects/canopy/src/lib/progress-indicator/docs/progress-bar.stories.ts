@@ -4,7 +4,7 @@ import { LgProgressBarComponent } from '../progress-bar/progress-bar.component';
 
 export default {
   title: 'Components/Progress indicator/Examples',
-  tags: [ 'pending' ],
+  tags: [ 'updated' ],
   component: LgProgressBarComponent,
   argTypes: {
     max: {
@@ -52,5 +52,32 @@ export const ProgressBar = {
         code: template,
       },
     },
+  },
+};
+
+export const Empty = {
+  ...ProgressBar,
+  name: 'Progress bar - empty',
+  args: {
+    max: 100,
+    value: 0,
+  },
+};
+
+export const Percentage = {
+  ...ProgressBar,
+  name: 'Progress bar - percentage',
+  args: {
+    max: 100,
+    value: 50,
+  },
+};
+
+export const Complete = {
+  ...ProgressBar,
+  name: 'Progress bar - complete',
+  args: {
+    max: 100,
+    value: 100,
   },
 };

@@ -8,5 +8,14 @@
   [attr.aria-valuenow]="value"
   [attr.aria-live]="isAriaLiveRegion ? 'polite' : 'off'"
 >
-  <div class="lg-progress-bar__bar" [style.width.%]="progress"></div>
+  @if (progress > 0) {
+    <div class="lg-progress-bar__bar" [style.width.%]="progress"></div>
+  }
+  @if (progress < 100) {
+    <div
+      class="lg-progress-bar__track"
+      [style.width.%]="100 - progress"
+      aria-hidden="true"
+    ></div>
+  }
 </div>
