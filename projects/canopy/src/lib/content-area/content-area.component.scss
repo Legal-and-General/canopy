@@ -22,7 +22,8 @@
       padding-left: var(--content-area-padding-x);
       padding-right: var(--content-area-padding-x);
 
-      h1 {
+      h1,
+      .lg-content-area--form-journey-main-title {
         @include mixins.lg-font-size(4, '500', 'expressive');
 
         letter-spacing: var(--letter-spacing-normal-expressive);

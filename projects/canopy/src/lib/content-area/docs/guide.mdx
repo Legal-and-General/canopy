@@ -65,11 +65,13 @@ You can add the `lg-font--expressive` class to the title component.
 
 Use this variant for multi-page form journeys. Give each step a page title with `lg-content-area-title` at heading level 2. Keep the journey title in the progress indicator separate from the page title. The footer contains the actions for the current step.
 
-A directive or class is also available, allowing you to apply Content area styling to custom elements when needed.
+Within the form journey content area, `h1` elements receive the journey title styles automatically. Add `lg-content-area--form-journey-main-title` to another heading when its semantic level fits your page hierarchy but it needs the journey title styling.
 
 ##### Introduction page
 
-Use the same header and back link as the intermediate page. In the content area, show the level 1 “Journey title” and introductory text. Place Continue and Cancel in a button group in the footer.
+Use the same header and back link as the intermediate page. In the content area, show the journey title and introductory text. Place Continue and Cancel in a button group in the footer.
+
+The example uses `h2` followed by `h3` to show heading hierarchy; choose levels that fit your own page. The "Before you begin" heading uses `lg-font-size-2` for its visual size.
 
 <Source of={ContentAreaStories.Introduction} />
 
@@ -82,6 +84,21 @@ Use the same header and back link as the intermediate page. In the content area,
 Confirmation is shown as a completed state, without an active progress indicator.
 
 <Source of={ContentAreaStories.Confirmation} />
+
+##### Back link as button
+
+Use a link for navigation. When the back action triggers a function instead, use a button with `priority="link"` and `[backIcon]="true"` inside `lg-content-area-header`.
+
+Back links inside the header retain their resting colour after they have been visited.
+
+```html
+<lg-content-area-header>
+  <button lg-button type="button" priority="link" [backIcon]="true">
+    <lg-icon name="arrow-left"></lg-icon>
+    Back
+  </button>
+</lg-content-area-header>
+```
 
 ## Do and don't
 
