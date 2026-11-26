@@ -32,13 +32,48 @@ In your HTML:
 <!-- with fill enabled -->
 <lg-pictogram name="sun" [hasFill]="true"></lg-pictogram>
 
+<!-- with a status fill -->
+<lg-pictogram name="confirm" [hasFill]="true" status="success"></lg-pictogram>
+
 <!-- with a size set -->
 <lg-pictogram name="sun" size="md"></lg-pictogram>
 ```
 
+### Fill and colour
+
+Pictograms are unfilled by default. Set `[hasFill]="true"` to use the theme's
+default fill colour.
+
+#### Optional status
+
+When a pictogram supports a status message, you can optionally set `status` to
+reflect the type of message:
+
+| Status | Use for |
+|--------|---------|
+| `info` | Information |
+| `success` | A successful action or outcome |
+| `warning` | A warning or interrupted service |
+| `error` | An error preventing progress |
+
+Set `[hasFill]="true"` to show the status fill; otherwise the pictogram remains
+unfilled. The status leaves the outline unchanged. Omitting or clearing `status`
+restores the theme's default fill when `hasFill` remains `true`.
+
+### Pictogram names
+
+Use `notification` and `notification-confirm` for the notification artwork. These
+replace `bell` and `notification-bell` respectively; the previous names are no
+longer available.
+
+The catalogue also includes `coins`, `pounds-confirmation`, `pounds-decrease` and
+`pounds-warning`.
+
 ### Sizes
 
 Pictograms should be scaled according to the following sizes to ensure outlines look clean and crisp.
+
+Use `md` (the default), `lg` or `xl`. Pixel equivalents below assume a 16px root font size.
 
 |                    | **rem** | **px** |
 |--------------------|---------|--------|
@@ -57,7 +92,7 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 ### Don't
 
 
-* **Don't** use a pictogram in place of a UI icon, or at a size less than 160px.
+* **Don't** use a pictogram in place of a UI icon, or at a size less than 32px.
 * **Don't** set `hasFill` to `true` to fill pictograms when using them in highly-branded scenarios such as in the Dotcom CMS.
 
 ## Additional development details
@@ -69,6 +104,7 @@ Pictograms should be scaled according to the following sizes to ensure outlines 
 | `name` | The name of the icon | `string`          | `undefined` | yes      |
 | `size` | The size of the icon | `md,lg,xl` | `md` | no |
 | `hasFill` | Applies a fill | `boolean` | `false` | no |
+| `status` | Sets the pictogram status | `'info' \| 'success' \| 'warning' \| 'error'` | `undefined` | no |
 
 
 ## Related
