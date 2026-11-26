@@ -66,11 +66,9 @@ For example, `--colour-surface-fill-1` returns a different value in each colour 
 
 If you are using the Canopy Angular library, design tokens are **included automatically**. No additional installation is needed.
 
-For projects that only need the tokens (without Angular components):
-
-```bash
-npm install @legal-and-general/canopy-design-tokens
-```
+If a project does not use the Canopy Angular library and needs standalone tokens, follow
+the project's approved dependency setup or ask its owner. Do not add or install dependencies
+as part of applying this styling guidance.
 
 ---
 

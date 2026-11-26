@@ -28,9 +28,13 @@ Authenticating a CI tool against the registry should be very similar to the abov
 
 ## NPM install
 
-You should now be able to install the module.
+Canopy packages are hosted on GitHub Packages, not the public npm registry. Complete
+the registry configuration and authentication steps above before installing:
 
 `npm install @legal-and-general/canopy`
+
+If configuration, authentication or installation fails, stop and resolve the error;
+do not fall back to the public npm registry or substitute a similarly named package.
 
 ### Requirements
 
