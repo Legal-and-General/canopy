@@ -48,7 +48,12 @@ A notice should be the only content that displays in a container.
 
 ## Status
 
-The `status` input defaults to `info`. Set it to communicate the type of message.
+The `status` input accepts `info`, `success`, `warning` and `error`, and defaults
+to `info`. Set it to communicate the type of message.
+
+The notice passes its status to the projected pictogram and enables its fill
+automatically. Pictograms remain unfilled inside subtle or bold Content Areas.
+
 When `status` is set explicitly, `success`, `warning` and `error` use the role `alert`
 so assistive technologies announce them when they are shown. Explicitly setting
 `info` does not add an ARIA role. When `status` is omitted, `hasRole`

@@ -232,7 +232,7 @@ changes in a consumer project, with and without the skill installed.
 | `canopy-skeleton` | `LgSkeletonDirective` (`[lgSkeleton]`), animation, screen reader behaviour | — |
 | `canopy-progress-indicator` | `LgProgressIndicatorComponent`, steps, current step | — |
 | `canopy-sr-alert-message` | `LgSrAlertMessageDirective`, `[lgSrAlertMessage]`, live region, screen reader only | — |
-| `canopy-notice` | `LgNoticeComponent`, title, description, icon | — |
+| `canopy-notice` | `LgNoticeComponent`, title, description, actions, automatic pictogram status and fill | — |
 | **Data Display** | | |
 | `canopy-data-point` | `LgDataPointComponent`, label/value/list, heading level | — |
 | `canopy-accordion` | `LgAccordionComponent`, multi, lazy content, outputs | — |

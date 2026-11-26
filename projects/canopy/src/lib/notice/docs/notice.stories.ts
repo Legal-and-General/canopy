@@ -31,7 +31,7 @@ const pictogramNames: Array<PictogramName> = [
   selector: 'lg-notice-story',
   template: `
     <lg-notice [hasRole]="hasRole" [status]="status">
-      <lg-pictogram [name]="icon" [hasFill]="true" />
+      <lg-pictogram [name]="icon" />
       <lg-notice-title>This is a message with pictogram </lg-notice-title>
       <lg-notice-description>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -85,7 +85,7 @@ class LgNoticeStoryComponent {
     <lg-content-area [lgColour]="mode" [lgColourTheme]="theme">
       <lg-content-area-content>
         <lg-notice [status]="status">
-          <lg-pictogram [name]="icon" [hasFill]="true" />
+          <lg-pictogram [name]="icon" />
           <lg-notice-title>This is a message with pictogram</lg-notice-title>
           <lg-notice-description>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -209,7 +209,7 @@ const template = `
 
 const exampleTemplate = `
 <lg-notice [hasRole]="hasRole" [status]="status">
-  <lg-pictogram [name]="icon" [hasFill]="true"></lg-pictogram>
+  <lg-pictogram [name]="icon"></lg-pictogram>
   <lg-notice-title
     >This is a message with pictogram
   </lg-notice-title>
