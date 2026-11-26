@@ -148,7 +148,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-forms-switch` | `LgToggleComponent` (switch), deprecation/removal migration guidance | Deprecated/Removed |
 | `canopy-forms-filter-buttons` | Filter radio/checkbox, max 10 options, default deselected | — |
 | **Utilities** | | |
-| `canopy-pictogram` | `LgPictogramComponent`, sizes, colour inputs, global branding | — |
+| `canopy-pictogram` | `LgPictogramComponent`, sizes, optional status and fill behaviour | — |
 | `canopy-flag-icon` | `LgFlagIconComponent`, country flags, usage with country names | — |
 | `canopy-icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
 | `canopy-focus` | `LgFocusDirective`, programmatic focus | — |
