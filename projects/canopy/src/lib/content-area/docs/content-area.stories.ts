@@ -171,6 +171,43 @@ export const WithExpressiveType = {
   }),
 };
 
+const introductorySource = `
+<lg-content-area variant="form-journey">
+  <lg-content-area-header>
+    <a href="#">
+      <lg-icon name="arrow-left"></lg-icon>
+      Back
+    </a>
+  </lg-content-area-header>
+  <lg-content-area-content>
+    <h2 class="lg-content-area--form-journey-main-title">Journey title</h2>
+    <p>You can update the bank account used for your payments. This should take about five minutes.</p>
+    <h3 class="lg-font-size-2">Before you begin</h3>
+    <p>Have your account number and sort code ready.</p>
+  </lg-content-area-content>
+  <lg-content-area-footer>
+    <lg-button-group>
+      <button lg-button type="button" priority="primary">Continue</button>
+      <button lg-button type="button" priority="secondary">Cancel</button>
+    </lg-button-group>
+  </lg-content-area-footer>
+</lg-content-area>
+`;
+
+export const Introduction = {
+  name: 'Form journey introduction',
+  parameters: {
+    docs: {
+      source: {
+        code: introductorySource,
+      },
+    },
+  },
+  render: () => ({
+    template: introductorySource,
+  }),
+};
+
 const formJourneyTemplate = `
   <div lgContainer>
     <div lgRow>

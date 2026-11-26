@@ -65,10 +65,38 @@ You can add the `lg-font--expressive` class to the title component.
 
 Includes an optional header and breadcrumb, and always provides a footer containing buttons. You must always use the form journey variant when guiding users through forms.
 
-A directive or class is also available, allowing you to apply Content area styling to custom elements when needed.
+##### Introduction page
 
+In the content area, show the journey title and introductory text. Place Continue and Cancel in a button group in the footer.
+
+Within the form journey content area, `h1` elements receive the journey title styles automatically. Add `lg-content-area--form-journey-main-title` to another heading when its semantic level fits your page hierarchy but it needs the journey title styling. The example uses `h2` followed by `h3` to show heading hierarchy; choose levels that fit your own page.
+
+The "Before you begin" heading uses `lg-font-size-2` for its visual size.
+
+<Source of={ContentAreaStories.Introduction} />
+
+##### Form page
 
 <Source of={ContentAreaStories.FormJourney} />
+
+##### Back link as button
+
+Use a button with `priority="link"` and `[backIcon]="true"` when the back action is not a navigation link, for example when it triggers a function.
+
+```html
+<lg-content-area variant="form-journey">
+  <lg-content-area-header>
+    <button lg-button type="button" priority="link" [backIcon]="true">
+      <lg-icon name="arrow-left"></lg-icon>
+      Back
+    </button>
+  </lg-content-area-header>
+  <lg-content-area-content>
+    <h1>Journey title</h1>
+    <p>{{content}}</p>
+  </lg-content-area-content>
+</lg-content-area>
+```
 
 ## Do and don't
 
