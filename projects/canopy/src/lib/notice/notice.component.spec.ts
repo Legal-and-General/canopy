@@ -19,11 +19,8 @@ describe('LgNoticeComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         LgNoticeComponent,
-        MockComponents(
-          LgPictogramComponent,
-          LgNoticeTitleComponent,
-          LgNoticeDescriptionComponent,
-        ),
+        LgPictogramComponent,
+        MockComponents(LgNoticeTitleComponent, LgNoticeDescriptionComponent),
       ],
     }).compileComponents();
   }));
@@ -33,7 +30,7 @@ describe('LgNoticeComponent', () => {
 
     fixture = MockRender(`
       <lg-notice>
-        <lg-pictogram name="calendar" />
+        <lg-pictogram />
         <lg-notice-title
           >This is a message with pictogram</lg-notice-title
         >
@@ -85,6 +82,34 @@ describe('LgNoticeComponent', () => {
   });
 
   describe('the status input', () => {
+    it('passes the default info status and enables pictogram fill', () => {
+      const pictogram = fixture.debugElement.query(By.directive(LgPictogramComponent));
+
+      expect(pictogram.componentInstance.status).toBe('info');
+      expect(pictogram.componentInstance.hasFill).toBe(true);
+      expect(pictogram.nativeElement.getAttribute('data-has-fill')).toBe('true');
+    });
+
+    it('updates the pictogram status and restores info when cleared', async () => {
+      const pictogram = fixture.debugElement.query(By.directive(LgPictogramComponent));
+
+      component.status = 'success';
+      await fixture.whenStable();
+      component.status = 'error';
+      await fixture.whenStable();
+
+      expect(pictogram.componentInstance.status).toBe('error');
+      expect(pictogram.nativeElement.classList.contains('lg-status-success')).toBe(false);
+      expect(pictogram.nativeElement.classList.contains('lg-status-error')).toBe(true);
+
+      component.status = undefined;
+      await fixture.whenStable();
+
+      expect(pictogram.componentInstance.status).toBe('info');
+      expect(pictogram.nativeElement.classList.contains('lg-status-error')).toBe(false);
+      expect(pictogram.nativeElement.classList.contains('lg-status-info')).toBe(true);
+    });
+
     function testStatus(status: Exclude<Status, 'generic'>, expectedRole: string | null) {
       component.status = status;
       fixture.detectChanges();
@@ -92,6 +117,8 @@ describe('LgNoticeComponent', () => {
       const notice = fixture.debugElement.query(By.css('.lg-notice'));
       const pictogram = fixture.debugElement.query(By.css('lg-pictogram'));
 
+      expect(pictogram.componentInstance.status).toBe(status);
+      expect(pictogram.componentInstance.hasFill).toBe(true);
       expect(notice.nativeElement.getAttribute('role')).toBe(expectedRole);
 
       expect(notice.nativeElement.getAttribute('class')).not.toContain(
