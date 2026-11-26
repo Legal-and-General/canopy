@@ -148,6 +148,22 @@ Treat confirmation as a completed state; do not show an active progress indicato
 </lg-notice>
 ```
 
+#### Back link as button
+
+Use a button with `priority="link"` and `[backIcon]="true"` when the back action is not a navigation link, for example when it triggers a function. Keep it in `lg-content-area-header`.
+
+```html
+<lg-content-area variant="form-journey">
+  <lg-content-area-header>
+    <button lg-button type="button" priority="link" [backIcon]="true">
+      <lg-icon name="arrow-left"></lg-icon>
+      Back
+    </button>
+  </lg-content-area-header>
+  <!-- content and footer -->
+</lg-content-area>
+```
+
 > See also: [Canopy Forms Design](../forms-design/SKILL.md) for choosing between multi-page and single-page forms and for field, validation, and action guidance.
 
 ---

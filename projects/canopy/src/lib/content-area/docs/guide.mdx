@@ -96,6 +96,25 @@ Confirmation is shown as a completed state, without an active progress indicator
 
 <Source of={ContentAreaStories.Confirmation} />
 
+##### Back link as button
+
+Use a button with `priority="link"` and `[backIcon]="true"` when the back action is not a navigation link, for example when it triggers a function.
+
+```html
+<lg-content-area variant="form-journey">
+  <lg-content-area-header>
+    <button lg-button type="button" priority="link" [backIcon]="true">
+      <lg-icon name="arrow-left"></lg-icon>
+      Back
+    </button>
+  </lg-content-area-header>
+  <lg-content-area-content>
+    <h1>Journey title</h1>
+    <p>{{content}}</p>
+  </lg-content-area-content>
+</lg-content-area>
+```
+
 ## Do and don't
 
 ### Do
