@@ -1,10 +1,4 @@
-@use '../../../styles/mixins';
-
 .lg-side-nav-bar-footer {
   display: block;
-  padding: var(--space-8) var(--component-padding) var(--component-padding);
-
-  @include mixins.lg-breakpoint('lg') {
-    padding: var(--space-8) 0 0;
-  }
+  padding-top: var(--space-8);
 }

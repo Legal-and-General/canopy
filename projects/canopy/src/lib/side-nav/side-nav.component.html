@@ -1,1 +1,8 @@
-<ng-content />
+<div class="lg-side-nav__layout">
+  <lg-content-area-content class="lg-side-nav__navigation">
+    <ng-content select="lg-side-nav-bar" />
+  </lg-content-area-content>
+  <lg-content-area-content class="lg-side-nav__content">
+    <ng-content select="lg-side-nav-content" />
+  </lg-content-area-content>
+</div>

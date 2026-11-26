@@ -738,41 +738,52 @@
 
                 <lg-separator />
                 <lg-heading level="3">Side Nav</lg-heading>
-                <lg-side-nav>
-                  <lg-side-nav-bar label="Side Nav Demo">
-                    @for (item of sideNav; track item; let i = $index) {
-                      <a
-                        id="side-nav-{{ i }}"
-                        [routerLink]="['/', { outlets: { 'side-nav': item.path } }]"
-                        (click)="handleSideNavClick($event, i)"
-                        [isActive]="selectedSideNavIndex === i"
-                        lgSideBarNavLink
-                        >
-                        <lg-side-nav-bar-item>
-                          <lg-side-nav-bar-item-heading>{{ item.title }}</lg-side-nav-bar-item-heading>
-                          @if (item.description) {
-                            <lg-side-nav-bar-item-content>{{
-                              item.description
-                            }}</lg-side-nav-bar-item-content>
+                <lg-content-area>
+                  <lg-content-area-header>
+                    <button lg-button type="button" priority="link" (click)="back()">
+                      <lg-icon name="arrow-left" />
+                      Back
+                    </button>
+                  </lg-content-area-header>
+                  <lg-content-area-content>
+                    <lg-side-nav>
+                      <lg-side-nav-bar label="Account navigation">
+                        <lg-link-menu>
+                          @for (item of sideNav; track item.path; let i = $index) {
+                            <a
+                              id="side-nav-{{ i }}"
+                              [routerLink]="['/', { outlets: { 'side-nav': item.path } }]"
+                              routerLinkActive
+                              #activeRoute="routerLinkActive"
+                              ariaCurrentWhenActive="page"
+                              [isActive]="activeRoute.isActive"
+                              lgSideBarNavLink
+                            >
+                              <lg-link-menu-item>
+                                <lg-link-menu-item-text [isBold]="true">{{ item.title }}</lg-link-menu-item-text>
+                                @if (item.description) {
+                                  <lg-link-menu-item-text>{{ item.description }}</lg-link-menu-item-text>
+                                }
+                              </lg-link-menu-item>
+                            </a>
                           }
-                        </lg-side-nav-bar-item>
-                      </a>
-                    }
-                    <lg-side-nav-bar-footer>
-                      <a
-                        lg-button
-                        lgMarginBottom="none"
-                        priority="secondary"
-                        [fullWidth]="false"
-                        href="#"
-                        >Logout</a
-                        >
-                      </lg-side-nav-bar-footer>
-                    </lg-side-nav-bar>
-                    <lg-side-nav-content>
-                      <router-outlet name="side-nav" />
-                    </lg-side-nav-content>
-                  </lg-side-nav>
+                        </lg-link-menu>
+                        <lg-side-nav-bar-footer>
+                          <button
+                            lg-button
+                            type="button"
+                            lgMarginBottom="none"
+                            priority="secondary"
+                            [fullWidth]="false"
+                          >Logout</button>
+                        </lg-side-nav-bar-footer>
+                      </lg-side-nav-bar>
+                      <lg-side-nav-content>
+                        <router-outlet name="side-nav" />
+                      </lg-side-nav-content>
+                    </lg-side-nav>
+                  </lg-content-area-content>
+                </lg-content-area>
 
                   <lg-separator />
                   <lg-heading level="4">Pagination</lg-heading>
