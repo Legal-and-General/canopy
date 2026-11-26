@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import type { Status } from '../status';
+
 import { LgPictogramComponent } from './pictogram.component';
 import { LgPictogramRegistry } from './pictogram.registry';
 
@@ -141,6 +143,114 @@ describe('LgPictogramComponent', () => {
       expect(fixture.nativeElement.style.getPropertyValue('--lg-pictogram-colour')).toBe(
         '#005dba',
       );
+    });
+  });
+
+  describe('the status input', () => {
+    beforeEach(() => {
+      fixture.autoDetectChanges();
+    });
+
+    it('should leave the theme fill unchanged when no status is specified', () => {
+      expect(fixture.nativeElement.className).not.toContain('lg-status-');
+    });
+
+    it.each<Exclude<Status, 'generic'>>([ 'info', 'success', 'warning', 'error' ])(
+      'should apply the %s status and neutral theme classes',
+      async status => {
+        fixture.componentRef.setInput('status', status);
+        await fixture.whenStable();
+
+        expect(fixture.nativeElement.classList.contains(`lg-status-${status}`)).toBe(
+          true,
+        );
+
+        expect(fixture.nativeElement.classList.contains('lg-theme-neutral')).toBe(true);
+      },
+    );
+
+    it('should replace the previous status and remove it when cleared', async () => {
+      fixture.componentRef.setInput('status', 'success');
+      await fixture.whenStable();
+      fixture.componentRef.setInput('status', 'error');
+      await fixture.whenStable();
+
+      expect(fixture.nativeElement.classList.contains('lg-status-success')).toBe(false);
+      expect(fixture.nativeElement.classList.contains('lg-status-error')).toBe(true);
+
+      fixture.componentRef.setInput('status', undefined);
+      await fixture.whenStable();
+
+      expect(fixture.nativeElement.className).not.toContain('lg-status-');
+      expect(fixture.nativeElement.classList.contains('lg-theme-neutral')).toBe(false);
+    });
+
+    it('should preserve pre-existing status and theme classes when status is cleared', async () => {
+      fixture.nativeElement.classList.add('lg-theme-neutral');
+      fixture.nativeElement.classList.add('lg-status-success');
+
+      fixture.componentRef.setInput('status', 'success');
+      await fixture.whenStable();
+      fixture.componentRef.setInput('status', undefined);
+      await fixture.whenStable();
+
+      expect(fixture.nativeElement.classList.contains('lg-theme-neutral')).toBe(true);
+      expect(fixture.nativeElement.classList.contains('lg-status-success')).toBe(true);
+    });
+
+    it('should only show status fill when hasFill is true', async () => {
+      fixture.componentRef.setInput('status', 'success');
+      await fixture.whenStable();
+
+      expect(fixture.nativeElement.getAttribute('data-has-fill')).toBe('false');
+
+      expect(
+        fixture.nativeElement.style.getPropertyValue('--lg-pictogram-fill-colour'),
+      ).toBe('none');
+
+      expect(
+        getComputedStyle(fixture.nativeElement).getPropertyValue(
+          '--lg-pictogram-fill-colour',
+        ),
+      ).toBe('none');
+
+      fixture.componentRef.setInput('hasFill', true);
+      await fixture.whenStable();
+
+      expect(fixture.nativeElement.getAttribute('data-has-fill')).toBe('true');
+
+      expect(
+        fixture.nativeElement.style.getPropertyValue('--lg-pictogram-fill-colour'),
+      ).toBe('');
+
+      expect(
+        getComputedStyle(fixture.nativeElement).getPropertyValue(
+          '--lg-pictogram-fill-colour',
+        ),
+      ).toBe('var(--content-pictogram-status-fill)');
+
+      fixture.componentRef.setInput('hasFill', false);
+      await fixture.whenStable();
+
+      expect(fixture.nativeElement.getAttribute('data-has-fill')).toBe('false');
+
+      expect(
+        fixture.nativeElement.style.getPropertyValue('--lg-pictogram-fill-colour'),
+      ).toBe('none');
+    });
+
+    it('should restore the theme fill when status is cleared', async () => {
+      fixture.componentRef.setInput('hasFill', true);
+      fixture.componentRef.setInput('status', 'warning');
+      await fixture.whenStable();
+      fixture.componentRef.setInput('status', undefined);
+      await fixture.whenStable();
+
+      expect(
+        getComputedStyle(fixture.nativeElement).getPropertyValue(
+          '--lg-pictogram-fill-colour',
+        ),
+      ).toBe('var(--content-pictogram-fill)');
     });
   });
 
