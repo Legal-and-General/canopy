@@ -1,19 +1,13 @@
 import {
-  AfterContentInit,
   ChangeDetectionStrategy,
   Component,
   ContentChild,
-  ElementRef,
-  HostBinding,
   Input,
-  Renderer2,
   ViewEncapsulation,
-  inject,
 } from '@angular/core';
 
 import { LgPictogramComponent } from '../pictogram';
 import type { Status } from '../status';
-import { StatusClassService } from '../status/status-class.service';
 
 @Component({
   selector: 'lg-notice',
@@ -22,14 +16,15 @@ import { StatusClassService } from '../status/status-class.service';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  providers: [ StatusClassService ],
+  host: {
+    class: 'lg-notice',
+    '[attr.role]': 'roleAttr',
+  },
 })
-export class LgNoticeComponent implements AfterContentInit {
-  private readonly renderer = inject(Renderer2);
-  private readonly statusClassService = inject(StatusClassService);
+export class LgNoticeComponent {
   private hasExplicitStatus = false;
-  private appliedStatusClasses: Array<string> = [];
   private _status: Exclude<Status, 'generic'> = 'info';
+  private _pictogram?: LgPictogramComponent;
 
   @Input() hasRole = true;
 
@@ -38,30 +33,30 @@ export class LgNoticeComponent implements AfterContentInit {
     if (status === undefined) {
       this.hasExplicitStatus = false;
       this._status = 'info';
-      this.applyStatusClasses();
+      this.applyPictogramStatus();
 
       return;
     }
 
     this.hasExplicitStatus = true;
     this._status = status;
-    this.applyStatusClasses();
+    this.applyPictogramStatus();
   }
 
   get status(): Exclude<Status, 'generic'> {
     return this._status;
   }
 
-  @ContentChild(LgPictogramComponent, { read: ElementRef })
-  pictogram?: ElementRef<HTMLElement>;
-
-  @HostBinding('class.lg-notice') class = true;
-
-  ngAfterContentInit(): void {
-    this.applyStatusClasses();
+  @ContentChild(LgPictogramComponent)
+  set pictogram(pictogram: LgPictogramComponent | undefined) {
+    this._pictogram = pictogram;
+    this.applyPictogramStatus();
+  }
+  get pictogram(): LgPictogramComponent | undefined {
+    return this._pictogram;
   }
 
-  @HostBinding('attr.role') get roleAttr(): string | null {
+  get roleAttr(): string | null {
     if (!this.hasExplicitStatus) {
       return this.hasRole
         ? 'alert'
@@ -78,17 +73,10 @@ export class LgNoticeComponent implements AfterContentInit {
     }
   }
 
-  private applyStatusClasses(): void {
-    if (!this.pictogram) {
-      return;
+  private applyPictogramStatus(): void {
+    if (this.pictogram) {
+      this.pictogram.status = this.status;
+      this.pictogram.hasFill = true;
     }
-
-    this.appliedStatusClasses = this.statusClassService.applyStatusClasses(
-      this.renderer,
-      this.pictogram.nativeElement,
-      this.status,
-      'neutral',
-      this.appliedStatusClasses,
-    );
   }
 }
