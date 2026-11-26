@@ -18,6 +18,22 @@
 
   &[data-has-fill='true'] {
     --lg-pictogram-fill-colour: var(--content-pictogram-fill);
+
+    &.lg-status-info {
+      --lg-pictogram-fill-colour: var(--colour-blue-400);
+    }
+
+    &.lg-status-success {
+      --lg-pictogram-fill-colour: var(--colour-green-400);
+    }
+
+    &.lg-status-warning {
+      --lg-pictogram-fill-colour: var(--colour-yellow-400);
+    }
+
+    &.lg-status-error {
+      --lg-pictogram-fill-colour: var(--colour-red-400);
+    }
   }
 
   &[style*='--lg-pictogram-colour'] {
