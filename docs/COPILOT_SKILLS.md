@@ -128,7 +128,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-skeleton` | `LgSkeletonDirective` (`[lgSkeleton]`), animation, screen reader behaviour | — |
 | `canopy-progress-indicator` | `LgProgressIndicatorComponent`, steps, current step | — |
 | `canopy-sr-alert-message` | `LgSrAlertMessageDirective`, `[lgSrAlertMessage]`, live region, screen reader only | — |
-| `canopy-notice` | `LgNoticeComponent`, title, description, icon | — |
+| `canopy-notice` | `LgNoticeComponent`, title, description, actions, automatic pictogram status and fill | — |
 | **Data Display** | | |
 | `canopy-data-point` | `LgDataPointComponent`, label/value/list, heading level | — |
 | `canopy-accordion` | `LgAccordionComponent`, multi, lazy content, outputs | — |
@@ -156,7 +156,7 @@ The agent reads the `guide.mdx` documentation, stories, and documentation images
 | `canopy-forms-switch` | `LgToggleComponent` (switch), deprecation/removal migration guidance | Deprecated/Removed |
 | `canopy-forms-filter-buttons` | Filter radio/checkbox, max 10 options, default deselected | — |
 | **Utilities** | | |
-| `canopy-pictogram` | `LgPictogramComponent`, sizes, colour inputs, global branding | — |
+| `canopy-pictogram` | `LgPictogramComponent`, sizes, optional status and fill behaviour | — |
 | `canopy-flag-icon` | `LgFlagIconComponent`, country flags, usage with country names | — |
 | `canopy-icon` | `LgIconComponent`, sizing, colour, aria-hidden | — |
 | `canopy-focus` | `LgFocusDirective`, programmatic focus | — |
