@@ -16,6 +16,11 @@ import { CustomBadge } from 'storybook-addon-tag-badges/manager-helpers'
 
 ## Usage
 
+Use the existing Reactive Forms controls for production forms. Signal Forms
+controls are available as an opt-in, but Angular Signal Forms are experimental
+in Angular 21 and their API may change. Consider the risks before using them in
+production; see [Angular's guidance](https://v21.angular.dev/guide/forms/signals/overview).
+
 Use a filter button when you have 10 or fewer filter options. If the user can only choose one option, use the 'Select one' state. If the user can choose multiple options, use the 'Select multiple' state.
 
 If there are more than 10 filter options, use radio buttons or check boxes instead to avoid cluttering a filter panel.
@@ -26,7 +31,7 @@ Filter buttons are best used in conjunction with the pattern - [help user to fil
 
 ### Select one
 
-Import the Radio components into your application:
+For reactive forms, import the Radio components into your application:
 
 ```js
 @NgModule({
@@ -37,7 +42,7 @@ Import the Radio components into your application:
 
 ### Select multiple
 
-Import the CheckboxGroup and Toggle components into your application:
+For reactive forms, import the CheckboxGroup and Toggle components into your application:
 
 ```js
 @NgModule({
@@ -45,6 +50,16 @@ Import the CheckboxGroup and Toggle components into your application:
   imports: [ ..., LgCheckboxGroupComponent, LgToggleComponent ],
 });
 ```
+
+### Signal Forms
+
+Angular Signal Forms are experimental in Angular 21. For select one, use
+`LgSignalRadioGroupComponent` and `LgSignalRadioButtonComponent` with the
+`lg-signal-filter-group` and `lg-signal-filter-button` selectors. For select
+multiple, use `LgSignalCheckboxGroupComponent` and
+`LgSignalCheckboxOptionComponent` with the `lg-signal-filter-multiple-group`
+and `lg-signal-filter-checkbox` selectors. Bind `[formField]` to the
+group. See the select one and select multiple Signal Forms examples for complete forms.
 
 ## How it works
 
