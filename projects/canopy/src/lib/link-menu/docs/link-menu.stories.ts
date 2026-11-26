@@ -5,6 +5,12 @@ import { LgIconComponent } from '../../icon';
 import { LgLinkMenuComponent } from '../link-menu.component';
 import { LgLinkMenuItemComponent } from '../link-menu-item/link-menu-item.component';
 import { LgLinkMenuItemTextComponent } from '../link-menu-item-text/link-menu-item-text.component';
+import {
+  LgContentAreaComponent,
+  LgContentAreaContentComponent,
+} from '../../content-area';
+import { LgColourDirective } from '../../colour';
+import type { Colour, ColourTheme } from '../../colour';
 
 const template = `
 <lg-link-menu>
@@ -40,13 +46,36 @@ class LinkMenuStoryComponent {
   @Input() menuItems: MenuItems;
 }
 
+@Component({
+  selector: 'lg-link-menu-content-area-story',
+  template: `
+    <lg-content-area [lgColour]="mode" [lgColourTheme]="theme">
+      <lg-content-area-content>
+        <lg-link-menu-story [menuItems]="menuItems"></lg-link-menu-story>
+      </lg-content-area-content>
+    </lg-content-area>
+  `,
+  standalone: true,
+  imports: [
+    LgContentAreaComponent,
+    LgContentAreaContentComponent,
+    LgColourDirective,
+    LinkMenuStoryComponent,
+  ],
+})
+class LinkMenuContentAreaStoryComponent {
+  @Input() menuItems: MenuItems;
+  @Input() mode: Colour;
+  @Input() theme: ColourTheme;
+}
+
 // This default export determines where your story goes in the story list
 export default {
   title: 'Components/Link menu/Examples',
   tags: [ 'updated' ],
   decorators: [
     moduleMetadata({
-      imports: [ LinkMenuStoryComponent ],
+      imports: [ LinkMenuStoryComponent, LinkMenuContentAreaStoryComponent ],
     }),
   ],
   parameters: {
@@ -184,5 +213,62 @@ export const StandardLinkMenu = {
         args: { showLeftIcons: false, showRightIcons: false, isBold: true },
       },
     ],
+  },
+};
+
+const contentAreaTemplate = `
+<lg-content-area [lgColour]="mode" [lgColourTheme]="theme">
+  <lg-content-area-content>
+    ${template}
+  </lg-content-area-content>
+</lg-content-area>
+`;
+
+export const LinkMenuInContentArea = {
+  name: 'Link menu in content area',
+  render: (args: {
+    showLeftIcons: boolean;
+    showRightIcons: boolean;
+    isBold: boolean;
+    mode: Colour;
+    theme: ColourTheme;
+  }) => ({
+    props: {
+      menuItems: getDefaultMenuItems(
+        args.showLeftIcons,
+        args.showRightIcons,
+        args.isBold,
+      ),
+      mode: args.mode,
+      theme: args.theme,
+    },
+    template:
+      '<lg-link-menu-content-area-story [menuItems]="menuItems" [mode]="mode" [theme]="theme"></lg-link-menu-content-area-story>',
+  }),
+  args: {
+    showLeftIcons: true,
+    showRightIcons: true,
+    isBold: true,
+    mode: 'blue',
+    theme: 'neutral',
+  },
+  argTypes: {
+    mode: {
+      options: [ 'blue', 'green', 'red', 'yellow' ],
+      description: 'Colour mode applied to the content area',
+      control: { type: 'select' },
+    },
+    theme: {
+      options: [ 'neutral', 'neutral-inverse', 'subtle', 'bold' ],
+      description: 'Colour theme applied to the content area',
+      control: { type: 'select' },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: contentAreaTemplate,
+      },
+    },
   },
 };
