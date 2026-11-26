@@ -1,6 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { MockComponents, MockedComponentFixture, MockRender, ngMocks } from 'ng-mocks';
 
@@ -11,6 +11,7 @@ import { LgButtonComponent } from '../../button';
 import { LgPrefixDirective } from '../../prefix';
 import { LgSuffixDirective } from '../../suffix';
 import { LgIconComponent } from '../../icon';
+import { LgInputFieldExternalButtonDirective } from '../input-field-external-button';
 
 import { LgInputFieldComponent } from './input-field.component';
 import { LgInputDirective } from './input.directive';
@@ -282,5 +283,94 @@ describe('LgInputFieldComponent', () => {
     it('links the hint to the input field with the correct aria attributes', () => {
       expect(inputDirectiveInstance.ariaDescribedBy).toContain(prefixId);
     });
+  });
+});
+
+describe('LgInputFieldComponent disabled state', () => {
+  let fixture: MockedComponentFixture;
+  let control: FormControl;
+  let input: HTMLInputElement;
+  let field: HTMLElement;
+  let buttons: Array<HTMLButtonElement>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule,
+        LgInputFieldComponent,
+        LgInputDirective,
+        LgButtonComponent,
+        LgSuffixDirective,
+        LgInputFieldExternalButtonDirective,
+      ],
+      providers: [
+        {
+          provide: LgErrorStateMatcher,
+          useValue: { isControlInvalid: vi.fn().mockReturnValue(false) },
+        },
+      ],
+    }).compileComponents();
+  });
+
+  function renderInput(disabled = true): void {
+    ngMocks.flushTestBed();
+    control = new FormControl({ value: 'REF-123456', disabled: true });
+
+    if (!disabled) {
+      control.enable();
+    }
+
+    fixture = MockRender(
+      `
+        <lg-input-field>
+          Reference
+          <input lgInput [formControl]="control" />
+          <button type="button" lg-button lgSuffix priority="add-on">Clear</button>
+          <button type="button" lg-button lgInputFieldExternalButton>Search</button>
+        </lg-input-field>
+      `,
+      { control },
+    );
+
+    fixture.detectChanges();
+
+    input = fixture.nativeElement.querySelector('input');
+    field = fixture.nativeElement.querySelector('lg-input-field');
+    buttons = Array.from(fixture.nativeElement.querySelectorAll('button'));
+  }
+
+  function expectDisabledState(disabled: boolean): void {
+    expect(control.disabled).toBe(disabled);
+    expect(field.classList.contains('lg-input-field--disabled')).toBe(disabled);
+    expect(input.disabled).toBe(disabled);
+    expect(input.value).toBe('REF-123456');
+    expect(control.value).toBe('REF-123456');
+    expect(buttons).toHaveLength(2);
+    buttons.forEach(button => expect(button.disabled).toBe(disabled));
+  }
+
+  it('preserves the value and disables the input and both buttons initially', () => {
+    renderInput();
+
+    expectDisabledState(true);
+  });
+
+  it('disables the input and both buttons when the control is disabled', () => {
+    renderInput(false);
+    expectDisabledState(false);
+
+    control.disable();
+    fixture.detectChanges();
+
+    expectDisabledState(true);
+  });
+
+  it('enables the input and both buttons when the control is enabled', () => {
+    renderInput();
+
+    control.enable();
+    fixture.detectChanges();
+
+    expectDisabledState(false);
   });
 });
