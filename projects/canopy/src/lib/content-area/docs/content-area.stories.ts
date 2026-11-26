@@ -191,9 +191,9 @@ const introductorySource = `
     </a>
   </lg-content-area-header>
   <lg-content-area-content>
-    <h1>Journey title</h1>
+    <h2 class="lg-content-area--form-journey-main-title">Journey title</h2>
     <p>This is a temporary introduction for the form journey. Please replace this text with relevant content that guides users through the process.</p>
-    <h4>Before you begin</h4>
+    <h3 class="lg-font-size-2">Before you begin</h3>
     <p>You can update the bank account used for your payments. This should take about five minutes.</p>
     <p>Have your account number and sort code ready.</p>
   </lg-content-area-content>
@@ -295,11 +295,11 @@ const formJourneyTemplate = `
                 </a>
               </lg-content-area-header>
               <lg-content-area-content>
-                <h1>
+                <h2 class="lg-content-area--form-journey-main-title">
                   {{title}}
-                </h1>
+                </h2>
                 <p>{{contentAreaContent}}</p>
-                <h4>Before you begin</h4>
+                <h3 class="lg-font-size-2">Before you begin</h3>
                 <p>
                   You can update the bank account used for your payments. This should take about five minutes.
                 </p>
