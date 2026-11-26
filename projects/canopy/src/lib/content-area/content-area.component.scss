@@ -17,6 +17,15 @@
     .lg-content-area-content {
       padding-left: var(--content-area-padding-x);
       padding-right: var(--content-area-padding-x);
+
+      h1,
+      .lg-content-area--form-journey-main-title {
+        @include mixins.lg-font-size(4, '500', 'expressive');
+
+        letter-spacing: var(--letter-spacing-normal-expressive);
+        color: var(--colour-blue-800);
+        margin-bottom: 0;
+      }
     }
 
     .lg-content-area-footer {
