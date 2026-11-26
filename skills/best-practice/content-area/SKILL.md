@@ -77,7 +77,7 @@ Add expressive typography to the title:
 
 ### Form journey variant
 
-Use this variant for multi-page form journeys. Keep the back link in the header, the page content in the content section, and the current step's actions in the footer. Give each page a semantic level-2 title.
+Use this variant for multi-page form journeys. Keep the back link in the header, the page content in the content section, and the current step's actions in the footer. Give each page a title.
 
 ```html
 <lg-content-area variant="form-journey">
@@ -99,11 +99,25 @@ Use this variant for multi-page form journeys. Keep the back link in the header,
 
 #### Introductory page
 
-Use the same back-link header as the later steps. Put the level-2 `Before you begin` title and introductory copy in the content section. Place Continue and Cancel together in a footer button group.
+Use the same back-link header as the later steps. Put the journey title, introductory copy and `Before you begin` heading in the content section. Place Continue and Cancel together in a footer button group.
+
+Inside `.lg-content-area--form-journey .lg-content-area-content`, `h1` elements receive the journey title styles automatically. Use `lg-content-area--form-journey-main-title` to apply the same styles to another element. Choose the semantic heading level independently of its visual size.
+
+Use `lg-font-size-2` for the visual size of the `Before you begin` heading. This example uses `h2` followed by `h3` to illustrate heading hierarchy; choose levels to suit your application's hierarchy.
+
+```html
+<h2 class="lg-content-area--form-journey-main-title">Journey title</h2>
+<p>This is a temporary introduction for the form journey. Please replace this text with relevant content that guides users through the process.</p>
+<h3 class="lg-font-size-2">Before you begin</h3>
+<p>You can update the bank account used for your payments. This should take about five minutes.</p>
+<p>Have your account number and sort code ready.</p>
+```
+
+Keep this content inside `lg-content-area-content` in a `variant="form-journey"` content area.
 
 #### Intermediate page
 
-Place `lg-progress-indicator` in the content section before the step copy and fields so its bar can use the available content width. Keep the journey title inside the indicator, separate from the page's level-2 title. Include a `lg-progress-header` for the current step.
+Place `lg-progress-indicator` in the content section before the step copy and fields so its bar can use the available content width. Keep the journey title inside the indicator, separate from the page title. Include a `lg-progress-header` for the current step.
 
 ```html
 <lg-content-area-content>
