@@ -2,7 +2,6 @@ import { DOCUMENT } from '@angular/common';
 import {
   Component,
   ElementRef,
-  HostBinding,
   Input,
   Renderer2,
   ViewEncapsulation,
@@ -10,6 +9,8 @@ import {
 } from '@angular/core';
 
 import { randomUniqueId } from '../utils';
+import type { Status } from '../status';
+import { StatusClassService } from '../status/status-class.service';
 
 import { LgPictogramRegistry } from './pictogram.registry';
 import { PictogramName } from './pictogram-files.interface';
@@ -24,34 +25,71 @@ export type PictogramSize = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   styleUrls: [ './pictogram.component.scss' ],
   encapsulation: ViewEncapsulation.None,
   standalone: true,
-  host: { ngSkipHydration: 'true' },
+  host: {
+    ngSkipHydration: 'true',
+    class: 'lg-pictogram',
+    'aria-hidden': 'true',
+    '[attr.data-has-fill]': 'dataHasFill',
+  },
+  providers: [ StatusClassService ],
 })
 export class LgPictogramComponent {
   private iconRegistry = inject(LgPictogramRegistry);
   private document = inject<Document>(DOCUMENT);
   private renderer = inject(Renderer2);
   private hostElement = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly statusClassService = inject(StatusClassService);
 
   private svgElement?: SVGElement;
   private id = randomUniqueId();
   private _hasFill = false;
+  private _status?: Exclude<Status, 'generic'>;
+  private appliedStatusClasses: Array<string> = [];
 
-  @HostBinding('class.lg-pictogram') class = true;
-  @HostBinding('attr.aria-hidden') hidden = true;
-  @HostBinding('attr.data-has-fill') dataHasFill = false;
+  @Input()
+  set status(status: Exclude<Status, 'generic'> | undefined) {
+    this._status = status;
+
+    if (status === undefined) {
+      this.statusClassService.removeStatusClasses(
+        this.renderer,
+        this.hostElement.nativeElement,
+        this.appliedStatusClasses,
+      );
+
+      this.appliedStatusClasses = [];
+
+      return;
+    }
+
+    const host = this.hostElement.nativeElement;
+    const classesToApply = [ `lg-status-${status}`, 'lg-theme-neutral' ];
+    const callerOwnedClasses = classesToApply.filter(
+      className =>
+        !this.appliedStatusClasses.includes(className) &&
+        host.classList.contains(className),
+    );
+
+    this.appliedStatusClasses = this.statusClassService
+      .applyStatusClasses(
+        this.renderer,
+        host,
+        status,
+        'neutral',
+        this.appliedStatusClasses,
+      )
+      .filter(className => !callerOwnedClasses.includes(className));
+  }
+  get status(): Exclude<Status, 'generic'> | undefined {
+    return this._status;
+  }
+
+  dataHasFill = false;
   @Input()
   set hasFill(value: boolean) {
     this._hasFill = value;
 
-    this.dataHasFill = value;
-
-    const host = this.hostElement.nativeElement;
-
-    if (this.dataHasFill) {
-      host.style.removeProperty('--lg-pictogram-fill-colour');
-    } else {
-      host.style.setProperty('--lg-pictogram-fill-colour', 'none');
-    }
+    this.updateFill();
   }
   get hasFill(): boolean {
     return this._hasFill;
@@ -118,6 +156,17 @@ export class LgPictogramComponent {
       '--lg-pictogram-fill-colour',
       'none',
     );
+  }
+
+  private updateFill(): void {
+    this.dataHasFill = this._hasFill;
+    const host = this.hostElement.nativeElement;
+
+    if (this.dataHasFill) {
+      host.style.removeProperty('--lg-pictogram-fill-colour');
+    } else {
+      host.style.setProperty('--lg-pictogram-fill-colour', 'none');
+    }
   }
 
   /*
