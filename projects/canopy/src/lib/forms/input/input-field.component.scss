@@ -85,7 +85,10 @@
       border: var(--text-input-disabled-border-width) solid
         var(--text-input-disabled-border-colour);
       background: var(--text-input-disabled-background-colour);
-      pointer-events: none;
+
+      .lg-btn {
+        pointer-events: none;
+      }
     }
 
     #{$block}--error & {
