@@ -45,8 +45,8 @@ export class LgInputDirective {
   @Input() disabled = false;
 
   @HostBinding('attr.disabled')
-  get disabledAttr() {
-    return this.disabled
+  get disabledAttr(): true | null {
+    return this.disabled || this.control?.disabled
       ? true
       : null;
   }

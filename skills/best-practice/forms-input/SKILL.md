@@ -26,6 +26,20 @@ For hints and validation:
 import { LgHintComponent, LgValidationComponent } from '@legal-and-general/canopy';
 ```
 
+For the prefix, suffix and button examples, also import the directives and components you use:
+
+```ts
+import {
+  LgPrefixDirective,
+  LgSuffixDirective,
+  LgInputFieldExternalButtonDirective,
+  LgButtonComponent,
+  LgIconComponent,
+} from '@legal-and-general/canopy';
+```
+
+Add these to your standalone component's `imports` array alongside `ReactiveFormsModule` from `@angular/forms`.
+
 ---
 
 ## Basic Usage
@@ -89,6 +103,7 @@ Use the `lgInputFieldExternalButton` directive for buttons outside the input bor
   Search
   <input lgInput formControlName="query" />
   <button lg-button lgInputFieldExternalButton priority="primary">
+    Search
   </button>
 </lg-input-field>
 ```
@@ -109,6 +124,26 @@ You can combine multiple suffixes with an external button:
   </button>
 </lg-input-field>
 ```
+
+---
+
+## Disabled State
+
+Control disabled state through the reactive form, not a separate template binding on the input or its buttons:
+
+```ts
+import { FormControl } from '@angular/forms';
+
+query = new FormControl({ value: '', disabled: true });
+
+// Enable or disable later through the same control.
+this.query.enable();
+this.query.disable();
+```
+
+Use this control with `[formControl]="query"` or register it in the form group used by `formControlName="query"`. An initially disabled control stays disabled. Add-on and external Canopy buttons inside `lg-input-field` automatically follow the control's initial state and subsequent status changes; do not manage their disabled state independently.
+
+Avoid adding `pointer-events: none` to the input wrapper or text prefixes/suffixes. Canopy limits pointer-event suppression inside the disabled input border to buttons.
 
 ---
 
@@ -137,6 +172,8 @@ You can combine multiple suffixes with an external button:
 2. **Do** keep labels clear, concise, and relevant.
 3. **Do** use prefix/suffix variants to clarify the input type (e.g. currency, percentage).
 4. **Do** keep input widths relative to the expected length of the content.
+5. **Do** place labels above inputs and use hint text for format requirements so guidance remains available while typing.
+6. **Do** choose the appropriate native input type (for example, `type="tel"` for telephone numbers) to trigger the right mobile keyboard.
 
 ### Don't
 
@@ -144,3 +181,4 @@ You can combine multiple suffixes with an external button:
 2. **Don't** use a text input when a predefined response is required — use the select component instead.
 3. **Don't** use a text input for simple yes/no responses — use checkboxes or radio buttons instead.
 4. **Don't** use placeholder text as a replacement for a label.
+5. **Don't** add clear buttons to short fields such as names or postcodes; reserve them for long or frequently edited values to avoid accidental deletion.
