@@ -78,8 +78,47 @@ Always use this variant when guiding users through a form. Includes an optional 
     <!-- form fields -->
   </lg-content-area-content>
   <lg-content-area-footer>
-    <button lg-button priority="primary">Continue</button>
+    <lg-button-group>
+      <button lg-button type="button" priority="primary">Continue</button>
+    </lg-button-group>
   </lg-content-area-footer>
+</lg-content-area>
+```
+
+#### Introductory page
+
+Put the journey title, introductory copy and `Before you begin` heading in the content section. Place Continue and Cancel together in a footer button group.
+
+Inside a form-journey content area, `h1` elements receive the journey title styles automatically. Use `lg-content-area--form-journey-main-title` to apply the same styles to another heading. Choose semantic heading levels independently of visual size.
+
+Use `lg-font-size-2` for the visual size of the preparation heading. This example uses `h2` followed by `h3`; choose levels to suit your application's hierarchy.
+
+```html
+<lg-content-area-content>
+  <h2 class="lg-content-area--form-journey-main-title">Journey title</h2>
+  <p>You can update the bank account used for your payments.</p>
+  <h3 class="lg-font-size-2">Before you begin</h3>
+  <p>Have your account number and sort code ready.</p>
+</lg-content-area-content>
+```
+
+Keep this content inside `lg-content-area-content` within `variant="form-journey"`.
+
+#### Back link as button
+
+Use a button with `priority="link"` and `[backIcon]="true"` when the back action is not a navigation link, for example when it triggers a function. Keep it in `lg-content-area-header`.
+
+Use a link for navigation. Back links inside `lg-content-area-header` retain their resting colour after they have been visited.
+
+```html
+<lg-content-area variant="form-journey">
+  <lg-content-area-header>
+    <button lg-button type="button" priority="link" [backIcon]="true">
+      <lg-icon name="arrow-left"></lg-icon>
+      Back
+    </button>
+  </lg-content-area-header>
+  <!-- content and footer -->
 </lg-content-area>
 ```
 
