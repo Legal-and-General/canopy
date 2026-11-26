@@ -18,6 +18,10 @@
 
   &[data-has-fill='true'] {
     --lg-pictogram-fill-colour: var(--content-pictogram-fill);
+
+    &[class*='lg-status-'] {
+      --lg-pictogram-fill-colour: var(--content-pictogram-status-fill);
+    }
   }
 
   &[style*='--lg-pictogram-colour'] {

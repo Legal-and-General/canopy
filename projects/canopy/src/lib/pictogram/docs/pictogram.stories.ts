@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { moduleMetadata } from '@storybook/angular';
 
+import type { Status } from '../../status';
 import { LgPictogramComponent, PictogramSize } from '../pictogram.component';
 // Direct import required for Webpack compatibility - do not use barrel file
 import { lgPictogramsArray } from '../../pictogram-files/set/lgPictogramsArray';
@@ -16,6 +17,7 @@ import { lgPictogramsArray } from '../../pictogram-files/set/lgPictogramsArray';
           [name]="icon.name"
           [size]="size"
           [hasFill]="hasFill"
+          [status]="status"
         />
         <span class="swatch__name">{{ icon.name }}</span>
       </div>
@@ -56,6 +58,7 @@ import { lgPictogramsArray } from '../../pictogram-files/set/lgPictogramsArray';
 class SwatchPictogramComponent {
   @Input() size: PictogramSize | undefined;
   @Input() hasFill = false;
+  @Input() status?: Exclude<Status, 'generic'>;
 
   protected readonly lgPictogramsArray = lgPictogramsArray;
 }
@@ -71,6 +74,13 @@ export default {
     }),
   ],
   argTypes: {
+    status: {
+      options: [ 'info', 'success', 'warning', 'error' ],
+      description: 'Sets the status fill colour when hasFill is true.',
+      control: {
+        type: 'select',
+      },
+    },
     hasFill: {
       description: 'Applies a fill to pictograms',
       table: {
@@ -111,6 +121,7 @@ const exampleTemplate = `
   [hasFill]="hasFill"
   [name]="name"
   [size]="size"
+  [status]="status"
 ></lg-pictogram>
 `;
 
@@ -122,6 +133,7 @@ export const StandardPictograms = {
       <lg-swatch-pictogram
         [hasFill]="hasFill"
         [size]="size"
+        [status]="status"
       ></lg-swatch-pictogram>
     `,
   }),
