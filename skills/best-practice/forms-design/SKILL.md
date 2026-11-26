@@ -18,7 +18,7 @@ Use this skill when designing a form or form journey in an Angular project using
 
 Split a long form into focused steps so users can concentrate on a manageable amount of information at a time. Use the `form-journey` content-area variant for each page.
 
-- Give each page a semantic level-2 title using `lg-content-area-title`.
+- Give each page a title using `lg-content-area-title`.
 - Keep the back link in the content-area header.
 - Place the page title, instructions, progress indicator where appropriate, and fields in the content section.
 - Put the current page's actions in the content-area footer.
@@ -26,11 +26,11 @@ Split a long form into focused steps so users can concentrate on a manageable am
 
 ### Introductory page
 
-Use an introductory page when users need context or preparation before entering data. Place the `Before you begin` level-2 title and introductory text in the content section. Use the same back-link header as the intermediate step, and put Continue and Cancel together in a footer button group. Do not show the intermediate step's progress indicator or journey title on this page.
+Use an introductory page when users need context or preparation before entering data. Place the journey title, introductory text and `Before you begin` heading in the content section. Within the form journey content area, `h1` elements receive the journey title styles automatically; use `lg-content-area--form-journey-main-title` to apply the same styles to another element. Use `lg-font-size-2` for the visual size of the preparation heading. Use the same back-link header as the intermediate step, and put Continue and Cancel together in a footer button group. Do not show the intermediate step's progress indicator on this page.
 
 ### Intermediate page
 
-Show the progress indicator in the content section, above the page title and fields, so the bar has the available content width. Keep the journey title in the indicator and the current step heading in `lg-progress-header`; these are separate from the page's level-2 title.
+Show the progress indicator in the content section, above the page title and fields, so the bar has the available content width. Keep the journey title in the indicator and the current step heading in `lg-progress-header`; these are separate from the page title.
 
 ### Confirmation page
 
@@ -78,4 +78,4 @@ Use the form-journey card for a shorter form that does not need multiple steps. 
 - Use Canopy validation components to explain how to correct an invalid field.
 - Keep labels programmatically associated with their controls, and provide hints when users need formatting guidance.
 - Make error messages specific and actionable; do not expose technical validation details.
-- Use semantic heading levels consistently. Each journey page uses a level-2 page title; the progress indicator's journey title and current-step heading do not replace it.
+- Choose semantic heading levels to suit your application's hierarchy, independently of visual size. The progress indicator's journey title and current-step heading do not replace the page title.
