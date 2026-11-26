@@ -306,7 +306,7 @@ describe('LgInputFieldComponent disabled state', () => {
       providers: [
         {
           provide: LgErrorStateMatcher,
-          useValue: { isControlInvalid: vi.fn().mockReturnValue(false) },
+          useValue: { isControlInvalid: jest.fn().mockReturnValue(false) },
         },
       ],
     }).compileComponents();

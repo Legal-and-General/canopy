@@ -47,7 +47,7 @@ describe('LgInputDirective', () => {
           <input lgInput formControlName="name" />
         </form>
       `,
-      { form, login: vi.fn() },
+      { form, login: jest.fn() },
     );
 
     inputDebugElement = fixture.debugElement.query(By.directive(LgInputDirective));
